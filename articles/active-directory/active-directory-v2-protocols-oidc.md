@@ -23,30 +23,30 @@ OpenID Connect is an authentication protocol built on OAuth 2.0 that you can use
 > [AZURE.NOTE]
 The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol to use as an *authentication* protocol, so you can perform single sign-on using OAuth. OpenID Connect introduces the concept of an ID token, which is a security token that allows the client to verify the identity of the user. The ID token also gets basic profile information about the user. Because OpenID Connect extends OAuth 2.0, apps can securely acquire *access tokens*, which can be used to access resources that are secured by an [authorization server](active-directory-v2-protocols.md#the-basics). We recommend that you use OpenID Connect if you are building a [web application](active-directory-v2-flows.md#web-apps) that is hosted on a server and accessed via a browser.
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol to use as an *authentication* protocol, so that you can perform single sign-on using OAuth. OpenID Connect introduces the concept of an *ID token*, which is a security token that allows the client to verify the identity of the user. The ID token also gets basic profile information about the user. Because OpenID Connect extends OAuth 2.0, apps can securely acquire *access tokens*, which can be used to access resources that are secured by an [authorization server](active-directory-v2-protocols.md#the-basics). We recommend that you use OpenID Connect if you are building a [web application](active-directory-v2-flows.md#web-apps) that is hosted on a server and accessed via a browser.
 
 ## Protocol diagram: Sign-in
-The most basic sign-in flow has the steps shown in the next diagram. We describe each step in detail in the next sections of the article.
+The most basic sign-in flow has the steps shown in the next diagram. We describe each step in detail in this article.
 
 ![OpenID Connect protocol: Sign-in](../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
 ## Fetch the OpenID Connect metadata document
-OpenID Connect describes a metadata document that contains most of the information required for an app to perform sign-in. This includes information such as the URLs to use, the location of the service's public signing keys, and so on. For the v2.0 endpoint, this is the OpenID Connect metadata document you should use:
+OpenID Connect describes a metadata document that contains most of the information required for an app to perform sign-in. This includes information such as the URLs to use and the location of the service's public signing keys. For the v2.0 endpoint, this is the OpenID Connect metadata document you should use:
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 
-Where the `{tenant}` can take one of four values:
+The `{tenant}` can take one of four values:
 
 | Value | Description |
 | ----------------------- | ------------------------------- |
-| `common` | Allows users with both a personal Microsoft account and a work or school account from Azure Active Directory (Azure AD) to sign in to the application. |
-| `organizations` | Allows only users with work or school accounts from Azure AD to sign in to the application. |
-| `consumers` | Allows only users with a personal Microsoft account to sign in to the application. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Allows only users with a work or school account from a specific Azure AD tenant to sign in to the application. Either the friendly domain name of the Azure AD tenant or the tenant's GUID identifier can be used. |
+| `common` | Users with both a personal Microsoft account and a work or school account from Azure Active Directory (Azure AD) can sign in to the application. |
+| `organizations` | Only users with work or school accounts from Azure AD can sign in to the application. |
+| `consumers` | Only users with a personal Microsoft account can sign in to the application. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Only users with a work or school account from a specific Azure AD tenant can sign in to the application. Either the friendly domain name of the Azure AD tenant or the tenant's GUID identifier can be used. |
 
-The metadata is a simple JavaScript Object Notation (JSON) document. See the following snippet. The snippet's contents are fully described in the [OpenID Connect specification](https://openid.net).
+The metadata is a simple JavaScript Object Notation (JSON) document. See the following snippet for an example. The snippet's contents are fully described in the [OpenID Connect specification](https://openid.net).
 
 ```
 {
@@ -66,11 +66,13 @@ The metadata is a simple JavaScript Object Notation (JSON) document. See the fol
 Typically, you would use this metadata document to configure an OpenID Connect library or SDK; the library would use the metadata to do its work. However, if you're not using a pre-build OpenID Connect library, you can follow the steps in the remainder of this article to perform sign-in in a web app by using the v2.0 endpoint.
 
 ## Send the sign-in request
-When your web app needs to authenticate the user, it can direct the user to the `/authorize` endpoint. This request is similar to the first leg of the [OAuth 2.0 authorization code flow](active-directory-v2-protocols-oauth-code.md), with a few important distinctions:
+When your web app needs to authenticate the user, it can direct the user to the `/authorize` endpoint. This request is similar to the first leg of the [OAuth 2.0 authorization code flow](active-directory-v2-protocols-oauth-code.md), with these important distinctions:
 
-- The request must include the scope `openid` in the `scope` parameter.
+- The request must include the `openid` scope in the `scope` parameter.
 - The `response_type` parameter must include `id_token`.
 - The request must include the `nonce` parameter
+
+For example:
 
 ```
 // Line breaks are for legibility only.
@@ -93,7 +95,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | ----------------------- | ------------------------------- | --------------- |
 | tenant | Required | You can use the `{tenant}` value in the path of the request to control who can sign in to the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
 | client_id | Required | The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
-| response_type | Required | Must include `id_token` for OpenID Connect sign-in. It might also include other response_types values, such as `code`. |
+| response_type | Required | Must include `id_token` for OpenID Connect sign-in. It might also include other `response_types` values, such as `code`. |
 | redirect_uri | Recommended | The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL encoded. |
 | scope | Required | A space-separated list of scopes. For OpenID Connect, it must include the scope `openid`, which translates to the "Sign you in" permission in the consent UI. You might also include other scopes in this request for requesting consent. |
 | nonce | Required | A value included in the request, generated by the app, that will be included in the resulting id_token value as a claim. The app can verify this value to mitigate token replay attacks. The value typically is a randomized, unique string that can be used to identify the origin of the request. |
@@ -119,11 +121,11 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Parameter | Description |
 | ----------------------- | ------------------------------- |
-| id_token | The ID token that the app requested. You can use the `id_token` parameter to verify the user's identity and begin a session with the user. For more details about ID tokens and their contents, see the [v2.0 endpoint token reference](active-directory-v2-tokens.md). |
+| id_token | The ID token that the app requested. You can use the `id_token` parameter to verify the user's identity and begin a session with the user. For more details about ID tokens and their contents, see the [v2.0 endpoint tokens reference](active-directory-v2-tokens.md). |
 | state | If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 ### Error response
-Error responses might also be sent to the redirect URI, so that the app can handle them. An error response looks like this:
+Error responses might also be sent to the redirect URI so that the app can handle them. An error response looks like this:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -155,23 +157,23 @@ The following table describes error codes that can be returned in the `error` pa
 ## Validate the ID token
 Receiving an ID token is not sufficient to authenticate the user. You must also validate the ID token's signature and verify the claims in the token per your app's requirements. The v2.0 endpoint uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
 
-You can choose to validate the ID token in client code, but a common practice is to send the ID token to a back-end server and perform the validation there. After you've validated the signature of the ID token, you'll need to verify a few claims. For more information, including more about [validating tokens](active-directory-v2-tokens.md#validating-tokens) and [important information about signing key rollover](active-directory-v2-tokens.md#validating-tokens), see the [v2.0 token reference](active-directory-v2-tokens.md). We recommend using a library to parse and validate tokens. There's at least one of these libraries available for most languages and platforms.
+You can choose to validate the ID token in client code, but a common practice is to send the ID token to a back-end server and perform the validation there. After you've validated the signature of the ID token, you'll need to verify a few claims. For more information, including more about [validating tokens](active-directory-v2-tokens.md#validating-tokens) and [important information about signing key rollover](active-directory-v2-tokens.md#validating-tokens), see the [v2.0 tokens reference](active-directory-v2-tokens.md). We recommend using a library to parse and validate tokens. There's at least one of these libraries available for most languages and platforms.
 <!--TODO: Improve the information on this-->
 
 You also might want to validate additional claims, depending on your scenario. Some common validations include:
 
 - Ensure that the user or organization has signed up for the app.
-- Ensure that the user has proper authorization or privileges.
+- Ensure that the user has required authorization or privileges.
 - Ensure that a certain strength of authentication has occurred, such as multi-factor authentication.
 
-For more information about the claims in an ID token, see the [v2.0 endpoint token reference](active-directory-v2-tokens.md).
+For more information about the claims in an ID token, see the [v2.0 endpoint tokens reference](active-directory-v2-tokens.md).
 
 After you have completely validated the ID token, you can begin a session with the user. Use the claims in the ID token to get information about the user in your app. You can use this information for display, records, authorizations, and so on.
 
 ## Send a sign-out request
 
 Currently, the v2.0 endpoint doesn't support the OpenID Connect `end_session_endpoint`. This means that your app cannot send a request to the v2.0 endpoint to end a user's session and clear cookies that were set by the v2.0 endpoint.
-To sign out a user, your app simply ends its own session with the user and leaves the user's session with the v2.0 endpoint intact. The next time the user tries to sign in, the user sees a "choose account" page and their actively signed-in accounts are listed. On that page, the user can choose to sign out of any account and end the session with the v2.0 endpoint.
+To sign a user out, your app simply ends its own session with the user and leaves the user's session with the v2.0 endpoint intact. The next time the user tries to sign in, the user sees a "choose account" page and their actively signed-in accounts are listed. On that page, the user can choose to sign out of any account and end the session with the v2.0 endpoint.
 
 <!--
 
@@ -191,11 +193,11 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 -->
 
 ## Protocol diagram: Token acquisition
-Many web apps need to not only sign in the user, but also access a web service on behalf of the user by using OAuth. This scenario combines OpenID Connect for user authentication while simultaneously getting an authorization code that you can use to get access tokens if you are using the OAuth authorization code flow.
+Many web apps need to not only sign the user in, but also to access a web service on behalf of the user by using OAuth. This scenario combines OpenID Connect for user authentication while simultaneously getting an authorization code that you can use to get access tokens if you are using the OAuth authorization code flow.
 
 The full OpenID Connect sign-in and token acquisition flow looks similar to the next diagram. We describe each step in detail in the next sections of the article.
 
-![OpenId Connect  protocol: Token acquisition](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
+![OpenID Connect  protocol: Token acquisition](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
 ## Get access tokens
 To acquire access tokens, modify the sign-in request:
@@ -233,7 +235,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 | Parameter | Description |
 | ----------------------- | ------------------------------- |
-| id_token | The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [v2.0 endpoint token reference](active-directory-v2-tokens.md). |
+| id_token | The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [v2.0 endpoint tokens reference](active-directory-v2-tokens.md). |
 | code | The authorization code that the app requested. The app can use the authorization code to request an access token for the target resource. An authorization code is very short-lived. Typically, an authorization code expires in about 10 minutes. |
 | state | If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
@@ -255,4 +257,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 For a description of possible error codes and recommended client responses, see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
-When you have an authorization code and an ID token, you can sign in the user and get access tokens on their behalf. To sign in the user, you must validate the ID token [exactly as described](#validating-the-id-token). To get access tokens, follow the steps described in our [OAuth protocol documentation](active-directory-v2-protocols-oauth-code.md#request-an-access-token).
+When you have an authorization code and an ID token, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the ID token [exactly as described](#validating-the-id-token). To get access tokens, follow the steps described in our [OAuth protocol documentation](active-directory-v2-protocols-oauth-code.md#request-an-access-token).
