@@ -83,11 +83,11 @@ After you configure the service to have a setup entry point, you can change the 
 
 First, create a **Principals** section with a user name, such as SetupAdminUser. This indicates that the user is a member of the Administrators system group.
 
-Next, under the **ServiceManifestImport** section, configure a policy to apply this principal to **SetupEntryPoint**. This tells Service Fabric that when the **MySetup.bat** file is run, it should be RunAs with administrator privileges. Given that you have *not* applied a policy to the main entry point, the code in **MyServiceHost.exe** runs under the system **NetworkService** account. This is the default account that all service entry points are run as.
+Next, under the **ServiceManifestImport** section, configure a policy to apply this principal to **SetupEntryPoint**. This tells Service Fabric that when the **MySetup.bat** file is run, it should be `RunAs` with administrator privileges. Given that you have *not* applied a policy to the main entry point, the code in **MyServiceHost.exe** runs under the system **NetworkService** account. This is the default account that all service entry points are run as.
 
 Let's now add the file MySetup.bat to the Visual Studio project to test the administrator privileges. In Visual Studio, right-click on the service project and add a new file called MySetup.bat.
 
-Next, ensure that the MySetup.bat file is included in the service package. By default, it is not. Select the file, right-click to get the context menu, and choose **Properties**. In the properties dialog box, ensure that **Copy to Output Directory** is set to **Copy if newer**. See the following screen shot.
+Next, ensure that the MySetup.bat file is included in the service package. By default, it is not. Select the file, right-click to get the context menu, and choose **Properties**. In the Properties dialog box, ensure that **Copy to Output Directory** is set to **Copy if newer**. See the following screen shot.
 
 ![Visual Studio CopyToOutput for SetupEntryPoint batch file][image1]
 
@@ -103,21 +103,21 @@ REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
-Next, build, and deploy the solution to a local development cluster.  Once the service has started, as shown in Service Fabric Explorer, you can see that the MySetup.bat was successful in a two ways. Open a PowerShell command prompt and type:
+Next, build and deploy the solution to a local development cluster. After the service has started, as shown in Service Fabric Explorer, you can see that the MySetup.bat was successful in a two ways. Open a PowerShell command prompt and type:
 
 ~~~
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-Then, note the name of the node where the service was deployed and started in the Service Fabric Explorer, for example, Node 2. Next, navigate to the application instance work folder to find the out.txt file that shows the value of **TestVariable**. For example if this service was deployed to Node 2, then you can go to this path for the **MyApplicationType**:
+Then, note the name of the node where the service was deployed and started in Service Fabric Explorer--for example, Node 2. Next, navigate to the application instance work folder to find the out.txt file that shows the value of **TestVariable**. For example, if this service was deployed to Node 2, then you can go to this path for the **MyApplicationType**:
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
-###  Configure the policy using local system accounts
-Often it is preferable to run the startup script using a local system account rather than an administrators account as shown preceding. Running the RunAs policy as Administrators typically doesn’t work well since machines have User Access Control (UAC) enabled by default. In such cases, **the recommendation is to run the SetupEntryPoint as LocalSystem instead of a local user added to administrators group**. The following example shows setting the SetupEntryPoint to run as LocalSystem.
+###  Configure the policy by using local system accounts
+Often, it's preferable to run the startup script by using a local system account rather than an administrators account. Running the RunAs policy as a member of the Administrators group typically doesn’t work well because machines have User Access Control (UAC) enabled by default. In such cases, **the recommendation is to run the SetupEntryPoint as LocalSystem, instead of as a local user added to Administrators group**. The following example shows setting the SetupEntryPoint to run as LocalSystem.
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -137,11 +137,11 @@ Often it is preferable to run the startup script using a local system account ra
 </ApplicationManifest>
 ~~~
 
-##  Launch PowerShell commands from a SetupEntryPoint
-To run PowerShell from the **SetupEntryPoint** point, you can run **PowerShell.exe** in a batch file that points to a PowerShell file. First, add a PowerShell file to the service project, such as **MySetup.ps1**. Remember to set the *Copy if newer* property so that the file is also included in the service package. The following example shows a sample batch file to launch a PowerShell file called MySetup.ps1, which sets a system environment variable called **TestVariable**.
+##  Start PowerShell commands from a setup entry point
+To run PowerShell from the **SetupEntryPoint** point, you can run **PowerShell.exe** in a batch file that points to a PowerShell file. First, add a PowerShell file to the service project, such as **MySetup.ps1**. Remember to set the *Copy if newer* property so that the file is also included in the service package. The following example shows a sample batch file that starts a PowerShell file called MySetup.ps1, which sets a system environment variable called **TestVariable**.
 
 
-MySetup.bat to launch PowerShell file.
+MySetup.bat to start a PowerShell file:
 
 ~~~
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
@@ -154,7 +154,7 @@ In the PowerShell file, add the following to set a system environment variable:
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ~~~
 
-**Note:** By default when the batch file runs it looks at the application folder called **work** for files. In this case, when MySetup.bat runs we want this to find the MySetup.ps1 in the same folder, which is the application **code package** folder. To change this folder, set the working folder as shown in the following.
+> [AZURE.NOTE] By default, when the batch file runs, it looks at the application folder called **work** for files. In this case, when MySetup.bat runs, we want this to find the MySetup.ps1 in the same folder, which is the application **code package** folder. To change this folder, set the working folder:
 
 ~~~
 <SetupEntryPoint>
@@ -165,12 +165,12 @@ In the PowerShell file, add the following to set a system environment variable:
 </SetupEntryPoint>
 ~~~
 
-## Using console redirection for local debugging
-Occasionally it is useful to see the console output from running a script for debugging purposes. In order to do this you can set a console redirection policy, which writes the output to a file. The file output is written to the application folder called **log** on the node where the application is deployed and run (see where to find this in the preceding example).
+## Use console redirection for local debugging
+Occasionally, it's useful to see the console output from running a script for debugging purposes. In order to do this, you can set a console redirection policy, which writes the output to a file. The file output is written to the application folder called **log** on the node where the application is deployed and run (see where to find this in the preceding example).
 
-**Note: Never** use the console redirection policy in an application deployed in production since this can impact the application failover. **ONLY** use this for local development and debugging purposes.  
+> [AZURE.NOTE] Never use the console redirection policy in an application that is deployed in production because this can impact the application failover. *Only* use this for local development and debugging purposes.  
 
-The following example shows setting the console redirection with a FileRetentionCount value.
+The following example shows setting the console redirection with a FileRetentionCount value:
 
 ~~~
 <SetupEntryPoint>
@@ -188,13 +188,13 @@ If you now change the MySetup.ps1 file to write an **Echo** command, this will w
 Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
 ~~~
 
-**Once you have debugged your script, immediately remove this console redirection policy**
+**Once you have debugged your script, immediately remove this console redirection policy**.
 
-## Configure policy for service code packages
-In the preceding steps, you saw how to apply RunAs policy to SetupEntryPoint. Let's look a little deeper into how to create different principals that can be applied as service policies.
+## Configure a policy for service code packages
+In the preceding steps, you saw how to apply a RunAs policy to SetupEntryPoint. Let's look a little deeper into how to create different principals that can be applied as service policies.
 
 ### Create local user groups
-User groups can be defined and created that allow one or more users to be added to a group. This is particularly useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level. The following example shows a local group called **LocalAdminGroup** with administrator privileges. Two users, Customer1 and Customer2, are made members of this local group.
+You can define and create user groups that allow one or more users to be added to a group. This is particularly useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level. The following example shows a local group called **LocalAdminGroup** that has administrator privileges. Two users, Customer1 and Customer2, are made members of this local group.
 
 ~~~
 <Principals>
@@ -250,10 +250,10 @@ The **RunAsPolicy** section for a **ServiceManifestImport** specifies the accoun
 </Policies>
 ~~~
 
-If **EntryPointType** is not specified, the default is set to EntryPointType=”Main”. Specifying **SetupEntryPoint** is especially useful when you want to run certain high privilege setup operation under a system account. The actual service code can run under a lower-privilege account.
+If **EntryPointType** is not specified, the default is set to EntryPointType=”Main”. Specifying **SetupEntryPoint** is especially useful when you want to run certain high-privilege setup operations under a system account. The actual service code can run under a lower-privilege account.
 
 ### Apply a default policy to all service code packages
-The **DefaultRunAsPolicy** section is used to specify a default user account for all code packages that don’t have a specific **RunAsPolicy** defined. If most of the code packages specified in service manifest used by an application need to run under the same user, the application can just define a default RunAs policy with that user account. The following example specifies that if a code package does not have a **RunAsPolicy** specified, the code package should run under the **MyDefaultAccount** specified in the principals section.
+You use the **DefaultRunAsPolicy** section to specify a default user account for all code packages that don’t have a specific **RunAsPolicy** defined. If most of the code packages that are specified in the service manifest used by an application need to run under the same user, the application can just define a default RunAs policy with that user account. The following example specifies that if a code package does not have a **RunAsPolicy** specified, the code package should run under the **MyDefaultAccount** specified in the principals section.
 
 ~~~
 <Policies>
