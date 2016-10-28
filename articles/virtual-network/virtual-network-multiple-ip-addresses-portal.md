@@ -25,7 +25,7 @@
 - [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 
 
-An Azure Virtual Machine (VM) can have one or more network interfaces (NIC) attached to it. Any NIC can have one or more public or private IP addresses assigned to it. If you're not familiar with IP addresses in Azure, read the [IP addresses in Azure](virtual-network-ip-addresses-overview-arm.md) article to learn more about them. This article explains how to use Azure PowerShell to assign multiple IP addresses to a VM in the Azure Resource Manager deployment model.
+An Azure Virtual Machine (VM) can have one or more network interfaces (NIC) attached to it. Any NIC can have one or more public or private IP addresses assigned to it. If you're not familiar with IP addresses in Azure, read the [IP addresses in Azure](virtual-network-ip-addresses-overview-arm.md) article to learn more about them. This article explains how to use Azure Portal to assign multiple IP addresses to a VM in the Azure Resource Manager deployment model.
 
 Assigning multiple IP addresses to a VM enables the following capabilities:
 
@@ -189,4 +189,4 @@ Complete the following steps to add additional IP addresses to an existing NIC:
 
 4. Next, to add an IP configuration, under the IP configurations section of your network interface, click on **+Add**.
 
-5. In the Add IP configuration blade, name your IP configuration. Select  the type of IP address you would like: Static or Dynamic under **Allocation**. Under **Public IP address**, select **Enabled** if you would like to associate your IP configuration with a public IP. If not click on **Disabled**. Selecting **Enabled** allows you to associate an existing public IP to your configuration in addition to creating one. Then click OK. Once the configuration is saved, you will see the IP configuration in the list.
+5. In the Add IP configuration blade, name your IP configuration. Select  the type of IP address you would like: Static or Dynamic under **Allocation**. Under **Public IP address**, select **Enabled** if you would like to associate your IP configuration with a public IP. If not click on **Disabled**. Selecting **Enabled** allows you to associate an existing public IP to your configuration in addition to  Then click OK. Once the configuration is saved, you will see the IP configuration in the list.
