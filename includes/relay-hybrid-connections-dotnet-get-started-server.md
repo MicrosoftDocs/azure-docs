@@ -2,13 +2,13 @@
 
 1. Launch Visual Studio and create a new Console application.
 
-### Add the Service Bus NuGet package
+### Add the Relay NuGet package
 
 1. Right-click the newly created project and select **Manage NuGet Packages**.
 
 2. Click the **Browse** tab, then search for "Microsoft Azure Relay" and select the **Microsoft Azure Relay** item. Click **Install** to complete the installation, then close this dialog box.
 
-### Write some code to send messages
+### Write some code to receive messages
 
 1. Add the following `using` statement to the top of the Program.cs file.
 

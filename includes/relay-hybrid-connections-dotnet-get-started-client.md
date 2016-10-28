@@ -2,7 +2,7 @@
 
 1. Launch Visual Studio and create a new Console application.
 
-### Add the Service Bus NuGet package
+### Add the Relay NuGet package
 
 1. Right-click the newly created project and select **Manage NuGet Packages**.
 
