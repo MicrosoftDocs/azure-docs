@@ -21,7 +21,7 @@
 
 ## Settings Overview
 
-You can manage app settings for Azure Function Apps by clicking the **Function App Settings** link in the bottom-left corner of the portal. Azure function app settings apply to all functions in the app.
+You can manage Azure Function Apps settings by clicking the **Function App Settings** link in the bottom-left corner of the portal. Azure function app settings apply to all functions in the app.
 
 1. Go to the [Azure portal](http://portal.azure.com) and sign-in with your Azure account.
 
@@ -57,7 +57,7 @@ Once you have setup CI, connected code you push to the configured source is auto
 
 For functions that use an HTTP trigger, you can require calls to be authenticated.
 
-1. To configure authentication, Click the **Configure authentication** link.
+1. To configure authentication click the **Configure authentication** link.
 
 2. Toggle the **App Service Authentication** button to **On**.
 
@@ -72,9 +72,9 @@ For details on configuring specific authentication providers, see
 
 Normally, for security reasons, calls to your hosts (domains) from external sources, such as Ajax calls from a browser, are not allowed. Otherwise, malicious code could be sent to and executed on the backend. The safest route then is to blacklist all sources of code, except for a few of your own trusted ones. You can configure which sources you accept calls from in Azure functions by configuring Cross-Origin Resource Sharing (CORS). CORS allows you to list domains that are the source of JavaScript that can call functions in your Azure Function App. 
 
-1. To configure CORS, Click the **Configure CORS** link. 
+1. To configure CORS, click the **Configure CORS** link. 
 
-2. Enter domain(s) that you want to whitelist.
+2. Enter the domains that you want to whitelist.
 
 ![Configure App Function's CORS](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
@@ -94,7 +94,7 @@ For more information on creating API definitions with Swagger, visit [Get Starte
 
 Manage environment variables, Framework versions, remote debugging, app settings, connection strings, default docs, etc. These settings are specific to your Function App. 
 
-1. To configure app settings, Click the **Configure App Settings** link. 
+1. To configure app settings, click the **Configure App Settings** link. 
 
 ![Configure App Settings](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
@@ -118,7 +118,7 @@ Kudu allows you to access advanced administrative features of a Function App.
 
  >[AZURE.NOTE] You can alternatively launch **Kudu** by inserting "scm" into your function's URL, as shown here: ```https://<YourFunctionName>.scm.azurewebsites.net/```
 
-From the Kudu webpage, you can view and manage system information, app settings & connection strings, environment variables, HTTP headers, server variables, and more.
+From the Kudu webpage, you can view and manage system information, app settings, environment variables, HTTP headers, server variables, and more.
 
 ![Configure Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
