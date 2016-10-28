@@ -19,7 +19,7 @@
 # Azure AD Connect: Upgrade from a previous version to the latest
 This topic describes the different methods you can use to upgrade your Azure AD Connect installation to the latest release. We recommend that you keep yourself current with the releases of Azure AD Connect. The steps described in [swing migration](#swing-migration) are also used when you make a substantial configuration change.
 
-If you want to upgrade from DirSync, see [Upgrade from Azure AD sync tool (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) instead.
+If you want to upgrade from DirSync, see [Upgrade from Azure AD sync tool (DirSync)](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) instead.
 
 There are a few different strategies to upgrade Azure AD Connect.
 
@@ -29,7 +29,7 @@ Method | Description
 [In-place upgrade](#in-place-upgrade) | If you have a single server, upgrade the installation in-place on the same server.
 [Swing migration](#swing-migration) | With two servers, you can prepare one of the servers with the new release or configuration and change active server when you are ready.
 
-For required permissions, see [permissions required for upgrade](./aad-connect/active-directory-aadconnect-accounts-permissions.md#upgrade).
+For required permissions, see [permissions required for upgrade](./connect/active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 ## In-place upgrade
 An in-place upgrade works for moving from Azure AD Sync or Azure AD Connect. It will not work for DirSync or for a solution with FIM + Azure AD Connector.
@@ -49,7 +49,7 @@ The two servers can use different versions. For example, the active server you p
 
 Note: It has been noted that some customers prefer to have three or four servers for this scenario. When the staging server is upgraded, you do not have a backup server in case of a [disaster recovery](active-directory-aadconnectsync-operations.md#disaster-recovery). With three or four servers, one set of primary/standby servers with the new version can be prepared, ensuring there are always a staging server ready to take over.
 
-These steps also works to move from Azure AD Sync or a solution with FIM + Azure AD Connector. These steps do not work for DirSync, but the same swing migration (also called parallel deployment) method with steps for DirSync can be found in [Upgrade Azure Active Directory sync (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md).
+These steps also works to move from Azure AD Sync or a solution with FIM + Azure AD Connector. These steps do not work for DirSync, but the same swing migration (also called parallel deployment) method with steps for DirSync can be found in [Upgrade Azure Active Directory sync (DirSync)](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
 ### Swing migration steps
 

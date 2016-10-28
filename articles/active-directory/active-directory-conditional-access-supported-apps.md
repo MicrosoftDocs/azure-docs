@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="09/26/2016"
+	ms.date="10/26/2016"
 	ms.author="markvi"/>
 
 
@@ -27,6 +27,13 @@ Applications with modern authentication can display Azure AD sign in pages. This
 It is important to understand which applications are supported as well as steps that may be necessary to secure other entry points.
 
 ## Applications using modern authentication
+
+
+> [AZURE.NOTE] If you have a conditional access policy in Azure AD that has an equivalent in Office 365, you should configure both conditional access policies to ensure that you get the desired results.
+This is, for example, true in the case of conditional access policies for Exchange Online and SharePoint Online. 
+
+
+
 The following applications support conditional access when accessing Office 365 and other Azure AD connected service applications:
 
 | Target Service  | Platform  | Application                                                  |

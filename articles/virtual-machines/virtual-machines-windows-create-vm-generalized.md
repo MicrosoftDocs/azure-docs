@@ -151,14 +151,17 @@ The following PowerShell script shows how to set up the virtual machine configur
 	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 	
 	#Set the Windows operating system configuration and add the NIC
-	$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName `
+		-Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 	
 	# Create the OS disk URI
-	$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
+	$osDiskUri = '{0}vhds/{1}-{2}.vhd' `
+		-f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 	
 	# Configure the OS disk to be created from the existing VHD image (-CreateOption fromImage).
-	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $imageURI -Windows
+	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri `
+		-CreateOption fromImage -SourceImageUri $imageURI -Windows
 	
 	# Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
