@@ -87,7 +87,9 @@ Open the Public IP addresses menu under the NIC settings
 
 ## SSH to the VM
 
-SSH into the public IP using your SSH public key
+SSH into the public IP using your SSH public key.  From a Mac or Linux workstation you can SSH directly from the Terminal. If you are on a Windows workstation you will need to use PuTTY, MobaXTerm or Cygwin to SSH to Linux.  If you have not already, here is a doc that will get your Windows workstation ready to SSH to Linux.
+
+[How to Use SSH keys with Windows on Azure](virtual-machines-linux-ssh-from-windows.md)
 
 ```
 ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
