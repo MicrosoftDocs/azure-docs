@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="DocumentDB Java API & SDK | Microsoft Azure"
 	description="Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK."
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/27/2016"
+	ms.date="10/28/2016"
 	ms.author="rnagpal"/>
 
 # DocumentDB APIs and SDKs
@@ -37,6 +38,13 @@
 </table></br>
 
 ## Release Notes
+
+### <a name="1.9.1"/>[1.9.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.1)
+
+  - Added support for BoundedStaleness consistency level.
+  - Added support for direct connectivity for CRUD operations for partitioned collections.
+  - Fixed a bug in querying a database with SQL.
+  - Fixed a bug in the session cache where session token may be set incorrectly.
 
 ### <a name="1.9.0"/>[1.9.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.0)
 
@@ -105,6 +113,7 @@ All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** wil
 
 | Version | Release Date | Retirement Date
 | ---	  | ---	         | ---
+| [1.9.1](#1.9.1) | October 28, 2016 |---
 | [1.9.0](#1.9.0) | October 03, 2016 |---
 | [1.8.1](#1.8.1) | June 30, 2016 |---
 | [1.8.0](#1.8.0) | June 14, 2016 |---
