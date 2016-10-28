@@ -43,7 +43,7 @@ azure storage account create mystorageaccount -g myResourceGroup \
     -l WestUS --kind Storage --sku-name PLRS
 ```
 
-Create a virtual network to connect your VMs to. The following examples a virtual network named `myVnet` with an address prefix of `192.168.0.0/16`:
+Create a virtual network to connect your VMs to. The following example creates a virtual network named `myVnet` with an address prefix of `192.168.0.0/16`:
 
 ```bash
 azure network vnet create -g myResourceGroup -l WestUS \

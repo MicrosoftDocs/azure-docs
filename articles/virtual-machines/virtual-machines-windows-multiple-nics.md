@@ -45,7 +45,7 @@ $storageAcc = New-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" `
 ```
 
 ## Create virtual network and subnets
-Define two virtual network subnets - one for front-end traffic and one for back-end traffic. The following example defines two subnets named `mySubnetFrontEnd` and `mySubnetBackEnd`:
+Define two virtual network subnets - one for front-end traffic and one for back-end traffic. The following example defines two subnets, named `mySubnetFrontEnd` and `mySubnetBackEnd`:
 
 ```powershell
 $mySubnetFrontEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
@@ -64,7 +64,7 @@ $myVnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
 
 
 ## Create multiple NICs
-Create two NICs, attaching one NIC to the front-end subnet and one NIC to the back-end subnet. The following example creates two NICs named `myNic1` and `myNic2`:
+Create two NICs, attaching one NIC to the front-end subnet and one NIC to the back-end subnet. The following example creates two NICs, named `myNic1` and `myNic2`:
 
 ```powershell
 $frontEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetFrontEnd'}
@@ -88,7 +88,7 @@ First, set your VM credentials to the `$cred` variable as follows:
 $cred = Get-Credential
 ```
 
-The following example creates a VM named `myVM` and uses a VM size that supports up to two NICs (`Standard_DS2_v2`):
+The following example defines a VM named `myVM` and uses a VM size that supports up to two NICs (`Standard_DS2_v2`):
 
 ```powershell
 $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS2_v2"
