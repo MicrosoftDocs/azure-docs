@@ -47,14 +47,7 @@ is defined, these code paths are included in the build. For Windows apps, you mu
 
 		#define OFFLINE_SYNC_ENABLED
 
-3. In the Solution Explorer, open the TodoList.xaml.cs file from the **Portable** project, locate the **OnAppearing** method, and
-   make sure that `true` is passed for *syncItems* when calling **RefreshItems**, as follows:
-
-		await RefreshItems(true, syncItems: true);
-
-	The app attempts to sync with the backend when it starts.
-
-5. (Optional) To support Windows devices, install one of the following SQLite runtime packages:
+4. (Optional) To support Windows devices, install one of the following SQLite runtime packages:
 
     * **Windows 8.1 Runtime:** Install [SQLite for Windows 8.1][3].
     * **Windows Phone 8.1:** Install [SQLite for Windows Phone 8.1][4].
@@ -62,7 +55,7 @@ is defined, these code paths are included in the build. For Windows apps, you mu
 
     Although the quickstart does not contain a Universal Windows project, the Universal Windows platform is supported with Xamarin Forms.
 
-6. (Optional) In each Windows app project, right-click **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**.
+5. (Optional) In each Windows app project, right-click **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**.
     Enable the appropriate **SQLite for Windows** SDK along with the **Visual C++ 2013 Runtime for Windows** SDK.
 	The SQLite SDK names vary slightly with each Windows platform.
 
