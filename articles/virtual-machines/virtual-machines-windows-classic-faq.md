@@ -19,6 +19,6 @@
 
 # Frequently asked question about Azure Windows virtual machines created with the classic deployment model
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] For the VM FAQ using the Resource Manager model, see [here](virtual-machines-windows-faq.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] For the FAQ when using the Resource Manager model, see [here](virtual-machines-windows-faq.md).
 
 [AZURE.INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
