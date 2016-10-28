@@ -23,4 +23,4 @@ The following table describes the default quotas for Azure DocumentDB database r
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb-increase-limits.md). Quota increases may take up to 24 hours to complete after recieving the required information. 
+Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb-increase-limits.md). Quota increases may take up to 24 hours to complete after receiving the required information. 
