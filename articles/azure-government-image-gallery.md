@@ -4,8 +4,8 @@
    services="Azure-Government"
    cloud="gov"
    documentationCenter=""
-   authors="joharve2"
-   manager="chrisnie"
+   authors="brendalee"
+   manager="zakramer"
    editor=""/>
 
 <tags
