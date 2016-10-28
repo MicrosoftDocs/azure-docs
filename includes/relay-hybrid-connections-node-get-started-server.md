@@ -53,7 +53,7 @@
     ```js
     const WebSocket = require('hyco-ws');
 
-    const ns = "{RelayNamespace}}";
+    const ns = "{RelayNamespace}";
     const path = "{HybridConnectionName}";
     const keyrule = "{SASKeyName}";
     const key = "{SASKeyValue}";

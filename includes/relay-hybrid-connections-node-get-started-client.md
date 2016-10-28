@@ -58,7 +58,7 @@
             output: process.stdout
         });;
 
-    const ns = "{RelayNamespace}}";
+    const ns = "{RelayNamespace}";
     const path = "{HybridConnectionName}";
     const keyrule = "{SASKeyName}";
     const key = "{SASKeyValue}";
