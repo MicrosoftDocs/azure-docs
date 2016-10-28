@@ -83,9 +83,9 @@ To create a multiple IP configurations based on the scenario above by using the 
 
     ![Alt image text](media\virtual-network-multiple-ip-addresses-portal\03-portal.PNG)
 
-Note that IPConfig-2 and IPConfig-3 can also be associated with a public IP by selecting **Enabled** in the **Public IP address** section of the **Add IP configuration** blade. A new public IP can be created or one already created can be associated with the IP configuration.
+    Note that IPConfig-2 and IPConfig-3 can also be associated with a public IP by selecting **Enabled** in the **Public IP address** section of the **Add IP configuration** blade. A new public IP can be created or one already created can be associated with the IP configuration.
 
-8. Manually add all the private IP addresses (including the primary) to the TCP/IP configuration in the operating system as shown below. To manually add the IP addresses you must connect to your VM and then follow the steps outlines below.
+8. Manually add all the private IP addresses (including the primary) to the TCP/IP configuration in the operating system as shown below. To manually add the IP addresses you must connect to your VM and then follow the steps outlined below.
 
 **Windows**
 
@@ -181,32 +181,12 @@ Note that IPConfig-2 and IPConfig-3 can also be associated with a public IP by s
 
 Complete the following steps to add additional IP addresses to an existing NIC:
 
-1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) article.
+1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
 
-2. Change the "values" of the following $Variables to the name of the NIC you want to add IP addresses to and the resource group and location the NIC exists in:
+2. Select the network interface you want to add the IP configurations to in the **Network interfaces** section.
 
-		$NicName     = "RG1-VM1-NIC1"
-		$RgName   = "RG1"
-		$NicLocation = "westcentralus"
+3. In the **Network interface** blade, select **IP configurations**. You will see a list of the existing IP configurations.
 
-	If you don't know the name of the NIC you want to change, enter the following commands, then change the values of the previous variables:
+4. Next, to add an IP configuration, under the IP configurations section of your network interface, click on **+Add**.
 
-		Get-AzureRmNetworkInterface | Format-Table Name, ResourceGroupName, Location
-
-3. Create a variable and set it to the existing NIC by typing the following command:
-
-		$nic = Get-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $RgName
-
-4. Retrieve the subnet ID the NIC is connected to by completing [step 3](#subnet) of the Create a VM with multiple IP addresses section of this article.
-
-5. Create the IP configurations you want to add to the network by following the instructions in [step 5](#ipconfigs) of the Create a VM with multiple IP addresses section of this article.
-
-6. Change *$IPConfigName4* to the name of the IP configuration you created in the previous step. To add the configuration, enter the following command:
-
-		Add-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName4 -NetworkInterface $nic -Subnet $Subnet1
-
-7. To set the NIC with the IP configuration, enter the following command:
-
-		Set-AzureRmNetworkInterface -NetworkInterface $nic
-
-8. Add the IP addresses you added to the NIC to the VM operating system by following the instructions in [step 9](#os) of the Create a VM with multiple IP addresses section of this article.
+5. In the Add IP configuration blade, name your IP configuration. Select  the type of IP address you would like: Static or Dynamic under **Allocation**. Under **Public IP address**, select **Enabled** if you would like to associate your IP configuration with a public IP. If not click on **Disabled**. Selecting **Enabled** allows you to associate an existing public IP to your configuration in addition to creating one. Then click OK. Once the configuration is saved, you will see the IP configuration in the list.
