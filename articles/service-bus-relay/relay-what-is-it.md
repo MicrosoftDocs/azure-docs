@@ -34,20 +34,12 @@ Azure Relay has two features:
 
 Hybrid Connections and WCF Relays both enable secure connection to assests that exist within a corporate enterprise network. Use of one over the other is dependent on your particular needs detailed below:
 
-|                                 | WCF Relay |                    Hybrid Connections                      |
-| ------------------------------- |:---------:| :---------------------------------------------------------:|
-| **Supported Platforms**         | NETFX     | NETFX; NodeJS; In-Browser JavaScript; .Net Standard; Java* |
-| **Programming Models**          | WCF       | Multiple RPC Programing Models (e.g. Apache Thrift)        |
-| **Documentation**               | Open      | Standards-Based Open Protocol                              |
-*<sub>By General Availability</sub>
-
 |                                    | WCF Relay | Hybrid Connections |
-| ---------------------------------- |:---------:| :-----------------:|
+| ---------------------------------- |:---------:|:------------------:|
 | **WCF**                            |     x     |                    |
-| **NETFX**                          |     x     |         x          |
-| **NodeJS**                         |           |         x          |
-| **In-Browser JavaScript**          |           |         x          |
-| **.NET Standard**                  |           |         x          |
+| **.NET Core**                      |           |         x          |
+| **.NET Framework**                 |     x     |         x          |
+| **JavaScript/NodeJS**              |           |         x          |
 | **Java***                          |           |         x          |
 | **Standards-Based Open Protocol**  |           |         x          |
 | **Multiple RPC Programing Models** |           |         x          |
