@@ -34,13 +34,13 @@ The requirements are:
 
 Signed into the Azure portal with your Azure account identity, click **+ New** in the upper left corner:
 
-    ![screen1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
+![screen1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
 ## Choose VM
 
 Click **Virtual Machines** in the **Marketplace** then **Ubuntu Server 14.04 LTS** from the **Featured Apps** images list.  Verify at the bottom that the deployment model is `Resource Manager` and then click **Create**.
 
-    ![screen2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
+![screen2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
 
 ## Enter VM options
 
@@ -54,37 +54,37 @@ On the **Basics** page, enter:
 
 and Click **OK** to continue and choose the VM size; it should look something like the following:
 
-    ![screen3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
+![screen3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
 
 ## Choose VM size
 
 Choose the **DS1** size, which installs Ubuntu on a Premium SSD, and click **Select** to configure settings.
 
-    ![screen4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
+![screen4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
 
 ## Storage and network
 
 In **Settings**, leave the defaults for Storage and Network values, and click **OK** to view the summary.  Notice the disk type has been set to Premium SSD by choosing DS1, the **S** notates SSD.
 
-    ![screen5](../media/virtual-machines-linux-quick-create-portal/screen5.png)
+![screen5](../media/virtual-machines-linux-quick-create-portal/screen5.png)
 
 ## Confirm VM settings and launch
 
 Confirm the settings for your new Ubuntu VM, and click **OK**.
 
-    ![screen6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
+![screen6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
 
 ## Find the VM NIC
 
 Open the Portal Dashboard and in **Network interfaces** choose your NIC
 
-    ![screen7](../media/virtual-machines-linux-quick-create-portal/screen7.png)
+![screen7](../media/virtual-machines-linux-quick-create-portal/screen7.png)
 
 ## Find the public IP
 
 Open the Public IP addresses menu under the NIC settings
 
-    ![screen8](../media/virtual-machines-linux-quick-create-portal/screen8.png)
+![screen8](../media/virtual-machines-linux-quick-create-portal/screen8.png)
 
 ## SSH to the VM
 
