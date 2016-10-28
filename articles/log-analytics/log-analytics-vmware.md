@@ -196,7 +196,8 @@ There can be multiple reasons:
 - The ESXi host is not correctly pushing data to the VM running omsagent. To test, perform the following steps:
     1. To confirm, log on to the ESXi host using ssh and run the following command: `nc -z ipaddressofVM 1514`
 
-    If this is not successful, vSphere settings in the Advanced Configuration are likely not correct. See [Configure syslog collection](#configure-syslog-collection) for information about how to set up the ESXi host for syslog forwarding.
+        If this is not successful, vSphere settings in the Advanced Configuration are likely not correct. See [Configure syslog collection](#configure-syslog-collection) for information about how to set up the ESXi host for syslog forwarding.
+
     2. If syslog port connectivity is successful, but you don't still see any data, then reload the syslog on the ESXi host by using ssh to run the following command: ` esxcli system syslog reload`
 
 - The VM with OMS Agent is not set correctly. To test this, perform the following steps:
