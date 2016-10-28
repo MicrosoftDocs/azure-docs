@@ -44,15 +44,15 @@ For each stage, we provide the following information:
 
 ### Goals
 
-* Specify the **key variables** that are to serve as the **model targets** and whose related metrics determine the success for the project.
+* Specify the **key variables** that are to serve as the **model targets** and whose related metrics are used determine the success for the project.
 * Identify the relevant **data sources** that the business has access to and whether you need to bring in ancillary data from other sources.
 
 ### How to do it 
 
 There are two main tasks addressed in this stage: 
 
-- **Define Objectives**: You work with your customer and other stakeholders to identify and understand the business problems and ask questions that data science techniques can address and that solve your business problems.
-- **Identify data sources**: Find data that helps you address the objectives of the project.
+- **Define Objectives**: Work with your customer and other stakeholders to understand and identify the business problems. Formulate questions that define the business goals and that data science techniques can target.
+- **Identify data sources**: Find the relevant data that helps you address the objectives of the project.
 
 #### 1.1 Define Objectives
 
@@ -64,8 +64,13 @@ There are two main tasks addressed in this stage:
 	- Is this weird? (anomaly detection)
 	- Which option should be taken? (recommendation)
 3. Define the **project team** by specifying the roles and responsibilities of its members. Develop a high-level milestone plan that you iterate on as more information is discovered.  
-4. **Define success metrics**. The metrics must be SMART (**S**pecific, **M**easurable, **A**chievable, **R**elevant, and **T**ime-bound). For example: Achieve customer churn prediction accuracy of X% by the end of this 3-month project so that we can offer promotions to reduce churn. 
-
+4. **Define success metrics**. For example: Achieve customer churn prediction accuracy of X% by the end of this 3-month project, so that we can offer promotions to reduce churn. The metrics must be **SMART**: 
+	- **S**pecific 
+	- **M**easurable
+	- **A**chievable 
+	- **R**elevant 
+	- **T**ime-bound 
+ 
 
 #### 1.2 Identify Data Sources
 
