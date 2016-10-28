@@ -17,9 +17,9 @@
    ms.author="mfussell"/>
 
 # Configure security policies for your application
-Azure Service Fabric provides the ability to secure applications that are running in the cluster under different user accounts. Service Fabric also secures the resources used by the applications at the time of deployment under the user account, such as files, directories, and certificates. This makes running applications, even in a shared hosted environment, secure from one another.
+By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts. Service Fabric also secures the resources that are used by applications at the time of deployment under the user accounts--for example, files, directories, and certificates. This makes running applications, even in a shared hosted environment, secure from one another.
 
-By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account or local system account, which are specified within the application manifest. Supported local system account types are **LocalUser**, **NetworkService**, **LocalService**, and **LocalSystem**.
+By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account or local system account, which is specified within the application manifest. Supported local system account types are **LocalUser**, **NetworkService**, **LocalService**, and **LocalSystem**.
 
  When you're running Service Fabric on Windows Server in your datacenter by using the standalone installer, you can use Active Directory domain accounts.
 
@@ -27,7 +27,7 @@ You can define and create user groups so that one or more users can be added to 
 
 ## Configure the policy for a service setup entry point
 
-As described in the [application model](service-fabric-application-model.md), the setup entry point, **SetupEntryPoint**, is a privileged entry point that runs with the same credentials as Service Fabric (typically the *NetworkService* account) before any other entry point. The executable that is specified by **EntryPoint** is typically the long-running service host. So having a separate setup entry point avoids having to run the service host executable with high privileges for extended periods of time. The executable that is specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted, beginning again with **SetupEntryPoint** if it ever terminates or crashes.
+As described in the [application model](service-fabric-application-model.md), the setup entry point, **SetupEntryPoint**, is a privileged entry point that runs with the same credentials as Service Fabric (typically the *NetworkService* account) before any other entry point. The executable that is specified by **EntryPoint** is typically the long-running service host. So having a separate setup entry point avoids having to run the service host executable with high privileges for extended periods of time. The executable that **EntryPoint** specifies is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted, and begins again with **SetupEntryPoint** if it ever terminates or crashes.
 
 The following is a simple service manifest example that shows the SetupEntryPoint and the main EntryPoint for the service.
 
@@ -85,7 +85,7 @@ First, create a **Principals** section with a user name, such as SetupAdminUser.
 
 Next, under the **ServiceManifestImport** section, configure a policy to apply this principal to **SetupEntryPoint**. This tells Service Fabric that when the **MySetup.bat** file is run, it should be `RunAs` with administrator privileges. Given that you have *not* applied a policy to the main entry point, the code in **MyServiceHost.exe** runs under the system **NetworkService** account. This is the default account that all service entry points are run as.
 
-Let's now add the file MySetup.bat to the Visual Studio project to test the administrator privileges. In Visual Studio, right-click on the service project and add a new file called MySetup.bat.
+Let's now add the file MySetup.bat to the Visual Studio project to test the administrator privileges. In Visual Studio, right-click the service project and add a new file called MySetup.bat.
 
 Next, ensure that the MySetup.bat file is included in the service package. By default, it is not. Select the file, right-click to get the context menu, and choose **Properties**. In the Properties dialog box, ensure that **Copy to Output Directory** is set to **Copy if newer**. See the following screen shot.
 
@@ -103,7 +103,7 @@ REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
-Next, build and deploy the solution to a local development cluster. After the service has started, as shown in Service Fabric Explorer, you can see that the MySetup.bat was successful in a two ways. Open a PowerShell command prompt and type:
+Next, build and deploy the solution to a local development cluster. After the service has started, as shown in Service Fabric Explorer, you can see that the MySetup.bat file was successful in a two ways. Open a PowerShell command prompt and type:
 
 ~~~
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
@@ -117,7 +117,7 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
 ###  Configure the policy by using local system accounts
-Often, it's preferable to run the startup script by using a local system account rather than an administrators account. Running the RunAs policy as a member of the Administrators group typically doesn’t work well because machines have User Access Control (UAC) enabled by default. In such cases, **the recommendation is to run the SetupEntryPoint as LocalSystem, instead of as a local user added to Administrators group**. The following example shows setting the SetupEntryPoint to run as LocalSystem.
+Often, it's preferable to run the startup script by using a local system account rather than an administrators account. Running the RunAs policy as a member of the Administrators group typically doesn’t work well because machines have User Access Control (UAC) enabled by default. In such cases, **the recommendation is to run the SetupEntryPoint as LocalSystem, instead of as a local user added to Administrators group**. The following example shows setting the SetupEntryPoint to run as LocalSystem:
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -138,7 +138,7 @@ Often, it's preferable to run the startup script by using a local system account
 ~~~
 
 ##  Start PowerShell commands from a setup entry point
-To run PowerShell from the **SetupEntryPoint** point, you can run **PowerShell.exe** in a batch file that points to a PowerShell file. First, add a PowerShell file to the service project, such as **MySetup.ps1**. Remember to set the *Copy if newer* property so that the file is also included in the service package. The following example shows a sample batch file that starts a PowerShell file called MySetup.ps1, which sets a system environment variable called **TestVariable**.
+To run PowerShell from the **SetupEntryPoint** point, you can run **PowerShell.exe** in a batch file that points to a PowerShell file. First, add a PowerShell file to the service project--for example, **MySetup.ps1**. Remember to set the *Copy if newer* property so that the file is also included in the service package. The following example shows a sample batch file that starts a PowerShell file called MySetup.ps1, which sets a system environment variable called **TestVariable**.
 
 
 MySetup.bat to start a PowerShell file:
@@ -154,7 +154,7 @@ In the PowerShell file, add the following to set a system environment variable:
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ~~~
 
-> [AZURE.NOTE] By default, when the batch file runs, it looks at the application folder called **work** for files. In this case, when MySetup.bat runs, we want this to find the MySetup.ps1 in the same folder, which is the application **code package** folder. To change this folder, set the working folder:
+> [AZURE.NOTE] By default, when the batch file runs, it looks at the application folder called **work** for files. In this case, when MySetup.bat runs, we want this to find the MySetup.ps1 file in the same folder, which is the application **code package** folder. To change this folder, set the working folder:
 
 ~~~
 <SetupEntryPoint>
@@ -166,7 +166,7 @@ In the PowerShell file, add the following to set a system environment variable:
 ~~~
 
 ## Use console redirection for local debugging
-Occasionally, it's useful to see the console output from running a script for debugging purposes. In order to do this, you can set a console redirection policy, which writes the output to a file. The file output is written to the application folder called **log** on the node where the application is deployed and run (see where to find this in the preceding example).
+Occasionally, it's useful to see the console output from running a script for debugging purposes. To do this, you can set a console redirection policy, which writes the output to a file. The file output is written to the application folder called **log** on the node where the application is deployed and run (see where to find this in the preceding example).
 
 > [AZURE.NOTE] Never use the console redirection policy in an application that is deployed in production because this can impact the application failover. *Only* use this for local development and debugging purposes.  
 
@@ -182,7 +182,7 @@ The following example shows setting the console redirection with a FileRetention
 </SetupEntryPoint>
 ~~~
 
-If you now change the MySetup.ps1 file to write an **Echo** command, this will write to the output file for debugging purposes.
+If you now change the MySetup.ps1 file to write an **Echo** command, this will write to the output file for debugging purposes:
 
 ~~~
 Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
@@ -263,7 +263,9 @@ You use the **DefaultRunAsPolicy** section to specify a default user account for
 ### Use an Active Directory domain group or user
 For an instance of Service Fabric that was installed on Windows Server by using the standalone installer, you can run the service under the credentials for an Active Directory user or group account. Note that this is Active Directory on-premises within your domain and is not with Azure Active Directory (Azure AD). By using a domain user or group, you can then access other resources in the domain (for example, file shares) that have been granted permissions.
 
-The following example shows an Active Directory user called *TestUser* with their domain password encrypted by using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` PowerShell command to create the secret cipher text. See [Managing secrets in Service Fabric applications](service-fabric-application-secret-management.md) for details. The private key of the certificate to decrypt the password must be deployed to the local machine in an out-of-band method (in Azure this is via the Resource Manager). Then, when Service Fabric deploys the service package to the machine, it is able to decrypt the secret and, along with the user name, authenticate with Active Directory (along with the user name) to run under those credentials.
+The following example shows an Active Directory user called *TestUser* with their domain password encrypted by using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` PowerShell command to create the secret cipher text. See [Managing secrets in Service Fabric applications](service-fabric-application-secret-management.md) for details.
+
+You must deploy the private key of the certificate to decrypt the password to the local machine by using an out-of-band method (in Azure, this is via Azure Resource Manager). Then, when Service Fabric deploys the service package to the machine, it is able to decrypt the secret and (along with the user name) authenticate with Active Directory to run under those credentials.
 
 ~~~
 <Principals>
