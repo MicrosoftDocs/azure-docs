@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="10/17/2016" 
+	ms.date="10/27/2016" 
 	ms.author="eugenesh"/>
 
 #Connecting Azure SQL Database to Azure Search using indexers
@@ -89,7 +89,7 @@ An indexer created in this way doesn’t have a schedule. It automatically runs 
 	POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2015-02-28 
 	api-key: admin-key
 
-You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution will be failed. For more details, see [Create Indexer API](https://msdn.microsoft.com/library/azure/dn946899.aspx).
+You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution fails. For more information, see [Create Indexer API](https://msdn.microsoft.com/library/azure/dn946899.aspx).
  
 You may need to allow Azure services to connect to your database. See [Connecting From Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) for instructions on how to do that.
 
@@ -171,7 +171,7 @@ You can add, change, or delete a schedule for an existing indexer by using a **P
 <a name="CaptureChangedRows">,/a>
 ## Capturing new, changed, and deleted rows
 
-If your table has a lot of rows, you should use a data change detection policy. Change detection enables an efficient retrieval of only the new or changed rows without having to re-index the entire table.
+If your table has many rows, you should use a data change detection policy. Change detection enables an efficient retrieval of only the new or changed rows without having to re-index the entire table.
 
 ### SQL Integrated Change Tracking Policy
 
@@ -198,6 +198,7 @@ To use this policy, create or update your data source like this:
 	  }
 	}
 
+<a name="HighWaterMarkPolicy"></a>
 ### High Water Mark Change Detection policy
 
 While the SQL Integrated Change Tracking policy is recommended, it can only be used with tables, not views. If you're using a view, consider using the high water mark policy. This policy can be used if your table or view contains a column that meets the following criteria:
@@ -205,7 +206,7 @@ While the SQL Integrated Change Tracking policy is recommended, it can only be u
 - All inserts specify a value for the column. 
 - All updates to an item also change the value of the column. 
 - The value of this column increases with each change.
-- Queries that use a `WHERE` clause similar to `WHERE [High Water Mark Column] > [Current High Water Mark Value]` can be executed efficiently.
+- Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
 
 For example, an indexed **rowversion** column is an ideal candidate for the high water mark column. 
 To use this policy, create or update your data source like this: 
@@ -219,6 +220,24 @@ To use this policy, create or update your data source like this:
 	       "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
 	       "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
 	  }
+	}
+
+> [AZURE.WARNING] If the source table does not have an index on the high water mark column, queries used by the SQL indexer may time out. In particular, the `ORDER BY [High Water Mark Column]` clause requires an index to run efficiently when the table contains many rows. 
+
+If you encounter timeout errors, you can use the `queryTimeout` indexer configuration setting to set the query timeout to a value higher than the default 5-minute timeout. For example, to set the timeout to 10 minutes, create or update the indexer with the following configuration: 
+
+	{
+	  ... other indexer definition properties
+	 "parameters" : { 
+	        "configuration" : { "queryTimeout" : "00:10:00" } }
+	}
+
+You can also disable the `ORDER BY [High Water Mark Column]` clause. However, this is not recommended because if the indexer execution is interrupted by an error, the indexer has to re-process all rows if it runs later - even if the indexer has already processed almost all the rows by the time it was interrupted. To disable the `ORDER BY` clause, use the `disableOrderByHighWaterMarkColumn` setting in the indexer definition:  
+
+	{
+	 ... other indexer definition properties
+	 "parameters" : { 
+	        "configuration" : { "disableOrderByHighWaterMarkColumn" : true } }
 	}
 
 ### Soft Delete Column Deletion Detection policy
@@ -257,6 +276,22 @@ The **softDeleteMarkerValue** must be a string – use the string representation
 |rowversion| N/A |Row-version columns cannot be stored in the search index, but they can be used for change tracking | |
 | time, timespan, binary, varbinary, image, xml, geometry, CLR types | N/A |Not supported |
 
+## Configuration Settings
+
+SQL indexer exposes several configuration settings: 
+
+|Setting |Data type | Purpose | Default value |
+|--------|----------|---------|---------------|
+| queryTimeout | string | Sets the timeout for SQL query execution | 5 minutes ("00:05:00") |
+| disableOrderByHighWaterMarkColumn | bool | Causes the SQL query used by the high water mark policy to omit the ORDER BY clause. See [High Water Mark policy](#HighWaterMarkPolicy) | false | 
+
+These settings are used in the `parameters.configuration` object in the indexer definition. For example, to set the query timeout to 10 minutes, create or update the indexer with the following configuration: 
+
+	{
+	  ... other indexer definition properties
+	 "parameters" : { 
+	        "configuration" : { "queryTimeout" : "00:10:00" } }
+	}
 
 ## Frequently asked questions
 

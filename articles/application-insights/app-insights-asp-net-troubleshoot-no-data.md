@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2016" 
+	ms.date="10/24/2016" 
 	ms.author="awills"/>
  
 # Troubleshooting no data - Application Insights for .NET
@@ -187,7 +187,7 @@ It isn't available for Azure websites.
 ## No (server) data since I published the app to my server
 
 + Check that you actually copied all the Microsoft. ApplicationInsights DLLs to the server, together with Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
-+ In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
++ In your firewall, you might have to [open some TCP ports](app-insights-ip-addresses.md#data-access-api).
 + If you have to use a proxy to send out of your corporate network, set [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
 + Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 

@@ -123,7 +123,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 Once you've received a successful response from the app provisioning endpoint, your app has gained the direct application permissions it requested.  You can now move onto requesting a token for the desired resource.
 
 ## Get a token
-Once you've acquired the necessary authrorization for your application, you can proceed with acquiring access tokens for APIs.  To get a token using the client credentials grant, send a POST request to the `/token` v2.0 endpoint:
+Once you've acquired the necessary authorization for your application, you can proceed with acquiring access tokens for APIs.  To get a token using the client credentials grant, send a POST request to the `/token` v2.0 endpoint:
 
 ```
 POST /common/oauth2/v2.0/token HTTP/1.1

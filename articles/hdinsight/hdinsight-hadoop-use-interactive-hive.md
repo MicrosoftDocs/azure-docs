@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Use Interactive Hive in HDInsight? | Microsoft Azure"
+	pageTitle="Use Interactive Hive in HDInsight | Microsoft Azure"
 	description="Learn how to use Interactive Hive (Hive on LLAP) in HDInsight."
 	keywords=""
 	services="hdinsight"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2016"
+	ms.date="10/27/2016"
 	ms.author="jgao"/>
 
 
@@ -25,7 +25,7 @@ Interactive Hive (A.K.A. [Live Long and Process]( https://cwiki.apache.org/confl
 
 The Interactive Hive cluster is different from the Hadoop cluster. It only contains the Hive service. 
 
-> [AZURE.NOTE] MapReduce, Pig, Sqoop, Oozie, and other services will be removed from this cluster type noon.
+> [AZURE.NOTE] MapReduce, Pig, Sqoop, Oozie, and other services will be removed from this cluster type soon.
 The Hive service in the Interactive Hive cluster is only accessible via the Ambari Hive view, Beeline, and Hive ODBC. It can’t be accessed via Hive console, Templeton, Azure CLI, and Azure PowerShell. 
 
 

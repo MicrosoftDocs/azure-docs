@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="10/28/2016"
 	ms.author="tdykstra"/>
 
 # Create a .NET WebJob in Azure App Service

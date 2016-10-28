@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/26/2016"
+   ms.date="10/25/2016"
    ms.author="gwallace" />
 
 # Create an application gateway with web application firewall by using the portal
@@ -23,11 +23,11 @@
 - [Azure portal](application-gateway-web-application-firewall-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
 
+The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks. Web application protects against many of the OWASP top 10 common web vulnerabilities.
+
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises.
 Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others.
 To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
-
-The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
 
 ## Scenarios
 

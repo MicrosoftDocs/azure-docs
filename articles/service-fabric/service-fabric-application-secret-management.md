@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/19/2016"
+   ms.date="10/19/2016"
    ms.author="vturecek"/>
 
 # Managing secrets in Service Fabric applications

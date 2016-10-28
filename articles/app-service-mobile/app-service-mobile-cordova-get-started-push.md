@@ -5,7 +5,7 @@
 	documentationCenter="javascript"
 	manager="erikre"
 	editor=""
-	authors="adrianhall"/>
+	authors="ysxu"/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -14,7 +14,7 @@
 	ms.devlang="javascript"
 	ms.topic="article"
 	ms.date="10/01/2016"
-	ms.author="adrianha"/>
+	ms.author="yuaxu"/>
 
 # Add push notifications to your Apache Cordova app
 
@@ -22,29 +22,29 @@
 
 ## Overview
 
-In this tutorial, you add push notifications to the [Apache Cordova quick start] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [Apache Cordova quick start] tutorial, which you must complete first. If you have an ASP.NET backend and do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps].
+In this tutorial, you add push notifications to the [Apache Cordova quick start] project so that a push notification is sent to the device every time a record is inserted.
+
+If you do not use the downloaded quick start server project, you will need the push notification extension package. See [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) for more information.
 
 ##<a name="prerequisites"></a>Prerequisites
 
-This tutorial covers an Apache Cordova application being developed within Visual Studio 2015 and being run on the Google Android Emulator, an Android device, a Windows device, and an iOS device.
+This tutorial covers an Apache Cordova application developed with Visual Studio 2015 that runs on the Google Android Emulator, an Android device, a Windows device, and an iOS device.
 
-To complete this tutorial, you need the following:
+To complete this tutorial, you need:
 
-* A PC with [Visual Studio Community 2015] or newer.
+* A PC with [Visual Studio Community 2015] or later versions.
 * [Visual Studio Tools for Apache Cordova].
 * An [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
-* A completed [Apache Cordova quick start] project.  Completing other tutorials (like [authentication]) can happen first, but is not required.
-* (Android) A [Google account] with a verified email address and an Android device.
-* (iOS) An Apple Developer Program membership and an iOS device (iOS Simulator does not support push)
-* (Windows) A Windows Store Developer Account and a Windows 10 device
+* A completed [Apache Cordova quick start] project.
+* (Android) A [Google account] with a verified email address.
+* (iOS) An Apple Developer Program membership and an iOS device (iOS Simulator does not support push).
+* (Windows) A Windows Store Developer Account and a Windows 10 device.
 
-Although push notifications are supported on Android Emulators, we have found them to be unstable and do not recommend that you test push notifications on emulators.
+##<a name="configure-hub"></a>Configure a notification hub
 
-##<a name="create-hub"></a>Create a notification hub
+[AZURE.INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
-
-[Watch a video showing similar steps](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-3-Create-azure-notification-hub)
+[Watch a video showing steps in this section](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-3-Create-azure-notification-hub)
 
 ##Update the server project to send push notifications
 
@@ -52,7 +52,7 @@ Although push notifications are supported on Android Emulators, we have found th
 
 ##<a name="add-push-to-app"></a>Modify your Cordova app to receive push notifications
 
-You must make sure that your Apache Cordova app project is ready to handle push notifications. You must install the Cordova push plugin, plus any platform-specific push services.
+You must make sure that your Apache Cordova app project is ready to handle push notifications by installing the Cordova push plugin plus any platform-specific push services.
 
 #### Update the Cordova version in your project.
 
@@ -168,15 +168,13 @@ Initially, we will include some minimal code for Android. Later, we will make so
 
 Complete this section to enable push notifications for Android.
 
-####<a name="enable-gcm"></a>Enable Google Cloud Messaging
+####<a name="enable-gcm"></a>Enable Firebase Cloud Messaging
 
-Since we are targeting the Google Android platform initially, you must enable Google Cloud Messaging.  Similarly, if you were targeting Microsoft Windows devices, you would enable WNS support.
+Since we are targeting the Google Android platform initially, you must enable Firebase Cloud Messaging. Similarly, if you were targeting Microsoft Windows devices, you would enable WNS support.
 
-[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+[AZURE.INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-[Watch a video showing similar steps](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-4-Set-up-gcm-for-push)
-
-####<a name="configure-backend"></a>Configure the Mobile App backend to send push requests using GCM
+####<a name="configure-backend"></a>Configure the Mobile App backend to send push requests using FCM
 
 [AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
@@ -210,10 +208,10 @@ We tested this using a Google Nexus 5X device running Android 6.0 (Marshmallow).
 
 The push plugin relies on Android Google Play Services for push notifications.  
 
-1.  In **Visual Studio**,  click **Tools** > **Android** > **Android SDK Manager**, expand the **Extras** folder and check the box to make sure that each of the following SDKs is installed.    
-    * Android Support Repository version 20 or greater
-    * Google Play Services version 27 or greater
-    * Google Repository version 22 or greater
+1.  In **Visual Studio**,  click **Tools** > **Android** > **Android SDK Manager**, expand the **Extras** folder and check the box to make sure that each of the following SDKs is installed.
+    * Android 2.3 or higher
+    * Google Repository revision 27 or higher
+    * Google Play Services 9.0.2 or higher
 
 2.  Click on **Install Packages** and wait for the installation to complete.
 
@@ -227,14 +225,14 @@ You can now test push notifications by running the app and inserting items in th
 Attach your Android device to your development computer with a USB cable.  Instead of **Google Android Emulator**, select **Device**. Visual Studio will deploy the application to the device and run it.  You can then interact with the application on the device.  
 Improve your development experience.  Screen sharing applications such as [Mobizen] can assist you in developing an Android application by projecting your Android screen on to a web browser on your PC.
 
-- **On an an Android emulator:**  
+- **On an Android emulator:**  
 There are additional configuration steps required when running on an emulator.
 
 	Make sure that you are deploying to or debugging on a virtual device that has Google APIs set as the target, as shown below in the Android Virtual Device (AVD) manager.
 
 	![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-	If you want to use a faster x86 emulator, you [install the the HAXM driver](https://taco.visualstudio.com/en-us/docs/run-app-apache/#HAXM) and configure the emulator use it.
+	If you want to use a faster x86 emulator, you [install the HAXM driver](https://taco.visualstudio.com/en-us/docs/run-app-apache/#HAXM) and configure the emulator use it.
 
 	Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**, then follow the prompts to add an existing Google account to the device (we recommend using an existing account rather than creating a new one).
 
@@ -268,15 +266,13 @@ Later, use this identifier when you create an App ID on Apple's developer portal
 
 ####Register the app for push notifications on Apple's developer portal
 
-[AZURE.INCLUDE [Notification Hubs Xamarin Enable Apple Push Notifications](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
 [Watch a video showing similar steps](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-5-Set-up-apns-for-push)
 
 ####Configure Azure to send push notifications
 
-1. Log into the [Azure portal](https://portal.azure.com/). Click **Browse** > **Mobile Apps** > your Mobile App > **Settings** > **Push** > **Apple (APNS)** > **Upload Certificate**. Upload the .p12 push certificate file you exported earlier.  Make sure to select **Sandbox** if you created a development push certificate for development and testing.  Otherwise, choose **Production**. Your service is now configured to work with push notifications for iOS.
-
-	![](./media/app-service-mobile-cordova-get-started-push/mobile-app-upload-apns-cert.png)
+[AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
 ####Verify that your App ID matches your Cordova app
 

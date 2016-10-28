@@ -53,7 +53,7 @@ Make sure you have these prerequisites in place:
 
 This article illustrates how to use Azure Powershell with Azure Resource Manager to configure and manage protection of your servers. The example used in this article shows you how to protect a virtual machine, running on a Hyper-V host, to Azure. The following prerequisites are specific to this example. For a more comprehensive set of requirements for the various Site Recovery scenarios, refer to the documentation pertaining to that scenario.
 
-- A Hyper-V host running Windows Server 2012 R2, containing one or more virtual machines.
+- A Hyper-V host running Windows Server 2012 R2 or Microsoft Hyper-V Server 2012 R2 containing one or more virtual machines.
 - Hyper-V servers connected to the Internet, either directly or through a proxy.
 - The virtual machines you want to protect should conform with [Virtual Machine prerequisites](site-recovery-best-practices.md#virtual-machines).
 
@@ -256,4 +256,3 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
 ##Next Steps
 
 [Read more](https://msdn.microsoft.com/library/azure/mt637930.aspx) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.
-

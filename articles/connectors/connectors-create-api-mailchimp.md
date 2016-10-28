@@ -1,10 +1,10 @@
 <properties
 pageTitle="MailChimp | Microsoft Azure"
 description="Create Logic apps with Azure App service. MailChimp is a SaaS service that allows businesses to manage and automate email marketing activities, including sending marketing emails, automated messages and targeted campaigns."
-services="logic-apps"	
+services="logic-apps"
 documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+authors="msftman"
+manager="erikre"
 editor=""
 tags="connectors" />
 
@@ -22,13 +22,13 @@ ms.author="deonhe"/>
 MailChimp is a SaaS service that allows businesses to manage and automate email marketing activities, including sending marketing emails, automated messages and targeted campaigns.
 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 
-The MailChimp connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+The MailChimp connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats.
 
  The MailChimp connector has the following action(s) and/or trigger(s) available:
 
@@ -52,7 +52,7 @@ You can listen for these event(s):
 
 
 ## Create a connection to MailChimp
-To create Logic apps with MailChimp, you must first create a **connection** then provide the details for the following properties: 
+To create Logic apps with MailChimp, you must first create a **connection** then provide the details for the following properties:
 
 |Property| Required|Description|
 | ---|---|---|
@@ -66,9 +66,9 @@ To create Logic apps with MailChimp, you must first create a **connection** then
 Applies to version: 1.0
 
 ## newcampaign
-New Campaign: Create a new campaign based on a Campaign Type, Recipients list and Campaign Settings (subject line, title, from_name and reply_to) 
+New Campaign: Create a new campaign based on a Campaign Type, Recipients list and Campaign Settings (subject line, title, from_name and reply_to)
 
-```POST: /campaigns``` 
+```POST: /campaigns```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -88,9 +88,9 @@ New Campaign: Create a new campaign based on a Campaign Type, Recipients list an
 
 
 ## newlist
-New List: Create a new list in your MailChimp account 
+New List: Create a new list in your MailChimp account
 
-```POST: /lists``` 
+```POST: /lists```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -110,9 +110,9 @@ New List: Create a new list in your MailChimp account
 
 
 ## addmember
-Add member to list: Add or update a list member 
+Add member to list: Add or update a list member
 
-```POST: /lists/{list_id}/members``` 
+```POST: /lists/{list_id}/members```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -133,9 +133,9 @@ Add member to list: Add or update a list member
 
 
 ## removemember
-Remove Member from list: Delete a member from a list. 
+Remove Member from list: Delete a member from a list.
 
-```DELETE: /lists/replacemailwithhash/{list_id}/members/{member_email}``` 
+```DELETE: /lists/replacemailwithhash/{list_id}/members/{member_email}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -156,9 +156,9 @@ Remove Member from list: Delete a member from a list.
 
 
 ## updatemember
-Update member information: Update information for a specific list member 
+Update member information: Update information for a specific list member
 
-```PATCH: /lists/replacemailwithhash/{list_id}/members/{member_email}``` 
+```PATCH: /lists/replacemailwithhash/{list_id}/members/{member_email}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -180,9 +180,9 @@ Update member information: Update information for a specific list member
 
 
 ## OnMemberSubscribed
-When a Member has been added to a list: Triggers a workflow when a new member has been added to a list 
+When a Member has been added to a list: Triggers a workflow when a new member has been added to a list
 
-```GET: /trigger/lists/{list_id}/members``` 
+```GET: /trigger/lists/{list_id}/members```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -203,9 +203,9 @@ When a Member has been added to a list: Triggers a workflow when a new member ha
 
 
 ## OnCreateList
-When a new list is created: Triggers a workflow when a new list is created 
+When a new list is created: Triggers a workflow when a new list is created
 
-```GET: /trigger/lists``` 
+```GET: /trigger/lists```
 
 There are no parameters for this call
 #### Response
@@ -222,7 +222,7 @@ There are no parameters for this call
 |default|Operation Failed.|
 
 
-## Object definitions 
+## Object definitions
 
 ### NewCampaignRequest
 
@@ -676,8 +676,7 @@ There are no parameters for this call
 ### Object
 
 
-| Property Name | Data Type | Required |
-|---|---|---|
+
 
 
 

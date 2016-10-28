@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2016"    
+	ms.date="10/24/2016"    
 	ms.author="juliako"/>
 
 # Configuring content protection policies using the Azure portal
@@ -36,7 +36,7 @@ This article demonstrates how to configure content protection policies with the 
 
 To use the portal to start configuring content protection, global to your AMS account, do the following:
 
-1. Log in at the [Azure portal](https://portal.azure.com/).
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
 2. Select **Settings** > **Content protection**.
 
 ![Protect content](./media/media-services-portal-content-protection/media-services-content-protection001.png)
