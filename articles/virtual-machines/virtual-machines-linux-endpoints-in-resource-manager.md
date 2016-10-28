@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Classic Endpoints in Resource Manager Overview | Microsoft Azure"
+   pageTitle="Classic Endpoints in Resource Manager | Microsoft Azure"
    description="Understand how endpoints from the Classic deployment model are now implemented in Resource Manager using Network Security Groups and ACL rules"
    services="virtual-machines-linux"
    documentationCenter=""
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="10/27/2016"
    ms.author="iainfou"/>
 
 # Classic Endpoints in Resource Manager
 [AZURE.INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 
 ## Next steps
-You can read more detailed information on the technologies discussed here, along with quick-start guides for using Network Security Groups, in the following articles:
+You can read more detailed information on the technologies discussed here, along with quickstart guides for using Network Security Groups, in the following articles:
 
 - [Quick-start - Create a Network Security Group and ACL rules using the Azure CLI](virtual-machines-linux-nsg-quickstart.md)  
 - [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)  

@@ -78,7 +78,7 @@ For example, the Microsoft Security Response Center (MSRC) responds to all secur
 
 ## Software update considerations
 
-After you perform an initial audit of the software in use in your enterprise, you should determine the requirements to setup you software update management system, which depends on the software update management system that you are using. For WSUS read [Best Practices with Windows Server Update Services](https://technet.microsoft.com/library/Cc708536), for System Center read [Planning for Software Updates in Configuration Manager](https://technet.microsoft.com/library/gg712696).
+After you perform an initial audit of the software in use in your enterprise, you should determine the requirements to setup your software update management system, which depends on the software update management system that you are using. For WSUS read [Best Practices with Windows Server Update Services](https://technet.microsoft.com/library/Cc708536), for System Center read [Planning for Software Updates in Configuration Manager](https://technet.microsoft.com/library/gg712696).
 
 However, there are some general considerations and best practices that you can apply regardless of the solution that you are using as shown in the sections that follows.
 

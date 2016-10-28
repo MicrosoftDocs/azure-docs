@@ -61,7 +61,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 
     ![Data factory home page](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## Launch and use Copy Wizard
+## Launch Copy Wizard
 
 1. On the Data Factory home page, click the **Copy data** tile to launch **Copy Wizard**. 
 
