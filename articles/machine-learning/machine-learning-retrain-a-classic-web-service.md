@@ -26,7 +26,7 @@ You must have set up a training experiment and a predictive experiment as shown 
 
 >[AZURE.IMPORTANT] The predictive experiment must be deployed as a Classic machine learning web service. 
  
-For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service).
+For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Add a new Endpoint
  

@@ -26,7 +26,7 @@ You must have set up a training experiment and a predictive experiment as shown 
 
 >[AZURE.IMPORTANT] The predictive experiment must be deployed as an Azure Resource Manager (New) based machine learning web service. 
  
-For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service).
+For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
 This process requires that you have installed the Azure Machine Learning Cmdlets. For information installing the Machine Learning cmdlets, see the [Azure Machine Learning Cmdlets](https://msdn.microsoft.com/library/azure/mt767952.aspx) reference on MSDN.
 
