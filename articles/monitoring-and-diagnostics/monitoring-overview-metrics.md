@@ -1,5 +1,5 @@
 
-task<properties
+<properties
 	pageTitle="Overview of metrics in Microsoft Azure | Microsoft Azure"
 	description="Overview of metrics and their uses in Microsoft Azure"
 	authors="kamathashwin"
