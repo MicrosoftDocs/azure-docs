@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/17/2016"
+   ms.date="10/28/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center quick start guide
@@ -43,7 +43,10 @@ In the portal, follow these steps to access Security Center:
 1. On the **Microsoft Azure** menu, select **Security Center**.
 ![Azure menu][1]
 
-2. The **Security Center** blade opens. For easy access to the **Security Center** blade in the future, select the **Pin blade to dashboard** option (upper right).
+2. If you are accessing Security Center for the first time, the **Welcome** blade opens. Select **Yes! I want to Launch Azure Security Center** to open the **Security Center** blade and to enable data collection.
+![Welcome screen][10]
+
+3. After you launch Security Center from the Welcome blade or select Security Center from the Microsoft Azure menu, the **Security Center** blade opens. For easy access to the **Security Center** blade in the future, select the **Pin blade to dashboard** option (upper right).
 ![Pin blade to dashboard option][2]
 
 ## Use Security Center
@@ -88,6 +91,8 @@ You can configure security policies for your Azure subscriptions and resource gr
 1.	Return to the **Security Center** blade and select the **Security alerts** tile. The **Security alerts** blade opens and displays a list of alerts. The Security Center analysis of your security logs and network activity generates these alerts. Alerts from integrated partner solutions are included.
 ![Security alerts in Azure Security Center][7]
 
+> [AZURE.NOTE] Security alerts are only available if the Standard tier of Security Center is enabled. A 90 day free trial of the Standard tier is available. See [Next steps](#next-steps) for information on how to get the Standard tier.
+
 2.	Select an alert to view additional information. In this example, let's select **Modified system binary discovered**. This opens blades that provide additional details about the alert.
 ![Security alert details in Azure Security Center][8]
 
@@ -105,7 +110,7 @@ This article introduced you to the security monitoring and policy management com
 - Configure a security policy for your Azure subscription. To learn more, see [Setting security policies in Azure Security Center](security-center-policies.md).
 - Use the recommendations in Security Center to help you protect your Azure resources. To learn more, see [Managing security recommendations in Azure Security Center](security-center-recommendations.md).
 - Review and manage your current security alerts. To learn more, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
-- Learn more about the [advanced threat detection features](security-center-detection-capabilities.md) that come with the [Standard tier](security-center-pricing.md#why-upgrade-to-standard) of Security Center.
+- Learn more about the [advanced threat detection features](security-center-detection-capabilities.md) that come with the [Standard tier](security-center-pricing.md) of Security Center. A 90 day free trial of the Standard tier is available.
 - If you have questions about using Security Center, see the [Azure Security Center FAQ](security-center-faq.md).
 
 <!--Image references-->
@@ -118,3 +123,4 @@ This article introduced you to the security monitoring and policy management com
 [7]: ./media/security-center-get-started/security-alert.png
 [8]: ./media/security-center-get-started/security-alert-detail.png
 [9]: ./media/security-center-get-started/partner-solutions.png
+[10]: ./media/security-center-get-started/welcome.png
