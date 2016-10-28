@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Retrain a New Web service using the Machine Learning Management PowerShell cmdlets | Microsoft Azure"
-	description="Learn how to programmatically retrain a model and update the Web service to use the newly trained model in Azure Machine Learning using the Machine Learning Management PowerShell cmdlets."
+	pageTitle="Retrain a New web service using the Machine Learning Management PowerShell cmdlets | Microsoft Azure"
+	description="Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning using the Machine Learning Management PowerShell cmdlets."
 	services="machine-learning"
 	documentationCenter=""
 	authors="vDonGlover"
@@ -16,13 +16,17 @@
 	ms.date="09/27/2016"
 	ms.author="v-donglo"/>
 
-# Retrain a New Web service using the Machine Learning Management PowerShell cmdlets
+# Retrain a New web service using the Machine Learning Management PowerShell cmdlets
 
-When you retrain a New Web service, you update the predictive Web service definition to reference the new trained model.  
+When you retrain a New web service, you update the predictive web service definition to reference the new trained model.  
 
 ## Prerequisites
 
-You must have set up a Training Experiment and a Predictive Experiment as shown in Retrain Machine Learning models programmatically. For information on creating the Training and Predictive Experiments, see [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md).
+You must have set up a training experiment and a predictive experiment as shown in [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md). 
+
+>[AZURE.IMPORTANT] The predictive experiment must be deployed as an Azure Resource Manager (New) based machine learning web service. 
+ 
+For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service).
 
 This process requires that you have installed the Azure Machine Learning Cmdlets. For information installing the Machine Learning cmdlets, see the [Azure Machine Learning Cmdlets](https://msdn.microsoft.com/library/azure/mt767952.aspx) reference on MSDN.
 
@@ -34,11 +38,11 @@ Copied the following information from the retraining output:
 The steps you take are:
 
 1.	Sign in to your Azure Resource Manager account.
-2.	Get the Web service definition
+2.	Get the web service definition
 3.	Export the Web Service Definition as JSON
 4.	Update the reference to the ilearner blob in the JSON.
 5.	Import the JSON into a Web Service Definition
-6.	Update the Web service with new Web Service Definition
+6.	Update the web service with new Web Service Definition
 
 ## Sign in to your Azure Resource Manager account
 
@@ -46,7 +50,7 @@ You must first sign in to your Azure account from within the PowerShell environm
 
 ## Get the Web Service Definition
 
-Next, get the Web Service by calling the [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. The Web Service Definition is an internal representation of the trained model of the Web service and is not directly modifiable. Make sure that you are retrieving the Web Service Definition for your Predictive experiment and not your Training Experiment.
+Next, get the Web Service by calling the [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. The Web Service Definition is an internal representation of the trained model of the web service and is not directly modifiable. Make sure that you are retrieving the Web Service Definition for your Predictive experiment and not your training experiment.
 
 	$wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
@@ -94,7 +98,7 @@ You must use the [Import-AzureRmMlWebService](https://msdn.microsoft.com/library
 	$wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 
-## Update the Web service with new Web Service Definition
+## Update the web service with new Web Service Definition
 
 Finally, you use [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) cmdlet to update the Predictive experiment.
 
