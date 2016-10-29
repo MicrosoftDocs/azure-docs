@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2016"
+	ms.date="10/28/2016"
 	ms.author="dariagrigoriu"/>
     
 # Continuous Deployment to Azure App Service
@@ -35,7 +35,7 @@ To enable continuous deployment,
     
 3. Complete the authorization workflow. 
 
-4. In the **Deployment Source** blade, choose the project and branch to deploy from. When you're done, click **OK**.
+4. In the **Deployment source** blade, choose the project and branch to deploy from. When you're done, click **OK**.
   
 	![](./media/app-service-continuous-deployment/github_option.png)
 
