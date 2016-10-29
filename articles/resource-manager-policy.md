@@ -48,7 +48,7 @@ Policy definition is created using JSON. It consists of one or more conditions/l
 
 Basically, a policy contains the following elements:
 
-**Condition/Logical operators:** a set of conditions which can be manipulated through a set of logical operators.
+**Condition/Logical operators:** a set of conditions that can be manipulated through a set of logical operators.
 
 **Effect:** what happens when the condition is satisfied – either deny or audit. An audit effect emits a warning event service log. For example, an administrator can create a policy which causes an audit event if anyone creates a large VM. The administrator can review the logs later.
 
@@ -101,7 +101,7 @@ The following fields and sources are supported:
 Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***, and **property alias**. 
 
 ### Property aliases 
-Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and skus. It works across all API versions where the property exists. Aliases can be retrieved by using the REST API shown below (Powershell support will be added in the future):
+Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and SKUs. It works across all API versions where the property exists. Aliases can be retrieved by using the REST API shown below (Powershell support will be added in the future):
 
     GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
 	
@@ -504,7 +504,7 @@ To view all events related to audit effect, you can use the following CLI comman
 
 ## View a policy
 
-You use PowerShell, Azure CLI, or REST API to view a policy. You may need to do this after a deployment has failed, and you want to see the policy that denied the deployment. The error message includes an ID for the policy definition.
+You use PowerShell, Azure CLI, or REST API to view a policy. You may need to view a policy after a deployment has failed, and you want to see the rule that denied the deployment. The error message includes an ID for the policy definition.
 
 ### PowerShell
 
