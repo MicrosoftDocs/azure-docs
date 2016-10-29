@@ -74,10 +74,10 @@ If you are curious about the available environments across Azure, you can run:
 Visual Studio is used by developers to easily manage their Azure subscriptions while building solutions.  Visual Studio does not currently allow you to configure a connection to Azure Government in the user interface.  
 
 ### Updating Visual Studio for Azure Government
-To enable Visual Studio connect to Azure Government you need to update the registry.
+To enable Visual Studio to connect to Azure Government, you need to update the registry.
 
 1. Create a text file named **VisualStudioForAzureGov.reg**
-2. Copy and paste the following into **VisualStudioForAzureGov.reg**:
+2. Copy and paste the following text into **VisualStudioForAzureGov.reg**:
     ```
     [HKEY_CURRENT_USER\Software\Microsoft\VSCommon\ConnectedUser]
     "AadInstance"="https://login-us.microsoftonline.com/"
@@ -91,7 +91,8 @@ To enable Visual Studio connect to Azure Government you need to update the regis
 3. Save and then run the file.
 4. Launch Visual Studio and begin using [Cloud Explorer](../vs-azure-tools-resources-managing-with-cloud-explorer.md)
 
->[AZURE.NOTE] Once this registry key is set only Azure Government subscriptions will be accessible.  To return to using Azure Public you will need to delete the registry key *HKEY_CURRENT_USER\Software\Microsoft\VSCommon\ConnectedUser*.
+>[AZURE.NOTE] Once this registry key is set only Azure Government subscriptions are accessible.  To return to using Azure Public, you 
+need to delete the registry key *HKEY_CURRENT_USER\Software\Microsoft\VSCommon\ConnectedUser* and restart Visual Studio.
 
 
 ## Next steps
