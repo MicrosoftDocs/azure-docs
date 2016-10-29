@@ -78,22 +78,20 @@ To enable Visual Studio to connect to Azure Government, you need to update the r
 
 1. Create a text file named **VisualStudioForAzureGov.reg**
 2. Copy and paste the following text into **VisualStudioForAzureGov.reg**:
-    ```
-    [HKEY_CURRENT_USER\Software\Microsoft\VSCommon\ConnectedUser]
-    "AadInstance"="https://login-us.microsoftonline.com/"
-    "adaluri"="https://management.usgovcloudapi.net"
-    "AzureRMEndpoint"=" https://management.usgovcloudapi.net"
-    "AzureRMAudienceEndpoint"="https://management.core.usgovcloudapi.net"
-    "EnableAzureRMIdentity"="true"
-    "GraphUrl"="graph.windows.net"
-    "AadApplicationTenant"="63296244-ce2c-46d8-bc36-3e558792fbee"
-    ```
+
+        [HKEY_CURRENT_USER\Software\Microsoft\VSCommon\ConnectedUser]
+        "AadInstance"="https://login-us.microsoftonline.com/"
+        "adaluri"="https://management.usgovcloudapi.net"
+        "AzureRMEndpoint"=" https://management.usgovcloudapi.net"
+        "AzureRMAudienceEndpoint"="https://management.core.usgovcloudapi.net"
+        "EnableAzureRMIdentity"="true"
+        "GraphUrl"="graph.windows.net"
+        "AadApplicationTenant"="63296244-ce2c-46d8-bc36-3e558792fbee"
 3. Save and then run the file.
 4. Launch Visual Studio and begin using [Cloud Explorer](../vs-azure-tools-resources-managing-with-cloud-explorer.md)
 
 >[AZURE.NOTE] Once this registry key is set only Azure Government subscriptions are accessible.  To return to using Azure Public, you 
 need to delete the registry key *HKEY_CURRENT_USER\Software\Microsoft\VSCommon\ConnectedUser* and restart Visual Studio.
-
 
 ## Next steps
 
