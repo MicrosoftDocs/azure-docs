@@ -44,6 +44,7 @@ Connection type | Command
 [Resource Management](https://msdn.microsoft.com/library/mt125356.aspx) commands | `Add-AzureRmAccount -EnvironmentName AzureUSGovernment`
 [Azure Active Directory](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands | `Connect-MsolService -AzureEnvironment UsGovernment`
 [Azure Active Directory command v2](https://msdn.microsoft.com/library/azure/mt757189.aspx) | `Connect-AzureAD -AzureEnvironmentName AzureUSGovernment`
+[Azure CLI Command Line](../xplat-cli-install.md) | `azure login –environment "AzureUSGovernment"`
 
 You may also use the Environment switch when connecting to a storage account using New-AzureStorageContext and specify AzureUSGovernment.
 
