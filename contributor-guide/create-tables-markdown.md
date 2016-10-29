@@ -1,8 +1,4 @@
-<properties title="" pageTitle="Create tables in markdown" description="Explains how to code tables in markdown." metaKeywords="" services="" solutions="" documentationCenter="" authors="tysonn" videoId="" scriptId="" manager="carolz" />
-
-<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="12/26/2014" ms.author="tysonn" />
-
-#Create tables in markdown
+# Create tables in markdown
 
 The simplest way to create a table in markdown is to use pipes and lines.
 

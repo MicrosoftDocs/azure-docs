@@ -1,8 +1,4 @@
-<properties title="" pageTitle="Writing Azure documentation - style and voice cheat sheet" description="Style and voice information to help you create technical content for the Azure documentation center." metaKeywords="" services="" solutions="" documentationCenter="" authors="tysonn" videoId="" scriptId="" manager="required" />
-
-<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="12/16/2014" ms.author="glenga" />
-
-#Writing Azure documentation - style and voice cheat sheet
+# Writing Azure documentation - style and voice cheat sheet
 
 Here's a cheat sheet that contains pointers about how to write technical articles for Azure services and technologies. These guidelines apply whether you are creating new documentation or updating existing documentation.
 
@@ -19,7 +15,7 @@ The following sections contain a more details:
 + [Other style and voice issues to watch for]
 
 
-##Use a customer-friendly voice
+## Use a customer-friendly voice
 
 We aspire to follow these principles when we write technical content for Azure. We may not always get there, but we need to keep trying!
 
@@ -31,7 +27,7 @@ We aspire to follow these principles when we write technical content for Azure. 
 
 - **Show empathy**: Use a supportive tone in the article, and keep disclaimers to a minimum. Honestly call out areas that will be frustrating to customers. Make sure the article focuses on what matters to the customer, don't just give a technical lecture.
 
-##Consider localization and machine translation
+## Consider localization and machine translation
 Our technical articles are translated into many other languages, and some are modified for particular markets. People might also be using machine translation on the web to read the technical articles. So, write with the following guidance in mind:
 
 - **Make sure the article contains no grammar, spelling, or punctuation errors**: This is something we should do in general. Markdown Pad 2.0 has a basic spell checker, but you should also paste the (rendered HTML) content from the article into Word, which has a more robust spell and grammar checker.
@@ -44,7 +40,7 @@ Our technical articles are translated into many other languages, and some are mo
 
 - **Include the "small words"**: Words that we consider small and unimportant in English because they are understood for context (such as "a", "the", "that", and "is") are crucial for machine translation - make sure you include them!
 
-##Other style and voice issues to watch for
+## Other style and voice issues to watch for
 
 - Don't break up steps with commentary or asides.
 

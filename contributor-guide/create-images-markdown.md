@@ -38,7 +38,7 @@ Example:
 
 See [the markdown template](../markdown%20templates/markdown-template-for-new-articles.md) for an example.  The image reference links in this markdown template are designed to be at the bottom of the template.
 
-## Guidelines specific to azure.microsoft.com
+## Image guidelines specific to azure technical content
 
 Screenshots are currently encouraged if it's not possible to include repro steps. Do write your content so that the content can stand without the screenshots if necessary.
 
@@ -60,7 +60,7 @@ Use the following guidelines when creating and including art files:
     Example:
 
     ![This is an example of a gray border around whitespace.](./media/create-images-markdown/agent.png)
-    
+
     For a tool to help automate the process of adding the required border to images, see [AddACOMBorder tool - How to automate the process of adding the required 1 pixel grey border to ACOM images](https://github.com/Azure/Azure-CSI-Content-Tools/tree/master/Tools/AddACOMImageBorder).
 
 - Conceptual images with whitespace do not need a gray border.  
