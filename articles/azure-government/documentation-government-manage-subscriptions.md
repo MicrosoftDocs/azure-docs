@@ -86,7 +86,7 @@ To enable Visual Studio to connect to Azure Government, you need to update the r
         "adaluri"="https://management.usgovcloudapi.net"
         "AzureRMEndpoint"="https://management.usgovcloudapi.net"
         "AzureRMAudienceEndpoint"="https://management.core.usgovcloudapi.net"
-        "EnableAzureRMIdentity"="true"
+        "EnableAzureRMIdentity"="false"
         "GraphUrl"="graph.windows.net"
         "AadApplicationTenant"="63296244-ce2c-46d8-bc36-3e558792fbee"
         
