@@ -15,7 +15,7 @@ Maximum scale in SU <sup>2</sup>|N/A <sup>3</sup>|3 SU <sup>4</sup> |36 SU|36 SU
 
 <sup>4</sup> Basic has one fixed partition. At this tier, additional SUs are used for allocating more replicas for increased query workloads.
 
-<sup>5</sup> S3 HD has a different allocation structure in terms of allowable combinations. S3 HD has a maximum of 3 partitions and 12 replicas (at 3 x 12 = 36 search units), whereas regular S3 supports additional combinations of replicas and partitions (for example, 6 partitions and 6 replicas). S3 HD is capped at 3 partitions because the substantial increase in index limits (1,000 per partition; 3,000 per service) is at the upper bound of currently supported thresholds for index management.
+<sup>5</sup> S3 HD has a different allocation structure in terms of allowable combinations. S3 HD has a maximum of 3 partitions and 12 replicas (at 3 x 12 = 36 search units), whereas regular S3 supports additional combinations of replicas and partitions (for example, 6 partitions and 6 replicas). S3 HD is capped at 3 partitions because the substantial increase in index limits (1,000 per partition; 3,000 per service) is at the upper boundary of index support. Contact Microsoft Support if you require more than 1,000 indexes per partition for an S3 HD service.
 
 
 
