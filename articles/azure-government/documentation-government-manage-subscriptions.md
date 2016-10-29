@@ -94,7 +94,7 @@ To enable Visual Studio to connect to Azure Government, you need to update the r
 4. Save and then run the file by double-clicking it.  You are prompted to merge the file into your registry.
 5. Launch Visual Studio and begin using [Cloud Explorer](../vs-azure-tools-resources-managing-with-cloud-explorer.md)
 
->[AZURE.NOTE] Once this registry key is set only Azure Government subscriptions are accessible.  You will still see subscriptions that you conifgured previously but they will not work because Visual Studio is no connected to Azure Government isntead of Azure Public.  See the following section for steps to revert the changes.
+>[AZURE.NOTE] Once this registry key is set only Azure Government subscriptions are accessible.  You still see subscriptions that you configured previously but they do not work because Visual Studio is now connected to Azure Government instead of Azure Public.  See the following section for steps to revert the changes.
 
 ### Reverting Visual Studio Connection to Azure Government
 To enable Visual Studio to connect to Azure Public, you need to remove the registry settings that enable connection to Azure Government.
@@ -117,7 +117,7 @@ To enable Visual Studio to connect to Azure Public, you need to remove the regis
 4. Save and then run the file by double-clicking it.  You are prompted to merge the file into your registry.
 5. Launch Visual Studio
 
->[AZURE.NOTE] Once this registry key has bene reverted your Azure Government subscriptions will still show but will not be accessible.  They can safely be removed.
+>[AZURE.NOTE] Once this registry key has been reverted your Azure Government subscriptions show but are not accessible.  They can safely be removed.
 
 ## Next steps
 
