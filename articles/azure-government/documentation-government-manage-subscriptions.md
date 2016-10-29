@@ -76,8 +76,9 @@ Visual Studio is used by developers to easily manage their Azure subscriptions w
 ### Updating Visual Studio for Azure Government
 To enable Visual Studio to connect to Azure Government, you need to update the registry.
 
-1. Create a text file named **VisualStudioForAzureGov.reg**
-2. Copy and paste the following text into **VisualStudioForAzureGov.reg**:
+1. Close Visual Studio
+2. Create a text file named **VisualStudioForAzureGov.reg**
+3. Copy and paste the following text into **VisualStudioForAzureGov.reg**:
 
         Windows Registry Editor Version 5.00
         
@@ -90,11 +91,31 @@ To enable Visual Studio to connect to Azure Government, you need to update the r
         "GraphUrl"="graph.windows.net"
         "AadApplicationTenant"="63296244-ce2c-46d8-bc36-3e558792fbee"
         
-3. Save and then run the file.
-4. Launch Visual Studio and begin using [Cloud Explorer](../vs-azure-tools-resources-managing-with-cloud-explorer.md)
+4. Save and then run the file by double clicking on it.  You will be prompted to merge the file into your registry.
+5. Launch Visual Studio and begin using [Cloud Explorer](../vs-azure-tools-resources-managing-with-cloud-explorer.md)
 
->[AZURE.NOTE] Once this registry key is set only Azure Government subscriptions are accessible.  To return to using Azure Public, you 
-need to delete the registry key *HKEY_CURRENT_USER\Software\Microsoft\VSCommon\ConnectedUser* and restart Visual Studio.
+>[AZURE.NOTE] Once this registry key is set only Azure Government subscriptions are accessible.  See the following section for steps to revert the changes.
+
+### Reverting Visual Studio Connection to Azure Government
+To enable Visual Studio to connect to Azure Public, you need to remove the registry settings that enable connection to Azure Government.
+
+1. Close Visual Studio
+2. Create a text file named **VisualStudioForAzureGov_Remove.reg**
+3. Copy and paste the following text into **VisualStudioForAzureGov_Remove.reg**:
+
+        Windows Registry Editor Version 5.00
+        
+        [HKEY_CURRENT_USER\Software\Microsoft\VSCommon\ConnectedUser]
+        "AadInstance"=-
+        "adaluri"=-
+        "AzureRMEndpoint"=-
+        "AzureRMAudienceEndpoint"=-
+        "EnableAzureRMIdentity"=-
+        "GraphUrl"=-
+        "AadApplicationTenant"=-
+        
+4. Save and then run the file by double clicking on it.  You will be prompted to merge the file into your registry.
+5. Launch Visual Studio
 
 ## Next steps
 
