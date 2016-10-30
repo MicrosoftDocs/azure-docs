@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="10/28/2016"
+	ms.date="10/30/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Use Policy to manage resources and control access
@@ -50,7 +50,7 @@ Basically, a policy contains the following elements:
 
 **Condition/Logical operators:** a set of conditions that can be manipulated through a set of logical operators.
 
-**Effect:** what happens when the condition is satisfied – either deny or audit. An audit effect emits a warning event service log. For example, an administrator can create a policy which causes an audit event if anyone creates a large VM. The administrator can review the logs later.
+**Effect:** what happens when the condition is satisfied – either deny or audit. An audit effect emits a warning event service log. For example, an administrator can create a policy that causes an audit event if anyone creates a large VM. The administrator can review the logs later.
 
     {
       "if" : {
@@ -63,7 +63,7 @@ Basically, a policy contains the following elements:
     
 ## Policy evaluation
 
-Policies are evaluated when resources are created. In case of template deployment, policies are evaluated during the creation of each resource in the template. 
+Policies are evaluated when resources are created. For template deployment, policies are evaluated during the creation of each resource in the template. 
 
 > [AZURE.NOTE] Currently, policy does not evaluate resource types that do not support tags, kind, and location, such as the Microsoft.Resources/deployments resource type. This support will be added at a future time. To avoid backward compatibility issues, you should explicitly specify type when authoring policies. For example, a tag policy that does not specify types is applied for all types. In that case, a template deployment may fail if there is a nested resource that doesn't support tags, and the deployment resource type has been added to policy evaluation. 
 
@@ -77,7 +77,7 @@ The supported logical operators along with the syntax are:
 | And			| "allOf" : [ {&lt;condition  or operator &gt;},{&lt;condition  or operator &gt;}] |
 | Or						 | "anyOf" : [ {&lt;condition  or operator &gt;},{&lt;condition  or operator &gt;}] |
 
-Resource Manager enables you to specify complex logic in your policy through nested operators. For example, you can deny resource creation in a particular location for a specified resource type. An example of nested operators is shown below.
+Resource Manager enables you to specify complex logic in your policy through nested operators. For example, you can deny resource creation in a particular location for a specified resource type. An example of nested operators is in this topic.
 
 ## Conditions
 
@@ -101,11 +101,11 @@ The following fields and sources are supported:
 Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***, and **property alias**. 
 
 ### Property aliases 
-Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and SKUs. It works across all API versions where the property exists. Aliases can be retrieved by using the REST API shown below (Powershell support will be added in the future):
+Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and SKUs. It works across all API versions where the property exists. You can retrieve aliases through the REST API (Powershell support will be added in the future):
 
     GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
 	
-The definition of an alias is shown below. As you can see, an alias defines paths in different API versions, even when there is a property name change. 
+The following example shows a definition of an alias. As you can see, an alias defines paths in different API versions, even when there is a property name change. 
 
 	"aliases": [
 	    {
@@ -426,24 +426,24 @@ The output of execution is stored in $policy object, and can be used later durin
 
     New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
-You can apply the policy created above through PowerShell to the desired scope by using the New-AzureRmPolicyAssignment cmdlet:
+You can apply the policy to the desired scope by using the New-AzureRmPolicyAssignment cmdlet:
 
     New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
         
-Here $policy is the policy object that was returned as a result of executing the New-AzureRmPolicyDefinition cmdlet as shown above. The scope here is the name of the resource group you specify.
+Here $policy is the policy object that was returned as a result of executing the New-AzureRmPolicyDefinition cmdlet. The scope here is the name of the resource group you specify.
 
-If you want to remove the above policy assignment, you can do it as follows:
+To remove a policy assignment, use:
 
     Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
 
-You can get, change or remove policy definitions through Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition, and Remove-AzureRmPolicyDefinition cmdlets respectively.
+You can get, change, or remove policy definitions through Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition, and Remove-AzureRmPolicyDefinition cmdlets respectively.
 
 Similarly, you can get, change, or remove policy assignments through the Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment, and Remove-AzureRmPolicyAssignment cmdlets respectively.
 
 
 ### Azure CLI
 
-You can create a policy definition using the azure CLI with the policy definition command as shown below. The following example creates a policy for allowing resources only in North Europe and West Europe.
+You can create a policy definition using the Azure CLI with the policy definition command. The following example creates a policy for allowing resources only in North Europe and West Europe.
 
     azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{	
       "if" : {
@@ -458,25 +458,25 @@ You can create a policy definition using the azure CLI with the policy definitio
     }'    
     
 
-It is possible to specify the path to a .json file containing the policy instead of specifying the policy inline as shown below.
+It is possible to specify the path to a .json file containing the policy instead of specifying the policy inline.
 
     azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
 
-You can apply the policy created above through Azure CLI to the desired scope by using the policy assignment command:
+You can apply the policy to the desired scope by using the policy assignment command:
 
     azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/<policy-name> --scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
         
-The scope here is the name of the resource group you specify. If the value of the parameter policy-definition-id is unknown, it is possible to obtain it through the Azure CLI as shown below: 
+The scope here is the name of the resource group you specify. If the value of the parameter policy-definition-id is unknown, it is possible to obtain it through the Azure CLI. 
 
     azure policy definition show <policy-name>
 
-If you want to remove the above policy assignment, you can do it as follows:
+To remove a policy assignment, use:
 
     azure policy assignment delete --name regionPolicyAssignment --scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
 
-You can get, change or remove policy definitions through policy definition show, set, and delete commands respectively.
+You can get, change, or remove policy definitions through policy definition show, set, and delete commands respectively.
 
-Similarly, you can get, change or remove policy assignments through the policy assignment show and delete commands respectively.
+Similarly, you can get, change, or remove policy assignments through the policy assignment show and delete commands respectively.
 
 ## Policy audit events
 
