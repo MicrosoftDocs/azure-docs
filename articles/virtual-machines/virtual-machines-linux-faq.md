@@ -17,7 +17,7 @@
 	ms.date="08/16/2016"
 	ms.author="cynthn"/>
 
-# Frequently asked question about Linux Virtual Machines 
+# Frequently asked question about Linux Virtual Machines
 
 This article addresses some common questions about Linux virtual machines created in Azure using the Resource Manager deployment model. For the Windows version of this topic, see [Frequently asked question about Windows Virtual Machines](virtual-machines-windows-faq.md)
 
@@ -35,7 +35,7 @@ An Azure storage account provides storage for the operating system disk and any 
 
 ## How can I access my virtual machine?
 
-Establish a remote connection to log on to the virtual machine, using Secure Shell (SSH). See the instructions on how to connect [from Windows](virtual-machines-linux-ssh-from-windows.md) or 
+Establish a remote connection to log on to the virtual machine, using Secure Shell (SSH). See the instructions on how to connect [from Windows](virtual-machines-linux-ssh-from-windows.md) or
 [from Linux and Mac](virtual-machines-linux-mac-create-ssh-keys.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
 
 
@@ -44,7 +44,7 @@ If you’re having problems, check out [Troubleshoot Secure Shell (SSH) connecti
 
 ## Can I use the temporary disk (/dev/sdb1) to store data?
 
-Don't use the temporary disk (/dev/sdb1) to store data. It is only there for temporary storage. You risk losing data that can’t be recovered. 
+Don't use the temporary disk (/dev/sdb1) to store data. It is only there for temporary storage. You risk losing data that can’t be recovered.
 
 
 ## Can I copy or clone an existing Azure VM?
@@ -69,7 +69,7 @@ Yes. The computer name can be a maximum of 64 characters in length. See [Infrast
 
 ## What are the username requirements when creating a VM?
 
-Usernames must be 1 - 64 characters in length. 
+Usernames must be 1 - 64 characters in length.
 
 The following usernames are not allowed:
 
@@ -114,9 +114,17 @@ The following passwords are not allowed:
 
 <table>
 	<tr>
-		<td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
+		<td style="text-align:center">abc@123</td>
+		<td style="text-align:center">P@$$w0rd</td>
+		<td style="text-align:center">P@ssw0rd</td>
+		<td style="text-align:center">P@ssword123</td>
+		<td style="text-align:center">Pa$$word</td>
 	</tr>
 	<tr>
-		<td style="text-align:center">pass@word1</td><td style="text-align:center">Password!</td><td style="text-align:center">Password1</td><td style="text-align:center">Password22</td><td style="text-align:center">iloveyou!</td>
+		<td style="text-align:center">pass@word1</td>
+		<td style="text-align:center">Password!</td>
+		<td style="text-align:center">Password1</td>
+		<td style="text-align:center">Password22</td>
+		<td style="text-align:center">iloveyou!</td>
 	</tr>
 </table>
