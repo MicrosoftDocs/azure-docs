@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Replicate Hyper-V virtual machines in VMM clouds to Azure using Site Recovery with the Azure portal | Microsoft Azure"
+	pageTitle="Replicate Hyper-V virtual machines in VMM clouds to Azure using the Azure portal | Microsoft Azure"
 	description="Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of Hyper-V VMs in VMM clouds to Azure using the Azure portal"
 	services="site-recovery"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/16/2016"
+	ms.date="09/30/2016"
 	ms.author="raynew"/>
 
-# Replicate Hyper-V virtual machines in VMM clouds to Azure using Azure Site Recovery with the Azure portal | Microsoft Azure
+# Replicate Hyper-V virtual machines in VMM clouds to Azure using the Azure portal
 
 > [AZURE.SELECTOR]
 - [Azure portal](site-recovery-vmm-to-azure.md)
@@ -24,17 +24,17 @@
 - [PowerShell Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 - [PowerShell classic](site-recovery-deploy-with-powershell.md)
 
-Welcome to Azure Site Recovery! Use this article if you want to replicate on-premises Hyper-V virtual machines managed in System Center Virtual Machine Manager (VMM) clouds to Azure using Azure Site Recovery in the Azure portal.
+Use this article if you want to replicate on-premises Hyper-V virtual machines managed in System Center Virtual Machine Manager (VMM) clouds to Azure, using the Azure Site Recovery service in the Azure portal.
 
 > [AZURE.NOTE] Azure has two different [deployment models](../resource-manager-deployment-model
 > ) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models.
 
 
-Azure Site Recovery in the Azure portal provides several new features:
+Site Recovery in the Azure portal provides several new features:
 
-- In the Azure portal the Azure Backup and Azure Site Recovery services are combined into a single Recovery Services vault, so that you can set up and manage business continuity and disaster recovery (BCDR) from a single location. A unified dashboard allows you to monitor and manage operations across your on-premises sites and the Azure public cloud.
+- The Azure Backup and Azure Site Recovery services are combined into a single Recovery Services vault, so that you can set up and manage business continuity and disaster recovery (BCDR) from a single location. A unified dashboard allows you to monitor and manage operations across your on-premises sites and the Azure public cloud.
 - Users with Azure subscriptions provisioned with the Cloud Solution Provider (CSP) program can now manage Site Recovery operations in the Azure portal.
-- Site Recovery in the Azure portal can replicate machines to Azure Resource Manager storage accounts. At failover, Site Recovery creates Resource Manager-based VMs in Azure.
+- From the Azure portal you can replicate machines to Azure Resource Manager storage accounts. At failover, Site Recovery creates Resource Manager-based VMs in Azure.
 - Site Recovery continues to support replication to classic storage accounts. At failover, Site Recovery creates VMs using the classic model.
 
 
@@ -42,23 +42,22 @@ After reading this article, post any comments at the bottom in the Disqus commen
 
 ## Overview
 
-Organizations need a BCDR strategy that determines how apps, workloads, and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Your BCDR strategy should keep business data safe and recoverable, and ensure that workloads remain continuously available when disaster occurs.
+Organizations need a BCDR strategy that determines how workloads and data remain running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible.
 
-Site Recovery is an Azure service that contributes to your BCDR strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
+Site Recovery contributes to your BCDR strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
 
-This article provides all the information you need to replicate on-premises Hyper-V VMs in VMM clouds to Azure. It includes an architectural overview, planning information, and deployment steps for configuring Azure, on-premises servers, replication settings, and capacity planning. After you've set up the infrastructure you can enable replication on machines you want to protect, and check that failover works.
+This article provides all the information you need to replicate on-premises Hyper-V VMs managed in VMM clouds to Azure. It includes an architectural overview, planning information, and deployment steps for setting up the infrastructure (Azure, on-premises servers, replication and capacity). After you've set up the infrastructure you can enable replication on machines you want to protect, and check that failover works.
 
 
 ## Business advantages
 
-- Site Recovery provides off-site protection for business workloads and applications running on Hyper-V VMs.
-- The Recovery Services portal provides a single location to set up, manage, and monitor replication, failover, and recovery.
-- You can easily run failovers from your on-premises infrastructure to Azure, and failback (restore) from Azure to Hyper-V host servers in your on-premises site.
-- You can configure recovery plans with multiple machines so that tiered application workloads fail over together.
+- Offsite protection for business apps running on Hyper-V VMs.
+- A single location to set up, manage, and monitor replication, failover, and recovery.
+- Simple failover to Azure, and failback (restore) from Azure to Hyper-V host servers in your on-premises site.
+- Recovery plans that include multiple VMs, so that tiered application workloads fail over together.
 
 
 ## Scenario architecture
-
 
 These are the scenario components:
 
@@ -86,9 +85,9 @@ Here's what you need on-premises
 
 **Prerequisite** | **Details**
 --- | ---
-**VMM**| One or more VMM servers running on System Center 2012 R2. Each VMM server should have one or more clouds configured. A cloud should contain:<br/><br/> One or more VMM host groups.<br/><br/> One or more Hyper-V host servers or clusters in each host group.<br/><br/>[Learn more](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html) about setting up VMM clouds.
+**VMM**| One or more VMM servers running on System Center 2012 R2. Each VMM server should have one or more clouds configured. A cloud should contain:<br/><br/> One or more VMM host groups.<br/><br/> One or more Hyper-V host servers or clusters in each host group.<br/><br/>[Learn more](http://social.technet.microsoft.com/wiki/contents/articles/2729.how-to-create-a-cloud-in-vmm-2012.aspx) about setting up VMM clouds.
 **Hyper-V** | Hyper-V host servers must be running at least **Windows Server 2012 R2** with Hyper-V role or **Microsoft Hyper-V Server 2012 R2** and have the latest updates installed.<br/><br/> A Hyper-V server should contain one or more VMs.<br/><br/> A Hyper-V host server or cluster that includes VMs you want to replicate must be managed in a VMM cloud.<br/><br/>Hyper-V servers should be connected to the Internet, either directly or via a proxy.<br/><br/>Hyper-V servers should have fixes mentioned in article [2961977](https://support.microsoft.com/kb/2961977) installed.<br/><br/>Hyper-V host servers need internet access for data replication to Azure.
-**Provider and agent** | During Azure Site Recovery deployment you’ll install the Azure Site Recovery Provider on the VMM server, and the Recovery Services agent on Hyper-V hosts. The Provider and agent need to connect to Azure over the internet directly or through a proxy. Note that an HTTPS-based proxy isn't supported. The proxy server on the VMM server and Hyper-V hosts should allow access to: <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blob.core.windows.net <br/><br/> *.store.core.windows.net<br/><br/>If you have IP address-based firewall rules on the VMM server, check that the rules allow communication to Azure. You need to allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS (443) port.<br/><br/>Allow IP address ranges for the Azure region of your subscription, and for West US.<br/><br/>In addition. the proxy server on the VMM server needs access to https://www.msftncsi.com/ncsi.txt
+**Provider and agent** | During Azure Site Recovery deployment you’ll install the Azure Site Recovery Provider on the VMM server, and the Recovery Services agent on Hyper-V hosts. The Provider and agent need to connect to Azure over the internet directly or through a proxy. Note that an HTTPS-based proxy isn't supported. The proxy server on the VMM server and Hyper-V hosts should allow access to: <br/><br/> ``*.hypervrecoverymanager.windowsazure.com`` <br/><br/> ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.blob.core.windows.net``<br/><br/> ``*.store.core.windows.net``<br/><br/> If you have IP address-based firewall rules on the VMM server, check that the rules allow communication to Azure. You need to allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS (443) port.<br/><br/> Allow IP address ranges for the Azure region of your subscription, and for West US.<br/><br/> In addition. the proxy server on the VMM server needs access to ``https://www.msftncsi.com/ncsi.txt``
 
 
 ## Protected machine prerequisites
