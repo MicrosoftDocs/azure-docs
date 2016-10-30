@@ -28,7 +28,7 @@ When outages occur in the primary site, you fail over to the secondary site to k
 
 ## Site Recovery in the Azure portal
 
-Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources. The Azure Resource Manager model and the classic services management model. Azure also has two portals. The [Azure classic portal](https://manage.windowsazure.com/), and the [Azure portal](https://portal.azure.com).
+Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources. The Azure Resource Manager model, and the classic services management model. Azure also has two portals. The [Azure classic portal](https://manage.windowsazure.com/), and the [Azure portal](https://portal.azure.com).
 
 - Site Recovery can be deployed in both the classic portal and the Azure portal.
 - In the Azure classic portal, you can support Site Recovery with the classic services management model.
@@ -47,7 +47,7 @@ Here's what Site Recovery can do for your business:
 - **Perform easy replication testing**—You can easily run test failovers to support disaster recovery drills, without affecting production environments.
 - **Fail over and recover**—You can run planned failovers for expected outages with zero-data loss, or unplanned failovers with minimal data loss (depending on replication frequency), for unexpected disasters. You can fail back to your primary site when it's available again.
 - **Multiple VM failover**—You can set up recovery plans that include scripts and Azure automation runbooks. Recovery plans allow you to model and customize failover and recovery of multi-tier applications that are spread over multiple VMs.
-- **Integrate with existing BCDR technologies**—Site Recovery integrates with other BCDR technologies. For example, you can use Site Recovery to protect the SQL Server backend of corporate workloads (including native support for SQL Server AlwaysOn), to manage the failover of availability groups.
+- **Integrate with existing BCDR technologies**—Site Recovery integrates with other BCDR technologies. For example, you can use Site Recovery to protect the SQL Server backend of corporate workloads, including native support for SQL Server AlwaysOn, to manage the failover of availability groups.
 
 ## What can I replicate?
 
