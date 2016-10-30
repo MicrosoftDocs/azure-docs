@@ -15,50 +15,50 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/28/2016"
+   ms.date="10/30/2016"
    ms.author="tomfitz"/>
 
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
 
-This topic describes how you can resolve some common Azure deployment errors you may encounter. There are two types of errors you can receive: validation errors and deployment errors. Before attempting a deployment, Resource Manager validates the template. If it determines an error, the deployment never starts. Validation errors arise from scenarios such as syntax errors in your template, or resources that would exceed your subscription quotas. Deployment errors arise from conditions that occur during the deployment process. Deployment errors return the code `DeploymentFailed`. However, this error code is a general deployment error. The error code that actually helps you resolve the issue is usually one level below that error. The following image shows the `RequestDisallowedByPolicy` error code that is under the deployment error.
+This topic describes how you can resolve some common Azure deployment errors you may encounter. 
 
-![show error code](./media/resource-manager-common-deployment-errors/error-code.png)
+## Two types of errors
 
-You can view deployment and validation errors in the activity log. The following image shows a deployment that passes validation but then fails deployment, and a deployment that fails validation.
+There are two types of errors you can receive: 
+
+- validation errors
+- deployment errors
+
+The following image shows the activity log for a subscription. There are three operations that occured in two deployments. In the first deployment, the template passed validation but failed when creating the resources (**Write Deployments**). In the second deploymnet, the template failed validation and did not proceed to the **Write Deployments**.
 
 ![show error code](./media/resource-manager-common-deployment-errors/show-activity-log.png)
 
-In some cases, the easiest way to troubleshoot your template is to test only parts of it. For example, suppose you are receiving an error that a resource cannot be found. Rather than dealing with an entire complicated template, simply return the part that may be causing your problem.
-
-    {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"storageName": {
-			"type": "string"
-		},
-		"storageResourceGroup": {
-			"type": "string"
-		}
-	},
-	"variables": {},
-	"resources": [],
-	"outputs": {
-		"exampleOutput": {
-			"value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'), '2016-06-01'))]",
-			"type" : "string"
-		}
-	}
-    }
-
+It is important to understand these two types of errors because how you retrieve information is slightly different between the two types. Validation errors happen before Resource Manager starts the deployment. Before attempting a deployment, Resource Manager validates the template. If it determines an error, the deployment never starts. Validation errors arise from scenarios such as syntax errors in your template, or resources that would exceed your subscription quotas. Deployment errors arise from conditions that occur during the deployment process. 
 
 The sections in this topic list the error code you see.
 
-## Invalid template
+## Error codes
+
+Deployment errors return the code `DeploymentFailed`. However, this error code is a general deployment error. The error code that actually helps you resolve the issue is usually one level below that error. The following image shows the `RequestDisallowedByPolicy` error code that is under the deployment error.
+
+![show error code](./media/resource-manager-common-deployment-errors/error-code.png)
+
+The following error codes are described in this topics:
+
+- [InvalidTemplate](#invalidtemplate)
+- [NotFound and ResourceNotFound](#notfound-and-resourcenotfound)
+- [StorageAccountAlreadyExists and StorageAccountAlreadyTaken](#storageaccountalreadyexists-and-storageaccountalreadytaken)
+- [AccountNameInvalid](#accountnameinvalid)
+- [NoRegisteredProviderFound](#noregisteredproviderfound)
+- [OperationNotAllowed](#operationnotallowed)
+- [InvalidContentLink](#invalidcontentlink)
+- [Authorization failed](#authorization-failed)
+
+### InvalidTemplate
 
 This error can result from several different types of errors. 
 
-### Syntax error
+**Syntax error**
 
 If you receive an error message that indicates the template failed validation, you may have a syntax problem in your template. 
 
@@ -73,7 +73,7 @@ If you do not provide the matching syntax, the template produces a value that is
 
 When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) or [Visual Studio Code](resource-manager-vs-code.md), which can warn you about syntax errors. 
 
-### Incorrect segment lengths
+**Incorrect segment lengths**
 
 Another invalid template error occurs when the resource name is not in the correct format.
 
@@ -122,11 +122,11 @@ Getting the segments right can be tricky with Resource Manager types that are ap
         ...
     }
 
-### Copy index is not expected
+**Copy index is not expected**
 
 You encounter this **InvalidTemplate** error when you have applied the **copy** element to a part of the template that does not support this element. You can only apply the copy element to a resource type. You cannot apply copy to a property within a resource type. For example, you apply copy to a virtual machine, but you cannot apply it to the OS disks for a virtual machine. In some cases, you can convert a child resource to a parent resource to create a copy loop. For more information about using copy, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
-### Parameter is not valid
+**Parameter is not valid**
 
 If the template specifies permitted values for a parameter, and you provide a value that is not one of those values, you receive a message similar to the following error:
 
@@ -137,7 +137,7 @@ If the template specifies permitted values for a parameter, and you provide a va
 
 Double check the allowed values in the template, and provide one during deployment.
 
-## Not found (or resource not found)
+### NotFound and ResourceNotFound
 
 When your template includes the name of a resource that cannot be resolved, you receive an error similar to:
 
@@ -171,7 +171,7 @@ If you attempt to use the [reference](resource-group-template-functions.md#refer
 
 Look for an expression that includes the **reference** function. Double check that the parameter values are correct.
 
-## Storage account already exists (or already taken)
+### StorageAccountAlreadyExists and StorageAccountAlreadyTaken
 
 For storage accounts, you must provide a name for the resource that is unique across Azure. If you do not provide a unique name, you receive an error like:
 
@@ -185,11 +185,11 @@ You can create a unique name by concatenating your naming convention with the re
 
 If you deploy a storage account with the same name as an existing storage account in your subscription, but provide a different location, you receive an error indicating the storage account already exists in a different location. Either delete the existing storage account, or provide the same location as the existing storage account.
 
-## Account name invalid
+### AccountNameInvalid
 
 You see the **AccountNameInvalid** error when attempting to give a storage account a name that includes prohibited characters. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 
-## No registered provider found
+### NoRegisteredProviderFound
 
 When deploying resource, you may receive the following error code and message:
 
@@ -205,7 +205,7 @@ You receive this error for one of three reasons:
 
 The error message should give you suggestions for the supported locations and API versions. You can change your template to one of the suggested values. Most providers are registered automatically by the Azure portal or the command-line interface you are using, but not all. If you have not used a particular resource provider before, you may need to register that provider. You can discover more about resource providers through PowerShell or Azure CLI.
 
-### PowerShell
+**PowerShell**
 
 To see your registration status, use **Get-AzureRmResourceProvider**.
 
@@ -223,7 +223,7 @@ To get the supported API versions for a particular type of resource, use:
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 
-### Azure CLI
+**Azure CLI**
 
 To see whether the provider is registered, use the `azure provider list` command.
 
@@ -237,7 +237,7 @@ To see the supported locations and API versions for a resource provider, use:
 
     azure provider show -n Microsoft.Compute --json > compute.json
 
-## Operation not allowed
+### OperationNotAllowed
 
 You might have issues when deployment exceeds a quota, which could be per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine with more cores than the permitted amount, you receive an error stating the quota has been exceeded.
 For complete quota information, see [Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md).
@@ -282,7 +282,7 @@ In these cases, you should go to the portal and file a support issue to raise yo
 
 > [AZURE.NOTE] Remember that for resource groups, the quota is for each individual region, not for the entire subscription. If you need to deploy 30 cores in West US, you have to ask for 30 Resource Manager cores in West US. If you need to deploy 30 cores in any of the regions to which you have access, you should ask for 30 Resource Manager cores in all regions.
 
-## Invalid content link
+### InvalidContentLink
 
 When you receive the error message:
 
@@ -291,13 +291,38 @@ When you receive the error message:
 
 You have most likely attempted to link to a nested template that is not available. Double check the URI you provided for the nested template. If the template exists in a storage account, make sure the URI is accessible. You may need to pass a SAS token. For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
-## Authorization failed
+### Authorization failed
 
 You may receive an error during deployment because the account or service principal attempting to deploy the resources does not have access to perform those actions. Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. For example, if your account is assigned to the Reader role, you are not able to create resources. In that case, you see an error message indicating that authorization failed.
 
 For more information about role-based access control, see [Azure Role-Based Access Control](./active-directory/role-based-access-control-configure.md).
 
 In addition to role-based access control, your deployment actions may be limited by policies on the subscription. Through policies, the administrator can enforce conventions on all resources deployed in the subscription. For example, an administrator can require that a particular tag value is provided for a resource type. If you do not fulfill the policy requirements, you receive an error during deployment. For more information about policies, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+
+## Create a troubleshooting template
+
+In some cases, the easiest way to troubleshoot your template is to test only parts of it. For example, suppose you are receiving an error that a resource cannot be found. Rather than dealing with an entire complicated template, simply return the part that may be causing your problem.
+
+    {
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"storageName": {
+			"type": "string"
+		},
+		"storageResourceGroup": {
+			"type": "string"
+		}
+	},
+	"variables": {},
+	"resources": [],
+	"outputs": {
+		"exampleOutput": {
+			"value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'), '2016-06-01'))]",
+			"type" : "string"
+		}
+	}
+    }
 
 ## Troubleshooting virtual machines
 
