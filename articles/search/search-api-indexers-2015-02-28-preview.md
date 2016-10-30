@@ -36,7 +36,7 @@ A **data source** specifies what data needs to be indexed, credentials to access
 
 The following data sources are currently supported:
 
-- **Azure SQL Database** and **SQL Server on Azure VMs**. For a targeted walk-through, see [this article](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). 
+- **Azure SQL Database** and **SQL Server on Azure VMs**. For a targeted walk-through, see [this article](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
 - **Azure DocumentDB**. For a targeted walk-through, see [this article](../documentdb/documentdb-search-indexer.md). 
 - **Azure Blob Storage**, including the following document formats: PDF, Microsoft Office (DOCX/DOC, XSLX/XLS, PPTX/PPT, MSG), HTML, XML, ZIP, and plain text files (including JSON). For  a targeted walk-through, see [this article](search-howto-indexing-azure-blob-storage.md).
 - **Azure Table Storage**. For a targeted walk-through, see [this article](search-howto-indexing-azure-tables.md).
@@ -237,7 +237,7 @@ You can update an existing data source using an HTTP PUT request. You specify th
     Content-Type: application/json
     api-key: [admin key]
 
-The `api-version` is required. The current version is `2015-02-28`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
+The `api-version` is required. The current version is `2015-02-28`. [Azure Search API versions](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
 
 The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Create a Search service in the portal](search-create-service-portal.md) explains how to get the service URL and key properties used in the request.
 

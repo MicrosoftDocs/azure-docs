@@ -62,7 +62,7 @@ To monitor resource usage, view the counts and statistics for your service in th
 
 2. Open the service dashboard of your Azure Search service. Tiles for the service can be found on the Home page, or you can browse to the service from Browse on the JumpBar. 
 
-The Usage section includes a meter that tells you what portion of available resources are currently in use. For information on per-service limits for indexes, documents, and storage, see [Service limits](search-limits-quota-capacity.md).
+The Usage section includes a meter that tells you what portion of available resources are currently in use. For information on per-service limits for indexes, documents, and storage, see [Service limits](search-limits-quotas-capacity.md).
 
   ![][1]
 

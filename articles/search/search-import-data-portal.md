@@ -109,7 +109,7 @@ Edits that don't require a rebuild include adding a new field, changing scoring 
 
 Review these links to learn more about indexers:
 
-- [Indexing Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [Indexing Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 - [Indexing DocumentDB](../documentdb/documentdb-search-indexer.md)
 - [Indexing Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md)
 - [Indexing Table Storage (preview)](search-howto-indexing-azure-tables.md)
