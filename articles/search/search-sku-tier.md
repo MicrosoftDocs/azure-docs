@@ -29,9 +29,11 @@ The purpose of this article is to help you choose a tier. If capacity turns out 
 
 In Azure Search, the tier determines capacity, not feature availability. Generally, features are available at every tier, including preview features. The one exception is no support for indexers in S3 HD.
 
+Most customers start with lower tiers, such as Basic or Standard 1, and run test workloads during development. The portal reports on QPS for the service as a whole, so you can easily monitor how well the current configuration handles indexing and query volumes.
+
 > [AZURE.TIP] We recommend that you always provision a **Free** service (one per subscription, with no expiration) so that its readily available for light-weight projects. Use the **Free** service for testing and evaluation; create a second billable service at the **Basic** or **Standard** tier for production or larger test workloads.
 
-Capacity and costs of running the service go hand-in-hand. Information in this article can help you decide which SKU delivers the right balance, but for any of it to be useful, you need at least rough estimates on the following:
+Capacity and costs of running the service go hand-in-hand. Information in this article can help you choose an initial SKU that delivers the right balance, but for any of it to be useful, you need at least rough estimates on the following:
 
 - Number and size of indexes you plan to create
 - Number and size of documents to upload
@@ -76,7 +78,7 @@ Queries per second|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per re
 
 <sup>1</sup> Free and Preview SKUs do not come with SLAs. SLAs are enforced once a SKU becomes generally available.
 
-<sup>2</sup> S3 and S3 HD are backed by identical high capacity infrastructure but each one reaches its maximum limit in different ways. S3 targets a smaller number of very large indexes. As such, its maximum limit is resource-bound at 2.4 TB per service. S3 HD targets a large number of very small indexes. At 1,000 indexes, S3 HD reaches its limits in the form of index constraints. If you are an S3 HD customer who requires more than 1,000 indexes, contact Microsoft Support for information on how to proceed.
+<sup>2</sup> S3 and S3 HD are backed by identical high capacity infrastructure but each one reaches its maximum limit in different ways. S3 targets a smaller number of very large indexes. As such, its maximum limit is resource-bound at 2.4 TB per service. S3 HD targets a large number of very small indexes. At 1,000 indexes, S3 HD reaches its limit in the form of index constraints. However, if you are an S3 HD customer who requires more than 1,000 indexes, you can contact Microsoft Support for assistance.
 
 ## Eliminate SKUs that don't meet requirements 
 

@@ -17,36 +17,42 @@
    ms.date="10/29/2016"
    ms.author="heidist"/>
 
-# Monitor usage and statistics in an Azure Search service
+# Monitor usage and query metrics in an Azure Search service
 
-Azure Search collects statistics about query execution at the service level, including Queries per Second (QPS), latency, and the percentage of query throttling. Stats are visible in the portal via the Monitoring blade.
+Azure Search collects statistics about query execution at the service level, including Queries per Second (QPS), latency, and the percentage of queries dropped if volume exceeds capacity. Metrics are visible in the portal via the Monitoring blade.
 
    ![][5]
 
-Statistics are collected continuously, but it can take up to five minutes for the portal to show the most recent changes.
-
-
-For insights into activity at the index level, enable search traffic analytics and use Power BI to view the analysis. Visit [Search Traffic Analytics for Azure Search](search-traffic-analytics.md) to get started.
+This article describes metrics for the service all-up. For insights into activity at the index level, enable search traffic analytics and use Power BI to view the analysis. Visit [Search Traffic Analytics for Azure Search](search-traffic-analytics.md) to get started.
 
 ## View query throughput statistics
 
-Click the Monitoring tile on the service dashboard to open the blade.
+Click the Monitoring tile on the service dashboard to open the Monitoring blade.
 
    ![][2]
 
-Query activity at the service level is recorded for query execution, latency, and throttling. You can double-click each metric tile to view details about each one.
 
-For each metric, click **edit** to change the visualization from line graph to a bar chart, or modify the x-axis to cover a different time range.
+Query activity at the service level is recorded for query execution, latency, and throttling. Metrics are collected continuously, but it can take several minutes for the portal to show the most recent activity. 
 
-  ![][3]
-
-## Set up alerts
-
-From the metric detail page, you can configure alerts to trigger an email notification if query execution, latency, or throttling activity exceeds criteria defined for it.
+Click a metric tile to view details, add alerts, enable diagnostics, or edit the chart.
 
   ![][4]
 
-##View counts and metrics in the portal 
+### Set up alerts
+
+From the metric detail page, you can configure alerts to trigger an email notification if query execution, latency, or throttling activity exceeds criteria defined for it.
+
+### Enable diagnostics
+
+When you turn on diagnostics, you can configure where diagnostic data is stored, whether to include operation logs and metrics, and how long to retain the data.
+
+### Change chart type and data collection interval
+
+For each metric, you can click **edit** to change the visualization from line graph to a bar chart, or modify the x-axis to cover a different time range.
+
+  ![][3]
+
+##View counts and resource usage in the portal 
 
 Tracking the growth of indexes and document size can help you proactively adjust capacity before hitting the upper limit you've established for your service. 
 
@@ -62,7 +68,7 @@ The Usage section includes a meter that tells you what portion of available reso
 
 > [AZURE.NOTE] The screenshot above is for the Free service, which has a maximum of one replica and partition each, and can only host 3 indexes, 10,000 documents, or 50 MB of data, whichever comes first. Services created at a Basic or Standard tier have much larger service limits. For more information on choosing a tier, see [Choose a tier or SKU](search-sku-tier.md).
 
-##Get index statistics using the REST API
+### Get index statistics using the REST API
 
 Both the Azure Search REST API and the .NET SDK provide programmatic access to service metrics.  If you are using [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) to load an index from Azure SQL Database or DocumentDB, an additional API is available to get the numbers you require. 
 
