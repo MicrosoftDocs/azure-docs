@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2016"
+	ms.date="10/30/2016"
 	ms.author="raynew"/>
 
 # Replicate VMware virtual machines and physical machines to Azure with Azure Site Recovery using the Azure portal
@@ -845,11 +845,11 @@ Check the [size recommendations for process servers](#size-recommendations-for-t
 
 The process server can automatically discover VMs on a vCenter server. To perform automatic discovery you'll need to [define a role (Azure_Site_Recovery)](#prepare-an-account-for-automatic-discovery) to allow Site Recovery to access the VMware server. Note that if you only need to migrate VMware machines to Azure and don't need to failback from Azure, you can define a read-only role that's sufficient. The required role permissions are summarized in the following table.
 
-**Role** | **Details** | **Permissions**
---- | --- | ---
-Azure_Site_Recovery role | VMware VM discovery |Assign these privileges for the v-Center server:<br/><br/>Datastore->Allocate space, Browse datastore, Low level file operations., Remove file, Update virtual machine files<br/><br/>Network-> Network assign<br/><br/>Resource -> Assign virtual machine to resource pool, Migrate powered off virtual machine, Migrate powered on virtual machine<br/><br/>Tasks -> Create task, update task<br/><br/>Virtual machine ->  Configuration<br/><br/>Virtual machine -> Interact -> Answer question , Device connection., Configure CD media, Configure floppy media, Power off, Power on, VMware tools install<br/><br/>Virtual machine -> Inventory -> Create, Register, Unregister<br/><br/>Virtual machine -> Provisioning -> Allow virtual machine download, Allow virtual machine files upload<br/><br/>Virtual machine -> Snapshots -> Remove snapshots
-vCenter user role | VMware VM discovery/Failover without shutdown of source VM | Assign these privileges for the v-Center server:<br/><br/>Data Center object –> Propagate to Child Object, role=Read-only <br/><br/>The user is assigned at datacenter level and thus has access to all the objects in the datacenter.  If you want to restrict the access, assign the **No access** role with the **Propagate to child** object to the child objects (vSphere hosts, datastores, VMs and networks).
-vCenter user role | Failover and failback | Assign these privileges for the v-Center server:<br/><br/>Datacenter object – Propagate to child object, role=Azure_Site_Recovery<br/><br/>The user is assigned at datacenter level and thus has access to all the objects in the datacenter.  If you want to restrict the access, assign  the **No access** role with  the **Propagate to child object** to the child object (vSphere hosts, datastores, VMs and networks).  
+**Task** | **Role type** | **Permissions** | **Details**
+--- | --- | --- | ---
+VMware discovery<br/><br/> Failover to Azure without shutting down source VM (useful for migration that doesn’t fail back) | Read-only VMware user | Data Center object –> Propagate to Child Object, role=Read-only | The user is assigned at datacenter level and thus has access to all the objects in the datacenter.<br/><br/> If you want to restrict the access, assign the No access role with the Propagate to child object to the child objects (vSphere hosts, datastores, VMs and networks).
+Failover & failback | VMware user<br/><br/> This user will need to be able to perform operations such as creating and removing disks, powering on VMs etc.<br/><br/> We suggest you create a role (Azure_Site_Recovery) with the required permissions, and then assign the role to a VMware user or group | Data Center object –> Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots | The user is assigned at datacenter level and thus has access to all the objects in the datacenter.<br/><br/> If you want to restrict the access, assign the No access role with the Propagate to child object to the child object (vSphere hosts, datastores, VMs and networks).
+
 ## Next steps
 
 - [Learn more](site-recovery-failover.md) about different types of failover.
