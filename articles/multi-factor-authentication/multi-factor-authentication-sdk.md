@@ -1,11 +1,11 @@
-<properties 
-	pageTitle="Integrating your on-premises identities with Azure Active Directory."
-	description="This is the Azure AD Connect that describes what it is and why you would use it."
+<properties
+	pageTitle="MFA software development kit for custom apps | Microsoft Azure"
+	description="This article shows you how to download and use the Azure MFA SDK to enable two-step verification for your custom apps."
 	services="multi-factor-authentication"
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="curtand"/>
+	editor="yossib"/>
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2016"
+	ms.date="10/31/2016"
 	ms.author="kgremban"/>
 
 # Building Multi-Factor Authentication into Custom Apps (SDK)
 
-> [AZURE.IMPORTANT]  If you wish to download the SDK, you will need to create an Azure Multi-Factor Auth Provider even if you have Azure MFA, AAD Premium, or EMS licenses.  If you create an Azure Multi-Factor Auth Provider for this purpose and already have licenses, it is required to create the Provider with the **Per Enabled User** model and link the Provider to the directory that contains the Azure MFA, Azure AD Premium, or EMS licenses.  This will ensure that you are not billed unless you have more unique users using the SDK than the number of licenses you own.
+> [AZURE.IMPORTANT]  To download the SDK, you need to create an Azure Multi-Factor Auth Provider even if you have Azure MFA, AAD Premium, or EMS licenses. If you create an Azure Multi-Factor Auth Provider for this purpose and already have licenses, make sure to create the Provider with the **Per Enabled User** model and link the Provider to the directory that contains the Azure MFA, Azure AD Premium, or EMS licenses.  This will ensure that you are not billed unless you have more unique users using the SDK than the number of licenses you own.
 
 The Azure Multi-Factor Authentication Software Development Kit (SDK) lets you build telephone call and text message verification directly into the sign-in or transaction processes of applications in your Azure AD tenant.
 
-The Multi-Factor Authentication SDK is available for C#, Visual Basic (.NET), Java, Perl, PHP and Ruby. The SDK provides a thin wrapper around multi-factor authentication. It includes everything you need to write your code, including commented source code files, example files, and a detailed ReadMe file. Each SDK also includes a certificate and private key for encrypting transactions that is unique to your Multi-Factor Authentication Provider. As long as you have a provider, you can download the SDK in as many languages and formats as you need.
+The Multi-Factor Authentication SDK is available for C#, Visual Basic (.NET), Java, Perl, PHP and Ruby. The SDK provides a thin wrapper around two-step verification. It includes everything you need to write your code, including commented source code files, example files, and a detailed ReadMe file. Each SDK also includes a certificate and private key for encrypting transactions that are unique to your Multi-Factor Authentication Provider. As long as you have a provider, you can download the SDK in as many languages and formats as you need.
 
-The structure of the APIs in the Multi-Factor Authentication SDK is quite simple. You make a single function call to an API with the multi-factor option parameters, such as the verification mode, and user data, such as the telephone number to call or the PIN number to validate. The APIs translate the function call into web services requests to the cloud-based Azure Multi-Factor Authentication Service. All calls must include a reference to the private certificate that is included in every SDK.
+The structure of the APIs in the Multi-Factor Authentication SDK is quite simple. You make a single function call to an API with the multi-factor option parameters (like verification mode) and user data (like the telephone number to call or the PIN number to validate). The APIs translate the function call into web services requests to the cloud-based Azure Multi-Factor Authentication Service. All calls must include a reference to the private certificate that is included in every SDK.
 
 Because the APIs do not have access to users registered in Azure Active Directory, you must provide user information, such as phone numbers and PIN codes, in a file or database. Also, the APIs do not provide enrollment or user management features, so you need to build these processes into your application.
 
@@ -41,11 +41,11 @@ Downloading the Azure Multi-Factor SDK requires an [Azure Multi-Factor Auth Prov
 ### To download the Azure Multi-Factor Authentication SDK from the Azure portal
 
 
-1. Sign in to the Azure Portal as an Administrator.
-2. On the left, select Active Directory.
-3. On the Active Directory page, at the top click **Multi-Factor Auth Providers**
-4. At the bottom click **Manage**
-5. This will open a new page.  On the left, at the bottom, click SDK.
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an Administrator.
+2. On the left, select **Active Directory**.
+3. On the Active Directory page, at the top select **Multi-Factor Auth Providers**
+4. At the bottom select **Manage**. A new page opens.
+5. On the left, at the bottom, click **SDK**.
 <center>![Download](./media/multi-factor-authentication-sdk/download.png)</center>
 6. Select the language you want and click on one the associated download links.
 7. Save the download.
@@ -55,15 +55,15 @@ Downloading the Azure Multi-Factor SDK requires an [Azure Multi-Factor Auth Prov
 ### To download the Azure Multi-Factor Authentication SDK via the service settings
 
 
-1. Sign in to the Azure Portal as an Administrator.
-2. On the left, select Active Directory.
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an Administrator.
+2. On the left, select **Active Directory**.
 3. Double click on your instance of Azure AD.
 4. At the top click **Configure**
 5. Under multi-factor authentication select **Manage service settings**
 ![Download](./media/multi-factor-authentication-sdk/download2.png)
-6. On the services settings page, at the bottom of the screen click **Go to the portal**.
+6. On the services settings page, at the bottom of the screen click **Go to the portal**. A new page opens.
 ![Download](./media/multi-factor-authentication-sdk/download3a.png)
-7. This will open a new page.  On the left, at the bottom, click SDK.
+7. On the left, at the bottom, click **SDK**.
 8. Select the language you want and click on one the associated download links.
 9. Save the download.
 
@@ -86,10 +86,10 @@ This code sample shows you how to use the APIs in the Azure Multi-Factor Authent
 
 This example uses the C# .NET 2.0 Multi-Factor Authentication SDK in a basic ASP.NET application with C# server-side logic, but the process is very similar for simple implementations in other languages. Because the SDK includes source files, not executable files, you can build the files and reference them or include them directly in your application.
 
->[AZURE.NOTE]When implementing Multi-Factor Authentication, use the additional factors as secondary or tertiary verification to supplement your primary authentication method. These methods are not designed to be used as primary authentication methods.
+>[AZURE.NOTE]When implementing Multi-Factor Authentication, use the additional methods (phone call or text message) as secondary or tertiary verification to supplement your primary authentication method (username and password). These methods are not designed to be used as primary authentication methods.
 
 ### Code Sample Overview
-This sample code for a very simple web demo application uses a telephone call with a # key response to complete the user's authentication. This telephone call factor is known in Multi-Factor Authentication as standard mode.
+This sample code for a very simple web demo application uses a telephone call with a # key response to verify the user's authentication. This telephone call factor is known in Multi-Factor Authentication as standard mode.
 
 The client-side code does not include any Multi-Factor Authentication-specific elements. Because the additional authentication factors are independent of the primary authentication, you can add them without changing the existing sign-on interface. The APIs in the Multi-Factor SDK let you customize the user experience, but you might not need to change anything at all.
 
@@ -104,7 +104,7 @@ This minimal implementation can be written in a just a few lines. However, in pr
 The following is web client code for a demo page.
 
 
-	<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+	<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="\_Default" %>
 
 	<!DOCTYPE html>
 
@@ -146,7 +146,7 @@ In the following server-side code, Multi-Factor Authentication is configured and
 	using System.Web.UI;
 	using System.Web.UI.WebControls;
 
-	public partial class _Default : System.Web.UI.Page
+	public partial class \_Default : System.Web.UI.Page
 	{
 	    protected void Page_Load(object sender, EventArgs e)
 	    {
