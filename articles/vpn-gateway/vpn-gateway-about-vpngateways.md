@@ -36,11 +36,13 @@ Each virtual network can have only one virtual network gateway per gateway type.
 
 [AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-For more information about gateway SKUs, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+VPN Gateway does not use the UltraPerformance gateway SKU. For information about the UltraPerformance SKU, see the [ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md) documentation.
+
+For more information about gateway SKUs for VPN Gateway, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 ### Estimated aggregate throughput by SKU
 
-The following table shows the gateway types and the estimated aggregate throughput. This table applies to both the Resource Manager and classic deployment models.
+The following table shows the gateway types and the estimated aggregate throughput. This table applies to both the Resource Manager and classic deployment models. VPN Gateways do not use the UltraPerformance gateway SKU. For information about the UltraPerformance SKU, see the [ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md) documentation.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 
