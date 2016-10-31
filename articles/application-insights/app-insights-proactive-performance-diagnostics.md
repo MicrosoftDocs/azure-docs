@@ -24,7 +24,7 @@
 This feature requires no setup, and is automatically active when your app generates enough telemetry.
 
 
-## What is Smart Anomaly Detection?
+## What is Smart Performance Anomaly Detection?
 
 Smart Anomaly Detection discovers unusual patterns of performance in your app, by analyzing the telemetry that your app sends to Application Insights. 
 
