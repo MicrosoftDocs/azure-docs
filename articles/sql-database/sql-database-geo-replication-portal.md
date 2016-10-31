@@ -41,7 +41,7 @@ The following steps create a new secondary database in a geo-replication partner
 
 To add a secondary database, you must be the subscription owner or co-owner.
 
-The secondary database has the same name as the primary database and has, by default, the same service level. The secondary database can be a single database or an elastic database. For more information, see [Service Tiers](sql-database-service-tiers.md).
+The secondary database has the same name as the primary database and has, by default, the same service level. The secondary database can be a single database or an elastic database. For more information, see [Service tiers](sql-database-service-tiers.md).
 After the secondary is created and seeded, data begins replicating from the primary database to the new secondary database.
 
 > [AZURE.NOTE] If the partner database already exists (for example, as a result of terminating a previous geo-replication relationship) the command fails.
