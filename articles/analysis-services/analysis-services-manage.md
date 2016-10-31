@@ -32,6 +32,8 @@ Connecting to your server in Azure is just like connecting to a server instance 
 
  One of the bigger differences is the authentication you use to connect to your server. To connect to your Azure Analysis Services server, you need to select **Active Directory Password Authentication**.
 
+ When using SSMS, before connecting to your server the first time, make sure your username is included in the Analysis Services Admins group. To learn more, see [Server administrators](#server-administrators) later in this article.
+
 ### To connect with SSMS
 1. Before you connect, you need to get the server name. In **Azure portal** > server > **Overview** > **Server name**, copy the server name.
 
@@ -109,6 +111,16 @@ Windows Registry Editor Version 5.00
 
 Save and then run the file.
 
+## Troubleshooting connection problems
+When connecting to your server using SSMS, if (in step 3) you attempt to sign in using a non-federated account or an account not in your Azure Active Directory, and are unable to connect, you may need to clear your login cache. Close SSMS before following these steps.
+
+1. In File Explorer, navigate to `C:\Users\<user_name>\AppData\Local\`.
+
+2. Delete the **AADCacheOM** folder.
+
+3. Search the **Local** folder for .dat files beginning with the name **omlibs-tokens-cache.** If you find any, delete them.
+
+4. Open SSMS and repeat the steps in [To connect with SSMS](#to-connect-with-ssms) above.
 
 
 ## Next steps
