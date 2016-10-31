@@ -29,7 +29,7 @@ Deploy and run a sample application on your Raspberry Pi 3 that sends messages t
 
 ## 3.2.3 What you need
 
-- You must have successfully completed the previous section in this lesson: [Create an Azure function app and a storage account to process and store IoT hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
+- You must have successfully completed the previous section in this lesson: [Create an Azure function app and an Azure Storage account to process and store IoT hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
 
 ## 3.2.4 Get your IoT hub and device connection strings
 
@@ -98,7 +98,7 @@ You should see the LED that is connected to your Pi blinking every two seconds. 
 
 ## 3.2.8 Summary
 
-You've deployed and run the new blink sample application on your Pi to send device-to-cloud messages to your IoT hub. You can move to the next section to monitor your messages as they are written to the storage account.
+You've deployed and run the new blink sample application on your Pi to send device-to-cloud messages to your IoT hub. You can move to the next section to monitor your messages as they are written to the Azure Storage account.
 
 ## Next Steps
 

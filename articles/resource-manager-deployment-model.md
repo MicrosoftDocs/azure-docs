@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/26/2016"
+   ms.date="10/27/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources
@@ -184,6 +184,28 @@ If you are ready to migrate your resources from classic deployment to Resource M
 2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
 3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](./virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)
 4. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI](./virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
+
+## Frequently Asked Questions
+
+**Can I create a virtual machine using Azure Resource Manager to deploy in a virtual network or storage account created using classic deployment?**
+
+This is not supported. You cannot use Azure Resource Manager to deploy a virtual machine into a virtual network that was created using classic deployment.
+
+**Can I create a virtual machine using the Azure Resource Manager from a user image that was created using the Azure Service Management APIs?**
+
+This is not supported. However, you can copy the VHD files from a storage account that was created using the Service Management APIs, and add them to a new account created through Azure Resource Manager.
+
+**What is the impact on the quota for my subscription?**
+
+The quotas for the virtual machines, virtual networks, and storage accounts created through the Azure Resource Manager are separate from other quotas. Each subscription gets quotas to create the resources using the new APIs. You can read more about the additional quotas [here](../articles/azure-subscription-service-limits.md).
+
+**Can I continue to use my automated scripts for provisioning virtual machines, virtual networks, and storage accounts through the Resource Manager APIs?**
+
+All the automation and scripts that you've built continue to work for the existing virtual machines, virtual networks created under the Azure Service Management mode. However, the scripts have to be updated to use the new schema for creating the same resources through the Resource Manager mode.
+
+**Where can I find examples of Azure Resource Manager templates?**
+
+A comprehensive set of starter templates can be found on [Azure Resource Manager QuickStart Templates](https://azure.microsoft.com/documentation/templates/).
 
 ## Next steps
 

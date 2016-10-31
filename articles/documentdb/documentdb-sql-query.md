@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/22/2016" 
+	ms.date="10/27/2016" 
 	ms.author="arramac"/>
 
 # SQL query and SQL syntax in DocumentDB

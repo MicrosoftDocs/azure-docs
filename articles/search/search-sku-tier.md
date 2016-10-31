@@ -31,13 +31,13 @@ In Azure Search, the tier determines capacity, not feature availability. General
 
 > [AZURE.TIP] We recommend that you always provision a **Free** service (one per subscription, with no expiration) so that its readily available for light-weight projects. Use the **Free** service for testing and evaluation; create a second billable service at the **Basic** or **Standard** tier for production or larger test workloads.
 
-Capacity and costs of running the service go hand-in-hand. Information in this article can help you decide which SKU delivers the right balance, but for any of it to be useful, you will need at least rough estimates on the following:
+Capacity and costs of running the service go hand-in-hand. Information in this article can help you decide which SKU delivers the right balance, but for any of it to be useful, you need at least rough estimates on the following:
 
 - Number and size of indexes you plan to create
 - Number and size of documents to upload
 - Some idea of query volume, in terms of Queries Per Second (QPS)
 
-Number and size are important because maximum limits are reached through a hard limit on the count of indexes or documents in a service, or on resources (storage or replicas) used by the service. The actual limit for your service will be whichever is used up first: resources or objects.
+Number and size are important because maximum limits are reached through a hard limit on the count of indexes or documents in a service, or on resources (storage or replicas) used by the service. The actual limit for your service is whichever gets used up first: resources or objects.
 
 With estimates in hand, the following steps should simplify the process:
 
@@ -51,7 +51,7 @@ The following table provides descriptions of each tier.
 
 Tier|Primary scenarios
 ----|-----------------
-**Free**|A shared service, at no charge, used for evaluation, investigation, or small workloads. Because it's shared with other subscribers, query throughput and indexing will vary based on who else is using the service. Capacity is small (50 MB or 3 indexes with up 10,000 documents each).
+**Free**|A shared service, at no charge, used for evaluation, investigation, or small workloads. Because it's shared with other subscribers, query throughput and indexing varies based on who else is using the service. Capacity is small (50 MB or 3 indexes with up 10,000 documents each).
 **Basic**|Small production workloads on dedicated hardware. Highly available. Capacity is up to 3 replicas and 1 partition (2 GB).
 **S1**|Standard 1 supports flexible combinations of partitions (12) and replicas (12), used for medium production workloads on dedicated hardware. You can allocate partitions and replicas in combinations supported by a maximum number of 36 billable search units. At this level, partitions are 25 GB each and QPS is approximately 15 queries per second.
 **S2**|Standard 2 runs larger production workloads using the same 36 search units as S1 but with larger sized partitions and replicas. At this level, partitions are 100 GB each and QPS is about 60 queries per second.
@@ -83,7 +83,7 @@ Queries per second|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per re
 The following questions can help you arrive at the right SKU decision for your workload.
 
 1. Do you have **Service Level Agreement (SLA)** requirements? Narrow the SKU decision to Basic or non-preview Standard.
-2. **How many indexes** do you require? One of the biggest variables that will factor into a SKU decision is the number of indexes supported by each SKU. Index support is at markedly different levels in the lower pricing tiers. Requirements on number of indexes could be a primary determinant of a SKU decision.
+2. **How many indexes** do you require? One of the biggest variables factoring into a SKU decision is the number of indexes supported by each SKU. Index support is at markedly different levels in the lower pricing tiers. Requirements on number of indexes could be a primary determinant of a SKU decision.
 3. **How many documents** will be loaded into each index? The number and size of documents will determine the eventual size of the index. Assuming you can estimate the projected size of the index, you can compare that number against the partition size per SKU, extended by the number of partitions required to store an index of that size. 
 4. **What is the expected query load**? Once storage requirements are understood, consider query workloads. S2 and both S3 SKUs offer near-equivalent throughput, but SLA requirements will rule out any preview SKUs. 
 5. If you are considering the S2 or S3 tier, determine whether you require [indexers](search-indexer-overview.md). Indexers are not yet available for the S3 HD tier. Alternative approach is to use a push model for index updates, where you write application code to push a data set to an index.
