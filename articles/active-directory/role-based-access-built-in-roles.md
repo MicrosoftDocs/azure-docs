@@ -541,7 +541,7 @@ Can manage websites but not the web plans to which they are connected
 | Microsoft.Web/listSitesAssignedToHostName/read | Read sites assigned to a host name |
 | Microsoft.Web/serverFarms/join/action | Join server farms |
 | Microsoft.Web/serverFarms/read | Read server farms |
-| Microsoft.Web/sites/* | Create and manage websites |
+| Microsoft.Web/sites/* | Create and manage websites (site creation also requires write permissions to the associated App Service Plan) |
 
 ## See also
 - [Role-Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.

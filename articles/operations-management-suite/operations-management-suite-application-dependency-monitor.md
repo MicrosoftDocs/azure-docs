@@ -24,7 +24,7 @@ This article describes the details of using Application Dependency Monitor.  For
 >
 >During private preview, all OMS accounts have unlimited access to ADM.  ADM nodes are free, but Log Analytics data for AdmComputer_CL and AdmProcess_CL types will be metered like any other solution.
 >
->After ADM enters public preview, it will be available only to free and paid customers of Insight & Analytics in the OMS Pricing Plan.  Free tier accounts will be limited to 5 ADM nodes.  If you are participating in the private preview and are not enrolled in the OMS Pricing Plan when ADM enters public preview, ADM will be disabled at that time. 
+>After ADM enters public preview, it will be available only to free and paid customers of Insight & Analytics in the OMS Pricing Plan.  Free tier accounts will be limited to 5 ADM nodes.  If you are participating in the private preview and are not enrolled in the OMS Pricing Plan when ADM enters public preview, ADM will be disabled at that time.
 
 
 ## Use Cases: Make Your IT Processes Dependency Aware
@@ -42,7 +42,7 @@ ADM allows you to effectively plan, accelerate, and validate Azure migrations, e
 If you are using Azure Site Recovery and need help defining the recovery sequence for your application environment, ADM can automatically show you how systems rely on each other to ensure that your recovery plan is reliable.  By choosing a critical server and viewing its clients, you can identify the front-end systems that should be recovered only after that critical server is restored and available.  Conversely, by looking at a critical server’s back-end dependencies, you can identify those systems that must be recovered before your focus system is restored.
 
 ### Patch Management
-ADM enhances your use of OMS System Update Assessment by showing you which other teams and servers depend on your service, so you can notify them in advance before you take your systems down for patching.  ADM also enhances patch management in OMS by showing you whether your services are available and properly connected after they are patched and restarted. 
+ADM enhances your use of OMS System Update Assessment by showing you which other teams and servers depend on your service, so you can notify them in advance before you take your systems down for patching.  ADM also enhances patch management in OMS by showing you whether your services are available and properly connected after they are patched and restarted.
 
 
 ## Mapping Overview
@@ -57,11 +57,11 @@ By default, ADM maps show the last 10 minutes of dependency information.  Using 
 ![Machine map with selected machine properties](media/operations-management-suite-application-dependency-monitor/machine-map.png)
 
 ## Failed Connections
-Failed Connections are shown in ADM maps for processes and computers, with a dashed red line showing if a client system is failing to reach a process or port.  Failed connections are reported from any system with a deployed ADM agent if that system is the one attempting the failed connection.  ADM measures this by observing TCP sockets that fail to establish a connection.  This could be due to a firewall, a misconfiguration in the client or server, or a remote service being unavailable. 
+Failed Connections are shown in ADM maps for processes and computers, with a dashed red line showing if a client system is failing to reach a process or port.  Failed connections are reported from any system with a deployed ADM agent if that system is the one attempting the failed connection.  ADM measures this by observing TCP sockets that fail to establish a connection.  This could be due to a firewall, a misconfiguration in the client or server, or a remote service being unavailable.
 
 ![Failed connections](media/operations-management-suite-application-dependency-monitor/failed-connections.png)
 
-Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding.  Sometimes failed connections are harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, …or two application tiers not being able to talk after a cloud migration.  In the image above, IIS and WebSphere are both running, but they can’t connect. 
+Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding.  Sometimes failed connections are harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, …or two application tiers not being able to talk after a cloud migration.  In the image above, IIS and WebSphere are both running, but they can’t connect.
 
 ## Computer and Process Properties
 When navigating an ADM map, you can select machines and processes to gain additional context about their properties.  Machines provide information about DNS name, IPv4 addresses, CPU and Memory capacity, VM Type, Operating System version, Last Reboot time, and the IDs of their OMS and ADM agents.
@@ -70,7 +70,7 @@ Process	 details are gathered from Operating System metadata about running proce
 
 ![Process properties](media/operations-management-suite-application-dependency-monitor/process-properties.png)
 
-The Process Summary panel provides additional information about that process’s connectivity, including its bound ports, inbound and outbound connections, and failed connections. 
+The Process Summary panel provides additional information about that process’s connectivity, including its bound ports, inbound and outbound connections, and failed connections.
 
 ![Process summary](media/operations-management-suite-application-dependency-monitor/process-summary.png)
 
@@ -89,9 +89,9 @@ Following is a drill down view of Configuration Change event after selecting **S
 
 
 ## Log Analytics records
-ADM’s computer and process inventory data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics.  This can be applied to scenarios including migration planning, capacity analysis, discovery, and ad hoc performance troubleshooting. 
+ADM’s computer and process inventory data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics.  This can be applied to scenarios including migration planning, capacity analysis, discovery, and ad hoc performance troubleshooting.
 
-One record is generated per hour for each unique computer and process in addition to records generated when that process or computer starts or is on-boarded to ADM.  These records have the properties in the following tables. 
+One record is generated per hour for each unique computer and process in addition to records generated when that process or computer starts or is on-boarded to ADM.  These records have the properties in the following tables.
 
 There are internally generated properties you can use to identify unique processes and computers:
 
@@ -125,7 +125,7 @@ Records with a type of **AdmComputer_CL** have inventory data for servers with A
 | VirtualMachineType_s | Hyperv, Vmware, Xen, Kvm, Ldom, Lpar, Virtualpc |
 
 
-### AdmProcess_CL Type records 
+### AdmProcess_CL Type records
 Records with a type of **AdmProcess_CL** have inventory data for TCP-connected processes on servers with ADM agents.  These records have the properties in the following table.
 
 | Property | Description |
@@ -155,7 +155,7 @@ Records with a type of **AdmProcess_CL** have inventory data for TCP-connected p
 
 ## Sample log searches
 
-### List the physical memory capacity of all managed computers. 
+### List the physical memory capacity of all managed computers.
 Type=AdmComputer_CL | select TotalPhysicalMemory_d, ComputerName_s | Dedup ComputerName_s
 
 ![ADM query example](media/operations-management-suite-application-dependency-monitor/adm-example-01.png)
@@ -199,4 +199,4 @@ For more information on data collection and usage, please see the [Microsoft Onl
 
 
 ## Next steps
-- Learn more about [log searches](../log-analytics/log-analytics-log-searches.md] in Log Analytics to retrieve data collected by Application Dependency Monitor.)
+- Learn more about [log searches](../log-analytics/log-analytics-log-searches.md) in Log Analytics to retrieve data collected by Application Dependency Monitor.
