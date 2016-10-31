@@ -44,7 +44,7 @@ You must designate at least one on-premises computer to run hybrid runbook jobs.
 - Windows PowerShell 4.0 or later
 - Minimum of two cores and 4 GB of RAM
 
-Consider the following recommendations for hybrid workers: 
+Consider the following recommendations for hybrid workers:
 
 - Designate multiple hybrid workers in each group for high availability.  
 - Hybrid workers can coexist with Service Management Automation or System Center Orchestrator runbook servers.
@@ -55,7 +55,7 @@ Consider the following recommendations for hybrid workers:
 
 ### Configure proxy and firewall settings
 
-For the on-premise Hybrid Runbook Worker to connect to and register with the Microsoft Operations Management Suite (OMS) service, it must have access to the port number and the URLs described below.  This is in addition to the  [ports and URLs required for the Microsoft Monitoring Agent](../log-analytics/log-analytics-proxy-firewall.md#configure-proxy-and-firewall-settings-with-the-microsoft-monitoring-agent) to connect to OMS. If you use a proxy server for communication between the agent and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access. 
+For the on-premise Hybrid Runbook Worker to connect to and register with the Microsoft Operations Management Suite (OMS) service, it must have access to the port number and the URLs described below.  This is in addition to the  [ports and URLs required for the Microsoft Monitoring Agent](../log-analytics/log-analytics-proxy-firewall.md#configure-proxy-and-firewall-settings-with-the-microsoft-monitoring-agent) to connect to OMS. If you use a proxy server for communication between the agent and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access.
 
 The information below list the port and URLs that are required for the Hybrid Runbook Worker to communicate with Automation.
 
@@ -131,7 +131,7 @@ Since the primary purpose of the Hybrid Runbook Worker feature is to manage loca
 
 ## Removing Hybrid Runbook Worker
 
-You can remove one or more Hybrid Runbook Workers from a group or you can remove the group, depending on your requirements.  To remove a Hybrid Runbook Worker from an on-premises computer, open a PowerShell session in Administrator mode and run the following command - **Remove-HybridRunbookWorker** cmdlet.  Use the **-Verbose** switch for a detailed log of the removal process. 
+You can remove one or more Hybrid Runbook Workers from a group or you can remove the group, depending on your requirements.  To remove a Hybrid Runbook Worker from an on-premises computer, open a PowerShell session in Administrator mode and run the following command - **Remove-HybridRunbookWorker** cmdlet.  Use the **-Verbose** switch for a detailed log of the removal process.
 
 This does not remove the Microsoft Monitoring Agent from the computer, only the functionality and configuration of the Hybrid Runbook Worker role.  
 
@@ -155,7 +155,7 @@ Use the **RunOn** parameter  You could use the following command to start a runb
 
 ## Runbook permissions
 
-Runbooks running on a Hybrid Runbook Worker cannot use the same [method that is typically used for runbooks authenticating to Azure resources](automation-configuring.md#configuring-authentication-to-azure-resources) since they will be accessing resources outside of Azure.  The runbook can either provide its own authentication to local resources, or you can specify a RunAs account to provide a user context for all runbooks.
+Runbooks running on a Hybrid Runbook Worker cannot use the same method that is typically used for runbooks authenticating to Azure resources since they will be accessing resources outside of Azure. The runbook can either provide its own authentication to local resources, or you can specify a RunAs account to provide a user context for all runbooks.
 
 ### Runbook authentication
 
@@ -176,7 +176,7 @@ Instead of having runbooks provide their own authentication to local resources, 
 
 The user name for the credential must be in one of the following formats:
 
-- domain\username 
+- domain\username
 - username@domain
 - username (for accounts local to the on-premises computer)
 
@@ -193,7 +193,7 @@ Use the following procedure to specify a RunAs account for a Hybrid worker group
 
 ## Creating runbooks for Hybrid Runbook Worker
 
-There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each will most likely differ significantly though since runbooks for Hybrid Runbook Worker will typically manage local resources in your data center while runbooks in Azure Automation typically manage resources in the Azure cloud. 
+There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each will most likely differ significantly though since runbooks for Hybrid Runbook Worker will typically manage local resources in your data center while runbooks in Azure Automation typically manage resources in the Azure cloud.
 
 You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you may have difficulties if you try to test the runbook in the editor.  The PowerShell modules that access the local resources may not be installed in your Azure Automation environment in which case, the test would fail.  If you do install the required modules, then the runbook will run, but it will not be able to access local resources for a complete test.
 
@@ -223,5 +223,3 @@ You can use the following criteria to determine whether Azure Automation with Hy
 
 - To learn more about the different methods that can be used to start a runbook, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md)
 - To understand the different procedures for working with PowerShell and PowerShell Workflow runbooks in Azure Automation using the textual editor, see [Editing a Runbook in Azure Automation](automation-edit-textual-runbook.md)
-
- 
