@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2016" 
+	ms.date="11/01/2016" 
 	ms.author="jingwang"/>
 
 # Move data to/from on-premises Oracle using Azure Data Factory 
