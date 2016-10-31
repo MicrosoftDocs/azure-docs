@@ -45,7 +45,7 @@ about server extension packages, see [Work with the .NET backend server SDK for 
 
 ## Add authentication to the portable class library
 
-Mobile Apps uses the [LoginAsync][3] extension method on the [MobileServiceClient][4] to sign-in a user with App Service authentication. This sample
+Mobile Apps uses the [LoginAsync][3] extension method on the [MobileServiceClient][4] to sign in a user with App Service authentication. This sample
 uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication][5]. To
 provide a better user experience in your production app, you should consider instead using [Client-managed authentication][6].
 
@@ -252,7 +252,7 @@ This section shows how to implement the **IAuthenticate** interface in the iOS a
 
 	This makes sure that the authenticator is initialized before the app is loaded.
 
-7. Rebuild the app, run it, then sign-in with the authentication provider you chose and verify you are able to access data as an authenticated user.
+7. Rebuild the app, run it, then sign in with the authentication provider you chose and verify you are able to access data as an authenticated user.
 
 ## Add authentication to Windows 8.1 (including Phone) app projects
 
@@ -350,7 +350,7 @@ Universal Windows Platform (UWP) projects, but using the **UWP** project (with n
 	When the method override already exists, just add the conditional code from the above snippet.  This code is not required for Universal Windows
     projects.
 
-7. Rebuild the app, run it, then sign-in with the authentication provider you chose and verify you are able to access data as an authenticated user.
+7. Rebuild the app, run it, then sign in with the authentication provider you chose and verify you are able to access data as an authenticated user.
 
 ##Next steps
 
@@ -360,7 +360,8 @@ Now that you completed this basic authentication tutorial, consider continuing o
   Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
 
 + [Enable offline sync for your app](app-service-mobile-xamarin-forms-get-started-offline-data.md)
-  Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
+  Learn how to add offline support your app using a Mobile App backend. Offline sync allows end users to interact with a mobile app - viewing, adding,
+  or modifying data - even when there is no network connection.
 
 <!-- Images. -->
 
