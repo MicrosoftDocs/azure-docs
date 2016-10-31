@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/25/2016"
+	ms.date="10/31/2016"
 	ms.author="scooxl"/>
 #  Azure Government Management and Security
 
@@ -23,12 +23,23 @@ Automation is generally available in Azure Government.
 
 ### Variations
 
-The following Automation features are not currently available in Azure Government.
+The following Automation features are not currently available in Azure Government:
 
 + Creation of a Service Principle credential for authentication
 
 For more information, see [Automation public documentation](../automation/automation-intro.md).
 
+## Backup
+
+Backup is generally available in Azure Government.
+
+For more information, see [Backup public documentation](../backup/backup-introduction-to-azure-backup.md).
+
+### Variations
+
+The following Backup features are not currently available in Azure Government:
++ Azure resource manager backup vaults
++ Azure portal extension
 
 ##  Key Vault
 For details on this service and how to use it, see the <a href="https://azure.microsoft.com/documentation/services/key-vault">Azure Key Vault public documentation. </a>
@@ -95,6 +106,17 @@ The following Log Analytics features have different behavior in Azure Government
   - No. The portals for public Azure and Azure Government are separate and do not share information. 
 
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
+
+## Site Recovery
+
+Site Recovery is generally available in Azure Government.
+
+For more information, see [Site Recovery public documentation](../site-recovery/site-recovery-overview.md).
+
+### Variations
+
+The following Site Recovery features are not currently available in Azure Government:
++ Azure resource manager site recovery vaults
 
 ## Next Steps
 
