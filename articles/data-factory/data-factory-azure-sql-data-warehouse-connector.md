@@ -574,7 +574,7 @@ To use this feature, create an [Azure Storage linked service](data-factory-azure
 ## Best practices when using PolyBase
 
 ### Required database permission
-To use PolyBase, it requires the user being used to load data into SQL Data Warehouse has the ["CONTROL" permission](https://msdn.microsoft.com/library/ms191291.aspx) on the target database. One way to achieve that is to add that user as a member of "db_owner" role. Learn how to do that by following [this section](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authentication).
+To use PolyBase, it requires the user being used to load data into SQL Data Warehouse has the ["CONTROL" permission](https://msdn.microsoft.com/library/ms191291.aspx) on the target database. One way to achieve that is to add that user as a member of "db_owner" role. Learn how to do that by following [this section](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
 ### Row size limitation
 Polybase does not support size of rows greater than 32 KB. Attempting to load a table with rows larger than 32 KB would result in the following error: 
