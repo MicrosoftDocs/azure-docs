@@ -29,7 +29,7 @@ The following figure shows a load-balanced endpoint for encrypted web traffic th
 
 ![public load balancer example](./media/load-balancer-internet-overview/IC727496.png))
 
-Figure 1 - Load-balanced endpoint fore encrypted web traffic
+Figure 1 - Load-balanced endpoint for encrypted web traffic
 
 When Internet clients send web page requests to the public IP address of the cloud service on TCP port 443, the Azure Load Balancer distributes the requests between the three virtual machines in the load-balanced set. For more information about load balancer algorithms, see the [load balancer overview page](load-balancer-overview.md#load-balancer-features).
 

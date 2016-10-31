@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="adhurwit"
-	manager=""/>
+	manager="jhubbard"/>
 
 <tags
 	ms.service="sql-database"

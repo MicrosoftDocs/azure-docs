@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/26/2016"
+   ms.date="10/25/2016"
    ms.author="gwallace"/>
 
 # Configure Web Application Firewall on a new or existing Application Gateway
@@ -21,9 +21,9 @@
 - [Azure portal](application-gateway-web-application-firewall-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
 
-Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit Application Gateway Overview
-
 The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
+
+Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit Application Gateway Overview
 
 The following article shows how to [add web application firewall to an existing application gateway](#add-web-application-firewall-to-an-existing-application-gateway) and [create an application gateway that uses web application firewall](#create-an-application-gateway-with-web-application-firewall).
 
@@ -233,6 +233,32 @@ Configure the mode for WAF, acceptable values are **Prevention** and **Detection
 Create an application gateway with all configuration items from the preceding steps. In this example, the application gateway is called "appgwtest".
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert
+
+## Get application gateway DNS name
+
+Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). To do this, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
+	
+	Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+		
+	Name                     : publicIP01
+	ResourceGroupName        : appgw-RG
+	Location                 : westus
+	Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
+	Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
+	ResourceGuid             : 00000000-0000-0000-0000-000000000000
+	ProvisioningState        : Succeeded
+	Tags                     : 
+	PublicIpAllocationMethod : Dynamic
+	IpAddress                : xx.xx.xxx.xx
+	PublicIpAddressVersion   : IPv4
+	IdleTimeoutInMinutes     : 4
+	IpConfiguration          : {
+	                             "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
+	                           Configurations/frontend1"
+	                           }
+	DnsSettings              : {
+	                             "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
+	                           }
 
 ## Next steps
 
