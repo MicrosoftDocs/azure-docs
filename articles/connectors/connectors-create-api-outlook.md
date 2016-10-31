@@ -1,10 +1,10 @@
 <properties
 pageTitle="Outlook.com | Microsoft Azure"
 description="Create Logic apps with Azure App service. Outlook.com connector allows you to manage your mail, calendars, and contacts. You can perform various actions such as send mail, schedule meetings, add contacts, etc."
-services="logic-apps"	
+services="logic-apps"
 documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+authors="msftman"
+manager="erikre"
 editor=""
 tags="connectors" />
 
@@ -21,13 +21,13 @@ ms.author="deonhe"/>
 
 Outlook.com connector allows you to manage your mail, calendars, and contacts. You can perform various actions such as send mail, schedule meetings, add contacts, etc.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 
-The Outlook.com connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+The Outlook.com connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats.
 
  The Outlook.com connector has the following action(s) and/or trigger(s) available:
 
@@ -68,14 +68,14 @@ You can listen for these event(s):
 
 
 ## Create a connection to Outlook.com
-To create Logic apps with Outlook.com, you must first create a **connection** then provide the details for the following properties: 
+To create Logic apps with Outlook.com, you must first create a **connection** then provide the details for the following properties:
 
 |Property| Required|Description|
 | ---|---|---|
 |Token|Yes|Provide Outlook.com Credentials|
 After you create the connection, you can use it to execute the actions and listen for the triggers described in this article.
 
->[AZURE.INCLUDE [Steps to create a connection to Outlook.com](../../includes/connectors-create-api-outlook.md)] 
+>[AZURE.INCLUDE [Steps to create a connection to Outlook.com](../../includes/connectors-create-api-outlook.md)]
 
 >[AZURE.TIP] You can use this connection in other logic apps.  
 
@@ -83,9 +83,9 @@ After you create the connection, you can use it to execute the actions and liste
 Applies to version: 1.0
 
 ## OnUpcomingEvents
-On event starting soon: Triggers a flow when an upcoming calendar event is starting 
+On event starting soon: Triggers a flow when an upcoming calendar event is starting
 
-```GET: /Events/OnUpcomingEvents``` 
+```GET: /Events/OnUpcomingEvents```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -106,9 +106,9 @@ On event starting soon: Triggers a flow when an upcoming calendar event is start
 
 
 ## GetEmails
-Get emails: Retrieves emails from a folder 
+Get emails: Retrieves emails from a folder
 
-```GET: /Mail``` 
+```GET: /Mail```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -133,9 +133,9 @@ Get emails: Retrieves emails from a folder
 
 
 ## SendEmail
-Send email: Sends an email 
+Send email: Sends an email
 
-```POST: /Mail``` 
+```POST: /Mail```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -154,9 +154,9 @@ Send email: Sends an email
 
 
 ## DeleteEmail
-Delete email: Deletes an email by id 
+Delete email: Deletes an email by id
 
-```DELETE: /Mail/{messageId}``` 
+```DELETE: /Mail/{messageId}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -175,9 +175,9 @@ Delete email: Deletes an email by id
 
 
 ## MarkAsRead
-Mark as read: Marks an email as having been read 
+Mark as read: Marks an email as having been read
 
-```POST: /Mail/MarkAsRead/{messageId}``` 
+```POST: /Mail/MarkAsRead/{messageId}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -196,9 +196,9 @@ Mark as read: Marks an email as having been read
 
 
 ## ReplyTo
-Reply to email: Replies to an email 
+Reply to email: Replies to an email
 
-```POST: /Mail/ReplyTo/{messageId}``` 
+```POST: /Mail/ReplyTo/{messageId}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -219,9 +219,9 @@ Reply to email: Replies to an email
 
 
 ## GetAttachment
-Get attachment: Retrieves email attachment by id 
+Get attachment: Retrieves email attachment by id
 
-```GET: /Mail/{messageId}/Attachments/{attachmentId}``` 
+```GET: /Mail/{messageId}/Attachments/{attachmentId}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -241,9 +241,9 @@ Get attachment: Retrieves email attachment by id
 
 
 ## OnNewEmail
-On new email: Triggers a flow when a new email arrives 
+On new email: Triggers a flow when a new email arrives
 
-```GET: /Mail/OnNewEmail``` 
+```GET: /Mail/OnNewEmail```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -269,9 +269,9 @@ On new email: Triggers a flow when a new email arrives
 
 
 ## SendMailWithOptions
-Send email with options: Send an email with multiple options and wait for the recipient to respond back with one of the options 
+Send email with options: Send an email with multiple options and wait for the recipient to respond back with one of the options
 
-```POST: /mailwithoptions/$subscriptions``` 
+```POST: /mailwithoptions/$subscriptions```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -291,9 +291,9 @@ Send email with options: Send an email with multiple options and wait for the re
 
 
 ## SendApprovalMail
-Send approval email: Send an approval email and wait for a response from the recipient 
+Send approval email: Send an approval email and wait for a response from the recipient
 
-```POST: /approvalmail/$subscriptions``` 
+```POST: /approvalmail/$subscriptions```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -313,9 +313,9 @@ Send approval email: Send an approval email and wait for a response from the rec
 
 
 ## CalendarGetTables
-Get calendars: Retrieves calendars 
+Get calendars: Retrieves calendars
 
-```GET: /datasets/calendars/tables``` 
+```GET: /datasets/calendars/tables```
 
 There are no parameters for this call
 #### Response
@@ -327,9 +327,9 @@ There are no parameters for this call
 
 
 ## CalendarGetItems
-Get events: Retrieves items from a calendar 
+Get events: Retrieves items from a calendar
 
-```GET: /datasets/calendars/tables/{table}/items``` 
+```GET: /datasets/calendars/tables/{table}/items```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -348,9 +348,9 @@ Get events: Retrieves items from a calendar
 
 
 ## CalendarPostItem
-Create event: Creates a new event 
+Create event: Creates a new event
 
-```POST: /datasets/calendars/tables/{table}/items``` 
+```POST: /datasets/calendars/tables/{table}/items```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -366,9 +366,9 @@ Create event: Creates a new event
 
 
 ## CalendarGetItem
-Get event: Retrieves a specific item from a calendar 
+Get event: Retrieves a specific item from a calendar
 
-```GET: /datasets/calendars/tables/{table}/items/{id}``` 
+```GET: /datasets/calendars/tables/{table}/items/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -384,9 +384,9 @@ Get event: Retrieves a specific item from a calendar
 
 
 ## CalendarDeleteItem
-Delete event: Deletes a calendar item 
+Delete event: Deletes a calendar item
 
-```DELETE: /datasets/calendars/tables/{table}/items/{id}``` 
+```DELETE: /datasets/calendars/tables/{table}/items/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -402,9 +402,9 @@ Delete event: Deletes a calendar item
 
 
 ## CalendarPatchItem
-Update event: Partially updates a calendar item 
+Update event: Partially updates a calendar item
 
-```PATCH: /datasets/calendars/tables/{table}/items/{id}``` 
+```PATCH: /datasets/calendars/tables/{table}/items/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -421,9 +421,9 @@ Update event: Partially updates a calendar item
 
 
 ## CalendarGetOnNewItems
-On new items: Triggered when a new calendar item is created 
+On new items: Triggered when a new calendar item is created
 
-```GET: /datasets/calendars/tables/{table}/onnewitems``` 
+```GET: /datasets/calendars/tables/{table}/onnewitems```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -442,9 +442,9 @@ On new items: Triggered when a new calendar item is created
 
 
 ## CalendarGetOnUpdatedItems
-On updated items: Triggered when a calendar item is modified 
+On updated items: Triggered when a calendar item is modified
 
-```GET: /datasets/calendars/tables/{table}/onupdateditems``` 
+```GET: /datasets/calendars/tables/{table}/onupdateditems```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -463,9 +463,9 @@ On updated items: Triggered when a calendar item is modified
 
 
 ## ContactGetTables
-Get contact folders: Retrieves contacts folders 
+Get contact folders: Retrieves contacts folders
 
-```GET: /datasets/contacts/tables``` 
+```GET: /datasets/contacts/tables```
 
 There are no parameters for this call
 #### Response
@@ -477,9 +477,9 @@ There are no parameters for this call
 
 
 ## ContactGetItems
-Get contacts: Retrieves contacts from a contacts folder 
+Get contacts: Retrieves contacts from a contacts folder
 
-```GET: /datasets/contacts/tables/{table}/items``` 
+```GET: /datasets/contacts/tables/{table}/items```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -498,9 +498,9 @@ Get contacts: Retrieves contacts from a contacts folder
 
 
 ## ContactPostItem
-Create contact: Creates a new contact 
+Create contact: Creates a new contact
 
-```POST: /datasets/contacts/tables/{table}/items``` 
+```POST: /datasets/contacts/tables/{table}/items```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -516,9 +516,9 @@ Create contact: Creates a new contact
 
 
 ## ContactGetItem
-Get contact: Retrieves a specific contact from a contacts folder 
+Get contact: Retrieves a specific contact from a contacts folder
 
-```GET: /datasets/contacts/tables/{table}/items/{id}``` 
+```GET: /datasets/contacts/tables/{table}/items/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -534,9 +534,9 @@ Get contact: Retrieves a specific contact from a contacts folder
 
 
 ## ContactDeleteItem
-Delete contact: Deletes a contact 
+Delete contact: Deletes a contact
 
-```DELETE: /datasets/contacts/tables/{table}/items/{id}``` 
+```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -552,9 +552,9 @@ Delete contact: Deletes a contact
 
 
 ## ContactPatchItem
-Update contact: Partially updates a contact 
+Update contact: Partially updates a contact
 
-```PATCH: /datasets/contacts/tables/{table}/items/{id}``` 
+```PATCH: /datasets/contacts/tables/{table}/items/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -570,7 +570,7 @@ Update contact: Partially updates a contact
 |default|Operation Failed.|
 
 
-## Object definitions 
+## Object definitions
 
 ### TriggerBatchResponse[IDictionary[String,Object]]
 
@@ -584,8 +584,6 @@ Update contact: Partially updates a contact
 ### Object
 
 
-| Property Name | Data Type | Required |
-|---|---|---|
 
 
 

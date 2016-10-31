@@ -20,7 +20,7 @@
 
 # Create a custom virtual machine running Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] For information about creating a Linux virtual machine using the new Azure portal, see [Create a Linux VM on Azure using the Portal.md](virtual-machines-linux-quick-create-portal.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] For information about creating a Linux VM using the Resource Manager model, see [Create a Linux VM on Azure using the Portal](virtual-machines-linux-quick-create-portal.md).
 
 
 
