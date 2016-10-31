@@ -3,8 +3,8 @@
    description="Recommended naming conventions for Azure resources. How to name virtual machines, storage accounts, networks, virtual networks, subnets and other Azure entities"
    services=""
    documentationCenter="na"
-   authors="bennage"
-   manager="marksou"
+   authors="telmosampaio"
+   manager="bennage"
    editor=""
    tags=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="10/31/2016"
-   ms.author="christb"/>
+   ms.author="telmos"/>
    
 # Recommended naming conventions for Azure resources
 
@@ -225,6 +225,6 @@ Deploy the reference architecture described in [Running Windows VMs for an N-tie
 
 ## Next steps
 
-- Deploy a single [Windows](./guidance-compute-single-vm.md) or [Linux](/.guidance-compute-single-vm-linux.md) VM in Azure.
+- Deploy a single [Windows](./guidance-compute-single-vm.md) or [Linux](./guidance-compute-single-vm-linux.md) VM in Azure.
 - Deploy [multiple VMs](./guidance-compute-multi-vm.md)  in Azure.
 - Deploy an n-tier [Windows](./guidance-compute-n-tier-vm.md) or [Linux](./guidance-compute-n-tier-vm-linux.md) architecture in Azure.
