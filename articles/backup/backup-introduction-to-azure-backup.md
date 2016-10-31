@@ -29,23 +29,23 @@ Traditional backup solutions have evolved to treat the cloud as an endpoint, or 
 
 **Unlimited scaling** - Azure Backup uses the underlying power and unlimited scale of the Azure cloud to deliver high-availability - with no maintenance or monitoring overhead. You can set up alerts to provide information about events, but you don't need to worry about high-availability for your data in the cloud.
 
-**Multiple storage options** - An aspect of high-availability is storage replication. Azure Backup offers two types of replication: [locally-redundant storage]() (../storage/storage-redundancy.md#locally-redundant-storage) and [geo-replicated storage](../storage/storage-redundancy.md#geo-redundant-storage). Choose the backup storage option based on need:
+**Multiple storage options** - An aspect of high-availability is storage replication. Azure Backup offers two types of replication: [locally-redundant storage] (../storage/storage-redundancy.md#locally-redundant-storage) and [geo-replicated storage](../storage/storage-redundancy.md#geo-redundant-storage). Choose the backup storage option based on need:
 
 - Locally-redundant storage (LRS) replicates your data three times (it creates three copies of your data) in a paired datacenter in the same region. LRS is a low-cost option and is ideal for price-conscious customers because it protects data against local hardware failures.
-- Geo-replication storage (GRS) replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but it provides a higher level of durability for your data, even in the event of regional outage.
+- Geo-replication storage (GRS) replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but it provides a higher level of durability for your data, even if there is a regional outage.
 
 **Unlimited data transfer** - Azure Backup does not limit the amount of inbound or outbound data you transfer. Azure Backup also does not charge for the data that is transferred. However, if you use the Azure Import/Export service to import large amounts of data, there is a cost associated with inbound data. For more information about this cost, see [Offline-backup workflow in Azure Backup](./backup-azure-backup-import-export.md). Outbound data refers to data transferred from a Backup vault during a restore operation.
 
 **Data encryption** - Data encryption allows for secure transmission and storage of your data in the public cloud. You store the encryption passphrase locally, and it is never transmitted or stored in Azure. If it is necessary to restore any of the data, only you have encryption passphrase, or key.
 
-**Application-consistent backup** - Whether you are backing up a file server, virtual machine, or SQL database, you need to know that a backup copy, or recovery point, has all required data to correctly restore the backup copy. Azure Backup provides application-consistent backups, which ensure that additional fixes are not needed at the time of restore. Restoring application consistent data reduces the restoration time, allowing you to quickly return to a running state.
+**Application-consistent backup** - Whether backing up a file server, virtual machine, or SQL database, you need to know that a recovery point has all required data to restore the backup copy. Azure Backup provides application-consistent backups, which ensured additional fixes are not needed to restore the data. Restoring application consistent data reduces the restoration time, allowing you to quickly return to a running state.
 
 **Long-term retention** -  You can back up data to Azure for 99 years. Instead of switching backup copies from disk to tape, and then moving the tape to an off-site location for long-term storage, you can use Azure for short-term and long-term retention.
 
 
 
 ## Azure Backup components
-If you aren't sure which Azure Backup component works for your needs, see the following table for information about what you can protect with each component. The Also, the Azure portal makes it easy to determine the component you need by providing a wizard to guide you through choosing the component to download and deploy. he The wizard, which is part of the Recovery Services vault creation, leads you through the steps for selecting a backup goal, and choosing the data or application to protect.
+If you aren't sure which Azure Backup component works for your needs, see the following table for information about what you can protect with each component. The Azure portal provides a wizard, which is built into the portal, to guide you through choosing the component to download and deploy. The wizard, which is part of the Recovery Services vault creation, leads you through the steps for selecting a backup goal, and choosing the data or application to protect.
 
 
 |Component|Benefits|Limits|What is protected?|Where are backups stored?|
@@ -99,7 +99,7 @@ The following table shows the Azure Backup components that have support for Linu
 
 ## Back up and Restore Premium Storage VMs
 
-Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is particularly attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md)
+Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md)
 
 ### Back up Premium Storage VMs
 
@@ -132,7 +132,7 @@ The following sections provide tables that summarize the availability or support
 The Backup vault is the preferred storage target across all components. System Center DPM and Backup Server also provide the option to have a local disk copy. However, only System Center DPM provides the option to write data to a tape storage device.
 
 #### Compression
-Backups are compressed to reduce the required storage space. The only component that does not use compression is the VM extension. With VM extension, all backup data is copied from the customer storage account to the backup vault in the same region without compressing it. While going without compression slightly inflates the storage used, storing the data without compression allows for faster restore times.
+Backups are compressed to reduce the required storage space. The only component that does not use compression is the VM extension. When using the VM extension, all backup data is copied from your storage account to the Backup vault in the same region without compressing it. Going without compression slightly inflates the storage used. However, storing the data without compression allows for faster restore times.
 
 #### Incremental backup
 Every component supports incremental backup regardless of the target storage (disk, tape, backup vault). Incremental backup ensures that backups are storage and time efficient, by transferring only those changes made since the last backup.
@@ -154,7 +154,7 @@ Deduplication is supported for System Center DPM and Backup Server when it is [d
 #### Network security
 All backup traffic from your servers to the Backup vault is encrypted using Advanced Encryption Standard 256. The backup data is sent over a secure HTTPS link. The backup data is also stored in the Backup vault in encrypted form. Only you, the Azure customer, have the passphrase to unlock this data. Microsoft cannot decrypt the backup data at any point.
 
->[AZURE.WARNING] From the time you establish the Backup vault, only you have access to the encryption key. Microsoft never maintains a copy of your encryption key, and does not have access to the key. If the key is misplaced, Microsoft cannot recover the backup data.
+>[AZURE.WARNING] Once you establish the Backup vault, only you have access to the encryption key. Microsoft never maintains a copy of your encryption key, and does not have access to the key. If the key is misplaced, Microsoft cannot recover the backup data.
 
 #### Data security
 Backing up Azure VMs requires setting up encryption *within* the virtual machine. Use BitLocker on Windows virtual machines and **dm-crypt** on Linux virtual machines. Azure Backup does not automatically encrypt backup data that comes through this path.
@@ -197,7 +197,7 @@ The vault credentials file is a certificate generated by the portal for each Bac
 The vault credential is used only during the registration workflow. It is your responsibility to ensure that the vault credentials file is not compromised. If it falls in the hands of any rogue-user, the vault credentials file can be used to register other machines against the same vault. However, since the backup data is encrypted using a passphrase, that only you can access, existing backup data cannot be compromised. To mitigate this concern, vault credentials are set to expire after 48 hours. While you can download the Backup vault's vault credentials as often as you like, only the latest file is applicable during the registration workflow.
 
 ## How does Azure Backup differ from Azure Site Recovery?
-Azure Backup and Azure Site Recovery are related in that both services back up data and provide an ability to restore that data, but their core value propositions are different.
+Azure Backup and Azure Site Recovery are related in that both services back up data and can restore that data, but their core value propositions are different.
 
 Azure Backup backs up data on-premises and in the cloud. Azure Site Recovery coordinates virtual-machine and physical-server replication, failover, and failback. Both services are important because your disaster recovery solution needs to keep your data safe and recoverable (Backup) *and* keep your workloads available (Site Recovery) when outages occur.
 
