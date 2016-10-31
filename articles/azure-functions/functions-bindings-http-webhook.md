@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="10/07/2016"
+	ms.date="10/31/2016"
 	ms.author="chrande"/>
 
 # Azure Functions HTTP and webhook bindings
@@ -25,25 +25,25 @@
 This article explains how to configure and code HTTP and webhook triggers and bindings in Azure Functions. 
 Azure Functions supports trigger and output bindings for HTTP requests and webhooks.
 
-An [HTTP trigger binding](#httptrigger) lets you invoke a function with an HTTP request. A 
-[webhook trigger binding](#hooktrigger) trigger is an HTTP trigger that's tailored for
+An [HTTP trigger](#httptrigger) lets you invoke a function with an HTTP request. A 
+[webhook trigger](#hooktrigger) trigger is an HTTP trigger that's tailored for
 a specific [webhook](https://en.wikipedia.org/wiki/Webhook) provider (e.g. [GitHub](https://developer.github.com/webhooks/) and 
 [Slack](https://api.slack.com/outgoing-webhooks)).
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
 <a name="httptrigger"></a>
-## HTTP trigger binding
+## HTTP trigger
 
 Use the HTTP trigger to respond to an HTTP request. 
 
 The HTTP trigger to a function uses the following JSON object in the `bindings` array of function.json:
 
     {
-        "name": "{Name of request object (or request body for Node.js) in function signature}",
+        "name": "<Name of request object/body in function signature>",
         "type": "httpTrigger",
         "direction": "in",
-        "authLevel": "{'function', 'anonymous', or 'admin' - see below}"
+        "authLevel": "<'function', 'anonymous', or 'admin' - see below>"
     },
 
 `authLevel` defines how the HTTP trigger validates the HTTP requests:
@@ -54,10 +54,35 @@ The HTTP trigger to a function uses the following JSON object in the `bindings` 
 
 See [Validate requests with API keys](#validate) below for more information.
 
+<a name="url"></a>
+## URL to trigger the function
+
+To trigger a function, send an HTTP request to the following URL:
+
+    https://{function app name}.azurewebsites.net/api/{function name} 
+
+If you need to validate API keys in HTTP requests, see [Validate requests with API keys](#validate) for information on crafting your web request.
+
 <a name="httptriggerusage"></a>
 ## HTTP trigger usage
 
-* For Node.js functions, the Functions runtime provides the request body instead of the request object. There is no special handling for C# functions, because you control what is provided by specifying the parameter type. If you specify `HttpRequestMessage` you get the request object. If you specify a POCO type, the Functions runtime tries to parse a JSON object in the body of the request to populate the object properties.
+There is no special handling for C# functions, because you control what is provided by specifying the parameter type. 
+If you specify `HttpRequestMessage` you get the request object. If you specify a POCO type, the Functions runtime tries 
+to parse a JSON object in the body of the request to populate the object properties.
+
+For Node.js functions, the Functions runtime provides the request body instead of the request object. 
+
+<a name="httptriggersample"></a>
+## HTTP trigger sample
+
+Suppose you have the following HTTP trigger in the `bindings` array of function.json:
+
+    {
+        "name": "req",
+        "type": "httpTrigger",
+        "direction": "in",
+        "authLevel": "function"
+    },
 
 See the language-specific sample that looks for a `name` parameter either in the query string or the body of the HTTP request.
 
@@ -66,7 +91,7 @@ See the language-specific sample that looks for a `name` parameter either in the
 - [Node.js](#httptriggernodejs)
 
 <a name="httptriggercsharp"></a>
-### HTTP trigger usage in C\# 
+### HTTP trigger sample in C\# 
 
 ```csharp
 using System.Net;
@@ -94,7 +119,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 <a name="httptriggerfsharp"></a>
-### HTTP trigger usage in F\# 
+### HTTP trigger sample in F\# 
 
 ```fsharp
 open System.Net
@@ -136,7 +161,7 @@ You will need a `project.json` file that uses NuGet to reference the `FSharp.Int
 This will use NuGet to fetch your dependencies and will reference them in your script.
 
 <a name="httptriggernodejs"></a>
-### HTTP trigger usage in nodejs 
+### HTTP trigger sample in nodejs 
 
 ```javascript
 module.exports = function(context, req) {
@@ -159,7 +184,7 @@ module.exports = function(context, req) {
 ```
 
 <a name="hooktrigger"></a>
-## Webhook trigger binding
+## Webhook trigger
 
 Use the webhook trigger to respond to a specific webhook provider. A webhook trigger is an HTTP trigger that has the 
 following features designed for webhooks:
@@ -171,14 +196,39 @@ following features designed for webhooks:
 The webhook trigger to a function uses the following JSON object in the `bindings` array of function.json:
 
     {
-        "webHookType": "{github|slack|genericJson}",
-        "name": "{Name of request object (or request body for Node.js) in function signature}",
+        "webHookType": "<github|slack|genericJson>",
+        "name": "<Name of request object/body in function signature>",
         "type": "httpTrigger",
         "direction": "in",
     },
 
+### Configure webhook providers
+
+The GitHub webhook is simple to configure. You create GitHub webhook trigger in Functions, and copy its [URL](#url) and [API key](validate) 
+into your GitHub repository's **Add webhook** page.
+
+![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+
+The [Slack webhook](https://api.slack.com/outgoing-webhooks) generates a token for you instead of letting you specify it, so you must configure
+the your function-specific `key` API key with the token from Slack (to see where to define the API key, see [Types of API keys](#keytypes)).
+
+
 <a name="hooktriggerusage"></a>
 ## Webhook trigger usage
+
+See [HTTP trigger usage](#httptriggerusage).
+
+<a name="hooktriggersample"></a>
+## Webhook trigger sample
+
+Suppose you have the following webhook trigger in the `bindings` array of function.json:
+
+    {
+        "webHookType": "github",
+        "name": "req",
+        "type": "httpTrigger",
+        "direction": "in",
+    },
 
 See the language-specific sample that logs GitHub issue comments.
 
@@ -187,7 +237,7 @@ See the language-specific sample that logs GitHub issue comments.
 - [Node.js](#hooktriggernodejs)
 
 <a name="hooktriggercsharp"></a>
-### Webhook usage in C\# 
+### Webhook sample in C\# 
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -211,7 +261,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 ```
 
 <a name="hooktriggerfsharp"></a>
-### Webhook usage in F\# 
+### Webhook sample in F\# 
 
 ```fsharp
 open System.Net
@@ -235,7 +285,7 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 ```
 
 <a name="hooktriggernodejs"></a>
-### Webhook usage in nodejs 
+### Webhook sample in nodejs 
 
 ```javascript
 module.exports = function (context, data) {
@@ -246,7 +296,7 @@ module.exports = function (context, data) {
 ```
 
 <a name="output"></a>
-## HTTP and Webhook output binding
+## HTTP output binding
 
 Use the HTTP output binding to respond to the HTTP request sender.
 
@@ -259,29 +309,9 @@ Use the HTTP output binding to respond to the HTTP request sender.
 <a name="outputusage"></a>
 ## Output usage
 
-See the language-specific sample that ....
-
-- [C#](#outcsharp)
-- [F#](#outfsharp)
-- [Node.js](#outnodejs)
-
-<a name="outcsharp"></a>
-### Output usage in C\# 
-
-<a name="outfsharp"></a>
-### Output usage in F\# 
-
-<a name="outnodejs"></a>
-### Output usage in Node.js
-
-<a name="url"></a>
-## URL to trigger the function
-
-To trigger a function, send an HTTP request to the following URL:
-
-    https://{function app name}.azurewebsites.net/api/{function name} 
-
-If you need to validate API keys in HTTP requests, see [Validate requests with API keys](#validate) for information on crafting your web request.
+You can use the output parameter (e.g. `res`) to respond to the http or webhook caller. Alternatively, you can use the 
+standard `Request.CreateResponse()` (C#) or `context.res` pattern to return your response. For examples on how to use
+the latter method, see [HTTP trigger sample](#httptriggersample) and [Webhook trigger sample](hooktriggersample).
 
 <a name="validate"></a>
 ## Validate requests with API keys
@@ -295,7 +325,7 @@ The key can be included in a query string variable named `code`, or it can be in
 ### Disable API keys
 
 For generic HTTP triggers, turn off the API key requirement by using `"authLevel": "anonymous"` in the binding JSON 
-(see [HTTP trigger binding](#httptrigger)).
+(see [HTTP trigger](#httptrigger)).
 
 Webhook triggers require HTTP request validation, so you cannot disable API keys.
 
@@ -308,21 +338,12 @@ The following list shows you the three types of API keys you can use and where e
 - `masterKey`: defined in *D:\home\data\Functions\secrets\host.json*. Use it to trigger any function in your function app, even if it's disabled. 
 - `functionKey`: defined in *D:\home\data\Functions\secrets\host.json*. Use it to trigger any function in your function app that is not disabled. 
 
-If you configure an [HTTP trigger binding](#httptrigger) with `"authLevel": "admin"` in the binding JSON, then the funtion accepts only 
+If you configure an [HTTP trigger](#httptrigger) with `"authLevel": "admin"` in the binding JSON, then the funtion accepts only 
 the `masterKey` API key.
 
 >[AZURE.NOTE] To minimize your function app's attach surface, only share the function-specific `key` with your HTTP request sender. Do not 
 share the `masterKey` API key with the webhook provider.
 
-## Configure webhook providers
-
-The GitHub webhook is simple to configure. You create GitHub webhook trigger in Functions, and copy its [URL](#url) and [API key](validate) 
-into your GitHub repository's **Add webhook** page.
-
-![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-The [Slack webhook](https://api.slack.com/outgoing-webhooks) generates a token for you instead of letting you specify it, so you must configure
-the your function-specific `key` API key with the token from Slack (to see where to define the API key, see [Types of API keys](#keytypes)).
 
 ## Next steps
 

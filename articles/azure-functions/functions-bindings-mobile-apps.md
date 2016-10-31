@@ -15,7 +15,7 @@
     ms.topic="reference"
     ms.tgt_pltfrm="multiple"
     ms.workload="na"
-    ms.date="08/30/2016"
+    ms.date="10/31/2016"
     ms.author="glenga"/>
 
 # Azure Functions Mobile Apps bindings
@@ -79,6 +79,9 @@ In C# and F# functions, any changes you make to the input record (input paramete
 Mobile Apps table when the function exits successfully. 
 In Node.js functions, use `context.bindings.<name>` to access the input record. You cannot modify a record in Node.js.
 
+<a name="inputsample"></a>
+## Input sample
+
 Suppose you have the following function.json, that retrieves a Mobile App table record with the id of the queue trigger message:
 
     {
@@ -110,7 +113,7 @@ See the language-specific sample that uses the input record from the binding. Th
 - [Node.js](#inputnodejs)
 
 <a name="inputcsharp"></a>
-### Input usage in C\# 
+### Input sample in C\# 
 
     #r "Newtonsoft.Json"	
     using Newtonsoft.Json.Linq;
@@ -125,7 +128,7 @@ See the language-specific sample that uses the input record from the binding. Th
 
 <!--
 <a name="inputfsharp"></a>
-### Input usage in F\# 
+### Input sample in F\# 
 
     #r "Newtonsoft.Json"	
     open Newtonsoft.Json.Linq
@@ -134,7 +137,7 @@ See the language-specific sample that uses the input record from the binding. Th
 -->
 
 <a name="inputnodejs"></a>
-### Input usage in Node.js 
+### Input sample in Node.js 
 
     module.exports = function (context, myQueueItem) {    
         context.log(context.bindings.record);
@@ -181,6 +184,9 @@ This section shows you how to use your Mobile Apps output binding in your functi
 In C# functions, use a named output parameter of type `out object` to access the output record. In Node.js functions, use 
 `context.bindings.<name>` to access the output record.
 
+<a name="outputsample"></a>
+## Output sample
+
 Suppose you have the following function.json, that defines a queue trigger and a Mobile Apps output:
 
     {
@@ -211,7 +217,7 @@ See the language-specific sample that creats a record in the Mobile Apps table e
 - [Node.js](#outnodejs)
 
 <a name="outcsharp"></a>
-### Output usage in C\# 
+### Output sample in C\# 
 
     public static void Run(string myQueueItem, out object record)
     {
@@ -222,10 +228,10 @@ See the language-specific sample that creats a record in the Mobile Apps table e
 
 <!--
 <a name="outfsharp"></a>
-### Output usage in F\# 
+### Output sample in F\# 
 -->
 <a name="outnodejs"></a>
-### Output usage in Node.js
+### Output sample in Node.js
 
     module.exports = function (context, myQueueItem) {
     

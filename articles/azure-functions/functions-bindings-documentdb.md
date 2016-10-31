@@ -15,7 +15,7 @@
   ms.topic="reference"
   ms.tgt_pltfrm="multiple"
   ms.workload="na"
-  ms.date="09/30/2016"
+  ms.date="10/31/2016"
   ms.author="chrande; glenga"/>
 
 # Azure Functions DocumentDB bindings
@@ -67,6 +67,9 @@ In Node.js functions, updates to the document in the input binding are not sent
 back to the collection. However, you can use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to 
 make updates to input documents. See how it is done in the [Node.js sample](#innodejs).
 
+<a name="inputsample"></a>
+## Input sample
+
 Suppose you have the following DocumentDB input binding in the `bindings` array of function.json:
 
     {
@@ -86,7 +89,7 @@ See the language-specific sample that uses this input binding to update the docu
 - [Node.js](#innodejs)
 
 <a name="incsharp"></a>
-### Input usage in C\# 
+### Input sample in C\# 
  
     public static void Run(string myQueueItem, dynamic inputDocument)
     {   
@@ -94,7 +97,7 @@ See the language-specific sample that uses this input binding to update the docu
     }
 
 <a name="infsharp"></a>
-### Input usage in F\# 
+### Input sample in F\# 
 
     open FSharp.Interop.Dynamic
     let Run(myQueueItem: string, inputDocument: obj) =
@@ -117,7 +120,7 @@ dependencies:
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
 <a name="innodejs"></a>
-### Input usage in Node.js
+### Input sample in Node.js
 
     module.exports = function (context) {   
       context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
@@ -159,6 +162,9 @@ When you write to the output parameter in your function, by default a new docume
 GUID as the document ID. You can specify the document ID of output document by specifying the `id` JSON property in
 the output parameter. If a document with that ID already exists, the output document overwrites it. 
 
+<a name="outputsample"></a>
+## Ouput sample
+
 Suppose you have the following DocumentDB output binding in the `bindings` array of function.json:
 
     {
@@ -195,7 +201,7 @@ See the language specific sample that uses this output binding to add documents 
 - [Node.js](#outnodejs)
 
 <a name="outcsharp"></a>
-### Output usage in C\# 
+### Output sample in C\# 
 
     #r "Newtonsoft.Json"
 
@@ -218,7 +224,7 @@ See the language specific sample that uses this output binding to add documents 
     }
  
 <a name="outfsharp"></a>
-### Output usage in F\# 
+### Output sample in F\# 
 
     open FSharp.Interop.Dynamic
     open Newtonsoft.Json
@@ -256,7 +262,7 @@ dependencies:
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
 <a name="outnodejs"></a>
-### Output usage in Node.js
+### Output sample in Node.js
 
     module.exports = function (context) {
 

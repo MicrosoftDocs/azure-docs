@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="10/05/2016"
+	ms.date="10/31/2016"
 	ms.author="wesmc"/>
 
 # Azure Functions Event Hub bindings
@@ -28,9 +28,9 @@ Azure Functions supports trigger and output bindings for Event Hubs.
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
 <a name="trigger"></a>
-## Event Hub trigger binding
+## Event Hub trigger
 
-Use the Event Hub trigger to respond to an event sent to an event hub event stream. You must have read access to the event hub to setup a trigger binding.
+Use the Event Hub trigger to respond to an event sent to an event hub event stream. You must have read access to the event hub to setup the trigger.
 
 The Event Hub trigger to a function uses the following JSON object in the `bindings` array of function.json:
 
@@ -51,7 +51,10 @@ itself. This connection string must have at least read permissions to activate t
 
 When an Event Hub trigger function is triggered, the message that triggers it is passed into the function as a string.
 
-Suppose you have the following Event Hub trigger binding in the `bindings` array of function.json:
+<a name="triggersample"></a>
+## Trigger sample
+
+Suppose you have the following Event Hub trigger in the `bindings` array of function.json:
 
     {
       "type": "eventHubTrigger",
@@ -68,7 +71,7 @@ See the language-specific sample that logs the message body of the event hub tri
 - [Node.js](#triggernodejs)
 
 <a name="triggercsharp"></a>
-### Trigger usage in C\# 
+### Trigger sample in C\# 
 
 	using System;
 	
@@ -78,13 +81,13 @@ See the language-specific sample that logs the message body of the event hub tri
 	}
 
 <a name="triggerfsharp"></a>
-### Trigger usage in F\# 
+### Trigger sample in F\# 
 
 	let Run(myEventHubMessage: string, log: TraceWriter) =
 	    log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 
 <a name="triggernodejs"></a>
-### Trigger usage in Node.js
+### Trigger sample in Node.js
 
 	module.exports = function (context, myEventHubMessage) {
 	    context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);	
@@ -111,8 +114,10 @@ The output binding uses the following JSON object in the `bindings` array of fun
 Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub 
 itself. This connection string must have send permissions to send the message to the event stream.
 
-<a name="outputusage"></a>
-## Output usage
+<a name="outputsample"></a>
+## Output sample
+
+Suppose you have the following Event Hub output binding in the `bindings` array of function.json:
 
 	{
 		"type": "eventHub",
@@ -129,7 +134,7 @@ See the language-specific sample that uses the Event Hub output binding above by
 - [Node.js](#outnodejs)
 
 <a name="outcsharp"></a>
-### Output usage in C\# 
+### Output sample in C\# 
 
 	using System;
 	
@@ -141,7 +146,7 @@ See the language-specific sample that uses the Event Hub output binding above by
 	}
 
 <a name="outfsharp"></a>
-### Output usage in F\# 
+### Output sample in F\# 
 
 	let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
 	    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
@@ -149,7 +154,7 @@ See the language-specific sample that uses the Event Hub output binding above by
 	    outputEventHubMessage <- msg;
 
 <a name="outnodejs"></a>
-### Output usage in Node.js
+### Output sample in Node.js
 
 	module.exports = function (context, myTimer) {
 	    var timeStamp = new Date().toISOString();

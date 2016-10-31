@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="10/26/2016"
+	ms.date="10/31/2016"
 	ms.author="wesmc"/>
 
 # Azure Functions Notification Hubs bindings
@@ -42,18 +42,17 @@ The Notification Hubs output for a function uses the following JSON object in th
 	{
 		"name": "<Name of output parameter in function signature>",
 		"type": "notificationHub",
-		"tagExpression": "",
-		"hubName": "my-notification-hub",
-		"connection": "MyHubConnectionString",
+		"tagExpression": "<Tag expressions to target specific registrations - see below>",
+		"hubName": "<Name of the notification hub>",
+		"connection": "<Name of app setting with your notification hub endpoint - see below>",
 		"direction": "out"
 	}
 
-
 Note the following:
 
-- `tagExpression` : Tag expressions allow you to specify that notifications be delivered to a set of devices who have registered to receive notifications that match the tag expression.  For more information, see [Routing and tag expressions](../notification-hubs/notification-hubs-tags-segment-push-message.md).
-- `hubName` : Name of the notification hub resource in the Azure portal.
-- `connection` must be the name of an app setting that points to the endpoint for your notification hub (with the value 
+- For `tagExpression`, see [Tag expressions](../notification-hubs/notification-hubs-tags-segment-push-message.md#tag-expressions) for information on 
+how it is used by Notification Hubs.
+- `connection` must be the name of an app setting that points to your notification hub endpoint (with the value 
 `Endpoint=<URL>;SharedAccessKeyName=<access policy name>;SharedAccessKey=<key>`). In Azure Portal, the standard editor in the **Integrate** tab configures
 this app setting for you when you create a new notification hub or selects an existing one. To manually create this app setting, see 
 [configure this app setting manually](). 
@@ -88,6 +87,9 @@ with the `Microsoft.Azure.NotificationHubs` package dependency. For example:
 
 In Node.js, you simply create a JavaScript object and assigns it to `context.bindings.<outputBindingName>`.
 
+<a name="outputsample"></a>
+## Output sample
+
 Suppose you have the following function.json, that defines a Notification Hubs output:
 
 	{
@@ -108,7 +110,7 @@ that contains `location` and `message`.
 - [Node.js](#outnodejs)
 
 <a name="outcsharp"></a>
-### Output usage in C\# 
+### Output sample in C\# 
 
 	using System;
 	using System.Threading.Tasks;
@@ -124,13 +126,13 @@ that contains `location` and `message`.
 	}
 
 <a name="outfsharp"></a>
-### Output usage in F\# 
+### Output sample in F\# 
 
 	let Run(myNotification: byref<IDictionary<string, string>>) =
 	    myNotification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
 
 <a name="outnodejs"></a>
-### Output usage in Node.js
+### Output sample in Node.js
 
 	module.exports = function (context) {
 	    context.bindings.myNotification = {

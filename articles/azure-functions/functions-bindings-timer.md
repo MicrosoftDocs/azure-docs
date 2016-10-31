@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="10/04/2016"
+	ms.date="10/31/2016"
 	ms.author="chrande; glenga"/>
 
 # Azure Functions timer trigger
@@ -23,14 +23,14 @@
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code timer triggers in Azure Functions. 
-Azure Functions supports the trigger binding for timers. Timer triggers call functions based on a schedule, one time or recurring. 
+Azure Functions supports the trigger for timers. Timer triggers call functions based on a schedule, one time or recurring. 
 
 The timer trigger supports multi-instance scale-out. One single instance of a particular timer function is run across all instances.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
 <a id="trigger"></a>
-## Timer trigger binding
+## Timer trigger
 
 The timer trigger to a function uses the following JSON object in the `bindings` array of function.json:
 
@@ -108,7 +108,10 @@ is passed into the function. The following JSON is an example represenation of t
 }
 ```
 
-Suppose you have the following timer trigger binding in the `bindings` array of function.json:
+<a name="sample"></a>
+## Trigger sample
+
+Suppose you have the following timer trigger in the `bindings` array of function.json:
 
 ```json
 {
@@ -126,7 +129,7 @@ See the language-specific sample that reads the timer object to see whether it's
 - [Node.js](#triggernodejs)
 
 <a name="triggercsharp"></a>
-### Trigger usage in C\# 
+### Trigger sample in C\# 
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
@@ -140,7 +143,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 ```
 
 <a name="triggerfsharp"></a>
-### Trigger usage in F\# 
+### Trigger sample in F\# 
 
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter ) =
@@ -151,7 +154,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter ) =
 ```
 
 <a name="triggernodejs"></a>
-### Trigger usage in Node.js
+### Trigger sample in Node.js
 
 ```JavaScript
 module.exports = function (context, myTimer) {
