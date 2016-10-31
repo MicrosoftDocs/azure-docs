@@ -67,19 +67,6 @@ Organizations need a BCDR strategy that determines how apps and data stay runnin
 - Simple failovers from your on-premises infrastructure to Azure, and fail back (restore) from Azure to VMware VM servers in your on-premises site.
 - Enable replication and failover so that application workloads tiered across multiple machines replicate at the same time. You can gather multiple machines in recovery plans so that tiered application workloads fail over together.
 
-## Supported Operating Systems
-
-### Windows(64 bit only)
-- Windows Server 2008 R2 SP1+
-- Windows Server 2012
-- Windows Server 2012 R2
-
-### Linux (64 bit only)
-- Red Hat Enterprise Linux 6.7, 7.1, 7.2
-- CentOS 6.5, 6.6, 6.7, 7.0, 7.1, 7.2
-- Oracle Enterprise Linux 6.4, 6.5, running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
-- SUSE Linux Enterprise Server 11 SP3
-
 ## Scenario architecture
 
 These are the scenario components:
@@ -132,7 +119,7 @@ You set up an on-premises machine as the configuration server.
 **vCenter** | We recommend that you deploy a VMware vCenter server, to manage your vSphere hosts. It should be running vCenter version 6.0 or 5.5, with the latest updates.<br/><br/>**Limitation**: Site Recovery doesn't support new vCenter and vSphere 6.0 features such as cross vCenter vMotion, virtual volumes, and storage DRS. Site Recovery support is limited to features that were also available in version 5.5.
 
 
-## Protected machine prerequisites
+## Replicated machine prerequisites
 
 **Component** | **Requirements**
 --- | ---
