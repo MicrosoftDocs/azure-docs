@@ -61,9 +61,9 @@ In this article, you deploy a sample application on Raspberry Pi 3. The sample a
 
     ![Contents of the config-raspberrypi.json file](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
 
-- Replace **[device hostname or IP address]** with your Pi installation’s IP address or host name that you get by running the `devdisco list --eth` command.
+- Replace **[device hostname or IP address]** with the IP address of Pi or the host name that you get by running the `devdisco list --eth` command.
 - Replace **[IoT device connection string]** with the device connection string that you get by running the `az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}` command.
-- Replace **[IoT hub connection string]** with the IoT Hub connection string that you get by running the `az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}` command.
+- Replace **[IoT hub connection string]** with the hub connection string that you get by running the `az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}` command.
 
 ## Deploy and run the sample application
 
