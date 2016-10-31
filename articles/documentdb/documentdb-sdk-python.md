@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/29/2016" 
+	ms.date="10/30/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB APIs and SDKs
@@ -39,12 +39,14 @@
 
 ## Release notes
 
+### <a name="2.0.1"/>[2.0.1](https://pypi.python.org/pypi/pydocumentdb/2.0.1)
+- Added minor doc comments.
+
 ### <a name="2.0.0"/>[2.0.0](https://pypi.python.org/pypi/pydocumentdb/2.0.0)
 - Added support for Python 3.5.
 - Added support for connection pooling using a requests module.
 - Added support for session consistency.
 - Added support for TOP/ORDERBY queries for partitioned collections.
-
 
 ### <a name="1.9.0"/>[1.9.0](https://pypi.python.org/pypi/pydocumentdb/1.9.0)
 - Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, DocumentDB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. DocumentDB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the response with error code 429. This time can also be overriden in the RetryOptions property on ConnectionPolicy object.
@@ -100,6 +102,7 @@ All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** w
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [2.0.1](#2.0.1) | October 30, 2016 |---
 | [2.0.0](#2.0.0) | September 29, 2016 |---
 | [1.9.0](#1.9.0) | July 07, 2016 |---
 | [1.8.0](#1.8.0) | June 14, 2016 |---
