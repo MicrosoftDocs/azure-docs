@@ -86,7 +86,7 @@ By using Service Fabric, you can:
 
 - Simplify the design of your application by using stateful microservices in place of caches and queues.
 
-- Deploy to Azure or to on-premises clouds that run Windows Server or Linux with zero code changes. Write once, and then deploy anywhere to any cluster in Service Fabric.
+- Deploy to Azure or to on-premises data centers that run Windows or Linux with zero code changes. Write once, and then deploy anywhere to any Service Fabric cluster.
 
 - Develop with a "datacenter on your machine" approach. The local development environment is the same code that runs in the Azure datacenters.
 
