@@ -359,7 +359,7 @@ Verify you have a storage account for replication, and an Azure network to which
 
 	![Target](./media/site-recovery-vmware-to-azure/gs-target.png)
 
-4.	If you haven't created a storage account and you want to create one using ARM click **+Storage account** to do that inline.  On the **Create storage account** blade specify an account name, type, subscription, and location. The account should be in the same region as the Recovery Services vault.
+4.	If you haven't created a storage account and you want to create one using Resource Manager, click **+Storage account** to do that inline.  On the **Create storage account** blade specify an account name, type, subscription, and location. The account should be in the same region as the Recovery Services vault.
 
 	![Storage](./media/site-recovery-vmware-to-azure/gs-createstorage.png)
 
@@ -370,7 +370,7 @@ Verify you have a storage account for replication, and an Azure network to which
 
 	> [AZURE.NOTE] Protection to premium storage accounts in Central India and South India is currently not supported.
 
-4.	Select an Azure network. If you haven't created a network and you want to do that using ARM click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
+4.	Select an Azure network. If you haven't created a network and you want to do that using Resource Manager, click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
 
 	![Network](./media/site-recovery-vmware-to-azure/gs-createnetwork.png)
 
@@ -667,9 +667,9 @@ When you enable replication, by default all disks on a machine are replicated. Y
 7. Select the Azure storage account you want to use for replicating data. Note that:
 
 	- You can select a premium or standard storage account. If you select a premium account you'll need to specify an additional standard storage account for ongoing replication logs. Accounts must be in the same region as the Recovery Services vault.
-	- If you want to use a different storage account than those you have you can [create one](#set-up-an-azure-storage-account). To create a storage account using the ARM model click **Create new**. If you want to create a storage account using the classic model you'll do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md).
+	- If you want to use a different storage account than those you have you can [create one](#set-up-an-azure-storage-account). To create a storage account using Resource Manager, click **Create new**. If you want to create a storage account using the classic model you'll do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md).
 
-8. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network you need to [create one](#set-up-an-azure-network). To create a network using the ARM model click **Create new**.If you want to create a network using the classic model you’ll do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable. Then click **OK**.
+8. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network you need to [create one](#set-up-an-azure-network). To create a network using Resource Manager, click **Create new**.If you want to create a network using the classic model you’ll do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable. Then click **OK**.
 
 	![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication3.png)
 
