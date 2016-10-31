@@ -38,8 +38,9 @@ For more information, see [Backup public documentation](../backup/backup-introdu
 ### Variations
 
 The following Backup features are not currently available in Azure Government:
-+ Azure resource manager backup vaults
-+ Azure portal extension
+
++ Azure Resource Manager backup vaults
++ Management using the Azure portal (the Azure classic portal is supported)
 
 ##  Key Vault
 For details on this service and how to use it, see the <a href="https://azure.microsoft.com/documentation/services/key-vault">Azure Key Vault public documentation. </a>
@@ -116,7 +117,8 @@ For more information, see [Site Recovery public documentation](../site-recovery/
 ### Variations
 
 The following Site Recovery features are not currently available in Azure Government:
-+ Azure resource manager site recovery vaults
+
++ Azure Resource Manager site recovery vaults
 
 ## Next Steps
 
