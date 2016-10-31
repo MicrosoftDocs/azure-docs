@@ -126,12 +126,14 @@ For AD-specific security considerations, see the *Security considerations* secti
 [adfs]: ./guidance-identity-adfs.md
 [azure-expressroute]: https://azure.microsoft.com/documentation/articles/expressroute-introduction/
 [azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
-[creating-external-trusts]: https://technet.microsoft.com/library/cc816837(v=ws.10).aspx[creating-forest-trusts]: https://technet.microsoft.com/library/cc816810(v=ws.10).aspx
+[creating-external-trusts]: https://technet.microsoft.com/library/cc816837(v=ws.10).aspx
+[creating-forest-trusts]: https://technet.microsoft.com/library/cc816810(v=ws.10).aspx
 [extending-ad-to-azure]: ./guidance-identity-adds-extend-domain.md
 [implementing-a-secure-hybrid-network-architecture]: ./guidance-iaas-ra-secure-vnet-hybrid.md
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ./guidance-iaas-ra-secure-vnet-dmz.md
 [microsoft_systems_center]: https://www.microsoft.com/server-cloud/products/system-center-2016/
-[monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
+[monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
+[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
 [running-VMs-for-an-N-tier-architecture-on-Azure]: ./guidance-compute-n-tier-vm.md
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
