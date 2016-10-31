@@ -88,28 +88,25 @@ In this section, you use a Resource Manager template to create HDInsight cluster
 2. Click the following image to sign in to Azure and open the Azure Resource Manager template in the Azure portal. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
 3. Configure the following properties:
 
-    - **Subscription**: Select an Azure subscription used for creating the cluster.
-    - **Resource group**: Create a new resource group used for the cluster.
-    - **Location**: Select a location for the resource group.
-    - **Cluster Name**: Enter a name for the new cluster to create.
-    - **Cluster Login User Name**: Enter the Hadoop HTTP user name.  The default name is **admin**.
-    - **Cluster Login Password**: Enter the Hadoop HTTP user password.
-    - **Ssh User Name**: Enter the SSH user name. The default name is **sshuser**.
-    - **Ssh Password**: Enter the SSH user password.
-    - **Install Script Action**: Keep the default value for going through this tutorial.
+  - **Subscription**: Select an Azure subscription used for creating the cluster.
+  - **Resource group**: Create a new resource group used for the cluster.
+  - **Location**: Select a location for the resource group.
+  - **Cluster Name**: Enter a name for the new cluster to create.
+  - **Cluster Login User Name**: Enter the Hadoop HTTP user name.  The default name is **admin**.
+  - **Cluster Login Password**: Enter the Hadoop HTTP user password.
+  - **Ssh User Name**: Enter the SSH user name. The default name is **sshuser**.
+  - **Ssh Password**: Enter the SSH user password.
+  - **Install Script Action**: Keep the default value for going through this tutorial.
 
-	Some values have been hardcoded in the template:
+  Some values have been hardcoded in the template:
 
-    - **Cluster type**: The default value is **hadoop**.
-    - **Cluster worker node count**: The default value is 2.
-    - **Edge node size**: The default values is Standard_D3.
-    - **Edge node name**: The default value is new-edgenode. 
-
+  - **Cluster type**: The default value is **hadoop**.
+  - **Cluster worker node count**: The default value is 2.
+  - **Edge node size**: The default values is Standard_D3.
+  - **Edge node name**: The default value is new-edgenode. 
 4. Check **I agree to the terms and conditions stated above**, and then click  **Purchase** to create the cluster with the edge node.
-
 
 ## Access an edge node
 
