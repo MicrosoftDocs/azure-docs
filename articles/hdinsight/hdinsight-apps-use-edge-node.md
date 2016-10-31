@@ -103,10 +103,10 @@ In this section, you use a Resource Manager template to create HDInsight cluster
 
 	Some values have been hardcoded in the template:
 
-	- Cluster type: The default value is **hadoop**.
-	- Cluster worker node count: The default value is 2.
-	- Edge node size: The default values is Standard_D3.
-	- Edge node name: The default value is new-edgenode. 
+    - Cluster type: The default value is **hadoop**.
+    - Cluster worker node count: The default value is 2.
+    - Edge node size: The default values is Standard_D3.
+    - Edge node name: The default value is new-edgenode. 
 
 4. Check **I agree to the terms and conditions stated above**, and then click  **Purchase** to create the cluster with the edge node.
 
