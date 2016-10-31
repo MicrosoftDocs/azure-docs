@@ -20,6 +20,13 @@
 
 This article outlines how you can use data factory copy activity to move data to/from Oracle to from/to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
 
+## Supported versions
+With Oracle Data Provider .NET 12.1 installed on the Data Management Gateway machine, you can use this Oracle connector to copy data from/to below versions of Oracle instance. See [Installation](#installation) section for details about how to set it up.
+
+- Oracle 12c
+- Oracle 11g
+- Oracle 10g Release 2
+
 ## Installation 
 For the Azure Data Factory service to be able to connect to your on-premises Oracle database, you must install the following components: 
 
@@ -443,7 +450,7 @@ oracleReaderQuery | Use the custom query to read data. | SQL query string. For e
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | timespan<br/><br/> Example: 00:30:00 (30 minutes). | No
-writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize.	| Integer (number of rows)| No (default: 10000)  
+writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize.	| Integer (number of rows)| No (default: 100)  
 sqlWriterCleanupScript | Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. | A query statement. | No
 sliceIdentifierColumnName | Specify column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. | Column name of a column with data type of binary(32). | No
 
