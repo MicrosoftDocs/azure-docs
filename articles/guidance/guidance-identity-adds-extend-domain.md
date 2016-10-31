@@ -103,7 +103,7 @@ We recommend you do not assign Operations Masters roles to the domain controller
 
 ### Monitoring recommendations
 
-Monitor the resources of the domain controller VMs as well as the AD DS Services and create a plan to quickly correct any problems. For more information, see [Monitoring Active Directory][monitoring_ad]. You can also install tools such as [Microsoft Systems Center][microsoft_systems_center] on the monitoring server (see the [architecture diagram][architecture]) to help perform these tasks.  
+Monitor the resources of the domain controller VMs as well as the AD DS Services and create a plan to quickly correct any problems. For more information, see [Monitoring Active Directory][monitoring_ad]. You can also install tools such as [Microsoft Systems Center][microsoft_systems_center] on the monitoring server (see the [architecture diagram](#Architecture-diagram)) to help perform these tasks.  
 
 ## Scalability considerations
 
@@ -122,7 +122,7 @@ Do not shut down a domain controller VM using Azure Portal. Instead, shut down a
 
 ## Security considerations
 
-AD DS servers provide authentication services and are an attractive target for attacks. To secure them, prevent direct internet connectivity by placing the AD DS servers in a separate subnet with an NSG acting as a firewall. Close all ports on the AD DS servers except those necessary for authentication, authorization, and server synchronization. For more information, see [Active Directory and Active Directory Domain Services Port Requirements][ad-ds-ports]. The [Solution components][solution-components] section in this document shows the NSG rules that the sample solution uses to open ports.
+AD DS servers provide authentication services and are an attractive target for attacks. To secure them, prevent direct internet connectivity by placing the AD DS servers in a separate subnet with an NSG acting as a firewall. Close all ports on the AD DS servers except those necessary for authentication, authorization, and server synchronization. For more information, see [Active Directory and Active Directory Domain Services Port Requirements][ad-ds-ports].
 
 Consider implementing an additional security perimeter around servers with a pair of subnets and NVAs, as described by the document [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access].
 
@@ -140,8 +140,10 @@ Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD
 
 [active-directory-domain-services]: https://technet.microsoft.com/library/dd448614.aspx
 [ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
-[adds-data-disks]: https://msdn.microsoft.com/library/azure/jj156090.aspx#BKMK_PlaceDB[ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
-[ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx[adds-resource-forest]: ./guidance-identity-adds-resource-forest.md
+[adds-data-disks]: https://msdn.microsoft.com/library/azure/jj156090.aspx#BKMK_PlaceDB
+[ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
+[ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
+[adds-resource-forest]: ./guidance-identity-adds-resource-forest.md
 [adfs]: ./guidance-identity-adfs.md
 [availability-set]: ./virtual-machines/virtual-machines-windows-create-availability-set.md
 [azure-active-directory]: ../active-directory-domain-services/active-directory-ds-overview.md
