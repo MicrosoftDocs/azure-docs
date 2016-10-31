@@ -211,7 +211,7 @@ Please contact [Azure support](https://azure.microsoft.com/support/options/) for
 
 ### How do I manage Administrator accounts in the new Azure portal?
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs. For more information, see [Azure Role-Based Access Control](.\active-directory\Azure Role-Based Access Control.md).
+Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs. For more information, see [Azure Role-Based Access Control](./active-directory/role-based-access-control-configure.md).
 
 ### How do I transfer ownership of my subscriptions?
 

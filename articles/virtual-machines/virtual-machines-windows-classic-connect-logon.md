@@ -26,7 +26,7 @@ Do you want to connect to a Linux VM? See [How to log on to a virtual machine ru
 
 Learn how to [perform these steps using new Azure portal](virtual-machines-windows-connect-logon.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] For information about how to log on to a VM using the Resource Manager model, see [here](virtual-machines-windows-connect-logon.md).
 
 ## Video walkthrough
 

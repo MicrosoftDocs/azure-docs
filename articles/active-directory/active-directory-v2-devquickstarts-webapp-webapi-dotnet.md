@@ -133,7 +133,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 <!-- TODO: Token Cache article -->
 
 
-## 4. Call the Web API
+## Call the Web API
 Now it's time to actually use the access_token you acquired in step 3.  Open the web app's `Controllers\TodoListController.cs` file, which makes all the CRUD requests to the To-Do List API.
 
 - You can use MSAL again here to fetch access_tokens from the MSAL cache.  First, add a `using` statement for MSAL to this file.
