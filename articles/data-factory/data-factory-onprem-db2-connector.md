@@ -26,15 +26,19 @@ Use the gateway to connect to DB2 even if it is hosted in Azure IaaS VMs. If you
 
 Data factory currently supports only moving data from DB2 to other data stores, not from other data stores to DB2. 
 
-## Installation 
+## Supported versions 
 
-The Data Management Gateway provides a built-in DB2 driver that supports the following: 
+This DB2 connector supports the following IBM DB2 platforms and versions with Distributed Relational Database Architecture (DRDA) SQL Access Manager (SQLAM) version 9, 10 and 11:
 
-- SQLAM 9 / 10 / 11
-- DB2 for LUW (Linux, Unix, Windows)
-- DB2 for z/OS and DB2 for i (aka AS/400)
+- IBM DB2 for z/OS 11.1
+- IBM DB2 for z/OS 10.1
+- IBM DB2 for i 7.2
+- IBM DB2 for i 7.1
+- IBM DB2 for LUW 11
+- IBM DB2 for LUW 10.5
+- IBM DB2 for LUW 10.1
 
-Therefore you no longer need to manually install the drivers when copying data from DB2.
+The Data Management Gateway provides a built-in DB2 driver, therefore you don't need to manually install any driver when copying data from DB2.
 
 > [AZURE.NOTE] See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
 
