@@ -91,22 +91,22 @@ In this section, you use a Resource Manager template to create HDInsight cluster
 
 3. Configure the following properties:
 
-	- **Subscription**: Select an Azure subscription used for creating the cluster.
-	- **Resource group**: Create a new resource group used for the cluster.
-	- **Location**: Select a location for the resource group.
-	- **Cluster Name**: Enter a name for the new cluster to create.
-	- **Cluster Login User Name**: Enter the Hadoop HTTP user name.  The default name is **admin**.
-	- **Cluster Login Password**: Enter the Hadoop HTTP user password.
-	- **Ssh User Name**: Enter the SSH user name. The default name is **sshuser**.
-	- **Ssh Password**: Enter the SSH user password.
-	- **Install Script Action**: Keep the default value for going through this tutorial.
+    - **Subscription**: Select an Azure subscription used for creating the cluster.
+    - **Resource group**: Create a new resource group used for the cluster.
+    - **Location**: Select a location for the resource group.
+    - **Cluster Name**: Enter a name for the new cluster to create.
+    - **Cluster Login User Name**: Enter the Hadoop HTTP user name.  The default name is **admin**.
+    - **Cluster Login Password**: Enter the Hadoop HTTP user password.
+    - **Ssh User Name**: Enter the SSH user name. The default name is **sshuser**.
+    - **Ssh Password**: Enter the SSH user password.
+    - **Install Script Action**: Keep the default value for going through this tutorial.
 
 	Some values have been hardcoded in the template:
 
-    - Cluster type: The default value is **hadoop**.
-    - Cluster worker node count: The default value is 2.
-    - Edge node size: The default values is Standard_D3.
-    - Edge node name: The default value is new-edgenode. 
+    - **Cluster type**: The default value is **hadoop**.
+    - **Cluster worker node count**: The default value is 2.
+    - **Edge node size**: The default values is Standard_D3.
+    - **Edge node name**: The default value is new-edgenode. 
 
 4. Check **I agree to the terms and conditions stated above**, and then click  **Purchase** to create the cluster with the edge node.
 
