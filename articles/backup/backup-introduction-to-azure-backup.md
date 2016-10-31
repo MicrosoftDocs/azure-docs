@@ -18,14 +18,14 @@
 	ms.author="jimpark; trinadhk"/>
 
 # What is Azure Backup?
-Azure Backup is the service you can use to back up (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive. To enable the on-premises or cloud-based data to be backed up to Azure, Azure Backup provides multiple components that you download and deploy on the appropriate server or computer. The component or agent that you deploy depends on what you want to protect. See the [Azure Backup components table](backup-introduction-to-azure-backup.md#azure-backup-components) (later in this article) for information about which component to use to protect specific data, applications, or workloads.
+Azure Backup is the Azure-based service you can use to back up (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive. Azure Backup offers multiple components that you download and deploy on the appropriate computer, server, or in the cloud. The component, or agent, that you deploy depends on what you want to protect. All Azure Backup components (no matter whether you're protecting data on-premises or in the cloud) can be used to back up data to a Backup vault in Azure. See the [Azure Backup components table](backup-introduction-to-azure-backup.md#azure-backup-components) (later in this article) for information about which component to use to protect specific data, applications, or workloads.
 
 [Watch a video overview of Azure Backup](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
 
 ## Why use Azure Backup?
-Traditional backup solutions have evolved to treat the cloud as an endpoint, or static storage destination, similar to disks or tape. While this approach is simple, it is limited and doesn't take full advantage of an underlying cloud platform, which translates to an expensive, inefficient solution. Expensive because you end up paying for the wrong type of storage, or storage that you don't need. Inefficient because it is the wrong type of storage, or administrative tasks require too much time. In contrast, Azure Backup delivers these key benefits:
+Traditional backup solutions have evolved to treat the cloud as an endpoint, or static storage destination, similar to disks or tape. While this approach is simple, it is limited and doesn't take full advantage of an underlying cloud platform, which translates to an expensive, inefficient solution. Other solutions are expensive because you end up paying for the wrong type of storage, or storage that you don't need. Other solutions are often inefficient because they don't offer you the type or amount of storage you need, or administrative tasks require too much time. In contrast, Azure Backup delivers these key benefits:
 
-**Automatic storage management** - Hybrid environments often require heterogeneous storage - some on-premises and some in the cloud. There is no cost for using on-premises storage devices. Azure Backup automatically allocates and manages backup storage, and it uses a pay-as-you-use model. Pay-as-you-use means that you only pay for the storage that you consume. For more information, see the [Azure pricing article](https://azure.microsoft.com/pricing/details/backup).
+**Automatic storage management** - Hybrid environments often require heterogeneous storage - some on-premises and some in the cloud. With Azure Backup, there is no cost for using on-premises storage devices. Azure Backup automatically allocates and manages backup storage, and it uses a pay-as-you-use model. Pay-as-you-use means that you only pay for the storage that you consume. For more information, see the [Azure pricing article](https://azure.microsoft.com/pricing/details/backup).
 
 **Unlimited scaling** - Azure Backup uses the underlying power and unlimited scale of the Azure cloud to deliver high-availability - with no maintenance or monitoring overhead. You can set up alerts to provide information about events, but you don't need to worry about high-availability for your data in the cloud.
 
@@ -45,25 +45,25 @@ Traditional backup solutions have evolved to treat the cloud as an endpoint, or 
 
 
 ## Azure Backup components
-You may wonder which Azure Backup component you need. Any Azure Backup component can be deployed in Azure or on-premises. See the following table for information on what you can protect with each component. Also, the Azure portal makes it easy by providing a wizard to guide you through choosing which component to download and deploy. The wizard leads you through the steps for selecting a backup goal, and choosing the data or application to protect.
+If you aren't sure which Azure Backup component works for your needs, see the following table for information about what you can protect with each component. The Also, the Azure portal makes it easy to determine the component you need by providing a wizard to guide you through choosing the component to download and deploy. he The wizard, which is part of the Recovery Services vault creation, leads you through the steps for selecting a backup goal, and choosing the data or application to protect.
 
 
 |Component|Benefits|Limits|What is protected?|Where are backups stored?|
 |---------|-------|----------|------------------|---------------|
-|Azure Backup (MARS) agent|<li>Can back up files and folders on a Windows OS machine, be it physical or virtual (VMs can be anywhere on-premises or Azure)<li>No separate backup server required.|<li>Backup 3x per day <li>Not application aware; file, folder, and volume-level restore only, <li>  No support for Linux.|Files and folders on Windows Server (physical or virtual) and Windows 8.1, 10 |Azure Backup vault |
-|System Center DPM| <li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support (if hosted on Hyper-V) | Lack of heterogeneous support (VMware VM back up, Oracle workload back up). | Files, folders, volumes, VMs, application, workloads|Azure Backup vault,<br/> Locally attached disk,<br/>  Tape (on-premises only) |
-|Azure Backup Server| <li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support (if hosted on Hyper-V)<li>Does not require a System Center license | <li>Lack of heterogeneous support (VMware VM back up, Oracle workload back up).<li>Always requires live Azure subscription<li>No support for tape backup |Files, folders, volumes, VMs, applications, workloads|Azure Backup vault,<br/> Locally attached disk|
-|Azure Iaas VM Backup| <li>Native backups for Windows/Linux<li>No specific agent installation required<li>Fabric level backup with no backup infrastructure needed | <li>Once a day back up/disk level restore<li>Cannot back up on-premises|VMs, all disks (using PowerShell)| <p>Azure Backup vault</p>|
+|Azure Backup (MARS) agent|<li>Back up files and folders on physical or virtual Windows OS, (VMs can be on-premises or in Azure)<li>No separate backup server required.|<li>Backup 3x per day <li>Not application aware; file, folder, and volume-level restore only, <li>  No support for Linux.|<li>Files, <li>Folders  |Azure Backup vault |
+|System Center DPM| <li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support (if hosted on Hyper-V) | Lack of heterogeneous support (VMware VM back up, Oracle workload back up). |<li>Files, <li>Folders,<li> Volumes, <li>VMs,<li> Applications,<li> Workloads|<li>Azure Backup vault,<li> Locally attached disk,<li>  Tape (on-premises only) |
+|Azure Backup Server| <li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support (if hosted on Hyper-V)<li>Does not require a System Center license | <li>Lack of heterogeneous support (VMware VM back up, Oracle workload back up).<li>Always requires live Azure subscription<li>No support for tape backup |<li>Files, <li>Folders,<li> Volumes, <li>VMs,<li> Applications,<li> Workloads|<li>Azure Backup vault,<li> Locally attached disk|
+|Azure IaaS VM Backup| <li>Native backups for Windows/Linux<li>No specific agent installation required<li>Fabric level backup with no backup infrastructure needed | <li>Once a day back up/disk level restore<li>Cannot back up on-premises|<li>VMs, <li>All disks (using PowerShell)| <p>Azure Backup vault</p>|
 
 
-### Deployment scenarios
+## Deployment scenarios
 
 | Component | Can be deployed in Azure? | Can be deployed on-premises? | Target storage supported|
 | --- | --- | --- | --- |
-| Azure Backup agent | <p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM that runs in Azure.</p> | <p>**Yes**</p> <p>The Backup agent can be deployed on any Windows Server VM or physical machine.</p> | <p>Azure Backup vault</p> |
-| System Center Data Protection Manager (DPM) | <p>**Yes**</p><p>Learn more about [how to protect workloads in Azure by using System Center DPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Yes**</p> <p>Learn more about [how to protect workloads and VMs in your datacenter](https://technet.microsoft.com/library/hh758173.aspx).</p> | <p>Locally attached disk,</p> <p>Azure Backup vault,</p> <p>tape (on-premises only)</p> |
+| Azure Backup (MARS) agent | <p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM that runs in Azure.</p> | <p>**Yes**</p> <p>The Backup agent can be deployed on any Windows Server VM or physical machine.</p> | <p>Azure Backup vault</p> |
+| System Center DPM | <p>**Yes**</p><p>Learn more about [how to protect workloads in Azure by using System Center DPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Yes**</p> <p>Learn more about [how to protect workloads and VMs in your datacenter](https://technet.microsoft.com/library/hh758173.aspx).</p> | <p>Locally attached disk,</p> <p>Azure Backup vault,</p> <p>tape (on-premises only)</p> |
 | Azure Backup Server | <p>**Yes**</p><p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>**Yes**</p> <p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>Locally attached disk,</p> <p>Azure Backup vault</p> |
-| Azure Backup (VM extension) | <p>**Yes**</p><p>Part of Azure fabric</p><p>Specialized for [backup of Azure infrastructure as a service (IaaS) virtual machines](backup-azure-vms-introduction.md).</p> | <p>**No**</p> <p>Use System Center DPM to back up virtual machines in your datacenter.</p> | <p>Azure Backup vault</p> |
+| Azure IaaS VM Backup | <p>**Yes**</p><p>Part of Azure fabric</p><p>Specialized for [backup of Azure infrastructure as a service (IaaS) virtual machines](backup-azure-vms-introduction.md).</p> | <p>**No**</p> <p>Use System Center DPM to back up virtual machines in your datacenter.</p> | <p>Azure Backup vault</p> |
 
 
 ## Which applications and workloads can be backed up?
@@ -81,23 +81,25 @@ The following table provides a matrix of the data and workloads that can be prot
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p>  |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p>   |
 | Microsoft Exchange |  Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p>   |
-| Azure IaaS VMs (Windows)<br/>running in Azure | - | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
-| Azure IaaS VMs (Linux) <br/>running in Azure| - | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
+| Azure IaaS VMs (Windows) | running in Azure | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
+| Azure IaaS VMs (Linux) | running in Azure | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
 
 ## Linux support
+
+The following table shows the Azure Backup components that have support for Linux.  
 
 | Component| Linux (Azure endorsed) Support |
 | --- | ------ |
 | Azure Backup (MARS) agent | No (Only Windows based agent) |
-| System Center Data Protection Manager | Only Hyper-V (Not Azure VM) Only file-consistent backup is possible |
-| Azure Backup Server (MABS) | Only Hyper-V (Not Azure VM) Only file-consistent backup is possible (Same as DPM) |
+| System Center DPM | File-consistent backup on Hyper-V only<br/> (not available for Azure VM) |
+| Azure Backup Server | File-consistent backup on Hyper-V only<br/> (not available for Azure VM) |
 | Azure IaaS VM Backup | Yes |
 
 
 
 ## Back up and Restore Premium Storage VMs
 
-The Azure Backup service now protects Premium Storage VMs.
+Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is particularly attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md)
 
 ### Back up Premium Storage VMs
 
@@ -112,16 +114,16 @@ Once the backup job finishes, the staging location is deleted. The price of stor
 Premium Storage VMs can be restored to either Premium Storage or to normal storage. Restoring a Premium Storage VM recovery point back to Premium Storage is the typical process of restoration. However, it can be cost effective to restore a Premium Storage VM recovery point to standard storage. This type of restoration can be used if you need a subset of files from the VM.
 
 ## Functionality
-These five tables summarize how backup functionality is handled in each component.
+The following sections provide tables that summarize the availability or support of various features in each Azure Backup component. See the information following each table for additional support or details.
 
 ### Storage
 
-| Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure Backup (VM extension) |
+| Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | ------- | --- | --- | --- | ---- |
 | Azure Backup vault | ![Yes][green] | ![Yes][green] | ![Yes][green] | ![Yes][green] |
 | Disk storage | | ![Yes][green] | ![Yes][green] |  |
 | Tape storage | | ![Yes][green] |  | |
-| Compression (in backup vault) | ![Yes][green] | ![Yes][green]| ![Yes][green] | |
+| Compression <br/>(in Backup vault) | ![Yes][green] | ![Yes][green]| ![Yes][green] | |
 | Incremental backup | ![Yes][green] | ![Yes][green] | ![Yes][green] | ![Yes][green] |
 | Disk deduplication | | ![Partially][yellow] | ![Partially][yellow]| | |
 
@@ -129,83 +131,70 @@ These five tables summarize how backup functionality is handled in each componen
 
 The Backup vault is the preferred storage target across all components. System Center DPM and Backup Server also provide the option to have a local disk copy. However, only System Center DPM provides the option to write data to a tape storage device.
 
-#### Incremental backup
-Every component supports incremental backup regardless of the target storage (disk, tape, backup vault). Incremental backup ensures that backups are storage and time efficient, by transferring only those changes made since the last backup.
-
 #### Compression
 Backups are compressed to reduce the required storage space. The only component that does not use compression is the VM extension. With VM extension, all backup data is copied from the customer storage account to the backup vault in the same region without compressing it. While going without compression slightly inflates the storage used, storing the data without compression allows for faster restore times.
 
-#### Deduplication
+#### Incremental backup
+Every component supports incremental backup regardless of the target storage (disk, tape, backup vault). Incremental backup ensures that backups are storage and time efficient, by transferring only those changes made since the last backup.
+
+#### Disk Deduplication
 Deduplication is supported for System Center DPM and Backup Server when it is [deployed in a Hyper-V virtual machine](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Deduplication is performed at the host level by using Windows Server deduplication on virtual hard disks (VHDs) that are attached to the virtual machine as backup storage.
 
->[AZURE.WARNING] Deduplication is not available in Azure for any of the Backup components. When System Center DPM and Backup Server are deployed in Azure, the storage disks attached to the VM cannot be deduplicated.
+>[AZURE.NOTE] Deduplication is not available in Azure for any Backup component. When System Center DPM and Backup Server are deployed in Azure, the storage disks attached to the VM cannot be deduplicated.
 
 ### Security
 
-| Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure Backup (VM extension) |
+| Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | ------- | --- | --- | --- | ---- |
-| Network security (to Azure) | ![Yes][green] |![Yes][green] | ![Yes][green] | ![Partially][yellow]|
-| Data security (in Azure) | ![Yes][green] |![Yes][green] | ![Yes][green] | ![Partially][yellow]|
+| Network security<br/> (to Azure) | ![Yes][green] |![Yes][green] | ![Yes][green] | ![Partially][yellow]|
+| Data security<br/> (in Azure) | ![Yes][green] |![Yes][green] | ![Yes][green] | ![Partially][yellow]|
 
 ![table key](./media/backup-introduction-to-azure-backup/table-key.png)
 
-All backup traffic from your servers to the Backup vault is encrypted by using Advanced Encryption Standard 256. The data is sent over a secure HTTPS link. The backup data is also stored in the Backup vault in encrypted form. Only the customer holds the passphrase to unlock this data. Microsoft cannot decrypt the backup data at any point.
+#### Network security
+All backup traffic from your servers to the Backup vault is encrypted using Advanced Encryption Standard 256. The backup data is sent over a secure HTTPS link. The backup data is also stored in the Backup vault in encrypted form. Only you, the Azure customer, have the passphrase to unlock this data. Microsoft cannot decrypt the backup data at any point.
 
->[AZURE.WARNING] The key used to encrypt the backup data is present only with the customer. Microsoft does not maintain a copy in Azure and does not have any access to the key. If the key is misplaced, Microsoft cannot recover the backup data.
+>[AZURE.WARNING] From the time you establish the Backup vault, only you have access to the encryption key. Microsoft never maintains a copy of your encryption key, and does not have access to the key. If the key is misplaced, Microsoft cannot recover the backup data.
 
+#### Data security
 Backing up Azure VMs requires setting up encryption *within* the virtual machine. Use BitLocker on Windows virtual machines and **dm-crypt** on Linux virtual machines. Azure Backup does not automatically encrypt backup data that comes through this path.
 
-### Supported workloads
-
-| Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure Backup (VM extension) |
-| ------- | --- | --- | --- | ---- |
-| Windows Server machine--files and folders | ![Yes][green] | ![Yes][green] | ![Yes][green] | |
-| Windows client machine--files and folders | ![Yes][green] | ![Yes][green] | ![Yes][green] | |
-| Hyper-V virtual machine (Windows) | | ![Yes][green] | ![Yes][green] | |
-| Hyper-V virtual machine (Linux) | | ![Yes][green] | ![Yes][green] | |
-| Microsoft SQL Server | | ![Yes][green] | ![Yes][green] | |
-| Microsoft SharePoint | | ![Yes][green] | ![Yes][green] | |
-| Microsoft Exchange  | | ![Yes][green] | ![Yes][green] | |
-| Azure virtual machine (Windows) | | | | ![Yes][green] |
-| Azure virtual machine (Linux) | | | | ![Yes][green] |
-
-![table key](./media/backup-introduction-to-azure-backup/table-key-2.png)
 
 ### Network
 
-| Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure Backup (VM extension) |
+| Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | ------- | --- | --- | --- | ---- |
-| Network compression (to the backup server) | | ![Yes][green] | ![Yes][green] | |
-| Network compression (to the backup vault) | ![Yes][green] | ![Yes][green] | ![Yes][green] | |
-| Network protocol (to the backup server) | | TCP | TCP | |
-| Network protocol (to the backup vault) | HTTPS | HTTPS | HTTPS | HTTPS |
+| Network compression <br/>(to **backup server**) | | ![Yes][green] | ![Yes][green] | |
+| Network compression <br/>(to **backup vault**) | ![Yes][green] | ![Yes][green] | ![Yes][green] | |
+| Network protocol <br/>(to **backup server**) | | TCP | TCP | |
+| Network protocol <br/>(to **backup vault**) | HTTPS | HTTPS | HTTPS | HTTPS |
 
 ![table key](./media/backup-introduction-to-azure-backup/table-key-2.png)
 
-Because the VM extension reads the data directly from the Azure storage account over the storage network, it is not necessary to optimize this traffic. The traffic is over the local storage network in the Azure datacenter, so there is little need for compression because of bandwidth considerations.
+The VM extension (on the IaaS VM) reads the data directly from the Azure storage account over the storage network, so it is not necessary to compress this traffic.
 
-If you are backing up your data to a backup server (DPM or Backup Server), traffic from the primary server to the backup server can be compressed to save on bandwidth.
+If you are backing up your data to a System Center DPM or Azure Backup Server, compress data going from the primary server to the backup server. This saves bandwidth.
 
 #### Network Throttling
-The Azure Backup agent provides throttling capability, which allows you to control how network bandwidth is used during data transfer. Throttling can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other internet traffic. Throttling for data transfer applies to back up and restore activities.
+The Azure Backup agent offers network throttling, which allows you to control how network bandwidth is used during data transfer. Throttling can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other internet traffic. Throttling for data transfer applies to back up and restore activities.
 
 ### Backup and retention
 
-|  | Azure Backup agent | System Center DPM | Azure Backup Server | Azure Backup (VM extension) |
+|  | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
-| Backup frequency (to the backup vault) | Three backups per day | Two backups per day |Two backups per day | One backup per day |
-| Backup frequency (to disk) | Not applicable | <p>Every 15 minutes for SQL Server</p> <p>Every hour for other workloads</p> | <p>Every 15 minutes for SQL Server</p> <p>Every hour for other workloads</p> |Not applicable |
+| Backup frequency<br/> (to Backup vault) | Three backups per day | Two backups per day |Two backups per day | One backup per day |
+| Backup frequency<br/> (to disk) | Not applicable | <li>Every 15 minutes for SQL Server <li>Every hour for other workloads | <li>Every 15 minutes for SQL Server <li>Every hour for other workloads</p> |Not applicable |
 | Retention options | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |
 | Retention period | Up to 99 years | Up to 99 years | Up to 99 years | Up to 99 years |
 | Recovery points in Backup vault | Unlimited | Unlimited | Unlimited | Unlimited |
-| Recovery points on local disk | Not applicable | 64 for File Servers,<br><br>448 for Application Servers | 64 for File Servers,<br><br>448 for Application Servers |Not applicable |
+| Recovery points on local disk | Not applicable | <li>64 for File Servers,<li>448 for Application Servers | <li>64 for File Servers,<li>448 for Application Servers |Not applicable |
 | Recovery points on tape | Not applicable | Unlimited | Not applicable | Not applicable |
 
 ## What is the vault credential file?
 
-The vault credentials file is a certificate generated by the portal for each backup vault. The portal then uploads the public key to the Access Control Service (ACS). The private key is provided to the user when downloading the credentials and then entered during the machine registration. The private key authenticates the machine to send backup data to an identified vault in the Azure Backup service.
+The vault credentials file is a certificate generated by the portal for each Backup vault. The portal then uploads the public key to the Access Control Service (ACS). The private key is provided to you when downloading the credentials and then entered during the machine registration. The private key authenticates the machine to send backup data to an identified vault in the Azure Backup service.
 
-The vault credential is used only during the registration workflow. It is your responsibility to ensure that the vault credentials file is not compromised. If it falls in the hands of any rogue-user, the vault credentials file can be used to register other machines against the same vault. However, since the backup data is encrypted using a passphrase belonging only to the customer, existing backup data cannot be compromised. To mitigate this concern, vault credentials are set to expire in 48 hours. While you can download the vault credentials of a backup vault any number of times, only the latest file is applicable during the registration workflow.
+The vault credential is used only during the registration workflow. It is your responsibility to ensure that the vault credentials file is not compromised. If it falls in the hands of any rogue-user, the vault credentials file can be used to register other machines against the same vault. However, since the backup data is encrypted using a passphrase, that only you can access, existing backup data cannot be compromised. To mitigate this concern, vault credentials are set to expire after 48 hours. While you can download the Backup vault's vault credentials as often as you like, only the latest file is applicable during the registration workflow.
 
 ## How does Azure Backup differ from Azure Site Recovery?
 Azure Backup and Azure Site Recovery are related in that both services back up data and provide an ability to restore that data, but their core value propositions are different.
@@ -223,12 +212,12 @@ The following concepts can help you make important decisions around backup and d
 
 ## Next steps
 
-Try out a simple Azure Backup. For instructions, see one of these tutorials:
+Use one of the following tutorials for detailed, step-by-step, instructions for protecting data on Windows Server, or protecting a virtual machine in Azure:
 
 - [Try Azure Backup](backup-try-azure-backup-in-10-mins.md)
 - [Try Azure VM Backup](backup-azure-vms-first-look.md)
 
-Because those tutorials help you back up quickly, they show you only the most direct path for backing up your data. For additional information about the type of back up you want to do, see:
+For details about protecting other workloads, try one of these articles:
 
 - [Back up Windows machine](backup-configure-vault.md)
 - [Back up application workloads](backup-azure-microsoft-azure-backup.md)
