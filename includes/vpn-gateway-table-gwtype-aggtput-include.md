@@ -1,10 +1,13 @@
+The following table shows the gateway types and the estimated aggregate throughput by gateway SKU. This table applies to both the Resource Manager and classic deployment models. Note that the UltraPerformance gateway SKU is not represented in this table. For information about the UltraPerformance SKU, see the [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.
+
+Pricing differs between gateway SKUs. For more information, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
+
 |    | **VPN Gateway throughput (1)** | **VPN Gateway max IPsec tunnels (2)** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist**|
 |--- |----------------------------|-----------------------------------|-------------------------------------|-----------------------------------------|
 | **Basic SKU (3)(5)**              |  100 Mbps | 10                         |  500 Mbps                           | No   |
 | **Standard SKU (4)(5)**           |  100 Mbps | 10                         | 1000 Mbps                           | Yes  |
 | **High Performance SKU (4)**   | 200 Mbps  | 30                         | 2000 Mbps                           | Yes  |
 
-Note that the UltraPerformance gateway SKU is not represented in this table. For information about the UltraPerformance SKU, see the [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.
 
 - (1) The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guaranteed throughput for cross-premises connections across the Internet. It is the maximum possible throughput measurement.
 - (2) The number of tunnels refer to RouteBased VPNs. A PolicyBased VPN can only support one Site-to-Site VPN tunnel.
