@@ -1,10 +1,10 @@
 <properties
 pageTitle="OneDrive for Business | Microsoft Azure"
 description="Create Logic apps with Azure App service. Connect to OneDrive for Business to manage your files. You can perform various actions such as upload, update, get, and delete on files."
-services="logic-apps"	
+services="logic-apps"
 documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+authors="msftman"
+manager="erikre"
 editor=""
 tags="connectors" />
 
@@ -21,13 +21,13 @@ ms.author="deonhe"/>
 
 Connect to OneDrive for Business to manage your files. You can perform various actions such as upload, update, get, and delete on files.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 
-The OneDrive for Business connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+The OneDrive for Business connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats.
 
  The OneDrive for Business connector has the following action(s) and/or trigger(s) available:
 
@@ -57,12 +57,12 @@ You can listen for these event(s):
 
 
 ## Create a connection to OneDrive for Business
-To create Logic apps with OneDrive for Business, you must first create a **connection** then provide the details for the following properties: 
+To create Logic apps with OneDrive for Business, you must first create a **connection** then provide the details for the following properties:
 
 |Property| Required|Description|
 | ---|---|---|
 |Token|Yes|Provide OneDrive for Business Credentials|
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
+After you create the connection, you can use it to execute the actions and listen for the triggers described in this article.
 
 >[AZURE.INCLUDE [Steps to create a connection to OneDrive for Business](../../includes/connectors-create-api-onedriveforbusiness.md)]
 
@@ -72,9 +72,9 @@ After you create the connection, you can use it to execute the actions and liste
 Applies to version: 1.0
 
 ## GetFileMetadata
-Get file metadata using id: Retrieves metadata of a file in OneDrive for Business using id 
+Get file metadata using id: Retrieves metadata of a file in OneDrive for Business using id
 
-```GET: /datasets/default/files/{id}``` 
+```GET: /datasets/default/files/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -89,9 +89,9 @@ Get file metadata using id: Retrieves metadata of a file in OneDrive for Busines
 
 
 ## UpdateFile
-Update file: Updates a file in OneDrive for Business 
+Update file: Updates a file in OneDrive for Business
 
-```PUT: /datasets/default/files/{id}``` 
+```PUT: /datasets/default/files/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -107,9 +107,9 @@ Update file: Updates a file in OneDrive for Business
 
 
 ## DeleteFile
-Delete file: Deletes a file from OneDrive for Business 
+Delete file: Deletes a file from OneDrive for Business
 
-```DELETE: /datasets/default/files/{id}``` 
+```DELETE: /datasets/default/files/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -124,9 +124,9 @@ Delete file: Deletes a file from OneDrive for Business
 
 
 ## GetFileMetadataByPath
-Get file metadata using path: Retrieves metadata of a file in OneDrive for Business using path 
+Get file metadata using path: Retrieves metadata of a file in OneDrive for Business using path
 
-```GET: /datasets/default/GetFileByPath``` 
+```GET: /datasets/default/GetFileByPath```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -141,9 +141,9 @@ Get file metadata using path: Retrieves metadata of a file in OneDrive for Busin
 
 
 ## GetFileContentByPath
-Get file content using path: Retrieves contents of a file in OneDrive for Business using path 
+Get file content using path: Retrieves contents of a file in OneDrive for Business using path
 
-```GET: /datasets/default/GetFileContentByPath``` 
+```GET: /datasets/default/GetFileContentByPath```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -158,9 +158,9 @@ Get file content using path: Retrieves contents of a file in OneDrive for Busine
 
 
 ## GetFileContent
-Get file content using id: Retrieves contents of a file in OneDrive for Business using id 
+Get file content using id: Retrieves contents of a file in OneDrive for Business using id
 
-```GET: /datasets/default/files/{id}/content``` 
+```GET: /datasets/default/files/{id}/content```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -175,9 +175,9 @@ Get file content using id: Retrieves contents of a file in OneDrive for Business
 
 
 ## CreateFile
-Create file: Uploads a file to OneDrive for Business 
+Create file: Uploads a file to OneDrive for Business
 
-```POST: /datasets/default/files``` 
+```POST: /datasets/default/files```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -194,9 +194,9 @@ Create file: Uploads a file to OneDrive for Business
 
 
 ## CopyFile
-Copy file: Copies a file to OneDrive for Business 
+Copy file: Copies a file to OneDrive for Business
 
-```POST: /datasets/default/copyFile``` 
+```POST: /datasets/default/copyFile```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -213,9 +213,9 @@ Copy file: Copies a file to OneDrive for Business
 
 
 ## OnNewFile
-When a file is created: Triggers a flow when a new file is created in a OneDrive for Business folder 
+When a file is created: Triggers a flow when a new file is created in a OneDrive for Business folder
 
-```GET: /datasets/default/triggers/onnewfile``` 
+```GET: /datasets/default/triggers/onnewfile```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -230,9 +230,9 @@ When a file is created: Triggers a flow when a new file is created in a OneDrive
 
 
 ## OnUpdatedFile
-When a file is modified: Triggers a flow when a file is modified in a OneDrive for Business folder 
+When a file is modified: Triggers a flow when a file is modified in a OneDrive for Business folder
 
-```GET: /datasets/default/triggers/onupdatedfile``` 
+```GET: /datasets/default/triggers/onupdatedfile```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -247,9 +247,9 @@ When a file is modified: Triggers a flow when a file is modified in a OneDrive f
 
 
 ## ListFolder
-List files in folder: Lists files in a OneDrive for Business folder 
+List files in folder: Lists files in a OneDrive for Business folder
 
-```GET: /datasets/default/folders/{id}``` 
+```GET: /datasets/default/folders/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -264,9 +264,9 @@ List files in folder: Lists files in a OneDrive for Business folder
 
 
 ## ListRootFolder
-List root folder: Lists files in the OneDrive for Business root folder 
+List root folder: Lists files in the OneDrive for Business root folder
 
-```GET: /datasets/default/folders``` 
+```GET: /datasets/default/folders```
 
 There are no parameters for this call
 #### Response
@@ -278,9 +278,9 @@ There are no parameters for this call
 
 
 ## ExtractFolderV2
-Extract folder: Extracts a folder to OneDrive for Business 
+Extract folder: Extracts a folder to OneDrive for Business
 
-```POST: /datasets/default/extractFolderV2``` 
+```POST: /datasets/default/extractFolderV2```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -296,7 +296,7 @@ Extract folder: Extracts a folder to OneDrive for Business
 |default|Operation Failed.|
 
 
-## Object definitions 
+## Object definitions
 
 ### DataSetsMetadata
 
@@ -353,8 +353,7 @@ Extract folder: Extracts a folder to OneDrive for Business
 ### Object
 
 
-| Property Name | Data Type | Required |
-|---|---|---|
+
 
 
 ## Next Steps

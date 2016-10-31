@@ -14,14 +14,14 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/24/2016"
+   	ms.date="10/31/2016"
    	ms.author="saurinsh"/>
 
-# Introduce Domain-joined HDInsight clusters (Preview)
+# An introduction to Domain-joined HDInsight clusters (Preview)
 
 Azure HDInsight until today supported only a single user local admin. This worked great for smaller application teams or departments. As Hadoop based workloads gained more popularity in the enterprise sector, the need for enterprise grade capabilities like active directory based authentication, multi-user support, and role based access control became increasingly important. Using Domain-joined HDInsight clusters, you can create an HDInsight cluster joined to an Active Directory domain, configure a list of employees from the enterprise who can authenticate through Azure Active Directory to log on to HDInsight cluster. Anyone outside the enterprise cannot log on or access the HDInsight cluster. The enterprise admin can configure role based access control for Hive security using [Apache Ranger](http://hortonworks.com/apache/ranger/), thus restricting access to data to only as much as needed. Finally, the admin can audit the data access by employees, and any changes done to access control policies, thus achieving a high degree of governance of their corporate resources.
 
-[AZURE.NOTE]> The new features described in this preview are available only on Linux-based HDInsight clusters for Hive workload. The other workloads, such as HBase, Spark, Storm and Kafka, will be enabled in future releases. 
+>[AZURE.NOTE] The new features described in this preview are available only on Linux-based HDInsight clusters for Hive workload. The other workloads, such as HBase, Spark, Storm and Kafka, will be enabled in future releases. 
 
 ## Benefits
 
