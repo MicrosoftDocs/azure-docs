@@ -124,7 +124,7 @@ The following sample commands show how to retrieve the script for a runbook and 
 
 ### To Change the Contents of a Runbook Using Windows PowerShell
 
-The following sample commands show how to replace the existing contents of a runbook with the contents of a script file. Note that this is the same sample procedure as in [To import a runbook from a script file with Windows PowerShell](../automation-creating-importing-a-runbook.md#ImportRunbookScriptPS).
+The following sample commands show how to replace the existing contents of a runbook with the contents of a script file. Note that this is the same sample procedure as in [To import a runbook from a script file with Windows PowerShell](automation-creating-importing-a-runbook.md#ImportRunbookScriptPS).
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
