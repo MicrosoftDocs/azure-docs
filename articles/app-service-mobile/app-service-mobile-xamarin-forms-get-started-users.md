@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with authentication for Mobile Apps in Xamarin.Forms app | Microsoft Azure"
+	pageTitle="Get Started with authentication for Mobile Apps in Xamarin Forms app | Microsoft Azure"
 	description="Learn how to use Mobile Apps to authenticate users of your Xamarin Forms app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
@@ -16,20 +16,20 @@
 	ms.date="10/01/2016"
 	ms.author="adrianha"/>
 
-# Add authentication to your Xamarin.Forms app
+# Add authentication to your Xamarin Forms app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## Overview
 
 This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to
-the Xamarin.Forms quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized
+the Xamarin Forms quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized
 by your Mobile App, the user ID value is displayed, and you will be able to access restricted table data.
 
 ## Prerequisites
 
-For the best result with this tutorial, we recommend that you first complete the [Create a Xamarin.Forms app][1] tutorial. After you complete this
-tutorial, you will have a Xamarin.Forms project that is a multi-platform TodoList app.
+For the best result with this tutorial, we recommend that you first complete the [Create a Xamarin Forms app][1] tutorial. After you complete this
+tutorial, you will have a Xamarin Forms project that is a multi-platform TodoList app.
 
 If you do not use the downloaded quick start server project, you must add the authentication extension package to your project. For more information
 about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps][2].
@@ -49,9 +49,9 @@ Mobile Apps uses the [LoginAsync][3] extension method on the [MobileServiceClien
 uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication][5]. To
 provide a better user experience in your production app, you should consider instead using [Client-managed authentication][6].
 
-To authenticate with a Xamarin.Forms project, define an **IAuthenticate** interface in the Portable Class Library for the app. Then add a **Sign-in**
-button to the  user interface defined in the Portable Class Library, which you click to start authentication. After successful authentication,
-data is loaded from the mobile app backend.
+To authenticate with a Xamarin Forms project, define an **IAuthenticate** interface in the Portable Class Library for the app. Then add a **Sign-in** button
+to the user interface defined in the Portable Class Library, which you click to start authentication. Data is loaded from the mobile app backend after
+successful authentication.
 
 Implement the **IAuthenticate** interface for each platform supported by your app.
 
