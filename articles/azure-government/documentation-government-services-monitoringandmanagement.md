@@ -43,8 +43,9 @@ For more information, see [Backup public documentation](../backup/backup-introdu
 ### Variations
 
 The following Backup features are not currently available in Azure Government:
+
 + Azure Resource Manager backup vaults
-+ Azure portal extension
++ Management using the Azure portal (the Azure classic portal is supported)
 
 
 ## Log Analytics
@@ -112,6 +113,7 @@ For more information, see [Site Recovery public documentation](../site-recovery/
 ### Variations
 
 The following Site Recovery features are not currently available in Azure Government:
+
 + Azure Resource Manager site recovery vaults
 
 
