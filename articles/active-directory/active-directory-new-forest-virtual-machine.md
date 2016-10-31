@@ -4,7 +4,7 @@
 	services="active-directory, virtual-network"
     keywords="active directory virtual machine, install active directory forest, azure active directory videos "
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	tags=""/>
 
