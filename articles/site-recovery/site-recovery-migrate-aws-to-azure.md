@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Migrate Windows virtual machines from Amazon Web Services to Azure with Site Recovery | Microsoft Azure"
-	description="This article describes how to migrate Windows virtual machines running in Amazon Web Services (AWA) to Azure using Azure Site Recovery."
+	pageTitle="Migrate virtual machines from Amazon Web Services to Azure with Site Recovery | Microsoft Azure"
+	description="This article describes how to migrate virtual machines running in Amazon Web Services (AWS) to Azure using Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="08/22/2016"
+	ms.date="11/01/2016"
 	ms.author="raynew"/>
 
-#  Migrate Windows virtual machines in Amazon Web Services (AWS) to Azure with Azure Site Recovery
+#  Migrate virtual machines in Amazon Web Services (AWS) to Azure with Azure Site Recovery
 
 ## Overview
 
-Welcome to Azure Site Recovery. Use this article to migrate Windows instances running in AWS to Azure with Site Recovery. Before you start, note that:
+Welcome to Azure Site Recovery. Use this article to migrate EC2 instances running in AWS to Azure with Site Recovery. Before you start, note that:
 
 - Azure has two different deployment models for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models. The basic steps for migration are the same whether you're configuring Site Recovery in Resource Manager or in classic.However the UI instructions and screenshots in this article are relevant for the Azure portal.
 - **Currently you can only migrate from AWS to Azure. You can fail over VMs from AWS to Azure, but you can't fail them back again. There's no ongoing replication.**
@@ -29,13 +29,24 @@ Welcome to Azure Site Recovery. Use this article to migrate Windows instances ru
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
+## Supported Operating Systems
+
+Site Recovery can be used to migrate EC2 instances running any of the following Operating Systems
+
+###Windows(64 bit only)
+- Windows Server 2008 R2 SP1+ (Citrix PV drivers or AWS PV drivers only; **instances running RedHat PV drivers are not supported**) 
+- Windows Server 2012
+- Windows Server 2012 R2
+
+### Linux (64 bit only)
+- Red Hat Enterprise Linux 6.7 (HVM virtualized instances only)
 
 ## Prerequisites
 
 Here's what you need for this deployment
 
 - **Configuration server**: An on-premises VM running Windows Server 2012 R2 that acts as the configuration server. You install the other Site Recovery components (including the process server and master target server) on this VM too. Read more in [scenario architecture](site-recovery-vmware-to-azure.md#scenario-architecture) and [configuration server prerequisites](site-recovery-vmware-to-azure.md#configuration-server-prerequisites).
-- **EC2 VM instances**: The instances running Windows you want to migrate.
+- **EC2 VM instances**: The EC2 instances you want to migrate.
 
 ## Deployment steps
 
