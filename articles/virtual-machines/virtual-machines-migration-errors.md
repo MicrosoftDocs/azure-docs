@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Common errors during Classic to Azure Resource Manager migration"
+	pageTitle="Common errors during Classic to Azure Resource Manager migration | Microsoft Azure"
 	description="This article catalogs the most common errors and mitigations during the migration of IaaS resources from Azure Service Management to the Azure Resource Manager stack."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -34,3 +34,11 @@ This article catalogs the most common errors and mitigations during the migratio
 | Migration is not supported for Deployment {deployment-name} in HostedService {hosted-service-name because it has VMs that are not part of the Availability Set even though the HostedService contains one. | The workaround for this scenario is to either move all the virtual machines into a single Availability set or remove all Virtual machines from the Availability set in the hosted service. |
 | Storage account/HostedService/Virtual Network {virtual-network-name} is in the process of being migrated and hence cannot be changed | This error happens when the "Prepare" migration operation has been completed on the resource and an operation that would make a change to the resource is triggered. Because of the lock on the management plane after "Prepare" operation, any changes to the resource are blocked. To unlock the management plane you can run the "Commit" migration operation to complete migration or the "Abort" migration operation to roll back the "Prepare" operation. |
 | Migration is not allowed for HostedService {hosted-service-name} because it has VM {vm-name} in State: RoleStateUnknown. Migration is allowed only when the VM is in one of the following states - Running, Stopped, Stopped Deallocated. | The VM might be undergoing through a state transition which usually happens when during an update operation on the HostedService such as a reboot, extension installation etc. It is recommended for the update operation to complete on the HostedService before trying migration. |
+
+## Next steps
+
+Here's a list of migration articles that explain the process.
+
+- [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
+- [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
+- [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
