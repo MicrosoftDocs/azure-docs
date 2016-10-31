@@ -100,12 +100,8 @@ In this section, you use a Resource Manager template to create HDInsight cluster
   - **Ssh Password**: Enter the SSH user password.
   - **Install Script Action**: Keep the default value for going through this tutorial.
 
-    Some values have been hardcoded in the template:
-
-  - **Cluster type**: The default value is **hadoop**.
-  - **Cluster worker node count**: The default value is 2.
-  - **Edge node size**: The default values is Standard_D3.
-  - **Edge node name**: The default value is new-edgenode. 
+    Some properties have been hardcoded in the template: Cluster type, Cluster worker node count, Edge node size, and Edge node name.
+	 
 4. Check **I agree to the terms and conditions stated above**, and then click  **Purchase** to create the cluster with the edge node.
 
 ## Access an edge node
