@@ -81,7 +81,7 @@ As shown in the previous screenshot, the virtual machine health is **Critical**.
 
 ![Errors and recommendations in the Error Details dialog box](media/site-recovery-monitoring-and-troubleshooting/image11.png)
 
-> AZURE.NOTE If any active operations are in progress or failed, go to the **JOBS** view as mentioned earlier to view the error for a specific job.
+>[AZURE.NOTE] If any active operations are in progress or failed, go to the **JOBS** view as mentioned earlier to view the error for a specific job.
 
 ## Troubleshoot on-premises Hyper-V issues
 
@@ -95,18 +95,19 @@ In this case, **Replication Health** is **Critical**. Right-click the virtual ma
 ![Replication health for a specific virtual machine](media/site-recovery-monitoring-and-troubleshooting/image13.png)
 
 If replication is paused for the virtual machine, right-click the virtual machine, and then click **Replication** > **Resume replication**.
+
 ![Option to resume replication in the Hyper-V manager console](media/site-recovery-monitoring-and-troubleshooting/image19.png)
 
 If a virtual machine migrates a new Hyper-V host that's within the cluster or a standalone machine and the Hyper-V host has been configured through Azure Site Recovery, replication for the virtual machine wouldn't be impacted. Ensure that the new Hyper-V host meets all the prerequisites and is configured by using Azure Site Recovery.
 
 ### Event Log
 
-| Event  Sources               	| Details                                                                                                                                                                                        	|
+| Event sources               	| Details                                                                                                                                                                                        	|
 |-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** (Virtual Machine Manager server)	|  Provides useful logging to troubleshoot many different Virtual Machine Manager issues. |
-| **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (Hyper-V Host)	| Provides useful logging to troubleshoot many Microsoft Azure Recovery Services Agent issues. <br/> ![Location of Replication event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer03.png) |
-| **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** (Hyper-V Host)	| Provides useful logging to troubleshoot many Microsoft Azure Site Recovery Service issues. <br/> ![Location of Operational event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer02.png) |
-| **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** (Hyper-V Host)	| Provides useful logging to troubleshoot many Hyper-V virtual machine management issues. <br/> ![Location of Virtual Machine Manager event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer01.png) |
+| **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (Hyper-V host)	| Provides useful logging to troubleshoot many Microsoft Azure Recovery Services Agent issues. <br/> ![Location of Replication event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer03.png) |
+| **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** (Hyper-V host)	| Provides useful logging to troubleshoot many Microsoft Azure Site Recovery Service issues. <br/> ![Location of Operational event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer02.png) |
+| **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** (Hyper-V host)	| Provides useful logging to troubleshoot many Hyper-V virtual machine management issues. <br/> ![Location of Virtual Machine Manager event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer01.png) |
 
 
 ### Hyper-V replication logging options
@@ -165,8 +166,8 @@ URL at <http://aka.ms/getazuresupport>.
 Following are common errors and their resolutions. Each error is documented in a separate wiki page.
 
 ### General
--   <span style="color:green;">NEW</span> [Jobs failing with error "An operation is in progress." Error 505, 514, 532](http://social.technet.microsoft.com/wiki/contents/articles/32190.azure-site-recovery-jobs-failing-with-error-an-operation-is-in-progress-error-505-514-532.aspx)
--   <span style="color:green;">NEW</span> [Jobs failing with error "Server isn't connected to the Internet". Error 25018](http://social.technet.microsoft.com/wiki/contents/articles/32192.azure-site-recovery-jobs-failing-with-error-server-isn-t-connected-to-the-internet-error-25018.aspx)
+-   <span style="color:green;">NEW</span> [Jobs failing with error "An operation is in progress." Error 505, 514, 532.](http://social.technet.microsoft.com/wiki/contents/articles/32190.azure-site-recovery-jobs-failing-with-error-an-operation-is-in-progress-error-505-514-532.aspx)
+-   <span style="color:green;">NEW</span> [Jobs failing with error "Server isn't connected to the Internet". Error 25018.](http://social.technet.microsoft.com/wiki/contents/articles/32192.azure-site-recovery-jobs-failing-with-error-server-isn-t-connected-to-the-internet-error-25018.aspx)
 
 ### Setup
 -   [The Virtual Machine Manager server cannot be registered due to an internal error. Please refer to the jobs view in the Site Recovery portal for more details on the error. Run setup again to register the server.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
@@ -175,38 +176,37 @@ Following are common errors and their resolutions. Each error is documented in a
 ### Configuration
 -   [Unable to create Protection Group: An error occurred while retrieving the list of servers.](http://blogs.technet.com/b/somaning/archive/2015/08/12/unable-to-create-the-protection-group-in-azure-site-recovery-portal.aspx)
 -   [Hyper-V host cluster contains at least one static network adapter, or no connected adapters are configured to use DHCP.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
--   [Virtual Machine Manager does not have permissions to complete an action](http://social.technet.microsoft.com/wiki/contents/articles/31110.vmm-does-not-have-permissions-to-complete-an-action.aspx).
--   [Can't select the storage account within the subscription while configuring protection](http://social.technet.microsoft.com/wiki/contents/articles/32027.can-t-select-the-storage-account-within-the-subscription-while-configuring-protection.aspx).
+-   [Virtual Machine Manager does not have permissions to complete an action.](http://social.technet.microsoft.com/wiki/contents/articles/31110.vmm-does-not-have-permissions-to-complete-an-action.aspx)
+-   [Can't select the storage account within the subscription while configuring protection.](http://social.technet.microsoft.com/wiki/contents/articles/32027.can-t-select-the-storage-account-within-the-subscription-while-configuring-protection.aspx)
 
 ### Protection
-- <span style="color:green;">NEW</span> [Enable Protection failing with error "Protection couldn't be configured for the virtual machine". Error 60007, 40003](http://social.technet.microsoft.com/wiki/contents/articles/32194.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-configured-for-the-virtual-machine-error-60007-40003.aspx).
-- <span style="color:green;">NEW</span> [Enable Protection failing with error "Protection couldn't be enabled for the virtual machine." Error 70094](http://social.technet.microsoft.com/wiki/contents/articles/32195.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-enabled-for-the-virtual-machine-error-70094.aspx).
+- <span style="color:green;">NEW</span> [Enable Protection failing with error "Protection couldn't be configured for the virtual machine". Error 60007, 40003.](http://social.technet.microsoft.com/wiki/contents/articles/32194.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-configured-for-the-virtual-machine-error-60007-40003.aspx)
+- <span style="color:green;">NEW</span> [Enable Protection failing with error "Protection couldn't be enabled for the virtual machine." Error 70094.](http://social.technet.microsoft.com/wiki/contents/articles/32195.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-enabled-for-the-virtual-machine-error-70094.aspx)
 - <span style="color:green;">NEW</span> [Live migration error 23848 - The virtual machine is going to be moved using type Live. This could break the recovery protection status of the virtual machine.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx)
-- [Enable protection failed since Agent not installed on host machine](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx).
-- [A suitable host for the replica virtual machine can't be found - Due to low compute resources](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx).
-- [A suitable host for the replica virtual machine can't be found - Due to no logical network attached](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx).
-- [Cannot connect to the replica host machine - connection could not be established](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx).
+- [Enable protection failed since Agent not installed on host machine.](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
+- [A suitable host for the replica virtual machine can't be found - Due to low compute resources.](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
+- [A suitable host for the replica virtual machine can't be found - Due to no logical network attached.](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
+- [Cannot connect to the replica host machine - connection could not be established.](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
 
 
 ### Recovery
 - Virtual Machine Manager cannot complete the host operation:
     -   [Fail over to the selected recovery point for virtual machine: General access denied error.](http://social.technet.microsoft.com/wiki/contents/articles/25504.fail-over-to-the-selected-recovery-point-for-virtual-machine-general-access-denied-error.aspx)
-    -   [Hyper-V failed to fail over to the selected recovery point for virtual machine: Operation aborted.  Try a more recent recovery point. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx).
+    -   [Hyper-V failed to fail over to the selected recovery point for virtual machine: Operation aborted.  Try a more recent recovery point. (0x80004004).](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
     -   A connection with the server could not be established (0x00002EFD).
-        -   [Hyper-V failed to enable reverse replication for virtual machine](http://social.technet.microsoft.com/wiki/contents/articles/25505.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-reverse-replication-for-virtual-machine.aspx).
-        -   [Hyper-V failed to enable replication for virtual machine virtual machine](http://social.technet.microsoft.com/wiki/contents/articles/25506.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-replication-for-virtual-machine-virtual-machine.aspx).
-    -   [Could not commit failover for virtual machine](http://social.technet.microsoft.com/wiki/contents/articles/25508.could-not-commit-failover-for-virtual-machine.aspx).
--   [The recovery plan contains virtual machines which are not ready for planned failover](http://social.technet.microsoft.com/wiki/contents/articles/25509.the-recovery-plan-contains-virtual-machines-which-are-not-ready-for-planned-failover.aspx).
--   [The virtual machine isn't ready for planned failover](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx).
--   [Virtual machine is not running and is not powered off](http://social.technet.microsoft.com/wiki/contents/articles/25510.virtual-machine-is-not-running-and-is-not-powered-off.aspx).
--   [Out of band operation happened on a virtual machine and commit failover failed](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx).
--   Test Failover
-    -   [Failover could not be initiated since test failover is in progress](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx).
+        -   [Hyper-V failed to enable reverse replication for virtual machine.](http://social.technet.microsoft.com/wiki/contents/articles/25505.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-reverse-replication-for-virtual-machine.aspx)
+        -   [Hyper-V failed to enable replication for virtual machine virtual machine.](http://social.technet.microsoft.com/wiki/contents/articles/25506.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-replication-for-virtual-machine-virtual-machine.aspx)
+    -   [Could not commit failover for virtual machine.](http://social.technet.microsoft.com/wiki/contents/articles/25508.could-not-commit-failover-for-virtual-machine.aspx)
+-   [The recovery plan contains virtual machines which are not ready for planned failover.](http://social.technet.microsoft.com/wiki/contents/articles/25509.the-recovery-plan-contains-virtual-machines-which-are-not-ready-for-planned-failover.aspx)
+-   [The virtual machine isn't ready for planned failover.](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
+-   [Virtual machine is not running and is not powered off.](http://social.technet.microsoft.com/wiki/contents/articles/25510.virtual-machine-is-not-running-and-is-not-powered-off.aspx)
+-   [Out of band operation happened on a virtual machine and commit failover failed.](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
+-   Test failover
+    -   [Failover could not be initiated since test failover is in progress.](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
 -   <span style="color:green;">NEW</span>  Failover times out with 'PreFailoverWorkflow task WaitForScriptExecutionTaskTimeout' due to the configuration settings on the Network Security Group associated with the Virtual Machine or the subnet to which the machine belongs to. Refer to ['PreFailoverWorkflow task WaitForScriptExecutionTaskTimeout'](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery) for details.
 
 
-### Configuration Server, Process Server, Master Target
-Configuration server, process server, master Target
+### Configuration server, process server, master target
 -   [The ESXi host on which the PS/CS is hosted as a VM fails with a purple screen of death.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
 ### Remote desktop troubleshooting after failover
