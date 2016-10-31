@@ -4,7 +4,7 @@
 	services="hdinsight"
 	editor="cgronlun"
 	manager="jhubbard"
-	authors="mumian"
+	authors="saurinsh"
 	tags="azure-portal"
 	documentationCenter=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/27/2016"
-	ms.author="jgao"/>
+	ms.author="saurinsh"/>
 
 
 # What are the different Hadoop components available with HDInsight?
