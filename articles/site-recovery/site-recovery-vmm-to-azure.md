@@ -46,7 +46,7 @@ Organizations need a BCDR strategy that determines how workloads and data remain
 
 Site Recovery contributes to your BCDR strategy. It orchestrates replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
 
-This article provides all the information you need to replicate on-premises Hyper-V VMs managed in VMM clouds to Azure. It includes an architectural overview, planning information, and deployment steps for setting up the infrastructure (Azure, on-premises servers, replication and capacity). After you've set up the infrastructure, you can enable replication on machines you want to protect, and check that failover works.
+This article provides all the information you need to replicate on-premises Hyper-V VMs managed in VMM clouds to Azure. It includes an architectural overview, planning information, and deployment steps for setting up the infrastructure (Azure, on-premises servers, replication and capacity). After you've set up the infrastructure, enable replication on VMs, and check that failover works.
 
 
 ## Business advantages
