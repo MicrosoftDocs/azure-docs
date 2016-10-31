@@ -43,7 +43,7 @@ This architecture focuses on extending an on-premises infrastructure by deployin
 
 The following diagram highlights the important components in this architecture. 
 
-> A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the <!-- TODO - add new visio-->.
+> A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Identity - ADDS (same domain)" page.
 
 [![0]][0]
 
@@ -128,287 +128,8 @@ Consider implementing an additional security perimeter around servers with a pai
 
 Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD DS database.
 
-## Solution components
-
-The solution provided for this architecture creates a secure hybrid network as described by the documents [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] and [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access], but with the addition of the following items:
-
-- An Azure resource group named *basename*-dns-rg, where *basename* is a prefix you specify when deploying the solution.
-
-- Two Azure VMs called *basename*-ad1-vm and *basename*-ad2-vm, created in the *basename*-dns-rg resource group. These VMs are configured as AD servers with Directory Services and DNS installed and configured.
-
-- An NSG named *basename*-ad-nsg in the *basename*-ntwk-rg Azure resource group. This resource group is part of the infrastructure that constitute the secure hybrid network, but the new NSG is an addition that defines inbound security rules for the AD servers as shown in the following table:
-
-
-	Priority|Name|Source|Destination|Service|Action|
-	--------|----|------|-----------|-------|------|
-	170|vnet-to-port53|10.0.0.0/16|Any|Custom(ANY/53)|Allow|
-	180|vnet-to-port88|10.0.0.0/16|Any|Custom(ANY/88)|Allow|
-	190|vnet-to-port135|10.0.0.0/16|Any|Custom(ANY/135)|Allow|
-	200|vnet-to-port137-9|10.0.0.0/16|Any|Custom(ANY/137-139)|Allow|
-	210|vnet-to-port389|10.0.0.0/16|Any|Custom(ANY/389)|Allow|
-	220|vnet-to-port464|10.0.0.0/16|Any|Custom(ANY/464)|Allow|
-	230|vnet-to-rpc-dynamic|10.0.0.0/16|Any|Custom(ANY/49152-65535)|Allow|
-	240|onprem-ad-to-port53|192.168.0.0/24|Any|Custom(ANY/53)|Allow|
-	250|onprem-ad-to-port88|192.168.0.0/24|Any|Custom(ANY/88)|Allow|
-	260|onprem-ad-to-port135|192.168.0.0/24|Any|Custom(ANY/135)|Allow|
-	270|onprem-ad-to-port389|192.168.0.0/24|Any|Custom(ANY/389)|Allow|
-	280|onprem-ad-to-port464|192.168.0.0/24|Any|Custom(ANY/464)|Allow|
-	290|mgmt-rdp-allow|10.0.0.128/25|Any|Custom(ANY/3389)|Allow|
-	300|gateway-allow|10.0.255.224/27|Any|Custom(ANY/Any)|Allow|
-	310|self-allow|10.0.255.192/27|Any|Custom(ANY/Any)|Allow|
-	320|vnet-deny|Any|Any|Custom(ANY/Any)|Allow|
-
-	AD DS uses ports 53, 89, 135, 389, and 464 to accept incoming replication and authentication traffic. In this table, the on-premises domain controller is in the address space 192.168.0.0/24 (your address space may vary - you specify this information as a parameter to the templates deployed by the solution.
-
-	The NSG also defines the following outbound security rules which enable synchronization and authorization traffic to flow back to the on-premises network:
-
-	Priority|Name|Source|Destination|Service|Action|
-	--------|----|------|-----------|-------|------|
-	100|out-port53|Any|192.168.0.0/24|Custom(ANY/53)|Allow|
-	110|out-port88|Any|192.168.0.0/24|Custom(ANY/88)|Allow|
-	120|out-port135|Any|192.168.0.0/24|Custom(ANY/135)|Allow|
-	130|out-port389|Any|192.168.0.0/24|Custom(ANY/389)|Allow|
-	140|out-port445|Any|192.168.0.0/24|Custom(ANY/445)|Allow|
-	150|out-port464|Any|192.168.0.0/24|Custom(ANY/464)|Allow|
-	160|out-rpc-dynamic|Any|192.168.0.0/24|Custom(ANY/49152-65535)|Allow|
-
-The script provided with the solution also perform the following tasks:
-
-- It adds the *basename*-ad1-vm and *basename*-ad2-vm servers as domain controllers to the domain. You can view these servers in the *Active Directory Users and Computers* console in the on-premises domain controller:
-
-![[1]][1]
-
-- It creates a new subnet (10.0.0.0/16) for an AD site named Azure-VNet-Ad-Site to the domain. This site contains the *basename*-ad1-vm and *basename*-ad2-vm servers. 
-
-- It adds IP inter-site transport settings that configure the replication interval between the on-premises site and the domain controllers in the cloud. You can see the settings for the subnet, sites, and transport settings in the *Active Directory Sites and Servers* console in the on-premises domain controller:
-
-![[2]][2]
-
 ## Deployment
 
-The sample solution has the following prerequsites:
-
-- You have already configured your on-premises domain, and that you have configured DNS, and installed Routing and Remote Access services to support a VPN connect to the Azure VPN gateway.
-
-
-- You have installed the latest version of the Azure CLI. [Follow these instructions for details][cli-install].
-
-- If you're deploying the solution from Windows, you must install a tool that provides a bash shell, such as [GitHub Desktop][github-desktop].
-
->[AZURE.NOTE] If you don't have access to an existing on-premises domain, you can create a test environment using the [onpremdeploy.sh][onpremdeploy] bash script. This script creates a network and VM in the cloud that simulates a very basic on-premises setup. Edit this script before running and set the following variables defined at the start of the file:
->
-> - **BASE_NAME**. A user-defined prefix for the resource group and VM created by the script. This item should be **no longer than 5 characters** otherwise the script will attempt to generate a VM with an invalid name and fail.
-> 
-> - **SUBSCRIPTION**. Your Azure subscription ID. The resource group will be created in this suscription.
-> 
-> - **LOCATION**. The Azure location in which to create the resource group, such as *eastus* or *westus*.
-> 
-> - **ADMIN_USER_NAME**. The name to use for the administrator account in the VM.
-> 
-> - **ADMIN_PASSWORD**. The password for the administrator account.
-
-Perform the following steps to build the sample solution:
-
-1. download and edit the [azuredeploy.sh][azuredeploy] script and set the following parameters at the start of the file:
-
-	- **BASE_NAME**. A user-defined prefix for the resource groups and VMs created by the script. As before, this item should be **no longer than 5 characters**.
-
-	- **SUBSCRIPTION**. Your Azure subscription ID.
-
-	- **OS_TYPE**. The operating system (*Windows* or *Linux*)to use for the web, business, and data access tier VMs. Note that all AD servers created by the script run Windows Server 2012, regardless of this setting.
-
-	- **DOMAIN_NAME**. The name of the on-premises domain. Note that if you use the environment created by the onpremdeploy.sh script, this must be *contoso.com*.
-
-	- **LOCATION**. The Azure location in which to create the resource groups.
-
-	- **ADMIN_USER_NAME**. The name to use for the administrator accounts in the various VMs.
-
-	- **ADMIN_PASSWORD**. The password for the administrator account.
-
-	- **ON_PREMISES_PUBLIC_IP**. The public IP address of the on-premises VPN machine.
-
-	- **ON_PREMISES_ADDRESS_SPACE**. The internal address space of the on-premises network. If you are using the environment created by the onpremdeploy.sh script, this must be 192.168.0.0/16.
-
-	- **VPN_IPSEC_SHARED_KEY**. The IPSec shared key used for establishing the VPN connection between the on-premises network and the Azure VPN gateway.
-
-	- **ON_PREMISES_DNS_SERVER_ADDRESS**. The IP address of the on-premises DNS server. If you are using the environment created by the onpremdeploy.sh script, this must be 192.168.0.4
-
-	- **ON_PREMISES_DNS_SUBNET_PREFIX** The address prefix of the on-premises subnet. If you are using the environment created by the onpremdeploy.sh script, this must be 192.168.0.0/24.
-
-	>[AZURE.NOTE] TO save resources and time, the script does not create the business or data access tiers. If you require these items, you can uncomment the following section in the azuredeploy.sh script:
-	>
-	>
-	> ```
-	> #### # create biz tier
-	> #### TEMPLATE_URI=${URI_BASE}/ARMBuildingBlocks/Templates/bb-ilb-backend-http-https.json
-	> #### SUBNET_NAME_PREFIX=${DEPLOYED_BIZ_SUBNET_NAME_PREFIX}
-	> #### ILB_IP_ADDRESS=${BIZ_ILB_IP_ADDRESS}
-	> #### NUMBER_VMS=${BIZ_NUMBER_VMS}
-	> #### 
-	> #### RESOURCE_GROUP=${BASE_NAME}-${SUBNET_NAME_PREFIX}-tier-rg
-	> #### VM_NAME_PREFIX=${SUBNET_NAME_PREFIX}
-	> #### VM_COMPUTER_NAME_PREFIX=${SUBNET_NAME_PREFIX}
-	> #### VNET_RESOURCE_GROUP=${NTWK_RESOURCE_GROUP}
-	> #### VNET_NAME=${DEPLOYED_VNET_NAME}
-	> #### SUBNET_NAME=${DEPLOYED_BIZ_SUBNET_NAME}
-	> #### PARAMETERS="{\"baseName\":{\"value\":\"${BASE_NAME}\"},\"vnetResourceGroup\":{\"value\":\"${VNET_RESOURCE_GROUP}\"},\"vnetName\":{\"value\":\"${VNET_NAME}\"},\"subnetName\":{\"value\":\"${SUBNET_NAME}\"},\"adminUsername\":{\"value\":\"${ADMIN_USER_NAME}\"},\"adminPassword\":{\"value\":\"${ADMIN_PASSWORD}\"},\"subnetNamePrefix\":{\"value\":\"${SUBNET_NAME_PREFIX}\"},\"ilbIpAddress\":{\"value\":\"${ILB_IP_ADDRESS}\"},\"osType\":{\"value\":\"${OS_TYPE}\"},\"numberVMs\":{\"value\":${NUMBER_VMS}},\"vmNamePrefix\":{\"value\":\"${VM_NAME_PREFIX}\"},\"vmComputerNamePrefix\":{\"value\":\"${VM_COMPUTER_NAME_PREFIX}\"}}"
-	> #### 
-	> #### echo
-	> #### echo
-	> #### echo azure group create --name ${RESOURCE_GROUP} --location ${LOCATION} --subscription ${SUBSCRIPTION}
-	> ####      azure group create --name ${RESOURCE_GROUP} --location ${LOCATION} --subscription ${SUBSCRIPTION}
-	> #### echo
-	> #### echo
-	> #### echo azure group deployment create --template-uri ${TEMPLATE_URI} -g ${RESOURCE_GROUP} -p ${PARAMETERS} --subscription ${SUBSCRIPTION}
-	> ####      azure group deployment create --template-uri ${TEMPLATE_URI} -g ${RESOURCE_GROUP} -p ${PARAMETERS} --subscription ${SUBSCRIPTION}
-	> #### 
-	> #### # create db tier
-	> #### TEMPLATE_URI=${URI_BASE}/ARMBuildingBlocks/Templates/bb-ilb-backend-http-https.json
-	> #### SUBNET_NAME_PREFIX=${DEPLOYED_DB_SUBNET_NAME_PREFIX}
-	> #### ILB_IP_ADDRESS=${DB_ILB_IP_ADDRESS}
-	> #### NUMBER_VMS=${DB_NUMBER_VMS}
-	> #### 
-	> #### RESOURCE_GROUP=${BASE_NAME}-${SUBNET_NAME_PREFIX}-tier-rg
-	> #### VM_NAME_PREFIX=${SUBNET_NAME_PREFIX}
-	> #### VM_COMPUTER_NAME_PREFIX=${SUBNET_NAME_PREFIX}
-	> #### VNET_RESOURCE_GROUP=${NTWK_RESOURCE_GROUP}
-	> #### VNET_NAME=${DEPLOYED_VNET_NAME}
-	> #### SUBNET_NAME=${DEPLOYED_DB_SUBNET_NAME}
-	> #### PARAMETERS="{\"baseName\":{\"value\":\"${BASE_NAME}\"},\"vnetResourceGroup\":{\"value\":\"${VNET_RESOURCE_GROUP}\"},\"vnetName\":{\"value\":\"${VNET_NAME}\"},\"subnetName\":{\"value\":\"${SUBNET_NAME}\"},\"adminUsername\":{\"value\":\"${ADMIN_USER_NAME}\"},\"adminPassword\":{\"value\":\"${ADMIN_PASSWORD}\"},\"subnetNamePrefix\":{\"value\":\"${SUBNET_NAME_PREFIX}\"},\"ilbIpAddress\":{\"value\":\"${ILB_IP_ADDRESS}\"},\"osType\":{\"value\":\"${OS_TYPE}\"},\"numberVMs\":{\"value\":${NUMBER_VMS}},\"vmNamePrefix\":{\"value\":\"${VM_NAME_PREFIX}\"},\"vmComputerNamePrefix\":{\"value\":\"${VM_COMPUTER_NAME_PREFIX}\"}}"
-	> #### 
-	> #### echo
-	> #### echo
-	> #### echo azure group create --name ${RESOURCE_GROUP} --location ${LOCATION} --subscription ${SUBSCRIPTION}
-	> ####      azure group create --name ${RESOURCE_GROUP} --location ${LOCATION} --subscription ${SUBSCRIPTION}
-	> #### echo
-	> #### echo
-	> #### echo azure group deployment create --template-uri ${TEMPLATE_URI} -g ${RESOURCE_GROUP} -p ${PARAMETERS} --subscription ${SUBSCRIPTION}
-	> ####      azure group deployment create --template-uri ${TEMPLATE_URI} -g ${RESOURCE_GROUP} -p ${PARAMETERS} --subscription ${SUBSCRIPTION}
-	> ```
-
-2. Open a bash shell prompt and move to the folder containing the azuredeploy.sh script.
-
-3. Log in to your Azure account. In the bash shell, enter the following command:
-
-	```
-	azure login
-	```
-
-	Follow the instructions to connect to Azure.
-
-4. Run the command `./azuredeploy.sh`, and then wait while the script creates the network infrastructure.
-
-5. At the prompt *Please verify that the VNet has been created*, use the Azure portal to check that a resource group named *basename*-ntwk-rg has been created, and that it contains items similar to those shown in the following image:
-
-	![[3]][3]
-
-	>[AZURE.NOTE] In the examples shown, *basename* was set to *cloud* when the script was run.
-
-	Click the *basename*-vnet VNet, click *Subnets*, and verify that the subnets shown below have been created:
-
-	![[4]][4]
-
-6. At the prompt in the bash shell window, press a key and wait while the web tier and load balancer are created.
-
-7. At the prompt *Please verify that the Web tier has been created correctly*, use the Azure portal to check that a resource group called *basename*web-tier-rg has been created, and that it contains items similar to those shown below:
-
-	![[5]][5]
-
-8. At the prompt in the bash shell window, press a key and wait while the NVAs are created.
-
-9. At the prompt *Please verify that the NVA has been created correctly*, use the Azure portal to check that a resource group called *basename*-mgmt-rg has been created with the following contents:
-
-	![[6]][6]
-
-10. At the prompt in the bash shell window, press a key and wait while the jumpbox is created.
-
-11. At the prompt *Please verify that the jumpbox has been created correctly*, use the Azure portal to check that the following items have been added to the *basename*-mgmt-rg resource group:
-
-	- An availability set called *basename*-jb-as.
-
-	- A VM named *basename*-jb-vm.
-
-	- A network interface called *basename*-jb-nic.
-
-12. At the prompt in the bash shell window, press a key and wait while the Azure VPN gateway and connection are created. Note that this step can take up to 30 minutes to complete.
-
-13. At the prompt *Please verify that the VPN gateway has been created correctly*, use the Azure portal to check that the following items have been added to the *basename*-ntwk-rg resource group:
-
-	- A local network gateway called on-premises-lgw.
-	
-	- A virtual network gateway called *basename*-vpngw.
-
-	- A gateway connection named *basename*-vnet-vpnconn. Note that the status of this connection might be *Not connected* if you have not yet configured the on-premises end of the connection; you will address this later.
-
-14. At the prompt in the bash shell window, press a key and wait while the VMs and other resources for the DMZ are created.
-
-15. At the prompt *Please verify that the DMZ has been created correctly*, use the Azure portal to check that a resource group called *basename*-dmz-rg has been created with the following contents:
-
-	![[7]][7]
-
-16. At the prompt in the bash shell window, press a key. The following prompts should appear:
-
-	```text
-	Manual Step...
-
-	Please configure your on-premises network to connect to the Azure VNet
-
-	Make sure that you can connect to the on-premises AD server from the Azure VMs
-	```
-
-	Log in to your on-premises computer that connects to the Azure gateway and configure the connection appropriately. Add static routes to the on-premises gateway device that directs requestsfor the 10.0.0.0/16 address range through the gateway to the VNet. The steps for doing this will vary according to how you are connecting. See [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][implementing-a-hybrid-network-architecture-with-vpn] for more information.
-
-	Note that you can find the public IP address of the Azure VPN gateway by using the Azure portal to examine the *basename*-vpngw gateway in the *basename*-ntwk-rg resource group:
-
-	![[8]][8]
-
-	You can determine whether the connection has been established correctly by looking at the status of the *basename*-vnet-vpnconn connection. It should be set to *Connected*.
-
-	To test the connection, open a remote desktop connection to the jumpbox (10.0.0.254) from a machine located in your on-premises network.
-
-17. At the prompt in the bash shell window, press a key. At the next prompt, *Press any key to update the VNet setting for the VNet to point to on-premises DNS*, press a key and wait while the DNS settings for the VNet are updated to the value you specified as the **ON_PREMISES_DNS_SERVER_ADDRESS** parameter in the azuredeploy.sh script.
-
-18. At the prompt, *Please verify that the DNS server setting on the VNet has been updated*, use the Azure portal to examine the *DNS servers* setting of the *basename*-vnet VNet in the *basename*-ntwk-rg resource group. It should be set to *Custom DNS*, and the *Primary DNS server* should be the address of your on-premises DNS server:
-
-	![[9]][9]
-
-19. At the *Press any key to create the resource group for the AD servers* prompt in the bash shell window, press a key and wait while the resource group for holding the AD servers in the cloud is created.
-
-20. At the *Press any key to create the VMs for the AD servers* prompt in the bash shell window, press a key and wait for the VMs to be created and added to the resource group.
-
-21. When the *Press any key to join the VMs to the on-premises domain* appears, go to the Azure portal and verify that a group called *basename*-dns-rg has been created, and that it contains two VMS (*basename*-ad1-vm and *basename*-ad2-vm):
-
-	![[10]][10]
-
-22. In the *basename*-ntwk-rg resource group, check that an NSG has been created called *basename*-ad-nsg. Examine the inbound and outbound security rules for this NSG. They should match those listed in the tables in the [Solution components][solution-components] section.
-
-23. At the prompt in the bash shell window, press a key and wait while the VMs are added to the on-premises domain.
-
-24. At the *Please go to the on-premises AD server to verify that the computers have been added to the domains* prompt, connect to your on-premises computer and use the *Active Directory Users and Computers* console to check that both VMs have been added to the domain:
-
-	![[11]][11]
-
-25. At the prompt in the bash shell window, press a key and wait while the AD replication site is created in the domain.
-
-26. At the *Please go to the on-premises AD server to verify that the replication site has been created* prompt, use the *Active Directory Sites and Services* console to to check that a replication site named *Azure-Vnet-Ad-Site* has been created successfully, together with an IP inter-site transport link called *AzureToOnpremLink*, and a subnet that references the VNet:
-
-	![[12]][12]
-
-27. At the prompt in the bash shell window, press a key and wait while the script installs Directory Services and DNS on each of the AD VMs.
-
-28. When the prompt *Please login to each Azure AD server to verify that Directory Services has been configured successfully* appears, open a remote desktop connection from an on-premises machine to the jumpbox (*basename*-jb-vm), and then open another remote desktop connection from the jumpbox to the first AD server (*basename*-ad1-vm). Log in using the `DOMAIN_NAME`, `ADMIN_USER_NAME`, and `ADMIN_PASSWORD` that you specified in the azuredeploy.sh script. Using Server Manager, verify that the AD DS and DNS roles have both been added. Repeat this process for the second AD server (*basename*-ad2-vm).
-
-29. At the prompt in the bash shell window, press a key. When the prompt *Press any key to set the Azure VNet DNS settings to point to the DNS in Azure* appears, press a key and allow the script to update the DNS settings for the VNet.
-
-30. When the prompt *Please verify that the VNet DNS setting has been updated reference the Azure VM DNS servers* appears, using the Azure portal check the *DNS Servers* setting of the *basename*-vnet VNet in the *basename*-ntwk-rg resource group. The primary and secondary DNS servers should now reference the two AD VMs:
-
-	![[13]][13]
-
-31. Restart each of the AD VMs before continuing. This step is necessary to ensure that they each pick up the correct DNS settings from Azure. Wait until both VMs are running before continuing.
-
-32. At the prompt in the bash shell window, press a key. At the next prompt, *Press any key to apply the gateway UDR to the gateway subnet (it might have been removed)*, press a key and allow the script to refresh the gateway UDR.
-
-33. Verify that the script completes successfully.
 
 ## Next steps
 
@@ -417,67 +138,27 @@ Perform the following steps to build the sample solution:
 - Learn the best practices for [creating an ADFS infrastructure][adfs] in Azure.
 
 <!-- links -->
-[ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
-[availabilty-set]: ./virtual-machines/virtual-machines-windows-create-availability-set.md
-[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
-[adfs]: ./guidance-identity-adfs.md
-[guidance-vpn-gateway]: ./guidance-hybrid-network-vpn.md
-[adds-resource-forest]: ./guidance-identity-adds-resource-forest.md
-[script]: #sample-solution-script
-[implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-3-tier-vm.md
-[implementing-a-secure-hybrid-network-architecture-with-internet-access]: ./guidance-iaas-ra-secure-vnet-dmz.md
-[implementing-a-secure-hybrid-network-architecture]: ./guidance-iaas-ra-secure-vnet-hybrid.md
-[implementing-a-hybrid-network-architecture-with-vpn]: ./guidance-hybrid-network-vpn.md
+
 [active-directory-domain-services]: https://technet.microsoft.com/library/dd448614.aspx
-[active-directory-federation-services]: https://technet.microsoft.com/windowsserver/dd448613.aspx
+[ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
+[adds-data-disks]: https://msdn.microsoft.com/library/azure/jj156090.aspx#BKMK_PlaceDB[ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
+[ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx[adds-resource-forest]: ./guidance-identity-adds-resource-forest.md
+[adfs]: ./guidance-identity-adfs.md
+[availability-set]: ./virtual-machines/virtual-machines-windows-create-availability-set.md
 [azure-active-directory]: ../active-directory-domain-services/active-directory-ds-overview.md
 [azure-ad-connect]: ../active-directory/active-directory-aadconnect.md
-[architecture]: #architecture_diagram
-[security-considerations]: #security-considerations
-[recommendations]: #recommendations
-[azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
 [azure-expressroute]: https://azure.microsoft.com/documentation/articles/expressroute-introduction/
-[claims-aware applications]: https://msdn.microsoft.com/en-us/library/windows/desktop/bb736227(v=vs.85).aspx
-[active-directory-federation-services-overview]: https://technet.microsoft.com/en-us/library/hh831502(v=ws.11).aspx
+[azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
 [capacity-planning-for-adds]: http://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
-[ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
-[where-to-place-an-fs-proxy]: https://technet.microsoft.com/library/dd807048(v=ws.11).aspx
-[powershell-ad]: https://technet.microsoft.com/en-us/library/ee617195.aspx
-[ad_network_recommendations]: #network_configuration_recommendations_for_AD_DS_VMs
-[domain_and_forests]: https://technet.microsoft.com/library/cc759073(v=ws.10).aspx
-[best_practices_ad_password_policy]: https://technet.microsoft.com/magazine/ff741764.aspx
-[monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
+[implementing-a-secure-hybrid-network-architecture]: ./guidance-iaas-ra-secure-vnet-hybrid.md
+[implementing-a-secure-hybrid-network-architecture-with-internet-access]: ./guidance-iaas-ra-secure-vnet-dmz.md
 [microsoft_systems_center]: https://www.microsoft.com/server-cloud/products/system-center-2016/
-[cli-install]: https://azure.microsoft.com/documentation/articles/xplat-cli-install
-[github-desktop]: https://desktop.github.com/
-[sssd-and-active-directory]: https://help.ubuntu.com/lts/serverguide/sssd-ad.html
+[monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
+[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
+[security-considerations]: #security-considerations
 [set-a-static-ip-address]: https://azure.microsoft.com/documentation/articles/virtual-networks-static-private-ip-arm-pportal/
-[ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
-[adds-data-disks]: https://msdn.microsoft.com/library/azure/jj156090.aspx#BKMK_PlaceDB
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
-[transfer-FSMO-roles]: https://technet.microsoft.com/library/cc816946(v=ws.10).aspx
-[view-fsmo-roles]: https://technet.microsoft.com/library/cc816893(v=ws.10).aspx
-[read-only-dc]: https://technet.microsoft.com/library/cc732801(v=ws.10).aspx
-[AD-sites-and-subnets]: https://blogs.technet.microsoft.com/canitpro/2015/03/03/step-by-step-setting-up-active-directory-sites-subnets-site-links/
-[sites-overview]: https://technet.microsoft.com/library/cc782048(v=ws.10).aspx
-[implementing-adfs]: ./guidance-iaas-ra-secure-vnet-adfs.md
-[onpremdeploy]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-ad-extension/onpremdeploy.sh
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
-[azuredeploy]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-ad-extension/azuredeploy.sh
-[solution-components]: #solution_components
 [vm-windows-sizes]: ../virtual-machines/virtual-machines-windows-sizes.md
 
 [0]: ./media/guidance-iaas-ra-secure-vnet-ad/figure1.png "Secure hybrid network architecture with Active Directory"
-[1]: ./media/guidance-iaas-ra-secure-vnet-ad/figure2.png "The Active Directory Users and Computers console listing the two Azure VMs as servers"
-[2]: ./media/guidance-iaas-ra-secure-vnet-ad/figure3.png "The Active Directory Sites and Services console showing the replication settings for the site in the cloud"
-[3]: ./media/guidance-iaas-ra-secure-vnet-ad/figure4.png "The contents of the basename-ntwk-rg resource group"
-[4]: ./media/guidance-iaas-ra-secure-vnet-ad/figure5.png "The subnets in the basename-vnet VNet"
-[5]: ./media/guidance-iaas-ra-secure-vnet-ad/figure6.png "The items in the web tier"
-[6]: ./media/guidance-iaas-ra-secure-vnet-ad/figure7.png "The NVAs in the basename-mgmt-rg resource group"
-[7]: ./media/guidance-iaas-ra-secure-vnet-ad/figure8.png "The resources in the basename-dmz-rg resource group"
-[8]: ./media/guidance-iaas-ra-secure-vnet-ad/figure9.png "Finding the public IP address of the Azure VPN gateway"
-[9]: ./media/guidance-iaas-ra-secure-vnet-ad/figure10.png "The DNS server settings for the *basename*-vnet VNet"
-[10]: ./media/guidance-iaas-ra-secure-vnet-ad/figure11.png "The *basename*-dns-rg resource group containing the AD server VMs"
-[11]: ./media/guidance-iaas-ra-secure-vnet-ad/figure12.png "The Active Directory Users and Computers console listing the AD server VMs as members of the domain"
-[12]: ./media/guidance-iaas-ra-secure-vnet-ad/figure13.png "The Active Directory Sites and Services console showing the replication site for the Azure AD servers"
-[13]: ./media/guidance-iaas-ra-secure-vnet-ad/figure14.png "The DNS server settings for the basename-vnet VNet referencing the AD servers in the cloud"
