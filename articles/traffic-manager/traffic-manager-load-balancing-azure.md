@@ -119,15 +119,15 @@ In this scenario, Traffic Manager is connected to instances of Application Gatew
 1. Navigate to your instance of the traffic manager profile (you can do this by looking within your resource group or searching for the name of the traffic manager profile from "All Resources").
 2. From this blade, select **Endpoints** and then **Add** to add a new end point.
 
-   ![traffic manager add endpoint](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
+    ![traffic manager add endpoint](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
 3. In the "Add endpoint" blade, fill out the information for creating a new endpoint
 
-   - **Type** - the type of endpoint to load balance, in this scenario it is an Azure endpoint since we are connecting it to the Application Gateway instances configured above
-   - **Name** - the name of end endpoint
-   - **Target resource type** - select Public IP address, and in the 'Target resource' setting below, select the public IP of the Application Gateway configured above
+    - **Type** - the type of endpoint to load balance, in this scenario it is an Azure endpoint since we are connecting it to the Application Gateway instances configured above
+    - **Name** - the name of end endpoint
+    - **Target resource type** - select Public IP address, and in the 'Target resource' setting below, select the public IP of the Application Gateway configured above
 
-   ![traffic manager add endpoint](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
+    ![traffic manager add endpoint](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
 4. From this point, you can test your setup by accessing it with the DNS of your traffic manager profile (in this example: TrafficManagerScenario.trafficmanager.net). You can resend requests, bring up/down VMs/Web servers created in different regions, and change the Traffic Manger profile settings to test your setup.
 
