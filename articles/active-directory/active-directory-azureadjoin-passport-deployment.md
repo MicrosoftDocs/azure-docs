@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	keywords="configure Microsoft Passport, Microsoft Windows Hello for Business deployment"
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""
 	tags="azure-classic-portal"/>
