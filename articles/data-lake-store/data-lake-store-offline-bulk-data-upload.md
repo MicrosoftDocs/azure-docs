@@ -20,7 +20,7 @@
 
 In this article, you'll learn how to copy huge data sets (>200 GB) into an Azure Data Lake Store by using offline copy methods, like the [Azure Import/Export service](../storage/storage-import-export-service.md). Specifically, the file used as an example in this article is 339,420,860,416 bytes, or about 319 GB on disk. Let's call this file 319GB.tsv.
 
-The Azure Import/Export service allows you to securely transfer large amounts of data to Azure Blob storage by shipping hard disk drives to an Azure data center.
+The Azure Import/Export service helps you to transfer large amounts of data more securely to Azure Blob storage by shipping hard disk drives to an Azure datacenter.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ Before you begin, you must have the following:
 
 - **An Azure Storage account**.
 
-- **An Azure Data Lake Analytics account (optional)**. For instructions on how to create a Data Lake Store account, see [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+- **An Azure Data Lake Analytics account (optional)**. For instructions on how to create this account, see [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
 
 ## Preparing the data
@@ -39,7 +39,7 @@ Before using the Import/Export service, break the data file to be transferred **
 
     split -b 100m 319GB.tsv
 
-The split operation creates files with the names below.
+The split operation creates files with the following names.
 
 h    319GB.tsv-part-aa
 
@@ -55,7 +55,7 @@ Follow the instructions in [Using the Azure Import/Export service](../storage/st
 
 1. Procure a hard disk that meets the requirement to be used for the Azure Import/Export service.
 
-2. Identify an Azure Storage account where the data will be copied once it is shipped to the Azure data center.
+2. Identify an Azure Storage account where the data will be copied once it is shipped to the Azure datacenter.
 
 3. Use the [Azure Import/Export Tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), a command line utility. Here's a sample snippet showing how to use the tool.
 
@@ -72,7 +72,7 @@ You can now create an import job by using the instructions in [Using the Azure I
 
 ## Physically ship the disks
 
-You can now physically ship the disks to an Azure data center. There, the data is copied over to the Azure Storage blobs you provided while creating the import job. Also, while creating the job, if you opted to provide the tracking information later, you can now go back to your import job and update the tracking number.
+You can now physically ship the disks to an Azure datacenter. There, the data is copied over to the Azure Storage blobs you provided while creating the import job. Also, while creating the job, if you opted to provide the tracking information later, you can now go back to your import job and update the tracking number.
 
 ## Copy data from Azure Storage blobs to Azure Data Lake Store
 
