@@ -49,11 +49,11 @@ Mobile Apps uses the [LoginAsync][3] extension method on the [MobileServiceClien
 uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication][5]. To
 provide a better user experience in your production app, you should consider instead using [Client-managed authentication][6].
 
-To authenticate with a Xamarin.Forms project, define an **IAuthenticate** interface in the Portable Class Library for the app. You also update the user
-interface defined in the Portable Class Library to add a **Sign-in** button, which the user clicks to start authentication. After successful authentication,
+To authenticate with a Xamarin.Forms project, define an **IAuthenticate** interface in the Portable Class Library for the app. Then update the user
+interface defined in the Portable Class Library to add a **Sign-in** button, which you click to start authentication. After successful authentication,
 data is loaded from the mobile app backend.
 
-You must implement the **IAuthenticate** interface for each platform supported by your app.
+Implement the **IAuthenticate** interface for each platform supported by your app.
 
 1. In Visual Studio or Xamarin Studio, open App.cs from the project with **Portable** in the name, which is Portable Class Library project, then
     add the following `using` statement:
@@ -67,7 +67,7 @@ You must implement the **IAuthenticate** interface for each platform supported b
 	        Task<bool> Authenticate();
 	    }
 
-3. Add the following static members to the **App** class to initialize the interface with a platform-specific implementation.
+3. To initialize the interface with a platform-specific implementation, add the following static members to the **App** class.
 
 	    public static IAuthenticate Authenticator { get; private set; }
 
@@ -106,7 +106,7 @@ You must implement the **IAuthenticate** interface for each platform supported b
 	        }
 	    }
 
-	This makes sure that data is only refreshed from the service after the user has been authenticated.
+	This code makes sure that data is only refreshed from the service after you have been authenticated.
 
 7. Add the following handler for the **Clicked** event to the **TodoList** class:
 
@@ -129,7 +129,7 @@ This section shows how to implement the **IAuthenticate** interface in the Andro
 1. In Visual Studio or Xamarin Studio, right-click the **droid** project, then **Set as StartUp Project**.
 
 2. Press F5 to start the project in the debugger, then verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the
-   app starts. This happens because access on the backend is restricted to authorized users only.
+   app starts. The 401 code is produced because access on the backend is restricted to authorized users only.
 
 3. Open MainActivity.cs in the Android project and add the following `using` statements:
 
@@ -139,7 +139,6 @@ This section shows how to implement the **IAuthenticate** interface in the Andro
 4. Update the **MainActivity** class to implement the **IAuthenticate** interface, as follows:
 
 		public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
-
 
 5. Update the **MainActivity** class by adding a **MobileServiceUser** field and an **Authenticate** method, which is required by the **IAuthenticate**
    interface, as follows:
@@ -185,7 +184,7 @@ This section shows how to implement the **IAuthenticate** interface in the Andro
         // Initialize the authenticator before loading the app.
         App.Init((IAuthenticate)this);
 
-	This makes sure that the authenticator is initialized before the app loads.
+	This code ensures the authenticator is initialized before the app loads.
 
 7. Rebuild the app, run it, then sign in with the authentication provider you chose and verify you are able to access data as an authenticated user.
 
@@ -196,7 +195,7 @@ This section shows how to implement the **IAuthenticate** interface in the iOS a
 1. In Visual Studio or Xamarin Studio, right-click the **iOS** project, then **Set as StartUp Project**.
 
 2. Press F5 to start the project in the debugger, then verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after
-   the app starts. This happens because access on the backend is restricted to authorized users only.
+   the app starts. The 401 response is produced because access on the backend is restricted to authorized users only.
 
 4. Open AppDelegate.cs in the iOS project and add the following `using` statements:
 
@@ -250,7 +249,7 @@ This section shows how to implement the **IAuthenticate** interface in the iOS a
 
         App.Init(this);
 
-	This makes sure that the authenticator is initialized before the app is loaded.
+	This code ensures the authenticator is initialized before the app is loaded.
 
 7. Rebuild the app, run it, then sign in with the authentication provider you chose and verify you are able to access data as an authenticated user.
 
@@ -262,7 +261,7 @@ Universal Windows Platform (UWP) projects, but using the **UWP** project (with n
 1. In Visual Studio, right-click either the **WinApp** or the **WinPhone81** project, then **Set as StartUp Project**.
 
 2. Press F5 to start the project in the debugger, then verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after
-   the app starts. This happens because access on the backend is restricted to authorized users only.
+   the app starts. The 401 response happens because access on the backend is restricted to authorized users only.
 
 3. Open MainPage.xaml.cs for the Windows app project and add the following `using` statements:
 
@@ -323,7 +322,9 @@ Universal Windows Platform (UWP) projects, but using the **UWP** project (with n
         <your_Portable_Class_Library_namespace>.App.Init(this);
 
     Replace `<your_Portable_Class_Library_namespace>` with the namespace for your portable class library.
-	If this is the WinApp project, you can skip down to step 8. The next step applies only to the WinPhone81 project, where you need to complete the login callback.
+
+	If you are modifying the WinApp project, skip to step 8. The next step applies only to the WinPhone81 project, where you need to complete
+    the login callback.
 
 7. (Optional) In the **WinPhone81** app project, open App.xaml.cs and add the following `using` statements:
 
@@ -347,7 +348,7 @@ Universal Windows Platform (UWP) projects, but using the **UWP** project (with n
 		    }
 		}
 
-	When the method override already exists, just add the conditional code from the above snippet.  This code is not required for Universal Windows
+	When the method override already exists, add the conditional code from the preceding snippet.  This code is not required for Universal Windows
     projects.
 
 7. Rebuild the app, run it, then sign in with the authentication provider you chose and verify you are able to access data as an authenticated user.
@@ -357,9 +358,11 @@ Universal Windows Platform (UWP) projects, but using the **UWP** project (with n
 Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
 
 + [Add push notifications to your app](app-service-mobile-xamarin-forms-get-started-push.md)
+
   Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
 
 + [Enable offline sync for your app](app-service-mobile-xamarin-forms-get-started-offline-data.md)
+
   Learn how to add offline support your app using a Mobile App backend. Offline sync allows end users to interact with a mobile app - viewing, adding,
   or modifying data - even when there is no network connection.
 
