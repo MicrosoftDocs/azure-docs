@@ -18,7 +18,7 @@
 
 # My first graphical runbook
 
-> [AZURE.SELECTOR] - [Graphical](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell Workflow](automation-first-runbook-textual.md)
+> [AZURE.SELECTOR] - [Graphical](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-powershell.md) - [PowerShell Workflow](automation-first-runbook-textual.md)
 
 This tutorial walks you through the creation of a [graphical runbook](automation-runbook-types.md#graphical-runbooks) in Azure Automation.  We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job.  Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine.  We'll then make the runbook more robust by adding runbook parameters and conditional links.
 
@@ -106,22 +106,22 @@ Now that we have a variable to hold our subscription ID, we can configure our ru
 1.	Open the graphical editor by clicking **Edit** on the MyFirstRunbook blade.<br> ![Edit runbook](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
 2.	We don't need the **Write Hello World to output** anymore, so right click it and select **Delete**.
 3.	In the Library control, expand **Connections** and add **AzureRunAsConnection** to the canvas by selecting **Add to canvas**.
-4.	On the canvas, select **AzureRunAsConnection** and in the Configuration control pane, type **Get Run As Connection** in the **Label** textbox.  This is the connection 
+4.	On the canvas, select **AzureRunAsConnection** and in the Configuration control pane, type **Get Run As Connection** in the **Label** textbox.  This is the connection
 5.	In the Library control, type **Add-AzureRmAccount** in the search textbox.
 6.	Add **Add-AzureRmAccount** to the canvas.<br> ![Add-AzureRMAccount](media/automation-first-runbook-graphical/search-powershell-cmdlet-addazurermaccount.png)
 7.	Hover over **Get Run As Connection** until a circle appears on the bottom of the shape. Click the circle and drag the arrow to **Add-AzureRmAccount**.  The arrow that you just created is a *link*.  The runbook will start with **Get Run As Connection** and then run **Add-AzureRmAccount**.<br> ![Create link between activities](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 8.	On the canvas, select **Add-AzureRmAccount** and in the Configuration control pane type **Login to Azure** in the **Label** textbox.
-9.	Click **Parameters** and the Activity Parameter Configuration blade appears. 
-10.  **Add-AzureRmAccount** has multiple parameter sets, so we need to select one before we can provide parameter values.  Click **Parameter Set** and then select the **ServicePrincipalCertificate** parameter set. 
+9.	Click **Parameters** and the Activity Parameter Configuration blade appears.
+10.  **Add-AzureRmAccount** has multiple parameter sets, so we need to select one before we can provide parameter values.  Click **Parameter Set** and then select the **ServicePrincipalCertificate** parameter set.
 11.  Once you select the parameter set, the parameters are displayed in the Activity Parameter Configuration blade.  Click **APPLICATIONID**.<br> ![Add Azure RM account parameters](media/automation-first-runbook-graphical/add-azurermaccount-parameterset.png)
 12.  In the Parameter Value blade, select **Activity output** for the **Data source** and select **Get Run As Connection** from the list, in the **Field path** textbox type **ApplicationId**, and then click **OK**.  We are specifying the name of the property for the Field path because the activity outputs an object with multiple properties.
-13.  Click **CERTIFICATETHUMBPRINT**, and in the Parameter Value blade, select **Activity output** for the **Data source**.  Select **Get Run As Connection** from the list, in the **Field path** textbox type **CertificateThumbprint**, and then click **OK**. 
+13.  Click **CERTIFICATETHUMBPRINT**, and in the Parameter Value blade, select **Activity output** for the **Data source**.  Select **Get Run As Connection** from the list, in the **Field path** textbox type **CertificateThumbprint**, and then click **OK**.
 14.  Click **SERVICEPRINCIPAL**, and in the Parameter Value blade, select **ConstantValue** for the **Data source**, click the option **True**, and then click **OK**.
 15.  Click **TENANTID**, and in the Parameter Value blade, select **Activity output** for the **Data source**.  Select **Get Run As Connection** from the list, in the **Field path** textbox type **TenantId**, and then click **OK** twice.  
 16.  In the Library control, type **Set-AzureRmContext** in the search textbox.
 17.	 Add **Set-AzureRmContext** to the canvas.
 18.	 On the canvas, select **Set-AzureRmContext** and in the Configuration control pane type **Specify Subscription Id** in the **Label** textbox.
-19.	 Click **Parameters** and the Activity Parameter Configuration blade appears. 
+19.	 Click **Parameters** and the Activity Parameter Configuration blade appears.
 20. **Set-AzureRmContext** has multiple parameter sets, so we need to select one before we can provide parameter values.  Click **Parameter Set** and then select the **SubscriptionId** parameter set.  
 21.	 Once you select the parameter set, the parameters are displayed in the Activity Parameter Configuration blade.  Click **SubscriptionID**
 22.	 In the Parameter Value blade, select **Variable Asset** for the **Data source** and select **AzureSubscriptionId** from the list and then click **OK** twice.   
@@ -136,7 +136,7 @@ We'll now add a **Start-AzureRmVM** activity to start a virtual machine.  You ca
 
 1. In the Library control, type **Start-AzureRm** in the search textbox.
 2. Add **Start-AzureRmVM** to the canvas and then click and drag it underneath **Specify Subscription Id**.
-3. Hover over **Specify Subscription Id** until a circle appears on the bottom of the shape.  Click the circle and drag the arrow to **Start-AzureRmVM**. 
+3. Hover over **Specify Subscription Id** until a circle appears on the bottom of the shape.  Click the circle and drag the arrow to **Start-AzureRmVM**.
 4.	Select **Start-AzureRmVM**.  Click **Parameters** and then **Parameter Set** to view the sets for **Start-AzureRmVM**.  Select the **ResourceGroupNameParameterSetName** parameter set. Note that **ResourceGroupName** and **Name** have exclamation points next them.  This indicates that they are required parameters.  Also note both expect string values.
 5.	Select **Name**.  Select **PowerShell expression** for the **Data source** and type in the name of the virtual machine surrounded with double quotes that we will start with this runbook.  Click **OK**.<br>![Start-AzureRmVM Name Parameter Value](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
 6.	Select **ResourceGroupName**. Use **PowerShell expression** for the **Data source** and type in the name of the resource group surrounded with double quotes.  Click **OK**.<br> ![Start-AzureRmVM Parameters](media/automation-first-runbook-graphical/startazurermvm-params.png)
@@ -183,14 +183,14 @@ We will now modify the runbook so that it will only attempt to start the virtual
 14. In the code editor, paste the following snippet of code:
 
      ```
-     $StatusesJson = $ActivityOutput['Get-AzureRmVM'].StatusesText 
-     $Statuses = ConvertFrom-Json $StatusesJson 
-     $StatusOut ="" 
-     foreach ($Status in $Statuses){ 
-     if($Status.Code -eq "Powerstate/running"){$StatusOut = "running"} 
-     elseif ($Status.Code -eq "Powerstate/deallocated") {$StatusOut = "stopped"} 
-     } 
-     $StatusOut 
+     $StatusesJson = $ActivityOutput['Get-AzureRmVM'].StatusesText
+     $Statuses = ConvertFrom-Json $StatusesJson
+     $StatusOut =""
+     foreach ($Status in $Statuses){
+     if($Status.Code -eq "Powerstate/running"){$StatusOut = "running"}
+     elseif ($Status.Code -eq "Powerstate/deallocated") {$StatusOut = "stopped"}
+     }
+     $StatusOut
      ```
 
 15. Create a link from **Get Status** to **Start-AzureRmVM**.<br> ![Runbook with Code Module](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
