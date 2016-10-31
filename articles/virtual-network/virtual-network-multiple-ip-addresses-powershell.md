@@ -65,7 +65,7 @@ Note that IPConfig-2 and IPConfig-3 can also be associated with public IP addres
         $VNetName   = "VNet1"
         $SubnetName = "Subnet1"
         $NicName     = "VM1-NIC1"
-        $PIP = "PIP"
+        $PIP1 = "PIP1"
 
 	If you don't know the name of an existing Azure location or resource group, type the following commands:
 
