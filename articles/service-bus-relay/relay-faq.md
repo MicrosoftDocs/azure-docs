@@ -23,7 +23,7 @@ This article answers some frequently-asked questions about Microsoft Azure Relay
 
 ### What is Azure Relay?
 
-Azure [Relay service](relay-what-it-is.md) facilitates your hybrid applications by enabling you to securely expose services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure.
+Azure [Relay service](relay-what-is-it.md) facilitates your hybrid applications by enabling you to securely expose services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure.
 
 ### What is a Relay namespace?
 
