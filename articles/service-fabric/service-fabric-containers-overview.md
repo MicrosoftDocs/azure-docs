@@ -30,7 +30,7 @@ Containers are a virtualization technology that virtualizes the underlying opera
 
 - **Small in size**: Containers use a single storage space and smaller deltas for each layer to increase efficiency.
 
-- **Fast boot up time**: Containers don’t have to boot an operating system, so they can be up and available much faster, typically in seconds, than virtual machines.
+- **Fast boot-up time**: Containers don’t have to boot an operating system, so they can be up and available much faster, typically in seconds, than virtual machines.
 
 - **Portability**: A containerized application image can be ported to run in the cloud, on premises, inside virtual machines, or directly on physical machines.
 
@@ -57,7 +57,7 @@ The following figure shows the different types of virtualization and isolation l
 ## Scenarios for using containers
 Here are typical examples where a container is a good choice:
 
-- **IIS lift and shift**: If you have existing [ASP.NET MVC](https://www.asp.net/mvc) apps that you want to continue to use, put them in a container instead of migrating them to ASP.NET core. These ASP.NET MVC apps are dependent on Internet Information Services (IIS). You can package these into container images from the precreated IIS image and deploy them with Service Fabric. See [Container Images on Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/quick_start_images) for information about how to create IIS images.
+- **IIS lift and shift**: If you have existing [ASP.NET MVC](https://www.asp.net/mvc) apps that you want to continue to use, put them in a container instead of migrating them to ASP.NET Core. These ASP.NET MVC apps are dependent on Internet Information Services (IIS). You can package these into container images from the precreated IIS image and deploy them with Service Fabric. See [Container Images on Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/quick_start_images) for information about how to create IIS images.
 
 
 - **Mix containers and Service Fabric microservices**: Use an existing container image for part of your application. For example, you might use the [NGINX container](https://hub.docker.com/_/nginx/) for the web front end of your application and stateful services built with Reliable Services for the more intensive back-end computation. An example of this scenario includes gaming applications.
