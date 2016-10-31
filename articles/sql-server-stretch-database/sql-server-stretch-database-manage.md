@@ -4,7 +4,7 @@
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
-	manager=""
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -71,7 +71,7 @@ Don't change the schema of a remote Azure table that's associated with a SQL Ser
 ### Reconcile table columns  
 If you have accidentally deleted columns from the remote table, run **sp_rda_reconcile_columns** to add columns to the remote table that exist in the Stretch\-enabled SQL Server table but not in the remote table. For more info, see [sys.sp_rda_reconcile_columns](https://msdn.microsoft.com/library/mt707765.aspx).  
 
-  > [!IMPORTANT] When **sp_rda_reconcile_columns** recreates columns that you accidentally deleted from the remote table, it does not restore the data that was previously in the deleted columns.
+  > [AZURE.IMPORTANT] When **sp_rda_reconcile_columns** recreates columns that you accidentally deleted from the remote table, it does not restore the data that was previously in the deleted columns.
 
 **sp_rda_reconcile_columns** does not delete columns from the remote table that exist in the remote table but not in the Stretch\-enabled SQL Server table. If there are columns in the remote Azure table that no longer exist in the Stretch\-enabled SQL Server table, these extra columns do not prevent Stretch Database from operating normally. You can optionally remove the extra columns manually.  
 

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/25/2016"
+   ms.date="10/19/2016"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using Azure Resource Manager templates
@@ -109,13 +109,13 @@ The following procedure creates an HDInsight cluster.
         # List cluster
         Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName 
 
-	The PowerShell script only configures the cluster name and the storage account name.  You can set other values in the ARM template. 
+	The PowerShell script only configures the cluster name and the storage account name.  You can set other values in the Resource Manager template. 
 	
 For more information, see  [Deploy with PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
 
 ## Deploy with Azure CLI
 
-The following sample creates a cluster and its dependent storage account and container by calling an ARM template:
+The following sample creates a cluster and its dependent storage account and container by calling a Resource Manager template:
 
 	azure login
 	azure config mode arm

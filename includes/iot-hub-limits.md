@@ -35,4 +35,4 @@ The IoT Hub service throttles requests when the following quotas are exceeded:
 | Device-to-cloud sends | 6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. |
 | Cloud-to-device sends | 5000/min/unit (for S3), 100/min/unit (for S1 and S2). |
 | Cloud-to-device receives | 50000/min/unit (for S3), 1000/min/unit (for S1 and S2). |
-| File upload operations | 5000 file upload notifications/min/unit (for S3), 100 file upload notifications/min/unit (for S1 and S2). <br/> 10000 SAS URIs can be out for a storage account at one time.<br/> 10 SAS URIs/device can be out at one time. |
+| File upload operations | 5000 file upload notifications/min/unit (for S3), 100 file upload notifications/min/unit (for S1 and S2). <br/> 10000 SAS URIs can be out for an Azure Storage account at one time.<br/> 10 SAS URIs/device can be out at one time. |

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Learn about SQL Database backups | Microsoft Azure" 
-   description="Learn about SQL Database automatic database backups that enable you to restore an Azure SQL Database to a previous point in time or copy a database to a new database in an geographic region up to 35 days."
+   pageTitle="SQL Database backups - automatic, geo-redundant | Microsoft Azure" 
+   description="SQL Database automatically creates a local database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. "
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -13,11 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/18/2016"
+   ms.date="10/20/2016"
    ms.author="carlrab;barbkess"/>
 
 <!------------------
-This topic is annotated with guidelines for FEATURE TOPICS.
+This topic is annotated with TEMPLATE guidelines for FEATURE TOPICS.
+
+
+Metadata guidelines
+
+pageTitle
+	60 characters or less. Includes name of the feature - primary benefit. Not the same as H1. Its 60 characters or fewer including all characters between the quotes and the Microsoft Azure site identifier.
+
+description
+	115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
+
+	Example: "SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy."
+------------------>
+
+<!----------------
 
 TEMPLATE GUIDELINES for feature topics
 
@@ -38,11 +52,14 @@ DON'T explain this:
 ------------------->
 
 <!------------------
-GUIDELINES for the H1 title
+GUIDELINES for the H1 
 	
-	The H1 title should answer the question "What is in this topic?" Write the title in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
+	The H1 should answer the question "What is in this topic?" Write the H1 heading in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
 	
 	To help people understand this is a learning topic and not an action topic, start the title with "Learn about ... "
+
+	Heading must use an industry standard term. If your feature is a proprietary name like "Elastic database pools", use a synonym. For example:	"Learn about elastic database pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
+
 -------------------->
 
 # Learn about SQL Database backups
@@ -50,24 +67,23 @@ GUIDELINES for the H1 title
 <!------------------
 	GUIDELINES for introduction
 	
-	The introduction 2-3 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top key words that you are using throughout the article.The introduction should be brief and to the point of what the feature is, what it is used for, and what's in the article. 
+	The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top key words that you are using throughout the article.The introduction should be brief and to the point of what the feature is, what it is used for, and what's in the article. 
+
+	If the introduction is short enough, your article can pop to the top in Google Instant Answers.
 
 	In this example:
 	
-Sentence #1 explains the purpose of having backups
-	Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. 
+ 
 
-Sentence #2 summarizes how backups work in SQL Database
+Sentence #1 Explains what the article will cover, which is what the feature is or does. This is also the metadata description. 
 	SQL Database automatically creates a local database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. 
 
-Sentence #3 gives links to articles that explain how to use backups. This raises CSAT if the customer was looking for a how to instead of a learn article.
+Sentence #2 Explains why I should care about this.  
+	Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion.
 
-	Use local database backups to restore a database to a point in time on the same server. Use geo-redundant backups to restore the database to a different geographical region. 
 -------------------->
 
-
-Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. SQL Database automatically creates a local database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. Use local database backups to [restore a database to a point in time](sql-database-point-in-time-restore-portal.md) on the same server. Use geo-redundant backups to [restore the database to a different geographical region](sql-database-geo-restore-portal.md).  
-
+SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy. Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. 
 
 <!-- This image needs work, so not putting it in right now.
 
@@ -160,7 +176,8 @@ If you upgrade your database from the Basic service tier to Standard or Premium,
  
 If you delete a database, SQL Database keeps the backups in the same way it would for an online database. For example, suppose you delete a Basic database that has a retention period of seven days. A backup that is four days old is saved for three more days.
 
-If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
+>[AZURE.IMPORTANT]
+	If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
 
 <!-------------------
 OPTIONAL section

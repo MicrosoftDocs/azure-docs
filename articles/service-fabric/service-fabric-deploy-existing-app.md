@@ -1,6 +1,6 @@
 <properties
    pageTitle="Deploy an existing executable to Azure Service Fabric | Microsoft Azure"
-   description="Walkthrough on how to package an existing application as a guest executable, so it can be deployed on an Azure Service Fabric cluster"
+   description="Walkthrough on how to package an existing application as a guest executable, so it can be deployed to a Service Fabric cluster"
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="09/22/2016"
+   ms.date="10/22/2016"
    ms.author="msfussell;mikhegn"/>
 
 # Deploy a guest executable to Service Fabric

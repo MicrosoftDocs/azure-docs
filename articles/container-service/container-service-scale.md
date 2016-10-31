@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="10/03/2016"
-   ms.author="adegeo"/>
+   ms.author="timlt"/>
 
 # Scale an Azure Container Service
 

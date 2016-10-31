@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="10/13/2016"
+	ms.date="10/18/2016"
 	ms.author="awills"/>
 
 # Navigation and Dashboards in the Application Insights portal
@@ -73,7 +73,7 @@ Once a tile is on the dashboard, you can adjust it.
 
 1. Add a chart to the tile. 
 2. Set the metric, group-by dimension and style (table, graph) of a chart.
-3. Set the timespan and filter properties for the charts on the tile. You can set the chart's own timespan, or inherit from the timespan of the dashboard.
+3. Drag across the diagram to zoom in; click the undo button to reset the timespan; set filter properties for the charts on the tile.
 4. Set tile title.
 
 Tiles pinned from metric explorer blades have more editing options than tiles pinned from an Overview blade.
@@ -95,7 +95,7 @@ On the dashboard, a blade appears as a tile: click it to go to the blade. A char
 ![Click a tile to open the blade it represents](./media/app-insights-dashboards/35.png)
 
 
-## Share dashboards with your team
+## Share dashboards
 
 When you've created a dashboard, you can share it with other users.
 

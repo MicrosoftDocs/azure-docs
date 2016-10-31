@@ -217,9 +217,9 @@ Let's see just exceptions reported from browsers:
 ```AIQL
 
     exceptions 
-    | where device_Id == "browser" 
+    | where client_Type == "Browser" 
     |  summarize count() 
-       by device_BrowserVersion, outerExceptionMessage 
+       by client_Browser, outerMessage 
 ```
 
 ![](./media/app-insights-analytics-tour/250.png)
@@ -589,10 +589,17 @@ Contains results of calls that your app makes to databases and REST APIs, and ot
 
 Contains the telemetry sent by your app using TrackTrace(), or [other logging frameworks](app-insights-asp-net-trace-logs.md).
 
-## Try it!
+## Dashboards
 
-* **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
+You can pin your results to a dashboard in order to bring together all your most important charts and tables.
 
+* [Azure shared dashboard](app-insights-dashboards.md#share-dashboards): Click the pin icon. Before you do this, you must have a shared dashboard. In the Azure portal, open or create a dashboard and click Share.
+* [Power BI dashboard](app-insights-export-power-bi.md): Click Export, Power BI Query. An advantage of this alternative is that you can display your query alongside a other results from a very wide range of sources.
+
+
+## Next steps
+
+* [Analytics language reference](app-insights-analytics-reference.md)
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 

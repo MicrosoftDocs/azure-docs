@@ -4,7 +4,7 @@
 	keywords="social media apps"
 	services="documentdb" 
 	authors="ealsur" 
-	manager="" 
+	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
 

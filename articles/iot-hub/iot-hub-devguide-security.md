@@ -38,7 +38,7 @@ You must have appropriate permissions to access any of the IoT Hub endpoints. Fo
 
 You can grant [permissions](#iot-hub-permissions) in the following ways:
 
-* **Hub-level shared access policies**. Shared access policies can grant any combination of [permissions](#iot-hub-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [Azure IoT Hub Resource provider APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
+* **Hub-level shared access policies**. Shared access policies can grant any combination of [permissions](#iot-hub-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
 
     - **iothubowner**: Policy with all permissions.
     - **service**: Policy with ServiceConnect permission.
@@ -160,20 +160,26 @@ As a comparison, the equivalent Python code to generate a security token is:
 
     from base64 import b64encode, b64decode
     from hashlib import sha256
+    from time import time
+    from urllib import quote_plus, urlencode
     from hmac import HMAC
-    from urllib import urlencode
-    
-    def generate_sas_token(uri, key, policy_name='device', expiry=3600):
+
+    def generate_sas_token(uri, key, policy_name, expiry=3600):
         ttl = time() + expiry
-        sign_key = "%s\n%d" % (uri, int(ttl))
+        sign_key = "%s\n%d" % ((quote_plus(uri)), int(ttl))
+        print sign_key
         signature = b64encode(HMAC(b64decode(key), sign_key, sha256).digest())
-     
-        return 'SharedAccessSignature ' + urlencode({
+
+        rawtoken = {
             'sr' :  uri,
             'sig': signature,
-            'se' : str(int(ttl)),
-            'skn': policy_name
-        })
+            'se' : str(int(ttl))
+        }
+
+        if policy_name is not None:
+            rawtoken['skn'] = policy_name
+
+        return 'SharedAccessSignature ' + urlencode(rawtoken)
 
 > [AZURE.NOTE] Since the time validity of the token is validated on IoT Hub machines, it is important that the drift on the clock of the machine that generates the token be minimal.
 

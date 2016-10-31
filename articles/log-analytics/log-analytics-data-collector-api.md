@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/17/2016"
+	ms.date="10/26/2016"
 	ms.author="bwren"/>
 
 
@@ -30,7 +30,7 @@ The next two tables list the attributes that are required for each request to th
 | Attribute | Property |
 |:--|:--|
 | Method | POST |
-| URI | https://<WorkspaceID>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| URI | https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Content type | application/json |
 
 ### Request URI parameters
@@ -408,7 +408,7 @@ def build_signature(customer_id, shared_key, date, content_length, method, conte
     string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
     bytes_to_hash = bytes(string_to_hash).encode('utf-8')  
     decoded_key = base64.b64decode(shared_key)
-    encoded_hash = base64.b64encode(hmac.new(decoded_key, string_to_hash, digestmod=hashlib.sha256).digest())
+    encoded_hash = base64.b64encode(hmac.new(decoded_key, bytes_to_hash, digestmod=hashlib.sha256).digest())
     authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
     return authorization
 

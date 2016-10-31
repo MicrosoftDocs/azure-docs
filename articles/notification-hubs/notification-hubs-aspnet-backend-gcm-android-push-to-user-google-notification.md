@@ -3,7 +3,7 @@
 	description="Learn how to send push notifications to users in Azure. Code samples written in Java for Android"
 	documentationCenter="android"
 	services="notification-hubs"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="10/03/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 #Azure Notification Hubs Notify Users for Android with .NET backend
 

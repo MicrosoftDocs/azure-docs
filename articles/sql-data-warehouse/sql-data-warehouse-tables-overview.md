@@ -3,8 +3,8 @@
    description="Getting started with Azure SQL Data Warehouse Tables."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/04/2016"
-   ms.author="sonyama;barbkess;jrj"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess;jrj"/>
 
 # Overview of tables in SQL Data Warehouse
 

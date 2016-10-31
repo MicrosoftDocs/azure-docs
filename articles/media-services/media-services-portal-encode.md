@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="10/24/2016"
 	ms.author="juliako"/>
 
 
@@ -36,7 +36,8 @@ To scale media processing, see [this](media-services-portal-scale-media-processi
 
 This section describes the steps you can take to encode your content with Media Encoder Standard.
 
-1.  In the **Settings** window, select **Assets**.  
+1.  In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
+2.  In the **Settings** window, select **Assets**.  
 2.  In the **Assets** window, select the asset that you would like to encode.
 3.  Press the **Encode** button.
 4.  In the **Encode an asset** window, select the "Media Encoder Standard" processor and a preset. For example, if you know your input video has a resolution of 1920x1080 pixels, then you could use the "H264 Multiple Bitrate 1080p" preset. For more information about presets, see [this](https://msdn.microsoft.com/library/azure/mt269960.aspx) article – it is important to select the preset that is most appropriate for your input video. If you have a low resolution (640x360) video, then you should not be using the default "H264 Multiple Bitrate 1080p" preset.

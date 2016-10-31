@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Machine Learning Recommendations: JavaScript Integration | Microsoft Azure" 
-	description="Azure Machine Learning Recommendations - JavaScript Integration - documentation" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Machine Learning Recommendations: JavaScript Integration | Microsoft Azure"
+	description="Azure Machine Learning Recommendations - JavaScript Integration - documentation"
+	services="machine-learning"
+	documentationCenter=""
+	authors="LuisCabrer"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="09/08/2016" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="09/08/2016"
 	ms.author="luisca"/>
 
 # Azure Machine Learning Recommendations - JavaScript Integration
 
 >[AZURE.NOTE] You should start using the Recommendations API Cognitive Service instead of this
-> version. The Recommendations Cognitive Service will be replacing this service, and all the new 
+> version. The Recommendations Cognitive Service will be replacing this service, and all the new
 > features will be developed there. It has new capabilities like batching support, a better API Explorer,
 > a cleaner API surface, more consistent signup/billing experience, etc.
 > Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
@@ -95,12 +95,13 @@ There are 5 types of event that the library supports: Click, Recommendation Clic
 This event should be used any time a user clicked on an item. Usually when user clicks on an item a new page is opened with the item details; in this page this event should be triggered.
 
 Parameters:
+
 - event (string, mandatory) - “click”
 - item (string, mandatory) - Unique identifier of the item
 - itemName (string, optional) - the name of the item
 - itemDescription (string, optional) - the description of the item
 - itemCategory (string, optional) - the category of the item
-		
+
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
 			AzureMLRecommendationsEvent.push({ event: "click", item: "3111718" });
@@ -118,6 +119,7 @@ Or with optional data:
 This event should be used any time a user clicked on an item that was received from Azure ML Recommendations as a recommended item. Usually when user clicks on an item a new page is opened with the item details; in this page this event should be triggered.
 
 Parameters:
+
 - event (string, mandatory) - “recommendationclick”
 - item (string, mandatory) - Unique identifier of the item
 - itemName (string, optional) - the name of the item
@@ -125,7 +127,7 @@ Parameters:
 - itemCategory (string, optional) - the category of the item
 - seeds (string array, optional) - the seeds that generated the recommendation query.
 - recoList (string array, optional) - the result of the recommendation request that generated the item that was clicked.
-		
+
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
 			AzureMLRecommendationsEvent.push({event: "recommendationclick", item: "18899918" });
@@ -142,12 +144,13 @@ Or with optional data:
 ####3.2.3. Add Shopping Cart Event
 This event should be used when the user add an item to the shopping cart.
 Parameters:
+
 * event (string, mandatory) - “addshopcart”
 * item (string, mandatory) - Unique identifier of the item
 * itemName (string, optional) - the name of the item
 * itemDescription (string, optional) - the description of the item
 * itemCategory (string, optional) - the category of the item
-		
+
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
 			AzureMLRecommendationsEvent.push({event: "addshopcart", item: "13221118" });
@@ -157,12 +160,13 @@ Parameters:
 This event should be used when the user removes an item to the shopping cart.
 
 Parameters:
+
 * event (string, mandatory) - “removeshopcart”
 * item (string, mandatory) - Unique identifier of the item
 * itemName (string, optional) - the name of the item
 * itemDescription (string, optional) - the description of the item
 * itemCategory (string, optional) - the category of the item
-		
+
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
 			AzureMLRecommendationsEvent.push({ event: "removeshopcart", item: "111118" });
@@ -172,6 +176,7 @@ Parameters:
 This event should be used when the user purchased his shopping cart.
 
 Parameters:
+
 * event (string) - “purchase”
 * items ( Purchased[] ) - Array holding an entry for each item purchased.<br><br>
 Purchased format:
@@ -192,8 +197,10 @@ Azure ML Recommendations Event library creates and use a cookie in order to iden
 This event should be used after the user login to your site.
 
 Parameters:
+
 * event (string) - “userlogin”
 * user (string) - unique identification of the user.
+
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
 			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
@@ -208,6 +215,7 @@ To consume recommendations you need to include the required JavaScript libraries
 To consume recommendations for one or more items you need to call a method called: AzureMLRecommendationsGetI2IRecommendation.
 
 Parameters:
+
 * items (array of strings) - One or more items to get recommendations for. If you consume an Fbt build then you can set here only one item.
 * numberOfResults (int) - number of required results.
 * includeMetadata (boolean, optional) - if set to ‘true’ indicates that the metadata field must be populated in the result.
@@ -233,4 +241,3 @@ Example: The following code requests 8 recommendations for item "64f6eb0d-947a-4
 [1]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing1.png
 [2]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing2.png
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
- 

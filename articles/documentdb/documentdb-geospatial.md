@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="08/08/2016" 
+    ms.date="10/25/2016" 
     ms.author="arramac"/>
     
 # Working with Geospatial data in Azure DocumentDB
@@ -200,6 +200,25 @@ Polygon arguments in ST_WITHIN can contain only a single ring, i.e. the polygons
     
 >[AZURE.NOTE] Similar to how mismatched types works in DocumentDB query, if the location value specified in either argument is malformed or invalid, then it will evaluate to **undefined** and the evaluated document to be skipped from the query results. If your query returns no results, run ST_ISVALIDDETAILED To debug why the spatail type is invalid.     
 
+DocumentDB also supports performing inverse queries, i.e. you can index polygons or lines in DocumentDB, then query for the areas that contain a specified point. This pattern is commonly used in logistics to identify e.g. when a truck enters or leaves a designated area. 
+
+**Query**
+
+    SELECT * 
+    FROM Areas a 
+    WHERE ST_WITHIN({'type': 'Point', 'coordinates':[31.9, -4.8]}, a.location)
+
+
+**Results**
+
+    [{
+      "id": "MyDesignatedLocation",
+      "location": {
+        "type":"Polygon", 
+        "coordinates": [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+      }
+    }]
+
 ST_ISVALID and ST_ISVALIDDETAILED can be used to check if a spatial object is valid. For example, the following query checks the validity of a point with an out of range latitude value (-132.8). ST_ISVALID returns just a Boolean value, and ST_ISVALIDDETAILED returns the Boolean and a string containing the reason why it is considered invalid.
 
 ** Query **
@@ -270,17 +289,17 @@ Now that we've taken a look at how to query documents using LINQ and SQL, let's 
 
 ## Indexing
 
-As we described in the [Schema Agnostic Indexing with Azure DocumentDB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) paper, we designed DocumentDB’s database engine to be truly schema agnostic and provide first class support for JSON. The write optimized database engine of DocumentDB now also natively understands spatial data represented in the GeoJSON standard.
+As we described in the [Schema Agnostic Indexing with Azure DocumentDB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) paper, we designed DocumentDB’s database engine to be truly schema agnostic and provide first class support for JSON. The write optimized database engine of DocumentDB natively understands spatial data (points, polygons and lines) represented in the GeoJSON standard.
 
 In a nutshell, the geometry is projected from geodetic coordinates onto a 2D plane then divided progressively into cells using a **quadtree**. These cells are mapped to 1D based on the location of the cell within a **Hilbert space filling curve**, which preserves locality of points. Additionally when location data is indexed, it goes through a process known as **tessellation**, i.e. all the cells that intersect a location are identified and stored as keys in the DocumentDB index. At query time, arguments like points and polygons are also tessellated to extract the relevant cell ID ranges, then used to retrieve data from the index.
 
 If you specify an indexing policy that includes spatial index for /* (all paths), then all points found within the collection are indexed for efficient spatial queries (ST_WITHIN and ST_DISTANCE). Spatial indexes do not have a precision value, and always use a default precision value.
 
->[AZURE.NOTE] DocumentDB supports automatic indexing of Points, Polygons (private preview), and LineStrings (private preview). For access to the preview, please email askdocdb@microsoft.com, or contact us via Azure Support.
+>[AZURE.NOTE] DocumentDB supports automatic indexing of Points, Polygons, and LineStrings
 
 The following JSON snippet shows an indexing policy with spatial indexing enabled, i.e. index any GeoJSON point found within documents for spatial querying. If you are modifying the indexing policy using the Azure Portal, you can specify the following JSON for indexing policy to enable spatial indexing on your collection.
 
-**Collection Indexing Policy JSON with Spatial enabled**
+**Collection Indexing Policy JSON with Spatial enabled for points and polygons**
 
     {
        "automatic":true,
@@ -302,7 +321,11 @@ The following JSON snippet shows an indexing policy with spatial indexing enable
                 {
                    "kind":"Spatial",
                    "dataType":"Point"
-                }
+                },
+                {
+                   "kind":"Spatial",
+                   "dataType":"Polygon"
+                }                
              ]
           }
        ],
@@ -343,7 +366,7 @@ And here's how you can modify an existing collection to take advantage of spatia
 ## Next steps
 Now that you've learnt about how to get started with geospatial support in DocumentDB, you can:
 
-- Start coding with the [Geospatial .NET code samples on Github](https://github.com/Azure/azure-documentdb-dotnet/blob/e880a71bc03c9af249352cfa12997b51853f47e5/samples/code-samples/Geospatial/Program.cs)
+- Start coding with the [Geospatial .NET code samples on Github](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 - Get hands on with geospatial querying at the [DocumentDB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
 - Learn more about [DocumentDB Query](documentdb-sql-query.md)
 - Learn more about [DocumentDB Indexing Policies](documentdb-indexing-policies.md)

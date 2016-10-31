@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2016" 
+	ms.date="10/28/2016" 
 	ms.author="anhoh"/>
 
 # DocumentDB hierarchical resource model and concepts
@@ -112,7 +112,7 @@ All resources are URI addressable. The value of the **_self** property of a reso
 |/dbs/{dbName}/users/{userId}/permissions	|Feed of permissions under a user
 |/dbs/{dbName}/users/{userId}/permissions/{permissionId}	|Permission with an id matching the value {permission}
   
-Each resource has a unique user defined name exposed via the id property. Note: for documents, if the user does not specify an id, the system will automatically generate a unique id for the document. The id is a user defined string, of up to 256 characters that is unique within the context of a specific parent resource. 
+Each resource has a unique user defined name exposed via the id property. Note: for documents, if the user does not specify an id, our supported SDKs will automatically generate a unique id for the document. The id is a user defined string, of up to 256 characters that is unique within the context of a specific parent resource. 
 
 Each resource also has a system generated hierarchical resource identifier (also referred to as an RID), which is available via the _rid property. The RID encodes the entire hierarchy of a given resource and it is a convenient internal representation used to enforce referential integrity in a distributed manner. The RID is unique within a database account and it is internally used by DocumentDB for efficient routing without requiring cross partition lookups. The values of the _self and the  _rid properties are both alternate and canonical representations of a resource. 
 

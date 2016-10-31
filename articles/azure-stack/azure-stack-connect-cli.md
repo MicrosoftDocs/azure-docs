@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connect to Azure Stack CLI | Microsoft Azure"
+	pageTitle="Connect to Azure Stack with CLI | Microsoft Azure"
 	description="Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack"
 	services="azure-stack"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2016"
+	ms.date="10/19/2016"
 	ms.author="helaw"/>
 
-# Install and configure Azure CLI
+# Install and configure Azure Stack CLI
 
-In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage resources on Linux and Mac client platforms.  
+In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack resources on Linux and Mac client platforms.  
 
-## Install Azure CLI
+## Install Azure Stack CLI
 
 If you’re on Mac or Linux, you can get the CLI by using the following command:
   

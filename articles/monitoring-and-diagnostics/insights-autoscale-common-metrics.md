@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Azure Insights: Azure Insights autoscaling common metrics. | Microsoft Azure"
+	pageTitle="Azure Monitor autoscaling common metrics. | Microsoft Azure"
 	description="Learn which metrics are commonly used for autoscaling your Cloud Services, Virtual Machines and Web Apps."
 	authors="kamathashwin"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
@@ -16,9 +16,9 @@
 	ms.date="08/02/2016"
 	ms.author="ashwink"/>
 
-# Azure Insights autoscaling common metrics
+# Azure Monitor autoscaling common metrics
 
-Azure Insights autoscaling allows you to scale the number of running instances up or down, based on telemetry data (metrics). This document describes common metrics that you might want to use. In the Azure Portal for Cloud Services and Server Farms, you can choose the metric of the resource to scale by. However, you can also choose any metric from a different resource to scale by.
+Azure Monitor autoscaling allows you to scale the number of running instances up or down, based on telemetry data (metrics). This document describes common metrics that you might want to use. In the Azure Portal for Cloud Services and Server Farms, you can choose the metric of the resource to scale by. However, you can also choose any metric from a different resource to scale by.
 
 Here are the details on how to find and list the metrics you want to scale by. The following applies for scaling Virtual Machine Scale Sets as well.
 
@@ -93,46 +93,46 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
  You can create an alert for the following metrics.
 
-|Metric Name|	Unit|
+|Metric Name							|Unit|
 |---|---|
-|\Memory\AvailableMemory	|Bytes|
-|\Memory\PercentAvailableMemory|	Percent|
-|\Memory\UsedMemory|	Bytes|
-|\Memory\PercentUsedMemory|	Percent|
-|\Memory\PercentUsedByCache	|Percent|
-|\Memory\PagesPerSec|	CountPerSecond|
-|\Memory\PagesReadPerSec|	CountPerSecond|
-|\Memory\PagesWrittenPerSec	|CountPerSecond|
-|\Memory\AvailableSwap	|Bytes|
-|\Memory\PercentAvailableSwap|	Percent|
-|\Memory\UsedSwap	|Bytes|
-|\Memory\PercentUsedSwap|	Percent|
-|\Processor\PercentIdleTime|	Percent|
-|\Processor\PercentUserTime|	Percent|
-|\Processor\PercentNiceTime	|Percent|
-|\Processor\PercentPrivilegedTime	|Percent|
-|\Processor\PercentInterruptTime|	Percent|
-|\Processor\PercentDPCTime|	Percent|
-|\Processor\PercentProcessorTime	|Percent|
-|\Processor\PercentIOWaitTime	|Percent|
-|\PhysicalDisk\BytesPerSecond|	BytesPerSecond|
-|\PhysicalDisk\ReadBytesPerSecond|	BytesPerSecond|
-|\PhysicalDisk\WriteBytesPerSecond|	BytesPerSecond|
-|\PhysicalDisk\TransfersPerSecond	|CountPerSecond|
-|\PhysicalDisk\ReadsPerSecond	|CountPerSecond|
-|\PhysicalDisk\WritesPerSecond	|CountPerSecond|
-|\PhysicalDisk\AverageReadTime|	Seconds|
-|\PhysicalDisk\AverageWriteTime	|Seconds|
-|\PhysicalDisk\AverageTransferTime|	Seconds|
-|\PhysicalDisk\AverageDiskQueueLength|	Count|
-|\NetworkInterface\BytesTransmitted	|Bytes|
-|\NetworkInterface\BytesReceived	|Bytes|
+|\Memory\AvailableMemory	   			|Bytes|
+|\Memory\PercentAvailableMemory			|Percent|
+|\Memory\UsedMemory            			|Bytes|
+|\Memory\PercentUsedMemory     			|Percent|
+|\Memory\PercentUsedByCache	   			|Percent|
+|\Memory\PagesPerSec           			|CountPerSecond|
+|\Memory\PagesReadPerSec				|CountPerSecond|
+|\Memory\PagesWrittenPerSec				|CountPerSecond|
+|\Memory\AvailableSwap					|Bytes|
+|\Memory\PercentAvailableSwap			|Percent|
+|\Memory\UsedSwap						|Bytes|
+|\Memory\PercentUsedSwap				|Percent|
+|\Processor\PercentIdleTime				|Percent|
+|\Processor\PercentUserTime				|Percent|
+|\Processor\PercentNiceTime				|Percent|
+|\Processor\PercentPrivilegedTime		|Percent|
+|\Processor\PercentInterruptTime		|Percent|
+|\Processor\PercentDPCTime				|Percent|
+|\Processor\PercentProcessorTime		|Percent|
+|\Processor\PercentIOWaitTime			|Percent|
+|\PhysicalDisk\BytesPerSecond			|BytesPerSecond|
+|\PhysicalDisk\ReadBytesPerSecond		|BytesPerSecond|
+|\PhysicalDisk\WriteBytesPerSecond		|BytesPerSecond|
+|\PhysicalDisk\TransfersPerSecond		|CountPerSecond|
+|\PhysicalDisk\ReadsPerSecond			|CountPerSecond|
+|\PhysicalDisk\WritesPerSecond			|CountPerSecond|
+|\PhysicalDisk\AverageReadTime			|Seconds|
+|\PhysicalDisk\AverageWriteTime			|Seconds|
+|\PhysicalDisk\AverageTransferTime		|Seconds|
+|\PhysicalDisk\AverageDiskQueueLength	|Count|
+|\NetworkInterface\BytesTransmitted		|Bytes|
+|\NetworkInterface\BytesReceived		|Bytes|
 |\NetworkInterface\PacketsTransmitted	|Count|
-|\NetworkInterface\PacketsReceived	|Count|
-|\NetworkInterface\BytesTotal	|Bytes|
-|\NetworkInterface\TotalRxErrors|	Count|
-|\NetworkInterface\TotalTxErrors|	Count|
-|\NetworkInterface\TotalCollisions|	Count|
+|\NetworkInterface\PacketsReceived		|Count|
+|\NetworkInterface\BytesTotal			|Bytes|
+|\NetworkInterface\TotalRxErrors		|Count|
+|\NetworkInterface\TotalTxErrors		|Count|
+|\NetworkInterface\TotalCollisions		|Count|
 
 
 
@@ -151,14 +151,14 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 You can alert on or scale by these metrics.
 
-|Metric Name|	Unit|
-|---|---|
-|CpuPercentage|	Percent|
+|Metric Name		|Unit|
+|---				|---|
+|CpuPercentage		|Percent|
 |MemoryPercentage	|Percent|
-|DiskQueueLength|	Count|
-|HttpQueueLength|	Count|
-|BytesReceived|	Bytes|
-|BytesSent|	Bytes|
+|DiskQueueLength	|Count|
+|HttpQueueLength	|Count|
+|BytesReceived		|Bytes|
+|BytesSent			|Bytes|
 
 
 ## Commonly used Storage metrics

@@ -3,7 +3,7 @@
 	description="How to build an iOS app that signs in users with both personal Microsoft account and work or school accounts by using third-party libraries."
 	services="active-directory"
 	documentationCenter=""
-	authors="xerners"
+	authors="brandwe"
 	manager="mbaldwin"
 	editor=""/>
 

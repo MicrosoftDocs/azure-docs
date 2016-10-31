@@ -20,16 +20,23 @@
 
 # Assign multiple IP addresses to virtual machines
 
-An Azure Virtual Machine (VM) can have one or more network interfaces (NIC) attached to it. Each NIC can have one or more public or private IP addresses assigned to it. If you're not familiar with IP addresses in Azure, read the [IP addresses in Azure](virtual-network-ip-addresses-overview-arm.md) article to learn more about them. This article explains how to use Azure PowerShell to assign multiple IP addresses to a NIC in the Azure Resource Manager deployment model.
+> [AZURE.SELECTOR]
+- [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
+- [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 
-Assigning multiple IP addresses to a NIC enables the VM to:
 
-- Host multiple websites or services with different IP addresses and SSL certificates on a single server.
+An Azure Virtual Machine (VM) can have one or more network interfaces (NIC) attached to it. Any NIC can have one or more public or private IP addresses assigned to it. If you're not familiar with IP addresses in Azure, read the [IP addresses in Azure](virtual-network-ip-addresses-overview-arm.md) article to learn more about them. This article explains how to use Azure PowerShell to assign multiple IP addresses to a VM in the Azure Resource Manager deployment model.
+
+Assigning multiple IP addresses to a VM enables the following capabilities:
+
+- Hosting multiple websites or services with different IP addresses and SSL certificates on a single server.
 - Serve as a network virtual appliance, such as a firewall or load balancer.
+- The ability to add any of the private IP addresses for any of the NICs to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool.
 
 [AZURE.INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
 To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use.
+
 ## Scenario
 
 In this article, you will associate three IP configurations to a network interface.
@@ -49,7 +56,7 @@ This scenario assumes you have a resource group called *RG1* within which there 
 
 1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) article.
 
-2. Change the "values" of the following $Variables to the Azure [location](https://azure.microsoft.com/regions) your virtual network is in, the name of your [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups), the VNet within the resource group, the subnet you want to connect the NIC to and the name of the NIC.
+2. Change the "values" of the following $Variables to the Azure [location](https://azure.microsoft.com/regions) your virtual network is in, the name of your [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups), the VNet within the resource group, the subnet you want to connect the NIC to, and the name of the NIC. Complete the steps to add multiple IP addresses to any NIC attached to a VM, as you require.
 
         $Location = "westcentralus"
         $RgName   = "RG1"
@@ -94,7 +101,6 @@ This scenario assumes you have a resource group called *RG1* within which there 
 		$IPConfig1     = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName1 -Subnet $Subnet -PublicIpAddress $PIP1 -Primary
 
 	Note the *-Primary* switch. When you assign multiple IP configurations to a NIC, one configuration must be assigned as the *Primary*. If you don't know the name of an existing public IP address resource, enter the following command:
-
 		Get-AzureRMPublicIPAddress |Format-Table Name, Location, IPAddress, IpConfiguration
 
 	If the **IPConfiguration** column has no value in the output returned, the public IP address resource is not associated with an existing NIC and can be used. If the list is blank, or there are no available public IP address resources, you can create one using the **New-AzureRmPublicIPAddress** command.
@@ -135,8 +141,7 @@ This scenario assumes you have a resource group called *RG1* within which there 
 
 		$nic.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
 
-9. <a name="os"></a>Manually add all the secondary private IP addresses (IP addresses with *False* in the **Primary** column from the output in the previous step) to the TCP/IP configuration in the operating system. The private IP address assigned to *IPConfig-1* in step 5 is automatically assigned to the operating system via Azure DHCP, because it's the *Primary* configuration.
-
+9. <a name="os"></a>Manually add all the private IP addresses (including the primary) to the TCP/IP configuration in the operating system. 
 
 **Windows**
 

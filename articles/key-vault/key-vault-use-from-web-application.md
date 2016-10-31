@@ -4,7 +4,7 @@
 	services="key-vault"
 	documentationCenter=""
 	authors="adhurwit"
-	manager=""
+	manager="mbaldwin"
 	tags="azure-resource-manager"/>
 
 <tags
