@@ -58,8 +58,7 @@ Site Recovery in the Azure portal provides some new features:
 
 - The Azure Backup and Azure Site Recovery services are combined into a single Recovery Services vault, so that you can set up and manage business continuity and disaster recovery (BCDR) from a single location. In the unified dashboard, you can monitor and manage operations across your on-premises sites and the Azure public cloud.
 - Users with Azure subscriptions provisioned with the Cloud Solution Provider (CSP) program can now manage Site Recovery operations in the Azure portal.
-- Site Recovery in the Azure portal can replicate machines to
-storage accounts. At failover, Site Recovery creates Resource Manager-based VMs in Azure.
+- Site Recovery in the Azure portal can replicate machines to Resource Manager storage accounts. At failover, Site Recovery creates Resource Manager-based VMs in Azure.
 - Site Recovery continues to support replication to classic storage accounts. At failover, Site Recovery creates VMs using the classic model.
 
 
