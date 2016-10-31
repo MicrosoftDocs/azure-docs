@@ -23,9 +23,31 @@
 - [Azure classic](site-recovery-vmware-to-azure-classic.md)
 - [Azure classic (legacy)](site-recovery-vmware-to-azure-classic-legacy.md)
 
-Welcome to the Azure Site Recovery service! This article describes how to replicate on-premises VMware virtual machines or Windows/Linux physical servers to Azure, using Azure Site Recovery in the Azure portal.
+Welcome to the Azure Site Recovery service! Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy, by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md).
 
-> [AZURE.NOTE] Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model only, and the Azure portal with support for both deployment models.
+This article describes how to replicate on-premises VMware virtual machines or Windows/Linux physical servers to Azure, using Azure Site Recovery in the Azure portal.
+
+
+## Quick read
+
+For a full deployment, we strongly recommend you follow the steps in the article. But if you're short of time, here's a quick summary:
+
+**What does the article do?** | Replicate VMware VMs or physical servers (Windows/Linux) to Azure using the Azure portal  
+**What do I need on-premises?** | On-premises machine running configuration server, process server, master target server. Configuration server must have an internet connection, and allow access directly or via proxy to specific URLs. [Full details](#configuration-server-or-additional-process-server-prerequisites). 
+**What do I need in Azure?** | Azure account; Recovery Services vault; LRS or GRS storage account in vault region; premium or standard storage account, Azure virtual network in vault region. [Full details](#azure-prerequisites).
+**Any Azure limitations?** | If you use GRS you also need an LRS account for logging; Storage accounts created in the Azure portal can't be moved across resource groups. Replication to premium storage accounts in Central India and South India isn't currently supported.
+**What Windows VMware VMs or physical servers can I replicate? ** | Windows | 64-bit Windows: Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1. [Full details](#protected-machine-prerequisites).
+**What Linux VMware VMs or physical servers can I replicate?** | Red Hat Enterprise Linux 6.7, 7.1, 7.2<br/><br/> CentOS 6.5, 6.6, 6.7, 7.0, 7.1, 7.2<br/><br/> Oracle Enterprise Linux 6.4, 6.5, running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)<br/><br/> SUSE Linux Enterprise Server 11 SP3. [Full details](#protected-machine-prerequisites).
+**Anything need to be installed on replicated machines?** | The mobility service agent. Install manually or push install from the process server. [Full details](#install-the-mobility-service).
+**Anything I should know about replication?** | Replicated machines must conform with Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements). Can't replicate VMs with encrypted disks, shared disk guest clusters aren't supported. You can exclude specific basic disks from replication, but not OS or dynamic disks. For Windows machines, the OS disk should be on C drive, and not be dynamic.[Read more](#protected-machine-prerequisites). 
+**What do I need in VMware** | One or more VMware vSphere servers (6.0, 5.5, or 5.1 with latest updates). We recommend they're in the same network as configuration server (or as process server if you set up dedicated). We recommend a vCenter server to manage vSphere hosts (6.0 or 5.5 with latest updates)
+**Any VMware limitations?** | Site Recovery doesn't support new vCenter and vSphere 6.0 features such as cross vCenter vMotion, virtual volumes, and storage DRS. Support is limited to features that were also available in version 5.5.
+**How do I deploy?** | 1) Prepare Azure Azure account, storage, network -> 2) Prepare on-premises machine for the configuration server, set up VMware account so that Site Recovery can manage failover/failback, and automatic VM discovery 3) Create Recovery Services vault -> 4) Set up on-premises components on the configuration server and connect to VMware servers -> 5) Set up replication settings -> 6) Prepare to install the mobility services agent on machines you want to replicate -> 7) Enable replication -> Test replication and failover.
+**How do I fail back?** | Fail back is to VMware only, even if you replicate physical servers. You need a VPN or Azure Express Route between Azure and the primary site. You need a temporary process server set up as an Azure VM. You can create this when you’re ready to fail back, and delete it after fail back is complete.
+
+## Site recovery in the Azure portal
+
+Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal and Azure portal. This article describes how to deploy in the Azure portal.
 
 Site Recovery in the Azure portal provides a number of new features:
 
@@ -36,21 +58,14 @@ Site Recovery in the Azure portal provides a number of new features:
 
 After reading this article post any comments at the bottom in the Disqus comments. Ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Overview
+## Site recovery in your business
+Organizations need a BCDR strategy that determines how apps and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Your BCDR strategy should keep business data safe and recoverable, and ensure that workloads remain continuously available when disaster occurs. Here's what Site Recovery can do:
 
-Organizations need a BCDR strategy that determines how apps and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Your BCDR strategy should keep business data safe and recoverable, and ensure that workloads remain continuously available when disaster occurs.
-
-Site Recovery is an Azure service that contributes to your BCDR strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
-
-This article provides all the information you need to replicate on-premises VMware VMs and Windows/Linux physical servers to Azure. It includes an architectural overview, planning information, and deployment steps for configuring Azure, on-premises servers, replication settings, and capacity planning. After you've set up the infrastructure you can enable replication on machines you want to protect, and check that failover works.
-
-## Business advantages
-
-- Site Recovery provides off-site protection for business workloads running on VMware VMs and physical servers.
-- The Recovery Services portal provides a single location to set up, manage and monitor replication, failover, and recovery.
-- Site Recovery can automatically discover VMware VMs added to vSphere hosts.
-- You can easily run failovers from your on-premises infrastructure to Azure, and fail back (restore) from Azure to VMware VM servers in your on-premises site.
-- You can enable replication and failover so that application workloads tiered across multiple machines replicate at the same time. You can gather multiple machines in recovery plans so that tiered application workloads fail over together.
+- Provide off-site protection for business workloads running on VMware VMs and physical servers.
+- Provide a single location to set up, manage and monitor replication, failover, and recovery.
+- Automatically discover VMware VMs added to vSphere hosts.
+- Simple failovers from your on-premises infrastructure to Azure, and fail back (restore) from Azure to VMware VM servers in your on-premises site.
+- Enable replication and failover so that application workloads tiered across multiple machines replicate at the same time. You can gather multiple machines in recovery plans so that tiered application workloads fail over together.
 
 ## Supported Operating Systems
 
@@ -98,7 +113,7 @@ Here's what you need in Azure.
 **Azure network** | You need an Azure virtual network, to which Azure VMs connect when failover occurs. The Azure virtual network must be in the same region as the Recovery Services vault.
 **Failback from Azure** | You’ll need a temporary process server set up as an Azure VM. You can create this when you’re ready to fail back, and delete it after fail back is complete.<br/><br/> To fail back you need a VPN connection (or Azure ExpressRoute), from the Azure network to the on-premises site.
 
-## Configuration server / Additional process server
+## Configuration server or additional process server prerequisites
 
 You set up an on-premises machine as the configuration server.
 
@@ -853,7 +868,7 @@ The process server can automatically discover VMs on a vCenter server. To perfor
 **Task** | **Role type** | **Permissions** | **Details**
 --- | --- | --- | ---
 VMware discovery<br/><br/> Failover to Azure without shutting down source VM (useful for migration that doesn’t fail back) | Read-only VMware user | Data Center object –> Propagate to Child Object, role=Read-only | The user is assigned at datacenter level and thus has access to all the objects in the datacenter.<br/><br/> If you want to restrict the access, assign the No access role with the Propagate to child object to the child objects (vSphere hosts, datastores, VMs and networks).
-Failover & failback | VMware user<br/><br/> This user will need to be able to perform operations such as creating and removing disks, powering on VMs etc.<br/><br/> We suggest you create a role (Azure_Site_Recovery) with the required permissions, and then assign the role to a VMware user or group | Data Center object –> Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots | The user is assigned at datacenter level and thus has access to all the objects in the datacenter.<br/><br/> If you want to restrict the access, assign the No access role with the Propagate to child object to the child object (vSphere hosts, datastores, VMs and networks).
+Failover and failback | VMware user<br/><br/> This user will need to be able to perform operations such as creating and removing disks, powering on VMs etc.<br/><br/> We suggest you create a role (Azure_Site_Recovery) with the required permissions, and then assign the role to a VMware user or group | Data Center object –> Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots | The user is assigned at datacenter level and thus has access to all the objects in the datacenter.<br/><br/> If you want to restrict the access, assign the No access role with the Propagate to child object to the child object (vSphere hosts, datastores, VMs and networks).
 
 ## Next steps
 
