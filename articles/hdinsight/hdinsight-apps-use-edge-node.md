@@ -100,7 +100,7 @@ In this section, you use a Resource Manager template to create HDInsight cluster
   - **Ssh Password**: Enter the SSH user password.
   - **Install Script Action**: Keep the default value for going through this tutorial.
 
-	Some values have been hardcoded in the template:
+    Some values have been hardcoded in the template:
 
   - **Cluster type**: The default value is **hadoop**.
   - **Cluster worker node count**: The default value is 2.
