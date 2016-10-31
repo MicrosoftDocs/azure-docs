@@ -24,10 +24,34 @@
 - [PowerShell Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 - [PowerShell classic](site-recovery-deploy-with-powershell.md)
 
-Use this article to replicate on-premises Hyper-V virtual machines managed in System Center Virtual Machine Manager (VMM) clouds to Azure, using the Azure Site Recovery service in the Azure portal.
+Welcome to the Azure Site Recovery service!
 
-> [AZURE.NOTE] Azure has two different [deployment models](../resource-manager-deployment-model
-> ) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models.
+Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy. Site Recovery orchestrates replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
+
+This article describes how to replicate on-premises Hyper-V virtual machines managed in System Center VMM clouds to Azure, using Azure Site Recovery in the Azure portal.
+
+After reading this article, post any comments at the bottom in the Disqus comments. Ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+
+
+## Quick reference
+For a full deployment, we strongly recommend you follow all the steps in the article. But if you're short of time, here's a quick summary with links to further information.
+
+**Area** | **Details**
+--- | ---
+**Deployment scenario** | Replicate Hyper-V VMs in VMM clouds to Azure, using the Azure portal
+**On-premises requirements** | On or more VMM servers running on System Center 2012 R2, with one or more clouds.<br/><br/> Clouds should contain one or more VMM host groups.<br/><br/> At least one Hyper-V server in cloud, running at least Windows Server 2012 R2 with Hyper-V role or Microsoft Hyper-V Server 2012 R2 with the latest updates.<br/><br/> VMM servers and Hyper-V hosts need internet access, and need to be able to access specific URLs directly, or via a proxy. [Full details](#on-premises-prerequisites).
+**On-premises limitations** | HTTPS-based proxy isn't supported
+**Provider/agent** | Replicated VMs need the Azure Site Recovery Provider.<br/><br/> Hyper-V hosts need the Recovery Services agent.<br/><br/> You install these during deployment.
+ **Azure requirements** | Azure account<br/><br/> Recovery services vault<br/><br/> LRS or GRS storage account in vault region<br/><br/> Standard storage account<br/><br/> Azure virtual network in vault region. [Full details](#azure-prerequisites).
+ **Azure limitations** | If you use GRS, you need another LRS account for logging<br/><br/> Storage accounts created in the Azure portal can't be moved across resource groups.<br/><br/> Premium storage isn't supported.
+ **VM replication** | VMs must comply with Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> 
+ **Replication limitations** | You can't replicate VMs running Linux with a static IP address.<br/><br/> You can't exclude specific disks from replication.
+**Deployment steps** | 1) Prepare Azure (subscription, storage, network) -> 2) Prepare on-premises (VMM and network mapping) -> 3) Create Recovery Services vault -> 4) Set up VMM and Hyper-V hosts -> 5) Configure replication settings -> 6) Enable replication -> 7) Test replication and failover.
+
+## Site Recovery in the Azure portal
+
+Azure has two different [deployment models](../resource-manager-deployment-model
+> ) for creating and working with resources – Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal, and the Azure portal. This article describes how to deploy in the Azure portal. 
 
 
 Site Recovery in the Azure portal includes new features:
@@ -37,19 +61,9 @@ Site Recovery in the Azure portal includes new features:
 - From the Azure portal, you can replicate machines to Azure Resource Manager storage accounts. At failover, Site Recovery creates Resource Manager-based VMs in Azure.
 - Site Recovery continues to support replication to classic storage accounts. At failover, Site Recovery creates VMs using the classic model.
 
+## Site Recovery in your business
 
-After reading this article, post any comments at the bottom in the Disqus comments. Ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-## Overview
-
-Organizations need a BCDR strategy that determines how workloads and data remain running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible.
-
-Site Recovery contributes to your BCDR strategy. It orchestrates replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
-
-This article provides all the information you need to replicate on-premises Hyper-V VMs managed in VMM clouds to Azure. It includes an architectural overview, planning information, and deployment steps for setting up the infrastructure (Azure, on-premises servers, replication and capacity). After you've set up the infrastructure, enable replication on VMs, and check that failover works.
-
-
-## Business advantages
+Organizations need a BCDR strategy that determines how apps and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Here's what Site Recovery can do:
 
 - Offsite protection for business apps running on Hyper-V VMs.
 - A single location to set up, manage, and monitor replication, failover, and recovery.
@@ -87,7 +101,7 @@ Here's what you need on-premises
 --- | ---
 **VMM**| One or more VMM servers running on System Center 2012 R2. Each VMM server should have one or more clouds configured. A cloud should contain:<br/><br/> One or more VMM host groups.<br/><br/> One or more Hyper-V host servers or clusters in each host group.<br/><br/>[Learn more](http://social.technet.microsoft.com/wiki/contents/articles/2729.how-to-create-a-cloud-in-vmm-2012.aspx) about setting up VMM clouds.
 **Hyper-V** | Hyper-V host servers must be running at least **Windows Server 2012 R2** with Hyper-V role or **Microsoft Hyper-V Server 2012 R2** and have the latest updates installed.<br/><br/> A Hyper-V server should contain one or more VMs.<br/><br/> A Hyper-V host server or cluster that includes VMs you want to replicate must be managed in a VMM cloud.<br/><br/>Hyper-V servers should be connected to the Internet, either directly or via a proxy.<br/><br/>Hyper-V servers should have fixes mentioned in article [2961977](https://support.microsoft.com/kb/2961977) installed.<br/><br/>Hyper-V host servers need internet access for data replication to Azure.
-**Provider and agent** | During Azure Site Recovery deployment you’ll install the Azure Site Recovery Provider on the VMM server, and the Recovery Services agent on Hyper-V hosts. The Provider and agent need to connect to Azure over the internet directly or through a proxy. Note that an HTTPS-based proxy isn't supported. The proxy server on the VMM server and Hyper-V hosts should allow access to: <br/><br/> ``*.hypervrecoverymanager.windowsazure.com`` <br/><br/> ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.blob.core.windows.net``<br/><br/> ``*.store.core.windows.net``<br/><br/> If you have IP address-based firewall rules on the VMM server, check that the rules allow communication to Azure. You need to allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS (443) port.<br/><br/> Allow IP address ranges for the Azure region of your subscription, and for West US.<br/><br/> In addition. the proxy server on the VMM server needs access to ``https://www.msftncsi.com/ncsi.txt``
+**Provider and agent** | During Azure Site Recovery deployment, you install the Azure Site Recovery Provider on the VMM server, and the Recovery Services agent on Hyper-V hosts. The Provider and agent need to connect to Azure over the internet directly, or through a proxy. An HTTPS-based proxy isn't supported. The proxy server on the VMM server and Hyper-V hosts should allow access to: <br/><br/> ``*.hypervrecoverymanager.windowsazure.com`` <br/><br/> ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.blob.core.windows.net``<br/><br/> ``*.store.core.windows.net``<br/><br/> If you have IP address-based firewall rules on the VMM server, check that the rules allow communication to Azure. You need to allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS (443) port.<br/><br/> Allow IP address ranges for the Azure region of your subscription, and for West US.<br/><br/> In addition. the proxy server on the VMM server needs access to ``https://www.msftncsi.com/ncsi.txt``
 
 
 ## Protected machine prerequisites
@@ -164,7 +178,7 @@ The new vault appears on the **Dashboard** > **All resources**, and on the main 
 
 Site Recovery provides a Getting Started experience that helps you deploy as quickly as possible. Getting Started checks prerequisites, and walks you through Site Recovery deployment steps in the right order.
 
-In Getting Started, you select the type of machines you want to replicate, and where you want to replicate to. You set up on-premises servers, Azure storage accounts, and networks. You create replication policies, and perform capacity planning. After the  infrastructure is in place, you enable replication for VMs. You can run failovers for specific machines, or create recovery plans to fail over multiple machines.
+In Getting Started, you select the type of machines you want to replicate, and where you want to replicate to. You set up on-premises servers, Azure storage accounts, and networks. You create replication policies, and perform capacity planning. After the infrastructure is in place, you enable replication for VMs. You can run failovers for specific machines, or create recovery plans to fail over multiple machines.
 
 Begin Getting Started by choosing how you want to deploy Site Recovery. The Getting Started flow changes slightly depending on your replication requirements.
 
@@ -240,9 +254,9 @@ Install the Azure Site Recovery Provider on the VMM server, and register the ser
 10. Registration starts. After registration finishes, the server is displayed on the **Settings** > **Servers** blade in the vault.
 
 
-#### Command line installation for the Azure Site Recovery Provider
+#### Command-line installation for the Azure Site Recovery Provider
 
-The Azure Site Recovery Provider can be installed from the command line. This method can be used to install the Provider on Server Core for Windows Server 2012 R2.
+The Azure Site Recovery Provider can be installed from the command-line. This method can be used to install the Provider on Server Core for Windows Server 2012 R2.
 
 1. Download the Provider installation file and registration key to a folder. For example, C:\ASR.
 2. From an elevated command prompt, run these commands to extract the Provider installer:
@@ -339,7 +353,7 @@ Configure mapping as follows:
 
 	![Network mapping](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 
-2. In **Add network mapping**,  select the source VMM server, and **Azure** as the target.
+2. In **Add network mapping**, select the source VMM server, and **Azure** as the target.
 3. Verify the subscription and the deployment model after failover.
 4. In **Source network**, select the source on-premises VM network you want to map from the list associated with the VMM server.
 5. In **Target network**, select the Azure network in which replica Azure VMs will be located when they're created. Then click **OK**.
@@ -440,7 +454,7 @@ Now enable replication as follows:
 	![Enable replication](./media/site-recovery-vmm-to-azure/enable-replication-target.png)
 
 4. Select the storage account you want to use. If you want to use a different storage account than those you have, you can [create one](#set-up-an-azure-storage-account). To create a storage account using the Resource Manager model click **Create new**. If you want to create a storage account using the classic model, do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md). Then click **OK**.
-5. Select the Azure network and subnet to which Azure VMs will connect, when they're created after failover. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later**, to select the Azure network per machine. If you want to use a different network from those you have, you can [create one](#set-up-an-azure-network). To create a network using the Resource Manager model click **Create new**.If you want to create a network using the classic model, do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable. Then click **OK**.
+5. Select the Azure network and subnet to which Azure VMs will connect, when they're created after failover. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later**, to select the Azure network per machine. If you want to use a different network from those you have, you can [create one](#set-up-an-azure-network). To create a network using the Resource Manager model click **Create new**. If you want to create a network using the classic model, do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable. Then click **OK**.
 6. In **Virtual Machines** > **Select virtual machines**, click and select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**.
 
 	![Enable replication](./media/site-recovery-vmm-to-azure/enable-replication5.png)
