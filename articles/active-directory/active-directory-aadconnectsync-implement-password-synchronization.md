@@ -3,7 +3,7 @@
 	description="Provides information about how password synchronization works and how to enable it."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 <tags
