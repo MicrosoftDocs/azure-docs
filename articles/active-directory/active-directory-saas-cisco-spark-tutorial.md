@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2016"
+	ms.date="10/31/2016"
 	ms.author="jeedes"/>
 
 
@@ -79,11 +79,11 @@ To configure the integration of Cisco Spark into Azure AD, you need to add Cisco
 
 6. In the search box, type **Cisco Spark**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_01.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_Spark_01.png)
 
 7. In the results pane, select **Cisco Spark**, and then click **Complete** to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_02.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_Spark_02.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Cisco Spark based on a test user called "Britta Simon".
@@ -103,7 +103,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 Cisco Spark application expects the SAML assertions to contain specific attributes. Please configure the following attributes  for this application. You can manage the values of these attributes from the **"Atrributes"** tab of the application. The following screenshot shows an example for this.
 
-![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_03.png) 
+![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_Spark_03.png) 
 
 **To configure Azure AD single sign-on with Cisco Spark, perform the following steps:**
 
@@ -116,7 +116,7 @@ Cisco Spark application expects the SAML assertions to contain specific attribut
 
 	a. Click **add user attribute** to open the **Add User Attribure** dialog.
 
-	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_05.png)
+	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_Spark_05.png)
 	
 	b. In the **Attribute Name** textbox, type **uid**.
 	
@@ -134,11 +134,11 @@ Cisco Spark application expects the SAML assertions to contain specific attribut
 
 5. On the **How would you like users to sign on to Cisco Spark** page, select **Azure AD Single Sign-On**, and then click **Next**.
  	
-	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_06.png)
+	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_Spark_06.png)
 
 6. On the **Configure App Settings** dialog page, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_07.png)
+	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_Spark_07.png)
 
 
     a. In the Sign On URL textbox, type a URL using the following pattern: `https://web.ciscospark.com/#/signin`.
@@ -148,18 +148,18 @@ Cisco Spark application expects the SAML assertions to contain specific attribut
 
 7. On the **Configure single sign-on at Cisco Spark** page, Click **Download metadata**, and then save the file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_09.png)
+	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_Spark_09.png)
 
 8. Sign in to [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) with your full administrator credentials.
 9. Select **Settings** and under the **Authentication** section, click **Modify**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_10.png)
+	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_Spark_10.png)
 
 10. Select **Integrate a 3rd-party identity provider. (Advanced)** and go to the next screen.
 11. Click on **Download Metadata File** and save the file on your computer.
 12. On the **Import Idp Metadata** page, either drag and drop the Azure AD metadata file onto the page or use the file browser option to locate and upload the Azure AD metadata file. Then, select **Require certificate signed by a certificate authority in Metadata (more secure)** and click **Next**. 
 
-	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_11.png)
+	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_Spark_11.png)
 
 13. Select **Test SSO Connection**, and when a new browser tab opens, authenticate with Azure AD by signing in.
 14. Return to the **Cisco Cloud Collaboration Management** browser tab. If the test was successful, select **This test was successful. Enable Single Sign-On option** and click **Next**.
@@ -238,12 +238,12 @@ In this section, you create a user called Britta Simon in Cisco Spark. In this s
 1. Go to the [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) with your full administrator credentials.
 2. Click on **Users** and then **Manage Users**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_12.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_Spark_12.png) 
 
 3. In the **Manage User** window, select **Manually add or modify users** and click **Next**.
 4. Select **Names and Email address**. Then, fill out the textbox as follow:
 
-	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_Spark_13.png) 
 
 	a. In the **First Name** textbox, type **Britta**
 
@@ -268,7 +268,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **Cisco Spark**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_spark_14.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_cisco_Spark_14.png) 
 
 1. In the menu on the top, click **Users**.
 
