@@ -3,7 +3,7 @@
 	description="Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter. Use this article to monitor and troubleshoot  Virtual Machine Manager or Hyper-V site protection."
 	services="site-recovery"
 	documentationCenter=""
-	authors="ruturaj" 
+	authors="ruturaj"
 	manager="mkjain"
 	editor=""/>
 
@@ -158,7 +158,7 @@ URL at <http://aka.ms/getazuresupport>.
 -   [How to preserve the drive letter for protected virtual machines that are failed over or migrated to Azure](http://support.microsoft.com/kb/3031135)
 -   [How to manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/kb/3056159)
 -   [Azure Site Recovery: "The cluster resource could not be found" error when you try to enable protection for a virtual  machine](http://support.microsoft.com/kb/3010979)
--   [Understand and Troubleshoot Hyper-V replication guide](http://www.microsoft.com/en-in/download/details.aspx?id=29016)
+-   [Understand and Troubleshoot Hyper-V replication guide](http://social.technet.microsoft.com/wiki/contents/articles/21948.hyper-v-replica-troubleshooting-guide.aspx)
 
 ## Common Azure Site Recovery errors and their resolutions
 
@@ -213,6 +213,6 @@ Configuration server, process server, master Target
 -   Many customers have faced issues to connect to the failed over virtual machine in Azure. [Use the troubleshooting document to RDP into the virtual machine](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 #### Adding a public IP on a resource manager virtual machine
-If the **Connect** button in the portal is dimmed, and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, you need to create and assign your virtual machine a public IP address before you can use Remote Desktip/Shared Shell. Follow the steps below to add a Public IP on the network interface of the virtual machine.  
+If the **Connect** button in the portal is dimmed, and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, you need to create and assign your virtual machine a public IP address before you can use Remote Desktop/Shared Shell. You can then add a Public IP on the network interface of the virtual machine.  
 
 ![Adding a Public IP on the network interface of failed over virtual machine](media/site-recovery-monitoring-and-troubleshooting/createpublicip.gif)
