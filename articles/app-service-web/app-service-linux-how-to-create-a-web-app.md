@@ -20,11 +20,11 @@
 # Create a Web App with App Service on Linux
 
 ## Use the Azure portal to create your web app
-You can start creating your Web App on Linux from the [Azure portal](https://portal.azure.com) as shown in the following image.
+You can start creating your Web App on Linux from the [Azure portal](https://portal.azure.com) as shown in the following image:
 
 ![Start creating a web app on the Azure portal][1]
 
-Next, the **Create blade** opens as shown in the following image.
+Next, the **Create blade** opens as shown in the following image:
 
 ![The Create blade][2]
 
@@ -33,15 +33,15 @@ Next, the **Create blade** opens as shown in the following image.
 3.	Choose an existing app service plan or create a new one (See app service plan notes in the [limitations section](./app-service-linux-intro.md)).
 -	Choose the application stack that you intend to use. You can choose between several versions of Node.js and PHP.
 
-Once you have created the app, you can change the application stack from the application settings as shown in the following image.
+Once you have created the app, you can change the application stack from the application settings as shown in the following image:
 
 ![Application settings][3]
 
 ## Deploy your web app
 
-Choosing **deployment options** from the management portal gives you the option to use local a Git or GitHub repository to deploy your application. The rest of the instructions are similar to those for a a non-Linux web app, and you can follow these instructions in either our [local Git deployment](./app-service-deploy-local-git.md) or our [continuous deployment](./app-service-continuous-deployment.md) article for GitHub.
+Choosing **deployment options** from the management portal gives you the option to use local a Git or GitHub repository to deploy your application. The rest of the instructions are similar to those for a non-Linux web app, and you can follow these instructions in either our [local Git deployment](./app-service-deploy-local-git.md) or our [continuous deployment](./app-service-continuous-deployment.md) article for GitHub.
 
-You can also use FTP to upload your application to your site. You can get the FTP endpoint for your web app from the diagnostics logs section as shown in the following image.
+You can also use FTP to upload your application to your site. You can get the FTP endpoint for your web app from the diagnostics logs section as shown in the following image:
 
 ![Diagnostics logs][4]
 
