@@ -104,6 +104,7 @@ Network | Virtual networks that contain virtual machines and web/worker roles | 
 Azure App Service | Virtual networks that contain App Service environments | This is currently not supported.
 Azure HDInsight | Virtual networks that contain HDInsight services | This is currently not supported.
 Microsoft Dynamics Lifecycle Services | Virtual networks that contain virtual machines that are managed by Dynamics Lifecycle Services | This is currently not supported.
+Azure AD Domain Services | Virtual networks that contain Azure AD Domain services | This is currently not supported.
 Compute | Azure Security Center extensions with a VNET that has a VPN gateway or ER gateway with on-prem DNS server | Azure Security Center automatically installs extensions on your Virtual Machines to monitor their security and raise alerts. These extensions usually get installed automatically if the Azure Security Center policy is enabled on the subscription. As gateway migration is not supported currently and the gateway needs to be deleted before proceeding with committing the migration, the internet access to VM storage account is lost when the gateway is deleted. The migration will not proceed when this happens as the guest agent status blob cannot be populated. It is recommended to disable Azure Security Center policy on the subscription 3 hours before proceeding with migration.
 
 ## The migration experience
@@ -236,3 +237,4 @@ Now that you understand the migration of classic IaaS resources to Resource Mana
 - [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
 - [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Clone a classic virtual machine to Azure Resource Manager by using community PowerShell scripts](virtual-machines-windows-migration-scripts.md)
+- [Review most common migration errors](virtual-machines\virtual-machines-migration-errors.md)
