@@ -65,4 +65,4 @@ Now that you understand the migration of classic IaaS resources to Resource Mana
 - [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Clone a classic virtual machine to Azure Resource Manager by using community PowerShell scripts](virtual-machines-windows-migration-scripts.md)
-- [Review most common migration errors](virtual-machines\virtual-machines-migration-errors.md)
+- [Review most common migration errors](virtual-machines-migration-errors.md)
