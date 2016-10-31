@@ -212,14 +212,14 @@ The following concepts can help you make important decisions around backup and d
 
 ## Next steps
 
-Use one of the following tutorials for detailed, step-by-step, instructions for protecting data on Windows Server, or protecting a virtual machine in Azure:
+Use one of the following tutorials for detailed, step-by-step, instructions for protecting data on Windows Server, or protecting a virtual machine (VM) in Azure:
 
-- [Try Azure Backup](backup-try-azure-backup-in-10-mins.md)
-- [Try Azure VM Backup](backup-azure-vms-first-look.md)
+- [Back up Files and Folders](backup-try-azure-backup-in-10-mins.md)
+- [Backup Azure Virtual Machines](backup-azure-vms-first-look.md)
 
 For details about protecting other workloads, try one of these articles:
 
-- [Back up Windows machine](backup-configure-vault.md)
+- [Back up your Windows Server](backup-configure-vault.md)
 - [Back up application workloads](backup-azure-microsoft-azure-backup.md)
 - [Backup Azure IaaS VMs](backup-azure-vms-prepare.md)
 
