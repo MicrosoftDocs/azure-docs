@@ -54,7 +54,7 @@ You might have additional or differing requirements from the architecture descri
 
 ### App Service apps 
 
-We recommend creating the web application and the web API as separate App Service apps. This design lets you run them in separate App Service plans sp they can be scaled independently. If you don't need that level of scalability initially, you can instead deploy the apps into the same plan and move them into separate plans later if necessary. 
+We recommend creating the web application and the web API as separate App Service apps. This design lets you run them in separate App Service plans so they can be scaled independently. If you don't need that level of scalability initially, you can instead deploy the apps into the same plan and move them into separate plans later if necessary. 
 
 > [AZURE.NOTE] For the Basic, Standard, and Premium plans, you are billed for the VM instances in the plan, not per app. See [App Service Pricing][app-service-pricing]
 

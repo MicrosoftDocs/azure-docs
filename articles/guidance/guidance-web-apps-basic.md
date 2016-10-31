@@ -38,7 +38,7 @@ The architecture has the following components:
 
 - **App Service plan**. An [App Service plan][app-service-plans] provides the managed virtual machines (VMs) that host your app. All apps associated with a plan run on the same VM instances. 
 
-- **Deployment slots.** A [deployment slot][deployment-slots] is a live web app separate from the production slot for the deployment of the latest version of a web app. Once the latest version is ready to move to production the deployment slot can be swapped with the production slot. See the [Manageability](#manageability-considerations) section for specific recommendations.   
+-- **Deployment slots.**  A [deployment slot][deployment-slots] lets you stage a deployment and then swap it with the production deployment. That way, you avoid deploying directly into production. See the [Manageability](#manageability-considerations) section for specific recommendations.     
 
 - **IP address.** The App Service app has a public IP address and a domain name. The domain name is a subdomain of `azurewebsites.net`, such as `contoso.azurewebsites.net`. To use a custom domain name, such as `contoso.com`, create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service][custom-domain-name].
 
