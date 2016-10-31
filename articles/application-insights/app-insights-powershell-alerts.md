@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="10/31/2016"
 	ms.author="awills"/>
 
 # Use PowerShell to set alerts in Application Insights
@@ -20,6 +20,8 @@
 You can automate the configuration of [alerts](app-insights-alerts.md) in [Visual Studio Application Insights](app-insights-overview.md).
 
 In addition, you can [set webhooks to automate your response to an alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+
+> [AZURE.NOTE] If you want to create resources and alerts at the same time, consider [using an ARM template](app-insights-powershell.md).
 
 ## One-time setup
 
@@ -38,13 +40,12 @@ Start Azure PowerShell and [connect to your subscription](../powershell-install-
 ```PowerShell
 
     Add-AzureAccount
-    Switch-AzureMode AzureResourceManager
 ```
 
 
 ## Get alerts
 
-    Get-AlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+    Get-AzureAlertRmRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
 ## Add alert
 
@@ -58,7 +59,7 @@ Start Azure PowerShell and [connect to your subscription](../powershell-install-
      -WindowSize {HH:MM:SS}  `
      [-SendEmailToServiceOwners] `
      [-CustomEmails "EMAIL1@X.COM","EMAIL2@Y.COM" ] `
-     -Location "East US"
+     -Location "East US" // must be East US at present
      -RuleType Metric
 
 

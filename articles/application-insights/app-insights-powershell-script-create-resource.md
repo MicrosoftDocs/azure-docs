@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="10/31/2016" 
 	ms.author="awills"/>
 
 #  PowerShell script to create an Application Insights resource
@@ -24,6 +24,8 @@ When you want to monitor a new application - or a new version of an application 
 You can automate the creation of a new resource by using PowerShell.
 
 For example, if you are developing a mobile device app, it's likely that, at any time, there will be several published versions of your app in use by your customers. You don't want to get the telemetry results from different versions mixed up. So you get your build process to create a new resource for each build.
+
+> [AZURE.NOTE] If you want to create a set of resources all at the same time, consider [creating the resources using an Azure template](app-insights-powershell.md).
 
 ## Script to create an Application Insights resource
 
@@ -69,12 +71,12 @@ Select-AzureSubscription -SubscriptionName "MySubscription"
 # Create the App Insights Resource
 
 $resource = New-AzureRmResource `
-  -ResourceName $appInsightsName `
-  -ResourceGroupName $resourceGroupName `
-  -Tag @{ Name = "AppInsightsApp"; Value = $applicationTagName} `
+  -ResourceName azgav2 `
+  -ResourceGroupName Fabrikam `
+  -Tag @{ applicationType = "web"} `
   -ResourceType "Microsoft.Insights/Components" `
   -Location "Central US" `
-  -PropertyObject @{"Type"="ASP.NET"} `
+  -PropertyObject @{"Appliction_Type"="web"} `
   -Force
 
 # Give owner access to the team
