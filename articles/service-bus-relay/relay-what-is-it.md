@@ -39,7 +39,7 @@ Hybrid Connections and WCF Relays both enable secure connection to assests that 
 | **WCF**                            |     x     |                    |
 | **.NET Core**                      |           |         x          |
 | **.NET Framework**                 |     x     |         x          |
-| **JavaScript/NodeJS**              |           |         x          |
+| **JavaScript/NodeJS***              |           |         x          |
 | **Java***                          |           |         x          |
 | **Standards-Based Open Protocol**  |           |         x          |
 | **Multiple RPC Programing Models** |           |         x          |
