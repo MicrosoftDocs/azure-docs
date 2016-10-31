@@ -35,7 +35,9 @@ Typical use cases for this architecture include maintaining security separation 
 
 ## Architecture diagram
 
-The following diagram highlights the important components in this architecture. For more information about the grayed-out elements, read [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] and [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access]:
+The following diagram demonstrates the reference architecture discussed in this document. This document focuses on the scenario of extending an AD forest to Azure, and does not discuss the other elements in the figure. For more information on the other elements, see [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] and [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access].  
+
+> A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Identity - AADS (resource forest)" page.
 
 [![0]][0]
 
@@ -120,13 +122,11 @@ For AD-specific security considerations, see the *Security considerations* secti
 
 
 [ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
-
 [adds-extend-domain]: ./guidance-identity-adds-extend-domain.md
 [adfs]: ./guidance-identity-adfs.md
 [azure-expressroute]: https://azure.microsoft.com/documentation/articles/expressroute-introduction/
 [azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
 [creating-external-trusts]: https://technet.microsoft.com/library/cc816837(v=ws.10).aspx[creating-forest-trusts]: https://technet.microsoft.com/library/cc816810(v=ws.10).aspx
-
 [extending-ad-to-azure]: ./guidance-identity-adds-extend-domain.md
 [implementing-a-secure-hybrid-network-architecture]: ./guidance-iaas-ra-secure-vnet-hybrid.md
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ./guidance-iaas-ra-secure-vnet-dmz.md
@@ -134,5 +134,5 @@ For AD-specific security considerations, see the *Security considerations* secti
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
 [running-VMs-for-an-N-tier-architecture-on-Azure]: ./guidance-compute-n-tier-vm.md
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
-
+[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [0]: ./media/guidance-identity-aad-resource-forest/figure1.png "Secure hybrid network architecture with separate AD domains"
