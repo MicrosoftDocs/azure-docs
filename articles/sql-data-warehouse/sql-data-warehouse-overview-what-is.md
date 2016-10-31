@@ -3,8 +3,8 @@
    description="Enterprise-class distributed database capable of processing petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
+   authors="jamesrowlandjones"
+   manager="bjhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/27/2016"
-   ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
+   ms.date="10/31/2016"
+   ms.author="jrj;mausher;kevin;barbkess"/>
 
 
 # What is Azure SQL Data Warehouse?
