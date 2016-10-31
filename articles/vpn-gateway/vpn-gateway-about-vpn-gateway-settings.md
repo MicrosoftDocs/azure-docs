@@ -65,7 +65,7 @@ The following PowerShell example specifies the `-GatewaySku` as *Standard*.
 
 **Changing a gateway SKU**
 
-If you want to upgrade your gateway SKU to a more powerful SKU (from Basic/Standard to HighPerformance) you can use the `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet. You can also downgrade the gateway SKU size using this cmdlet.
+If you want to upgrade your gateway SKU to a more powerful SKU (from Basic/Standard to HighPerformance), you can use the `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet. You can also downgrade the gateway SKU size using this cmdlet.
 
 The following PowerShell example shows a gateway SKU being resized to HighPerformance.
 
@@ -74,7 +74,7 @@ The following PowerShell example shows a gateway SKU being resized to HighPerfor
 
 ### Estimated aggregate throughput by gateway SKU and type
 
-The following table shows the estimated aggregate throughput by gateway SKU and type. This table applies to both the Resource Manager and classic deployment models. VPN Gateways do not use the UltraPerformance gateway SKU. For information about the UltraPerformance SKU, see the [ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md) documentation.
+The following table shows the estimated aggregate throughput by gateway SKU and type. This table applies to both the Resource Manager and classic deployment models. 
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 
