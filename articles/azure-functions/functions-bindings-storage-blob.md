@@ -81,7 +81,7 @@ You can restrict the file type of blobs by using a fixed value for the file exte
 "path": "samples/{name}.png",
 ```
 
-In this case, only *.png* blobs in the *samples* container triggers the function.
+In this case, only *.png* blobs in the *samples* container trigger the function.
 
 Curly braces are special characters in name patterns. To specify blob names that have curly braces in the name, double the curly braces. 
 For example:
