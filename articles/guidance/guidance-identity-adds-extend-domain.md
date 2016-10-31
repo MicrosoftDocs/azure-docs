@@ -65,11 +65,11 @@ This section summarizes recommendations for implementing AD DS in Azure, coverin
 
 - Networking recommendations.
 
-- Security recommendations. 
-
 - Active Directory Site recommendations.
 
-- Active Directory FSMO placement recommendations.
+- Active Directory Operations Masters recommendations.
+
+- Monitoring recommendations.
 
 >[AZURE.NOTE] The document [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines][ad-azure-guidelines] contains more detailed information on many of these points.
 
@@ -99,7 +99,11 @@ We recommend that you create an AD DS site including the subnets defined for you
 
 The Operations Masters role can be assigned to AD DS domain controllers to support consistency checking between instances of replicated AD DS databases. There are five Operations Master roles: schema master, domain naming master, relative identifier master, primary domain controller master emulator, and infrastructure master. Detailed information about these roles is available in the [Operations Masters documentation][ad-ds-operations-masters].
 
-We recommend you do not assign Operations Masters roles to the domain controllers deployed in Azure.  
+We recommend you do not assign Operations Masters roles to the domain controllers deployed in Azure.
+
+### Monitoring recommendations
+
+Monitor the resources of the domain controller VMs as well as the AD DS Services and create a plan to quickly correct any problems. For more information, see [Monitoring Active Directory][monitoring_ad]. You can also install tools such as [Microsoft Systems Center][microsoft_systems_center] on the monitoring server (see the [architecture diagram][architecture]) to help perform these tasks.  
 
 ## Scalability considerations
 
@@ -116,10 +120,6 @@ Do not substitute a simple remote copy operation on the domain controller VM VHD
 
 Do not shut down a domain controller VM using Azure Portal. Instead, shut down and restart from the guest operating system. An Azure Portal shut down causes the VM causes to be deallocated, which resets both the VM-GenerationID and the invocationID of the AD repository. The discards the AD DS RID pool and marks SYSVOL as non-authoritative and may require reconfiguration of the domain controller.
 
-### Monitoring considerations
-
-Monitor the resources of the domain controller VMs as well as the AD DS Services and create a plan to quickly correct any problems. For more information, see [Monitoring Active Directory][monitoring_ad]. You can also install tools such as [Microsoft Systems Center][microsoft_systems_center] on the monitoring server (see the [architecture diagram][architecture]) to help perform these tasks. 
-
 ## Security considerations
 
 AD DS servers provide authentication services and are an attractive target for attacks. To secure them, prevent direct internet connectivity by placing the AD DS servers in a separate subnet with an NSG acting as a firewall. Close all ports on the AD DS servers except those necessary for authentication, authorization, and server synchronization. For more information, see [Active Directory and Active Directory Domain Services Port Requirements][ad-ds-ports]. The [Solution components][solution-components] section in this document shows the NSG rules that the sample solution uses to open ports.
@@ -129,7 +129,6 @@ Consider implementing an additional security perimeter around servers with a pai
 Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD DS database.
 
 ## Deployment
-
 
 ## Next steps
 
