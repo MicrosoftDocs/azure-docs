@@ -41,7 +41,7 @@ Let's look at how each of capabilities works when you're packaging a containeriz
 
 ## Package a Windows container
 
-When you package a container, you can choose to use either a Visual Studio project template or [create the application package manually](#manually). When you use Visual Studio, the application package structure and manifest files are created by the New Project Wizard for you (this is coming in a future release).
+When you package a container, you can choose to use either a Visual Studio project template or [create the application package manually](#manually). When you use Visual Studio, the application package structure and manifest files are created by the New Project Template for you (this is coming in a future release).
 
 ## Use Visual Studio to package an existing container image
 
