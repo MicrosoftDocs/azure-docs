@@ -43,7 +43,7 @@ For more information on the benefits of Azure App Service, see the [Mobile Servi
 
 ## <a name="before-you-begin"></a>Before you begin
 
-Before beginning any major work on your site, you should [Back up your Mobile Service] scripts and SQL database.
+Before beginning any major work on your site, you should back up your Mobile Service scripts and SQL database.
 
 ## <a name="migrating-site"></a>Migrating your sites
 
@@ -135,7 +135,7 @@ your site from within Visual Studio, you need a new publishing profile.  To down
   2.  Select **All resources** or **App Services** then click the name of your migrated Mobile Service.
   3.  Click **Get publish profile**.
 
-The PublishSettings file is downloaded to your computer.  It is normally called _sitename_.PublishSettings.  Import 
+The PublishSettings file is downloaded to your computer.  It is normally called _sitename_.PublishSettings.  Import
 the publish settings into your existing project:
 
   1.  Open Visual Studio and your Azure Mobile Service project.
@@ -284,8 +284,8 @@ For more information, review the [Notification Hubs] documentation.
 
 ### <a name="legacy-push"></a>Legacy Push Settings
 
-If you configured Push on your mobile service before the introduction on Notification Hubs, you are using _legacy push_.  If you are using Push and 
-you do not see a Notification Hub listed in your configuration, then it is likely you are using _legacy push_.  This feature is migrated with all the 
+If you configured Push on your mobile service before the introduction on Notification Hubs, you are using _legacy push_.  If you are using Push and
+you do not see a Notification Hub listed in your configuration, then it is likely you are using _legacy push_.  This feature is migrated with all the
 other features.  However, we recommend that you upgrade to Notification Hubs soon after the migration is complete.
 
 In the interim, all the legacy push settings (with the notable exception of the APNS certificate) are available in App Settings.  Update the APNS certificate
@@ -360,15 +360,15 @@ more information, see the [Logging] documentation.
 
 ### Deleting a Migrated Mobile App Clone causes a site outage
 
-If you clone your migrated mobile service using Azure PowerShell, then delete the clone, the DNS entry for your production service is 
+If you clone your migrated mobile service using Azure PowerShell, then delete the clone, the DNS entry for your production service is
 removed.  Your site is no longer be accessible from the Internet.  
 
 Resolution: If you wish to clone your site, do so through the portal.
 
 ### Changing Web.config does not work
 
-If you have an ASP.NET site, changes to the `Web.config` file do not get applied.  The Azure App Service builds a suitable `Web.config` file 
-during startup to support the Mobile Services runtime.  You can override certain settings (such as custom headers) by using an XML transform 
+If you have an ASP.NET site, changes to the `Web.config` file do not get applied.  The Azure App Service builds a suitable `Web.config` file
+during startup to support the Mobile Services runtime.  You can override certain settings (such as custom headers) by using an XML transform
 file.  Create a file in called `applicationHost.xdt` - this file must end up in the `D:\home\site` directory on the Azure Service.  Upload the
 `applicationHost.xdt` file via a custom deployment script or directly using Kudu.  The following shows an example document:
 
@@ -393,8 +393,8 @@ For more information, see the [XDT Transform Samples] documentation on GitHub.
 
 ### Migrated Mobile Services cannot be added to Traffic Manager
 
-When you create a Traffic Manager profile, you cannot directly choose a migrated mobile service to the profile.  Use an "external endpoint."  The 
-external endpoint can only be added through PowerShell.  For more information, see the 
+When you create a Traffic Manager profile, you cannot directly choose a migrated mobile service to the profile.  Use an "external endpoint."  The
+external endpoint can only be added through PowerShell.  For more information, see the
 [Traffic Manager tutorial](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
 
 ## <a name="next-steps"></a>Next Steps
@@ -409,11 +409,11 @@ Now that your application is migrated to App Service, there are even more featur
 
 ### <a name="upgrading-your-site"></a>Upgrading your Mobile Services site to Azure Mobile Apps SDK
 
-  * For Node.js-based server projects, the new [Mobile Apps Node.js SDK] provides several new features. For instance, you can now do local 
+  * For Node.js-based server projects, the new [Mobile Apps Node.js SDK] provides several new features. For instance, you can now do local
     development and debugging, use any Node.js version above 0.10, and customize with any Express.js middleware.
 
-  * For .NET-based server projects, the new [Mobile Apps SDK NuGet packages](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) have more 
-    flexibility on NuGet dependencies.  These packages support the new App Service authentication, and compose with any ASP.NET project. To 
+  * For .NET-based server projects, the new [Mobile Apps SDK NuGet packages](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) have more
+    flexibility on NuGet dependencies.  These packages support the new App Service authentication, and compose with any ASP.NET project. To
     learn more about upgrading, see [Upgrade your existing .NET Mobile Service to App Service](app-service-mobile-net-upgrading-from-mobile-services.md).
 
 <!-- Images -->
@@ -444,7 +444,6 @@ Now that your application is migrated to App Service, there are even more featur
 [Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [performance monitoring]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[Back up your Mobile Service]: ../mobile-services/mobile-services-disaster-recovery.md
 [staging slots]: ../app-service-web/web-sites-staged-publishing.md
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
