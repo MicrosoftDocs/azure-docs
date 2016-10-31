@@ -20,7 +20,7 @@
 
 # Assign multiple IP addresses to virtual machines
 
-d> [AZURE.SELECTOR]
+> [AZURE.SELECTOR]
 - [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
 - [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 
