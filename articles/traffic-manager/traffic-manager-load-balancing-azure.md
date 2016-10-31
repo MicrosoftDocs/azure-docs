@@ -46,7 +46,7 @@ Utilizing Traffic Manager, Application Gateway and Load Balancer allow this webs
 The following diagram shows the architecture of this scenario:
 ![scenario diagram image](./media/traffic-manager-load-balancing-azure/scenario-diagram.png)
 
-> [AZURE.NOTE] This example only one of many possible configurations of the load balancing services that Azure offers. Azure's Traffic Manager, Application Gateway, and Load Balancer can be mixed and matched to best suit your load balancing needs. For example, if SSL offload or Layer 7 processing is not necessary, Load Balancer can be used in place of Application Gateway.
+> [AZURE.NOTE] This example is only one of many possible configurations of the load balancing services that Azure offers. Azure Traffic Manager, Application Gateway, and Load Balancer can be mixed and matched to best suit your load balancing needs. For example, if SSL offload or Layer 7 processing is not necessary, Load Balancer can be used in place of Application Gateway.
 
 ## Setting up the Load Balancing Stack
 
@@ -114,7 +114,7 @@ An application gateway configured with a Path-based rule takes a path pattern of
 
 ### Step 3: Add Application Gateways to the Traffic Manager Endpoints
 
-In this scenario, the traffic manager is connected to instances of Application Gateways (as configured in the steps above) residing in different regions. Now that the Application Gateways are configured, the next step is to connected them to our Traffic Manger profile.
+In this scenario, Traffic Manager is connected to instances of Application Gateway (as configured in the steps above) residing in different regions. Now that the Application Gateways are configured, the next step is to connect them to our Traffic Manger profile.
 
 1. Navigate to your instance of the traffic manager profile (you can do this by looking within your resource group or searching for the name of the traffic manager profile from "All Resources").
 2. From this blade, select **Endpoints** and then **Add** to add a new end point.
@@ -123,13 +123,13 @@ In this scenario, the traffic manager is connected to instances of Application G
 
 3. In the "Add endpoint" blade, fill out the information for creating a new endpoint
 
-    - **Type** - the type of endpoint to load balance, in this scenario it is an Azure endpoint since we are connecting it to the Application Gateway instances configured above
-    - **Name** - the name of end endpoint
-    - **Target resource type** - select Public IP address, and in the 'Target resource' setting below, select the public IP of the Application Gateway configured above
+   - **Type** - the type of endpoint to load balance, in this scenario it is an Azure endpoint since we are connecting it to the Application Gateway instances configured above
+   - **Name** - the name of end endpoint
+   - **Target resource type** - select Public IP address, and in the 'Target resource' setting below, select the public IP of the Application Gateway configured above
 
    ![traffic manager add endpoint](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
-4. From this point, you can test your setup by accessing it with the DNS of your traffic manager profile (in this example: TrafficManagerScenario.trafficmanager.net). You can resend request's, bring up/down VMs/Web servers created in different regions, and change the Traffic Manger profile settings to test your setup.
+4. From this point, you can test your setup by accessing it with the DNS of your traffic manager profile (in this example: TrafficManagerScenario.trafficmanager.net). You can resend requests, bring up/down VMs/Web servers created in different regions, and change the Traffic Manger profile settings to test your setup.
 
 ### Step 4: Create the Load Balancer
 
