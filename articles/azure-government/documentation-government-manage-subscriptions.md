@@ -87,9 +87,8 @@ To enable Visual Studio to connect to Azure Government, you need to update the r
         "adaluri"="https://management.core.usgovcloudapi.net"
         "AzureRMEndpoint"="https://management.usgovcloudapi.net"
         "AzureRMAudienceEndpoint"="https://management.core.usgovcloudapi.net"
-        "EnableAzureRMIdentity"="false"
+        "EnableAzureRMIdentity"="true"
         "GraphUrl"="graph.windows.net"
-        "AadApplicationTenant"="63296244-ce2c-46d8-bc36-3e558792fbee"
         
 4. Save and then run the file by double-clicking it.  You are prompted to merge the file into your registry.
 5. Launch Visual Studio and begin using [Cloud Explorer](../vs-azure-tools-resources-managing-with-cloud-explorer.md)
@@ -112,7 +111,6 @@ To enable Visual Studio to connect to Azure Public, you need to remove the regis
         "AzureRMAudienceEndpoint"=-
         "EnableAzureRMIdentity"=-
         "GraphUrl"=-
-        "AadApplicationTenant"=-
         
 4. Save and then run the file by double-clicking it.  You are prompted to merge the file into your registry.
 5. Launch Visual Studio
