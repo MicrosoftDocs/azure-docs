@@ -49,8 +49,8 @@ Mobile Apps uses the [LoginAsync][3] extension method on the [MobileServiceClien
 uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication][5]. To
 provide a better user experience in your production app, you should consider instead using [Client-managed authentication][6].
 
-To authenticate with a Xamarin.Forms project, define an **IAuthenticate** interface in the Portable Class Library for the app. Then update the user
-interface defined in the Portable Class Library to add a **Sign-in** button, which you click to start authentication. After successful authentication,
+To authenticate with a Xamarin.Forms project, define an **IAuthenticate** interface in the Portable Class Library for the app. Then add a **Sign-in**
+button to the  user interface defined in the Portable Class Library, which you click to start authentication. After successful authentication,
 data is loaded from the mobile app backend.
 
 Implement the **IAuthenticate** interface for each platform supported by your app.
