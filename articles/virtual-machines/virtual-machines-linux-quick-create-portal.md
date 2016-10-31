@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="10/25/2016"
+    ms.date="10/28/2016"
     ms.author="v-livech"
 />
 
@@ -30,47 +30,67 @@ The requirements are:
 
 - [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md)
 
+## Sign in
 
-1. Signed into the Azure portal with your Azure account identity, click **+ New** in the upper left corner:
+Signed into the Azure portal with your Azure account identity, click **+ New** in the upper left corner:
 
-    ![screen1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
+![screen1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
-2. Click **Virtual Machines** in the **Marketplace** then **Ubuntu Server 14.04 LTS** from the **Featured Apps** images list.  Verify at the bottom that the deployment model is `Resource Manager` and then click **Create**.
+## Choose VM
 
-    ![screen2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
+Click **Virtual Machines** in the **Marketplace** then **Ubuntu Server 14.04 LTS** from the **Featured Apps** images list.  Verify at the bottom that the deployment model is `Resource Manager` and then click **Create**.
 
-3. On the **Basics** page, enter:
-    - a name for the VM
-    - a username for the Admin User
-    - the Authentication Type set to **SSH public key**
-    - your SSH public Key as a string (from your `~/.ssh/` directory)
-    - a resource group name or select an existing group
+![screen2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
 
-    and Click **OK** to continue and choose the VM size; it should look something like the following:
+## Enter VM options
 
-    ![screen3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
+On the **Basics** page, enter:
 
-4. Choose the **DS1** size, which installs Ubuntu on a Premium SSD, and click **Select** to configure settings.
+- a name for the VM
+- a username for the Admin User
+- the Authentication Type set to **SSH public key**
+- your SSH public Key as a string (from your `~/.ssh/` directory)
+- a resource group name or select an existing group
 
-    ![screen4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
+and Click **OK** to continue and choose the VM size; it should look something like the following screenshot:
 
-5. In **Settings**, leave the defaults for Storage and Network values, and click **OK** to view the summary.  Notice the disk type has been set to Premium SSD by choosing DS1, the **S** notates SSD.
+![screen3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
 
-    ![screen5](../media/virtual-machines-linux-quick-create-portal/screen5.png)
+## Choose VM size
 
-6. Confirm the settings for your new Ubuntu VM, and click **OK**.
+Choose the **DS1** size, which installs Ubuntu on a Premium SSD, and click **Select** to configure settings.
 
-    ![screen6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
+![screen4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
 
-7. Open the Portal Dashboard and in **Network interfaces** choose your NIC
+## Storage and network
 
-    ![screen7](../media/virtual-machines-linux-quick-create-portal/screen7.png)
+In **Settings**, leave the defaults for Storage and Network values, and click **OK** to view the summary.  Notice the disk type has been set to Premium SSD by choosing DS1, the **S** notates SSD.
 
-8. Open the Public IP addresses menu under the NIC settings
+![screen5](../media/virtual-machines-linux-quick-create-portal/screen5.png)
 
-    ![screen8](../media/virtual-machines-linux-quick-create-portal/screen8.png)
+## Confirm VM settings and launch
 
-9. SSH into the public IP using your SSH public key
+Confirm the settings for your new Ubuntu VM, and click **OK**.
+
+![screen6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
+
+## Find the VM NIC
+
+Open the Portal Dashboard and in **Network interfaces** choose your NIC
+
+![screen7](../media/virtual-machines-linux-quick-create-portal/screen7.png)
+
+## Find the public IP
+
+Open the Public IP addresses menu under the NIC settings
+
+![screen8](../media/virtual-machines-linux-quick-create-portal/screen8.png)
+
+## SSH to the VM
+
+SSH into the public IP using your SSH public key.  From a Mac or Linux workstation, you can SSH directly from the Terminal. If you are on a Windows workstation, you need to use PuTTY, MobaXTerm or Cygwin to SSH to Linux.  If you have not already, here is a doc that gets your Windows workstation ready to SSH to Linux.
+
+[How to Use SSH keys with Windows on Azure](virtual-machines-linux-ssh-from-windows.md)
 
 ```
 ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206

@@ -18,14 +18,14 @@
 
 # How does Azure Site Recovery work?
 
-Read this article to understand the underlying architecture of the Azure Site Recovery service and the components that make it work. 
+Read this article to understand the underlying architecture of the Azure Site Recovery service and the components that make it work.
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Overview
 
-Organizations need a BCDR strategy that determines how apps, workloads, and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Your BCDR strategy should keep business data safe and recoverable, and ensure that workloads remain continuously available when disaster occurs. 
+Organizations need a BCDR strategy that determines how apps, workloads, and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Your BCDR strategy should keep business data safe and recoverable, and ensure that workloads remain continuously available when disaster occurs.
 
 Site Recovery is an Azure service that contributes to your BCDR strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure) or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Site Recovery?](site-recovery-overview.md)
 
@@ -69,12 +69,12 @@ The architectural requirements for deploying Site Recovery to replicate VMware V
 Here's what you'll need:
 
 - **Azure account**: You'll need a Microsoft Azure account.
-- **Azure storage**: You'll need an Azure storage account to store replicated data. You can use a classic account or a Resource Manager storage account. The account can be LRS or GRS when you deploy in the Azure portal. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. 
+- **Azure storage**: You'll need an Azure storage account to store replicated data. You can use a classic account or a Resource Manager storage account. The account can be LRS or GRS when you deploy in the Azure portal. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs.
 - **Azure network**: You'll need an Azure virtual network that Azure VMs will connect to when they're created at failover. In the Azure portal they can be networks created in the classic service manager model or in the Resource Manager model.
 - **On-premises configuration server**: You'll need an on-premises Windows Server 2012 R2 machine that runs the configuration server and other Site Recovery components. If you're replicating VMware VMs this should be a highly available VMware VM. If you want to replicate physical servers the machine can be physical. These Site Recovery components will be installed on the machine:
 	- **Configuration server**: Coordinates communication between your on-premises environment and Azure, and manages data replication and recovery.
 	- **Process server**: Acts as a replication gateway. It receives replication data from protected source machines, optimizes it with caching, compression, and encryption, and sends the data to Azure storage. It also handles push installation of the Mobility service to protected machines, and performs automatic discovery of VMware VMs. As your deployment grows you can add additional separate dedicated process servers to handle increasing volumes of replication traffic.
-	- **Master target server**: Handles replication data during failback from Azure. 
+	- **Master target server**: Handles replication data during failback from Azure.
 - **VMware VMs or physical servers to replicate**: Each machine that you want to replicate to Azure will need the Mobility service component installed. This service captures data writes on the machine and forwards them to the process server. This component can be installed manually, or can be pushed and installed automatically by the process server when you enable replication for a machine.
 - **vSPhere hosts/vCenter server**: You'll need one or more vSphere host servers running VMware VMs. We recommend that you deploy a vCenter server to manage those hosts.
 - **Failback**:  Here's what you need:
@@ -98,8 +98,8 @@ Here's what you'll need:
 
 - [Learn more](site-recovery-vmware-to-azure.md#azure-prerequisites) about requirements for Azure portal deployment.
 - [Learn more](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) about enhanced deployment requirements in the classic portal.
-- [Learn more](site-recovery-failback-azure-to-vmware.md) about failback in the Auzre portal.
-- [Learn more](site-recovery-failback-azure-to-vmware-clas- [Learn more](site-recovery-failback-azure-to-vmware-classic.md) about failback in the Auzre portal.sic.md) about failback in the classic portal.
+- [Learn more](site-recovery-failback-azure-to-vmware.md) about failback in the Azure portal.
+- [Learn more](site-recovery-failback-azure-to-vmware-classic.md) about failback in the classic portal.
 
 ## Replicate to Azure: Hyper-V VMs not managed by VMM
 
@@ -117,7 +117,7 @@ Here's what you'll need:
 
 - **Azure account**: You'll need a Microsoft Azure account.
 - **Azure storage**: You'll need an Azure storage account to store replicated data. In the Azure portal you can use a classic account or a Resource Manager storage account. In the classic portal you can use a classic account only. Replicated data is stored in Azure storage and Azure VMs are created when failover occurs.
-- **Azure network**: You'll need an Azure network that Azure VMs will connect to when they're created after failover. 
+- **Azure network**: You'll need an Azure network that Azure VMs will connect to when they're created after failover.
 - **Hyper-v host**: You'll need one or more Windows Server 2012 R2 Hyper-V host server. During Site Recovery deployment you'll install the Azure Site Recovery Provider and the Microsoft Azure Recovery Services agent on the host.
 - **Hyper-V VMs**: You'll need one or more VMs on the Hyper-V host server. Azure Site Recovery Provider and the Azure Recovery Services agent on the Hyper-V host during Site Recovery deployment. The Provider coordinates and orchestrates replication with the Site Recovery service over the internet. The agent handles data replication data over HTTPS 443. Communications from both the Provider and the agent are secure and encrypted. Replicated data in Azure storage is also encrypted.
 
@@ -148,7 +148,7 @@ Here's what you'll need:
 
 - **Azure account**: You'll need a Microsoft Azure account.
 - **Azure storage**: You'll need an Azure storage account to store replicated data. In the Azure portal you can use a classic account or a Resource Manager storage account. In the classic portal you can use a classic account only. Replicated data is stored in Azure storage and Azure VMs are created when failover occurs.
-- **Azure network**: You'll need to set up network mapping so that Azure VMs are connected to appropriate networks when they're created after failover. 
+- **Azure network**: You'll need to set up network mapping so that Azure VMs are connected to appropriate networks when they're created after failover.
 - **VMM server**: You'll need one or more on-premises VMM servers running on System Center 2012 R2 and set up with one or more private clouds. If you're deploying in the Azure portal you'll need logical and VM networks set up so you can configure network mapping. In the classic portal this is optional.  A VM network should be linked to a logical network that's associated with the cloud.
 - **Hyper-v host**: You'll need one or more Windows Server 2012 R2 Hyper-V host servers in the VMM cloud.
 - **Hyper-V VMs**: You'll need one or more VMs on the Hyper-V host server.
@@ -163,21 +163,21 @@ Here's what you'll need:
 
 
 
-## Replicate to a secondary site: VMware virtual machines or physical servers 
+## Replicate to a secondary site: VMware virtual machines or physical servers
 
-To replicate VMware VMs or physical servers to a secondary site as download InMage Scout that's included in the Azure Site Recovery subscription. It can be downloaded from the Azure portal or from the Azure classic portal. 
+To replicate VMware VMs or physical servers to a secondary site as download InMage Scout that's included in the Azure Site Recovery subscription. It can be downloaded from the Azure portal or from the Azure classic portal.
 
 You set up the component servers in each site (configuration, process, master target), and install the Unified Agent on machines that you want to replicate. After initial replication the agent on each machine sends delta replication changes to the process server. The process server optimizes the data and transfers it to the master target server on the secondary site. The configuration server manages the replication process.
 
 Here's what you need:
 
 **Azure account**: You deploy this scenario using InMage Scout. To obtain it you'll need an Azure subscription. After you create a Site Recovery vault you download InMage Scout and install the latest updates to set up the deployment.
-**Process server (primary site)**: Set up the process server component in your primary site to handle caching, compression, and data optimization. It also handles push installation of the Unified Agent to machines you want to protect. 
+**Process server (primary site)**: Set up the process server component in your primary site to handle caching, compression, and data optimization. It also handles push installation of the Unified Agent to machines you want to protect.
 **VMware ESX/ESXi and vCenter server (primary site)**: If you're protecting VMware VMs you'll need a VMware EXS/ESXi hypervisor and optionally a VMware vCenter server to manage hypervisors.
-- **VMs/physical servers (primary site)**: VMware VMs or Windows/Linux physical servers you want to protect will need the Unified Agent installed. The Unified Agent is also installed on the machines acting as the master target server. The agent acts as a communication provider between all of the components. 
+- **VMs/physical servers (primary site)**: VMware VMs or Windows/Linux physical servers you want to protect will need the Unified Agent installed. The Unified Agent is also installed on the machines acting as the master target server. The agent acts as a communication provider between all of the components.
 - - **Configuration server (secondary site)**: The configuration server is the first component you install, and it's installed on the secondary site to manage, configure, and monitor your deployment, either using the management website or the vContinuum console. There's only a single configuration server in a deployment and it must be installed on a machine running Windows Server 2012 R2.
 - **vContinuum server (secondary site)**: It's installed in the same location (secondary site) as the configuration server. It provides a console for managing and monitoring your protected environment. In a default installation the vContinuum server is the first master target server and has the Unified Agent installed.
-- **Master target server (secondary site)**: The master target server holds replicated data. It receives data from the process server, creates a replica machine in the secondary site, and holds the data retention points. The number of master target servers you need depends on the number of machines you're protecting. If you want to fail back to the primary site you'll need a master target server there too. 
+- **Master target server (secondary site)**: The master target server holds replicated data. It receives data from the process server, creates a replica machine in the secondary site, and holds the data retention points. The number of master target servers you need depends on the number of machines you're protecting. If you want to fail back to the primary site you'll need a master target server there too.
 
 **General architecture**
 
@@ -218,7 +218,7 @@ Here's what you'll need:
 
 ## Replicate to a secondary site with SAN replication: Hyper-V VMs managed by VMM
 
-You can replicate Hyper-V VMs managed in VMM clouds to a secondary site using SAN replication using the Azure classic portal. This scenario isn't currently supported in the new Azure portal. 
+You can replicate Hyper-V VMs managed in VMM clouds to a secondary site using SAN replication using the Azure classic portal. This scenario isn't currently supported in the new Azure portal.
 
 In this scenario during Site Recovery deployment you'll install the Azure Site Recovery Provider on VMM servers. The Provider coordinates and orchestrates replication with the Site Recovery service over the internet. Data is replicated between the primary and secondary storage arrays using synchronous SAN replication.
 
@@ -241,16 +241,16 @@ Here's what you'll need:
 
 ## Hyper-V protection lifecycle
 
-This workflow shows the process for protecting, replicating, and failing over Hyper-V virtual machines. 
+This workflow shows the process for protecting, replicating, and failing over Hyper-V virtual machines.
 
 1. **Enable protection**: You set up the Site Recovery vault, configure replication settings for a VMM cloud or Hyper-V site, and enable protection for VMs. A job called **Enable Protection** is initiated and can be monitored in the **Jobs** tab. The job checks that the machine complies with prerequisites and then invokes the [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) method which sets up replication to Azure with the settings you've configured. The **Enable protection** job also invokes the [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) method to initialize a full VM replication.
 2. **Initial replication**: A virtual machine snapshot is taken and virtual hard disks are replicated one by one until they're all copied to Azure or to the secondary datacenter. The time needed to complete this depends on the VM size, network bandwidth, and the initial replication method. If disk changes occur while initial replication is in progress the Hyper-V Replica Replication Tracker tracks those changes as Hyper-V Replication Logs (.hrl) that are located in the same folder as the disks. Each disk has an associated .hrl file that will be sent to secondary storage. Note that the snapshot and log files consume disk resources while initial replication is in progress. When the initial replication finishes the VM snapshot is deleted and the delta disk changes in the log are synchronized and merged.
 3. **Finalize protection**: After initial replication finishes the **Finalize protection** job configures network and other post-replication settings so that the virtual machine is protected. If you're replicating to Azure you might need to tweak the settings for the virtual machine so that it's ready for failover. At this point you can run a test failover to check everything is working as expected.
-4. **Replication**: After the initial replication delta synchronization begins, in accordance with replication settings. 
+4. **Replication**: After the initial replication delta synchronization begins, in accordance with replication settings.
 	- **Replication failure**: If delta replication fails, and a full replication would be costly in terms of bandwidth or time, then resynchronization occurs. For example if the .hrl files reach 50% of the disk size then the VM will be marked for resynchronization. Resynchronization minimizes the amount of data sent by computing checksums of the source and target virtual machines and sending only the delta. After resynchronization finishes delta replication will resume. By default resynchronization is scheduled to run automatically outside office hours, but you can resynchronize a virtual machine manually.
 	- **Replication error**: If a replication error occurs there's a built-in retry. If it's a non-recoverable error such as an authentication or authorization error, or a replica machine is in an invalid state,  then no retry will be attempted. If it's a recoverable error such as a network error, or low disk space/memory, then a retry occurs with increasing intervals between retries (1, 2, 4, 8, 10, and then every 30 minutes).
 4. **Planned/unplanned failovers**: You can run planned or unplanned failovers as needed. If you run a planned failover then source VMs are shut down to ensure no data loss. After replica VMs are created they're placed in a commit pending state. You need to commit them to complete the failover, unless you're replicating with SAN in which case commit is automatic. After the primary site is up and running failback can occur. If you've replicated to Azure reverse replication is automatic. Otherwise you kick off reverse replication manually.
- 
+
 
 ![workflow](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
 
