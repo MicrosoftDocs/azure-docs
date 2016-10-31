@@ -19,7 +19,7 @@
 
 # Running Cassandra with Linux on Azure and Accessing it from Node.js
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] See Resource Manager templates for [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) and [Spark cluster and Cassandra on CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
 ## Overview
 Microsoft Azure is an open cloud platform that runs both Microsoft as well as non-Microsoft software which  includes operating systems, application servers, messaging middleware as well as SQL and NoSQL databases from both commercial and open source models. Building resilient services on public clouds including Azure requires careful planning and deliberate architecture for both applications servers as well storage layers. Cassandra’s distributed storage architecture naturally helps in building highly available systems that are fault tolerant for cluster failures. Cassandra is a cloud scale NoSQL database maintained by Apache Software Foundation at cassandra.apache.org; Cassandra is written in Java and hence runs on both on Windows as well as Linux platforms.
@@ -137,7 +137,7 @@ Enter the following information on the “Virtual machine configuration” scree
 
 <table>
 <tr><th>FIELD NAME              </td><td>       FIELD VALUE               </td><td>         REMARKS                </td><tr>
-<tr><td>VERSION RELEASE DATE    </td><td> Select a date from the drow down</td><td></td><tr>
+<tr><td>VERSION RELEASE DATE    </td><td> Select a date from the drop down</td><td></td><tr>
 <tr><td>VIRTUAL MACHINE NAME    </td><td> cass-template	               </td><td> This is the hostname of the VM </td><tr>
 <tr><td>TIER	                 </td><td> STANDARD	                       </td><td> Leave the default              </td><tr>
 <tr><td>SIZE	                 </td><td> A1                              </td><td>Select the VM based on the IO needs; for this purpose leave the default </td><tr>
@@ -299,7 +299,8 @@ Make sure that the virtual machine is highlighted and click the SHUTDOWN link fr
 #####3: Capture the image
 Make sure that the virtual machine is highlighted and click the CAPTURE link from the bottom command bar. In the next screen, give an IMAGE NAME (e.g. hk-cas-2-08-ub-14-04-2014071), appropriate IMAGE DESCRIPTION, and click the “check” mark to finish the CAPTURE process.
 
-This will take a few seconds and the image should be available in MY IMAGES section of the image gallery. The source VM will be automatically delated after the image is successfully captured.
+This will take a few seconds and the image should be available in MY IMAGES section of the image gallery. The source VM will be automatically deleted after the image is successfully captured. 
+
 
 ##Single Region Deployment Process
 **Step 1: Create the Virtual Network**
@@ -311,9 +312,9 @@ Log into the Azure classic portal and create a Virtual Network with the attribut
 <tr><td>Region</td><td>West US</td><td></td></tr>
 <tr><td>DNS Servers	</td><td>None</td><td>Ignore this as we are not using a DNS Server</td></tr>
 <tr><td>Configure a point-to-site VPN</td><td>None</td><td> Ignore this</td></tr>
-<tr><td>Configure a site-to-site VPN</td><td>Nnone</td><td> Ignore this</td></tr>
-<tr><td>Address Space</td><td>10.1.0.0/16</td><td></td></tr>
-<tr><td>Starting IP</td><td>10.1.0.0</td><td></td></tr>
+<tr><td>Configure a site-to-site VPN</td><td>None</td><td> Ignore this</td></tr>
+<tr><td>Address Space</td><td>10.1.0.0/16</td><td></td></tr>	
+<tr><td>Starting IP</td><td>10.1.0.0</td><td></td></tr>	
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
 </table>
 
