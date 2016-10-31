@@ -228,7 +228,7 @@ The blades will close and it will go back to your portal dashboard view showing 
 
 ## Next steps
 
-The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the [Azure Government Developer Guide[(azure-government-developer-guide.md) to uncover an programmatic differences with endpoints when working with Azure Government.
+The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the [Azure Government Developer Guide](azure-government-developer-guide.md) to uncover an programmatic differences with endpoints when working with Azure Government.
 
 ###Other Resources:
 
