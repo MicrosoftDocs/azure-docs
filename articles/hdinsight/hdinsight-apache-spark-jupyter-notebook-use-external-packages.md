@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="10/28/2016" 
 	ms.author="nitinme"/>
 
 
 # Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight Linux
+
+>[AZURE.NOTE] This article is applicable to Spark 1.5.2 on HDInsight 3.3 and Spark 1.6.2 on HDInsight 3.4. 
 
 Learn how to configure a Jupyter notebook in Apache Spark cluster on HDInsight (Linux) to use external, community-contributed packages that are not included out-of-the-box in the cluster. 
 
