@@ -48,7 +48,7 @@ Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-intr
 ## Create Service Fabric clusters anywhere
 You can create Service Fabric clusters in many environments, including Azure or on premises, on Windows Server or on Linux. In addition, the development environment in the SDK is identical to the production environment with no emulators involved. In other words, if it runs on your local development cluster it deploys to the same cluster in other environments.
 
-For more information on creating clusters on-premise, read [creating a cluster on Windows Server or Linux](service-fabric-deploy-anywhere.md) or for Azure creating a cluster [via the Azure portal](service-fabric-cluster-creation-via-portal.md).
+For more information on creating clusters on-premises, read [creating a cluster on Windows Server or Linux](service-fabric-deploy-anywhere.md) or for Azure creating a cluster [via the Azure portal](service-fabric-cluster-creation-via-portal.md).
 
 ![Service Fabric platform][Image1]
 
