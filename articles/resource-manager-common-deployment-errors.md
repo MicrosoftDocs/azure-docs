@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/30/2016"
+   ms.date="10/31/2016"
    ms.author="tomfitz"/>
 
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
@@ -29,17 +29,69 @@ There are two types of errors you can receive:
 - validation errors
 - deployment errors
 
-The following image shows the activity log for a subscription. There are three operations that occured in two deployments. In the first deployment, the template passed validation but failed when creating the resources (**Write Deployments**). In the second deploymnet, the template failed validation and did not proceed to the **Write Deployments**.
+The following image shows the activity log for a subscription. There are three operations that occured in two deployments. In the first deployment, the template passed validation but failed when creating the resources (**Write Deployments**). In the second deploymnet, the template failed validation and did not proceed to the **Write Deployments**. 
 
 ![show error code](./media/resource-manager-common-deployment-errors/show-activity-log.png)
 
-It is important to understand these two types of errors because how you retrieve information is slightly different between the two types. Validation errors happen before Resource Manager starts the deployment. Before attempting a deployment, Resource Manager validates the template. If it determines an error, the deployment never starts. Validation errors arise from scenarios such as syntax errors in your template, or resources that would exceed your subscription quotas. Deployment errors arise from conditions that occur during the deployment process. 
+Validation errors arise from scenarios that can be pre-determined to cause a problem; such as, syntax errors in your template, or trying to deploy resources that would exceed your subscription quotas. Deployment errors arise from conditions that occur during the deployment process; such as, trying to access a resource that is being deployed in parallel.
 
-The sections in this topic list the error code you see.
+Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the activity log. However, validation errors do not appear in your deployment history because the deployment never actually started. 
+
+## Enable debug logging
+
+You can discover valuable information about how your deployment is processed by logging the request, response, or both.
+
+**PowerShell**
+
+In PowerShell, set the **DeploymentDebugLogLevel** parameter to All, ResponseContent, or RequestContent.
+
+    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+
+Examine the request content with the following:
+
+    (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+
+Or, the response content with:
+
+    (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+
+This information can help you determine whether a value in the template is being incorrectly set.
+
+**Azure CLI**
+
+In Azure CLI, set the **--debug-setting** parameter to All, ResponseContent, or RequestContent.
+
+    azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
+
+Examine the logged request and response content with the following:
+
+    azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+
+This information can help you determine whether a value in the template is being incorrectly set.
+
+**Nested template**
+
+To log debug information for a nested template, use the **debugSetting** element.
+
+    {
+        "apiVersion": "2016-09-01",
+        "name": "nestedTemplate",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+            "mode": "Incremental",
+            "templateLink": {
+                "uri": "{template-uri}",
+                "contentVersion": "1.0.0.0"
+            },
+            "debugSetting": {
+               "detailLevel": "requestContent, responseContent"
+            }
+        }
+    }
 
 ## Error codes
 
-Deployment errors return the code `DeploymentFailed`. However, this error code is a general deployment error. The error code that actually helps you resolve the issue is usually one level below that error. The following image shows the `RequestDisallowedByPolicy` error code that is under the deployment error.
+Deployment errors return the code **DeploymentFailed**. However, this error code is a general deployment error. The error code that actually helps you resolve the issue is usually one level below that error. The following image shows the **RequestDisallowedByPolicy** error code that is under the deployment error.
 
 ![show error code](./media/resource-manager-common-deployment-errors/error-code.png)
 
@@ -52,6 +104,7 @@ The following error codes are described in this topics:
 - [NoRegisteredProviderFound](#noregisteredproviderfound)
 - [OperationNotAllowed](#operationnotallowed)
 - [InvalidContentLink](#invalidcontentlink)
+- [RequestDisallowedByPolicy](#requestdisallowedbypolicy)
 - [Authorization failed](#authorization-failed)
 
 ### InvalidTemplate
@@ -291,6 +344,22 @@ When you receive the error message:
 
 You have most likely attempted to link to a nested template that is not available. Double check the URI you provided for the nested template. If the template exists in a storage account, make sure the URI is accessible. You may need to pass a SAS token. For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
+### RequestDisallowedByPolicy
+
+You receive this error when your subscription includes a resource policy that prevents an action you are trying to perform during deployment. In the error message, look for the policy identifier.
+
+    Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'
+
+In **PowerShell**, provide that policy identifier as the **Id** parameter to retrieve details about the policy that blocked your deployment.
+
+    (Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+
+In **Azure CLI**, provide the name of the policy defnition:
+
+    azure policy definition show regionPolicyDefinition --json
+
+For more information about policies, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+
 ### Authorization failed
 
 You may receive an error during deployment because the account or service principal attempting to deploy the resources does not have access to perform those actions. Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. For example, if your account is assigned to the Reader role, you are not able to create resources. In that case, you see an error message indicating that authorization failed.
@@ -301,28 +370,30 @@ In addition to role-based access control, your deployment actions may be limited
 
 ## Create a troubleshooting template
 
-In some cases, the easiest way to troubleshoot your template is to test only parts of it. For example, suppose you are receiving an error that a resource cannot be found. Rather than dealing with an entire complicated template, simply return the part that may be causing your problem.
+In some cases, the easiest way to troubleshoot your template is to test parts of it. You can create a simplified template that enables you to focus on the part that you believe is causing the error. For example, suppose you are receiving an error when referencing a resource. Rather than dealing with an entire template, simply return the part that may be causing your problem. It can help you determine whether you are passing in the right parameters, using template functions correctly, and getting the resource you expect.
 
     {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
+	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	  "contentVersion": "1.0.0.0",
+	  "parameters": {
 		"storageName": {
 			"type": "string"
 		},
 		"storageResourceGroup": {
 			"type": "string"
 		}
-	},
-	"variables": {},
-	"resources": [],
-	"outputs": {
+	  },
+	  "variables": {},
+	  "resources": [],
+	  "outputs": {
 		"exampleOutput": {
-			"value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'), '2016-06-01'))]",
-			"type" : "string"
+			"value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+			"type" : "object"
 		}
-	}
+	  }
     }
+
+Obviously, your troubleshooting template can vary based on your scenario.
 
 ## Troubleshooting virtual machines
 
