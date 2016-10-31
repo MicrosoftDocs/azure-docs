@@ -36,7 +36,9 @@ AppDynamics Application Performance Management (APM) enables application owners 
 [Go to the documentation.][appdynamics-doc]
 
 ## Atlassian JIRA
-Coming soon!
+You can create JIRA tickets on Azure Monitor alerts.
+
+[Go to the documentation.][atlassian-doc]
 
 ## CloudMonix
 CloudMonix offers monitoring, automation and self-healing services for Microsoft Azure platform.
