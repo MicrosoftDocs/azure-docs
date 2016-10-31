@@ -1,6 +1,6 @@
 ﻿<properties
    pageTitle="Overview of Service Fabric | Microsoft Azure"
-   description="An overview of Service Fabric, where applications are composed of many microservices to provide scale and resilience. Service Fabric is a distributed systems platform used to build scalable, reliable, and easily managed applications for the cloud"
+   description="An overview of Service Fabric, where applications are composed of many microservices to provide scale and resilience. Service Fabric is a distributed systems platform used to build scalable, reliable, and easily managed applications for the cloud."
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
@@ -39,10 +39,10 @@ Today's Internet-scale services are built of microservices. Examples of microser
 
 Service Fabric provides comprehensive runtime and lifecycle management capabilities to applications that are composed of these microservices. It hosts microservices inside containers that are deployed and activated across the Service Fabric cluster. A move from virtual machines to containers makes possible an order-of-magnitude increase in density. Similarly, another order of magnitude in density becomes possible when you move from containers to microservices. For example, a single cluster for Azure SQL Database comprises hundreds of machines running tens of thousands of containers that host a total of hundreds of thousands of databases. Each database is a Service Fabric stateful microservice. The same is true of the other previously mentioned services, which is why the term *hyperscale* is used to describe Service Fabric capabilities. If containers give you high density, then microservices give you hyperscale.
 
-For more on the microservices approach, read [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
+For more on the microservices approach, read [Why a microservices approach to building applications?](service-fabric-overview-microservices.md).
 
 ## Container deployment and orchestration
-Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of microservices across a cluster of machines. Microservices can be developed in many ways from using the [Service Fabric programming models ](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). Service Fabric can deploy services in container images and, importantly, you can mix both services in processes and services in containers in the same application. If you just want to [deploy and manage container images](service-fabric-containers-overview.md) across a cluster of machines, Service Fabric is a perfect choice.
+Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of microservices across a cluster of machines. Microservices can be developed in many ways from using the [Service Fabric programming models ](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). Service Fabric can deploy services in container images. Importantly, you can mix both services in processes and services in containers in the same application. If you just want to [deploy and manage container images](service-fabric-containers-overview.md) across a cluster of machines, Service Fabric is a perfect choice.
 
 
 ## Create clusters for Service Fabric anywhere
@@ -54,7 +54,7 @@ For more information about how to create clusters on premises, read [creating a 
 
 ## Stateless and stateful micrososervices for Service Fabric
 
-Service Fabric enables you to build applications that consist of microservices. Stateless microservices (protocol gateways, web proxies, etc.) do not maintain a mutable state outside of any given request and its response from the service. Azure Cloud Services worker roles are an example of a stateless service. Stateful microservices (user accounts, databases, devices, shopping carts, queues, etc.) maintain a mutable, authoritative state beyond the request and its response. Today's Internet-scale applications consist of a combination of stateless and stateful microservices.
+Service Fabric enables you to build applications that consist of microservices. Stateless microservices (such as protocol gateways and web proxies) do not maintain a mutable state outside a request and its response from the service. Azure Cloud Services worker roles are an example of a stateless service. Stateful microservices (such as user accounts, databases, devices, shopping carts, and queues) maintain a mutable, authoritative state beyond the request and its response. Today's Internet-scale applications consist of a combination of stateless and stateful microservices.
 
 Why have stateful microservices along with stateless ones? The two main reasons are:
 
@@ -65,7 +65,7 @@ Why have stateful microservices along with stateless ones? The two main reasons 
 For more information about application patterns with Service Fabric, read [Application scenarios](service-fabric-application-scenarios.md) and [Choosing a programming model framework](service-fabric-choose-framework.md) for your service.
 
 ## Application lifecycle management
-Service Fabric provides first-class support for the full application lifecycle management of cloud applications. This lifecycle includes development through deployment, daily management, and maintenance to eventual decommissioning.
+Service Fabric provides support for the full application lifecycle management of cloud applications. This lifecycle includes development through deployment, daily management, and maintenance to eventual decommissioning.
 
 Service Fabric application lifecycle management capabilities enable application administrators and IT operators to use simple, low-touch workflows to provision, deploy, patch, and monitor applications. These built-in workflows greatly reduce the burden on IT operators to keep applications continuously available.
 
@@ -86,7 +86,7 @@ By using Service Fabric, you can:
 
 - Simplify the design of your application by using stateful microservices in place of caches and queues.
 
-- Deploy to Azure or to on-premises data centers that run Windows or Linux with zero code changes. Write once, and then deploy anywhere to any Service Fabric cluster.
+- Deploy to Azure or to on-premises datacenters that run Windows or Linux with zero code changes. Write once, and then deploy anywhere to any Service Fabric cluster.
 
 - Develop with a "datacenter on your machine" approach. The local development environment is the same code that runs in the Azure datacenters.
 
