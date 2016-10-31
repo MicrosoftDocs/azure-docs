@@ -1,6 +1,6 @@
 <properties
    pageTitle="Using Load Balancing Services in the Azure Cloud | Microsoft Azure"
-   description="This tutorial will provide a walk through of how to create a scenario using the Azure load-balancing portfolio: Traffic Manager, Application Gateway, and Load Balancer"
+   description="This tutorial shows you how to create a scenario using the Azure load-balancing portfolio: Traffic Manager, Application Gateway, and Load Balancer"
    services="traffic-manager"
    documentationCenter=""
    authors="liumichelle"
@@ -26,27 +26,27 @@ In this tutorial, we first define a customer use case and see how it can be made
 
 At a conceptual level, each of these services plays a distinct role in load balancing hierarchy.
 
-1. **Traffic Manager** provides global DNS load balancing.  It looks at incoming DNS requests and responds with a healthy endpoint and in accordance with the routing policy the customer has selected. Options for routing methods are performance routing to send the requestor to the closest endpoint in terms of latency, priority routing to direct all traffic to an endpoint with other endpoints as backup, and weighted round robin routing, which distributes traffic based on weighting assigned to each endpoint. The client connects directly to that endpoint. Azure Traffic Manager detects when an endpoint is unhealthy and will redirect the clients to another healthy instance. Refer to [Azure Traffic Manager documentation](traffic-manager-overview.md) to learn more about the service.
-2. **Application Gateway** provides Application Delivery Controller (ADC) as a service, offering various layer 7 load balancing capabilities for your application. It allows customers to optimize web farm productivity by offloading CPU intensive SSL termination to the Application Gateway. It also provides various layer 7 routing capabilities including round robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. Application Gateway can be configured as internet facing gateway, internal only gateway, or a combination of both. Application Gateway is fully Azure managed, scalable and highly available. It provides rich set of diagnostics and logging capabilities for better manageability.
-3. **Load Balancer** is an integral part of the Azure SDN stack and available at no cost to customers looking for high performance, low latency layer 4 load balancing services for all UDP and TCP protocols.  It manages inbound and outbound connections.  Customers may configure public and internal load balanced endpoints and define rules to map inbound connections to backend pool destinations with TCP and HTTP health probing options to manage service availability.
+1. **Traffic Manager** provides global DNS load balancing.  It looks at incoming DNS requests and responds with a healthy endpoint and in accordance with the routing policy the customer has selected. Options for routing methods are performance routing to send the requestor to the closest endpoint in terms of latency, priority routing to direct all traffic to an endpoint with other endpoints as backup, and weighted round robin routing, which distributes traffic based on weighting assigned to each endpoint. The client connects directly to that endpoint. Azure Traffic Manager detects when an endpoint is unhealthy and redirects the clients to another healthy instance. Refer to [Azure Traffic Manager documentation](traffic-manager-overview.md) to learn more about the service.
+2. **Application Gateway** provides Application Delivery Controller (ADC) as a service, offering various Layer 7 load balancing capabilities for your application. It allows customers to optimize web farm productivity by offloading CPU intensive SSL termination to the Application Gateway. Other Layer 7 routing capabilities include round robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. Application Gateway can be configured as internet facing gateway, internal only gateway, or a combination of both. Application Gateway is fully Azure managed, scalable and highly available. It provides rich set of diagnostics and logging capabilities for better manageability.
+3. **Load Balancer** is an integral part of the Azure SDN stack. Load Balancer provides high performance, low latency Layer 4 load balancing services for all UDP and TCP protocols.  It manages inbound and outbound connections.  You may configure public and internal load balanced endpoints and define rules to map inbound connections to backend pool destinations with TCP and HTTP health probing options to manage service availability.
 
 ## Scenario
 
-The example we will use for this tutorial is of a simple website that serves two types of content: images and dynamically rendered webpages. This website needs to be geographically redundant and should serve its users from the closest (lowest latency) location to them. The application developer has decided any URLs that match the pattern /images/* will be served from a dedicated pool of VMs different from the rest of the web farm.
+In this example scenario, we use a simple website that serves two types of content: images and dynamically rendered webpages. This website needs to be geographically redundant and should serve its users from the closest (lowest latency) location to them. The application developer has decided any URLs that match the pattern /images/* are served from a dedicated pool of VMs different from the rest of the web farm.
 
-Furthermore, the default VM pool serving the dynamic content needs to talk to a backend database hosted on a high availability cluster of VMs to see if a request is authorized to see the content. The entire deployment is provisioned through Azure Resource Manager.
+Furthermore, the default VM pool serving the dynamic content needs to talk to a backend database hosted on a high availability cluster. The entire deployment is provisioned through Azure Resource Manager.
 
 Utilizing Traffic Manager, Application Gateway and Load Balancer allow this website to achieve these design goals:
 
-1. **Multi-geo redundancy**: By using Traffic Manager, if one region goes down, traffic will be seamlessly routed to the next best region without any intervention from the application owner.
+1. **Multi-geo redundancy**: By using Traffic Manager, if one region goes down, traffic is seamlessly routed to the next best region without any intervention from the application owner.
 2. **Reduced latency**: Since the customer is automatically directed by Azure Traffic Manager to the closest region, they experience lower latency when requesting the webpage contents.
-3. **Independent scalability**: By having the web application workload separated based on the type of content, the application owner can scale the request workloads independent of each other. Application Gateway will ensure that the traffic gets routed to the right pools based on the rules specified. It also ensures that the VM application health is taken into account before traffic is sent to it
-4. **Internal load balancing**: By having Load Balancer in front of the high availability cluster, only the respective active and healthy endpoint for a database is exposed to the application.  Further, a database administrator can optimize the workload by distributing active and passive replicas across the cluster independently of the frontend application.  Load Balancer will deliver connections to the high availability cluster and ensure that only healthy databases are receiving connection requests.
+3. **Independent scalability**: By having the web application workload separated based on the type of content, the application owner can scale the request workloads independent of each other. Application Gateway ensures that the traffic gets routed to the right pools based on the rules specified and the health of the application health.
+4. **Internal load balancing**: By having Load Balancer in front of the high availability cluster, only the respective active and healthy endpoint for a database is exposed to the application.  Further, a database administrator can optimize the workload by distributing active and passive replicas across the cluster independently of the frontend application.  Load Balancer delivers connections to the high availability cluster and ensure that only healthy databases are receiving connection requests.
 
-The diagram below provides a graphical representation of this website's architecture:
+The following diagram shows the architecture of this scenario:
 ![scenario diagram image](./media/traffic-manager-load-balancing-azure/scenario-diagram.png)
 
-> [AZURE.NOTE] The diagram above depicts an example solution that this document will walk through - it is only one of many possible configurations of the various load balancing services that Azure offers. Azure's Traffic Manager, Application Gateway, and Load Balancer can be mixed and matched to best suit your load balancing needs. For example, if SSL offload or layer 7 processing are not necessary, Load Balancer can be used in place of Application Gateway.
+> [AZURE.NOTE] This example only one of many possible configurations of the load balancing services that Azure offers. Azure's Traffic Manager, Application Gateway, and Load Balancer can be mixed and matched to best suit your load balancing needs. For example, if SSL offload or Layer 7 processing is not necessary, Load Balancer can be used in place of Application Gateway.
 
 ## Setting up the Load Balancing Stack
 
@@ -57,9 +57,9 @@ The diagram below provides a graphical representation of this website's architec
 
     - **Name** - gives your traffic manager profile a DNS prefix name
     - **Routing method** - select the traffic routing method policy, for more information about the methods, see [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
-    - **Subscription** - the subscription that the profile will be on
+    - **Subscription** - the subscription that contains the profile
     - **Resource group** - the resource group to contain the traffic manager profile, it can be a new or existing resource group
-    - **Resource group location** - Traffic Manager service is global and not bound to a location, however a region must be specified for the group where the metadata associated with the Traffic Manager profile will reside. This location will have no impact on the runtime availability of the profile.
+    - **Resource group location** - Traffic Manager service is global and not bound to a location, however a region must be specified for the group where the metadata associated with the Traffic Manager profile resides. This location has no impact on the runtime availability of the profile.
 
 3. Click **Create** to generate the traffic manager profile
 
@@ -108,13 +108,13 @@ An application gateway configured with a Path-based rule takes a path pattern of
      * **Backend Pool** - the backend pool to be used with this rule
      * **Http Setting** - the HTTP settings to be used with this rule
 
-    > [AZURE.IMPORTANT] Paths: This is a list of path patterns to match, each must start with / and the only place a "\*" is allowed is at the end. Valid examples are /xyz, /xyz\*, or /xyz/\*
+    > [AZURE.IMPORTANT] Paths: Valid paths must start with "/". The wildcard "\*" is only allowed at the end. Valid examples are /xyz, /xyz\*, or /xyz/\*
 
     ![application gateway add pathrule blade](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
 ### Step 3: Add Application Gateways to the Traffic Manager Endpoints
 
-In this scenario, the traffic manager will be connected to instances of Application Gateways (as configured in the steps above) residing in different regions. Now that the Application Gateways are configured, the next step is to connected them to our Traffic Manger profile.
+In this scenario, the traffic manager is connected to instances of Application Gateways (as configured in the steps above) residing in different regions. Now that the Application Gateways are configured, the next step is to connected them to our Traffic Manger profile.
 
 1. Navigate to your instance of the traffic manager profile (you can do this by looking within your resource group or searching for the name of the traffic manager profile from "All Resources").
 2. From this blade, select **Endpoints** and then **Add** to add a new end point.
@@ -133,7 +133,7 @@ In this scenario, the traffic manager will be connected to instances of Applicat
 
 ### Step 4: Create the Load Balancer
 
-In this scenario, Load Balancer will be distributing connections from the web tier to the databases within a high availability cluster.
+In this scenario, Load Balancer distributes connections from the web tier to the databases within a high availability cluster.
 
 If your high availability database cluster is using SQL AlwaysOn, refer to Configure one or more [Always On Availability Group Listeners](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) for step-by-step instructions.
 
