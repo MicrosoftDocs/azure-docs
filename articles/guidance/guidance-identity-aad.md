@@ -49,8 +49,6 @@ Typical use cases for this reference architecture include:
 
 > [AZURE.NOTE] AAD currently supports user authentication only. Some applications and services, such as SQL Server, may require computer authentication and AAD cannot be used.
 
- For more information about Azure Active Directory works, watch [Microsoft Active Directory Explained][aad-explained].
-
 ## Architecture diagram
 
 The following diagram demonstrates the reference architecture discussed in this document. This document focuses on the interaction between the AAD tenant and the Azure Vnet. For more information on the web, business, and data tiers,  see [Running VMs for an N-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure]:
@@ -302,7 +300,7 @@ A deployment for a reference architecture that implements these recommendations 
 [azure-active-directory]: ../active-directory-domain-services/active-directory-ds-overview.md
 [azure-ad-connect]: ../active-directory/active-directory-aadconnect.md
 [azure-multifactor-authentication]: ../multi-factor-authentication/multi-factor-authentication.md
-[guidance-adds]: ./guidance-iaas-ra-secure-vnet-ad.md
+[guidance-adds]: ./guidance-identity-adds-extend-domain.md
 [implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-n-tier-vm.md
 [resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/
