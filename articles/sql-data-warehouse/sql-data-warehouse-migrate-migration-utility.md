@@ -3,7 +3,7 @@
    description="Migrate to SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jamesrowlandjones"
+   authors="jrowlandjones"
    manager="jhubbard"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="10/31/2016"
-   ms.author="lodipalm;barbkess"/>
+   ms.author="jrj;barbkess"/>
 
 
 # Data Warehouse Migration Utility (Preview)

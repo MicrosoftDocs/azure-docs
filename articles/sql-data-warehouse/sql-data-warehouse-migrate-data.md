@@ -3,7 +3,7 @@
    description="Tips for migrating your data to Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jamesrowlandjones"
+   authors="jrowlandjones"
    manager="jhubbard"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="10/31/2016"
-   ms.author="barbkess"/>
+   ms.author="jrj;barbkess"/>
 
 # Migrate Your Data
 Data can be moved from different sources into your SQL Data Warehouse with a variety tools.  ADF Copy, SSIS, and bcp can all be used to achieve this goal. However, as the amount of data increases you should think about breaking down the data migration process into steps. This affords you the opportunity to optimize each step both for performance and for resilience to ensure a smooth data migration.
