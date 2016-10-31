@@ -28,7 +28,7 @@ Before you begin, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-r- **An Azure storage account**.
+- **An Azure storage account**.
 
 - **An Azure Data Lake Analytics account (optional)**. For instructions on how to create this account, see [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
@@ -41,13 +41,13 @@ Before using the Import/Export service, break the data file to be transferred **
 
 The split operation creates files with the following names.
 
-h    319GB.tsv-part-aa
+    319GB.tsv-part-aa
 
     319GB.tsv-part-ab
 
     319GB.tsv-part-ac
 
-e    319GB.tsv-part-ad
+    319GB.tsv-part-ad
 
 ## Get disks ready with data
 
@@ -55,7 +55,7 @@ Follow the instructions in [Using the Azure Import/Export service](../storage/st
 
 1. Procure a hard disk that meets the requirement to be used for the Azure Import/Export service.
 
-2. Identify an Azure storage account where the data will be copied once it is shipped to the Azure datacenter.
+2. Identify an Azure storage account where the data will be copied after it is shipped to the Azure datacenter.
 
 3. Use the [Azure Import/Export Tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), a command line utility. Here's a sample snippet showing how to use the tool.
 
@@ -76,11 +76,11 @@ You can now physically ship the disks to an Azure datacenter. There, the data is
 
 ## Copy data from Azure Storage blobs to Azure Data Lake Store
 
-Once the status of the import job shows that it has completed, you can verify whether the data is available in the Azure Storage blobs you had specified. You can then use a variety of methods to move that data from the blobs to Azure Data Lake Store. For all the available options for uploading data, see [Ingesting data into Data Lake Store](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-store).
+After the status of the import job shows that it has completed, you can verify whether the data is available in the Azure Storage blobs you had specified. You can then use a variety of methods to move that data from the blobs to Azure Data Lake Store. For all the available options for uploading data, see [Ingesting data into Data Lake Store](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-store).
 
 In this section, we provide you with the JSON definitions that you can use to create an Azure Data Factory pipeline for copying data. You can use these JSON definitions from the [Azure portal](../data-factory/data-factory-copy-activity-tutorial-using-azure-portal.md), or [Visual Studio](../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](../data-factory/data-factory-copy-activity-tutorial-using-powershell.md).
 
-### Source Linked Service (Azure Storage blob)
+### Source linked service (Azure Storage blob)
 
 ````
 {
@@ -95,7 +95,7 @@ In this section, we provide you with the JSON definitions that you can use to cr
 }
 ````
 
-### Target Linked Service (Azure Data Lake Store)
+### Target linked service (Azure Data Lake Store)
 
 ````
 {
@@ -111,7 +111,7 @@ In this section, we provide you with the JSON definitions that you can use to cr
 	}
 }
 ````
-### Input Data Set
+### Input data set
 ````
 {
 	"name": "InputDataSet",
@@ -131,7 +131,7 @@ In this section, we provide you with the JSON definitions that you can use to cr
 	}
 }
 ````
-### Output Data Set
+### Output data set
 ````
 {
 "name": "OutputDataSet",
