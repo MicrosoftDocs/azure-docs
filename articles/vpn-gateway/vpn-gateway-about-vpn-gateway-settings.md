@@ -74,7 +74,7 @@ The following PowerShell example shows a gateway SKU being resized to HighPerfor
 
 ### Estimated aggregate throughput by gateway SKU and type
 
-The following table shows the gateway types and the estimated aggregate throughput. This table applies to both the Resource Manager and classic deployment models. VPN Gateways do not use the UltraPerformance gateway SKU. For information about the UltraPerformance SKU, see the [ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md) documentation.
+The following table shows the estimated aggregate throughput by gateway SKU and type. This table applies to both the Resource Manager and classic deployment models. VPN Gateways do not use the UltraPerformance gateway SKU. For information about the UltraPerformance SKU, see the [ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md) documentation.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 
