@@ -204,7 +204,7 @@ Go to Azure Quickstart Templates GitHub Repository and select from the list of S
 
 | Quick Start Template |
 | ------- |
-|<a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/ethereum-consortium-blockchain-network"> Ethereum Consortium Blockchain Network </a> |
+|<a href="https://github.com/Azure/azure-quickstart-templates/tree/master/ethereum-consortium-blockchain-network"> Ethereum Consortium Blockchain Network </a> |
 |<a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/splunk-on-ubuntu"> Splunk on Ubuntu </a> |
 |<a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v"> Cisco CSR1000v (2 NIC) </a>
 |<a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-4-nic"> Cisco CSR1000v (4 NIC) </a> 
