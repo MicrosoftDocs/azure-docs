@@ -33,7 +33,7 @@ When you create a custom field, Log Analytics must understand which data to use 
 
 The following sections provide the procedure for creating a custom field.  At the bottom of this article is a walkthrough of a sample extraction.
 
-> [!NOTE] The custom field is populated as records matching the specified criteria are added to the OMS data store, so it will only appear on records collected after the custom field is created.  The custom field will not be added to records that are already in the data store when it’s created.
+>[AZURE.NOTE] The custom field is populated as records matching the specified criteria are added to the OMS data store, so it will only appear on records collected after the custom field is created.  The custom field will not be added to records that are already in the data store when it’s created.
 
 ### Step 1 – Identify records that will have the custom field
 The first step is to identify the records that will get the custom field.  You start with a [standard log search](log-analytics-log-searches.md) and then select a record to act as the model that Log Analytics will learn from.  When you specify that you are going to extract data into a custom field, the **Field Extraction Wizard** is opened where you validate and refine the criteria.
