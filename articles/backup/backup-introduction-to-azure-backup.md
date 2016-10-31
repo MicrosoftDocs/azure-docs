@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2016"
+	ms.date="10/31/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # What is Azure Backup?
@@ -44,7 +44,7 @@ Traditional backup solutions have evolved to treat the cloud as an endpoint, or 
 
 
 
-## Azure Backup components
+## Which Azure Backup components should I use?
 If you aren't sure which Azure Backup component works for your needs, see the following table for information about what you can protect with each component. The Azure portal provides a wizard, which is built into the portal, to guide you through choosing the component to download and deploy. The wizard, which is part of the Recovery Services vault creation, leads you through the steps for selecting a backup goal, and choosing the data or application to protect.
 
 
@@ -56,7 +56,7 @@ If you aren't sure which Azure Backup component works for your needs, see the fo
 |Azure IaaS VM Backup| <li>Native backups for Windows/Linux<li>No specific agent installation required<li>Fabric level backup with no backup infrastructure needed | <li>Once a day back up/disk level restore<li>Cannot back up on-premises|<li>VMs, <li>All disks (using PowerShell)| <p>Azure Backup vault</p>|
 
 
-## Deployment scenarios
+## What are the deployment scenarios for each component?
 
 | Component | Can be deployed in Azure? | Can be deployed on-premises? | Target storage supported|
 | --- | --- | --- | --- |
@@ -97,7 +97,7 @@ The following table shows the Azure Backup components that have support for Linu
 
 
 
-## Back up and Restore Premium Storage VMs
+## Using Premium Storage VMs with Azure Backup
 
 Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md)
 
@@ -113,7 +113,7 @@ Once the backup job finishes, the staging location is deleted. The price of stor
 
 Premium Storage VMs can be restored to either Premium Storage or to normal storage. Restoring a Premium Storage VM recovery point back to Premium Storage is the typical process of restoration. However, it can be cost effective to restore a Premium Storage VM recovery point to standard storage. This type of restoration can be used if you need a subset of files from the VM.
 
-## Functionality
+## What are the features of each Backup component?
 The following sections provide tables that summarize the availability or support of various features in each Azure Backup component. See the information following each table for additional support or details.
 
 ### Storage
