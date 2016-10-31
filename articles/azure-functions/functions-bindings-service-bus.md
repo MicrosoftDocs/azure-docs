@@ -63,7 +63,7 @@ Note the following:
 name of the app setting in the `connection` property in your trigger. You obtain the connection string by following the steps shown at 
 [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
 The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
-If you leave `connection` empty, the trigger will assume that a default Service Bus connection string is specified 
+If you leave `connection` empty, the trigger assumes that a default Service Bus connection string is specified 
 in an app setting named `AzureWebJobsServiceBus`.
 - For `accessRights`, available values are `manage` and `listen`. The default is `manage`, which indicates that the 
 `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, 
@@ -181,7 +181,7 @@ Note the following:
 name of the app setting in the `connection` property in your output binding. You obtain the connection string by following the steps shown at 
 [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
 The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
-If you leave `connection` empty, the output binding will assume that a default Service Bus connection string is specified 
+If you leave `connection` empty, the output binding assumes that a default Service Bus connection string is specified 
 in an app setting named `AzureWebJobsServiceBus`.
 - For `accessRights`, available values are `manage` and `listen`. The default is `manage`, which indicates that the 
 `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, 
@@ -191,7 +191,7 @@ rights.
 <a name="outputusage"></a>
 ## Output usage
 
-In C# and F#, Azure Functions can create a Service Bus queue message from any of the following types.
+In C# and F#, Azure Functions can create a Service Bus queue message from any of the following types:
 
 * Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - Parameter definition looks like `out T paramName` (C#).
 Functions deserializes the object into a JSON message. If the output value is null when the function exits, Functions creates the message with a null object.
@@ -208,25 +208,25 @@ In Node.js, you can assign a string, a byte array, or a Javascript object (deser
 
 Suppose you have the following function.json, that defines a Service Bus queue output:
 
-{
-  "bindings": [
     {
-      "schedule": "0/15 * * * * *",
-      "name": "myTimer",
-      "runsOnStartup": true,
-      "type": "timerTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "outputSbQueue",
-      "type": "serviceBus",
-      "queueName": "testqueue",
-      "connection": "MyServiceBusConnection",
-      "direction": "out"
+        "bindings": [
+            {
+                "schedule": "0/15 * * * * *",
+                "name": "myTimer",
+                "runsOnStartup": true,
+                "type": "timerTrigger",
+                "direction": "in"
+            },
+            {
+                "name": "outputSbQueue",
+                "type": "serviceBus",
+                "queueName": "testqueue",
+                "connection": "MyServiceBusConnection",
+                "direction": "out"
+            }
+        ],
+        "disabled": false
     }
-  ],
-  "disabled": false
-}
 
 See the language-specific sample that sends a message to the service bus queue.
 

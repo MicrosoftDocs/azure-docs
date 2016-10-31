@@ -32,7 +32,7 @@ Azure Functions supports trigger, input, and output bindings for Azure Storage b
 
 The Azure Storage blob trigger enables you to monitor a storage container for new and updated blobs and react to it. 
 
-The Storage blob trigger to a function use the following JSON objects in the `bindings` array of function.json:
+The Storage blob trigger to a function uses the following JSON objects in the `bindings` array of function.json:
 
     {
         "name": "<Name of input parameter in function signature>",
@@ -45,8 +45,8 @@ The Storage blob trigger to a function use the following JSON objects in the `bi
 Note the following:
 
 - For `path`, see [Name patterns](#pattern) to find out how to format blob name patterns.
-- `connection` must contain the name of an app setting that contains a storage connection string. In Azure Portal, the standard 
-editor in the **Integrate** tab configures this app setting for you when you create a new storage account or selects an existing 
+- `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
+editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
 one. To manually create this app setting, see [configure this app setting manually](). 
 
 Also, see one of the following subheadings for more information:
@@ -81,7 +81,7 @@ You can restrict the file type of blobs by using a fixed value for the file exte
 "path": "samples/{name}.png",
 ```
 
-In this case, only *.png* blobs in the *samples* container will trigger the function.
+In this case, only *.png* blobs in the *samples* container triggers the function.
 
 Curly braces are special characters in name patterns. To specify blob names that have curly braces in the name, double the curly braces. 
 For example:
@@ -97,10 +97,10 @@ would be *soundfile.mp3*.
 ### Blob receipts
 
 The Azure Functions runtime makes sure that no blob trigger function gets called more than once for the same new or updated blob. 
-It does so by maintaining *blob receipts* in order to determine if a given blob version has been processed.
+It does so by maintaining *blob receipts* to determine if a given blob version has been processed.
 
 Blob receipts are stored in a container named *azure-webjobs-hosts* in the Azure storage account for your function app 
-(specified by the `AzureWebJobsStorage` app setting). A blob receipt has the following  information:
+(specified by the `AzureWebJobsStorage` app setting). A blob receipt has the following information:
 
 * The triggered function ("*&lt;function app name>*.Functions.*&lt;function name>*", for example: "functionsf74b96f7.Functions.CopyBlob")
 * The container name
@@ -126,9 +126,9 @@ is a JSON object that contains the following properties:
 ### Blob polling for large containers
 
 If the blob container watched by the binding contains more than 10,000 blobs, the Functions runtime scans log files to watch 
-for new or changed blobs. This process is not real-time. A function might not get triggered until several minutes or longer 
+for new or changed blobs. This process is not real time. A function might not get triggered until several minutes or longer 
 after the blob is created. In addition, [storage logs are created on a "best efforts"](https://msdn.microsoft.com/library/azure/hh343262.aspx) 
-basis. There is no guarantee that all events will be captured. Under some conditions, logs may be missed. If the speed and reliability 
+basis. There is no guarantee that all events are captured. Under some conditions, logs may be missed. If the speed and reliability 
 limitations of blob triggers for large containers are not acceptable for your application, the recommended method is to create a 
 [queue message](../storage/storage-dotnet-how-to-use-queues.md) when you create the blob, and use a 
 [queue trigger](functions-bindings-storage-queue.md) instead of a blob trigger to process the blob.
@@ -147,7 +147,7 @@ If you declare a custom input type (e.g. `FooType`), Azure Functions attempts to
 into your specified type.
 * String - useful for text blob data.
 
-In C# functions you can also bind to any of the following types, and the Functions runtime will attempt to 
+In C# functions, you can also bind to any of the following types, and the Functions runtime will attempt to 
 deserialize the blob data using that type:
 
 * `TextReader`
@@ -210,7 +210,7 @@ See the language-specific sample that logs the contents of each blob that is add
 
 The Azure Storage blob input binding enables you to use a blob from a storage container in your function. 
 
-The Storage blob input to a function use the following JSON objects in the `bindings` array of function.json:
+The Storage blob input to a function uses the following JSON objects in the `bindings` array of function.json:
 
     {
       "name": "<Name of input parameter in function signature>",
@@ -225,8 +225,8 @@ Note the following:
 - `path` must contain the container name and the blob name. For example, if you have a [queue trigger](functions-bindings-storage-queue.md)
 in your function, you can use `"path": "samples-workitems/{queueTrigger}"` to point to a blob in the `samples-workitems` container with a name that 
 matches the blob name specified in the trigger message.   
-- `connection` must contain the name of an app setting that contains a storage connection string. In Azure Portal, the standard 
-editor in the **Integrate** tab configures this app setting for you when you create a new Storage account or selects an existing 
+- `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
+editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing 
 one. To manually create this app setting, see [configure this app setting manually](). 
 
 <a name="inputusage"></a>
@@ -243,7 +243,7 @@ If you declare a custom input type (e.g. `FooType`), Azure Functions attempts to
 into your specified type.
 * String - useful for text blob data.
 
-In C# functions you can also bind to any of the following types, and the Functions runtime will attempt to 
+In C# functions, you can also bind to any of the following types, and the Functions runtime will attempt to 
 deserialize the blob data using that type:
 
 * `TextReader`
@@ -319,7 +319,7 @@ See the language-specific sample that copies the input blob to the output blob.
 
 The Azure Storage blob output binding enables you to write blobs to a Storage container in your function. 
 
-The Storage blob output for a function use the following JSON objects in the `bindings` array of function.json:
+The Storage blob output for a function uses the following JSON objects in the `bindings` array of function.json:
 
     {
       "name": "<Name of output parameter in function signature>",
@@ -334,8 +334,8 @@ Note the following:
 - `path` must contain the container name and the blob name to write to. For example, if you have a [queue trigger](functions-bindings-storage-queue.md)
 in your function, you can use `"path": "samples-workitems/{queueTrigger}"` to point to a blob in the `samples-workitems` container with a name that 
 matches the blob name specified in the trigger message.   
-- `connection` must contain the name of an app setting that contains a storage connection string. In Azure Portal, the standard 
-editor in the **Integrate** tab configures this app setting for you when you create a new storage account or selects an existing 
+- `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
+editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
 one. To manually create this app setting, see [configure this app setting manually](). 
 
 
@@ -365,7 +365,7 @@ In C# functions you can also output to any of the following types:
 * `CloudPageBlob` 
 
 <a name="outputsample"></a>
-## Ouput sample
+## Output sample
 
 See [input sample](#inputsample).
 

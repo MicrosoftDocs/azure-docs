@@ -53,7 +53,7 @@ Note the following:
 - `id` supports bindings similar to `{queueTrigger}`, which uses the string value of the queue message as the document Id.
 - `connection` must be the name of an app setting that points to the endpoint for your DocumentDB account (with the value 
 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). If you create a DocumentDB account through the 
-Functions portal UI, the account creation process creates a new app setting for you. To use an existing DocumentDB account, you need to 
+Functions portal UI, the account creation process creates an app setting for you. To use an existing DocumentDB account, you need to 
 [configure this app setting manually](). 
 - If the specified document is not found, the named input parameter to the function is set to `null`. 
 
@@ -163,7 +163,7 @@ GUID as the document ID. You can specify the document ID of output document by s
 the output parameter. If a document with that ID already exists, the output document overwrites it. 
 
 <a name="outputsample"></a>
-## Ouput sample
+## Output sample
 
 Suppose you have the following DocumentDB output binding in the `bindings` array of function.json:
 
@@ -194,7 +194,7 @@ And you want to create DocumentDB documents in the following format for each rec
       "address": "A town nearby"
     }
 
-See the language specific sample that uses this output binding to add documents to your database.
+See the language-specific sample that uses this output binding to add documents to your database.
 
 - [C#](#outcsharp)
 - [F#](#outfsharp)

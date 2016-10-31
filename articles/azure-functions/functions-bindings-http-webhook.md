@@ -26,7 +26,7 @@ This article explains how to configure and code HTTP and webhook triggers and bi
 Azure Functions supports trigger and output bindings for HTTP requests and webhooks.
 
 An [HTTP trigger](#httptrigger) lets you invoke a function with an HTTP request. A 
-[webhook trigger](#hooktrigger) trigger is an HTTP trigger that's tailored for
+[webhook trigger](#hooktrigger) is an HTTP trigger that's tailored for
 a specific [webhook](https://en.wikipedia.org/wiki/Webhook) provider (e.g. [GitHub](https://developer.github.com/webhooks/) and 
 [Slack](https://api.slack.com/outgoing-webhooks)).
 
@@ -52,7 +52,7 @@ The HTTP trigger to a function uses the following JSON object in the `bindings` 
 - `function`: function-specific API key required
 - `admin`: master API key required
 
-See [Validate requests with API keys](#validate) below for more information.
+For more information, see [Validate requests with API keys](#validate).
 
 <a name="url"></a>
 ## URL to trigger the function
@@ -67,7 +67,7 @@ If you need to validate API keys in HTTP requests, see [Validate requests with A
 ## HTTP trigger usage
 
 There is no special handling for C# functions, because you control what is provided by specifying the parameter type. 
-If you specify `HttpRequestMessage` you get the request object. If you specify a POCO type, the Functions runtime tries 
+If you specify `HttpRequestMessage`, you get the request object. If you specify a POCO type, the Functions runtime tries 
 to parse a JSON object in the body of the request to populate the object properties.
 
 For Node.js functions, the Functions runtime provides the request body instead of the request object. 
@@ -143,7 +143,7 @@ let Run(req: HttpRequestMessage) =
     } |> Async.StartAsTask
 ```
 
-You will need a `project.json` file that uses NuGet to reference the `FSharp.Interop.Dynamic` and `Dynamitey` assemblies, like this:
+You need a `project.json` file that uses NuGet to reference the `FSharp.Interop.Dynamic` and `Dynamitey` assemblies, like this:
 
 ```json
 {
@@ -189,7 +189,7 @@ module.exports = function(context, req) {
 Use the webhook trigger to respond to a specific webhook provider. A webhook trigger is an HTTP trigger that has the 
 following features designed for webhooks:
 
-* The request handlers are implemented using [Microsft ASP.NET WebHooks](https://github.com/aspnet/WebHooks).
+* The request handlers are implemented using [Microsoft ASP.NET WebHooks](https://github.com/aspnet/WebHooks).
 * For some webhook providers (e.g. [GitHub](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409)), the Functions runtime takes care of the 
 [validation logic](https://developer.github.com/webhooks/securing/#validating-payloads-from-github) for you.
 
@@ -204,13 +204,13 @@ The webhook trigger to a function uses the following JSON object in the `binding
 
 ### Configure webhook providers
 
-The GitHub webhook is simple to configure. You create GitHub webhook trigger in Functions, and copy its [URL](#url) and [API key](validate) 
+The GitHub webhook is simple to configure. You create GitHub webhook trigger in Functions, and copy its [URL](#url) and [API key](#validate) 
 into your GitHub repository's **Add webhook** page.
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
 The [Slack webhook](https://api.slack.com/outgoing-webhooks) generates a token for you instead of letting you specify it, so you must configure
-the your function-specific `key` API key with the token from Slack (to see where to define the API key, see [Types of API keys](#keytypes)).
+your function-specific `key` API key with the token from Slack (to see where to define the API key, see [Types of API keys](#keytypes)).
 
 
 <a name="hooktriggerusage"></a>
@@ -338,7 +338,7 @@ The following list shows you the three types of API keys you can use and where e
 - `masterKey`: defined in *D:\home\data\Functions\secrets\host.json*. Use it to trigger any function in your function app, even if it's disabled. 
 - `functionKey`: defined in *D:\home\data\Functions\secrets\host.json*. Use it to trigger any function in your function app that is not disabled. 
 
-If you configure an [HTTP trigger](#httptrigger) with `"authLevel": "admin"` in the binding JSON, then the funtion accepts only 
+If you configure an [HTTP trigger](#httptrigger) with `"authLevel": "admin"` in the binding JSON, then the function accepts only 
 the `masterKey` API key.
 
 >[AZURE.NOTE] To minimize your function app's attach surface, only share the function-specific `key` with your HTTP request sender. Do not 

@@ -42,8 +42,8 @@ The Storage queue trigger to a function use the following JSON objects in the `b
         "direction": "in"
     }
 
-`connection` must contain the name of an app setting that contains a storage connection string. In Azure Portal, the standard 
-editor in the **Integrate** tab configures this app setting for you when you create a new storage account or selects an existing 
+`connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
+editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
 one. To manually create this app setting, see [configure this app setting manually]().
 
 ### Handling poison queue messages
@@ -117,8 +117,6 @@ See the language-specific sample that retrieves and logs queue metadata.
 <a name="triggercsharp"></a>
 ### Trigger sample in C\# 
 
-This C# code example :
-
 ```csharp
 public static void Run(string myQueueItem, 
     DateTimeOffset expirationTime, 
@@ -167,7 +165,7 @@ module.exports = function (context) {
 
 The Azure Storage queue output binding enables you to write messages to a Storage queue in your function. 
 
-The Storage queue output for a function use the following JSON objects in the `bindings` array of function.json:
+The Storage queue output for a function uses the following JSON objects in the `bindings` array of function.json:
 
     {
       "name": "<Name of output parameter in function signature>",
@@ -177,8 +175,8 @@ The Storage queue output for a function use the following JSON objects in the `b
       "direction": "out"
     }
 
-`connection` must contain the name of an app setting that contains a storage connection string. In Azure Portal, the standard 
-editor in the **Integrate** tab configures this app setting for you when you create a new storage account or selects an existing 
+`connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
+editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
 one. To manually create this app setting, see [configure this app setting manually]().
 
 <a name="outputusage"></a>
@@ -199,7 +197,7 @@ string parameter is non-null when the function exits.
 * Byte array - (`out byte[]`) 
 * `out CloudQueueMessage` - C# only 
 
-In C# you can also bind to `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the supported types.
+In C#, you can also bind to `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the supported types.
 
 <a name="outputsample"></a>
 ## Output sample

@@ -32,7 +32,7 @@ If you are new to Azure Event Hubs, see the [Azure Event Hub overview](../event-
 <a name="trigger"></a>
 ## Event Hub trigger
 
-Use the Event Hub trigger to respond to an event sent to an event hub event stream. You must have read access to the event hub to setup the trigger.
+Use the Event Hub trigger to respond to an event sent to an event hub event stream. You must have read access to the event hub to set up the trigger.
 
 The Event Hub trigger to a function uses the following JSON object in the `bindings` array of function.json:
 
@@ -45,7 +45,7 @@ The Event Hub trigger to a function uses the following JSON object in the `bindi
 		"connection": "<Name of app setting with connection string - see below>"
 	}
 
-`consumerGroup` : This is an optional property used to set the [consumer group](../event-hubs/event-hubs-overview.md#consumer-groups) 
+`consumerGroup` is an optional property used to set the [consumer group](../event-hubs/event-hubs-overview.md#consumer-groups) 
 used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used.  
 `connection` must be the name of an app setting that contains the connection string to the event hub's namespace. 
 Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub 
@@ -132,7 +132,7 @@ Suppose you have the following Event Hub output binding in the `bindings` array 
 		"direction": "out"
 	}
 
-See the language-specific sample that uses the Event Hub output binding above by writing an event to the even stream.
+See the language-specific sample that writes an event to the even stream.
 
 - [C#](#outcsharp)
 - [F#](#outfsharp)

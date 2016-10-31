@@ -94,7 +94,7 @@ To trigger At 9:30 AM every weekday:
 
 When a timer trigger function is invoked, the 
 [timer object](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 
-is passed into the function. The following JSON is an example represenation of the timer object. 
+is passed into the function. The following JSON is an example representation of the timer object. 
 
 ```
 {

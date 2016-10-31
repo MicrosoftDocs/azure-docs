@@ -43,7 +43,7 @@ The Storage table binding supports the following scenarios:
 
 The Azure Storage table input binding enables you to use a storage table in your function. 
 
-The Storage table input to a function use the following JSON objects in the `bindings` array of function.json:
+The Storage table input to a function uses the following JSON objects in the `bindings` array of function.json:
 
     {
         "name": "<Name of input parameter in function signature>",
@@ -60,8 +60,8 @@ The Storage table input to a function use the following JSON objects in the `bin
 Note the following: 
 
 - Use `partitionKey` and `rowKey` together to read a single entity. These properties are optional.
-- `connection` must contain the name of an app setting that contains a storage connection string. In Azure Portal, the standard 
-editor in the **Integrate** tab configures this app setting for you when you create a new Storage account or selects an existing 
+- `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
+editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing 
 one. To manually create this app setting, see [configure this app setting manually](). 
 
 <a name="inputusage"></a>
@@ -73,7 +73,7 @@ Where `T` is the data type that you want to deserialize the data into, and `para
 
 The input data can be deserialized in Node.js or C# functions. The deserialized objects have `RowKey` and `PartitionKey` properties.
 
-In C# functions you can also bind to any of the following types, and the Functions runtime will attempt to 
+In C# functions, you can also bind to any of the following types, and the Functions runtime will attempt to 
 deserialize the table data using that type:
 
 * Any type that implements `ITableEntity`
@@ -166,7 +166,7 @@ module.exports = function (context, myQueueItem) {
 
 The Azure Storage table output binding enables you to write entities to a Storage table in your function. 
 
-The Storage table output for a function use the following JSON objects in the `bindings` array of function.json:
+The Storage table output for a function uses the following JSON objects in the `bindings` array of function.json:
 
     {
         "name": "<Name of input parameter in function signature>",
@@ -182,8 +182,8 @@ Note the following:
 
 - Use `partitionKey` and `rowKey` together to write a single entity. These properties are optional. You can also
 specify `PartitionKey` and `RowKey` when you create the entity objects in your function code.
-- `connection` must contain the name of an app setting that contains a storage connection string. In Azure Portal, the standard 
-editor in the **Integrate** tab configures this app setting for you when you create a new Storage account or selects an existing 
+- `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
+editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing 
 one. To manually create this app setting, see [configure this app setting manually](). 
 
 <a name="outputusage"></a>

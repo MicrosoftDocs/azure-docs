@@ -33,7 +33,7 @@ in your mobile app.
 <a name="input"></a>
 ## Mobile Apps input binding
 
-The Mobile Apps input binding loads a record from a mobile table endpoint and pass it into your function. 
+The Mobile Apps input binding loads a record from a mobile table endpoint and passes it into your function. 
 In a C# and F# functions, any changes made to the record are automatically sent back to the table when the function exits successfully.
 
 The Mobile Apps input to a function uses the following JSON object in the `bindings` array of function.json:
@@ -61,7 +61,7 @@ or [implement an API key in your .NET mobile app backend](https://github.com/Azu
 you [create an app setting in your function app]() that contains the API key, then add the `apiKey` property in your input binding with the name of the 
 app setting. 
 
-    >[AZURE.IMPORTANT] This API key must not be distributed with your mobile app clients, it should only be distributed securely to service-side clients, like Azure Functions. 
+    >[AZURE.IMPORTANT] This API key must not be shared with your mobile app clients. It should only be distributed securely to service-side clients, like Azure Functions. 
 
     >[AZURE.NOTE] Azure Functions stores your connection information and API keys as app settings so that they are not checked into your 
     source control repository. This safeguards your sensitive information.
@@ -171,7 +171,7 @@ or [implement an API key in your .NET mobile app backend](https://github.com/Azu
 you [create an app setting in your function app]() that contains the API key, then add the `apiKey` property in your input binding with the name of the 
 app setting. 
 
-    >[AZURE.IMPORTANT] This API key must not be distributed with your mobile app clients, it should only be distributed securely to service-side clients, like Azure Functions. 
+    >[AZURE.IMPORTANT] This API key must not be shared with your mobile app clients. It should only be distributed securely to service-side clients, like Azure Functions. 
 
     >[AZURE.NOTE] Azure Functions stores your connection information and API keys as app settings so that they are not checked into your 
     source control repository. This safeguards your sensitive information.
@@ -210,7 +210,7 @@ Suppose you have the following function.json, that defines a queue trigger and a
     "disabled": false
     }
 
-See the language-specific sample that creats a record in the Mobile Apps table endpoint with the content of the queue message.
+See the language-specific sample that creates a record in the Mobile Apps table endpoint with the content of the queue message.
 
 - [C#](#outcsharp)
 <!-- - [F#](#outfsharp) -->
