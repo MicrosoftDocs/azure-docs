@@ -12,94 +12,88 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/24/2016" 
+	ms.date="10/28/2016" 
 	ms.author="awills"/>
 
 
 # Set up Application Insights: Dependency tracking
 
-
-[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
-
-
-
-A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. In Visual Studio Application Insights, you can easily see how long your application waits for dependencies and how often a dependency call fails.
+A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](app-insights-overview.md) measures how long your application waits for dependencies and how often a dependency call fails. You can investigate specific calls, and relate them to requests and exceptions.
 
 ![sample charts](./media/app-insights-asp-net-dependencies/10-intro.png)
 
 The out-of-the-box dependency monitor currently reports calls to these  types of dependencies:
 
-* ASP.NET
+* Server
  * SQL databases
  * ASP.NET web and WCF services that use HTTP-based bindings
  * Local or remote HTTP calls
  * Azure DocumentDb, table, blob storage, and queue
-* Java
- * Calls to a database through a [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) driver, such as MySQL, SQL Server, PostgreSQL or SQLite.
-* JavaScript in web pages - the [web page SDK](app-insights-javascript.md) automatically logs Ajax calls as dependencies.
+* Web pages
+ * AJAX calls
 
-You can write your own SDK calls to monitor other dependencies using the [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency).
-
-
-## To set up dependency monitoring
-
-You need a [Microsoft Azure](http://azure.com) subscription.
-
-### If your app runs on your IIS server
-
-If your web app runs on .NET 4.6 or later, you can either [install the Application Insights SDK](app-insights-asp-net.md) in your app, or install Application Insights Status Monitor. You don't need both.
-
-Otherwise, install Application Insights Status Monitor on the server:
-
-1. On your IIS web server, login with administrator credentials.
-2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
-4. In the installation wizard, sign in to Microsoft Azure.
-
-    ![Sign into Azure with your Microsoft account credentials](./media/app-insights-asp-net-dependencies/appinsights-035-signin.png)
-
-    *Connection errors? See [Troubleshooting](#troubleshooting).*
-
-5. Pick the installed web application or website that you want to monitor, then configure the resource in which you want to see the results in the Application Insights portal.
-
-    ![Choose an app and a resource.](./media/app-insights-asp-net-dependencies/appinsights-036-configAIC.png)
-
-    Normally, you choose to configure a new resource and [resource group][roles].
-
-    Otherwise, use an existing resource if you already set up [web tests][availability] for your site, or [web client monitoring][client].
-
-6. Restart IIS.
-
-    ![Choose Restart at the top of the dialog.](./media/app-insights-asp-net-dependencies/appinsights-036-restart.png)
-
-    Your web service will be interrupted for a short while.
-
-6. Notice that ApplicationInsights.config has been inserted into the web apps that you want to monitor.
-
-    ![Find the .config file alongside the code files of the web app.](./media/app-insights-asp-net-dependencies/appinsights-034-aiconfig.png)
-
-   There are also some changes to web.config.
-
-#### Want to (re)configure later?
-
-After you complete the wizard, you can re-configure the agent whenever you want. You can also use this if you installed the agent but there was some trouble with the initial setup.
-
-![Click the Application Insights icon on the task bar](./media/app-insights-asp-net-dependencies/appinsights-033-aicRunning.png)
+You can also write your own SDK calls to monitor other dependencies, both in the client and server code, using the [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency).
 
 
-### If your app runs as an Azure Web App
+## Set up dependency monitoring
 
-In the control panel of your Azure Web App, add the Application Insights extension.
+Partial dependency information is collected automatically by the [Application Insights SDK](app-insights-asp-net.md). To get complete data, install the appropriate agent for the host server.
 
-![In your web app, Settings, Extensions, Add, Application Insights](./media/app-insights-asp-net-dependencies/05-extend.png)
+Platform | Install
+---|---
+IIS Server | Either [install Status Monitor on your server](app-insights-monitor-performance-live-website-now.md) or [Upgrade your application to .NET framework 4.6 or later](http://go.microsoft.com/fwlink/?LinkId=528259) and install the [Application Insights SDK](app-insights-asp-net.md)  in your app.
+Azure Web App | In your web app control panel, [open the Application Insights blade in your web app control panel](app-insights-azure-web-apps.md) and choose Install if prompted.
+Azure Cloud Service |  [Use startup task](app-insights-cloudservices.md#dependencies) or [Install .NET framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
 
 
-### If it's an Azure cloud services project
+## Where to find dependency data
 
-[Add scripts to web and worker roles](app-insights-cloudservices.md#dependencies). Or [install .NET framework 4.6 or later](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+* [Application Map](#application-map) visualizes dependencies between your app and neighbouring components.
+* [Performance, browser, and failure blades](#performance-and-blades) show server dependency data.
+* [Browsers blade](#ajax-calls) shows AJAX calls from your users' browsers.
+* [Click through from slow or failed requests](#diagnose-slow-requests) to check their dependency calls.
+* [Analytics](#analytics) can be used to query dependency data.
 
-## <a name="diagnosis"></a> Diagnosing dependency performance issues
+## Application Map
 
-To assess the performance of requests at your server, open the Performance blade and scroll down to look at the grid of requests:
+Application Map acts as a visual aid to discovering dependencies between the components of your application. It is automatically generated from the telemetry from your app. This example shows AJAX calls from the browser scripts and REST calls from the server app to two external services.
+
+![Application Map](./media/app-insights-asp-net-dependencies/08.png)
+
+* **Navigate from the boxes** to relevant dependency and other charts. 
+
+* **Pin the map** to the [dashboard](app-insights-dashboards.md), where it will be fully functional.
+
+[Learn more](app-insights-app-map.md).
+
+## Performance and failure blades
+
+The performance blade shows the duration of dependency calls made by the server app. There's a summary chart and a table segmented by call. 
+
+![Performance blade dependency charts](./media/app-insights-asp-net-dependencies/dependencies-in-performance-blade.png)
+
+Click through the summary charts or the table items to search raw occurrences of these calls.
+
+![Dependency call instances](./media/app-insights-asp-net-dependencies/dependency-call-instance.png)
+
+**Failure counts** are shown on the **Failures** blade. A failure is any return code that is not in the range 200-399, or unknown.
+
+>[AZURE.NOTE] **100% failures?** - This probably indicates that you are only getting partial dependency data. You need to [set up dependency monitoring appropriate to your platform](#set-up-dependency-monitoring).
+
+## AJAX Calls
+
+The Browsers blade shows the duration and failure rate of AJAX calls from [JavaScript in your web pages](app-insights-javascript.md). They are shown as Dependencies.
+
+
+## <a name="diagnosis"></a> Diagnose slow requests
+
+Each request event is associated with the dependency calls, exceptions and other events that are tracked while your app is processing the request. So if some requests are performing badly, you can find out whether it's due to slow responses from a dependency. 
+
+Let's walk through an example of that.
+
+### Tracing from requests to dependencies
+
+Open the Performance blade, and look at the grid of requests:
 
 ![List of requests with averages and counts](./media/app-insights-asp-net-dependencies/02-reqs.png)
 
@@ -107,12 +101,9 @@ The top one is taking very long. Let's see if we can find out where the time is 
 
 Click that row to see individual request events:
 
-
 ![List of request occurrences](./media/app-insights-asp-net-dependencies/03-instances.png)
 
-Click any long-running instance to inspect it further.
-
-Scroll down to the remote dependency calls related to this request:
+Click any long-running instance to inspect it further, and scroll down to the remote dependency calls related to this request:
 
 ![Find Calls to Remote Dependencies, identify unusual Duration](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
@@ -123,25 +114,65 @@ Select that row to get more information:
 
 ![Click through that remote dependency to identify the culprit](./media/app-insights-asp-net-dependencies/05-detail.png)
 
-The detail includes sufficient information to diagnose the problem.
+Looks like this is where the problem is. We've pinpointed the problem, so now we just need to find out why that call is taking so long.
 
+### Request timeline
 
-In a different case, no dependency call is long, but by switching to the timeline view, we can see where the delay occurred in our internal processing:
-
+In a different case, there is no dependency call that is particularly long. But by switching to the timeline view, we can see where the delay occurred in our internal processing:
 
 ![Find Calls to Remote Dependencies, identify unusual Duration](./media/app-insights-asp-net-dependencies/04-1.png)
 
+There seems to be a big gap after the first dependency call, so we should look at our code to see why that is.
 
-## Failures
+## Failed requests
 
-If there are failed requests, click the chart.
+Failed requests might also be associated with failed calls to dependencies. Again, we can click through to track down the problem.
 
 ![Click the failed requests chart](./media/app-insights-asp-net-dependencies/06-fail.png)
 
-Click through a request type and request instance, to find a failed call to a remote dependency.
-
+Click through to an occurrence of a failed request, and look at its associated events.
 
 ![Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
+
+## Analytics
+
+You can track dependencies in the [Analytics query language](app-insights-analytics.md). Here are some examples.
+
+* Find any failed dependency calls:
+
+```
+
+    dependencies | where success != "True" | take 10
+```
+
+* Find AJAX calls:
+
+```
+
+    dependencies | where client_Type == "Browser" | take 10
+```
+
+* Find dependency calls associated with requests:
+
+```
+
+    dependencies 
+    | where timestamp > ago(1d) and  client_Type != "Browser" 
+    | join (requests | where timestamp > ago(1d)) 
+      on operation_Id  
+```
+
+
+* Find AJAX calls associated with page views:
+
+```
+
+    dependencies 
+    | where timestamp > ago(1d) and  client_Type == "Browser" 
+    | join (browserTimings | where timestamp > ago(1d))
+      on operation_Id 
+```
+
 
 
 ## Custom dependency tracking
@@ -178,25 +209,10 @@ If you want to switch off the standard dependency tracking module, remove the re
 ## Next steps
 
 - [Exceptions](app-insights-asp-net-exceptions.md)
-- [User & page data][client]
+- [User & page data](app-insights-javascript.md)
 - [Availability](app-insights-monitor-web-app-availability.md)
 
 
 
-
-<!--Link references-->
-
-[api]: app-insights-api-custom-events-metrics.md
-[apikey]: app-insights-api-custom-events-metrics.md#ikey
-[availability]: app-insights-monitor-web-app-availability.md
-[azure]: ../insights-perf-analytics.md
-[client]: app-insights-javascript.md
-[diagnostic]: app-insights-diagnostic-search.md
-[metrics]: app-insights-metrics-explorer.md
-[netlogs]: app-insights-asp-net-trace-logs.md
-[portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-asp-net-dependencies.md
-[roles]: app-insights-resources-roles-access-control.md
 
  
