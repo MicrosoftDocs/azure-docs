@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/21/2016"
+   ms.date="10/31/2016"
    ms.author="telmos"/>
 
 # Deploying virtual appliances in high availability
@@ -44,7 +44,7 @@ You can use a set of NVAs behind an Azure load balancer to provide connectivity 
 
 In this scenario, the network virtual appliance used must terminate all connections, and pass them to the workload subnet. The workload virtual machines (VMs) respond to the NVA they received a request from, and traffic flows without issues. 
 
-## Ingress-egress with layer 7 virtual appliances
+## Egress with layer 7 virtual appliances
 You can extend the preceding architecture and add another set of NVAs to handle traffic originating from Azure to be handled by NVAs, as shown in the following figure:
 
 ![[2]][2]

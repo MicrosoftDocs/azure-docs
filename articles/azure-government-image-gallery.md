@@ -20,7 +20,7 @@
 
 #  Azure Government Marketplace Images
 
-## Overview 
+## Overview
 The Microsoft Azure Government Marketplace is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
 
 The below provides a list of available images within the Azure Government Marketplace.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
@@ -204,10 +204,10 @@ Go to Azure Quickstart Templates GitHub Repository and select from the list of S
 
 | Quick Start Template |
 | ------- |
-|<a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/ethereum-consortium-blockchain-network"> Ethereum Consortium Blockchain Network </a> |
+|<a href="https://github.com/Azure/azure-quickstart-templates/tree/master/ethereum-consortium-blockchain-network"> Ethereum Consortium Blockchain Network </a> |
 |<a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/splunk-on-ubuntu"> Splunk on Ubuntu </a> |
 |<a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v"> Cisco CSR1000v (2 NIC) </a>
-|<a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-4-nic"> Cisco CSR1000v (4 NIC) </a> 
+|<a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-4-nic"> Cisco CSR1000v (4 NIC) </a>
 |<a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-existing-vnet-4-nic"> Cisco CSR1000v (4 NIC existing Vnet) </a>
 
 ### Step 2
@@ -217,18 +217,18 @@ In the Readme file, launch the template by clicking on "Deploy to Azure Governme
 A browser page will open the template deployment blade in the Azure Government portal. In the parameters blade, complete the required fields, and click "Okay."
 
 ### Step 4
-Accept legal terms and conditions, and checkmark the “Pin to dashboard” box, then click create. 
+Accept legal terms and conditions, and checkmark the “Pin to dashboard” box, then click create.
 
 >[AZURE.NOTE] You will need a valid Azure Government Account in order to continue. To experience the power of Azure Government for your organization, sign up for an [Azure Government Trial](https://azuregov.microsoft.com/trial/azuregovtrial).
 
 ### Step 5
-The blades will close and it will go back to your portal dashboard view showing the image deployment. This will take several minutes. Once the VM solution is running, it will show up in your dashboard. If you did not select the “Pin to dashboard” option in step 4, you will need to search for the VM in your Resources. 
+The blades will close and it will go back to your portal dashboard view showing the image deployment. This will take several minutes. Once the VM solution is running, it will show up in your dashboard. If you did not select the “Pin to dashboard” option in step 4, you will need to search for the VM in your Resources.
 
->[AZURE.NOTE] Solution templates are provided from Microsoft and third-party providers as a starting point only. You are solely responsible for developing, implementing, and managing your applications and/or subscriptions running on Microsoft Azure and Azure Government in compliance with applicable laws, regulations, and contractual obligations.  These templates are provided "AS-IS" and without any warranty of any kind, whether in express, implied or statutory, and Microsoft expressly disclaims all warranties of merchantability, fitness for a particular purpose, or non-infringement. 
+>[AZURE.NOTE] Solution templates are provided from Microsoft and third-party providers as a starting point only. You are solely responsible for developing, implementing, and managing your applications and/or subscriptions running on Microsoft Azure and Azure Government in compliance with applicable laws, regulations, and contractual obligations.  These templates are provided "AS-IS" and without any warranty of any kind, whether in express, implied or statutory, and Microsoft expressly disclaims all warranties of merchantability, fitness for a particular purpose, or non-infringement.
 
 ## Next steps
 
-The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the <a href="../azure-government-developer-guide">Azure Government Developer Guide</a> to uncover an programmatic differences with endpoints when working with Azure Government.
+The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the [Azure Government Developer Guide](azure-government-developer-guide.md) to uncover an programmatic differences with endpoints when working with Azure Government.
 
 ###Other Resources:
 
