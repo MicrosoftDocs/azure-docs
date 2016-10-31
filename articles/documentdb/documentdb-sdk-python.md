@@ -40,7 +40,7 @@
 ## Release notes
 
 ### <a name="2.0.1"/>[2.0.1](https://pypi.python.org/pypi/pydocumentdb/2.0.1)
-- Added minor doc comments.
+- Made editorial changes to documentation comments.
 
 ### <a name="2.0.0"/>[2.0.0](https://pypi.python.org/pypi/pydocumentdb/2.0.0)
 - Added support for Python 3.5.
