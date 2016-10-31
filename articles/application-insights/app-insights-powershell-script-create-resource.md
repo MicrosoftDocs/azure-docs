@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="PowerShell script to create an Application Insights resource" 
+	pageTitle="PowerShell script to create an Application Insights resource | Microsoft Azure" 
 	description="Automate creation of Application Insights resources." 
 	services="application-insights" 
     documentationCenter="windows"
@@ -71,12 +71,12 @@ Select-AzureSubscription -SubscriptionName "MySubscription"
 # Create the App Insights Resource
 
 $resource = New-AzureRmResource `
-  -ResourceName azgav2 `
+  -ResourceName $appInsightsName `
   -ResourceGroupName Fabrikam `
-  -Tag @{ applicationType = "web"} `
-  -ResourceType "Microsoft.Insights/Components" `
+  -Tag @{ applicationType = "web", applicationName = $applicationTagName} `
+  -ResourceType "Microsoft.Insights/components" `
   -Location "Central US" `
-  -PropertyObject @{"Appliction_Type"="web"} `
+  -PropertyObject @{"Application_Type"="web"} `
   -Force
 
 # Give owner access to the team

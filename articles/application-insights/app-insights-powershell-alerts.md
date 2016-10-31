@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Use Powershell to set alerts in Application Insights"
+	pageTitle="Use Powershell to set alerts in Application Insights | Microsoft Azure"
 	description="Automate configuration of Application Insights to get emails about metric changes."
 	services="application-insights"
     documentationCenter=""
