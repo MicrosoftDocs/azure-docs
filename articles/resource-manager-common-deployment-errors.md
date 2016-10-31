@@ -29,7 +29,7 @@ There are two types of errors you can receive:
 - validation errors
 - deployment errors
 
-The following image shows the activity log for a subscription. There are three operations that occured in two deployments. In the first deployment, the template passed validation but failed when creating the resources (**Write Deployments**). In the second deploymnet, the template failed validation and did not proceed to the **Write Deployments**. 
+The following image shows the activity log for a subscription. There are three operations that occurred in two deployments. In the first deployment, the template passed validation but failed when creating the resources (**Write Deployments**). In the second deployment, the template failed validation and did not proceed to the **Write Deployments**. 
 
 ![show error code](./media/resource-manager-common-deployment-errors/show-activity-log.png)
 
@@ -95,7 +95,7 @@ Deployment errors return the code **DeploymentFailed**. However, this error code
 
 ![show error code](./media/resource-manager-common-deployment-errors/error-code.png)
 
-The following error codes are described in this topics:
+The following error codes are described in this topic:
 
 - [InvalidTemplate](#invalidtemplate)
 - [NotFound and ResourceNotFound](#notfound-and-resourcenotfound)
@@ -354,7 +354,7 @@ In **PowerShell**, provide that policy identifier as the **Id** parameter to ret
 
     (Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 
-In **Azure CLI**, provide the name of the policy defnition:
+In **Azure CLI**, provide the name of the policy definition:
 
     azure policy definition show regionPolicyDefinition --json
 
