@@ -20,7 +20,7 @@
 
 # Assign multiple IP addresses to virtual machines
 
-> [AZURE.SELECTOR]
+d> [AZURE.SELECTOR]
 - [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
 - [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 
@@ -52,6 +52,8 @@ This scenario assumes you have a resource group called *RG1* within which there 
 
 [This article](./virtual-machines/virtual-machines-windows-ps-create.md ) walks through how to create the resources mentioned above in case you have not created them before.
 
+Note that IPConfig-2 and IPConfig-3 can also be associated with public IP addresses by following the same method outlined for IPConfig-1.
+
 ## <a name = "create"></a>Create a VM with multiple IP addresses
 
 1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) article.
@@ -77,7 +79,7 @@ This scenario assumes you have a resource group called *RG1* within which there 
 		Get-AzureRmVirtualNetwork | Format-Table Name
 
 	If the list returned is empty, you need to create a VNet. To learn how, read the [Create a virtual network](virtual-networks-create-vnet-arm-ps.md) article.
-
+f
 	Type the following commands to get the name of the existing subnets within the VNet and replace *Subnet1* above with the name of a subnet:
 
 		$VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RgName
@@ -116,6 +118,10 @@ This scenario assumes you have a resource group called *RG1* within which there 
 
 		$IPConfig2 = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName2 -Subnet $Subnet -PrivateIpAddress $IPAddress
 
+	If you would like to associate IPConfig-2 with $PIP2, a public IP that you have already created, run the following command:
+		
+		$IPConfig2 = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName2 -Subnet $Subnet -PrivateIpAddress $IPAddress -PublicIpAddress $PIP2
+
 	Enter the following command, if you don't know the IP address range assigned to the subnet:
 
 		$VNet.Subnets | Format-Table Name, AddressPrefix
@@ -126,7 +132,11 @@ This scenario assumes you have a resource group called *RG1* within which there 
 
 		$IPConfigName3 = "IPConfig-3"
 		$IPConfig3 = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName3 -Subnet $Subnet
-
+		
+	If you would like to associate IPConfig-3 with $PIP3, a public IP that you have already created, run the following command:
+		
+		$IPConfig3 = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName3 -Subnet $Subnet -PublicIpAddress $PIP3
+		
 	>[AZURE.NOTE] You can assign up to 250 private IP address to a NIC. There is a limit to the number of public IP addresses that can be used within a subscription. To learn more, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits---azure-resource-manager) article.
 
 6. Create the NIC using the IP configurations defined in the previous step.
