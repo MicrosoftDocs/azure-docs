@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/17/2016"
+	ms.date="10/27/2016"
 	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with ServiceNow and ServiceNow Express.
+
 
 In this tutorial, you learn how to integrate ServiceNow and ServiceNow Express with Azure Active Directory (Azure AD).
 
@@ -34,8 +35,8 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with ServiceNow and ServiceNow Express, you need the following items:
 
 - An Azure AD subscription
-- For ServiceNow, a tenant in ServiceNow, Calgary version or higher
-- For ServiceNow Express, a tenant in ServiceNow Express, Helsinki version or higher
+- For ServiceNow, an instance or tenant of ServiceNow, Calgary version or higher
+- For ServiceNow Express, an instance of ServiceNow Express, Helsinki version or higher
 - ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled. This can be done by submitting a service request at <https://hi.service-now.com/> 
 
 
@@ -116,9 +117,9 @@ This link relationship is established by assigning the value of the **user name*
 
     ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configure app URL")
 
-    a. in the **ServiceNow Sign On URL** textbox, type your URL used by your users to sign-on to your ServiceNow application following the pattern: `https://<InstanceName>.service-now.com`
+    a. in the **ServiceNow Sign On URL** textbox, type your URL used by your users to sign-on to your ServiceNow application following the pattern: `https://<instance-name>.service-now.com`.
 
-    b. In the **Identifier** textbox,type your URL used by your users to sign-on to your ServiceNow application following the pattern: `https://<InstanceName>.service-now.com`
+    b. In the **Identifier** textbox,type your URL used by your users to sign-on to your ServiceNow application following the pattern: `https://<instance-name>.service-now.com`.
 
     c. Click **Next**
 
@@ -275,9 +276,9 @@ This link relationship is established by assigning the value of the **user name*
 
     ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configure app URL")
 
-    a. in the **ServiceNow Sign On URL** textbox, type your URL used by your users to sign-on to your ServiceNow application following the pattern: `https://<InstanceName>.service-now.com`
+    a. in the **ServiceNow Sign On URL** textbox, type your URL used by your users to sign-on to your ServiceNow application following the pattern: `https://<instance-name>.service-now.com`.
 
-    b. In the **Issuer URL** textbox,type your URL used by your users to sign-on to your ServiceNow application following the pattern `https://<InstanceName>.service-now.com`
+    b. In the **Issuer URL** textbox,type your URL used by your users to sign-on to your ServiceNow application following the pattern `https://<instance-name>.service-now.com`.
 
     c. Click **Next**
 
@@ -289,14 +290,14 @@ This link relationship is established by assigning the value of the **user name*
 
     ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configure single sign-on")
 
-1. Sign-on to your ServiceNow Express application as an administrator.
+6. Sign-on to your ServiceNow Express application as an administrator.
 
-2. In the navigation pane on the left side, click **Single Sign-On**.  
+7. In the navigation pane on the left side, click **Single Sign-On**.  
 
     ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/ic7694980ex.png "Configure app URL")
 
 
-3. On the **Single Sign-On** dialog, click the configuration icon on the upper right and set the following properties:
+8. On the **Single Sign-On** dialog, click the configuration icon on the upper right and set the following properties:
 
     ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/ic7694981ex.png "Configure app URL")
 
@@ -307,13 +308,13 @@ This link relationship is established by assigning the value of the **user name*
     c. In **The field on the user table that...** textbox, type **user_name**.
 
 
-1. On the **Single Sign-On** dialog, click **Add New Certificate**.
+9. On the **Single Sign-On** dialog, click **Add New Certificate**.
 
     ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694973ex.png "Configure single sign-on")
 
 
 
-1. On the **X.509 Certificates** dialog, perform the following steps:
+10. On the **X.509 Certificates** dialog, perform the following steps:
 
     ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configure single sign-on")
 
@@ -325,21 +326,21 @@ This link relationship is established by assigning the value of the **user name*
 
     d. As **Type**, select **Trust Store Cert**.
 
-    e. Create a Base-64 encoded file from your downloaded certificate.
+    e. Create a Base64 encoded file from your downloaded certificate.
    
 	> [AZURE.NOTE] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
     
-    g. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **PEM Certificate** textbox.
+    f. Open your Base64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **PEM Certificate** textbox.
 
-    h. Click **Update**.
+    g. Click **Update**.
 
 
-1. On the **Single Sign-On** dialog, click **Add New IdP**.
+11. On the **Single Sign-On** dialog, click **Add New IdP**.
 
     ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694976ex.png "Configure single sign-on")
 
 
-1. On the **Add New Identity Provider** dialog, under **Configure Identity Provider**, perform the following steps:
+12. On the **Add New Identity Provider** dialog, under **Configure Identity Provider**, perform the following steps:
 
     ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694982ex.png "Configure single sign-on")
 
@@ -355,7 +356,7 @@ This link relationship is established by assigning the value of the **user name*
     e. As **Identity Provider Certificate**, select the certificate you have created in the previous step.
 
 
-1. Click **Advanced Settings**, and under **Additional Identity Provider Properties**, perform the following steps:
+13. Click **Advanced Settings**, and under **Additional Identity Provider Properties**, perform the following steps:
 
     ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694983ex.png "Configure single sign-on")
 
@@ -367,7 +368,7 @@ This link relationship is established by assigning the value of the **user name*
     
     d. Deselect **Create an AuthnContextClass**.
 
-1. Under **Additional Service Provider Properties**, perform the following steps:
+14. Under **Additional Service Provider Properties**, perform the following steps:
 
     ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/ic7694984ex.png "Configure single sign-on")
 
@@ -388,11 +389,11 @@ This link relationship is established by assigning the value of the **user name*
     f. Click **Save**. 
 
 
-6. On the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Next**. 
+15. On the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Next**. 
 
     ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configure single sign-on")
 
-7. On the **Single sign-on confirmation** page, click **Complete**.
+16. On the **Single sign-on confirmation** page, click **Complete**.
  
     ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Configure single sign-on")
 

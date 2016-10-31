@@ -217,9 +217,9 @@ Let's see just exceptions reported from browsers:
 ```AIQL
 
     exceptions 
-    | where device_Id == "browser" 
+    | where client_Type == "Browser" 
     |  summarize count() 
-       by device_BrowserVersion, outerExceptionMessage 
+       by client_Browser, outerMessage 
 ```
 
 ![](./media/app-insights-analytics-tour/250.png)

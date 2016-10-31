@@ -365,7 +365,7 @@ To learn more about planning your IoT Hub deployment, see:
 To further explore the capabilities of IoT Hub, see:
 
 - [Developer guide][lnk-devguide]
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
