@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2016"
+	ms.date="11/1/2016"
 	ms.author="raynew"/>
 
 # Replicate VMware virtual machines and physical machines to Azure with Azure Site Recovery using the Azure portal
@@ -536,6 +536,7 @@ Here's how to prepare Windows machines so that the Mobility service can be autom
 	- Find the line that begins with **Subsystem** and uncomment the line.
 
 		![Linux](./media/site-recovery-vmware-to-azure/mobility2.png)
+	- Set PermitRootLogin to yes 
 
 
 ### Install the Mobility Service manually
