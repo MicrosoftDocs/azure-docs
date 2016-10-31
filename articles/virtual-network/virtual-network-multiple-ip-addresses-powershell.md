@@ -79,7 +79,7 @@ Note that IPConfig-2 and IPConfig-3 can also be associated with public IP addres
 		Get-AzureRmVirtualNetwork | Format-Table Name
 
 	If the list returned is empty, you need to create a VNet. To learn how, read the [Create a virtual network](virtual-networks-create-vnet-arm-ps.md) article.
-f
+
 	Type the following commands to get the name of the existing subnets within the VNet and replace *Subnet1* above with the name of a subnet:
 
 		$VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RgName
