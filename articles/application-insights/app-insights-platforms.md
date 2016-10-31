@@ -59,11 +59,11 @@ These items are implementations of [Application Insights](app-insights-overview.
 
 ## Logging frameworks
 
-+	[Log4Net, NLog, or System.Diagnostics.Trace](app-insights-diagnostic-search.md)
-+	[Java, Log4J, or Logback](app-insights-java-trace-logs.md)
-+   [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights)&#151;integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
-+   [Cloud-based load testing](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
-
++ [Log4Net, NLog, or System.Diagnostics.Trace](app-insights-diagnostic-search.md)
++ [Java, Log4J, or Logback](app-insights-java-trace-logs.md)
++ [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights)&#151;integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
++ [Cloud-based load testing](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
++ [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 
 ## Content Management Systems
 
