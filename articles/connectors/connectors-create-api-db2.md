@@ -172,7 +172,7 @@ You can define a logic app action to add one row in a DB2 table. This action ins
 3.	In the **Recurrence** trigger, select **Edit**, select **Frequency** drop-down to select **Day**, and then select **Interval** to type **7**. 
 4.	Select the **+ New step** box, and then select **Add an action**.
 5.	In the **actions** list, type **db2** in the **Search for more actions** edit box, and then select **DB2 - Insert row (Preview)**.
-6. In the **Get rows (Preview)** action, select **Change connection**. 
+6. In the **DB2 - Insert row (Preview)** action, select **Change connection**. 
 7. In the **Connections** configuration pane, select a connection. For example, select **hisdemo2**.
 
 	![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
