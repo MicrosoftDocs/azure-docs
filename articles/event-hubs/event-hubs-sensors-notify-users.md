@@ -56,7 +56,6 @@ For more information about these hubs, see the following articles:
 - [Azure IoT Hub]
 - Get started with an [Event Hubs tutorial].
 - A complete [sample application that uses Event Hubs].
-- A [queued messaging solution] using Service Bus queues.
 
 To deploy the solution to notify users based on data received by these hubs, visit:
 
@@ -67,7 +66,6 @@ To deploy the solution to notify users based on data received by these hubs, vis
 [Azure Event Hubs]: https://azure.microsoft.com/services/event-hubs/
 [Azure Event Hub]: https://azure.microsoft.com/services/event-hubs/
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[queued messaging solution]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 [AppToNotifyUsers]: https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications
 [Dynamics AX]: http://www.microsoft.com/dynamics/erp-ax-overview.aspx
 [Azure Websites]: https://azure.microsoft.com/services/app-service/web/

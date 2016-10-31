@@ -99,6 +99,9 @@ Geo-Restore provides the default recovery option when a database is unavailable 
 
 For applications that have more aggressive recovery requirements than Geo-Restore can offer, configure Active Geo-Replication using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), or [Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
+## Additional resources
+
+- [Microsoft Virtual Academy video course on elastic database capabilities](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554) 
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png

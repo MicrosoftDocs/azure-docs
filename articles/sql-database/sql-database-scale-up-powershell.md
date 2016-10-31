@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Change the service tier and performance level of an Azure SQL database using PowerShell" 
+    pageTitle="Change the service tier and performance level of an Azure SQL database using PowerShell | Microsoft Azure" 
     description="Change the service tier and performance level of an Azure SQL database shows how to scale your SQL database up or down with PowerShell. Changing the pricing tier of an Azure SQL database with PowerShell." 
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="07/19/2016"
+	ms.date="10/12/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,7 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-scale-up.md)
-- [PowerShell](sql-database-scale-up-powershell.md)
+- [**PowerShell**](sql-database-scale-up-powershell.md)
 
 
 Service tiers and performance levels describe the features and resources available for your SQL database and can be updated as the needs of your application change. For details, see [Service Tiers](sql-database-service-tiers.md).
@@ -53,18 +53,19 @@ The duration of the entire scale-up process depends on both the size and service
 
 ## Change the service tier and performance level of your SQL database
 
-Run the **Set-AzureRmSqlDatabase** cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
+Run the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433(v=azure.300\).aspx) cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
 
-    $ResourceGroupName = "resourceGroupName"
+```
+$ResourceGroupName = "resourceGroupName"
     
-    $ServerName = "serverName"
-    $DatabaseName = "databaseName"
+$ServerName = "serverName"
+$DatabaseName = "databaseName"
 
-    $NewEdition = "Standard"
-    $NewPricingTier = "S2"
+$NewEdition = "Standard"
+$NewPricingTier = "S2"
 
-    $ScaleRequest = Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
-
+Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+```
 
   
 
@@ -73,27 +74,25 @@ Run the **Set-AzureRmSqlDatabase** cmdlet and set the **-RequestedServiceObjecti
 
 ## Sample PowerShell script to change the service tier and performance level of your SQL database
 
-    
+Replace ```{variables}``` with your values (do not include the curly braces).
 
+```
+$SubscriptionId = "{4cac86b0-1e56-bbbb-aaaa-000000000000}"
     
-    $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
+$ResourceGroupName = "{resourceGroup}"
+$Location = "{AzureRegion}"
     
-    $ResourceGroupName = "resourceGroupName"
-    $Location = "Japan West"
+$ServerName = "{server}"
+$DatabaseName = "{database}"
     
-    $ServerName = "serverName"
-    $DatabaseName = "databaseName"
+$NewEdition = "{Standard}"
+$NewPricingTier = "{S2}"
     
-    $NewEdition = "Standard"
-    $NewPricingTier = "S2"
+Add-AzureRmAccount
+Set-AzureRmContext -SubscriptionId $SubscriptionId
     
-    Add-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
-    
-    $ScaleRequest = Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
-    
-    $ScaleRequest
-    
+Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+```
         
 
 
@@ -107,4 +106,4 @@ Run the **Set-AzureRmSqlDatabase** cmdlet and set the **-RequestedServiceObjecti
 
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [SQL Database documentation](http://azure.microsoft.com/documentation/services/sql-database/)
-- [Azure SQL Database Cmdlets](http://msdn.microsoft.com/library/mt574084.aspx)
+- [Azure SQL Database Cmdlets](http://msdn.microsoft.com/library/azure/mt574084https://msdn.microsoft.com/library/azure/mt619433(v=azure.300\).aspx.aspx)

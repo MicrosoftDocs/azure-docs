@@ -13,12 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/06/2016"
+   ms.date="10/28/2016"
    ms.author="vturecek"/>
 
-# Get started with Service Fabric Reliable Services
+# Get started with Reliable Services
+
+> [AZURE.SELECTOR]
+- [C# on Windows](service-fabric-reliable-services-quick-start.md)
+- [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
 
 An Azure Service Fabric application contains one or more services that run your code. This guide shows you how to create both stateless and stateful Service Fabric applications with [Reliable Services](service-fabric-reliable-services-introduction.md).
+
+## Basic concepts
+To get started with Reliable Services, you only need to understand a few basic concepts:
+
+ - **Service type**: This is your service implementation. It is defined by the class you write that extends `StatelessService` and any other code or dependencies used therein, along with a name and a version number.
+
+ - **Named service instance**: To run your service, you create named instances of your service type, much like you create object instances of a class type. Service instances are in fact object instantiations of your service class that you write. 
+
+ - **Service host**: The named service instances you create need to run inside a host. The service host is just a process where instances of your service can run.
+
+ - **Service registration**: Registration brings everything together. The service type must be registered with the Service Fabric runtime in a service host to allow Service Fabric to create instances of it to run.  
 
 ## Create a stateless service
 
@@ -96,7 +111,9 @@ The platform calls this method when an instance of a service is placed and ready
 
 This orchestration is managed by the system to keep your service highly available and properly balanced.
 
-`RunAsync()` is executed in its own task. Note that in the code snippet above, we jumped right into a *while* loop. There is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (by successful completion, cancellation, or fault) before it moves on. It is important to honor the cancellation token, finish any work, and exit `RunAsync()` as quickly as possible when the system requests cancellation.
+`RunAsync()` should not block synchronously. Your implementation of RunAsync should return a Task or await on any long-running or blocking operations to allow the runtime to continue - note in the `while(true)` loop in the previous example, a Task-returning `await Task.Delay()` is used. If your workload must block synchronously, you should schedule a new Task with `Task.Run()` in your `RunAsync` implementation.
+
+Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (by successful completion, cancellation, or fault) before it moves on. It is important to honor the cancellation token, finish any work, and exit `RunAsync()` as quickly as possible when the system requests cancellation.
 
 In this stateless service example, the count is stored in a local variable. But because this is a stateless service, the value that's stored exists only for the current lifecycle of its service instance. When the service moves or restarts, the value is lost.
 

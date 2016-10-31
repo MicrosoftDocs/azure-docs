@@ -1,11 +1,28 @@
-## What are reverse DNS records?
+## What is reverse DNS?
 
-Reverse DNS records are used in a variety of situations. Server validation and authenticating server requests among them. For example, reverse DNS records are widely used in combating e-mail spam by verifying the sender of an e-mail message by verifying its reverse DNS record, and also, if that host was recognized as authorized to send e-mail from the originating domain. Please note that Azure Compute services do not support sending emails to external domains as per [here](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/). <BR>
-Reverse DNS records, or PTR records, are DNS record types that enable the translation of a publically routable IP address back to a name. In DNS, names such as app1.contoso.com, are resolved to IP addresses in a process that is called forward resolution. With reverse DNS, this process is reversed to enable the resolution of the name given its IP address.<BR>
-For more information on Reverse DNS records, please see [here](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).<BR>
+Conventional DNS records enable a mapping from a DNS name (such as 'www.contoso.com') to an IP address (such as 64.4.6.100).  Reverse DNS enables the translation of an IP address (64.4.6.100) back to a name ('www.contoso.com').
 
-## How does Azure support reverse DNS records for your Azure services?
+Reverse DNS records are used in a variety of situations. For example, reverse DNS records are widely used in combating e-mail spam by verifying the sender of an e-mail message.  The receiving mail server will retrieve the reverse DNS record of the sending server's IP address, and verify if that host is authorized to send e-mail from the originating domain. (Please note however that [Azure Compute services do not support sending emails to external domains](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).)
 
-Microsoft works with a number of registries to secure an adequate supply of publically routable IP blocks. Each of these blocks is then delegated to Microsoft-owned and operated authoritative DNS servers. Microsoft hosts the reverse DNS zones for all publically routable IP blocks assigned to it. <BR>
-Azure enables you to specify a custom fully-qualified domain name (FQDN) for public routable IPs assigned to your deployments. These custom FQDNs will then be returned for reverse DNS lookups for those IPs.<BR> 
-Azure provides reverse DNS support for all publically routable IPs at no additional cost, and for services deployed using the classic and ARM deployment models.
+## How reverse DNS works
+
+Reverse DNS records are hosted in special DNS zones, known as 'ARPA' zones.  These zones form a separate DNS hierarchy in parallel with the normal hierarchy hosting domains such as 'contoso.com'.
+
+For example, the DNS record 'www.contoso.com' is implemented using a DNS 'A' record with the name 'www' in the zone 'contoso.com'.  This A record points to the corresponding IP address, in this case 64.4.6.100.  The reverse lookup is implemented separately, using a 'PTR' record named '100' in the zone '6.4.64.in-addr.arpa' (note that IP addresses are reversed in ARPA zones.)  This PTR record, if it has been configured correctly, points to the name 'www.contoso.com'.
+
+When an organization is assigned an IP address block, they also acquire the right to manage the corresponding ARPA zone. The ARPA zones corresponding to the IP address blocks used by Azure are hosted and managed by Microsoft. Your ISP may host the ARPA zone for your own IP addresses for you, or may allow you host the ARPA zone in a DNS service of your choice, such as Azure DNS.
+
+>[AZURE.NOTE] Forward DNS lookups and reverse DNS lookups are implemented in separate, parallel DNS hierarchies. The reverse lookup for 'www.contoso.com' is **not** hosted in the zone 'contoso.com', rather it is hosted in the ARPA zone for the corresponding IP address block.
+
+For more information on reverse DNS, please see [Reverse DNS Lookup](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+
+## Azure support for reverse DNS
+
+Azure supports two separate scenarios relating to reverse DNS:
+
+1. Hosting the ARPA zone corresponding to your IP address block.
+2. Allowing you to configure the reverse DNS record for the IP address assigned to your Azure service.
+
+To support the former, Azure DNS can be used to host your ARPA zones and manage the PTR records for each reverse DNS lookup.  The process of creating the ARPA zone, setting up the delegation, and configuring PTR records is the same as for regular DNS zones.  The only differences are that the delegation must be configured via your ISP rather than your DNS registrar, and only the PTR record type should be used.
+
+To support the latter, Azure enables you to configure the reverse lookup for the IP addresses allocated to your service.  This reverse lookup is configured by Azure as a PTR record in the corresponding ARPA zone.  These ARPA zones, corresponding to all the IP ranges used by Azure, are hosted by Microsoft. **The remainder of this article describes this scenario in detail.**

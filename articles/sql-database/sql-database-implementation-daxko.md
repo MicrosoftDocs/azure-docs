@@ -3,7 +3,7 @@
    description="Learn about how Daxko/CSI uses SQL Database to accelerate its development cycle and to enhance its customer services and performance"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 

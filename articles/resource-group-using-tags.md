@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/16/2016"
+	ms.date="10/08/2016"
 	ms.author="tomfitz"/>
 
 
@@ -92,75 +92,7 @@ Currently, Resource Manager does not support processing an object for the tag na
 
 ## Azure CLI
 
-Tags exist directly on resources and resource groups. To see the existing tags, simply get a resource group and its resources with **azure group show**.
-
-    azure group show -n tag-demo-group
-    
-Which returns metadata about the resource group, including any tags applied to it.
-    
-    info:    Executing command group show
-    + Listing resource groups
-    + Listing resources for the group
-    data:    Id:                  /subscriptions/{guid}/resourceGroups/tag-demo-group
-    data:    Name:                tag-demo-group
-    data:    Location:            westus
-    data:    Provisioning State:  Succeeded
-    data:    Tags: Dept=Finance;Environment=Production
-    data:    Resources:
-    data:
-    data:      Id      : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
-    data:      Name    : tfsqlserver
-    data:      Type    : servers
-    data:      Location: eastus2
-    data:      Tags    : Dept=Finance;Environment=Production
-    ...
-
-To get the tags for only the resource group, use a JSON utility such as [jq](http://stedolan.github.io/jq/download/).
-
-    azure group show -n tag-demo-group --json | jq ".tags"
-    
-Which returns the tags for that resource group.
-    
-    {
-      "Dept": "Finance",
-      "Environment": "Production" 
-    }
-
-You view the tags for a particular resource by using **azure resource show**.
-
-    azure resource show -g tag-demo-group -n tfsqlserver -r Microsoft.Sql/servers -o 2014-04-01-preview --json | jq ".tags"
-    
-Which returns the tags for that resource.
-    
-    {
-      "Dept": "Finance",
-      "Environment": "Production"
-    }
-    
-The following example shows how to retrieve all the resources that have a tag name and value.
-
-    azure resource list --json | jq ".[] | select(.tags.Dept == \"Finance\") | .name"
-    
-Which returns the names of the resources with that tag.
-    
-    "tfsqlserver"
-    "tfsqlserver/tfsqldata"
-
-Tags are updated as a whole. To add one tag to a resource that has existing tags, retrieve all the existing tags that you want to keep. To set tag values for a resource group, use **azure group set** and provide all the tags for the resource group. 
-
-    azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
-    
-A summary of the resource group with the new tags is returned.
-    
-    info:    Executing command group set
-    ...
-    data:    Name:                tag-demo-group
-    data:    Location:            westus
-    data:    Provisioning State:  Succeeded
-    data:    Tags: Dept=Finance;Environment=Production;Project=Upgrade
-    ...
-    
-You can list the existing tags in your subscription with **azure tag list**, and add a tag with **azure tag create**. To remove a tag from the taxonomy for your subscription, first remove the tag from any resources. Then, remove the tag with **azure tag delete**.
+[AZURE.INCLUDE [resource-manager-tag-resources-cli](../includes/resource-manager-tag-resources-cli.md)]
 
 ## REST API
 
@@ -176,7 +108,7 @@ You can also use tags to categorize costs by runtime environment; such as, the b
 You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from
 the [Azure accounts portal](https://account.windowsazure.com/) or [EA portal](https://ea.azure.com). For more information about programmatic access to billing information, see [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md). For REST API operations, see [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
-When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more details, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
+When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more details, see [Understand your bill for Microsoft Azure](billing/billing-understand-your-bill.md).
 
 ![See tags in billing](./media/resource-group-using-tags/billing_csv.png)
 

@@ -181,3 +181,12 @@ To create an NSG named *NSG-BackEnd* based on the scenario above, follow the ste
 5. Save the new VNet settings to Azure.
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+
+
+## How to remove an NSG
+
+To delete an existing NSG, called *NSG-Frontend* in this case, follow the step below:
+
+Run the **Remove-AzureRmNetworkSecurityGroup** shown below and be sure to include the resource group the NSG is in.
+
+            Remove-AzureRmNetworkSecurityGroup -Name "NSG-FrontEnd" -ResourceGroupName "TestRG"

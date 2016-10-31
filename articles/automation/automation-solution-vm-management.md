@@ -13,16 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="10/04/2016"
+    ms.date="10/07/2016"
     ms.author="magoedte"/>
 
 # Start/Stop VMs during off-hours [Preview] solution in Automation
 
-The Start/Stop VMs during off-hours (Preview) solution starts and stops your Azure Resource Manager virtual machines on a user-defined schedule and provides insight into the success of the Automation jobs that start and stop your virtual machines with OMS Log Analytics.  
+The Start/Stop VMs during off-hours [Preview] solution starts and stops your Azure Resource Manager virtual machines on a user-defined schedule and provides insight into the success of the Automation jobs that start and stop your virtual machines with OMS Log Analytics.  
 
 ## Prerequisites
 
-- The runbooks works with an [Azure Run As account](automation-sec-configure-azure-runas-account.md).  The Run As account is the preferred authentication method since it uses certificate authentication instead of a password that may expire or change frequently.  
+- The runbooks work with an [Azure Run As account](automation-sec-configure-azure-runas-account.md).  The Run As account is the preferred authentication method since it uses certificate authentication instead of a password that may expire or change frequently.  
 
 - This solution can only manage VMs which are in the same subscription and resource group as where the Automation account resides.  
 
@@ -75,8 +75,8 @@ StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Specifies the subscription
 
 Schedule | Description|
 ---------|------------|
-StartByResourceGroup-Schedule-MS-Mgmt | Schedule for StartByResourceGroup runbook.|
-StopByResourceGroup-Schedule-MS-Mgmt | Schedule for StopByResourceGroup runbook.|
+StartByResourceGroup-Schedule-MS-Mgmt | Schedule for StartByResourceGroup runbook, which performs the startup of VMs managed by this solution.|
+StopByResourceGroup-Schedule-MS-Mgmt | Schedule for StopByResourceGroup runbook, which performs the shutdown of VMs managed by this solution.|
 
 ### Credentials
 
@@ -91,8 +91,8 @@ Perform the following steps to add the Start/Stop VMs during off-hours [Preview]
 1. From the home-screen in the Azure portal, select the **Marketplace** tile.  If the tile is no longer pinned to your home-screen, from the left navigation pane, select **New**.  
 2. In the Marketplace blade, type **Start VM** in the search box, and then select the solution **Start/Stop VMs during off-hours [Preview]** from the search results.  
 3. In the **Start/Stop VMs during off-hours [Preview]** blade for the selected solution, review the summary information and then click **Create**.  
-4. The **Add Soultion** blade appears where you are prompted to configure the solution before you can import it into your Automation subscription.<br><br> ![VM Management Add Solution blade](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
-5.  On the **Add Solution** blade, select **Workspace** and here you select an OMS workspace that is linked to the same Azure subscription that the Automation account is in or create a new OMS workspace.  If you do not have an OMS workpace, you can select **Create New Workspace** and on the **OMS Workspace** blade perform the following: 
+4. The **Add Solution** blade appears where you are prompted to configure the solution before you can import it into your Automation subscription.<br><br> ![VM Management Add Solution blade](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
+5.  On the **Add Solution** blade, select **Workspace** and here you select an OMS workspace that is linked to the same Azure subscription that the Automation account is in or create a new OMS workspace.  If you do not have an OMS workspace, you can select **Create New Workspace** and on the **OMS Workspace** blade perform the following: 
    - Specify a name for the new **OMS Workspace**.
    - Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
    - For **Resource Group**, you can create a new resource group or select an existing resource group.  
@@ -100,7 +100,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours [Preview]
    - Select a **Pricing tier**.  The solution is offered in two tiers: free and OMS paid tier.  The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes.  The OMS paid tier does not have a limit on the amount of data collected daily.  
 
         > [AZURE.NOTE]
-        > While the Stadalone paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it will fail.  This will be addressed when this solution is officially released.<br>If you use this solution, it will only use automation job minutes and log ingestion.  The solution does not add additional OMS nodes to your environment.  
+        > While the Standalone paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it will fail.  This will be addressed when this solution is officially released.<br>If you use this solution, it will only use automation job minutes and log ingestion.  The solution does not add additional OMS nodes to your environment.  
 
 6. After providing the required information on the **OMS workspace** blade, click **Create**.  While the information is verified and the workspace is created, you can track its progress under **Notifications** from the menu.  You will be returned to the **Add Solution** blade.  
 7. On the **Add Solution** blade, select **Automation Account**.  If you are creating a new OMS workspace, you will be required to also create a new Automation account that will be associated with the new OMS workspace specified earlier, including your Azure subscription, resource group and region.  You can select **Create an Automation account** and on the **Add Automation account** blade, provide the following: 
@@ -112,7 +112,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours [Preview]
 
 8. Finally on the **Add Solution** blade, select **Configuration** and the **Parameters** blade appears.  On the **Parameters** blade, you are prompted to:  
    - Specify the **Target ResourceGroup Names**, which is a resource group name that contains VMs to be managed by this solution.  You can enter more than one name and separate each using a semi-colon (values are case-sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.
-   - Select a **Schedule** which is a recurring date and time for starting and stopping the VM's in the target resource group(s).
+   - Select a **Schedule** which is a recurring date and time for starting and stopping the VM's in the target resource group(s).  
 
 10. Once you have completed configuring the initial settings required for the solution, select **Create**.  All settings will be validated and then it will attempt to deploy the solution in your subscription.  This process can take several seconds to complete and you can track its progress under **Notifications** from the menu. 
 
@@ -127,6 +127,9 @@ When you add the VM Management solution, in your OMS workspace the **StartStopVM
 In your Automation account, you can access and manage the solution by selecting the **Solutions** tile and then from the **Solutions** blade, selecting the solution **Start-Stop-VM[Workspace]** from the list.<br><br> ![Automation Solutions List](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
 
 Selecting the solution will display the **Start-Stop-VM[Workspace]** solution blade, where you can review important details such as the **StartStopVM** tile, like in your OMS workspace, which displays a count and graphical representation of the runbooks jobs for the solution that have started and have completed successfully.<br><br> ![Automation VM Solution Blade](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
+
+From here you can also open your OMS workspace and perform further analysis of the job records.  Just click **All settings**, and in the **Settings** blade, select **Quick Start** and then in the **Quick Start** blade select **OMS Portal**.   This will open a new tab or new browser session and present your OMS workspace associated with your Automation account and subscription.  
+
 
 ### Configuring e-mail notifications
 
@@ -149,6 +152,10 @@ To configure the variables highlighted earlier, perform the following steps:
 2. On the **Settings** blade under the section **Automation Resources**, select **Assets**. 
 3. On the **Assets** blade, select the **Variables** tile and from the **Variables** blade, select the variable listed above and then modify its value following the description for it specified in the [variable](##variables) section earlier.  
 4. Click **Save** to save the changes to the variable.   
+
+### Modifying the startup and shutdown schedule
+
+Managing the startup and shutdown schedule in this solution follows the same steps as outlined in [Scheduling a runbook in Azure Automation](automation-scheduling-a-runbook.md).  Remember, you cannot modify the schedule configuration.  You will need to disable the existing schedule and then create a new one and then link to the **StartByResourceGroup-MS-Mgmt-VM** or **StopByResourceGroup-MS-Mgmt-VM** runbook that you want the schedule to apply to.   
 
 ## Log Analytics records
 

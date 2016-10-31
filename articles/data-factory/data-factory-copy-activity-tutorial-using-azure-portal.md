@@ -23,6 +23,7 @@
 - [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -65,7 +66,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 		1. Select **Use existing**, and select an existing resource group from the drop-down list. 
 		2. Select **Create new**, and enter the name of a resource group.   
 	
-			Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../resource-group-overview.md).  
+			Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
 	4. Select the **location** for the data factory. Only regions supported by the Data Factory service are shown in the drop-down list.
 	5. Select **Pin to Startboard**.	 
 	6. Click **Create**.

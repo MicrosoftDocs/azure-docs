@@ -36,6 +36,8 @@ app example. You will learn:
 
 You can apply what you learn here to other PHP web apps that you deploy to Azure.
 
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
+
 ## Prerequisites
 
 - Install [PHP 5.6.x](http://php.net/downloads.php) (PHP 7 support is beta)

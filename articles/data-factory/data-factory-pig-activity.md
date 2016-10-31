@@ -3,7 +3,7 @@
 	description="Learn how you can use the Pig Activity in an Azure data factory to run Pig scripts on an on-demand/your own HDInsight cluster." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="sharonlo101" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/31/2016" 
-	ms.author="spelluru"/>
+	ms.author="shlo"/>
 
 # Pig Activity
 > [AZURE.SELECTOR]

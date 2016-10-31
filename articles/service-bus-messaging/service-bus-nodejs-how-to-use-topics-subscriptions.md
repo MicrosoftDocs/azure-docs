@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="How to use Service Bus topics with Node.js | Microsoft Azure" 
 	description="Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app." 
-	services="service-bus-messaging" 
+	services="service-bus" 
 	documentationCenter="nodejs" 
 	authors="sethmanheim" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus-messaging" 
+	ms.service="service-bus" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
@@ -32,7 +32,7 @@ and subscriptions, see the [Next steps](#next-steps) section.
 
 ## Create a Node.js application
 
-Create a blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or Web Site with WebMatrix.
+Create a blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][] using Windows PowerShell, or Web Site with WebMatrix.
 
 ## Configure your application to use Service Bus
 

@@ -30,7 +30,7 @@ Please visit [Azure Pricing Overview](https://azure.microsoft.com/pricing/) to l
 
 ## Limits and the Azure Resource Manager
 
-It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md).
+It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md).
 
 In the limits below, a new table has been added to reflect any differences in limits when using the Azure Resource Manager. For example, there is a **Subscription Limits** table and a **Subscription Limits - Azure Resource Manager** table. When a limit applies to both scenarios, it is only shown in the first table. Unless otherwise indicated, limits are global across all regions.
 
@@ -38,12 +38,12 @@ In the limits below, a new table has been added to reflect any differences in li
 <!-- -->
 As a result, you may find it useful to consider deciding what your Azure Resource Group quotas need to be for your workload in any one region, and request that amount in each region into which you are considering deployment. See [troubleshooting deployment issues](./resource-manager-common-deployment-errors.md) for more help discovering your current quotas for specific regions.
 
-
 ## Service-specific limits
 
 - [Active Directory](#active-directory-limits)
 - [API Management](#api-management-limits)
 - [App Service](#app-service-limits)
+- [Application Gateway](#application-gateway-limits)
 - [Application Insights](#application-insights-limits)
 - [Automation](#automation-limits)
 - [Azure Redis Cache](#azure-redis-cache-limits)
@@ -91,6 +91,8 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 
 The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
 
+For information about handling limits on Resource Manager requests, see [Throttling Resource Manager requests](resource-manager-request-limits.md).
+
 [AZURE.INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 
@@ -119,6 +121,10 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 #### Networking limits
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
+
+#### Application Gateway limits
+
+[AZURE.INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### Traffic Manager limits
 

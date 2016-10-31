@@ -57,7 +57,7 @@ While App Service supports many ways to deploy your code to an API app, this tut
 
 	Swaggerize is a tool that generates server code for an API described by a Swagger metadata file. The Swagger file that you'll use is named *api.json* and is located in the *start* folder of the repository you cloned.
 
-2. Navigate to the *start* folder, and then execute the `yo swaggerize` command. Swaggerize will ask a series of questions.  For **what to call this project**, enter "contactlist", for **path to swagger document**, enter "api.json", and for **Express, Hapi, or Restify**, enter "express".
+2. Navigate to the *start* folder, and then execute the `yo swaggerize` command. Swaggerize will ask a series of questions.  For **what to call this project**, enter "ContactList", for **path to swagger document**, enter "api.json", and for **Express, Hapi, or Restify**, enter "express".
 
 		yo swaggerize
 
@@ -71,7 +71,7 @@ While App Service supports many ways to deploy your code to an API app, this tut
 
  		"regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
 
-1. Navigate to the folder that contains the scaffolded code (in this case, the *ContactList* subfolder).
+1. Navigate to the folder that contains the scaffolded code (in this case, the */start/ContactList* subfolder).
 
 1. Run `npm install`.
 	
@@ -194,7 +194,7 @@ In this section you use the Azure portal to create a new API App in Azure. This 
 
 6. In the **Resource Group** drop-down, click **New**, and then in **New resource group name** enter "NodejsAPIAppGroup" or another name if you prefer. 
 
-	A [resource group](../resource-group-overview.md) is a collection of Azure resources such as API apps, databases, and VMs. For this tutorial, it's best to create a new resource group because that makes it easy to delete in one step all the Azure resources that you create for the tutorial.
+	A [resource group](../azure-resource-manager/resource-group-overview.md) is a collection of Azure resources such as API apps, databases, and VMs. For this tutorial, it's best to create a new resource group because that makes it easy to delete in one step all the Azure resources that you create for the tutorial.
 
 4. Click **App Service plan/Location**, and then click **Create New**.
 

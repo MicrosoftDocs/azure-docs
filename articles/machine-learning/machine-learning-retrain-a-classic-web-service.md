@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Retrain a Classic Web service | Microsoft Azure"
-	description="Learn how to programmatically retrain a model and update the Web service to use the newly trained model in Azure Machine Learning."
+	pageTitle="Retrain a Classic web service | Microsoft Azure"
+	description="Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning."
 	services="machine-learning"
 	documentationCenter=""
 	authors="vDonGlover"
@@ -13,22 +13,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2016"
+	ms.date="10/12/2016"
 	ms.author="v-donglo"/>
 
-# Retrain a Classic Web service
+# Retrain a Classic web service
 
-The Predictive Web Service you deployed is the default scoring endpoint. Default endpoints are kept in sync with the original training and scoring experiments, and therefore the trained model for the default endpoint cannot be replaced. To retrain the Web service, you must add a new endpoint to the Web service. 
+The Predictive Web Service you deployed is the default scoring endpoint. Default endpoints are kept in sync with the original training and scoring experiments, and therefore the trained model for the default endpoint cannot be replaced. To retrain the web service, you must add a new endpoint to the web service. 
+
+## Prerequisites
+
+You must have set up a training experiment and a predictive experiment as shown in [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md). 
+
+>[AZURE.IMPORTANT] The predictive experiment must be deployed as a Classic machine learning web service. 
+ 
+For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Add a new Endpoint
  
-The Predictive Web Service that you deployed contains a default scoring endpoint that is kept in sync with the original training and scoring experiments trained model. To update your Web service to with a new trained model, you must create a new scoring endpoint. 
+The Predictive Web Service that you deployed contains a default scoring endpoint that is kept in sync with the original training and scoring experiments trained model. To update your web service to with a new trained model, you must create a new scoring endpoint. 
 
 To create a new scoring endpoint, on the Predictive Web Service that can be updated with the trained model:
 
->[AZURE.NOTE] Be sure you are adding the endpoint to the Predictive Web Service, not the Training Web Service. If you have correctly deployed both a Training and a Predictive Web Service, you should see two separate Web services listed. The Predictive Web Service should end with "[predictive exp.]".
+>[AZURE.NOTE] Be sure you are adding the endpoint to the Predictive Web Service, not the Training Web Service. If you have correctly deployed both a Training and a Predictive Web Service, you should see two separate web services listed. The Predictive Web Service should end with "[predictive exp.]".
 
-There are three ways in which you can add a new end point to a Web service:
+There are three ways in which you can add a new end point to a web service:
 
 3. Programmatically
 1. Use the Microsoft Azure Web Services portal
@@ -41,7 +49,7 @@ You can add scoring endpoints using the sample code provided in this [github rep
 ### Use the Microsoft Azure Web Services portal to add an endpoint
 
 1. In Machine Learning Studio, on the left navigation column, click Web Services.
-2. At the bottom of the Web service dashboard, click **Manage endpoints preview**.
+2. At the bottom of the web service dashboard, click **Manage endpoints preview**.
 3. Click **Add**.
 4. Type a name and description for the new endpoint. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning web services](machine-learning-web-services-logging.md).
 
@@ -112,12 +120,12 @@ The following sample code shows you how to use the *BaseLocation*, *RelativeLoca
 
 The *apiKey* and the *endpointUrl* for the call can be obtained from endpoint dashboard.
 
-The value of the *Name* parameter in *Resources* should match the Resource Name of the saved Trained Model in the Predictive Experiment. To get the Resource Name:
+The value of the *Name* parameter in *Resources* should match the Resource Name of the saved Trained Model in the predictive experiment. To get the Resource Name:
 
-1.	Sign in to the [Azure Classic portal](https://manage.windowsazure.com).
-2.	In the left menu, click ** Machine Learning**.
+1.	Sign in to the [classic Azure portal](https://manage.windowsazure.com).
+2.	In the left menu, click **Machine Learning**.
 3.	Under Name, click your workspace and then click **Web Services**.
-4.	Under Name, click Census Model [predictive exp.].
+4.	Under Name, click **Census Model [predictive exp.]**.
 5.	Click the new endpoint you added.
 6.	On the endpoint dashboard, click **Update Resource**.
 7.	On the Update Resource API Documentation page for the web service, you can find the **Resource Name** under **Updatable Resources**.
@@ -133,6 +141,6 @@ Using the Retraining APIs, you can update the trained model of a predictive Web 
 * Periodic model retraining with new data.
 * Distribution of a model to customers with the goal of letting them retrain the model using their own data.
 
-Next steps
+## Next steps
 
 [Troubleshooting the retraining of an Azure Machine Learning classic web service](machine-learning-troubleshooting-retraining-models.md)

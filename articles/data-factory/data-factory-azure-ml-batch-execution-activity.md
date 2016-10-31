@@ -3,7 +3,7 @@
 	description="Describes how to create create predictive pipelines using Azure Data Factory and Azure Machine Learning" 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="sharonlo101" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/06/2016" 
-	ms.author="spelluru"/>
+	ms.author="shlo"/>
 
 # Create predictive pipelines using Azure Machine Learning activities   
 > [AZURE.SELECTOR]

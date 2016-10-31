@@ -10,16 +10,14 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
+   ms.date="10/25/2016"
    ms.author="gwallace"/>
 
 
 # Create an application gateway by using the Azure Resource Manager template
-
-Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application Gateway has the following application delivery features: HTTP load balancing, cookie-based session affinity, and Secure Sockets Layer (SSL) offload.
 
 > [AZURE.SELECTOR]
 - [Azure portal](application-gateway-create-gateway-portal.md)
@@ -27,6 +25,10 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 - [Azure CLI](application-gateway-create-gateway-cli.md)
+
+Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
+Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
+To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
 
 You learn how to download and modify an existing Azure Resource Manager template from GitHub and deploy the template from GitHub, PowerShell, and the Azure CLI.
 
@@ -43,7 +45,7 @@ In this scenario you will:
 
 >[AZURE.NOTE] Those settings are the parameters for this template. To customize the template, you can change rules, the listener, and the SSL that opens the azuredeploy.json.
 
-![Scenario](./media/application-gateway-create-gateway-arm-template/scenario-arm.png)
+![Scenario](./media/application-gateway-create-gateway-arm-template/scenario.png)
 
 ## Download and understand the Azure Resource Manager template
 
@@ -123,11 +125,11 @@ Check the subscriptions for the account.
 
 	Get-AzureRmSubscription
 
-You are prompted to authenticate with your credentials.<BR>
+You are prompted to authenticate with your credentials.
 
 ### Step 3
 
-Choose which of your Azure subscriptions to use. <BR>
+Choose which of your Azure subscriptions to use.
 
 
 	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -152,6 +154,7 @@ To deploy the Azure Resource Manager template you downloaded by using Azure CLI,
 ### Step 1
 
 If you have never used Azure CLI, see [Install and configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+
 ### Step 2
 
 Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
@@ -164,7 +167,7 @@ Here is the expected output for the command above:
 
 ### Step 3
 
-If necessary, run the **azure group create** command to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../resource-group-overview.md).
+If necessary, run the **azure group create** command to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 	azure group create -n appgatewayRG -l eastus
 
@@ -212,7 +215,7 @@ If you want to configure SSL offload, see [Configure an application gateway for 
 
 If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
 
-If you want more information about load balancing options in general, see:
+If you want more information about load balancing options in general, visit:
 
 - [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)

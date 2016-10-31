@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2016" 
+	ms.date="10/05/2016" 
 	ms.author="garye"/>
 
 
@@ -31,7 +31,7 @@ This is the third step of the walkthrough, [Develop a predictive analytics solut
 
 ----------
 
-The next step in this walkthrough is to create a new experiment in Machine Learning Studio that uses the dataset we uploaded.  
+The next step in this walkthrough is to create an experiment in Machine Learning Studio that uses the dataset we uploaded.  
 
 1.	In Studio, click **+NEW** at the bottom of the window.
 2.	Select **EXPERIMENT**, and then select "Blank Experiment". Select the default experiment name at the top of the canvas and rename it to something meaningful
@@ -41,20 +41,19 @@ The next step in this walkthrough is to create a new experiment in Machine Learn
 3.	In the module palette to the left of the experiment canvas, expand **Saved Datasets**.
 4.	Find the dataset you created under **My Datasets** and drag it onto the canvas. You can also find the dataset by entering the name in the **Search** box above the palette.  
 
-## Prepare the data
-
+##Prepare the data
 You can view the first 100 rows of the data and some statistical information for the whole dataset by clicking the output port of the dataset (the small circle at the bottom) and selecting **Visualize**.  
 
-Because the data file didn't come with column headings, Studio has provided generic headings (Col1, Col2, *etc.*). Good headings aren't essential to creating a model, but they will make it easier to work with the data in the experiment. Also, when we eventually publish this model in a web service, the headings will help identify the columns to the user of the service.  
+Because the data file didn't come with column headings, Studio has provided generic headings (Col1, Col2, *etc.*). Good headings aren't essential to creating a model, but they make it easier to work with the data in the experiment. Also, when we eventually publish this model in a web service, the headings will help identify the columns to the user of the service.  
 
 We can add column headings using the [Edit Metadata][edit-metadata] module.
 You use the [Edit Metadata][edit-metadata] module to change metadata associated with a dataset. In this case, it can provide more friendly names for column headings. 
 
-To use [Edit Metadata][edit-metadata], you first specify which columns to modify (in this case, all of them), then you specify the action to be performed on those columns (in this case, changing column headings).
+To use [Edit Metadata][edit-metadata], you first specify which columns to modify (in this case, all of them.) Next, you specify the action to be performed on those columns (in this case, changing column headings.)
 
 1.	In the module palette, type "metadata" in the **Search** box. You'll see [Edit Metadata][edit-metadata] appear in the module list.
 2.	Click and drag the [Edit Metadata][edit-metadata] module onto the canvas and drop it below the dataset we added earlier.
-3.	Connect the dataset to the [Edit Metadata][edit-metadata]: click the output port of the dataset (the small circle at the bottom of the dataset), drag to the input port of [Edit Metadata][edit-metadata] (the small circle at the top of the module), then release the mouse button. The dataset and module will remain connected even if you move either around on the canvas.
+3.	Connect the dataset to the [Edit Metadata][edit-metadata]: click the output port of the dataset (the small circle at the bottom of the dataset.) Next, drag to the input port of [Edit Metadata][edit-metadata] (the small circle at the top of the module), then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
 
     The experiment should now look something like this:  
 
@@ -62,7 +61,7 @@ To use [Edit Metadata][edit-metadata], you first specify which columns to modify
     
     The red exclamation mark indicates that we haven't set the properties for this module yet. We'll do that next.
     
-    > [AZURE.TIP] You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Edit Metadata][edit-metadata] module and type the comment "Add column headings". Click anywhere else on the canvas to close the text box. Click the down-arrow on the module to display the comment.
+    > [AZURE.TIP] You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Edit Metadata][edit-metadata] module and type the comment "Add column headings". Click anywhere else on the canvas to close the text box. To display the comment, click the down-arrow on the module.
 
 4.	Select [Edit Metadata][edit-metadata], then in the **Properties** pane to the right of the canvas, click **Launch column selector**.
 5.	In the **Select columns** dialog, select all the rows in **Available Columns** and click > to move them to **Selected Columns**.
@@ -79,20 +78,22 @@ The dialog should look like this:
 
 > [AZURE.TIP] If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas). When it finishes running (a green checkmark will appear on [Edit Metadata][edit-metadata]), click the output port of the [Edit Metadata][edit-metadata] module, and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
 
-## Create training and test datasets
+##Create training and test datasets
 
 The next step of the experiment is to generate separate datasets that we'll use for both training and testing our model.
 
 To do this, we use the [Split Data][split] module.  
 
 1.	Find the [Split Data][split] module, drag it onto the canvas, and connect it to the last [Edit Metadata][edit-metadata] module.
-2.	By default, the split ratio is 0.5 and the **Randomized split** parameter is set. This means that a random half of the data will be output through one port of the [Split Data][split] module, and half through the other. You can adjust these, as well as the **Random seed** parameter, to change the split between training and testing data. For this example we'll leave them as-is.
-	> [AZURE.TIP] The property **Fraction of rows in the first output dataset**  determines how much of the data is output through the left output port. For instance, if you set the ratio to 0.7, then 70% of the data is output through the left port and 30% through the right port.  
+2.	By default, the split ratio is 0.5 and the **Randomized split** parameter is set. This means that a random half of the data is output through one port of the [Split Data][split] module, and half through the other. You can adjust these, as well as the **Random seed** parameter, to change the split between training and testing data. For this example, we'll leave them as-is.
+	
+	> [AZURE.TIP] The property **Fraction of rows in the first output dataset** determines how much of the data is output through the left output port. For instance, if you set the ratio to 0.7, then 70% of the data is output through the left port and 30% through the right port.  
+	
 3. Double-click the [Split Data][split] module and enter the comment, "Training/testing data split 50%". 
 
 We can use the outputs of the [Split Data][split] module however we like, but let's choose to use the left output as training data and the right output as testing data.  
 
-As mentioned on the UCI website, the cost of misclassifying a high credit risk as low is 5 times larger than the cost of misclassifying a low credit risk as high. To account for this, we'll generate a new dataset that reflects this cost function. In the new dataset, each high risk example is replicated 5 times, while each low risk example is not replicated.   
+As mentioned on the UCI website, the cost of misclassifying a high credit risk as low is five times larger than the cost of misclassifying a low credit risk as high. To account for this, we generate a new dataset that reflects this cost function. In the new dataset, each high risk example is replicated five times, while each low risk example is not replicated.   
 
 We can do this replication using R code:  
 
@@ -111,7 +112,8 @@ We need to do this same replication operation for each output of the [Split Data
 
 1.	Right-click the [Execute R Script][execute-r-script] module and select **Copy**.
 2.	Right-click the experiment canvas and select **Paste**.
-3.	Connect the first input port of this [Execute R Script][execute-r-script] module to the right output port of the [Split Data][split] module.  
+3.	Connect the first input port of this [Execute R Script][execute-r-script] module to the right output port of the [Split Data][split] module. 
+4.	At the bottom of the canvas, click **Run**. 
 
 > [AZURE.TIP] The copy of the Execute R Script module contains the same script as the original module. When you copy and paste a module on the canvas, the copy retains all the properties of the original.  
 

@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="07/20/2016"
+      ms.date="10/10/2016"
       ms.author="markvi"/>
 
 # Managing Applications with Azure Active Directory

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="10/05/2016"
 	ms.author="nitinme"/>
 
 # Customize Windows-based HDInsight clusters using Script Action

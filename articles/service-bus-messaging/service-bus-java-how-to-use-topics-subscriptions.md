@@ -1,14 +1,14 @@
 <properties
 	pageTitle="How to use Service Bus topics with Java | Microsoft Azure"
 	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications."
-	services="service-bus-messaging"
+	services="service-bus"
 	documentationCenter="java"
 	authors="sethmanheim"
 	manager="timlt"
 	editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
+	ms.service="service-bus"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"

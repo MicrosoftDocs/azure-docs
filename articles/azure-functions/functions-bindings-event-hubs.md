@@ -27,6 +27,8 @@ Azure Functions supports trigger and output bindings for Event Hubs.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
+If you are new to Azure Event Hubs, see the [Azure Event Hub overview](../event-hubs/event-hubs-overview.md).
+
 <a name="trigger"></a>
 ## Event Hub trigger
 
@@ -39,9 +41,12 @@ The Event Hub trigger to a function uses the following JSON object in the `bindi
 		"name": "<Name of trigger parameter in function signature>",
 		"direction": "in",
 		"path": "<Name of the Event Hub>",
+		"consumerGroup": "Consumer group to use - see below", 
 		"connection": "<Name of app setting with connection string - see below>"
 	}
 
+`consumerGroup` : This is an optional property used to set the [consumer group](../event-hubs/event-hubs-overview.md#consumer-groups) 
+used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used.  
 `connection` must be the name of an app setting that contains the connection string to the event hub's namespace. 
 Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub 
 itself. This connection string must have at least read permissions to activate the trigger.

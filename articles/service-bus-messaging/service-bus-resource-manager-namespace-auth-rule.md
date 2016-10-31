@@ -1,24 +1,24 @@
 <properties
     pageTitle="Create a Service Bus authorization rule using an Azure Resource Manager template | Microsoft Azure"
     description="Create a Service Bus authorization rule for namespace and queue using Azure Resource Manager template"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="10/14/2016"
     ms.author="sethm;shvija"/>
 
 # Create a Service Bus authorization rule for namespace and queue using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates an [authorization rule](../service-bus/service-bus-authentication-and-authorization.md#shared-access-signature-authentication) for a Service Bus namespace and queue. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
+This article shows how to use an Azure Resource Manager template that creates an [authorization rule](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) for a Service Bus namespace and queue. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, please see [Authoring Azure Resource Manager templates][].
 
@@ -31,13 +31,13 @@ For the complete template, see the [Service Bus auth rule template][] on GitHub.
 >-    [Create a Service Bus namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
 >-    [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
 >
->To check for the latest templates, visit the [Azure Quickstart Templates][] gallery and search for Service Bus.
+>To check for the latest templates, visit the [Azure Quickstart Templates][] gallery and search for "Service Bus."
 
 ## What will you deploy?
 
 With this template, you will deploy a Service Bus authorization rule for a namespace and messaging entity (in this case, a queue).
 
-This template uses [Shared Access Signature (SAS)](../service-bus/service-bus-sas-overview.md) for authentication. SAS enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the messaging entity (queue or topic) with which specific rights are associated. You can then use this key to generate a SAS token that clients can in turn use to authenticate to Service Bus.
+This template uses [Shared Access Signature (SAS)](service-bus-sas-overview.md) for authentication. SAS enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the messaging entity (queue or topic) with which specific rights are associated. You can then use this key to generate a SAS token that clients can in turn use to authenticate to Service Bus.
 
 To run the deployment automatically, click the following button:
 
@@ -166,10 +166,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
 
-- [Manage Azure Service Bus using Azure Automation](../service-bus/service-bus-automation-manage.md)
-- [Manage Service Bus with PowerShell](../service-bus/service-bus-powershell-how-to-provision.md)
+- [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
 - [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
-- [Service Bus authentication and authorization](../service-bus/service-bus-authentication-and-authorization.md)
+- [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md)
 
   [Authoring Azure Resource Manager templates]: ../resource-group-authoring-templates.md
   [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus

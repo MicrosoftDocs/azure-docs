@@ -14,13 +14,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/27/2016"
+   ms.date="10/17/2016"
    ms.author="cherylmc"/>
 
 # Configure a Point-to-Site connection to a VNet using the classic portal
 
 > [AZURE.SELECTOR]
+- [Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 - [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Classic - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 - [Classic - Classic Portal](vpn-gateway-point-to-site-create.md)
 
 A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network.
@@ -32,15 +34,17 @@ Point-to-Site connections do not require a VPN device or a public-facing IP addr
 
 ### Deployment models and methods for P2S connections
 
-[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
+[AZURE.INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
 
-**About Azure deployment models**
+The following table shows the two deployment models and available deployment methods for P2S configurations. When an article with configuration steps is available, we link directly to it from this table.
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-table-point-to-site-include.md)] 
+
+
+
+## Basic workflow
 
 ![Point-to-Site-diagram](./media/vpn-gateway-point-to-site-create/p2sclassic.png "point-to-site")
-
-## About creating a Point-to-Site connection
  
 The following steps walk you through the steps to create a secure Point-to-Site connection to a virtual network. 
 

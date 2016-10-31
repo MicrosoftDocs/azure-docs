@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Azure Queues and Service Bus queues - compared and contrasted | Microsoft Azure"
     description="Analyzes differences and similarities between two types of queues offered by Azure."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="tysonn" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
@@ -173,7 +173,7 @@ This section compares advanced capabilities provided by Azure Queues and Service
 
 ## Capacity and quotas
 
-This section compares Azure Queues and Service Bus queues from the perspective of [capacity and quotas](../service-bus/service-bus-quotas.md) that may apply.
+This section compares Azure Queues and Service Bus queues from the perspective of [capacity and quotas](service-bus-quotas.md) that may apply.
 
 |Comparison Criteria|Azure Queues|Service Bus Queues|
 |---|---|---|
@@ -185,7 +185,7 @@ This section compares Azure Queues and Service Bus queues from the perspective o
 
 ### Additional information
 
-- Service Bus enforces queue size limits. The maximum queue size is specified upon creation of the queue and can have a value between 1 and 80 GB. If the queue size value set on creation of the queue is reached, additional incoming messages will be rejected and an exception will be received by the calling code. For more information about quotas in Service Bus, see [Service Bus Quotas](../service-bus/service-bus-quotas.md).
+- Service Bus enforces queue size limits. The maximum queue size is specified upon creation of the queue and can have a value between 1 and 80 GB. If the queue size value set on creation of the queue is reached, additional incoming messages will be rejected and an exception will be received by the calling code. For more information about quotas in Service Bus, see [Service Bus Quotas](service-bus-quotas.md).
 
 - You can create Service Bus queues in 1, 2, 3, 4, or 5 GB sizes (the default is 1 GB). With partitioning enabled (which is the default), Service Bus creates 16 partitions for each GB you specify. As such, if you create a queue that is 5 GB in size, with 16 partitions the maximum queue size becomes (5 * 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure portal][].
 
@@ -239,9 +239,9 @@ This section discusses the authentication and authorization features supported b
 
 ### Additional information
 
-- Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access are not supported. Using [SAS](../service-bus/service-bus-sas-overview.md), you can address this scenario by publishing a write-only SAS, read-only SAS, or even a full-access SAS.
+- Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access are not supported. Using [SAS](service-bus-sas-overview.md), you can address this scenario by publishing a write-only SAS, read-only SAS, or even a full-access SAS.
 
-- The authentication scheme provided by Azure Queues involves the use of a symmetric key, which is a hash-based Message Authentication Code (HMAC), computed with the SHA-256 algorithm and encoded as a **Base64** string. For more information about the respective protocol, see [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx). Service Bus queues support a similar model using symmetric keys. For more information, see [Shared Access Signature Authentication with Service Bus](../service-bus/service-bus-shared-access-signature-authentication.md).
+- The authentication scheme provided by Azure Queues involves the use of a symmetric key, which is a hash-based Message Authentication Code (HMAC), computed with the SHA-256 algorithm and encoded as a **Base64** string. For more information about the respective protocol, see [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx). Service Bus queues support a similar model using symmetric keys. For more information, see [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md).
 
 ## Cost
 

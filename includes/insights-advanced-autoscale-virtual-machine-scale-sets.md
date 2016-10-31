@@ -18,14 +18,14 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 
 	The template execution has created a default autoscale setting with the name **'autoscalewad'**. On the right-hand side, you can view the full definition of this autoscale setting. In this case, the default autoscale setting comes with a CPU% based scale-out and scale-in rule.
 
-3. You can now add more profiles and rules based on the schedule or specific requirements. We create an autoscale setting with three profiles. To understand profiles and rules in autoscale, review [Autoscale Best Practices](../articles/azure-portal/insights-autoscale-best-practices.md). 
+3. You can now add more profiles and rules based on the schedule or specific requirements. We create an autoscale setting with three profiles. To understand profiles and rules in autoscale, review [Autoscale Best Practices](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md). 
 
     | Profiles & Rules | Description |
 	|---------|-------------------------------------|
 	| **Profile** | **Performance/metric based**    |
 	| Rule    | Service Bus Queue Message Count > x |
 	| Rule    | Service Bus Queue Message Count < y |
-	| Rule    | CPU%,< n                            |
+	| Rule    | CPU% > n                            |
 	| Rule    | CPU% < p                            |
 	| **Profile** | **Weekday morning hours (no rules)**    |
 	| **Profile** | **Product Launch day (no rules)**       |
@@ -37,8 +37,8 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 	- _**Special Dates** - I added a 'Product Launch Day' profile. I plan ahead for specific dates so my application is ready to handle the load due marketing announcements and when we put a new product in the application._
 	- _The last two profiles can also have other performance metric based rules within them. In this case, I decided not to have one and instead to rely on the default performance metric based rules. Rules are optional for the recurring and date-based profiles._
 
-	Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](../articles/azure-portal/insights-autoscale-best-practices.md) article.
-	For a list of common metrics for autoscale, refer [Common metrics for Autoscale](../articles/azure-portal/insights-autoscale-common-metrics.md)
+	Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) article.
+	For a list of common metrics for autoscale, refer [Common metrics for Autoscale](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 
 5. Make sure you are on the **Read/Write** mode in Resource Explorer
 
@@ -127,7 +127,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 	              "threshold": 60
 	            },
 	            "scaleAction": {
-	              "direction": "Increase",
+	              "direction": "Decrease",
 	              "type": "ChangeCount",
 	              "value": "1",
 	              "cooldown": "PT5M"
@@ -188,7 +188,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 
 	2. Email a set of users
 
-	3. Trigger a webhook call. When fired, this webhook sends metadata about the autoscaling condition and the scale set resource. To learn more about the payload of autoscale webhook, see [Configure Webhook & Email Notifications for Autoscale](../articles/azure-portal/insights-autoscale-to-webhook-email.md).
+	3. Trigger a webhook call. When fired, this webhook sends metadata about the autoscaling condition and the scale set resource. To learn more about the payload of autoscale webhook, see [Configure Webhook & Email Notifications for Autoscale](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
 
 	Add the following to the Autoscale setting replacing your **notification** element whose value is null
 
@@ -226,12 +226,12 @@ You have updated an autoscale setting on a VM Scale set to include multiple scal
 
 Use these links to learn more about autoscaling.
 
-[Common Metrics for Autoscale](../articles/azure-portal/insights-autoscale-common-metrics.md)
+[Common Metrics for Autoscale](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 
-[Best Practices for Azure Autoscale](../articles/azure-portal/insights-autoscale-best-practices.md)
+[Best Practices for Azure Autoscale](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
-[Manage Autoscale using PowerShell](../articles/azure-portal/insights-powershell-samples.md#create-and-manage-autoscale-settings)
+[Manage Autoscale using PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Manage Autoscale using CLI](../articles/azure-portal/insights-cli-samples.md#autoscale)
+[Manage Autoscale using CLI](../articles/monitoring-and-diagnostics/insights-cli-samples.md#autoscale)
 
-[Configure Webhook & Email Notifications for Autoscale](../articles/azure-portal/insights-autoscale-to-webhook-email.md)
+[Configure Webhook & Email Notifications for Autoscale](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)

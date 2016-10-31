@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus with .NET and AMQP 1.0 | Microsoft Azure"
     description="Using Service Bus from .NET with AMQP"
-    services="service-bus-messaging,service-bus"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" /> 
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
@@ -104,6 +104,8 @@ There are also some small differences in the behavior of the Service Bus .NET AP
 -   The [OperationTimeout][] property is ignored.
 
 -   `MessageReceiver.Receive(TimeSpan.Zero)` is implemented as `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
+
+-   Completing messages by lock tokens can only be done by the message receivers that initially received the messages.
 
 ## Controlling AMQP protocol settings
 

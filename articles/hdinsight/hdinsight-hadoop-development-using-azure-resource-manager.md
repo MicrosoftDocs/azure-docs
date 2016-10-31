@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="10/05/2016"
 	ms.author="nitinme"/>
 
 # Migrating to Azure Resource Manager-based development tools for HDInsight clusters

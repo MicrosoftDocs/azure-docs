@@ -13,15 +13,15 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/20/2016"
+ ms.date="10/17/2016"
  ms.author="yurid"/>
 
 [AZURE.INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
-## Next steps
+## See also
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md

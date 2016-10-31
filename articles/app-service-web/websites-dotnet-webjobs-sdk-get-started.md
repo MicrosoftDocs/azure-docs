@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="10/28/2016"
 	ms.author="tdykstra"/>
 
 # Create a .NET WebJob in Azure App Service
@@ -239,7 +239,7 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 7. In the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) drop-down list choose **Create new App Service plan**. Enter a name for the App Service plan, such as ContosoAdsPlan.
 
-8. In the [Resource group](../resource-group-overview.md) drop-down list choose **Create new resource group**.
+8. In the [Resource group](../azure-resource-manager/resource-group-overview.md) drop-down list choose **Create new resource group**.
 
 9. Enter a name for the resource group, such as ContosoAdsGroup.
 

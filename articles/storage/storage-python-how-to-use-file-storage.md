@@ -14,7 +14,7 @@
 	ms.devlang="python"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="minet;robinsh"/>
+	ms.author="robinsh"/>
 
 # How to use Azure File storage from Python
 

@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="08/30/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
 # Generic LDAP Connector technical reference
 This article describes the Generic LDAP Connector. The article applies to the following products:

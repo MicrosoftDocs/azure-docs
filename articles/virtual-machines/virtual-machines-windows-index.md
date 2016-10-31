@@ -3,7 +3,7 @@
    description="A complete list of Microsoft Azure documentation articles for Windows virtual machines in the classic deployment model"
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="dlepow"
+   authors="cynthn"
    manager="timlt"
    tags="azure-service-management"
    editor=""/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="08/05/2016"
-   ms.author="danlep"/>
+   ms.author="cynthn"/>
 
 # Technical articles for Windows VMs in the classic deployment model
 
@@ -190,7 +190,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Troubleshoot classic deployment issues with creating a new Windows virtual machine in Azure](virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md)
 
-[Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
+[Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](windows/classic/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
 
 

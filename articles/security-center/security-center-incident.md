@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="10/18/2016"
    ms.author="yurid"/>
 
 # Handling Security Incident in Azure Security Center 

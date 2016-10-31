@@ -3,8 +3,8 @@
 	description="This tutorial walks you through how to encrypt and decrypt a blob using client-side encryption for Microsoft Azure Storage with Azure Key Vault."
 	services="storage"
 	documentationCenter=""
-	authors="adhurwit"
-	manager=""
+	authors="robinsh"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="required"
-	ms.date="09/20/2016"
+	ms.date="10/18/2016"
 	ms.author="lakasa;robinsh"/>
 
 # Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault

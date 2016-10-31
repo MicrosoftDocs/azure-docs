@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2016"
+	ms.date="10/10/2016"
 	ms.author="davidmu"/>
 
 # Deploy an Azure Virtual Machine using C# and a Resource Manager template
@@ -89,7 +89,7 @@ In Visual Studio, do these steps:
             "adminPassword": { "type": "securestring" }
           },
           "variables": {
-            "vnetID":"[resourceId('Microsoft.Network/virtualNetworks','myvnet1')]",
+            "vnetID":"[resourceId('Microsoft.Network/virtualNetworks','myvn1')]",
             "subnetRef": "[concat(variables('vnetID'),'/subnets/mysn1')]"
           },
           "resources": [

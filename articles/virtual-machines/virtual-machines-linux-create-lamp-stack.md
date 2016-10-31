@@ -15,7 +15,7 @@
 	ms.devlang="NA"
 	ms.topic="article"
 	ms.date="06/07/2016"
-	ms.author="jluk"/>
+	ms.author="juluk"/>
 
 # Deploy LAMP Stack on Azure
 This article will walk you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You will need an Azure Account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI](../xplat-cli-install.md) that is [connected to your Azure account](../xplat-cli-connect.md).
@@ -41,7 +41,7 @@ user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 
 ## Deploy LAMP on new VM Walkthrough
 
-You can start by creating a new [resource group](../resource-group-overview.md) that will contain the VM:
+You can start by creating a new [resource group](../azure-resource-manager/resource-group-overview.md) that will contain the VM:
 
     $ azure group create uniqueResourceGroup westus
     info:    Executing command group create

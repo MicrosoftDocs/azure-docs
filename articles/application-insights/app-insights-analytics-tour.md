@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2016" 
+	ms.date="10/15/2016" 
 	ms.author="awills"/>
 
 
@@ -49,7 +49,7 @@ Let's start by examining a few sample rows of the table:
 > [AZURE.NOTE] Put the cursor somewhere in the statement before you click Go. You can split a statement over more than one line, but don't put blank lines in a statement. Blank lines are a convenient way to keep several separate queries in the window.
 
 
-Choose columns and adjust their positions:
+Choose columns, drag them, group by columns, and filter: 
 
 ![Click column selection at upper right of results](./media/app-insights-analytics-tour/030.png)
 
@@ -58,7 +58,7 @@ Expand any item to see the detail:
  
 ![Choose Table, and use Configure Columns](./media/app-insights-analytics-tour/040.png)
 
-> [AZURE.NOTE] Click the head of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Be aware that sorting this way doesn't always show you the actual highest or lowest items. For that, you should use the `top` or `sort` operator. 
+> [AZURE.NOTE] Click the head of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Sorting this way doesn't always show you the actual highest or lowest items. To sort items reliably, use the `top` or `sort` operator. 
 
 ## [Top](app-insights-analytics-reference.md#top-operator) and [sort](app-insights-analytics-reference.md#sort-operator)
 
@@ -139,51 +139,6 @@ If you just want to add columns to the existing ones, use [`extend`](app-insight
 Using [`extend`](app-insights-analytics-reference.md#extend-operator) is less verbose than [`project`](app-insights-analytics-reference.md#project-operator) if you want to keep all the existing columns.
 
 
-## Accessing nested objects
-
-Nested objects can be accessed easily. For example, in the exceptions stream you'll see structured objects like this:
-
-![result](./media/app-insights-analytics-tour/520.png)
-
-You can flatten it by choosing the properties you're interested in:
-
-```AIQL
-
-    exceptions | take 10
-    | extend method1 = tostring(details[0].parsedStack[1].method)
-```
-
-Note that you need to use a [cast](app-insights-analytics-reference.md#casts) to the appropriate type.
-
-## Custom properties and measurements
-
-If your application attaches [custom dimensions (properties) and custom measurements](app-insights-api-custom-events-metrics.md#properties) to events, then you will see them in the `customDimensions` and `customMeasurements` objects.
-
-
-For example, if your app includes:
-
-```C#
-
-    var dimensions = new Dictionary<string, string> 
-                     {{"p1", "v1"},{"p2", "v2"}};
-    var measurements = new Dictionary<string, double>
-                     {{"m1", 42.0}, {"m2", 43.2}};
-	telemetryClient.TrackEvent("myEvent", dimensions, measurements);
-```
-
-To extract these values in Analytics:
-
-```AIQL
-
-    customEvents
-    | extend p1 = customDimensions.p1, 
-      m1 = todouble(customMeasurements.m1) // cast to expected type
-
-``` 
-
-> [AZURE.NOTE] In [Metrics Explorer](app-insights-metrics-explorer.md), all custom measurements attached to any type of telemetry appear together in the metrics blade along with metrics sent using `TrackMetric()`. But in Analytics, custom measurements are still attached to whichever type of telemetry they were carried on, and metrics appear in their own `metrics` stream.
-
-
 ## [Summarize](app-insights-analytics-reference.md#summarize-operator): aggregate groups of rows
 
 `Summarize` applies a specified *aggregation function* over groups of rows. 
@@ -262,9 +217,9 @@ Let's see just exceptions reported from browsers:
 ```AIQL
 
     exceptions 
-    | where device_Id == "browser" 
+    | where client_Type == "Browser" 
     |  summarize count() 
-       by device_BrowserVersion, outerExceptionMessage 
+       by client_Browser, outerMessage 
 ```
 
 ![](./media/app-insights-analytics-tour/250.png)
@@ -314,24 +269,37 @@ Select the Chart display option:
 
 ![timechart](./media/app-insights-analytics-tour/080.png)
 
-The x axis for line charts has to be of type DateTime. 
 
 ## Multiple series 
 
-Use multiple values in a `summarize by` clause to create a separate row for each combination of values:
+Multiple expressions in the `summarize` creates multiple columns.
+
+Multiple expressions in the `by` clause creates multiple rows, one for each combination of values.
+
 
 ```AIQL
 
-    requests 
-      | summarize event_count=count()   
-        by bin(timestamp, 1d), client_StateOrProvince
+    requests
+    | summarize count(), avg(duration) 
+      by bin(timestamp, 1d), client_StateOrProvince, client_City 
+    | order by timestamp asc, client_StateOrProvince, client_City
 ```
 
 ![](./media/app-insights-analytics-tour/090.png)
 
-To display multiple lines on a chart, click **Split by** and choose a column.
+### Segment a chart by dimensions
 
-![](./media/app-insights-analytics-tour/100.png)
+If you chart a table that has a string column and a numeric column, the string can be used to split the numeric data into separate series of points. If there's more than one string column, you can choose which column to use as the discriminator. 
+
+![Segment an analytics chart](./media/app-insights-analytics-tour/100.png)
+
+### Display multiple metrics
+
+If you chart a table that more than one numeric column, in addition to the timestamp, you can display any combination of them.
+
+![Segment an analytics chart](./media/app-insights-analytics-tour/110.png)
+
+You must select Don't Split before you can select multiple numeric columns You can't split by a string column at the same time as displaying more than one numeric column. 
 
 
 
@@ -356,19 +324,19 @@ Count requests by the time modulo one day, binned into hours:
 
 ## Compare multiple daily series
 
-How does usage vary over the time of day in different states?
+How does usage vary over the time of day in different countries?
 
 ```AIQL
-    requests
+
+ requests  | where tostring(operation_SyntheticSource)
      | extend hour= floor( timestamp % 1d , 1h)
            + datetime("2001-01-01")
      | summarize event_count=count() 
-       by hour, client_StateOrProvince
+       by hour, client_CountryOrRegion 
+     | render timechart
 ```
 
-Split the chart by state:
-
-![Split By client_StateOrProvince](./media/app-insights-analytics-tour/130.png)
+![Split By client_CountryOrRegion](./media/app-insights-analytics-tour/130.png)
 
 
 ## Plot a distribution
@@ -387,7 +355,7 @@ How many sessions are there of different lengths?
     | project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
-The last line is required to convert to datetime - currently the x axis of a line chart can only be a datetime.
+The last line is required to convert to datetime. Currently the x axis of a chart is displayed as a scalar only if it is a datetime.
 
 The `where` clause excludes one-shot sessions (sessionDuration==0) and sets the length of the x-axis.
 
@@ -479,8 +447,159 @@ Use [let](./app-insights-analytics-reference.md#let-statements) to separate out 
 > Tip: In the Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
 
 
-* **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
+## Accessing nested objects
 
+Nested objects can be accessed easily. For example, in the exceptions stream you'll see structured objects like this:
+
+![result](./media/app-insights-analytics-tour/520.png)
+
+You can flatten it by choosing the properties you're interested in:
+
+```AIQL
+
+    exceptions | take 10
+    | extend method1 = tostring(details[0].parsedStack[1].method)
+```
+
+Note that you need to use a [cast](app-insights-analytics-reference.md#casts) to the appropriate type.
+
+## Custom properties and measurements
+
+If your application attaches [custom dimensions (properties) and custom measurements](app-insights-api-custom-events-metrics.md#properties) to events, then you will see them in the `customDimensions` and `customMeasurements` objects.
+
+
+For example, if your app includes:
+
+```C#
+
+    var dimensions = new Dictionary<string, string> 
+                     {{"p1", "v1"},{"p2", "v2"}};
+    var measurements = new Dictionary<string, double>
+                     {{"m1", 42.0}, {"m2", 43.2}};
+	telemetryClient.TrackEvent("myEvent", dimensions, measurements);
+```
+
+To extract these values in Analytics:
+
+```AIQL
+
+    customEvents
+    | extend p1 = customDimensions.p1, 
+      m1 = todouble(customMeasurements.m1) // cast to expected type
+
+``` 
+
+## Tables
+
+The stream of telemetry received from your app is accessible through several tables. The schema of properties available for each table is visible at the left of the window.
+
+### Requests table
+
+Count HTTP requests to your web app and segment by page name:
+
+![Count requests segmented by name](./media/app-insights-analytics-tour/analytics-count-requests.png)
+
+Find the requests that fail most:
+
+![Count requests segmented by name](./media/app-insights-analytics-tour/analytics-failed-requests.png)
+
+### Custom events table
+
+If you use [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) to send your own events, you can read them from this table. 
+
+Let's take an example where your app code contains these lines:
+
+```C#
+
+    telemetry.TrackEvent("Query", 
+       new Dictionary<string,string> {{"query", sqlCmd}},
+       new Dictionary<string,double> {
+           {"retry", retryCount},
+           {"querytime", totalTime}})
+```
+
+Display the frequency of these events:
+ 
+![Display rate of custom events](./media/app-insights-analytics-tour/analytics-custom-events-rate.png)
+
+Extract measurements and dimensions from the events:
+
+![Display rate of custom events](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
+
+### Custom metrics table
+
+If you are using [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) to send your own metric values, you’ll find its results in the **customMetrics** stream. For example:  
+
+![Custom metrics in Application Insights analytics](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
+
+
+> [AZURE.NOTE] In [Metrics Explorer](app-insights-metrics-explorer.md), all custom measurements attached to any type of telemetry appear together in the metrics blade along with metrics sent using `TrackMetric()`. But in Analytics, custom measurements are still attached to whichever type of telemetry they were carried on - events or requests, and so on - while metrics sent by TrackMetric appear in their own stream.
+
+### Performance counters table
+
+[Performance counters](app-insights-performance-counters.md) show you basic system metrics for your app, such as CPU, memory, and network utilization. You can configure the SDK to send additional counters, including your own custom counters.
+
+The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter. Counter instance names are only applicable to some performance counters, and typically indicate the name of the process to which the count relates. In the telemetry for each application, you’ll see only the counters for that application. For example, to see what counters are available: 
+
+![Performance counters in Application Insights analytics](./media/app-insights-analytics-tour/analytics-performance-counters.png)
+
+To get a chart of available memory over the recent period: 
+
+![Memory timechart in Application Insights analytics](./media/app-insights-analytics-tour/analytics-available-memory.png)
+
+
+Like other telemetry, **performanceCounters** also has a column `cloud_RoleInstance` that indicates the identity of the host machine on which your app is running. For example, to compare the performance of your app on the different machines: 
+
+
+![Performance segmented by role instance in Application Insights analytics](./media/app-insights-analytics-tour/analytics-metrics-role-instance.png)
+
+### Exceptions table
+
+[Exceptions reported by your app](app-insights-asp-net-exceptions.md) are available in this table. 
+
+To find the HTTP request that your app was handling when the exception was raised, join on operation_Id:
+
+![Join exceptions with requests on operation_Id](./media/app-insights-analytics-tour/analytics-exception-request.png)
+
+
+### Browser timings table
+
+`browserTimings` shows page load data collected in your users' browsers.
+
+[Set up your app for client-side telemetry](app-insights-javascript.md) in order to see these metrics. 
+
+The schema includes [metrics indicating the lengths of different stages of the page loading process](app-insights-javascript.md#page-load-performance). (They don’t indicate the length of time your users read a page.)  
+
+Show the popularities of different pages, and load times for each page:
+
+![Page load times in Analytics](./media/app-insights-analytics-tour/analytics-page-load.png)
+
+### Availbility results table
+
+`availabilityResults` shows the results of your [web tests](app-insights-monitor-web-app-availability.md). Each run of your tests from each test location is reported separately. 
+
+
+![Page load times in Analytics](./media/app-insights-analytics-tour/analytics-availability.png)
+
+### Dependencies table
+
+Contains results of calls that your app makes to databases and REST APIs, and other calls to TrackDependency().
+
+### Traces table
+
+Contains the telemetry sent by your app using TrackTrace(), or [other logging frameworks](app-insights-asp-net-trace-logs.md).
+
+## Dashboards
+
+You can pin your results to a dashboard in order to bring together all your most important charts and tables.
+
+* [Azure shared dashboard](app-insights-dashboards.md#share-dashboards): Click the pin icon. Before you do this, you must have a shared dashboard. In the Azure portal, open or create a dashboard and click Share.
+* [Power BI dashboard](app-insights-export-power-bi.md): Click Export, Power BI Query. An advantage of this alternative is that you can display your query alongside a other results from a very wide range of sources.
+
+
+## Next steps
+
+* [Analytics language reference](app-insights-analytics-reference.md)
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 

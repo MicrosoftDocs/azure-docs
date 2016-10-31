@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="10/24/2016"
    ms.author="christb"/>
 
 # Azure Reference Architectures
@@ -35,11 +35,10 @@ This series begins with recommended practices for optimal VM configuration and c
 - [Running a Windows VM on Azure](guidance-compute-single-vm.md)
 - [Running a Linux VM on Azure](guidance-compute-single-vm-linux.md)
 - [Running multiple VMs for scalability and availability](guidance-compute-multi-vm.md)
-- [Running VMs for an N-tier architecture](guidance-compute-3-tier-vm.md)
-- [Adding reliability to an N-tier architecture (Windows)](guidance-compute-n-tier-vm.md)
-- [Adding reliability to an N-tier architecture (Linux)](guidance-compute-n-tier-vm-linux.md)
-- [Running VMs in multiple regions for high availability (Windows)](guidance-compute-multiple-datacenters.md)
-- [Running VMs in multiple regions for high availability (Linux)](guidance-compute-multiple-datacenters-linux.md)
+- [Running Windows VMs for an N-tier architecture](guidance-compute-n-tier-vm.md)
+- [Running Linux VMs for an N-tier architecture](guidance-compute-n-tier-vm-linux.md)
+- [Running Windows VMs in multiple regions for high availability](guidance-compute-multiple-datacenters.md)
+- [Running Linux VMs in multiple regions for high availability](guidance-compute-multiple-datacenters-linux.md)
 
 ## Connecting your on-premises network to Azure
 
@@ -48,8 +47,22 @@ This series starts by demonstrating the ways to connect your existing network to
 - [Implementing a hybrid network architecture with Azure and on-premises VPN](guidance-hybrid-network-vpn.md)
 - [Implementing a hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
 - [Implementing a highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md)
+
+## Securing your hybrid network
+
+This series covers proven practices on creating DMZ in Azure to secure connections coming from your on-premises datacenter, and the Internet.
+
 - [Implementing a DMZ between Azure and your on-premises datacenter](guidance-iaas-ra-secure-vnet-hybrid.md)
 - [Implementing a DMZ between Azure and the Internet](guidance-iaas-ra-secure-vnet-dmz.md)
+
+## Providing Identity services
+
+This series starts by demonstrating how to use Azure Active Directory to provide user authentication in Azure. Then it expands to cover complex scenarios extending your ADDS infrastructure to Azure, and using ADFS for delegation.
+
+- [Implementing Azure Active Directory](./guidance-identity-aad.md)
+- [Extending Active Directory Directory Services (ADDS) to Azure](./guidance-identity-adds-extend-domain.md)
+- [Creating a Active Directory Directory Services (ADDS) resource forest in Azure](./guidance-identity-adds-resource-forest.md)
+- [Implementing Active Directory Federation Services (ADFS) in Azure](./guidance-identity-adfs.md)
 
 ## Architecting scalable web application using Azure PaaS
 

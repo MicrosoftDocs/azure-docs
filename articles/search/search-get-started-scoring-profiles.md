@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="08/04/2016" 
+	ms.date="10/17/2016" 
 	ms.author="heidist"/>
 
 # How to use scoring profiles in Azure Search

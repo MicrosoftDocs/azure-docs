@@ -31,13 +31,23 @@ Explore the growing collection of [Azure Stack GitHub Templates](https://github.
 
 ## Developer tools
 
-### Azure SDK and tools for Visual Studio
-Use the Azure SDK and tools for Visual Studio to quickly deploy applications and resources to Azure Stack.
-[Download SDK and Tools](http://go.microsoft.com/fwlink/?linkid=518003).
+
+### Use Visual Studio and Azure Stack TP2 on the MAS-CON01 virtual machine
+If you want to use Visual Studio on the console VM to work with Azure Stack templates, you must install the correct versions of the required tools. Use the following procedure to install the supported versions for TP2.
+
+1. Use Remote Desktop Connection to log in to the MAS-CON01 virtual machine with the azurestack\azurestackadmin credentials.
+2. Install and open Web Platform Installer.
+3. Find and install **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.5**.
+4. Using **Add/Remove Programs**, uninstall the **Microsoft Azure PowerShell (Sept)** that gets installed as part of the SDK.
+5. Open the Web Platform Installer.
+6. Find and install **Microsoft Azure PowerShell - Azure Stack Technical Preview 2**. 
+7. Restart the MAS-CON01 virtual machine.
+8. Use Remote Desktop Connection to log in to the MAS-CON01 virtual machine with the azurestack\azurestackadmin credentials.
+9. Open Visual Studio and validate that you can connect to the Azure Stack environment, get templates, and so on. 
 
 ### Azure PowerShell SDK
 Azure PowerShell is a module that provides cmdlets to manage Azure and Azure Stack with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure Stack platform.
-[Download Azure PowerShell SDK](http://aka.ms/azStackPsh)
+[Download Azure PowerShell SDK](http://aka.ms/azStackPsh) and [install PowerShell](azure-stack-connect-powershell.md).
 
 ### Azure cross platform command line interfaces
 Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure Stack.

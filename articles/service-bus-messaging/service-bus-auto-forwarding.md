@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Auto-forwarding Service Bus messaging entities | Microsoft Azure"
     description="How to chain a queue or subscription to another queue or topic."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" /> 
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
@@ -31,7 +31,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 The destination entity must exist at the time the source entity is created. If the destination entity does not exist, Service Bus returns an exception when asked to create the source entity.
 
-You can use auto-forwarding to scale out an individual topic. Service Bus limits the [number of subscriptions on a given topic](../service-bus/service-bus-quotas.md) to 2,000. You can accommodate additional subscriptions by creating second-level topics. Note that even if you are not bound by the Service Bus limitation on the number of subscriptions, adding a second level of topics can improve the overall throughput of your topic.
+You can use auto-forwarding to scale out an individual topic. Service Bus limits the [number of subscriptions on a given topic](service-bus-quotas.md) to 2,000. You can accommodate additional subscriptions by creating second-level topics. Note that even if you are not bound by the Service Bus limitation on the number of subscriptions, adding a second level of topics can improve the overall throughput of your topic.
 
 ![Auto-forwarding scenario][0]
 

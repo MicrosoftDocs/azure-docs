@@ -16,7 +16,7 @@
  ms.date="09/30/2016" 
  ms.author="juanpere"/>
 
-# Tutorial: How to do a firmware update
+# Tutorial: How to do a firmware update (preview)
 
 ## Introduction
 In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [cloud-to-device (C2D) methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and provides guidance and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the Intel Edison device sample.
@@ -37,7 +37,7 @@ To complete this tutorial, you need the following:
 
 Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 
-An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
+An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 Follow the [Get started with device management](iot-hub-device-management-get-started.md) article to create your IoT hub and get your connection string.
 

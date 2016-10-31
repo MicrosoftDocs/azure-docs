@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/27/2016" 
+	ms.date="10/27/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB APIs and SDKs 
@@ -39,12 +39,13 @@
 
 ## Release Notes
 
-> [AZURE.IMPORTANT] You may receive System.NotSupportedException when querying partitioned collections. To avoid this error, uncheck the "Prefer 32-bit" option in your project properties window, on the Build tab.
+> [AZURE.IMPORTANT] Starting with version 1.9.2 release, you may receive System.NotSupportedException when querying partitioned collections. To avoid this error, ensure that your host process is 64-bit. For Executable projects, this can be done by unchecking the "Prefer 32-bit" option in the project properties window, on the Build tab.
 
 ### <a name="1.10.0"/>[1.10.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.10.0)
 
   - Added direct connectivity support for partitioned collections.
   - Improved performance for the Bounded Staleness consistency level.
+  - Added Polygon and LineString DataTypes while specifying collection indexing policy for geo-fencing spatial queries.
   - Added LINQ support for StringEnumConverter, IsoDateTimeConverter and UnixDateTimeConverter while translating predicates.
   - Various SDK bug fixes.
 

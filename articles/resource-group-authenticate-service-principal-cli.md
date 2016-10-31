@@ -75,7 +75,7 @@ Let's go through these steps.
      
      If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
     
-     For both options, the new service principal is returned. The Object Id is needed when granting permissions. The service principal name is needed when logging in.
+     For both options, the new service principal is returned. The **Object Id** is needed when granting permissions. The guid listed with the **Service Principal Names** is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the **Client ID**. 
     
         info:    Executing command ad sp create
         + Creating application exampleapp
@@ -117,9 +117,28 @@ Now, you need to log in as the application to perform operations.
 
         azure account show -s {subscription-id}
 
+2. If you need to retrieve the client id to use for logging in, use:
+
+        azure ad sp show -c exampleapp --json
+
+     The value to use for logging in is the guid listed in the service principal names.
+
+        [
+          {
+            "objectId": "ff863613-e5e2-4a6b-af07-fff6f2de3f4e",
+            "objectType": "ServicePrincipal",
+            "displayName": "exampleapp",
+            "appId": "7132aca4-1bdb-4238-ad81-996ff91d8db4",
+            "servicePrincipalNames": [
+              "https://www.contoso.org/example",
+              "7132aca4-1bdb-4238-ad81-996ff91d8db4"
+            ]
+          }
+        ]
+
 3. Log in as the service principal.
 
-        azure login -u https://www.contoso.org/example --service-principal --tenant {tenant-id}
+        azure login -u 7132aca4-1bdb-4238-ad81-996ff91d8db4 --service-principal --tenant {tenant-id}
 
     You are prompted for the password. Provide the password you specified when creating the AD application.
 
@@ -168,7 +187,7 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
   
      If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
     
-     For both options, the new service principal is returned. The Object Id is needed when granting permissions.
+     For both options, the new service principal is returned. The Object Id is needed when granting permissions. The guid listed with the **Service Principal Names** is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the **Client ID**. 
     
         info:    Executing command ad sp create
         - Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
@@ -215,9 +234,28 @@ Now, you need to log in as the application to perform operations.
 
         30996D9CE48A0B6E0CD49DBB9A48059BF9355851
 
+2. If you need to retrieve the client id to use for logging in, use:
+
+        azure ad sp show -c exampleapp
+
+     The value to use for logging in is the guid listed in the service principal names.
+
+        [
+          {
+            "objectId": "7dbc8265-51ed-4038-8e13-31948c7f4ce7",
+            "objectType": "ServicePrincipal",
+            "displayName": "exampleapp",
+            "appId": "4fd39843-c338-417d-b549-a545f584a745",
+            "servicePrincipalNames": [
+              "https://www.contoso.org/example",
+              "4fd39843-c338-417d-b549-a545f584a745"
+            ]
+          }
+        ]
+
 1. Log in as the service principal.
 
-        azure login --service-principal --tenant {tenant-id} -u https://www.contoso.org/example --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
+        azure login --service-principal --tenant {tenant-id} -u 4fd39843-c338-417d-b549-a545f584a745 --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
 
 You are now authenticated as the service principal for the Active Directory application that you created.
 

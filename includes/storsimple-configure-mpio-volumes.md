@@ -9,6 +9,3 @@
 	![MPIO Properties Discover Multi Paths](./media/storsimple-configure-mpio-volumes/IC741003.png)
 
 4. Reboot the server when prompted.
-5. In the **MPIO Properties** dialog box, click the **MPIO Devices** tab. Click **Add**.
-
-	![MPIO Properties MPIO Devices](./media/storsimple-configure-mpio-volumes/IC741004.png)

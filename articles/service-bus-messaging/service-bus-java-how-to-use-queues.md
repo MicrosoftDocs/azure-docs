@@ -1,14 +1,14 @@
 <properties
 	pageTitle="How to use Service Bus queues with Java | Microsoft Azure"
 	description="Learn how to use Service Bus queues in Azure. Code samples written in Java."
-	services="service-bus-messaging"
+	services="service-bus"
 	documentationCenter="java"
 	authors="sethmanheim"
 	manager="timlt"
 	/>
 
 <tags
-	ms.service="service-bus-messaging"
+	ms.service="service-bus"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"

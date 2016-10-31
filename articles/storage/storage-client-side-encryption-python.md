@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="09/20/2016"
-	ms.author="dineshm;robinsh"/>
+	ms.date="10/18/2016"
+	ms.author="dineshm"/>
 
 
 # Client-Side Encryption with Python for Microsoft Azure Storage

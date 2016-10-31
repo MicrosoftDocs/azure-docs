@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="09/25/2016"
+    ms.date="10/24/2016"
     ms.author="dhanyahk;markvi"/>
 
 # Azure Active Directory audit API reference
@@ -111,7 +111,7 @@ To specify the type of records you care about, you can build a filter statement 
 
 **Example**:
 
-	$filter=activityDate ge 2016-01-01T00:00:00Z and activityDate le 2016-01-02T00:00:00Z	
+	$filter=tdomain + 'activities/audit?api-version=beta&`$filter=eventTime gt ' + $7daysago	
 
 **Notes**:
 
@@ -177,7 +177,7 @@ case-insensitive
 
 **Example**:
 
-	$filter=target/name eq 'test' or contains(target/name, 'test') or startswith(target/name, 'test')	
+	$filter=targets/any(t: t/name eq 'some name')	
 
 **Notes**:
 
@@ -206,7 +206,7 @@ Case-insensitive
 
 **Example**:
 
-	$filter=target/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'	
+	$filter=targets/any(t: t/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba')	
 
 ----------
 

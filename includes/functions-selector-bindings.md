@@ -10,3 +10,4 @@
 - [Storage Blob](../articles/azure-functions/functions-bindings-storage-blob.md)
 - [Storage Table](../articles/azure-functions/functions-bindings-storage-table.md)
 - [Timer](../articles/azure-functions/functions-bindings-timer.md)
+- [Twilio](../articles/azure-functions/functions-bindings-twilio.md)

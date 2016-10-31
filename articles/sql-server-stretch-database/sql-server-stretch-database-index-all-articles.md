@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="DouglasL"
 	manager="jhubbard"
-	editor=""/>
+	editor="MightyPen"/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/21/2016"
+	ms.date="10/05/2016"
 	ms.author="DouglasL"/>
 
 

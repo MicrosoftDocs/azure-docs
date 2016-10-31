@@ -9,6 +9,15 @@ We use comment automation in pull request comments to allow contributors and aut
 |#hold-off | If you type **#hold-off** in a pull request comment, it removes the **ready-to-merge** label - in case you change your mind or make a mistake. In the private repo, this assigns the **do-not-merge** label. | Public and private |
 | #please-close	| Authors can type the **#please-close** comment in the comment stream of a pull request to close it if you decide not to have the changes merged. | Public |
 
+##Troubleshooting sign-offs in the public repo
+
+The public repo sign off automation is allows only the author to sign off. Some manual exception processing may be needed:
+
+- **Article authors**: To use the public repository comment automation, your actual GitHub account must EXACTLY match the GitHub account listed in the article metadata. The capitalization of your account matters. If you are blocked from signing off due to this problem, send mail to the azdocprs alias.
+
+- **Other employees**: If you are an employee who is signing off on behalf of the author and you are blocked by the automation, contact azdocprs with the pull request link. Indicate who you are -- PMs on the same product team, colleagues on the writing team, and writing team managers are considered trusted sources.
+
+
 
 ## Related
 

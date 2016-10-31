@@ -19,8 +19,8 @@
 
 # Prepare a CentOS-based virtual machine for Azure
 
-- [Prepare a CentOS 6.x virtual machine for Azure](#centos-6.x)
-- [Prepare a CentOS 7.0+ virtual machine for Azure](#centos-7.0+)
+- [Prepare a CentOS 6.x virtual machine for Azure](#centos-6x)
+- [Prepare a CentOS 7.0+ virtual machine for Azure](#centos-70)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 

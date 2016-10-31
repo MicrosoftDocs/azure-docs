@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/25/2016"
+ms.date="10/11/2016"
 ms.author="larryfr"/>
 
 #Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Overview | Microsoft Azure"
-	description="Overview of Azure AD Domain Services"
+	pageTitle="Overview of Azure Active Directory Domain Services | Microsoft Azure"
+	description="Overview of Azure Active Directory Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="10/07/2016"
 	ms.author="maheshu"/>
 
-# Azure AD Domain Services *(Preview)*
+# Azure AD Domain Services
 
 ## Overview
 Azure Infrastructure Services enable you to deploy a wide range of computing solutions in an agile manner. With Azure Virtual Machines, you can deploy nearly instantaneously and you pay only by the minute. Using support for Windows, Linux, SQL Server, Oracle, IBM, SAP, and BizTalk, you can deploy any workload, any language, on nearly any operating system. These benefits enable you to migrate legacy applications deployed on-premises to Azure, to save on operational expenses.
@@ -35,16 +35,16 @@ We designed Azure AD Domain Services to provide an easier alternative.
 
 
 ## Introducing Azure AD Domain Services
-Azure AD Domain Services provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication etc. that are fully compatible with Windows Server Active Directory. You can consume these domain services without the need for you to deploy, manage, and patch domain controllers in the cloud. Azure AD Domain Services integrates with your existing Azure AD tenant, thus making it possible for users to log in using their corporate credentials. Additionally, you can use existing groups and user accounts to secure access to resources, thus ensuring a smoother 'lift-and-shift' of on-premises resources to Azure Infrastructure Services.
+Azure AD Domain Services provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory. You can consume these domain services without the need for you to deploy, manage, and patch domain controllers in the cloud. Azure AD Domain Services integrates with your existing Azure AD tenant, thus making it possible for users to log in using their corporate credentials. Additionally, you can use existing groups and user accounts to secure access to resources, thus ensuring a smoother 'lift-and-shift' of on-premises resources to Azure Infrastructure Services.
 
 Azure AD Domain Services functionality works seamlessly regardless of whether your Azure AD tenant is cloud-only or synced with your on-premises Active Directory.
 
 ### Azure AD Domain Services for cloud-only organizations
-A cloud-only Azure AD tenant (often referred to as 'managed tenants') does not have any on-premises identity footprint. In other words, user accounts, their passwords, and group memberships are all native to the cloud - i.e. created and managed in Azure AD. Consider for a moment that Contoso is a cloud-only Azure AD tenant. As shown in the following illustration, Contoso's administrator has configured a virtual network in Azure Infrastructure Services. Applications and server workloads are deployed in this virtual network in Azure virtual machines. Since Contoso is a cloud-only tenant, all user identities, their credentials, and group memberships are created and managed in Azure AD.
+A cloud-only Azure AD tenant (often referred to as 'managed tenants') does not have any on-premises identity footprint. In other words, user accounts, their passwords, and group memberships are all native to the cloud - that is, created and managed in Azure AD. Consider for a moment that Contoso is a cloud-only Azure AD tenant. As shown in the following illustration, Contoso's administrator has configured a virtual network in Azure Infrastructure Services. Applications and server workloads are deployed in this virtual network in Azure virtual machines. Since Contoso is a cloud-only tenant, all user identities, their credentials, and group memberships are created and managed in Azure AD.
 
 ![Azure AD Domain Services Overview](./media/active-directory-domain-services-overview/aadds-overview.png)
 
-Contoso's IT administrator can enable Azure AD Domain Services for their Azure AD tenant and choose to make domain services available in this virtual network. Thereafter, Azure AD Domain Services provisions a managed domain and makes it available in the virtual network. All user accounts, group memberships, and user credentials available in Contoso's Azure AD tenant are also available in this newly created domain. This feature enables users in the organization to sign in to the domain using their corporate credentials - for example, when connecting remotely to domain-joined machines via Remote Desktop. Administrators can provision access to resources in the domain using existing group memberships. Applications deployed in virtual machines within the virtual network benefit from domain services such as domain join, LDAP read, LDAP bind, NTLM and Kerberos authentication, and Group Policy.
+Contoso's IT administrator can enable Azure AD Domain Services for their Azure AD tenant and choose to make domain services available in this virtual network. Thereafter, Azure AD Domain Services provisions a managed domain and makes it available in the virtual network. All user accounts, group memberships, and user credentials available in Contoso's Azure AD tenant are also available in this newly created domain. This feature enables users in the organization to sign in to the domain using their corporate credentials - for example, when connecting remotely to domain-joined machines via Remote Desktop. Administrators can provision access to resources in the domain using existing group memberships. Applications deployed in virtual machines on the virtual network can use features like domain join, LDAP read, LDAP bind, NTLM and Kerberos authentication, and Group Policy.
 
 A few salient aspects of the managed domain that is provisioned by Azure AD Domain Services are as follows:
 
@@ -62,12 +62,12 @@ Litware Corporation has deployed [Azure AD Connect](../active-directory/active-d
 
 ![Azure AD Domain Services for Litware Corporation](./media/active-directory-domain-services-overview/aadds-overview-synced-tenant.png)
 
-The preceding illustration shows how organizations with a hybrid IT infrastructure, such as Litware Corporation, can use Azure AD Domain Services. Litware's applications and server workloads that require domain services are deployed in a virtual network in Azure Infrastructure Services. Litware's IT administrator can enable Azure AD Domain Services for their Azure AD tenant and choose to make a managed domain available in this virtual network. Since Litware is an organization with a hybrid IT infrastructure, user accounts, groups, and credentials are synchronized to their Azure AD tenant from their on-premises directory. This feature enables users to sign in to the domain using their corporate credentials - for example, when connecting remotely to machines joined to the domain via Remote Desktop. Administrators can provision access to resources in the domain using existing group memberships. Applications deployed in virtual machines within the virtual network benefit from domain services such as domain join, LDAP read, LDAP bind, NTLM and Kerberos authentication, Group Policy etc.
+The preceding illustration shows how organizations with a hybrid IT infrastructure, such as Litware Corporation, can use Azure AD Domain Services. Litware's applications and server workloads that require domain services are deployed in a virtual network in Azure Infrastructure Services. Litware's IT administrator can enable Azure AD Domain Services for their Azure AD tenant and choose to make a managed domain available in this virtual network. Since Litware is an organization with a hybrid IT infrastructure, user accounts, groups, and credentials are synchronized to their Azure AD tenant from their on-premises directory. This feature enables users to sign in to the domain using their corporate credentials - for example, when connecting remotely to machines joined to the domain via Remote Desktop. Administrators can provision access to resources in the domain using existing group memberships. Applications deployed in virtual machines on the virtual network can use features like domain join, LDAP read, LDAP bind, NTLM and Kerberos authentication, and Group Policy.
 
 A few salient aspects of the managed domain that is provisioned by Azure AD Domain Services are as follows:
 
 - The managed domain is a stand-alone domain. It is not an extension of Litware's on-premises domain.
-- Litware's IT administrator does not need to manage, patch or monitor this domain or any domain controllers for this managed domain.
+- Litware's IT administrator does not need to manage, patch, or monitor domain controllers for this managed domain.
 - There is no need to manage AD replication to this domain. User accounts, group memberships, and credentials from Litware's on-premises directory are synchronized to Azure AD via Azure AD Connect. These user accounts, group memberships, and credentials are automatically available within the managed domain.
 - Since the domain is managed by Azure AD Domain Services, Litware's IT administrator does not have Domain Administrator or Enterprise Administrator privileges on this domain.
 

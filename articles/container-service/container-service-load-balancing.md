@@ -122,7 +122,7 @@ dcos marathon app add hello-web.json
 
 ## Azure Load Balancer
 
-By default, Azure Load Balancer exposes ports 80, 8080, and 443. If you're using one of these three ports (as we do in the above example), then there is nothing you need to do. You should be able to hit your agent load balancer's FQDN--and each time you refresh, you'll hit one of your three web servers in a round-robin fashion. However, if you use a different port, you need to add a round-robin rule and a probe on the load balancer for the port that you used. You can do this from the [Azure CLI](../xplat-cli-azure-resource-manager.md), with the commands `azure lb rule create` and `azure lb probe create`. You can also do this using the Azure Portal.
+By default, Azure Load Balancer exposes ports 80, 8080, and 443. If you're using one of these three ports (as we do in the above example), then there is nothing you need to do. You should be able to hit your agent load balancer's FQDN--and each time you refresh, you'll hit one of your three web servers in a round-robin fashion. However, if you use a different port, you need to add a round-robin rule and a probe on the load balancer for the port that you used. You can do this from the [Azure CLI](../xplat-cli-azure-resource-manager.md), with the commands `azure network lb rule create` and `azure network lb probe create`. You can also do this using the Azure Portal.
 
 
 ## Additional scenarios

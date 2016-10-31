@@ -3,7 +3,7 @@
 	description="Learn how to use Mobile Apps in Azure App Service to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
 	services="app-service\mobile"
 	documentationCenter="android"
-	authors="yuaxu"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 
@@ -32,11 +32,11 @@ In this tutorial, you add authentication to the todolist quickstart project on A
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-+ In Android Studio, open the project that you created when you completed the tutorial [Get started with Mobile Apps], then from the **Run** menu click **Run app** and verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
++ In Android Studio, open the project the projected you completed with the tutorial [Get started with Mobile Apps]. From the **Run** menu click **Run app** and verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-	 This happens because the app attempts to access the backend as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+	 This exception happens because the app attempts to access the backend as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
-Next, you will update the app to authenticate users before requesting resources from the Mobile App backend.
+Next, you update the app to authenticate users before requesting resources from the Mobile App backend.
 
 ## Add authentication to the app
 
@@ -51,10 +51,10 @@ Next, you will update the app to authenticate users before requesting resources 
 Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
 
 + [Add push notifications to your Android app](app-service-mobile-android-get-started-push.md)
-  Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
+  Learn how to configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
 
 + [Enable offline sync for your Android app](app-service-mobile-android-get-started-offline-data.md)
-  Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
+  Learn how to add offline support your app using a Mobile App backend. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 
 

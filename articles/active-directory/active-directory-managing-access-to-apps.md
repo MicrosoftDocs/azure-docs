@@ -3,7 +3,7 @@
   description="Describes how Azure Active Directory enables organizations to specify the apps to which each user has access."
   services="active-directory"
   documentationCenter=""
-  authors="msStevenPo"
+  authors="femila"
   manager="femila"
   editor=""/>
 
@@ -13,8 +13,8 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="02/26/2016"
-  ms.author="stevenpo"/>
+  ms.date="10/13/2016"
+  ms.author="femila"/>
 
 
 # Managing access to apps

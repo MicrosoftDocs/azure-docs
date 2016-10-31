@@ -3,7 +3,7 @@
    description="Specification of the currently supported data sources."
    services="data-catalog"
    documentationCenter=""
-   authors="trhabe"
+   authors="steelanddata"
    manager="jstrauss"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="09/15/2016"
-   ms.author="trhabe"/>
+   ms.author="maroche"/>
 
 # Azure Data Catalog supported data sources
 

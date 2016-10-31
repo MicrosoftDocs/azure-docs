@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/10/2016"
 	ms.author="helaw"/>
 
 # Deploy templates in Azure Stack using PowerShell
@@ -35,23 +35,21 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 		$myNum = "001" #Modify this per deployment
 		$RGName = "myRG$myNum"
 		$myLocation = "local"
-		$myBlobStorageEndpoint = "blob.azurestack.local"
 
 		# Create Resource Group for Template Deployment
 		New-AzureRmResourceGroup -Name $RGName -Location $myLocation
 
 		# Deploy Simple IaaS Template
 		New-AzureRmResourceGroupDeployment `
-		    -Name "myDeployment$myNum" `
+		    -Name myDeployment$myNum `
 		    -ResourceGroupName $RGName `
-		    -TemplateFile "c:\templates\azuredeploy-101-simple-windows-vm.json" `
-		    -blobStorageEndpoint $myBlobStorageEndpoint `
-		    -newStorageAccountName "mystorage$myNum" `
-		    -dnsNameForPublicIP "mydns$myNum" `
-		    -adminUsername "username" `
-		    -adminPassword ("password" | ConvertTo-SecureString -AsPlainText -Force) `
-		    -vmName "myVM$myNum" `
-		    -windowsOSVersion "2012-R2-Datacenter"
+		    -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
+		    -NewStorageAccountName mystorage$myNum `
+		    -DnsNameForPublicIP mydns$myNum `
+		    -AdminUsername <username> `
+		    -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
+		    -VmName myVM$myNum `
+		    -WindowsOSVersion 2012-R2-Datacenter
     ```
 
 3.  Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).

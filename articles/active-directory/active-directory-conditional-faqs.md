@@ -3,8 +3,8 @@
 	description="Frequently asked questions about conditional access "
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="swadhwa"
+	authors="MarkusVi"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/26/2016"
+	ms.date="10/20/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory Conditional Access FAQ

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2016"
+	ms.date="10/24/2016"
 	ms.author="juliako"/>
 
 
-# Create an Azure Media Services account with the Azure portal
+# Create an Azure Media Services account using the Azure portal
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-create-account.md)
@@ -41,14 +41,16 @@ Accessing Media Services requires two associated accounts:
 	AMS is now also available in the following data centers: Brazil South, India West, India South, and India Central. You can now use the Azure  portal to create Media Service accounts and perform various tasks described here. However, Live Encoding is not enabled in these data centers. Further, not all types of Encoding Reserved Units are available in these data centers.
 	
 	- Brazil South: Only Standard and Basic Encoding Reserved Units are available.
-	- India West, India South: Provide storage blobs for media files; storage accounts must be located in the same geographic region as the Media Services account. When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region. If you delete a Media Services account, the blobs in your related storage account are not deleted.
+	- India West, India South: 
+
+- An Azure storage account. Storage accounts must be located in the same geographic region as the Media Services account. When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region. If you delete a Media Services account, the blobs in your related storage account are not deleted.
 
 ## Create an AMS account
 
 The steps in this section show how to create an AMS account.
 
 1. Log in at the [Azure portal](https://portal.azure.com/).
-2. Click **+New** > **Media + CDN** > **Media Services**.
+2. Click **+New** > **Web + Mobile** > **Media Services**.
 
 	![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
@@ -59,7 +61,7 @@ The steps in this section show how to create an AMS account.
 	1. In **Account Name**, enter the name of the new AMS account. A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.
 	2. In Subscription, select among the different Azure subscriptions that you have access to.
 	
-	2. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](resource-group-overview.md#resource-groups).
+	2. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](azure-resource-manager/resource-group-overview.md#resource-groups).
 	3. In **Location**,  select the geographic region that will be used to store the media and metadata records for your Media Services account. This  region will be used to process and stream your media. Only the available Media Services regions appear in the drop-down list box. 
 	
 	3. In **Storage Account**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Media Services accounts.

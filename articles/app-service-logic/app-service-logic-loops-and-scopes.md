@@ -112,7 +112,7 @@ SplitOn can be specified in code-view as the following example.  This recieves a
             "url": "http://getNewCustomers",
         },
         "recurrence": {
-            "frequencey": "Second",
+            "frequency": "Second",
             "interval": 15
         },
         "spliton": "@triggerBody()['rows']"

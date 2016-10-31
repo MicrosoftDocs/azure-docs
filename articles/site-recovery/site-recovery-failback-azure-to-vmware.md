@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="07/08/2016"
+   ms.date="10/05/2016"
    ms.author="ruturajd"/>
 
 # Fail back VMware virtual machines and physical servers to the on-premises site
@@ -146,7 +146,7 @@ If you have protected your machines as classic resources (that is the VM recover
 
 The master target server receives the failback data. A master target server is automatically installed on the on-premises management server but if you're failing back a lot of data you might need to set up an additional master target server. Do this as follows:
 
->[AZURE.NOTE] If you want to install a master target server on Linux, follow the instructions in the next procedure.
+>[AZURE.NOTE] If you want to install a master target server on Linux, follow the instructions in the next procedure. Make sure you only use CentOS 6.6 minimal operating system, for the MT OS.
 
 1. If you're installing the master target server on Windows, open the Quick Start page from the VM on which you're installing the master target server, and download the installation file for the Azure Site Recovery Unified Setup wizard.
 2. Run setup and in **Before you begin** select **Add additional process servers to scale out deployment**.
@@ -185,6 +185,7 @@ You’ll need to download and install some additional packages.
 	- # rpm –ivh kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm
 	- # wget [http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm](http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm)
 	- # rpm –ivh xfsprogs-3.1.1-16.el6.x86_64.rpm
+	- # yum install device-mapper-multipath   This is required to enable Multipath packages on the MT server.
 
 #### Apply custom changes
 
@@ -254,6 +255,8 @@ Once the reprotect completes, the VM will be replicating back to Azure and you c
 2. When you failback a Linux VM and run it on-premises, you will see that the Network Manager package is uninstalled from the machine. This is because when the VM is recovered in Azure, the Network Manager package is removed.
 3. When a VM is configured with Static IP address and is failed over to Azure, the IP address is acquired via DHCP. When you fail over back to On-prem, the VM continues to use DHCP to acquire the IP address. You will need to manually login into the machine and set the IP address back to Static address if required.
 4. If you are using either ESXi 5.5 free edition or vSphere 6 Hypervisor free edition, failover would succeed, but failback will not succeed. You will need to upgrade to either Evaluation License to enable failback.
+5. If CS is not reachable from the Process server, you can check connectivity from your process server to CS by - Telnet to the CS machine on port 443. You can also try to ping the CS from the PS machine. A PS server should also have a hearbeat when it is connected to the CS.
+6. If you are trying to failback to an alternate vCenter, make sure that your new vCenter is discovered, with the Master Target server also discovered. As a typical symptom, you will see the datastores are not accessible/visible in the Reprotect dialog.
 
 ## Failing back with ExpressRoute
 

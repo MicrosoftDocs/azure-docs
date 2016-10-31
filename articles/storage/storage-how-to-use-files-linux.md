@@ -12,8 +12,8 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="02/29/2016"
-      ms.author="minet;robinsh" />
+      ms.date="10/18/2016"
+      ms.author="minet" />
 
 
 # How to use Azure File Storage with Linux
@@ -132,6 +132,7 @@ See these links for more information about Azure File storage.
 ### Reference
 
 - [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+- [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md)
 
 ### Blog posts
 

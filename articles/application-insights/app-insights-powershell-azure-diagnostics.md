@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Using PowerShell to send Azure Diagnostics to Application Insights | Microsoft Azure"
+    pageTitle="Using PowerShell to setup Application Insights in an Azure  | Microsoft Azure"
     description="Automate configuring Azure Diagnostics to pipe to Application Insights."
     services="application-insights"
     documentationCenter=".net"
@@ -15,9 +15,34 @@
 	ms.date="11/17/2015"
     ms.author="awills"/>
 
-# Using PowerShell to send Azure Diagnostics to Application Insights
+# Using PowerShell to set up Application Insights for an Azure web app
 
 [Microsoft Azure](https://azure.com) can be [configured to send Azure Diagnostics](app-insights-azure-diagnostics.md) to [Visual Studio Application Insights](app-insights-overview.md). The diagnostics relate to Azure Cloud Services and Azure VMs. They complement the telemetry that you send from within the app using the Application Insights SDK. As part of automating the process of creating new resources in Azure, you can configure diagnostics using PowerShell.
+
+## Azure template
+
+If the web app is in Azure and you create your resources using an Azure Resource Manager template, you can configure Application Insights by adding this to the resources node:
+
+    {
+      resources: [
+        /* Create Application Insights resource */
+        {
+          "apiVersion": "2015-05-01",
+          "type": "microsoft.insights/components",
+          "name": "nameOfAIAppResource",
+          "location": "centralus",
+          "kind": "web",
+          "properties": { "ApplicationId": "nameOfAIAppResource" },
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', myWebAppName)]"
+          ]
+        }
+       ]
+     } 
+
+* `nameOfAIAppResource` - a name for the Application Insights resource
+* `myWebAppName` - the id of the web app
+
 
 ## Enable diagnostics extension as part of deploying a Cloud Service
 

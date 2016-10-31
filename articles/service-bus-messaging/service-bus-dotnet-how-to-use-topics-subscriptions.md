@@ -1,14 +1,14 @@
 <properties
     pageTitle="Use Service Bus topics with .NET | Microsoft Azure"
     description="Learn how to use Service Bus topics and subscriptions with .NET in Azure. Code samples are written for .NET applications."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
@@ -328,7 +328,7 @@ Now that you've learned the basics of Service Bus topics and subscriptions, foll
 -   [Topic filters sample][]
 -   API reference for [SqlFilter][].
 -   Build a working application that sends and receives messages to and from a Service Bus queue: [Service Bus brokered messaging .NET tutorial][].
--   Service Bus samples: Download from [Azure samples][] or see the [overview](../service-bus/service-bus-samples.md).
+-   Service Bus samples: Download from [Azure samples][] or see the [overview](service-bus-samples.md).
 
   [Azure portal]: https://portal.azure.com
 
