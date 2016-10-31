@@ -17,13 +17,7 @@
 
 # Relay FAQ
 
-This article answers some frequently-asked questions about Microsoft Azure Relay. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information. The following topics are included:
-
-- [General questions about Azure Relay](#general-questions)
-- [Pricing](#pricing)
-- [Quotas](#quotas)
-- [Subscription and namespace management](#subscription-and-namespace-management)
-- [Troubleshooting](#troubleshooting)
+This article answers some frequently-asked questions about Microsoft Azure Relay. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information.
 
 ## General questions
 
