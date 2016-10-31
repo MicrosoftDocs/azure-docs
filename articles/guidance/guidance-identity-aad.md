@@ -31,9 +31,9 @@ Azure provides two solutions for implementing directory and identity services in
 
 1. [Azure Active Directory (AAD)][azure-active-directory] is a cloud based multi-tenant directory and identity service. AAD provides an easy way to create an AD domain in the cloud and connect it to an on-premises AD domain. [Azure AD Connect][azure-ad-connect] integrates your on-premises directories with AAD. 
 
-Note that AAD doesn't require an existing on-premises forest, you can create an independent AAD forest. In this case, AAD acts as the primary source of all identity information rather than containing data replicated from an on-premises directory.
+    ote that AAD doesn't require an existing on-premises forest, you can create an independent AAD forest. In this case, AAD acts as the primary source of all identity information rather than containing data replicated from an on-premises directory.
 
->[AZURE.NOTE] Only AAD Premium editions support write-back of users' passwords, enabling your on-premises users to perform self-service password resets in the cloud. This is the only information that AAD synchronizes back to the on-premises directory. For more information about the different editions of AAD and their features, see [Azure Active Directory Editions][aad-editions].
+    >[AZURE.NOTE] Only AAD Premium editions support write-back of users' passwords, enabling your on-premises users to perform self-service password resets in the cloud. This is the only information that AAD synchronizes back to the on-premises directory. For more information about the different editions of AAD and their features, see [Azure Active Directory Editions][aad-editions].
 
 2. [AD DS can be deployed on an IaaS VM][ad-azure-guidelines], and the VM will function as a domain controller. You can then connect your existing on-premises AD infrastructure (including AD DS and AD FS) to this VM. This architecture is more common for scenarios in which the on-premises network and Azure virtual network are connected by a VPN and/or ExpressRoute connection. 
 
@@ -53,11 +53,11 @@ Typical use cases for this reference architecture include:
 
 The following diagram demonstrates the reference architecture discussed in this document. This document focuses on the interaction between the AAD tenant and the Azure Vnet. For more information on the web, business, and data tiers,  see [Running VMs for an N-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure]:
 
-> [AZURE.NOTE] For simplicity, this diagram only shows the connections directly related to AAD, and does not depict web browser request redirects or other protocol related traffic that may occur as part of the authentication and identity federation process. For example, a user (on-premises or remote) typically accesses a web app through a browser, and the web app may transparently redirect the web browser to authenticate the request through AAD. Once authenticated, the request can be passed back to the web app together with the appropriate identity information.
-
 > A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Identity - AAD" page.
 
 [![0]][0]
+
+> [AZURE.NOTE] For simplicity, this diagram only shows the connections directly related to AAD, and does not depict web browser request redirects or other protocol related traffic that may occur as part of the authentication and identity federation process. For example, a user (on-premises or remote) typically accesses a web app through a browser, and the web app may transparently redirect the web browser to authenticate the request through AAD. Once authenticated, the request can be passed back to the web app together with the appropriate identity information.
 
 - **Azure Active Directory tenant**. This is an instance of AAD created by your organization. It acts as a simple directory service for cloud applications by storing objects copied from the on-premises AD and provides identity services.
 
@@ -71,15 +71,7 @@ The following diagram demonstrates the reference architecture discussed in this 
 
 ## Recommendations
 
-This section summarizes the following recommendations for implementing AAD:
-
-- AD Connect
-- Security
-- Topology
-- User authentication
-- Application proxy
-- Object synchronization
-- Monitoring
+Azure offers many different resources and resource types, so this reference architecture can be provisioned many different ways. We have provided an Azure Resource Manager template to install the reference architecture that follows these recommendations. If you choose to create your own reference architecture follow these recommendations unless you have a specific requirement that a recommendation does not fit.
 
 ### Azure AD Connect sync service recommendations
 
@@ -197,7 +189,7 @@ For the Azure AD Connect sync server, you should determine how many objects you 
 
 The AAD service is designed to provide high availability and there are no user-configurable availability options. It is geo-distributed and runs in multiple data centers spread around the world with automated failover. If a data center becomes unavailable, AAD ensures that your directory data is available for instance access in at least two more regionally dispersed data centers.
 
-    >[AZURE.NOTE] The SLA for AAD Basic and Premium services guarantees at least 99.9% availability. There is no SLA for the Free tier of AAD. For more information, see [SLA for Azure Active Directory][sla-aad].
+>[AZURE.NOTE] The SLA for AAD Basic and Premium services guarantees at least 99.9% availability. There is no SLA for the Free tier of AAD. For more information, see [SLA for Azure Active Directory][sla-aad].
 
 Consider provisioning a second instance of Azure AD Connect sync server in staging mode to increase availability, as discussed in the [topology considerations](#topology-considerations) section. 
 
