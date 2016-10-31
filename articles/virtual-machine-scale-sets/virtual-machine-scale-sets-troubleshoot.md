@@ -14,19 +14,19 @@
 	ms.tgt_pltfrm="windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="10/28/2016"
 	ms.author="guybo"/>
 
 # Troubleshooting autoscale with Virtual Machine Scale Sets
 
-**Problem** – you’ve created an autoscaling infrastructure in Azure Resource Manager using VM Scale Sets –  for example by deploying a template like this: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale  – you have your scale rules defined and it works great, except that no matter how much load you put on the VMs, it won’t autoscale.
+**Problem** – you’ve created an autoscaling infrastructure in Azure Resource Manager using VM Scale Sets –  for example by deploying a template like this: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale  – you have your scale rules defined and it works great, except that no matter how much load you put on the VMs, it won’t autoscale.
 
 ## Troubleshooting steps
 
 Some things to consider include:
 
 - How many cores does each VM have, and are you loading each core?
- The example Azure Quickstart template above has a do_work.php script, which loads a single core. If you’re using a VM bigger than Standard_A1 then you’d need to run this load multiple times. Check how many cores your VMs by reviewing [Sizes for Windows virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md)
+ The example Azure Quickstart template above has a do_work.php script, which loads a single core. If you’re using a VM bigger than a single core VM size like Standard_A1 or D1 then you’d need to run this load multiple times. Check how many cores your VMs by reviewing [Sizes for Windows virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md)
 
 - How many VMs in the VM Scale Set, are you doing work on each one?
 
@@ -44,7 +44,7 @@ Some things to consider include:
 
 - Did you write your own JSON template?
 
-    It is easy to make mistakes, so start with a template like the one above which is proven to work, and make small incremental changes. The template needs to correlate a Diagnostics extension storage account, the scale set, and the Microsoft.Insights resource, and correctly reference the performance data metric name, which differs between Windows and Linux.
+    It is easy to make mistakes, so start with a template like the one above which is proven to work, and make small incremental changes. 
 
 - Can you manually scale in or out?
 
@@ -56,7 +56,19 @@ Some things to consider include:
 
 - Is the Diagnostic extension working and emitting performance data?
 
-    Autoscale in Azure Resource Manager works by means of a VM extension called the Diagnostics Extension (divided into Linux Diagnostics extension and Windows). It emits performance data to a storage account you define in the template. This data is then aggregated by the Azure Monitor service.
+    __Update:__ Azure autoscale has been enhanced to use a host based metrics pipeline which no longer requires a diagnostics extension to be installed. This means the next few paragraphs no longer apply if you create an autoscaling application using the new pipeline. Examples of Azure templates which have been converted to use the host pipeline include: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale, https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale. 
+
+    Using host based metrics for autoscale is better for the following reasons:
+
+    - Fewer moving parts as no diagnostics extensions need to be installed.
+    - Simpler templates. Just add insights autoscale rules to an existing scale set template.
+    - More reliable reporting and faster launching of new VMs.
+
+    The only reasons you might want to keep using a diagnostic extension would be if you need memory diagnostics reporting/scaling. Host based metrics doesn't report memory.
+
+    With that in mind, only follow the rest of this article if you are still using diagnostic extensions for your autoscaling.
+
+    Autoscale in Azure Resource Manager can work (but no longer has to) by means of a VM extension called the Diagnostics Extension. It emits performance data to a storage account you define in the template. This data is then aggregated by the Azure Monitor service.
 
     If the Insights service can’t read data from the VMs, it is supposed to send you an email – for example if the VMs were down, so check your email (the one you specified when creating the Azure account).
 
@@ -70,7 +82,7 @@ Some things to consider include:
 
     If the data is not there, then it implies the problem is with the diagnostic extension running in the VMs. If the data is there, it implies there is either a problem with your scale rules, or with the Insights service. Check [Azure Status](https://azure.microsoft.com/status/).
 
-    Once you’ve been through these steps, you could try the forums on [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp), or [Stack overflow](http://stackoverflow.com/questions/tagged/azure), or log a support call. Be prepared to share the template and a view of the performance data.
+    Once you’ve been through these steps, if you are still having autoscale problems you could try the forums on [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp), or [Stack overflow](http://stackoverflow.com/questions/tagged/azure), or log a support call. Be prepared to share the template and a view of the performance data.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
 [explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
