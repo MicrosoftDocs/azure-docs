@@ -2,7 +2,7 @@
 
 #Metadata for Azure technical articles
 
-For metadata information, please see the [cross-product metadata guidelines for C+E product documenation](https://go.microsoft.com/fwlink/?linkid=833529).
+For metadata information, please see the [cross-product metadata guidelines for C+E product documenation](https://go.microsoft.com/fwlink/?linkid=833529) (Internal link only).
 
 
 <!--
