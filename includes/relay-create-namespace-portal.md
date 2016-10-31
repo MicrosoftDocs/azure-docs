@@ -6,7 +6,7 @@
 
 5. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
 
-6. In the **Resource group** field, choose an existing resource group in which the namespace will live, or create a new one.      
+6. In the **[Resource group](../articles/azure-portal/resource-group-portal.md)** field, choose an existing resource group in which the namespace will live, or create a new one.      
 
 7. In **Location**, choose the country or region in which your namespace should be hosted.
 
