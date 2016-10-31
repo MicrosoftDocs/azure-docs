@@ -18,7 +18,7 @@
 
 # My first PowerShell Workflow runbook
 
-> [AZURE.SELECTOR] - [Graphical](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell Workflow](automation-first-runbook-textual.md)
+> [AZURE.SELECTOR] - [Graphical](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-powershell.md) - [PowerShell Workflow](automation-first-runbook-textual.md)
 
 This tutorial walks you through the creation of a [PowerShell Workflow runbook](automation-runbook-types.md#powerShell-workflow-runbooks) in Azure Automation. We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job. Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. We'll then make the runbook more robust by adding runbook parameters.
 
@@ -46,7 +46,7 @@ We'll start by creating a simple runbook that outputs the text *Hello World*.
 
 You can either type code directly into the runbook, or you can select cmdlets, runbooks, and assets from the Library control and have them added to the runbook with any related parameters. For this walkthrough, we'll type directly into the runbook.
 
-1.	Our runbook is currently empty with only the required *workflow* keyword, the name of our runbook, and the braces that will encase the entire workflow. 
+1.	Our runbook is currently empty with only the required *workflow* keyword, the name of our runbook, and the braces that will encase the entire workflow.
 
     ```
     Workflow MyFirstRunbook-Workflow
@@ -54,8 +54,8 @@ You can either type code directly into the runbook, or you can select cmdlets, r
     }
     ```
 
-2.	Type *Write-Output "Hello World."* between the braces. 
-   
+2.	Type *Write-Output "Hello World."* between the braces.
+
     ```
     Workflow MyFirstRunbook-Workflow
     {
@@ -104,7 +104,7 @@ We've tested and published our runbook, but so far it doesn't do anything useful
 4.	Type or copy and paste the following code that will handle the authentication with your Automation Run As account:
 
     ```
-    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     ```
@@ -125,7 +125,7 @@ Now that our runbook is authenticating to our Azure subscription, we can manage 
       Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
       Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
     }
-    ``` 
+    ```
 
 2.	Save the runbook and then click **Test pane** so that we can test it.
 3.	Click **Start** to start the test. Once it completes, check that the virtual machine was started.
@@ -134,7 +134,7 @@ Now that our runbook is authenticating to our Azure subscription, we can manage 
 
 Our runbook currently starts the virtual machine that we hardcoded in the runbook, but it would be more useful if we could specify the virtual machine when the runbook is started. We will now add input parameters to the runbook to provide that functionality.
 
-1.	Add parameters for *VMName* and *ResourceGroupName* to the runbook and use these variables with the **Start-AzureRmVM** cmdlet as in the example below. 
+1.	Add parameters for *VMName* and *ResourceGroupName* to the runbook and use these variables with the **Start-AzureRmVM** cmdlet as in the example below.
 
     ```
     workflow MyFirstRunbook-Workflow
@@ -143,7 +143,7 @@ Our runbook currently starts the virtual machine that we hardcoded in the runboo
         [string]$VMName,
         [string]$ResourceGroupName
        )  
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
     }
