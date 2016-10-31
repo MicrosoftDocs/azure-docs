@@ -67,7 +67,7 @@ You must implement the **IAuthenticate** interface for each platform supported b
 	        Task<bool> Authenticate();
 	    }
 
-3. Add the following static members to the **App** class to initialize the interface with a platform specific implementation.
+3. Add the following static members to the **App** class to initialize the interface with a platform-specific implementation.
 
 	    public static IAuthenticate Authenticator { get; private set; }
 
@@ -187,7 +187,7 @@ This section shows how to implement the **IAuthenticate** interface in the Andro
 
 	This makes sure that the authenticator is initialized before the app loads.
 
-7. Rebuild the app, run it, then sign-in with the authentication provider you chose and verify you are able to access data as an authenticated user.
+7. Rebuild the app, run it, then sign in with the authentication provider you chose and verify you are able to access data as an authenticated user.
 
 ## Add authentication to the iOS app
 
