@@ -18,7 +18,7 @@
 
 # Use the Azure Import/Export service for offline copy of data to Data Lake Store
 
-In this article, you'll learn how to copy huge data sets (>200 GB) into an Azure Data Lake Store by using offline copy methods, like the [Azure Import/Export service](../storage/storage-import-export-service.md). Specifically, the file used as an example in this article is 339,420,860,416 bytes, or about 319 GB on disk. Let's call this file 319GB.tsv.
+eIn this article, you'll learn how to copy huge data sets (>200 GB) into an Azure Data Lake Store by using offline copy methods, like the [Azure Import/Export service](../storage/storage-import-export-service.md). Specifically, the file used as an example in this article is 339,420,860,416 bytes, or about 319 GB on disk. Let's call this file 319GB.tsv.
 
 The Azure Import/Export service helps you to transfer large amounts of data more securely to Azure Blob storage by shipping hard disk drives to an Azure datacenter.
 
@@ -28,7 +28,7 @@ Before you begin, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- **An Azure Storage account**.
+r- **An Azure storage account**.
 
 - **An Azure Data Lake Analytics account (optional)**. For instructions on how to create this account, see [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
@@ -47,7 +47,7 @@ h    319GB.tsv-part-aa
 
     319GB.tsv-part-ac
 
-    319GB.tsv-part-ad
+e    319GB.tsv-part-ad
 
 ## Get disks ready with data
 
@@ -55,7 +55,7 @@ Follow the instructions in [Using the Azure Import/Export service](../storage/st
 
 1. Procure a hard disk that meets the requirement to be used for the Azure Import/Export service.
 
-2. Identify an Azure Storage account where the data will be copied once it is shipped to the Azure datacenter.
+2. Identify an Azure storage account where the data will be copied once it is shipped to the Azure datacenter.
 
 3. Use the [Azure Import/Export Tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), a command line utility. Here's a sample snippet showing how to use the tool.
 
@@ -64,7 +64,7 @@ Follow the instructions in [Using the Azure Import/Export service](../storage/st
     ````
     See [Using the Azure Import/Export service](../storage/storage-import-export-service.md) for more sample snippets.
 
-4. The above command creates a journal file at the specified location. Use this journal file to create an import job from the [Azure classic portal](https://manage.windowsazure.com).
+4. The preceding command creates a journal file at the specified location. Use this journal file to create an import job from the [Azure classic portal](https://manage.windowsazure.com).
 
 ## Create an import job
 
