@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/25/2016" 
+	ms.date="10/25/2016"
 	ms.author="juliako"/>
 
 # Azure Media Services error codes
 
 When using Microsoft Azure Media Services, you may receive HTTP error codes from the service depending on issues such as authentication tokens expiring to actions that are not supported in Media Services. The following is a list of **HTTP error codes** that may be returned by Media Services and the possible causes for them.  
-  
+
 ## 400 Bad Request
 
 The request contains invalid information and is rejected due to one of the following reasons:
 
 - An unsupported API version is specified. For the most current version, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
-- The API version of Media Services is not specified. For information on how to specify the API version, see [Connecting to Media Services with the Media Services REST API](media-services-rest-connect-programmatically.md). 
-   
+- The API version of Media Services is not specified. For information on how to specify the API version, see [Connecting to Media Services with the Media Services REST API](media-services-rest-connect-programmatically.md).
+
 	>[AZURE.NOTE] If you are using the .NET or Java SDKs to connect to Media Services, the API version is specified for you whenever you try and perform some action against Media Services.
 - An undefined property has been specified. The property name is in the error message. Only those properties that are members of a given entity can be specified. See [Azure Media Services REST API Reference](http://msdn.microsoft.com/library/azure/hh973617.aspx) for a list of entities and their properties.
 - An invalid property value has been specified. The property name is in the error message. See the previous link for valid property types and their values.
@@ -35,7 +35,7 @@ The request contains invalid information and is rejected due to one of the follo
 - An attempt was made to update a WriteOnce property.
 - An attempt was made to create a Job that has an input Asset with a primary AssetFile that was not specified or could not be determined.
 - An attempt was made to update a SAS Locator. SAS locators can only be created or deleted. Streaming locators can be updated. For more information, see [Locators](http://msdn.microsoft.com/library/azure/hh974308.aspx).
-- An unsupported operation or query was submitted. 
+- An unsupported operation or query was submitted.
 
 ## 401 Unauthorized
 
@@ -43,7 +43,7 @@ The request could not be authenticated (before it can be authorized) due to one 
 
 - Missing authentication header.
 - Bad authentication header value.
-	- The token has expired. If using the REST APIs directly, see [Connecting to Media Services with the Media Services REST API](media-services-rest-connect_programmatically.md) to learn how to generate a new authentication token. If you are using the .NET or Java SDKs, create a CloudMediaContext or MediaContract object to generate the token. For more information on how to do this, see [Connecting to Media Services with the Media Services SDK for .NET](media-services-dotnet-connect-programmatically.md).
+	- The token has expired. If using the REST APIs directly, see [Connecting to Media Services with the Media Services REST API](media-services-rest-connect-programmatically.md) to learn how to generate a new authentication token. If you are using the .NET or Java SDKs, create a CloudMediaContext or MediaContract object to generate the token. For more information on how to do this, see [Connecting to Media Services with the Media Services SDK for .NET](media-services-dotnet-connect-programmatically.md).
 	- The token contains an invalid signature.</li></ul></li></ul>
 
 ## 403 Forbidden
@@ -92,7 +92,7 @@ During the processing of the request, Media Services encounters some error that 
 
 - Creating an Asset or Job fails because the Media Services account's service quota information is temporarily unavailable.
 - Creating an Asset or IngestManifest blob storage container fails because the account's storage account information is temporarily unavailable.
-- Other unexpected error. 
+- Other unexpected error.
 
 ## 503 Service Unavailable
 
@@ -106,10 +106,10 @@ Possible status descriptions are:
 - "Server is busy. More than {0} requests per second can be throttled."
 - "Server is busy. More than {0} requests within {1} seconds can be throttled."
 
-To handle this error, we recommend using exponential back-off retry logic. That means using progressively longer waits between retries for consecutive error responses.  For more information, see [Transient Fault Handling Application Block](https://msdn.microsoft.com/library/hh680905.aspx). 
+To handle this error, we recommend using exponential back-off retry logic. That means using progressively longer waits between retries for consecutive error responses.  For more information, see [Transient Fault Handling Application Block](https://msdn.microsoft.com/library/hh680905.aspx).
 
 >[AZURE.NOTE]If you are using [Azure Media Services SDK for .Net](https://github.com/Azure/azure-sdk-for-media-services/tree/master), the retry logic for the 503 error has been implemented by the SDK.  
-  
+
 ## See Also  
 
 [Media Services Management Error Codes](http://msdn.microsoft.com/library/windowsazure/dn167016.aspx)

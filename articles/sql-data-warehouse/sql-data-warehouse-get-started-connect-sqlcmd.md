@@ -23,6 +23,7 @@
 - [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+- [SSMS](sql-data-warehouse-query-ssms.md)
 
 This walkthrough uses the [sqlcmd][] command-line utility to query an Azure SQL Data Warehouse.  
 
