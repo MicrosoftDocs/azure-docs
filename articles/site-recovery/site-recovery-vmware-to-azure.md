@@ -23,7 +23,9 @@
 - [Azure classic](site-recovery-vmware-to-azure-classic.md)
 - [Azure classic (legacy)](site-recovery-vmware-to-azure-classic-legacy.md)
 
-Welcome to the Azure Site Recovery service! Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy, by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md).
+Welcome to the Azure Site Recovery service!
+
+Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy, by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md).
 
 This article describes how to replicate on-premises VMware virtual machines or Windows/Linux physical servers to Azure, using Azure Site Recovery in the Azure portal.
 
@@ -31,12 +33,13 @@ This article describes how to replicate on-premises VMware virtual machines or W
 ## Quick read
 
 For a full deployment, we strongly recommend you follow the steps in the article. But if you're short of time, here's a quick summary:
-
+**Question** | **Answer**
+--- | ---
 **What does the article do?** | Replicate VMware VMs or physical servers (Windows/Linux) to Azure using the Azure portal  
 **What do I need on-premises?** | On-premises machine running configuration server, process server, master target server. Configuration server must have an internet connection, and allow access directly or via proxy to specific URLs. [Full details](#configuration-server-or-additional-process-server-prerequisites). 
 **What do I need in Azure?** | Azure account; Recovery Services vault; LRS or GRS storage account in vault region; premium or standard storage account, Azure virtual network in vault region. [Full details](#azure-prerequisites).
 **Any Azure limitations?** | If you use GRS you also need an LRS account for logging; Storage accounts created in the Azure portal can't be moved across resource groups. Replication to premium storage accounts in Central India and South India isn't currently supported.
-**What Windows VMware VMs or physical servers can I replicate? ** | Windows | 64-bit Windows: Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1. [Full details](#protected-machine-prerequisites).
+**What Windows VMware VMs or physical servers can I replicate?** | Windows | 64-bit Windows: Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1. [Full details](#protected-machine-prerequisites).
 **What Linux VMware VMs or physical servers can I replicate?** | Red Hat Enterprise Linux 6.7, 7.1, 7.2<br/><br/> CentOS 6.5, 6.6, 6.7, 7.0, 7.1, 7.2<br/><br/> Oracle Enterprise Linux 6.4, 6.5, running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)<br/><br/> SUSE Linux Enterprise Server 11 SP3. [Full details](#protected-machine-prerequisites).
 **Anything need to be installed on replicated machines?** | The mobility service agent. Install manually or push install from the process server. [Full details](#install-the-mobility-service).
 **Anything I should know about replication?** | Replicated machines must conform with Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements). Can't replicate VMs with encrypted disks, shared disk guest clusters aren't supported. You can exclude specific basic disks from replication, but not OS or dynamic disks. For Windows machines, the OS disk should be on C drive, and not be dynamic.[Read more](#protected-machine-prerequisites). 
@@ -53,7 +56,8 @@ Site Recovery in the Azure portal provides a number of new features:
 
 - The Azure Backup and Azure Site Recovery services are combined into a single Recovery Services vault, so that you can set up and manage business continuity and disaster recovery (BCDR) from a single location. In the unified dashboard, you can monitor and manage operations across your on-premises sites and the Azure public cloud.
 - Users with Azure subscriptions provisioned with the Cloud Solution Provider (CSP) program can now manage Site Recovery operations in the Azure portal.
-- Site Recovery in the Azure portal can replicate machines to ARM storage accounts. At failover, Site Recovery creates Resource Manager-based VMs in Azure.
+- Site Recovery in the Azure portal can replicate machines to 
+storage accounts. At failover, Site Recovery creates Resource Manager-based VMs in Azure.
 - Site Recovery continues to support replication to classic storage accounts. At failover, Site Recovery creates VMs using the classic model.
 
 After reading this article post any comments at the bottom in the Disqus comments. Ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -132,16 +136,16 @@ You set up an on-premises machine as the configuration server.
 
 To prepare for deployment you'll need to:
 
-1. [Set up an Azure network](#set-up-an-azure-network) in which Azure VMs will be located when they're spun up after failover. In addition, for failback you'll need to set up a VPN connection (or Azure ExpressRoute) from the Azure network to your on-premises site.
+1. [Set up an Azure network](#set-up-an-azure-network) in which Azure VMs will be located when they're created after failover. In addition, for failback you'll need to set up a VPN connection (or Azure ExpressRoute), from the Azure network to your on-premises site.
 2. [Set up an Azure storage account](#set-up-an-azure-storage-account) for replicated data.
-3. [Prepare an account](#prepare-an-account-for-automatic-discovery) on the vCenter server or vSphere hosts so that Site Recovery can automatically detect VMware VMs that are added.
-4. [Prepare the configuration server](#prepare-the-configuration-server) to ensure it can access required URLs and install vSphere PowerCLI 6.0.
+3. [Prepare an account](#prepare-an-account-for-automatic-discovery) on the vCenter server or vSphere hosts, so that Site Recovery can automatically detect VMware VMs that are added.
+4. [Prepare the configuration server](#prepare-the-configuration-server), to ensure it can access required URLs and install vSphere PowerCLI 6.0.
 
 
 ### Set up an Azure network
 
 - The network should be in the same Azure region as that in which you deploy the Recovery Services vault.
-- Depending on the resource model you want to use for failed over Azure VMs, you’ll set up the Azure network in [ARM mode](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or [classic mode](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+- Depending on the resource model you want to use for failed over Azure VMs, you’ll set up the Azure network in [Resource Manager mode](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or [classic mode](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 - In order to fail back from Azure to your on-premises VMware site you need a VPN connection (or an Azure ExpressRoute connection) from the Azure network in which the replicated Azure VMs are located, to the on-premises network in which the configuration server is located.
 - [Learn about](../vpn-gateway/vpn-gateway-site-to-site-create.md) the supported deployment models for VPN site-to-site connections, and how to [set up a connection](../vpn-gateway/vpn-gateway-site-to-site-create.md#create-your-virtual-network).
 - Alternatively you can set up [Azure ExpressRoute](../expressroute/expressroute-introduction.md). [Learn more](../expressroute/expressroute-howto-vnet-portal-classic.md) about setting up an Azure network with ExpressRoute.
@@ -150,7 +154,7 @@ To prepare for deployment you'll need to:
 
 ### Set up an Azure storage account
 
-- You’ll need a standard or a premium Azure storage account to hold data replicated to Azure. The account must be in the same region as the Recovery Services vault. Depending on the resource model you want to use for failed over Azure VMs, you'll set up an account in [ARM mode](../storage/storage-create-storage-account.md) or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
+- You’ll need a standard or a premium Azure storage account to hold data replicated to Azure. The account must be in the same region as the Recovery Services vault. Depending on the resource model you want to use for failed over Azure VMs, you'll set up an account in [Resource Manager mode](../storage/storage-create-storage-account.md) or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
 - If you're using a premium account for replicated data you need to create an additional standard account to store replication logs that capture ongoing changes to on-premises data.  
 
 > [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
@@ -168,7 +172,7 @@ The Site Recovery process server can automatically discover VMware VMs on vSpher
 
 1.	Make sure that the machine you’re using for the configuration server complies with the [prerequisites](#configuration-server-prerequisites). In particular make sure that the machine is connected to the internet with these settings:
 
-	- Allow access to these URLs: *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net
+	- Allow access to these URLs: ``*.hypervrecoverymanager.windowsazure.com``; ``*.accesscontrol.windows.net``; ``*.backup.windowsazure.com``; ``*.blob.core.windows.net``; ``*.store.core.windows.net``
 	- Allow access to [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi) to download MySQL.
 	- Allow firewall communication to Azure with the [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS (443) protocol.
 
