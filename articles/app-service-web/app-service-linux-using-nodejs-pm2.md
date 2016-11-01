@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Using PM2 Configuration for NodeJS in Web Apps on Linux | Microsoft Azure"
-	description="Using PM2 Configuration for NodeJS in Web Apps on Linux"
+	pageTitle="Using PM2 configuration for Node.js in Web Apps on Linux | Microsoft Azure"
+	description="Using PM2 configuration for Node.js in Web Apps on Linux"
 	keywords="azure app service, web app, nodejs, pm2, linux, oss"
 	services="app-service"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="10/10/2016"
 	ms.author="naziml"/>
 
-# Use PM2 Configuration for Node.js in Web Apps on Linux
+# Use PM2 configuration for Node.js in Web Apps on Linux
 
 If you set the application stack to Node.js for Web Apps on Linux, you get the option to set a Node.js startup file as shown in the following image.
 
