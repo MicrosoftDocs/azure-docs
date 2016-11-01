@@ -75,7 +75,7 @@ The following is a list of links to online API reference documentation for Azure
 Other reference topics in this IoT Hub developer guide include:
 
 - [IoT Hub endpoints][lnk-devguide-endpoints]
-- [Query language for twins, methods, and jobs][lnk-devguide-query]
+- [IoT Hub query language for twins, methods, and jobs][lnk-devguide-query]
 - [Quotas and throttling][lnk-devguide-quotas]
 - [IoT Hub MQTT support][lnk-devguide-mqtt]
 
