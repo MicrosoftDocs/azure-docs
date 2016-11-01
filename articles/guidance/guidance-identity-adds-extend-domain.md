@@ -118,7 +118,7 @@ Also, consider designating one or more server as a [standby operations master][s
 
 Do not substitute a simple remote copy operation on the domain controller VM VHD files for performing a regular AD DS backup. The AD DS database file on the VHD may or may not be in a consistent state when it's copied and restarting the database might not be possible.
 
-Do not shut down a domain controller VM using Azure Portal. Instead, shut down and restart from the guest operating system. An Azure Portal shut down causes the VM causes to be deallocated, which resets both the VM-GenerationID and the invocationID of the AD repository. The discards the AD DS RID pool and marks SYSVOL as non-authoritative and may require reconfiguration of the domain controller.
+Do not shut down a domain controller VM using Azure Portal. Instead, shut down and restart from the guest operating system. An Azure Portal shut down causes the VM causes to be deallocated, which resets both the `VM-GenerationID` and the `invocationID` of the AD repository. The discards the AD DS RID pool and marks SYSVOL as non-authoritative and may require reconfiguration of the domain controller.
 
 ## Security considerations
 
@@ -132,9 +132,9 @@ Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD
 
 ## Next steps
 
-- Learn the best practices for [creating an ADDS resource forest][adds-resource-forest] in Azure.
+- Learn the best practices for [creating an AD DS resource forest][adds-resource-forest] in Azure.
 
-- Learn the best practices for [creating an ADFS infrastructure][adfs] in Azure.
+- Learn the best practices for [creating an AD FS infrastructure][adfs] in Azure.
 
 <!-- links -->
 
