@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use the Service Bus relay with .NET | Microsoft Azure"
+	pageTitle="How to use the Service Bus WCF Relay with .NET | Microsoft Azure"
 	description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations."
 	services="service-bus"
 	documentationCenter=".net"
@@ -17,7 +17,7 @@
 	ms.author="sethm"/>
 
 
-# How to use the Azure Service Bus relay service
+# How to use the Service Bus WCF Relay with .NET
 
 This article describes how to use the Service Bus relay service. The samples are written in C# and use the Windows Communication Foundation (WCF) API with extensions contained in the Service Bus assembly. For more information about the Service Bus relay, see the [Service Bus relayed messaging](service-bus-relay-overview.md) overview.
 
