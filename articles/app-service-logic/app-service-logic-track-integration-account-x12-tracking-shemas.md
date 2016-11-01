@@ -80,7 +80,6 @@ Following are the supported X12 tracking schemas
 | segmentsCount | Optional, int.  It indicates the number of segments in the X12 transaction set |
 |
 
-
 ## X12 Transaction Set Acknowledgement Tracking Schema
 ````java script
 
@@ -149,7 +148,7 @@ Following are the supported X12 tracking schemas
 ## X12 Interchange Tracking Schema
 ````java script
 
-        {
+{
             "agreementProperties": {
                 "senderPartnerName": "",
                 "receiverPartnerName": "",
@@ -173,8 +172,7 @@ Following are the supported X12 tracking schemas
                 "isa15": "",
                 "isa16": ""
             }
-        }
-
+}
 ````    
 
 
@@ -202,10 +200,9 @@ Following are the supported X12 tracking schemas
 |
 
 
-## X12 Interchange Acknowledgement Tracking Schema
-````java script
-
-        {
+## X12 Interchange Acknowledgement Tracking Schema  
+````java script  
+{
             "agreementProperties": {
                 "senderPartnerName": "",
                 "receiverPartnerName": "",
@@ -227,8 +224,7 @@ Following are the supported X12 tracking schemas
                 "ta103": "",
                 "ta105": ""
             }
-        }
-
+}
 ````    
 
 
@@ -256,8 +252,7 @@ Following are the supported X12 tracking schemas
 
 ## X12 Functional Group Tracking Schema
 ````java script
-
-        {
+{
             "agreementProperties": {
                 "senderPartnerName": "",
                 "receiverPartnerName": "",
@@ -283,8 +278,7 @@ Following are the supported X12 tracking schemas
                 "gs07": "",
                 "gs08": ""
             }     
-        }
-
+}
 ````    
 
 
@@ -316,8 +310,7 @@ Following are the supported X12 tracking schemas
 
 ## X12 Functional Group Acknowledgement Tracking Schema
 ````java script 
-
-        {
+{
             "agreementProperties": {
                 "senderPartnerName": "",
                 "receiverPartnerName": "",
@@ -342,8 +335,7 @@ Following are the supported X12 tracking schemas
                 "ak904": "",
                 "ak9Segment": ""
             }
-        }
-
+}
 ````    
 
 | Property | Description |

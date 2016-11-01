@@ -24,16 +24,16 @@ Following are the supported AS2 tracking schemas
 * AS2 MDN Tracking Schema
 
 ## AS2 Message Tracking Schema
-````java script
+````java script  
 
-        {
-        "agreementProperties": {
-            "senderPartnerName": "",
-            "receiverPartnerName": "",
-            "as2To": "",
-            "as2From": "",
-            "agreementName": ""
-        },
+{
+       "agreementProperties": {  
+            "senderPartnerName": "",  
+            "receiverPartnerName": "",  
+            "as2To": "",  
+            "as2From": "",  
+            "agreementName": ""  
+        },  
         "messageProperties": {
             "direction": "",
             "messageId": "",
@@ -53,9 +53,7 @@ Following are the supported AS2 tracking schemas
         "isMdnExpected": "",
         "mdnType": ""
         }
-    }
-
-
+}
 ````   
 
 
@@ -86,8 +84,8 @@ Following are the supported AS2 tracking schemas
 ## AS2 MDN Tracking Schema
 ````java script
 
-        {
-            "agreementProperties": {
+{
+        "agreementProperties": {
                 "senderPartnerName": "",
                 "receiverPartnerName": "",
                 "as2To": "",
@@ -110,9 +108,7 @@ Following are the supported AS2 tracking schemas
                 "outgoingHeaders": { 
                 }
             }
-        }
-        
-
+}
 ````
 
 
