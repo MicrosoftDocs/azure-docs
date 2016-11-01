@@ -221,7 +221,9 @@ Assuming the gateway repository is located in the folder **/home/root/azure-iot-
 ```json
 {
     "module name": "logger",
-    "module path": "/home/root/azure-iot-gateway-sdk/build/modules/logger/liblogger_hl.so",
+    "loading args": {
+      "module path": "/home/root/azure-iot-gateway-sdk/build/modules/logger/liblogger_hl.so"
+    },
     "args":
     {
         "filename":"/home/root/gw_logger.log"
@@ -236,7 +238,9 @@ The sample configuration for the BLE device assumes a Texas Instruments SensorTa
 ```json
 {
   "module name": "SensorTag",
-  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/ble/libble_hl.so",
+  "loading args": {
+    "module path": "/home/root/azure-iot-gateway-sdk/build/modules/ble/libble_hl.so"
+  },
   "args": {
     "controller_index": 0,
     "device_mac_address": "<<AA:BB:CC:DD:EE:FF>>",
@@ -292,7 +296,9 @@ Add the name of your IoT Hub. The suffix value is typically **azure-devices.net*
 ```json
 {
   "module name": "IoTHub",
-  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/iothub/libiothub_hl.so",
+  "loading args": {
+    "module path": "/home/root/azure-iot-gateway-sdk/build/modules/iothub/libiothub_hl.so"
+  },
   "args": {
     "IoTHubName": "<<Azure IoT Hub Name>>",
     "IoTHubSuffix": "<<Azure IoT Hub Suffix>>",
@@ -308,7 +314,9 @@ Add the MAC address of your SensorTag device and the device Id and key of the **
 ```json
 {
   "module name": "mapping",
-  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/identitymap/libidentity_map_hl.so",
+  "loading args": {
+    "module path": "/home/root/azure-iot-gateway-sdk/build/modules/identitymap/libidentity_map_hl.so"
+  },
   "args": [
     {
       "macAddress": "<<AA:BB:CC:DD:EE:FF>>",
@@ -324,7 +332,9 @@ Add the MAC address of your SensorTag device and the device Id and key of the **
 ```json
 {
     "module name": "BLE Printer",
-    "module path": "/home/root/azure-iot-gateway-sdk/build/samples/ble_gateway_hl/ble_printer/libble_printer.so",
+    "loading args": {
+      "module path": "/home/root/azure-iot-gateway-sdk/build/samples/ble_gateway_hl/ble_printer/libble_printer.so"
+    },
     "args": null
 }
 ```

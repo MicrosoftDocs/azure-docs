@@ -47,7 +47,9 @@ Before you get started, you must [set up your development environment][lnk-setup
       [
         {
           "module name" : "logger_hl",
-          "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\logger\\Debug\\logger_hl.dll",
+          "loading args": {
+            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\logger\\Debug\\logger_hl.dll"
+          },
           "args" : 
           {
             "filename":"C:\\log.txt"
@@ -55,7 +57,9 @@ Before you get started, you must [set up your development environment][lnk-setup
         },
         {
           "module name" : "hello_world",
-          "module path" : "C:\\azure-iot-gateway-sdk\\build\\\\modules\\hello_world\\Debug\\hello_world_hl.dll",
+          "loading args": {
+            "module path" : "C:\\azure-iot-gateway-sdk\\build\\\\modules\\hello_world\\Debug\\hello_world_hl.dll"
+          },
           "args" : null
         }
       ],
