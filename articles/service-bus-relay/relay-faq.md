@@ -37,9 +37,21 @@ The previously named 'Relay' service is now WCF Relay. Anyone currently utilizin
 
 This section answers some frequently-asked questions about the Relay pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Relay pricing, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
 
-### How do you charge for Relay?
+### How do you charge for Hybrid Connections and WCF Relay?
 
 For complete information about Relay pricing, please see [Service Bus pricing details][Pricing overview]. In addition to the prices noted, you are charged for associated data transfers for egress outside of the data center in which your application is provisioned.
+
+### How am I billed for Hybrid Connections?
+
+Here are three example scenarios:
+
+1. If you have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month and you send 3 GB of data across the connection during the course of the month, your total charge will be $5. 
+ 
+2. If you have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month and you send 10 GB of data across the connection during the course of the month, your total charge will be $7.5: $5 for the connection and first 5GB + $2.5 for the additional 5GB of data. 
+ 
+3. If you have two instances, A and B, of the Hybrid Connections Manager installed and continuously running for the entire month and you send 3 GB of data across connection A and 6 GB across connection B, your total charge will be $10.5: $5 for connection A + $5 for connection B + $0.5(for the 6th GB on connection B). 
+
+Please note that the prices used in the examples are applicable only during the preview period and are subject to change at general availability of Hybrid Connections. 
 
 ### What usage of Relay is subject to data transfer?
 
@@ -47,9 +59,9 @@ Relay includes 5 GB of data ingress per month, per subscription. There is no add
 
 The data charge for Relay is for ingress from senders only, as Relay listeners do not incur a data charge. For example, if you send 1 GB, you will only be billed for 1 GB, even though a listener also received 1 GB and may be outside of Azure's datacenters.
 
-### How are Relay hours calculated?
+### How are WCF Relay hours calculated?
 
-Relay hours are billed for the cumulative amount of time during which each Relay is "open" during a given billing period. A Relay is implicitly instantiated and opened at a given namespace when a Relay listener first connects to that address. The Relay is closed only when the last listener disconnects from its address. Therefore, for billing purposes a Relay is considered "open" from the time the first Relay listener connects, to the time the last Relay listener disconnects from the namespace. In other words, a Relay is considered open whenever one or more Relay listeners are connected to its Service Bus address.
+Relay hours are billed for the cumulative amount of time during which each Service Bus Relay is “open”. A Relay is implicitly instantiated and opened at a given Service Bus address (service namespace URL) when a Relay-enabled WCF service, or “Relay listener,” first connects to that address. It is closed only when the last listener disconnects from its address. Therefore, for billing purposes a Relay is considered “open” from the time the first Relay listener connects, to the time the last Relay listener disconnects from the Service Bus address of that Relay.
 
 ### What if I have more than one listener connected to a given Relay?
 
