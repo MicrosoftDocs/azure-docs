@@ -49,7 +49,7 @@ Connecting to Azure SQL DB is no different and currently there are two ways to c
 
 ## <a id="Create"></a>Step 1:  Creating your Azure SQL Database 
 
-See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  Alternatively, you can follow this [short two-minute video](https://azure.microsoft.com/en-us/documentation/videos/azure-sql-database-create-dbs-in-seconds/) to create an Azure SQL database using the Azure portal.
+See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  Alternatively, you can follow this [short two-minute video](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) to create an Azure SQL database using the Azure portal.
 
 ## <a id="ConnectionString"></a>Step 2:  Get Connection String
 
@@ -65,7 +65,7 @@ Copy the contents of the **ODBC (Includes Node.js) [SQL authentication]** string
 
 ## <a id="Firewall"></a>Step 3:  Add your IP to the firewall 
 
-Go to the firewall section for your Database server and add your [client IP to the firewall using these steps](https://azure.microsoft.com/en-us/documentation/articles/sql-database-configure-firewall-settings/) to make sure we can establish a successful connection: 
+Go to the firewall section for your Database server and add your [client IP to the firewall using these steps](sql-database-configure-firewall-settings.md) to make sure we can establish a successful connection: 
 
 ![AddyourIPWindow](./media/sql-database-develop-cpp-simple/ip.png)
 
@@ -91,7 +91,7 @@ Congratulations! You have now successfully connected to Azure SQL using C++ and 
 
 
 ## <a id="Linux"></a>Step 5: Connecting from a Linux C/C++ application
-In case you haven’t heard the news yet, Visual Studio now allows you to develop C++ Linux application as well. You can read about this new scenario in the [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blog. To build for Linux, you need a remote machine where your Linux distro is running. If you don’t have one available, you can set one up quickly using [Linux Azure Virtual machines](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-quick-create-cli/). 
+In case you haven’t heard the news yet, Visual Studio now allows you to develop C++ Linux application as well. You can read about this new scenario in the [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blog. To build for Linux, you need a remote machine where your Linux distro is running. If you don’t have one available, you can set one up quickly using [Linux Azure Virtual machines](../virtual-machines/virtual-machines-linux-quick-create-cli.md). 
 
 For this tutorial, let us assume that you have an Ubuntu 16.04 Linux distribution set up. The steps here should also apply to Ubuntu 15.10, Red Hat 6, and Red Hat 7. 
 
@@ -143,7 +143,7 @@ You can find the GetStarted solution that contains all the samples in this artic
 ## Next steps
 
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
-* More information on the [ODBC API Reference](https://msdn.microsoft.com/en-us/library/ms714562(v=vs.85).aspx)
+* More information on the [ODBC API Reference](https://msdn.microsoft.com/library/ms714562(v=vs.85).aspx)
 
 ## Additional resources 
 
