@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2016" 
+	ms.date="11/1/2016" 
 	ms.author="arramac"/>
 
 # SQL query and SQL syntax in DocumentDB
@@ -1378,7 +1378,7 @@ DocumentDB also supports a number of built-in functions for common operations, t
 </tr>
 <tr>
 <td>Spatial functions</td>	
-<td>ST_DISTANCE, ST_WITHIN, ST_ISVALID, and ST_ISVALIDDETAILED</td>
+<td>ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID, and ST_ISVALIDDETAILED</td>
 </tr>
 </table>  
 
@@ -1667,7 +1667,7 @@ Here's another example that uses ARRAY_LENGTH to get the number of children per 
 
 ### Spatial functions
 
-DocumentDB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more details on geospatial support in DocumentDB, please see [Working with geospatial data in Azure DocumentDB](documentdb-geospatial.md). 
+DocumentDB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. 
 
 <table>
 <tr>
@@ -1676,23 +1676,27 @@ DocumentDB supports the following Open Geospatial Consortium (OGC) built-in func
 </tr>
 <tr>
   <td>ST_DISTANCE (point_expr, point_expr)</td>
-  <td>Returns the distance between the two GeoJSON point expressions.</td>
+  <td>Returns the distance between the two GeoJSON Point, Polygon, or LineString expressions.</td>
 </tr>
 <tr>
   <td>ST_WITHIN (point_expr, polygon_expr)</td>
-  <td>Returns a Boolean expression indicating whether the GeoJSON point specified in the first argument is within the GeoJSON polygon in the second argument.</td>
+  <td>Returns a Boolean expression indicating whether the first GeoJSON object (Point, Polygon, or LineString) is within the second GeoJSON object (Point, Polygon, or LineString).</td>
+</tr>
+<tr>
+  <td>ST_INTERSECTS (spatial_expr, spatial_expr)</td>
+  <td>Returns a Boolean expression indicating whether the two specified GeoJSON objects (Point, Polygon, or LineString) intersect.</td>
 </tr>
 <tr>
   <td>ST_ISVALID</td>
-  <td>Returns a Boolean value indicating whether the specified GeoJSON point or polygon expression is valid.</td>
+  <td>Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, or LineString expression is valid.</td>
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
-  <td>Returns a JSON value containing a Boolean value if the specified GeoJSON point or polygon expression is valid, and if invalid, additionally the reason as a string value.</td>
+  <td>Returns a JSON value containing a Boolean value if the specified GeoJSON Point, Polygon, or LineString expression is valid, and if invalid, additionally the reason as a string value.</td>
 </tr>
 </table>
 
-Spatial functions can be used to perform proximity querries against spatial data. For example, here's a query that returns all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. 
+Spatial functions can be used to perform proximity queries against spatial data. For example, here's a query that returns all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. 
 
 **Query**
 
@@ -1706,59 +1710,7 @@ Spatial functions can be used to perform proximity querries against spatial data
       "id": "WakefieldFamily"
     }]
 
-If you include spatial indexing in your indexing policy, then "distance queries" will be served efficiently through the index. For more details on spatial indexing, please see the section below. If you don't have a spatial index for the specified paths, you can still perform spatial queries by specifying `x-ms-documentdb-query-enable-scan` request header with the value set to "true". In .NET, this can be done by passing the optional **FeedOptions** argument to queries with [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) set to true. 
-
-ST_WITHIN can be used to check if a point lies within a polygon. Commonly polygons are used to represent boundaries like zip codes, state boundaries, or natural formations. Again if you include spatial indexing in your indexing policy, then "within" queries will be served efficiently through the index. 
-
-Polygon arguments in ST_WITHIN can contain only a single ring, i.e. the polygons must not contain holes in them. Check the [DocumentDB limits](documentdb-limits.md) for the maximum number of points allowed in a polygon for an ST_WITHIN query.
-
-**Query**
-
-    SELECT * 
-    FROM Families f 
-    WHERE ST_WITHIN(f.location, {
-    	'type':'Polygon', 
-    	'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
-    })
-
-**Results**
-
-    [{
-      "id": "WakefieldFamily",
-    }]
-    
->[AZURE.NOTE] Similar to how mismatched types works in DocumentDB query, if the location value specified in either argument is malformed or invalid, then it will evaluate to **undefined** and the evaluated document to be skipped from the query results. If your query returns no results, run ST_ISVALIDDETAILED To debug why the spatail type is invalid.     
-
-ST_ISVALID and ST_ISVALIDDETAILED can be used to check if a spatial object is valid. For example, the following query checks the validity of a point with an out of range latitude value (-132.8). ST_ISVALID returns just a Boolean value, and ST_ISVALIDDETAILED returns the Boolean and a string containing the reason why it is considered invalid.
-
-**Query**
-
-    SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
-
-**Results**
-
-    [{
-      "$1": false
-    }]
-
-These functions can also be used to validate polygons. For example, here we use ST_ISVALIDDETAILED to validate a polygon that is not closed. 
-
-**Query**
-
-    SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
-    	[ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
-    	]]})
-
-**Results**
-
-    [{
-       "$1": { 
-      	  "valid": false, 
-      	  "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
-      	}
-    }]
-    
-That wraps up spatial functions, and the SQL syntax for DocumentDB. Now let's take a look at how LINQ querying works and how it interacts with the syntax we've seen so far.
+For more details on geospatial support in DocumentDB, please see [Working with geospatial data in Azure DocumentDB](documentdb-geospatial.md). That wraps up spatial functions, and the SQL syntax for DocumentDB. Now let's take a look at how LINQ querying works and how it interacts with the syntax we've seen so far.
 
 ## LINQ to DocumentDB SQL
 LINQ is a .NET programming model that expresses computation as queries on streams of objects. DocumentDB provides a client side library to interface with LINQ by facilitating a conversion between JSON and .NET objects and a mapping from a subset of LINQ queries to DocumentDB queries. 
