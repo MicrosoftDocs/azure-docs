@@ -4,7 +4,7 @@
 	services="active-directory"
 	keywords="device-based conditional access, device registration, enable device registration, device registration and MDM"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 

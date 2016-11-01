@@ -3,7 +3,7 @@
 	description="Explains the technical concepts of Azure AD Connect sync."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 
