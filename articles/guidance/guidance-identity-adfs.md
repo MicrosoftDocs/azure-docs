@@ -258,5 +258,5 @@ Consider using a set of network virtual appliances that logs detailed informatio
 [adfs-intro]: ../active-directory/active-directory-aadconnect-azure-adfs.md
 [hybrid-azure-on-prem-vpn]: ./guidance-hybrid-network-vpn.md
 [extending-ad-to-azure]: ./guidance-identity-adds-extend-domain.md
-
+[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [0]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
