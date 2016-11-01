@@ -145,6 +145,8 @@ Selecting any of these links will open a new tab in your browser, which will dis
 
 Working with users, groups, and permissions is supported when using a [domain joined](hdinsight-domain-joined-introduction.md) HDInsight cluster. For information on using the Ambari Management UI on a domain-joined cluster, see [Manage domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md).
 
+> [AZURE.WARNING] Do not change the password of the Ambari watchdog on your Linux-based HDInsight cluster. Changing the password will break the ability to use script actions or perform scaling operations with your cluster.
+
 ###Hosts
 
 The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these steps.
