@@ -16,11 +16,24 @@
 	ms.author="awills"/>
 
 
-# Set up Application Insights: Diagnose exceptions
+# Diagnose exceptions in your web apps with Application Insights
 
-By monitoring your web application with [Application Insights](app-insights-overview.md), you can correlate failed requests with exceptions and other events at both the client and server, so that you can quickly diagnose the causes.
+Exceptions in your live web app are reported by [Application Insights](app-insights-overview.md). You can correlate failed requests with exceptions and other events at both the client and server, so that you can quickly diagnose the causes.
 
-To monitor an ASP.NET app, you have to [add Application Insights SDK](app-insights-asp-net.md) to your application, or [install the Application Insights Agent on your IIS server](app-insights-monitor-performance-live-website-now.md), or, if your app is an Azure Web App, add the [Application Insights Extension](app-insights-azure-web-apps.md).
+## Set up exception reporting
+
+* To have exceptions reported from your server app:
+ * Install [Application Insights SDK](app-insights-asp-net.md) in your app code, or 
+ * IIS web servers: Run [Application Insights Agent](app-insights-monitor-performance-live-website-now.md); or
+ * Azure web apps: Add the [Application Insights Extension](app-insights-azure-web-apps.md)
+* Install the [JavaScript snippet](app-insights-javascript.md) in your web pages to catch browser exceptions.
+* In some application frameworks or with some settings, you need to take some extra steps to catch more exceptions:
+ * [Web forms](#web-forms)
+ * [MVC](#mvc)
+ * [Web API 1.*](#web-api-1)
+ * [Web API 2.*](#web-api-2)
+ * [WCF](#wcf)
+
 
 ## Diagnosing exceptions using Visual Studio
 
