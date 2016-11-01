@@ -71,7 +71,7 @@ Following are the supported AS2 tracking schemas
 | isMessageEncrypted | Mandatory, boolean.  It indicates whether AS2 message was encrypted or not |
 | isMessageCompressed | Mandatory, boolean. It indicates  whether AS2 message was compressed or not |
 | correlationMessageId | Optional, string. It indicates AS2messageid to correlate messages with MDNs |
-| incomingHeaders | Optional, dictinaryy of Jtoken.  It indicates incoming AS2 message header details |
+| incomingHeaders | Optional, dictinary of Jtoken.  It indicates incoming AS2 message header details |
 | outgoingHeaders | Optional, dictionary of Jtoken.  It indicates outgoing AS2 message header details |
 | isNrrEnabled | Mandatory, boolean.  Use default value if the value is not known |
 | isMdnExpected | Mandatory, boolean. Use default value if the value is not known |
@@ -126,7 +126,7 @@ Following are the supported AS2 tracking schemas
 | statusCode | Required, string.  The allowed values are Accepted or Rejected or AcceptedWithErrros |
 | micVerificationStatus | Required, string.  The allowed values are NotApplicable or Succeeded or Failed |
 | correlationMessageId | Optional, string.  It indicates the correlation id.  The correlation id is the original messaged Id (messages id of the message for which MDN is configured) |
-| incomingHeaders | Optional, dictinaryy of Jtoken.  It indicates incoming message header details |
+| incomingHeaders | Optional, dictinary of Jtoken.  It indicates incoming message header details |
 | outgoingHeaders | Optional, dictionary of Jtoken.  It indicates outgoing message header details |
 
 
