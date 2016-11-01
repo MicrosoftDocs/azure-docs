@@ -34,7 +34,7 @@ Regardless of the scenario, if you have any artifacts that are needed for templa
 -	Application binaries
 
 ### Nested Templates and Configuration Scripts
-When you use the templates provided by Visual Studio (or built with Visual Studio snippets), the PowerShell script not only stages the artifacts, it also parameterizes the URI for the resources for different deployments. The script then copies the artifacts to a secure container in Azure, creates a SaS token for that container, and then passes that information on to the template deployment. See [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx) to learn more about nested templates.  When using tasks in VS Team Services, you need to select the appropriate tasks for you template deployment and if necessary pass parameter values from the staging step to the template deployment.
+When you use the templates provided by Visual Studio (or built with Visual Studio snippets), the PowerShell script not only stages the artifacts, it also parameterizes the URI for the resources for different deployments. The script then copies the artifacts to a secure container in Azure, creates a SaS token for that container, and then passes that information on to the template deployment. See [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx) to learn more about nested templates.  When using tasks in VS Team Services, you need to select the appropriate tasks for your template deployment and if necessary pass parameter values from the staging step to the template deployment.
 
 ## Set up continuous deployment in VS Team Services
 
@@ -86,7 +86,7 @@ The following steps walk you through the steps necessary to configure continuous
         -	Service Principal Key
         -	Tenant Id
 
-    1.	Add a name of your choice to the **Subscription** name box. This value will appear later in the **Azure Subscription** drop down list in VS Team Services. 
+    1.	Add a name of your choice to the **Subscription** name box. This value appears later in the **Azure Subscription** drop down list in VS Team Services. 
 
     1.	If you don’t know your Azure subscription ID, you can use one of the following commands to retrieve it.
         
@@ -124,7 +124,7 @@ The following steps walk you through the steps necessary to configure continuous
     | -ResourceGroupLocation           | The geo-location value where the resource group is located, such as **eastus** or **'East US'**. (Add single quotes if there's a space in the name.) See [Azure Regions](https://azure.microsoft.com/en-us/regions/) for more information.|                                                                                                                                                                                                                              |
     | -ResourceGroupName               | The name of the resource group used for this deployment.|                                                                                                                                                                                                                                                                                                                                                                                                                |
     | -UploadArtifacts                 | This parameter, when present, specifies that artifacts need to be uploaded to Azure from the local system. You only need to set this switch if your template deployment requires extra artifacts that you want to stage using the PowerShell script (such as configuration scripts or nested templates).                                                                                                                                                                 |
-    | -StorageAccountName              | The name of the storage account used to stage artifacts for this deployment.  This parameter is only used if you are staging artifacts for deployment. If this parameter is supplied, a new storage account will be created if the script has not created one during a previous deployment.  If the parameter is specified, the storage account must already exist.|                                                                                                                                                                                                                     |
+    | -StorageAccountName              | The name of the storage account used to stage artifacts for this deployment.  This parameter is only used if you are staging artifacts for deployment. If this parameter is supplied, a new storage account is created if the script has not created one during a previous deployment.  If the parameter is specified, the storage account must already exist.|                                                                                                                                                                                                                     |
     | -StorageAccountResourceGroupName | The name of the resource group associated with the storage account. This parameter is required only if you provide a value for the StorageAccountName parameter.|                                                                                                                                                                                                                                                                                                                               |
     | -TemplateFile                    | The path to the template file in the Azure Resource Group deployment project. To enhance flexibility, use a path for this parameter that is relative to the location of the PowerShell script instead of an absolute path.|
     | -TemplateParametersFile          | The path to the parameters file in the Azure Resource Group deployment project. To enhance flexibility, use a path for this parameter that is relative to the location of the PowerShell script instead of an absolute path.|
@@ -138,7 +138,7 @@ The following steps walk you through the steps necessary to configure continuous
     –StorageAccountResourceGroupName 'Default-Storage-EastUS' -ArtifactStagingDirectory '$(Build.StagingDirectory)'	
     ```
 
-    When you’re finished, the **Script Arguments** box should resemble the following list.
+    When you’re finished, the **Script Arguments** box should resemble the following list:
 
     ![][11]
 
