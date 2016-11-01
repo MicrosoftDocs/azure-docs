@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Proactive Failure Rate Diagnostics in Application Insights | Microsoft Azure" 
+	pageTitle="Smart Failure Detection in Application Insights | Microsoft Azure" 
 	description="Alerts you to unusual changes in the rate of failed requests to your web app, and provides diagnostic analysis. No configuration is needed." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,20 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2016" 
+	ms.date="10/31/2016" 
 	ms.author="awills"/>
  
-# Proactive Failure Rate Diagnostics
+# Smart Failure Anomaly Detection
 
-[Visual Studio Application Insights](app-insights-overview.md) automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failures. It detects an unusual rise in the rate of HTTP requests reported as failed. These are usually those with response codes in the 400- and 500- ranges. To help you triage and diagnose the problem, an analysis of the characteristics of failed requests and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up or configuration, as it uses machine learning algorithms to predict the normal failure rate.
+[Application Insights](app-insights-overview.md) automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failures. It detects an unusual rise in the rate of HTTP requests reported as failed. These are usually those with response codes in the 400- and 500- ranges. To help you triage and diagnose the problem, an analysis of the characteristics of failed requests and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up or configuration, as it uses machine learning algorithms to predict the normal failure rate.
 
 This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request telemetry - for example, if you have a worker role that calls [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request). 
 
-After setting up [Application Insights for your project](app-insights-overview.md), and provided your app generates a certain minimum amount of telemetry, Proactive failure diagnostics takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
+After setting up [Application Insights for your project](app-insights-overview.md), and provided your app generates a certain minimum amount of telemetry, Smart Failure Detection takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
 
 Here's a sample alert. 
 
-![Sample Intelligent Alert showing cluster analysis around failure](./media/app-insights-proactive-failure-diagnostics/010.png)
+![Sample smart alert showing cluster analysis around failure](./media/app-insights-proactive-failure-diagnostics/010.png)
 
 > [AZURE.NOTE] By default, you get a shorter format mail than this example. But you can [switch to this detailed format](#configure-alerts).
 
@@ -37,15 +37,15 @@ Notice that it tells you:
 * The exception, log traces, and dependency failure (databases or other external components) that appear to be associated with the characterized failed requests.
 * Links directly to relevant searches on the telemetry in Application Insights.
 
-## Benefits of proactive alerts
+## Benefits of smart detection
 
-Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a problem. But proactive failure diagnostics starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
+Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a problem. But Smart Failure Detection starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
 ## How it works
 
-Near Real Time Proactive Diagnostics monitors the telemetry received from your app, and in particular the failed request rate. This metric counts the number of requests for which the `Successful request` property is false. By default, `Successful request== (resultCode < 400)` (unless you have written custom code to [filter](app-insights-api-filtering-sampling.md#filtering) or generate your own [TrackRequest](app-insights-api-custom-events-metrics.md#track-request) calls). 
+smart Failure Detection monitors the telemetry received from your app, and in particular the failed request rate. This metric counts the number of requests for which the `Successful request` property is false. By default, `Successful request== (resultCode < 400)` (unless you have written custom code to [filter](app-insights-api-filtering-sampling.md#filtering) or generate your own [TrackRequest](app-insights-api-custom-events-metrics.md#track-request) calls). 
 
-Your app’s performance has a typical pattern of behavior. Some requests will be more prone to failure than others; and the overall failure rate may go up as load increases. Proactive failure diagnostics uses machine learning to find these anomalies. 
+Your app’s performance has a typical pattern of behavior. Some requests will be more prone to failure than others; and the overall failure rate may go up as load increases. Smart Failure Detection uses machine learning to find these anomalies. 
 
 As telemetry comes into Application Insights from your web app, proactive failure diagnostics compares the current behavior with the patterns seen over the past few days. If an abnormal rise in failure rate is observed by comparison with previous performance, an analysis is triggered.
 
@@ -55,14 +55,14 @@ When your service is instrumented with these telemetry, the analyser finds an ex
 
 The resulting analysis is sent to you as alert, unless you have configured it not to.
 
-Like the [alerts you set manually](app-insights-alerts.md), you can inspect the state of the alert and configure it in the Alerts blade of your Application Insights resource. But unlike other alerts, you don't need to set up or configure Proactive failure diagnostics. If you want, you can disable it or change its target email addresses.
+Like the [alerts you set manually](app-insights-alerts.md), you can inspect the state of the alert and configure it in the Alerts blade of your Application Insights resource. But unlike other alerts, you don't need to set up or configure Smart Failure Detection. If you want, you can disable it or change its target email addresses.
 
 
 ## Configure alerts 
 
-You can disable proactive diagnostics, change the email recipients, create a webhook, or opt in to more detailed alert messages.
+You can disable Smart Failure Detection, change the email recipients, create a webhook, or opt in to more detailed alert messages.
 
-Open the Alerts page. Proactive Diagnostics is included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
+Open the Alerts page. Smart Failure Detection is included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
 
 ![On the Overview page, click Alerts tile. Or on any Metrics page, click Alerts button.](./media/app-insights-proactive-failure-diagnostics/021.png)
 
@@ -71,7 +71,7 @@ Click the alert to configure it.
 ![Configuration](./media/app-insights-proactive-failure-diagnostics/031.png)
 
 
-Notice that you can disable Proactive Diagnostics, but you can't delete it (or create another one).
+Notice that you can disable Smart Failure Detection, but you can't delete it (or create another one).
 
 #### Detailed alerts
 
@@ -106,7 +106,7 @@ To review alerts in the portal, open **Settings, Audit logs**.
 
 Click any alert to see its full detail.
 
-Or click **Proactive detection** to get straight to the most recent alert:
+Or click **Smart detection** to get straight to the most recent alert:
 
 ![Alerts summary](./media/app-insights-proactive-failure-diagnostics/070.png)
 
@@ -115,16 +115,16 @@ Or click **Proactive detection** to get straight to the most recent alert:
 
 ## What's the difference ...
 
-Proactive failure rate diagnostics complements other similar but distinct features of Application Insights. 
+Smart Failure Detection complements other similar but distinct features of Application Insights. 
 
 * [Metric Alerts](app-insights-alerts.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, proactive failure diagnostics cover a small range of critical metrics (currently only failed request rate), designed to notify you in near real time manner once your web app's failed request rate increases significantly compared to web app's normal behavior.
 
-    Proactive failure rate diagnostics automatically adjusts its threshold in response to prevailing conditions.
+    Smart Failure Detection automatically adjusts its threshold in response to prevailing conditions.
 
-    Proactive failure rate diagnostics start the diagnostic work for you. 
-* [Proactive performance diagnostics](app-insights-proactive-performance-diagnostics.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Proactive failure rate diagnostics, the purpose of proactive performance diagnostics is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for proactive failure diagnostics is performed continuously on incoming telemetry, and you will be notified within minutes if server failure rates are greater than expected.
+    Smart Failure Detection starts the diagnostic work for you. 
+* [Smart Performance Detection](app-insights-proactive-performance-diagnostics.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Smart Failure Detection, the purpose of Smart Performance Detection is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for proactive failure diagnostics is performed continuously on incoming telemetry, and you will be notified within minutes if server failure rates are greater than expected.
 
-## If you receive an Proactive failure rate diagnostics alert
+## If you receive a Smart Failure Detection alert
 
 *Why have I received this alert?*
 
@@ -132,7 +132,7 @@ Proactive failure rate diagnostics complements other similar but distinct featur
 
 *Does the notification mean I definitely have a problem?*
 
-*	We try to alert on app disruption, or degradation, although only you can fully understand the semantics and the impact on the app or users.
+*	We try to alert on app disruption or degradation, but only you can fully understand the semantics and the impact on the app or users.
 
 *So, you guys look at my data?*
 
@@ -140,17 +140,17 @@ Proactive failure rate diagnostics complements other similar but distinct featur
 
 *Do I have to subscribe to this alert?* 
 
-*	No. Every application sending request telemetry has this alert rule.
+*	No. Every application that sends request telemetry has the Smart Failure Detection alert rule.
 
 *Can I unsubscribe or get the notifications sent to my colleagues instead?*
 
-*	Yes, In Alert rules, click Proactive Diagnostics rule to configure it. You can disable the alert, or change recipients for the alert. 
+*	Yes, In Alert rules, click the Smart Failure Detection rule to configure it. You can disable the alert, or change recipients for the alert. 
 
 *I lost the email. Where can I find the notifications in the portal?*
 
-*	In the Audit logs. Click Settings, Audit logs, then any alert to see its occurrence, but with limited detailed view.
+*	In the Activity logs. In Azure, open the Application Insights resource for your app, then select Activity logs.
 
-*Some of the alerts are of known issues and I do not want to receive them.*
+*Some of the alerts are about known issues and I do not want to receive them.*
 
 *	We have alert suppression on our backlog.
 
@@ -163,7 +163,7 @@ These diagnostic tools help you inspect the telemetry from your app:
 * [Search explorer](app-insights-diagnostic-search.md)
 * [Analytics - powerful query language](app-insights-analytics-tour.md)
 
-Proactive detections are completely automatic. But maybe you'd like to set up some more alerts?
+Smart detections are completely automatic. But maybe you'd like to set up some more alerts?
 
 * [Manually configured metric alerts](app-insights-alerts.md)
 * [Availability web tests](app-insights-monitor-web-app-availability.md) 
