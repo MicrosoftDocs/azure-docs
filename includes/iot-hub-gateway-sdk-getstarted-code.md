@@ -79,12 +79,16 @@ The following sample shows the JSON settings file used to configure the Hello Wo
     [ 
         {
             "module name" : "logger",
-            "module path" : "./modules/logger/liblogger_hl.so",
+            "loading args": {
+              "module path" : "./modules/logger/liblogger_hl.so"
+            },
             "args" : {"filename":"log.txt"}
         },
         {
             "module name" : "hello_world",
-            "module path" : "./modules/hello_world/libhello_world_hl.so",
+            "loading args": {
+              "module path" : "./modules/hello_world/libhello_world_hl.so"
+            },
 			"args" : null
         }
     ],

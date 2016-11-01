@@ -107,18 +107,18 @@ The Basic tier includes, and is strictly limited to, 100 brokered connections pe
 
 For more information about brokered connections, see the [FAQ](#faq) section later in this topic.
 
-## Relay
+## WCF Relay
 
-Relays are available only in Standard tier namespaces. Otherwise, pricing and connection quotas for relays remain unchanged. This means that relays will continue to be charged on the number of messages (not operations), and relay hours.
+WCF Relays are available only in Standard tier namespaces. Otherwise, pricing and connection quotas for relays remain unchanged. This means that relays will continue to be charged on the number of messages (not operations), and relay hours.
 
-|Relay pricing|Cost|
+|WCF Relay pricing|Cost|
 |---|---|
-|Relay hours|$0.10 for every 100 relay hours|
+|WCF Relay hours|$0.10 for every 100 relay hours|
 |Messages|$0.01 for every 10,000 messages|
 
 ## FAQ
 
-### How is the Relay Hours meter calculated?
+### How is the WCF Relay Hours meter calculated?
 
 See [this topic](service-bus-faq.md#how-is-the-relay-hours-meter-calculated).
 

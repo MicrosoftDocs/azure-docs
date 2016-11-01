@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="10/25/2016" 
+    ms.date="11/01/2016" 
     ms.author="arramac"/>
     
 # Working with Geospatial data in Azure DocumentDB
@@ -146,20 +146,24 @@ DocumentDB supports the following Open Geospatial Consortium (OGC) built-in func
   <td><strong>Description</strong></td>
 </tr>
 <tr>
-  <td>ST_DISTANCE (point_expr, point_expr)</td>
-  <td>Returns the distance between the two GeoJSON point expressions.</td>
+  <td>ST_DISTANCE (spatial_expr, spatial_expr)</td>
+  <td>Returns the distance between the two GeoJSON Point, Polygon, or LineString expressions.</td>
 </tr>
 <tr>
-  <td>ST_WITHIN (point_expr, polygon_expr)</td>
-  <td>Returns a Boolean expression indicating whether the GeoJSON point specified in the first argument is within the GeoJSON polygon in the second argument.</td>
+  <td>ST_WITHIN (spatial_expr, spatial_expr)</td>
+  <td>Returns a Boolean expression indicating whether the first GeoJSON object (Point, Polygon, or LineString) is within the second GeoJSON object (Point, Polygon, or LineString).</td>
+</tr>
+<tr>
+  <td>ST_INTERSECTS (spatial_expr, spatial_expr)</td>
+  <td>Returns a Boolean expression indicating whether the two specified GeoJSON objects (Point, Polygon, or LineString) intersect.</td>
 </tr>
 <tr>
   <td>ST_ISVALID</td>
-  <td>Returns a Boolean value indicating whether the specified GeoJSON point or polygon expression is valid.</td>
+  <td>Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, or LineString expression is valid.</td>
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
-  <td>Returns a JSON value containing a Boolean value if the specified GeoJSON point or polygon expression is valid, and if invalid, additionally the reason as a string value.</td>
+  <td>Returns a JSON value containing a Boolean value if the specified GeoJSON Point, Polygon, or LineString expression is valid, and if invalid, additionally the reason as a string value.</td>
 </tr>
 </table>
 

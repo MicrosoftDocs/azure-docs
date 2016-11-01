@@ -54,7 +54,9 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
     [ 
         {
             "module name" : "IoTHub",
-            "module path" : "./build/modules/iothub/libiothub_hl.so",
+            "loading args": {
+             "module path" : "./build/modules/iothub/libiothub_hl.so"
+            },
             "args" : 
             {
                 "IoTHubName" : "{Your IoT hub name}",
@@ -64,7 +66,9 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
         },
         {
             "module name" : "mapping",
-            "module path" : "./build/modules/identitymap/libidentity_map_hl.so",
+            "loading args": {
+              "module path" : "./build/modules/identitymap/libidentity_map_hl.so"
+            },
             "args" : 
             [
                 {
@@ -81,7 +85,9 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
         },
         {
             "module name":"BLE1",
-            "module path" : "./build/modules/simulated_device/libsimulated_device_hl.so",
+            "loading args": {
+              "module path" : "./build/modules/simulated_device/libsimulated_device_hl.so"
+            },
             "args":
             {
                 "macAddress" : "01-01-01-01-01-01"
@@ -89,7 +95,9 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
         },
         {
             "module name":"BLE2",
-            "module path" : "./build/modules/simulated_device/libsimulated_device_hl.so",
+            "loading args": {
+              "module path" : "./build/modules/simulated_device/libsimulated_device_hl.so"
+            },
             "args":
             {
                 "macAddress" : "02-02-02-02-02-02"
@@ -97,7 +105,9 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
         },
         {
             "module name":"Logger",
-            "module path" : "./build/modules/logger/liblogger_hl.so",
+            "loading args": {
+              "module path" : "./build/modules/logger/liblogger_hl.so"
+            },
             "args":
             {
                 "filename":"./deviceCloudUploadGatewaylog.log"

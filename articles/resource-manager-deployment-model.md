@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/27/2016"
+   ms.date="11/01/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources
@@ -187,7 +187,7 @@ If you are ready to migrate your resources from classic deployment to Resource M
 
 ## Frequently Asked Questions
 
-**Can I create a virtual machine using Azure Resource Manager to deploy in a virtual network or storage account created using classic deployment?**
+**Can I create a virtual machine using Azure Resource Manager to deploy in a virtual network created using classic deployment?**
 
 This is not supported. You cannot use Azure Resource Manager to deploy a virtual machine into a virtual network that was created using classic deployment.
 

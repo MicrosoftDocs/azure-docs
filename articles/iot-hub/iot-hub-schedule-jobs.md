@@ -23,25 +23,25 @@ Azure IoT Hub is a fully managed service that enables an application back end to
 
 - Update device twin desired properties
 - Update device twin tags
-- Invoke cloud-to-device methods
+- Invoke direct methods
 
-Conceptually, a job wraps one of these actions and tracks the progress of execution against a set of devices, which is defined by a twin query.  For example, using a job an application back end can invoke a reboot method on 10,000 devices, specified by a twin query and scheduled at a future time.  That application can then track progress as each of those devices receive and execute the reboot method.
+Conceptually, a job wraps one of these actions and tracks the progress of execution against a set of devices, which is defined by a device twin query.  For example, using a job an application back end can invoke a reboot method on 10,000 devices, specified by a device twin query and scheduled at a future time.  That application can then track progress as each of those devices receive and execute the reboot method.
 
 Learn more about each of these capabilities in these articles:
 
-- Device twin and properties: [Get started with twin][lnk-get-started-twin] and [Tutorial: How to use twin properties][lnk-twin-props]
-- Cloud-to-device methods: [Developer guide - direct methods][lnk-dev-methods] and [Tutorial: C2D methods][lnk-c2d-methods]
+- Device twin and properties: [Get started with device twins][lnk-get-started-twin] and [Tutorial: How to use device twin properties][lnk-twin-props]
+- direct methods: [Developer guide - direct methods][lnk-dev-methods] and [Tutorial: C2D methods][lnk-c2d-methods]
 
 This tutorial shows you how to:
 
 - Create a simulated device that has a direct method which enables lockDoor which can be called by the application back end.
-- Create a console application that calls the lockDoor direct method on the simulated device using a job and updates the twin desired properties using a device job.
+- Create a console application that calls the lockDoor direct method on the simulated device using a job and updates the device twin desired properties using a device job.
 
 At the end of this tutorial, you have two Node.js console applications:
 
 **simDevice.js**, which connects to your IoT hub with the device identity and receives a lockDoor direct method.
 
-**scheduleJobService.js**, which calls a direct method on the simulated device  and update the twin's disired properties using a job.
+**scheduleJobService.js**, which calls a direct method on the simulated device  and update the device twin's desired properties using a job.
 
 To complete this tutorial, you need the following:
 
@@ -120,9 +120,9 @@ In this section, you create a Node.js console app that responds to a direct meth
 
 > [AZURE.NOTE] To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
 
-## Schedule jobs for calling a direct method and updating a twin's properties
+## Schedule jobs for calling a direct method and updating a device twin's properties
 
-In this section, you create a Node.js console app that initiates a remote lockDoor on a device using a direct method and update the twin's properties.
+In this section, you create a Node.js console app that initiates a remote lockDoor on a device using a direct method and update the device twin's properties.
 
 1. Create a new empty folder called **scheduleJobService**.  In the **scheduleJobService** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
 
@@ -208,7 +208,7 @@ In this section, you create a Node.js console app that initiates a remote lockDo
     });
     ```
         
-8. Add the following code to schedule the job to update the twin:
+8. Add the following code to schedule the job to update the device twin:
 
     ```
     var twinPatch = {

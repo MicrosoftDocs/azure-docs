@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/20/2016"
+	ms.date="11/01/2016"
 	ms.author="larryfr"/>
 
 # Install and use R on HDInsight Hadoop clusters
@@ -87,7 +87,7 @@ After the cluster has finished provisioning, use the following steps to use R to
 
 1. Connect to the HDInsight cluster using SSH:
 
-		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+		ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
 	For more information on using SSH with HDInsight, see the following:
 

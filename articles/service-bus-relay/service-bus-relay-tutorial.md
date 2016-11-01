@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Service Bus Relay tutorial | Microsoft Azure"
-    description="Build a Service Bus client application and service using Service Bus Relay."
+    pageTitle="Service Bus WCF Relay tutorial | Microsoft Azure"
+    description="Build a Service Bus client application and service using Service Bus WCF Relay."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
@@ -15,7 +15,7 @@
     ms.date="09/27/2016"
     ms.author="sethm" />
 
-# Service Bus Relay tutorial
+# Service Bus WCF Relay tutorial
 
 This tutorial describes how to build a simple Service Bus client application and service using the Service Bus "relay" capabilities. For a corresponding tutorial that uses Service Bus [brokered messaging](../service-bus-messaging/service-bus-messaging-overview.md#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](../service-bus-messaging/service-bus-brokered-tutorial-dotnet.md).
 
