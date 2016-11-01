@@ -3,8 +3,8 @@
    description="Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/06/2016"
-   ms.author="barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
 # Query Azure SQL Data Warehouse (sqlcmd)
 

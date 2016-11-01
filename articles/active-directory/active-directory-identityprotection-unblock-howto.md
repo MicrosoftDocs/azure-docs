@@ -4,7 +4,7 @@
 	services="active-directory"
 	keywords="azure active directory identity protection, unblock user"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 

@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/03/2016"
-   ms.author="barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
 # Manage compute power in Azure SQL Data Warehouse (Overview)
 

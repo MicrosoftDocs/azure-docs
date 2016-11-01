@@ -3,8 +3,8 @@
    description="Tools and partners with solutions that integrate with SQL Data Warehouse. "
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
 #Leverage other services with SQL Data Warehouse
 In addition to its core functionality, SQL Data Warehouse enables users to leverage many of the other services in Azure alongside it.  Specifically, we have currently taken steps to deeply integrate with the following:

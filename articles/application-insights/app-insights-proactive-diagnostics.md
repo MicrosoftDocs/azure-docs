@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Proactive diagnostics in Application Insights | Microsoft Azure" 
+	pageTitle="Smart Detection in Application Insights | Microsoft Azure" 
 	description="Application Insights performs automatic deep analysis of your app telemetry and warns you of potential problems." 
 	services="application-insights" 
     documentationCenter="windows"
@@ -12,18 +12,18 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016" 
+	ms.date="10/31/2016" 
 	ms.author="awills"/>
 
-#  Proactive Diagnostics in Application Insights
+#  Smart Detection in Application Insights
 
- Proactive Diagnostics automatically warns you of potential performance problems in your web application. It performs smart analysis of the telemetry that your app sends to [Visual Studio Application Insights](app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.
+ Smart Detection automatically warns you of potential performance problems in your web application. It performs proactive analysis of the telemetry that your app sends to [Application Insights](app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.
 
-You can access Proactive Detection alerts both from the emails you receive, and from the Proactive Detection blade.
+You can access Smart Detection alerts both from the emails you receive, and from the Smart Detection blade.
 
 
 
-## Review your Proactive Detections
+## Review your Smart Detections
 
 You can discover detections in two ways:
 
@@ -33,7 +33,7 @@ You can discover detections in two ways:
 
     Click the big button to open more detail in the portal.
 
-* **The Proactive Detection tile** on your app's overview blade shows a count of recent alerts. Click the tile to see a list of recent alerts.
+* **The Smart Detection tile** on your app's overview blade shows a count of recent alerts. Click the tile to see a list of recent alerts.
 
 ![View recent detections](./media/app-insights-proactive-diagnostics/04.png)
 
@@ -44,9 +44,9 @@ Select an alert to see its details.
 
 There are three kinds of detection:
 
-* [Proactive failure rate diagnostics](app-insights-proactive-failure-diagnostics.md). We use machine learning to set the expected rate of failed requests for your app, correlating with load and other factors. If the failure rate goes outside the expected envelope, we send an alert.
-* [Proactive performance diagnostics](app-insights-proactive-performance-diagnostics.md). We search for anomalous patterns in response times and failure rates every day. We correlate these issues with properties such as location, browser, client OS, server instance, and time of day.
-* [Azure Cloud Services](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). You get alerts if your app is hosted in Azure Cloud Services and a role instance has startup failures, frequent recycling, or runtime crashes.
+* [Smart failure anomaly detection](app-insights-proactive-failure-diagnostics.md). We use machine learning to set the expected rate of failed requests for your app, correlating with load and other factors. If the failure rate goes outside the expected envelope, we send an alert.
+* [Smart performance anomaly detection](app-insights-proactive-performance-diagnostics.md). We search for anomalous patterns in response times and failure rates every day. We correlate these issues with properties such as location, browser, client OS, server instance, and time of day.
+* [Smart Azure Cloud Service failure detection](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). You get alerts if your app is hosted in Azure Cloud Services and a role instance has startup failures, frequent recycling, or runtime crashes.
 
 (The help links in each notification take you to the relevant articles.)
 
@@ -59,7 +59,7 @@ These diagnostic tools help you inspect the telemetry from your app:
 * [Search explorer](app-insights-diagnostic-search.md)
 * [Analytics - powerful query language](app-insights-analytics-tour.md)
 
-Proactive diagnostics are completely automatic. But maybe you'd like to set up some more alerts?
+Smart detection is are completely automatic. But maybe you'd like to set up some more alerts?
 
 * [Manually configured metric alerts](app-insights-alerts.md)
 * [Availability web tests](app-insights-monitor-web-app-availability.md) 

@@ -3,7 +3,7 @@
 	description="A topic that explains how to sign up for Azure Active Directory Premium edition through the Volume Licensing web site."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/16/2016"
+	ms.date="10/31/2016"
 	ms.author="markvi"/>
 
 # Getting started with Azure Active Directory Premium

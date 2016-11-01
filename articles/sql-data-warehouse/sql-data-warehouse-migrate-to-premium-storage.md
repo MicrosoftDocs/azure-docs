@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/24/2016"
-   ms.author="nicw;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="nicw;barbkess"/>
 
 # Migration to Premium Storage Details
 SQL Data Warehouse recently introduced [Premium Storage for greater performance predictability][].  We are now ready to migrate existing Data Warehouses currently on Standard Storage to Premium Storage.  Read on for more details about how and when automatic migrations occur and how to self-migrate if you prefer to control when the downtime occurs.

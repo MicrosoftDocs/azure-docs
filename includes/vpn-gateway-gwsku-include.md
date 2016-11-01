@@ -6,6 +6,8 @@ VPN Gateway can use the following SKUs:
 - Standard
 - HighPerformance
 
+VPN Gateway does not use the UltraPerformance gateway SKU. For information about the UltraPerformance SKU, see the [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.
+
 When selecting a SKU, consider the following:
 
 - If you want to use a PolicyBased VPN type, you must use the Basic SKU. PolicyBased VPNs (previously called Static Routing) are not supported on any other SKU.

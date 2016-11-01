@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="08/02/2016"
+	 ms.date="11/01/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # Restore files to a Windows server or Windows client machine using the classic deployment model

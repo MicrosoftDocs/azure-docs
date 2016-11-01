@@ -3,8 +3,8 @@
 	description="Learn how to create a Java API app package and deploy it to Azure App Service."
 	services="app-service\api"
 	documentationCenter="java"
-	authors="bradygaster"
-	manager="mohisri"
+	authors="rmcmurray" 
+	manager="erikre"
 	editor="tdykstra"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="08/31/2016"
-	ms.author="rachelap"/>
+	ms.date="10/19/2016" 
+	ms.author="rachelap;robmcm"/>
 
 # Build and deploy a Java API app in Azure App Service
 
@@ -176,7 +176,6 @@ In this section, you'll replace the Swagger-generated code's server-side impleme
 
         import io.swagger.api.*;
         import io.swagger.model.*;
-        import com.sun.jersey.multipart.FormDataParam;
         import io.swagger.model.Contact;
         import java.util.*;
         import io.swagger.api.NotFoundException;
@@ -299,7 +298,10 @@ In this article, you were able to start with a Swagger JSON file and some scaffo
 
 To build on this sample, you can learn more about the [Storage SDK for Java] to persist the JSON blobs. Or, you could use the [Document DB Java SDK] to save your Contact data to Azure Document DB. 
 
-For more information about using Java in Azure, see the [Java Developer Center].
+<a name="see-also"></a>
+## See Also
+
+For more information about using Azure with Java, see the [Azure Java Developer Center].
 
 <!-- URL List -->
 
@@ -308,7 +310,7 @@ For more information about using Java in Azure, see the [Java Developer Center].
 [Document DB Java SDK]: ../documentdb/documentdb-java-application.md
 [free trial]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
-[Java Developer Center]: /develop/java/
+[Azure Java Developer Center]: /develop/java/
 [Java Developer's Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
