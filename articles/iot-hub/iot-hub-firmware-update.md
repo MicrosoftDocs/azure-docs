@@ -24,7 +24,7 @@ In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw
 This tutorial shows you how to:
 
 - Create a console application that calls the firmwareUpdate direct method on the simulated device via your IoT hub.
-- Create a simulated device that implements a firmwareUpdate direct method which goes through a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies th firmware image.  Throughout executing each stage the device uses the twin reported properties to update progress.
+- Create a simulated device that implements a firmwareUpdate direct method which goes through a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies th firmware image.  Throughout executing each stage the device uses the device twin reported properties to update progress.
 
 At the end of this tutorial, you have two Node.js console applications:
 
@@ -77,7 +77,7 @@ In this section, you create a Node.js console app that responds to a direct meth
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
-6. Add the following function which will be used to update twin reported properties
+6. Add the following function which will be used to update device twin reported properties
 
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -117,7 +117,7 @@ In this section, you create a Node.js console app that responds to a direct meth
     }
     ```
 
-8. Add the following function which will update the firmware update status through the twin reported properties to waiting to download.  Typically, devices are informed of an avaiable update and an administrator defined policy causes the device to start downloading and applying the update.  This is where the logic to enable that policy would run.  For simplicity, we're delaying for 4 seconds and proceeding to download the firmware image. 
+8. Add the following function which will update the firmware update status through the device twin reported properties to waiting to download.  Typically, devices are informed of an avaiable update and an administrator defined policy causes the device to start downloading and applying the update.  This is where the logic to enable that policy would run.  For simplicity, we're delaying for 4 seconds and proceeding to download the firmware image. 
 
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -133,7 +133,7 @@ In this section, you create a Node.js console app that responds to a direct meth
     };
     ```
     
-9. Add the following function which will update the firmware update status through the twin reported properties to downloading the firmware image.  It follows up by simulating a firmware download and finally updates the firmware update status to inform of either a download success or failure.
+9. Add the following function which will update the firmware update status through the device twin reported properties to downloading the firmware image.  It follows up by simulating a firmware download and finally updates the firmware update status to inform of either a download success or failure.
 
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -171,7 +171,7 @@ In this section, you create a Node.js console app that responds to a direct meth
     }
     ```
     
-10. Add the following function which will update the firmware update status through the twin reported properties to applying the firmware image.  It follows up by simulating a applying of the firmware image and finally updates the firmware update status to inform of either a apply success or failure.
+10. Add the following function which will update the firmware update status through the device twin reported properties to applying the firmware image.  It follows up by simulating a applying of the firmware image and finally updates the firmware update status to inform of either a apply success or failure.
 
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -337,7 +337,7 @@ In this section, you create a Node.js console app that initiates a remote firmwa
     };
     ```
 
-8. Finally, Add the following function to code to start the firmware update sequence and start periodically showing the twin reported properties:
+8. Finally, Add the following function to code to start the firmware update sequence and start periodically showing the device twin reported properties:
 
     ```
     startFirmwareUpdateDevice();
@@ -366,7 +366,7 @@ You are now ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you used a direct method to trigger a remote firmware update on a device and periodically used the twin reported properties to understand the progress of the firmware update process.  
+In this tutorial, you used a direct method to trigger a remote firmware update on a device and periodically used the device twin reported properties to understand the progress of the firmware update process.  
 
 To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
 
