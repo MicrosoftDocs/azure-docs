@@ -83,7 +83,7 @@ Resource provider | Feature
 Compute | Unassociated virtual machine disks.
 Compute | Virtual machine images.
 Network | Endpoint ACLs.
-Network | Virtual network gateways (site to site, Azure ExpressRoute, application gateway, point to site).
+Network | Virtual network gateways (Azure ExpressRoute Gateways, Application gateway).
 Network | Virtual networks using VNet Peering. (Migrate VNet to ARM, then peer) Learn more about [VNet Peering] (../virtual-network/virtual-network-peering-overview.md).
 Network | Traffic Manager profiles.
 
@@ -105,7 +105,7 @@ Azure App Service | Virtual networks that contain App Service environments | Thi
 Azure HDInsight | Virtual networks that contain HDInsight services | This is currently not supported.
 Microsoft Dynamics Lifecycle Services | Virtual networks that contain virtual machines that are managed by Dynamics Lifecycle Services | This is currently not supported.
 Azure AD Domain Services | Virtual networks that contain Azure AD Domain services | This is currently not supported.
-Compute | Azure Security Center extensions with a VNET that has a VPN gateway or ER gateway with on-prem DNS server | Azure Security Center automatically installs extensions on your Virtual Machines to monitor their security and raise alerts. These extensions usually get installed automatically if the Azure Security Center policy is enabled on the subscription. As gateway migration is not supported currently and the gateway needs to be deleted before proceeding with committing the migration, the internet access to VM storage account is lost when the gateway is deleted. The migration will not proceed when this happens as the guest agent status blob cannot be populated. It is recommended to disable Azure Security Center policy on the subscription 3 hours before proceeding with migration.
+Compute | Azure Security Center extensions with a VNET that has a VPN gateway in transit connectivity or ExpressRoute gateway with on-prem DNS server | Azure Security Center automatically installs extensions on your Virtual Machines to monitor their security and raise alerts. These extensions usually get installed automatically if the Azure Security Center policy is enabled on the subscription. ExpressRoute gateway migration is not supported currently, and VPN gateways with transit connectivity loses on-premises access. Deleting ExpressRoute gateway or migrating VPN gateway with transit connectivity causes internet access to VM storage account to be lost when proceeding with committing the migration. The migration will not proceed when this happens as the guest agent status blob cannot be populated. It is recommended to disable Azure Security Center policy on the subscription 3 hours before proceeding with migration.
 
 ## The migration experience
 
