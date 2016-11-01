@@ -64,7 +64,7 @@ In the service manifest add a `ContainerHost` for the entry point and set the `I
     <CodePackage Name="Code" Version="1.0">
         <EntryPoint>
           <ContainerHost>
-            <ImageName>myrepo/myimagename:v1</ImageName>
+            <ImageName>myrepo/myimage:v1</ImageName>
             <Commands></Commands>
           </ContainerHost>
         </EntryPoint>
