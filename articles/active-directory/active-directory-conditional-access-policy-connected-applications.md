@@ -3,7 +3,7 @@
 	description="Set device-based conditional access policies for Azure AD-connected applications."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 

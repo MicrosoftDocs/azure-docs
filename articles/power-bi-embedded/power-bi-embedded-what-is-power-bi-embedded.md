@@ -26,7 +26,7 @@ Power BI Embedded is an **Azure service** that enables ISVs and app developers t
 
 ## Licensing for Microsoft Power BI Embedded
 
-In the **Microsoft Power BI Embedded** usage model, licensing for Power BI is not the responsibility of the end-user.  Instead, **renders** are purchased by the developer of the app that is consuming the visuals, and are charged to the subscription that owns those resources.
+In the **Microsoft Power BI Embedded** usage model, licensing for Power BI is not the responsibility of the end-user.  Instead, **sessions** are purchased by the developer of the app that is consuming the visuals, and are charged to the subscription that owns those resources. Additional information can be found on the pricing page (https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/).
 
 ## Microsoft Power BI Embedded Conceptual Model
 

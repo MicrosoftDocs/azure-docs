@@ -3,7 +3,7 @@
     description="Tutorials on how to configure Azure Active Directory single sign-on for a variety of third-party SaaS applications."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="08/16/2016"
+    ms.date="10/31/2016"
     ms.author="markvi"/>
 
 #How to Deploy the Access Panel Extension for Internet Explorer using Group Policy

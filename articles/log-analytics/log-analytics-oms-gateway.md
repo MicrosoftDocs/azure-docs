@@ -183,11 +183,11 @@ If you get an error in step 3, the module wasn't imported. The error might occur
 | `Set-OMSGatewayRelayProxy` | Address <br> Username <br> Password | Sets the address (and credential) of relay (upstream) proxy | 1. Set a reply proxy and the credential: `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080 -Username user1 -Password 123` <br> <br> 2. Set a reply proxy that doesn't need authentication: `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080` <br> <br> 3. Clear the reply proxy setting, that is, do not need a reply proxy: `Set-OMSGatewayRelayProxy -Address ""` |
 | `Get-OMSGatewayRelayProxy` |   | Gets the address of relay (upstream) proxy | `Get-OMSGatewayRelayProxy` |
 | `Add-OMSGatewayAllowedHost` | Host (required) | Adds the host to the allowed list | `Add-OMSGatewayAllowedHost -Host www.test.com` |
-| `Remove-OMSGatewayAllowedHos`t | Host (required) | Removes the host from the allowed list | `Remove-OMSGatewayAllowedHost -Host www.test.com` |
+| `Remove-OMSGatewayAllowedHost` | Host (required) | Removes the host from the allowed list | `Remove-OMSGatewayAllowedHost -Host www.test.com` |
 | `Get-OMSGatewayAllowedHost` |   | Gets the currently allowed host (only the locally configured allowed host, do not include automatically downloaded allowed hosts) | `Get-OMSGatewayAllowedHost` |
 | `Add-OMSGatewayAllowedClientCertificate` | Subject (required) | Adds the client certificate subject to the allowed list | `Add-OMSGatewayAllowedClientCertificate -Subject mycert` |
 | `Remove-OMSGatewayAllowedClientCertificate` | Subject (required) | Removes the client certificate subject from the allowed list | `Remove- OMSGatewayAllowedClientCertificate -Subject mycert` |
-| `Get-OMSGatewayAllowedClientCertificat`e |   | Gets the  currently allowed client certificate subjects (only the locally configured allowed subjects, do not include automatically downloaded allowed subjects) | `Get-OMSGatewayAllowedClientCertificate` |
+| `Get-OMSGatewayAllowedClientCertificate` |   | Gets the  currently allowed client certificate subjects (only the locally configured allowed subjects, do not include automatically downloaded allowed subjects) | `Get-OMSGatewayAllowedClientCertificate` |
 
 ## Troubleshoot
 
