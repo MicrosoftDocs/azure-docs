@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Send Azure Diagnostic logs to Application Insights | Microsoft Azure"
+    pageTitle="Send Azure Diagnostic logs to Application Insights"
     description="Configure the details of the Azure Cloud Services diagnostic logs that are sent to the Application Insights portal."
     services="application-insights"
     documentationCenter=".net"
@@ -21,7 +21,7 @@ When you set up a Cloud Services project or a Virtual Machine in Microsoft Azure
 
 This article describes configuration of the diagnostic capture in detail.
 
-You need Azure SDK 2.9 installed in Visual Studio.
+You need Azure SDK 2.8 installed in Visual Studio.
 
 ## Get an Application Insights resource
 
