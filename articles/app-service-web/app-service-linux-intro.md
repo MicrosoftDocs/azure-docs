@@ -18,7 +18,7 @@
 	ms.author="naziml"/>
 
 # Introduction to App Service on Linux
-App Service on Linux is currently in Public Preview and supports running web apps natively on Linux.
+Azure App Service on Linux is currently in public preview and supports running web apps natively on Linux.
 
 ## Overview ##
 Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks. The following features section lists the application stacks that are currently supported.
@@ -38,7 +38,7 @@ Customers can deploy their applications by using:
 For application scaling:
 
 
-- Customers can scale their web apps up and down by changing the tier in their App Service Plan.
+- Customers can scale their web apps up and down by changing the tier in their App Service plan.
 - Customers can scale out their applications out and run their app across multiple instances within the confines of their SKU.
 
 For Kudu, some of the basic functionality works with the following:
@@ -51,7 +51,7 @@ For Kudu, some of the basic functionality works with the following:
 
 The Azure portal shows only features that currently work for App Service on Linux and hides the rest. As we enable more features, you will see them reflected on the portal.
 
-Some features, such as VNET integration, Azure Active Directory/third-party authentication, or Kudu site extensions don't currently work. But as we get these working, we will update our documentation and blog about the changes.
+Some features, such as virtual network integration, Azure Active Directory/third-party authentication, or Kudu site extensions, don't currently work. But as we get these working, we will update our documentation and blog about the changes.
 
 This public preview is currently only available in the following regions:
 
