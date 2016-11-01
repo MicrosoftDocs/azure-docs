@@ -19,16 +19,7 @@
 
 # Connect to SQL Database using C and C++
 
-This post is aimed at C and C++ developers trying to connect to Azure SQL DB. It is broken down into the following sections so you can jump to the section that best captures your interest. 
-
-- [Azure SQL database and SQL Server on Virtual Machines](#AzureSQL)
-- [Data access technologies: ODBC and OLE DB](#ODBC)
-- [Creating your Azure SQL Database](#Create)
-- [Getting your connection string](#ConnectionString)
-- [Adding your IP to the firewall](#Firewall)
-- [Connecting from a Windows C/C++ application](#Windows) 	
-- [Connecting from a Linux C/C++ application](#Linux) 
-- [Get the complete C/C++ tutorial solution](#GetSolution)
+This post is aimed at C and C++ developers trying to connect to Azure SQL DB. It is broken down into sections so you can jump to the section that best captures your interest. 
 
 ## Prerequisites for the C/C++ tutorial
 
@@ -39,7 +30,7 @@ Make sure you have the following items:
 - [Visual Studio Linux Development](https://visualstudiogallery.msdn.microsoft.com/725025cf-7067-45c2-8d01-1e0fd359ae6e). If you are developing on Linux, you must also install the Visual Studio Linux extension. 
 
 
-## <a id="AzureSQL"></a>Azure SQL database and SQL Server on Virtual Machines
+## <a id="AzureSQL"></a>Azure SQL Database and SQL Server on virtual machines
 Azure SQL is built on Microsoft SQL Server and is designed to provide a high-availability, performant, and scalable service. There are many benefits to using SQL Azure over your proprietary database running on premises. With SQL Azure you don’t have to install, set up, maintain, or manage your database but only the content and the structure of your database. Typical things that we worry about with databases like fault tolerance and redundancy are all built in. 
 
 Azure currently has two options for hosting SQL server workloads: Azure SQL database, database as a service and SQL server on Virtual Machines (VM). We will not get into detail about the differences between these two except that Azure SQL database is your best bet for new cloud-based applications to take advantage of the cost savings and performance optimization that cloud services provide. If you are considering migrating or extending your on-premises applications to the cloud, SQL server on Azure virtual machine might work out better for you. To keep things simple for this article, let's create an Azure SQL database. 
@@ -52,7 +43,7 @@ Connecting to Azure SQL DB is no different and currently there are two ways to c
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  Alternatively, you can follow this [short two-minute video](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) to create an Azure SQL database using the Azure portal.
 
-## <a id="ConnectionString"></a>Step 2:  Get Connection String
+## <a id="ConnectionString"></a>Step 2:  Get connection string
 
 After your Azure SQL database has been provisioned, you need to carry out the following steps to determine connection information and add your client IP for firewall access. 
 
