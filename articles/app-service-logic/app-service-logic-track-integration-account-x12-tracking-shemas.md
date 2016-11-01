@@ -57,6 +57,7 @@ Following are the supported X12 tracking schemas
 
 ````
 
+
 | Property | Description |
 | -------- | ------- |
 | senderPartnerName | Optional, string.  It contains the X12 message send partner name  |
@@ -175,6 +176,7 @@ Following are the supported X12 tracking schemas
 
 ````
 
+
 | Property | Description |
 | -------- | ------- |
 | senderPartnerName | Optional, string.  It contains the X12 message sender's partner name | 
@@ -197,6 +199,7 @@ Following are the supported X12 tracking schemas
 | isa15 | Optional, string.  It contains indicator for test or production |
 | isa16 | Optional, string. It contains the element seprator |
 |
+
 
 ## X12 Interchange Acknowledgement Tracking Schema
 ````java script
@@ -226,6 +229,7 @@ Following are the supported X12 tracking schemas
         }
 
 ````
+
 
 | Property | Description |
 | -------- | ------- |
@@ -282,6 +286,7 @@ Following are the supported X12 tracking schemas
 
 ````
 
+
 | Property | Description |
 | -------- | ------- |
 | senderPartnerName | Optional, string.  It contains the X12 message sender's partner name | 
@@ -304,7 +309,7 @@ Following are the supported X12 tracking schemas
 | gs04 | Optional, string. It contains the functional group date |
 | gs05 | Optional, string. It contains the functional group time |
 | gs07 | Optional, string. It containst the responsible agency code |
-| gs08 | Optional, stirng. It contains the version/release/industry identifier code - type string ||
+| gs08 | Optional, stirng. It contains the version/release/industry identifier code - type string |
 |
 
 

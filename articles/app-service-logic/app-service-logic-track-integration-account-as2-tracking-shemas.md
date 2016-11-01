@@ -79,6 +79,7 @@ Following are the supported AS2 tracking schemas
 | mdnType | Mandatory - Allowed values - NotConfigured,Sync,Async |
 |
 
+
 ## AS2 MDN Tracking Schema
 ````java script
 
@@ -110,6 +111,7 @@ Following are the supported AS2 tracking schemas
         
 
 ````
+
 
 | Property | Description |
 | -------- | ------- |
