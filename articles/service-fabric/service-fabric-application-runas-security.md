@@ -17,7 +17,7 @@
    ms.author="mfussell"/>
 
 # Configure security policies for your application
-By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts. Service Fabric also secures the resources that are used by applications at the time of deployment under the user accounts--for example, files, directories, and certificates. This makes running applications, even in a shared hosted environment, secure from one another.
+By using Azure Service Fabric, you can help secure applications that are running in the cluster under different user accounts. Service Fabric also helps secure the resources that are used by applications at the time of deployment under the user accounts--for example, files, directories, and certificates. This makes running applications, even in a shared hosted environment, more secure from one another.
 
 By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account or local system account, which is specified within the application manifest. Supported local system account types are **LocalUser**, **NetworkService**, **LocalService**, and **LocalSystem**.
 
@@ -55,7 +55,7 @@ The following is a simple service manifest example that shows the SetupEntryPoin
 </ServiceManifest>
 ~~~
 
-### Configure the policy using a local account
+### Configure the policy by using a local account
 
 After you configure the service to have a setup entry point, you can change the security permissions that it runs under in the application manifest. The following example shows how to configure the service to run under user administrator account privileges.
 
@@ -87,7 +87,7 @@ Next, under the **ServiceManifestImport** section, configure a policy to apply t
 
 Let's now add the file MySetup.bat to the Visual Studio project to test the administrator privileges. In Visual Studio, right-click the service project and add a new file called MySetup.bat.
 
-Next, ensure that the MySetup.bat file is included in the service package. By default, it is not. Select the file, right-click to get the context menu, and choose **Properties**. In the Properties dialog box, ensure that **Copy to Output Directory** is set to **Copy if newer**. See the following screen shot.
+Next, ensure that the MySetup.bat file is included in the service package. By default, it is not. Select the file, right-click to get the context menu, and choose **Properties**. In the Properties dialog box, ensure that **Copy to Output Directory** is set to **Copy if newer**. See the following screenshot.
 
 ![Visual Studio CopyToOutput for SetupEntryPoint batch file][image1]
 
@@ -117,7 +117,7 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
 ###  Configure the policy by using local system accounts
-Often, it's preferable to run the startup script by using a local system account rather than an administrators account. Running the RunAs policy as a member of the Administrators group typically doesn’t work well because machines have User Access Control (UAC) enabled by default. In such cases, **the recommendation is to run the SetupEntryPoint as LocalSystem, instead of as a local user added to Administrators group**. The following example shows setting the SetupEntryPoint to run as LocalSystem:
+Often, it's preferable to run the startup script by using a local system account rather than an administrator account. Running the RunAs policy as a member of the Administrators group typically doesn’t work well because machines have User Access Control (UAC) enabled by default. In such cases, **the recommendation is to run the SetupEntryPoint as LocalSystem, instead of as a local user added to Administrators group**. The following example shows setting the SetupEntryPoint to run as LocalSystem:
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -166,9 +166,9 @@ In the PowerShell file, add the following to set a system environment variable:
 ~~~
 
 ## Use console redirection for local debugging
-Occasionally, it's useful to see the console output from running a script for debugging purposes. To do this, you can set a console redirection policy, which writes the output to a file. The file output is written to the application folder called **log** on the node where the application is deployed and run (see where to find this in the preceding example).
+Occasionally, it's useful to see the console output from running a script for debugging purposes. To do this, you can set a console redirection policy, which writes the output to a file. The file output is written to the application folder called **log** on the node where the application is deployed and run. (See where to find this in the preceding example.)
 
-> [AZURE.NOTE] Never use the console redirection policy in an application that is deployed in production because this can impact the application failover. *Only* use this for local development and debugging purposes.  
+> [AZURE.NOTE] Never use the console redirection policy in an application that is deployed in production because this can affect the application failover. *Only* use this for local development and debugging purposes.  
 
 The following example shows setting the console redirection with a FileRetentionCount value:
 
@@ -188,7 +188,7 @@ If you now change the MySetup.ps1 file to write an **Echo** command, this will w
 Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
 ~~~
 
-**Once you have debugged your script, immediately remove this console redirection policy**.
+**After you debug your script, immediately remove this console redirection policy**.
 
 ## Configure a policy for service code packages
 In the preceding steps, you saw how to apply a RunAs policy to SetupEntryPoint. Let's look a little deeper into how to create different principals that can be applied as service policies.
@@ -221,7 +221,7 @@ You can define and create user groups that allow one or more users to be added t
 ~~~
 
 ### Create local users
-You can create a local user that can be used to secure a service within the application. When a **LocalUser** account type is specified in the principals section of the application manifest, Service Fabric creates local user accounts on machines where the application is deployed. By default, these accounts do not have the same names as those specified in the application manifest (for example, Customer3 in the following sample). Instead, they are dynamically generated and have random passwords.
+You can create a local user that can be used to help secure a service within the application. When a **LocalUser** account type is specified in the principals section of the application manifest, Service Fabric creates local user accounts on machines where the application is deployed. By default, these accounts do not have the same names as those specified in the application manifest (for example, Customer3 in the following sample). Instead, they are dynamically generated and have random passwords.
 
 ~~~
 <Principals>
