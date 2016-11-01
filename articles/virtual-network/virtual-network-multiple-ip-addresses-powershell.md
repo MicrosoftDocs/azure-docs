@@ -271,9 +271,9 @@ Complete the following steps to add additional IP addresses to an existing NIC:
 
 		Add-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName4 -NetworkInterface $nic -Subnet $Subnet1 -PublicIpAddress $PIP
 
-   To associate and existing configuration with a public IP, enter the following command:
+     To associate an existing configuration with a public IP, enter the following command:
 
-		Set-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName5 -NetworkInterface $nic -Subnet $Subnet1 -PublicIpAddress $PIP5
+		 Set-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName5 -NetworkInterface $nic -Subnet $Subnet1 -PublicIpAddress $PIP5
 
 7. To set the NIC with the IP configuration, enter the following command:
 
