@@ -17,7 +17,7 @@
    ms.date="10/13/2016"
    ms.author="telmos"/>
 
-# Implementing a secure hybrid network architecture with federated identities in Azure
+# Implementing Active Directory Federation Services (ADFS) in Azure
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
@@ -646,12 +646,13 @@ To run the script that deploys the solution:
 - [Azure Active Directory][aad].
 
 - [Azure Active Directory B2C][aadb2c].
+
 <!-- links -->
 
 [vm-recommendations]: ./guidance-compute-single-vm.md#Recommendations
 [naming-conventions]: ./guidance-naming-conventions.md
-[implementing-active-directory]: ./guidance-iaas-ra-secure-vnet-ad.md
-[resource-manager-overview]: ../resource-group-overview.md
+[implementing-active-directory]: ./guidance-identity-adds-extend-domain.md
+[resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
 [implementing-a-secure-hybrid-network-architecture]: ./guidance-iaas-ra-secure-vnet-hybrid.md
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ./guidance-iaas-ra-secure-vnet-dmz.md
 [DRS]: https://technet.microsoft.com/library/dn280945.aspx
@@ -692,7 +693,7 @@ To run the script that deploys the solution:
 [virtualnetworkgateway-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualNetworkGateway.parameters.json
 [hybrid-azure-on-prem-vpn]: ./guidance-hybrid-network-vpn.md
 [virtualmachines-adds-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualMachines-adds.parameters.json
-[extending-ad-to-azure]: ./guidance-iaas-ra-secure-vnet-ad.md
+[extending-ad-to-azure]: ./guidance-identity-adds-extend-domain.md
 [loadbalancer-adfs-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/loadBalancer-adfs.parameters.json
 [add-adds-domain-controller-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/add-adds-domain-controller.parameters.json
 [gmsa-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/gmsa.parameters.json

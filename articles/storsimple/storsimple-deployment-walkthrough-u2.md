@@ -12,13 +12,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/11/2016"
+   ms.date="10/24/2016"
    ms.author="alkohli" />
 
 # Deploy your on-premises StorSimple device (Update 2)
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Update 2 & later ](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
 - [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
 - [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
 

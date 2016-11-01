@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="cakarst;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="cakarst;barbkess"/>
 
 
 # Guide for using PolyBase in SQL Data Warehouse

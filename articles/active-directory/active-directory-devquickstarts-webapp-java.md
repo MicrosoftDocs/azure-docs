@@ -3,7 +3,7 @@
 	description="How to build a Java web app that signs users in with a work or school account."
 	services="active-directory"
 	documentationCenter="java"
-	authors="xerners"
+	authors="brandwe"
 	manager="mbaldwin"
 	editor=""/>
 

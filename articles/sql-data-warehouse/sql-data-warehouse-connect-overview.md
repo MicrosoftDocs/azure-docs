@@ -3,8 +3,8 @@
    description="How to find the server name and connection string for your to Azure SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/26/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
 # Connect to Azure SQL Data Warehouse
 

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Retrain Machine Learning models programmatically | Microsoft Azure"
-	description="Learn how to programmatically retrain a model and update the Web service to use the newly trained model in Azure Machine Learning."
+	description="Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning."
 	services="machine-learning"
 	documentationCenter=""
 	authors="raymondlaghaeian"
@@ -21,16 +21,16 @@
 
 In this walkthrough, you will learn how to programmatically retrain an Azure Machine Learning Web Service using C# and the Machine Learning Batch Execution service.
 
-Once you have retrained the model, the following walkthroughs show how to update the model in your predictive Web service:
+Once you have retrained the model, the following walkthroughs show how to update the model in your predictive web service:
 
-- If you deployed a Classic Web service in the Machine Learning Web Services portal, see [Retrain a Classic Web service](machine-learning-retrain-a-classic-web-service.md). 
-- If you deployed a New Web service, see [Retrain a New Web service using the Machine Learning Management cmdlets](machine-learning-retrain-new-web-service-using-powershell.md).
+- If you deployed a Classic web service in the Machine Learning Web Services portal, see [Retrain a Classic web service](machine-learning-retrain-a-classic-web-service.md). 
+- If you deployed a New web service, see [Retrain a New web service using the Machine Learning Management cmdlets](machine-learning-retrain-new-web-service-using-powershell.md).
 
 For an overview of the retraining process, see [Retrain a Machine Learning Model](machine-learning-retrain-machine-learning-model.md).
 
-If you want to start with your existing New Azure Resource Manager based Web service, see [Retrain an existing Predictive Web service](machine-learning-retrain-existing-resource-manager-based-web-service.md).
+If you want to start with your existing New Azure Resource Manager based web service, see [Retrain an existing Predictive web service](machine-learning-retrain-existing-resource-manager-based-web-service.md).
 
-## Create a Training Experiment
+## Create a training experiment
  
 For this example, you will use "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" from the Microsoft Azure Machine Learning samples. 
 	
@@ -42,39 +42,39 @@ To create the experiment:
 4.	To rename the experiment, at the top of the experiment canvas, select the experiment name "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset".
 5.	Type Census Model.
 6.	At the bottom of the experiment canvas, click **Run**.
-7.	Click **Set Up Web service** and select **Retraining Web service**. 
+7.	Click **Set Up web service** and select **Retraining web service**. 
 
  	![Initial experiment.][2]
 
 Diagram 2: Initial experiment.
 
-## Create a Predictive Experiment and publish as a Web service  
+## Create a predictive experiment and publish as a web service  
 
 Next you create a Predicative Experiment.
 
-1.	At the bottom of the experiment canvas, click **Set Up Web Service** and select **Predictive Web Service**. This saves the model as a Trained Model and adds Web service Input and Output modules. 
+1.	At the bottom of the experiment canvas, click **Set Up Web Service** and select **Predictive Web Service**. This saves the model as a Trained Model and adds web service Input and Output modules. 
 2.	Click **Run**. 
-3.	After experiment has finished running, click **Deploy Web Service [Classic]** or **Deploy Web Service [New]**.
+3.	After the experiment has finished running, click **Deploy Web Service [Classic]** or **Deploy Web Service [New]**.
 
-## Deploy the Training Experiment as a Training Web service
+## Deploy the training experiment as a Training web service
 
-To retrain the trained model, you must deploy the Training Experiment that you created as a Retraining Web service. This Web service needs a *Web Service Output* module connected to the *[Train Model][train-model]* module, to be able to produce new trained models.
+To retrain the trained model, you must deploy the training experiment that you created as a Retraining web service. This web service needs a *Web Service Output* module connected to the *[Train Model][train-model]* module, to be able to produce new trained models.
 
 1. To return to the training experiment, click the Experiments icon in the left pane, then click the experiment named Census Model.  
-2. In the Search Experiment Items search box, type Web service. 
+2. In the Search Experiment Items search box, type web service. 
 3. Drag a *Web Service Input* module onto the experiment canvas and connect its output to the *Clean Missing Data* module.  This ensures that your retraining data is processed the same way as your original training data.
-4. Drag two *Web service Output* modules onto the experiment canvas. Connect the output of the *Train Model* module to one and the output of the *Evaluate Model* module to the other. The Web service output for **Train Model** gives us the new trained model. The output attached to **Evaluate Model** returns that module’s output, which is the performance results.
+4. Drag two *web service Output* modules onto the experiment canvas. Connect the output of the *Train Model* module to one and the output of the *Evaluate Model* module to the other. The web service output for **Train Model** gives us the new trained model. The output attached to **Evaluate Model** returns that module’s output, which is the performance results.
 5. Click **Run**. 
 
-Next you must deploy the Training Experiment as a web service that produces a trained model and model evaluation results. To accomplish this, your next set of actions are dependent on whether you are working with a Classic Web service or a New Web service.  
+Next you must deploy the training experiment as a web service that produces a trained model and model evaluation results. To accomplish this, your next set of actions are dependent on whether you are working with a Classic web service or a New web service.  
   
-**Classic Web service**
+**Classic web service**
 
 At the bottom of the experiment canvas, click **Set Up Web Service** and select **Deploy Web Service [Classic]**. The Web Service **Dashboard** is displayed with the API Key and the API help page for Batch Execution. Only the Batch Execution method can be used for creating Trained Models.
 
-**New Web service**
+**New web service**
 
-At the bottom of the experiment canvas, click **Set Up Web Service** and select **Deploy Web Service [New]**. The Web Service Azure Machine Learning Web Services portal opens to the Deploy Web service page. Type a name for your Web service and choose a payment plan, then click **Deploy**. Only the Batch Execution method can be used for creating Trained Models
+At the bottom of the experiment canvas, click **Set Up Web Service** and select **Deploy Web Service [New]**. The Web Service Azure Machine Learning Web Services portal opens to the Deploy web service page. Type a name for your web service and choose a payment plan, then click **Deploy**. Only the Batch Execution method can be used for creating Trained Models
 
 In either case, after experiment has completed running, the resulting workflow should look as follows:
 
@@ -90,14 +90,14 @@ To call the Retraining APIs:
 
 1. Create a C# Console Application in Visual Studio (New->Project->Windows Desktop->Console Application).
 2.	Sign in to the Machine Learning Web Service portal.
-3.	If you are working with a Classic Web service, click **Classic Web Services**.
-	1.	Click the Web service you are working with.
+3.	If you are working with a Classic web service, click **Classic Web Services**.
+	1.	Click the web service you are working with.
 	2.	Click the default endpoint.
 	3.	Click **Consume**.
 	4.	At the bottom of the **Consume** page, in the **Sample Code** section, click **Batch**.
 	5.	Continue to step 5 of this procedure.
-4.	If you are working with a New Web service, click **Web Services**.
-	1.	Click the Web service you are working with.
+4.	If you are working with a New web service, click **Web Services**.
+	1.	Click the web service you are working with.
 	2.	Click **Consume**.
 	3.	At the bottom of the Consume page, in the **Sample Code** section, click **Batch**.
 5.	Copy the sample C# code for batch execution and paste it into the Program.cs file, making sure the namespace remains intact.
@@ -150,7 +150,7 @@ See the following example:
             }
         },
 
->[AZURE.NOTE] The names of your output locations may be different from the ones in this walkthrough based on the order in which you added the Web service output modules. Since you set up this Training Experiment with two outputs, the results include storage location information for both of them.  
+>[AZURE.NOTE] The names of your output locations may be different from the ones in this walkthrough based on the order in which you added the web service output modules. Since you set up this training experiment with two outputs, the results include storage location information for both of them.  
 
 ![Retraining output][6]
 
@@ -168,11 +168,11 @@ Copy the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output 
 
 ## Next steps
 
-[Retrain a Classic Web service](machine-learning-retrain-a-classic-web-service.md)
+If you deployed the predictive web service by clicking **Deploy Web Service [Classic]**, see [Retrain a Classic web service](machine-learning-retrain-a-classic-web-service.md).
 
-[Retrain a New Web service using the Machine Learning Management cmdlets](machine-learning-retrain-new-web-service-using-powershell.md)
+If you deployed the predictive web service by clicking **Deploy Web Service [New]**, see [Retrain a New web service using the Machine Learning Management cmdlets](machine-learning-retrain-new-web-service-using-powershell.md).
 
-<!-- Retrain a New Web service using the Machine Learning Management REST API -->
+<!-- Retrain a New web service using the Machine Learning Management REST API -->
 
 
 [1]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE01.png

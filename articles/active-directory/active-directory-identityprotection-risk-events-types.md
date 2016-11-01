@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2016"
+	ms.date="10/27/2016"
 	ms.author="markvi"/>
 
 #Types of risk events detected by Azure Active Directory Identity Protection 
@@ -72,7 +72,27 @@ This risk event type is a real-time sign-in evaluation mechanism that considers 
 Unfamiliar locations can provide a strong indication that an attacker is able attempting to use a stolen identity. False-positives may occur when a user is traveling, trying out a new device or uses a new VPN. As a result of these false positives, the risk level for this event type is “**Medium**”.
 
 
+## Azure AD Anomalous Activity reports
 
+Some of these risk events have been available through the Azure AD Anomalous Activity reports in the Azure portal. 
+The table below lists the various risk event types and the corresponding **Azure AD Anomalous Activity** report. Microsoft is continuing to invest in this space, and plans to continuously improve the detection accuracy of existing risk events and add new risk event types on an ongoing basis. 
+
+
+
+| Identity Protection Risk Event Type | Corresponding Azure AD Anomalous Activity Report |
+| :-- | :-- |
+| Leaked credentials	| Users with leaked credentials |
+| Impossible travel to atypical locations |	Irregular sign-in activity |
+| Sign-ins from infected devices	| Sign-ins from possibly infected devices |
+| Sign-ins from anonymous IP addresses	| Sign-ins from unknown sources |
+| Sign-ins from IP addresses with suspicious activity |	Sign-ins from IP addresses with suspicious activity |
+| Signs in from unfamiliar locations	| - |
+| Lockout events	| - |
+
+The following Azure AD Anomalous Activity reports are not included as risk events in Azure AD Identity Protection, and will therefore not be available through Identity Protection. These reports are still available in the Azure portal however they will be deprecated at some time in the future as they are being superseded by risk events in Identity Protection.
+
+- Sign-ins after multiple failures
+- Sign-ins from multiple geographies
 
 
 ## See also

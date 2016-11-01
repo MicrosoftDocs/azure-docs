@@ -19,9 +19,7 @@
 
 *Application Insights is in Preview.*
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
-[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service that helps you understand the performance and usage of your live application. Use it to [detect and diagnose performance issues and exceptions](app-insights-detect-triage-diagnose.md), and [write code][api] to track what users do with your app.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [detect and diagnose performance issues and exceptions](app-insights-detect-triage-diagnose.md), and [write code][api] to track what users do with your app.
 
 ![sample data](./media/app-insights-java-get-started/5-results.png)
 
@@ -387,15 +385,19 @@ You'll get charts of response times, plus email notifications if your site goes 
 [Learn more about availability web tests.][availability] 
 
 
-
-
 ## Questions? Problems?
 
 [Troubleshooting Java](app-insights-java-troubleshoot.md)
 
 ## Next steps
 
-For more information, see the [Java Developer Center](/develop/java/).
+* [Monitor dependency calls](app-insights-java-agent.md)
+* [Monitor Unix performance counters](app-insights-java-collectd.md)
+* Add [monitoring to your web pages](app-insights-javascript.md) to monitor page load times, AJAX calls, browser exceptions.
+* Write [custom telemetry](app-insights-api-custom-events-metrics.md) to track usage in the browser or at the server.
+* Create [dashboards](app-insights-dashboards.md) to bring together the key charts for monitoring your system.
+* Use [Analytics](app-insights-analytics.md) for powerful queries over telemetry from your app
+* For more information, see the [Java Developer Center](/develop/java/).
 
 <!--Link references-->
 

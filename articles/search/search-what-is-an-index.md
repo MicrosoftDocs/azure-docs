@@ -2,8 +2,9 @@
 	pageTitle="Create an Azure Search index | Microsoft Azure | Hosted cloud search service"
 	description="What is an index in Azure Search and how is it used?"
 	services="search"
+	manager="jhubbard"
 	documentationCenter=""
-authors="ashmaka"
+    authors="ashmaka"
 />
 
 <tags

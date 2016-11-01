@@ -60,9 +60,9 @@ A [device twin](iot-hub-devguide-device-twins.md) is a copy in  IoT Hub of the c
 
 A [direct method](iot-hub-devguide-direct-methods.md) is a way for you to trigger a method to execute on a device by invoking an API on your IoT hub.
 
-## Event hub-compatible endpoint
+## Event Hub-compatible endpoint
 
-To read device-to-cloud messages sent to your IoT hub, you can connect to an endpoint on your hub and use any Event hub-compatible method to read those messages. Event Hub-compatible methods include using the Event Hubs SDKs and Azure Stream Analytics.
+To read device-to-cloud messages sent to your IoT hub, you can connect to an endpoint on your hub and use any Event Hub-compatible method to read those messages. Event Hub-compatible methods include using the Event Hubs SDKs and Azure Stream Analytics.
 
 ## Field gateway
 

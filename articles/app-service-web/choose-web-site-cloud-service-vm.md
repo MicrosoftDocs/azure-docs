@@ -100,7 +100,7 @@ Azure App Service is a great solution for hosting corporate websites. It enables
 
 ### <a id="iis6"></a> I have an IIS6 application running on Windows Server 2003.
 
-Azure App Service makes it easy to avoid the infrastructure costs associated with migrating older IIS6 applications. Microsoft has created [easy to use migration tools and detailed migration guidance](https://www.movemetowebsites.net/) that enable you to check compatibility and identify any changes that need to be made. Integration with Visual Studio, TFS, and common CMS tools makes it easy to deploy IIS6 applications directly to the cloud. Once deployed, the Azur Portal provides robust management tools that enable you to scale down to manage costs and up to meet demand as necessary. With the migration tool you can:
+Azure App Service makes it easy to avoid the infrastructure costs associated with migrating older IIS6 applications. Microsoft has created [easy to use migration tools and detailed migration guidance](https://www.movemetowebsites.net/) that enable you to check compatibility and identify any changes that need to be made. Integration with Visual Studio, TFS, and common CMS tools makes it easy to deploy IIS6 applications directly to the cloud. Once deployed, the Azure Portal provides robust management tools that enable you to scale down to manage costs and up to meet demand as necessary. With the migration tool you can:
 
 * Quickly and easily migrate your legacy Windows Server 2003 web application to the cloud.
 * Opt to leave your attached SQL database on-premise to create a hybrid application.

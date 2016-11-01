@@ -2,6 +2,7 @@
 	pageTitle="Modeling Multitenancy in Azure Search | Microsoft Azure | Hosted cloud search service"
 	description="Learn about common design patterns for multitenant SaaS applications while using Azure Search."
 	services="search"
+	manager="jhubbard"
 	authors="ashmaka"
 	documentationCenter=""/>
 
@@ -11,7 +12,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/20/2016"
+	ms.date="10/26/2016"
 	ms.author="ashmaka"/>
 
 # Design patterns for multitenant SaaS applications and Azure Search
@@ -42,21 +43,21 @@ There are a few different [pricing tiers](https://azure.microsoft.com/pricing/de
 |----------------------------------|-----------|-------------|-------------|-------------|---------------|
 | Maximum Replicas per Service     | 3         | 12          | 12          | 12          | 12            |
 | Maximum Partitions per Service   | 1         | 12          | 12          | 12          | 1             |
-| Maximum Search Units (Replicas*Partitions) per Service | 3         | 36          | 36          | 36          | 12            |
-| Maximum Documents per Service    | 1 million | 180 million | 720 million | 1.4 billion | 200 million   |
-| Maximum Storage per Service      | 2 GB      | 300 GB      | 1.2 TB      | 2.4 TB      | 200 GB        |
+| Maximum Search Units (Replicas*Partitions) per Service | 3         | 36          | 36          | 36          | 36 (max 3 partitions)            |
+| Maximum Documents per Service    | 1 million | 180 million | 720 million | 1.4 billion | 600 million   |
+| Maximum Storage per Service      | 2 GB      | 300 GB      | 1.2 TB      | 2.4 TB      | 600 GB        |
 | Maximum Documents per Partition  | 1 million | 15 million  | 60 million  | 120 million | 200 million   |
 | Maximum Storage per Partition    | 2 GB      | 25 GB       | 100 GB      | 200 GB      | 200 GB        |
-| Maximum Indexes per Service      | 5         | 50          | 200         | 200         | 1000          |
+| Maximum Indexes per Service      | 5         | 50          | 200         | 200         | 3000 (max 1000 indexes/partition)          |
 
 
-#### S3 High Density
-In Azure Search’s S3 pricing tier, there is an option for the High Density (HD) mode designed specifically for multitenant scenarios. When in High Density mode, the S3 SKU has some different limits than the standard S3 configuration:
-* There can be up to 1000 indexes per service, instead of 200
-* There can be up to 200 GB of data per service, instead of 2.4 TB
-* There can be only 1 partition per service, instead of 12
+#### S3 High Density'
+In Azure Search’s S3 pricing tier, there is an option for the High Density (HD) mode designed specifically for multitenant scenarios. In many cases, it is necessary to support a large number of smaller tenants under a single service to achieve the benefits of simplicity and cost efficiency.
 
-The S3 HD tier is ideally suited for SaaS enabled applications which implement the index-per-tenant model described below.
+S3 HD allows for the many small indexes to be packed under the management of a single search service by trading the ability to scale out indexes using partitions for the ability to host more indexes in a single service.
+
+Concretely, an S3 service could have between 1 and 200 indexes that together could host up to 1.4 billion documents. An S3 HD on the other hand would allow individual indexes to only go up to 1 million documents, but it can handle up to 1000 indexes per partition (up to 3000 per service) with a total document count of 200 million per partition (up to 600 million per service).
+
 
 
 ## Considerations for multitenant applications

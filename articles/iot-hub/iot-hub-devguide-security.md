@@ -38,7 +38,7 @@ You must have appropriate permissions to access any of the IoT Hub endpoints. Fo
 
 You can grant [permissions](#iot-hub-permissions) in the following ways:
 
-* **Hub-level shared access policies**. Shared access policies can grant any combination of [permissions](#iot-hub-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [Azure IoT Hub Resource provider APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
+* **Hub-level shared access policies**. Shared access policies can grant any combination of [permissions](#iot-hub-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
 
     - **iothubowner**: Policy with all permissions.
     - **service**: Policy with ServiceConnect permission.
@@ -90,7 +90,7 @@ HTTP implements authentication by including a valid token in the **Authorization
 Username (DeviceId is case-sensitive):
 `iothubname.azure-devices.net/DeviceId`
 
-Password (Generate SAS with Device Explorer): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+Password (Generate SAS token with Device Explorer): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-sdks] automatically generate tokens when connecting to the service. In some cases, the SDKs do not support all the protocols or all the authentication methods.
 
@@ -114,9 +114,9 @@ IoT Hub uses security tokens to authenticate devices and services to avoid sendi
 IoT Hub also allows devices to authenticate with IoT Hub using [X.509 certificates][lnk-x509]. 
 
 ### Security token structure
-You use security tokens to grant time-bounded access to devices and services to specific functionality in IoT Hub. To ensure that only authorized devices and services can connect, security tokens must be signed with either a shared access policy key or a symmetric key stored with a device identity in the identity registry.
+You use security tokens to grant time-bounded access to devices and services to specific functionality in IoT Hub. To ensure that only authorized devices and services can connect, security tokens must be signed with either a shared access key or a symmetric key stored with a device identity in the identity registry.
 
-A token signed with a shared access policy key grants access to all the functionality associated with the shared access policy permissions. On the other hand, a token signed with a device identity's symmetric key only grants the **DeviceConnect** permission for the associated device identity.
+A token signed with a shared access key grants access to all the functionality associated with the shared access policy permissions. On the other hand, a token signed with a device identity's symmetric key only grants the **DeviceConnect** permission for the associated device identity.
 
 The security token has the following format:
 
@@ -185,7 +185,7 @@ As a comparison, the equivalent Python code to generate a security token is:
 
 ### Use SAS tokens in a device client
 
-There are two ways to obtain **DeviceConnect** permissions with IoT Hub with security tokens: use a [symmetric device key from the device identity registry](#use-a-symmetric-key-in-the-identity-registry), or use a [shared access policy key](#use-a-shared-access-policy).
+There are two ways to obtain **DeviceConnect** permissions with IoT Hub with security tokens: use a [symmetric device key from the device identity registry](#use-a-symmetric-key-in-the-identity-registry), or use a [shared access key](#use-a-shared-access-policy).
 
 Remember that all functionality accessible from devices is exposed by design on endpoints with prefix `/devices/{deviceId}`.
 
@@ -220,7 +220,7 @@ The result, which grants access to all functionality for device1, would be:
 
     SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
 
-> [AZURE.NOTE] It is possible to generate a secure token using the .NET tool [Device Explorer][lnk-device-explorer].
+> [AZURE.NOTE] It is possible to generate a SAS token using the .NET tool [Device Explorer][lnk-device-explorer].
 
 ### Use a shared access policy
 
@@ -296,17 +296,17 @@ You can use any X.509 certificate to authenticate a device with IoT Hub. This in
 
 A device may either use an X.509 certificate or a security token for authentication, but not both.
 
-### Register an X.509 client certificate for a device
+### Register an X.509 certificate for a device
 
-The [Azure IoT Service SDK for C#][lnk-service-sdk] (version 1.0.8+) supports registering a device which uses an X.509 client certificate for authentication. Other APIs such as import/export of devices also support X.509 client certificates.
+The [Azure IoT Service SDK for C#][lnk-service-sdk] (version 1.0.8+) supports registering a device which uses an X.509 certificate for authentication. Other APIs such as import/export of devices also support X.509 certificates.
 
 ### C\# Support
 
 The **RegistryManager** class provides a programmatic way to register a device. In particular, the **AddDeviceAsync** and **UpdateDeviceAsync** methods enable a user to register and update a device in the Iot Hub device identity registry. These two methods take a **Device** instance as input. The **Device** class includes an **Authentication** property which allows the user to specify primary and secondary X.509 certificate thumbprints. The thumbprint represents a SHA-1 hash of the X.509 certificate (stored using binary DER encoding). Users have the option of specifying a primary thumbprint or a secondary thumbprint or both. Primary and secondary thumbprints are supported in order to handle certificate rollover scenarios.
 
-> [AZURE.NOTE] IoT Hub does not require or store the entire X.509 client certificate, only the thumbprint.
+> [AZURE.NOTE] IoT Hub does not require or store the entire X.509 certificate, only the thumbprint.
 
-Here is a sample C\# code snippet to register a device using an X.509 client certificate:
+Here is a sample C\# code snippet to register a device using an X.509 certificate:
 
 ```
 var device = new Device(deviceId)
@@ -323,14 +323,14 @@ RegistryManager registryManager = RegistryManager.CreateFromConnectionString(dev
 await registryManager.AddDeviceAsync(device);
 ```
 
-### Use an X.509 client certificate during runtime operations
+### Use an X.509 certificate during runtime operations
 
-The [Azure IoT device SDK for .NET][lnk-client-sdk] (version 1.0.11+) supports the use of X.509 client certificates.
+The [Azure IoT device SDK for .NET][lnk-client-sdk] (version 1.0.11+) supports the use of X.509 certificates.
 
 ### C\# Support
 
 The class **DeviceAuthenticationWithX509Certificate** supports the creation of 
- **DeviceClient** instances using an X.509 client certificate.
+ **DeviceClient** instances using an X.509 certificate.
 
 Here is a sample code snippet:
 

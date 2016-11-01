@@ -2,7 +2,7 @@
 	pageTitle="View events and audit logs"
 	description="Learn how to see all of the events that happen in your Azure subscription."
 	authors="rboucher"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>

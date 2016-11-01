@@ -24,8 +24,8 @@ This document provides guidance on using Node.js modules with applications hoste
 If you are already familiar with using Node.js modules, **package.json** and **npm-shrinkwrap.json** files, the following is a quick summary of what is discussed in this article:
 
 * Azure App Service understands **package.json** and **npm-shrinkwrap.json** files and can install modules based on entries in these files.
-* Azure Cloud Services expect all modules to be installed on the development environment, and the **node\_modules** directory to be included as part of the deployment package. It is possible to enable support for installing 
-modules using **package.json** or **npm-shrinkwrap.json** files on Cloud Services, however this requires customization of the default scripts used by Cloud Service projects. For an example of how to accomplish this, see 
+* Azure Cloud Services expect all modules to be installed on the development environment, and the **node\_modules** directory to be included as part of the deployment package. It is possible to enable support for installing
+modules using **package.json** or **npm-shrinkwrap.json** files on Cloud Services, however this requires customization of the default scripts used by Cloud Service projects. For an example of how to accomplish this, see
 [Azure Startup task to run npm install to avoid deploying node modules](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
 
 > [AZURE.NOTE] Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM will be dependent on the operating system hosted by the Virtual Machine.
@@ -79,7 +79,7 @@ When your application is ready for production, you can lock-down version require
 
 ##Next Steps
 
-Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js web app], and [How to use the Azure Command-Line Interface for Mac and Linux].
+Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js web app](./app-service-web/web-sites-nodejs-develop-deploy-mac.md), and [How to use the Azure Command-Line Interface for Mac and Linux].
 
 For more information, see the [Node.js Developer Center](/develop/nodejs/).
 

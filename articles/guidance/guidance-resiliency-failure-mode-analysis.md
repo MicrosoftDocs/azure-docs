@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/10/2016"
+   ms.date="10/24/2016"
    ms.author="mwasson"/>
 
 # Azure resiliency guidance: Failure mode analysis
@@ -115,7 +115,7 @@ Application_End logging will catch the app domain shutdown (soft process crash) 
 
 ## Azure Search
 
-### Writing data to AzureSearch fails.
+### Writing data to Azure Search fails.
 
 **Detection**. Catch `Microsoft.Rest.Azure.CloudException` errors.
 
@@ -151,7 +151,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 **Recovery**
 
-- Each [Cassandra client](https://wiki.apache.org/cassandra/ClientOptions) has its own retry policies and capabilities.For more information, see [Cassandra error handling done right][cassandra-error-handling].
+- Each [Cassandra client](https://wiki.apache.org/cassandra/ClientOptions) has its own retry policies and capabilities. For more information, see [Cassandra error handling done right][cassandra-error-handling].
 - Use a rack-aware deployment, with data nodes distributed across the fault domains.
 - Deploy to multiple regions with local quorum consistency. If a non-transient failure occurs, fail over to another region.
 
@@ -271,7 +271,7 @@ Note: If you are using Storage queues with WebJobs, the WebJobs SDK provides bui
 
 **Recovery**
 
-1. Retry transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
 2. Treat non-transient failures as a cache miss, and fall back to the original data source.
 
 **Diagnostics**. Use [Redis Cache diagnostics][redis-monitor].
@@ -283,7 +283,7 @@ Note: If you are using Storage queues with WebJobs, the WebJobs SDK provides bui
 
 **Recovery**
 
-1. Retry transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
 2. If the error is non-transient, ignore it and let other transactions write to the cache later.
 
 **Diagnostics**. Use [Redis Cache diagnostics][redis-monitor].
@@ -343,7 +343,7 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 
 **Recovery**
 
-1. Retry transient failures. See [Service Bus retry guidelines][sb-retry].
+1. Retry on transient failures. See [Service Bus retry guidelines][sb-retry].
 
 2. Messages that cannot be delivered to any receiver are placed in a *dead-letter queue*. Use this queue to see which messages could not be received. There is no automatic cleanup of the dead-letter queue. Messages remain there until you explicitly retrieve them. See [Overview of Service Bus dead-letter queues][sb-dead-letter-queue].
 
@@ -396,7 +396,7 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 
 There are two failure modes to consider. 
 
-- The receiver detects the failure. In this case, move the message to the dead-letter queue (DLQ). Later, run a separate process to examine the messages in the dead-letter queue.
+- The receiver detects the failure. In this case, move the message to the dead-letter queue. Later, run a separate process to examine the messages in the dead-letter queue.
 
 - The receiver fails in the middle of processing the message &mdash; for example, due to an unhandled exception. To handle this case, use `PeekLock` mode. In this mode, if the lock expires, the message becomes available to other receivers. If the message exceeds the maximum delivery count or the time-to-live, the message is automatically moved to the dead-letter queue.
 
@@ -457,7 +457,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 1. Retry the operation, to recover from transient failures. The [retry policy][Storage.RetryPolicies] in the client SDK handles this automatically.
 2. For RA-GRS storage, if reading from the primary endpoint fails, try reading from the secondary endpoint. The client SDK can handle this automatically. See [Azure Storage replication][storage-replication].
-3. If *N* retry attempts fail, take a fallback action to degrade gracefully. For example, display a placeholder image.
+3. If *N* retry attempts fail, take a fallback action to degrade gracefully. For example, if a product image can't be retrieved from storage, show a generic placeholder image.
 
 **Diagnostics**. Use [storage metrics][storage-metrics].
 
@@ -476,7 +476,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 - Implement a retry policy in the application. 
 
-- For persistent or non-transient errors, implement the Circuit Breaker patterns.
+- For persistent or non-transient errors, implement the [Circuit Breaker][circuit-breaker] pattern.
 
 - If the calling VM exceeds its network egress limit, the outbound queue will fill up. If the outbound queue is consistently full, consider scaling out. 
 
@@ -516,7 +516,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Detection**. Depends on the application. Typical symptoms:
 
-- The website starts returning 500 errors.
+- The website starts returning HTTP 5xx error codes.
 - Dependent services, such as database or storage, start to throttle requests. Look for HTTP errors such as HTTP 429 (Too Many Requests), depending on the service.
 - HTTP queue length grows.
 
@@ -527,8 +527,8 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 - Mitigate failures to avoid having cascading failures disrupt the entire application. Mitigation strategies include:
 
     - Implement the [Throttling Pattern][throttling-pattern] to avoid overwhelming backend systems.
-    - Use [queue-based load leveling][queue-based-load-leveling] to buffer requests and process them at appropriate pace.
-    - Prioritize certain clients. For example, if the application has have free and paid tiers, throttle customers on the free tier, but not paid customers. See [Priority queue pattern][priority-queue-pattern].
+    - Use [queue-based load leveling][queue-based-load-leveling] to buffer requests and process them at an appropriate pace.
+    - Prioritize certain clients. For example, if the application has free and paid tiers, throttle customers on the free tier, but not paid customers. See [Priority queue pattern][priority-queue-pattern].
 
 **Diagnostics**. Use [App Service diagnostic logging][app-service-logging]. Use a service such as [Azure Log Analytics][azure-log-analytics], [Application Insights][app-insights], or [New Relic][new-relic] to help understand the diagnostic logs.
 
@@ -552,12 +552,11 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Recovery**
 
-1. Retry transient failures. 
+1. Retry on transient failures. 
 2. If the call fails after *N* attempts, take a fallback action. (Application specific.)
 3. Implement the [Circuit Breaker pattern][circuit-breaker] to avoid cascading failures. 
 
 **Diagnostics**. Log all remote call failures.
-
 
 
 ## Next steps

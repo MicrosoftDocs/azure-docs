@@ -24,7 +24,7 @@ You can manage your Machine Learning New and Classic Web services using the Micr
 In the Machine Learning Web Services portal you can:
 
 - Monitor how the web service is being used.
-- Configure the description, update the keys for the web service (New only), update your storage account key (New only), enable logging (Classic only), and enable or disable sample data.
+- Configure the description, update the keys for the web service (New only), update your storage account key (New only), enable logging, and enable or disable sample data.
 - Delete the web service.
 - Create, delete, or update billing plans (New only).
 - Add and delete endpoints (Classic only)

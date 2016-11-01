@@ -23,7 +23,7 @@
 
 ## Introduction
 
-This article describes how to find the IoT Hub service in the portal, and how to create and manage IoT hubs.
+This article describes how to find the IoT Hub service in the Azure portal, and how to create and manage IoT hubs.
 
 ## Where to find IoT hubs
 
@@ -57,7 +57,7 @@ You can choose from four tiers: **Free**, **Standard 1** and **Standard 2**, and
 
 ![][4]
 
-> [AZURE.NOTE] IoT Hub only allows one free hub per subscription.
+> [AZURE.NOTE] IoT Hub only allows one free hub per Azure subscription.
 
 ### IoT hub units
 
@@ -73,7 +73,7 @@ For resource groups, you do not need to explicitly create an empty resource grou
 
 ### Choose subscriptions
 
-Azure IoT Hub automatically shows the list of subscriptions to which the user account is linked. You can choose one of the options here to associate the IoT hub with that subscription.
+Azure IoT Hub automatically shows the list of Azure subscriptions to which the user account is linked. You can choose one of the options here to associate the IoT hub with that Azure subscription.
 
 ### Choose the location
 
@@ -91,7 +91,7 @@ You can change the settings of an existing IoT hub after it is created from the 
 
 ![][8]
 
-**Shared Access Policies**: These policies define the permissions for devices and services to connect to IoT Hub. You can access these policies by clicking **Shared Access Policies** under **General**. In this blade, you can either modify existing policies or add a new policy.
+**Shared access policies**: These policies define the permissions for devices and services to connect to IoT Hub. You can access these policies by clicking **Shared access policies** under **General**. In this blade, you can either modify existing policies or add a new policy.
 
 ### Create a policy
 
@@ -115,7 +115,7 @@ Click **Messaging** to display a list of messaging properties for the IoT hub th
 
 **Partitions**: This value is set when the IoT hub is created and can be changed through this setting.
 
-**Event Hub compatible name and endpoint**: When the IoT hub is created, an Event Hub is created internally that you may need access to under certain circumstances. This Event Hub name and endpoint cannot be customized but is available for use via the **Copy** button.
+**Event Hub-compatible name and endpoint**: When the IoT hub is created, an Event Hub is created internally that you may need access to under certain circumstances. This Event Hub-compatible name and endpoint cannot be customized but is available for use via the **Copy** button.
 
 **Retention Time**: Set to one day by default but can be customized to other values using the drop-down list. This value is in days for Device to Cloud and not in hours, as is the similar setting for Cloud to Device.
 
@@ -130,7 +130,7 @@ Click **Messaging** to display a list of messaging properties for the IoT hub th
 The pricing of an existing IoT hub can be changed through the **Pricing** settings, with the following exceptions:
 
 - In the current implementation, an IoT hub with a free SKU cannot change tiers to one of the paid SKUs, or vice versa.
-- There can only be one free tier IoT hub in the subscription.
+- There can only be one free tier IoT hub in the Azure subscription.
 
 ![][12]
 
@@ -151,7 +151,7 @@ Follow these links to learn more about managing Azure IoT Hub:
 To further explore the capabilities of IoT Hub, see:
 
 - [Developer guide][lnk-devguide]
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 - [Secure your IoT solution from the ground up][lnk-securing]
 
 
