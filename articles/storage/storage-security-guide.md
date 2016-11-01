@@ -112,11 +112,7 @@ Here are the main points that you need to know about using RBAC to access the ma
 
 -   [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md)
 
-    This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups
-
--   [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
-
-    This article explains how the Azure Compute, Network, and Storage Providers work under the Resource Manager model.
+    This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups. It explains how the Azure Compute, Network, and Storage Providers work under the Resource Manager model.
 
 -   [Managing Role-Based Access Control with the REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 

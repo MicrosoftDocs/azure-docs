@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/10/2016"
+   ms.date="10/29/2016"
    ms.author="seanmck"/>
 
 # Disaster recovery in Azure Service Fabric
@@ -80,7 +80,7 @@ To protect against this possibility, it is critically important to periodically 
 protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 {
   ServiceEventSource.Current.ServiceMessage(this, "OnDataLoss event received.");
-  return Task.FromResult(true);
+  return Task.FromResult(false);
 }
 ```
 

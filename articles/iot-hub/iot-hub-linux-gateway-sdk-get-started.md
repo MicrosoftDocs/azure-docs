@@ -49,7 +49,9 @@ Before you get started, you must [set up your development environment][lnk-setup
       [ 
         {
           "module name" : "logger_hl",
-          "module path" : "./build/modules/logger/liblogger_hl.so",
+          "loading args": {
+            "module path" : "./build/modules/logger/liblogger_hl.so"
+          },
           "args" : 
           {
             "filename":"./log.txt"
@@ -57,7 +59,9 @@ Before you get started, you must [set up your development environment][lnk-setup
         },
         {
           "module name" : "hello_world",
-          "module path" : "./build/modules/hello_world/libhello_world_hl.so",
+          "loading args": {
+            "module path" : "./build/modules/hello_world/libhello_world_hl.so"
+          },
           "args" : null
         }
       ],

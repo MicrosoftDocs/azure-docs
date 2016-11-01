@@ -1,6 +1,6 @@
 <properties
  pageTitle="Troubleshooting | Microsoft Azure"
- description="Troubleshooting page for Raspberry Pi Node.js experience"
+ description="Troubleshooting page for the Raspberry Pi Node.js experience"
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
@@ -23,23 +23,23 @@
 
 ### The application runs well but the LED is not blinking
 
-This issue is always related to the hardware circuit connectivity. Use the following steps to identify problems.
+This issue is always related to hardware circuit connectivity. Use the following steps to identify problems:
 
-1. Check if you choose the correct **GPIO** on your board. The two ports in this lesson should be **GPIO GND (Pin 6)** and **GPIO 04 (Pin 7)**.
-2. Check if the polarity of your LED is correct. The longer leg should indicate the **positive**, anode pin.
-3. Use the **3.3V Pin** and **GND Pin** on your Raspberry Pi 3. Treat your Pi as the DC Power. Check if the LED works fine.
+1. Check that you chose the correct **GPIO** on your board. The two ports should be **GPIO GND (Pin 6)** and **GPIO 04 (Pin 7)**.
+2. Check that the polarity of your LED is correct. The longer leg should indicate the **positive**, anode pin.
+3. Use the **3.3V Pin** and **GND Pin** on Raspberry Pi 3. Treat Pi as the DC power. Check that the LED works fine.
 
-![LED spec](media/iot-hub-raspberry-pi-lessons/troubleshooting/led_spec.png)
+![LED specification](media/iot-hub-raspberry-pi-lessons/troubleshooting/led_spec.png)
 
 ### Other hardware issues
 
-For information about solving common problems on the Raspberry Pi 3, refer to the [official troubleshooting page](http://elinux.org/R-Pi_Troubleshooting).
+For information about solving common problems on Raspberry Pi 3, see the [official troubleshooting page](http://elinux.org/R-Pi_Troubleshooting).
 
 ## Node.js package issues
 
 ### No response during gulp tasks
 
-If you encounter problems running gulp tasks, you can add the `--verbose` option for debugging. Try to terminate current gulp tasks with `Ctrl + C` and then run the following command in your console window to see debug messages. You might see detailed error messages printed in your console output. 
+If you encounter problems in running gulp tasks, you can add the `--verbose` option for debugging. Try to terminate current gulp tasks by using Ctrl + C, and then run the following command in your console window to see debug messages. You might see detailed error messages in your console output.
 
 ```bash
 gulp --verbose
@@ -47,17 +47,17 @@ gulp --verbose
 
 ### Device discovery issues
 
-For help troubleshooting common problems with the `devdisco` command, check the [readme](https://github.com/Azure/device-discovery-cli/blob/develop/readme.md).
+For help in troubleshooting common problems with the `devdisco` command, check the [readme](https://github.com/Azure/device-discovery-cli/blob/develop/readme.md).
 
-### Other NPM issues
+### npm issues
 
-Try to update your NPM package with the following command:
+Try to update your npm package by using the following command:
 
 ```bash
 npm install -g npm
 ```
 
-If the problem still exists, leave your comments at the end of this article or create a Github issue in our [Sample Repository](https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started)
+If the problem still exists, leave your comments at the end of this article or create a GitHub issue in our [sample repository](https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started).
 
 ## Remote debugging
 
@@ -69,13 +69,13 @@ gulp run --debug
 
 When the debug engine is ready, you should see ```Debugger listening on port 5858``` in the console output.
 
-### Configure VS Code to connect to the remote device
+### Configure Visual Studio Code to connect to the remote device
 
-Open the **Debug** panel on the left-hand side.
+1. Open the **Debug** panel on the left side.
 
-Click the green **Start Debugging** (F5) button. VS Code opens a **launch.json** file, which you need to update.
+2. Click the green **Start Debugging** (F5) button. Visual Studio Code opens a launch.json file.
 
-Update the **launch.json** file with the following content. Replace `[device hostname or IP address]` with the actual device IP address or hostname.   
+3. Update the launch.json file with the following content. Replace `[device hostname or IP address]` with the actual device IP address or host name.   
 
 ```json
 {
@@ -101,7 +101,7 @@ Update the **launch.json** file with the following content. Replace `[device hos
 
 ### Attach to the remote application
 
-Click the green **Start Debugging** (F5) button to start debugging. 
+Click the green **Start Debugging** (F5) button to start debugging.
 
 Read [JavaScript in VS Code](https://code.visualstudio.com/docs/languages/javascript#_debugging) to learn more about the debugger.
 
@@ -109,42 +109,42 @@ Read [JavaScript in VS Code](https://code.visualstudio.com/docs/languages/javasc
 
 ## Azure CLI issues
 
-Azure CLI is a preview build. You can refer to [Preview Install Guide](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md) to seek solutions.
+The Azure command-line interface (Azure CLI) is a preview build. To seek solutions, you can use the [Preview Install Guide](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md).
 
 If you encounter any bugs with the tool, file an [issue](https://github.com/Azure/azure-cli/issues) in the **Issues** section of the GitHub repo.
 
-For help troubleshooting common problems, check the [readme](https://github.com/Azure/azure-cli/blob/master/README.rst).
+For help in troubleshooting common problems, check the [readme](https://github.com/Azure/azure-cli/blob/master/README.rst).
 
 ## Python installation issues
 
 ### Legacy installation issues (macOS)
 
-When installing **pip**, a permission error is thrown when there are legacy packages that are installed with **su** permissions. This situation occurs because previous install of Python using brew (macOS) is not uninstalled completely. Some **pip** packages from a previous installation were created by root, which causes the permission error. The solution is to remove those packages installed by root. Use the following steps to complete this task:
+When you're installing pip, a permission error is thrown when older packages are installed with **su** permissions. This situation occurs because a previous installation of Python using brew (macOS) is not uninstalled completely. Some pip packages from a previous installation were created by root, which causes the permission error. The solution is to remove those packages installed by root. Use the following steps to complete this task:
 
-1. Go to /usr/local/lib/python2.7/site-packages
-2. List packages create by root: `ls -l | grep root`
-3. Uninstall packages from step2: `sudo rm -rf {package name}`
+1. Go to: /usr/local/lib/python2.7/site-packages
+2. List packages created by root: `ls -l | grep root`
+3. Uninstall packages from step 2: `sudo rm -rf {package name}`
 4. Reinstall Python.
 
-## Azure IoT hub issues
+## Azure IoT Hub issues
 
-If you've successfully provisioned Azure IoT hub with `azure-cli`, and you need a tool to manage the devices connecting to your IoT hub, try the following tools:
+If you've successfully provisioned Azure IoT Hub with Azure CLI, and you need a tool to manage the devices that are connecting to your hub, try the following tools.
 
 ### Device Explorer
 
-[Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) runs on your Windows local machine and connects to your IoT hub in Azure. It communicates with the following [IoT Hub endpoints](iot-hub-devguide.md):
+[Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) runs on your Windows local machine and connects to your hub in Azure. It communicates with the following [IoT Hub endpoints](iot-hub-devguide.md):
 
-- *Device identity management* to provision and manage devices registered with your IoT hub.
-- *Receive device-to-cloud* to enable you to monitor messages sent from your device to your IoT hub.
-- *Send cloud-to-device* to enable you to send messages to your devices from your IoT hub.
+- *Device identity management* to provision and manage devices registered with your hub.
+- *Receive device-to-cloud* so you can monitor messages sent from your device to your hub.
+- *Send cloud-to-device* so you can send messages to your devices from your hub.
 
-Configure your `IoT hub connection string` within this tool to use all its capabilities.
+Configure your IoT Hub connection string within this tool to use all its capabilities.
 
-### IoT hub Explorer
+### iothub-explorer
 
-[IoT hub Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) is a sample multiplatform CLI tool to manage device clients. The tool enables you to manage the devices in the identity registry, monitor device-to-cloud messages, and send cloud-to-device commands.
+[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) is a sample multiplatform CLI tool to manage device clients. You can use the tool to manage the devices in the identity registry, monitor device-to-cloud messages, and send cloud-to-device commands.
 
-To install the latest (pre-release) version of the iothub-explorer tool, run the following command in your command-line environment:
+To install the latest (prerelease) version of the iothub-explorer tool, run the following command in your command-line environment:
 
 ```
 npm install -g iothub-explorer@latest
@@ -156,10 +156,10 @@ You can use the following command to get additional help about all the iothub-ex
 iothub-explorer help
 ```
 
-### Use Azure portal to manage your resources
+### Azure portal
 
-In all these lessons, a full CLI experience is provided to create and manage all your Azure resources. You might also want to use the [Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
+A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
 
 ## Azure Storage issues
 
-[Microsoft Azure Storage Explorer (Preview)](http://storageexplorer.com) is a standalone app from Microsoft that allows you to work with Azure Storage data on Windows, macOS, and Linux. This tool allows you to connect to your table and see the data in it. You can use this tool to troubleshoot your Azure Storage issues.
+[Microsoft Azure Storage Explorer (preview)](http://storageexplorer.com) is a standalone app from Microsoft that you can use to work with Azure Storage data on Windows, macOS, and Linux. By using this tool, you can connect to your table and see the data in it. You can use this tool to troubleshoot your Azure Storage issues.

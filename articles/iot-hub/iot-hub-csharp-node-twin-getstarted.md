@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with twins | Microsoft Azure"
-	description="This tutorial shows you how to use twins"
+	pageTitle="Get started with device twins | Microsoft Azure"
+	description="This tutorial shows you how to use device twins"
 	services="iot-hub"
 	documentationCenter="node"
 	authors="fsautomata"
@@ -39,7 +39,7 @@ To complete this tutorial you need the following:
 
 ## Create the service app
 
-In this section, you create a Node.js console app that adds location meta-data to the twin associated with **myDeviceId**. It then queries the twins stored in the hub selecting the devices located in the US, and then the ones that reporting a cellular connection.
+In this section, you create a Node.js console app that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the hub selecting the devices located in the US, and then the ones that reporting a cellular connection.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **AddTagsAndQuery**.
 
@@ -85,7 +85,7 @@ In this section, you create a Node.js console app that adds location meta-data t
             Console.WriteLine("Devices in Redmond43 using cellular network: {0}", string.Join(", ", twinsInRedmond43UsingCellular.Select(t => t.DeviceId)));
         }
 
-	The **RegistryManager** class exposes all the methods required to interact with device twins from the service. The previous code first initializes the **registryManager** object, then retrieves the twin for **myDeviceId**, and finally updates its tags with the desired location information.
+	The **RegistryManager** class exposes all the methods required to interact with device twins from the service. The previous code first initializes the **registryManager** object, then retrieves the device twin for **myDeviceId**, and finally updates its tags with the desired location information.
 
     After the updating, it executes two queries: the first selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through cellular network.
 
@@ -106,7 +106,7 @@ In the next section you create a device app that reports the connectivity inform
 
 ## Create the device app
 
-In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its twin's reported properties to contain the information that it is connected using a cellular network.
+In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its device twin's reported properties to contain the information that it is connected using a cellular network.
 
 1. Create a new empty folder called **reportconnectivity**. In the **reportconnectivity** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
 
@@ -160,7 +160,7 @@ In this section, you create a Node.js console app that connects to your hub as *
         }
         });
 
-    The **Client** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the twin for **myDeviceId** and updates its reported property with the connectivity information.
+    The **Client** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for **myDeviceId** and updates its reported property with the connectivity information.
 
 5. Run the device app
 
@@ -173,12 +173,12 @@ In this section, you create a Node.js console app that connects to your hub as *
     ![][img-addtagapp2]
 
 ## Next steps
-In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the hub's identity registry. You added device meta-data as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the IoT Hub SQL-like query language.
+In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the hub's identity registry. You added device metadata as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the IoT Hub SQL-like query language.
 
 Use the following resources to learn how to:
 
 - send telemetry from devices with the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial,
-- configure devices using twin's desired properties with the [Use desired properties to configure devices][lnk-twin-how-to-configure] tutorial,
+- configure devices using device twin's desired properties with the [Use desired properties to configure devices][lnk-twin-how-to-configure] tutorial,
 - control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods][lnk-methods-tutorial] tutorial.
 
 <!-- images -->
