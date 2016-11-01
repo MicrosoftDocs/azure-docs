@@ -523,3 +523,7 @@ To get a policy, use the following command:
 ### REST API
 
 To get a policy, use the [Get policy definition](https://msdn.microsoft.com/library/mt588474.aspx) operation.
+
+## Next steps
+
+- For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
