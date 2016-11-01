@@ -12,10 +12,8 @@ client.login("facebook").done(function (results) {
      alert("You are now logged in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
-});
-```
-
-If you are using an identity provider other than Facebook, change the value passed to the login method above to one of
+});app-service-mobile
+app-service-mobile-ios-get-started-users value passed to the login method above to one of
 the following: `microsoftaccount`, `facebook`, `twitter`, `google`, or `aad`.
 
 In this case, Azure App Service manages the OAuth 2.0 authentication flow by displaying the login page of the selected
