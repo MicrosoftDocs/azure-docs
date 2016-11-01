@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="11/1/2016" 
+    ms.date="11/01/2016" 
     ms.author="arramac"/>
     
 # Working with Geospatial data in Azure DocumentDB
