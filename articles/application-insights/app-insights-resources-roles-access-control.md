@@ -105,6 +105,6 @@ If the user you want isn't in the directory, you can invite anyone with a Micros
 <!--Link references-->
 
 [account]: https://account.microsoft.com
-[group]: ../resource-group-overview.md
+[group]: ../azure-resource-manager/resource-group-overview.md
 [portal]: https://portal.azure.com/
 [start]: app-insights-overview.md
