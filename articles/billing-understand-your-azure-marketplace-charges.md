@@ -55,17 +55,15 @@ If you are using an Azure subscription that includes [free credits](https://azur
 
 You can view a list of the external services that are on each subscription within the [Azure portal](https://portal.azure.com/): 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) and [navigate to the **Billing** blade](https://portal.azure.com/?flight=1#blade/Microsoft_Azure_Billing/BillingBlade).
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the account administrator.
 
-	![Select Billing in the Hub menu](./media/billing-understand-your-azure-marketplace-charges/billing-button.png) 
+2. In the Hub menu, select **Subscriptions**.
+
+	![Select Subscriptions in the Hub menu](./media/billing-understand-your-azure-marketplace-charges/sub-button.png) 
   
-2. In the **Subscription costs** section, select the subscription that you want to view. 
+3. In the **Subscriptions** blade, select the subscription that you want to view, and then select **External services**.
    
-	![Select a subscription in the billing blade](./media/billing-understand-your-azure-marketplace-charges/select-sub.png)
-
-3. Click **External services**.
-
-	![Click External Services in the subscription blade](./media/billing-understand-your-azure-marketplace-charges/external-service-blade.png)
+	![Select a subscription in the billing blade](./media/billing-understand-your-azure-marketplace-charges/select-sub-external-services.png)
 
 4. You should see each of your external service orders, the publisher name, service tier you bought, name you gave the resource, and the current order status. Select an external service to see past bills.
 
