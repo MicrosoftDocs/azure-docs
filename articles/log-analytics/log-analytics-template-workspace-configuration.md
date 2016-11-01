@@ -70,10 +70,11 @@ The following template sample illustrates how to:
       "allowedValues": [
         "Free",
         "Standalone",
-        "OMS"
+        "PerNode"
       ],
       "metadata": {
-        "description": "Service Tier: Free, Standalone, or OMS"
+        "description": "Service Tier: Free, Standalone, or PerNode"
+	}
       },
     "dataRetention": {
       "type": "int",
