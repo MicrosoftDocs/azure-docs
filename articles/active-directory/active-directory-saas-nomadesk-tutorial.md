@@ -47,7 +47,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 
 ## Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. 
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.
 
 The scenario outlined in this tutorial consists of two main building blocks:
 
@@ -60,7 +60,7 @@ To configure the integration of Nomadesk into Azure AD, you need to add Nomadesk
 
 **To add Nomadesk from the gallery, perform the following steps:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
 	![Active Directory][1]
 
@@ -111,28 +111,28 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 1. In the Azure classic portal, on the **Nomadesk** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 
-	![Configure Single Sign-On][6] 
+	![Configure Single Sign-On][6]
 
 2. On the **How would you like users to sign on to Nomadesk** page, select **Azure AD Single Sign-On**, and then click **Next**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_03.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_03.png)
 
 3. On the **Configure App Settings** dialog page, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_04.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_04.png)
 
 	a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Nomadesk application using the following pattern: **“https://mynomadesk.com/logon/saml/TENANTID”**. When referencing a generic name that **TENANTID** needs to be replaced by an actual tenant id .
 
 4. On the **Configure single sign-on at Nomadesk** page, perform the following steps:
- 
-	![Configure Single Sign-On](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_05.png) 
+
+	![Configure Single Sign-On](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_05.png)
 
     a. Click **Download certificate**, and then save the file on your computer.
 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Nomadesk support team via [mailto:support@nomadesk.com](support@nomadesk.com). Attach the downloaded certificate file to your mail and share the metadata urls (Entity ID, SSO Sign in URL and Sign Out URL) with Nomadesk team to set up SSO on their side.
+5. To get SSO configured for your application, contact your Nomadesk support team via support@nomadesk.com. Attach the downloaded certificate file to your mail and share the metadata urls (Entity ID, SSO Sign in URL and Sign Out URL) with Nomadesk team to set up SSO on their side.
 
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
@@ -155,21 +155,21 @@ The objective of this section is to create a test user in the Azure classic port
 
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_09.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_09.png)
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3. To display the list of users, in the menu on the top, click **Users**.
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_03.png) 
+
+	![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_03.png)
 
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_04.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_04.png)
 
 5. On the **Tell us about this user** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_05.png) 
+
+	![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_05.png)
 
     a. As Type Of User, select New user in your organization.
 
@@ -179,7 +179,7 @@ The objective of this section is to create a test user in the Azure classic port
 
 6.  On the **User Profile** dialog page, perform the following steps:
 
-	![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_06.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_06.png)
 
     a. In the **First Name** textbox, type **Britta**.  
 
@@ -193,12 +193,12 @@ The objective of this section is to create a test user in the Azure classic port
 
 7. On the **Get temporary password** dialog page, click **create**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_07.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_07.png)
 
 
 8. On the **Get temporary password** dialog page, perform the following steps:
 
-	![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_08.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_08.png)
 
     a. Write down the value of the **New Password**.
 
@@ -219,21 +219,21 @@ There is no action item for you in this section. A new user will be created duri
 
 The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Nomadesk.
 
-![Assign User][200] 
+![Assign User][200]
 
 **To assign Britta Simon to Nomadesk, perform the following steps:**
 
 1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
- 
-	![Assign User][201] 
+
+	![Assign User][201]
 
 2. In the applications list, select **Nomadesk**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_50.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_50.png)
 
 1. In the menu on the top, click **Users**.
 
-	![Assign User][203] 
+	![Assign User][203]
 
 1. In the Users list, select **Britta Simon**.
 
