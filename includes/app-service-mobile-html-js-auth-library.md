@@ -2,7 +2,7 @@
 
 To have Mobile Apps manage the authentication process in your app, you must register your app with your identity
 provider. Then in your Azure App Service, you need to configure the application ID and secret provided by your provider.
-For more information, see the tutorial [Add authentication to your app](../app-service-mobile/app-service-mobile-ios-get-started-users.md).
+For more information, see the tutorial [Add authentication to your app](./app-service-mobile/app-service-mobile-ios-get-started-users.md).
 
 Once you have registered your identity provider, simply call the .login() method with the name of your provider. For
 example, to login with Facebook use the following code.

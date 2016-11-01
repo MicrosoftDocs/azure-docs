@@ -185,7 +185,7 @@ Please use the following Disqus comments section to provide feedback and help us
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-Subscriptions-Assoc]: ./active-directory-how-subscriptions-associated-directory.md
-[AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
+[AAD-How-To-Integrate]: ../develop/active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]: active-directory-howto-tenant.md
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Multi-Tenant-Overview]: active-directory-devhowto-multi-tenant-overview.md
