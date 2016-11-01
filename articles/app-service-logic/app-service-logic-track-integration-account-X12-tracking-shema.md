@@ -66,7 +66,7 @@ Following are the supported X12 tracking schemas
 | receiverQualifier | Mandatory, string.  It contains the receive partner qualifier |
 | receiverIdentifier | Mandatory, string.  It contains the receive partner identifier |
 | agreementName | Optional, string.  Name of the X12 agreement to which the messages are resolved |
-| direction | Required, string.  It indiates the direction of the message flow, either receive or send |
+| direction | Required, string.  It indicates the direction of the message flow, either receive or send |
 | interchangeControlNumber | Optional, string.  It contains the interchange control number |
 | functionalGroupControlNumber | Optional, string.  It contains the functional control number |
 | transactionSetControlNumber | Optional, string.  It contains the transaction set control number |
@@ -125,11 +125,11 @@ Following are the supported X12 tracking schemas
 | receiverQualifier | Mandatory, string.  It contains the receive partner qualifier |
 | receiverIdentifier | Mandatory, string.  It contains the receive partner identifier |
 | agreementName | Optional, string.  Name of the X12 agreement to which the messages are resolved |
-| direction | Required, string.  It indiates the direction of the message flow, either receive or send |
-| interchangeControlNumber | Optional, string.  It contains the interchange control number of the functional acknowledgement. This will get populated only for send side where functional acknowledgement received for the messages sent to partner |
-| functionalGroupControlNumber | Optional, string.  It contains the functional group control number of the functional acknowledgement. This will get populated only for send side where functional acknowledgement received for the messages sent to partner |
-| isaSegment | Optional, string.  It contains the ISA segment of the message. This will get populated only for send side where functional acknowledgement received for the messages sent to partner |
-| gsSegment | Optional, string.  It contains the GS segment of the message. This will get populated only for send side where functional acknowledgement received for the messages sent to partner |
+| direction | Required, string.  It indicates the direction of the message flow, either receive or send |
+| interchangeControlNumber | Optional, string.  It contains the interchange control number of the functional acknowledgement. This gets populated only for send side where functional acknowledgement received for the messages sent to partner |
+| functionalGroupControlNumber | Optional, string.  It contains the functional group control number of the functional acknowledgement. This gets populated only for send side where functional acknowledgement received for the messages sent to partner |
+| isaSegment | Optional, string.  It contains the ISA segment of the message. This gets populated only for send side where functional acknowledgement received for the messages sent to partner |
+| gsSegment | Optional, string.  It contains the GS segment of the message. This gets populated only for send side where functional acknowledgement received for the messages sent to partner |
 | respondingfunctionalGroupControlNumber | Optional, string.  It contains the responding  interchange control number |
 | respondingFunctionalGroupId | Optional, string. It contains the responding functional group id, that maps to AK101 in the acknowledgement |
 | respondingtransactionSetControlNumber | Optional, string.  It contains the responding transaction set control number |
@@ -139,8 +139,8 @@ Following are the supported X12 tracking schemas
 | processingStatus | Mandatory, string.  It contains the processing status of the acknowledgment.  The allowed values are Received or Generated or Sent |
 | CorrelationMessageId | Optional, string.  It contains the correlation message id.  The correlation id is combination of {AgreementName}_{GroupControlNumber}_{TransactionSetControlNumber} |
 | isMessageFailed | Mandatory, boolean.  Indicates that whether X12 message either succeeded or failed |
-| ak2Segment | Optional, string. It contains the ak2 segement. The ak2 segment contains an acknowledgment for a transaction set within the received functional group |
-| ak3Segment | Optional, string. It contains the ak3 segemnt.  The ak3 segment reports errors in a data segment |
+| ak2Segment | Optional, string. It contains the ak2 segment. The ak2 segment contains an acknowledgment for a transaction set within the received functional group |
+| ak3Segment | Optional, string. It contains the ak3 segment.  The ak3 segment reports errors in a data segment |
 | ak5Segment | Optional, string. It contains the ak5 segment.  The ak5 segment reports whether the transaction set identified in the AK2 segment is accepted or rejected and why  |
 |
 
@@ -184,7 +184,7 @@ Following are the supported X12 tracking schemas
 | receiverQualifier | Mandatory, string.  It contains the receive partner qualifier |
 | receiverIdentifier | Mandatory, string.  It contains the receive partner identifier |
 | agreementName | Optional, string.  Name of the X12 agreement to which the messages are resolved |
-| direction | Required, string.  It indiates the direction of the message flow, either receive or send |
+| direction | Required, string.  It indicates the direction of the message flow, either receive or send |
 | interchangeControlNumber | Optional, string.  It contarins the interchange control number |
 | isaSegment | Optional, string.  It contains the message ISA segment |
 | isTechnicalAcknowledgmentExpected | Mandatory, boolean.  It indicates whether the technical acknowledgement is either configured or not configured in the X12 agreement |
@@ -236,14 +236,14 @@ Following are the supported X12 tracking schemas
 | receiverQualifier | Mandatory, string.  It contains the receive partner qualifier |
 | receiverIdentifier | Mandatory, string.  It contains the receive partner identifier |
 | agreementName | Optional, string.  Name of the X12 agreement to which the messages are resolved |
-| direction | Required, string.  It indiates the direction of the message flow, either receive or send |
-| interchangeControlNumber | Optional, string.  It contains the interchange control number of the Technical Acknowledgement.  This will be populated for technical acknowledgement received from partners | 
-| isaSegment | Optional, string.  It contains the ISA segment for the Technical Acknowledgement.  This will be populated for technical acknowledgement received from partners | 
-| respondingInterchangeControlNumber | Optional, string.  It contains the interchange control number for the Technical Acknowledgement.  This will be populated for technical acknowledgement received from partners | 
+| direction | Required, string.  It indicates the direction of the message flow, either receive or send |
+| interchangeControlNumber | Optional, string.  It contains the interchange control number of the Technical Acknowledgement.  This is populated for technical acknowledgement received from partners | 
+| isaSegment | Optional, string.  It contains the ISA segment for the Technical Acknowledgement.  This is populated for technical acknowledgement received from partners | 
+| respondingInterchangeControlNumber | Optional, string.  It contains the interchange control number for the Technical Acknowledgement.  This is populated for technical acknowledgement received from partners | 
 | isMessageFailed | Mandatory, boolean.  Indicates that whether X12 message either succeeded or failed | 
 | statusCode | Mandatory, string.  It contains the interchange acknowledgment status code.  The allowed values are Accepted/Rejected/AccpetedWithErrros | 
-| processingStatus | Mandatory, string.  It contains the acknowledment status.  The allowed values are Received/Generated/Sent | 
-| ta102 | Optional - The responding interchange date. - type strig | 
+| processingStatus | Mandatory, string.  It contains the acknowledgment status.  The allowed values are Received/Generated/Sent | 
+| ta102 | Optional - The responding interchange date. - type string | 
 | ta103 | Optional - The responding interchange time - type string | 
 | ta105 | Optional - The interchange note code - type string |
 |
@@ -291,7 +291,7 @@ Following are the supported X12 tracking schemas
 | receiverQualifier | Mandatory, string.  It contains the receive partner qualifier |
 | receiverIdentifier | Mandatory, string.  It contains the receive partner identifier |
 | agreementName | Optional, string.  Name of the X12 agreement to which the messages are resolved |
-| direction | Required, string.  It indiates the direction of the message flow, either receive or send |
+| direction | Required, string.  It indicates the direction of the message flow, either receive or send |
 | interchangeControlNumber | Optional, string. It contains the interchange control number |
 | functionalGroupControlNumber | Optional - Functional control number - type string |
 | gsSegment | Optional, string.  It contains the message GS segment |
@@ -349,26 +349,26 @@ Following are the supported X12 tracking schemas
 | receiverQualifier | Mandatory, string.  It contains the receive partner qualifier |
 | receiverIdentifier | Mandatory, string.  It contains the receive partner identifier |
 | agreementName | Optional, string.  Name of the X12 agreement to which the messages are resolved |
-| direction | Required, string.  It indiates the direction of the message flow, either receive or send |
-| interchangeControlNumber | Optional - Interchange control number of the TA - This will get populated only in cases where it is on send side and when we receive a technical ack, but not when we generate on receive side. - type string |
-| functionalGroupControlNumber | Optional - functional group control number of the TA - This will get populated only in cases where it is on send side and when we receive a technical ack, but not when we generate on receive side. - type string |
-| isaSegment | Optional - Same as above interchange control number will get populated only in specific cases. - type string |
-| gsSegment | Optional - Same as above functional group control number will get populated only in specific cases. - type string |
+| direction | Required, string.  It indicates the direction of the message flow, either receive or send |
+| interchangeControlNumber | Optional - Interchange control number of the TA - This gets populated only in cases where it is on send side and when we receive a technical ack, but not when we generate on receive side. - type string |
+| functionalGroupControlNumber | Optional - functional group control number of the TA - This gets populated only in cases where it is on send side and when we receive a technical ack, but not when we generate on receive side. - type string |
+| isaSegment | Optional - Same as above interchange control number gets populated only in specific cases. - type string |
+| gsSegment | Optional - Same as above functional group control number gets populated only in specific cases. - type string |
 | respondingfunctionalGroupControlNumber | Optional - control number of the original functional group - type string |
 | respondingFunctionalGroupId | Optional - Maps to AK101 in the ack - functional group Id - type string |
 | isMessageFailed | Mandatory, boolean.  Indicates that whether X12 message either succeeded or failed |
 | statusCode | Mandatory, string.  It contains the acknowledgment status code. The allowed values are Accepted/Rejected/AccpetedWithErrros |
 | processingStatus | Mandatory, string.  It contains the processing status of the acknowledgment. The allowed Values are Received/Generated/Sent |
 | ak903 | Optional, string. It contains the number of the transaction sets received |
-| ak904 | Optional, string. It contains the number of transaction sets accepted in the identified functional gorup |
-| ak9Segment | Optional, string.  Ak9 segment indicates whether the functional group identified in teh AK1 segment is accepted or rejected and why |
+| ak904 | Optional, string. It contains the number of transaction sets accepted in the identified functional group |
+| ak9Segment | Optional, string.  Ak9 segment indicates whether the functional group identified in the AK1 segment is accepted or rejected and why |
 |
 
 
 
 ## Next steps
 
-[Learn more about tracking B2B messages] (./media/app-service-logic-track-b2b-message.md "Learn more about tracking B2B messages")
-[Custom Tracking Schema] (./media/app-service-logic-track-integration-account-custom-tracking-shema.md "Learn about Custom Schema")
-[AS2 Tracking Schema] (./media/app-service-logic-track-integration-account-AS2-tracking-shema.md "Learn about AS2 Schema")
+[Learn more about tracking B2B messages] (./media/app-service-logic-track-b2b-message.md "Learn more about tracking B2B messages")   
+[Custom Tracking Schema] (./media/app-service-logic-track-integration-account-custom-tracking-shema.md "Learn about Custom Schema")   
+[AS2 Tracking Schema] (./media/app-service-logic-track-integration-account-as2-tracking-shema.md "Learn about AS2 Schema")   
 [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

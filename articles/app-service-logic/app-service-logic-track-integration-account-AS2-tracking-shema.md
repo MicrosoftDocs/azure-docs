@@ -64,7 +64,7 @@ Following are the supported AS2 tracking schemas
 | as2To | Required, string.  It contains the AS2 message receiver’s name that is included in the headers of the AS2 message |
 | as2From | Required, string. It contains the AS2 message sender’s name that is included in the headers of the AS2 message |
 | agreementName | Optional, string.  Name of the AS2 agreement to which the messages are resolved |
-| direction | Required, string.  It indiates the direction of the message flow, either receive or send |
+| direction | Required, string.  It indicates the direction of the message flow, either receive or send |
 | messageId | Optional, string.  It contains the AS2 Message ID that is included in the headers of the AS2 message |
 | dispositionType | Optional, string. It contains the MDN disposition type value |
 | fileName | Optional, string.  It contains the file name that is included in the header of the AS2 message |
@@ -118,14 +118,14 @@ Following are the supported AS2 tracking schemas
 
 | Property | Description |
 | -------- | ------- |
-| senderPartnerName | Optional, string.  It contains the AS2 message sender's partner name |
-| receiverPartnerName | Optional, string.  It contains the AS2 message receiver's partner name |
-| as2To | Required, string.  The name of the partner who receives that AS2 message  |
-| as2From | Required, string.The name of the partner who sends that AS2 message |
-| agreementName | Optional, string.  Name of the AS2 agreement to which the messages are resolved |
-| direction | Required, string.  It indiates the direction of the message flow, either receive or send |
+| senderPartnerName | Optional, string. It contains the AS2 message sender's partner name |
+| receiverPartnerName | Optional, string. It contains the AS2 message receiver's partner name |
+| as2To | Required, string. It contains the partner name who receives that AS2 message  |
+| as2From | Required, string. It contains the partner name who sends that AS2 message |
+| agreementName | Optional, string. Name of the AS2 agreement to which the messages are resolved |
+| direction | Required, string. It indiates the direction of the message flow, either receive or send |
 | messageId | Optional, string. It contains the AS2 messageid ??? |
-| originalMessageId | Optional - The AS2 original message id for which MDN is generated - type string |
+| originalMessageId | Optional, string. It contains the AS2 original message id |
 | dispositionType | Optional, string. It contains the MDN disposition type value |
 | isMessageFailed | Mandatory, boolean.  Indicates that whether AS2 message was failed or not  |
 | isMessageSigned | Mandatory, boolean.  Indicates that whether AS2 message was signed or not |
@@ -140,9 +140,9 @@ Following are the supported AS2 tracking schemas
 
 ## Next steps
 
-[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
-[Learn more about tracking B2B messages] (./media/app-service-logic-track-b2b-message.md "Learn more about tracking B2B messages")
-[Learn more about B2B Custom Tracking Schema] (./media/app-service-logic-track-integration-account-custom-tracking-shema.md "Learn about Custom Schema")
-[Learn more about X12 Tracking Schema] (./media/app-service-logic-track-integration-account-X12-tracking-schema.md "Learn about X12 Tracking Schema")
+[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")    
+[Learn more about tracking B2B messages] (./media/app-service-logic-track-b2b-message.md "Learn more about tracking B2B messages")   
+[Learn more about B2B Custom Tracking Schema] (./media/app-service-logic-track-integration-account-custom-tracking-shema.md "Learn about Custom Schema")   
+[Learn more about X12 Tracking Schema] (./media/app-service-logic-track-integration-account-x12-tracking-schema.md "Learn about X12 Tracking Schema")   
 [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
 

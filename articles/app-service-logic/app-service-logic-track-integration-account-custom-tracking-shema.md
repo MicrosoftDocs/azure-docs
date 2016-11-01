@@ -17,7 +17,7 @@
 	ms.author="padmavc"/>
 
 
-## Custom tracking schema
+# Custom tracking schema
 Following custom tracking schema is supported 
 
 ````java script
@@ -77,6 +77,7 @@ Following custom tracking schema is supported
 
 ## Next steps
 
-[AS2 Tracking Schema] (./media/app-service-logic-track-integration-account-AS2-tracking-shema.md "Learn about AS2 Schema")
-[X12 Tracking Schema] (./media/app-service-logic-track-integration-account-X12-tracking-schema.md "Learn about X12 Tracking Schema")
+[Learn more about tracking B2B messages] (./media/app-service-logic-track-b2b-message.md "Learn more about tracking B2B messages")
+[AS2 Tracking Schema] (./media/app-service-logic-track-integration-account-as2-tracking-shema.md "Learn about AS2 Schema")
+[X12 Tracking Schema] (./media/app-service-logic-track-integration-account-x12-tracking-schema.md "Learn about X12 Tracking Schema")
 [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
