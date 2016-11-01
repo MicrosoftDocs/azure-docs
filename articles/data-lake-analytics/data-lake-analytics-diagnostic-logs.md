@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/11/2016"
+   ms.date="11/01/2016"
    ms.author="larryfr"/>
 
 # Accessing diagnostic logs for Azure Data Lake Analytics

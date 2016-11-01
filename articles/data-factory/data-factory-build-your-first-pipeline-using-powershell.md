@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/16/2016"
+	ms.date="11/01/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Build your first Azure data factory using Azure PowerShell

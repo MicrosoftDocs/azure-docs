@@ -103,7 +103,7 @@ Where is the problem? Is the server slow to respond, is the page very long, or d
 Open the Browsers metric blade. The [segmented display of browser page load time](app-insights-javascript.md#explore-your-data) shows where the time is going. 
 
 * If **Send Request Time** is high, either the server is responding slowly, or the request is a post with a lot of data. Look at the [performance metrics](app-insights-web-monitor-performance.md#metrics) to investigate response times. 
-* Set up [dependency tracking](app-insights-dependencies.md) to see whether the slowness is due to external services or your database.
+* Set up [dependency tracking](app-insights-asp-net-dependencies.md) to see whether the slowness is due to external services or your database.
 * If **Receiving Response** is predominant, your page and its dependent parts - JavaScript, CSS, images and so on (but not asynchronously loaded data) are long. Set up an [availability test](app-insights-monitor-web-app-availability.md), and be sure to set the option to load dependent parts. When you get some results, open the detail of a result and expand it to see the load times of different files.
 * High **Client Processing time** suggests scripts are running slowly. If the reason isn't obvious, consider adding some timing code and send the times in trackMetric calls.
 

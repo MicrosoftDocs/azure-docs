@@ -3,8 +3,8 @@
    description="Maximum values for connections, databases, tables and queries for SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/01/2016"
-   ms.author="sonyama;barbkess;jrj"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess;jrj"/>
 
 # SQL Data Warehouse capacity limits
 
