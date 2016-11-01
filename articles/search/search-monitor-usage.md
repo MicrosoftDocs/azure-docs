@@ -21,7 +21,7 @@
 
 Azure Search collects statistics about query execution at the service level, including Queries per Second (QPS), latency, and the percentage of queries dropped if volume exceeds capacity. Metrics are visible in the portal via the Monitoring blade.
 
-   ![][5]
+   ![Screenshot of QPS activity][5]
 
 This article describes metrics for the service all-up. For insights into activity at the index level, enable search traffic analytics and use Power BI to view the analysis. Visit [Search Traffic Analytics for Azure Search](search-traffic-analytics.md) to get started.
 
@@ -29,14 +29,14 @@ This article describes metrics for the service all-up. For insights into activit
 
 Click the Monitoring tile on the service dashboard to open the Monitoring blade.
 
-   ![][2]
+   ![Monitoring tile][2]
 
 
 Query activity at the service level is recorded for query execution, latency, and throttling. Metrics are collected continuously, but it can take several minutes for the portal to show the most recent activity. 
 
 Click a metric tile to view details, add alerts, enable diagnostics, or edit the chart.
 
-  ![][4]
+  ![Commands on the Metric blade][4]
 
 ### Set up alerts
 
@@ -50,7 +50,7 @@ When you turn on diagnostics, you can configure where diagnostic data is stored,
 
 For each metric, you can click **edit** to change the visualization from line graph to a bar chart, or modify the x-axis to cover a different time range.
 
-  ![][3]
+  ![Time range configuration][3]
 
 ##View counts and resource usage in the portal 
 
@@ -64,7 +64,7 @@ To monitor resource usage, view the counts and statistics for your service in th
 
 The Usage section includes a meter that tells you what portion of available resources are currently in use. For information on per-service limits for indexes, documents, and storage, see [Service limits](search-limits-quotas-capacity.md).
 
-  ![][1]
+  ![Usage tile][1]
 
 > [AZURE.NOTE] The screenshot above is for the Free service, which has a maximum of one replica and partition each, and can only host 3 indexes, 10,000 documents, or 50 MB of data, whichever comes first. Services created at a Basic or Standard tier have much larger service limits. For more information on choosing a tier, see [Choose a tier or SKU](search-sku-tier.md).
 

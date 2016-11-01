@@ -1,4 +1,4 @@
-<properties 
+this<properties 
 pageTitle="Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview) | Azure Search Preview API" 
 description="Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)" 
 services="search" 
@@ -78,7 +78,7 @@ Alternatively, you can use PUT and specify the data source name on the URI. If t
 
     PUT https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
 
-**Note**: The maximum number of data sources allowed varies by pricing tier. The free service allows up to 3 data sources. Standard service allows 50 data sources. See [Service Limits](search-limits-quotas-capacity.md) for details.
+> [AZURE.NOTE] The maximum number of data sources allowed varies by pricing tier. The free service allows up to 3 data sources. Standard service allows 50 data sources. See [Service Limits](search-limits-quotas-capacity.md) for details.
 
 **Request**
 
@@ -164,9 +164,9 @@ This policy can be specified as follows:
 		"highWaterMarkColumnName" : "[a row version or last_updated column name]" 
 	} 
 
-> [AZURE.NOTE] When using DocumentDB data sources, you must use the `_ts` property provided by DocumentDB. 
+When using DocumentDB data sources, you must use the `_ts` property provided by DocumentDB. 
 
-> [AZURE.NOTE] When using Azure Blob data sources, Azure Search automatically uses a high watermark change detection policy based on a blob's last-modified timestamp; you don't need to specify such a policy yourself.   
+When using Azure Blob data sources, Azure Search automatically uses a high watermark change detection policy based on a blob's last-modified timestamp; you don't need to specify such a policy yourself.   
 
 ***SQL Integrated Change Detection Policy***
 
@@ -197,7 +197,7 @@ The purpose of a data deletion detection policy is to efficiently identify delet
 		"softDeleteMarkerValue" : "the value that identifies a row as deleted" 
 	}
 
-**NOTE:** Only columns with string, integer, or boolean values are supported. The value used as `softDeleteMarkerValue` must be a string, even if the corresponding column holds integers or booleans. For example, if the value that appears in your data source is 1, use `"1"` as the `softDeleteMarkerValue`.    
+> [AZURE.NOTE]  Only columns with string, integer, or Boolean values are supported. The value used as `softDeleteMarkerValue` must be a string, even if the corresponding column holds integers or booleans. For example, if the value that appears in your data source is 1, use `"1"` as the `softDeleteMarkerValue`.    
 
 <a name="CreateDataSourceRequestExamples"></a>
 **Request Body Examples**
