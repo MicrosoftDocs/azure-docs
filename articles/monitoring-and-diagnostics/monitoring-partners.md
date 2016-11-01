@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/31/2016"
 	ms.author="johnkem"/>
 
 # Azure Monitor partner integrations
@@ -36,7 +36,9 @@ AppDynamics Application Performance Management (APM) enables application owners 
 [Go to the documentation.][appdynamics-doc]
 
 ## Atlassian JIRA
-Coming soon!
+You can create JIRA tickets on Azure Monitor alerts.
+
+[Go to the documentation.][atlassian-doc]
 
 ## CloudMonix
 CloudMonix offers monitoring, automation and self-healing services for Microsoft Azure platform.
@@ -99,7 +101,7 @@ The Splunk Add-on for Microsoft Cloud Services is [available in the Splunkbase h
 [newrelic-anchor]: #newrelic "NewRelic"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
-[splunk-anchor]: #splunk-add-on-for-microsoft-azure "Splunk"
+[splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
 [sumologic-anchor]: #sumologic "Sumo Logic"
 
 <!--Icon references-->
@@ -119,6 +121,7 @@ The Splunk Add-on for Microsoft Cloud Services is [available in the Splunkbase h
 <!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic documentation."
 [appdynamics-doc]: https://docs.appdynamics.com/display/PRO42/Register+for+AppDynamics+for+Windows+Azure "AppDynamics documentation."
+[atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn introduction."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "DataDog documentation."
