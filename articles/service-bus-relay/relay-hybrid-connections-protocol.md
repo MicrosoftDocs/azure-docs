@@ -160,7 +160,7 @@ operations.
 
 The control channel is opened with creating a Web socket connection to:
 
-*wss://{namespace-address}/**$hc/**{path}?sb-hc-action=...& sb-hc-id=...& sb-hc-token=..."*
+`wss://{namespace-address}/**$hc/**{path}?sb-hc-action=...& sb-hc-id=...& sb-hc-token=...`
 
 The *namespace-address* is the fully qualified domain name of the Azure Relay
 namespace that hosts the Hybrid Connection, typically of the form
