@@ -21,7 +21,7 @@
 Azure App Service on Linux is currently in public preview and supports running web apps natively on Linux.
 
 ## Overview ##
-Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks. The following features section lists the application stacks that are currently supported.
+Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks. The following section lists the application stacks that are currently supported.
 
 ## Features ##
 App Service on Linux currently supports the following application stacks:
