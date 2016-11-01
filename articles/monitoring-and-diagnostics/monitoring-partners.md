@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="10/31/2016"
 	ms.author="johnkem"/>
 
 # Azure Monitor partner integrations
@@ -36,7 +36,9 @@ AppDynamics Application Performance Management (APM) enables application owners 
 [Go to the documentation.][appdynamics-doc]
 
 ## Atlassian JIRA
-Coming soon!
+You can create JIRA tickets on Azure Monitor alerts.
+
+[Go to the documentation.][atlassian-doc]
 
 ## CloudMonix
 CloudMonix offers monitoring, automation and self-healing services for Microsoft Azure platform.
@@ -75,10 +77,8 @@ PagerDuty, the leading incident management solution, has provided first-class su
 
 [Go to the documentation.][pagerduty-doc]
 
-## Splunk Add-on for Microsoft Azure
-The Splunk Add-on for Microsoft Azure collects valuable diagnostic, performance, audit, and security data for your infrastructure and websites running in Microsoft Azure.
-
-Performance and diagnostic information is collected from Azure Storage Tables and Azure Storage Blobs. Audit data is collected from the Azure Monitor Events API. Network Security Group data is collect from Azure Storage Blobs. Several prebuilt panels are included with this add-on.
+## Splunk Add-on for Microsoft Cloud Services
+The Splunk Add-on for Microsoft Cloud Services is [available in the Splunkbase here](https://splunkbase.splunk.com/app/3110/).
 
 [Go to the documentation.][splunk-doc]
 
@@ -101,7 +101,7 @@ Performance and diagnostic information is collected from Azure Storage Tables an
 [newrelic-anchor]: #newrelic "NewRelic"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
-[splunk-anchor]: #splunk-add-on-for-microsoft-azure "Splunk"
+[splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
 [sumologic-anchor]: #sumologic "Sumo Logic"
 
 <!--Icon references-->
@@ -121,6 +121,7 @@ Performance and diagnostic information is collected from Azure Storage Tables an
 <!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic documentation."
 [appdynamics-doc]: https://docs.appdynamics.com/display/PRO42/Register+for+AppDynamics+for+Windows+Azure "AppDynamics documentation."
+[atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn introduction."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "DataDog documentation."
@@ -128,5 +129,5 @@ Performance and diagnostic information is collected from Azure Storage Tables an
 [newrelic-doc]: https://newrelic.com/azure "NewRelic documentation."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie documentation."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty documentation"
-[splunk-doc]: https://splunkbase.splunk.com/app/3084/#/details "Splunk documentation."
+[splunk-doc]: http://docs.splunk.com/Documentation/AddOns/released/MSCloudServices/About "Splunk documentation."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic documentation"

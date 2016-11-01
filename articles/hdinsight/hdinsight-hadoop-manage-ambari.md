@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/27/2016"
+   ms.date="10/31/2016"
    ms.author="larryfr"/>
 
 #Manage HDInsight clusters by using the Ambari Web UI
@@ -143,7 +143,7 @@ Selecting any of these links will open a new tab in your browser, which will dis
 
 ###Ambari users, groups, and permissions
 
-Managing users, groups, and permissions should not be used with HDInsight clusters.
+Working with users, groups, and permissions is supported when using a [domain joined](hdinsight-domain-joined-introduction.md) HDInsight cluster. For information on using the Ambari Management UI on a domain-joined cluster, see [Manage domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md).
 
 ###Hosts
 

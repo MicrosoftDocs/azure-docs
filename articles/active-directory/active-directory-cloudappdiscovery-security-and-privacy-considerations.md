@@ -3,7 +3,7 @@
 	description="This topic describes the security and privacy considerations related to Cloud App Discovery."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 

@@ -27,7 +27,7 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] For a Resource Manager template to deploy Django, see [here](https://azure.microsoft.com/documentation/templates/django-app/).
  
 
 This tutorial describes how to host a Django-based website on Microsoft

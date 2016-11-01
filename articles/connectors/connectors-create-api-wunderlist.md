@@ -1,10 +1,10 @@
 <properties
 pageTitle="Wunderlist | Microsoft Azure"
 description="Create Logic apps with Azure App service. Wunderlist provide a todo list and task manager to help people get their stuff done.  Whether you’re sharing a grocery list with a loved one, working on a project, or planning a vacation, Wunderlist makes it easy to capture, share, and complete your to¬dos. Wunderlist instantly syncs between your phone, tablet and computer, so you can access all your tasks from anywhere."
-services="logic-apps"	
+services="logic-apps"
 documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+authors="msftman"
+manager="erikre"
 editor=""
 tags="connectors" />
 
@@ -21,13 +21,13 @@ ms.author="deonhe"/>
 
 Wunderlist provide a todo list and task manager to help people get their stuff done.  Whether you’re sharing a grocery list with a loved one, working on a project, or planning a vacation, Wunderlist makes it easy to capture, share, and complete your to¬dos. Wunderlist instantly syncs between your phone, tablet and computer, so you can access all your tasks from anywhere.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 
-The Wunderlist connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+The Wunderlist connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats.
 
  The Wunderlist connector has the following action(s) and/or trigger(s) available:
 
@@ -75,15 +75,15 @@ You can listen for these event(s):
 
 
 ## Create a connection to Wunderlist
-To create Logic apps with Wunderlist, you must first create a **connection** then provide the details for the following properties: 
+To create Logic apps with Wunderlist, you must first create a **connection** then provide the details for the following properties:
 
 |Property| Required|Description|
 | ---|---|---|
 |Token|Yes|Provide Wunderlist Credentials|
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
+After you create the connection, you can use it to execute the actions and listen for the triggers described in this article.
 
 
->[AZURE.INCLUDE [Steps to create a connection to Wunderlist](../../includes/connectors-create-api-wunderlist.md)] 
+>[AZURE.INCLUDE [Steps to create a connection to Wunderlist](../../includes/connectors-create-api-wunderlist.md)]
 
 
 >[AZURE.TIP] You can use this connection in other logic apps.
@@ -92,9 +92,9 @@ After you create the connection, you can use it to execute the actions and liste
 Applies to version: 1.0
 
 ## TriggerTaskDue
-When a task is due: Triggers a new flow when a task in the list is due 
+When a task is due: Triggers a new flow when a task in the list is due
 
-```GET: /trigger/tasksdue``` 
+```GET: /trigger/tasksdue```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -108,9 +108,9 @@ When a task is due: Triggers a new flow when a task in the list is due
 
 
 ## TriggerTaskNew
-When a new task is created: Triggers a new flow when a new task is created in the list 
+When a new task is created: Triggers a new flow when a new task is created in the list
 
-```GET: /trigger/tasksnew``` 
+```GET: /trigger/tasksnew```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -124,9 +124,9 @@ When a new task is created: Triggers a new flow when a new task is created in th
 
 
 ## TriggerReminder
-When a reminder occurs: Triggers a new flow when a reminder occurs 
+When a reminder occurs: Triggers a new flow when a reminder occurs
 
-```GET: /trigger/reminders``` 
+```GET: /trigger/reminders```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -141,12 +141,11 @@ When a reminder occurs: Triggers a new flow when a reminder occurs
 
 
 ## RetrieveLists
-Get lists: Retrieve the lists associated with your account. 
+Get lists: Retrieve the lists associated with your account.
 
-```GET: /lists``` 
+```GET: /lists```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
+
 
 #### Response
 
@@ -159,9 +158,9 @@ Get lists: Retrieve the lists associated with your account.
 
 
 ## CreateList
-Create a list: Create a list. 
+Create a list: Create a list.
 
-```POST: /lists``` 
+```POST: /lists```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -176,9 +175,9 @@ Create a list: Create a list.
 
 
 ## ListTasks
-Get tasks: Retrieve tasks from a specific list. 
+Get tasks: Retrieve tasks from a specific list.
 
-```GET: /tasks``` 
+```GET: /tasks```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -196,9 +195,9 @@ Get tasks: Retrieve tasks from a specific list.
 
 
 ## CreateTask
-Create a task: Create a task 
+Create a task: Create a task
 
-```POST: /tasks``` 
+```POST: /tasks```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -212,9 +211,9 @@ Create a task: Create a task
 
 
 ## ListSubTasks
-Get subtasks: Retrieve subtasks from a specific list or from a specific task. 
+Get subtasks: Retrieve subtasks from a specific list or from a specific task.
 
-```GET: /subtasks``` 
+```GET: /subtasks```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -233,9 +232,9 @@ Get subtasks: Retrieve subtasks from a specific list or from a specific task.
 
 
 ## CreateSubTask
-Create a subtask: Create a subtask within a specific task 
+Create a subtask: Create a subtask within a specific task
 
-```POST: /subtasks``` 
+```POST: /subtasks```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -249,9 +248,9 @@ Create a subtask: Create a subtask within a specific task
 
 
 ## ListNotes
-Get notes: Retrieve notes for a specific list or a specific task. 
+Get notes: Retrieve notes for a specific list or a specific task.
 
-```GET: /notes``` 
+```GET: /notes```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -269,9 +268,9 @@ Get notes: Retrieve notes for a specific list or a specific task.
 
 
 ## CreateNote
-Create a note: Add a note to a specific task 
+Create a note: Add a note to a specific task
 
-```POST: /notes``` 
+```POST: /notes```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -285,9 +284,9 @@ Create a note: Add a note to a specific task
 
 
 ## ListComments
-Get task comments: Retrieve task comments for a specific list or a specific task. 
+Get task comments: Retrieve task comments for a specific list or a specific task.
 
-```GET: /task_comments``` 
+```GET: /task_comments```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -305,9 +304,9 @@ Get task comments: Retrieve task comments for a specific list or a specific task
 
 
 ## CreateComment
-Add a comment to a task: Add a comment to a specific task 
+Add a comment to a task: Add a comment to a specific task
 
-```POST: /task_comments``` 
+```POST: /task_comments```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -321,9 +320,9 @@ Add a comment to a task: Add a comment to a specific task
 
 
 ## RetrieveReminders
-Get reminders: Retrieve reminders for a specific list or a specific task. 
+Get reminders: Retrieve reminders for a specific list or a specific task.
 
-```GET: /reminders``` 
+```GET: /reminders```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -341,9 +340,9 @@ Get reminders: Retrieve reminders for a specific list or a specific task.
 
 
 ## CreateReminder
-Set a reminder: Set a reminder. 
+Set a reminder: Set a reminder.
 
-```POST: /reminders``` 
+```POST: /reminders```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -358,9 +357,9 @@ Set a reminder: Set a reminder.
 
 
 ## RetrieveFiles
-Get files: Retrieve files for a specific list or a specific task. 
+Get files: Retrieve files for a specific list or a specific task.
 
-```GET: /files``` 
+```GET: /files```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -378,9 +377,9 @@ Get files: Retrieve files for a specific list or a specific task.
 
 
 ## GetList
-Get list: Retrieves a specific list 
+Get list: Retrieves a specific list
 
-```GET: /lists/{id}``` 
+```GET: /lists/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -394,9 +393,9 @@ Get list: Retrieves a specific list
 
 
 ## DeleteList
-Delete list: Deletes a list 
+Delete list: Deletes a list
 
-```DELETE: /lists/{id}``` 
+```DELETE: /lists/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -411,9 +410,9 @@ Delete list: Deletes a list
 
 
 ## UpdateList
-Update a list: Update a specific list 
+Update a list: Update a specific list
 
-```PATCH: /lists/{id}``` 
+```PATCH: /lists/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -428,9 +427,9 @@ Update a list: Update a specific list
 
 
 ## GetTask
-Get task: Retrieves a specific task 
+Get task: Retrieves a specific task
 
-```GET: /tasks/{id}``` 
+```GET: /tasks/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -445,9 +444,9 @@ Get task: Retrieves a specific task
 
 
 ## UpdateTask
-Update a task: Updates a specific task 
+Update a task: Updates a specific task
 
-```PATCH: /tasks/{id}``` 
+```PATCH: /tasks/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -463,9 +462,9 @@ Update a task: Updates a specific task
 
 
 ## DeleteTask
-Delete task: Deletes a specific task 
+Delete task: Deletes a specific task
 
-```DELETE: /tasks/{id}``` 
+```DELETE: /tasks/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -481,9 +480,9 @@ Delete task: Deletes a specific task
 
 
 ## GetSubTask
-Get subtask: Retrieves a specific subtask 
+Get subtask: Retrieves a specific subtask
 
-```GET: /subtasks/{id}``` 
+```GET: /subtasks/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -497,9 +496,9 @@ Get subtask: Retrieves a specific subtask
 
 
 ## UpdateSubTask
-Update a subtask: Updates a specific subtask 
+Update a subtask: Updates a specific subtask
 
-```PATCH: /subtasks/{id}``` 
+```PATCH: /subtasks/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -514,9 +513,9 @@ Update a subtask: Updates a specific subtask
 
 
 ## DeleteSubTask
-Delete a subtask: Deletes a specific subtask 
+Delete a subtask: Deletes a specific subtask
 
-```DELETE: /subtasks/{id}``` 
+```DELETE: /subtasks/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -531,9 +530,9 @@ Delete a subtask: Deletes a specific subtask
 
 
 ## GetNote
-Get a note: Retrieve a specific note 
+Get a note: Retrieve a specific note
 
-```GET: /notes/{id}``` 
+```GET: /notes/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -547,9 +546,9 @@ Get a note: Retrieve a specific note
 
 
 ## UpdateNote
-Update a note: Update a specific note 
+Update a note: Update a specific note
 
-```PATCH: /notes/{id}``` 
+```PATCH: /notes/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -564,9 +563,9 @@ Update a note: Update a specific note
 
 
 ## DeleteNote
-Delete a note: Delete a specific note 
+Delete a note: Delete a specific note
 
-```DELETE: /notes/{id}``` 
+```DELETE: /notes/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -581,9 +580,9 @@ Delete a note: Delete a specific note
 
 
 ## GetComment
-Get task comment: Retrieve a specific task comment 
+Get task comment: Retrieve a specific task comment
 
-```GET: /task_comments/{id}``` 
+```GET: /task_comments/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -597,9 +596,9 @@ Get task comment: Retrieve a specific task comment
 
 
 ## UpdateReminder
-Update a reminder: Update a specific reminder 
+Update a reminder: Update a specific reminder
 
-```PATCH: /reminders/{id}``` 
+```PATCH: /reminders/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -614,9 +613,9 @@ Update a reminder: Update a specific reminder
 
 
 ## DeleteReminder
-Delete a reminder: Delete a specific reminder 
+Delete a reminder: Delete a specific reminder
 
-```DELETE: /reminders/{id}``` 
+```DELETE: /reminders/{id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -630,7 +629,7 @@ Delete a reminder: Delete a specific reminder
 |204|No Content|
 
 
-## Object definitions 
+## Object definitions
 
 ### List
 

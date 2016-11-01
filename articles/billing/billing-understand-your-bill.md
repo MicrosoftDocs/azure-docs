@@ -3,7 +3,7 @@
    description="Learn how to read and understand the usage and bill for your Azure subscription"
    services=""
    documentationCenter=""
-   authors="erihur"
+   authors="genlin"
    manager="stevenpo"
    editor=""
    tags="billing"/>
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/13/2016"
+   ms.date="10/31/2016"
    ms.author="erihur;genli"/>
 
 

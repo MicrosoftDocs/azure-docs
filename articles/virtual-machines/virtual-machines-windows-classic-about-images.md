@@ -19,7 +19,7 @@
 
 # About images for Windows virtual machines
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] For information about finding and using images in the Resource Manager model, see [here](virtual-machines-windows-cli-ps-findimage.md).
 
 [AZURE.INCLUDE [virtual-machines-common-classic-about-images](../../includes/virtual-machines-common-classic-about-images.md)]
 
