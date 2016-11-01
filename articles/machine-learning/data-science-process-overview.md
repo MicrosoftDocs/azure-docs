@@ -105,13 +105,13 @@ Here are the deliverables in this stage:
 There are three main tasks addressed in this stage:
 
 - **Ingest the data** into the target analytic environment.
-- **Inspect the data** to determine if the data quality is adequate to answer the question. 
+- **Explore the data** to determine if the data quality is adequate to answer the question. 
 - **Set up a data pipeline** to score new or regularly refreshed data.
 
 #### 2.1 Ingest the data
 Set up the process to move the data from source locations to the target locations where analytics operations like training and predictions are to be executed. For technical details and options on how to do this with various Azure data services, see [Load data into storage environments for analytics](machine-learning-data-science-ingest-data.md). 
 
-#### 2.2 Inspect the data
+#### 2.2 Explore the data
 Before you train your models, you need to develop a sound understanding of the data. Real-world datasets are often noisy or are missing values or have a host of other discrepancies. Data summarization and visualization can be used to audit the quality of your data and provide the information needed to process the data before it is ready for modeling. For guidance on cleaning the data, see [Tasks to prepare data for enhanced machine learning](machine-learning-data-science-prepare-data.md). This process is often iterative. 
 
 TDSP provides an automated utility called [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) to help visualize the data and prepare data summary reports. We recommend starting with IDEAR first to explore the data to help develop initial data understanding interactively with no coding and then write custom code for data exploration and visualization. 
@@ -148,7 +148,7 @@ There are two main aspects of this stage
 
 #### 3.1 Feature Engineering
 
-Feature engineering involves inclusion, aggregation and transformation of raw variables to create the features used in the analysis. If we want insight into what is driving the model, then we need to understand how features are related to each other, and how the machine learning method is be using those features. This step requires a creative combination of domain expertise and the insights obtained from the data exploration step. This is a balancing act of including informative variables without including too many unrelated variables. Informative variables improve our result; unrelated variables introduce unnecessary noise into the model. You also need to be able to generate these features for new data during scoring. So there should not be any dependency on generating these features on any piece of data that is unavailable at the time of scoring. For technical guidance on feature engineering when using various Azure data technologies, see this [article](machine-learning-data-science-create-features.md). 
+Feature engineering involves inclusion, aggregation and transformation of raw variables to create the features used in the analysis. If we want insight into what is driving a model, then we need to understand how features are related to each other, and how the machine learning algorithms are to use those features. This step requires a creative combination of domain expertise and the insights obtained from the data exploration step. This is a balancing act of including informative variables without including too many unrelated variables. Informative variables improve our result; unrelated variables introduce unnecessary noise into the model. You also need to generate these features for new data during scoring. So there should not be any dependency on generating these features on any piece of data that is unavailable at the time of scoring. For technical guidance on feature engineering when using various Azure data technologies, see this [Feature engineering in the Data Science Process](machine-learning-data-science-create-features.md). 
 
 
 #### 3.2 Model Training
