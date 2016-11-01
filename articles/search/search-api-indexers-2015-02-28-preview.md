@@ -245,9 +245,9 @@ The `api-key` must be an admin key (as opposed to a query key). Refer to the aut
 
 The request body syntax is the same as for [Create Data Source requests](#CreateDataSourceRequestSyntax).
 
-> [AZURE.NOTE] Some properties cannot be updated on an existing data source. For example, you cannot change the type of an existing data source.  
+Some properties cannot be updated on an existing data source. For example, you cannot change the type of an existing data source.  
 
-> [AZURE.NOTE] If you don't want to change the connection string for an existing data source, you can specify the literal `<unchanged>` for the connection string. This is helpful in situations where you need to update a data source but don't have convenient access to the connection string since it is security-sensitive data.
+If you don't want to change the connection string for an existing data source, you can specify the literal `<unchanged>` for the connection string. This is helpful in situations where you need to update a data source but don't have convenient access to the connection string since it is security-sensitive data.
 
 **Response**
 
