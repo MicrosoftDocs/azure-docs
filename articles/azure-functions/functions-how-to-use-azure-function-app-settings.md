@@ -16,9 +16,9 @@
 	ms.date="10/28/2016"
 	ms.author="rachelap"/>
 
-# How to Configure Azure Function App Settings
+# How to configure Azure Function app settings
 
-## Settings Overview
+## Settings overview
 
 You can manage Azure Function Apps settings by clicking the **Function App Settings** link in the bottom-left corner of the portal. Azure function app settings apply to all functions in the app.
 
@@ -28,15 +28,15 @@ You can manage Azure Function Apps settings by clicking the **Function App Setti
 
 ![Azure Function App settings](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-## Memory Size
+## Memory size
 
 You can configure how much memory to allocate for your functions in the current function app. 
 
-1. To configure memory, slide the slider to the desired amount of memory. The maximum is 128 MB.
+To configure memory, slide the slider to the desired amount of memory. The maximum is 128 MB.
 
 ![Configure function app memory size](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-memory-size.png)
 
-## Continuous Integration
+## Continuous integration
 
 You can integrate your Function App with GitHub, Visual Studio Team Services, and more.
 
@@ -46,13 +46,13 @@ You can integrate your Function App with GitHub, Visual Studio Team Services, an
 
 3. Choose any of the deployment sources available: Visual Studio Team Services, OneDrive, Local Git Repository, GitHub, Bitbucket, DropBox, or an External Repository by clicking it. 
 
-![Configure App Function's CI](./media/functions-how-to-use-azure-function-app-settings/configure-function-ci.png)
+    ![Configure App Function's CI](./media/functions-how-to-use-azure-function-app-settings/configure-function-ci.png)
 
 4. Enter your credentials and information as prompted by the various deployment sources. The credentials and information requested may be slightly different depending on what source you have chosen. 
 
 Once you have setup CI, connected code you push to the configured source is automatically deployed to this function app.
 
-## Authentication/Authorization
+## Authentication/authorization
 
 For functions that use an HTTP trigger, you can require calls to be authenticated.
 
@@ -93,7 +93,7 @@ For more information on creating API definitions with Swagger, visit [Get Starte
 
 Manage environment variables, Framework versions, remote debugging, app settings, connection strings, default docs, etc. These settings are specific to your Function App. 
 
-1. To configure app settings, click the **Configure App Settings** link. 
+To configure app settings, click the **Configure App Settings** link. 
 
 ![Configure App Settings](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
@@ -103,7 +103,7 @@ You can execute DOS style commands with the Azure functions in-portal console. C
 
  >[AZURE.NOTE] You can upload scripts, but first you must configure an FTP client in the Azure Function's **Advanced Settings**.
 
-1. To open the In-portal console, click **Open dev console**.
+To open the In-portal console, click **Open dev console**.
 
 ![Configure function app memory size](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
@@ -113,7 +113,7 @@ You can execute DOS style commands with the Azure functions in-portal console. C
 
 Kudu allows you to access advanced administrative features of a Function App.
 
-1. To open Kudu, click **Go to Kudu**. This action opens an entirely new browser window with the Kudu web admin.
+To open Kudu, click **Go to Kudu**. This action opens an entirely new browser window with the Kudu web admin.
 
  >[AZURE.NOTE] You can alternatively launch **Kudu** by inserting "scm" into your function's URL, as shown here: ```https://<YourFunctionName>.scm.azurewebsites.net/```
 
@@ -121,14 +121,16 @@ From the Kudu webpage, you can view and manage system information, app settings,
 
 ![Configure Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
-## Advanced Settings
+## Advanced settings
 
 Manage your function app like any other App Service instance. This option gives you access to all the previously discussed settings, plus several more.  
 
-1. To open advanced settings, click the **Advanced Settings** link. 
+To open advanced settings, click the **Advanced Settings** link. 
 
 ![Configure App Service Settings](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-settings.png)
 
 For details on how to configure each App Service setting, see 
 [Configure Azure App Service Settings](../app-service-web/web-sites-configure.md).
 
+[AZURE.INCLUDE [Getting Started Note](../../includes/functions-bindings-next-steps.md)]
+[AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
