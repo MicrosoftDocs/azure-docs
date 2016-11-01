@@ -30,7 +30,7 @@ Following are the supported X12 tracking schemas
 ## X12 Transaction Set Tracking Schema
 ````java script
 
-       {
+    {
             "agreementProperties": {
                 "senderPartnerName": "",
                 "receiverPartnerName": "",
@@ -53,9 +53,9 @@ Following are the supported X12 tracking schemas
                 "needAk2LoopForValidMessages":  "",
                 "segmentsCount": ""
             }
-        }
+    }
 
-````   
+````
 
 
 | Property | Description |
@@ -83,7 +83,7 @@ Following are the supported X12 tracking schemas
 ## X12 Transaction Set Acknowledgement Tracking Schema
 ````java script
 
-        {
+    {
             "agreementProperties": {
                 "senderPartnerName": "",
                 "receiverPartnerName": "",
@@ -111,10 +111,8 @@ Following are the supported X12 tracking schemas
                 "ak3Segment": "",
                 "ak5Segment": ""
             }
-        }       
-
-
-`````   
+    }
+````
 
 
 | Property | Description |
@@ -148,7 +146,7 @@ Following are the supported X12 tracking schemas
 ## X12 Interchange Tracking Schema
 ````java script
 
-{
+    {
             "agreementProperties": {
                 "senderPartnerName": "",
                 "receiverPartnerName": "",
@@ -172,8 +170,8 @@ Following are the supported X12 tracking schemas
                 "isa15": "",
                 "isa16": ""
             }
-}
-````    
+    }
+````
 
 
 | Property | Description |
@@ -202,7 +200,7 @@ Following are the supported X12 tracking schemas
 
 ## X12 Interchange Acknowledgement Tracking Schema  
 ````java script  
-{
+    {
             "agreementProperties": {
                 "senderPartnerName": "",
                 "receiverPartnerName": "",
@@ -224,8 +222,8 @@ Following are the supported X12 tracking schemas
                 "ta103": "",
                 "ta105": ""
             }
-}
-````    
+    }
+````
 
 
 | Property | Description |
@@ -252,7 +250,7 @@ Following are the supported X12 tracking schemas
 
 ## X12 Functional Group Tracking Schema
 ````java script
-{
+    {
             "agreementProperties": {
                 "senderPartnerName": "",
                 "receiverPartnerName": "",
@@ -277,9 +275,9 @@ Following are the supported X12 tracking schemas
                 "gs05": "",
                 "gs07": "",
                 "gs08": ""
-            }     
-}
-````    
+            }
+    }
+````
 
 
 | Property | Description |
@@ -310,7 +308,7 @@ Following are the supported X12 tracking schemas
 
 ## X12 Functional Group Acknowledgement Tracking Schema
 ````java script 
-{
+    {
             "agreementProperties": {
                 "senderPartnerName": "",
                 "receiverPartnerName": "",
@@ -335,8 +333,8 @@ Following are the supported X12 tracking schemas
                 "ak904": "",
                 "ak9Segment": ""
             }
-}
-````    
+    }
+````
 
 | Property | Description |
 | -------- | ------- |

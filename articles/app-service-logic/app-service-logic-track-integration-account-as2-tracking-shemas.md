@@ -26,7 +26,7 @@ Following are the supported AS2 tracking schemas
 ## AS2 Message Tracking Schema
 ````java script  
 
-{
+    {
        "agreementProperties": {  
             "senderPartnerName": "",  
             "receiverPartnerName": "",  
@@ -44,17 +44,16 @@ Following are the supported AS2 tracking schemas
             "isMessageEncrypted": "",
             "isMessageCompressed": "",
             "correlationMessageId": "",
-            "incomingHeaders": {                
+            "incomingHeaders": {
             },
-            "outgoingHeaders": { 
-                
+            "outgoingHeaders": {
             },
         "isNrrEnabled": "",
         "isMdnExpected": "",
         "mdnType": ""
         }
-}
-````   
+    }
+````
 
 
 | Property | Description |
@@ -79,12 +78,12 @@ Following are the supported AS2 tracking schemas
 | isMdnExpected | Mandatory, boolean. Use default value if the value is not known |
 | mdnType | Mandatory, string. The allowed values are NotConfigured or Sync or Async |
 |
-   
+
 
 ## AS2 MDN Tracking Schema
 ````java script
 
-{
+    {
         "agreementProperties": {
                 "senderPartnerName": "",
                 "receiverPartnerName": "",
@@ -108,7 +107,7 @@ Following are the supported AS2 tracking schemas
                 "outgoingHeaders": { 
                 }
             }
-}
+    }
 ````
 
 
