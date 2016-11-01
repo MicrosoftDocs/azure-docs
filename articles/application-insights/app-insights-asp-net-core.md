@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights for ASP.NET Core" 
+	pageTitle="Application Insights for ASP.NET Core | Microsoft Azure" 
 	description="Monitor web applications for availability, performance and usage." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -17,7 +17,7 @@
 
 # Application Insights for ASP.NET Core
 
-[Visual Studio Application Insights](app-insights-overview.md) lets you monitor your web application for availability, performance and usage. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
+[Application Insights](app-insights-overview.md) lets you monitor your web application for availability, performance and usage. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
 ![Example](./media/app-insights-asp-net-core/sample.png)
 
@@ -26,7 +26,7 @@ You'll need a subscription with [Microsoft Azure](http://azure.com). Sign in wit
 
 ## Getting started
 
-Please follow the [Getting Started guide](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
+Follow the [Getting Started guide](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 ## Using Application Insights
 
@@ -48,10 +48,10 @@ Views in the portal fall into two main categories:
 * Set up [availability tests](app-insights-monitor-web-app-availability.md) to test your website continually from locations worldwide, and get emails as soon as any test fails.
 * Set up [metric alerts](app-insights-monitor-web-app-availability.md) to know if metrics such as response times or exception rates go outside acceptable limits.
 
-## Get more telemetry
+## Next steps
 
 * [Add telemetry to your web pages](app-insights-javascript.md) to monitor page usage and performance.
-* [Monitor dependencies](app-insights-dependencies.md) to see if REST, SQL or other external resources are slowing you down.
+* [Monitor dependencies](app-insights-asp-net-dependencies.md) to see if REST, SQL or other external resources are slowing you down.
 * [Use the API](app-insights-api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
 * [Availability tests](app-insights-monitor-web-app-availability.md) check your app constantly from around the world. 
 
