@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configuring Application Insights SDK with ApplicationInsights.config or .xml" 
+	pageTitle="Configuring Application Insights SDK with ApplicationInsights.config or .xml | Microsoft Azure" 
 	description="Enable or disable data collection modules, and add performance counters and other parameters" 
 	services="application-insights"
     documentationCenter="" 
@@ -283,9 +283,13 @@ If you just want to send a specific set of events to a different resource, you c
 
 ```
 
+To get a new key, [create a new resource in the Application Insights portal][new].
+
+## Next steps
+
+
 [Learn more about the API][api].
 
-To get a new key, [create a new resource in the Application Insights portal][new].
 
 <!--Link references-->
 
