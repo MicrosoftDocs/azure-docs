@@ -37,9 +37,9 @@ You can enable logging for an integration account either through **azure portal*
 ## Supported Tracking Schema
 We are supporting following tracking schema types.  All of them has fixed schemas except Custom type.
 
-* [TrackingEventDefinition] (./media/app-service-logic-track-integration-account-custom-tracking-shema.md)   
-* [AS2 Tracking Schema] (./media/app-service-logic-track-integration-account-as2-tracking-schema.md)   
-* [X12 Tracking Schema] (./media/app-service-logic-track-integration-account-x12-tracking-schema.md)  
+* [Custom Tracking Schema](./media/app-service-logic-track-integration-account-custom-tracking-shema.md)   
+* [AS2 Tracking Schema](./media/app-service-logic-track-integration-account-as2-tracking-schema.md)   
+* [X12 Tracking Schema](./media/app-service-logic-track-integration-account-x12-tracking-schema.md)  
 
 
 ## Next steps
