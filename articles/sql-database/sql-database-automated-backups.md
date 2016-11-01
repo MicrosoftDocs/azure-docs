@@ -1,11 +1,11 @@
 <properties
    pageTitle="SQL Database backups - automatic, geo-redundant | Microsoft Azure" 
-   description="SQL Database automatically creates a local database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. "
+   description="SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy."
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
    manager="jhubbard"
-   editor="monicar"/>
+   editor=""/>
 
 <tags
    ms.service="sql-database"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/20/2016"
+   ms.date="11/01/2016"
    ms.author="carlrab;barbkess"/>
 
 <!------------------
