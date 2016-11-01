@@ -3,7 +3,7 @@
 	description="Provides information about how password synchronization works and how to enable it."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 <tags
@@ -92,9 +92,9 @@ In this case, the new password overrides your synchronized password and all pass
 If you change your on-premises password again, the new password is synchronized to the cloud, and overrides the manually updated password.
 
 ## Enabling password synchronization
-Password synchronization is automatically enabled, when you install Azure AD Connect using the **Express Settings**. For more details, see [Getting started with Azure AD Connect using express settings](./aad-connect/active-directory-aadconnect-get-started-express.md).
+Password synchronization is automatically enabled, when you install Azure AD Connect using the **Express Settings**. For more details, see [Getting started with Azure AD Connect using express settings](./connect/active-directory-aadconnect-get-started-express.md).
 
-If you use custom settings when you install Azure AD Connect, you enable password synchronization on the user sign-in page. For more details, see [Custom installation of Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md).
+If you use custom settings when you install Azure AD Connect, you enable password synchronization on the user sign-in page. For more details, see [Custom installation of Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md).
 
 ![Enabling password synchronization](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
 
@@ -171,7 +171,7 @@ If the script shows that there is no heartbeat, then run the script in [Trigger 
 ```
 Import-Module ADSync
 $connectors = Get-ADSyncConnector
-$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
+$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Azure Active Directory (Microsoft)"}
 $adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
 if ($aadConnectors -ne $null -and $adConnectors -ne $null)
 {

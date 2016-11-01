@@ -3,7 +3,7 @@
 	description="Set up your domain-joined Windows devices to register automatically and silently with Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 

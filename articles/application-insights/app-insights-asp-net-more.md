@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2016" 
+	ms.date="10/27/2016" 
 	ms.author="awills"/>
 
 # More telemetry from Application Insights
@@ -47,9 +47,7 @@ To see more or fewer counters, [edit the charts](app-insights-metrics-explorer.m
 
 ## If it's an Azure web app ...
 
-If your app runs as an Azure web app, go to the Azure control panel for the app or VM, and add the Application Insights extension. In **Tools**, open **Performance monitoring** and configure **Application Insights**. When prompted, choose the Application Insights resource you already created.
-
-![Extend in Azure](./media/app-insights-asp-net-more/05-extend.png)
+If your app runs as an Azure web app, go to the Azure control panel for the app or VM, and open the Application Insights blade. 
 
 ### What do you get?
 
@@ -67,7 +65,7 @@ You've installed the SDK that sends telemetry data from the server (back end) of
 Add the Application Insights JavaScript snippet to each web page, to get telemetry from client browsers.
 
 1. In Azure, open the Application Insights resource for your app.
-2. Open Quick Start, Monitor Client Side, and copy the snippet.
+2. Open Getting Started, Monitor Client Side, and copy the snippet.
 3. Paste it so that it appears in the head of each web page - typically you can do this by pasting into the master layout page.
 
 ![Extend in Azure](./media/app-insights-asp-net-more/100.png)

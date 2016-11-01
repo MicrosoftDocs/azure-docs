@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2016" 
+	ms.date="11/01/2016" 
 	ms.author="jingwang"/>
 
 # Move data to and from Azure SQL Data Warehouse using Azure Data Factory
@@ -39,11 +39,11 @@ The following examples provide sample JSON definitions that you can use to creat
 
 The sample defines the following Data Factory entities:
 
-1. A linked service of type [AzureSqlDW](#azure-sql-data-warehouse-linked-service-properties).
+1. A linked service of type [AzureSqlDW](#linked-service-properties).
 2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. An input [dataset](data-factory-create-datasets.md) of type [AzureSqlDWTable](#azure-sql-data-warehouse-dataset-type-properties). 
+3. An input [dataset](data-factory-create-datasets.md) of type [AzureSqlDWTable](#dataset-type-properties). 
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [SqlDWSource](#azure-sql-data-warehouse-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [SqlDWSource](#copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies time-series (hourly, daily, etc.) data from a table in Azure SQL Data Warehouse database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -218,11 +218,11 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 
 The sample defines the following Data Factory entities:
 
-1.	A linked service of type [AzureSqlDW](#azure-sql-data-warehouse-linked-service-properties).
+1.	A linked service of type [AzureSqlDW](#linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3.	An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureSqlDWTable](#azure-sql-data-warehouse-dataset-type-properties).
-4.	A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [SqlDWSink](#azure-sql-data-warehouse-copy-activity-type-properties).
+4.	An output [dataset](data-factory-create-datasets.md) of type [AzureSqlDWTable](#dataset-type-properties).
+4.	A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [SqlDWSink](#copy-activity-type-properties).
 
 
 The sample copies time-series data (hourly, daily, etc.) from Azure blob to a table in Azure SQL Data Warehouse database every hour. The JSON properties used in these samples are described in sections following the samples. 
@@ -388,7 +388,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 
 For a walkthrough, see the [Load data with Azure Data Factory](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) article in the Azure SQL Data Warehouse documentation.
 
-## Azure SQL Data Warehouse linked service properties
+## Linked service properties
 
 The following table provides description for JSON elements specific to Azure SQL Data Warehouse linked service. 
 
@@ -399,7 +399,7 @@ type | The type property must be set to: **AzureSqlDW** | Yes
 
 > [AZURE.IMPORTANT] Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) and the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Data Warehouse from outside Azure including from on-premises data sources with data factory gateway, configure appropriate IP address range for the machine that is sending data to Azure SQL Data Warehouse. 
 
-## Azure SQL Data Warehouse dataset type properties
+## Dataset type properties
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.). 
 
@@ -409,7 +409,7 @@ The typeProperties section is different for each type of dataset and provides in
 | -------- | ----------- | -------- |
 | tableName | Name of the table in the Azure SQL Data Warehouse database that the linked service refers to. | Yes |
 
-## Azure SQL Data Warehouse copy activity type properties
+## Copy activity type properties
 
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
@@ -489,9 +489,12 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
     }
 
 ## Use PolyBase to load data into Azure SQL Data Warehouse
-Using **PolyBase** is an efficient way of loading large amount of data into Azure SQL Data Warehouse with high throughput.  You can see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism.
+Using **PolyBase** is an efficient way of loading large amount of data into Azure SQL Data Warehouse with high throughput. You can see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. See [copy performance reference number](data-factory-copy-activity-performance.md#performance-reference) with detailed comparison.
 
-Set the **allowPolyBase** property to **true** as shown in the following example for Azure Data Factory to use PolyBase to copy data into Azure SQL Data Warehouse. When you set allowPolyBase to true, you can specify PolyBase specific properties using the **polyBaseSettings** property group. see the [SqlDWSink](#SqlDWSink) section for details about properties that you can use with polyBaseSettings.   
+- If your source data foramt is compatible with PolyBase, you can directly copy from source data store to Azure SQL Data Warehouse using PolyBase. See **[Direct copy using PolyBase](#direct-copy-using-polybase)** with details.
+- If your source data format is not originally supported by PolyBase, you can leverage **[Staged Copy using PolyBase](#staged-copy-using-polybase)** instead, which will also provide you better throughput by automatically firstly converting the data into PolyBase-compatible format and storing in Azure Blob storage, then loading into SQL Data Warehouse.
+
+Set the **allowPolyBase** property to **true** as shown in the following example for Azure Data Factory to use PolyBase to copy data into Azure SQL Data Warehouse. When you set allowPolyBase to true, you can specify PolyBase specific properties using the **polyBaseSettings** property group. see the [SqlDWSink](#SqlDWSink) section for details about properties that you can use with polyBaseSettings.
 
 
     "sink": {
@@ -512,7 +515,7 @@ If your source data meets the criteria described in this section, you can direct
 
 If the requirements are not met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
-1.	**Source linked service** is of type: **Azure Storage** and it is not configured to use SAS (Shared Access Signature) authentication. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details.  
+1. **Source linked service** is of type: **Azure Storage** and it is not configured to use SAS (Shared Access Signature) authentication. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details.  
 2. The **input dataset** is of type: **Azure Blob** and the format type under type properties is **OrcFormat** or **TextFormat** with the following configurations:
 	1. **rowDelimiter** must be **\n**. 
 	2. **nullValue** is set to **empty string** (""). 
@@ -568,16 +571,22 @@ To use this feature, create an [Azure Storage linked service](data-factory-azure
 	]
 
 
-### Best practices when using PolyBase
+## Best practices when using PolyBase
 
-#### Row size limitation
-Polybase does not support rows of size greater than 32 KB. Attempting to load a table with rows larger than 32 KB would result in the following error: 
+### Required database permission
+To use PolyBase, it requires the user being used to load data into SQL Data Warehouse has the ["CONTROL" permission](https://msdn.microsoft.com/library/ms191291.aspx) on the target database. One way to achieve that is to add that user as a member of "db_owner" role. Learn how to do that by following [this section](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
+
+### Row size limitation
+Polybase does not support size of rows greater than 32 KB. Attempting to load a table with rows larger than 32 KB would result in the following error: 
 
 	Type=System.Data.SqlClient.SqlException,Message=107093;Row size exceeds the defined Maximum DMS row size: [35328 bytes] is larger than the limit of [32768 bytes],Source=.Net SqlClient
 
 If you have source data with rows of size greater than 32 KB, you may want to split the source tables vertically into several small ones where the largest row size of each of them does not exceed the limit. The smaller tables can then be loaded using PolyBase and merged together in Azure SQL Data Warehouse.
 
-#### tableName in Azure SQL Data Warehouse
+### SQL Data Warehouse resource class
+To achieve best possible throughput, consider to assign larger resource class to the user being used to load data into SQL Data Warehouse via PolyBase. Learn how to do that by following [Change a user resource class example](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/sql-data-warehouse-develop-concurrency/#change-a-user-resource-class-example).
+
+### tableName in Azure SQL Data Warehouse
 The following table provides examples on how to specify the **tableName** property in dataset JSON for various combinations of schema and table name.
 
 | DB Schema | Table name | tableName JSON property |
@@ -591,7 +600,7 @@ If you see the following error, it could be an issue with the value you specifie
 
 	Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
 
-#### Columns with default values
+### Columns with default values
 Currently, PolyBase feature in Data Factory only accepts the same number of columns as in the target table. Say, you have a table with four columns and one of them is defined with a default value. The input data should still contain four columns. Providing a 3-column input dataset would yield an error similar to the following message:
 
 	All columns of the table must be specified in the INSERT BULK statement.

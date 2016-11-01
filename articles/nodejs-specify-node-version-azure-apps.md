@@ -39,7 +39,7 @@ Where *version* is the specific version number to use. You can  can specify more
 Since 0.6.22 is not one of the versions available in the hosting environment, the highest version of the 0.8 series that is available will be used instead - 0.8.4.
 
 ##Versioning Websites with App Settings
-If you are hosting the application in a Website, you can set the environment variable **WEBSITE_NODE_DEFAULT_VERSION** to the desired version. 
+If you are hosting the application in a Website, you can set the environment variable **WEBSITE_NODE_DEFAULT_VERSION** to the desired version.
 
 ##Versioning Cloud Services with PowerShell
 
@@ -93,7 +93,7 @@ While Azure provides several default versions of Node.js, you may want to use a 
 
 ##Next Steps
 
-Now that you understand how to specify the version of Node.js used by your application, learn how to [work with modules], [build and deploy a Node.js Web Site], and [How to use the Azure Command-Line Tools for Mac and Linux].
+Now that you understand how to specify the version of Node.js used by your application, learn how to [work with modules], [build and deploy a Node.js Web Site](./app-service-web/web-sites-nodejs-develop-deploy-mac.md), and [How to use the Azure Command-Line Tools for Mac and Linux].
 
 For more information, see the [Node.js Developer Center](/develop/nodejs/).
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to manage reverse DNS records for your services using Azure CLI in Resource Manager | Microsoft Azure"
+   pageTitle="Manage reverse DNS records for your Azure services using Azure CLI | Microsoft Azure"
    description="How to manage reverse DNS records or PTR records for Azure services using the Azure CLI in Resource Manager"
    services="DNS"
    documentationCenter="na"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/05/2016"
+   ms.date="10/28/2016"
    ms.author="smalone" />
 
-# How to manage reverse DNS records for your services using the Azure CLI
+# How to manage reverse DNS records for your Azure services using the Azure CLI
 
 [AZURE.INCLUDE [DNS-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
 <BR>
@@ -58,4 +58,6 @@ You can remove a reverse DNS property from an existing Public IP Address using a
 
 	azure network public-ip set -n PublicIp3 -g NRP-DemoRG-PS –f “”
 
-[AZURE.INCLUDE [FAQ](../../includes/dns-reverse-dns-record-operations-faq-arm-include.md)]
+[AZURE.INCLUDE [FAQ1](../../includes/dns-reverse-dns-record-operations-faq-host-own-arpa-zone-include.md)]
+
+[AZURE.INCLUDE [FAQ2](../../includes/dns-reverse-dns-record-operations-faq-arm-include.md)]

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/16/2016"
+   ms.date="10/31/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication
@@ -98,7 +98,7 @@ Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other gue
 
 Create an Azure Active Directory and populate it with users and groups. The Azure Active Directory can be the initial domain Azure AD managed domain. The Azure Active Directory can also be an on-premises Active Directory Domain Services that is federated with the Azure Active Directory.
 
-For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), and [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx), and [Hybrid Identity Required Ports and Protocols](../active-directory/active-directory-aadconnect-ports.md).
 
 ## 2. Ensure your SQL Database is version 12
 

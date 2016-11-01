@@ -211,7 +211,7 @@ Please contact [Azure support](https://azure.microsoft.com/support/options/) for
 
 ### How do I manage Administrator accounts in the new Azure portal?
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs. For more information, see [Azure Role-Based Access Control](.\active-directory\Azure Role-Based Access Control.md).
+Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs. For more information, see [Azure Role-Based Access Control](./active-directory/role-based-access-control-configure.md).
 
 ### How do I transfer ownership of my subscriptions?
 
@@ -270,8 +270,6 @@ Azure is intended for use by businesses to build cloud scale applications and se
 
 Yes. With our [Spending Limit feature](https://azure.microsoft.com/pricing/spending-limits/), customers who sign up for a Free Trial, MSDN, MPN, or BizSpark offer can utilize Azure without getting charged as long as they keep the Spending Limit feature turned on. All new customers who sign up for these offers will have the Spending Limit turned on with a value of $0.
 
-For information on signing up for Azure, see the article [How to sign up for, purchase, upgrade or activate an Azure subscription](billing-buy-sign-up-azure-subscription.md).
-
 ### Can I turn the Spending Limit back on if I turn off it?
 
 For those on our member benefit offers (e.g., MSDN), you do have the ability to have the Spending Limit feature re-enabled at the beginning of your next billing cycle. The Spending Limit cannot be re-enabled for the current billing period once turned off.
@@ -298,8 +296,6 @@ There are currently no plans to offer Azure or SQL Database through SPLA.
 
 An Azure Free Trial subscription is a one-month free trial for any new customer and provide credits of $200 USD of Azure at no charge. To see what services free trial credits cover and do not cover, see the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/).
 
-You can sign up for a trial subscription [here](http://azure.microsoft.com/pricing/free-trial/). See [this guide](billing-buy-sign-up-azure-subscription.md#sign-up-for-an-azure-free-trial-subscription) for step-by-step instructions.
-
 ### What resources are available when using a Free Trial?
 
 You receive $200 USD of Azure credits with the Free Trial to use over 30 days. The choice is now yours on how you use your Azure credits. See the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) for more details.
@@ -314,9 +310,9 @@ Once you remove the spending limit, you start getting charged for consuming reso
 
 ### Can I get a quota increase on a Free Trial subscription?
 
-Free Trial subscriptions are not eligible for quota increases. If you have a Free Trial, you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For details on how to upgrade see [Upgrade Azure Free Trial to Pay-As-You-Go](billing-buy-sign-up-azure-subscription.md#UpgradeFreeToPYG).
+Free Trial subscriptions are not eligible for quota increases. If you have a Free Trial, you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For details on how to upgrade see [Upgrade Azure Free Trial to Pay-As-You-Go](billing-upgrade-azure-subscription.md).
 
->[AZURE.NOTE] DreamSpark subscriptions are also ineligible for quota increases.
+>[AZURE.NOTE] Microsoft Imagine subscriptions are also ineligible for quota increases.
 
 ### Where can I get more details on Free Trial?
 

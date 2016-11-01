@@ -3,7 +3,7 @@
 	description="Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 

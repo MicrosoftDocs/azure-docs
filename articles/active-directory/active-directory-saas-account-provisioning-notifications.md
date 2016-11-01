@@ -3,7 +3,7 @@
 	description="Learn how to ensure that you are notified of issues related to user provisioning that require your attention by enabling account provisioning notifications."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 

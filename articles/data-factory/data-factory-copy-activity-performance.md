@@ -39,7 +39,7 @@ This article describes:
 
 ![Performance matrix](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [AZURE.NOTE] #: You can achieve higher throughput by leveraging more DMUs, while the default max DMU is 8 for each cloud-to-cloud copy activity run. For example, with 100 DMUs, you can reach beyond 1GB/s when copy from Azure Blob to Azure Data Lake Store. See the [Cloud data movement](#cloud-data-movement-units) section for details about this feature. Contact [Azure support](https://azure.microsoft.com/support/) to request more DMUs.
+> [AZURE.NOTE] You can achieve higher throughput by leveraging more data movement units (DMUs) than the default maximum DMUs, which is 8 for a cloud-to-cloud copy activity run. For example, with 100 DMUs, you can copy data from Azure Blob to Azure Data Lake Store at the rate of 1 gigabyte per second. See the [Cloud data movement units](#cloud-data-movement-units) section for details about this feature. Contact [Azure support](https://azure.microsoft.com/support/) to request more DMUs.
 
 Points to note:
 

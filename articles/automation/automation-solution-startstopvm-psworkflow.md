@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Starting and stopping virtual machines with Azure Automation - PowerShell Workflow | Microsoft Azure"
 	description="Graphical version of Azure Automation scenario including runbooks to start and stop classic virtual machines."
 	services="automation"
@@ -6,7 +6,7 @@
 	authors="mgoedtel"
 	manager="jwhit"
 	editor="tysonn" />
-<tags 
+<tags
 	ms.service="automation"
 	ms.devlang="na"
 	ms.topic="article"
@@ -19,10 +19,10 @@
 
 This Azure Automation scenario includes runbooks to start and stop classic virtual machines.  You can use this scenario for any of the following:  
 
-- Use the runbooks without modification in your own environment. 
+- Use the runbooks without modification in your own environment.
 - Modify the runbooks to perform customized functionality.  
-- Call the runbooks from another runbook as part of an overall solution. 
-- Use the runbooks as tutorials to learn runbook authoring concepts. 
+- Call the runbooks from another runbook as part of an overall solution.
+- Use the runbooks as tutorials to learn runbook authoring concepts.
 
 > [AZURE.SELECTOR]
 - [Graphical](automation-solution-startstopvm-graphical.md)
@@ -47,7 +47,7 @@ This scenario consists of two PowerShell Workflow runbooks that you can download
 After downloading the runbooks, you can import them using the procedure in [Importing a Runbook](http://msdn.microsoft.com/library/dn643637.aspx#ImportRunbook).
 
 ### 2. Review the description and requirements
-The runbooks include commented help text that includes a description and required assets.  You can also get the same information from this article. 
+The runbooks include commented help text that includes a description and required assets.  You can also get the same information from this article.
 
 ### 3. Configure assets
 The runbooks require the following assets that you must create and populate with appropriate values.
@@ -91,7 +91,7 @@ The runbooks will [output a message](automation-runbook-output-and-messages.md) 
 | Stop-AzureVMs | Stop request for virtual machine successfully submitted | MyVM has been stopped |
 | Stop-AzureVMs | Stop request for virtual machine failed  | MyVM failed to stop |
 
-For example, the following code snippet from a runbook attempts to start all virtual machines with the service name *MyServiceName*.  If any of the start requests fail, then error actions can be taken. 
+For example, the following code snippet from a runbook attempts to start all virtual machines with the service name *MyServiceName*.  If any of the start requests fail, then error actions can be taken.
 
 	$results = Start-AzureVMs -ServiceName "MyServiceName"
 	foreach ($result in $results) {
@@ -111,13 +111,13 @@ Following is a detailed breakdown of the runbooks in this scenario.  You can use
 ### Parameters
 
     param (
-        [Parameter(Mandatory=$false)] 
+        [Parameter(Mandatory=$false)]
         [String]  $AzureCredentialAssetName = 'AzureCredential',
-        
+
         [Parameter(Mandatory=$false)]
         [String] $AzureSubscriptionIdAssetName = 'AzureSubscriptionId',
 
-        [Parameter(Mandatory=$false)] 
+        [Parameter(Mandatory=$false)]
         [String] $ServiceName
     )
 
@@ -138,7 +138,7 @@ This line declares that the output of the runbook will be a string.  This is not
 	$SubId = Get-AutomationVariable -Name $AzureSubscriptionIdAssetName
     $null = Select-AzureSubscription -SubscriptionId $SubId -ErrorAction Stop
 
-The next lines set the [credentials](automation-configuring.md#configuring-authentication-to-azure-resources) and Azure subscription that will be used for the rest of the runbook.
+The next lines set the [credentials](automation-credentials.md) and Azure subscription that will be used for the rest of the runbook.
 First we use **Get-AutomationPSCredential** to get the asset that holds the credentials with access to start and stop virtual machines in the Azure subscription. **Add-AzureAccount** then uses this asset to set the credentials.  The output is assigned to a dummy variable so that it isn't included in the runbook output.  
 
 The variable asset with the subscription ID is then retrieved with **Get-AutomationVariable** and the subscription set with **Select-AzureSubscription**.
@@ -147,12 +147,12 @@ The variable asset with the subscription ID is then retrieved with **Get-Automat
 
 	# If there is a specific cloud service, then get all VMs in the service,
     # otherwise get all VMs in the subscription.
-    if ($ServiceName) 
-	{ 
+    if ($ServiceName)
+	{
 		$VMs = Get-AzureVM -ServiceName $ServiceName
 	}
-    else 
-	{ 
+    else
+	{
 		$VMs = Get-AzureVM
 	}
 
@@ -191,5 +191,5 @@ The next lines step through each virtual machine.  First the **PowerState** of t
 
 ## Next steps
 
-- To learn more about working with child runbooks, see [Child runbooks in Azure Automation](automation-child-runbooks.md) 
+- To learn more about working with child runbooks, see [Child runbooks in Azure Automation](automation-child-runbooks.md)
 - To learn more about output messages during runbook execution and logging to help troubleshoot, see [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)

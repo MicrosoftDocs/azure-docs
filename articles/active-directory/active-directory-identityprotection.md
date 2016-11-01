@@ -4,7 +4,7 @@
 	services="active-directory"
 	keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 
@@ -72,25 +72,6 @@ But Azure Active Directory Identity Protection is more than a monitoring and rep
 
 Risk events are events that were flagged as suspicious by Identity Protection, and indicate that an identity may have been compromised. For a complete list of risk events, see [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md). 
 
-Some of these risk events have been available through the Azure AD Anomalous Activity reports in the Azure portal. 
-The table below lists the various risk event types and the corresponding **Azure AD Anomalous Activity** report. Microsoft is continuing to invest in this space, and plans to continuously improve the detection accuracy of existing risk events and add new risk event types on an ongoing basis. 
-
-
-
-| Identity Protection Risk Event Type | Corresponding Azure AD Anomalous Activity Report |
-| :-- | :-- |
-| Leaked credentials	| Users with leaked credentials |
-| Impossible travel to atypical locations |	Irregular sign-in activity |
-| Sign-ins from infected devices	| Sign-ins from possibly infected devices |
-| Sign-ins from anonymous IP addresses	| Sign-ins from unknown sources |
-| Sign-ins from IP addresses with suspicious activity |	Sign-ins from IP addresses with suspicious activity |
-| Signs in from unfamiliar locations	| - |
-| Lockout events	| - |
-
-The following Azure AD Anomalous Activity reports are not included as risk events in Azure AD Identity Protection, and will therefore not be available through Identity Protection. These reports are still available in the Azure portal however they will be deprecated at some time in the future as they are being superseded by risk events in Identity Protection.
-
-- Sign-ins after multiple failures
-- Sign-ins from multiple geographies
 
 ### Risk level
 

@@ -185,7 +185,7 @@ Yes. You can read more about throttling bandwidth in the deployment articles:
 
 You can access the Azure VMs over a secure Internet connection, over a site-to-site VPN, or over Azure ExpressRoute. You'll need to prepare a number of things in order to connect. Read more in:
 
-- [Connect to Azure VMs after failover of VMware VMs or physical servers](hsite-recovery-vmware-to-azure.md#step-7-test-the-deployment)
+- [Connect to Azure VMs after failover of VMware VMs or physical servers](site-recovery-vmware-to-azure.md#step-7-test-the-deployment)
 - [Connect to Azure VMs after failover of Hyper-V VMs in VMM clouds](site-recovery-vmm-to-azure.md#step-7-test-your-deployment)
 - [Connect to Azure VMs after failover of Hyper-V VMs without VMM](site-recovery-hyper-v-site-to-azure.md#step-7-test-the-deployment)
 
