@@ -253,12 +253,12 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 
 | Size           | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max disk throughput: IOPS | Max NICs / Network bandwidth |
 |----------------|-----------|-------------|--------------------------|----------------|---------------------------|------------------------------|
-| Standard_H8    | 8         | 56          | 1000                     | 16             | 16 x 500                    | 8 / high                      |
-| Standard_H16   | 16        | 112         | 2000                     | 32             | 32 x 500                    | 8 / very high                  |
-| Standard_H8m   | 8         | 112         | 1000                     | 16             | 16 x 500                    | 8 / high                      |
-| Standard_H16m  | 16        | 224         | 2000                     | 32             | 32 x 500                    | 8 / very high                 |
-| Standard_H16r* | 16        | 112         | 2000                     | 32             | 32 x 500                    | 8 / very high                  |
-| Standard_H16mr* | 16        | 224         | 2000                     | 32             | 32 x 500                    | 8 / very high                  |
+| Standard_H8    | 8         | 56          | 1000                     | 16             | 16 x 500                    | 2 / high                      |
+| Standard_H16   | 16        | 112         | 2000                     | 32             | 32 x 500                    | 4 / very high                  |
+| Standard_H8m   | 8         | 112         | 1000                     | 16             | 16 x 500                    | 2 / high                      |
+| Standard_H16m  | 16        | 224         | 2000                     | 32             | 32 x 500                    | 4 / very high                 |
+| Standard_H16r* | 16        | 112         | 2000                     | 32             | 32 x 500                    | 4 / very high                  |
+| Standard_H16mr* | 16        | 224         | 2000                     | 32             | 32 x 500                    | 4 / very high                  |
 
 
 *RDMA capable
