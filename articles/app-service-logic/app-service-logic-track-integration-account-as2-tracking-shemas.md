@@ -66,10 +66,10 @@ Following are the supported AS2 tracking schemas
 | messageId | Optional, string.  It indicates the AS2 Message ID that is included in the headers of the AS2 message |
 | dispositionType | Optional, string. It indicates the MDN disposition type value |
 | fileName | Optional, string.  It indicates the file name that is included in the header of the AS2 message |
-| isMessageFailed | Mandatory, boolean.  indicates that whether AS2 message was failed or not |
-| isMessageSigned | Mandatory, boolean.  indicates that whether AS2 message was signed or not |
-| isMessageEncrypted | Mandatory, boolean.  indicates that whether AS2 message was encrypted or not |
-| isMessageCompressed | Mandatory, boolean. indicates that whether AS2 message was compressed or not |
+| isMessageFailed | Mandatory, boolean.  It indicates that whether AS2 message was failed or not |
+| isMessageSigned | Mandatory, boolean.  It indicates that whether AS2 message was signed or not |
+| isMessageEncrypted | Mandatory, boolean.  It indicates whether AS2 message was encrypted or not |
+| isMessageCompressed | Mandatory, boolean. It indicates  whether AS2 message was compressed or not |
 | correlationMessageId | Optional, string. It indicates AS2messageid to correlate messages with MDNs |
 | incomingHeaders | Optional, dictinaryy of Jtoken.  It indicates incoming AS2 message header details |
 | outgoingHeaders | Optional, dictionary of Jtoken.  It indicates outgoing AS2 message header details |
@@ -120,11 +120,11 @@ Following are the supported AS2 tracking schemas
 | messageId | Optional, string. It indicates the AS2 message id |
 | originalMessageId | Optional, string. It indicates the AS2 original message id |
 | dispositionType | Optional, string. It indicates the MDN disposition type value |
-| isMessageFailed | Mandatory, boolean.  indicates that whether AS2 message was failed or not  |
-| isMessageSigned | Mandatory, boolean.  Indicates that whether AS2 message was signed or not |
-| isNrrEnabled | Mandatory - type boolean - default value if not known |
-| statusCode | Requires - Allowed values - Accepted/Rejected/AcceptedWithErrros |
-| micVerificationStatus | Mandatory - Allowed values - NotApplicable/Succeeded/Failed |
+| isMessageFailed | Required, boolean. It indicates whether AS2 message was failed or not  |
+| isMessageSigned | Required, boolean. It indicates whether AS2 message was signed or not |
+| isNrrEnabled | Required, boolean.  Use default value if the value is not known |
+| statusCode | Required, string.  The allowed values are Accepted or Rejected or AcceptedWithErrros |
+| micVerificationStatus | Required, string.  The allowed values are NotApplicable or Succeeded or Failed |
 | correlationMessageId | Optional, string.  It indicates the correlation id.  The correlation id is the original messaged Id (messages id of the message for which MDN is configured) |
 | incomingHeaders | Optional - Dictionary of JTokens |
 | outgoingHeaders | Optional - Dictionary of JTokens |
