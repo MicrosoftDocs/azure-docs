@@ -94,7 +94,7 @@ To configure the device connection, follow these steps:
     gulp init
     ```
 
-    The configuration file `config-raspberrypi.json` contains the user credentials you use to sign in to Pi. To avoid the leak of user credentials, the configuration file is generated in the subfolder `.iot-hub-getting-started` of the home folder on your computer.
+    The configuration file `config-raspberrypi.json` contains the user credentials you use to login to Pi. To avoid the leak of user credentials, the configuration file is generated in the subfolder `.iot-hub-getting-started` of the home folder on your computer.
 
 2. Open the device configuration file in Visual Studio Code by running the following command:
 
