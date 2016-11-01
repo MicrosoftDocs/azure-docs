@@ -12,19 +12,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/30/2016"
+	ms.date="11/01/2016"
 	ms.author="awills"/>
 
 
 # Manually configure Application Insights for ASP.NET 4 applications
 
-*Application Insights is in preview.*
-
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
-You can manually configure [Visual Studio Application Insights](app-insights-overview.md) to monitor Windows services, worker roles, and other ASP.NET applications. For web apps, manual configuration is an alternative to the [automatic set-up](app-insights-asp-net.md) offered by Visual Studio.
-
-Application Insights helps you diagnose issues and monitor performance and usage in your live application.
+[Application Insights](app-insights-overview.md) is an extensible tool for web developers to monitor the performance and usage of your live application. You can manually configure it to monitor Windows services, worker roles, and other ASP.NET applications. For web apps, manual configuration is an alternative to the [automatic set-up](app-insights-asp-net.md) offered by Visual Studio.
 
 ![Example performance monitoring charts](./media/app-insights-windows-services/10-perf.png)
 
