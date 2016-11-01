@@ -91,7 +91,7 @@ Here are the deliverables in this stage:
 
 -  [**Data Sources**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): This is part of the Data Report that is found in the TDSP project structure. It describes the sources for the raw data. In later stages, you fill in additional details like scripts to move the data to your analytic environment.  
 
-- [**Data**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/DataDictionaries): This document provides the descriptions and the schema (data types, information on validation rules, if any) of the data which be used to answer the question. The entity-relation diagrams or descriptions are included too, if available.
+- [**Data**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/DataDictionaries): This document provides the descriptions and the schema (data types, information on validation rules, if any) for the data that is used to answer the question. The entity-relation diagrams or descriptions are included too, if available.
  
 
 ## 2. Data Acquisition and Understanding
@@ -127,7 +127,7 @@ The following are the deliverables in this stage.
 
 - [**Data Quality Report**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md): This report contains data summaries, relationships between each attribute and target, variable ranking etc. The [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) tool provided as part of TDSP can quickly generate this report on any tabular dataset such as a CSV file or a relational table. 
 - **Solution Architecture**: This can be a diagram or description of your data pipeline used to run scoring or predictions on new data once you have built a model. It also contains the pipeline to retrain your model based on new data. The document is stored in this [directory](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) when using the TDSP directory structure template.
-- **Checkpoint Decision**: Before you begin full feature engineering and model building, you can reevaluate the project to determine whether there is sufficient value expected to continue pursing it. We may, for example, be ready to proceed, need to collect more data, or abandon the project as the data does not exist to answer the question.
+- **Checkpoint Decision**: Before you begin full feature engineering and model building, you can reevaluate the project to determine whether there is sufficient value expected to continue pursing it. You may, for example, be ready to proceed, need to collect more data, or abandon the project as the data does not exist to answer the question.
 
 
 ## 3. Modeling
@@ -140,7 +140,7 @@ The following are the deliverables in this stage.
 
 ### How to do it
 
-There are two main aspects of this stage
+There are three main tasks addressed in this stage:
 
 - **Feature Engineering**: create data features from the raw data to facilitate model training.
 - **Model training**: find the model that answers the question most accurately by comparing their success metrics.
@@ -148,7 +148,7 @@ There are two main aspects of this stage
 
 #### 3.1 Feature Engineering
 
-Feature engineering involves inclusion, aggregation and transformation of raw variables to create the features used in the analysis. If we want insight into what is driving a model, then we need to understand how features are related to each other and how the machine learning algorithms are to use those features. This step requires a creative combination of domain expertise and insights obtained from the data exploration step. This is a balancing act of finding and including informative variables while avoiding too many unrelated variables. Informative variables improve our result; unrelated variables introduce unnecessary noise into the model. You also need to generate these features for any new data obtained during scoring. So the generation of these features can only depend on data that is available at the time of scoring. For technical guidance on feature engineering when using various Azure data technologies, see [Feature engineering in the Data Science Process](machine-learning-data-science-create-features.md). 
+Feature engineering involves inclusion, aggregation and transformation of raw variables to create the features used in the analysis. If you want insight into what is driving a model, then you need to understand how features are related to each other and how the machine learning algorithms are to use those features. This step requires a creative combination of domain expertise and insights obtained from the data exploration step. This is a balancing act of finding and including informative variables while avoiding too many unrelated variables. Informative variables improve our result; unrelated variables introduce unnecessary noise into the model. You also need to generate these features for any new data obtained during scoring. So the generation of these features can only depend on data that is available at the time of scoring. For technical guidance on feature engineering when using various Azure data technologies, see [Feature engineering in the Data Science Process](machine-learning-data-science-create-features.md). 
 
 #### 3.2 Model Training
 
@@ -161,7 +161,7 @@ The process for model training includes the following steps:
 - Evaluate (training and test dataset) a series of competing machine learning algorithms along with the various associated tuning parameters (known as parameter sweep) that are geared toward answering the question of interest with the current data.
 - Determine the “best” solution to answer the question by comparing the success metric between alternative methods.
  
->[AZURE.NOTE] **Avoid leakage**: Data Leakage can be caused by the inclusion of data from outside the training dataset that allows a model or machine learning algorithm to make unrealistically good predictions. Leakage is a major reason data scientists get nervous when they get really good predictive results. These dependencies can be hard to detect. To avoid this often requires iterating between building an analysis data set, creating a model, and evaluating the accuracy. 
+>[AZURE.NOTE] **Avoid leakage**: Data Leakage can be caused by the inclusion of data from outside the training dataset that allows a model or machine learning algorithm to make unrealistically good predictions. Leakage is a common reason why data scientists get nervous when they get predictive results that seem too good to be true. These dependencies can be hard to detect. To avoid this often requires iterating between building an analysis data set, creating a model, and evaluating the accuracy. 
 
 We provide an [Automated Modeling and Reporting tool](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) with TDSP that is able to run through multiple algorithms and parameter sweeps to produce a baseline model. It also produces a baseline modeling report summarizing performance of each model and parameter combination including variable importance. This process is also iterative as it can drive further feature engineering. 
 
@@ -178,28 +178,39 @@ The artifacts produced in this stage include:
 ## 4. Deployment
 
 ### Goal
-Deploy models and pipeline to a production or production-like environment for final user acceptance. 
+
+- Models and pipeline are deployed to a production or production-like environment for final user acceptance. 
 
 ### How to do it
 
-Once we have a set of models that perform well, they can be operationalized for other applications to consume. Depending on the business requirements, predictions are made either in real time or on a batch basis. To be operationalized, the models have to be exposed with an open API interface that is easily consumed from various applications such online website, spreadsheets, dashboards, or line of business and backend applications. See example of model operationalization with Azure Machine Learning web service in this [article](machine-learning-publish-a-machine-learning-web-service.md). It is also a good idea to build in telemetry and monitoring of the production model deployment and the data pipeline to help with system status reporting and troubleshooting.  
+The main task addressed in this stage:
+
+- **Operationalize the model**: Deploy the model and pipeline to a production or production-like environment for application consumption.
+
+#### 4.1 Operationalize a model
+Once you have a set of models that perform well, they can be operationalized for other applications to consume. Depending on the business requirements, predictions are made either in real-time or on a batch basis. To be operationalized, the models have to be exposed with an open API interface that is easily consumed from various applications such online website, spreadsheets, dashboards, or line of business and backend applications. For examples of model operationalization with an Azure Machine Learning web service, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md). It is also a good idea to build telemetry and monitoring into the production model and the data pipeline deployed to help with system status reporting and troubleshooting.  
 
 ### Artifacts
  
-- Status dashboard of system health and key metrics
-- Final modeling report with deployment details
-- Final solution architecture document
+- Status dashboard of system health and key metrics.
+- Final modeling report with deployment details.
+- Final solution architecture document.
   
 ## 5. Customer Acceptance
 
 ### Goal
 
-To finalize the project deliverables by confirming the pipeline, the model, and their deployment in a production environment.
+- **Finalize the project deliverables**: confirm that the pipeline, the model, and their deployment in a production environment are satisfying customer objectives.
 
 
 ###How to do it
 
-The customer would validate that the system meets their business needs and the answers the questions with acceptable accuracy to deploy the system to production for use by their client application. All the documentation is finalized and reviewed. A hand-off of the project to the entity responsible for operations is done. This could be an IT or data science team at the customer or an agent of the customer that is responsible for running the system in production. 
+There are three main tasks addressed in this stage:
+
+- **System validation**: confirm the deployed model and pipeline are meeting customer needs.
+- **Project hand-off**: to the entity that will run the system in production.
+
+The customer would validate that the system meets their business needs and the answers the questions with acceptable accuracy to deploy the system to production for use by their client application. All the documentation is finalized and reviewed. A hand-off of the project to the entity responsible for operations is completed. This could be, for example, an IT or customer data science team or an agent of the customer that is responsible for running the system in production. 
 
 
 ###Artifacts
@@ -209,7 +220,7 @@ The main artifact produced in this final stage is the [**Project Final Report**]
 
 ## Summary
 
-The [Team Data Science Process lifecycle](http://aka.ms/datascienceprocess) is modeled as a sequence of iterated steps that provide guidance on the tasks needed to use predictive models that can be deployed in a production environment to be leveraged to build intelligent applications. The goal of this process lifecycle is to continue to move a data science project forward towards a clear engagement end point. While it is true that data science is an exercise in research and discovery, being able to clearly communicate this to customers using a well defined set of artifacts in a standardized template can help avoid misunderstanding and increase the odds of success.
+The [Team Data Science Process lifecycle](http://aka.ms/datascienceprocess) is modeled as a sequence of iterated steps that provide guidance on the tasks needed to use predictive models. These models can be deployed in a production environment to be leveraged to build intelligent applications. The goal of this process lifecycle is to continue to move a data science project forward towards a clear engagement end point. While it is true that data science is an exercise in research and discovery, being able to clearly communicate this to your team and your customers using a well defined set of artifacts that employees standardized templates can help avoid misunderstanding and increase the chance of a successful completion of a complex data science project.
 
 
 ## Next steps
