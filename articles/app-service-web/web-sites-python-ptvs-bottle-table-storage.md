@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Bottle and Azure Table Storage on Azure with Python Tools 2.2 for Visual Studio" 
-	description="Learn how to use the Python Tools for Visual Studio to create a Bottle application that stores data in Azure Table Storage and deploy the web app to Azure App Service Web Apps." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Bottle and Azure Table Storage on Azure with Python Tools 2.2 for Visual Studio"
+	description="Learn how to use the Python Tools for Visual Studio to create a Bottle application that stores data in Azure Table Storage and deploy the web app to Azure App Service Web Apps."
+	services="app-service\web"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
 	ms.date="07/07/2016"
 	ms.author="huvalo"/>
 
 
-# Bottle and Azure Table Storage on Azure with Python Tools 2.2 for Visual Studio 
+# Bottle and Azure Table Storage on Azure with Python Tools 2.2 for Visual Studio
 
 In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=GJXDGaEPy94).
 
@@ -103,7 +103,7 @@ In this section, we'll configure our application to use the storage account we j
 
 1.  Run the application with `F5`. Polls that are created with **Create Sample Polls** and the data submitted by voting will be serialized in Azure Table Storage.
 
-	> [AZURE.NOTE] The Python 2.7 Virtual Environment may cause an exception break in Visual Studio.  Press `F5` to continue loading the web project. 
+	> [AZURE.NOTE] The Python 2.7 Virtual Environment may cause an exception break in Visual Studio.  Press `F5` to continue loading the web project.
 
 1.  Browse to the **About** page to verify that the application is using the **Azure Table Storage** repository.
 
@@ -188,8 +188,8 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 <!--Link references-->
 [Python Developer Center]: /develop/python/
 [Azure Cloud Services]: ../cloud-services-python-ptvs.md
-[documentation]: ../storage-python-how-to-use-table-storage.md
-[How to Use the Table Storage Service from Python]: ../storage-python-how-to-use-table-storage.md
+[documentation]: ../storage/storage-python-how-to-use-table-storage.md
+[How to Use the Table Storage Service from Python]: ../storage/storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
 [Azure Portal]: https://portal.azure.com
@@ -198,7 +198,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=624025
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
 [Bottle Documentation]: http://bottlepy.org/docs/dev/index.html
@@ -207,4 +207,3 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 [Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure Storage]: http://azure.microsoft.com/documentation/services/storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
- 
