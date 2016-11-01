@@ -101,7 +101,7 @@ The portal and PowerShell both use the [Resource Manager REST API](https://msdn.
 
 ## Tags and billing
 
-For supported services, you can use tags to group your billing data. For example, [Virtual Machines integrated with Azure Resource Manager](./virtual-machines/virtual-machines-windows-compare-deployment-models.md) enable
+For supported services, you can use tags to group your billing data. For example, Virtual Machines deployed with Azure Resource Manager enable
 you to define and apply tags to organize the billing usage for virtual machines. If you are running multiple VMs for different organizations, you can use the tags to group usage by cost center.  
 You can also use tags to categorize costs by runtime environment; such as, the billing usage for VMs running in production environment.
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="10/12/2016"
+   ms.date="11/01/2016"
    ms.author="billmath"/>
 
 # Azure AD Connect: Upgrade from a previous version to the latest
