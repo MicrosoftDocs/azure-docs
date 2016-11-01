@@ -247,7 +247,7 @@ Consider using a set of network virtual appliances that logs detailed informatio
 [claims-aware applications]: https://msdn.microsoft.com/en-us/library/windows/desktop/bb736227(v=vs.85).aspx
 [active-directory-federation-services-overview]: https://technet.microsoft.com/en-us/library/hh831502(v=ws.11).aspx
 [establishing-federation-trust]: https://blogs.msdn.microsoft.com/alextch/2011/06/27/establishing-federation-trust/
-[Deploying_a_federation_server_farm]: https://technet.microsoft.com/library/dn486775.aspx
+[Deploying_a_federation_server_farm]:  https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-azure-adfs/
 [install_and_configure_the_web_application_proxy_server]: https://technet.microsoft.com/library/dn383662.aspx
 [publish_applications_using_AD_FS_preauthentication]: https://technet.microsoft.com/library/dn383640.aspx
 [managing-adfs-components]: https://technet.microsoft.com/library/cc759026.aspx
