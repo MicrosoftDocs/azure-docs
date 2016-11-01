@@ -145,7 +145,7 @@ Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD
 [ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
 [adds-resource-forest]: ./guidance-identity-adds-resource-forest.md
 [adfs]: ./guidance-identity-adfs.md
-[availability-set]: ./virtual-machines/virtual-machines-windows-create-availability-set.md
+[availability-set]: ../virtual-machines/virtual-machines-windows-create-availability-set.md
 [azure-active-directory]: ../active-directory-domain-services/active-directory-ds-overview.md
 [azure-ad-connect]: ../active-directory/active-directory-aadconnect.md
 [azure-expressroute]: https://azure.microsoft.com/documentation/articles/expressroute-introduction/
