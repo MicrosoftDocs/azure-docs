@@ -20,12 +20,12 @@
 
 Following are the supported X12 tracking schemas
 
-* [X12TransactionSet](./media/app-service-logic-track-integration-account-X12-tracking-schema.md/#X12TransactionSet)
-* [X12TransactionSetAcknowledgment](./media/app-service-logic-track-integration-account-X12-tracking-schema.md/#X12TransactionSetAcknowledgment)
-* [X12Interchange](./media/app-service-logic-track-integration-account-X12-tracking-schema.md/#X12Interchange)
-* [X12InterchangeAcknowledgment](./media/app-service-logic-track-integration-account-X12-tracking-schema.md/#X12InterchangeAcknowledgment)
-* [X12FunctionalGroup](./media/app-service-logic-track-integration-account-X12-tracking-schema.md/#X12FunctionalGroup)
-* [X12FunctionalGroupAcknowledgment](./media/app-service-logic-track-integration-account-X12-tracking-schema.md/#X12FunctionalGroupAcknowledgment)
+* X12 Transaction Set Tracking Schema
+* X12 Transaction Set Acknowledgment Tracking Schema
+* X12 Interchange Tracking Schema
+* X12 Interchange Acknowledgment Tracking Schema
+* X12 Functional Group Tracking Schema
+* X12 Functional Group Acknowledgment Tracking Schema
 
 ## X12 Transaction Set Tracking Schema
 ````java script
@@ -126,10 +126,10 @@ Following are the supported X12 tracking schemas
 | receiverIdentifier | Mandatory, string.  It contains the receive partner identifier |
 | agreementName | Optional, string.  Name of the X12 agreement to which the messages are resolved |
 | direction | Required, string.  It indicates the direction of the message flow, either receive or send |
-| interchangeControlNumber | Optional, string.  It contains the interchange control number of the functional acknowledgement. This gets populated only for send side where functional acknowledgement received for the messages sent to partner |
-| functionalGroupControlNumber | Optional, string.  It contains the functional group control number of the functional acknowledgement. This gets populated only for send side where functional acknowledgement received for the messages sent to partner |
-| isaSegment | Optional, string.  It contains the ISA segment of the message. This gets populated only for send side where functional acknowledgement received for the messages sent to partner |
-| gsSegment | Optional, string.  It contains the GS segment of the message. This gets populated only for send side where functional acknowledgement received for the messages sent to partner |
+| interchangeControlNumber | Optional, string.  It contains the interchange control number of the functional acknowledgement. The value populate only for send side where functional acknowledgement received for the messages sent to partner |
+| functionalGroupControlNumber | Optional, string.  It contains the functional group control number of the functional acknowledgement. The value populate only for send side where functional acknowledgement received for the messages sent to partner |
+| isaSegment | Optional, string.  It contains the ISA segment of the message. The value populate only for send side where functional acknowledgement received for the messages sent to partner |
+| gsSegment | Optional, string.  It contains the GS segment of the message. The value populate only for send side where functional acknowledgement received for the messages sent to partner |
 | respondingfunctionalGroupControlNumber | Optional, string.  It contains the responding  interchange control number |
 | respondingFunctionalGroupId | Optional, string. It contains the responding functional group id, that maps to AK101 in the acknowledgement |
 | respondingtransactionSetControlNumber | Optional, string.  It contains the responding transaction set control number |
@@ -243,9 +243,9 @@ Following are the supported X12 tracking schemas
 | isMessageFailed | Mandatory, boolean.  Indicates that whether X12 message either succeeded or failed | 
 | statusCode | Mandatory, string.  It contains the interchange acknowledgment status code.  The allowed values are Accepted/Rejected/AccpetedWithErrros | 
 | processingStatus | Mandatory, string.  It contains the acknowledgment status.  The allowed values are Received/Generated/Sent | 
-| ta102 | Optional - The responding interchange date. - type string | 
-| ta103 | Optional - The responding interchange time - type string | 
-| ta105 | Optional - The interchange note code - type string |
+| ta102 | Optional, string. It contains interchange date | 
+| ta103 | Optional, string. It contains interchange time | 
+| ta105 | Optional, string. It contians interchange note code |
 |
 
 
@@ -350,8 +350,8 @@ Following are the supported X12 tracking schemas
 | receiverIdentifier | Mandatory, string.  It contains the receive partner identifier |
 | agreementName | Optional, string.  Name of the X12 agreement to which the messages are resolved |
 | direction | Required, string.  It indicates the direction of the message flow, either receive or send |
-| interchangeControlNumber | Optional - Interchange control number of the TA - This gets populated only in cases where it is on send side and when we receive a technical ack, but not when we generate on receive side. - type string |
-| functionalGroupControlNumber | Optional - functional group control number of the TA - This gets populated only in cases where it is on send side and when we receive a technical ack, but not when we generate on receive side. - type string |
+| interchangeControlNumber | Optional - Interchange control number of the TA - The value populate only in cases where it is on send side and when we receive a technical ack, but not when we generate on receive side. - type string |
+| functionalGroupControlNumber | Optional - functional group control number of the TA - The value populate only in cases where it is on send side and when we receive a technical ack, but not when we generate on receive side. - type string |
 | isaSegment | Optional - Same as above interchange control number gets populated only in specific cases. - type string |
 | gsSegment | Optional - Same as above functional group control number gets populated only in specific cases. - type string |
 | respondingfunctionalGroupControlNumber | Optional - control number of the original functional group - type string |

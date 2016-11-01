@@ -20,8 +20,8 @@
 
 Following are the supported AS2 tracking schemas
 
-* [AS2 Message Tracking Schema](./media/app-service-logic-track-integration-account-AS2-tracking-schema.md/#AS2MessageTrackingSchema)
-* [AS2 MDN Tracking Schema](./media/app-service-logic-track-integration-account-AS2-tracking-schema.md/#AS2MessageTrackingSchema)
+* AS2 Message Tracking Schema
+* AS2 MDN Tracking Schema
 
 ## AS2 Message Tracking Schema
 ````java script
@@ -44,12 +44,11 @@ Following are the supported AS2 tracking schemas
             "isMessageEncrypted": "",
             "isMessageCompressed": "",
             "correlationMessageId": "",
-            "incomingHeaders": { 
-               
-                },
+            "incomingHeaders": {                
+            },
             "outgoingHeaders": { 
                 
-                },
+            },
         "isNrrEnabled": "",
         "isMdnExpected": "",
         "mdnType": ""
@@ -103,12 +102,8 @@ Following are the supported AS2 tracking schemas
                 "micVerificationStatus": "",
                 "correlationMessageId": "",
                 "incomingHeaders": { 
-                    // Optional
-                    // Dictionary of JTokens
                 },
                 "outgoingHeaders": { 
-                    // Optional
-                    // Dictionary of JTokens
                 }
             }
         }
@@ -123,8 +118,8 @@ Following are the supported AS2 tracking schemas
 | as2To | Required, string. It contains the partner name who receives that AS2 message  |
 | as2From | Required, string. It contains the partner name who sends that AS2 message |
 | agreementName | Optional, string. Name of the AS2 agreement to which the messages are resolved |
-| direction | Required, string. It indiates the direction of the message flow, either receive or send |
-| messageId | Optional, string. It contains the AS2 messageid ??? |
+| direction | Required, string. It indicates the direction of the message flow, either receive or send |
+| messageId | Optional, string. It contains the AS2 message id |
 | originalMessageId | Optional, string. It contains the AS2 original message id |
 | dispositionType | Optional, string. It contains the MDN disposition type value |
 | isMessageFailed | Mandatory, boolean.  Indicates that whether AS2 message was failed or not  |
