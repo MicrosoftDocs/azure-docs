@@ -23,7 +23,7 @@
 
 This article describes best practices for implementing a secure hybrid network that extends your on-premises network that accepts traffic from the internet network to Azure. This reference architecture extends the architecture described in the article [Implementing a DMZ between Azure and your on-premises datacenter][implementing-a-secure-hybrid-network-architecture]. It's recommended you read that document and understand that reference architecture before reading this document.
 
-> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments. 
+> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager](../azure-resource-manager/resource-group-overview.md) and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments. 
 
 Typical use cases for this architecture include:
 
@@ -99,12 +99,12 @@ Each of the web, business, and data tiers restrict traffic between them using NS
 
 A deployment for a reference architecture that implements these recommendations is available on Github. This reference architecture includes a virtual network (VNet), network security group (NSG), load balancer, and two virtual machines (VMs).
 
-The reference architecture can be deployed either with Windows or Linux VMs by following the directions below: 
+The reference architecture can be deployed either with Windows or Linux VMs by following the directions below:
 
 1. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
 [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-secure-vnet-dmz%2FvirtualNetwork.azuredeploy.json)
 
-2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
+2. Once the link has opened in the Azure portal, you must enter values for some of the settings:
     - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-public-dmz-network-rg` in the text box.
     - Select the region from the **Location** drop down box.
     - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -117,7 +117,7 @@ The reference architecture can be deployed either with Windows or Linux VMs by f
 4. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
 [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-secure-vnet-dmz%2Fworkload.azuredeploy.json)
 
-5. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
+5. Once the link has opened in the Azure portal, you must enter values for some of the settings:
     - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-public-dmz-wl-rg` in the text box.
     - Select the region from the **Location** drop down box.
     - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -129,7 +129,7 @@ The reference architecture can be deployed either with Windows or Linux VMs by f
 7. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
 [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-secure-vnet-dmz%2Fsecurity.azuredeploy.json)
 
-8. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
+8. Once the link has opened in the Azure portal, you must enter values for some of the settings:
     - The **Resource group** name is already defined in the parameter file, so select **Use Existing** and enter `ra-public-dmz-network-rg` in the text box.
     - Select the region from the **Location** drop down box.
     - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
