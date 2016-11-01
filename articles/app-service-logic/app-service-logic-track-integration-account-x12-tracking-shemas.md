@@ -55,7 +55,7 @@ Following are the supported X12 tracking schemas
             }
         }
 
-````
+````   
 
 
 | Property | Description |
@@ -79,6 +79,7 @@ Following are the supported X12 tracking schemas
 | needAk2LoopForValidMessages | Mandatory, boolean.  - whether the AK2 loop is requird for valid message or not. - type boolean |
 | segmentsCount | Optional, int.  It indicates the number of segments in the X12 transaction set |
 |
+
 
 ## X12 Transaction Set Acknowledgement Tracking Schema
 ````java script
@@ -114,7 +115,7 @@ Following are the supported X12 tracking schemas
         }       
 
 
-`````
+`````   
 
 
 | Property | Description |
@@ -174,7 +175,7 @@ Following are the supported X12 tracking schemas
             }
         }
 
-````
+````    
 
 
 | Property | Description |
@@ -228,7 +229,7 @@ Following are the supported X12 tracking schemas
             }
         }
 
-````
+````    
 
 
 | Property | Description |
@@ -284,7 +285,7 @@ Following are the supported X12 tracking schemas
             }     
         }
 
-````
+````    
 
 
 | Property | Description |
@@ -343,7 +344,7 @@ Following are the supported X12 tracking schemas
             }
         }
 
-````
+````    
 
 | Property | Description |
 | -------- | ------- |
