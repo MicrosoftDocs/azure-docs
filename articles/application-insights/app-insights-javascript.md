@@ -21,16 +21,17 @@ Find out about the performance and usage of your web page or app. If you add [Ap
 
 Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](app-insights-java-get-started.md) or [ASP.NET](app-insights-asp-net.md), you can integrate telemetry from your server and clients.
 
+
+![In portal.azure.com, open your app's resource and click Browser](./media/app-insights-javascript/03.png)
+
 You need a subscription to [Microsoft Azure](https://azure.com). If your team has an organizational subscription, ask the owner to add your Microsoft Account to it. Development and small-scale use won't cost anything.
 
 
 ## Set up Application Insights for your web page
 
-First, do you need to add Application Insights to your web pages? You might already have done so. If you chose to add Application Insights to your web app in the New Project dialog in Visual Studio, the script was added then. In that case, you don't need to do any more.
+Add the loader code snippet to your web pages, as follows.
 
-Otherwise, you need to add a snippet of code your web pages, as follows.
-
-### Open an Application Insights resource
+### Open or create Application Insights resource
 
 The Application Insights resource is where data about your page's performance and usage is displayed. 
 
@@ -110,14 +111,14 @@ If you want to check the telemetry that a web app is sending to Application Insi
 
 ## Explore your browser performance data
 
-Open the Browsers blade to show aggregated performance data from your users' browsers.
+Open the Browser blade to show aggregated performance data from your users' browsers.
 
 ![In portal.azure.com, open your app's resource and click Settings, Browser](./media/app-insights-javascript/03.png)
 
 
 *No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](app-insights-troubleshoot-faq.md).*
 
-The Browsers blade is a [Metrics Explorer blade](app-insights-metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
+The Browser blade is a [Metrics Explorer blade](app-insights-metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
 
 ## Page load performance
 
