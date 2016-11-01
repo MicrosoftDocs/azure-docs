@@ -56,20 +56,20 @@ Following custom tracking schema is supported
 
 | Property | Description |
 | -------- | ------- |
-| sourceType | Mandatory.  It indicate the type of the run source, the allowed values are Microsoft.Logic/workflows or custom |
+| sourceType | Mandatory.  It indicates the type of the run source, the allowed values are Microsoft.Logic/workflows or custom |
 | Source | Mandatory - If the source type is Microsoft.Logic/workflows then the source information need to follow this schema. This schema will be a JToken if the source type is 'custom' |
-| systemId | Mandatory, string.  It indicate the logic app system id |
-| runId | Mandatory, string.  It indicate the logic app run id |
-| operationName | Mandatory, string.  It indicate the name of the operation (for example action or trigger) |
-| repeatItemScopeName | Mandatory, string. It indicate the repeat item name if the action is inside a foreach/until loop |
-| repeatItemIndex| Mandatory, int.  It indicate the repeat item index if the action is inside a foreach/until loop |
-| trackingId | Optional, string. It indicate the tracking id to correlate the messages |
-| correlationId | Optional, string. It indicate the correlation id to correlate the messages |
+| systemId | Mandatory, string.  It indicates the logic app system id |
+| runId | Mandatory, string.  It indicates the logic app run id |
+| operationName | Mandatory, string.  It indicates the name of the operation (for example action or trigger) |
+| repeatItemScopeName | Mandatory, string. It indicates the repeat item name if the action is inside a foreach/until loop |
+| repeatItemIndex| Mandatory, int.  It indicates the repeat item index if the action is inside a foreach/until loop |
+| trackingId | Optional, string. It indicates the tracking id to correlate the messages |
+| correlationId | Optional, string. It indicates the correlation id to correlate the messages |
 | clientRequestId | Optional, string.  Client can populate it to correlate messages |
-| eventLevel | Mandatory. It indicate the level of the event |
-| eventTime | Mandatory. It indicate the time of the event in UTC format YYYY-MM-DDTHH:MM:SS.00000Z |
-| recordType | Mandatory, It indicate the type of the track record. The allowed values are AS2Message, AS2MDN, X12Interchange, X12FunctionalGroup, X12TransactionSet, X12InterchangeAcknowledgment, X12FunctionalGroupAcknowledgment, X12TransactionSetAcknowledgment, Custom |
-| record | Mandatory.  It indicate the custom record type and the allowed format is JToken |
+| eventLevel | Mandatory. It indicates the level of the event |
+| eventTime | Mandatory. It indicates the time of the event in UTC format YYYY-MM-DDTHH:MM:SS.00000Z |
+| recordType | Mandatory, It indicates the type of the track record. The allowed values are AS2Message, AS2MDN, X12Interchange, X12FunctionalGroup, X12TransactionSet, X12InterchangeAcknowledgment, X12FunctionalGroupAcknowledgment, X12TransactionSetAcknowledgment, Custom |
+| record | Mandatory.  It indicates the custom record type and the allowed format is JToken |
 |
 
 
