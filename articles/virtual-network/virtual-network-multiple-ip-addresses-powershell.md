@@ -85,11 +85,11 @@ Note that IPConfig-2 and IPConfig-3 can also be associated with public IP addres
 		$VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RgName
 		$VNet.Subnets | Format-Table Name, AddressPrefix
 
-4. Enter the following command to retrieve the subnet and assign it to a variable.
+3. Enter the following command to retrieve the subnet and assign it to a variable.
 
 		$Subnet = $VNet.Subnets | Where-Object { $_.Name -eq $SubnetName }
 
-5. <a name="ipconfigs"></a>Define the IP configurations you want to assign to the NIC. Each configuration can have one static or dynamic private IP address and one associated public IP address resource with a static or dynamic address.
+4. <a name="ipconfigs"></a>Define the IP configurations you want to assign to the NIC. Each configuration can have one static or dynamic private IP address and one associated public IP address resource with a static or dynamic address.
 
 	Add or remove any number of the configurations that follow depending on how many IP addresses you want to associate to the NIC and the settings you want to configure.
 
@@ -139,19 +139,19 @@ Note that IPConfig-2 and IPConfig-3 can also be associated with public IP addres
 		
 	>[AZURE.NOTE] You can assign up to 250 private IP address to a NIC. There is a limit to the number of public IP addresses that can be used within a subscription. To learn more, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits---azure-resource-manager) article.
 
-6. Create the NIC using the IP configurations defined in the previous step.
+5. Create the NIC using the IP configurations defined in the previous step.
 
 		$nic = New-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $RgName -Location $Location -IpConfiguration $IpConfig1,$IpConfig2,$IpConfig3
 
-7. Attach the NIC when creating a VM by following the steps in the [Create a VM](../virtual-machines/virtual-machines-windows-ps-create.md) article. Though the article creates a VM running Windows Server, the steps are the same for a Linux VM, other than selecting a different operating system. Complete steps 1-3 of the article. Skip steps 4 and 5 and then complete step 6 in the Create a VM article.
+6. Attach the NIC when creating a VM by following the steps in the [Create a VM](../virtual-machines/virtual-machines-windows-ps-create.md) article. Though the article creates a VM running Windows Server, the steps are the same for a Linux VM, other than selecting a different operating system. Complete steps 1-3 of the article. Skip steps 4 and 5 and then complete step 6 in the Create a VM article.
 
 	>[AZURE.WARNING] Step 6 in the Create a VM article will fail if you changed the variable named $nic to something else in step 6 of this article, or haven't completed the previous steps of this article.
 
-8. View the private IP addresses that Azure DHCP assigned to the NIC and the public IP address resource assigned to the NIC by entering the following command:
+7. View the private IP addresses that Azure DHCP assigned to the NIC and the public IP address resource assigned to the NIC by entering the following command:
 
 		$nic.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
 
-9. <a name="os"></a>Manually add all the private IP addresses (including the primary) to the TCP/IP configuration in the operating system. 
+8. <a name="os"></a>Manually add all the private IP addresses (including the primary) to the TCP/IP configuration in the operating system. 
 
 **Windows**
 
@@ -265,7 +265,7 @@ Complete the following steps to add additional IP addresses to an existing NIC:
 
 4. Retrieve the subnet ID the NIC is connected to by completing [step 3](#subnet) of the Create a VM with multiple IP addresses section of this article.
 
-5. Create the IP configurations you want to add to the network by following the instructions in [step 5](#ipconfigs) of the Create a VM with multiple IP addresses section of this article.
+5. Create the IP configurations you want to add to the network by following the instructions in [step 4](#ipconfigs) of the Create a VM with multiple IP addresses section of this article.
 
 6. Change *$IPConfigName4* to the name of the IP configuration you created in the previous step. To add the configuration with a public IP association, enter the following command:
 
