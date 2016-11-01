@@ -33,6 +33,7 @@ This post is aimed at C and C++ developers trying to connect to Azure SQL DB. It
 ## Prerequisites for the C/C++ tutorial
 
 Make sure you have the following items:
+
 - An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio](https://www.visualstudio.com/downloads/). You must install the C++ language components to build and run this sample.
 - [Visual Studio Linux Development](https://visualstudiogallery.msdn.microsoft.com/725025cf-7067-45c2-8d01-1e0fd359ae6e). If you are developing on Linux, you must also install the Visual Studio Linux extension. 
@@ -136,14 +137,15 @@ If your connection was successful, you should now see the current database name 
 Congratulations! You have successfully completed the tutorial and can now connect to your Azure SQL DB from C++ on Windows and Linux platforms.
 
 ## <a id="GetSolution"></a>Get the complete C/C++ tutorial solution
-You can find the GetStarted solution that contains all the samples in this article at github
+You can find the GetStarted solution that contains all the samples in this article at github:
+
 - [ODBC C++ Windows sample](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20(windows)), Download the Windows C++ ODBC Sample to connect to Azure SQL
 - [ODBC C++ Linux sample](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20(linux)), Download the Linux C++ ODBC Sample to connect to Azure SQL
 
 ## Next steps
 
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
-* More information on the [ODBC API Reference](https://msdn.microsoft.com/library/ms714562(v=vs.85).aspx)
+* More information on the [ODBC API Reference](https://msdn.microsoft.com/library/ms714562\(v=vs.85\).aspx)
 
 ## Additional resources 
 
