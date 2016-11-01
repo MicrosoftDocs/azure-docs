@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Quickstart for the Azure AD Graph API | Microsoft Aure"
+   pageTitle="Quickstart for the Azure AD Graph API | Microsoft Azure"
    description="The Azure Active Directory Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects."
    services="active-directory"
    documentationCenter="n/a"
@@ -94,7 +94,7 @@ In the example below, you will use Fiddler Web Debugger to create a new security
 
     ```
 Host: graph.windows.net
-Authorization: your access token
+Authorization: Bearer <your access token>
 Content-Type: application/json
 ```
 
