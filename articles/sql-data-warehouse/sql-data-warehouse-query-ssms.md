@@ -4,8 +4,8 @@
   services="sql-data-warehouse"
   documentationCenter=""
   authors="hirokib"
-  manager="johnmac"
-  editor="barbkess"/>
+  manager="jhubbard"
+  editor=""/>
 
 <tags
   ms.service="sql-data-warehouse"
@@ -13,8 +13,8 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="09/30/2016"
-  ms.author="elbutter"/>
+  ms.date="10/31/2016"
+  ms.author="elbutter;barbkess"/>
 
 # Query Azure SQL Data Warehouse (SQL Server Management Studio)
 

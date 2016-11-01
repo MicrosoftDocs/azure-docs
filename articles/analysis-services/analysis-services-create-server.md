@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/24/2016"
+   ms.date="10/31/2016"
    ms.author="owend"/>
 
 # Create an Analysis Services server
@@ -25,7 +25,7 @@ To get started, you need:
 - **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
 - **Resource group**: Use a resource group you already have or [create a new one](../azure-resource-manager/resource-group-overview.md).
 
-> [AZURE.NOTE] Creating an Analysis Services server might result in a new billable service. To learn more, see Analysis Services pricing.
+> [AZURE.NOTE] Creating an Analysis Services server might result in a new billable service. To learn more, see [Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
 
 ## Create an Analysis Services server
 

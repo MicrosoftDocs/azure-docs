@@ -3,7 +3,7 @@
 	description="Explains users and contacts in Azure AD Connect sync."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 

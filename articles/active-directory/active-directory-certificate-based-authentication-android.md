@@ -2,7 +2,7 @@
     pageTitle="Get started with certificate based authentication on Android  | Microsoft Azure" 
     description="Learn how to configure certificate based authentication in solutions with Android devices" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="MarkusVi"  
     documentationCenter="na" 
     manager="femila"/>
 <tags 
