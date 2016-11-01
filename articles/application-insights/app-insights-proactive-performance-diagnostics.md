@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights: Proactive performance diagnostics | Microsoft Azure" 
-	description="Application Insights performs deep analysis of your app telemetry and warns you of potential problems." 
+	pageTitle="Smart Performance Anomaly Detection | Microsoft Azure" 
+	description="Application Insights performs smart proactive analysis of your app telemetry and warns you of potential problems." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="antonfrMSFT" 
@@ -12,21 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2016" 
+	ms.date="10/31/2016" 
 	ms.author="awills"/>
 
-#  Proactive performance diagnostics
+#  Smart Performance Anomaly Detection
 
 *Application Insights is in preview.*
 
-[Visual Studio Application Insights](app-insights-overview.md) performs deep analysis of your app telemetry, and can warn you about potential performance problems. You're probably reading this because you received one of our proactive alerts by email. 
+[Application Insights](app-insights-overview.md) performs deep analysis of your app telemetry, and can warn you about potential performance problems. You're probably reading this because you received one of our smart alerts by email. 
 
 This feature requires no setup, and is automatically active when your app generates enough telemetry.
 
 
-## What are proactive performance diagnostics?
+## What is Smart Performance Anomaly Detection?
 
-Proactive performance diagnostics discovers unusual patterns of performance in your app, by analyzing the telemetry that your app sends to Application Insights. 
+Smart Anomaly Detection discovers unusual patterns of performance in your app, by analyzing the telemetry that your app sends to Application Insights. 
 
 In particular, it finds performance issues that only affect some of your users, or only affect users in some cases.
 
@@ -38,12 +38,10 @@ Currently, our algorithms look at page load times, request response times at the
 
 You don't have to set any thresholds or configure rules. Machine learning and data mining algorithms are used to detect abnormal patterns. 
 
-We’re very eager to have your feedback. Please let us know how it helps you, how we can improve Proactive detection and what additional capabilities you want us to add. You can provide feedback through Send a smile/frown in the portal or email us to AppInsightsML@microsoft.com. 
-
-## About the proactive alert
+## About the smart alert
 
 * *Why have I received this email?*
- * Proactive detection analyzed the telemetry your application sent to Application Insights and detected a performance issue in your application. 
+ * Smart Anomaly Detection analyzed the telemetry your application sent to Application Insights and detected a performance issue in your application. 
 * *Does the notification mean I definitely have a problem?*
  * No. It's simply a suggestion about something you might want to look at more closely. 
 * *What should I do?*
@@ -59,7 +57,8 @@ We’re very eager to have your feedback. Please let us know how it helps you, h
 * *Do you analyze all the data collected by Application Insights?*
  * Not at present. Currently, we analyze request response time, dependency response time and page load time. Analysis of additional metrics is coming soon. 
 * *Can I create my own anomaly detection rules?*
- * Not yet. But you can:
+
+ Not yet. But you can:
  * [Set up alerts](app-insights-alerts.md) that tell you when a metric crosses a threshold.)
  * [Export telemetry](app-insights-export-telemetry.md) to a [database](app-insights-code-sample-export-sql-stream-analytics.md) or [to PowerBI](app-insights-export-power-bi.md) or [other](app-insights-code-sample-export-telemetry-sql-database.md) tools, where you can analyze it yourself.
 * *How often is the analysis performed?*
@@ -103,7 +102,7 @@ Where is the problem? Is the server slow to respond, is the page very long, or d
 Open the Browsers metric blade. The [segmented display of browser page load time](app-insights-javascript.md#explore-your-data) shows where the time is going. 
 
 * If **Send Request Time** is high, either the server is responding slowly, or the request is a post with a lot of data. Look at the [performance metrics](app-insights-web-monitor-performance.md#metrics) to investigate response times. 
-* Set up [dependency tracking](app-insights-dependencies.md) to see whether the slowness is due to external services or your database.
+* Set up [dependency tracking](app-insights-asp-net-dependencies.md) to see whether the slowness is due to external services or your database.
 * If **Receiving Response** is predominant, your page and its dependent parts - JavaScript, CSS, images and so on (but not asynchronously loaded data) are long. Set up an [availability test](app-insights-monitor-web-app-availability.md), and be sure to set the option to load dependent parts. When you get some results, open the detail of a result and expand it to see the load times of different files.
 * High **Client Processing time** suggests scripts are running slowly. If the reason isn't obvious, consider adding some timing code and send the times in trackMetric calls.
 
@@ -131,7 +130,7 @@ There's a web full of advice on improving your server responses and page load ti
 * *If I don't do anything, will I get a reminder?*
  * No, you get a message about each issue only once. 
 * *I lost the email. Where can I find the notifications in the portal?*
- * In the Application Insights overview of your app, click the **Proactive Detection** tile. There you'll be able to find all notifications up to 7 days back.
+ * In the Application Insights overview of your app, click the **Smart Detection** tile. There you'll be able to find all notifications up to 7 days back.
 
 
 ## Next steps
@@ -142,7 +141,7 @@ These diagnostic tools help you inspect the telemetry from your app:
 * [Search explorer](app-insights-diagnostic-search.md)
 * [Analytics - powerful query language](app-insights-analytics-tour.md)
 
-Proactive detections are completely automatic. But maybe you'd like to set up some more alerts?
+Smart detections are completely automatic. But maybe you'd like to set up some more alerts?
 
 * [Manually configured metric alerts](app-insights-alerts.md)
 * [Availability web tests](app-insights-monitor-web-app-availability.md) 

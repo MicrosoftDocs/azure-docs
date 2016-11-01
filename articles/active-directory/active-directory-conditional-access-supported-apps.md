@@ -3,7 +3,7 @@
 	description="With conditional access control, Azure Active Directory checks for specific conditions when it authenticates the user, and to allow application access."
     services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 

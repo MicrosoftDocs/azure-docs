@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Create Application Insights resources using PowerShell" 
-	description="Programmatically create Application Insights resources as part of your build." 
+	pageTitle="Create Application Insights resource, alert and availability tests in PowerShell | Microsoft Azure" 
+	description="Automate management of Application Insights resources using an Azure Resource Manager template." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="10/31/2016" 
 	ms.author="awills"/>
  
 # Create Application Insights resources using PowerShell
@@ -82,20 +82,24 @@ Install the Azure Powershell module on the machine where you want to run the scr
 
 3. Copy the JSON of the component into the appropriate place in `template1.json`.
 6. Delete these properties:
-  * `id`
-  * `InstrumentationKey`
-  * `CreationDate`
+
+ * `id`
+ * `InstrumentationKey`
+ * `CreationDate`
+ * `TenantId`
+
 4. Open the webtests and alertrules sections and copy the JSON for individual items into your template. (Don't copy from the webtests or alertrules nodes: go into the items under them.)
 
     Each web test has an associated alert rule, so you have to copy both of them.
 
-    The web test should go before the alert rule.
+    Each web test has a corresponding alert rule. The web test should go first.
+
+    You can also include alerts on metrics. [Metric names](app-insights-powershell-alerts.md#metric-names).
 
 5. To satisfy the schema, insert this line in each resource:
 
     `"apiVersion": "2014-04-01",`
 
-    (The schema also complains about the capitalization of the resource type names `Microsoft.Insights/*` -- but *don't* change these.)
 
 
 ## Parameterize the template
@@ -115,21 +119,26 @@ find | replace with
 `"myTestName-myAppName-subsId"` | `"[variables('alertRuleName')]"`
 `"myAppName"` | `"[parameters('appName')]"`
 `"myappname"` (lower case) | `"[toLower(parameters('appName'))]"`
-`"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"`|`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]" `
+`"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"`|`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Delete Guid and Id.
 
 
 
 ## Set dependencies between the resources
 
+
+
 Azure should set up the resources in strict order. To make sure one setup completes before the next begins, add dependency lines:
 
-* In the web test resource:
+* In the availability test resource:
 
     `"dependsOn": ["[resourceId('Microsoft.Insights/components', parameters('appName'))]"],`
 
 * In the alert resource:
 
     `"dependsOn": ["[resourceId('Microsoft.Insights/webtests', variables('testName'))]"],`
+
+Notice that an availability test actually has two parts: the test itself, and an alert rule that fires depending on the test outcomes.
+
 
 ## Create Application Insights resources
 
@@ -145,9 +154,8 @@ Azure should set up the resources in strict order. To make sure one setup comple
                -templateFile .\template1.json `
                -appName myNewApp `
                -webTestName aWebTest `
-               -Url http://myapp.com `
+               -url http://myapp.com `
                -text "Welcome!"
-               -siteName "MyAzureSite"
 
     ``` 
 
@@ -157,17 +165,23 @@ Azure should set up the resources in strict order. To make sure one setup comple
     * -webTestName The name of the web test to create.
     * -Url The url of your web app.
     * -text A string that appears in your web page.
-    * -siteName - used if it's an Azure website
 
 
-## Define metric alerts
+## To get the instrumentation key
 
-There is a [PowerShell method of setting alerts](app-insights-alerts.md#set-alerts-by-using-powershell).
+After creating an application resource, you'll want the iKey: 
+
+```PS
+
+    $resource = Get-AzureRmResource -ResourceId "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<YOUR RESOURCE GROUP>/providers/Microsoft.Insights/components/<YOUR APP NAME>"
+
+    $resource.Properties.InstrumentationKey
+```
 
 
 ## An example
 
-Here's the complete component, web test and web test alert template that I created:
+Here's the complete template I created. It has the application component, availability test, availability test alert, and an alert on the response time metric.
 
 ``` JSON
 
@@ -178,49 +192,54 @@ Here's the complete component, web test and web test alert template that I creat
     "webTestName": { "type": "string" },
     "appName": { "type": "string" },
     "URL": { "type": "string" },
-    "text": { "type" : "string" }
+    "text": { "type": "string" }
   },
   "variables": {
     "alertRuleName": "[concat(parameters('webTestName'), '-', toLower(parameters('appName')), '-', subscription().subscriptionId)]",
-    "testName": "[concat(parameters('webTestName'), '-', toLower(parameters('appName')))]"
+    "testName": "[concat(parameters('webTestName'), '-', toLower(parameters('appName')))]",
+    "responseAlertName": "[concat('ResponseTime-', toLower(parameters('appName')))]"
   },
   "resources": [
     {
-      //"id": "[resourceId('Microsoft.Insights/components', parameters('appName'))]",
+      //
+      // App resource
+      //
+      "name": "[parameters('appName')]",
+      "type": "Microsoft.Insights/components",
       "apiVersion": "2014-04-01",
       "kind": "web",
-      "location": "Central US",
-      "name": "[parameters('appName')]",
+      "location": "Central US", // Restricted set of locations permitted.
       "properties": {
-        "TenantId": "9122605a-471fc50f8438",
         "Application_Type": "web",
         "Flow_Type": "Brownfield",
         "Request_Source": "VSIX3.3.1.0",
         "Name": "[parameters('appName')]",
-        //"CreationDate": "2015-10-14T15:55:10.0917441+00:00",
         "PackageId": null,
         "ApplicationId": "[parameters('appName')]"
       },
-      "tags": { },
-      "type": "microsoft.insights/components"
+      "tags": { "applicationType": "web" }
     },
     {
-      //"id": "[resourceId('Microsoft.Insights/webtests', variables('testName'))]",
+      //
+      // Availability test
+      //
       "name": "[variables('testName')]",
+      "type": "Microsoft.Insights/webtests",
       "apiVersion": "2014-04-01",
-      "type": "microsoft.insights/webtests",
-      "location": "Central US",
+      "location": "Central US", // Must be Central US at present
+      "dependsOn": [
+        "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
+      ],
       "tags": {
-        "[concat('hidden-link:', resourceId('microsoft.insights/components', parameters('appName')))]": "Resource"
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
       },
       "properties": {
-        "provisioningState": "Succeeded",
         "Name": "[parameters('webTestName')]",
-        "Description": "",
+        "Description": "n",
         "Enabled": true,
-        "Frequency": 900,
-        "Timeout": 120,
-        "Kind": "ping",
+        "Frequency": 900, // 15 minutes
+        "Timeout": 120, // 2 minutes
+        "Kind": "ping", // single URL test
         "RetryEnabled": true,
         "Locations": [
           {
@@ -230,30 +249,24 @@ Here's the complete component, web test and web test alert template that I creat
             "Id": "emea-nl-ams-azr"
           },
           {
-            "Id": "emea-gb-db3-azr"
+            "Id": "apac-jp-kaw-edge"
           }
         ],
         "Configuration": {
-          "WebTest": "[concat(
-             '<WebTest   Name=\"', 
-                parameters('webTestName'), 
-              '\"  Id=\"32cfc791-aaad-4b50-9c8d-993c21beb218\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"         Guid=\"a6f2c90b-61bf-b28hh06gg969\"  Version=\"1.1\"  Url=\"', 
-              parameters('Url'), 
-              '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies the existence of the specified text in the response.\"         Level=\"High\"  ExectuionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"', 
-              parameters('text'), 
-              '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
+          "WebTest": "[concat('<WebTest   Name=\"', parameters('webTestName'), '\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"    Version=\"1.1\"  Url=\"', parameters('Url'),   '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies the existence of the specified text in the response.\"         Level=\"High\"  ExectuionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"',   parameters('text'), '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
         },
         "SyntheticMonitorId": "[variables('testName')]"
       }
     },
     {
-      //"id": "[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",
+      //
+      // Alert rule for the availability test
+      //
       "name": "[variables('alertRuleName')]",
+      "type": "Microsoft.Insights/alertrules",
       "apiVersion": "2014-04-01",
-      "type": "microsoft.insights/alertrules",
-      "location": "East US",
+      "location": "East US", // Must be East US at present
       "dependsOn": [
-        "[resourceId('Microsoft.Insights/components', parameters('appName'))]",
         "[resourceId('Microsoft.Insights/webtests', variables('testName'))]"
       ],
       "tags": {
@@ -262,7 +275,7 @@ Here's the complete component, web test and web test alert template that I creat
       },
       "properties": {
         "name": "[variables('alertRuleName')]",
-        "description": "",
+        "description": "alert for web test",
         "isEnabled": true,
         "condition": {
           "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.LocationThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
@@ -273,24 +286,67 @@ Here's the complete component, web test and web test alert template that I creat
             "resourceUri": "[resourceId('microsoft.insights/webtests', variables('testName'))]",
             "metricName": "GSMT_AvRaW"
           },
-          "windowSize": "PT15M",
+          "windowSize": "PT15M", // Take action if changed state for 15 minutes
           "failedLocationCount": 2
         },
-        "action": {
-          "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
-          "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-          "sendToServiceOwners": true,
-          "customEmails": [ ]
-        },
-        "provisioningState": "Succeeded",
-        "actions": [ ]
+        "actions": [
+          {
+            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
+            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+            "sendToServiceOwners": true,
+            "customEmails": []
+          }
+        ]
       }
 
+    },
+    {
+      //
+      // Metric alert on response time
+      //
+      "name": "[variables('responseAlertName')]",
+      "type": "Microsoft.Insights/alertrules",
+      "apiVersion": "2014-04-01",
+      "location": "East US", // Must be East US at present
+      "dependsOn": [
+        "[resourceId('Microsoft.Insights/components', parameters('appName'))]",
+        "[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
+      },
+      "properties": {
+        "name": "[variables('responseAlertName')]",
+        "description": "response time alert",
+        "isEnabled": true,
+        "condition": {
+          "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+          "dataSource": {
+            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
+            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+            "resourceUri": "[resourceId('microsoft.insights/components', parameters('appName'))]",
+            "metricName": "request.duration"
+          },
+          "threshold": 3, //seconds
+          "windowSize": "PT15M" // Take action if changed state for 15 minutes
+        },
+        "actions": [
+          {
+            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
+            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+            "sendToServiceOwners": true,
+            "customEmails": []
+          }
+        ]
+      }
     }
   ]
 }
 
+
 ```
+
 
 ## See also
 

@@ -22,7 +22,7 @@ A namespace is a common container for all your Relay components. Multiple Relays
 
 1.	Azure portal (this article)
 
-2.	Azure Resource Manager templates
+2.	[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) templates
 
 ## Create a namespace in the Azure portal
 
