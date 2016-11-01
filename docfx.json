@@ -13,6 +13,13 @@
         ],
         "src": "articles",
         "dest": "."
+      },
+      {
+        "files": [
+          "bread/toc.yml"
+        ],
+        "src": null,
+        "dest": null
       }
     ],
     "resource": [
