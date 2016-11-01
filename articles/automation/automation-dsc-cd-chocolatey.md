@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/08/2016"
+   ms.date="10/29/2016"
    ms.author="golive"/>
 
 # Usage Example: Continuous deployment to Virtual Machines using Automation DSC and Chocolatey
@@ -63,7 +63,7 @@ At an authenticated (Add-AzureRmAccount) PowerShell command line:  (can take a f
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
-You can put your automation account into any of the following regions (aka location):  East US 2, South Central US, US Gov Virginia, West Europe, Southeast Asia, Japan East, Central India and Australia Southeast.
+You can put your automation account into any of the following regions (aka location):  East US 2, South Central US, US Gov Virginia, West Europe, Southeast Asia, Japan East, Central India and Australia Southeast, Canada Central, North Europe.
 
 ## Step 2: VM extension tweaks to the ARM template
 
