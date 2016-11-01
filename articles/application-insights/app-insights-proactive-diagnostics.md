@@ -59,7 +59,7 @@ These diagnostic tools help you inspect the telemetry from your app:
 * [Search explorer](app-insights-diagnostic-search.md)
 * [Analytics - powerful query language](app-insights-analytics-tour.md)
 
-Smart detection is are completely automatic. But maybe you'd like to set up some more alerts?
+Smart Detection is completely automatic. But maybe you'd like to set up some more alerts?
 
 * [Manually configured metric alerts](app-insights-alerts.md)
 * [Availability web tests](app-insights-monitor-web-app-availability.md) 
