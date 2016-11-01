@@ -17,31 +17,41 @@
 
 # Relay FAQ
 
-This article answers some frequently-asked questions about Microsoft Azure Relay. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information. The following topics are included:
-
-- [General questions about Azure Relay](#general-questions)
-- [Pricing](#pricing)
-- [Quotas](#quotas)
-- [Subscription and namespace management](#subscription-and-namespace-management)
-- [Troubleshooting](#troubleshooting)
+This article answers some frequently-asked questions about Microsoft Azure Relay. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information.
 
 ## General questions
 
 ### What is Azure Relay?
 
-The [Relay service](relay-what-is-it.md) provides the ability to transparently host and access WCF services from anywhere. In other words, this enables hybrid applications that run in both an Azure datacenter and an on-premises enterprise environment.
+Azure [Relay service](relay-what-is-it.md) facilitates your hybrid applications by enabling you to securely expose services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure.
 
 ### What is a Relay namespace?
 
 A [namespace](Relay-create-namespace-portal.md) provides a scoping container for addressing Relay resources within your application. Creating one is necessary to use Relay and will be one of the first steps in getting started.
 
+### What happened to the previously named Relay service?
+
+The previously named 'Relay' service is now WCF Relay. Anyone currently utilizing the service may continue to use it as normal. Hybrid Connections is an updated version of a service transplanted from BizTalk. BothWCF Relay and Hybrid Connections will continue to be supported looking forward.
+
 ## Pricing
 
 This section answers some frequently-asked questions about the Relay pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Relay pricing, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
 
-### How do you charge for Relay?
+### How do you charge for Hybrid Connections and WCF Relay?
 
 For complete information about Relay pricing, please see [Service Bus pricing details][Pricing overview]. In addition to the prices noted, you are charged for associated data transfers for egress outside of the data center in which your application is provisioned.
+
+### How am I billed for Hybrid Connections?
+
+Here are three example scenarios:
+
+1. If you have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month and you send 3 GB of data across the connection during the course of the month, your total charge will be $5. 
+ 
+2. If you have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month and you send 10 GB of data across the connection during the course of the month, your total charge will be $7.5: $5 for the connection and first 5GB + $2.5 for the additional 5GB of data. 
+ 
+3. If you have two instances, A and B, of the Hybrid Connections Manager installed and continuously running for the entire month and you send 3 GB of data across connection A and 6 GB across connection B, your total charge will be $10.5: $5 for connection A + $5 for connection B + $0.5(for the 6th GB on connection B). 
+
+Please note that the prices used in the examples are applicable only during the preview period and are subject to change at general availability of Hybrid Connections. 
 
 ### What usage of Relay is subject to data transfer?
 
@@ -49,9 +59,9 @@ Relay includes 5 GB of data ingress per month, per subscription. There is no add
 
 The data charge for Relay is for ingress from senders only, as Relay listeners do not incur a data charge. For example, if you send 1 GB, you will only be billed for 1 GB, even though a listener also received 1 GB and may be outside of Azure's datacenters.
 
-### How are Relay hours calculated?
+### How are WCF Relay hours calculated?
 
-Relay hours are billed for the cumulative amount of time during which each Relay is "open" during a given billing period. A Relay is implicitly instantiated and opened at a given namespace when a Relay listener first connects to that address. The Relay is closed only when the last listener disconnects from its address. Therefore, for billing purposes a Relay is considered "open" from the time the first Relay listener connects, to the time the last Relay listener disconnects from the namespace. In other words, a Relay is considered open whenever one or more Relay listeners are connected to its Service Bus address.
+Relay hours are billed for the cumulative amount of time during which each Service Bus Relay is “open”. A Relay is implicitly instantiated and opened at a given Service Bus address (service namespace URL) when a Relay-enabled WCF service, or “Relay listener,” first connects to that address. It is closed only when the last listener disconnects from its address. Therefore, for billing purposes a Relay is considered “open” from the time the first Relay listener connects, to the time the last Relay listener disconnects from the Service Bus address of that Relay.
 
 ### What if I have more than one listener connected to a given Relay?
 
@@ -87,7 +97,7 @@ By default, for any cloud service Microsoft sets an aggregate monthly usage quot
 
 While we do reserve the right to disable a customer account that has exceeded its usage quotas in a given month, we will provide e-mail notification and make multiple attempts to contact a customer before taking any action. Customers exceeding these quotas will still be responsible for charges that exceed the quotas.
 
-#### Naming restrictions
+### Naming restrictions
 
 A Relay namespace name can only be between 6-50 characters in length.
 

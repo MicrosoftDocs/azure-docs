@@ -3,7 +3,7 @@
 	description="The objective of this topic is to provide you with the steps you need to perform to set the required port on the computers running the Cloud App Discovery agent." 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="markusvi" 
+	authors="MarkusVi" 
 	manager="femila"/>
 
 <tags 

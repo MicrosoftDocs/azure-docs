@@ -3,7 +3,7 @@
     description="This topic explains concepts about using subscription administrators to control resource access in the full Azure portal."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

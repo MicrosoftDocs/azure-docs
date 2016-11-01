@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
-	ms.author="markusvi;andkjell"/>
+	ms.date="11/01/2016"
+	ms.author="markusvi"/>
 
 
 # Azure AD Connect sync: Understand and customize synchronization

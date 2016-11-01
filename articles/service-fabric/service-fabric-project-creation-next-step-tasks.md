@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2016"
+   ms.date="11/01/2016"
    ms.author="seanmck"/>
 
 # Your Service Fabric application and next steps
@@ -27,9 +27,9 @@ The application project consists of:
 
 - A set of references to the services that make up your application.
 
-- Two publish profiles (Local and Cloud) that you can use to maintain preferences for working with different environments--such as preferences related to a cluster endpoint and whether to perform upgrade deployments by default.
+- Three publish profiles (1-Node Local, 5-Node Local, and Cloud) that you can use to maintain preferences for working with different environments--such as preferences related to a cluster endpoint and whether to perform upgrade deployments by default.
 
-- Two application parameter files (Local and Cloud) that you can use to maintain environment-specific application configurations, such as the number of partitions to create for a service.
+- Three application parameter files (same as above) that you can use to maintain environment-specific application configurations, such as the number of partitions to create for a service.
 
 - A deployment script that you can use to deploy your application from the command line or as part of an automated continuous integration and deployment pipeline.
 

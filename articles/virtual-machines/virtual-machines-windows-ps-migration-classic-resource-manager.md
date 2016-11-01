@@ -25,6 +25,7 @@ If you want, you can also migrate resources by using the [Azure Command Line Int
 
 - For background on supported migration scenarios, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md). 
 - For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md).
+- [Review most common migration errors](virtual-machines-migration-errors.md)
 
 ## Step 1: Plan for migration
 
@@ -33,7 +34,7 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 - Read through the [supported and unsupported features and configurations](virtual-machines-windows-migration-classic-resource-manager.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the configuration/feature support to be announced. Alternatively, if it suits your needs, remove that feature or move out of that configuration to enable migration.
 -	If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
->[AZURE.IMPORTANT]Virtual network gateways (site-to-site, Azure ExpressRoute, application gateway, point-to-site) are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with a gateway, remove the gateway before running a Commit operation to move the network (you can run the Prepare step without deleting the gateway). After you complete the migration, reconnect the gateway in Azure Resource Manager.
+>[AZURE.IMPORTANT]ExpressRoute gateways and Application Gateways are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with a ExpressRoute or Application gateway, remove the gateway before running a Commit operation to move the network (you can run the Prepare step without deleting the ExpressRoute or Application gateway). After you complete the migration, reconnect the gateway in Azure Resource Manager.
 
 ## Step 2: Install the latest version of Azure PowerShell
 

@@ -48,40 +48,40 @@
         // the connection which will terminate the read task.
 
         var reads = Task.Run(async () => {
-            // initialize the stream reader over the connection
+            // Initialize the stream reader over the connection
             var reader = new StreamReader(relayConnection);
             var writer = Console.Out;
             do
             {
-                // read a full line of UTF-8 text up to newline
+                // Read a full line of UTF-8 text up to newline
                 string line = await reader.ReadLineAsync();
                 // if the string is empty or null, we are done.
                 if (String.IsNullOrEmpty(line))
                     break;
-                // write to the console
+                // Write to the console
                 await writer.WriteLineAsync(line);
             }
             while (true);
         });
 
-        // read from the console and write to the hybrid connection
+        // Read from the console and write to the hybrid connection
         var writes = Task.Run(async () => {
             var reader = Console.In;
             var writer = new StreamWriter(relayConnection) { AutoFlush = true };
             do
             {
-                // read a line form the console
+                // Read a line form the console
                 string line = await reader.ReadLineAsync();
-                // write the line out, also when it's empty
+                // Write the line out, also when it's empty
                 await writer.WriteLineAsync(line);
-                // quit when the line was empty
+                // Quit when the line was empty
                 if (String.IsNullOrEmpty(line))
                     break;
             }
             while (true);
         });
 
-        // wait for both tasks to complete
+        // Wait for both tasks to complete
         await Task.WhenAll(reads, writes);
         await relayConnection.CloseAsync(CancellationToken.None);
     }
@@ -136,40 +136,40 @@
                 // the connection which will terminate the read task.
 
                 var reads = Task.Run(async () => {
-                    // initialize the stream reader over the connection
+                    // Initialize the stream reader over the connection
                     var reader = new StreamReader(relayConnection);
                     var writer = Console.Out;
                     do
                     {
-                        // read a full line of UTF-8 text up to newline
+                        // Read a full line of UTF-8 text up to newline
                         string line = await reader.ReadLineAsync();
-                        // if the string is empty or null, we are done.
+                        // If the string is empty or null, we are done.
                         if (String.IsNullOrEmpty(line))
                             break;
-                        // write to the console
+                        // Write to the console
                         await writer.WriteLineAsync(line);
                     }
                     while (true);
                 });
 
-                // read from the console and write to the hybrid connection
+                // Read from the console and write to the hybrid connection
                 var writes = Task.Run(async () => {
                     var reader = Console.In;
                     var writer = new StreamWriter(relayConnection) { AutoFlush = true };
                     do
                     {
-                        // read a line form the console
+                        // Read a line form the console
                         string line = await reader.ReadLineAsync();
-                        // write the line out, also when it's empty
+                        // Write the line out, also when it's empty
                         await writer.WriteLineAsync(line);
-                        // quit when the line was empty
+                        // Quit when the line was empty
                         if (String.IsNullOrEmpty(line))
                             break;
                     }
                     while (true);
                 });
 
-                // wait for both tasks to complete
+                // Wait for both tasks to complete
                 await Task.WhenAll(reads, writes);
                 await relayConnection.CloseAsync(CancellationToken.None);
             }

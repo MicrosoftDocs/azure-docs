@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Azure Active Directory reporting - preview | Microsoft Azure"
-   description="Lists the various available reports for Azure Active Directory preview"
-   services="active-directory"
-   documentationCenter=""
-   authors="markusvi"
-   manager="femila"
-   editor=""/>
+    pageTitle="Azure Active Directory reporting - preview | Microsoft Azure"
+    description="Lists the various available reports for Azure Active Directory preview"
+    services="active-directory"
+    documentationCenter=""
+    authors="MarkusVi"
+    manager="femila"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/30/2016"
-   ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="10/31/2016"
+    ms.author="markvi"/>
 
 # Azure Active Directory reporting - preview
 
@@ -112,9 +112,15 @@ By using the column chooser, you can select the data fields you want to display.
 
 ### Filtering sign-ins
 
-You can filter sign-ins by a time interval to limit the amount of displayed data.
+You can filter sign-ins to limit the amount of displayed data using the following fields:
 
-![Reporting](./media/active-directory-reporting-azure-portal/927.png "Reporting")
+- Date and time 
+- User's user principal name
+- Application name
+- Client name
+- Sign-in status
+
+![Reporting](./media/active-directory-reporting-azure-portal/293.png "Reporting")
 
 
 Another method to filter the entries of the sign-in activities is to search for specific entries.
@@ -209,9 +215,35 @@ If you just want to review auditing data that is related to applications, you ca
 
 ### Filtering audit logs
 
-You can filter an audit report by a time interval to limit the amount of displayed data.
+You can filter sign-ins to limit the amount of displayed data using the following fields:
 
-![Auditing](./media/active-directory-reporting-azure-portal/324.png "Auditing")
+- Date and time
+- Actor's user principal name
+- Activity type
+- Activity
+
+![Auditing](./media/active-directory-reporting-azure-portal/356.png "Auditing")
+
+The content of the **Activity Type** list, is tied to your entry point to this blade.  
+If your entry point is Azure Active Directory, this list contains all possible activity types:
+
+- Application 
+- Group 
+- User
+- Device
+- Directory
+- Policy
+- Other
+
+
+![Auditing](./media/active-directory-reporting-azure-portal/825.png "Auditing")
+
+
+The listed activities are scoped by activity type.
+For example, if you have **Group** selected as **Activity Type**, the **Activity** list only contains group related activities.   
+
+![Auditing](./media/active-directory-reporting-azure-portal/654.png "Auditing")
+
 
 Another method to filter the entries of a audit log is to search for specific entries.
 
