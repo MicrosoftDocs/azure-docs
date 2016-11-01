@@ -11,7 +11,7 @@
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="10/24/2016"
@@ -27,10 +27,9 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-
 ## Get started creating an Internal load balancer using Azure portal
 
-Use the folowing steps to create an internal load balancer from the Azure Portal.
+Use the following steps to create an internal load balancer from the Azure Portal.
 
 1. Open a browser, navigate to the [Azure portal](http://portal.azure.com), and sign in with your Azure account.
 2. In the upper left hand side of the screen, click **New** > **Networking** > **Load balancer**.

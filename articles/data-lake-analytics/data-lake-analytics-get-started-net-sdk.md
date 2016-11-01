@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/19/2016"
+   ms.date="10/26/2016"
    ms.author="edmaca"/>
 
 # Tutorial: get started with Azure Data Lake Analytics using .NET SDK
@@ -36,9 +36,44 @@ Before you begin this tutorial, you must have the following:
 
 ##Create console application
 
-In this tutorial, you will process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
+In this tutorial, you process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
 
 A sample search log can be found in a public Azure Blob container. In the application, you will download the file to your workstation, and then upload the file to the default Data Lake Store account of your Data Lake Analytics account.
+
+**To create a U-SQL script**
+
+Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
+
+Create a **SampleUSQLScript.txt** file with the following U-SQL script, and place the file in the **C:\temp\** path.  The path is hardcoded in the .NET application that you create in the next procedure.  
+
+	@searchlog =
+		EXTRACT UserId          int,
+				Start           DateTime,
+				Region          string,
+				Query           string,
+				Duration        int?,
+				Urls            string,
+				ClickedUrls     string
+		FROM "/Samples/Data/SearchLog.tsv"
+		USING Extractors.Tsv();
+	
+	OUTPUT @searchlog   
+		TO "/Output/SearchLog-from-Data-Lake.csv"
+	USING Outputters.Csv();
+
+This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**. 
+
+In the C# program, you need to prepare the **/Samples/Data/SearchLog.tsv** file, and the **/Output/** folder.    
+
+It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example 
+
+	adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+	
+You must use absolute paths to access  files in linked Storage accounts.  The syntax for files stored in the linked Azure Storage account is:
+
+	wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+
+>[AZURE.NOTE] There is currently a known issue with the Azure Data Lake Service.  If the sample app is interrupted or encounters an error, you may need to manually delete the Data Lake Store & Data Lake Analytics accounts that the script creates.  If you're not familiar with the Azure portal, the [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md) guide will get you started.       
 
 **To create an application**
 
@@ -52,36 +87,7 @@ A sample search log can be found in a public Azure Blob container. In the applic
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package WindowsAzure.Storage
 
-4. Add a new file to the project in the **C:\temp** folder called **SampleUSQLScript.txt**, and then paste the following U-SQL script. The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
-        
-        OUTPUT @searchlog   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
-
-	This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**. 
-    
-    In the C# program, you will need to prepare the **/Samples/Data/SearchLog.tsv** file, and the **/Output/** folder.    
-	
-	It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example 
-    
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-        
-    You must use absolute paths to access  files in  linked Storage accounts.  The syntax for files stored in the linked Azure Storage account is:
-    
-        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-
-	>[AZURE.NOTE] There is currently a known issue with the Azure Data Lake Service.  If the sample app is interrupted or encounters an error, you may need to manually delete the Data Lake Store & Data Lake Analytics accounts that the script creates.  If you're not familiar with the Portal, the [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md) guide will get you started.       
        
 5. In Program.cs, paste the following code:
 

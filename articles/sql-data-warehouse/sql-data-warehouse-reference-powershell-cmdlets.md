@@ -3,8 +3,8 @@
    description="Find the top PowerShell cmdlets for Azure SQL Data Warehouse including how to pause and resume a database."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
-   ms.author="sonyama;barbkess;mausher"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
 # PowerShell cmdlets and REST APIs for SQL Data Warehouse
 

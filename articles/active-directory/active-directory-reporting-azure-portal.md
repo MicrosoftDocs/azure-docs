@@ -3,7 +3,7 @@
    description="Lists the various available reports for Azure Active Directory preview"
    services="active-directory"
    documentationCenter=""
-   authors="markusvi"
+   authors="MarkusVi"
    manager="femila"
    editor=""/>
 

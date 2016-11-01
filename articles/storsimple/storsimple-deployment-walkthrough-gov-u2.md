@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Deploy StorSimple device in Government Portal | Microsoft Azure"
    description="Describes the steps and best practices for deploying the StorSimple Update 2 device and service in the Azure Government portal."
    services="storsimple"
@@ -6,7 +6,7 @@
    authors="SharS"
    manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -46,7 +46,7 @@ Perform these required steps to configure your StorSimple device and connect it 
 | **STEP-BY-STEP DEPLOYMENT**                                                                   | These steps are required to deploy your StorSimple device in production.                                                                                      |
 | [Step 1: Create a new service](#step-1-create-a-new-service)                                                         | Set up cloud management and storage for your StorSimple device. *Skip this step if you have an existing service for other StorSimple devices*.              |
 | [Step 2: Get the service registration key](#step-2-get-the-service-registration-key)                                               | Use this key to register and connect your StorSimple device with the management service.                                                                         |
-| [Step 3: Configure and register the device through Windows PowerShell for StorSimple](step 3-configure-and-register-the-device-through-windows-powershell-for-storsimple) | Connect the device to your network and register it with Azure to complete the setup using the management service.                                            |
+| [Step 3: Configure and register the device through Windows PowerShell for StorSimple](#step 3-configure-and-register-the-device-through-windows-powershell-for-storsimple) | Connect the device to your network and register it with Azure to complete the setup using the management service.                                            |
 | [Step 4: Complete the minimum device setup](#step-4-complete-the-minimum-device-setup) </br>Optional: Update your StorSimple device. | Use the management service to complete the device setup and enable it to provide storage.                                                                      |
 | [Step 5: Create a volume container](#step-5-create-a-volume-container)                                                      | Create a container to provision volumes. A volume container has storage   account, bandwidth, and encryption settings for all the volumes contained in it.    |
 | [Step 6: Create a volume](#step-6-create-a-volume)                                                               | Provision storage volume(s) on the StorSimple device for your servers.                                                                                        |
@@ -58,7 +58,7 @@ Perform these required steps to configure your StorSimple device and connect it 
 | [Use PuTTY to connect to the device serial console](#use-putty-to-connect-to-the-device-serial-console)                                    |                                                                                                                                                               |
 | [Scan for and apply updates](#scan-for-and-apply-updates)                                                   |                                                                                                                                                               |
 | [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host)                                                   |                                                                                                                                                               |
-| [Create a manual backup](#create-a-manual-backup)                                                                 | 
+| [Create a manual backup](#create-a-manual-backup)                                                                 |
 | [Configure MPIO](#configure-mpio)                                                                          |
 
 ## Deployment configuration checklist
@@ -109,9 +109,9 @@ A StorSimple Manager service can manage multiple StorSimple devices. Perform the
 
 [AZURE.INCLUDE [storsimple-create-new-service-gov](../../includes/storsimple-create-new-service-gov.md)]
 
-> [AZURE.IMPORTANT] If you did not enable the automatic creation of a storage account with your service, you will need to create at least one storage account after you have successfully created a service. This storage account will be used when you create a volume container. 
+> [AZURE.IMPORTANT] If you did not enable the automatic creation of a storage account with your service, you will need to create at least one storage account after you have successfully created a service. This storage account will be used when you create a volume container.
 >
-> * If you did not create a storage account automatically, go to [Configure a new storage account for the service](#configure-a-new-storage-account-for-the-service) for detailed instructions. 
+> * If you did not create a storage account automatically, go to [Configure a new storage account for the service](#configure-a-new-storage-account-for-the-service) for detailed instructions.
 > * If you enabled the automatic creation of a storage account, go to [Step 2: Get the service registration key](#step-2-get-the-service-registration-key).
 
 ## Step 2: Get the service registration key
@@ -131,7 +131,7 @@ Use Windows PowerShell for StorSimple to complete the initial setup of your Stor
 
 ## Step 4: Complete minimum device setup
 
-For the minimum device configuration of your StorSimple device, you are required to: 
+For the minimum device configuration of your StorSimple device, you are required to:
 
 - Set up the secondary DNS server.
 - Enable iSCSI on at least one network interface.
@@ -143,7 +143,7 @@ Perform the following steps in the Government Portal to complete the minimum dev
 
 ## Step 5: Create a volume container
 
-A volume container has storage account, bandwidth, and encryption settings for all the volumes contained in it. You will need to create a volume container before you can start provisioning volumes on your StorSimple device. 
+A volume container has storage account, bandwidth, and encryption settings for all the volumes contained in it. You will need to create a volume container before you can start provisioning volumes on your StorSimple device.
 
 Perform the following steps in the Government Portal to create a volume container.
 
@@ -153,7 +153,7 @@ Perform the following steps in the Government Portal to create a volume containe
 
 After you create a volume container, you can provision a storage volume on the StorSimple device for your servers. Perform the following steps in the Government Portal to create a volume.
 
-> [AZURE.IMPORTANT] Azure StorSimple can create only thinly provisioned volumes.  You cannot create fully provisioned or partially provisioned volumes on an Azure StorSimple system. 
+> [AZURE.IMPORTANT] Azure StorSimple can create only thinly provisioned volumes.  You cannot create fully provisioned or partially provisioned volumes on an Azure StorSimple system.
 
 [AZURE.INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume-u2.md)]
 
@@ -175,13 +175,13 @@ If you decide not to configure MPIO, perform the following steps to mount, initi
 
 ## Step 8: Take a backup
 
-Backups provide point-in-time protection of volumes and improve recoverability while minimizing restore times. You can take two types of backup on your StorSimple device: local snapshots and cloud snapshots. Each of these backup types can be **Scheduled** or **Manual**. 
+Backups provide point-in-time protection of volumes and improve recoverability while minimizing restore times. You can take two types of backup on your StorSimple device: local snapshots and cloud snapshots. Each of these backup types can be **Scheduled** or **Manual**.
 
 Perform the following steps in the Government Portal to create a scheduled backup.
 
 [AZURE.INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
-You can take a manual backup at any time. For procedures, go to [Create a manual backup](#create-a-manual-backup). 
+You can take a manual backup at any time. For procedures, go to [Create a manual backup](#create-a-manual-backup).
 
 ## Configure a new storage account for the service
 
@@ -209,7 +209,7 @@ Updating your device can take several hours. Perform the following steps to scan
 #### To update your device
 
 1.	On the device **Quick Start** page, click **Devices**. Select the physical device, click **Maintenance** and then click **Scan Updates**.  
-2.	A job to scan for available updates is created. If updates are available, the **Scan Updates** changes to **Install Updates**. Click **Install Updates**. 
+2.	A job to scan for available updates is created. If updates are available, the **Scan Updates** changes to **Install Updates**. Click **Install Updates**.
 3.	An update job will be created. Monitor the status of your update by navigating to **Jobs**.
 
 	> [AZURE.NOTE] When the update job starts, it immediately displays the status as 50 percent. The status changes to 100 percent only after the update job is complete. There is no real-time status for the update process.
@@ -234,11 +234,10 @@ Multipath I/O (MPIO) is an optional feature and is not installed on Windows Serv
 
 For MPIO installation instructions for a StorSimple device connected to a Linux host, go to [Configure MPIO for your Linux host](storsimple-configure-mpio-on-linux.md).
 
-> [AZURE.NOTE] MPIO is not supported on a StorSimple virtual device in Azure. 
+> [AZURE.NOTE] MPIO is not supported on a StorSimple virtual device in Azure.
 
 ## Next steps
 
 - Configure a [virtual device](storsimple-virtual-device-u2.md).
 
 - Use the [StorSimple Manager service](https://msdn.microsoft.com/library/azure/dn772396.aspx) to manage your StorSimple device.
- 

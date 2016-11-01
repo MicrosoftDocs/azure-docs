@@ -132,6 +132,7 @@ See these links for more information about Azure File storage.
 ### Reference
 
 - [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+- [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md)
 
 ### Blog posts
 

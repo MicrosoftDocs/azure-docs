@@ -228,9 +228,6 @@ The following video demonstrates the U-SQL local run feature:
 
 ### Known issues and limitations
 
-- U-SQL Local Run does not support querying filesets locally. See [U-SQL filesets](https://msdn.microsoft.com/library/azure/mt621294.aspx). This will be resolved in the future.
-- Slow performance due to low parallelism, because job plans are executed serially in a single process.
-- Local run can't show job graphs in Visual Studio. This will be addressed in the future.
 - Cannot create table/DB etc. in Server Explorer for the local account.
 - When a relative path is referenced:
 
