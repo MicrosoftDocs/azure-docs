@@ -18,7 +18,7 @@
 
 # Deploy a guest executable to Service Fabric
 
-You can run any type of application, such as node.js, Java, or native applications in Azure Service Fabric. Service Fabric refers to these types of applications as guest executables.
+You can run any type of application, such as Node.js, Java, or native applications in Azure Service Fabric. Service Fabric refers to these types of applications as guest executables.
 Guest executables are treated by Service Fabric like stateless services. As a result, they are placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, by using Visual Studio or a command-line utility.
 
 In this article, we cover the steps to package a guest executable and deploy it to Service Fabric.  
@@ -64,7 +64,7 @@ To deploy an application to Service Fabric, the application should follow a pred
 The ApplicationPackageRoot contains the ApplicationManifest.xml file that defines the application. A subdirectory for each service included in the application is used to contain all the artifacts that the service requires. These subdirectories are the ServiceManifest.xml and, typically, the following:
 
 - *Code*. This directory contains the service code.
-- *Config*. This directory contains a Settings.xml file (and other files if necessary) that the service can access at run time to retrieve specific configuration settings.
+- *Config*. This directory contains a Settings.xml file (and other files if necessary) that the service can access at runtime to retrieve specific configuration settings.
 - *Data*. This is an additional directory to store additional local data that the service may need. Data should be used to store only ephemeral data. Service Fabric does not copy or replicate changes to the data directory if the service needs to be relocated (for example, during failover).
 
 >[AZURE.NOTE] You don't have to create the `config` and `data` directories if you don't need them.
@@ -174,7 +174,7 @@ The CodePackage element specifies the location (and version) of the service's co
 <CodePackage Name="Code" Version="1.0.0.0">
 ```
 
-The `Name` element is used to specify the name of the directory in the application package that contains the service's code. `CodePackage` also has the `version` attribute. This can be used to specify the version of the code, and can also potentially be used to upgrade the service's code by using Service Fabric's application lifecycle management infrastructure.
+The `Name` element is used to specify the name of the directory in the application package that contains the service's code. `CodePackage` also has the `version` attribute. This can be used to specify the version of the code, and can also potentially be used to upgrade the service's code by using the application lifecycle management infrastructure in Service Fabric.
 #### Optional: Update SetupEntrypoint
 
 ```xml
@@ -224,9 +224,9 @@ The WorkingFolder is useful to set the correct working directory so that relativ
 In the preceding example, the `Endpoint` element specifies the endpoints that the application can listen on. In this example, the Node.js application listens on http on port 3000.
 
 Furthermore you can ask Service Fabric to publish this endpoint to the Naming Service so other services can discover the endpoint address to this service. This enables you to be able to communicate between services that are guest executables.
-The published endpoint address is of the form `UriScheme://IPAddressOrFQDN:Port/PathSuffix`. `UriScheme` and `PathSuffix` are optional attributes. `IPAddressOrFQDN` is the IPAddress or Fully Qualified Domain Name of the node this executable gets placed on, and it is calculated for you.
+The published endpoint address is of the form `UriScheme://IPAddressOrFQDN:Port/PathSuffix`. `UriScheme` and `PathSuffix` are optional attributes. `IPAddressOrFQDN` is the IP address or fully qualified domain name of the node this executable gets placed on, and it is calculated for you.
 
-In the following example, once the service is deployed, in the Service Fabric Explorer you see an endpoint similar to `http://10.1.4.92:3000/myapp/` published for the service instance. Or if this is a local machine, you see `http://localhost:3000/myapp/`.
+In the following example, once the service is deployed, in Service Fabric Explorer you see an endpoint similar to `http://10.1.4.92:3000/myapp/` published for the service instance. Or if this is a local machine, you see `http://localhost:3000/myapp/`.
 
 ```xml
 <Endpoints>
@@ -327,6 +327,6 @@ If you browse to the directory by using Server Explorer, you can find the workin
 ## Next steps
 In this article, you have learned how to package a guest executable and deploy it to Service Fabric. See the following articles for related information and tasks.
 
-- [Sample for packaging and deploying a guest executable on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), including a link to the prerelease of the packaging tool.
+- [Sample for packaging and deploying a guest executable on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), including a link to the prerelease of the packaging tool
 - [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
 - [Create your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
