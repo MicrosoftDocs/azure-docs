@@ -17,12 +17,12 @@
 	ms.author="padmavc"/>
 
 # Track B2B messages    
-B2B communication involves message exchanges between two running business processes or applications. The relationship defines in agreement between business processes. Once the communication has established, there needs to be a way to monitor if the communication is happening as expected.  Message tracking has implemented for the following B2B scenarios: AS2, X12, and EDIFACT.  You can configure your Integration Account to use Azure Diagnostics for more rich details and debugging
+B2B communication involves message exchanges between two running business processes or applications. The relationship defines in agreement between business processes. Once the communication has established, there needs to be a way to monitor if the communication is happening as expected.  Message tracking has implemented for the following B2B scenarios: AS2, X12, and EDIFACT.  You can configure your Integration Account to use Diagnostics for more rich details and debugging
 
 ## Enable logging for an integration account
-You can enable logging for an integration account either through **azure portal** or through **Monitor**
+You can enable logging for an integration account either through **Azure portal** or through **Monitor**
 
-1. Enable logging through **azure portal**: Select **integration account** and select **diagnostics logs**    
+1. Enable logging through **Azure portal**: Select **integration account** and select **diagnostics logs**    
 ![select integration account](./media/app-service-logic-monitor-integration-account/Pic5.png)
 1. Enable logging through **Monitor**: Select **Monitor** and click **Diagnostics logs**     
 ![select Monitor](./media/app-service-logic-monitor-integration-account/Pic1.png)

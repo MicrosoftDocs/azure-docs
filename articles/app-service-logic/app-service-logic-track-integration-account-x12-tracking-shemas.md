@@ -126,11 +126,11 @@ Following are the supported X12 tracking schemas
 | receiverIdentifier | Mandatory, string.  It contains the receive partner identifier |
 | agreementName | Optional, string.  Name of the X12 agreement to which the messages are resolved |
 | direction | Required, string.  It indicates the direction of the message flow, either receive or send |
-| interchangeControlNumber | Optional, string.  It contains the interchange control number of the functional acknowledgement. The value populate only for send side where functional acknowledgement received for the messages sent to partner |
-| functionalGroupControlNumber | Optional, string.  It contains the functional group control number of the functional acknowledgement. The value populate only for send side where functional acknowledgement received for the messages sent to partner |
-| isaSegment | Optional, string.  It contains the ISA segment of the message. The value populate only for send side where functional acknowledgement received for the messages sent to partner |
-| gsSegment | Optional, string.  It contains the GS segment of the message. The value populate only for send side where functional acknowledgement received for the messages sent to partner |
-| respondingfunctionalGroupControlNumber | Optional, string.  It contains the responding  interchange control number |
+| interchangeControlNumber | Optional, string.  It contains the interchange control number of the functional acknowledgement. The value populates only for send side where functional acknowledgement received for the messages sent to partner |
+| functionalGroupControlNumber | Optional, string.  It contains the functional group control number of the functional acknowledgement. The value populates only for send side where functional acknowledgement received for the messages sent to partner |
+| isaSegment | Optional, string.  It contains the ISA segment of the message. The value populates only for send side where functional acknowledgement received for the messages sent to partner |
+| gsSegment | Optional, string.  It contains the GS segment of the message. The value populates only for send side where functional acknowledgement received for the messages sent to partner |
+| respondingfunctionalGroupControlNumber | Optional, string.  It contains the responding interchange control number |
 | respondingFunctionalGroupId | Optional, string. It contains the responding functional group id, that maps to AK101 in the acknowledgement |
 | respondingtransactionSetControlNumber | Optional, string.  It contains the responding transaction set control number |
 | respondingTransactionSetId | Optional, string.  It contains the responding transaction set id, that maps to AK201 in the acknowledgement |
