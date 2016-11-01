@@ -14,13 +14,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="10/03/2016"
-   ms.author="v-jeana; hascipio"; v-dabosl/>
-   ms.date="10/26/2016"
-   ms.author="v-jeana; hascipio"/>
+   ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Understand your seller insights report
 
-## What are seller insights?
+**What are seller insights?**
 
 All VM and usage-based billing developer services publishers receive monthly reports from Microsoft, if their offers are generating usage.
 
