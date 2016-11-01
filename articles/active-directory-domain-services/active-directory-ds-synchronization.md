@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/03/2016"
+	ms.date="11/02/2016"
 	ms.author="maheshu"/>
 
 # Synchronization in an Azure AD Domain Services managed domain
@@ -67,6 +67,49 @@ The following table lists some common attributes and describes how they are sync
 |SID history for users and groups|On-premises primary user and group SID|The SidHistory attribute for users and groups in your managed domain is set to match the corresponding primary user or group SID in your on-premises domain. This feature helps make lift-and-shift of on-premises applications to the managed domain easier, since you do not need to re-ACL resources.|
 
 > [AZURE.NOTE] **Sign in to the managed domain using the UPN format:** The SAMAccountName attribute may be auto-generated for some user accounts in your managed domain. If multiple users have the same mailNickname attribute or users have overly long UPN prefixes, the SAMAccountName for these users may be auto-generated. Therefore, the SAMAccountName format (for example, 'CONTOSO100\joeuser') is not always a reliable way to sign in to the domain. Users' auto-generated SAMAccountName may differ from their UPN prefix. Use the UPN format (for example, 'joeuser@contoso100.com') to sign in to the managed domain reliably.
+
+### Attribute mapping for user accounts
+The following table illustrates how specific attributes for user objects in your Azure AD tenant are synchronized to corresponding attributes in your managed domain.
+
+| User attribute in your Azure AD tenant | User attribute in your managed domain |
+|:---|:---|
+|accountEnabled|userAccountControl (sets or clears the ACCOUNT_DISABLED bit)|
+|city|l|
+|country|co|
+|department|department|
+|displayName|displayName|
+|facsimileTelephoneNumber|facsimileTelephoneNumber|
+|givenName|givenName|
+|jobTitle|title|
+|mail|mail|
+|mailNickname|msDS-AzureADMailNickname|
+|mailNickname|SAMAccountName (may sometimes be auto-generated)|
+|mobile|mobile|
+|objectid|msDS-AzureADObjectId|
+|onPremiseSecurityIdentifier|sidHistory|
+|passwordPolicies|userAccountControl (sets or clears the DONT_EXPIRE_PASSWORD bit)|
+|physicalDeliveryOfficeName|physicalDeliveryOfficeName|
+|postalCode|postalCode|
+|preferredLanguage|preferredLanguage|
+|state|st|
+|streetAddress|streetAddress|
+|surname|sn|
+|telephoneNumber|telephoneNumber|
+|userPrincipalName|userPrincipalName|
+
+
+### Attribute mapping for groups
+The following table illustrates how specific attributes for group objects in your Azure AD tenant are synchronized to corresponding attributes in your managed domain.
+
+| Group attribute in your Azure AD tenant | Group attribute in your managed domain |
+|:---|:---|
+|displayName|displayName|
+|displayName|SAMAccountName (may sometimes be auto-generated)|
+|mail|mail|
+|mailNickname|msDS-AzureADMailNickname|
+|objectid|msDS-AzureADObjectId|
+|onPremiseSecurityIdentifier|sidHistory|
+|securityEnabled|groupType|
 
 
 ## Objects that are not synchronized to your Azure AD tenant from your managed domain
