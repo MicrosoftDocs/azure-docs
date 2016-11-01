@@ -40,7 +40,7 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
 
 4. Click the **Create** button to create the function.
 
-  ![Add a trigger timer functions](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
+    ![Add a trigger timer functions](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
 
 5. Verify that the function works by viewing activity in the log. You might have to click the **Logs** link in the upper right corner to display the log pane.
 
@@ -88,7 +88,7 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
 
     ```
 
-  This code creates a **myQueueItem** and sets its **time** property to the current timeStamp. It then adds the new queue item to the context's myQueue binding.
+    This code creates a **myQueueItem** and sets its **time** property to the current timeStamp. It then adds the new queue item to the context's myQueue binding.
 
 3. Click **Save and Run**.
 
@@ -150,7 +150,7 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
 
 	```
 
-  This code adds two classes, **TableItem** and **QItem**, that you use to read and write to queues. Additionally, the **Run** function has been modified to accept the **QItem** and **TraceWriter** parameter, instead of a **string** and a **TraceWriter**. 
+    This code adds two classes, **TableItem** and **QItem**, that you use to read and write to queues. Additionally, the **Run** function has been modified to accept the **QItem** and **TraceWriter** parameter, instead of a **string** and a **TraceWriter**. 
 
 2. Click the **Save** button.
 
