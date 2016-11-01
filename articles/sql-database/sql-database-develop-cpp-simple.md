@@ -17,6 +17,7 @@
 	ms.author="tobiast"/>
 
 
+
 # Connect to SQL Database using C and C++
 
 This post is aimed at C and C++ developers trying to connect to Azure SQL DB. It is broken down into sections so you can jump to the section that best captures your interest. 
