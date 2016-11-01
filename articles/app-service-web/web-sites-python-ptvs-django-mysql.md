@@ -178,7 +178,7 @@ For more information, see the [Python Developer Center](/develop/python/).
 <!--Link references-->
 
 [Python Developer Center]: /develop/python/
-[Azure Cloud Services]: ../cloud-services-python-ptvs.md
+[Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
 
