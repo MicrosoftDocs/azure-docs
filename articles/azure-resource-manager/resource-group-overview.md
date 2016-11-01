@@ -63,7 +63,7 @@ The following suggestions help you take full advantage of Resource Manager when 
 
 For recommendations about templates, see [Best practices for creating Azure Resource Manager templates](../resource-manager-template-best-practices.md).
 
-For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../resource-manager-subscription-governance.md).
 
 ## Resource groups
 
@@ -157,7 +157,7 @@ If you envision your tiers having separate lifecycles, you can deploy your three
 
 For more suggestions about designing your templates, see [Patterns for designing Azure Resource Manager templates](../best-practices-resource-manager-design-templates.md). For information about nested templates, see [Using linked templates with Azure Resource Manager](../resource-group-linked-templates.md).
 
-For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](./virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md). This series covers application architecture, access and security, availability and scale, and application deployment.
+For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md). This series covers application architecture, access and security, availability and scale, and application deployment.
 
 Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. If one resource relies on a value from another resource (such as a virtual machine needing a storage account for disks), you set a dependency. For more information, see [Defining dependencies in Azure Resource Manager templates](../resource-group-define-dependencies.md).
 
