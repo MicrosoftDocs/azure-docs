@@ -452,7 +452,7 @@ Note that it will be different from the 'Exceptions' count calculated by the App
 ## Next steps
 
 * [Monitor REST, SQL and other calls to dependencies](app-insights-asp-net-dependencies.md)
-* [Monitor page load times, browser exceptions, and AJAX calls](pp-insights-javascript.md)
+* [Monitor page load times, browser exceptions, and AJAX calls](app-insights-javascript.md)
 * [Monitor performance counters](app-insights-performance-counters.md)
 
 
