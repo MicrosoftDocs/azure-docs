@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="10/24/2016"
+   ms.date="11/01/2016"
    ms.author="raiye"/>
 
 # Azure Guest OS releases and SDK compatibility matrix
@@ -62,6 +62,17 @@ January Guest OS rollout is starting January 18 2016, and projected to be releas
 November 201511-02 Guest OS was released on January 4, 2016 for deployment. This OS version is not set as the default OS for automatic update, so the provisioning time of Guest OS deployment to November 201511-02 OS version would be slightly longer. 
 
 ## Releases
+
+## Family 5 releases
+**Windows Server 2016**
+
+Supports .NET 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+
+>[AZURE.NOTE] Dates with a * are subject to change
+
+| Configuration String           | Release date    | Disable date  | Expired date |
+| ------------------------------ | --------------- | ------------- | ---- |
+| WA-GUEST-OS-5.2_201610-02      | Nov 1 2016      | Jan 30 2017   | TBD |
 
 ## Family 4 releases
 **Windows Server 2012 R2**
@@ -162,6 +173,7 @@ Even though the [retirement policy for the Azure SDK][retire policy sdk] indicat
 
 | Guest OS Family | Compatible SDK Versions |
 | --------------- | ----------------------- |
+| 5               | Version 2.9.5.1+ |
 | 4               | Version 2.1+ |
 | 3               | Version 1.8+ |
 | 2               | Version 1.3+ |
