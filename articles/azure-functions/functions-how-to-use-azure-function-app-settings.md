@@ -132,5 +132,6 @@ To open advanced settings, click the **Advanced Settings** link.
 For details on how to configure each App Service setting, see 
 [Configure Azure App Service Settings](../app-service-web/web-sites-configure.md).
 
-[AZURE.INCLUDE [Getting Started Note](../../includes/functions-bindings-next-steps.md)]
+## Next steps
+
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
