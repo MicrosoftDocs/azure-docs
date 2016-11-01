@@ -56,6 +56,8 @@ A trained model in Azure ML is serialized into a format known as .iLearner file 
 4. Call the BES endpoint of the training web service, and specify the desired .iLearner file name and Azure blob storage account location where it will be stored.
 5. Harvest the produced .iLearner file after the BES call finishes.
 
+Another way to retrieve the .iLearner file is through PowerShell commandlet [*Download-AmlExperimentNodeOutput*](https://github.com/hning86/azuremlps#download-amlexperimentnodeoutput). This might be easier if you just want to get a copy of the iLearner file without the need to retrain the model programmatically.
+
 Once you have the .iLearner file containing the trained model, you can then employ your own versioning strategy, from as simple as applying a pre/postfix as a naming convention and just leaving the .iLearner file in Azure blob storage, to copying/importing it into your version control system.
 
 The saved .iLearner file can then be used for scoring through deployed web services.
@@ -80,7 +82,7 @@ You can also create many identical web service endpoints, and then patch differe
 
 
 ### New web service
-If you are create new ARM based web service, endpoint construct is no longer available. Instead, you can generate WSD (web service definition) files, in JSON format, from your predictive experiment using the [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet, or using [*Export-AzureRmMlWebservice*](https://msdn.microsoft.com/library/azure/mt767935.aspx) PowerShell commandlet from an arleady deployed ARM based web service. 
+If you are create new ARM (Azure Resource Management) based web service, endpoint construct is no longer available. Instead, you can generate WSD (web service definition) files, in JSON format, from your predictive experiment using the [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet, or using [*Export-AzureRmMlWebservice*](https://msdn.microsoft.com/library/azure/mt767935.aspx) PowerShell commandlet from an arleady deployed ARM based web service. 
 
 Once you have the exported WSD file and version control it. You can also deploy the WSD as a new web service in a different web service plan in a different Azure region. Just make sure you supply the proper storage account configuration as well as the new web service plan ID. To patch in different .iLearner files, you can modify the WSD file and update the location reference of the trained model, and deploy as a new web service.
 
@@ -97,3 +99,8 @@ An important aspect of ALM is to be able to automate the execution and deploymen
 8. [Run the predictive experiment](https://github.com/hning86/azuremlps#start-amlexperiment).
 9. [Deploy a web service](https://github.com/hning86/azuremlps#new-amlwebservice) from the predictive experiment.
 10. Test the web service [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) or [BES](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint) endpoint 
+
+## Next steps
+* Download [Azure ML Studio PowerShell](http://aka.ms/amlps) module and start to automate your ALM tasks.
+* Learn how to [create and manage large number of ML models using just a single expeiriment](machine-learning-create-models-and-endpoints-with-powershell.md) through PowerShell and retraining API.
+* Learn more about [deploying Azure ML Web Services](machine-learning-publish-a-machine-learning-web-service.md).
