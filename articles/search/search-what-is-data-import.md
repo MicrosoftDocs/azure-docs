@@ -41,6 +41,6 @@ This approach is more flexible than the pull model because you can upload docume
 
 The pull model crawls a supported data source and automatically uploads the data into you Azure Search index for you. By tracking changes and deletes to existing documents in addition to recognizing new documents, indexers remove the need to actively manage the data in your index.
 
-In Azure Search, this capability is implemented through *indexers*, currently available for [Blob storage (preview)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL database, and SQL Server on Azure VMs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
+In Azure Search, this capability is implemented through *indexers*, currently available for [Blob storage (preview)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL database, and SQL Server on Azure VMs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
 
 The indexer functionality is exposed in the [Azure Portal](search-import-data-portal.md) as well as in the [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx).
