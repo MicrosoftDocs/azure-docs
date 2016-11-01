@@ -24,7 +24,7 @@
 
 This article walks you through the process of building containerized services in Windows containers.
 
->[AZURE.NOTE] This feature is in preview for Linux and is not currently available for use with Windows Server 2016. It will be available in preview for Windows Server 2016 in the next release of Service Fabric and supported in the subsequent release.
+>[AZURE.NOTE] This feature is in preview for Linux and is not currently available for use with Windows Server 2016. It will be available in preview for Windows Server 2016 in the next release of Azure Service Fabric and supported in the subsequent release.
 
 Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. These are called containerized services.
 
@@ -41,7 +41,7 @@ Let's look at how each of capabilities works when you're packaging a containeriz
 
 ## Package a Windows container
 
-When you package a container, you can choose to use either a Visual Studio project template or [create the application package manually](#manually). When you use Visual Studio, the application package structure and manifest files are created by the New Project Template for you (this is coming in a future release).
+When you package a container, you can choose to use either a Visual Studio project template or [create the application package manually](#manually). When you use Visual Studio, the application package structure and manifest files are created by the New Project Template for you. (This is coming in a future release.)
 
 ## Use Visual Studio to package an existing container image
 
@@ -94,7 +94,7 @@ Resource governance is a capability of the container that restricts the resource
 
 
 ## Authenticate a repository
-To download a container, you might have to provide sign-in credentials to the container repository. The sign-in credentials, specified in the application manifest, are used to specify the sign-in information, or SSH key, for downloading the container image from the image repository. The following example shows an account called *TestUser* along with the password in clear text. This is **not** recommended.
+To download a container, you might have to provide sign-in credentials to the container repository. The sign-in credentials, specified in the application manifest, are used to specify the sign-in information, or SSH key, for downloading the container image from the image repository. The following example shows an account called *TestUser* along with the password in clear text. This is *not* recommended.
 
 
     <ServiceManifestImport>
@@ -137,9 +137,9 @@ You can configure a host port used to communicate with the container by specifyi
 
 
 ## Configure container-to-container discovery and communication
-By using the `PortBinding` policy, you can map a container port to an `Endpoint` in the service manifest as shown in the following example. The endpoint `Endpoint1` can specify a fixed port (for example, port 80).  can also specify no port at all, in which case a random port from the cluster's application port range is chosen for you.
+By using the `PortBinding` policy, you can map a container port to an `Endpoint` in the service manifest as shown in the following example. The endpoint `Endpoint1` can specify a fixed port (for example, port 80). It can also specify no port at all, in which case a random port from the cluster's application port range is chosen for you.
 
-If you specify an Endpoint` like this in the service manifest of a guest container, Service Fabric can automatically publish this endpoint to the Naming service. This means that other services that are running in the cluster can discover this container by using the resolve service REST queries.
+If you specify an `Endpoint` like this in the service manifest of a guest container, Service Fabric can automatically publish this endpoint to the Naming service. This means that other services that are running in the cluster can discover this container by using the resolve service REST queries.
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
