@@ -24,7 +24,7 @@ Following are the supported AS2 tracking schemas
 * AS2 MDN Tracking Schema
 
 ## AS2 Message Tracking Schema
-````java script  
+````java
 
     {
        "agreementProperties": {  
@@ -55,7 +55,6 @@ Following are the supported AS2 tracking schemas
     }
 ````
 
-
 | Property | Description |
 | -------- | ------- |
 | senderPartnerName | Optional, string.  It contains the AS2 message sender's partner name |
@@ -81,7 +80,7 @@ Following are the supported AS2 tracking schemas
 
 ## AS2 MDN Tracking Schema
 
-````java script
+````java
 
     {
         "agreementProperties": {
@@ -93,7 +92,7 @@ Following are the supported AS2 tracking schemas
             },
             "mdnProperties": {
                 "direction": "",
-                "messageId": ",
+                "messageId": "",
                 "originalMessageId": "",
                 "dispositionType": "",
                 "isMessageFailed": "",
@@ -109,7 +108,6 @@ Following are the supported AS2 tracking schemas
             }
     }
 ````
-
 
 | Property | Description |
 | -------- | ------- |

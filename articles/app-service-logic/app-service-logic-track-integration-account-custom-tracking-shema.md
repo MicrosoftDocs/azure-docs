@@ -20,7 +20,7 @@
 # Custom tracking schema
 Following custom tracking schema is supported 
 
-````java script
+````java
 
         {
             "sourceType": "",
@@ -71,8 +71,6 @@ Following custom tracking schema is supported
 | recordType | Mandatory, It contains the type of the track record. The allowed values are AS2Message, AS2MDN, X12Interchange, X12FunctionalGroup, X12TransactionSet, X12InterchangeAcknowledgment, X12FunctionalGroupAcknowledgment, X12TransactionSetAcknowledgment, Custom |
 | record | Mandatory.  It contains the custom record type and the allowed format is JToken |
 |
-
-
 
 
 ## Next steps
