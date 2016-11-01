@@ -701,7 +701,7 @@ If the cluster creation failed due to an error in script action, the script acti
 
 ### Ambari watchdog
 
-> [AZURE.WARNING] Do not change the password for the Ambari Watchdog on your Linux-based HDInsight cluster. Changing the password for this account will break the ability to run new script actions on the HDInsight cluster.
+> [AZURE.WARNING] Do not change the password for the Ambari Watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password for this account will break the ability to run new script actions on the HDInsight cluster.
 
 ###History doesn't show scripts used during cluster creation
 
