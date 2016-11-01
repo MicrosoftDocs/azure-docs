@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/06/2016"
+	ms.date="11/01/2016"
 	ms.author="raynew"/>
 
 #  Replicate Hyper-V virtual machines in VMM clouds to Azure
