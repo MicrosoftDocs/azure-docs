@@ -7,7 +7,7 @@ Azure offers you great cloud solutions, built on virtual machines&mdash;based on
 
 - [Many](../articles/virtual-machines/virtual-machines-linux-docker-machine.md) [different](../articles/virtual-machines/virtual-machines-linux-dockerextension.md) ways to create Docker hosts for containers to suit your situation
 - The [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) creates clusters of container hosts using orchestrators such as **marathon** and **swarm**.
-- [Azure Resource Manager](../articles/resource-group-overview.md) and [resource group templates](../articles/resource-group-authoring-templates.md) to simplify deploying and updating complex distributed applications
+- [Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md) and [resource group templates](../articles/resource-group-authoring-templates.md) to simplify deploying and updating complex distributed applications
 - integration with a large array of both proprietary and open-source configuration management tools
 
 And because you can programmatically create VMs and Linux containers on Azure, you can also use VM and container *orchestration* tools to create groups of Virtual Machines (VMs) and to deploy applications inside both Linux containers and now [Windows Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
@@ -104,7 +104,7 @@ These abilities are often then migrated to tools like [Puppet](https://puppetlab
 
 ### Azure resource group templates
 
-More recently, Azure released the [Azure resource management](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md) REST API, and updated PowerShell and Azure CLI tools to use it easily. You can deploy, modify, or redeploy entire application topologies using [Azure Resource Manager templates](../articles/resource-group-authoring-templates.md) with the Azure resource management API using:
+More recently, Azure released the [Azure resource management](../articles/resource-manager-deployment-model.md) REST API, and updated PowerShell and Azure CLI tools to use it easily. You can deploy, modify, or redeploy entire application topologies using [Azure Resource Manager templates](../articles/resource-group-authoring-templates.md) with the Azure resource management API using:
 
 - the [Azure portal using templates](https://github.com/Azure/azure-quickstart-templates)&mdash;hint, use the "DeployToAzure" button
 - the [Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md)
