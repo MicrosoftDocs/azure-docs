@@ -145,37 +145,37 @@ The following steps walk you through the steps necessary to configure continuous
 1.	After you’ve added all the required items to the Azure PowerShell build step, choose the **Queue** build button to build the project. The **Build** screen shows the output from the PowerShell script.
 
 ### Detailed walkthrough for Option 2
-The following steps walk you through the steps necessary to configure continuous deployment in VS Team Services using built-in tasks.
+The following steps walk you through the steps necessary to configure continuous deployment in VS Team Services using the built-in tasks.
 
-1.	Edit your VS Team Services build definition and add two new build steps. Choose the build definition under the **Build definitions** category and then choose the **Edit** link.
+1.	Edit your VS Team Services build definition to add two new build steps. Choose the build definition under the **Build definitions** category and then choose the **Edit** link.
 
     ![][12]
 
-1.	Add two new build steps to the build definition using the **Add build step…** button.
+1.	Add the new build steps to the build definition using the **Add build step…** button.
 
     ![][13]
 
-1.	Choose the **Deploy task** category, select the **Azure File Copy** task, and then choose its **Add** button.
+1.	Choose the **Deploy** task category, select the **Azure File Copy** task, and then choose its **Add** button.
 
     ![][14]
 
-1.  Choose the **Azure Resource Group Deployment** task, and then choose its **Add** button and then **Close** the **Task Catalog**.
+1.  Choose the **Azure Resource Group Deployment** task, then choose its **Add** button and then **Close** the **Task Catalog**.
 
     ![][15]
 
 1.  Choose the **Azure File Copy** task and fill in its values.
 
-    If you already have an Azure service endpoint added to VS Team Services, choose the subscription in the **Azure Subscription** drop down list box.  If you do not have a subscription see [Option 1](#Detailed-walkthrough-for-Option-1) for instructions on setting one up in VS Team Services.
+    If you already have an Azure service endpoint added to VS Team Services, choose the subscription in the **Azure Subscription** drop down list box.  If you do not have a subscription see [Option 1](#detailed-walkthrough-for-option-1) for instructions on setting one up in VS Team Services.
 
     - Source - enter **$(Build.StagingDirectory)**
     - Azure Connection Type - select **Azure Resource Manager**
-    - Azure RM Subscription - select the subscription for the storage account you want to use in the **Azure Subscription** drop down list box. (If the subscription doesn't appear, choose the **Refresh** button next the **Manage** link.)
+    - Azure RM Subscription - select the subscription for the storage account you want to use in the **Azure Subscription** drop down list box. If the subscription doesn't appear, choose the **Refresh** button next the **Manage** link.
     - Destination Type - select **Azure Blob**
     - RM Storage Account - select the storage account you would like to use for staging artifacts
-    - Container Name - enter the name of the container you would like to use for staging, it can be any valid container name
+    - Container Name - enter the name of the container you would like to use for staging, it can be any valid container name but use one dedicated to this build definition
 
     For the output values:
-
+    
     - Storage Container URI - enter **artifactsLocation**
     - Storage Container SAS Token - enter **artifactsLocationSasToken**
 
@@ -198,7 +198,7 @@ The following steps walk you through the steps necessary to configure continuous
     ![][17]
 
 
-1.	After you’ve added all the required items, save the build definition and choose the **Queue new build** at the top.
+1.	After you’ve added all the required items, save the build definition and choose **Queue new build** at the top.
 
 
 ## Next steps
