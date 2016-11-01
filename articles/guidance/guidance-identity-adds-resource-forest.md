@@ -43,7 +43,7 @@ The following diagram demonstrates the reference architecture discussed in this 
 
 - **On-premises network.** The on-premises network contains its own AD forest and domains.
 
-- **AD Servers.** These are domain controllers implementing directory services (AD DS) running as VMs in the cloud. These servers host a forest containing one or more domains, separate from those located on-premises.
+- **AD Servers.** These are domain controllers implementing domain services (AD DS) running as VMs in the cloud. These servers host a forest containing one or more domains, separate from those located on-premises.
 
 - **One-way trust relationship.** The example in the diagram shows a one-way trust from the domain in the cloud to the on-premises domain. This relationship enables on-premises users to access resources in the domain in the cloud, but not the other way around. It is possible to create a two-way trust if cloud users also require access to on-premises resources.
 
@@ -57,13 +57,13 @@ The following diagram demonstrates the reference architecture discussed in this 
 
 This section provides a list of recommendations based on the essential components required to implement the basic architecture. These recommendations cover:
 
-- ADDS settings, and
+- AD DS settings, and
 
 - Trust relationship configuration.
 
 You might have additional or differing requirements from those described here. You can use the items in this section as a starting point for considering how to customize the architecture for your own system.
 
-### ADDS recommendations
+### AD DS recommendations
 
 For specific recommendations on implementing Active Directory in the cloud, refer to the document [Extending Active Directory to Azure][extending-ad-to-azure]. The article [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines][ad-azure-guidelines] contains additional detailed information.
 
@@ -114,9 +114,9 @@ For AD-specific security considerations, see the *Security considerations* secti
 
 ## Next steps
 
-- Learn the best practices for [extending your on-premises ADDS domain to Azure][adds-extend-domain]
+- Learn the best practices for [extending your on-premises AD DS domain to Azure][adds-extend-domain]
 
-- Learn the best practices for [creating an ADFS infrastructure][adfs] in Azure.
+- Learn the best practices for [creating an AD FS infrastructure][adfs] in Azure.
 
 <!-- links -->
 
