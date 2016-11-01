@@ -77,10 +77,10 @@ Following are the supported AS2 tracking schemas
 | isNrrEnabled | Mandatory, boolean.  Use default value if the value is not known |
 | isMdnExpected | Mandatory, boolean. Use default value if the value is not known |
 | mdnType | Mandatory, string. The allowed values are NotConfigured or Sync or Async |
-|
 
 
 ## AS2 MDN Tracking Schema
+
 ````java script
 
     {
@@ -130,7 +130,7 @@ Following are the supported AS2 tracking schemas
 | correlationMessageId | Optional, string.  It contains the correlation id.  The correlation id is the original messaged Id (messages id of the message for which MDN is configured) |
 | incomingHeaders | Optional - Dictionary of JTokens |
 | outgoingHeaders | Optional - Dictionary of JTokens |
-|
+
 
 
 ## Next steps

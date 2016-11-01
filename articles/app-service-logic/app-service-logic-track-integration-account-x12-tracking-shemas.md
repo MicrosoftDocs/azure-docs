@@ -54,7 +54,6 @@ Following are the supported X12 tracking schemas
                 "segmentsCount": ""
             }
     }
-
 ````
 
 
@@ -78,7 +77,7 @@ Following are the supported X12 tracking schemas
 | isFunctionalAcknowledgmentExpected |  Mandatory, boolean.  It indicates whether the functional acknowledgement is either configured or not configured in the X12 agreement |
 | needAk2LoopForValidMessages | Mandatory, boolean.  - whether the AK2 loop is requird for valid message or not. - type boolean |
 | segmentsCount | Optional, int.  It indicates the number of segments in the X12 transaction set |
-|
+
 
 ## X12 Transaction Set Acknowledgement Tracking Schema
 ````java script
@@ -141,7 +140,7 @@ Following are the supported X12 tracking schemas
 | ak2Segment | Optional, string. It contains the ak2 segment. The ak2 segment contains an acknowledgement for a transaction set within the received functional group |
 | ak3Segment | Optional, string. It contains the ak3 segment.  The ak3 segment reports errors in a data segment |
 | ak5Segment | Optional, string. It contains the ak5 segment.  The ak5 segment reports whether the transaction set identified in the AK2 segment is accepted or rejected and why  |
-|
+
 
 ## X12 Interchange Tracking Schema
 ````java script
@@ -195,7 +194,6 @@ Following are the supported X12 tracking schemas
 | isa14 | Optional, string.  It contains X12 acknowledgement is requested  |
 | isa15 | Optional, string.  It contains indicator for test or production |
 | isa16 | Optional, string. It contains the element seprator |
-|
 
 
 ## X12 Interchange Acknowledgement Tracking Schema  
@@ -245,7 +243,6 @@ Following are the supported X12 tracking schemas
 | ta102 | Optional, string. It contains interchange date | 
 | ta103 | Optional, string. It contains interchange time | 
 | ta105 | Optional, string. It contains interchange note code |
-|
 
 
 ## X12 Functional Group Tracking Schema
@@ -303,7 +300,6 @@ Following are the supported X12 tracking schemas
 | gs05 | Optional, string. It contains the functional group time |
 | gs07 | Optional, string. It containst the responsible agency code |
 | gs08 | Optional, stirng. It contains the version/release/industry identifier code - type string |
-|
 
 
 ## X12 Functional Group Acknowledgement Tracking Schema
@@ -358,7 +354,6 @@ Following are the supported X12 tracking schemas
 | ak903 | Optional, string. It contains the number of the transaction sets received |
 | ak904 | Optional, string. It contains the number of transaction sets accepted in the identified functional group |
 | ak9Segment | Optional, string.  Ak9 segment indicates whether the functional group identified in the AK1 segment is accepted or rejected and why |
-|
 
 
 
