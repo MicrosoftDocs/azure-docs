@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="08/17/2016"
+   ms.date="10/31/2016"
    ms.author="raiye"/>
 
 # Azure Guest OS 

@@ -20,6 +20,11 @@
 
 # Assign multiple IP addresses to virtual machines
 
+> [AZURE.SELECTOR]
+- [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
+- [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+
+
 An Azure Virtual Machine (VM) can have one or more network interfaces (NIC) attached to it. Any NIC can have one or more public or private IP addresses assigned to it. If you're not familiar with IP addresses in Azure, read the [IP addresses in Azure](virtual-network-ip-addresses-overview-arm.md) article to learn more about them. This article explains how to use Azure PowerShell to assign multiple IP addresses to a VM in the Azure Resource Manager deployment model.
 
 Assigning multiple IP addresses to a VM enables the following capabilities:
@@ -205,7 +210,7 @@ This scenario assumes you have a resource group called *RG1* within which there 
 			cd /etc/sysconfig/network-scripts
 4. List the related ifcfg files using the following command:
 
-			ls ifcfg-*
+ 			ls ifcfg-*
 
 	You should see *ifcfg-eth0* as one of the files.
 5. Copy the *ifcfg-eth0* file and name it *ifcfg-eth0:0* with the following command:
@@ -252,9 +257,9 @@ Complete the following steps to add additional IP addresses to an existing NIC:
 
 5. Create the IP configurations you want to add to the network by following the instructions in [step 5](#ipconfigs) of the Create a VM with multiple IP addresses section of this article.
 
-6. Change *$IPConfigName4* to the name of the IP configuration you created in the previous step. To add the configuration, enter the following command:
+6. Change *$IPConfigName4* to the name of the IP configuration you created in the previous step. To add the configuration with a public IP association, enter the following command:
 
-		Add-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName4 -NetworkInterface $nic -Subnet $Subnet1
+		Add-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName4 -NetworkInterface $nic -Subnet $Subnet1 -PublicIpAddress $PIP
 
 7. To set the NIC with the IP configuration, enter the following command:
 

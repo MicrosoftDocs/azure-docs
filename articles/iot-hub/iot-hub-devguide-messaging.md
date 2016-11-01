@@ -218,7 +218,7 @@ When you use SDKs (or product integrations) that are unaware of IoT Hub, you mus
 
 > [AZURE.NOTE] If the SDK requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
 
-You can then use any shared access security policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
+You can then use any shared access policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
 
 If you need to build an Event Hub connection string by using the previous information, use the following pattern:
 
