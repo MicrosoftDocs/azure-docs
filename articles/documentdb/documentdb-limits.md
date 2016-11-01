@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2016" 
+	ms.date="10/26/2016" 
 	ms.author="arramac"/>
 
 
@@ -23,4 +23,4 @@ The following table describes the default quotas for Azure DocumentDB database r
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb-increase-limits.md).
+Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb-increase-limits.md). Quota increases may take up to 24 hours to complete after receiving the required information. 

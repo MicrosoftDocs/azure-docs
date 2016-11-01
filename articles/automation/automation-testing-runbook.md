@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Testing a runbook in Azure Automation | Microsoft Azure"
 	description="Before you publish a runbook in Azure Automation, you can test it to ensure that works as expected.  This article describes how to test a runbook and view its output."
 	services="automation"
@@ -6,7 +6,7 @@
 	authors="mgoedtel"
 	manager="jwhit"
 	editor="tysonn" />
-<tags 
+<tags
 	ms.service="automation"
 	ms.devlang="na"
 	ms.topic="article"
@@ -27,7 +27,7 @@ The procedure to test each [type of runbook](automation-runbook-types.md) is the
 
 You can work with any [runbook type](automation-runbook-types.md) in the Azure portal.
 
-1. Open the Draft version of the runbook in either the [textual editor](automation-editing-a-runbook.md#Portal) or [graphical editor](automation-graphical-authoring-intro.md).
+1. Open the Draft version of the runbook in either the [textual editor](automation-edit-textual-runbook.md) or [graphical editor](automation-graphical-authoring-intro.md).
 2. Click the **Test** button to open the Test blade.
 3. If the runbook has parameters, they will be listed in the left pane where you can provide values to be used for the test.
 4. If you want to run the test on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), then change **Run Settings** to **Hybrid Worker** and select the name of the target group.  Otherwise, keep the default **Azure** to run the test in the cloud.

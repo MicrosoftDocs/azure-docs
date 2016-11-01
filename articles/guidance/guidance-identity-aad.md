@@ -47,7 +47,7 @@ Typical use cases for this architecture include:
 
 - Publishing on-premises web applications through the cloud to provide access to remote users who belong to your organization.
 
-- Implementing self-service capabilities for end-users, such as resetting their passwords, and delegating group management. 
+- Implementing self-service capabilities for end-users, such as resetting their passwords, and delegating group management.
 
 	>[AZURE.NOTE] These capabilities can be controlled by an administrator through group policy.
 
@@ -90,7 +90,7 @@ Synchronization is concerned with ensuring that users identity information in th
 
 - You can run the Azure AD Connect sync service using a VM or a computer hosted on-premises. Depending on the volatility of the information in your AD directory, once the initial synchronization with AAD has been performed the load on the Azure AD Connect sync service is unlikely to be high. Using a VM enables you to more easily scale the server (monitor the activity as described in the [Monitoring considerations](#monitoring-considerations) section to determine whether this is necessary).
 
-- If you have multiple on-premises domains in a forest, you can store and synchronize information for the entire forest to a single AAD tenant (this is the recommended approach). Filter information for identities that occur in more than one domain so that each identity appears only once in AAD rather than being duplicated as this can lead to inconsistencies when data is synchronized. This approach requires implementing multiple Azure AD Connect sync servers. For more information, see the Multiple AAD scenario in the [Topology considerations](#topology-considerations) section. 
+- If you have multiple on-premises domains in a forest, you can store and synchronize information for the entire forest to a single AAD tenant (this is the recommended approach). Filter information for identities that occur in more than one domain so that each identity appears only once in AAD rather than being duplicated as this can lead to inconsistencies when data is synchronized. This approach requires implementing multiple Azure AD Connect sync servers. For more information, see the Multiple AAD scenario in the [Topology considerations](#topology-considerations) section.
 
 - Use filtering to limit the data stored in AAD to only that which is necessary. For example, your organization might not want to store information about inactive or non-personal accounts in AAD. Filtering can be group-based, domain-based, OU-based, or attribute-based, and you can combine filters to generate more complex rules. For example, you could select to synchronize only objects held in a domain that have a specific value in a selected attribute. For detailed information, see [Azure AD Connect sync: Configure Filtering][aad-filtering].
 
@@ -148,7 +148,7 @@ If you are integrating an on-premises directory with AAD, configure Azure AD Con
 
 	- Testing and deploying a new configuration of the Azure AD Connect sync server.
 
-	- Introducing a new server and decommissioning an old configuration. 
+	- Introducing a new server and decommissioning an old configuration.
 
 	In these scenarios, the second instance runs in *staging mode*. The server records imported objects and synchronization data in its database, but does not pass the data to AAD. Only when you disable staging mode does the server start writing data to AAD, and also starts performing password write-backs into the on-premises directories where appropriate:
 
@@ -158,7 +158,7 @@ If you are integrating an on-premises directory with AAD, configure Azure AD Con
 
 - **Multiple AAD directories**. It is recommended that you create a single AAD directory for an organization, but there may be situations where you need to partition information across separate AAD directories. In this case, you should ensure that each object from the on-premises forest appears only in one AAD directory, to avoid synchronization and password write-back issues.
 
-	To implement this scenario, configure separate Azure AD Connect sync servers for each AAD directory, and use filtering so each Azure AD Connect sync server operates on a mutually exclusive set of objects: 
+	To implement this scenario, configure separate Azure AD Connect sync servers for each AAD directory, and use filtering so each Azure AD Connect sync server operates on a mutually exclusive set of objects:
 
 	[![5]][5]
 
@@ -224,7 +224,7 @@ As with scalability concerns, availability spans the AAD service and the configu
 
 	>[AZURE.NOTE] The SLA for AAD Basic and Premium services guarantees at least 99.9% availability. There is no SLA for the Free tier of AAD. For more information, see [SLA for Azure Active Directory][sla-aad].
 
-- To increase the availability of the Azure AD Connect sync server you can run a second instance in staging mode, as described in the [Topology considerations](#topology-considerations) section. 
+- To increase the availability of the Azure AD Connect sync server you can run a second instance in staging mode, as described in the [Topology considerations](#topology-considerations) section.
 
 	Additionally, if you are not using the SQL Server Express LocalDB instance that comes with Azure AD Connect, then you should consider high availability for SQL Server. Note that the only high availability solution supported is SQL clustering. Solutions such as mirroring and Always On are not supported by Azure AD Connect.
 
@@ -250,7 +250,7 @@ Azure AD Connect installs the following tools that you use to maintain the Azure
 
 - The Microsoft Azure Active Directory Connect console. This tool enables you to modify the configuration of the Azure AD Sync server, customize how synchronization occurs, enable or disable staging mode, and switch the user sign-in mode (you can enable AD FS sign-in using your on-premises infrastructure).
 
-- The Synchronization Service Manager. Use the *Operations* tab in this tool to manage the synchronization process and detect whether any parts of the process have failed. You can trigger synchronizations manually using this tool. 
+- The Synchronization Service Manager. Use the *Operations* tab in this tool to manage the synchronization process and detect whether any parts of the process have failed. You can trigger synchronizations manually using this tool.
 
 	[![12]][12]
 
@@ -387,11 +387,11 @@ The steps that follow assume the following prerequisites:
 		#
 		#      102.54.94.97     rhino.acme.com          # source server
 		#       38.25.63.10     x.acme.com              # x client host
-		
+
 		# localhost name resolution is handled within DNS itself.
 		#	127.0.0.1       localhost
 		#	::1             localhost
-		
+
 		52.165.38.64	www.contoso.com
 		```
 
@@ -431,15 +431,15 @@ The steps that follow assume the following prerequisites:
 8. Return to the Azure portal and connect to the management tier VM (*ra-aad-ntier-mgmt-vm1*). The default user name is *testuser* with password *AweS0me@PW*:
 
 	[![21]][21]
-	
+
 9. From the management tier VM, connect to each of the web tier VMs in turn with username *testuser* and password *AweS0me@PW*, and perform the following tasks. Note that the VMs have the private addresses IP 10.0.1.4, 10.0.1.5, and 10.0.1.6:
 
 	>[AZURE.NOTE] The web tier VMs only have private IP addresses. You can only connect to them by using the management tier VM.
 
 	1. Copy the files *www.contoso.com.pfx* and *MyFakeRootCertificateAuthority.cer* from the test client computer.
-	
+
 	2. Open a command prompt as Administrator, move to the folder holding the files that you copied, and run the following commands:
-	
+
 		```
 		certutil.exe -privatekey -importPFX my www.contoso.com.pfx NoExport
 
@@ -665,7 +665,7 @@ The configuration illustrated in these steps consists of two instances of the Az
 2. Open the *DNS Manager* console and add a new host record for www.contoso.com. Specify the public IP address of the web-tier load balancer.
 
 3. Copy the file *MyFakeRootCertificateAuthority.cer* from the test client computer (you created this files in the procedure [Simulate configuration of a public web site](#simulate-configuration-of-a-public-web-site)
-	
+
 4. Open a command prompt as Administrator, move to the folder holding the file that you just copied, and run the following command:
 
 		```
@@ -693,7 +693,7 @@ The configuration illustrated in these steps consists of two instances of the Az
 [ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
 [aad-explained]: https://youtu.be/tj_0d4tR6aM
 [aad-editions]: ../active-directory/active-directory-editions.md
-[guidance-adds]: ./guidance-iaas-ra-secure-vnet-ad.md
+[guidance-adds]: ./guidance-identity-adds-extend-domain.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/
 [azure-multifactor-authentication]: ../multi-factor-authentication/multi-factor-authentication.md
 [aad-conditional-access]: ../active-directory//active-directory-conditional-access.md

@@ -3,7 +3,7 @@
     description="This article the benefits of integrating Azure Active Directory with your on-premises, cloud and SaaS applications."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

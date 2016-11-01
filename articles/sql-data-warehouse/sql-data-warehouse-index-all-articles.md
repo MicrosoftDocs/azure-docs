@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="barbkess"
 	manager="jhubbard"
-	editor="MightyPen"/>
+	editor=""/>
 
 <tags
 	ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2016"
+	ms.date="10/31/2016"
 	ms.author="barbkess"/>
 
 
