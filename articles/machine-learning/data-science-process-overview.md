@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2016"
+	ms.date="11/01/2016"
 	ms.author="bradsev;hangzh;gokuma"/>
     
 # Team Data Science Process lifecycle 
@@ -87,7 +87,7 @@ It is not uncommon, for example, to find that existing systems need to collect a
 
 Here are the deliverables in this stage:
 
-- [**Charter Document**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): A standard template is provided in the TDSP project structure  definition. This is a living document that is updated throughout the project as new discoveries are made and as business requirements change. The key is to iterate upon this document, adding more detail, as you progress through the discovery process. Keep the customer and other stakeholders involved in making the changes and clearly communicate the reasons for the changes to them.  
+- [**Charter Document**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): A standard template is provided in the TDSP project structure definition. This is a living document that is updated throughout the project as new discoveries are made and as business requirements change. The key is to iterate upon this document, adding more detail, as you progress through the discovery process. Keep the customer and other stakeholders involved in making the changes and clearly communicate the reasons for the changes to them.  
 
 -  [**Data Sources**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): This is part of the Data Report that is found in the TDSP project structure. It describes the sources for the raw data. In later stages, you fill in additional details like scripts to move the data to your analytic environment.  
 
@@ -97,7 +97,7 @@ Here are the deliverables in this stage:
 ## 2. Data Acquisition and Understanding
 
 ### Goals 
-- A clean, high-quality dataset whose relations to the target variables are understood are located in the analytics environment, ready to model.
+- A clean, high-quality dataset whose relations to the target variables are understood that are located in the analytics environment, ready to model.
 - A solution architecture of the data pipeline to refresh and score data regularly has been developed.
  
 ### How to do it
@@ -119,7 +119,7 @@ TDSP provides an automated utility called [IDEAR](https://github.com/Azure/Azure
 Once you are satisfied with the quality of the cleansed data, the next step is to better understand the patterns that are inherent in the data that help you choose and develop an appropriate predictive model for your target. Look for evidence for how well connected the data is to the target and whether there is sufficient data to move forward with the next modeling steps. Again, this process is often iterative. You may need to find new data sources with more accurate or more relevant data to augment the dataset initially identified in the previous stage.  
 
 #### 2.3 Set up a data pipeline
-In addition to the initial ingestion and cleaning of the data, you typically need to set up a process to score new data or refresh the data regularly as part of an ongoing learning process. This can be done by setting up a data pipeline or workflow. Here is an [example](machine-learning-data-science-move-sql-azure-adf.md) of how to setup a pipeline with [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). A solution architecture of the data pipeline is developed in this stage. The pipeline is also developed in parallel with the following stages of the data science project. The pipeline may be batch-based or a streaming/real-time or a hybrid depending on your business needs and the constraints of your existing systems into which this solution is being integrated. 
+In addition to the initial ingestion and cleaning of the data, you typically need to set up a process to score new data or refresh the data regularly as part of an ongoing learning process. This can be done by setting up a data pipeline or workflow. Here is an [example](machine-learning-data-science-move-sql-azure-adf.md) of how to set up a pipeline with [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). A solution architecture of the data pipeline is developed in this stage. The pipeline is also developed in parallel with the following stages of the data science project. The pipeline may be batch-based or a streaming/real-time or a hybrid depending on your business needs and the constraints of your existing systems into which this solution is being integrated. 
 
 ### Artifacts
 
@@ -127,44 +127,43 @@ The following are the deliverables in this stage.
 
 - [**Data Quality Report**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md): This report contains data summaries, relationships between each attribute and target, variable ranking etc. The [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) tool provided as part of TDSP can quickly generate this report on any tabular dataset such as a CSV file or a relational table. 
 - **Solution Architecture**: This can be a diagram or description of your data pipeline used to run scoring or predictions on new data once you have built a model. It also contains the pipeline to retrain your model based on new data. The document is stored in this [directory](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) when using the TDSP directory structure template.
-- **Checkpoint Decision**: Before you begin full feature engineering and model building, you can reevaluate the project to determine whether there is sufficient value   expected to continue pursing it. We may, for example, be ready to proceed, need to collect more data, or abandon the project as the data does not exist to answer the question.
+- **Checkpoint Decision**: Before you begin full feature engineering and model building, you can reevaluate the project to determine whether there is sufficient value expected to continue pursing it. We may, for example, be ready to proceed, need to collect more data, or abandon the project as the data does not exist to answer the question.
+
 
 ## 3. Modeling
  
 ### Goals
 
-- Develop new attributes or data features (also known as feature engineering), for building the machine learning model.
-- Construct and evaluate an informative model to predict the target.
-- Determine if we have a model that is suitable for production
-  
+- Optimal data features for the machine learning model.
+- An informative ML model that predicts the target most accurately.
+- An ML model that is suitable for production.
 
 ### How to do it
 
 There are two main aspects of this stage
 
-- **Feature Engineering**: 
-- **Model training**: 
-
+- **Feature Engineering**: create data features from the raw data to facilitate model training.
+- **Model training**: find the model that answers the question most accurately by comparing their success metrics.
+- Determine if your model is **suitable for production**.
 
 #### 3.1 Feature Engineering
 
-Feature engineering involves inclusion, aggregation and transformation of raw variables to create the features used in the analysis. If we want insight into what is driving a model, then we need to understand how features are related to each other, and how the machine learning algorithms are to use those features. This step requires a creative combination of domain expertise and the insights obtained from the data exploration step. This is a balancing act of including informative variables without including too many unrelated variables. Informative variables improve our result; unrelated variables introduce unnecessary noise into the model. You also need to generate these features for new data during scoring. So there should not be any dependency on generating these features on any piece of data that is unavailable at the time of scoring. For technical guidance on feature engineering when using various Azure data technologies, see this [Feature engineering in the Data Science Process](machine-learning-data-science-create-features.md). 
-
+Feature engineering involves inclusion, aggregation and transformation of raw variables to create the features used in the analysis. If we want insight into what is driving a model, then we need to understand how features are related to each other and how the machine learning algorithms are to use those features. This step requires a creative combination of domain expertise and insights obtained from the data exploration step. This is a balancing act of finding and including informative variables while avoiding too many unrelated variables. Informative variables improve our result; unrelated variables introduce unnecessary noise into the model. You also need to generate these features for any new data obtained during scoring. So the generation of these features can only depend on data that is available at the time of scoring. For technical guidance on feature engineering when using various Azure data technologies, see [Feature engineering in the Data Science Process](machine-learning-data-science-create-features.md). 
 
 #### 3.2 Model Training
 
-Depending on type of question you are trying answer, there are multiple modeling algorithms options available. For guidance on choosing the algorithms, see this [article](machine-learning-algorithm-choice.md). NOTE: Though this article is written for Azure Machine Learning, it should be generally useful even when using other frameworks. 
+Depending on type of question you are trying answer, there are many modeling algorithms available. For guidance on choosing the algorithms, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md). Although this article is written for Azure Machine Learning, the guidance it provides is useful for other ML frameworks. 
 
-The process for model training is: 
+The process for model training includes the following steps: 
 
-- The input data for modeling is usually split randomly into a training data set and a test data set.
-- The models are built using the training data set.
-- Evaluate (training and test dataset) a series of competing machine learning algorithms along with the various associated tuning parameters (also known as parameter sweep) that are geared toward answering the question of interest with the data we currently have at hand.
+- Split the input data randomly for modeling into a training data set and a test data set.
+- Build the models using the training data set.
+- Evaluate (training and test dataset) a series of competing machine learning algorithms along with the various associated tuning parameters (known as parameter sweep) that are geared toward answering the question of interest with the current data.
 - Determine the “best” solution to answer the question by comparing the success metric between alternative methods.
  
->[AZURE.NOTE] Avoid leakage: Leakage is caused by including variables that can perfectly predict the target. These are usually variables that may have been used to detect the target initially. As the target is redefined, these dependencies can be hidden from the original definition. To avoid this often requires iterating between building an analysis data set, and creating a model and evaluating the accuracy. Leakage is a major reason data scientists get nervous when they get really good predictive results.
+>[AZURE.NOTE] **Avoid leakage**: Data Leakage can be caused by the inclusion of data from outside the training dataset that allows a model or machine learning algorithm to make unrealistically good predictions. Leakage is a major reason data scientists get nervous when they get really good predictive results. These dependencies can be hard to detect. To avoid this often requires iterating between building an analysis data set, creating a model, and evaluating the accuracy. 
 
-We provide an [Automated Modeling and Reporting tool](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) with TDSP that is able to run through multiple algorithms and parameter sweeps to produce a baseline model. It also produces a baseline modeling report summarizing performance of each model and parameter combination including variable importance. This can further drive further feature engineering. 
+We provide an [Automated Modeling and Reporting tool](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) with TDSP that is able to run through multiple algorithms and parameter sweeps to produce a baseline model. It also produces a baseline modeling report summarizing performance of each model and parameter combination including variable importance. This process is also iterative as it can drive further feature engineering. 
 
 ### Artifacts
 
