@@ -17,23 +17,21 @@
 
 # Relay FAQ
 
-This article answers some frequently-asked questions about Microsoft Azure Relay. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information. The following topics are included:
-
-- [General questions about Azure Relay](#general-questions)
-- [Pricing](#pricing)
-- [Quotas](#quotas)
-- [Subscription and namespace management](#subscription-and-namespace-management)
-- [Troubleshooting](#troubleshooting)
+This article answers some frequently-asked questions about Microsoft Azure Relay. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information.
 
 ## General questions
 
 ### What is Azure Relay?
 
-The [Relay service](relay-what-is-it.md) provides the ability to transparently host and access WCF services from anywhere. In other words, this enables hybrid applications that run in both an Azure datacenter and an on-premises enterprise environment.
+Azure [Relay service](relay-what-is-it.md) facilitates your hybrid applications by enabling you to securely expose services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure.
 
 ### What is a Relay namespace?
 
 A [namespace](Relay-create-namespace-portal.md) provides a scoping container for addressing Relay resources within your application. Creating one is necessary to use Relay and will be one of the first steps in getting started.
+
+### What happened to the previously named Relay service?
+
+The previously named 'Relay' service is now WCF Relay. Anyone currently utilizing the service may continue to use it as normal. Hybrid Connections is an updated version of a service transplanted from BizTalk. BothWCF Relay and Hybrid Connections will continue to be supported looking forward.
 
 ## Pricing
 
@@ -87,7 +85,7 @@ By default, for any cloud service Microsoft sets an aggregate monthly usage quot
 
 While we do reserve the right to disable a customer account that has exceeded its usage quotas in a given month, we will provide e-mail notification and make multiple attempts to contact a customer before taking any action. Customers exceeding these quotas will still be responsible for charges that exceed the quotas.
 
-#### Naming restrictions
+### Naming restrictions
 
 A Relay namespace name can only be between 6-50 characters in length.
 
