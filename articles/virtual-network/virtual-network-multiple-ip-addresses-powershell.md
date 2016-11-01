@@ -279,4 +279,4 @@ Complete the following steps to add additional IP addresses to an existing NIC:
 
 		Set-AzureRmNetworkInterface -NetworkInterface $nic
 
-9. Add the IP addresses you added to the NIC to the VM operating system by following the instructions in [step 9](#os) of the Create a VM with multiple IP addresses section of this article.
+9. Add the IP addresses you added to the NIC to the VM operating system by following the instructions in [step 8](#os) of the Create a VM with multiple IP addresses section of this article.
