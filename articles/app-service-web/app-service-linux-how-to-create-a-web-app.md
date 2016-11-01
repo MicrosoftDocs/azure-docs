@@ -20,7 +20,7 @@
 # Create a Web App with App Service on Linux
 
 ## Use the Azure portal to create your web app
-You can start creating your Web App on Linux from the [Azure portal](https://portal.azure.com) as shown in the following image:
+You can start creating your web app on Linux from the [Azure portal](https://portal.azure.com) as shown in the following image:
 
 ![Start creating a web app on the Azure portal][1]
 
@@ -29,9 +29,9 @@ Next, the **Create blade** opens as shown in the following image:
 ![The Create blade][2]
 
 1. 	Give your web app a name.
-2.	Choose an existing resource group or create a new one. (See available regions in the [limitations section](./app-service-linux-intro.md)).
-3.	Choose an existing app service plan or create a new one (See app service plan notes in the [limitations section](./app-service-linux-intro.md)).
--	Choose the application stack that you intend to use. You can choose between several versions of Node.js and PHP.
+2.	Choose an existing resource group or create a new one. (See available regions in the [limitations section](./app-service-linux-intro.md).)
+3.	Choose an existing Azure App Service plan or create a new one. (See App Service plan notes in the [limitations section](./app-service-linux-intro.md).)
+4.	Choose the application stack that you intend to use. You can choose between several versions of Node.js and PHP.
 
 Once you have created the app, you can change the application stack from the application settings as shown in the following image:
 
