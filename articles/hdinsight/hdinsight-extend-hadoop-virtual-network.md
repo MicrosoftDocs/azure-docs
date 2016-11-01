@@ -97,6 +97,12 @@ Allowing inbound access from port 443 for these addresses will allow you to succ
 
 The following examples demonstrate how to create a new Network Security Group that allows the required addresses, and applies the security group to a subnet within your Virtual Network. These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into.
 
+> [AZURE.IMPORTANT] Note the `priority` value used in these examples; priorities are applied from lowest to highest. Once a rule matches the test criteria and is applied, no more rules are tested. 
+>
+> If you have custom rules that broadly block inbound traffic (such as a __deny all__ rule), you may need to adjust the priority values in these examples or your custom rules so that the rules in the examples occur before the rules that block access.
+>
+> For more information on how rules are applied, see [What is a Network Security Group?](../virtual-network/virtual-networks-nsg.md).
+
 __Using Azure PowerShell__
 
     $vnetName = "Replace with your virtual network name"
