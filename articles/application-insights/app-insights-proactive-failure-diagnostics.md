@@ -15,7 +15,7 @@
 	ms.date="10/31/2016" 
 	ms.author="awills"/>
  
-# Smart failure detection
+# Smart Failure Anomaly Detection
 
 [Application Insights](app-insights-overview.md) automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failures. It detects an unusual rise in the rate of HTTP requests reported as failed. These are usually those with response codes in the 400- and 500- ranges. To help you triage and diagnose the problem, an analysis of the characteristics of failed requests and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up or configuration, as it uses machine learning algorithms to predict the normal failure rate.
 
