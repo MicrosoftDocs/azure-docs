@@ -49,9 +49,9 @@ After your Azure SQL database has been provisioned, you need to carry out the fo
 
 In [Azure portal](https://portal.azure.com/), go to your Azure SQL database ODBC connection string by using the **Show database connection strings** listed as a part of the overview section for your database: 
 
-![ODBCConnectionString](./media/sql-database-develop-cpp-simple/azureportal.png)
+![ODBCConnectionString](./media/sql-database-develop-cplusplus-simple/azureportal.png)
 
-![ODBCConnectionStringProps](./media/sql-database-develop-cpp-simple/dbconnection.png)
+![ODBCConnectionStringProps](./media/sql-database-develop-cplusplus-simple/dbconnection.png)
 
 Copy the contents of the **ODBC (Includes Node.js) [SQL authentication]** string. We use this string later to connect from our C++ ODBC command-line interpreter. This string provides details such as the driver, server, and other database connection parameters. 
 
@@ -59,7 +59,7 @@ Copy the contents of the **ODBC (Includes Node.js) [SQL authentication]** string
 
 Go to the firewall section for your Database server and add your [client IP to the firewall using these steps](sql-database-configure-firewall-settings.md) to make sure we can establish a successful connection: 
 
-![AddyourIPWindow](./media/sql-database-develop-cpp-simple/ip.png)
+![AddyourIPWindow](./media/sql-database-develop-cplusplus-simple/ip.png)
 
 At this point, you have configured your Azure SQL DB and are ready to connect from your C++ code. 
 
@@ -67,17 +67,17 @@ At this point, you have configured your Azure SQL DB and are ready to connect fr
 
 You can easily connect to your [Azure SQL DB using ODBC on Windows using this sample](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample) that builds with Visual Studio. The sample implements an ODBC command-line interpreter that can be used to connect to our Azure SQL DB. This sample takes either a Database source name file (DSN) file as a command-line argument or the verbose connection string that we copied earlier from the Azure portal. Bring up the property page for this project and paste the connection string as a command argument as shown here: 
 
-![DSN Propsfile](./media/sql-database-develop-cpp-simple/props.png)
+![DSN Propsfile](./media/sql-database-develop-cplusplus-simple/props.png)
 
 Make sure you provide the right authentication details for your database as a part of that database connection string. 
 
 Launch the application to build it. You should see the following window validating a successful connection. You can even run some basic SQL commands like **create table** to validate your database connectivity:
 
-![SQL Commands](./media/sql-database-develop-cpp-simple/sqlcommands.png)
+![SQL Commands](./media/sql-database-develop-cplusplus-simple/sqlcommands.png)
 
 Alternatively, you could create a DSN file using the wizard that is launched when no command arguments are provided. We recommend that you try this option as well. You can use this DSN file for automation and protecting your authentication settings: 
 
-![Create DSN File](./media/sql-database-develop-cpp-simple/datasource.png)
+![Create DSN File](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
 Congratulations! You have now successfully connected to Azure SQL using C++ and ODBC on Windows. You can continue reading to do the same for Linux platform as well. 
 
@@ -98,11 +98,11 @@ The following steps install the libraries needed for SQL and ODBC for your distr
 
 Launch Visual Studio 2015. Under Tools -> options -> cross platform -> C++ -> connection manager, add a connection to your Linux box: 
 
-![Tools Options](./media/sql-database-develop-cpp-simple/tools.png)
+![Tools Options](./media/sql-database-develop-cplusplus-simple/tools.png)
 
 After connection over SSH is established, create an Empty project (Linux) template: 
 
-![New project template](./media/sql-database-develop-cpp-simple/template.png)
+![New project template](./media/sql-database-develop-cplusplus-simple/template.png)
 
 You can then add a [new C source file and replace it with this content](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20(linux)/odbcconnector/odbcconnector.c). Using the ODBC APIs SQLAllocHandle, SQLSetConnectAttr, and SQLDriverConnect, you should be able to initialize and establish a connection to your database. 
 Like with the Windows ODBC sample, you need to replace the SQLDriverConnect call with the details from your database connection string parameters copied from the Azure portal previously. 
@@ -115,15 +115,15 @@ Like with the Windows ODBC sample, you need to replace the SQLDriverConnect call
 
 The last thing to do before compiling is to add **odbc** as a library dependency: 
 
-![Adding ODBC as an input library](./media/sql-database-develop-cpp-simple/lib.png)
+![Adding ODBC as an input library](./media/sql-database-develop-cplusplus-simple/lib.png)
 
 To launch your application, bring up the Linux Console from the **Debug** menu: 
 
-![Linux Console](./media/sql-database-develop-cpp-simple/linuxconsole.png)
+![Linux Console](./media/sql-database-develop-cplusplus-simple/linuxconsole.png)
 
 If your connection was successful, you should now see the current database name printed in the Linux Console: 
 
-![Linux Console Window Output](./media/sql-database-develop-cpp-simple/linuxconsolewindow.png)
+![Linux Console Window Output](./media/sql-database-develop-cplusplus-simple/linuxconsolewindow.png)
 
 Congratulations! You have successfully completed the tutorial and can now connect to your Azure SQL DB from C++ on Windows and Linux platforms.
 
