@@ -39,7 +39,9 @@ For more information ADFS, see [Active Directory Federation Services Overview][a
 
 ## Architecture diagram
 
-The following diagram demonstrates the reference architecture discussed in this document. This document focuses on the scenario of implementing a secure hybrid network using ADFS for federated authentication. For more information about the other elements in the diagram not related to ADFS, see [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture], [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access], and [Implementing a secure hybrid network architecture with Active Directory identities in Azure][implementing-active-directory]:
+The following diagram demonstrates the reference architecture discussed in this document. This document focuses on the scenario of implementing a secure hybrid network using ADFS for federated authentication. For more information about the other elements in the diagram not related to ADFS, see [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture], [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access], and [Implementing a secure hybrid network architecture with Active Directory identities in Azure][implementing-active-directory].
+
+> A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Identity - ADFS" page.
 
 [![0]][0]
 
@@ -79,19 +81,7 @@ The following diagram demonstrates the reference architecture discussed in this 
 
 ## Recommendations
 
-This section summarizes recommendations for implementing ADFS in Azure, covering:
-
-- VM recommendations.
-
-- Networking recommendations.
-
-- Availability recommendations.
-
-- Security recommendations.
-
-- ADFS installation recommendations.
-
-- ADFS Trust recommendations.
+Azure offers many different resources and resource types, so this reference architecture can be provisioned many different ways. We have provided an Azure Resource Manager template to install the reference architecture that follows these recommendations. If you choose to create your own reference architecture follow these recommendations unless you have a specific requirement that a recommendation does not fit.
 
 ### VM recommendations
 
@@ -105,7 +95,7 @@ Configure the network interface for each of the VMs hosting ADFS and WAP servers
 
 Do not give the ADFS VMs public IP addresses. For more information, see [Security considerations][security-considerations].
 
-Set the IP address of the preferred and secondary DNS servers for the network interfaces for each ADFS and WAP VM to reference the ADDS VMs (which should be running DNS). This step is necessary to enable each VM to join the domain.
+Set the IP address of the preferred and secondary DNS servers for the network interfaces for each ADFS and WAP VM to reference the ADDS VMs. The ADDS VMS should be running DNS. This step is necessary to enable each VM to join the domain.
 
 ### Availability recommendations
 
@@ -125,19 +115,17 @@ Configure the load balancers for the ADFS VMs and WAP VMs as follows:
 
 - Create a health probe using the TCP protocol rather than HTTPS. You can ping port 443 to verify that an ADFS server is functioning.
 
-	>[AZURE.NOTE] ADFS servers use the Server Name Indication (SNI) protocol, so attempting to probe using an HTTPS endpoint from the load balancer fails.
+    >[AZURE.NOTE] ADFS servers use the Server Name Indication (SNI) protocol, so attempting to probe using an HTTPS endpoint from the load balancer fails.
 
-- Add a DNS *A* record to the domain for the ADFS load balancer. 
-
-	Specify the IP address of the load balancer, and give it a name in the domain (such as adfs.contoso.com). This is the name by which clients and the WAP servers access the ADFS server farm.
+- Add a DNS *A* record to the domain for the ADFS load balancer. Specify the IP address of the load balancer, and give it a name in the domain (such as adfs.contoso.com). This is the name clients and the WAP servers use to access the ADFS server farm.
 
 ### Security recommendations
 
-Prevent direct exposure of the ADFS servers to the Internet. ADFS servers are domain-joined computers that have full authorization to grant security tokens. If an ADFS server is compromised, a malicious user can issue full access tokens to all web applications and to federation servers that are protected by ADFS. If your system must handle requests from external users not necessarily connecting from trusted partner sites, use WAP servers to handle these requests. For more information, see [Where to Place a Federation Server Proxy][where-to-place-an-fs-proxy].
+Prevent direct exposure of the ADFS servers to the Internet. ADFS servers are domain-joined computers that have full authorization to grant security tokens. If an ADFS server is compromised, a malicious user can issue full access tokens to all web applications and to all federation servers that are protected by ADFS. If your system must handle requests from external users not connecting from trusted partner sites, use WAP servers to handle these requests. For more information, see [Where to Place a Federation Server Proxy][where-to-place-an-fs-proxy].
 
 Place ADFS servers and WAP servers in separate subnets with their own firewalls. You can use NSG rules to define firewall rules. If you require more comprehensive protection you can implement an additional security perimeter around servers by using a pair of subnets and NVAs, as described by the document [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access]. Note that all firewalls should allow traffic on port 443 (HTTPS).
 
-Restrict direct login access to the ADFS and WAP servers. Only DevOps staff should be able to connect.
+Restrict direct sign in access to the ADFS and WAP servers. Only DevOps staff should be able to connect.
 
 Do not join the WAP servers to the domain.
 
@@ -147,15 +135,15 @@ The article [Deploying a Federation Server Farm][Deploying_a_federation_server_f
 
 1. Obtain a publicly trusted certificate for performing server authentication. The *subject name* must contain the name by which clients access the federation service. This can be the DNS name registered for the load balancer, for example, *adfs.contoso.com* (avoid using wildcard names such as **.contoso.com*, for security reasons). Use the same certificate on all ADFS server VMs. You can purchase a certificate from a trusted certification authority, but if your organization uses Active Directory Certificate Services you can create your own. 
 
-	The *subject alternative name* is used by the DRS to enable access from external devices. This should be of the form *enterpriseregistration.contoso.com*.
+    The *subject alternative name* is used by the DRS to enable access from external devices. This should be of the form *enterpriseregistration.contoso.com*.
 
-	For more information, see [Obtain and Configure an SSL Certificate for ADFS][adfs_certificates].
+    For more information, see [Obtain and Configure an SSL Certificate for ADFS][adfs_certificates].
 
 2. On the domain controller, generate a new root key for the Key Distribution Service. Set the effective time to be the current time minus 10 hours (this configuration reduces the delay that can occur in distributing and synchronizing keys across the domain). This step is necessary to support creating the group service account that are used to run the ADFS service. The following Powershell command shows an example of how to do this:
 
-	```powershell
-	Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
-	```
+    ```powershell
+    Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
+    ```
 
 3. Add each ADFS server VM to the domain.
 
@@ -189,23 +177,21 @@ The [Microsoft System Center Management Pack for Active Directory Federation Ser
 
 - The performance data that the ADFS performance counters collect. 
 
-- The overall health of the ADFS system and web applications (relying parties), and provides alerts for critical issues and warnings.
-
- 
+- The overall health of the ADFS system and web applications (relying parties), and provides alerts for critical issues and warnings. 
 
 ## Scalability considerations
 
 The following considerations, summarized from the document [Plan your ADFS deployment][plan-your-adfs-deployment], give a starting point for sizing ADFS farms:
 
-- If you have fewer than 1000 users, do not create dedicated ADFS servers, but instead install ADFS on each of the ADDS servers in the cloud (make sure that you have at least two ADDS servers, to maintain availability). Create a single WAP server.
+- If you have fewer than 1000 users, do not create dedicated ADFS servers, but instead install ADFS on each of the ADDS servers in the cloud. Make sure that you have at least two ADDS servers to maintain availability. Create a single WAP server.
 
 - If you have between 1000 and 15000 users, create two dedicated ADFS servers and two dedicated WAP servers.
 
-- If you have between 15000 and 60000 users, create between three and five dedicated ADFS servers, and at least two dedicated WAP servers.
+- If you have between 15000 and 60000 users, create between three and five dedicated ADFS servers and at least two dedicated WAP servers.
 
-These figures assume you are using dual quad-core VMs (Standard D4_v2, or better) to host the servers in Azure.
+These considerations assume that you are using dual quad-core VM (Standard D4_v2, or better) sizes in Azure.
 
-Note that if you are using the Windows Internal Database to store ADFS configuration data, you are limited to eight ADFS servers in the farm. If you anticipate needing more, then use SQL Server. For more information, see [The Role of the ADFS Configuration Database][adfs-configuration-database].
+Note that if you are using the Windows Internal Database to store ADFS configuration data, you are limited to eight ADFS servers in the farm. If you anticipate that you will need more in the future, use SQL Server. For more information, see [The Role of the ADFS Configuration Database][adfs-configuration-database].
 
 ## Availability considerations
 
@@ -215,11 +201,11 @@ You can use either SQL Server or the Windows Internal Database (WID) to hold ADF
 
 DevOps staff should be prepared to perform the following tasks:
 
-- Managing the federation servers (managing the ADFS farm, managing trust policy on the federation servers, and managing the certificates used by the federation services).
+- Managing the federation servers, including managing the ADFS farm, managing trust policy on the federation servers, and managing the certificates used by the federation services.
 
-- Managing the WAP servers (managing the WAP farm, managing the WAP certificates).
+- Managing the WAP servers including managing the WAP farm, managing the WAP certificates.
 
-- Managing web applications (configuring relying parties, authentication methods, and claims mappings).
+- Managing web applications including configuring relying parties, authentication methods, and claims mappings.
 
 - Backing up ADFS components.
 
@@ -230,8 +216,6 @@ ADFS utilizes the HTTPS protocol, so make sure that the NSG rules for the subnet
 Consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
 
 ## Solution deployment
-
-
 
 ## Next steps
 
@@ -272,31 +256,7 @@ Consider using a set of network virtual appliances that logs detailed informatio
 [aad]: https://azure.microsoft.com/documentation/services/active-directory/
 [aadb2c]: https://azure.microsoft.com/documentation/services/active-directory-b2c/
 [adfs-intro]: ../active-directory/active-directory-aadconnect-azure-adfs.md
-[solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/Deploy-ReferenceArchitecture.ps1
-[on-premises-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-identity-adfs/parameters/onpremise
-[on-premises-vnet-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/onpremise/virtualNetwork.parameters.json
-[on-premises-virtualmachines-adds-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/onpremise/virtualMachines-adds.parameters.json
-[on-premises-virtualnetworkgateway-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/onpremise/virtualNetworkGateway.parameters.json
-[on-premises-connection-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/onpremise/connection.parameters.json
-[azure-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-identity-adfs/parameters/azure
-[vnet-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualNetwork.parameters.json
-[dmz-private-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/dmz-private.parameters.json
-[dmz-public-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/dmz-public.parameters.json
-[virtualnetworkgateway-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualNetworkGateway.parameters.json
 [hybrid-azure-on-prem-vpn]: ./guidance-hybrid-network-vpn.md
-[virtualmachines-adds-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualMachines-adds.parameters.json
 [extending-ad-to-azure]: ./guidance-identity-adds-extend-domain.md
-[loadbalancer-adfs-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/loadBalancer-adfs.parameters.json
-[add-adds-domain-controller-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/add-adds-domain-controller.parameters.json
-[gmsa-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/gmsa.parameters.json
-[adfs-farm-first-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/adfs-farm-first.parameters.json
-[adfs-farm-rest-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/adfs-farm-rest.parameters.json
-[adfs-farm-domain-join-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/adfs-farm-domain-join.parameters.json
-[loadBalancer-web-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/loadBalancer-web.parameters.json
-[loadBalancer-biz-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/loadBalancer-biz.parameters.json
-[loadBalancer-data-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/loadBalancer-data.parameters.json
-[virtualMachines-mgmt-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/virtualMachines-mgmt.parameters.json
-[loadBalancer-adfsproxy-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/loadBalancer-adfsproxy.parameters.json
-[adfsproxy-farm-first-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/adfsproxy-farm-first.parameters.json
-[adfsproxy-farm-rest-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/parameters/azure/adfsproxy-farm-rest.parameters.json
+
 [0]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
