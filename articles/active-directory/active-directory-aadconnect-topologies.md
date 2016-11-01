@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="article"
-    ms.date="10/20/2016"
+    ms.date="11/01/2016"
     ms.author="billmath"/>
 
 # Topologies for Azure AD Connect

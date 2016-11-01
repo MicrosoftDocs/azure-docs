@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2016"
+   ms.date="10/29/2016"
    ms.author="seanmck"/>
 
 # Troubleshoot your local development cluster setup

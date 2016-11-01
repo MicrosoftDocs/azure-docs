@@ -35,7 +35,7 @@ In this tutorial, you deploy the following resources and extensions:
 - Microsoft.Insights.VMDiagnosticsSettings
 - Microsoft.Insights/autoscaleSettings
 
-For more information about Resource Manager resources, see [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](../virtual-machines/virtual-machines-linux-compare-deployment-models.md).
+For more information about Resource Manager resources, see [Azure Resource Manager vs. classic deployment](../resource-manager-deployment-model.md).
 
 Before you get started with the steps in this tutorial, [install the Azure CLI](../xplat-cli-install.md).
 

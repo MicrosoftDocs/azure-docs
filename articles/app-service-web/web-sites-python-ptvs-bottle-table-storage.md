@@ -187,9 +187,10 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 
 <!--Link references-->
 [Python Developer Center]: /develop/python/
-[Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
-[documentation]: ../storage-python-how-to-use-table-storage.md
-[How to Use the Table Storage Service from Python]: ../storage-python-how-to-use-table-storage.md
+[Azure Cloud Services]: ../cloud-services-python-ptvs.md
+[documentation]: ../storage/storage-python-how-to-use-table-storage.md
+[How to Use the Table Storage Service from Python]: ../storage/storage-python-how-to-use-table-storage.md
+
 
 <!--External Link references-->
 [Azure Portal]: https://portal.azure.com
