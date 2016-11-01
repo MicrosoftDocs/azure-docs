@@ -29,9 +29,9 @@ Welcome to Azure Site Recovery. Use this article to migrate EC2 instances runnin
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
-## Supported Operating Systems
+## Supported operating systems
 
-Site Recovery can be used to migrate EC2 instances running any of the following Operating Systems
+Site Recovery can be used to migrate EC2 instances running any of the following operating systems
 
 ###Windows(64 bit only)
 - Windows Server 2008 R2 SP1+ (Citrix PV drivers or AWS PV drivers only; **instances running RedHat PV drivers are not supported**) 
