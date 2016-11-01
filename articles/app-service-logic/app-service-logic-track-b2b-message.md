@@ -39,9 +39,9 @@ Select **Monitor** and click **Diagnostics logs**
 ## Supported Tracking Schema
 We are supporting following tracking schema types.  All of them has fixed schemas except Custom type.
 
-* [Custom Tracking Schema](./media/app-service-logic-track-integration-account-custom-tracking-shema.md)   
-* [AS2 Tracking Schema](./media/app-service-logic-track-integration-account-as2-tracking-schemas.md)   
-* [X12 Tracking Schema](./media/app-service-logic-track-integration-account-x12-tracking-schemas.md)  
+* [Custom Tracking Schema](./app-service-logic-track-integration-account-custom-tracking-shema.md)   
+* [AS2 Tracking Schema](./app-service-logic-track-integration-account-as2-tracking-schemas.md)   
+* [X12 Tracking Schema](./app-service-logic-track-integration-account-x12-tracking-schemas.md)  
 
 
 ## Next steps

@@ -75,7 +75,7 @@ Following custom tracking schema is supported
 
 ## Next steps
 
-[Learn more about tracking B2B messages](./media/app-service-logic-track-b2b-message.md "Learn more about tracking B2B messages")   
-[Learn more about AS2 Tracking Schema](./media/app-service-logic-track-integration-account-as2-tracking-shemas.md "Learn about AS2 Schema")   
-[Learn more about X12 Tracking Schema](./media/app-service-logic-track-integration-account-x12-tracking-schemas.md "Learn about X12 Tracking Schema")   
+[Learn more about tracking B2B messages](./app-service-logic-track-b2b-message.md "Learn more about tracking B2B messages")   
+[Learn more about AS2 Tracking Schema](./app-service-logic-track-integration-account-as2-tracking-shemas.md "Learn about AS2 Schema")   
+[Learn more about X12 Tracking Schema](./app-service-logic-track-integration-account-x12-tracking-schemas.md "Learn about X12 Tracking Schema")   
 [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")   
