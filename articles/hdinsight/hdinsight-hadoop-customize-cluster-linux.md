@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/06/2016"
+	ms.date="11/01/2016"
 	ms.author="larryfr"/>
 
 # Customize Linux-based HDInsight clusters using Script Action
@@ -24,6 +24,26 @@ HDInsight provides a configuration option called **Script Action** that invokes 
 > [AZURE.NOTE] The ability to use script actions on an already running cluster is only available for Linux-based HDInsight clusters. For information on using script actions with Windows-based clusters, see [Customize HDInsight clusters using Script Action (Windows)](hdinsight-hadoop-customize-cluster.md).
 
 Script actions can also be published to the Azure Marketplace as an HDInsight application. Some of the examples in this document show how you can install an HDInsight application using script action commands from PowerShell and the .NET SDK. For more information on HDInsight applications, see [Publish HDInsight applications into the Azure Marketplace](hdinsight-apps-publish-applications.md). 
+
+## Permissions
+
+If you are using a domain-joined HDInsight cluster, there are two Ambari permissions that are required when using script actions with the cluster:
+
+* __AMBARI.RUN\_CUSTOM\_COMMAND__: The Ambari Administrator role has this permission by default.
+* __CLUSTER.RUN\_CUSTOM\_COMMAND__: Both the HDInsight Cluster Administrator and Ambari Administrator have this permission by default.
+
+For more information on working with permissions with domain-joined HDInsight, see [Manage domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
+
+## Access control
+
+If you use an Azure subscription where you are not the administrator/owner, such as a company owned subscription, you must verify that your Azure login has at least __Contributor__ access to the Azure resource group that contains the HDInsight cluster.
+
+Additionally, if you are creating an HDInsight cluster, someone with at least __Contributor__ access to the Azure subscription must have previously registered the provider for HDInsight. Provider registration happens when a user with Contributor access to the subscription creates a resource for the first time on the subscription. It can also be accomplished without creating a resource by [registering a provider using REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+
+For more information on working with access management, see the following documents:
+
+* [Get started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md)
+* [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md)
 
 ## Understanding Script Actions
 
@@ -610,6 +630,28 @@ For an example of using the .NET SDK to retrieve script history from a cluster, 
 
 > [AZURE.NOTE] This example also demonstrates how to install an HDInsight application using the .NET SDK.
 
+## Support for open-source software used on HDInsight clusters
+
+The Microsoft Azure HDInsight service is a flexible platform that enables you to build big-data applications in the cloud by using an ecosystem of open-source technologies formed around Hadoop. Microsoft Azure provides a general level of support for open-source technologies, as discussed in the **Support Scope** section of the [Azure Support FAQ website](https://azure.microsoft.com/support/faq/). The HDInsight service provides an additional level of support for some of the components, as described below.
+
+There are two types of open-source components that are available in the HDInsight service:
+
+- **Built-in components** - These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, YARN ResourceManager, the Hive query language (HiveQL), and the Mahout library belong to this category. A full list of cluster components is available in [What's new in the Hadoop cluster versions provided by HDInsight?](hdinsight-component-versioning.md).
+
+- **Custom components** - You, as a user of the cluster, can install or use in your workload any component available in the community or created by you.
+
+> [AZURE.WARNING] Components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
+>
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
+
+The HDInsight service provides several ways to use custom components. Regardless of how a component is used or installed on the cluster, the same level of support applies. Below is a list of the most common ways that custom components can be used on HDInsight clusters:
+
+1. Job submission - Hadoop or other types of jobs that execute or use custom components can be submitted to the cluster.
+
+2. Cluster customization - During cluster creation, you can specify additional settings and custom components that will be installed on the cluster nodes.
+
+3. Samples - For popular custom components, Microsoft and others may provide samples of how these components can be used on the HDInsight clusters. These samples are provided without support.
+
 ## Troubleshooting
 
 You can use Ambari web UI to view information logged by script actions. If the script was used during cluster creation, and cluster creation failed due to an error in the script, the logs are also available in the default storage account associated with the cluster. This section provides information on how to retrieve the logs using both these options.
@@ -657,30 +699,9 @@ If the cluster creation failed due to an error in script action, the script acti
 
 * Uploading log files to the default container can take up to 5 mins, especially for large clusters. So, if you want to access the logs, you should not immediately delete the cluster if a script action fails.
 
+### Ambari watchdog
 
-## Support for open-source software used on HDInsight clusters
-
-The Microsoft Azure HDInsight service is a flexible platform that enables you to build big-data applications in the cloud by using an ecosystem of open-source technologies formed around Hadoop. Microsoft Azure provides a general level of support for open-source technologies, as discussed in the **Support Scope** section of the [Azure Support FAQ website](https://azure.microsoft.com/support/faq/). The HDInsight service provides an additional level of support for some of the components, as described below.
-
-There are two types of open-source components that are available in the HDInsight service:
-
-- **Built-in components** - These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, YARN ResourceManager, the Hive query language (HiveQL), and the Mahout library belong to this category. A full list of cluster components is available in [What's new in the Hadoop cluster versions provided by HDInsight?](hdinsight-component-versioning.md).
-
-- **Custom components** - You, as a user of the cluster, can install or use in your workload any component available in the community or created by you.
-
-> [AZURE.WARNING] Components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
->
-> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
-
-The HDInsight service provides several ways to use custom components. Regardless of how a component is used or installed on the cluster, the same level of support applies. Below is a list of the most common ways that custom components can be used on HDInsight clusters:
-
-1. Job submission - Hadoop or other types of jobs that execute or use custom components can be submitted to the cluster.
-
-2. Cluster customization - During cluster creation, you can specify additional settings and custom components that will be installed on the cluster nodes.
-
-3. Samples - For popular custom components, Microsoft and others may provide samples of how these components can be used on the HDInsight clusters. These samples are provided without support.
-
-##Troubleshooting
+> [AZURE.WARNING] Do not change the password for the Ambari Watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password for this account will break the ability to run new script actions on the HDInsight cluster.
 
 ###History doesn't show scripts used during cluster creation
 
