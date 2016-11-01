@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="AS2 tracking schema | Microsoft Azure" 
+	pageTitle="as2 tracking schema | Microsoft Azure" 
 	description="How to track AS2 messages" 
 	authors="padmavc" 
 	manager="erikre" 
@@ -138,6 +138,6 @@ Following are the supported AS2 tracking schemas
 [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")    
 [Learn more about tracking B2B messages](./media/app-service-logic-track-b2b-message.md "Learn more about tracking B2B messages")   
 [Learn more about B2B Custom Tracking Schema](./media/app-service-logic-track-integration-account-custom-tracking-shema.md "Learn about Custom Schema")   
-[Learn more about X12 Tracking Schema](./media/app-service-logic-track-integration-account-x12-tracking-schema.md "Learn about X12 Tracking Schema")   
+[Learn more about X12 Tracking Schema](./media/app-service-logic-track-integration-account-x12-tracking-schemas.md "Learn about X12 Tracking Schema")   
 [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
 

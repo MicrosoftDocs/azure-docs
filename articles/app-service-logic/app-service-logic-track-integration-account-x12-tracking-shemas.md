@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="X12 tracking schemas | Microsoft Azure" 
+	pageTitle="x12 tracking schemas | Microsoft Azure" 
 	description="How to X12 messages" 
 	authors="padmavc" 
 	manager="erikre" 
@@ -21,11 +21,11 @@
 Following are the supported X12 tracking schemas
 
 * X12 Transaction Set Tracking Schema
-* X12 Transaction Set Acknowledgment Tracking Schema
+* X12 Transaction Set acknowledgement Tracking Schema
 * X12 Interchange Tracking Schema
-* X12 Interchange Acknowledgment Tracking Schema
+* X12 Interchange acknowledgement Tracking Schema
 * X12 Functional Group Tracking Schema
-* X12 Functional Group Acknowledgment Tracking Schema
+* X12 Functional Group acknowledgement Tracking Schema
 
 ## X12 Transaction Set Tracking Schema
 ````java script
@@ -79,7 +79,7 @@ Following are the supported X12 tracking schemas
 | segmentsCount | Optional, int.  It indicates the number of segments in the X12 transaction set |
 |
 
-## X12 Transaction Set Acknowledgment Tracking Schema
+## X12 Transaction Set Acknowledgement Tracking Schema
 ````java script
 
         {
@@ -134,12 +134,12 @@ Following are the supported X12 tracking schemas
 | respondingFunctionalGroupId | Optional, string. It contains the responding functional group id, that maps to AK101 in the acknowledgement |
 | respondingtransactionSetControlNumber | Optional, string.  It contains the responding transaction set control number |
 | respondingTransactionSetId | Optional, string.  It contains the responding transaction set id, that maps to AK201 in the acknowledgement |
-| statusCode | Mandatory, boolean.  It contains the transaction set acknowledgment status code |
-| segmentsCount | Mandatory, string.  It contains the acknowledgment status code.  The allowed values are Accepted or Rejected or AccpetedWithErrros |
-| processingStatus | Mandatory, string.  It contains the processing status of the acknowledgment.  The allowed values are Received or Generated or Sent |
+| statusCode | Mandatory, boolean.  It contains the transaction set acknowledgement status code |
+| segmentsCount | Mandatory, string.  It contains the acknowledgement status code.  The allowed values are Accepted or Rejected or AccpetedWithErrros |
+| processingStatus | Mandatory, string.  It contains the processing status of the acknowledgement.  The allowed values are Received or Generated or Sent |
 | CorrelationMessageId | Optional, string.  It contains the correlation message id.  The correlation id is combination of {AgreementName}_{GroupControlNumber}_{TransactionSetControlNumber} |
 | isMessageFailed | Mandatory, boolean.  Indicates that whether X12 message either succeeded or failed |
-| ak2Segment | Optional, string. It contains the ak2 segment. The ak2 segment contains an acknowledgment for a transaction set within the received functional group |
+| ak2Segment | Optional, string. It contains the ak2 segment. The ak2 segment contains an acknowledgement for a transaction set within the received functional group |
 | ak3Segment | Optional, string. It contains the ak3 segment.  The ak3 segment reports errors in a data segment |
 | ak5Segment | Optional, string. It contains the ak5 segment.  The ak5 segment reports whether the transaction set identified in the AK2 segment is accepted or rejected and why  |
 |
@@ -192,13 +192,13 @@ Following are the supported X12 tracking schemas
 | isa09 | Optional, string.  It contains X12 docuemnt interchange Date |
 | isa10 | Optional, string. It contains X12 docuemnt interchange Time |
 | isa11 | Optional, string. It contains X12 interchange Control Standards identifier |
-| isa12 | Optional, string.  It contians X12 interchange Control Version Number |
-| isa14 | Optional, string.  It contains X12 acknowledgment is requested  |
+| isa12 | Optional, string.  It contains X12 interchange Control Version Number |
+| isa14 | Optional, string.  It contains X12 acknowledgement is requested  |
 | isa15 | Optional, string.  It contains indicator for test or production |
-| isa16 | Optional, string. It contians the element seprator |
+| isa16 | Optional, string. It contains the element seprator |
 |
 
-## X12 Interchange Acknowledgment Tracking Schema
+## X12 Interchange Acknowledgement Tracking Schema
 ````java script
 
         {
@@ -241,11 +241,11 @@ Following are the supported X12 tracking schemas
 | isaSegment | Optional, string.  It contains the ISA segment for the Technical Acknowledgement.  This is populated for technical acknowledgement received from partners | 
 | respondingInterchangeControlNumber | Optional, string.  It contains the interchange control number for the Technical Acknowledgement.  This is populated for technical acknowledgement received from partners | 
 | isMessageFailed | Mandatory, boolean.  Indicates that whether X12 message either succeeded or failed | 
-| statusCode | Mandatory, string.  It contains the interchange acknowledgment status code.  The allowed values are Accepted/Rejected/AccpetedWithErrros | 
-| processingStatus | Mandatory, string.  It contains the acknowledgment status.  The allowed values are Received/Generated/Sent | 
+| statusCode | Mandatory, string.  It contains the interchange acknowledgement status code.  The allowed values are Accepted/Rejected/AccpetedWithErrros | 
+| processingStatus | Mandatory, string.  It contains the acknowledgement status.  The allowed values are Received/Generated/Sent | 
 | ta102 | Optional, string. It contains interchange date | 
 | ta103 | Optional, string. It contains interchange time | 
-| ta105 | Optional, string. It contians interchange note code |
+| ta105 | Optional, string. It contains interchange note code |
 |
 
 
@@ -298,7 +298,7 @@ Following are the supported X12 tracking schemas
 | isTechnicalAcknowledgmentExpected | Mandatory, boolean.  It indicates whether the technical acknowledgement is either configured or not configured in the X12 agreement |
 | isFunctionalAcknowledgmentExpected | Mandatory, boolean.  It indicates whether the functional acknowledgement is either configured or not configured in the X12 agreement |
 | isMessageFailed | Mandatory, boolean.  Indicates that whether X12 message either succeeded or failed |
-| gs01 | Optional, string. It contians the functional identifier code |
+| gs01 | Optional, string. It contains the functional identifier code |
 | gs02 | Optional, string. It contains the application sender's code |
 | gs03 | Optional, string. It contains application receiver's code |
 | gs04 | Optional, string. It contains the functional group date |
@@ -350,15 +350,15 @@ Following are the supported X12 tracking schemas
 | receiverIdentifier | Mandatory, string.  It contains the receive partner identifier |
 | agreementName | Optional, string.  Name of the X12 agreement to which the messages are resolved |
 | direction | Required, string.  It indicates the direction of the message flow, either receive or send |
-| interchangeControlNumber | Optional - Interchange control number of the TA - The value populate only in cases where it is on send side and when we receive a technical ack, but not when we generate on receive side. - type string |
-| functionalGroupControlNumber | Optional - functional group control number of the TA - The value populate only in cases where it is on send side and when we receive a technical ack, but not when we generate on receive side. - type string |
+| interchangeControlNumber | Optional, string. It contains the interchange control number. The value populates for send side when a technical acknowledgement received from partners |
+| functionalGroupControlNumber | Optional, string. It contains the functional group control number of the technical acknowledgement. The value populates for send side when a technical acknowledgement received from partners |
 | isaSegment | Optional - Same as above interchange control number gets populated only in specific cases. - type string |
 | gsSegment | Optional - Same as above functional group control number gets populated only in specific cases. - type string |
 | respondingfunctionalGroupControlNumber | Optional - control number of the original functional group - type string |
 | respondingFunctionalGroupId | Optional - Maps to AK101 in the ack - functional group Id - type string |
 | isMessageFailed | Mandatory, boolean.  Indicates that whether X12 message either succeeded or failed |
-| statusCode | Mandatory, string.  It contains the acknowledgment status code. The allowed values are Accepted/Rejected/AccpetedWithErrros |
-| processingStatus | Mandatory, string.  It contains the processing status of the acknowledgment. The allowed Values are Received/Generated/Sent |
+| statusCode | Mandatory, string.  It contains the acknowledgement status code. The allowed values are Accepted/Rejected/AccpetedWithErrros |
+| processingStatus | Mandatory, string.  It contains the processing status of the acknowledgement. The allowed Values are Received/Generated/Sent |
 | ak903 | Optional, string. It contains the number of the transaction sets received |
 | ak904 | Optional, string. It contains the number of transaction sets accepted in the identified functional group |
 | ak9Segment | Optional, string.  Ak9 segment indicates whether the functional group identified in the AK1 segment is accepted or rejected and why |
@@ -370,5 +370,5 @@ Following are the supported X12 tracking schemas
 
 [Learn more about tracking B2B messages](./media/app-service-logic-track-b2b-message.md "Learn more about tracking B2B messages")   
 [Learn more about Custom Tracking Schema](./media/app-service-logic-track-integration-account-custom-tracking-shema.md "Learn about Custom Schema")   
-[Learn more about AS2 Tracking Schema](./media/app-service-logic-track-integration-account-as2-tracking-shema.md "Learn about AS2 Schema")   
+[Learn more about AS2 Tracking Schema](./media/app-service-logic-track-integration-account-as2-tracking-shemas.md "Learn about AS2 Schema")   
 [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
