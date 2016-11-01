@@ -17,11 +17,11 @@
 
 # Use PowerShell to set alerts in Application Insights
 
-You can automate the configuration of [alerts](app-insights-alerts.md) in [Visual Studio Application Insights](app-insights-overview.md).
+You can automate the configuration of [alerts](app-insights-alerts.md) in [Application Insights](app-insights-overview.md).
 
 In addition, you can [set webhooks to automate your response to an alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
-> [AZURE.NOTE] If you want to create resources and alerts at the same time, consider [using an ARM template](app-insights-powershell.md).
+> [AZURE.NOTE] If you want to create resources and alerts at the same time, consider [using an Azure Resource Manager template](app-insights-powershell.md).
 
 ## One-time setup
 

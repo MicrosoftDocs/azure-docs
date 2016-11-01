@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create Application Insights resource, alert and availability tests in PowerShell | Microsoft Azure" 
-	description="Automate management of Application Insights resources using an ARM template." 
+	description="Automate management of Application Insights resources using an Azure Resource Manager template." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
