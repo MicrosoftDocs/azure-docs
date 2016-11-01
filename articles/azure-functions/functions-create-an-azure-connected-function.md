@@ -41,11 +41,11 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
 
 4. Click the **Create** button to create the function.
 
-![Add a new trigger timer functions](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
+ ![Add a new trigger timer functions](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
 
 5. Verify that the function works by viewing activity in the log. You might have to click the **Logs** link in the upper right corner to display the log pane.
 
-![Verify the function works by viewing the log](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+ ![Verify the function works by viewing the log](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
 
 ### Add a message queue
 
@@ -59,9 +59,9 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
 
 5. Enter **functions-bindings** in the **Queue name** text box.
 
-6. Click **Save**  
+6. Click **Save**.  
 
-![Add a new trigger timer functions](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+ ![Add a new trigger timer functions](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
 
 ### Write to the message queue
 
@@ -89,9 +89,9 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
 
     ```
 
-This code creates a **myQueueItem** and sets its **time** property to the current timeStamp. It then adds the new queue item to the context's myQueue binding.
+ This code creates a **myQueueItem** and sets its **time** property to the current timeStamp. It then adds the new queue item to the context's myQueue binding.
 
-3. Click **Save and Run**
+3. Click **Save and Run**.
 
 4. Verify the code works by viewing the queue in Visual Studio.
 
@@ -111,7 +111,7 @@ This code creates a **myQueueItem** and sets its **time** property to the curren
 
 5. Verify the new function works by viewing the both the function's log and Visual Studio for updates. The function's log will show that the function is running, as well as items being dequeued. Since the function is bound to the **functions-bindings** output queue as an input trigger, refreshing the **functions-bindings** Queue in Visual Studio should reveal that the items are gone, as they have been dequeued.   
 
-![Add a new output queue timer functions](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png)   
+ ![Add a new output queue timer functions](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png)   
 
 ### Modify the queue item type from JSON to object
 
@@ -151,7 +151,7 @@ This code creates a **myQueueItem** and sets its **time** property to the curren
 
 	```
 
-This code adds two clases, **TableItem** and **QItem**, that you will use to read and write to queues. Additionally, the **Run** function has been modified to accept the **QItem** and **TraceWriter** parameter, instead of a **string** and a **TraceWriter**. 
+ This code adds two clases, **TableItem** and **QItem**, that you will use to read and write to queues. Additionally, the **Run** function has been modified to accept the **QItem** and **TraceWriter** parameter, instead of a **string** and a **TraceWriter**. 
 
 3. Click the **Save** button.
 
@@ -174,7 +174,7 @@ Now that you have the queues working together, it's time to add in an Azure tabl
 
 7. Click **Save**.
 
-8. Go to the **Develop** tab
+8. Go to the **Develop** tab.
 
 9. Create a **TableItem** class to represent an Azure table, and modify the Run function to accept the newly created TableItem object. Notice that you must use the **PartitionKey** and **RowKey** properties in order for it to work.
 
@@ -204,7 +204,7 @@ Now that you have the queues working together, it's time to add in an Azure tabl
     }
 	```
 
-10. Click **Save**
+10. Click **Save**.
 
 11. Verify that the code works by viewing the function's logs as well as in Visual Studio. To verify in Visual Studio, use the **Cloud Explorer** to navigate to the **functionbindings** Azure Table and verify there are rows in it.
 
