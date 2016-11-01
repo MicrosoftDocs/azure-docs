@@ -101,8 +101,8 @@ In addition to making the call, **makecall.php** displays some call metadata (ex
 ## Run the application
 The next step is to deploy your application to Azure Websites. The following articles contain the information for creating a website and deploying your code with Git, FTP, or WebMatrix (though not all information in each article is relevant):
 
-* [Create a PHP-MySQL Azure Web Site and deploy using Git][website-git]
-* [Create a PHP-MySQL Azure Web Site and Deploy Using FTP][website-ftp]
+* [Create a PHP-MySQL Azure Web Site and deploy using Git](./app-service-web/web-sites-php-mysql-deploy-use-git.md)
+* [Create a PHP-MySQL Azure Web Site and Deploy Using FTP](./app-service-web/web-sites-php-mysql-deploy-use-ftp.md)
 
 ## Next steps
 This code was provided to show you basic functionality using Twilio in PHP on Azure. Before deploying to Azure in production, you may want to add more error handling or other features. For example:
