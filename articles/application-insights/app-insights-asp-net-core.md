@@ -51,7 +51,7 @@ Views in the portal fall into two main categories:
 ## Get more telemetry
 
 * [Add telemetry to your web pages](app-insights-javascript.md) to monitor page usage and performance.
-* [Monitor dependencies](app-insights-dependencies.md) to see if REST, SQL or other external resources are slowing you down.
+* [Monitor dependencies](app-insights-asp-net-dependencies.md) to see if REST, SQL or other external resources are slowing you down.
 * [Use the API](app-insights-api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
 * [Availability tests](app-insights-monitor-web-app-availability.md) check your app constantly from around the world. 
 

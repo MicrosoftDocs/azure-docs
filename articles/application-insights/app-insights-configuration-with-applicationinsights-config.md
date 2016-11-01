@@ -44,7 +44,7 @@ There's a node in the configuration file for each module. To disable a module, d
 
 ### Dependency Tracking
 
-[Dependency tracking](app-insights-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension](app-insights-azure-web-apps.md).
+[Dependency tracking](app-insights-asp-net-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension](app-insights-azure-web-apps.md).
 
 You can also write your own dependency tracking code using the [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency).
 
