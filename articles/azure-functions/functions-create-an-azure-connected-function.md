@@ -40,11 +40,11 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
 
 4. Click the **Create** button to create the function.
 
- ![Add a trigger timer functions](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
+  ![Add a trigger timer functions](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
 
 5. Verify that the function works by viewing activity in the log. You might have to click the **Logs** link in the upper right corner to display the log pane.
 
- ![Verify the function works by viewing the log](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+  ![Verify the function works by viewing the log](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
 
 ### Add a message queue
 
@@ -60,7 +60,7 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
 
 6. Click **Save**.  
 
- ![Add a trigger timer functions](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+  ![Add a trigger timer functions](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
 
 ### Write to the message queue
 
@@ -88,7 +88,7 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
 
     ```
 
- This code creates a **myQueueItem** and sets its **time** property to the current timeStamp. It then adds the new queue item to the context's myQueue binding.
+  This code creates a **myQueueItem** and sets its **time** property to the current timeStamp. It then adds the new queue item to the context's myQueue binding.
 
 3. Click **Save and Run**.
 
@@ -110,7 +110,7 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
 
 5. Verify the new function works by viewing both the function's log and Visual Studio for updates. The function's log shows that the function is running and items are dequeued. Since the function is bound to the **functions-bindings** output queue as an input trigger, refreshing the **functions-bindings** Queue in Visual Studio should reveal that the items are gone. They have been dequeued.   
 
- ![Add an output queue timer functions](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png)   
+  ![Add an output queue timer functions](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png)   
 
 ### Modify the queue item type from JSON to object
 
@@ -150,11 +150,11 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
 
 	```
 
- This code adds two classes, **TableItem** and **QItem**, that you use to read and write to queues. Additionally, the **Run** function has been modified to accept the **QItem** and **TraceWriter** parameter, instead of a **string** and a **TraceWriter**. 
+  This code adds two classes, **TableItem** and **QItem**, that you use to read and write to queues. Additionally, the **Run** function has been modified to accept the **QItem** and **TraceWriter** parameter, instead of a **string** and a **TraceWriter**. 
 
-3. Click the **Save** button.
+2. Click the **Save** button.
 
-6. Verify the code works by checking the log. Notice that Azure functions automatically serialize and deserialize the object for you, making it easy to access the queue in an object-oriented fashion to pass around data. 
+3. Verify the code works by checking the log. Notice that Azure functions automatically serialize and deserialize the object for you, making it easy to access the queue in an object-oriented fashion to pass around data. 
 
 
 ## Store messages in an Azure Table
