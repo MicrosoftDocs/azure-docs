@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/16/2016"
+	ms.date="10/31/2016"
 	ms.author="markusvi"/>
 
 # Azure Active Directory FAQ
