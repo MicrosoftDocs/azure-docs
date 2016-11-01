@@ -77,11 +77,11 @@ Following are the supported AS2 tracking schemas
 | correlationMessageId | Optional, string. It contains AS2messageid to correlate messages with MDNs |
 | incomingHeaders | Optional, dictinaryy of Jtoken.  It contains incoming AS2 message header details |
 | outgoingHeaders | Optional, dictionary of Jtoken.  It contains outgoing AS2 message header details |
-| isNrrEnabled | Mandatory - type boolean - default value if not known |
-| isMdnExpected | Mandatory - type boolean - default value if not known |
-| mdnType | Mandatory - Allowed values - NotConfigured,Sync,Async |
+| isNrrEnabled | Mandatory, boolean.  Use default value if the value is not known |
+| isMdnExpected | Mandatory, boolean. Use default value if the value is not known |
+| mdnType | Mandatory, string. The allowed values are NotConfigured or Sync or Async |
 |
-
+   
 
 ## AS2 MDN Tracking Schema
 ````java script
