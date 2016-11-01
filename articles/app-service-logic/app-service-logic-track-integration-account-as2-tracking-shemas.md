@@ -126,8 +126,8 @@ Following are the supported AS2 tracking schemas
 | statusCode | Required, string.  The allowed values are Accepted or Rejected or AcceptedWithErrros |
 | micVerificationStatus | Required, string.  The allowed values are NotApplicable or Succeeded or Failed |
 | correlationMessageId | Optional, string.  It indicates the correlation id.  The correlation id is the original messaged Id (messages id of the message for which MDN is configured) |
-| incomingHeaders | Optional - Dictionary of JTokens |
-| outgoingHeaders | Optional - Dictionary of JTokens |
+| incomingHeaders | Optional, dictinaryy of Jtoken.  It indicates incoming message header details |
+| outgoingHeaders | Optional, dictionary of Jtoken.  It indicates outgoing message header details |
 
 
 
