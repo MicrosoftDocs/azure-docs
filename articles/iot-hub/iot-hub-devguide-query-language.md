@@ -25,9 +25,9 @@ IoT Hub provides a powerful SQL-like language to retrieve information regarding 
 * An introduction to the major features of IoT Hub's query language, and
 * The detailed description of the language.
 
-## Getting started with twin queries
+## Getting started with device twin queries
 
-[Device twins][lnk-twins] can contain arbitrary JSON objects as both tags and properties. IoT Hub allows to query device twins as a single JSON document containing all twin information.
+[Device twins][lnk-twins] can contain arbitrary JSON objects as both tags and properties. IoT Hub allows to query device twins as a single JSON document containing all device twin information.
 Assume, for instance, that your IoT hub twins have the following structure:
 
         {                                                                      
@@ -74,24 +74,24 @@ So the following query retrieves the whole set of device twins:
 
 > [AZURE.NOTE] [IoT Hub SDKs][lnk-hub-sdks] support paging of large results.
 
-IoT Hub allows to retrieve twins filtering with arbitrary conditions. For instance,
+IoT Hub allows you to retrieve device twins filtering with arbitrary conditions. For instance,
 
         SELECT * FROM devices
         WHERE tags.location.region = 'US'
 
-retrieves the twins with the **location.region** tag set to **US**.
-Boolean operators and arithmetic comparisons are supported as well, e.g.
+retrieves the device twins with the **location.region** tag set to **US**.
+Boolean operators and arithmetic comparisons are supported as well, for example
 
         SELECT * FROM devices
         WHERE tags.location.region = 'US'
             AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 
-retrieves all twins located in the US configured to send telemetry less often than every minute. As a convenience, it is also possible to use array constants in conjunction with the **IN** and **NIN** (not in) operators. For instance,
+retrieves all device twins located in the US configured to send telemetry less often than every minute. As a convenience, it is also possible to use array constants in conjunction with the **IN** and **NIN** (not in) operators. For instance,
 
         SELECT * FROM devices
         WHERE property.reported.connectivity IN ['wired', 'wifi']
 
-retrieves all twins that reported wifi or wired connectivity. Refer to the [WHERE clause][lnk-query-where] section for the full reference of the filtering capabilities.
+retrieves all device twins that reported wifi or wired connectivity. Refer to the [WHERE clause][lnk-query-where] section for the full reference of the filtering capabilities.
 
 Grouping and aggregations are also supported. For instance,
 
@@ -135,7 +135,7 @@ Here is an example of a simple query:
         }
 
 Note how the **query** object is instantiated with a page size (up to 1000), and then multiple pages can be retrieved by calling the **GetNextAsTwinAsync** methods multiple times.
-It is important to note that the query object exposes multiple **Next\***, depending on the deserialization option required by the query, i.e. twin or job objects, or plain Json to be used when using projections.
+It is important to note that the query object exposes multiple **Next\***, depending on the deserialization option required by the query, such as device twin or job objects, or plain Json to be used when using projections.
 
 ### Node example
 
@@ -160,11 +160,11 @@ Here is an example of a simple query:
         query.nextAsTwin(onResults);
 
 Note how the **query** object is instantiated with a page size (up to 1000), and then multiple pages can be retrieved by calling the **nextAsTwin** methods multiple times.
-It is important to note that the query object exposes multiple **next\***, depending on the deserialization option required by the query, i.e. twin or job objects, or plain Json to be used when using projections.
+It is important to note that the query object exposes multiple **next\***, depending on the deserialization option required by the query, such as device twin or job objects, or plain Json to be used when using projections.
 
 ### Limitations
 
-Currently, projections are only supported when using aggregations, i.e. non-aggregated queries can only use `SELECT *`. Also, aggregation are only supported in conjunction with grouping.
+Currently, projections are only supported when using aggregations, therfore non-aggregated queries can only use `SELECT *`. Also, aggregation are only supported in conjunction with grouping.
 
 ## Getting started with jobs queries
 
@@ -215,7 +215,7 @@ For instance, the following query:
             AND devices.jobs.status = 'completed'
             AND devices.jobs.createdTimeUtc > '2016-09-01'
 
-retrieves all completed twin update jobs for device **myDeviceId** that were created after September 2016.
+retrieves all completed device twin update jobs for device **myDeviceId** that were created after September 2016.
 
 It is also possible to retrieve the per-device outcomes of a single job.
 
@@ -225,13 +225,13 @@ It is also possible to retrieve the per-device outcomes of a single job.
 ### Limitations
 Currently, queries on **devices.jobs** do not support:
 
-* Projections, i.e. only `SELECT *` is possible;
+* Projections, therefore only `SELECT *` is possible;
 * Conditions that refer to the device twin in addition to job properties as shown above;
-* Peforming aggregations, e.g. count, avg, group by.
+* Peforming aggregations, such as count, avg, group by.
 
 ## Basics of an IoT Hub query
 
-Every IoT Hub query consists of a SELECT and FROM clauses and by optional WHERE and GROUP BY clauses. Every query is run on a collection of JSON documents, e.g. device twins. The FROM clause indicates the document collection to be iterated on (**devices** or **devices.jobs**). Then, the filter in the WHERE clause is applied. In the case of aggregations, the results of this step are grouped as specified in the GROUP BY clause and, for each group, a row is generated as specified in the SELECT clause.
+Every IoT Hub query consists of a SELECT and FROM clauses and by optional WHERE and GROUP BY clauses. Every query is run on a collection of JSON documents, for example device twins. The FROM clause indicates the document collection to be iterated on (**devices** or **devices.jobs**). Then, the filter in the WHERE clause is applied. In the case of aggregations, the results of this step are grouped as specified in the GROUP BY clause and, for each group, a row is generated as specified in the SELECT clause.
 
         SELECT <select_list>
         FROM <from_specification>
@@ -273,7 +273,7 @@ This is the grammar of the SELECT clause:
             | min(<projection_element>) | min()
             | max(<projection_element>) | max()
 
-where **attribute_name** refers to any property of the JSON document in the FROM collection. Some examples of SELECT clauses can be found in the [Getting started with twin queries][lnk-query-getstarted] section.
+where **attribute_name** refers to any property of the JSON document in the FROM collection. Some examples of SELECT clauses can be found in the [Getting started with device twin queries][lnk-query-getstarted] section.
 
 Currently, selection clauses different than **SELECT \*** are only supported in aggregate queries on twins.
 
@@ -303,10 +303,10 @@ Currently, the GROUP BY clause is only supported when querying twins.
 
 At a high level, an *expression*:
 
-* Evaluates to an instance of a JSON type (i.e. Boolean, number, string, array, or object), and
+* Evaluates to an instance of a JSON type (such as Boolean, number, string, array, or object), and
 * Is defined by manipulating data coming from the device JSON document and constants using built-in operators and functions.
 
-*Conditions* are expressions that evaluates to a Boolean, i.e. any constant different than Boolean **true** is considered as **false** (incl. **null**, **undefined**, any object or array instance, any string, and clearly the Boolean **false**).
+*Conditions* are expressions that evaluates to a Boolean, therefore any constant different than Boolean **true** is considered as **false** (including **null**, **undefined**, any object or array instance, any string, and clearly the Boolean **false**).
 
 The syntax for expressions is:
 

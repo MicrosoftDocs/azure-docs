@@ -58,12 +58,14 @@ You don't have to set any thresholds or configure rules. Machine learning and da
  * Not at present. Currently, we analyze request response time, dependency response time and page load time. Analysis of additional metrics is coming soon. 
 * *Can I create my own anomaly detection rules?*
 
- Not yet. But you can:
- * [Set up alerts](app-insights-alerts.md) that tell you when a metric crosses a threshold.)
- * [Export telemetry](app-insights-export-telemetry.md) to a [database](app-insights-code-sample-export-sql-stream-analytics.md) or [to PowerBI](app-insights-export-power-bi.md) or [other](app-insights-code-sample-export-telemetry-sql-database.md) tools, where you can analyze it yourself.
+ * Not yet. But you can:
+
+  * [Set up alerts](app-insights-alerts.md) that tell you when a metric crosses a threshold.
+  * [Export telemetry](app-insights-export-telemetry.md) to a [database](app-insights-code-sample-export-sql-stream-analytics.md) or [to PowerBI](app-insights-export-power-bi.md) or [other](app-insights-code-sample-export-telemetry-sql-database.md) tools, where you can analyze it yourself.
+
 * *How often is the analysis performed?*
  * We run the analysis daily on the telemetry from the previous day.
-* *So does this replace [metric alerts](app-insights-alerts.md)?
+* *So does this replace [metric alerts](app-insights-alerts.md)?*
  * No.  We don't commit to detect every behaviour that you might consider abnormal.
 
 ## How to investigate the issues raised
@@ -74,7 +76,8 @@ Open the diagnostic report either from the email or from the anomalies list.
 
 
 * **When** shows the time the issue was detected.
-* **What** describes
+* **What** describes:
+
  * The problem that was detected;
  * The characteristics of the set of events that we found displayed the problem behavior.
 * The table compares the poorly-performing set with the average behavior of all other events.

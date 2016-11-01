@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2016" 
+	ms.date="11/01/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -63,25 +63,44 @@ For now, the services that enable moving to both a new resource group and subscr
 - App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
 - Automation
 - Batch
+- Bing Maps
+- BizTalk Services
 - CDN
 - Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
+- Cognitive Services
+- Container Service
+- Content Moderator
+- Data Catalog
 - Data Factory
+- Data Lake Analytics
+- Data Lake Store
+- DevTest Lab
 - DNS
 - DocumentDB
+- Event Hubs
 - HDInsight clusters
 - IoT Hubs
 - Key Vault 
+- Load Balancers
+- Logic Apps
+- Machine Learning
 - Media Services
 - Mobile Engagement
 - Notification Hubs
 - Operational Insights
+- Operations Management
+- Power BI
 - Redis Cache
 - Scheduler
 - Search
+- Server Management
 - Service Bus
+- Service Fabric
 - Storage
 - Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
+- Stream Analytics
 - SQL Database server - The database and server must reside in the same resource group. When you move a SQL server, all of its databases are also moved.
+- Traffic Manager
 - Virtual Machines - however, does not support move to a new subscription when its certificates are stored in a Key Vault
 - Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - Virtual Networks
@@ -90,10 +109,13 @@ For now, the services that enable moving to both a new resource group and subscr
 
 The services that currently do not enable moving a resource are:
 
+- AD Hybrid Health Service
 - Application Gateway
 - Application Insights
 - Express Route
+- Dynamics LCS
 - Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
+- Security
 - Virtual Machines with certificate stored in Key Vault
 - Virtual Machines Scale Sets
 - Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)

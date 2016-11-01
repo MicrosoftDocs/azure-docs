@@ -265,14 +265,18 @@ Complete the following steps to add additional IP addresses to an existing NIC:
 
 4. Retrieve the subnet ID the NIC is connected to by completing [step 3](#subnet) of the Create a VM with multiple IP addresses section of this article.
 
-5. Create the IP configurations you want to add to the network by following the instructions in [step 4](#ipconfigs) of the Create a VM with multiple IP addresses section of this article.
+5. Create the IP configurations you want to add to the network by following the instructions in [step 4](#ipconfigs) of the Create a VM with multiple IP addresses section of this article. If you already have the IP configurations created and stored in appropriate variables, skip to step 7.
 
 6. Change *$IPConfigName4* to the name of the IP configuration you created in the previous step. To add the configuration with a public IP association, enter the following command:
 
 		Add-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName4 -NetworkInterface $nic -Subnet $Subnet1 -PublicIpAddress $PIP
 
-7. To set the NIC with the IP configuration, enter the following command:
+7. To associate an existing configuration with a public IP, enter the following command:
+
+		Set-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName5 -NetworkInterface $nic -Subnet $Subnet1 -PublicIpAddress $PIP5
+
+8. To set the NIC with the IP configuration, enter the following command:
 
 		Set-AzureRmNetworkInterface -NetworkInterface $nic
 
-8. Add the IP addresses you added to the NIC to the VM operating system by following the instructions in [step 9](#os) of the Create a VM with multiple IP addresses section of this article.
+9. Add the IP addresses you added to the NIC to the VM operating system by following the instructions in [step 8](#os) of the Create a VM with multiple IP addresses section of this article.
