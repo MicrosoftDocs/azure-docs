@@ -57,22 +57,22 @@ Following are the supported AS2 tracking schemas
 
 | Property | Description |
 | -------- | ------- |
-| senderPartnerName | Optional, string.  It contains the AS2 message sender's partner name |
-| receiverPartnerName | Optional, string.  It contains the AS2 message receiver's partner name |
-| as2To | Required, string.  It contains the AS2 message receiver’s name that is included in the headers of the AS2 message |
-| as2From | Required, string. It contains the AS2 message sender’s name that is included in the headers of the AS2 message |
+| senderPartnerName | Optional, string.  It indicate the AS2 message sender's partner name |
+| receiverPartnerName | Optional, string.  It indicate the AS2 message receiver's partner name |
+| as2To | Required, string.  It indicate the AS2 message receiver’s name that is included in the headers of the AS2 message |
+| as2From | Required, string. It indicate the AS2 message sender’s name that is included in the headers of the AS2 message |
 | agreementName | Optional, string.  Name of the AS2 agreement to which the messages are resolved |
-| direction | Required, string.  It indicates the direction of the message flow, either receive or send |
-| messageId | Optional, string.  It contains the AS2 Message ID that is included in the headers of the AS2 message |
-| dispositionType | Optional, string. It contains the MDN disposition type value |
-| fileName | Optional, string.  It contains the file name that is included in the header of the AS2 message |
-| isMessageFailed | Mandatory, boolean.  Indicates that whether AS2 message was failed or not |
-| isMessageSigned | Mandatory, boolean.  Indicates that whether AS2 message was signed or not |
-| isMessageEncrypted | Mandatory, boolean.  Indicates that whether AS2 message was encrypted or not |
-| isMessageCompressed | Mandatory, boolean. Indicates that whether AS2 message was compressed or not |
-| correlationMessageId | Optional, string. It contains AS2messageid to correlate messages with MDNs |
-| incomingHeaders | Optional, dictinaryy of Jtoken.  It contains incoming AS2 message header details |
-| outgoingHeaders | Optional, dictionary of Jtoken.  It contains outgoing AS2 message header details |
+| direction | Required, string.  It indicate the direction of the message flow, either receive or send |
+| messageId | Optional, string.  It indicate the AS2 Message ID that is included in the headers of the AS2 message |
+| dispositionType | Optional, string. It indicate the MDN disposition type value |
+| fileName | Optional, string.  It indicate the file name that is included in the header of the AS2 message |
+| isMessageFailed | Mandatory, boolean.  Indicate that whether AS2 message was failed or not |
+| isMessageSigned | Mandatory, boolean.  Indicate that whether AS2 message was signed or not |
+| isMessageEncrypted | Mandatory, boolean.  Indicate that whether AS2 message was encrypted or not |
+| isMessageCompressed | Mandatory, boolean. Indicate that whether AS2 message was compressed or not |
+| correlationMessageId | Optional, string. It indicate AS2messageid to correlate messages with MDNs |
+| incomingHeaders | Optional, dictinaryy of Jtoken.  It indicate incoming AS2 message header details |
+| outgoingHeaders | Optional, dictionary of Jtoken.  It indicate outgoing AS2 message header details |
 | isNrrEnabled | Mandatory, boolean.  Use default value if the value is not known |
 | isMdnExpected | Mandatory, boolean. Use default value if the value is not known |
 | mdnType | Mandatory, string. The allowed values are NotConfigured or Sync or Async |
@@ -111,21 +111,21 @@ Following are the supported AS2 tracking schemas
 
 | Property | Description |
 | -------- | ------- |
-| senderPartnerName | Optional, string. It contains the AS2 message sender's partner name |
-| receiverPartnerName | Optional, string. It contains the AS2 message receiver's partner name |
-| as2To | Required, string. It contains the partner name who receives that AS2 message  |
-| as2From | Required, string. It contains the partner name who sends that AS2 message |
+| senderPartnerName | Optional, string. It indicate the AS2 message sender's partner name |
+| receiverPartnerName | Optional, string. It indicate the AS2 message receiver's partner name |
+| as2To | Required, string. It indicate the partner name who receives that AS2 message  |
+| as2From | Required, string. It indicate the partner name who sends that AS2 message |
 | agreementName | Optional, string. Name of the AS2 agreement to which the messages are resolved |
-| direction | Required, string. It indicates the direction of the message flow, either receive or send |
-| messageId | Optional, string. It contains the AS2 message id |
-| originalMessageId | Optional, string. It contains the AS2 original message id |
-| dispositionType | Optional, string. It contains the MDN disposition type value |
+| direction | Required, string. It indicate the direction of the message flow, either receive or send |
+| messageId | Optional, string. It indicate the AS2 message id |
+| originalMessageId | Optional, string. It indicate the AS2 original message id |
+| dispositionType | Optional, string. It indicate the MDN disposition type value |
 | isMessageFailed | Mandatory, boolean.  Indicates that whether AS2 message was failed or not  |
 | isMessageSigned | Mandatory, boolean.  Indicates that whether AS2 message was signed or not |
 | isNrrEnabled | Mandatory - type boolean - default value if not known |
 | statusCode | Requires - Allowed values - Accepted/Rejected/AcceptedWithErrros |
 | micVerificationStatus | Mandatory - Allowed values - NotApplicable/Succeeded/Failed |
-| correlationMessageId | Optional, string.  It contains the correlation id.  The correlation id is the original messaged Id (messages id of the message for which MDN is configured) |
+| correlationMessageId | Optional, string.  It indicate the correlation id.  The correlation id is the original messaged Id (messages id of the message for which MDN is configured) |
 | incomingHeaders | Optional - Dictionary of JTokens |
 | outgoingHeaders | Optional - Dictionary of JTokens |
 
