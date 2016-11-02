@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2016"
+	ms.date="11/02/2016"
 	ms.author="kgremban"/>
 
 # Microsoft Authenticator application FAQ
@@ -32,7 +32,7 @@ Approving a sign-in through push notification is only available for Microsoft ac
 
 If you use a Microsoft account for your personal account and want to switch over to push notifications, you need to add your account again. Re-register the device with your account, and set up push notifications.  
 
-If you use Microsoft Authenticator for your work or school account, then your organization decides whether or not to allow one-click notifications.
+If you use Microsoft Authenticator for your work or school account, then your organization decides whether to allow one-click notifications.
 
 ### When will I be able to use one-click push notifications on iPhone or iPad?
 
@@ -69,13 +69,14 @@ Here is a full list of permissions we ask for, and how they are used in the app:
 - **SMS**: When you sign in with your personal Microsoft account for the first time, we have to make sure that your phone number matches the one we have on record. We send a text message to the phone where you downloaded the app. The message contains a 6-8 digit verification code. Instead of asking you to find this code and enter it in the app, we find it in the text message for you.
 - **Draw over other apps**: When you receive a notification to verify your identity, we display that notification over any other app that might be running.
 - **Receive data from the internet**: This permission is required for sending notifications.
-- **Prevent phone from sleeping**: If you register your device with your organization, they have the option to change this policy on your phone.
+- **Prevent phone from sleeping**: If you register your device with your organization, they can change this policy on your phone.
 - **Control vibration**: You have the option to choose whether you would like a vibration whenever you receive a notification to verify your identity.
 - **Use fingerprint hardware**: Some work and school accounts require an additional PIN whenever you verify your identity. TO make the process easier, we allow you to use your fingerprint instead of entering the PIN.
 - **View network connections**: When you add a Microsoft account, the app requires network/internet connection.
 - **Read the contents of your storage**: This permission is only used when you report a technical problem through the app settings. Some information from your storage is collected to diagnose the issue.
 - **Full network access**: This permission is required for sending notifications to verify your identity.
-- **Run at startup**: If you restart your phone, this permission ensure that you continue you receive notifications to verify your identity.
+- **Run at startup**: If you restart your phone, this permission ensures that you continue you receive notifications to verify your identity.
+
 
 ## Contact us
 
