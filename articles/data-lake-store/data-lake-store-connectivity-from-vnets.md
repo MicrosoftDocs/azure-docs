@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/22/2016"
+   ms.date="11/02/2016"
    ms.author="nitinme"/>
 
 # Access Azure Data Lake Store from VMs within an Azure VNET
