@@ -227,7 +227,17 @@ Allow outbound TCP connections over port TCP/1433 on Data Management Gateway cli
 
 If the target database is an Azure SQL Database, check Azure SQL Server firewall settings as well.
 
-On the gateway machine, there is a quick connectivity diagnostics tool, you can follow the instructions in Data store connection or driver-related errors to test the connectivity.  
+See the following section for steps to test connection to the on-premises data store. 
+
+## Data store connection or driver-related errors
+If you see data store connection or driver-related errors, do the following steps: 
+
+1. Launch **Data Management Gateway Configuration Manager** on the gateway machine.
+2. Switch to the **Diagnostics** tab
+3. Select/enter appropriate values for fields in the **Test connection to an on-premises data source** using this gateway group
+4. Click **Test connection** to see if you can connect to on-premises data source from the gateway machine using the connection information and credentials. If the test connection still fails after you install a driver, restart the gateway for it to pick up the latest change
+
+![Test Connection in Diagnostics tab](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
 
 ## Gateway logs
 ### Send gateway logs to Microsoft
