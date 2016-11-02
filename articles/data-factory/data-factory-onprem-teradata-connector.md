@@ -27,7 +27,7 @@ Gateway is required even if the Teradata is hosted in an Azure IaaS VM. You can 
 
 Data factory supports only moving data from Teradata to other data stores, not from other data stores to Teradata.
 
-## Supported version and installation 
+## Supported versions and installation 
 
 For Data Management Gateway to connect to the Teradata Database, you need to install the [.NET Data Provider for Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) version 14 or above on the same system as the Data Management Gateway. Teradata version 12 and above is supported.
 
