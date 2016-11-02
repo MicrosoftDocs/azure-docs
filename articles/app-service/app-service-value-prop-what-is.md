@@ -25,7 +25,7 @@ App Service includes the web and mobile capabilities that we previously delivere
 
 The following 4-minute video provides a brief explanation of how App Service relates to earlier Azure offerings and what's new in it.
 
-+[AZURE.VIDEO app-service-history-lesson]
+> [AZURE.VIDEO app-service-history-lesson]
 
 ## Why use App Service?
 

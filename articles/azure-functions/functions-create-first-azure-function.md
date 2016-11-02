@@ -29,7 +29,7 @@ This topic shows you how to use the Azure Functions quickstart in the portal to 
 
 The following video show how to perform the basic steps in this tutorial. 
 
-[AZURE.VIDEO create-your-first-azure-function-simple]
+> [AZURE.VIDEO create-your-first-azure-function-simple]
 
 ##Create a function from the quickstart
 
