@@ -1,6 +1,6 @@
 <properties
  pageTitle="Configure your device | Microsoft Azure"
- description="Configure your Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware."
+ description="Configure Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
@@ -21,7 +21,7 @@
 
 ## What you will do
 
-Configure Pi for first-time use and install the Raspbian operating system, a free operating system that is optimized for the Raspberry Pi hardware. If you have any problems, you can seek solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Configure Pi for first-time use and install the Raspbian operating system. Raspbian is a free operating system that is optimized for the Raspberry Pi hardware. If you have any problems, you can seek solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## What you will learn
 
@@ -63,12 +63,12 @@ Prepare the microSD card for installation of the Raspbian image.
   2. Extract the Raspbian image to a folder on your computer.
 2. Install Raspbian to the microSD card.
   1. [Download](https://www.etcher.io) and install the Etcher SD card burner utility.
-  2. Run Etcher and select the Raspbian image that you extracted in Step 1.
+  2. Run Etcher and select the Raspbian image that you extracted in step 1.
   3. Select the microSD card drive.
-    Note: Etcher may have already selected the correct drive.
+    Note that Etcher may have already selected the correct drive.
   4. Click **Flash** to install Raspbian to the microSD card.
   5. Remove the microSD card from your computer when installation is complete.
-    Note: It is safe to remove the microSD card directly because Etcher automatically ejects or unmounts the microSD card upon completion.
+    It's safe to remove the microSD card directly because Etcher automatically ejects or unmounts the microSD card upon completion.
   6. Insert the microSD card into Pi.
 
 ![Insert the SD card](media/iot-hub-raspberry-pi-lessons/lesson1/insert_sdcard.jpg)
@@ -81,7 +81,7 @@ Turn on Pi by using the micro USB cable and the power supply.
 
 > [AZURE.NOTE] It is important to use the power supply in the kit that is at least 2A to make sure that your Raspberry has enough power to work correctly.
 
-## Connect your Raspberry Pi 3 to the network
+## Connect Raspberry Pi 3 to the network
 
 You can connect Pi to a wired network or to a wireless network. Make sure that Pi is connected to the same network as your computer. For example, you can connect Pi to the same switch that your computer is connected to.
 
@@ -113,7 +113,7 @@ Congratulations! You've successfully configured Pi.
 
 ## Summary
 
-In this article, you’ve learned how to configure Pi by installing Raspbian, connecting Pi to a network, and connecting an LED to Pi. Note that the LED doesn't yet light up. In the next article, you install the necessary tools and software in preparation for running a sample application on Pi.
+In this article, you’ve learned how to configure Pi by installing Raspbian, connecting Pi to a network, and connecting an LED to Pi. Note that the LED doesn't yet light up. The next task is to install the necessary tools and software in preparation for running a sample application on Pi.
 
 ![Hardware is ready](media/iot-hub-raspberry-pi-lessons/lesson1/hardware_ready.jpg)
 
