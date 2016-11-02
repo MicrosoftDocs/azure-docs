@@ -1,18 +1,18 @@
-<properties 
-   pageTitle="Overview of Microsoft Azure Data Lake Analytics | Azure" 
-   description="Data Lake Analytics is an Azure Big Data computation service that lets you use data to drive your business using the insights gained from your data in the cloud, regardless of where it is and regardless of its size. Data Lake Analytics enables this in the simplest, most scalable, and most economical way possible. " 
-   services="data-lake-analytics" 
-   documentationCenter="" 
-   authors="edmacauley" 
-   manager="jhubbard" 
+<properties
+   pageTitle="Overview of Microsoft Azure Data Lake Analytics | Microsoft Azure" 
+   description="Data Lake Analytics is an Azure Big Data computation service that lets you use data to drive your business using the insights gained from your data in the cloud, regardless of where it is and regardless of its size. Data Lake Analytics enables this in the simplest, most scalable, and most economical way possible. "
+   services="data-lake-analytics"
+   documentationCenter=""
+   authors="edmacauley"
+   manager="jhubbard"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="05/16/2016"
    ms.author="edmaca"/>
 
@@ -25,13 +25,13 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
 
 ## Key capabilities
 
-- **Dynamic scaling** 
+- **Dynamic scaling**
 
-    Data Lake Analytics is architected from the ground up for cloud scale and performance.  It dynamically provisions resources and lets you do analytics on terabytes or even exabytes of data. When the job completes, it winds down resources automatically, and you pay only for the processing power used. As you increase or decrease the size of data stored or the amount of compute used, you don’t have to rewrite code. This lets you focus on your business logic only and not on how you process and store large datasets. 
+    Data Lake Analytics is architected from the ground up for cloud scale and performance.  It dynamically provisions resources and lets you do analytics on terabytes or even exabytes of data. When the job completes, it winds down resources automatically, and you pay only for the processing power used. As you increase or decrease the size of data stored or the amount of compute used, you don’t have to rewrite code. This lets you focus on your business logic only and not on how you process and store large datasets.
 
 - **Develop faster, debug and optimize smarter using familiar tools**
 
-    Data Lake Analytics has deep integration with Visual Studio, so that you can use familiar tools to run, debug, and tune your code. Visualizations of your U-SQL jobs let you see how your code runs at scale, so you can easily identify performance bottlenecks and optimize costs. 
+    Data Lake Analytics has deep integration with Visual Studio, so that you can use familiar tools to run, debug, and tune your code. Visualizations of your U-SQL jobs let you see how your code runs at scale, so you can easily identify performance bottlenecks and optimize costs.
 
 - **U-SQL: simple and familiar, powerful and extensible**
 
@@ -43,7 +43,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
 
 - **Affordable and cost effective**
 
-    Data Lake Analytics is a cost-effective solution for running big data workloads. You pay on a per-job basis when data is processed. No hardware, licenses, or service-specific support agreements are required. The system automatically scales up or down as the job starts and completes, meaning that you never pay for more than what you need. 
+    Data Lake Analytics is a cost-effective solution for running big data workloads. You pay on a per-job basis when data is processed. No hardware, licenses, or service-specific support agreements are required. The system automatically scales up or down as the job starts and completes, meaning that you never pay for more than what you need.
 
 - **Works with all your Azure Data**
 
@@ -57,12 +57,12 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
     - [Get started with Data Lake Analytics using Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
     - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
     - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-    
+
 - U-SQL & development
     - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
     - [Use U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
     - [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-    
+
 - Management
     - [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
     - [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
@@ -74,8 +74,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
     - [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 
 - Let us know what you think
-    - [Comment on our documentation backlog](data-lake-analytics-documentation-backlog.md)
+<!--  Fixing broken links for Azure content migration from ACOM to DOCS. I can't find a suitable substitute for what appears to be a link that is no longer available. I am commenting out for now. The author can investigate in the future.
+    - [Comment on our documentation backlog](data-lake-analytics-documentation-backlog.md)-->
     - [Submit a feature request](http://aka.ms/adlafeedback)
     - [Get help in the forums](http://aka.ms/adlaforums)
-
-

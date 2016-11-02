@@ -268,7 +268,7 @@ Template workflow activities in Visual Studio TFS Team Build.
         PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
     This is typically followed up by test run verification and a VIP
-    swap. The VIP swap can be done via the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) or 
+    swap. The VIP swap can be done via the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) or
     by using the Move-Deployment cmdlet.
 
     **Example scenario 2:** continuous deployment to the production
@@ -304,7 +304,7 @@ Template workflow activities in Visual Studio TFS Team Build.
 
     Alternatively you can export the certificate file PFX with private
     key and upload certificates to each target cloud service using the
-    [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). 
+    [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
     Read the following article to learn more:
     [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
 
@@ -778,7 +778,7 @@ To enable remote debugging when using continuous delivery, see [Enable remote de
   [.NET Framework 4.5.2]: https://www.microsoft.com/download/details.aspx?id=42643
   [Scale out your build system]: https://msdn.microsoft.com/library/dd793166.aspx
   [Deploy and configure a build server]: https://msdn.microsoft.com/library/ms181712.aspx
-  [Azure PowerShell cmdlets]: powershell-install-configure.md
+  [Azure PowerShell cmdlets]: ./articles/powershell-install-configure.md
   [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
   [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
   [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
