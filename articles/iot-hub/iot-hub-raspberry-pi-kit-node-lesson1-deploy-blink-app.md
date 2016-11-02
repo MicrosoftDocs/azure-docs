@@ -48,7 +48,7 @@ devdisco list --eth
 
 You should see an output that is similar to the following:
 
-![device discovery](media/iot-hub-raspberry-pi-lessons/lesson1/device_discovery.png)
+![Device discovery](media/iot-hub-raspberry-pi-lessons/lesson1/device_discovery.png)
 
 Take note of the `IP address` and `hostname` of Pi. You need this information later in this article.
 
@@ -94,7 +94,7 @@ To configure the device connection, follow these steps:
     gulp init
     ```
 
-    The configuration file `config-raspberrypi.json` contains the user credentials you use to login to Pi. To avoid the leak of user credentials, the configuration file is generated in the subfolder `.iot-hub-getting-started` of the home folder on your computer.
+    The configuration file `config-raspberrypi.json` contains the user credentials you use to log in to Pi. To avoid the leak of user credentials, the configuration file is generated in the subfolder `.iot-hub-getting-started` of the home folder on your computer.
 
 2. Open the device configuration file in Visual Studio Code by running the following command:
 
@@ -103,10 +103,10 @@ To configure the device connection, follow these steps:
     code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
 
     # For macOS or Ubuntu
-    code ~/.iot-hub-getting-started/config-raspberrypi.json
+    code ~/.iot-hub-gettiNPMng-started/config-raspberrypi.json
     ```
 
-3. Replace the placeholder `[device hostname or IP address]` with the IP address or the host name that you got previously in Obtain the IP address and host name of Pi.
+3. Replace the placeholder `[device hostname or IP address]` with the IP address or the host name that you got previously in "Obtain the IP address and host name of Pi."
 
     ![Config.json](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-config-mac.png)
 
@@ -114,7 +114,7 @@ Congratulations! You've successfully created the first sample application for Pi
 
 ## Deploy and run the sample application
 
-### Install Node.js and NPM on Pi
+### Install Node.js and  on Pi
 
 Install Node.js and NPM on Pi by running the following command:
 
@@ -126,7 +126,7 @@ This task might take 10 minutes to complete the first time you run it.
 
 ### Deploy and run the sample app
 
-Deploy and run the sample application on by running the following command:
+Deploy and run the sample application by running the following command:
 
 ```bash
 gulp deploy && gulp run
@@ -141,8 +141,8 @@ You should now see the LED on Pi blinking every two seconds.  If you don’t see
 
 ## Summary
 
-You've installed the required tools to work with Pi and deployed a sample application to Pi to blink the LED. You can now move on to the next article to create, deploy, and run another sample application that connects Pi to Azure IoT Hub to send and receive messages.
+You've installed the required tools to work with Pi and deployed a sample application to Pi to blink the LED. You can now create, deploy, and run another sample application that connects Pi to Azure IoT Hub to send and receive messages.
 
 ## Next steps
 
-You are now ready to [Get the Azure tools](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md).
+[Get the Azure tools](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
