@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/26/2016" 
+	ms.date="11/02/2016" 
 	ms.author="jingwang"/>
 
 # Move data to and from DocumentDB using Azure Data Factory
@@ -23,6 +23,9 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 The following samples show how to copy data to and from Azure DocumentDB and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
 
 > [AZURE.NOTE] Copying data from on-premises/Azure IaaS data stores to Azure DocumentDB and vice versa are supported with Data Management Gateway version 2.1 and above.
+
+## Supported versions
+This DocumentDB connector support copying data from/to DocumentDB single partition collection and partitioned collection. [DocDB for MongoDB](../documentdb/documentdb-protocol-mongodb.md) is not supported.
 
 ## Sample: Copy data from DocumentDB to Azure Blob
 
@@ -410,9 +413,18 @@ the following properties are available in **typeProperties** section:
 | **Property** | **Description** | **Allowed values** | **Required** |
 | -------- | ----------- | -------------- | -------- |
 | nestingSeparator | A special character in the source column name to indicate that nested document is needed. <br/><br/>For example above: `Name.First` in the output table produces the following JSON structure in the DocumentDB document:<br/><br/>"Name": {<br/>	"First": "John"<br/>}, | Character that is used to separate nesting levels.<br/><br/>Default value is `.` (dot). | Character that is used to separate nesting levels. <br/><br/>Default value is `.` (dot). | No | 
-| writeBatchSize | Number of parallel requests to DocumentDB service to create documents.<br/><br/>You can fine-tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second). | Integer | No (default: 10000) |
+| writeBatchSize | Number of parallel requests to DocumentDB service to create documents.<br/><br/>You can fine-tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second). | Integer | No (default: 5) |
 | writeBatchTimeout | Wait time for the operation to complete before it times out. | timespan<br/><br/> Example: “00:30:00” (30 minutes). | No |
- 
+
+## Import/Export JSON documents
+Using this DocumentDB connector, you can easily
+
+- Import JSON documents from various sources into DocumentDB, including Azure Blob, Azure Data Lake, on-prem File System or other file-based stores [supprted](data-factory-data-movement-activities.md#supported-data-stores) by Azure Data Factory
+- Export JSON documents from DocumentDB collecton into various file-based stores 
+- Migrate data between two DocumentDB collections as-is 
+
+To achieve such schema-agnostic copy, do not specify the "structure" section in input dataset or "nestingSeparator" property on DocumentDB source/sink in copy activity. See "Specify format" section in corresponding file-based connector topic on JSON format configuration details.
+
 ## Appendix
 1. **Question:** 
 	Does the Copy Activity support update of existing records?
