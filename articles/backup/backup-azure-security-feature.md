@@ -17,7 +17,7 @@
 	ms.author="JPallavi" />
   
 # Security features for protecting hybrid backups using Azure Backup
-More and more customers are hit with security issues like malware, ransomware and costs per security breach has been increasing. To guard against such attacks, Azure Backup now provides Security Features to protect hybrid backups. This article talks about how to enable and leverage these features using Microsoft Azure Recovery Services Agent and Microsoft Azure Backup Server. These features have been built on three pillars of security:
+More and more customers are hit with security issues like malware, ransomware, intrusion etc. and costs per security breach have been increasing. To guard against such attacks, Azure Backup now provides Security Features to protect hybrid backups. This article talks about how to enable and leverage these features using Microsoft Azure Recovery Services Agent and Microsoft Azure Backup Server. These features have been built on three pillars of security:
 
 1. **Prevention** - An additional layer of authentication is added whenever a critical operation like Change Passphrase is performed. This validation is to ensure that such operations can be performed only by users having valid Azure credentials. Also, more number of minimum recovery points are maintained to guard against corrupt data. 
 
@@ -105,7 +105,7 @@ To ensure that there are always a valid number of recovery points available, fol
 ## Notifications for critical operations
 Whenever some critical operations are performed, subscription admin would be sent an email notification with details about the operation. If you want to configure additional email ids to receive email notifications, you can use Azure portal to configure them.
 
-The Security features mentioned in this article, provide defense mechanisms against targeted attacks preventing attackers to touch the backups. More importantly, these features provide an ability to recover backup data if at all attack happens.
+The Security features mentioned in this article, provide defense mechanisms against targeted attacks preventing attackers to touch the backups. More importantly, these features provide an ability to recover data if at all attack happens.
 
 ## Next Steps
 
