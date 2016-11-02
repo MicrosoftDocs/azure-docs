@@ -4,7 +4,7 @@
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
-   manager="stevenka"
+   manager="jwhit"
    editor="tysonn" />
 <tags
    ms.service="automation"
@@ -12,11 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/21/2016"
+   ms.date="11/02/2016"
    ms.author="bwren" />
 
 # Runbook execution in Azure Automation
-
 
 When you start a runbook in Azure Automation, a job is created. A job is a single execution instance of a runbook. An Azure Automation worker is assigned to run each job. While workers are shared by multiple Azure accounts, jobs from different Automation accounts are isolated from one another. You do not have control over which worker will service the request for your job.  A single runbook can have multiple jobs running at one time. When you view the list of runbooks in the Azure portal, it will list the status of the last job that was started for each runbook. You can view the list of jobs for each runbook in order to track the status of each. For a description of the different job statuses, see [Job Statuses](#job-statuses).
 
@@ -84,23 +83,19 @@ You can use the following steps to view the jobs for a runbook.
 
 ## Retrieving job status using Windows PowerShell
 
-You can use the [Get-AzureAutomationJob](http://msdn.microsoft.com/library/azure/dn690263.aspx) to retrieve the jobs created for a runbook and the details of a particular job. If you start a runbook with Windows PowerShell using [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/azure/dn690259.aspx), then it will return the resulting job. Use [Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/azure/dn690268.aspx) to get a summary of a job’s output. The full output can be obtained with [Get-AzureAutomationJobOutputRecord](https://msdn.microsoft.com/library/mt643911.aspx) in the Value property of the response.
+You can use the [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) to retrieve the jobs created for a runbook and the details of a particular job. If you start a runbook with Windows PowerShell using [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), then it will return the resulting job. Use [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)Output to get a job’s output.
 
-The following sample commands retrieves the last job for a sample runbook and displays its status, the values provided for the runbook parameters, and the output from the job.
+The following sample commands retrieves the last job for a sample runbook and displays it’s status, the values provide for the runbook parameters, and the output from the job.
 
-	$job = (Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" | sort LastModifiedDate –desc)[0]
-	$job.Status
-	$job.JobParameters
-	$output = Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
-	#output summary
-	$output
-	$output | Get-AzureAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+    $job = (Get-AzureRmAutomationJob –AutomationAccountName "MyAutomationAccount" –RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate –desc)[0]
+    $job.Status
+    $job.JobParameters
+    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
+
 
 ## Fair share
 
-In order to share resources among all runbooks in the cloud, Azure Automation will temporarily unload any job after it has been running for 3 hours.    [Graphical](automation-runbook-types.md#graphical-runbooks) and [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) runbooks will be resumed from their last [checkpoint](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). During this time, the job will show a status of Running, Waiting for Resources. If the runbook has no checkpoints or the job had not reached the first checkpoint before being unloaded, then it will restart from the beginning.  [PowerShell](automation-runbook-types.md#powershell-runbooks) runbooks are always restarted from the beginning since they don't support checkpoints.
-
->[AZURE.NOTE] The fair share limit is not applicable to runbook jobs executing on Hybrid Runbook Workers.
+In order to share resources among all runbooks in the cloud, Azure Automation will temporarily unload any job after it has been running for 3 hours.  [Graphical](automation-runbook-types.md#graphical-runbooks) and [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) runbooks will be resumed from their last [checkpoint](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). During this time, the job will show a status of Running, Waiting for Resources. If the runbook has no checkpoints or the job had not reached the first checkpoint before being unloaded, then it will restart from the beginning.  [PowerShell](automation-runbook-types.md#powershell-runbooks) runbooks are always restarted from the beginning since they don't support checkpoints.
 
 If the runbook restarts from the same checkpoint or from the beginning of the runbook three consecutive times, it will be terminated with a status of Failed, waiting for resources. This is to protect from runbooks running indefinitely without completing, as they are not able to make it to the next checkpoint without being unloaded again. In this case, you will receive the following exception with the failure.
 
@@ -110,6 +105,6 @@ When you create a runbook, you should ensure that the time to run any activities
 
 
 
-## Next Steps
+## Next steps
 
-- [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
+- To learn more about the different methods that can be used to start a runbook in Azure Automation, see [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
