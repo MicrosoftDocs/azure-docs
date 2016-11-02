@@ -64,142 +64,96 @@ After the Azure SQL Database server is registered to the vault, you are charged 
 ## Configuring Long-Term Retention using PowerShell
 
 1.	Create a recovery service vault
-
-   ```
-   New-AzureRmResourceGroup -Name $ResourceGroupName –Location 'WestUS' 
-   $vault = New-AzureRmRecoveryServicesVault -Name <string> -ResouceGroupName $ResourceGroupName -Location 'WestUS' 
-   Set-AzureRmRecoveryServicesBackupProperties   -BackupStorageRedundancy LocallyRedundant  -Vault $vault
-   ```
-
+    ```
+    New-AzureRmResourceGroup -Name $ResourceGroupName –Location 'WestUS' 
+    $vault = New-AzureRmRecoveryServicesVault -Name <string> -ResouceGroupName $ResourceGroupName -Location 'WestUS' 
+    Set-AzureRmRecoveryServicesBackupProperties   -BackupStorageRedundancy LocallyRedundant  -Vault $vault
+    ```
 2.	Register your Azure SQL Database Server to the recovery service vault so databases within the server can have backups stored for long term.
-
-   ```
-   Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName 'RG1' -ServerName 'Server1' –ResourceId $vault.Id
-   ```
-
+    ```
+    Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName 'RG1' -ServerName 'Server1' –ResourceId $vault.Id
+    ```
 3.	Create a retention policy for storing the backups.
-
-   ```
-   #retrieve the default in-memory policy object for AzureSQLServer workload and set the retention period
-   
-   $RP1 = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType AzureSQLDatabase
-
-   #Sets the retention value to two years
-   
-   $RP1.RetentionDurationType='Years'
-   $RP1.RetentionCount=2
-
-   #register the policy for use with any SQL database
-   
-   Set-AzureRMRecoveryServicesVaultContext -Vault $vault
-   $policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name 'SQLBackup1' –WorkloadType AzureSQLDatabase -retentionPolicy $RP1
-   ```
+    ```
+    #retrieve the default in-memory policy object for AzureSQLServer workload and set the retention period
+    $RP1 = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType AzureSQLDatabase
+    #Sets the retention value to two years
+    $RP1.RetentionDurationType='Years'
+    $RP1.RetentionCount=2
+    #register the policy for use with any SQL database
+    Set-AzureRMRecoveryServicesVaultContext -Vault $vault
+    $policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name 'SQLBackup1' –WorkloadType AzureSQLDatabase -retentionPolicy $RP1
+    ```
 4.	Enable long-term retention for the SQL Database you want the backups stored in the vault.
-
-   ```
-   #for your database you can select any policy created in the vault with which your server is registered
-   
-   Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName 'RG1' –ServerName 'Server1' -DatabaseName 'DB1' -State 'enabled' -ResourceId $policy.Id
-   ```
-
+    ```
+    #for your database you can select any policy created in the vault with which your server is registered
+    Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName 'RG1' –ServerName 'Server1' -DatabaseName 'DB1' -State 'enabled' -ResourceId $policy.Id
+    ```
 5.	List the server associated with the vault. Each server is associated with a specific container in the vault. You can list the registered servers by running the following commands:
-   
-   ```
-   #each server has an associated container in the vault
-
-   Set-AzureRMRecoveryServicesVaultContext -Vault $vault
-
-   $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL   
-
-   #each database has an associated backup item in the respective container
-
-   Get-AzureRmRecoveryServicesBackupItem –container $container
-   ```
-
-6. List the databases that have a retention policy in the container  
-
-   Each database has an associated backup item in the respective container. The backup item name is derived from the database name.
-
-   ```
-   #list the backup items in the container
-   
-   Get-AzureRmRecoveryServicesBackupItem –container $container
-   ```
-
-
+    ```
+    #each server has an associated container in the vault
+    Set-AzureRMRecoveryServicesVaultContext -Vault $vault
+    $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL   
+    #each database has an associated backup item in the respective container
+    Get-AzureRmRecoveryServicesBackupItem –container $container
+    ```
+6. List the databases that have a retention policy in the container. Each database has an associated backup item in the respective container. The backup item name is derived from the database name.
+    ```
+    #list the backup items in the container
+    Get-AzureRmRecoveryServicesBackupItem –container $container
+    ```
 ## Restore from a long-term retention backup
 
 Use the following steps to restore a database from a backup in the Azure Recovery Service Vault vault:
 
 1.	Find the Recovery Service container associated with SQL server.
-
-   ```
-   #the following commands find the container associated with the server 'myserver' under resource group 'myresourcegroup'
-
-   Set-AzureRMRecoveryServicesVaultContext -Vault $vault
-      $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -Name 'Sql;myresourcegroup;myserver'
-   ```
-   
+    ```
+    #the following commands find the container associated with the server 'myserver' under resource group 'myresourcegroup'
+    Set-AzureRMRecoveryServicesVaultContext -Vault $vault
+   $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -Name 'Sql;myresourcegroup;myserver'
+    ```
 2. Find the backup item associated with a database.
-
-   ``` 
-   #the following command finds the backup item associated with the database 'mydb'
-   
-   $item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQL -Name 'mydb' 
-   ```
-
+    ``` 
+    #the following command finds the backup item associated with the database 'mydb'
+    $item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQL -Name 'mydb' 
+    ```
 3.	Find the backup you want to restore from.
-
-   ```
-   #The following command lists the backups (also known as the “recovery points”) created in the specific time period.
-
-   $RP=Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $item –StartDate '2016-02-01' -EndDate '2016-02-20'
-   ```
-
+    ```
+    #The following command lists the backups (also known as the “recovery points”) created in the specific time period.
+    $RP=Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $item –StartDate '2016-02-01' -EndDate '2016-02-20'
+    ```
 4.	Restore from the recovery point into a new Azure SQL Database:
-
-   ```
-   #This command restores from a selected backup. If there are multiple recovery points in the specified range $RP[0] refers to the first one.
-
-   Restore-AzureRMSqlDatabase –FromLongTermRetentionBackup –ResourceId $RP[0].ID TargetResourceGroupName 'RG2' -TargetServerName 'Server2' -TargetDatabaseName 'DB2' [-Edition <String>] [-ServiceObjectiveName <String>] [-ElasticPoolName <String>] [<CommonParameters>]
-   ```
+    ```
+    #This command restores from a selected backup. If there are multiple recovery points in the specified range $RP[0] refers to the first one.
+    Restore-AzureRMSqlDatabase –FromLongTermRetentionBackup –ResourceId $RP[0].ID TargetResourceGroupName 'RG2' -TargetServerName 'Server2' -TargetDatabaseName 'DB2' [-Edition <String>] [-ServiceObjectiveName <String>] [-ElasticPoolName <String>] [<CommonParameters>]
+    ```
 
 ## Disabling Long-term Retention
 
 The Recovery Service automatically handles cleanup of backups based on the provided retention policy. To stop sending the backups for a specific database to the Recovery Service vault, remove the retention policy for that database.
 
-   ```
-   #This command removes the retention policy from the database and stop sending the backups to the vault
-
-   Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName 'RG1' –ServerName 'Server1' -DatabaseName 'DB1' -State 'Disabled' -ResourceId $policy.Id
-   ```
+    ```
+    #This command removes the retention policy from the database and stop sending the backups to the vault
+    Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName 'RG1' –ServerName 'Server1' -DatabaseName 'DB1' -State 'Disabled' -ResourceId $policy.Id
+    ```
 
 > [AZURE.NOTE] The backups already in the vault are not be impacted. They are automatically deleted by the Recovery Service when their retention period expires.
 
 ## Removing backups from the Recovery Service vault
 
 To manually remove backups from the vault.
-
-   ```
-   #this step identifies the container for ‘myserver’
-
-   Set-AzureRMRecoveryServicesVaultContext -Vault $vault $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName 'myserver'
-
-   #this step identifies the backup item to delete
-
-   $item=Get-AzureRmRecoveryServicesBackupItem –container $container -FriendlyName 'mydb'
-
-   #this step deletes the backup item (all backups for the database ‘mydb’)
-  
-   $job = Disable-AzureRmRecoveryServicesBackupProtection –item $item -Removerecoverypoints Wait-AzureRmRecoveryServicesBackupJob $job
-
-   #this step deletes the container associated with ‘myserver’
-
-   Unregister-AzureRmRecoveryServicesBackupContainer –AzureRmRecoveryServicesBackupContainer $container –Vault $vault
-   ```
+    ```
+    #this step identifies the container for ‘myserver’
+    Set-AzureRMRecoveryServicesVaultContext -Vault $vault $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName 'myserver'
+    #this step identifies the backup item to delete
+    $item=Get-AzureRmRecoveryServicesBackupItem –container $container -FriendlyName 'mydb'
+    #this step deletes the backup item (all backups for the database ‘mydb’)
+    $job = Disable-AzureRmRecoveryServicesBackupProtection –item $item -Removerecoverypoints Wait-AzureRmRecoveryServicesBackupJob $job
+    #this step deletes the container associated with ‘myserver’
+    Unregister-AzureRmRecoveryServicesBackupContainer –AzureRmRecoveryServicesBackupContainer $container –Vault $vault
+    ```
 
 ## Long-Term Retention FAQ:
-
 
 1.	Q: Can I register my server to store Backups to more than one vault?
 A: No, today you can only store backups to 1 vault at a time.
