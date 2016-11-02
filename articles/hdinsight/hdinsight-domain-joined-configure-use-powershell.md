@@ -64,7 +64,7 @@ For the instructions, see [here](hdinsight-domain-joined-configure.md#create-and
 
 ## Run the PowerShell script
 
-The PowerShell script can be downloaded from [GitHub](https://github.com/hdinsight/DomainJoinedHDInsightConfigurationTool). Extract the zip file and save the files locally.
+The PowerShell script can be downloaded from [GitHub](https://github.com/hdinsight/DomainJoinedHDInsight). Extract the zip file and save the files locally.
 
 
 **To edit the PowerShell script**
