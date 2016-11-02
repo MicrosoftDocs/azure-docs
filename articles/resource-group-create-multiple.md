@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/30/2016"
+   ms.date="11/01/2016"
    ms.author="tomfitz"/>
 
 # Create multiple instances of resources in Azure Resource Manager
@@ -184,7 +184,7 @@ For example, suppose you typically define a dataset as a nested resource within 
         }
     }]
     
-To create multiple instances of datasets, you would need to change your template as shown below. Notice the full-qualified type and the name includes the data factory name.
+To create multiple instances of datasets, you need to change your template as shown in the following example. Notice the dataset is no longer defined within the data factory, and the **type** and **name** have changed significantly. You must provide the fully-qualified type in the format **{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}** because the type cannot be inferred from its position in the template. In this example, the type is Microsoft.DataFactory/datafactories/datasets. You also must provide a name that includes the parent resource name. The format of the name is **{parent-resource-name}/{child-resource-name}**.  
 
     "parameters": {
         "dataFactoryName": {
@@ -321,6 +321,106 @@ The relevant sections of the deployment template are shown below. A lot of the t
 }
 ```
 
+## Return values from a loop
+
+While creating multiple instances of a resource type is convenient, returning values from that loop can be difficult. One way to retain and return values is to use **copy** with a nested template and round-trip an array that contains all of the values to return. For example, suppose you want to create multiple storage accounts, and return the primary endpoint for each one. 
+
+First, create the nested template that creates the storage account. Notice that it accepts an array parameter for the blob URIs. You use this parameter to round-trip all of the values from previous deployments. The output of the template is an array that concatenates the new blob URI to the previous URIs.
+
+```
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+  	"parameters": {
+    		"indexValue": {
+      			"type":"int"
+    		},
+    		"blobURIs": {
+      			"type": "array",
+      			"defaultValue": []
+    		}
+  	},
+	"variables": {
+    		"storageName": "[concat('storage', uniqueString(resourceGroup().id), parameters('indexValue'))]"
+  	},
+	"resources": [
+    	{
+      		"apiVersion": "2016-01-01",
+      		"type": "Microsoft.Storage/storageAccounts",
+      		"name": "[variables('storageName')]",
+      		"location": "[resourceGroup().location]",
+      		"sku": {
+        		"name": "Standard_LRS"
+      		},
+      		"kind": "Storage",
+      		"properties": {
+        
+      		}
+    	}
+	],
+	"outputs": {
+    		"result": {
+      			"type": "array",
+      			"value": "[concat(parameters('blobURIs'),split(reference(variables('storageName')).primaryEndpoints.blob, ','))]"
+    		}
+  	}
+}
+```
+
+Now, create the parent template that has one static instance of the nested template, and loops over the remaining instances of the nested template. For each instance of the looped deployment, pass an array that is the output of the previous deployment.
+
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "numberofStorage": { "type": "int", "minValue": 2 }
+    },
+    "resources": [
+      {
+        "apiVersion": "2016-09-01",
+        "name": "nestedTemplate0",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+          "mode": "incremental",
+          "templateLink": {
+            "uri": "{storage-template-uri}",
+            "contentVersion": "1.0.0.0"
+          },
+          "parameters": {
+            "indexValue": {"value": 0}
+          }
+        }
+      },
+      {
+        "apiVersion": "2016-09-01",
+        "name": "[concat('nestedTemplate', copyIndex(1))]",
+        "type": "Microsoft.Resources/deployments",
+        "copy": {
+          "name": "storagecopy",
+          "count": "[sub(parameters('numberofStorage'), 1)]"
+        },
+        "properties": {
+          "mode": "incremental",
+          "templateLink": {
+            "uri": "{storage-template-uri}",
+            "contentVersion": "1.0.0.0"
+          },
+          "parameters": {
+            "indexValue": {"value": "[copyIndex(1)]"},
+            "blobURIs": {"value": "[reference(concat('nestedTemplate', copyIndex())).outputs.result.value]"}
+          }
+        }
+      }
+    ],
+    "outputs": {
+      "result": {
+        "type": "object",
+        "value": "[reference(concat('nestedTemplate', sub(parameters('numberofStorage'), 1))).outputs.result]"
+      }
+    }
+}
+```
 
 ## Next steps
 - If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
