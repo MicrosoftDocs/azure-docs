@@ -779,7 +779,7 @@ To enable remote debugging when using continuous delivery, see [Enable remote de
   [.NET Framework 4.5.2]: https://www.microsoft.com/download/details.aspx?id=42643
   [Scale out your build system]: https://msdn.microsoft.com/library/dd793166.aspx
   [Deploy and configure a build server]: https://msdn.microsoft.com/library/ms181712.aspx
-  [Azure PowerShell cmdlets]: ./articles/powershell-install-configure.md
+  [Azure PowerShell cmdlets]: ../powershell-install-configure.md
   [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
   [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
   [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
