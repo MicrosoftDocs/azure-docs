@@ -103,7 +103,7 @@ To configure the device connection, follow these steps:
     code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
 
     # For macOS or Ubuntu
-    code ~/.iot-hub-gettiNPMng-started/config-raspberrypi.json
+    code ~/.iot-hub-getting-started/config-raspberrypi.json
     ```
 
 3. Replace the placeholder `[device hostname or IP address]` with the IP address or the host name that you got previously in "Obtain the IP address and host name of Pi."
