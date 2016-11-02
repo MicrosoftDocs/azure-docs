@@ -74,7 +74,6 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
     - [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 
 - Let us know what you think
-<!--  Fixing broken links for Azure content migration from ACOM to DOCS. I can't find a suitable substitute for what appears to be a link that is no longer available. I am commenting out for now. The author can investigate in the future.
-    - [Comment on our documentation backlog](data-lake-analytics-documentation-backlog.md)-->
+<!-- Fixing broken links for Azure content migration from ACOM to DOCS. I can't find a suitable substitute for what appears to be a link that is no longer available. I am commenting out for now. The author can investigate in the future. [Comment on our documentation backlog](data-lake-analytics-documentation-backlog.md) -->
     - [Submit a feature request](http://aka.ms/adlafeedback)
     - [Get help in the forums](http://aka.ms/adlaforums)
