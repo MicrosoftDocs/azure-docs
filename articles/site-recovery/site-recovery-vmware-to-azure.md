@@ -13,11 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-<<<<<<< HEAD
 	ms.date="11/01/2016"
-=======
-	ms.date="10/31/2016"
->>>>>>> 5f2598228dfc5bf43db36d9f803ef66c43e2743f
 	ms.author="raynew"/>
 
 # Replicate VMware virtual machines and physical machines to Azure with Azure Site Recovery using the Azure portal
