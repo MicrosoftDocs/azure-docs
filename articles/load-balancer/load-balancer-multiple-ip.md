@@ -37,6 +37,11 @@ At this time, load balancing on secondary IP configurations is limited to PowerS
 This limitation is temporary, and may change at any time. Make sure to revisit this page to verify future changes.
 
 
+[AZURE.INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
+
+To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use.
+
+
 ## Steps to load balance on multiple IP configurations 
 
 Follow the steps below to achieve the scenario outlined in this article:
