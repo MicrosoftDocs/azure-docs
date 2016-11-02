@@ -1,6 +1,6 @@
 <properties
    pageTitle="Load balancing on multiple IP configurations"
-   description=""
+   description="Load balancing across primary and secondary ip configurations"
    services="load-balancer"
    documentationCenter="na"
    authors="anavinahar"
@@ -25,7 +25,7 @@ www.contoso.com
 
 www.fabrikam.com 
 
-You could host your domains using [Azure DNS](https://azure.microsoft.com/en-us/services/dns/). The final step in this scenario is the DNS set up. 
+You could host your domains using [Azure DNS](../dns/dns-overview.md). The final step in this scenario is the DNS set up. 
 
 ![LB scenario image](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
@@ -41,26 +41,26 @@ This limitation is temporary, and may change at any time. Make sure to revisit t
 
 Follow the steps below to achieve the scenario outlined in this article:
 
-1. Install Azure PowerShell. See [How to install and configure Azure PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+1. Install Azure PowerShell. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
-2. Follow step 2 to [Create a Resource Group](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-ps-create/#step-2-create-a-resource-group). Be sure to use:
+2. Follow step 2 to [Create a Resource Group](../virtual-machines/virtual-machines-windows-ps-create.md). Be sure to use:
     
         $location = "westcentralus".
         $myResourceGroup = "contosofabrikam"
 
-3. [Create an Availability Set](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-create-availability-set/#use-powershell-to-create-an-availability-set) to contain your VMs to allow them to be added to an Azure Load Balancer pool later on. For this scenario use the following:
+3. [Create an Availability Set](../virtual-machines/virtual-machines-windows-create-availability-set.md) to contain your VMs to allow them to be added to an Azure Load Balancer pool later on. For this scenario use the following:
 
         New-AzureRmAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
 
-4. Follow instructions steps 3 through 5 in [Create a Windows VM](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-ps-create/#step-2-create-a-resource-group) article to prepare the creation of a VM with a single NIC. Execute step 6.1, and use the following instead of step 6.2:
+4. Follow instructions steps 3 through 5 in [Create a Windows VM](../virtual-machines/virtual-machines-windows-ps-create.md) article to prepare the creation of a VM with a single NIC. Execute step 6.1, and use the following instead of step 6.2:
 
         $availset = Get-AzureRmAvailabilitySet -ResourceGroupName “contosofabrikam” -Name "myAvailset"
 
         New-AzureRmVMConfig -VMName “VM1” -VMSize “Standard_DS1_v2” -AvailabilitySetId $availset.Id
 
-5. Then complete [Create a Windows VM](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-ps-create/) steps 6.3 through 6.8. 
+5. Then complete [Create a Windows VM](../virtual-macines/virtual-machines-windows-ps-create.md) steps 6.3 through 6.8. 
 
-6. Next, we will add a second IP configuration following instructions in the [Assign multiple IP addresses to virtual machines](https://azure.microsoft.com/en-us/documentation/articles/virtual-network-multiple-ip-addresses-powershell/#add) section to each of the VM’s NICs. Use
+6. Next, we will add a second IP configuration to each of the VMs following instructions in the Add IP addresses to an existing VM section of [Assign multiple IP addresses to virtual machines](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md) article. Use
 
         $NicName = “VM1-NIC”
 
@@ -72,15 +72,19 @@ Follow the steps below to achieve the scenario outlined in this article:
 
         $mySubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -VirtualNetwork $myVnet
 
-    Note that $Subnet1 should be replaced by $mySubnet if you have been following along from the [Create a Windows VM](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-ps-create/#step-2-create-a-resource-group) article. You do not need to associate the secondary IP configurations with public IPs for the purpose of this tutorial.
+    Note that $Subnet1 should be replaced by $mySubnet if you have been following along from the [Create a Windows VM](../virtual-machines/virtual-machines-windows-ps-create.md) article. You do not need to associate the secondary IP configurations with public IPs for the purpose of this tutorial so edit the command to remove the public IP association part.
 
 7. Complete steps 4 through 6 again for VM2. Be sure to replace the VM name to VM2 when doing this. 
 
-8. Create two public IP addresses:
+8. Create two public IP addresses and store them in the appropriate variables as shown:
 
-        $publicIP1 = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName contosofabrikam -Location 'West Central US' –AllocationMethod Static -DomainNameLabel contoso
+        $publicIP1 = New-AzureRmPublicIpAddress -Name PublicIp1 -ResourceGroupName contosofabrikam -Location 'West Central US' –AllocationMethod Static -DomainNameLabel contoso
 
-        $publicIP2 = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName contosofabrikam -Location 'West Central US' –AllocationMethod Static -DomainNameLabel fabrikam
+        $publicIP2 = New-AzureRmPublicIpAddress -Name PublicIp2 -ResourceGroupName contosofabrikam -Location 'West Central US' –AllocationMethod Static -DomainNameLabel fabrikam
+
+        $publicIP1 = Get-AzureRmPublicIpAddress -Name PublicIp1 -ResourceGroupName contosofabrikam
+        $publicIP2 = Get-AzureRmPublicIpAddress -Name PublicIp2 -ResourceGroupName contosofabrikam
+
 
 9. Create two frontend IP configurations:
 
@@ -117,10 +121,10 @@ Follow the steps below to achieve the scenario outlined in this article:
         $nic2 = Get-AzureRmNetworkInterface -Name “VM2-NIC” -ResourceGroupName “MyResourcegroup”;
 
 
-        $nic1.IpConfigurations[0].LoadBalancerBackendAddressPools.Add($lb.BackendAddressPools[0]);
-        $nic1.IpConfigurations[1].LoadBalancerBackendAddressPools.Add($lb.BackendAddressPools[1]);
-        $nic2.IpConfigurations[0].LoadBalancerBackendAddressPools.Add($lb.BackendAddressPools[0]);
-        $nic2.IpConfigurations[1].LoadBalancerBackendAddressPools.Add($lb.BackendAddressPools[1]);
+        $nic1.IpConfigurations[0].LoadBalancerBackendAddressPools.Add($mylb.BackendAddressPools[0]);
+        $nic1.IpConfigurations[1].LoadBalancerBackendAddressPools.Add($mylb.BackendAddressPools[1]);
+        $nic2.IpConfigurations[0].LoadBalancerBackendAddressPools.Add($mylb.BackendAddressPools[0]);
+        $nic2.IpConfigurations[1].LoadBalancerBackendAddressPools.Add($mylb.BackendAddressPools[1]);
 
         $mylb = $mylb | Set-AzureRmLoadBalancer
 
