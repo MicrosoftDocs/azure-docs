@@ -56,7 +56,7 @@ For Key Vault management (CRUD and setting access policy), the key vault client 
 
 ## Key Vault operations##
 
-For all key vault object (keys and secrets) management and cryptographic operations, the key vault client needs to access the key vault endpoint. The endpoint DNS suffix varies depending on the location of your key vault. The key vault endpoint is of the format: <vault-name>.<region-specific-dns-suffix> as described in the following table.  
+For all key vault object (keys and secrets) management and cryptographic operations, the key vault client needs to access the key vault endpoint. The endpoint DNS suffix varies depending on the location of your key vault. The key vault endpoint is of the format *vault-name*.*region-specific-dns-suffix*, as described in the following table.  
 
 | Type of operation | Endpoint:port |
 |----------------|---------------|
