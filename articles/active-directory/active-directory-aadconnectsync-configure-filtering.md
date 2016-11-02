@@ -22,7 +22,7 @@ With filtering, you can control which objects should appear in Azure AD from you
 
 In some cases, it is required to make some changes to the default configuration. Here are some examples:
 
-- You plan to use the [multi-Azure AD-directory topology](active-directory-aadconnect-topologies.md#each-object-only-once-in-an-azure-ad-directory). Then you need to apply a filter to control which object should be synchronized to a particular Azure AD directory.
+- You plan to use the [multi-Azure AD-directory topology](active-directory-aadconnect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Then you need to apply a filter to control which object should be synchronized to a particular Azure AD directory.
 - You run a pilot for Azure or Office 365 and you only want a subset of users in Azure AD. In the small pilot, it is not important to have a complete Global Address List to demonstrate the functionality.
 - You have many service accounts and other non-personal accounts you do not want in Azure AD.
 - For compliance reasons you do not delete any user accounts on-premises. You only disable them. But in Azure AD you only want active accounts to be present.
