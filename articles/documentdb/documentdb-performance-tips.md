@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/17/2016" 
+	ms.date="11/01/2016" 
 	ms.author="mimig"/>
 
 # Performance tips for DocumentDB
@@ -203,14 +203,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
 3. **Design for smaller documents for higher throughput**
 
     The request charge (i.e. request processing cost) of a given operation is directly correlated to the size of the document. Operations on large documents cost more than operations for small documents.
-
-## Consistency Levels
-
-1. **Use weaker consistency Levels for better read latencies**
-
-    Another important factor to take into account while tuning the performance of DocumentDB applications is consistency level. The choice of consistency level has performance implications for both reads and writes. You can configure the default consistency level on the database account and the chosen consistency level then applies to all the collections (across all of the databases) within the DocumentDB account. In terms of write operations, the impact of changing consistency level is observed as request latency. As stronger consistency levels are used, write latencies will increase. On the other hand, the impact of consistency level on read operations is observed in terms of throughput. Weaker consistency levels allow higher read throughput to be realized by the client.
-
-    By default all reads and queries issued against the user-defined resources will use the default consistency level specified on the database account. You can, however, lower the consistency level of a specific read/query request by specifying the x-ms-consistency-level request header. For more information, see [Consistency levels in DocumentDB](documentdb-consistency-levels.md).
 
 ## Next steps
 

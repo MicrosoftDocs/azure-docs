@@ -21,11 +21,11 @@
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
-This article describes best practices for implementing a secure hybrid network that extends an on-premises network to Azure. This reference architecture implements a DMZ between an on-premises network and an Azure virtual network using user defined routes (UDRs). The DMZ includes highly available network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. All outgoing traffic from the VNet is force-tunneled to the Internet through the on-premises network so it can be audited. 
+This article describes best practices for implementing a secure hybrid network that extends an on-premises network to Azure. This reference architecture implements a DMZ between an on-premises network and an Azure virtual network using user defined routes (UDRs). The DMZ includes highly available network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. All outgoing traffic from the VNet is force-tunneled to the Internet through the on-premises network so it can be audited.
 
 This architecture requires a connection to your on-premises datacenter implemented using either a [VPN gateway][ra-vpn], or an [ExpressRoute][ra-expressroute] connection.
 
-> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
+> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager](../azure-resource-manager/resource-group-overview.md) and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
 
 Typical use cases for this architecture include:
 
@@ -49,15 +49,15 @@ The following diagram highlights the important components in this architecture:
 
 - **Gateway.** The gateway provides connectivity between the routers in the on-premises network and the VNet.
 
-- **Network virtual appliance (NVA).** NVA is a generic term that describes a VM performing tasks such as allowing or denying access as a firewall, optimizing WAN operations (including network compression), custom routing, or other network functionality. 
+- **Network virtual appliance (NVA).** NVA is a generic term that describes a VM performing tasks such as allowing or denying access as a firewall, optimizing WAN operations (including network compression), custom routing, or other network functionality.
 
 - **Web tier, business tier, and data tier subnets.** These are subnets hosting the VMs and services that implement an example 3-tier application running in the cloud. See [Running Windows VMs for an N-tier architecture on Azure][ra-n-tier] for more information.
 
-- **User defined routes (UDR).** [User defined routes][udr-overview] define the flow of IP traffic within Azure VNets. 
+- **User defined routes (UDR).** [User defined routes][udr-overview] define the flow of IP traffic within Azure VNets.
 
 > [AZURE.NOTE] Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes as an alternative to to using UDRs to implement the forwarding rules that direct traffic back through the on-premises network.
 
-- **Management subnet.** This subnet contains VMs that implement management and monitoring capabilities for the components running in the VNet. 
+- **Management subnet.** This subnet contains VMs that implement management and monitoring capabilities for the components running in the VNet.
 
 ## Recommendations
 
@@ -65,7 +65,7 @@ Azure offers many different resources and resource types, so this reference arch
 
 ### RBAC recommendations
 
-Create several RBAC roles to manage the resources in your application. Consider creating a DevOps [custom role][rbac-custom-roles] with permissions to administer the infrastructure for the application. Consider creating a centralized IT administrator [custom role][rbac-custom-roles] to manage network resources, and a separate security IT administrator [custom role][rbac-custom-roles] to manage secure network resources such as the NVAs. 
+Create several RBAC roles to manage the resources in your application. Consider creating a DevOps [custom role][rbac-custom-roles] with permissions to administer the infrastructure for the application. Consider creating a centralized IT administrator [custom role][rbac-custom-roles] to manage network resources, and a separate security IT administrator [custom role][rbac-custom-roles] to manage secure network resources such as the NVAs.
 
 The DevOps role should include permissions to deploy the application components as well as monitor and restart VMs. The centralized IT administrator role should include permissions to monitor network resources. Neither of these roles should have access to the NVA resources as this should be restricted to the security IT administrator role.
 
@@ -83,7 +83,7 @@ We recommend the creation of the following:
 
 ### Virtual network gateway recommendations
 
-On-premises traffic passes to the VNet through a virtual network gateway. We recommend an [Azure VPN gateway][guidance-vpn-gateway] or an [Azure ExpressRoute gateway][guidance-expressroute]. 
+On-premises traffic passes to the VNet through a virtual network gateway. We recommend an [Azure VPN gateway][guidance-vpn-gateway] or an [Azure ExpressRoute gateway][guidance-expressroute].
 
 ### NVA recommendations
 
@@ -105,7 +105,7 @@ If none of these third-party NVAs meet your requirements, you can create a custo
 
 - Traffic is routed using [IP forwarding][ip-forwarding] on the NVA NICs.
 
-- Traffic is permitted to pass through the NVA only if it is appropriate to do so. Each NVA VM in the reference architecture is a simple Linux router with inbound traffic arriving on network interface *eth0*, and outbound traffic matching rules defined by custom scripts dispatched through network interface *eth1*. 
+- Traffic is permitted to pass through the NVA only if it is appropriate to do so. Each NVA VM in the reference architecture is a simple Linux router with inbound traffic arriving on network interface *eth0*, and outbound traffic matching rules defined by custom scripts dispatched through network interface *eth1*.
 
 - Traffic routed to the management subnet does not pass through the NVAs and the NVAs can only be configured from the management subnet. If traffic to the management subnet is required to be routed through the NVAs, there is no route to the management subnet to fix the NVAs if they should fail.  
 
@@ -117,7 +117,7 @@ Another recommendation to consider is connecting multiple NVAs in series with ea
 
 The VPN gateway exposes a public IP address for the connection to the on-premises network. We recommend creating a network security group (NSG) for the inbound NVA subnet implementing rules to block all traffic not originating from the on-premises network.
 
-We also recommend that you implement NSGs for each subnet to provide a second level of protection against inbound traffic bypassing an incorrectly configured or disabled NVA. For example, the web tier subnet in the reference architecture implements an NSG with a rule to ignore all requests other than those received from the on-premises network (192.168.0.0/16) or the VNet, and another rule that ignores all requests not made on port 80. 
+We also recommend that you implement NSGs for each subnet to provide a second level of protection against inbound traffic bypassing an incorrectly configured or disabled NVA. For example, the web tier subnet in the reference architecture implements an NSG with a rule to ignore all requests other than those received from the on-premises network (192.168.0.0/16) or the VNet, and another rule that ignores all requests not made on port 80.
 
 ### Internet access recommendations
 
@@ -130,7 +130,7 @@ We further recommend that you verify outbound internet traffic is force-tunneled
 ### Management subnet recommendations
 
 The management subnet contains a jump box that executes management and monitoring functionality. Implement the following recommendations for the jump box:
-- Do not create a public IP address for the jump box. 
+- Do not create a public IP address for the jump box.
 - Create one route to access the jump box through the incoming gateway and implement an NSG in the management subnet to only respond to requests from the allowed route.
 - Restrict execution of all secure management tasks to the jump box.
 
@@ -148,7 +148,7 @@ The standard SKU VPN gateway supports sustained throughput of up to 100 Mbps. Th
 
 ## Availability considerations
 
-The reference architecture implements a load balancer distributing requests from on-premises to a pool of NVA devices in Azure. The NVA devices are VMs executing network traffic routing rules and are deployed into an [availability set][availability-set]. The load balancer regularly queries a health probe implemented on each NVA and will remove any unresponsive NVAs from the pool. 
+The reference architecture implements a load balancer distributing requests from on-premises to a pool of NVA devices in Azure. The NVA devices are VMs executing network traffic routing rules and are deployed into an [availability set][availability-set]. The load balancer regularly queries a health probe implemented on each NVA and will remove any unresponsive NVAs from the pool.
 
 If you're using Azure ExpressRoute to provide connectivity between the VNet and on-premises network, [configure a VPN gateway to provide failover][guidance-vpn-failover] if the ExpressRoute connection becomes unavailable.
 
@@ -168,7 +168,7 @@ If you're using ExpressRoute to provide the connectivity between your on-premise
 
 ## Security considerations
 
-This reference architecture implements multiple levels of security: 
+This reference architecture implements multiple levels of security:
 
 ### Routing all on-premises user requests through the NVA
 
@@ -190,12 +190,12 @@ Restrict the operations that DevOps can perform on each tier using [RBAC][rbac] 
 
 A deployment for a reference architecture that implements these recommendations is available on Github. This reference architecture includes a virtual network (VNet), network security group (NSG), load balancer, and two virtual machines (VMs).
 
-The reference architecture can be deployed either with Windows or Linux VMs by following the directions below: 
+The reference architecture can be deployed either with Windows or Linux VMs by following the directions below:
 
 1. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
 [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-secure-vnet%2Fazuredeploy.json)
 
-2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
+2. Once the link has opened in the Azure portal, you must enter values for some of the settings:
     - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-private-dmz-rg` in the text box.
     - Select the region from the **Location** drop down box.
     - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.

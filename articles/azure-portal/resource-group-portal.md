@@ -150,9 +150,5 @@ Deleting a resource group deletes all the resources contained within it. You can
 - To troubleshoot deployment errors, see [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md).
 - To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
 - To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
-
-
-
-
-
+- For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../resource-manager-subscription-governance.md).
 
