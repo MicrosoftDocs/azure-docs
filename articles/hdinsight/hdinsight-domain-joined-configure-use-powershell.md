@@ -21,7 +21,7 @@
 
 Learn how to set up an Azure HDInsight cluster with Azure Active Directory (Azure AD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) using Azure PowerShell. An Azure PowerShell script is provided to make the configuration faster and less error prone. Domain-joined HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md).
 
-A typial Domain-joined HDInsight cluster configuration involves the following steps:
+A typical Domain-joined HDInsight cluster configuration involves the following steps:
 
 1. Create an Azure classic VNet for your Azure AD.  
 2. Create and configure Azure AD and Azure AD DS.
@@ -67,14 +67,14 @@ The PowerShell script can be downloaded from [here](). Extract the zip file and 
 1. Open run.ps1 using Windows PowerShell ISE or any text editor.
 2. Fill the values for the following variables:
 
-	- $SubscriptionName – The name of the subscription where you want to create your HDInsight cluster. You have already created a Classic virtual network in this subscription, and will be creating ARM virtual network in this subscription.
-	- $ClassicVNetName - The classic virtual network which contains the Azure AD DS. This virtual network must be in the same subscription which is provided above. This virtual network must be created using ARM portal, and not using classic portal.
+	- $SubscriptionName – The name of the subscription where you want to create your HDInsight cluster. You have already created a Classic virtual network in this subscription, and will be creating Azure Resource Manager virtual network in this subscription.
+	- $ClassicVNetName - The classic virtual network which contains the Azure AD DS. This virtual network must be in the same subscription which is provided above. This virtual network must be created using Resource Manager portal, and not using classic portal.
 	- $ClassicResourceGroupName – The resource group name for the classic virtual network that is mentioned above.
 	- $ArmResourceGroupName – The resource group name within which, you want to create the HDInsight cluster. This resource group may be same as the classic resource group provided above. This resource group may, or may not exist. If it does not exist, the tool will create the resource group.
-	- $ArmVNetName - The ARM virtual network name within which you want to create the HDInsight cluster. This virtual network will be part of the resource group that you provide above. This virtual network may or may not exist. If it does not exist, the PowerShell script will create it. If it does exist, it should be part of the resource group that you provide above.
-	- $AddressVnetAddressSpace – The network address space for the ARM virtual network. Ensure that this address space is available. This address space must not overlap with the classic virtual network’s address space. For example, “10.1.0.0/16”
-	- $ArmVnetSubnetName - The ARM virtual network subnet name within which you want to place the HDInsight cluster VMs. This subnet may or may not exist. If it does not exist, the PowerShell script will create it. If it does exist, it should be part of the virtual network that you provide above.
-	- $AddressSubnetAddressSpace – The network address range for the ARM virtual network subnet. The HDInsight cluster VM IP addresses will be from this subnet address range. For example, “10.1.0.0/24”.
+	- $ArmVNetName - The Resource Manager virtual network name within which you want to create the HDInsight cluster. This virtual network will be part of the resource group that you provide above. This virtual network may or may not exist. If it does not exist, the PowerShell script will create it. If it does exist, it should be part of the resource group that you provide above.
+	- $AddressVnetAddressSpace – The network address space for the Resource Manager virtual network. Ensure that this address space is available. This address space must not overlap with the classic virtual network’s address space. For example, “10.1.0.0/16”
+	- $ArmVnetSubnetName - The Resource Manager virtual network subnet name within which you want to place the HDInsight cluster VMs. This subnet may or may not exist. If it does not exist, the PowerShell script will create it. If it does exist, it should be part of the virtual network that you provide above.
+	- $AddressSubnetAddressSpace – The network address range for the Resource Manager virtual network subnet. The HDInsight cluster VM IP addresses will be from this subnet address range. For example, “10.1.0.0/24”.
 	- $ActiveDirectoryDomainName – The Azure AD domain name that you want to join the HDInsight cluster VMs to. For example, “contoso.onmicrosoft.com”
 	- $ClusterUsersGroups – The common name of the security groups from your AD that you want to sync to the HDInsight cluster. The users within this security group will be able to log on to the cluster dashboard using their active directory domain credentials. These security groups must exist in the active directory. For example, “hiveusers” or “clusteroperatorusers”.
 	- $OrganizationalUnitName - The organizational unit in the domain, within which you want to place the HDInsight cluster VMs and the service principals used by the cluster. The PowerShell script will create this OU if it does not exist. For example, “HDInsightOU”.
@@ -85,10 +85,10 @@ The PowerShell script can be downloaded from [here](). Extract the zip file and 
 
 1. Run **Windows PowerShell** as administrator.
 2. Browse to the folder of run.ps1. 
-3. Run the script by typing the file name, and hit **ENTER**.  It will popup 3 sign-in dialogs:
+3. Run the script by typing the file name, and hit **ENTER**.  It pops up 3 sign-in dialogs:
 
-	1. Sign-in to Azure Classic portal – Enter your credentials which you use to sign-in to Azure Classic portal. You must have created the Azure AD and Azure AD DS using this credentials.
-	2. Sign-in to Azure Resource Manager portal – Enter your credentials which you use to sign-in to Azure Resource Manager portal.
+	1. Sign in to Azure classic portal – Enter your credentials which you use to sign in to Azure classic portal. You must have created the Azure AD and Azure AD DS using these credentials.
+	2. Sign in to Azure Resource Manager portal – Enter your credentials which you use to sign in to Azure Resource Manager portal.
 	3. Domain user name – Enter the credentials of the Domain user name that you want to be an admin on the HDInsight cluster. If you created an Azure AD from scratch, you must have created this user using this documentation. Enter the credentials in this format
 
 		Domainname\username (for example contoso.onmicrosoft.com\clusteradmin)
@@ -100,7 +100,7 @@ The PowerShell script can be downloaded from [here](). Extract the zip file and 
 	- To create service principals and machine objects within the provided Organizational Unit
 	- To add reverse DNS proxy rules
 
-While creating reverse DNS zones, the script will prompt you to enter a network ID. This network ID must be the ARM virtual network’s address prefix. For example, if your ARM virtual network address space is is 10.2.0.0/16, then enter 10.2.0.0 in the Network ID.
+While creating reverse DNS zones, the script will prompt you to enter a network ID. This network ID must be the Resource Manager virtual network’s address prefix. For example, if your Resource Manager virtual network address space is 10.2.0.0/16, then enter 10.2.0.0 in the Network ID.
 
 
 
@@ -139,7 +139,7 @@ In this section, you create a Linux-based Hadoop cluster in HDInsight using eith
 				- **Domain name**: contoso.onmicrosoft.com
 				- **Domain user name**: Enter a domain user name. This domain must have the following privileges: Join machines to the domain and place them in the organization unit you configured earlier; Create service principals within the organization unit you configured earlier; Create reverse DNS entries. This domain user will become the administrator of this domain-joined HDInsight cluster.
 				- **Domain password**: Enter the domain user password.
-				- **Organization Unit**: Enter the distinguished name of the OU tht you configured earlier. For example: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
+				- **Organization Unit**: Enter the distinguished name of the OU that you configured earlier. For example: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
 				- **LDAPS URL**: ldaps://contoso.onmicrosoft.com:636
 				- **Access user group**: Specify the security group whose users you wan to sync to the cluster. For example, HiveUsers.
 
