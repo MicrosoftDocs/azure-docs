@@ -4,7 +4,7 @@
     services=""
     documentationCenter="java"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,18 +13,16 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/11/2016" 
+    ms.date="11/01/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh698319.aspx -->
-
-# Displaying Javadoc Content in Eclipse for the Azure Libraries Package for Java #
+# Displaying Javadoc Content in Eclipse for the Azure Libraries Package for Java
 
 The Javadoc content for the Azure Libraries for Java can be viewed within your Eclipse environment by associating the Javadoc content to the Azure Libraries for Java. The following steps show you how to use this functionality within Eclipse.
 
 This procedure assumes you have already added the Azure Library for Java to your build path.
 
-## To display Javadoc content in Eclipse for the Azure Libraries for Java ##
+## To display Javadoc content in Eclipse for the Azure Libraries for Java
 
 * Within Eclipse's Project Explorer, in the **Referenced Libraries** section of your project, open the context menu for the Azure Library for Java JAR. For example, **microsoft-windowsazure-api-0.1.0.jar** (the version number may be different, dependent upon which version you have installed).
 * Click **Properties**.
@@ -41,7 +39,7 @@ Once associated with the library, the Javadoc content should display within your
 
 ![][ic553488]
 
-## See Also ##
+## See Also
 
 [Azure Toolkit for Eclipse][]
 
@@ -62,3 +60,5 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 [ic553487]: ./media/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries/ic553487.png
 [ic553488]: ./media/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries/ic553488.png
+
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh698319.aspx -->

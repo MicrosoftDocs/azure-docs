@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter="java"
 	authors="rmcmurray"
-	manager="wpickett"
+	manager="erikre"
 	editor=""
     tags="azure-service-management" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="11/01/2016"
 	ms.author="robmcm"/>
 
 # How to run a Java application server on a virtual machine created with the classic deployment model
