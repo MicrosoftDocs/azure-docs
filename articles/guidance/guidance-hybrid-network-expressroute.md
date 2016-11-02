@@ -23,7 +23,7 @@
 
 This article describes best practices for connecting an on-premises network to virtual networks on Azure by using ExpressRoute. ExpressRoute connections are made using a private dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure providing access to your own IaaS infrastructure in Azure, public endpoints used in PaaS services, and Office365 SaaS services. This document focuses on using ExpressRoute to connect to a single Azure virtual network (VNet) using what is called private peering.
 
-> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
+> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager](../azure-resource-manage/resource-group-overview.md) and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
 
 Typical use cases for this architecture include:
 
@@ -37,7 +37,7 @@ Typical use cases for this architecture include:
 
 - Using Azure as a disaster-recovery site.
 
-> [AZURE.NOTE] The [ExpressRoute technical overview][expressroute-technical-overview] provides an introduction to ExpressRoute.
+> [AZURE.NOTE] The [ExpressRoute technical overview](../expressrout/expressroute-introduction.md) provides an introduction to ExpressRoute.
 
 ## Architecture diagram
 
@@ -47,9 +47,9 @@ The following diagram highlights the important components in this architecture:
 
 ![[0]][0]
 
-- **Azure virtual networks (VNets).** Each VNet resides in a single Azure region, and can host multiple application tiers. Application tiers can be segmented using subnets in each VNet  and/or network security groups (NSGs). 
+- **Azure virtual networks (VNets).** Each VNet resides in a single Azure region, and can host multiple application tiers. Application tiers can be segmented using subnets in each VNet  and/or network security groups (NSGs).
 
-- **Azure public services.** These are Azure services that can be utilized within a hybrid application. These services are also available over the public Internet, but accessing them via an ExpressRoute circuit provides low latency and more predictable performance since traffic does not go through the Internet. Connections are performed by using **public peering**, with addresses that are either owned by your organization or supplied by your connectivity provider. 
+- **Azure public services.** These are Azure services that can be utilized within a hybrid application. These services are also available over the public Internet, but accessing them via an ExpressRoute circuit provides low latency and more predictable performance since traffic does not go through the Internet. Connections are performed by using **public peering**, with addresses that are either owned by your organization or supplied by your connectivity provider.
 
 - **Office 365 services.** These are the publicly available Office 365 applications and services provided by Microsoft. Connections are performed by using **Microsoft peering**, with addresses that are either owned by your organization or supplied by your connectivity provider.
 
@@ -57,7 +57,7 @@ The following diagram highlights the important components in this architecture:
 
 - **On-premises corporate network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
 
-- **Local edge routers.** These are routers that connect the on-premises network to the circuit managed by the provider. Depending on how your connection is provisioned, you need to provide the public IP addresses used by the routers. 
+- **Local edge routers.** These are routers that connect the on-premises network to the circuit managed by the provider. Depending on how your connection is provisioned, you need to provide the public IP addresses used by the routers.
 
 - **Microsoft edge routers.** These are two routers in an active-active highly available configuration. These routers enable a connectivity provider to connect their circuits directly to their datacenter. Depending on how your connection is provisioned, you need to provide the public IP addresses used by the routers.
 
@@ -175,7 +175,7 @@ You can upgrade the SKU without disruption, but you cannot switch from the unlim
 
 > [AZURE.NOTE] ExpressRoute offers two pricing plans to customers, based on metering or unlimited data. See [ExpressRoute pricing][expressroute-pricing] for details. Charges vary according to circuit bandwidth. Available bandwidth will likely vary from provider to provider. Use the `Get-AzureRmExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
 
-A single ExpressRoute circuit can support a number of peerings and VNet links. See [ExpressRoute limits][expressroute-limits] for more information.
+A single ExpressRoute circuit can support a number of peerings and VNet links. See [ExpressRoute limits](../articles/azure-subscription-service-limits.md) for more information.
 
 For an extra charge, ExpressRoute Premium Add-on provides:
 
@@ -269,7 +269,7 @@ If you have an existing on-premises infrastructure already configured with a VPN
 1. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
 [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-er%2Fazuredeploy.json)
 
-2. Wait for the link to open in the Azure portal, then follow these steps: 
+2. Wait for the link to open in the Azure portal, then follow these steps:
   - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-er-rg` in the text box.
   - Select the region from the **Location** drop down box.
   - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -281,7 +281,7 @@ If you have an existing on-premises infrastructure already configured with a VPN
 4. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
 [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-er%2Fazuredeploy-expressRouteCircuit.json)
 
-5. Wait for the link to open in the Azure portal, then follow these steps: 
+5. Wait for the link to open in the Azure portal, then follow these steps:
   - Select **Use existing** in the **Resource group** section and enter `ra-hybrid-er-rg` in the text box.
   - Select the region from the **Location** drop down box.
   - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
