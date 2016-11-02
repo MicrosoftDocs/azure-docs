@@ -76,7 +76,7 @@ It takes about five minutes to create these resources. While the resource creati
 
 ## Summary
 
-You've created your Azure function app to process IoT hub messages and an Azure storage account to store these messages. You can move on to the next section to deploy and run the sample to send device-to-cloud messages on Pi.
+You've created your Azure function app to process IoT hub messages and an Azure storage account to store these messages. You can now deploy and run the sample to send device-to-cloud messages on Pi.
 
 ## Next steps
 
