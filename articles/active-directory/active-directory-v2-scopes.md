@@ -112,7 +112,7 @@ Some high-privilege permissions in the Microsoft ecosystem can be set to *admin-
 
 Although a consumer user might grant an application access to this kind of data, organizational users are restricted from granting access to the same set of sensitive company data. If your application requests access to one of these permissions from an organizational user, the user receives an error message that says they are not authorized to consent to your app's permissions.
 
-If your app requires access to admin-restricted scopes for organizations, you should request them directly from a company administrator, also by using the admin consent endpoint*, described next.
+If your app requires access to admin-restricted scopes for organizations, you should request them directly from a company administrator, also by using the admin consent endpoint, described next.
 
 When an administrator grants these permissions via the admin consent endpoint, consent is granted for all users in the tenant.
 
