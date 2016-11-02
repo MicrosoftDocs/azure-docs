@@ -181,7 +181,6 @@ Suppose you have the following function.json, that defines a Storage blob trigge
 See the language-specific sample that logs the contents of each blob that is added to the monitored container.
 
 - [C#](#triggercsharp)
-<!-- - [F#](#triggerfsharp) -->
 - [Node.js](#triggernodejs)
 
 <a name="triggercsharp"></a>
@@ -290,7 +289,6 @@ a Storage blob input, and a Storage blob output:
 See the language-specific sample that copies the input blob to the output blob.
 
 - [C#](#incsharp)
-- [F#](#infsharp)
 - [Node.js](#innodejs)
 
 <a name="incsharp"></a>
@@ -302,8 +300,10 @@ See the language-specific sample that copies the input blob to the output blob.
         myOutputBlob = myInputBlob;
     }
 
+<!--
 <a name="infsharp"></a>
 ### Input usage in F\# 
+-->
 
 <a name="innodejs"></a>
 ### Input usage in Node.js
