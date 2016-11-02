@@ -35,13 +35,13 @@ All traffic to a key vault for all three functions (authentication, management, 
 
 ## Authentication##
 
-Key vault client applications will need to access Azure Active Directory endpoints for authentication. The endpoint used depends on the Azure AD tenant configuration, the type of principal (user principal or service principal), and the type of account. For example, Microsoft account or organizational ID.  
+Key vault client applications will need to access Azure Active Directory endpoints for authentication. The endpoint used depends on the Azure AD tenant configuration, the type of principal (user principal or service principal), and the type of account--for example, a Microsoft account or a work or school account.  
 
 | Principal type | Endpoint:port |
 |----------------|---------------|
 | User using Microsoft account<br> (for example, user@hotmail.com) | **Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443<br><br> and <br>login.live.com:443   |
-| User or service principal using organizational ID with Azure AD (for example, user@contoso.com) | **Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
-| User or service principal using organizational ID plus Active Directory Federation Services (AD FS) or other federated endpoint (for example, user@contoso.com) | All endpoints for organizational ID, plus AD FS or other federated endpoints |
+| User or service principal using a work or school account with Azure AD (for example, user@contoso.com) | **Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
+| User or service principal using a work or school account plus Active Directory Federation Services (AD FS) or other federated endpoint (for example, user@contoso.com) | All endpoints for a work or school account, plus AD FS or other federated endpoints |
 
 There are other possible complex scenarios. Refer to [Azure Active Directory Authentication Flow](/documentation/articles/active-directory-authentication-scenarios/), [Integrating Applications with Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) and [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) for additional information.  
 
@@ -64,7 +64,7 @@ For all key vault object (keys and secrets) management and cryptographic operati
 
 ## IP address ranges ##
 
-Key Vault service uses other Azure resources like PaaS infrastructure, hence it's not possible to provide a specific range of IP addresses that Key Vault service endpoints will have at any given time. If your firewall supports only IP address ranges, refer to the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) document. For authentication and identity (Azure Active Directory), your application must be able to connect to the endpoints described in [Authentication and identity Addresses](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+The Key Vault service uses other Azure resources like PaaS infrastructure. So it's not possible to provide a specific range of IP addresses that Key Vault service endpoints will have at any particular time. If your firewall supports only IP address ranges, refer to the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) document. For authentication and identity (Azure Active Directory), your application must be able to connect to the endpoints described in [Authentication and identity addresses](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
 ## Next steps ##
 
