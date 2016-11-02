@@ -130,6 +130,44 @@ Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD
 
 ## Deployment
 
+The sample solution has the following prerequsites:
+
+- You have already configured your on-premises domain, and that you have configured DNS, and installed Routing and Remote Access services to support a VPN connect to the Azure VPN gateway.
+
+- You have installed and configured the latest version of the [Azure Powershell](./powershell-install-configure.md). 
+
+- Download the reference architecture deployment files from [Github](https://github.com/mspnp/reference-architectures/tree/master/guidance-ra-identity-adds).
+
+>[AZURE.NOTE] If you don't have access to an existing on-premises domain, you can create a test environment using the [Deploy-ReferenceArchitecture.ps1](https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-ra-identity-adds/Deploy-ReferenceArchitecture.ps1) Powershell script. This script creates a network and VM in the cloud that simulates a very basic on-premises setup. To install, execute the following Powershell command in the root folder of the reference architecture deployment files:
+
+    ```powershell
+    .\Deploy-ReferenceArchitecture.ps1 <subscriptionID> <region> Onpremise
+    ```
+
+To deploy, you must run the powershell script several times using different parameters. First, execute the Powershell script with the following parameters:
+
+```powershell
+ .\Deploy-ReferenceArchitecture.ps1 <subscriptionID> <region> Infrastructure
+```
+
+Wait for the deployment to complete. Then, execute the powershell script again with the following parameters:
+
+```powershell
+.\Deploy-ReferenceArchitecture.ps1 <subscriptionID> <region> CreateVpn
+```
+
+Wait for the deployment to complete. Then, execute the powershell script again with the following parameters:
+
+```powershell
+.\Deploy-ReferenceArchitecture.ps1 <subscriptionID> <region> AzureADDS
+```
+Wait for the deployment to complete. Then, execute the powershell script again with the following parameters:
+
+```powershell
+.\Deploy-ReferenceArchitecture.ps1 <subscriptionID> <region> Workload
+```
+Once this Powershell script has finished, the deployment is complete.
+
 ## Next steps
 
 - Learn the best practices for [creating an AD DS resource forest][adds-resource-forest] in Azure.
