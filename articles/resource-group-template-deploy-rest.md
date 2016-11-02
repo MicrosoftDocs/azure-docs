@@ -88,3 +88,5 @@ Your template can be either a local file or an external file that is available t
 - To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
 - For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md).
 - For details about using a KeyVault reference to pass secure values, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
+- For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+- For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](./virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md). This series covers application architecture, access and security, availability and scale, and application deployment.
