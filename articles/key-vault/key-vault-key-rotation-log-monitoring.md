@@ -224,7 +224,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Secre
 
 From the editor pane, choose **Test pane** to test your script. Once the script is running without error, you can select **Publish**, and then you can apply a schedule for the runbook back in the runbook configuration pane.
 
-## Key Vault Auditing pipeline
+## Key Vault auditing pipeline
 
 When you set up a key vault, you can turn on auditing to collect logs on access requests made to the key vault. These logs are stored in a designated Azure Storage account and can be pulled out, monitored, and analyzed. The following scenario uses Azure functions, Azure logic apps, and key vault audit logs to create a pipeline to send an email when an app that does match the app ID of the web app retrieves secrets from the vault.
 
@@ -365,15 +365,15 @@ static string GetContainerSasUri(CloudBlockBlob blob)
     return blob.Uri + sasBlobToken;
 }
 ```
-> \[AZURE.NOTE\] Make sure to replace the variables in the preceding code to point to your storage account where the key vault logs are written, the Service Bus you created earlier, and the specific path to the key vault storage logs.
+> \[AZURE.NOTE\] Make sure to replace the variables in the preceding code to point to your storage account where the key vault logs are written, the service bus you created earlier, and the specific path to the key vault storage logs.
 
 The function picks up the latest log file from the storage account where the key vault logs are written, grabs the latest events from that file, and pushes them to a Service Bus queue. Since a single file could have multiple events, you should create a sync.txt file that the function also looks at to determine the time stamp of the last event that was picked up. This ensures that you don't push the same event multiple times. This sync.txt file contains a timestamp for the last encountered event. The logs, when loaded, have to be sorted based on the timestamp to ensure they are ordered correctly.
 
-For this function, we reference a couple of additional libraries that are not available out of the box in Azure Functions. To include these, we need Azure Functions to pull them using NuGet. Choose the **View Files** option ...
+For this function, we reference a couple of additional libraries that are not available out of the box in Azure Functions. To include these, we need Azure Functions to pull them using NuGet. Choose the **View Files** option.
 
 ![View Files option](./media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
 
-... and add a file called project.json with following content:
+And add a file called project.json with following content:
 
 ```json
     {
@@ -397,13 +397,13 @@ Add an output of the type _Azure Blob Storage_ output. This will point to the sy
 
 At this point, the function is ready. Make sure to switch back to the **Develop** tab and save the code. Check the output window for any compilation errors and correct them accordingly. If the code compiles, then the code should now be checking the key vault logs every minute and pushing any new events onto the defined Service Bus queue. You should see logging information write out to the log window every time the function is triggered.
 
-### Azure Logic App
+### Azure logic app
 
-Next you must create an Azure Logic App that picks up the events that the function is pushing to the Service Bus queue, parses the content, and sends an email based on a condition being matched.
+Next you must create an Azure logic app that picks up the events that the function is pushing to the Service Bus queue, parses the content, and sends an email based on a condition being matched.
 
-[Create a Logic App](../app-service-logic/app-service-logic-create-a-logic-app.md) by going to **New > Logic App**.
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) by going to **New > Logic App**.
 
-Once the Logic App is created, navigate to it and choose **edit**. Within the Logic App editor, choose **Service Bus Queue** and enter your Service Bus credentials to connect it to the queue.
+Once the logic app is created, navigate to it and choose **edit**. Within the logic app editor, choose **Service Bus Queue** and enter your Service Bus credentials to connect it to the queue.
 
 ![Azure Logic App Service Bus](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
 
@@ -421,4 +421,4 @@ Now, create an action under **If no, do nothing**.
 
 For the action, choose **Office 365 - send email**. Fill out the fields to create an email to send when the defined condition returns **false**. If you do not have Office 365, you could look at alternatives to achieve the same results.
 
-At this point, you have an end to end pipeline that looks for new key vault audit logs once a minute. It pushes new logs it finds to a service bus queue. The Logic App is triggered when a new message lands in the queue. If the *appid* within the event does not match the app ID of the calling application, it sends an email.
+At this point, you have an end to end pipeline that looks for new key vault audit logs once a minute. It pushes new logs it finds to a service bus queue. The logic app is triggered when a new message lands in the queue. If the *appid* within the event does not match the app ID of the calling application, it sends an email.
