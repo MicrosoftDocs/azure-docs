@@ -35,7 +35,7 @@ In this article, you deploy the following resources and extensions:
 - Microsoft.Insights.VMDiagnosticsSettings
 - Microsoft.Insights/autoscaleSettings
 
-For more information about Resource Manager resources, see [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](../virtual-machines/virtual-machines-windows-compare-deployment-models.md).
+For more information about Resource Manager resources, see [Azure Resource Manager vs. classic deployment](../resource-manager-deployment-model.md).
 
 ## Step 1: Install Azure PowerShell
 

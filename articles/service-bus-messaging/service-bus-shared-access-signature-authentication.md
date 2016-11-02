@@ -207,7 +207,7 @@ The following table shows the access rights required for various operations on S
 |Configure authorization rule on a namespace|Manage|Any namespace address|
 |**Service Registry**|||
 |Enumerate Private Policies|Manage|Any namespace address|
-|Relay|||
+|WCF Relay|||
 |Begin listening on a namespace|Listen|Any namespace address|
 |Send messages to a listener at a namespace|Send|Any namespace address|
 |**Queue**|||

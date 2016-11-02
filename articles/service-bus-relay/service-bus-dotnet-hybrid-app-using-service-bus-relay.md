@@ -16,7 +16,7 @@
 	ms.date="09/16/2016"
 	ms.author="sethm"/>
 
-# .NET on-premises/cloud hybrid application using Azure Service Bus Relay
+# .NET on-premises/cloud hybrid application using Azure Service Bus WCF Relay
 
 ## Introduction
 
@@ -27,7 +27,7 @@ You will learn:
 
 -   How to create or adapt an existing web service for consumption by a
     web solution.
--   How to use the Azure Service Bus Relay service to share data between
+-   How to use the Azure Service Bus WCF Relay service to share data between
     an Azure application and a web service hosted elsewhere.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]

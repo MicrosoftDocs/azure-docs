@@ -48,7 +48,7 @@ Three rules of thumb to keep in mind when building a threat model:
 
 The four core elements of a threat model are:
 
-- Processes (web services, Win32 services, *nix daemons, etc. Note that some complex entities (e.g. field gateways and sensors) can be abstracted as a process when a technical drill down in these areas is not possible.
+- Processes (web services, Win32 services, *nix daemons, etc. Note that some complex entities (for example field gateways and sensors) can be abstracted as a process when a technical drill down in these areas is not possible.
 - Data stores (anywhere data is stored, such as a configuration file or database)
 - Data flow (where data moves between other elements in the application)
 - External Entities (anything that interacts with the system, but is not under the control of the application, examples include users and satellite feeds)

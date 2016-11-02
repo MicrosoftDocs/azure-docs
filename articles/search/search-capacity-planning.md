@@ -19,9 +19,11 @@
 
 # Scale resource levels for query and indexing workloads in Azure Search
 
-After you [choose a pricing tier](search-sku-tier.md) and [provision a search service](search-create-service-portal.md), the next step is to optionally increase the number of replicas or partitions used by your service. Each tier offers a fixed number of billing units. This article explains how to allocate those units to achieve an optimal configuration that balances your requirements for query execution, indexing, and storage. 
+After you [choose a pricing tier](search-sku-tier.md) and [provision a search service](search-create-service-portal.md), the next step is to optionally increase the number of replicas or partitions used by your service. 
 
-Resource configuration is available when you provision a service at either the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md). For billable services at these tiers, capacity is purchased in increments of *search units* (SU) where each partition and replica counts as one SU. Using fewer SUs results in a proportionally lower bill. Billing is in effect for as long as the service is provisioned. If you are temporarily not using a service, the only way to avoid billing is by deleting the service, and then recreating it later when you need it.
+Resource configuration is available when you provision a service at either the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md). For services at these tiers, capacity is purchased in increments of *search units* (SU) that can be spent on replica and partition resources.
+
+Billing remains in effect for as long as the service is provisioned. If you are temporarily not using a service, the only way to avoid billing is by deleting the service, and then recreating it later when you need it.
 
 ## Terminology: partitions and replicas
 
@@ -31,7 +33,7 @@ Partitions and replicas are the primary resources that back a search service.
 
 **Replicas** are instances of the search service, used primarily to load balance query operations. Each replica always hosts one copy of an index. If you have 12 replicas, you will have 12 copies of every index loaded on the service. 
 
-> [AZURE.NOTE] There is no way to directly manipulate or manage which indexes run on a replica. One copy of each index on every replica is part of the service architecture.
+> [AZURE.NOTE] There is no way to directly manipulate or manage which indexes run on a replica. One copy of each index per replica is part of the service architecture.
 
 ## How to allocate partitions and replicas
 
@@ -100,7 +102,7 @@ This table shows the search units required to support combinations of replicas a
 **1 replica**|1 SU|2 SU|3 SU|4 SU|6 SU|12 SU|
 **2 replicas**|2 SU|4 SU|6 SU|8 SU|12 SU|24 SU|
 **3 replicas**|3 SU|6 SU|9 SU|12 SU|18 SU|36 SU|
-**4 replicas**|4 SU|8 SU<|12 SU|16 SU|24 SU|N/|
+**4 replicas**|4 SU|8 SU|12 SU|16 SU|24 SU|N/A|
 **5 replicas**|5 SU|10 SU|15 SU|20 SU|30 SU|N/A|
 **6 replicas**|6 SU|12 SU|18 SU|24 SU|36 SU|N/A|
 **12 replicas**|12 SU|24 SU|36 SU|N/A|N/A|N/A|

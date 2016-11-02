@@ -1,6 +1,6 @@
-## Create a device management enabled IoT Hub
+## Create a device management enabled hub
 
-Since IoT Hub device management is in preview, you need to create a device management enabled IoT hub. When IoT Hub device management reaches General Availability, this tutorial will be updated. The following steps show you how to complete this task using the Azure portal.
+Since device management with IoT Hub is currently in preview, you need to create a device management enabled hub. The following steps show you how to complete this task using the Azure portal.
 
 1.  Sign in to the [Azure portal].
 2.  In the Jumpbar, click **New**, then click **Internet of Things**, and then click **Azure IoT Hub**.
@@ -15,7 +15,7 @@ Since IoT Hub device management is in preview, you need to create a device manag
   -   Select a **Pricing and scale tier**. This tutorial does not require a specific tier.
   -   In **Resource group**, create a new resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources].
   -   Check the box to **Enable Device Management - PREVIEW**.
-  -   In **Location**, select the location to host your IoT Hub. IoT Hub device management is only available in East US, North Europe, and East Asia during public preview.
+  -   In **Location**, select the location to host your IoT Hub. Device management enabled hubs are only available in East US, North Europe, and East Asia during public preview.
 
     > [AZURE.NOTE]  If you don't check the box to **Enable Device Management**, the samples don't work.<br/>By checking **Enable Device Management**, you create a preview IoT Hub supported only in East US, North Europe, and East Asia and not intended for production scenarios. You cannot migrate devices into and out of device management enabled hubs.
 
@@ -33,7 +33,7 @@ Since IoT Hub device management is in preview, you need to create a device manag
 
 	![][img-connection]
 
-You have now created a device management enabled IoT Hub. You need the connection string to complete this tutorial.
+You have now created a device management enabled hub. You need the connection string to complete this tutorial.
 
 ## Create a device identity
 
