@@ -21,7 +21,7 @@
 
 ## What you will do
 
-This article will show you how to deploy and run a sample application on Raspberry Pi 3 that sends messages to your IoT hub. If you have any problems, look for solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+This article will show you how to deploy and run a sample application on Raspberry Pi 3 that sends messages to your IoT hub. If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## What you will learn
 
@@ -33,7 +33,7 @@ Before you start this task, you must have successfully completed [Create an Azur
 
 ## Get your IoT hub and device connection strings
 
-The device connection string is used to connect Pi to your IoT hub. The IoT hub connect string is used to connect your IoT hub to the device identity that represents Pi in the IoT hub.
+The device connection string is used to connect Pi to your IoT hub. The IoT hub connection string is used to connect your IoT hub to the device identity that represents Pi in the IoT hub.
 
 - Get the IoT hub connection string by running the following Azure CLI command:
 
@@ -74,7 +74,7 @@ az iot device show-connection-string --hub {my hub name} --device-id myraspberry
 
 3. Make the following replacements in the `config-raspberrypi.json` file:
 
-  - Replace **[device hostname or IP address]** with the device IP address or hostname you got from `device-discovery-cli` or with the value inherited when you configured your device.
+  - Replace **[device hostname or IP address]** with the device IP address or host name you got from `device-discovery-cli` or with the value inherited when you configured your device.
   - Replace **[IoT device connection string]** with the `device connection string` you obtained.
   - Replace **[IoT hub connection string]** with the `iot hub connection string` you obtained.
 
@@ -98,7 +98,7 @@ You should see the LED that is connected to Pi blinking every two seconds. Every
 
 ## Summary
 
-You've deployed and run the new blink sample application on Pi to send device-to-cloud messages to your IoT hub. You can move to the next article to monitor your messages as they are written to the storage account.
+You've deployed and run the new blink sample application on Pi to send device-to-cloud messages to your IoT hub. You can now monitor your messages as they are written to the storage account.
 
 ## Next steps
 
