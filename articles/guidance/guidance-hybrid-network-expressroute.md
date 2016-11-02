@@ -1,4 +1,4 @@
-resource-group-overview.md<properties
+<properties
    pageTitle="Implementing a Hybrid Network Architecture with Azure ExpressRoute | Reference Architecture | Microsoft Azure"
    description="How to implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected by using Azure ExpressRoute."
    services=""
