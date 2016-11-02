@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/01/2016"
+   ms.date="11/02/2016"
    ms.author="bwren" />
 
 # Azure Automation Hybrid Runbook Workers
@@ -49,9 +49,6 @@ Consider the following recommendations for hybrid workers:
 - Designate multiple hybrid workers in each group for high availability.  
 - Hybrid workers can coexist with Service Management Automation or System Center Orchestrator runbook servers.
 - Consider using a computer physically located in or near the region of your Automation account since the job data is sent back to Azure Automation when a job completes.
-
-
->[AZURE.NOTE] Hybrid Runbook Worker version 7.2.11136.0 currently support communicating through a proxy server only with PowerShell scripts.  Support for PowerShell Workflow scripts will be available in a future release.  
 
 ### Configure proxy and firewall settings
 
