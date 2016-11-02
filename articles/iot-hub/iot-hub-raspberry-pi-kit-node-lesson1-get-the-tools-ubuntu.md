@@ -37,7 +37,7 @@ In this article, you will learn:
   - [Node.js](https://nodejs.org/en/) is a JavaScript runtime with a rich package ecosystem.
 - How to use NPM to install additional Node.js development tools.
   - The minimum required version of Node.js is 4.5 LTS.
-  - [NPM](https://www.npmjs.com) is one of the package managers for Node.js
+  - [NPM](https://www.npmjs.com) is one of the package managers for Node.js.
 
 ## What do you need
 
