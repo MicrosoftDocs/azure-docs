@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure for AWS professionals - service map" 
+	pageTitle="Azure for AWS professionals - Service Map | Microsoft Azure" 
 	description="A map of Azure services for AWS professionals." 
 	services="" 
 	documentationCenter="" 
