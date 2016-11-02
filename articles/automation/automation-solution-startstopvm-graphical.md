@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Starting and stopping virtual machines - Graph | Microsoft Azure"
 	description="PowerShell Workflow version of Azure Automation scenario including runbooks to start and stop classic virtual machines."
 	services="automation"
@@ -6,7 +6,7 @@
 	authors="mgoedtel"
 	manager="jwhit"
 	editor="tysonn" />
-<tags 
+<tags
 	ms.service="automation"
 	ms.devlang="na"
 	ms.topic="article"
@@ -19,10 +19,10 @@
 
 This Azure Automation scenario includes runbooks to start and stop classic virtual machines.  You can use this scenario for any of the following:  
 
-- Use the runbooks without modification in your own environment. 
+- Use the runbooks without modification in your own environment.
 - Modify the runbooks to perform customized functionality.  
-- Call the runbooks from another runbook as part of an overall solution. 
-- Use the runbooks as tutorials to learn runbook authoring concepts. 
+- Call the runbooks from another runbook as part of an overall solution.
+- Use the runbooks as tutorials to learn runbook authoring concepts.
 
 > [AZURE.SELECTOR]
 - [Graphical](automation-solution-startstopvm-graphical.md)
@@ -48,7 +48,7 @@ This scenario consists of two two graphical runbooks that you can download from 
 After downloading the runbooks, you can import them using the procedure in [Graphical runbook procedures](automation-graphical-authoring-intro.md#graphical-runbook-procedures).
 
 ### 2. Review the description and requirements
-The runbooks include an activity called **Read Me** that includes a description and required assets.  You can view this information by selecting the **Read Me** activity and then the **Workflow Script** parameter.  You can also get the same information from this article. 
+The runbooks include an activity called **Read Me** that includes a description and required assets.  You can view this information by selecting the **Read Me** activity and then the **Workflow Script** parameter.  You can also get the same information from this article.
 
 ### 3. Configure assets
 The runbooks require the following assets that you must create and populate with appropriate values.  The names are default.  You can use assets with different names if you specify those names in the [input parameters](#using-the-runbooks) when you start the runbook.
@@ -106,13 +106,13 @@ Following is an image of using the **StartAzureClassicVM** as a [child runbook](
 ## Detailed breakdown
 
 Following is a detailed breakdown of the runbooks in this scenario.  You can use this information to either customize the runbooks or just to learn from them for authoring your own automation scenarios.
- 
+
 
 ### Authentication
 
 ![Authentication](media/automation-solution-startstopvm/graphical-authentication.png)
 
-The runbook starts with activities to set the [credentials](automation-configuring.md#configuring-authentication-to-azure-resources) and Azure subscription that will be used for the rest of the runbook.
+The runbook starts with activities to set the [credentials](automation-credentials.md#configuring-authentication-to-azure-resources) and Azure subscription that will be used for the rest of the runbook.
 
 The first two activities, **Get Subscription Id** and **Get Azure Credential**, retrieve the [assets](#installing-the-runbook) that are used by the next two activities.  Those activities could directly specify the assets, but they need the asset names.  Since we are allowing the user to specify those names in the [input parameters](#using-the-runbooks), we need these activities to retrieve the assets with a name specified by an input parameter.
 
@@ -132,7 +132,7 @@ Both activities use the **Get-AzureVM** cmdlet.  **Get All VMs** uses the **List
 
 The **Merge VMs** activity is required to provide input to **Start-AzureVM** which needs the name and service name of the vm(s) to start.  That input could come from either **Get All VMs** or **Get VMs in Service**, but **Start-AzureVM** can only specify one activity for its input.   
 
-The scenario is to create **Merge VMs** which runs the **Write-Output** cmdlet.  The **InputObject** parameter for that cmdlet is a PowerShell Expression that combines the input of the previous two activities.  Only one of those activities will run, so only one set of output is expected.  **Start-AzureVM** can use that output for its input parameters. 
+The scenario is to create **Merge VMs** which runs the **Write-Output** cmdlet.  The **InputObject** parameter for that cmdlet is a PowerShell Expression that combines the input of the previous two activities.  Only one of those activities will run, so only one set of output is expected.  **Start-AzureVM** can use that output for its input parameters.
 
 ### Start/Stop virtual machines
 
@@ -150,5 +150,5 @@ The final step in the runbook is to send output whether the start or stop reques
 ## Next steps
 
 - [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
-- [Child runbooks in Azure Automation](automation-child-runbooks.md) 
+- [Child runbooks in Azure Automation](automation-child-runbooks.md)
 - [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)

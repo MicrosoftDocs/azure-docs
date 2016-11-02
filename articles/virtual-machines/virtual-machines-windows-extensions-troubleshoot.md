@@ -11,7 +11,7 @@
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
-   ms.topic="support-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="03/29/2016"
@@ -55,7 +55,7 @@ Here is the sample output:
     }
   ]
 
-## Troubleshooting extenson failures
+## Troubleshooting extension failures
 
 ### Re-running the extension on the VM
 

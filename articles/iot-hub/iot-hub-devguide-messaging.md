@@ -29,7 +29,7 @@ Core properties of IoT Hub messaging functionality are the reliability and durab
 
 IoT Hub supports multiple [device-facing protocols][lnk-protocols] (such as MQTT, AMQP, and HTTP). To support seamless interoperability across protocols, IoT Hub defines a [common message format][lnk-message-format] that all device-facing protocols support.
 
-IoT Hub exposes an [Event Hubs-compatible endpoint][lnk-compatible-endpoint] to enable back-end applications to read the device-to-cloud messages received by the hub.
+IoT Hub exposes an [Event Hub-compatible endpoint][lnk-compatible-endpoint] to enable back-end applications to read the device-to-cloud messages received by the hub.
 
 ### When to use
 
@@ -78,7 +78,7 @@ An IoT hub exposes the following properties to enable you to control device-to-c
 
 Also, analogously to Event Hubs, IoT Hub enables you to manage consumer groups on the device-to-cloud receive endpoint.
 
-You can modify all these properties, either programmatically through the [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis], or by using the [Azure portal][lnk-management-portal].
+You can modify all these properties, either programmatically through the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis], or by using the [Azure portal][lnk-management-portal].
 
 ### Anti-spoofing properties
 
@@ -205,11 +205,11 @@ For more information, see [Create IoT hubs][lnk-portal].
 
 ## Read device-to-cloud messages
 
-IoT Hub exposes an endpoint for your back-end services to read the device-to-cloud messages received by your hub. The endpoint is Event Hubs-compatible, which enables you to use any of the mechanisms the Event Hubs service supports for reading messages.
+IoT Hub exposes an endpoint for your back-end services to read the device-to-cloud messages received by your hub. The endpoint is Event Hub-compatible, which enables you to use any of the mechanisms the Event Hubs service supports for reading messages.
 
 When you use the [Azure Service Bus SDK for .NET][lnk-servicebus-sdk] or the [Event Hubs - Event Processor Host][lnk-eventprocessorhost], you can use any IoT Hub connection strings with the correct permissions. Then use **messages/events** as the Event Hub name.
 
-When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hubs-compatible endpoint and Event Hub name from the IoT Hub settings in the [Azure portal][lnk-management-portal]:
+When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hub-compatible endpoint and Event Hub-compatible name from the IoT Hub settings in the [Azure portal][lnk-management-portal]:
 
 1. In the IoT hub blade, click **Messaging**.
 2. In the **Device-to-cloud settings** section, you find the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, and **Partitions**.
@@ -218,7 +218,7 @@ When you use SDKs (or product integrations) that are unaware of IoT Hub, you mus
 
 > [AZURE.NOTE] If the SDK requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
 
-You can then use any shared access security policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
+You can then use any shared access policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
 
 If you need to build an Event Hub connection string by using the previous information, use the following pattern:
 
@@ -264,23 +264,23 @@ The following table lists the set of system properties in IoT Hub messages.
 
 ## Communication protocols
 
-IoT Hub allows devices to use [MQTT][lnk-mqtt], MQTT over WebSockets, [AMQP][lnk-amqp], AMQP over WebSockets, and HTTP/1 protocols for device-side communications. The following table provides the high-level recommendations for your choice of protocol:
+IoT Hub allows devices to use [MQTT][lnk-mqtt], MQTT over WebSockets, [AMQP][lnk-amqp], AMQP over WebSockets, and HTTP protocols for device-side communications. The following table provides the high-level recommendations for your choice of protocol:
 
 | Protocol | When you should choose this protocol |
 | -------- | ------------------------------------ |
 | MQTT <br> MQTT over WebSocket     | Use on all devices that do not require to connect multiple devices (each with its own per-device credentials) over the same TLS connection. |
-| AMQPS <br> AMQP over WebSocket    | Use on field and cloud gateways to take advantage of connection multiplexing across devices. |
-| HTTPS    | Use for devices that cannot support other protocols. |
+| AMQP <br> AMQP over WebSocket    | Use on field and cloud gateways to take advantage of connection multiplexing across devices. |
+| HTTP    | Use for devices that cannot support other protocols. |
 
 Consider the following points when you choose your protocol for device-side communications:
 
-* **Cloud-to-device pattern**. HTTP/1 does not have an efficient way to implement server push. As such, when you are using HTTP/1, devices poll IoT Hub for cloud-to-device messages. This approach is inefficient for both the device and IoT Hub. Under current HTTP/1 guidelines, each device should poll for messages every 25 minutes or more. On the other hand, MQTT and AMQP support server push when receiving cloud-to-device messages. They enable immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, MQTT or AMQP are the best protocols to use. For rarely connected devices, HTTP/1 works as well.
-* **Field gateways**. When using HTTP/1 and MQTT, you cannot connect multiple devices (each with its own per-device credentials) using the same TLS connection. Thus, for [Field gateway scenarios][lnk-azure-gateway-guidance], these protocols are suboptimal because they require one TLS connection between the field gateway and IoT Hub for each device connected to the field gateway.
-* **Low resource devices**. The MQTT and HTTP/1 libraries have a smaller footprint than the AMQP libraries. As such, if the device has limited resources (for example, less than 1 MB RAM), these protocols might be the only protocol implementation available.
+* **Cloud-to-device pattern**. HTTP does not have an efficient way to implement server push. As such, when you are using HTTP, devices poll IoT Hub for cloud-to-device messages. This approach is inefficient for both the device and IoT Hub. Under current HTTP guidelines, each device should poll for messages every 25 minutes or more. On the other hand, MQTT and AMQP support server push when receiving cloud-to-device messages. They enable immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, MQTT or AMQP are the best protocols to use. For rarely connected devices, HTTP works as well.
+* **Field gateways**. When using MQTT and HTTP, you cannot connect multiple devices (each with its own per-device credentials) using the same TLS connection. Thus, for [Field gateway scenarios][lnk-azure-gateway-guidance], these protocols are suboptimal because they require one TLS connection between the field gateway and IoT Hub for each device connected to the field gateway.
+* **Low resource devices**. The MQTT and HTTP libraries have a smaller footprint than the AMQP libraries. As such, if the device has limited resources (for example, less than 1 MB RAM), these protocols might be the only protocol implementation available.
 * **Network traversal**. The standard AMQP protocol uses port 5671, while MQTT listens on port 8883, which could cause problems in networks that are closed to non-HTTP protocols. MQTT over WebSockets, AMQP over WebSockets, and HTTP are available to be used in this scenario.
-* **Payload size**. AMQP and MQTT are binary protocols, which result in more compact payloads than HTTP/1.
+* **Payload size**. MQTT and AMQP are binary protocols, which result in more compact payloads than HTTP.
 
-> [AZURE.NOTE] When using HTTP/1, each device should poll for cloud-to-device messages every 25 minutes or more. However, during development, it is acceptable to poll more frequently than every 25 minutes.
+> [AZURE.NOTE] When using HTTP, each device should poll for cloud-to-device messages every 25 minutes or more. However, during development, it is acceptable to poll more frequently than every 25 minutes.
 
 ## Port numbers
 
@@ -292,7 +292,7 @@ Devices can communicate with IoT Hub in Azure using various protocols. Typically
 | MQTT over WebSockets | 443    |
 | AMQP     | 5671    |
 | AMQP over WebSockets | 443    |
-| HTTPS    | 443     |
+| HTTP     | 443     |
 | LWM2M (Device management) | 5684 |
 
 Once you have created an IoT hub in an Azure region, the hub keeps the same IP address for the lifetime of that hub. However, to maintain quality of service, if Microsoft moves the IoT hub to a different scale unit then it is assigned a new IP address.
@@ -315,7 +315,7 @@ Other reference topics in the Developer Guide include:
 - [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
 - [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 - [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-- [Query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+- [IoT Hub query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
 - [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps

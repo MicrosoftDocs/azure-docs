@@ -50,7 +50,7 @@ Retrain the Web service:
 
 * Update training experiment to allow for retraining
 * Deploy the retraining web service
-* Grab Batch Execution Service code and retrain the model
+* Use the Batch Execution Service code to retrain the model
 
 For a walkthrough of the preceding steps, see [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md).
 
@@ -64,13 +64,12 @@ For a walkthrough of the preceding steps, see [Retrain a Classic Web service](ma
 
 If you run into difficulties retraining a Classic Web service, see [Troubleshooting the retraining of an Azure Machine Learning Classic Web service](machine-learning-troubleshooting-retraining-models.md).
 
-
-if you deployed a New Web service:
+If you deployed a New Web service:
 
 * Sign in to your Azure Resource Manager account
 * Get the Web service definition
 * Export the Web Service Definition as JSON
-* Update the reference to the ilearner blob in the JSON
+* Update the reference to the `ilearner` blob in the JSON
 * Import the JSON into a Web Service Definition
 * Update the Web service with new Web Service Definition
 
@@ -80,26 +79,17 @@ The process for setting up retraining for a Classic Web service involves the fol
 
 ![Retraining process overview][1]
 
-Diagram 1: Retraining process for a Classic Web service overview 
-
 The process for setting up retraining for a New Web service involves the following steps:
 
 ![Retraining process overview][7]
 
-Diagram 2: Retraining process for a New Web service overview  
-
-
 ## Other Resources
 
-[Retraining and Updating Azure Machine Learning models with Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
-
-<!--Retrain a New Web service with PowerShell video-->
-
-
+- [Retraining and Updating Azure Machine Learning models with Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
+- [Create many Machine Learning models and web service endpoints from one experiment using PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md)
+- The [AML Retraining Models Using APIs](https://www.youtube.com/watch?v=wwjglA8xllg) video shows you how to retrain Machine Learning models created in Azure Machine Learning using the Retraining APIs and PowerShell.
 
 <!--image links-->
-
-
 [1]: ./media/machine-learning-retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE01.png
 [7]: ./media/machine-learning-retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE07.png
 

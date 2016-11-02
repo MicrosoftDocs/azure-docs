@@ -1,6 +1,6 @@
 <properties
  pageTitle="Run a sample application to send device-to-cloud messages | Microsoft Azure"
- description="Deploy and run a sample application to Raspberry Pi 3 that sends messages to your hub and blinks the LED."
+ description="Deploy and run a sample application to Raspberry Pi 3 that sends messages to your IoT hub and blinks the LED."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
@@ -21,7 +21,7 @@
 
 ## What you will do
 
-This article will show you how to deploy and run a sample application on Raspberry Pi 3 that sends messages to your hub. If you have any problems, look for solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+This article will show you how to deploy and run a sample application on Raspberry Pi 3 that sends messages to your IoT hub. If you have any problems, look for solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## What you will learn
 
@@ -29,19 +29,19 @@ You will learn how to use the gulp tool to deploy and run the sample Node.js app
 
 ## What you need
 
-Before you start this task, you must have successfully completed [Create an Azure function app and a storage account to process and store hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
+Before you start this task, you must have successfully completed [Create an Azure function app and a storage account to process and store IoT hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
 
-## Get your hub and device connection strings
+## Get your IoT hub and device connection strings
 
-The device connection string is used to connect Pi to your hub. The hub connect string is used to connect your hub to the device identity that represents Pi in the hub.
+The device connection string is used to connect Pi to your IoT hub. The IoT hub connect string is used to connect your IoT hub to the device identity that represents Pi in the IoT hub.
 
-- Get the hub connection string by running the following Azure CLI command:
+- Get the IoT hub connection string by running the following Azure CLI command:
 
 ```bash
 az iot hub show-connection-string --name {my hub name} --resource-group iot-sample
 ```
 
-`{my hub name}` is the name that you specified when you created your hub and registered Pi. Use `iot-sample` as the value of `{resource group name}` if you didn't change the value.
+`{my hub name}` is the name that you specified when you created your IoT hub and registered Pi. Use `iot-sample` as the value of `{resource group name}` if you didn't change the value.
 
 - Get the device connection string by running the following command:
 
@@ -92,13 +92,13 @@ gulp
 
 ## Verify that the sample application works
 
-You should see the LED that is connected to Pi blinking every two seconds. Every time the LED blinks, the sample application sends a message to your hub and verifies that the message has been successfully sent to your hub. In addition, each message received by the hub is printed in the console window. The sample application terminates automatically after sending 20 messages.
+You should see the LED that is connected to Pi blinking every two seconds. Every time the LED blinks, the sample application sends a message to your IoT hub and verifies that the message has been successfully sent to your IoT hub. In addition, each message received by the IoT hub is printed in the console window. The sample application terminates automatically after sending 20 messages.
 
 ![](media/iot-hub-raspberry-pi-lessons/lesson3/gulp_run.png)
 
 ## Summary
 
-You've deployed and run the new blink sample application on Pi to send device-to-cloud messages to your hub. You can move to the next article to monitor your messages as they are written to the storage account.
+You've deployed and run the new blink sample application on Pi to send device-to-cloud messages to your IoT hub. You can move to the next article to monitor your messages as they are written to the storage account.
 
 ## Next steps
 

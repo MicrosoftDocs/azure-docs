@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/25/2016"
+	ms.date="10/31/2016"
 	ms.author="ryansoc"/>
 
 
@@ -33,6 +33,20 @@ The following Automation features are not currently available in Azure Governmen
 + Creation of a Service Principle credential for authentication
 
 For more information, see [Automation public documentation](../automation/automation-intro.md).
+
+## Backup
+
+Backup is generally available in Azure Government.
+
+For more information, see [Backup public documentation](../backup/backup-introduction-to-azure-backup.md).
+
+### Variations
+
+The following Backup features are not currently available in Azure Government:
+
++ Azure Resource Manager backup vaults
++ Management using the Azure portal (the Azure classic portal is supported)
+
 
 ## Log Analytics
 
@@ -89,6 +103,19 @@ The following Log Analytics features behave differently in Azure Government:
   - No. The portals for Microsoft Azure and Azure Government are separate and do not share information.
 
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
+
+## Site Recovery
+
+Site Recovery is generally available in Azure Government.
+
+For more information, see [Site Recovery public documentation](../site-recovery/site-recovery-overview.md).
+
+### Variations
+
+The following Site Recovery features are not currently available in Azure Government:
+
++ Azure Resource Manager site recovery vaults
+
 
 ## Next steps
 

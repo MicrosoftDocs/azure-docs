@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="11/01/2016"
 	ms.author="billmath"/>
 
 # Next steps and how to manage Azure AD Connect

@@ -79,12 +79,16 @@ The following sample shows the JSON settings file used to configure the Hello Wo
     [ 
         {
             "module name" : "logger",
-            "module path" : "./modules/logger/liblogger_hl.so",
+            "loading args": {
+              "module path" : "./modules/logger/liblogger_hl.so"
+            },
             "args" : {"filename":"log.txt"}
         },
         {
             "module name" : "hello_world",
-            "module path" : "./modules/hello_world/libhello_world_hl.so",
+            "loading args": {
+              "module path" : "./modules/hello_world/libhello_world_hl.so"
+            },
 			"args" : null
         }
     ],
@@ -206,7 +210,7 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
 ## Next steps
 
-To learn about how to use the Gateway SDK, see the following:
+To learn about how to use the IoT Gateway SDK, see the following:
 
 - [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated].
 - [Azure IoT Gateway SDK][lnk-gateway-sdk] on GitHub.

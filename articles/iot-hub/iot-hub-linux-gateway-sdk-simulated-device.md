@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Simulate a device with the Gateway SDK | Microsoft Azure"
-	description="Azure IoT Hub Gateway SDK walkthrough using Linux to illustrate sending telemetry from a simulated device using the Azure IoT Hub Gateway SDK."
+	pageTitle="Simulate a device with the IoT Gateway SDK | Microsoft Azure"
+	description="Azure IoT Gateway SDK walkthrough using Linux to illustrate sending telemetry from a simulated device using the Azure IoT Gateway SDK."
 	services="iot-hub"
 	documentationCenter=""
 	authors="chipalost"
@@ -17,7 +17,7 @@
      ms.author="andbuc"/>
 
 
-# IoT Gateway SDK (beta) – send device-to-cloud messages with a simulated device using Linux
+# Azure IoT Gateway SDK (beta) – send device-to-cloud messages with a simulated device using Linux
 
 [AZURE.INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
@@ -26,7 +26,7 @@
 Before you get started, you must:
 
 - [Set up your development environment][lnk-setupdevbox] for working with the SDK on Linux.
-- [Create an IoT hub][lnk-create-hub] in your Azure subscription, you will need the name of your hub to complete this walkthrough. If you don't already have an Azure subscription, you can get a [free account][lnk-free-trial].
+- [Create an IoT hub][lnk-create-hub] in your Azure subscription, you will need the name of your hub to complete this walkthrough. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
 - Add two devices to your IoT hub and make a note of their ids and device keys. You can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tool to add your devices to the IoT hub you created in the previous step and retrieve their keys.
 
 To build the sample:
@@ -54,7 +54,9 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
     [ 
         {
             "module name" : "IoTHub",
-            "module path" : "./build/modules/iothub/libiothub_hl.so",
+            "loading args": {
+             "module path" : "./build/modules/iothub/libiothub_hl.so"
+            },
             "args" : 
             {
                 "IoTHubName" : "{Your IoT hub name}",
@@ -64,7 +66,9 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
         },
         {
             "module name" : "mapping",
-            "module path" : "./build/modules/identitymap/libidentity_map_hl.so",
+            "loading args": {
+              "module path" : "./build/modules/identitymap/libidentity_map_hl.so"
+            },
             "args" : 
             [
                 {
@@ -81,7 +85,9 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
         },
         {
             "module name":"BLE1",
-            "module path" : "./build/modules/simulated_device/libsimulated_device_hl.so",
+            "loading args": {
+              "module path" : "./build/modules/simulated_device/libsimulated_device_hl.so"
+            },
             "args":
             {
                 "macAddress" : "01-01-01-01-01-01"
@@ -89,7 +95,9 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
         },
         {
             "module name":"BLE2",
-            "module path" : "./build/modules/simulated_device/libsimulated_device_hl.so",
+            "loading args": {
+              "module path" : "./build/modules/simulated_device/libsimulated_device_hl.so"
+            },
             "args":
             {
                 "macAddress" : "02-02-02-02-02-02"
@@ -97,7 +105,9 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
         },
         {
             "module name":"Logger",
-            "module path" : "./build/modules/logger/liblogger_hl.so",
+            "loading args": {
+              "module path" : "./build/modules/logger/liblogger_hl.so"
+            },
             "args":
             {
                 "filename":"./deviceCloudUploadGatewaylog.log"
@@ -129,9 +139,9 @@ To run the sample:
 
 ## Next steps
 
-If you want to gain a more advanced understanding of the Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
+If you want to gain a more advanced understanding of the IoT Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
 
-- [Send device-to-cloud messages from a real device with the Gateway SDK][lnk-physical-device]
+- [Send device-to-cloud messages from a real device with the IoT Gateway SDK][lnk-physical-device]
 - [Azure IoT Gateway SDK][lnk-gateway-sdk]
 
 To further explore the capabilities of IoT Hub, see:

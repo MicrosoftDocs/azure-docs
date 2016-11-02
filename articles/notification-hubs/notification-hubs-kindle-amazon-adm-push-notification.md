@@ -3,7 +3,7 @@
 	description="In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Kindle application."
 	services="notification-hubs"
 	documentationCenter=""
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="hero-article"
 	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 # Get started with Notification Hubs for Kindle apps
 

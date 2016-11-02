@@ -39,7 +39,7 @@ This article describes:
 
 ![Performance matrix](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [AZURE.NOTE] #: You can achieve higher throughput by leveraging more DMUs, while the default max DMU is 8 for each cloud-to-cloud copy activity run. For example, with 100 DMUs, you can reach beyond 1GB/s when copy from Azure Blob to Azure Data Lake Store. See the [Cloud data movement](#cloud-data-movement-units) section for details about this feature. Contact [Azure support](https://azure.microsoft.com/support/) to request more DMUs.
+> [AZURE.NOTE] You can achieve higher throughput by leveraging more data movement units (DMUs) than the default maximum DMUs, which is 8 for a cloud-to-cloud copy activity run. For example, with 100 DMUs, you can copy data from Azure Blob to Azure Data Lake Store at the rate of 1 gigabyte per second. See the [Cloud data movement units](#cloud-data-movement-units) section for details about this feature. Contact [Azure support](https://azure.microsoft.com/support/) to request more DMUs.
 
 Points to note:
 
@@ -153,7 +153,7 @@ It's **important** to remember that you are charged based on the total time of t
 ## Staged copy
 When you copy data from a source data store to a sink data store, you might choose to use Blob storage as an interim staging store. Staging is especially useful in the following cases:
 
-1.	**You want to ingest data from various data stores into SQL Data Warehouse via PolyBase**. SQL Data Warehouse uses PolyBase as a high-throughput mechanism to load a large amount of data into SQL Data Warehouse. However, the source data must be in Blob storage, and it must meet additional criteria. When you load data from a data store other than Blob storage, you can activate data copying via interim staging Blob storage. In that case, Data Factory performs the required data transformations to ensure that it meets the requirements of PolyBase. Then it uses PolyBase to load data into SQL Data Warehouse. For more details, see [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+1.	**You want to ingest data from various data stores into SQL Data Warehouse via PolyBase**. SQL Data Warehouse uses PolyBase as a high-throughput mechanism to load a large amount of data into SQL Data Warehouse. However, the source data must be in Blob storage, and it must meet additional criteria. When you load data from a data store other than Blob storage, you can activate data copying via interim staging Blob storage. In that case, Data Factory performs the required data transformations to ensure that it meets the requirements of PolyBase. Then it uses PolyBase to load data into SQL Data Warehouse. For more details, see [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse). For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md). 
 2.	**Sometimes it takes a while to perform a hybrid data movement (that is, to copy between an on-premises data store and a cloud data store) over a slow network connection**. To improve performance, you can compress the data on-premises so that it takes less time to move data to the staging data store in the cloud. Then you can decompress the data in the staging store before you load it into the destination data store.
 3.	**You don't want to open ports other than port 80 and port 443 in your firewall, because of corporate IT policies**. For example, when you copy data from an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink, you need to activate outbound TCP communication on port 1433 for both the Windows firewall and your corporate firewall. In this scenario, take advantage of the gateway to first copy data to a Blob storage staging instance over HTTP or HTTPS on port 443. Then, load the data into SQL Database or SQL Data Warehouse from Blob storage staging. In this flow, you don't need to enable port 1433.
 
@@ -246,7 +246,7 @@ Be sure that the underlying data store is not overwhelmed by other workloads tha
 
 For Microsoft data stores, see [monitoring and tuning topics](#performance-reference) that are specific to data stores, and help you understand data store performance characteristics, minimize response times, and maximize throughput.
 
-If you copy data from Blob storage to SQL Data Warehouse, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) for details.
+If you copy data from Blob storage to SQL Data Warehouse, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) for details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 
 ### File-based data stores
@@ -270,7 +270,7 @@ Be sure that the underlying data store is not overwhelmed by other workloads tha
 
 For Microsoft data stores, refer to [monitoring and tuning topics](#performance-reference) that are specific to data stores. These topics can help you understand data store performance characteristics and how to minimize response times and maximize throughput.
 
-If you are copying data from **Blob storage** to **SQL Data Warehouse**, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) for details.
+If you are copying data from **Blob storage** to **SQL Data Warehouse**, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) for details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 
 ### File-based data stores
