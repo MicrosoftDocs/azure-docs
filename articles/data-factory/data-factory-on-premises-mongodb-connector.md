@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="11/02/2016" 
 	ms.author="jingwang"/>
 
 # Move data From MongoDB using Azure Data Factory
@@ -25,6 +25,9 @@ Data Factory service supports connecting to on-premises MongoDB sources using th
 > [AZURE.NOTE] You need to use the gateway to connect to MongoDB even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of MongoDB hosted in cloud, you can also install the gateway instance in the IaaS VM.
 
 Data Factory currently supports only moving data from MongoDB to other data stores, but not for moving data from other data stores to MongoDB.
+
+## Supported versions
+This MongoDB connector support MongoDB version 2.4 and above. 
 
 ## Prerequisites
 For the Azure Data Factory service to be able to connect to your on-premises MongoDB database, you must install the following components: 
