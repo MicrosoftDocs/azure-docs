@@ -94,7 +94,7 @@ gulp
 
 You should see the LED that is connected to Pi blinking every two seconds. Every time the LED blinks, the sample application sends a message to your IoT hub and verifies that the message has been successfully sent to your IoT hub. In addition, each message received by the IoT hub is printed in the console window. The sample application terminates automatically after sending 20 messages.
 
-![](media/iot-hub-raspberry-pi-lessons/lesson3/gulp_run.png)
+![Sample application with sent and received messages](media/iot-hub-raspberry-pi-lessons/lesson3/gulp_run.png)
 
 ## Summary
 
