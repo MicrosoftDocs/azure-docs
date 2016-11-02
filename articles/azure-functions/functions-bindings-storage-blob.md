@@ -181,7 +181,6 @@ Suppose you have the following function.json, that defines a Storage blob trigge
 See the language-specific sample that logs the contents of each blob that is added to the monitored container.
 
 - [C#](#triggercsharp)
-<!-- - [F#](#triggerfsharp) -->
 - [Node.js](#triggernodejs)
 
 <a name="triggercsharp"></a>
