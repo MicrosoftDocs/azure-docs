@@ -31,7 +31,7 @@ Foundation Server - Team Build definitions to use the MSBuild commands
 and PowerShell scripts. The process is customizable for your build
 environment and Azure target environments.
 
-You can also use Visual Studio Team Services, a version of TFS that is hosted in Azure, to do this more easily. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md).
+You can also use Visual Studio Team Services, a version of TFS that is hosted in Azure, to do this more easily. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services][] .
 
 Before you start, you should publish your application from Visual Studio.
 This will ensure that all the resources are available and initialized when you
@@ -305,8 +305,9 @@ Template workflow activities in Visual Studio TFS Team Build.
     Alternatively you can export the certificate file PFX with private
     key and upload certificates to each target cloud service using the
     [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
-    Read the following article to learn more:
-    [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
+    <!---
+    Fixing broken links for Azure content migration from ACOM to DOCS. I'm unable to find a replacement links, so I'm commenting out this reference for now. The author can investigate in the future. "Read the following article to learn more: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx.
+    -->
 
     **Upgrade Deployment vs. Delete Deployment -\> New Deployment**
 
