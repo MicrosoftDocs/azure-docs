@@ -41,7 +41,7 @@ Key vault client applications will need to access Azure Active Directory endpoin
 |----------------|---------------|
 | User using Microsoft account<br> (for example, user@hotmail.com) | **Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443<br><br> and <br>login.live.com:443   |
 | User or service principal using a work or school account with Azure AD (for example, user@contoso.com) | **Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
-| User or service principal using a work or school account plus Active Directory Federation Services (AD FS) or other federated endpoint (for example, user@contoso.com) | All endpoints for a work or school account, plus AD FS or other federated endpoints |
+| User or service principal using a work or school account, plus Active Directory Federation Services (AD FS) or other federated endpoint (for example, user@contoso.com) | All endpoints for a work or school account, plus AD FS or other federated endpoints |
 
 There are other possible complex scenarios. Refer to [Azure Active Directory Authentication Flow](/documentation/articles/active-directory-authentication-scenarios/), [Integrating Applications with Azure Active Directory](/documentation/articles/active-directory-integrating-applications/), and [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) for additional information.  
 
