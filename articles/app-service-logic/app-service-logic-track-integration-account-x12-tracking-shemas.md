@@ -18,7 +18,7 @@
 
 # X12 Tracking Schemas
 
-Following are the supported X12 tracking schemas
+Supported X12 tracking schemas are
 
 * X12 Transaction Set Tracking Schema
 * X12 Transaction Set acknowledgement Tracking Schema

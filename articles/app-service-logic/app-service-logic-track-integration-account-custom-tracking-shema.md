@@ -19,7 +19,7 @@
 
 # Custom tracking schema
 
-Following custom tracking schema is supported 
+## Supported custom tracking schema  
 
 ````java
 
@@ -73,8 +73,8 @@ Following custom tracking schema is supported
 | record | Mandatory.  It indicates the custom record type and the allowed format is JToken |
 |
 
-## B2B protocol Tracking Schemas
-We are also supporting following B2B protocol tracking schemas.  
+## Supported B2B protocol Tracking Schemas
+ 
 * [AS2 Tracking Schema](./app-service-logic-track-integration-account-as2-tracking-shemas.md)   
 * [X12 Tracking Schema](./app-service-logic-track-integration-account-x12-tracking-shemas.md) 
 

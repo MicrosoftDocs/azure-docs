@@ -18,7 +18,7 @@
 
 # AS2 Tracking Schemas
 
-Following are the supported AS2 tracking schemas
+Supported AS2 tracking schemas are
 
 * AS2 Message Tracking Schema
 * AS2 MDN Tracking Schema
