@@ -148,7 +148,7 @@ The BLE modules talk to the Bluetooth hardware via the BlueZ stack. You need ver
 
 ### Enable connectivity to the SensorTag device from your Raspberry Pi 3 device
 
-Before running the sample, you need to verify that your Raspbeerry Pi 3 can connect to the SensorTag device.
+Before running the sample, you need to verify that your Raspberry Pi 3 can connect to the SensorTag device.
 
 1. Unblock bluetooth on the Raspberry Pi 3 and check that the version number is **5.37**.
     
