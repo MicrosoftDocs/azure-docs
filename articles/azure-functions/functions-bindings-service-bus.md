@@ -51,7 +51,7 @@ The Notification Hubs queue and topic triggers to a function use the following J
             "name" : "<Name of input parameter in function signature>",
             "topicName" : "<Name of the topic>",
             "subscriptionName" : "<Name of the subscription>",
-            "connection" : "<Name of app setting that has your queue's connection string - see below>",
+            "connection" : "<Name of app setting that has your topic's connection string - see below>",
             "accessRights" : "<Access rights for the connection string - see below>"
             "type" : "serviceBusTrigger",
             "direction" : "in"
@@ -169,7 +169,7 @@ The Notification Hubs queue and topic output for a function use the following JS
             "name" : "<Name of output parameter in function signature>",
             "topicName" : "<Name of the topic>",
             "subscriptionName" : "<Name of the subscription>",
-            "connection" : "<Name of app setting that has your queue's connection string - see below>",
+            "connection" : "<Name of app setting that has your topic's connection string - see below>",
             "accessRights" : "<Access rights for the connection string - see below>"
             "type" : "serviceBus",
             "direction" : "out"
