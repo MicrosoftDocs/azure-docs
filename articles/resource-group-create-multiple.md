@@ -29,7 +29,7 @@ Within the resource to create multiple times, you can define a **copy** object t
         "count": "[parameters('count')]" 
     } 
 
-You can access the current iteration value with the **copyIndex()** function, such as shown below within the concat function.
+You can access the current iteration value with the **copyIndex()** function. The following example uses copyIndex with the concat function to construct a name.
 
     [concat('examplecopy-', copyIndex())]
 
@@ -42,8 +42,7 @@ When creating multiple resources from an array of values, you can use the **leng
 
 ## Use index value in name
 
-You can use the copy operation create multiple instances of a resource that are uniquely named based on the incrementing index. For example, you might want to add a unique number to the end of each 
-resource name that is deployed. To deploy three web sites named:
+You can use the copy operation create multiple instances of a resource that are uniquely named based on the incrementing index. For example, you might want to add a unique number to the end of each resource name that is deployed. To deploy three web sites named:
 
 - examplecopy-0
 - examplecopy-1
@@ -75,7 +74,7 @@ Use the following template:
 
 ## Offset index value
 
-You'll notice in the previous example that the index value goes from zero to 2. To offset the index value, you can pass a value in the **copyIndex()** function, such as **copyIndex(1)**. The number of iterations to perform is still specified in the copy element, but the value of copyIndex is offset by the specified value. So, using the same template as the previous example, but specifying **copyIndex(1)** would deploy three web sites named:
+In the preceding example, the index value goes from zero to 2. To offset the index value, you can pass a value in the **copyIndex()** function, such as **copyIndex(1)**. The number of iterations to perform is still specified in the copy element, but the value of copyIndex is offset by the specified value. So, using the same template as the previous example, but specifying **copyIndex(1)** would deploy three web sites named:
 
 - examplecopy-1
 - examplecopy-2
@@ -83,7 +82,7 @@ You'll notice in the previous example that the index value goes from zero to 2. 
 
 ## Use copy with array
    
-The copy operation is particularly helpful when working with arrays because you can iterate through each element in the array. To deploy three web sites named:
+The copy operation is helpful when working with arrays because you can iterate through each element in the array. To deploy three web sites named:
 
 - examplecopy-Contoso
 - examplecopy-Fabrikam
@@ -117,12 +116,11 @@ Use the following template:
       } 
     ]
 
-Of course, you set the copy count to a value other than the length of the array. For example, you could create an array with many values, and then pass in a parameter value that specifies how many of the array elements to deploy. In that case, you set the copy count as shown in the first example. 
+Of course, you can set the copy count to a value other than the length of the array. For example, you could create an array with many values, and then pass in a parameter value that specifies how many of the array elements to deploy. In that case, you set the copy count as shown in the first example. 
 
 ## Depending on resources in a loop
 
-You can specify that a resource be deployed after another resource by using the **dependsOn** element. When you need to deploy a resource that depends on the collection of resources in a loop, you can use provide the 
-name of the copy loop in the **dependsOn** element. The following example shows how to deploy 3 storage accounts before deploying the Virtual Machine. The full Virtual Machine definition is not shown. Notice that the 
+You can specify that a resource is deployed after another resource by using the **dependsOn** element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the **dependsOn** element. The following example shows how to deploy three storage accounts before deploying the Virtual Machine. The full Virtual Machine definition is not shown. Notice that the 
 copy element has **name** set to **storagecopy** and the **dependsOn** element for the Virtual Machines is also set to **storagecopy**.
 
     {
@@ -156,7 +154,7 @@ copy element has **name** set to **storagecopy** and the **dependsOn** element f
 
 ## Looping on a nested resource
 
-You cannot use a copy loop for a nested resource. If you need to create multiple instances of a resource that you typically define as nested within another resource, you must instead create the resource as a top-level resource, and define the relationship with the parent resource through the **type** and **name** properties.
+You cannot use a copy loop for a nested resource. To create multiple instances of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the **type** and **name** properties.
 
 For example, suppose you typically define a dataset as a nested resource within a Data Factory.
 
@@ -184,7 +182,7 @@ For example, suppose you typically define a dataset as a nested resource within 
         }
     }]
     
-To create multiple instances of datasets, you need to change your template as shown in the following example. Notice the dataset is no longer defined within the data factory, and the **type** and **name** have changed significantly. You must provide the fully-qualified type in the format **{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}** because the type cannot be inferred from its position in the template. In this example, the type is Microsoft.DataFactory/datafactories/datasets. You also must provide a name that includes the parent resource name. The format of the name is **{parent-resource-name}/{child-resource-name}**.  
+To create multiple instances of datasets, you need to change your template as shown in the following example. Notice the dataset is no longer defined within the data factory, and the **type** and **name** have changed significantly. You must provide the fully qualified type in the format **{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}** because the type cannot be inferred from its position in the template. In this example, the type is Microsoft.DataFactory/datafactories/datasets. You also must provide a name that includes the parent resource name. The format of the name is **{parent-resource-name}/{child-resource-name}**.  
 
     "parameters": {
         "dataFactoryName": {
@@ -215,11 +213,11 @@ To create multiple instances of datasets, you need to change your template as sh
 
 ## Create multiple instances when copy won't work
 
-You can only use **copy** on resource types, not on properties within a resource type. This may create problems for you when you want to create multiple instances of something that is part of a resource. A common scenario is to create multiple data disks for a Virtual Machine. You cannot use **copy** with the data disks because **dataDisks** is a property on the Virtual Machine, not its own resource type. Instead, you create an array with as many data disks as you will need, and pass in the actual number of data disks to create. In the virtual machine definition, you use the **take** function to get only the number of elements that you actually want from the array.
+You can only use **copy** on resource types, not on properties within a resource type. This requirement may create problems for you when you want to create multiple instances of something that is part of a resource. A common scenario is to create multiple data disks for a Virtual Machine. You cannot use **copy** with the data disks because **dataDisks** is a property on the Virtual Machine, not its own resource type. Instead, you create an array with as many data disks as you need, and pass in the actual number of data disks to create. In the virtual machine definition, you use the **take** function to get only the number of elements that you actually want from the array.
 
 A full example of this pattern is show in the [Create a VM with a dynamic selection of data disks](https://azure.microsoft.com/documentation/templates/201-vm-dynamic-data-disks-selection/) template.
 
-The relevant sections of the deployment template are shown below. A lot of the template has been removed to highlight the sections involved in dynamically creating a number of data disks. Notice the parameter **numDataDisks** that enables you to pass in the number of disks to create. 
+The relevant sections of the deployment template are shown in the following example. Much of the template has been removed to highlight the sections involved in dynamically creating a number of data disks. Notice the parameter **numDataDisks** that enables you to pass in the number of disks to create. 
 
 ```
 {
@@ -323,9 +321,9 @@ The relevant sections of the deployment template are shown below. A lot of the t
 
 ## Return values from a loop
 
-While creating multiple instances of a resource type is convenient, returning values from that loop can be difficult. One way to retain and return values is to use **copy** with a nested template and round-trip an array that contains all of the values to return. For example, suppose you want to create multiple storage accounts, and return the primary endpoint for each one. 
+While creating multiple instances of a resource type is convenient, returning values from that loop can be difficult. One way to retain and return values is to use **copy** with a nested template and round trip an array that contains all the values to return. For example, suppose you want to create multiple storage accounts, and return the primary endpoint for each one. 
 
-First, create the nested template that creates the storage account. Notice that it accepts an array parameter for the blob URIs. You use this parameter to round-trip all of the values from previous deployments. The output of the template is an array that concatenates the new blob URI to the previous URIs.
+First, create the nested template that creates the storage account. Notice that it accepts an array parameter for the blob URIs. You use this parameter to round trip all the values from previous deployments. The output of the template is an array that concatenates the new blob URI to the previous URIs.
 
 ```
 {
@@ -424,5 +422,5 @@ Now, create the parent template that has one static instance of the nested templ
 
 ## Next steps
 - If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
-- For all of the functions you can use in a template, see [Azure Resource Manager Template Functions](./resource-group-template-functions.md).
+- For all the functions you can use in a template, see [Azure Resource Manager Template Functions](./resource-group-template-functions.md).
 - To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).
