@@ -69,9 +69,10 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 ```
 
 ## Policy in action
-Once you've deployed the Azure policy, you receive an error if you try to deploy a resource that prohibited by policy.  
+Once you've deployed the Azure policy, you receive an error when you try to deploy a resource that prohibited by policy.  
 
 ![Result of resource deployment failure because of policy constraint](./media/azure-stack-policy-module/image1.png)
+
 
 ## Next steps
 
