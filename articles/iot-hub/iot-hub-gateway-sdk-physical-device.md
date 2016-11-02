@@ -84,7 +84,7 @@ You can use either of the following options to install Raspbian on your Raspberr
 - Manually [download][lnk-raspbian] and write the latest image of the Raspbian operating system to a SD card. 
 
 ### Install BlueZ 5.37
-The BLE modules talk to the Bluetooth hardware via the BlueZ stack. You need version 5.37 of BlueZ for the modules to work correctly. These intructions make sure the correct version of BlueZ is installed.
+The BLE modules talk to the Bluetooth hardware via the BlueZ stack. You need version 5.37 of BlueZ for the modules to work correctly. These instructions make sure the correct version of BlueZ is installed.
 
 1. Stop the current bluetooth daemon:
     
