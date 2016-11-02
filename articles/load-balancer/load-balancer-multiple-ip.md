@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/1/2016"
+   ms.date="11/01/2016"
    ms.author="annahar" />
 
 # Load balancing on multiple IP configurations
@@ -58,7 +58,7 @@ Follow the steps below to achieve the scenario outlined in this article:
 
         New-AzureRmVMConfig -VMName “VM1” -VMSize “Standard_DS1_v2” -AvailabilitySetId $availset.Id
 
-5. Then complete [Create a Windows VM](../virtual-macines/virtual-machines-windows-ps-create.md) steps 6.3 through 6.8. 
+5. Then complete [Create a Windows VM](../virtual-machines/virtual-machines-windows-ps-create.md) steps 6.3 through 6.8. 
 
 6. Next, we will add a second IP configuration to each of the VMs following instructions in the Add IP addresses to an existing VM section of [Assign multiple IP addresses to virtual machines](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md) article. Use
 
