@@ -1,6 +1,6 @@
 <properties
  pageTitle="Create and deploy the blink application | Microsoft Azure"
- description="Clone the sample Node.js application from Github, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every two seconds."
+ description="Clone the sample Node.js application from GitHub, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every two seconds."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
@@ -58,7 +58,7 @@ Take note of the `IP address` and `hostname` of Pi. You need this information la
 
 To open the sample code, follow these steps:
 
-1. Clone the sample repository from Github by running the following command:
+1. Clone the sample repository from GitHub by running the following command:
 
     ```bash
     git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started.git
