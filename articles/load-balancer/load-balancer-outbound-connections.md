@@ -37,7 +37,7 @@ In this scenario, the VM is not part of an Azure Load Balancer pool and does not
 
 SNAT ports are a finite resource that can be exhausted. It is important to understand how they are consumed. One SNAT port is consumed per flow to a single destination IP address. For multiple flows to the same destination IP address, each flow consumes a single SNAT port. This ensures that the flows are unique when originated from the same public IP address to the same destination IP address. Multiple flows, each to a different destination IP address consume a single SNAT port per destination. The destination IP address makes the flows unique.
 
-You can use [Log Analytics for Load Balancer](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-monitor-log/) and [Alert event logs to monitor for SNAT port exhaustion messages](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-monitor-log/#alert-event-log). When SNAT port resources are exhausted, outbound flows fail until SNAT ports are released by existing flows. Load Balancer uses a 4-minute idle timeout for reclaiming SNAT ports.
+You can use [Log Analytics for Load Balancer](load-balancer-monitor-log.md) and [Alert event logs to monitor for SNAT port exhaustion messages](load-balancer-monitor-log.md#alert-event-log). When SNAT port resources are exhausted, outbound flows fail until SNAT ports are released by existing flows. Load Balancer uses a 4-minute idle timeout for reclaiming SNAT ports.
 
 ## Load-balanced VM with no Instance Level Public IP address
 
@@ -45,7 +45,7 @@ In this scenario, the VM is part of an Azure Load Balancer pool. The VM does not
 
 SNAT ports are a finite resource that can be exhausted. It is important to understand how they are consumed. One SNAT port is consumed per flow to a single destination IP address. For multiple flows to the same destination IP address, each flow consumes a single SNAT port. This ensures that the flows are unique when originated from the same public IP address to the same destination IP address. Multiple flows, each to a different destination IP address consume a single SNAT port per destination. The destination IP address makes the flows unique.
 
-You can use [Log Analytics for Load Balancer](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-monitor-log/) and [Alert event logs to monitor for SNAT port exhaustion messages](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-monitor-log/#alert-event-log). When SNAT port resources are exhausted, outbound flows fail until SNAT ports are released by existing flows. Load Balancer uses a 4-minute idle timeout for reclaiming SNAT ports.
+You can use [Log Analytics for Load Balancer](load-balancer-monitor-log.md) and [Alert event logs to monitor for SNAT port exhaustion messages](load-balancer-monitor-log.md#alert-event-log). When SNAT port resources are exhausted, outbound flows fail until SNAT ports are released by existing flows. Load Balancer uses a 4-minute idle timeout for reclaiming SNAT ports.
 
 ## VM with an Instance Level Public IP address (with or without Load Balancer)
 
@@ -59,6 +59,6 @@ There are many ways to determine the public source IP address of an outbound con
 
 ## Preventing Public Connectivity
 
-Sometimes it is undesirable for a VM to be allowed to create an outbound flow or there may be a requirement to manage which destinations can be reached with outbound flows. In this case, you use [Network Security Groups (NSG)](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/) to manage the destinations that the VM can reach. When you apply an NSG to a load-balanced VM, you need to pay attention to the [default tags](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/#default-tags) and [default rules](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/#default-rules).
+Sometimes it is undesirable for a VM to be allowed to create an outbound flow or there may be a requirement to manage which destinations can be reached with outbound flows. In this case, you use [Network Security Groups (NSG)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) to manage the destinations that the VM can reach. When you apply an NSG to a load-balanced VM, you need to pay attention to the [default tags](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/#default-tags) and [default rules](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/#default-rules).
 
 You must ensure that the VM can receive health probe requests from Azure Load Balancer. If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, your VM health probe fails and the VM is marked down. Load Balancer stops sending new flows to that VM.
