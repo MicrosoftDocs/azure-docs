@@ -136,6 +136,6 @@ Following are the supported AS2 tracking schemas
 [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")    
 [Learn more about tracking B2B messages](./app-service-logic-track-b2b-message.md "Learn more about tracking B2B messages")   
 [Learn more about B2B Custom Tracking Schema](./app-service-logic-track-integration-account-custom-tracking-shema.md "Learn about Custom Schema")   
-[Learn more about X12 Tracking Schema](./app-service-logic-track-integration-account-x12-tracking-schemas.md "Learn about X12 Tracking Schema")   
+[Learn more about X12 Tracking Schema](./app-service-logic-track-integration-account-x12-tracking-shemas.md "Learn about X12 Tracking Schema")   
 [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
 
