@@ -63,9 +63,9 @@ The details below are steps that Microsoft is taking on your behalf to complete 
 3.	Microsoft creates a new DW named “MyDW” on Premium Storage from the backup taken in step 2.  “MyDW” will not appear until after the restore is complete.
 4.	Once the restore is complete, “MyDW” returns to the same DWUs and paused or active state it was before the migration.
 5.	Once the migration is complete, Microsoft deletes “MyDW_DO_NOT_USE_[Timestamp]”
-	
+
 > [AZURE.NOTE] These settings do not carry over as part of the migration:
-> 
+>
 >	-  Auditing at the Database level needs to be re-enabled
 >	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
@@ -103,18 +103,18 @@ Automatic migrations occur from 6pm – 6am (local time per region) during the f
 If you would like to control when your downtime will occur, you can use the following steps to migrate an existing Data Warehouse on Standard Storage to Premium Storage.  If you choose to self-migrate, you must complete the self-migration before the automatic migration begins in that region to avoid any risk of the automatic migration causing a conflict (refer to the [automatic migration schedule][]).
 
 ### Self-migration instructions
-If you would like to control your downtime, you can self-migrate your Data Warehouse by using backup/restore.  The restore portion of the migration is expected to take around one hour per TB of storage per DW.  If you want to keep the same name once migration is complete, follow the steps for [steps to rename during migration][]. 
+If you would like to control your downtime, you can self-migrate your Data Warehouse by using backup/restore.  The restore portion of the migration is expected to take around one hour per TB of storage per DW.  If you want to keep the same name once migration is complete, follow the steps for [steps to rename during migration][].
 
 1.	[Pause][] your DW which takes an automatic backup
 2.	[Restore][] from your most recent snapshot
 3.	Delete your existing DW on Standard Storage. **If you fail to do this step, you will be charged for both DWs.**
 
 > [AZURE.NOTE] These settings do not carry over as part of the migration:
-> 
+>
 >	-  Auditing at the Database level needs to be re-enabled
 >	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
-#### Optional: steps to rename during migration 
+#### Optional: steps to rename during migration
 Two databases on the same logical server cannot have the same name. SQL Data Warehouse now supports the ability to rename a DW.
 
 In this example, imagine that your existing DW on Standard Storage is currently named “MyDW.”
@@ -128,7 +128,7 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 4.	Delete "MyDW_BeforeMigration".  **If you fail to do this step, you will be charged for both DWs.**
 
 > [AZURE.NOTE] These settings do not carry over as part of the migration:
-> 
+>
 >	-  Auditing at the Database level needs to be re-enabled
 >	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
@@ -139,7 +139,7 @@ With the change to Premium Storage, we have also increased the number of databas
 
 1.	Data Warehouse should run with 1,000 DWUs or higher (see [scale compute power][])
 2.	User executing the script should be in the [mediumrc role][] or higher
-	1.	To add a user to this role, execute the following: 
+	1.	To add a user to this role, execute the following:
 		1.	````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
@@ -149,10 +149,10 @@ With the change to Premium Storage, we have also increased the number of databas
 --------------------------------------------------------------------------------
 create table sql_statements
 WITH (distribution = round_robin)
-as select 
+as select
     'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
     row_number() over (order by s.name, t.name) as sequence
-from 
+from
     sys.schemas s
     inner join sys.tables t
         on s.schema_id = t.schema_id
@@ -160,7 +160,7 @@ where
     is_external = 0
 ;
 go
- 
+
 --------------------------------------------------------------------------------
 -- Step 2: Execute Index Rebuilds.  If script fails, the below can be rerun to restart where last left off
 -- Run as user in mediumrc or higher
@@ -194,11 +194,11 @@ If you encounter any issues with your Data Warehouse, [create a support ticket][
 [create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Azure paired region]: best-practices-availability-paired-regions.md
 [main documentation site]: services/sql-data-warehouse.md
-[Pause]: sql-data-warehouse-manage-compute-portal.md/#pause-compute
+[Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
-[scale compute power]: sql-data-warehouse-manage-compute-portal/#scale-compute-power
-[mediumrc role]: sql-data-warehouse-develop-concurrency/#workload-management
+[scale compute power]: sql-data-warehouse-manage-compute-portal#scale-compute-power
+[mediumrc role]: sql-data-warehouse-develop-concurrency.md#workload-management
 
 <!--MSDN references-->
 
