@@ -93,7 +93,8 @@ After the Azure SQL Database server is registered to the vault, you are charged 
     #for your database you can select any policy created in the vault with which your server is registered
     Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName 'RG1' –ServerName 'Server1' -DatabaseName 'DB1' -State 'enabled' -ResourceId $policy.Id
     ```
-5.	List the server associated with the vault. Each server is associated with a specific container in the vault. You can list the registered servers by running the following commands:
+5.	List the server associated with the vault. Each server is associated with a specific container in the vault. You can list the registered servers by running the following commands.
+
     ```
     #each server has an associated container in the vault
     Set-AzureRMRecoveryServicesVaultContext -Vault $vault
@@ -151,6 +152,7 @@ The Recovery Service automatically handles cleanup of backups based on the provi
 ## Removing backups from the Recovery Service vault
 
 To manually remove backups from the vault.
+
     ```
     #this step identifies the container for ‘myserver’
     Set-AzureRMRecoveryServicesVaultContext -Vault $vault $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName 'myserver'
