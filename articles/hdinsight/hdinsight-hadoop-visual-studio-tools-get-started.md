@@ -22,7 +22,7 @@
 
 Learn how to use Data Lake (HDInsight) Tools for Visual Studio to connect to HDInsight clusters and submit Hive queries. For more information about using HDInsight, see [Introduction to HDInsight][hdinsight.introduction] and [Get started with HDInsight][hdinsight.get.started]. For more information about connecting to a Storm cluster, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio][hdinsight.storm.visual.studio.tools].
 
-Data Lake Tools for Visual Studio can be use to access both Data Lake Analytics and HDInsight.  For the information about Data Lake Tools, see [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
+Data Lake Tools for Visual Studio can be used to access both Data Lake Analytics and HDInsight.  For the information about Data Lake Tools, see [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
 **Prerequisites**
 
@@ -63,7 +63,7 @@ Data Lake Tools for Visual Studio allows you to connect to your HDInsight cluste
 
 	>[AZURE.NOTE]Notice the **HDInsight Task List** window should be open. If you don't see it, click **Other Windows** from the **View** menu, and then click **HDInsight Task List Window**.  
 4.	Enter your Azure subscription credentials, and then click **Sign In**. This is only required if you have never connected to the Azure subscription from Visual Studio on this workstation.
-5.	In Server Explorer, you'll see a list of existing HDInsight clusters. If you don't have any clusters, you can create one by using the Azure Portal, Azure PowerShell, or the HDInsight SDK. For more information, see [Create HDInsight clusters][hdinsight-create-clusters].
+5.	In Server Explorer, you'll see a list of existing HDInsight clusters. If you don't have any clusters, you can create one by using the Azure portal, Azure PowerShell, or the HDInsight SDK. For more information, see [Create HDInsight clusters][hdinsight-create-clusters].
 
 	![Data Lake Tools for Visual Studio Server Explorer cluster list][5]
 6.	Expand an HDInsight cluster. You'll see **Hive Databases**, a default storage account, linked storage accounts, and **Hadoop Service log**. You can further expand the entities.
@@ -72,7 +72,7 @@ After you've connected to your Azure subscription, you'll be able to do the foll
 
 **To connect to the Azure portal from Visual Studio**
 
-- From Server Explorer, expand **Azure** > **HDInsight**, right-click an HDInsight cluster, and then click **Manage Cluster in Azure Portal**.
+- From Server Explorer, expand **Azure** > **HDInsight**, right-click an HDInsight cluster, and then click **Manage Cluster in Azure portal**.
 
 **To ask questions and provide feedback from Visual Studio**
 
@@ -84,7 +84,7 @@ From Server Explorer, you can see the default storage account and any linked sto
 
 ![Data Lake Tools for Visual Studio server explorer cluster list][2]
 
-After openning a container, you can using the following buttons to upload, delete, and download blobs:
+After opening a container, you can use the following buttons to upload, delete, and download blobs:
 
 ![Data Lake Tools for Visual Studio server explorer blob operations](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)
 
@@ -110,7 +110,7 @@ All HDInsight clusters come with a sample Hive table called *hivesampletable*. W
 
 	You can customize the row count.
 
-	![Data Lake Tools: HDinsight Hive Visual Studio schema query][6]
+	![Data Lake Tools: HDInsight Hive Visual Studio schema query][6]
 
 ### Create Hive tables
 
@@ -122,7 +122,7 @@ You can use the GUI to create a Hive table or use Hive queries. For information 
 2. Configure the table.
 3. Click **Create Table** to submit the job to create the new Hive table.
 
-	![Data Lake Tools: hdinsight visual studio Tools create hive table][7]
+	![Data Lake Tools: HDInsight Visual Studio Tools create hive table][7]
 
 ### <a name="run.queries"></a>Validate and run Hive queries
 There are two ways to create and run Hive queries:
@@ -147,7 +147,7 @@ There are two ways to create and run Hive queries:
 
 4. Click **Submit** or **Submit (Advanced)**. With the advanced submit option, you'll configure **Job Name**, **Arguments**, **Additional Configurations**, and **Status Directory** for the script:
 
-	![hdinsight hadoop hive query][9]
+	![HDInsight Hadoop hive query][9]
 
 	After you submit the job, you see a **Hive Job Summary** window.
 
@@ -162,7 +162,7 @@ There are two ways to create and run Hive queries:
 1. From the **FILE** menu, click **New**, and then click **Project**.
 2. Select **HDInsight** from the left pane, select **Hive Application** in the middle pane, enter the properties, and then click **OK**.
 
-	![Data Lake Tools: hdinsight visual studio Tools new hive project][11]
+	![Data Lake Tools: HDInsight Visual Studio Tools new hive project][11]
 3. From **Solution Explorer**, double-click **Script.hql** to open it.
 4. To validate the Hive script, you can click the **Validate Script** button, or right-click the script in the Hive editor, and then click **Validate Script** from the context menu.
 
@@ -188,11 +188,11 @@ The Data Lake Tools used to submit Hive jobs via [WebHCat](https://cwiki.apache.
 In order to solve this performance issue, the Data Lake Tools executes Hive jobs directly in the cluster through HiveServer2, so that it bypasses RDP/SSH.
 In addition to better performance, users can also view Hive on Tez graphs, and the Task details.
 
-For HDInsight cluster version 3.2 or later, you can see a **Execute via HiveServer2** button:
+For HDInsight cluster version 3.2 or later, you can see an **Execute via HiveServer2** button:
 
 ![Data Lake visual studio Tools execute via hiveserver2](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
 
-And you can see the logs streamed back in realtime and see the job graphs if the Hive query is executed in Tez.
+And you can see the logs streamed back in real-time and see the job graphs if the Hive query is executed in Tez.
 
 ![Data Lake visual studio Tools fast path hive execution](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
 
@@ -204,19 +204,19 @@ Even though executing queries via HiveServer2 has many performance benefits, it 
 |---|---|---|
 |Execute queries|Eliminates the overhead in WebHCat (which launches a MapReduce Job named “TempletonControllerJob”).|As long as a query is executed via WebHCat, WebHCat will launch a MapReduce job which introduces additional latency.|
 |Stream logs back|In near real-time.|The job execution logs are available only when the job is finished.|
-|View job history|If a query is executed via HiveServer2, it’s job history (job log, job output) is not preserved. The application can be viewed in YARN UI with limited information.|If a query is executed via WebHCat, it’s job history (job log, job output) is preserved and can be viewed using Visual Studio/HDInsight SDK/PowerShell. |
-|Close window| 	Executing via HiveServer2 is a “synchronous” way so you must keep the windows open; if the windows are closed then the query execution will be cancelled.|Submitting via WebHCat is a “asynchronous” way so you can submit the query via WebHCat and close Visual Studio. You can come back and see the results at any time.|
+|View job history|If a query is executed via HiveServer2, its job history (job log, job output) is not preserved. The application can be viewed in YARN UI with limited information.|If a query is executed via WebHCat, it’s job history (job log, job output) is preserved and can be viewed using Visual Studio/HDInsight SDK/PowerShell. |
+|Close window| 	Executing via HiveServer2 is a “synchronous” way so you must keep the windows open; if the windows are closed then the query execution will be canceled.|Submitting via WebHCat is a “asynchronous” way so you can submit the query via WebHCat and close Visual Studio. You can come back and see the results at any time.|
 
 
 ### Tez Hive job performance graph
 
 The Data Lake Tools support showing performance graphs for the Hive jobs ran by the Tez execution engine. For information on enabling Tez, see [use Hive in HDInsight][hdinsight.hive]. After you submit a Hive job in Visual Studio, Visual Studio shows you the graph when the job is completed.  You might need to click the **Refresh** button to get the latest job status.
 
-> [AZURE.NOTE] This feature is only available for HDInsight cluster version above 3.2.4.593, and can only work for completed jobs (if you submitted your job through WebHCat; this graph will show when you execute your query through HiveServer2). This works for both Windows and Linux based clusters.
+> [AZURE.NOTE] This feature is only available for HDInsight cluster version above 3.2.4.593, and can only work for completed jobs (if you submitted your job through WebHCat; this graph will show when you execute your query through HiveServer2). This works for both Windows and Linux-based clusters.
 
 ![hadoop hive tez performance graph](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
-To help you understand your Hive query better, the tools add the Hive Operator view in this release. You just need to double click on the vertices of the job graph and you can see all the operators inside the vertex. You can also hover on a particular operator to view more details of this operator.
+To help you understand your Hive query better, the tools add the Hive Operator view in this release. You just need to double-click on the vertices of the job graph and you can see all the operators inside the vertex. You can also hover on a particular operator to view more details of this operator.
 
 ### Task execution view for Hive on Tez jobs
 
