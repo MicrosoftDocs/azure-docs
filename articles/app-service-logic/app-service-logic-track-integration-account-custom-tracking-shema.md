@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Monitor your Integration Account | Microsoft Azure" 
-	description="How to monitor Inegration Account" 
+	pageTitle="Custom tracking schema| Microsoft Azure" 
+	description="Learn more about custom tracking schema" 
 	authors="padmavc" 
 	manager="erikre" 
 	editor="" 
@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/21/2016"
+	ms.date="10/31/2016"
 	ms.author="padmavc"/>
 
 
 # Custom tracking schema
+
 Following custom tracking schema is supported 
 
 ````java
@@ -72,10 +73,13 @@ Following custom tracking schema is supported
 | record | Mandatory.  It indicates the custom record type and the allowed format is JToken |
 |
 
+## B2B protocol Tracking Schemas
+We are also supporting following B2B protocol tracking schemas.  
+* [AS2 Tracking Schema](./app-service-logic-track-integration-account-as2-tracking-shemas.md)   
+* [X12 Tracking Schema](./app-service-logic-track-integration-account-x12-tracking-shemas.md) 
+
 
 ## Next steps
 
 [Learn more about tracking B2B messages](./app-service-logic-track-b2b-message.md "Learn more about tracking B2B messages")   
-[Learn more about AS2 Tracking Schema](./app-service-logic-track-integration-account-as2-tracking-shemas.md "Learn about AS2 Schema")   
-[Learn more about X12 Tracking Schema](./app-service-logic-track-integration-account-x12-tracking-shemas.md "Learn about X12 Tracking Schema")   
 [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")   

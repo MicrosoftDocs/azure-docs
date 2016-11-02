@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="as2 tracking schema | Microsoft Azure" 
-	description="How to track AS2 messages" 
+	description="Learn more about as2 tracking schema" 
 	authors="padmavc" 
 	manager="erikre" 
 	editor="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/21/2016"
+	ms.date="10/31/2016"
 	ms.author="padmavc"/>
 
 # AS2 Tracking Schemas

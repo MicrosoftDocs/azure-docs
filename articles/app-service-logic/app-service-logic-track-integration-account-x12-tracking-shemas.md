@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="x12 tracking schemas | Microsoft Azure" 
-	description="How to X12 messages" 
+	description="Learn more about X12 tracking shema" 
 	authors="padmavc" 
 	manager="erikre" 
 	editor="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/21/2016"
+	ms.date="10/31/2016"
 	ms.author="padmavc"/>
 
 # X12 Tracking Schemas
