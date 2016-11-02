@@ -172,7 +172,7 @@ Before running the sample, you need to verify that your Rasbeperry Pi 3 can conn
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
     ```
 
-5. Make the SensorTag device discoverable by pressing the small button (the green LED should flash). The Rasberry Pi 3 should discover the SensorTag device:
+5. Make the SensorTag device discoverable by pressing the small button (the green LED should flash). The Raspberry Pi 3 should discover the SensorTag device:
     
     ```
     [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
@@ -218,7 +218,7 @@ Before running the sample, you need to verify that your Rasbeperry Pi 3 can conn
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: no
     ```
 
-You're now ready to run the BLE Gateway sample on your Rasberry Pi 3.
+You're now ready to run the BLE Gateway sample on your Raspberry Pi 3.
 
 ## Run the BLE Gateway sample
 
@@ -245,17 +245,17 @@ cd azure-iot-gateway-sdk
 git submodule update --init --recursive
 ```
 
-When you have a complete copy of the IoT Gateway SDK repository on your Rasberry Pi 3, you can build it using the following command from the folder that contains the SDK:
+When you have a complete copy of the IoT Gateway SDK repository on your Raspberry Pi 3, you can build it using the following command from the folder that contains the SDK:
 
 ```
 ./tools/build.sh
 ```
 
-### Configure and run the BLE sample on your Rasberry Pi 3
+### Configure and run the BLE sample on your Raspberry Pi 3
 
 To bootstrap and run the sample, you need to configure each module that participates in the gateway. This configuration is provided in a JSON file and you need to configure all five participating modules. There is a sample JSON file provided in the repository called **gateway_sample.json** which you can use as the starting point for building your own configuration file. This file is in the **samples/ble_gateway_hl/src** folder in local copy of the IoT Gateway SDK repository.
 
-The following sections describe how to edit this configuration file for the BLE sample and assume that the IoT Gateway SDK repository is in the **/home/root/azure-iot-gateway-sdk/** folder on your Rasberry Pi 3. If the repository is elsewhere, you should adjust the paths accordingly:
+The following sections describe how to edit this configuration file for the BLE sample and assume that the IoT Gateway SDK repository is in the **/home/root/azure-iot-gateway-sdk/** folder on your Raspberry Pi 3. If the repository is elsewhere, you should adjust the paths accordingly:
 
 #### Logger configuration
 
