@@ -54,6 +54,9 @@ The HTTP trigger to a function uses the following JSON object in the `bindings` 
 
 For more information, see [Validate requests with API keys](#validate).
 
+[Additional settings](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) can be provided in a host.json file to further fine tune HTTP triggers.  
+
+
 <a name="url"></a>
 ## URL to trigger the function
 
