@@ -148,7 +148,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetT
 var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 ```
 
-When you run your application, you should now be authenticating to Azure Active Directory and then retrieving your secret value from your Azure Key Vault.
+When you run your application, you should now be authenticating to Azure Active Directory and then retrieving your secret value from Azure Key Vault.
 
 ## Key rotation using Azure Automation
 
@@ -226,7 +226,7 @@ From the editor pane, choose **Test pane** to test your script. Once the script 
 
 ## Key Vault Auditing pipeline
 
-When you set up a key vault, you can turn on auditing to collect logs on access requests made to the Key Vault. These logs are stored in a designated Azure Storage account and can be pulled out, monitored, and analyzed. The following scenario uses Azure functions, Azure logic apps, and key vault audit logs to create a pipeline to send an email when an app that does match the app ID of the web app retrieves secrets from the vault.
+When you set up a key vault, you can turn on auditing to collect logs on access requests made to the key vault. These logs are stored in a designated Azure Storage account and can be pulled out, monitored, and analyzed. The following scenario uses Azure functions, Azure logic apps, and key vault audit logs to create a pipeline to send an email when an app that does match the app ID of the web app retrieves secrets from the vault.
 
 First, you must enable logging on your key vault. This can be done via the following PowerShell commands (full details can be seen at [key-vault-logging](key-vault-logging.md)):
 
@@ -247,7 +247,7 @@ The next step is to [create an Azure Service Bus queue](../service-bus-messaging
 3. Select **New** and choose **Service Bus > Queue** and enter the required details.
 4. Select the Service Bus connection information by choosing the namespace and clicking **Connection Information**. You will need this information for the next section.
 
-Next, [create an Azure function](../azure-functions/functions-create-first-azure-function.md) to poll Key Vault logs within the storage account and pick up new events. This will be a function that is triggered on a schedule.
+Next, [create an Azure function](../azure-functions/functions-create-first-azure-function.md) to poll key vault logs within the storage account and pick up new events. This will be a function that is triggered on a schedule.
 
 To create an Azure function, choose **New > Function App** in the Azure portal. During creation, you can use an existing hosting plan or create a new one. You could also opt for dynamic hosting. More details on Function hosting options can be found at [How to scale Azure Functions](../azure-functions/functions-scale.md).
 
@@ -421,4 +421,4 @@ Now, create an action under **If no, do nothing**.
 
 For the action, choose **Office 365 - send email**. Fill out the fields to create an email to send when the defined condition returns **false**. If you do not have Office 365, you could look at alternatives to achieve the same results.
 
-At this point, you have an end to end pipeline that looks for new Key Vault audit logs once a minute. It pushes new logs it finds to a service bus queue. The Logic App is triggered when a new message lands in the queue. If the *appid* within the event does not match the app ID of the calling application, it sends an email.
+At this point, you have an end to end pipeline that looks for new key vault audit logs once a minute. It pushes new logs it finds to a service bus queue. The Logic App is triggered when a new message lands in the queue. If the *appid* within the event does not match the app ID of the calling application, it sends an email.
