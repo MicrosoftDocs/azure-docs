@@ -18,9 +18,9 @@
 
 # Add or change work information for a user in Azure Active Directory preview
 
-This article explains how to add or change work information such as phone numbers or a department name for a user in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-users-create-external-azure-portal.md).
+This article explains how to add or change work information such as phone numbers or department names for a user in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-users-create-external-azure-portal.md).
 
-## How to change work information
+## To change work information
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
@@ -38,12 +38,12 @@ This article explains how to add or change work information such as phone number
 
     ![Opening Work information](./media/active-directory-users-work-info-azure-portal/active-directory-create-users-work-info.png)
 
-6. Add or change the work information, and then in the command bar select **Save**.
+6. Add or change the work information. Then, in the command bar, select **Save**.
 
-## What's next
+## Next steps
 
-- [Add a user](active-directory-users-create-azure-portal.md)
-- [Reset a user's password in the new Azure portal](active-directory-users-reset-password-azure-portal.md)
-- [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
-- [Manage user profiles](active-directory-users-profile-azure-portal.md)
-- [Delete a user in your Azure AD](active-directory-users-delete-user-azure-portal.md)
+- [Add new users to Azure Active Directory preview](active-directory-users-create-azure-portal.md)
+- [Reset the password for a user in Azure Active Directory preview](active-directory-users-reset-password-azure-portal.md)
+- [Assign a user to administrator roles in Azure Active Directory preview](active-directory-users-assign-role-azure-portal.md)
+- [Add or change profile information for a user in Azure Active Directory preview](active-directory-users-profile-azure-portal.md)
+- [Delete a user from a directory in Azure Active Directory preview](active-directory-users-delete-user-azure-portal.md)
