@@ -16,8 +16,6 @@
 	ms.date="11/01/2016" 
 	ms.author="robmcm;asirveda;martinsawicki"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
-
 # What's New in the Azure Toolkit for Eclipse
 
 ## Azure Toolkit for Eclipse Releases
@@ -380,3 +378,5 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [ic710876]: ./media/azure-toolkit-for-eclipse-whats-new/ic710876.png
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
+
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->

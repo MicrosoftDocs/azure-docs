@@ -16,15 +16,13 @@
     ms.date="11/01/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
-
-# Enable Session Affinity #
+# Enable Session Affinity
 
 Within the Azure Toolkit for Eclipse, you can enable HTTP session affinity, or "sticky sessions", for your roles. The following image shows the **Load Balancing** properties dialog used to enable the session affinity feature:
 
 ![][ic719492]
 
-## To enable session affinity for your role ##
+## To enable session affinity for your role
 
 1. Right-click the role in Eclipse's Project Explorer, click **Azure**, and then click **Load Balancing**.
 1. In the **Properties for WorkerRole1 Load Balancing** dialog:
@@ -36,7 +34,7 @@ Once enabled, if you have more than one role instance, HTTP requests coming from
 
 The Eclipse Toolkit enables this by installing a special IIS module called Application Request Routing (ARR) into each of your role instances. ARR reroutes HTTP requests to the appropriate role instance. The toolkit automatically reconfigures the selected endpoint so that the incoming HTTP traffic is first routed to the ARR software. The toolkit also creates a new internal endpoint that your Java server is configured to listen to. That is the endpoint used by ARR to reroute the HTTP traffic to the appropriate role instance. This way, each role instance in your multi-instance deployment serves as a reverse proxy for all the other instances, enabling sticky sessions.
 
-## Notes about session affinity ##
+## Notes about session affinity
 
 * Session affinity does not work in the compute emulator. The settings can be applied in the compute emulator without interfering with your build process or compute emulator execution, but the feature itself does not function within the compute emulator.
 * Enabling session affinity will result in an increase in the amount of disk space taken up by your deployment in Azure, as additional software will be downloaded and installed into your role instances when your service is started in the Azure cloud.
@@ -45,7 +43,7 @@ The Eclipse Toolkit enables this by installing a special IIS module called Appli
 
 For an example of how to maintain session data when session affinity is enabled, see [How to Maintain Session Data with Session Affinity][].
 
-## See Also ##
+## See Also
 
 [Azure Toolkit for Eclipse][]
 
@@ -68,3 +66,5 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 <!-- IMG List -->
 
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
+
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->

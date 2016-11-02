@@ -16,9 +16,7 @@
     ms.date="11/01/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
-
-# Debugging Azure Applications in Eclipse #
+# Debugging Azure Applications in Eclipse
 
 Using the Azure Toolkit for Eclipse, you can debug your applications whether they are running in Azure, or in the compute emulator if you are using Windows as your operating system. The following image shows the **Debugging** properties dialog used to enable remote debugging:
 
@@ -28,7 +26,7 @@ This tutorial assumes you already have an application that has been successfully
 
 We'll use the application from the [Using the Azure Service Runtime Library in JSP][] tutorial as the starting point for this topic. Before proceeding, create that application if you have not already done so.
 
-## To debug your application while running in Azure ##
+## To debug your application while running in Azure
 
 >[AZURE.WARNING] The toolkit's current support for remote Java debugging is intended primarily for deployments running in the Azure compute emulator. Because the debugging connection is not secure, you should not enable remote debugging in production deployments. If you need to debug an application running in the Azure cloud, use a staging deployment, but realize that unauthorized access to your debug session is possible if someone knows the IP address of your cloud deployment, even if it is a staging deployment.
 
@@ -61,7 +59,7 @@ We'll use the application from the [Using the Azure Service Runtime Library in J
 
 >[AZURE.NOTE] If you're attempting to start a remote debugging connection to a deployment that has multiple role instances running, you cannot currently control which instance the debugger will be initially connected to, as the Azure load balancer will pick an instance at random. Once you're connected with that instance, though, you will continue debugging the same instance. Note also, if there is a period of inactivity of more than 4 minutes (for example, when you're stopped at a breakpoint for too long), Azure may close the connection.
 
-## Debugging a specific role instance in a multi-instance deployment ##
+## Debugging a specific role instance in a multi-instance deployment
 
 When your deployment is running in the cloud, you will most likely be running it in multiple compute, or role, instances. This enables you to take advantage of Azure 99.95% availability guarantee, and to scale out your application.
 
@@ -75,7 +73,7 @@ After you deploy your application with this instance endpoint, Azure will assign
 
 Once you know what public port number that instance was assigned, you can reference it in your debug configuration in Eclipse, by affixing it to the host name of your service. This will enable the Eclipse debugger to connect to that specific instance, and not any of the other instances.
 
-## Windows only: To debug your application while running in the compute emulator ##
+## Windows only: To debug your application while running in the compute emulator
 
 >[AZURE.NOTE] The Azure emulator is only available on Windows. Skip this section if you are using an operating system other than Windows. 
 
@@ -108,12 +106,12 @@ Once you know what public port number that instance was assigned, you can refere
 
 This showed you how to debug in the compute emulator; the next section shows you how to debug an application deployed to Azure.
 
-## Debugging Notes ##
+## Debugging Notes
 
 * After debugging, you can switch the perspective from **Debug** to **Java** via clicking Eclipse's menu, by clicking **Window**, **Open Perspective**, and selecting the perspective that you want to use.
 * To enable remote debugging in GlassFish, do not use the remote debugging configuration feature of the Azure Toolkit for Eclipse. Instead configure GlassFish manually. Because of the way GlassFish treats Java options predefined in environment variables, the toolkit's remote debugging configuration feature does not work properly with GlassFish. If the toolkit's remote debugging configuration feature is enabled, it may prevent GlassFish from starting.
 
-## See Also ##
+## See Also
 
 [Azure Toolkit for Eclipse][]
 
@@ -136,3 +134,5 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
+
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->

@@ -16,9 +16,7 @@
     ms.date="11/01/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
-
-# Azure Service Endpoints #
+# Azure Service Endpoints
 
 Azure service endpoints determine whether your application is deployed to and managed by the global Azure platform, Azure operated by 21Vianet in China, or a private Azure platform. The **Service Endpoints** dialog allows you to specify which service endpoints you want to use. To open the **Service Endpoints** dialog, within Eclipse, click **Window**, click **Preferences**, expand **Azure**, and then click **Service Endpoints**. Setting the **Active Set** field determines which Azure service endpoints will be used for the Azure projects in your current workspace.
 
@@ -26,7 +24,7 @@ The following shows the **Service Endpoints** dialog.
 
 ![][ic719493]
 
-## To set the service endpoints ##
+## To set the service endpoints
 
 In the **Service Endpoints** dialog, take one of the following actions:
 
@@ -41,7 +39,7 @@ In the **Service Endpoints** dialog, take one of the following actions:
     6. From the **Active Set** dropdown list, select the active set that you created and click **OK**.
     7. Once you've created your private Azure platform `preferenceset` element, you can change the values assigned to it by clicking the **Edit** button in the **Services Endpoint** dialog. You can also create multiple private Azure platform `preferenceset` elements, if you desire.
 
-## See Also ##
+## See Also
 
 [Azure Toolkit for Eclipse][]
 
@@ -61,3 +59,5 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 <!-- IMG List -->
 
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
+
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
