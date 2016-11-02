@@ -52,10 +52,10 @@ az acs -h
 az acs create -h
 ```
 The name of the container service, the resource group created in the previous step and a unique DNS name are mandatory. 
-Other inputs are set to default values(please see help below)unless overwritten using their respective switches.
+Other inputs are set to default values (please see help below) unless overwritten using their respective switches.
 ![Image ACS create help](media/container-service-create-acs-cluster-cli-2/create-help.png)
 
-*Quick ACS create using defaults. If you do not have a SSH key use the second command. This second create command with the --generate-ssh-keys switch will create one for you*
+*Quick ACS create using defaults. If you do not have an SSH key use the second command. This second create command with the --generate-ssh-keys switch will create one for you*
 ```
 az acs create -n acs-cluster -g acsrg1 --dns-name-prefix applink
 ```
