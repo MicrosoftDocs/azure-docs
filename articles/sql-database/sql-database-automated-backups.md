@@ -3,7 +3,7 @@
    description="SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy."
    services="sql-database"
    documentationCenter=""
-   authors="CarlRabeler"
+   authors="anosov1960"
    manager="jhubbard"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/01/2016"
-   ms.author="carlrab;barbkess"/>
+   ms.date="11/02/2016"
+   ms.author="sashan;carlrab;barbkess"/>
 
 # Learn about SQL Database backups
 
@@ -65,14 +65,14 @@ GUIDELINES for introduction
 	In this example:
 
 Sentence #1 Explains what the article will cover, which is what the feature is or does. This is also the metadata description. 
-	SQL Database automatically creates a local database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. 
+	SQL Database automatically creates a database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. 
 
 Sentence #2 Explains why I should care about this.  
 	Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion.
 
 -------------------->
 
-SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy. Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. 
+SQL Database automatically creates a database backups and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen. Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. If you want to keep backups in your own storage container you can configure a long-term backup retention policy. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
 <!-- This image needs work, so not putting it in right now.
 
@@ -96,39 +96,32 @@ GUIDELINES for the first ## H2.
 	Explains what a SQL Database backup is and answers an important question that people want to know.
 -->
 
-A SQL Database backup includes both local database backups and geo-redundant backups. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen.
 
 <!----------------- 
 	Explains first component of the backup feature
 ------------------>
 
-For local backups, SQL Database uses SQL Server technology to create [full](https://msdn.microsoft.com/library/ms186289.aspx), [differential](https://msdn.microsoft.com/library/ms175526.aspx ), and [transaction log](https://msdn.microsoft.com/library/ms191429.aspx) backups. The transaction log backups happen every five minutes, which allows you to do a point-in-time restore to the same server that hosts the database. When you restore a database, the service figures out which full, differential, and transaction log backups need to be restored.
+SQL Database uses SQL Server technology to create [full](https://msdn.microsoft.com/library/ms186289.aspx), [differential](https://msdn.microsoft.com/library/ms175526.aspx), and [transaction log](https://msdn.microsoft.com/library/ms191429.aspx) backups. The transaction log backups generall happen every 5 - 10 minutes, with the frequency based on the performance level and amount of database activity. Transaction log backups, with full and differential backups, allow you to restore a database to a specific point-in-time to the same server that hosts the database. When you restore a database, the service figures out which full, differential, and transaction log backups need to be restored.
 
 <!--------------- 
 	Explicit list of what to do with a local backup. "Use a ..." helps people to scan the topic and find the uses quickly.
 ---------------->
 
-Use a local database backup to:
+You can use these backups to:
 
-- Restore a database to a point-in-time within the retention period. With a database backup you can restore a database to a point-in-time, restore a deleted database to the time it was deleted, or restore a database to another geographical region. To perform a restore, see [restore a database from a database backup](sql-database-recovery-using-backups.md).
-
-- Copy a database to a SQL server in the same or different region. The copy is transactionally consistent with the current SQL Database. To perform a copy, see [database copy](sql-database-copy.md).
-
-- Archive a database backup beyond the backup retention period. To perform an archive, [export a SQL database to a BACPAC](sql-database-export.md) file. You can then archive the BACPAC to long-term storage and store it beyond your retention period. Or, use the BACPAC to transfer a copy of your database to SQL Server, either on-premises or in an Azure virtual machine (VM).
+- Restore a database to a point-in-time within the retention period. This operation will create a new database in the same server as the original database.
+- Restore a a deleted database to the time it was deleted or any time within the retention period. The deleted database can only be restored in the same server where the original database was created.
+- Restore a database to another geographical region. This allows you to recover from a geographic disaster when you cannot access your server and database. It creates a new database in any existing server anywhere in the world. 
+-  Restore a database from a specific backup stored in your Azure Recovery Services vault. This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. See [Long-term retention](sql-database-long-term-retention.md).
+- To perform a restore, see [restore database from backups](sql-database-recovery-using-backups.md).
 
 <!----------------- 
 	Explains first component of the backup feature
 ------------------>
 
-For geo-redundant backups, SQL Database uses [Azure Storage replication](../storage/storage-redundancy.md). SQL Database stores local database backup files in a [Read-Access Geo-Redundant Storage (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage) account. Azure replicates the backup files to a [paired data center](../best-practices-availability-paired-regions.md). 
-
 <!--------------- 
 	Explicit list of what to do with a geo-redundant backup. "Use a ..." helps people to scan the topic and find the uses quickly.
 ---------------->
-
-Use a geo-redundant backup to:
-
-- Restore a database to a different geographical region in case you cannot access the database backup from your primary database region. 
 
 >[AZURE.NOTE] In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
 
@@ -141,9 +134,9 @@ SQL Database provides up to 200% of your maximum provisioned database storage as
 
 ## How often do backups happen?
 
-For local database backups, full database backups happen weekly, differential database backups happen hourly, and transaction log backups happen every five minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of full and [differential](https://msdn.microsoft.com/library/ms175526.aspx) database backups is determined as it balances the overall system workload. 
+Full database backups happen weekly, differential database backups generally happen every few hours, and transaction log backups generally happen every 5 - 10 minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of all database backups is determined by the SQL Database service as it balances the overall system workload. 
 
-For geo-redundant backups, full and differential backups are copied according to the Azure Storage replication schedule.
+The backup storage geo-replication occurs based on the Azure Storage replication schedule.
 
 ## How long do you keep my backups?
 
@@ -154,7 +147,7 @@ Each SQL Database backup has a retention period that is based on the [service-ti
 	Using a list so the information is easy to find when scanning.
 ------------------->
 
-- Basic service tier is seven days.
+- Basic service tier is 7 days.
 - Standard service tier is 35 days.
 - Premium service tier is 35 days.
 
@@ -167,6 +160,13 @@ If you delete a database, SQL Database keeps the backups in the same way it woul
 
 >[AZURE.IMPORTANT]
 	If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
+
+##How to extend the backup retention period?
+
+If your application requires that the backups are available for longer period of time you can extend the built-in retention period by configuring the Long-term backup retention policy for individual databases (LTR policy). This allows you to extend the built-it retention period from 35 days to up to 10 years. For more information, see [Long-term retention](sql-database-long-term-retention.md).
+
+Once you add the LTR policy to a database using Azure Portal or API, the weekly full database backups will be automatically copied to your own Azure Backup Service Vault. If your database is encrypted with TDE the backups are automatically encrypted at rest.  The Services Vault will automatically delete your expired backups based on their timestamp and the LTR policy.  So you don’t need to manage the backup schedule or worry about the cleanup of the old files. 
+The restore API supports backups stored in the vault as long as the vault is in the same subscription as your SQL database. You can use Portal or PowerShell to access these backups.
 
 <!-------------------
 OPTIONAL section
@@ -213,6 +213,6 @@ GUIDELINES for Next Steps
 
 ## Next steps
 
-Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To see how database backups into a broader strategy, see [Business continuity overview](sql-database-business-continuity.md).
+Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).
 
 

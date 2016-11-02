@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/22/2016"
+   ms.date="09/30/2016"
    ms.author="hascipio" />
 
 # How to publish and manage an offer in the Azure Marketplace
@@ -66,15 +66,14 @@ Some steps are shared between the different types of solutions. This article pro
 
 ### 2.4 Deploy your offer to the Marketplace
 - [Deploy your offer to the Azure Marketplace](marketplace-publishing-push-to-production.md)
-
-### Virtual Machine Image specific ###
-- [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
-- [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
-
-
 - [Troubleshooting common publishing problems in the Marketplace](marketplace-publishing-support-common-issues.md)
 - To learn more about the portals used, see [Portals you will need](marketplace-publishing-portals.md).
 
+### Virtual Machine Image specific ###
+- [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
+- [Create a virtual machine running Windows in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- [Create a virtual machine running Linux in the Azure portal](../virtual-machines/virtual-machines-linux-quick-create-portal.md)
+- [Troubleshooting common issues encountered during VHD creation](marketplace-publishing-vm-image-creation-troubleshooting.md)
 
 ## 3. Post-Publishing management of your offer
 - [Post-production guide for virtual machine offers](marketplace-publishing-vm-image-post-publishing.md)

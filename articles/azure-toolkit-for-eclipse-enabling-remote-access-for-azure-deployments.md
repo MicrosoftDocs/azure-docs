@@ -4,7 +4,7 @@
     services=""
     documentationCenter="java"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,10 +13,8 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/11/2016" 
+    ms.date="11/01/2016" 
     ms.author="robmcm"/>
-
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->
 
 # Enabling Remote Access for Azure Deployments in Eclipse
 
@@ -33,6 +31,7 @@ The following image shows the **Remote Access** properties dialog used to enable
 There are two ways to display the **Remote Access** properties dialog:
 
 * Click the **Advanced** link in the **Remote Access** section of the **Publish to Azure** dialog.
+
 * Open the **Properties** dialog of your Azure project.
 
 When you create a new Azure deployment project, the project will not have Remote Access enabled by default. However, you can easily enable remote access by specifying the user name and password in the **Publish to Azure** dialog. The Remote Access password is encrypted using X.509 certificates. If you do not use provide your own certificate, the encryption relies on a self-signed certificate shipped with the Azure Plugin for Eclipse. This self-signed certificate is in the **cert** folder of your Azure project, stored both as a public certificate file (SampleRemoteAccessPublic.cer) and as a Personal Information Exchange (PFX) certificate file (SampleRemoteAccessPrivate.pfx). The latter contains the private key for the certificate, and it has a default password, **Password1**. However, since this password is public knowledge, the default certificate should be used only for learning purposes, not for a production deployment. So other than for learning purposes, when you want to enabled remote sessions for your deployments, you should click the **Advanced** link in the **Publish to Azure** dialog to specify your own certificate. Note that you'll need to upload the PFX version of the certificate to your hosted service within the Azure Management Portal, so that Azure can decrypt the user password.
@@ -44,14 +43,23 @@ The remainder of the tutorial shows you how to enable remote access for an Azure
 To enable remote access after you have deployed to Azure, use the following steps:
 
 1. Log into the Azure management portal using your Azure account
+
 1. In your list of **Cloud Services**, select your deployed cloud service
+
 1. In the cloud service web page, click the **Configure** link
+
 1. On the bottom of the configuration page, click the **Remote** link
+
 1. When the pop-up dialog box appears:
+
     * Specify the Role you for which you want to enable remote access
+    
     * Click to select the **Enable Remote Desktop** checkbox
+    
     * Specify a user name and password you want to use for remote access
+    
     * Select the certificate to use
+
 1. Click **OK** 
 
 You will see a message stating that your configuration change is in progress, which may take a few minutes to complete. After the configuration change has completed, follow the steps in the **To log in remotely** section later in this article.
@@ -134,3 +142,5 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [ic719495]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719495.png
 [ic719494]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719494.png
 [ic659273]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic659273.png
+
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->

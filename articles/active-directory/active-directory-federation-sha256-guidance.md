@@ -46,4 +46,4 @@ After you have set the signature algorithm with one of the two processes below, 
 
 ## Also read
 
-* [Repair Office 365 trust with Azure AD Connect](./active-directory-aadconnect-federation-management.md#repairing-the-trust)
+* [Repair Office 365 trust with Azure AD Connect](./active-directory-aadconnect-federation-management.md#repairthetrust)

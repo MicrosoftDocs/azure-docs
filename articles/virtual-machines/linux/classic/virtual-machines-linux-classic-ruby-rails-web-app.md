@@ -4,7 +4,7 @@
 	services="virtual-machines-linux"
 	documentationCenter="ruby"
 	authors="rmcmurray"
-	manager="wpickett"
+	manager="erikre"
 	editor=""
 	tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="11/01/2016"
 	ms.author="robmcm"/>
 
 # Ruby on Rails Web application on an Azure VM

@@ -51,15 +51,15 @@ The following steps walk you through the steps necessary to configure continuous
 
 1.	Edit your VS Team Services build definition and add an Azure PowerShell build step. Choose the build definition under the **Build definitions** category and then choose the **Edit** link.
 
-    ![][0]
+    ![Edit build definition][0]
 
 1.	Add a new **Azure PowerShell** build step to the build definition and then choose the **Add build step…** button.
 
-    ![][1]
+    ![Add build step][1]
 
 1.	Choose the **Deploy task** category, select the **Azure PowerShell** task, and then choose its **Add** button.
 
-    ![][2]
+    ![Add tasks][2]
 
 1.	Choose the **Azure PowerShell** build step and then fill in its values.
 
@@ -69,15 +69,15 @@ The following steps walk you through the steps necessary to configure continuous
 
     1.	Choose the **Manage** link next to the **Azure Subscription** drop down list box.
 
-        ![][3]
+        ![Manage Azure subscriptions][3]
 
     1. Choose **Azure** in the **New Service Endpoint** drop down list box.
 
-        ![][4]
+        ![New service endpoint][4]
 
     1.	In the **Add Azure Subscription** dialog box, select the **Service Principal** option.
 
-        ![][5]
+        ![Service principal option][5]
 
     1.	Add your Azure subscription information to the **Add Azure Subscription** dialog box. You need to provide the following items:
         -	Subscription Id
@@ -107,15 +107,15 @@ The following steps walk you through the steps necessary to configure continuous
 
 1.	Edit the build definition and choose the **Azure PowerShell** build step. Select the subscription in the **Azure Subscription** drop down list box. (If the subscription doesn't appear, choose the **Refresh** button next the **Manage** link.) 
 
-    ![][8]
+    ![Configure Azure PowerShell build task][8]
 
 1.	Provide a path to the Deploy-AzureResourceGroup.ps1 PowerShell script. To do this, choose the ellipsis (…) button next to the **Script Path** box, navigate to the Deploy-AzureResourceGroup.ps1 PowerShell script in the **Scripts** folder of your project, select it, and then choose the **OK** button.	
 
-    ![][9]
+    ![Select path to script][9]
 
 1. After you select the script, update the path to the script so that it’s run from the Build.StagingDirectory (the same directory that *ArtifactsLocation* is set to). You can do this by adding “$(Build.StagingDirectory)/” to the beginning of the script path.
 
-    ![][10]
+    ![Edit path to script][10]
 
 1.	In the **Script Arguments** box, enter the following parameters (in a single line). When you run the script in Visual Studio, you can see how VS uses the parameters in the **Output** window. You can use this as a starting point for setting the parameter values in your build step.
 
@@ -140,7 +140,7 @@ The following steps walk you through the steps necessary to configure continuous
 
     When you’re finished, the **Script Arguments** box should resemble the following list:
 
-    ![][11]
+    ![Script arguments][11]
 
 1.	After you’ve added all the required items to the Azure PowerShell build step, choose the **Queue** build button to build the project. The **Build** screen shows the output from the PowerShell script.
 
@@ -149,19 +149,19 @@ The following steps walk you through the steps necessary to configure continuous
 
 1.	Edit your VS Team Services build definition to add two new build steps. Choose the build definition under the **Build definitions** category and then choose the **Edit** link.
 
-    ![][12]
+    ![Edit build defintion][12]
 
 1.	Add the new build steps to the build definition using the **Add build step…** button.
 
-    ![][13]
+    ![Add build step][13]
 
 1.	Choose the **Deploy** task category, select the **Azure File Copy** task, and then choose its **Add** button.
 
-    ![][14]
+    ![Add Azure File Copy task][14]
 
 1.  Choose the **Azure Resource Group Deployment** task, then choose its **Add** button and then **Close** the **Task Catalog**.
 
-    ![][15]
+    ![Add Azure Resource Group Deployment task][15]
 
 1.  Choose the **Azure File Copy** task and fill in its values.
 
@@ -179,7 +179,7 @@ The following steps walk you through the steps necessary to configure continuous
     - Storage Container URI - enter **artifactsLocation**
     - Storage Container SAS Token - enter **artifactsLocationSasToken**
 
-    ![][16]
+    ![Configure Azure File Copy task][16]
 
 1.	Choose the **Azure Resource Group Deployment** build step and then fill in its values.
 
@@ -195,7 +195,7 @@ The following steps walk you through the steps necessary to configure continuous
         ```	
         -_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken (ConvertTo-SecureString -String "$(artifactsLocationSasToken)" -AsPlainText -Force)
         ```
-    ![][17]
+    ![Configure Azure Resource Group Deployment Task][17]
 
 
 1.	After you’ve added all the required items, save the build definition and choose **Queue new build** at the top.

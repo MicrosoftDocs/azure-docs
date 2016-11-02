@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/26/2016"
+   	ms.date="11/02/2016"
    	ms.author="saurinsh"/>
 
 # Configure Domain-joined HDInsight clusters (Preview)
@@ -39,6 +39,7 @@ Azure service names must be globally unique. The following names are used in thi
 |Property|Value|
 |--------|-----|
 | Azure AD VNet|contosoaadvnet|
+| Azure AD Vnet resource group|contosoaadrg|
 | Azure AD Virtual Machine (VM)|contosoaadadmin. This VM is used to configure organization unit and reverse DNS zone.|
 | Azure AD directory|contosoaaddirectory|
 | Azure AD domain name|contoso (contoso.onmicrosoft.com)|
@@ -66,7 +67,9 @@ This tutorial provides the steps for configuring a domain-joined HDInsight clust
 7. Create an HDInsight cluster.
 
 > [AZURE.NOTE] This tutorial assumes that you do not have an Azure AD. If you have one, you can skip the portion in step 2.
-	
+
+There is a PowerShell script that automates step 3 through step 7.  For more information, see [Configure Domain-joined HDInsight clusters use Azure PowerShell](hdinsight-domain-joined-configure-use-powershell.md).
+
 ## Create an Azure classic VNet
 
 In this section, you create a classic VNet using the Azure portal. In the next section, you enable the Azure AD DS for your Azure AD in the classic VNet. For more information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
@@ -83,7 +86,7 @@ In this section, you create a classic VNet using the Azure portal. In the next s
 	- **Subnet name**: Subnet1
 	- **Subnet address range**: 10.1.0.0/24
 	- **Subscription**: (Select a subscription used for creating this VNet.)
-	- **ResourceGroup**:
+	- **ResourceGroup**: contosoaadrg
 	- **Location**: (Select a region for your HDInsight cluster.)
 
 		> [AZURE.IMPORTANT] You must choose a location that supports Azure AD DS. For more information, see [Products available by region](https://azure.microsoft.com/en-us/regions/services/). 
@@ -390,7 +393,7 @@ In this section, you create a Linux-based Hadoop cluster in HDInsight using eith
 				- **Domain name**: contoso.onmicrosoft.com
 				- **Domain user name**: Enter a domain user name. This domain must have the following privileges: Join machines to the domain and place them in the organization unit you configured earlier; Create service principals within the organization unit you configured earlier; Create reverse DNS entries. This domain user will become the administrator of this domain-joined HDInsight cluster.
 				- **Domain password**: Enter the domain user password.
-				- **Organization Unit**: Enter the distinguished name of the OU tht you configured earlier. For example: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
+				- **Organization Unit**: Enter the distinguished name of the OU that you configured earlier. For example: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
 				- **LDAPS URL**: ldaps://contoso.onmicrosoft.com:636
 				- **Access user group**: Specify the security group whose users you wan to sync to the cluster. For example, HiveUsers.
 
@@ -446,5 +449,6 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 
 ## Next steps
 
+- For configuring a Domain-joined HDInsight cluster using Azure PowerShell, see [Configure Domain-joined HDInsight clusters use Azure PowerShell](hdinsight-domain-joined-configure-use-powershell.md).
 - For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
 - For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).

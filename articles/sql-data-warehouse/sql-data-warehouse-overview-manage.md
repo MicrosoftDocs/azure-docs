@@ -18,7 +18,7 @@
 
 # Manage databases in Azure SQL Data Warehouse
 
-SQL Data Warehouse automates many aspects of managing your databases. For example, to scale performance you only need to adjust and pay for the right level of compute resources, and then let SQL Data Warehouse do all the work of scaling out and scaling back. 
+SQL Data Warehouse automates many aspects of managing your databases. For example, to scale performance you only need to adjust and pay for the right level of compute resources, and then let SQL Data Warehouse do all the work of scaling out and scaling back.
 
 You will undoubtedly want to monitor your workload to identify your performance needs as well as troubleshoot long-running queries. You will also need to perform a few security tasks to manage permissions for users and logins.
 
@@ -51,7 +51,7 @@ To get started with SSDT in Visual Studio, see [Query Azure SQL Data Warehouse w
 ### Command-line tools
 Command line tools are ideal for automating your workloads.  PowerShell and sqlcmd are two great ways to automate your processes.  We recommend these tools for managing a large number of logical servers and deploying resource changes in a production environment as the tasks necessary can be scripted and then automated.
 
-### Dynamic management views 
+### Dynamic management views
 
 DMVs are the bread and butter of managing SQL Data Warehouse. Almost all information that surfaces in the portal relies on DMVs. To see a list of SQL Data Warehouse DMVs, see [SQL Data Warehouse system views][].
 
@@ -77,7 +77,7 @@ To see many a summary of the most important considerations when developing your 
 
 ## Query Monitoring
 
-Sometimes a query is running too long, but you aren't sure of which one is the culprit. SQL Data Warehouse has dynamic management views (DMVs) that you can use to figure out which query is taking too long. 
+Sometimes a query is running too long, but you aren't sure of which one is the culprit. SQL Data Warehouse has dynamic management views (DMVs) that you can use to figure out which query is taking too long.
 
 To find long-running queries, see [Monitor your workload using DMVs][].
 
@@ -98,7 +98,7 @@ Using good database design principles will make it easier to manage your databas
 
 <!--Article references-->
 [Create a SQL Data Warehouse (Azure Portal)]: sql-data-warehouse-get-started-provision.md
-[Create a database (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
+[Create a database (PowerShell)]: sql-data-warehouse-get-started-provision-powershell.md
 [connection]: sql-data-warehouse-develop-connections.md
 [Query Azure SQL Data Warehouse with Visual Studio]: sql-data-warehouse-query-visual-studio.md
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md

@@ -18,12 +18,12 @@
 
 # Analyze Twitter data using Hive in HDInsight
 
-Social websites are one of the major driving forces for big-data adoption. Public APIs provided 
-by sites like Twitter are a useful source of data for analyzing and understanding popular trends. 
-In this tutorial, you will get tweets by using a Twitter streaming API, and then use Apache Hive 
+Social websites are one of the major driving forces for big-data adoption. Public APIs provided
+by sites like Twitter are a useful source of data for analyzing and understanding popular trends.
+In this tutorial, you will get tweets by using a Twitter streaming API, and then use Apache Hive
 on Azure HDInsight to get a list of Twitter users who sent the most tweets that contained a certain word.
 
-> [AZURE.NOTE] The steps in this document require a Windows-based HDInsight cluster. For steps specific 
+> [AZURE.NOTE] The steps in this document require a Windows-based HDInsight cluster. For steps specific
 to a Linux-based cluster, see [Analyze Twitter data using Hive in HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 
@@ -31,7 +31,7 @@ to a Linux-based cluster, see [Analyze Twitter data using Hive in HDInsight (Lin
 
 Before you begin this tutorial, you must have the following:
 
-- **A workstation** with Azure PowerShell installed and configured. 
+- **A workstation** with Azure PowerShell installed and configured.
 
     To execute Windows PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
 
@@ -267,21 +267,21 @@ The HiveQL script will perform the following:
 		#region - variables and constants
 		$clusterName = "<Existing HDInsight Cluster Name>" # Enter your HDInsight cluster name
 		$subscriptionID = "<Azure Subscription ID>"
-		
+
 		$sourceDataPath = "/tutorials/twitter/data"
 		$outputPath = "/tutorials/twitter/output"
 		$hqlScriptFile = "tutorials/twitter/twitter.hql"
-		
+
 		$hqlStatements = @"
 		set hive.exec.dynamic.partition = true;
 		set hive.exec.dynamic.partition.mode = nonstrict;
-		
+
 		DROP TABLE tweets_raw;
 		CREATE EXTERNAL TABLE tweets_raw (
 			json_response STRING
 		)
 		STORED AS TEXTFILE LOCATION '$sourceDataPath';
-		
+
 		DROP TABLE tweets;
 		CREATE TABLE tweets
 		(
@@ -316,7 +316,7 @@ The HiveQL script will perform the following:
 			profile_image_url STRING,
 			json_response STRING
 		);
-		
+
 		FROM tweets_raw
 		INSERT OVERWRITE TABLE tweets
 		SELECT
@@ -374,7 +374,7 @@ The HiveQL script will perform the following:
 			get_json_object(json_response, '$.user.profile_image_url'),
 			json_response
 		WHERE (length(json_response) > 500);
-		
+
 		INSERT OVERWRITE DIRECTORY '$outputPath'
 		SELECT name, screen_name, count(1) as cc
 			FROM tweets
@@ -383,21 +383,21 @@ The HiveQL script will perform the following:
 			ORDER BY cc DESC LIMIT 10;
 		"@
 		#endregion
-		
+
 		#region - Connect to Azure subscription
 		Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-		
+
 		Try{
 			Get-AzureRmSubscription
 		}
 		Catch{
 			Login-AzureRmAccount
 		}
-		
+
 		Select-AzureRmSubscription -SubscriptionId $subscriptionID
-		
+
 		#endregion
-		
+
 		#region - Create a block blob object for writing the Hive script file
 		Write-Host "Get the default storage account name and container name based on the cluster name ..." -ForegroundColor Green
 		$myCluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
@@ -406,33 +406,33 @@ The HiveQL script will perform the following:
 		$defaultBlobContainerName = $myCluster.DefaultStorageContainer
 		Write-Host "`tThe storage account name is $defaultStorageAccountName." -ForegroundColor Yellow
 		Write-Host "`tThe blob container name is $defaultBlobContainerName." -ForegroundColor Yellow
-		
+
 		Write-Host "Define the connection string ..." -ForegroundColor Green
 		$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
 		$storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
-		
+
 		Write-Host "Create block blob objects referencing the hql script file" -ForegroundColor Green
 		$storageAccount = [Microsoft.WindowsAzure.Storage.CloudStorageAccount]::Parse($storageConnectionString)
 		$storageClient = $storageAccount.CreateCloudBlobClient();
 		$storageContainer = $storageClient.GetContainerReference($defaultBlobContainerName)
 		$hqlScriptBlob = $storageContainer.GetBlockBlobReference($hqlScriptFile)
-		
+
 		Write-Host "Define a MemoryStream and a StreamWriter for writing ... " -ForegroundColor Green
 		$memStream = New-Object System.IO.MemoryStream
 		$writeStream = New-Object System.IO.StreamWriter $memStream
 		$writeStream.Writeline($hqlStatements)
 		#endregion
-		
+
 		#region - Write the Hive script file to Blob storage
 		Write-Host "Write to the destination blob ... " -ForegroundColor Green
 		$writeStream.Flush()
 		$memStream.Seek(0, "Begin")
 		$hqlScriptBlob.UploadFromStream($memStream)
 		#endregion
-		
+
 		Write-Host "Completed!" -ForegroundColor Green
 
-		
+
 
 4. Set the first two variables in the script:
 
@@ -464,32 +464,32 @@ Use the following Windows PowerShell script to run the Hive script. You will nee
 	$clusterName = "<Existing Azure HDInsight Cluster Name>"
 	$httpUserName = "admin"
 	$httpUserPassword = "<HDInsight Cluster HTTP User Password>"
-	
+
 	#use one of the following
 	$hqlScriptFile = "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
 	$hqlScriptFile = "/tutorials/twitter/twitter.hql"
-	
+
 	$statusFolder = "/tutorials/twitter/jobstatus"
 	#endregion
-	
+
 	$myCluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
 	$resourceGroupName = $myCluster.ResourceGroup
 	$defaultStorageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
 	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
-	
+
 	$defaultBlobContainerName = $myCluster.DefaultStorageContainer
-	
-	
+
+
 	#region - Invoke Hive
 	Write-Host "Invoke Hive ... " -ForegroundColor Green
-	
+
 	# Create the HDInsight cluster
 	$pw = ConvertTo-SecureString -String $httpUserPassword -AsPlainText -Force
 	$httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
-	
-	Use-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName -HttpCredential $httpCredential 
+
+	Use-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName -HttpCredential $httpCredential
 	$response = Invoke-AzureRmHDInsightHiveJob -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -file $hqlScriptFile -StatusFolder $statusFolder #-OutVariable $outVariable
-	
+
 	Write-Host "Display the standard error log ... " -ForegroundColor Green
 	$jobID = ($response | Select-String job_ | Select-Object -First 1) -replace ‘\s*$’ -replace ‘.*\s’
 	Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $jobID -DefaultContainer $defaultBlobContainerName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -HttpCredential $httpCredential
@@ -501,10 +501,10 @@ Use the following Windows PowerShell script to check the Hive job output. You wi
 
 	#region variables and constants
 	$clusterName = "<Existing Azure HDInsight Cluster Name>"
-	
+
 	$blob = "tutorials/twitter/output/000000_0" # The name of the blob to be downloaded.
 	#engregion
-	
+
 	#region - Create an Azure storage context object
 	Write-Host "Get the default storage account name and container name based on the cluster name ..." -ForegroundColor Green
 	$myCluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
@@ -512,19 +512,19 @@ Use the following Windows PowerShell script to check the Hive job output. You wi
 	$defaultStorageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
 	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
 	$defaultBlobContainerName = $myCluster.DefaultStorageContainer
-	
+
 	Write-Host "`tThe storage account name is $defaultStorageAccountName." -ForegroundColor Yellow
 	Write-Host "`tThe blob container name is $defaultBlobContainerName." -ForegroundColor Yellow
-	
+
 	Write-Host "Create a context object ... " -ForegroundColor Green
 	$storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey  
 	#endregion
-	
+
 	#region - Download blob and display blob
 	Write-Host "Download the blob ..." -ForegroundColor Green
 	cd $HOME
 	Get-AzureStorageBlobContent -Container $defaultBlobContainerName -Blob $blob -Context $storageContext -Force
-	
+
 	Write-Host "Display the output ..." -ForegroundColor Green
 	Write-Host "==================================" -ForegroundColor Green
 	cat "./$blob"
@@ -561,9 +561,9 @@ In this tutorial we have seen how to transform an unstructured JSON dataset into
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-storage-powershell]: ../hdinsight-hadoop-use-blob-storage.md#powershell
+[hdinsight-storage-powershell]:hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
-[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-odbc-driver.md

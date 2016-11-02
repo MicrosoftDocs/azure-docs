@@ -30,7 +30,7 @@ This article shows you how to create a SQL Data Warehouse using PowerShell.
 To get started, you need:
 
 - **Azure account**: Visit [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
-- **Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
+- **Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or
 [Create an Azure SQL Database logical server with PowerShell][] for more details.
 - **Resource group**: Either use the same resource group as your Azure SQL server or see [how to create a resource group][].
 - **PowerShell version 1.0.3 or greater**:  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
@@ -45,7 +45,7 @@ To get started, you need:
 	```Powershell
 	Login-AzureRmAccount
 	```
-	
+
 3. Select the subscription you want to use for your current session.
 
 	```Powershell
@@ -91,13 +91,13 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
-[How to install and configure Azure PowerShell]: ../powershell/powershell-install-configure.md
+[How to install and configure Azure PowerShell]: ../powershell-install-configure.md
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
 [Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [how to create a resource group]: ../resource-group-template-deploy-portal.md#create-resource-group
 
-<!--MSDN references--> 
+<!--MSDN references-->
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [Create Database (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx

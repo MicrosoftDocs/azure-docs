@@ -4,7 +4,7 @@
    keywords="business continuity,cloud business continuity,database disaster recovery,database recovery"
    services="sql-database"
    documentationCenter=""
-   authors="CarlRabeler"
+   authors="anosov1960"
    manager="jhubbard"
    editor=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="10/13/2016"
-   ms.author="carlrab"/>
+   ms.author="carlrab;sashan"/>
 
 # Overview of business continuity with Azure SQL Database
 
@@ -31,12 +31,15 @@ The following table compares the ERT and RPO for the three most common scenarios
 |---|---|---|---|
 | Point in Time Restore from backup | Any restore point within 7 days	| Any restore point within 35 days	| Any restore point within 35 days |
 Geo-Restore from geo-replicated backups | ERT < 12h, RPO < 1h	| ERT < 12h, RPO < 1h	| ERT < 12h, RPO < 1h |
+| Restore from Azure Backup Vault | ERT < 12h, RPO < 1 wk | ERT < 12h, RPO < 1 wk | ERT < 12h, RPO < 1 wk | 
 |Active Geo-Replication	| ERT < 30s, RPO < 5s	| ERT < 30s, RPO < 5s |	ERT < 30s, RPO < 5s |
 
 
 ### Use database backups to recover a database
 
-SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five minutes to protect your business from data loss. These backups are stored in locally redundant storage for 35 days for databases in the Standard and Premium service tiers and seven days for databases in the Basic service tier - see [service tiers](sql-database-service-tiers.md) for more details on service tiers. If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-scale-up.md). The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage - see [automatic database backups](sql-database-automated-backups.md) for more details.
+SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five minutes to protect your business from data loss. These backups are stored in locally redundant storage for 35 days for databases in the Standard and Premium service tiers and seven days for databases in the Basic service tier - see [service tiers](sql-database-service-tiers.md) for more details on service tiers. If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-scale-up.md). The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage. See [automatic database backups](sql-database-automated-backups.md) for more details.
+
+If the built-in retention period is not sufficient for your application, you can extend it by configuring the Long-term retention policy for your database(s). For more information, see [Long-term retention](sql-database-long-term-retention.md). 
 
 You can use these automatic database backups to recover a database from various disruptive events, both within your data center and to another data center. Using automatic database backups, the estimated time of recovery depends on several factors including the total number of databases recovering in the same region at the same time, the database size, the transaction log size, and network bandwidth. In most cases, the recovery time is less than 12 hours. When recovering to another data region, the potential data loss is limited to 1 hour by the geo-redundant storage of hourly differential database backups. 
 
@@ -87,9 +90,9 @@ For more information and for detailed steps for restoring a deleted database usi
 
 > [AZURE.IMPORTANT] If the logical server is deleted, you cannot recover a deleted database. 
 
-### Import from a database archive
+### Restore from Azure Backup Vault
 
-If the data loss occurred outside the current retention period for automated backups and you have been archiving the database, you can [Import an archived BACPAC file](sql-database-import.md) to a new database. At this point, you can either replace the original database with the imported database or copy the needed data from the imported data into the original database. 
+If the data loss occurred outside the current retention period for automated backups and your database is configured for long term retention, you can restore from a weekly backup in Azure Backup Vault to a new database. At this point, you can either replace the original database with the restored database or copy the needed data from the restored database into the original database. If you need to retrieve an old version of your database prior to a major application upgrade, satisfy a request from auditors or a legal order, you can create a new database using a full backup saved in the Azure Backup Vault.  For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
 ## Recover a database to another region from an Azure regional data center outage
 

@@ -24,7 +24,7 @@ Many SQL Data Warehouse administration tasks can be managed using either Azure P
 
 ## Get started with Azure PowerShell cmdlets
 
-1. Open Windows PowerShell. 
+1. Open Windows PowerShell.
 2. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
 
     ```PowerShell
@@ -35,7 +35,7 @@ Many SQL Data Warehouse administration tasks can be managed using either Azure P
 
 ## Pause SQL Data Warehouse Example
 
-Pause a database named "Database02" hosted on a server named "Server01."  The server is in an Azure resource group named "ResourceGroup1." 
+Pause a database named "Database02" hosted on a server named "Server01."  The server is in an Azure resource group named "ResourceGroup1."
 
 ```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -74,7 +74,7 @@ These PowerShell cmdlets are frequently used with Azure SQL Data Warehouse.
 - [Get-AzureRmSqlDatabaseRestorePoints][]
 - [New-AzureRmSqlDatabase][]
 - [Remove-AzureRmSqlDatabase][]
-- [Restore-AzureRmSqlDatabase][] 
+- [Restore-AzureRmSqlDatabase][]
 - [Resume-AzureRmSqlDatabase][]
 - [Select-AzureRmSubscription][]
 - [Set-AzureRmSqlDatabase][]
@@ -91,7 +91,7 @@ For a list of all tasks which can be automated with PowerShell, see [Azure SQL D
 <!--Image references-->
 
 <!--Article references-->
-[How to install and configure Azure PowerShell]: ./powershell-install-configure.md
+[How to install and configure Azure PowerShell]: ../powershell-install-configure.md
 [Create a SQL Data Warehouse using PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
 [Database restore]: ./sql-data-warehouse-restore-database-powershell.md
 [Manage scalability with REST]: ./sql-data-warehouse-manage-compute-rest-api.md

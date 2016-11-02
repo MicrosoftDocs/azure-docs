@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="07/13/2016"
+   ms.date="09/30/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guide to create a virtual machine image for the Azure Marketplace
@@ -183,170 +183,24 @@ To learn more about VM images, review the following blog posts:
 - [VM Image PowerShell How To](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 - [About VM images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
+### Set up the necessary tools, PowerShell and Azure CLI
+- [How to setup PowerShell](../powershell-install-configure.md )
+- [How to setup Azure CLI](../xplat-cli-install.md)
+
 ### 4.1 Create a user VM image
-To create a user VM image from your SKU to begin deploying multiple VMs, you need to use the [Create VM Image Rest API](http://msdn.microsoft.com/library/azure/dn775054.aspx) to register VHDs as a VM image.
+#### Capture VM
+Please read the links given below for guidance on capturing the VM using API/PowerShell/Azure CLI.
 
-You can use the **Invoke-WebRequest** cmdlet to create a VM image from PowerShell. The following PowerShell script shows how to create a VM image with an operating system disk and one data disk. Note that a subscription and the PowerShell session should already be set up.
+- [API](https://msdn.microsoft.com/library/mt163560.aspx )
+- [PowerShell](../virtual-machines/virtual-machines-windows-capture-image.md)
+-	[Azure CLI](../virtual-machines/virtual-machines-linux-capture-image.md )
 
-        # Image Parameters to Specify
-        $ImageName=’ENTER-YOUR-OWN-IMAGE-NAME-HERE’
-        $Label='ENTER-YOUR-LABEL-HERE'
-        $Description='DESCRIBE YOUR IMAGE HERE’
-        $osCaching='ReadWrite'
-        $os = 'Windows'
-        $state = 'Generalized'
-        $osMediaLink = 'https://mystorageaccount.blob.core.windows.net/vhds/myosvhd.vhd'
-        $dataCaching='None'
-        $lun='1'
-        $dataMediaLink='http://mystorageaccount.blob.core.windows.net/vhds/mydatavhd.vhd'
-        # Subscription-Related Properties
-        $SrvMngtEndPoint='https://management.core.windows.net'
-        $subscription = Get-AzureSubscription -Current -ExtendedDetails
-        $certificate = $subscription.Certificate
-        $SubId = $subscription.SubscriptionId
-        $body =  
-        "<VMImage xmlns=`"http://schemas.microsoft.com/windowsazure`" xmlns:i=`"http://www.w3.org/2001/XMLSchema-instance`">" + Name>" + $ImageName + "</Name>" +
-        "<Label>" + $Label + "</Label>" +
-        "<Description>" + $Description + "</Description>" + "<OSDiskConfiguration>" +
-        "<HostCaching>" + $osCaching + "</HostCaching>" +
-        "<OSState>" + $state + "</OSState>" +
-        "<OS>" + $os + "</OS>" +
-        "<MediaLink>" + $osMediaLink + "</MediaLink>" +
-        "</OSDiskConfiguration>" +
-        "<DataDiskConfigurations>" +
-        "<DataDiskConfiguration>" +
-        "<HostCaching>" + $dataCaching + "</HostCaching>" +
-        "<Lun>" + $lun + "</Lun>" +
-        "<MediaLink>" + $dataMediaLink + "</MediaLink>" +
-        "</DataDiskConfiguration>" +
-        "</DataDiskConfigurations>" +
-        "</VMImage>"
-        $uri = $SrvMngtEndPoint + "/" + $SubId + "/" + "services/vmimages" $headers = @{"x-ms-version"="2014-06-01"}
-        $response = Invoke-WebRequest -Uri $uri -ContentType "application/xml" -Body
-        $body -Certificate $certificate -Headers $headers -Method POST
-        if ($response.StatusCode -ge 200 -and $response.StatusCode -lt 300)
-        {
-        echo "Accepted"
-        } else {
-        echo "Not Accepted" }
-        $opId = $response.Headers.'x-ms-request-id'
-        $uri2 = $SrvMngtEndPoint + "/" + $SubId + "/" + "operations" + "/" + $opId $response2 = Invoke-WebRequest -Uri $uri2 -ContentType "application/xml" -
-        Certificate $certificate -Headers $headers -Method GET
-        $response2.RawContent
+### Generalize Image
+Please read the links given below for guidance on capturing the VM using API/PowerShell/Azure CLI.
 
-
-By running this script, you create a user VM image with the name you provided to the ImageName parameter, myVMImage. It consists of one operating system disk and one data disk.
-
-This API is an asynchronous operation and responds with a 202 "Accepted" code. In order to see whether the VM image has been created, you need to query for operation status. The x-ms-request-id in the return response is the operation ID. This ID should be set in $opId below.
-
-        $opId = #Fill In With Operation ID
-        $uri2 = $SrvMngtEndPoint + "/" + $SubId + "/" + "operations" + "/" + "opId"
-        $response2 = Invoke‐WebRequest ‐Uri $uri2 ‐ContentType "application/xml" ‐Certificate $certificate ‐Headers $headers ‐Method GET
-
-To create a VM image from an operating system VHD and an additional empty data disks (you do not have the VHD for this disk created) by using the Create VM Image API, use the following script.
-
-        # Image Parameters to Specify
-        $ImageName=’myVMImage’
-        $Label='IMAGE_LABEL'
-        $Description='My VM Image to Test’
-        $osCaching='ReadWrite'
-        $os = 'Windows'
-        $state = 'Generalized'
-        $osMediaLink = 'http://mystorageaccount.blob.core.windows.net/containername/myOSvhd.vhd'
-        $dataCaching='None'
-        $lun='1'
-        $emptyDiskSize= 32
-        # Subscription-Related Properties
-        $SrvMngtEndPoint='https://management.core.windows.net'
-        $subscription = Get‐AzureSubscription –Current ‐ExtendedDetails
-        $certificate = $subscription.Certificate
-        $SubId = $subscription.SubscriptionId
-        $body =
-        "<VMImage xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema‐instance">" +
-        "<Name>" + $ImageName + "</Name>" +
-        "<Label>" + $Label + "</Label>" +
-        "<Description>" + $Description + "</Description>" +
-        "<OSDiskConfiguration>" +
-        "<HostCaching>" + $osCaching + "</HostCaching>" +
-        "<OSState>" + $state + "</OSState>" +
-        "<OS>" + $os + "</OS>" +
-        "<MediaLink>" + $osMediaLink + "</MediaLink>" +
-        "</OSDiskConfiguration>" +
-        "<DataDiskConfigurations>" +
-        "<DataDiskConfiguration>" +
-        "<HostCaching>" + $dataCaching + "</HostCaching>" +
-        "<Lun>" + $lun + "</Lun>" +
-        "<MediaLink>" + $dataMediaLink + "</MediaLink>" +
-        "<LogicalDiskSizeInGB>" + $emptyDiskSize + "</LogicalDiskSizeInGB>" +
-        "</DataDiskConfiguration>" +
-        "</DataDiskConfigurations>" +
-        "</VMImage>"
-        $uri = $SrvMngtEndPoint + "/" + $SubId + "/" + "services/vmimages"
-        $headers = @{"x‐ms‐version"="2014‐06‐01"}
-        $response = Invoke‐WebRequest ‐Uri $uri ‐ContentType "application/xml" ‐Body $body ‐Certificate $certificate ‐Headers $headers ‐Method POST
-        if ($response.StatusCode ‐ge 200 ‐and $response.StatusCode ‐lt 300)
-        {
-        echo "Accepted"
-        }
-        else
-        {
-        echo "Not Accepted"
-        }
-
-By running this script, you create a user VM image with the name you provided to the ImageName parameter, myVMImage. It consists of one operating system disk and one data disk.
-
-This API is an asynchronous operation and responds with a 202 "Accepted" code. In order to see whether the VM image has been created, you need to query for operation status.  The x-ms-request-id in the return response is the operation ID. This ID should be set in $opId below.
-
-        $opId = #Fill In With Operation ID
-        $uri2 = $SrvMngtEndPoint + "/" + $SubId + "/" + "operations" + "/" + "$opId"
-        $response2 = Invoke-WebRequest -Uri $uri2 -ContentType "application/xml" Certificate $certificate -Headers $headers -Method GET
-
-To create a VM image from an operating system VHD and an additional empty data disks (you do not have the VHD for this disk created) by using the Create VM Image API, use the following script.
-
-        # Image Parameters to Specify
-        $ImageName=’myVMImage’
-        $Label='IMAGE_LABEL'
-        $Description='My VM Image to Test’
-        $osCaching='ReadWrite'
-        $os = 'Windows'
-        $state = 'Generalized'
-        $osMediaLink =
-        'http://mystorageaccount.blob.core.windows.net/containername/myOSvhd.vhd'
-        $dataCaching='None'
-        $lun='1'
-        $emptyDiskSize= 32
-        # Subscription-Related Properties
-        $SrvMngtEndPoint='https://management.core.windows.net'
-        $subscription = Get-AzureSubscription –Current -ExtendedDetails
-        $certificate = $subscription.Certificate
-        $SubId = $subscription.SubscriptionId
-        $body =  
-        "<VMImage xmlns=`"http://schemas.microsoft.com/windowsazure`" xmlns:i=`"http://www.w3.org/2001/XMLSchema-instance`">" +
-        "<Name>" + $ImageName + "</Name>" +
-        "<Label>" + $Label + "</Label>" +
-        "<Description>" + $Description + "</Description>" + "<OSDiskConfiguration>" + "<HostCaching>" + $osCaching + "</HostCaching>" +
-        "<OSState>" + $state + "</OSState>" +
-        "<OS>" + $os + "</OS>" +
-        "<MediaLink>" + $osMediaLink + "</MediaLink>" +
-        "</OSDiskConfiguration>" +
-        "<DataDiskConfigurations>" +
-        "<DataDiskConfiguration>" +
-        "<HostCaching>" + $dataCaching + "</HostCaching>" +
-        "<Lun>" + $lun + "</Lun>" +
-        "<MediaLink>" + $dataMediaLink + "</MediaLink>" +
-        "<LogicalDiskSizeInGB>" + $emptyDiskSize + "</LogicalDiskSizeInGB>" + "</DataDiskConfiguration>" +
-        "</DataDiskConfigurations>" +
-        "</VMImage>"
-        $uri = $SrvMngtEndPoint + "/" + $SubId + "/" + "services/vmimages"
-        $headers = @{"x-ms-version"="2014-06-01"}
-        $response = Invoke-WebRequest -Uri $uri -ContentType "application/xml" -Body $body Certificate $certificate -Headers $headers -Method POST
-        if ($response.StatusCode -ge 200 -and $response.StatusCode -lt 300)
-        { echo "Accepted"
-        } else
-        { echo "Not Accepted"
-        }
-
-By running this script, you create a user VM image with the name you provided to the ImageName parameter, myVMImage.  It consists of one operating system disk, based on the VHD you passed, and one empty 32-GB data disk.
+- [API](https://msdn.microsoft.com/library/mt269439.aspx )
+- [PowerShell](../virtual-machines/virtual-machines-windows-capture-image.md)
+- [Azure CLI](../virtual-machines/virtual-machines-linux-capture-image.md)
 
 ### 4.2 Deploy a VM from a user VM image
 To deploy a VM from a user VM image, you can use the current [Azure portal](https://manage.windowsazure.com) or PowerShell.
@@ -374,6 +228,8 @@ To deploy a large VM from the generalized VM image just created, you can use the
     $pass = "adminPassword123"
     $myVM = New‐AzureVMConfig ‐Name "VMImageVM" ‐InstanceSize "Large" ‐ImageName $img.ImageName | Add‐AzureProvisioningConfig ‐Windows ‐AdminUsername $user ‐Password $pass
     New‐AzureVM ‐ServiceName "VMImageCloudService" ‐VMs $myVM ‐Location "West US" ‐WaitForBoot
+
+>[AZURE.IMPORTANT] Please refer [Troubleshooting common issues encountered during VHD creation] for additional assistance.
 
 ## 5. Obtain certification for your VM image
 The next step in preparing your VM image for the Azure Marketplace is to have it certified.
