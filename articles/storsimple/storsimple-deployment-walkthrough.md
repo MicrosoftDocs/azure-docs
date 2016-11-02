@@ -89,20 +89,20 @@ The following deployment configuration checklist describes the information that 
 |            &nbsp;                              | Network interface: Data 4</br>If iSCSI enabled, do not configure the Gateway.      | Purpose: Cloud/iSCSI/Not used</br>IP address:</br>Subnet mask:</br>Gateway:| |
 |           &nbsp;                               | Network interface: Data 5</br>If iSCSI enabled, do not configure the Gateway.      | Purpose: Cloud/iSCSI/Not used</br>IP address:</br>Subnet mask:</br>Gateway:| |
 |   |   |  |  |
-| **Create a volume container**                      | Volume container name:                            | Name for the container                                                                                                                                                 |        |
+| **Create a volume container**                      | Volume container name:                            | Name for the container      |        |
 |         &nbsp;                                 | Azure storage account:                            | Storage account name & access key to associate with this volume container                                                                                              |        |
 |               &nbsp;                           | Cloud storage encryption key:                     | Encryption key for storage in each container                                                                                                                           |        |
 |   |   |  |  |
-| **Create a volume**                        | Details for each volume                           | Volume name:                                                                                                                                                           |        |
-|                                        |         &nbsp;                                            | Size:                                                                                                                                                                  |        |
-|                                        |        &nbsp;                                             | Usage type:                                                                                                                                                            |        |
-|                                        |         &nbsp;                                            | ACR name:                                                                                                                                                              |        |
-|                                        |           &nbsp;                                          | Default backup policy:                                                                                                                                                 |        |
+| **Create a volume**                        | Details for each volume                           | Volume name:      |        |
+|       &nbsp;                                  |   &nbsp;                                            | Size:             |        |
+|          &nbsp;                               |  &nbsp;                              | Usage type:      |        |
+|                 &nbsp;                        |   &nbsp;         | ACR name:     |        |
+|        &nbsp;                                 |   &nbsp;         | Default backup policy:       |        |
 |   |   |  |  |
-| **Mount, initialize, and format a volume** | Details for each host server connecting to the storage | Windows Server name:                                                                                                                                                   |        |
-|                                        |                 &nbsp;                                    | Windows Server IQN:                                                                                                                                                    |        |
-|                                        |                   &nbsp;                                  | Windows Server volume name:                                                                                                                                                   |        |
-|                                        |                       &nbsp;                              | NTFS mount point/Drive letter:                                                                                                                                      |        | |
+| **Mount, initialize, and format a volume** | Details for each host server connecting to the storage | Windows Server name:     |        |
+|       &nbsp;                                  |   &nbsp;                                    | Windows Server IQN:       |        |
+|      &nbsp;                                   |       &nbsp;                                  | Windows Server volume name:      |        |
+|           &nbsp;                              |  &nbsp;                              | NTFS mount point/Drive letter:       |        |
 
 ## Deployment prerequisites
 
