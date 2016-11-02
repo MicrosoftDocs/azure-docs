@@ -38,7 +38,7 @@ $DeletedDatabases = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $reso
 
 ## Restore your deleted database into a standalone database
 
-Get the deleted database backup that you want to restore by using the [Get-AzureRmSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387.aspx) cmdlet. Then start the restore from the deleted database backup by using the [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx) cmdlet.
+Get the deleted database backup that you want to restore by using the [Get-AzureRmSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387(v=azure.300/).aspx) cmdlet. Then start the restore from the deleted database backup by using the [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390(v=azure.300/).aspx) cmdlet.
 
 ```
 $resourceGroupName = "resourcegroupname"
@@ -53,7 +53,7 @@ Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $Deleted
 
 ## Restore your deleted database into an elastic database pool
 
-Get the deleted database backup that you want to restore by using the [Get-AzureRmSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387.aspx) cmdlet. Then start the restore from the deleted database backup by using the [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx) cmdlet.
+Get the deleted database backup that you want to restore by using the [Get-AzureRmSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387(v=azure.300/).aspx) cmdlet. Then start the restore from the deleted database backup by using the [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390(v=azure.300/).aspx) cmdlet.
 
 ```
 $resourceGroupName = "resourcegroupname"

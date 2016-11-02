@@ -11,11 +11,11 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/25/2016"
-   ms.author="barbkess;lodipalm;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
 # Create an Azure SQL Data Warehouse
 
@@ -56,7 +56,7 @@ To get started, you need:
 
     - **Subscription**: Select the [subscription] that this SQL Data Warehouse will bill to.
 
-    - **Resource group**: [Resource groups][Resource group] are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../resource-group-overview.md).
+    - **Resource group**: [Resource groups][Resource group] are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../azure-resource-manager/resource-group-overview.md).
 
     - **Select source**: Click **Select source** > **Sample**. Azure automatically populates the **Select sample** option with AdventureWorksDW.
 

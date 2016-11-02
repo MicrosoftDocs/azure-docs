@@ -31,7 +31,7 @@ One way to upload and collect logs is to use the Azure Diagnostics extension, wh
 You'll use these tools to perform some of the operations in this document:
 
 * [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (related to Azure Cloud Services but has good information and examples)
-* [Azure Resource Manager](../resource-group-overview.md)
+* [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Azure PowerShell](../powershell-install-configure.md)
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
 * [Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)

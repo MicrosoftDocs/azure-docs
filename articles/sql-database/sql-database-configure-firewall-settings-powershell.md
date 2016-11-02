@@ -40,15 +40,15 @@ Azure SQL Database uses firewall rules to allow connections to your servers and 
 
 Server-level firewall rules can be created, updated, and deleted by using Azure PowerShell.
 
-To create a new server-level firewall rule, execute the New-AzureRmSqlServerFirewallRule cmdlet. The following example enables a range of IP addresses on the server Contoso.
+To create a new server-level firewall rule, execute the [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860(v=azure.300\).aspx) cmdlet. The following example enables a range of IP addresses on the server Contoso.
 
     New-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' -ServerName 'Contoso' -FirewallRuleName "ContosoFirewallRule" -StartIpAddress '192.168.1.1' -EndIpAddress '192.168.1.10'		
 
-To modify an existing server-level firewall rule, execute the Set-AzureSqlDatabaseServerFirewallRule cmdlet. The following example changes the range of acceptable IP addresses for the rule named ContosoFirewallRule.
+To modify an existing server-level firewall rule, execute the [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603789(v=azure.300\).aspx) cmdlet. The following example changes the range of acceptable IP addresses for the rule named ContosoFirewallRule.
 
     Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' –StartIPAddress 192.168.1.4 –EndIPAddress 192.168.1.10 –RuleName 'ContosoFirewallRule' –ServerName 'Contoso'
 
-To delete an existing server-level firewall rule, execute the Remove-AzureSqlDatabaseServerFirewallRule cmdlet. The following example deletes the rule named ContosoFirewallRule.
+To delete an existing server-level firewall rule, execute the [Remove-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603588(v=azure.300\).aspx) cmdlet. The following example deletes the rule named ContosoFirewallRule.
 
     Remove-AzureRmSqlServerFirewallRule –RuleName 'ContosoFirewallRule' –ServerName 'Contoso'
 
@@ -57,10 +57,10 @@ To delete an existing server-level firewall rule, execute the Remove-AzureSqlDat
 
 You can also use PowerShell to manage firewall rules. For more information, see the following topics:
 
-* [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603860.aspx)
-* [Remove-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603588.aspx)
-* [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603789.aspx)
-* [Get-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603586.aspx)
+* [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860(v=azure.300\).aspx)
+* [Remove-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603588(v=azure.300\).aspx)
+* [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603789(v=azure.300\).aspx)
+* [Get-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603586(v=azure.300\).aspx)
 
 
 ## Next steps

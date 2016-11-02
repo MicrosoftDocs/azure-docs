@@ -30,7 +30,7 @@ Please visit [Azure Pricing Overview](https://azure.microsoft.com/pricing/) to l
 
 ## Limits and the Azure Resource Manager
 
-It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md).
+It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md).
 
 In the limits below, a new table has been added to reflect any differences in limits when using the Azure Resource Manager. For example, there is a **Subscription Limits** table and a **Subscription Limits - Azure Resource Manager** table. When a limit applies to both scenarios, it is only shown in the first table. Unless otherwise indicated, limits are global across all regions.
 
@@ -38,12 +38,12 @@ In the limits below, a new table has been added to reflect any differences in li
 <!-- -->
 As a result, you may find it useful to consider deciding what your Azure Resource Group quotas need to be for your workload in any one region, and request that amount in each region into which you are considering deployment. See [troubleshooting deployment issues](./resource-manager-common-deployment-errors.md) for more help discovering your current quotas for specific regions.
 
-
 ## Service-specific limits
 
 - [Active Directory](#active-directory-limits)
 - [API Management](#api-management-limits)
 - [App Service](#app-service-limits)
+- [Application Gateway](#application-gateway-limits)
 - [Application Insights](#application-insights-limits)
 - [Automation](#automation-limits)
 - [Azure Redis Cache](#azure-redis-cache-limits)
@@ -122,6 +122,10 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 #### Networking limits
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
+#### Application Gateway limits
+
+[AZURE.INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
+
 #### Traffic Manager limits
 
 [AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
@@ -198,7 +202,7 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 - *Free* multi-tenant service, shared with other Azure subscribers, intended for evaluation and small development projects.
 - *Basic* provides dedicated computing resources for production workloads at a smaller scale, with up to three replicas for highly available query workloads.
-- *Standard (S1, S2, S3, S3 High Density)* is for larger production workloads. Multiple levels exist within the standard tier so that you can choose a resource configuration for specific scenarios.
+- *Standard (S1, S2, S3, S3 High Density)* is for larger production workloads. Multiple levels exist within the standard tier so that you can choose a resource configuration that best matches your workload profile.
 
 **Limits per subscription**
 
@@ -208,7 +212,7 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 [AZURE.INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-For more granular information about other limits, including document size, queries per second, keys, requests, and responses, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
+To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
 
 ### Media Services limits
 

@@ -105,12 +105,12 @@ See also [Azure Regions](best-practices-availability-paired-regions.md)
 
 ### <a name="resource"></a>resource  
 An item that is part of your Azure solution. Each Azure service enables you to deploy different types of resources, such as databases or virtual machines.   
-See also [Azure Resource Manager overview](resource-group-overview.md)
+See also [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md)
 
 
 ### <a name="resource-group"></a>resource group  
 A container in Resource Manager that holds related resources for an application. The resource group can include all of the resources for an application, or only those resources that are logically grouped together. You can decide how you want to allocate resources to resource groups based on what makes the most sense for your organization.  
-See also [Azure Resource Manager overview](resource-group-overview.md)
+See also [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md)
 
 
 ### <a name="arm-template"></a>Resource Manager template  
@@ -120,7 +120,7 @@ See also [Authoring Azure Resource Manager templates](resource-group-authoring-t
 
 ### <a name="resource-provider"></a>resource provider  
 A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Resource providers can be accessed through the Azure portal, Azure PowerShell, and several programming SDKs.  
-See also [Azure Resource Manager overview](resource-group-overview.md)
+See also [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md)
 
 
 ### <a name="role"></a>role  
@@ -164,16 +164,11 @@ See also [About virtual machine extensions and features (Windows)](./virtual-mac
 
 
 ### <a name="vnet"></a>virtual network  
-A network that provides connectivity between your Azure resources that is isolated from all other Azure tenants. It can be connected to other Azure virtual networks through an [Azure VPN Gateway](./vpn-gateway/vpn-gateway-about-vpngateways.md) and to your on-premises network using [multiple options](./vpn-gateway/vpn-gateway-cross-premises-options.md). You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network.  
+A network that provides connectivity between your Azure resources that is isolated from all other Azure tenants. It can be connected to other Azure virtual networks through an [Azure VPN Gateway](./vpn-gateway/vpn-gateway-about-vpngateways.md) and to your on-premises network using [multiple options](./vpn-gateway/vpn-gateway-plan-design.md). You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network.  
 See also [Virtual Network Overview](./virtual-network/virtual-networks-overview.md)  
 
 ###**See also**  
 - [Get started with Azure](https://azure.microsoft.com/get-started/)
 - [Cloud resource center](https://azure.microsoft.com/resources/)  
 - [Azure for your business application](https://azure.microsoft.com/overview/business-apps-on-azure/)
-- [Azure in your datacenter](https://azure.microsoft.com/overview/business-apps-on-azure/) 
-
-
-
-
-
+- [Azure in your datacenter](https://azure.microsoft.com/overview/business-apps-on-azure/)

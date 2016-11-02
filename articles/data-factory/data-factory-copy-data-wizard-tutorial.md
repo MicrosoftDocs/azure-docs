@@ -51,7 +51,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 		1. Select **Use existing** to select an existing resource group.
 		2. Select **Create new** to enter a name for a resource group.
 
-			Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../resource-group-overview.md).
+			Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
 	3. Select a **location** for the data factory.
 	4. Select **Pin to dashboard** check box at the bottom of the blade.  
 	5. Click **Create**.
@@ -61,7 +61,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 
     ![Data factory home page](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## Launch and use Copy Wizard
+## Launch Copy Wizard
 
 1. On the Data Factory home page, click the **Copy data** tile to launch **Copy Wizard**. 
 

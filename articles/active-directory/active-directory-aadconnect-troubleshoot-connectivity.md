@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
-	ms.author="andkjell"/>
+	ms.date="11/01/2016"
+	ms.author="billmath"/>
 
 # Troubleshoot connectivity issues with Azure AD Connect
 This article explains how connectivity between Azure AD Connect and Azure AD works and how to troubleshoot connectivity issues. These issues are most likely to be seen in an environment with a proxy server.

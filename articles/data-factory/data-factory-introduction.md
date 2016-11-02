@@ -4,7 +4,7 @@
 	keywords="data integration, cloud data integration, what is azure data factory"
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="sharonlo101" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="09/22/2016" 
-	ms.author="spelluru"/>
+	ms.author="shlo"/>
 
 # Introduction to Azure Data Factory Service, a data integration service in the cloud
 

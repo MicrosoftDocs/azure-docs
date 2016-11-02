@@ -46,13 +46,13 @@ The WordPress site that you'll deploy in this tutorial uses MySQL for the databa
 1. Log in to the [Azure Portal].
 
 1. Click **New**.
-	
+
 	![Create a new Azure resource][MarketplaceStart]
-	
+
 1. Search for **WordPress**, and then click **WordPress**. (If you wish to use SQL Database instead of MySQL, search for **Project Nami**.)
 
 	![Search for WordPress in the Marketplace][MarketplaceSearch]
-	
+
 1. After reading the description of the WordPress app, click **Create**.
 
 	![Create WordPress web app][MarketplaceCreate]
@@ -69,7 +69,7 @@ The WordPress site that you'll deploy in this tutorial uses MySQL for the databa
 
 	![Configure the WordPress web app name][ConfigAppName]
 
-1. If you have more than one subscription, choose the one you want to use. 
+1. If you have more than one subscription, choose the one you want to use.
 
 	![Configure the subscription for the web app][ConfigSubscription]
 
@@ -81,7 +81,7 @@ The WordPress site that you'll deploy in this tutorial uses MySQL for the databa
 
 1. Select an **App Service plan/Location** or create a new one.
 
-	For more information about App Service plans, see [Azure App Service plans overview][AzureAppServicePlans].	
+	For more information about App Service plans, see [Azure App Service plans overview][AzureAppServicePlans].
 
 	![Configure the service plan for the web app][ConfigServicePlan]
 
@@ -95,11 +95,11 @@ The WordPress site that you'll deploy in this tutorial uses MySQL for the databa
 
 	d. Choose a pricing tier. **Mercury** - which is free with minimal connections and disk space - is fine for this tutorial.
 
-	e. In the **New MySQL Database** blade, accept the legal terms, and then click **OK**. 
+	e. In the **New MySQL Database** blade, accept the legal terms, and then click **OK**.
 
 	![Configure the database settings for the web app][ConfigDatabase]
 
-1. In the **WordPress** blade, accept the legal terms, and then click **Create**. 
+1. In the **WordPress** blade, accept the legal terms, and then click **Create**.
 
 	![Finish the web app settings and click OK][ConfigFinished]
 
@@ -108,7 +108,7 @@ The WordPress site that you'll deploy in this tutorial uses MySQL for the databa
 	![Progress indicator][ConfigProgress]
 
 ## Launch and manage your WordPress web app
-	
+
 1. When the web app creation is finished, navigate in the Azure Portal to the resource group in which you created the application, and you can see the web app and the database.
 
 	The extra resource with the light bulb icon is [Application Insights][ApplicationInsights], which provides monitoring services for your web app.
@@ -141,7 +141,7 @@ In this tutorial you've seen how to create and deploy an example web app from th
 
 For more information about how to work with App Service Web Apps, see the links on the left side of the page (for wide browser windows) or at the top of the page (for narrow browser windows).
 
-For more information about developing WordPress web apps on Azure, see [Developing WordPress on Azure App Service][WordPressOnAzure]. 
+For more information about developing WordPress web apps on Azure, see [Developing WordPress on Azure App Service][WordPressOnAzure].
 
 <!-- URL List -->
 
@@ -153,7 +153,7 @@ For more information about developing WordPress web apps on Azure, see [Developi
 [activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [free trial]: https://azure.microsoft.com/pricing/free-trial/
 [Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
-[ResourceGroups]: ../resource-group-overview.md
+[ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
 [Azure Portal]: https://portal.azure.com/

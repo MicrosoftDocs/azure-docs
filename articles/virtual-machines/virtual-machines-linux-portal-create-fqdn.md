@@ -27,4 +27,4 @@ You can now connect remotely to the VM using this DNS name such as with `ssh adm
 ## Next steps
 Now that your VM has a public IP and DNS name, you can deploy common application frameworks or services such as nginx, MongoDB, Docker, etc.
 
-You can also read more about [using Resource Manager](../resource-group-overview.md) for tips on building your Azure deployments.
+You can also read more about [using Resource Manager](../azure-resource-manager/resource-group-overview.md) for tips on building your Azure deployments.

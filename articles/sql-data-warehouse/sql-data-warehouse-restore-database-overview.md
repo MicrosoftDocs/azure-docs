@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="Lakshmi1812"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/29/2016"
-   ms.author="lakshmir;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="lakshmir;barbkess"/>
 
 
 # SQL Data Warehouse restore
@@ -35,7 +35,7 @@ Database restore is an essential part of any business continuity and disaster re
 
 For more information, see:
 
--  [SQL Data Warehouse backups](sql-data-warehouse-backup.md)
+-  [SQL Data Warehouse backups](sql-data-warehouse-backups.md)
 -  [Business continuity overview](../sql-database/sql-database-business-continuity.md)
 
 ## Data warehouse restore points

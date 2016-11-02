@@ -14,7 +14,7 @@ GitHub is a relatively easy way (once you get over the Git hump) to author and p
 
 **Reference content**: managed reference, REST APIs, PowerShell cmdlet help, schema reference, and error reference belongs in the MSDN scoped Azure library (http://msdn.microsoft.com/library/azure/). Node, Ruby, and other language reference content belongs on http://azure.github.io/.
 
-##Content channel guidelines for other types of product-related content
+The following types of content are delivered in other Azure or Microsoft content channels; in some cases, certain types of content are not part of our content strategy.
 
 - **Blog posts**: Blog posts are typically written in the first person voice and are generally related to announcements and promotions. This sort of content typically belongs on the Azure blog. Deeply technical or procedural content does not go on the blog.
 

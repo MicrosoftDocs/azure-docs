@@ -218,7 +218,6 @@ This section lists articles which were updated recently, where the update was bi
 | 108 | [Import a BACPAC file to create an Azure SQL database](sql-database-import.md) | Create an Azure SQL database by importing an existing BACPAC file. |
 | 109 | [Restore an Azure SQL Database to a previous point in time with the Azure Portal](sql-database-point-in-time-restore-portal.md) | Restore an Azure SQL Database to a previous point in time. |
 | 110 | [Restore an Azure SQL Database to a previous point in time with PowerShell](sql-database-point-in-time-restore-powershell.md) | Restore an Azure SQL Database to a previous point in time |
-| 111 | [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md) | Point in Time Restore, Microsoft Azure SQL Database, restore database, recover database, Azure Classic Portal, Azure Classic Portal |
 | 112 | [Recover an Azure SQL database using automated database backups](sql-database-recovery-using-backups.md) | Learn about Point-in-Time Restore, that enables you to roll back an Azure SQL Database to a previous point in time (up to 35 days). |
 | 113 | [Restore a deleted Azure SQL database using the Azure Portal](sql-database-restore-deleted-database-portal.md) | Restore a deleted Azure SQL database (Azure Portal). |
 | 114 | [Restore a deleted Azure SQL Database by using PowerShell](sql-database-restore-deleted-database-powershell.md) | Restore a deleted Azure SQL Database (PowerShell). |

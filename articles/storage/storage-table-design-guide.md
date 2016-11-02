@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="storage"
 	ms.date="09/22/2016"
-	ms.author="jahogg;tamram"/>
+	ms.author="jahogg"/>
 
 # Azure Storage Table Design Guide: Designing Scalable and Performant Tables
 
@@ -215,7 +215,7 @@ $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'
 $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
 -	A ***Table Scan*** does not include the **PartitionKey** and is very inefficient because it searches all of the partitions that make up your table in turn for any matching entities. It will perform a table scan regardless of whether or not your filter uses the **RowKey**. For example:
 $filter=LastName eq 'Jones'  
--	Queries that return multiple entities return them sorted in **PartitionKey** and **RowKey** order. To avoid resorting the entities in the client chose a **RowKey** that defines the most common sort order.  
+-	Queries that return multiple entities return them sorted in **PartitionKey** and **RowKey** order. To avoid resorting the entities in the client, choose a **RowKey** that defines the most common sort order.  
 
 Note that using an "**or**" to specify a filter based on **RowKey** values results in a partition scan and is not treated as a range query. Therefore, you should avoid queries that use filters such as:
 $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  

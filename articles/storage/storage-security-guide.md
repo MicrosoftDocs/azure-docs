@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/08/2016"
-	ms.author="cbrooks;robinsh"/>
+	ms.author="robinsh"/>
 
 #Azure Storage security guide
 
@@ -112,11 +112,7 @@ Here are the main points that you need to know about using RBAC to access the ma
 
 -   [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md)
 
-    This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups
-
--   [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
-
-    This article explains how the Azure Compute, Network, and Storage Providers work under the Resource Manager model.
+    This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups. It explains how the Azure Compute, Network, and Storage Providers work under the Resource Manager model.
 
 -   [Managing Role-Based Access Control with the REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 
@@ -419,7 +415,7 @@ Azure:
 
 -   Standard [A, D and G series IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
 
--   Enable encryption on IaaS VMs created using [Azure Resource Manager](../resource-group-overview.md) model
+-   Enable encryption on IaaS VMs created using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) model
 
 -   All Azure public [regions](https://azure.microsoft.com/regions/)
 

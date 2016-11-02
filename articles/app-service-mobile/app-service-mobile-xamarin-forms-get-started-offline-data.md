@@ -47,14 +47,7 @@ is defined, these code paths are included in the build. For Windows apps, you mu
 
 		#define OFFLINE_SYNC_ENABLED
 
-3. In the Solution Explorer, open the TodoList.xaml.cs file from the **Portable** project, locate the **OnAppearing** method, and
-   make sure that `true` is passed for *syncItems* when calling **RefreshItems**, as follows:
-
-		await RefreshItems(true, syncItems: true);
-
-	The app attempts to sync with the backend when it starts.
-
-5. (Optional) To support Windows devices, install one of the following SQLite runtime packages:
+4. (Optional) To support Windows devices, install one of the following SQLite runtime packages:
 
     * **Windows 8.1 Runtime:** Install [SQLite for Windows 8.1][3].
     * **Windows Phone 8.1:** Install [SQLite for Windows Phone 8.1][4].
@@ -62,7 +55,7 @@ is defined, these code paths are included in the build. For Windows apps, you mu
 
     Although the quickstart does not contain a Universal Windows project, the Universal Windows platform is supported with Xamarin Forms.
 
-6. (Optional) In each Windows app project, right-click **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**.
+5. (Optional) In each Windows app project, right-click **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**.
     Enable the appropriate **SQLite for Windows** SDK along with the **Visual C++ 2013 Runtime for Windows** SDK.
 	The SQLite SDK names vary slightly with each Windows platform.
 
@@ -85,8 +78,7 @@ of the feature, see [Offline Data Sync in Azure Mobile Apps][2].
 
 	This code creates a new local SQLite database using the **MobileServiceSQLiteStore** class.
 
-    The **DefineTable** method creates a table in the local store that matches the fields in the provided type.  The type doesn't have to
-    include all the columns that are in the remote database. It is possible to store a subset of columns.
+    The **DefineTable** method creates a table in the local store that matches the fields in the provided type.  The type doesn't have to include all the columns that are in the remote database. It is possible to store a subset of columns.
 
 * The **todoTable** field in **TodoItemManager** is an **IMobileServiceSyncTable** type instead of **IMobileServiceTable**. This
   class uses the local database for all create, read, update, and delete (CRUD) table operations. You decide when those changes
@@ -137,8 +129,7 @@ of the feature, see [Offline Data Sync in Azure Mobile Apps][2].
             }
         }
 
-	This sample uses simple error handling with the default sync handler. A real application would handle the various errors
-    like network conditions and server conflicts by using a custom **IMobileServiceSyncHandler** implementation.
+	This sample uses simple error handling with the default sync handler. A real application would handle the various errors like network conditions and server conflicts by using a custom **IMobileServiceSyncHandler** implementation.
 
 ## Offline sync considerations
 
@@ -151,7 +142,7 @@ triggers a preceding context push. When refreshing, adding, and completing items
 call.
 
 In the provided code, all records in the remote TodoItem table are queried, but it is also possible to filter records by passing a
-query id and query to **PushAsync**. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps].
+query id and query to **PushAsync**. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps][2].
 
 ## Run the client app
 

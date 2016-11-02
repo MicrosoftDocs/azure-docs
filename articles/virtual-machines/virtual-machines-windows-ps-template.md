@@ -95,7 +95,7 @@ You can create your own template using the information found in [Authoring Azure
             {
               "apiVersion": "2016-03-30",
               "type": "Microsoft.Network/virtualNetworks",
-              "name": "myvnet1",
+              "name": "myvn1",
               "location": "[resourceGroup().location]",
               "properties": {
                 "addressSpace": { "addressPrefixes": [ "10.0.0.0/16" ] },
@@ -197,7 +197,7 @@ See [How to install and configure Azure PowerShell](../powershell-install-config
 
 ## Step 4: Create a resource group
 
-All resources must be deployed in a [resource group](../resource-group-overview.md).
+All resources must be deployed in a [resource group](../azure-resource-manager/resource-group-overview.md).
 
 1. Get a list of available locations where resources can be created.
 

@@ -2,7 +2,7 @@
 	pageTitle="Azure Notification Hubs Notify Users with .NET backend"
 	description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API."
 	documentationCenter="windows"
-	authors="wesmc7777"
+	authors="ysxu"
 	manager="erikre"
 	services="notification-hubs"
 	editor=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="10/03/2016"
-	ms.author="wesmc"/>
+	ms.author="yuaxu"/>
 
 #Azure Notification Hubs Notify Users with .NET backend
 
@@ -46,8 +46,9 @@ Before you start this tutorial, you must have already completed these Mobile Ser
 + [Get started with Notification Hubs]<br/>You create your notification hub and reserve the app name and register to receive notifications in this tutorial. This tutorial assumes you have already completed these steps. If not, please follow the steps in [Getting Started with Notification Hubs (Windows Store)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md); specifically, the sections [Register your app for the Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#register-your-app-for-the-windows-store) and [Configure your Notification Hub](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). In particular, make sure that you have entered the **Package SID** and **Client Secret** values in the portal, in the **Configure** tab for your notification hub. This configuration procedure is described in the section [Configure your Notification Hub](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). This is an important step: if the credentials on the portal do not match those specified for the app name you choose, the push notification will not succeed.
 
 
-> [AZURE.NOTE] If you are using Mobile Apps in App Service as your backend, see the [Mobile App version](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) of this tutorial.
+> [AZURE.NOTE] If you are using Mobile Apps in Azure App Service as your backend service, see the [Mobile Apps version](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) of this tutorial.
 
+&nbsp;
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 

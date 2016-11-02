@@ -1,5 +1,5 @@
 <properties
-pageTitle="Azure Search indexer field mappings bridge the differences between data sources and search indexes"
+pageTitle="Field mappings in Azure Search indexers"
 description="Configure Azure Search indexer field mappings to account for differences in field names and data representations"
 services="search"
 documentationCenter=""
@@ -13,10 +13,10 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="04/30/2016"
+ms.date="10/17/2016"
 ms.author="eugenesh" />
 
-# Azure Search indexer field mappings bridge the differences between data sources and search indexes
+# Field mappings in Azure Search indexers
 
 When using Azure Search indexers, you can occasionally find yourself in situations where your input data doesn't quite match the schema of your target index. In those cases, you can use **field mappings** to transform your data into the desired shape. 
 

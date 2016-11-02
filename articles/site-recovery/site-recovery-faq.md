@@ -164,6 +164,12 @@ This is supported when you're [replicating VMware VMs and physical servers](site
 
 Dynamic disks are supported when replicating Hyper-V virtual machines. They are also supported when replicating VMware VMs and physical machines to Azure. The operating system disk must be a basic disk.
 
+### Can I add a new machine to an existing replication group?
+
+Adding new machines to existing replication groups is supported. To do so, select the replication group (from 'Replicated items' blade) and right click/select context menu on the replication group and select the appropriate option.
+
+![Add to replication group](./media/site-recovery-faq/add-server-replication-group.png)
+
 ### Can I throttle bandwidth allotted for Hyper-V replication traffic?
 
 Yes. You can read more about throttling bandwidth in the deployment articles:
@@ -179,7 +185,7 @@ Yes. You can read more about throttling bandwidth in the deployment articles:
 
 You can access the Azure VMs over a secure Internet connection, over a site-to-site VPN, or over Azure ExpressRoute. You'll need to prepare a number of things in order to connect. Read more in:
 
-- [Connect to Azure VMs after failover of VMware VMs or physical servers](hsite-recovery-vmware-to-azure.md#step-7-test-the-deployment)
+- [Connect to Azure VMs after failover of VMware VMs or physical servers](site-recovery-vmware-to-azure.md#step-7-test-the-deployment)
 - [Connect to Azure VMs after failover of Hyper-V VMs in VMM clouds](site-recovery-vmm-to-azure.md#step-7-test-your-deployment)
 - [Connect to Azure VMs after failover of Hyper-V VMs without VMM](site-recovery-hyper-v-site-to-azure.md#step-7-test-the-deployment)
 

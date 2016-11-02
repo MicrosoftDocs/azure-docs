@@ -4,7 +4,7 @@
 	services="active-directory"
 	keywords="azure active directory identity protection, risk event, vulnerability, security policy, Microsoft Graph"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 

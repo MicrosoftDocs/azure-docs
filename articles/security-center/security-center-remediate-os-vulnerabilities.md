@@ -13,37 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="10/17/2016"
    ms.author="terrylan"/>
 
 # Remediate OS vulnerabilities in Azure Security Center
 
-Azure Security Center analyzes daily your virtual machine (VM) operating system (OS) for configurations that could make the VM more vulnerable to attack and recommends configuration changes to address these vulnerabilities. See the [list of recommended configuration rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for more information on the specific configurations being monitored. Security Center will recommend that you resolve vulnerabilities when your VM’s OS configuration does not match the recommended configuration rules.
+Azure Security Center analyzes daily your virtual machine (VM) operating system (OS) for configurations that could make the VM more vulnerable to attack and recommends configuration changes to address these vulnerabilities. For more information on the specific configurations being monitored, see the [list of recommended configuration rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center recommends that you resolve vulnerabilities when your VM’s OS configuration does not match the recommended configuration rules.
 
 > [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
 ## Implement the recommendation
 
-1. In the **Recommendations** blade, select **Remediate OS vulnerabilities**. This opens the **Remediate OS vulnerabilities** blade.
+1. In the **Recommendations** blade, select **Remediate OS vulnerabilities**.
 ![Remediate OS vulnerabilities][1]
 
-2. The **Remediate OS vulnerabilities** blade lists your VMs with OS configurations that do not match the recommended configuration rules.  For each VM, the blade identifies:
+    The **Remediate OS vulnerabilities** blade opens and lists your VMs with OS configurations that do not match the recommended configuration rules.  For each VM, the blade identifies:
 
- - **FAILED RULES** -- The number of rules that the VM's OS configuration failed.
- - **LAST SCAN TIME** -- The date and time that Security Center last scanned the VM’s OS configuration.
- - **STATE** -- The current state of the vulnerability:
+   - **FAILED RULES** -- The number of rules that the VM's OS configuration failed.
+   - **LAST SCAN TIME** -- The date and time that Security Center last scanned the VM’s OS configuration.
+   - **STATE** -- The current state of the vulnerability:
 
-      - Open: The vulnerability has not been addressed yet
-      - In Progress: The vulnerability is currently being applied, no action is required by you
-      - Resolved: The vulnerability was already addressed (when the issue has been resolved, the entry is grayed out)
- - **SEVERITY** -- All vulnerabilities are set to a severity of Low, meaning a vulnerability should be addressed but does not require immediate attention.
+        - Open: The vulnerability has not been addressed yet
+        - In Progress: The vulnerability is currently being applied, no action is required by you
+        - Resolved: The vulnerability was already addressed (when the issue has been resolved, the entry is grayed out)
+  - **SEVERITY** -- All vulnerabilities are set to a severity of Low, meaning a vulnerability should be addressed but does not require immediate attention.
 
-   Select a VM. This opens the **Remediate OS vulnerabilities** blade for that VM and displays the rules that have failed.
-
+Select a VM. A blade for that VM opens and displays the rules that have failed.
    ![Configuration rules that have failed][2]
 
 Select a rule. In this example, lets select **Password must meet complexity requirements**. A blade opens describing the failed rule and the impact. Review the details and consider how operating system configurations will be applied.
-
   ![Description for the failed rule][3]
 
   Security Center uses Common Configuration Enumeration (CCE) to assign unique identifiers for configuration rules. The following information is provided on this blade:

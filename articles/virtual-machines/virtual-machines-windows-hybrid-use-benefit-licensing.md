@@ -163,4 +163,4 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 
 Read more about [Azure Hybrid Use Benefit licensing](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
-Learn more about [using Resource Manager templates](../resource-group-overview.md).
+Learn more about [using Resource Manager templates](../azure-resource-manager/resource-group-overview.md).

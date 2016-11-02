@@ -18,23 +18,23 @@
 
 # Continuous integration in Visual Studio Team Services using Azure Resource Group deployment projects
 
-To deploy an Azure template, you need to perform tasks to go through the various stages: Build, Test, Copy to Azure (also called "Staging"), and Deploy Template.  There are two different ways to do this in Visual Studio Team Services (VS Team Services). Both methods provide the same results, so choose the one that best fits your workflow.
+To deploy an Azure template, you need to perform tasks to go through the various stages: Build, Test, Copy to Azure (also called "Staging"), and Deploy Template.  There are two different ways to deploy templates Visual Studio Team Services (VS Team Services). Both methods provide the same results, so choose the one that best fits your workflow.
 
--	Add a single step to your build definition that runs the PowerShell script that’s included in the Azure Resource Group deployment project (Deploy-AzureResourceGroup.ps1). The script copies artifacts and then deploys the template.
--	Add multiple VS Team Services build steps, each one performing a stage task.
+1. Add a single step to your build definition that runs the PowerShell script that’s included in the Azure Resource Group deployment project (Deploy-AzureResourceGroup.ps1). The script copies artifacts and then deploys the template.
+1. Add multiple VS Team Services build steps, each one performing a stage task.
 
-This article demonstrates how to use the first option (use a build definition to run the PowerShell script). One advantage of this option is that the script used by developers in Visual Studio is the same script that is used by VS Team Services. This procedure assumes you already have a Visual Studio deployment project checked into VS Team Services.
+This article demonstrates both options.  The first option has the advantage of using the same script used by developers in Visual Studio providing consistency throughout the lifecycle.  The second option offers a convenient alternative to the built in script.  Both procedures assume you already have a Visual Studio deployment project checked into VS Team Services.
 
 ## Copy artifacts to Azure 
 
-Regardless of the scenario, if you have any artifacts that are needed for template deployment, you will need to give Azure Resource Manager access to them. These artifacts can include files such as:
+Regardless of the scenario, if you have any artifacts that are needed for template deployment, you need to give Azure Resource Manager access to them. These artifacts can include files such as:
 
 -	Nested templates
 -	Configuration scripts and DSC scripts
 -	Application binaries
 
 ### Nested Templates and Configuration Scripts
-When you use the templates provided by Visual Studio (or built with Visual Studio snippets), the PowerShell script not only stages the artifacts, it also parameterizes the URI for the resources for different deployments. The script then copies the artifacts to a secure container in Azure, creates a SaS token for that container, and then passes that information on to the template deployment. See [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx) to learn more about nested templates.
+When you use the templates provided by Visual Studio (or built with Visual Studio snippets), the PowerShell script not only stages the artifacts, it also parameterizes the URI for the resources for different deployments. The script then copies the artifacts to a secure container in Azure, creates a SaS token for that container, and then passes that information on to the template deployment. See [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx) to learn more about nested templates.  When using tasks in VS Team Services, you need to select the appropriate tasks for your template deployment and if necessary pass parameter values from the staging step to the template deployment.
 
 ## Set up continuous deployment in VS Team Services
 
@@ -45,9 +45,9 @@ To call the PowerShell script in VS Team Services, you need to update your build
 1.	Add an Azure PowerShell build step that references the PowerShell script in the Azure Resource Group deployment project.
 1.	Set the value of the *-ArtifactsStagingDirectory* parameter to work with a project built in VS Team Services.
 
-### Detailed walkthrough
+### Detailed walkthrough for Option 1
 
-The following steps will walk you through the steps necessary to configure continuous deployment in VS Team Services 
+The following steps walk you through the steps necessary to configure continuous deployment in VS Team Services using a single task that runs the PowerShell script in your project. 
 
 1.	Edit your VS Team Services build definition and add an Azure PowerShell build step. Choose the build definition under the **Build definitions** category and then choose the **Edit** link.
 
@@ -65,7 +65,7 @@ The following steps will walk you through the steps necessary to configure conti
 
     1.	If you already have an Azure service endpoint added to VS Team Services, choose the subscription in the **Azure Subscription** drop down list box and then skip to the next section. 
 
-        If you don’t have an Azure service endpoint in VS Team Services, you’ll need to add one. This subsection takes you through the process. If your Azure account uses a Microsoft account (such as Hotmail), you’ll need to take the following steps to get a Service Principal authentication.
+        If you don’t have an Azure service endpoint in VS Team Services, you need to add one. This subsection takes you through the process. If your Azure account uses a Microsoft account (such as Hotmail), you need to take the following steps to get a Service Principal authentication.
 
     1.	Choose the **Manage** link next to the **Azure Subscription** drop down list box.
 
@@ -79,16 +79,16 @@ The following steps will walk you through the steps necessary to configure conti
 
         ![][5]
 
-    1.	Add your Azure subscription information to the **Add Azure Subscription** dialog box. You’ll need to provide the following items:
+    1.	Add your Azure subscription information to the **Add Azure Subscription** dialog box. You need to provide the following items:
         -	Subscription Id
         -	Subscription Name
         -	Service Principal Id
         -	Service Principal Key
         -	Tenant Id
 
-    1.	Add a name of your choice to the **Subscription** name box. This value will appear later in the **Azure Subscription** drop down list in VS Team Services. 
+    1.	Add a name of your choice to the **Subscription** name box. This value appears later in the **Azure Subscription** drop down list in VS Team Services. 
 
-    1.	If you don’t know your Azure subscription ID, you can use one of the following commands to get it.
+    1.	If you don’t know your Azure subscription ID, you can use one of the following commands to retrieve it.
         
         For PowerShell scripts, use:
 
@@ -124,8 +124,8 @@ The following steps will walk you through the steps necessary to configure conti
     | -ResourceGroupLocation           | The geo-location value where the resource group is located, such as **eastus** or **'East US'**. (Add single quotes if there's a space in the name.) See [Azure Regions](https://azure.microsoft.com/en-us/regions/) for more information.|                                                                                                                                                                                                                              |
     | -ResourceGroupName               | The name of the resource group used for this deployment.|                                                                                                                                                                                                                                                                                                                                                                                                                |
     | -UploadArtifacts                 | This parameter, when present, specifies that artifacts need to be uploaded to Azure from the local system. You only need to set this switch if your template deployment requires extra artifacts that you want to stage using the PowerShell script (such as configuration scripts or nested templates).                                                                                                                                                                 |
-    | -StorageAccountName              | The name of the storage account used to stage artifacts for this deployment. This parameter is required only if you’re copying artifacts to Azure. This storage account will not be automatically created by the deployment, it must already exist.|                                                                                                                                                                                                                     |
-    | -StorageAccountResourceGroupName | The name of the resource group associated with the storage account. This parameter is required only if you’re copying artifacts to Azure.|                                                                                                                                                                                                                                                                                                                               |
+    | -StorageAccountName              | The name of the storage account used to stage artifacts for this deployment.  This parameter is only used if you are staging artifacts for deployment. If this parameter is supplied, a new storage account is created if the script has not created one during a previous deployment.  If the parameter is specified, the storage account must already exist.|                                                                                                                                                                                                                     |
+    | -StorageAccountResourceGroupName | The name of the resource group associated with the storage account. This parameter is required only if you provide a value for the StorageAccountName parameter.|                                                                                                                                                                                                                                                                                                                               |
     | -TemplateFile                    | The path to the template file in the Azure Resource Group deployment project. To enhance flexibility, use a path for this parameter that is relative to the location of the PowerShell script instead of an absolute path.|
     | -TemplateParametersFile          | The path to the parameters file in the Azure Resource Group deployment project. To enhance flexibility, use a path for this parameter that is relative to the location of the PowerShell script instead of an absolute path.|
     | -ArtifactStagingDirectory        | This parameter lets the PowerShell script know the folder from where the project’s binary files should be copied. This value overrides the default value used by the PowerShell script. For VS Team Services use, set the value to: -ArtifactStagingDirectory $(Build.StagingDirectory)                                                                                                                                                                                              |
@@ -138,15 +138,72 @@ The following steps will walk you through the steps necessary to configure conti
     –StorageAccountResourceGroupName 'Default-Storage-EastUS' -ArtifactStagingDirectory '$(Build.StagingDirectory)'	
     ```
 
-    When you’re finished, the **Script Arguments** box should resemble the following.
+    When you’re finished, the **Script Arguments** box should resemble the following list:
 
     ![][11]
 
 1.	After you’ve added all the required items to the Azure PowerShell build step, choose the **Queue** build button to build the project. The **Build** screen shows the output from the PowerShell script.
 
+### Detailed walkthrough for Option 2
+The following steps walk you through the steps necessary to configure continuous deployment in VS Team Services using the built-in tasks.
+
+1.	Edit your VS Team Services build definition to add two new build steps. Choose the build definition under the **Build definitions** category and then choose the **Edit** link.
+
+    ![][12]
+
+1.	Add the new build steps to the build definition using the **Add build step…** button.
+
+    ![][13]
+
+1.	Choose the **Deploy** task category, select the **Azure File Copy** task, and then choose its **Add** button.
+
+    ![][14]
+
+1.  Choose the **Azure Resource Group Deployment** task, then choose its **Add** button and then **Close** the **Task Catalog**.
+
+    ![][15]
+
+1.  Choose the **Azure File Copy** task and fill in its values.
+
+    If you already have an Azure service endpoint added to VS Team Services, choose the subscription in the **Azure Subscription** drop down list box.  If you do not have a subscription see [Option 1](#detailed-walkthrough-for-option-1) for instructions on setting one up in VS Team Services.
+
+    - Source - enter **$(Build.StagingDirectory)**
+    - Azure Connection Type - select **Azure Resource Manager**
+    - Azure RM Subscription - select the subscription for the storage account you want to use in the **Azure Subscription** drop down list box. If the subscription doesn't appear, choose the **Refresh** button next the **Manage** link.
+    - Destination Type - select **Azure Blob**
+    - RM Storage Account - select the storage account you would like to use for staging artifacts
+    - Container Name - enter the name of the container you would like to use for staging, it can be any valid container name but use one dedicated to this build definition
+
+    For the output values:
+    
+    - Storage Container URI - enter **artifactsLocation**
+    - Storage Container SAS Token - enter **artifactsLocationSasToken**
+
+    ![][16]
+
+1.	Choose the **Azure Resource Group Deployment** build step and then fill in its values.
+
+    - Azure Connection Type - select **Azure Resource Manager**
+    - Azure RM Subscription - select the subscription for deployment in the **Azure Subscription** drop down list box. This will usually be the same subscription used in the previous step.
+    - Action - select **Create or Update Resource Group**
+    - Resource Group - select a resource group or enter the name of a new resource group for the deployment
+    - Location - select the location for the resource group
+    - Template - enter the path and name of the template to be deployed prepending **$(Build.StagingDirectory)**, for example: **$(Build.StagingDirectory/DSC-CI/azuredeploy.json)**
+    - Template Parameters - enter the path and name of the parameters to be used, prepending **$(Build.StagingDirectory)**, for example: **$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)**
+    - Override Template Parameters - enter or copy and paste the following code:
+
+        ```	
+        -_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken (ConvertTo-SecureString -String "$(artifactsLocationSasToken)" -AsPlainText -Force)
+        ```
+    ![][17]
+
+
+1.	After you’ve added all the required items, save the build definition and choose **Queue new build** at the top.
+
+
 ## Next steps
 
-Read [Azure Resource Manager overview](resource-group-overview.md) to learn more about Azure Resource Manager and Azure resource groups.
+Read [Azure Resource Manager overview](azure-resource-manager/resource-group-overview.md) to learn more about Azure Resource Manager and Azure resource groups.
 
 
 [0]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough1.png
@@ -159,3 +216,9 @@ Read [Azure Resource Manager overview](resource-group-overview.md) to learn more
 [9]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough10.png
 [10]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough11b.png
 [11]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough12.png
+[12]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough13.png
+[13]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough14.png
+[14]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough15.png
+[15]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough16.png
+[16]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough17.png
+[17]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough18.png

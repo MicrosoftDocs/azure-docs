@@ -19,9 +19,9 @@
 
 # Create a VM from a generalized VHD image
 
-A generalized VHD image has had all of your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md) or by running Sysprep on an existing Azure VM and then [copying the VHD](virtual-machines-windows-vhd-copy.md).
+A generalized VHD image has had all of your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md), or by running Sysprep on an existing Azure VM and then [copying the VHD](virtual-machines-windows-vhd-copy.md).
 
-If you want to create a VM from a generalized VHD, see [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized.md).
+If you want to create a VM from a specialized VHD, see [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized.md).
 
 The quickest way to create a VM from a generalized VHD is to use a [quick start template]
 (https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
@@ -29,7 +29,7 @@ The quickest way to create a VM from a generalized VHD is to use a [quick start 
 
 ## Prerequisites
 
-If you are going to use a VHD uploaded from on on-premises VM, like one create using Hyper-V, you should make sure you followed the direction in [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md). 
+If you are going to use a VHD uploaded from an on-premises VM, like one created using Hyper-V, you should make sure you followed the directions in [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md). 
 
 Both uploaded VHDs and existing Azure VM VHDs need to be generalized before you can create a VM using this method. For more information, see [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md). 
 
@@ -45,14 +45,14 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
 
 ## Create a virtual network
 
-Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
+Create the vNet and subnet of the [virtual network](../virtual-network/virtual-networks-overview.md).
 
 
 1. Create the subnet. The following sample creates a subnet named **mySubnet** in the resource group **myResourceGroup** with the address prefix of **10.0.0.0/24**.  
 
 	```powershell
 	$rgName = "myResourceGroup"
-	$subnetName = "mySubNet"
+	$subnetName = "mySubnet"
 	$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
 	```
       
@@ -146,25 +146,27 @@ The following PowerShell script shows how to set up the virtual machine configur
 	
 	# Get the storage account where the uploaded image is stored
 	$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
-
+	
 	# Set the VM name and size
 	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
-
+	
 	#Set the Windows operating system configuration and add the NIC
-	$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-
+	$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName `
+		-Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-
+	
 	# Create the OS disk URI
-	$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
-
+	$osDiskUri = '{0}vhds/{1}-{2}.vhd' `
+		-f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
+	
 	# Configure the OS disk to be created from the existing VHD image (-CreateOption fromImage).
-
-	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $imageURI -Windows
-
+	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri `
+		-CreateOption fromImage -SourceImageUri $imageURI -Windows
+	
 	# Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
+
 ## Verify that the VM was created 
 
 When complete, you should see the newly created VM in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:

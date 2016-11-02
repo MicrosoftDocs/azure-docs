@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Overview: management tools for SQL Database"
+	pageTitle="Overview: management tools for SQL Database | Microsoft Azure"
 	description="Compares tools and options for managing Azure SQL Database"
 	services="sql-database"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="10/24/2016"
 	ms.author="sstein"/>
 
 # Overview: management tools for SQL Database
@@ -30,7 +30,7 @@ For more information about using the portal, see [Manage SQL Databases using the
 
 SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) are client tools that run on your computer for managing, and developing your database in the cloud. If you're an application developer familiar with Visual Studio or other integrated development environments (IDEs), [try using SSDT in Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Many database administrators are familiar with SSMS, which can be used with Azure SQL databases. [Download the latest version of SSMS](https://msdn.microsoft.com/library/mt238290) and always use the latest release when working with Azure SQL Database. For more information on managing your Azure SQL Databases with SSMS, see [Manage SQL Databases using SSMS](sql-database-manage-azure-ssms.md).
 
-> [AZURE.IMPORTANT] Always use the latest version of SQL Server Management Studio and SQL Server Data Tools to remain synchronized with updates to Microsoft Azure and SQL Database.
+> [AZURE.IMPORTANT] Always use the latest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290) and [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) to remain synchronized with updates to Microsoft Azure and SQL Database.
 
 
 ## PowerShell
@@ -46,3 +46,9 @@ Use the elastic database tools to perform actions such as
 * Moving multi-tenant model databases to a single-tenant model with the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md)
 * Managing databases in a single-tenant model or a multi-tenant model using the [elastic scale client library](sql-database-elastic-database-client-library.md).
  
+
+## Additional resources
+
+- [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
+- [Azure Automation](https://azure.microsoft.com/documentation/services/automation/)
+- [Azure Scheduler](https://azure.microsoft.com/documentation/services/scheduler/)

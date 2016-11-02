@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/03/2016"
+   ms.date="10/14/2016"
    ms.author="cherylmc"/>
 
 # Create a VNet with a Site-to-Site connection using the Azure portal
@@ -25,19 +25,22 @@
 - [Classic - Classic Portal](vpn-gateway-site-to-site-create.md)
 
 
-This article walks you through creating a virtual network and a Site-to-Site VPN connection to your on-premises network using the **Azure Resource Manager deployment model** and the Azure portal. Site-to-Site connections can be used for cross-premises and hybrid configurations.
+This article walks you through creating a virtual network and a Site-to-Site VPN gateway connection to your on-premises network using the Azure Resource Manager deployment model and the Azure portal. Site-to-Site connections can be used for cross-premises and hybrid configurations.
 
 ![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
 
+### Deployment models and methods for Site-to-Site connections
 
-### Deployment models and tools for Site-to-Site connections
+[AZURE.INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+The following table shows the currently available deployment models and methods for Site-to-Site configurations. When an article with configuration steps is available, we link directly to it from this table.
 
-[AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
+[AZURE.INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md).
+#### Additional configurations 
+
+If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md). If you want to add a Site-to-Site connection to a VNet that already has a connection, see [Add a S2S connection to a VNet with an existing VPN gateway connection](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
 
 ## Before you begin
 
@@ -72,7 +75,7 @@ When using these steps as an exercise, you can use the sample configuration valu
 - **Connection Name:** VNet1toSite2
 
 
-## 1. Create a virtual network 
+## <a name="CreatVNet"></a>1. Create a virtual network 
 
 If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks. If you have overlapping subnets, your connection won't work properly. If your VNet is configured with the correct settings, you can begin the steps in the [Specify a DNS server](#dns) section.
 
@@ -80,7 +83,7 @@ If you already have a VNet, verify that the settings are compatible with your VP
 
 [AZURE.INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]  
 
-## 2. Add additional address space and subnets
+## <a name="subnets"></a>2. Add additional address space and subnets
 
 You can add additional address space and subnets to your VNet once it has been created.
 
@@ -92,7 +95,7 @@ You can add additional address space and subnets to your VNet once it has been c
 
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## 4. Create a gateway subnet
+## <a name="gatewaysubnet"></a>4. Create a gateway subnet
 
 Before connecting your virtual network to a gateway, you first need to create the gateway subnet for the virtual network to which you want to connect. If possible, it's best to create a gateway subnet using a CIDR block of /28 or /27 in order to provide enough IP addresses to accommodate additional future configuration requirements.
 
@@ -103,7 +106,7 @@ If you are creating this configuration as an exercise, refer to these [values](#
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-## 5. Create a virtual network gateway
+## <a name="VNetGateway"></a>5. Create a virtual network gateway
 
 If you are creating this configuration as an exercise, you can refer to the [sample configuration values](#values).
 
@@ -111,7 +114,7 @@ If you are creating this configuration as an exercise, you can refer to the [sam
 
 [AZURE.INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## 6. Create a local network gateway
+## <a name="LocalNetworkGateway"></a>6. Create a local network gateway
 
 The 'local network gateway' refers to your on-premises location. Give the local network gateway a name by which Azure can refer to it. 
 
@@ -121,11 +124,11 @@ If you are creating this configuration as an exercise, you can refer to the [sam
 
 [AZURE.INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
-## 7. Configure your VPN device
+## <a name="VPNDevice"></a>7. Configure your VPN device
 
 [AZURE.INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## 8. Create a Site-to-Site VPN connection
+## <a name="CreateConnection"></a>8. Create a Site-to-Site VPN connection
 
 Create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. 
 
@@ -136,7 +139,7 @@ Before beginning this section, verify that your virtual network gateway and loca
 
 [AZURE.INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-rm-portal-include.md)]
 
-## 9. Verify the VPN connection
+## <a name="VerifyConnection"></a>9. Verify the VPN connection
 
 You can verify your VPN connection either in the portal, or by using PowerShell.
 

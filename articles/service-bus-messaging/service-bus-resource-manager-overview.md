@@ -13,26 +13,26 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="10/14/2016"
     ms.author="sethm"/>
 
 # Create Service Bus resources using Azure Resource Manager templates
 
-This article shows how to create and deploy Service Bus and Event Hubs resources using Azure Resource Manager templates, PowerShell, and the Service Bus resource provider.
+This article describes how to create and deploy Service Bus resources using Azure Resource Manager templates, PowerShell, and the Service Bus resource provider.
 
-Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). 
+Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions that you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). 
 
 >[AZURE.NOTE] The examples in this article show how to use Azure Resource Manager to create a Service Bus namespace and messaging entity (queue). For other template examples, visit the [Azure Quickstart Templates gallery][] and search for "Service Bus."
 
 ## Service Bus and Event Hubs Resource Manager templates
 
-These Service Bus and Event Hubs Azure Resource Manager templates are available for download and deployment. Click the following links for details about each one, with links to the templates on GitHub: 
+These Service Bus Azure Resource Manager templates are available for download and deployment. Click the following links for details about each one, with links to the templates on GitHub: 
 
 - [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
 - [Create a Service Bus namespace with queue](service-bus-resource-manager-namespace-queue.md)
 - [Create a Service Bus namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
 - [Create a Service Bus namespace with queue and authorization rule](service-bus-resource-manager-namespace-auth-rule.md)
-- [Create an Event Hubs namespace with an Event Hub and consumer group](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
+- [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
 
 ## Deploy with PowerShell
 
@@ -222,7 +222,7 @@ New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -Resour
 
 ### Verify the deployment
 
-If the resources are deployed successfully, a summary of the deployment is displyed in the PowerShell window:
+If the resources are deployed successfully, a summary of the deployment is displayed in the PowerShell window:
 
 ```
 DeploymentName    : MyDemoDeployment

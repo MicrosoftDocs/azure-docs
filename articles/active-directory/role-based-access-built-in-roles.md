@@ -36,6 +36,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Contributor](#contributor) | Can manage everything except access. |
 | [Data Factory Contributor](#data-factory-contributor) | Can create and manage data factories, and child resources within them. |
 | [DevTest Labs User](#devtest-labs-user) | Can view everything and connect, start, restart, and shutdown virtual machines |
+| [DNS Zone Contributor](#dns-zone-contributor) | Can manage DNS zones and records |
 | [DocumentDB Account Contributor](#documentdb-account-contributor) | Can manage DocumentDB accounts |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) | Can manage Intelligent Systems accounts |
 | [Network Contributor](#network-contributor) | Can manage all network resources |
@@ -195,6 +196,20 @@ Can view everything and connect, start, restart, and shutdown virtual machines
 | Microsoft.Resources/deployments/read | Read deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Storage/storageAccounts/listKeys/action | List storage account keys |
+
+### DNS Zone Contributor
+Can manage DNS zones and records.
+
+| **Actions** ||
+| ------- | ------ |
+| Microsoft.Authorization/\*/read | Read roles and role assignments |
+| Microsoft.Insights/alertRules/\* | Create and manage alert rules |
+| Microsoft.Network/dnsZones/\* | Create and manage DNS zones and records |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Read the health of the resources |
+| Microsoft.Resources/deployments/\* | Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
+| Microsoft.Support/\* | Create and manage Support tickets |
+
 
 ### DocumentDB Account Contributor
 Can manage DocumentDB accounts
@@ -526,7 +541,7 @@ Can manage websites but not the web plans to which they are connected
 | Microsoft.Web/listSitesAssignedToHostName/read | Read sites assigned to a host name |
 | Microsoft.Web/serverFarms/join/action | Join server farms |
 | Microsoft.Web/serverFarms/read | Read server farms |
-| Microsoft.Web/sites/* | Create and manage websites |
+| Microsoft.Web/sites/* | Create and manage websites (site creation also requires write permissions to the associated App Service Plan) |
 
 ## See also
 - [Role-Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.

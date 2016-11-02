@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/26/2016" 
+	ms.date="10/17/2016" 
 	ms.author="heidist"/>
 
 # Service administration for Azure Search in the Azure portal
@@ -33,9 +33,11 @@ Azure Search is a fully managed, cloud-based search service used for building a 
 
 *Content management* (or index management) refers to operations such as analyzing search traffic to understand query volume, discover which terms people search for, and how successful search results are in guiding customers to specific documents in your index. Content management is beyond the scope of this article. For instructions on how to gain insights into internal operations at the index level, see [Search Traffic Analytics for Azure Search](search-traffic-analytics.md).
 
-*Query performance* is also beyond the scope of this article. For more information, see [Performance and optimization in Azure Search](search-performance-optimization.md).
+*Query performance* is also beyond the scope of this article. For more information, see [Monitor usage and query metrics](search-monitor-usage.md) and [Performance and optimization](search-performance-optimization.md).
 
-Azure Search does not provide built-in solutions for disaster recovery or backup-and-restore. For customers who push objects and data to their service, the source code for creating and populating an index is the de facto restore option if you delete an index by mistake. For disaster recovery, customers opt in for redundancy via an additional service in a different regional data center. For more information, see [Performance and optimization in Azure Search](search-performance-optimization.md).
+Azure Search will failover to other clusters and data centers if there is an outage, but it does not provide built-in solutions for manual backup-and-restore operations if your index or service is  maliciously or inadvertently deleted. For customers who push objects and data to their service, the source code for creating and populating an index is the de facto restore option if you delete an index by mistake. 
+
+Azure Search does not provide geo-replication of indexes across services. If your solution is global in reach, consider adding redundancy via an additional service in a different regional data center so that all application components are hosted in one place. For more information, see [Performance and optimization in Azure Search](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 ## Administrator rights in Azure Search

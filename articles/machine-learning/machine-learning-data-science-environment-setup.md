@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/03/2016" 
+	ms.date="11/01/2016" 
 	ms.author="bradsev" /> 
 
 # Set up data science environments for use in the Team Data Science Process
@@ -27,5 +27,5 @@ This menu links to topics that describe how to set up the various data science e
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
-The **Microsoft Data Science Virtual Machine** is also available as an Azure virtual machine (VM) image. This VM is pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. See [Provision the Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) for how to use this VM.
+The **Microsoft Data Science Virtual Machine (DSVM)** is also available as an Azure virtual machine (VM) image. This VM is pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The DSVM is available on both Windows and Linux. For further information, see [Introduction to the cloud-based Data Science Virtual Machine for Linux and Windows](machine-learning-data-science-virtual-machine-overview.md).
 

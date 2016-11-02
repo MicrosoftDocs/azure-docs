@@ -35,7 +35,7 @@ In this tutorial, you deploy the following resources and extensions:
 - Microsoft.Insights.VMDiagnosticsSettings
 - Microsoft.Insights/autoscaleSettings
 
-For more information about Resource Manager resources, see [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](../virtual-machines/virtual-machines-linux-compare-deployment-models.md).
+For more information about Resource Manager resources, see [Azure Resource Manager vs. classic deployment](../resource-manager-deployment-model.md).
 
 Before you get started with the steps in this tutorial, [install the Azure CLI](../xplat-cli-install.md).
 
@@ -81,7 +81,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
         "adminUsername": { "type": "string" },
         "adminPassword": { "type": "securestring" },
         "resourcePrefix": { "type": "string" }
-            
+
 	- A name for the separate virtual machine that is used to access the machines in the scale set.
 	- A name for the storage account where the template is stored.
 	- The number of instances of virtual machines to initially create in the scale set.
@@ -107,7 +107,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
         "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId=\"')]",
         "wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
         "wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
-        
+
 	- DNS names that are used by the network interfaces.
 	- The IP address names and prefixes for the virtual network and subnets.
 	- The names and identifiers of the virtual network, load balancer, and network interfaces.
@@ -174,7 +174,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
         },
 
 7. Add the load balancer resource that is used by the scale set. For more information, see [Azure Resource Manager Support for Load Balancer](../load-balancer/load-balancer-arm.md).
-        
+
         {
           "apiVersion": "2015-06-15",
           "name": "[variables('loadBalancerName')]",
@@ -388,8 +388,8 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
               }
             },
 
-11.	Add the autoscaleSettings resource that defines how the scale set adjusts based on processor usage on the machines in the set. 
-        
+11.	Add the autoscaleSettings resource that defines how the scale set adjusts based on processor usage on the machines in the set.
+
             {
               "type": "Microsoft.Insights/autoscaleSettings",
               "apiVersion": "2015-04-01",
@@ -435,9 +435,9 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
                 "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
               }
             }
-    
+
     For this tutorial, these values are important:
-    
+
     - **metricName** - This value is the same as the performance counter that we defined in the wadperfcounter variable. Using that variable, the Diagnostics extension collects the **Processor\PercentProcessorTime** counter.
     - **metricResourceUri** - This value is the resource identifier of the virtual machine scale set.
     - **timeGrain** – This value is the granularity of the metrics that are collected. In this template, it is set to one minute.
@@ -517,7 +517,7 @@ Because you are charged for resources used in Azure, it is always a good practic
 
 ## Next steps
 
-- Find examples of Azure Insights monitoring features in [Azure Insights Cross-platform CLI quick start samples](../azure-portal/insights-cli-samples.md)
-- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) 
-- Learn how to [Use audit logs to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
+- Find examples of Azure Monitor monitoring features in [Azure Monitor Cross-platform CLI quick start samples](../monitoring-and-diagnostics/insights-cli-samples.md)
+- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
+- Learn how to [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 - Check out the [Autoscale a VM Scale Set running a Ubuntu/Apache/PHP app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) template that sets up a LAMP stack to exercise the automatic scaling functionality of Virtual Machine Scale Sets.

@@ -77,14 +77,9 @@ You can view the change history for your Traffic Manager profile in the Azure cl
 
 ## Next steps
 
-[Add an endpoint](traffic-manager-endpoints.md)
-
-[Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
-
-[Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
-
-[Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
-
-[Point a company Internet domain to a Traffic Manager domain name](traffic-manager-point-internet-domain.md)
-
-[Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
+- [Add an endpoint](traffic-manager-endpoints.md)
+- [Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
+- [Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
+- [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
+- [Point a company Internet domain to a Traffic Manager domain name](traffic-manager-point-internet-domain.md)
+- [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)

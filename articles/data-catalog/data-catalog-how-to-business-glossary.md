@@ -37,7 +37,7 @@ The Data Catalog Business Glossary allows organizations to document key business
 
 ## Glossary availability and privileges
 
-/*The business glossary is available in the Standard Edition of Azure Data Catalog. The Free Edition of Data Catalog does not include a glossary.*/
+*The business glossary is available in the Standard Edition of Azure Data Catalog. The Free Edition of Data Catalog does not include a glossary.*
 
 The business glossary can be accessed via the "Glossary" option in the Data Catalog portal's navigation menu.  
 

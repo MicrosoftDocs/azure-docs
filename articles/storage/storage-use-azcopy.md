@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2016"
-	ms.author="micurd;tamram"/>
+    ms.date="10/31/2016"
+	ms.author="micurd"/>
 
 # Transfer data with the AzCopy Command-Line Utility
 

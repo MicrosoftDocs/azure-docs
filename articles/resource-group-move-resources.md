@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/11/2016" 
+	ms.date="11/01/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
 
-This topic shows you how to move resources to either a new subscription or a new resource group in the same subscription. When moving to a new subscription, the subscription must exist within the same [Active Directory tenant](./active-directory/active-directory-howto-tenant.md) as the original subscription. You can use the portal, PowerShell, Azure CLI, or the REST API to move resource. The move operations in this topic are available to you without any assistance from Azure support.
+This topic shows you how to move resources to either a new subscription or a new resource group in the same subscription. You can use the portal, PowerShell, Azure CLI, or the REST API to move resource. The move operations in this topic are available to you without any assistance from Azure support.
 
 Typically, you move resources when you decide that:
 
@@ -36,6 +36,7 @@ You cannot change the location of the resource. Moving a resource only moves it 
 There are some important steps to perform before moving a resource. By verifying these conditions, you can avoid errors.
 
 1. The service must enable the ability to move resources. See the list below for information about which [services enable moving resources](#services-that-enable-move).
+1. The source and destination subscriptions must exist within the same [Active Directory tenant](./active-directory/active-directory-howto-tenant.md). To move to a new tenant, call support.
 2. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used 
 with that resource type. To learn how to check the registration status and register resource providers, see [Resource providers and types](../resource-manager-supported-services.md#resource-providers-and-types).
 4. If you are moving App Service app, you have reviewed [App Service limitations](#app-service-limitations).
@@ -62,26 +63,45 @@ For now, the services that enable moving to both a new resource group and subscr
 - App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
 - Automation
 - Batch
+- Bing Maps
+- BizTalk Services
 - CDN
 - Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
+- Cognitive Services
+- Container Service
+- Content Moderator
+- Data Catalog
 - Data Factory
+- Data Lake Analytics
+- Data Lake Store
+- DevTest Lab
 - DNS
 - DocumentDB
+- Event Hubs
 - HDInsight clusters
 - IoT Hubs
-- Key Vault
+- Key Vault 
+- Load Balancers
+- Logic Apps
+- Machine Learning
 - Media Services
 - Mobile Engagement
 - Notification Hubs
 - Operational Insights
+- Operations Management
+- Power BI
 - Redis Cache
 - Scheduler
 - Search
+- Server Management
 - Service Bus
+- Service Fabric
 - Storage
 - Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
+- Stream Analytics
 - SQL Database server - The database and server must reside in the same resource group. When you move a SQL server, all of its databases are also moved.
-- Virtual Machines
+- Traffic Manager
+- Virtual Machines - however, does not support move to a new subscription when its certificates are stored in a Key Vault
 - Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - Virtual Networks
 
@@ -89,10 +109,14 @@ For now, the services that enable moving to both a new resource group and subscr
 
 The services that currently do not enable moving a resource are:
 
+- AD Hybrid Health Service
 - Application Gateway
 - Application Insights
 - Express Route
+- Dynamics LCS
 - Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
+- Security
+- Virtual Machines with certificate stored in Key Vault
 - Virtual Machines Scale Sets
 - Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - VPN Gateway
@@ -131,13 +155,11 @@ To accomplish this move, perform two separate move operations in the following s
 1. Move the **web-a** to **plan-group**
 2. Move **web-a** and **plan-a** to **combined-group**.
 
-Currently, if your web app includes an SSL certificate that you purchased externally and uploaded to the app, you must delete the certificate before moving the web app. For example, you can perform the following steps:
+You can move an App Service Certificate to a new resource group or subscription without any issues. However, if your web app includes an SSL certificate that you purchased externally and uploaded to the app, you must delete the certificate before moving the web app. For example, you can perform the following steps:
 
 1. Delete the uploaded certificate from the web app
 2. Move the web app
 3. Upload the certificate to the web app
-
-If your web app uses an App Service Certificate, you can move the web app and certificate to a new resource group without issue. To move an App Service Certificate to a new subscription, contact Azure support.
 
 ## Recovery Services limitations
 

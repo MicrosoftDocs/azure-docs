@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/11/2016" 
+	ms.date="10/19/2016" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -364,7 +364,7 @@ Use this call to track the response times and success rates of calls to an exter
             }
 ```
 
-Remember that the server SDKs include a [dependency module](app-insights-dependencies.md) that discovers and tracks certain dependency calls automatically - for example to databases and REST APIs. You have to install an agent on your server to make the module work. You'd use this call if you want to track calls that aren't caught by the automated tracking, or if you don't want to install the agent.
+Remember that the server SDKs include a [dependency module](app-insights-asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically - for example to databases and REST APIs. You have to install an agent on your server to make the module work. You'd use this call if you want to track calls that aren't caught by the automated tracking, or if you don't want to install the agent.
 
 To turn off the standard dependency tracking module, edit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`.
 
@@ -381,7 +381,7 @@ Normally the SDK sends data at times chosen to minimize impact on the user. Howe
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Note that the function is asynchronous for in-memory channels, but synchronous if you choose to use the [persistent channel](app-insights-api-filtering-sampling.md#persistence-channel).
+Note that the function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/), but synchronous if you choose to use the in-memory channel or [persistent channel](app-insights-api-filtering-sampling.md#persistence-channel).
 
 
 ## Authenticated users

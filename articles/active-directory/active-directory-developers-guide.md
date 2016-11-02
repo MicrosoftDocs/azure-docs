@@ -3,7 +3,7 @@
    description="This article provides a comprehensive guide to developer-oriented resources for Azure Active Directory."
    services="active-directory"
    documentationCenter="dev-center-name"
-   authors="msmbaldwin"
+   authors="bryanla"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/11/2016"
+   ms.date="10/24/2016"
    ms.author="mbaldwin"/>
 
 
@@ -23,7 +23,7 @@
 As an identity management as a service (IDMaaS) platform, Azure Active Directory (AD) provides developers an effective way to integrate identity management into their applications. The following articles provide overviews on implementation and key features of Azure AD. We suggest that you read them in order, or jump to [Getting started](#getting-started) if you're ready to dig in.
 
 
-1. [The benefits of Azure AD integration](active-directory-how-to-integrate.md): Discover why integration with Azure AD offers the best solution for secure sign-in and authorization.
+1. [The benefits of Azure AD integration](./develop/active-directory-how-to-integrate.md): Discover why integration with Azure AD offers the best solution for secure sign-in and authorization.
 
 1. [Azure AD authentication scenarios](active-directory-authentication-scenarios.md): Take advantage of simplified authentication in Azure AD to provide sign-on to your application.
 
@@ -67,7 +67,7 @@ These tutorials are tailored for multiple platforms and can help you quickly sta
 These articles describe how to perform specific tasks by using Azure Active Directory:
 
 - [Get an Azure AD tenant](active-directory-howto-tenant.md)
-- [Sign in any Azure AD user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md) 
+- [Sign in any Azure AD user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md)
 - Enable cross-app SSO using ADAL, on [Android](active-directory-sso-android.md) and on [iOS](active-directory-sso-ios.md) devices
 - [Make your application AppSource Certified for Azure AD](active-directory-devhowto-appsource-certified.md)
 - [List your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)
@@ -145,3 +145,9 @@ These overview presentations on developing apps by using Azure Active Directory 
 - [Cloud Identity](http://www.cloudidentity.net): Thoughts on identity management as a service, from a principal Azure Active Directory PM.  
 
 - [Azure Active Directory on Twitter](https://twitter.com/azuread): Azure Active Directory announcements in 140 characters or fewer.
+
+## Windows Server on-premises development
+For guidance on using Windows Server and Active Directory Federation Services (ADFS) development, see:
+
+- [AD FS Scenarios for Developers](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): Provides an overview of AD FS components and how it works, with details on the supported authentication/authorization scenarios.
+- [AD FS walkthroughs](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): a list of walk-through articles, which provide step-by-step instructions on implementing the related authentication/authorization flows.

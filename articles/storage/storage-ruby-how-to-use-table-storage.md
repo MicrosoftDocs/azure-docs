@@ -3,8 +3,8 @@
 	description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
 	services="storage"
 	documentationCenter="ruby"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="tamram"
+	manager="carmonm"
 	editor=""/>
 <tags
 	ms.service="storage"
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="gusapost;robmcm"/>
+	ms.date="10/18/2016"
+	ms.author="tamram"/>
 
 
 # How to use Azure Table Storage from Ruby
@@ -32,7 +32,7 @@ This guide shows you how to perform common scenarios using the Azure Table servi
 
 ## Create a Ruby application
 
-For instructions how to create a Ruby application, see [Ruby on Rails Web application on an Azure VM](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
+For instructions how to create a Ruby application, see [Ruby on Rails Web application on an Azure VM](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 
 ## Configure your application to access Storage

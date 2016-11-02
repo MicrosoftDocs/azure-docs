@@ -260,6 +260,6 @@ You can deploy services to Azure from a template by using PowerShell, AzureCLI, 
 
 [Azure Networking – commonly used templates](https://github.com/Azure/azure-quickstart-templates)
 
-[Compute Resource Provider](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
+[Azure Resource Manager vs. classic deployment](../resource-manager-deployment-model.md)
 
-[Azure Resource Manager Overview](../resource-group-overview.md)
+[Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md)

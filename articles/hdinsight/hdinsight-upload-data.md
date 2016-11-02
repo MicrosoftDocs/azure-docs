@@ -169,6 +169,8 @@ or
 
 For a list of other Hadoop commands that work with files, see [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
+> [AZURE.WARNING] On HBase clusters, the default block size used when writing data is 256KB. While this works fine when using HBase APIs or REST APIs, using the `hadoop` or `hdfs dfs` commands to write data larger than ~12GB results in an error. See the [storage exception for write on blob](#storageexception) section below for more information.
+
 ##Graphical clients
 
 There are also several applications that provide a graphical interface for working with Azure Storage. The following is a list of a few of these applications:
@@ -243,8 +245,56 @@ Azure Blob storage can also be accessed using an Azure SDK from the following pr
 
 For more information on installing the Azure SDKs, see [Azure downloads](https://azure.microsoft.com/downloads/)
 
+## Troubleshooting
+
+### <a id="storageexception"></a>Storage exception for write on blob
+
+__Symptoms__: When using the `hadoop` or `hdfs dfs` commands to write files that are ~12GB or larger on an HBase cluster, you may encounter the following error: 
+
+    ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
+    copyFromLocal: java.io.IOException
+            at com.microsoft.azure.storage.core.Utility.initIOException(Utility.java:661)
+            at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:366)
+            at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:350)
+            at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+            at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+            at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+            at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+            at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+            at java.lang.Thread.run(Thread.java:745)
+    Caused by: com.microsoft.azure.storage.StorageException: The request body is too large and exceeds the maximum permissible limit.
+            at com.microsoft.azure.storage.StorageException.translateException(StorageException.java:89)
+            at com.microsoft.azure.storage.core.StorageRequest.materializeException(StorageRequest.java:307)
+            at com.microsoft.azure.storage.core.ExecutionEngine.executeWithRetry(ExecutionEngine.java:182)
+            at com.microsoft.azure.storage.blob.CloudBlockBlob.uploadBlockInternal(CloudBlockBlob.java:816)
+            at com.microsoft.azure.storage.blob.CloudBlockBlob.uploadBlock(CloudBlockBlob.java:788)
+            at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
+            ... 7 more
+
+__Cause__: HBase on HDInsight clusters default to a block size of 256KB when writing to Azure storage. While this works for HBase APIs or REST APIs, it will result in an error when using the `hadoop` or `hdfs dfs` command-line utilities.
+
+__Resolution__: Use `fs.azure.write.request.size` to specify a larger block size. You can do this on a per-use basis by using the `-D` parameter. The following is an example using this parameter with the `hadoop` command:
+
+    hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
+
+You can also increase the value of `fs.azure.write.request.size` globally by using Ambari. The following steps can be used to change the value in the Ambari Web UI:
+
+1. In your browser, go to the Ambari Web UI for your cluster. This is https://CLUSTERNAME.azurehdinsight.net, where __CLUSTERNAME__ is the name of your cluster.
+
+    When prompted, enter the admin name and password for the cluster.
+
+2. From the left side of the screen, select __HDFS__, and then select the __Configs__ tab.
+
+3. In the __Filter...__ field, enter `fs.azure.write.request.size`. This will display the field and current value in the middle of the page.
+
+4. Change the value from 262144 (256KB) to the new value. For example, 4194304 (4MB).
+
+![Image of changing the value through Ambari Web UI](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
+
+For more information on using Ambari, see [Manage HDInsight clusters using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
 ## Next steps
+
 Now that you understand how to get data into HDInsight, read the following articles to learn how to perform analysis:
 
 * [Get started with Azure HDInsight][hdinsight-get-started]

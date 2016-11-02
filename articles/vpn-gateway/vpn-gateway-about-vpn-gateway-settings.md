@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2016"
+   ms.date="10/18/2016"
    ms.author="cherylmc" />
 
 # About VPN Gateway settings
@@ -45,6 +45,8 @@ Example:
 
 [AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
+### Configuring the gateway SKU
+
 **Specifying the gateway SKU in the Azure portal**
 
 If you use the Azure portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown. The options you are presented with correspond to the Gateway type and VPN type that you select.
@@ -63,15 +65,14 @@ The following PowerShell example specifies the `-GatewaySku` as *Standard*.
 
 **Changing a gateway SKU**
 
-If you want to upgrade your gateway SKU to a more powerful SKU (from Basic/Standard to HighPerformance) you can use the `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet. You can also downgrade the gateway SKU size using this cmdlet.
+If you want to upgrade your gateway SKU to a more powerful SKU (from Basic/Standard to HighPerformance), you can use the `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet. You can also downgrade the gateway SKU size using this cmdlet.
 
 The following PowerShell example shows a gateway SKU being resized to HighPerformance.
 
 	$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 
-<br>
-The following table shows the gateway types and the estimated aggregate throughput. This table applies to both the Resource Manager and classic deployment models.
+### Estimated aggregate throughput by gateway SKU and type
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 

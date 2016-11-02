@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="jahogg;robinsh"/>
+	ms.author="jahogg"/>
 
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage
 
@@ -66,6 +66,7 @@ For a hands-on guide to end-to-end troubleshooting in Azure Storage applications
 	+ [Your issue arises from using the storage emulator for development or test]
 	+ [You are encountering problems installing the Azure SDK for .NET]
 	+ [You have a different issue with a storage service]
+	+ [Troubleshooting Azure Files issues with Windows and Linux](storage-troubleshoot-file-connection-problems.md)
 + [Appendices]
 	+ [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic]
 	+ [Appendix 2: Using Wireshark to capture network traffic]
@@ -104,7 +105,7 @@ The "[Appendices]" include information about using other tools such as Wireshark
 
 If you are familiar with Windows performance monitoring, you can think of Storage Metrics as being an Azure Storage equivalent of Windows Performance Monitor counters. In Storage Metrics you will find a comprehensive set of metrics (counters in Windows Performance Monitor terminology) such as service availability, total number of requests to service, or percentage of successful requests to service. For a full list of the available metrics, see [Storage Analytics Metrics Table Schema](http://msdn.microsoft.com/library/azure/hh343264.aspx). You can specify whether you want the storage service to collect and aggregate metrics every hour or every minute. For more information about how to enable metrics and monitor your storage accounts, see [Enabling storage metrics and viewing metrics data](http://go.microsoft.com/fwlink/?LinkId=510865).
 
-You can choose which hourly metrics you want to display in the [Azure Portal](https://portal.azure.com) and configure rules that notify administrators by email whenever an hourly metric exceeds a particular threshold. For more information, see [Receive Alert Notifications](../azure-portal/insights-receive-alert-notifications.md). 
+You can choose which hourly metrics you want to display in the [Azure Portal](https://portal.azure.com) and configure rules that notify administrators by email whenever an hourly metric exceeds a particular threshold. For more information, see [Receive Alert Notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md). 
 
 The storage service collects metrics using a best effort, but may not record every storage operation.
 
@@ -396,13 +397,13 @@ For more information about using Microsoft Message Analyzer to troubleshoot netw
 
 In this scenario, the most likely cause is a delay in the storage requests reaching the storage service. You should investigate why requests from the client are not making it through to the blob service.
 
-One possible reason for the client delaying sending requests is that there are a limited number of available connections or threads. 
+One possible reason for the client delaying sending requests is that there are a limited number of available connections or threads.
 
 You should also check whether the client is performing multiple retries, and investigate the reason if this is the case. To determine whether the client is performing multiple retries, you can:
 
 - Examine the Storage Analytics logs. If multiple retries are happening, you will see multiple operations with the same client request ID but with different server request IDs.
 - Examine the client logs. Verbose logging will indicate that a retry has occurred.
-- Debug your code, and check the properties of the **OperationContext** object associated with the request. If the operation has retried, the **RequestResults** property will include multiple unique server request IDs. You can also check the start and end times for each request. For more information, see the code sample in the section [Server request ID]. 
+- Debug your code, and check the properties of the **OperationContext** object associated with the request. If the operation has retried, the **RequestResults** property will include multiple unique server request IDs. You can also check the start and end times for each request. For more information, see the code sample in the section [Server request ID].
 
 If there are no issues in the client, you should investigate potential network issues such as packet loss. You can use tools such as Wireshark or Microsoft Message Analyzer to investigate network issues.
 
@@ -496,7 +497,7 @@ In this scenario, you should investigate why the SAS token is expiring before th
 
 - Typically, you should not set a start time when you create a SAS for a client to use immediately. If there are small clock differences between the host generating the SAS using the current time and the storage service, then it is possible for the storage service to receive a SAS that is not yet valid.
 - You should not set a very short expiry time on a SAS. Again, small clock differences between the host generating the SAS and the storage service can lead to a SAS apparently expiring earlier than anticipated.
-- Does the version parameter in the SAS key (for example **sv=2015-04-05**) match the version of the Storage Client Library you are using? We recommend that you always use the latest version of the [Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/). 
+- Does the version parameter in the SAS key (for example **sv=2015-04-05**) match the version of the Storage Client Library you are using? We recommend that you always use the latest version of the [Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/).
 - If you regenerate your storage access keys, this can invalidate any existing SAS tokens. This may be an issue if you generate SAS tokens with a long expiry time for client applications to cache.
 
 If you are using the Storage Client Library to generate SAS tokens, then it is easy to build a valid token. However, if you are using the Storage REST API and constructing the SAS tokens by hand you should carefully read the topic [Delegating Access with a Shared Access Signature](http://msdn.microsoft.com/library/azure/ee395415.aspx).
@@ -777,7 +778,7 @@ To limit the amount of traffic that Fiddler captures, you can use filters that y
 
 ### <a name="appendix-2"></a>Appendix 2: Using Wireshark to capture network traffic
 
-[Wireshark](http://www.wireshark.org/) is a network protocol analyzer that enables you to view detailed packet information for a wide range of network protocols. 
+[Wireshark](http://www.wireshark.org/) is a network protocol analyzer that enables you to view detailed packet information for a wide range of network protocols.
 
 The following procedure shows you how to capture detailed packet information for traffic from the local machine where you installed Wireshark to the table service in your Azure storage account.
 

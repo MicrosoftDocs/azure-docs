@@ -26,7 +26,7 @@ Azure IoT Hub is a multi-tenant service that exposes its functionality to variou
 
 The following is a description of the endpoints:
 
-* **Resource provider**. The IoT Hub resource provider exposes an [Azure Resource Manager][lnk-arm] interface that enables Azure subscription owners to create and delete IoT hubs, and update IoT hub properties. IoT Hub properties govern [hub-level security policies][lnk-accesscontrol], as opposed to device-level access control, and functional options for cloud-to-device and device-to-cloud messaging. The resource provider also enables you to [export device identities][lnk-importexport].
+* **Resource provider**. The IoT Hub resource provider exposes an [Azure Resource Manager][lnk-arm] interface that enables Azure subscription owners to create and delete IoT hubs, and update IoT hub properties. IoT Hub properties govern [hub-level security policies][lnk-accesscontrol], as opposed to device-level access control, and functional options for cloud-to-device and device-to-cloud messaging. The IoT Hub resource provider also enables you to [export device identities][lnk-importexport].
 * **Device identity management**. Each IoT hub exposes a set of HTTP REST endpoints to manage device identities (create, retrieve, update, and delete). [Device identities][lnk-device-identities] are used for device authentication and access control.
 * **Device twin management**. Each IoT hub exposes a set of service-facing HTTP REST endpoint to query and update [device twins][lnk-twins] (update tags and properties).
 * **Jobs management**. Each IoT hub exposes a set of service-facing HTTP REST endpoint to query and manage [jobs][lnk-jobs].
@@ -34,12 +34,12 @@ The following is a description of the endpoints:
     - *Send device-to-cloud messages*. Use this endpoint to [send device-to-cloud messages][lnk-d2c].
     - *Receive cloud-to-device messages*. A device uses this endpoint to receive targeted [cloud-to-device messages][lnk-c2d].
     - *Initiate file uploads*. A device uses this endpoint to receive an Azure Storage SAS URI from IoT Hub to [upload a file][lnk-upload].
-    - *Retrieve and update twin's properties*. A device uses this endpoints to access its [device twin][lnk-twins]'s properties.
+    - *Retrieve and update device twin properties*. A device uses this endpoints to access its [device twin][lnk-twins]'s properties.
     - *Receive direct methods requests*. A device uses this endpoints to listen to [direct methods][lnk-methods]'s requests.
 
     These endpoints are exposed using [MQTT v3.1.1][lnk-mqtt], HTTP 1.1, and [AMQP 1.0][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
     
-    The twins' and methods' endpoins are available only using [MQTT v3.1.1][lnk-mqtt].
+    The device twins and methods endpoints are available only using [MQTT v3.1.1][lnk-mqtt].
 
 * **Service endpoints**. Each IoT hub exposes a set of endpoints your application back end can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol, except for the method invocation endpoint that is exposed via HTTP 1.1.
     - *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs]. A back-end service can use it to read all the [device-to-cloud messages][lnk-d2c] sent by your devices.
@@ -61,7 +61,7 @@ You can use the [Azure IoT Gateway SDK][lnk-gateway-sdk] to implement a field ga
 
 Other reference topics in this IoT Hub developer guide include:
 
-- [Query language for twins, methods, and jobs][lnk-devguide-query]
+- [IoT Hub query language for twins, methods, and jobs][lnk-devguide-query]
 - [Quotas and throttling][lnk-devguide-quotas]
 - [IoT Hub MQTT support][lnk-devguide-mqtt]
 
@@ -71,7 +71,7 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-amqp]: https://www.amqp.org/
 [lnk-mqtt]: http://mqtt.org/
 [lnk-websockets]: https://tools.ietf.org/html/rfc6455
-[lnk-arm]: ../resource-group-overview.md
+[lnk-arm]: ../azure-resource-manager/resource-group-overview.md
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 
 [lnk-tls]: https://tools.ietf.org/html/rfc5246

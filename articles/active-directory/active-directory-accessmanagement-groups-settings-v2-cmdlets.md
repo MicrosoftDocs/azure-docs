@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Azure portal](active-directory-groups-create-azure-portal.md)
 - [Azure classic portal](active-directory-accessmanagement-manage-groups.md)
-- [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+- [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 
 The following document will provide you with examples of how to use PowerShell to manage your groups in Azure Active Directory (Azure AD).  It also provides information on how to get set up with the Azure AD PowerShell preview module. First, you must [download the Azure AD PowerShell module](http://go.microsoft.com/fwlink/p/?LinkId=828627).
 
@@ -45,7 +45,7 @@ Now you can start using the cmdlets in the module. For a full description of the
 ## Connecting to the directory
 Before you can start managing groups using Azure AD PowerShell preview cmdlets, you must connect your PowerShell session to the directory you want to manage. To do this, use the following command:
 
-	PS C:\Windows\system32> Connect-AzureAD -Force
+	PS C:\Windows\system32> Connect-AzureAD
 
 The cmdlet will prompt you for the credentials you want to use to access your directory. In this example, we are using karen@drumkit.onmicrosoft.com to access the demonstration directory. The cmdlet will return a confirmation to show the session was connected successfully to your directory:
 

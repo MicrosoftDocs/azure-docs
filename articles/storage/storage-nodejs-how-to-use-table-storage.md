@@ -3,8 +3,8 @@
 	description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
 	services="storage"
 	documentationCenter="nodejs"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="gusapost;robmcm"/>
+    ms.date="10/31/2016"
+	ms.author="tamram"/>
 
 
 # How to use Azure Table storage from Node.js

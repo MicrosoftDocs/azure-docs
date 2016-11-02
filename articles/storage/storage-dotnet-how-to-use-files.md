@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/26/2016"
-	ms.author="minet;robinsh" />
+	ms.date="10/18/2016"
+	ms.author="minet" />
 
 # Get started with Azure File storage on Windows
 
@@ -576,6 +576,7 @@ Note that while Blob, Table, and Queue storage use the shared `ServiceProperties
     Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
     Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
+Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md) for end-to-end troubleshooting guidance. 
 
 ## File storage FAQ
 
@@ -637,6 +638,10 @@ Note that while Blob, Table, and Queue storage use the shared `ServiceProperties
 
 	IBM has released a document to guide IBM MQ customers when configuring Azure File Storage with their service. For more information, please check out [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
+15. **How do I troubleshoot Azure File Storage errors?**
+
+	You can refer to [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md) for end-to-end troubleshooting guidance.               
+	
 ## Next steps
 
 See these links for more information about Azure File storage.

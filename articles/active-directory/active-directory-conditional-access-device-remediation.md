@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Troubleshooting: You can't get there from here | Microsoft Azure"
-	description="This topic helps you identify remediation steps that you can follow to gain access to an application."
+	pageTitle="Troubleshooting for Azure Active Directory access issues | Microsoft Azure"
+	description="Learn steps that you can take to resolve access issues with your organization's online resources."
 	services="active-directory"
 	keywords="device-based conditional access, device registration, enable device registration, device registration and MDM"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="femila"
 	editor=""/>
 
@@ -18,85 +18,84 @@
 	ms.author="markvi"/>
 
 
-# Troubleshooting: You can't get there from here
+# Troubleshooting for Azure Active Directory access issues
 
-You got an access denied page when you accessed an application like SharePoint Online.  
-Now, what do you do?
+You try to access your organization's SharePoint Online intranet, and you get an "access denied" error message. What do you do?
 
-This guide helps you identify available remediation steps that you can follow to gain access to the application.
+This article covers remediation steps that can help you resolve access issues with your organization's online resources.
 
-
-
-What device platform is your device running on?
-The answer to this question determines the right section in this topic for you:
-
+For help resolving Azure Active Directory (Azure AD) access issues, go to the section in the article that covers your device platform:
 
 -	Windows device
--	iOS device (iPhone or iPad)
--	Android device
+-	iOS device (Check back soon for assistance with iPhones and iPads.)
+-	Android device (Check back soon for assistance with Android phones and tablets.)
 
 ## Access from a Windows device
 
-If your device runs Windows 10, Windows 8.1, Windows 8.0, Windows 7, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2, choose the appropriate cause by identifying the page that you got when you tried to access the application.
+If your device runs one of the following platforms, look in the next sections for the error message that is shown when you try to access an application or service:
+
+- Windows 10
+- Windows 8.1
+- Windows 8
+- Windows 7
+- Windows Server 2016
+- Windows Server 2012 R2
+- Windows Server 2012
+- Windows Server 2008 R2
 
 ### Device is not registered
 
-If your device is not registered with Azure Active Directory (Azure AD) and the application is protected with a device-based policy, you might see a page with the following content:
+If your device is not registered with Azure AD and the application is protected with a device-based policy, you might see a page that shows one of these error messages:
 
 !["You can't get there from here" messages for unregistered devices](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
 
+If your device is domain-joined to Active Directory in your organization, try this:
 
-
-If your device is domain-joined to Active Directory in your organization, you can try the following:
-
-1.	Make sure that you have signed in to Windows by using your work account (Active Directory account).
-2.	Connect to your corporate network via VPN or DirectAccess.
-3.	After you are connected, lock your Windows session by using the Windows key + L key.
-4.	Unlock your Windows session by entering your work account credentials.
-5.	Wait for a minute, and then try to access the application again.
-6.	If you get the same page, contact your administrator, click the **More details** link, and then provide the details.
+1.	Make sure that you sign in to Windows by using your work account (your Active Directory account).
+2.	Connect to your corporate network via a virtual private network (VPN) or DirectAccess.
+3.	After you are connected, press the Windows logo key + the L key to lock your Windows session.
+4.	Enter your work account credentials to unlock your Windows session.
+5.	Wait for a minute, and then try again to access the application or service.
+6.	If you see the same page, click the **More details** link, and then contact your administrator with the details.
 
 If your device is not domain-joined and runs Windows 10, you have two options:
 
-- Run Azure AD Join.
-- Add your work or school account to Windows.
+- Run Azure AD Join
+- Add your work or school account to Windows
 
-For information about the differences between the two, see [Using Windows 10 devices in your workplace](active-directory-azureadjoin-windows10-devices.md).
+For information about how these options are different, see [Using Windows 10 devices in your workplace](active-directory-azureadjoin-windows10-devices.md).
 
-To run Azure AD Join, do the following (not available for Windows Phone):
+To run Azure AD Join, do the following steps for the platform your device runs on. (Azure AD Join is not available on Windows phones.)
 
 **Windows 10 Anniversary Update**
 
 1.	Open the **Settings** app.
 2.	Click **Accounts** > **Access work or school**.
 3.	Click **Connect**.
-4.	Click **Join this device to Azure AD** at the bottom of the page.
-5.	Authenticate to your organization, provide multi-factor authentication proof, if needed, and then follow the steps until completion.
-6.	Sign out, and then sign in by using your work account.
-7.	Try to access the application again.
-
-
+4.	Click **Join this device to Azure AD**.
+5.	Authenticate to your organization, provide multi-factor authentication if prompted, and then follow the steps that are shown.
+6.	Sign out, and then sign in with your work account.
+7.	Try again to access the application.
 
 
 **Windows 10 November 2015 Update**
 
-
 1.	Open the **Settings** app.
 2.	Click **System** > **About**.
 3.	Click **Join Azure AD**.
-4.	Authenticate to your organization, provide multi-factor authentication proof, if needed, and then follow the steps until completion.
-5.	Sign out, and then sign in by using your work account (Azure AD account).
-6.	Try to access the application again.
+4.	Authenticate to your organization, provide multi-factor authentication if prompted, and then follow the steps that are shown.
+5.	Sign out, and then sign in with your work account (your Azure AD account).
+6.	Try again to access the application.
 
-To add your work or school account, do the following:
+To add your work or school account, do the following steps:
 
 **Windows 10 Anniversary Update**
 
 1.	Open the **Settings** app.
 2.	Click **Accounts** > **Access work or school**.
 3.	Click **Connect**.
-4.	Authenticate to your organization, provide multi-factor authentication proof, if needed, and then follow the steps until completion.
-5.	Try to access the application again.
+4.	Authenticate to your organization, provide multi-factor authentication if prompted, and then follow the steps that are shown.
+5.	Try again to access the application.
 
 
 **Windows 10 November 2015 Update**
@@ -104,37 +103,31 @@ To add your work or school account, do the following:
 1.	Open the **Settings** app.
 2.	Click **Accounts** > **Your accounts**.
 3.	Click **Add work or school account**.
-4.	Authenticate to your organization, provide multi-factor authentication proof, if needed, and then follow the steps until completion.
-5.	Try to access the application again.
+4.	Authenticate to your organization, provide multi-factor authentication if prompted, and then follow the steps that are shown.
+5.	Try again to access the application.
 
-If your device is not domain-joined and runs Windows 8.1, you can do Workplace Join and enroll in Microsoft Intune by doing the following:
+If your device is not domain-joined and runs Windows 8.1, to do a Workplace Join and enroll in Microsoft Intune, do the following steps:
 
 1.	Open **PC Settings**.
 2.	Click **Network** > **Workplace**.
 3.	Click **Join**.
-4.	Authenticate to your organization, provide multi-factor authentication proof, if needed, and then follow the steps until completion.
+4.	Authenticate to your organization, provide multi-factor authentication if prompted, and then follow the steps that are shown.
 5.	Click **Turn on**.
-6.	Wait until completion.
-7.	Try to access the application again.
+6.	Try again to access the application.
 
 
-## Unsupported browser
+### Browser is not supported
 
-If you are accessing the application from the following browsers, you will see a page that's similar to the page shown previously:
+You might be denied access if you are trying to access an application or service by using one of the following browsers:
 
-- Chrome, Firefox, or any other browser that is not Microsoft Edge or Microsoft Internet Explorer in Windows 10 or Windows Server 2016.
-- Firefox in Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2.
+- Chrome, Firefox, or any other browser other than Microsoft Edge or Microsoft Internet Explorer in Windows 10 or Windows Server 2016
+- Firefox in Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2
+
+You'll see an error page that looks like this:
 
 !["You can't get there from here" message for unsupported browsers](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
 
-
 The only remediation is to use a browser that the application supports for your device platform.
-
-## Access from an iOS device
-Check back soon for instructions for iPhones or iPads.
-
-## Access from an Android device
-Check back soon for instructions for Android phones or tablets.
 
 ## Next steps
 

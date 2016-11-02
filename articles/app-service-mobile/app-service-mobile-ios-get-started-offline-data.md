@@ -2,7 +2,7 @@
 	pageTitle="Enable offline sync for your Azure Mobile App (iOS)"
 	description="Learn how to use App Service Mobile Apps to cache and sync offline data in your iOS application"
 	documentationCenter="ios"
-	authors="yuaxu"
+	authors="ysxu"
 	manager="yochayk"
 	editor=""
 	services="app-service\mobile"/>

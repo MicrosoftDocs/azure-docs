@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure multiple NICs on a Windows VM | Microsoft Azure"
-   description="Learn how to create a VM with multiple NICs attached to it using Azure PowerShell or Resource Manager templates."
+   pageTitle="Create a Windows VM with multiple NICs | Microsoft Azure"
+   description="Learn how to create a Windows VM with multiple NICs attached to it using Azure PowerShell or Resource Manager templates."
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -13,81 +13,101 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
-   ms.date="08/04/2016"
+   ms.date="10/27/2016"
    ms.author="iainfou"/>
 
-# Creating a VM with multiple NICs
+# Creating a Windows VM with multiple NICs
 You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario would be to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own PowerShell scripts, read more about [deploying multi-NIC VMs](../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Different [VM sizes](virtual-machines-windows-sizes.md) support a varying number of NICs, so size your VM accordingly.
 
->[AZURE.WARNING] You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM. You can [create a new VM based on the original virtual disk(s)](virtual-machines-windows-vhd-copy.md) and create multiple NICs as you deploy the VM.
+>[AZURE.WARNING] You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM. You can [create a VM based on the original virtual disk(s)](virtual-machines-windows-vhd-copy.md) and create multiple NICs as you deploy the VM.
 
 ## Create core resources
-Make sure that you have the [latest Azure PowerShell installed and configured](../powershell-install-configure.md).
-
-First, create a resource group:
+Make sure that you have the [latest Azure PowerShell installed and configured](../powershell-install-configure.md). Log in to your Azure account:
 
 ```powershell
-New-AzureRmResourceGroup -Name TestRG -Location WestUS
+Login-AzureRmAccount
 ```
 
-Create a storage account to hold your VMs:
+In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `mystorageaccount`, and `myVM`.
+
+First, create a resource group. The following example creates a resource group named `myResourceGroup` in the `WestUs` location:
 
 ```powershell
-$storageAcc = New-AzureRmStorageAccount -Name teststorage `
-    -ResourceGroupName TestRG -Kind Storage -SkuName Premium_LRS -Location WestUS
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "WestUS"
+```
+
+Create a storage account to hold your VMs. The following example creates a storage account named `mystorageaccount`:
+
+```powershell
+$storageAcc = New-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" `
+    -Location "WestUS" -Name "mystorageaccount" `
+    -Kind "Storage" -SkuName "Premium_LRS" 
 ```
 
 ## Create virtual network and subnets
-Define two virtual network subnets - one for front-end traffic and one for back-end traffic. Create your virtual network with these subnets:
+Define two virtual network subnets - one for front-end traffic and one for back-end traffic. The following example defines two subnets, named `mySubnetFrontEnd` and `mySubnetBackEnd`:
 
 ```powershell
-$frontEndSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "FrontEnd" `
-    -AddressPrefix 192.168.1.0/24
-$backEndSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "BackEnd" `
-    -AddressPrefix 192.168.2.0/24
+$mySubnetFrontEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
+    -AddressPrefix "192.168.1.0/24"
+$mySubnetBackEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetBackEnd" `
+    -AddressPrefix "192.168.2.0/24"
+```
 
+Create your virtual network and subnets. The following example creates a virtual network named `myVnet`:
 
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
-    -AddressPrefix 192.168.0.0/16 -Location WestUS `
-    -Subnet $frontEndSubnet,$backEndSubnet
+```powershell
+$myVnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
+    -Location "WestUS" -Name "myVnet" -AddressPrefix "192.168.0.0/16" `
+    -Subnet $mySubnetFrontEnd,$mySubnetBackEnd
 ```
 
 
 ## Create multiple NICs
-Create two NICs, attaching one NIC to the front-end subnet and one NIC to the back-end subnet:
+Create two NICs, attaching one NIC to the front-end subnet and one NIC to the back-end subnet. The following example creates two NICs, named `myNic1` and `myNic2`:
 
 ```powershell
-$frontEnd = $vnet.Subnets|?{$_.Name -eq 'FrontEnd'}
-$NIC1 = New-AzureRmNetworkInterface -Name NIC1 -ResourceGroupName TestRG `
-        -Location WestUS -SubnetId $FrontEnd.Id
+$frontEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetFrontEnd'}
+$myNic1 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+    -Location "WestUS" -Name "myNic1" -SubnetId $frontEnd.Id
 
-$backEnd = $vnet.Subnets|?{$_.Name -eq 'BackEnd'}
-$NIC2 = New-AzureRmNetworkInterface -Name NIC2 -ResourceGroupName TestRG `
-        -Location WestUS -SubnetId $BackEnd.Id
+$backEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetBackEnd'}
+$myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+    -Location "WestUS" -Name "myNic2" -SubnetId $backEnd.Id
 ```
 
-Typically you would also create a [network security group](../virtual-network/virtual-networks-nsg.md) or [load balancer](../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. The [more detailed multi-NIC VM](../virtual-network/virtual-network-deploy-multinic-arm-ps.md) article guides you through creating a Network Security Group and assigning NICs.
+Typically you also create a [network security group](../virtual-network/virtual-networks-nsg.md) or [load balancer](../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. The [more detailed multi-NIC VM](../virtual-network/virtual-network-deploy-multinic-arm-ps.md) article guides you through creating a Network Security Group and assigning NICs.
 
 
 ## Create the virtual machine
-Now start to build your VM configuration. Each VM size has a limit for the total number of NICs that you can add to a VM. Read more about [Windows VM sizes](virtual-machines-windows-sizes.md). The following example uses a VM size that supports up to two NICs (`Standard_DS2_v2`):
+Now start to build your VM configuration. Each VM size has a limit for the total number of NICs that you can add to a VM. Read more about [Windows VM sizes](virtual-machines-windows-sizes.md). 
+
+First, set your VM credentials to the `$cred` variable as follows:
 
 ```powershell
 $cred = Get-Credential
+```
 
-$vmConfig = New-AzureRmVMConfig -VMName TestVM -VMSize "Standard_DS2_v2"
+The following example defines a VM named `myVM` and uses a VM size that supports up to two NICs (`Standard_DS2_v2`):
 
-$vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName TestVM `
+```powershell
+$vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS2_v2"
+```
+
+Create the rest of your VM config. The following example creates a Windows Server 2012 R2 VM:
+
+```powershell
+$vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName Te"MyVM" `
     -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName "MicrosoftWindowsServer" `
+    -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
 ```
 
 Attach the two NICs you previously created:
 
 ```powershell
-$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $NIC1.Id -Primary
-$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $NIC2.Id
+$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
+$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
 ```
 
 Configure the storage and virtual disk for your new VM:
@@ -97,17 +117,17 @@ $blobPath = "vhds/WindowsVMosDisk.vhd"
 $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
 $diskName = "windowsvmosdisk"
 $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $diskName -VhdUri $osDiskUri `
-    -CreateOption fromImage
+    -CreateOption "fromImage"
 ```
 
 Finally, create a VM:
 
 ```powershell
-New-AzureRmVM -VM $vmConfig -ResourceGroupName TestRG -Location WestUS
+New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "WestUS"
 ```
 
 ## Creating multiple NICs using Resource Manager templates
-Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
+Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
 
 ```bash
 "copy": {
@@ -118,10 +138,10 @@ Azure Resource Manager templates use declarative JSON files to define your envir
 
 Read more about [creating multiple instances using *copy*](../resource-group-create-multiple.md). 
 
-You can also use a `copyIndex()` to then append a number to a resource name, which allows you to create `NIC1`, `NIC2`, etc. The following shows an example of appending the index value:
+You can also use a `copyIndex()` to then append a number to a resource name, which allows you to create `myNic1`, `MyNic2`, etc. The following shows an example of appending the index value:
 
 ```bash
-"name": "[concat('NIC-', copyIndex())]", 
+"name": "[concat('myNic', copyIndex())]", 
 ```
 
 You can read a complete example of [creating multiple NICs using Resource Manager templates](../virtual-network/virtual-network-deploy-multinic-arm-template.md).

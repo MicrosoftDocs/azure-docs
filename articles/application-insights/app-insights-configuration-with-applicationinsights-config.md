@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configuring Application Insights SDK with ApplicationInsights.config or .xml" 
+	pageTitle="Configuring Application Insights SDK with ApplicationInsights.config or .xml | Microsoft Azure" 
 	description="Enable or disable data collection modules, and add performance counters and other parameters" 
 	services="application-insights"
     documentationCenter="" 
@@ -44,7 +44,7 @@ There's a node in the configuration file for each module. To disable a module, d
 
 ### Dependency Tracking
 
-[Dependency tracking](app-insights-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension](app-insights-azure-web-apps.md).
+[Dependency tracking](app-insights-asp-net-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension](app-insights-azure-web-apps.md).
 
 You can also write your own dependency tracking code using the [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency).
 
@@ -54,7 +54,7 @@ You can also write your own dependency tracking code using the [TrackDependency 
 
 ### Performance collector
 
-[Collects system performance counters](app-insights-web-monitor-performance.md#system-performance-counters) such as CPU, memory and network load from IIS installations. You can specify which counters to collect, including performance counters you have set up yourself.
+[Collects system performance counters](app-insights-performance-counters.md) such as CPU, memory and network load from IIS installations. You can specify which counters to collect, including performance counters you have set up yourself.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
 * [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet package.
@@ -283,9 +283,13 @@ If you just want to send a specific set of events to a different resource, you c
 
 ```
 
+To get a new key, [create a new resource in the Application Insights portal][new].
+
+## Next steps
+
+
 [Learn more about the API][api].
 
-To get a new key, [create a new resource in the Application Insights portal][new].
 
 <!--Link references-->
 

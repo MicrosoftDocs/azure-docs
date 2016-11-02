@@ -3,8 +3,8 @@
 	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	services="storage"
 	documentationCenter="nodejs"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-    ms.date="08/11/2016"
-	ms.author="jwillis;robmcm"/>
+    ms.date="10/31/2016"
+	ms.author="tamram"/>
 
 
 

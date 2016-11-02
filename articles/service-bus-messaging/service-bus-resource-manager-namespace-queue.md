@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="10/14/2016"
     ms.author="sethm;shvija"/>
 
 # Create a Service Bus namespace and a queue using an Azure Resource Manager template
@@ -29,9 +29,9 @@ For the complete template, see the [Service Bus namespace and queue template][] 
 >-    [Create a Service Bus namespace with queue and authorization rule](service-bus-resource-manager-namespace-auth-rule.md)
 >-    [Create a Service Bus namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
 >-    [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
->-    [Create an Event Hubs namespace with an Event Hub and consumer group](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
+>-    [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
 >
->To check for the latest templates, visit the [Azure Quickstart Templates][] gallery and search for Service Bus.
+>To check for the latest templates, visit the [Azure Quickstart Templates][] gallery and search for "Service Bus."
 
 ## What will you deploy?
 
