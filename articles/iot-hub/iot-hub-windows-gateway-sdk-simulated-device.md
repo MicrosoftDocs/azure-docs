@@ -52,7 +52,9 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
     [ 
         {
             "module name" : "IoTHub",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\iothub\\Debug\\iothub_hl.dll",
+            "loading args": {
+              "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\iothub\\Debug\\iothub_hl.dll"
+            },
             "args" : 
             {
                 "IoTHubName" : "{Your IoT hub name}",
@@ -62,7 +64,9 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
         },
         {
             "module name" : "mapping",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\identitymap\\Debug\\identity_map_hl.dll",
+            "loading args": {
+              "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\identitymap\\Debug\\identity_map_hl.dll"
+            },
             "args" : 
             [
                 {
@@ -79,7 +83,9 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
         },
         {
             "module name":"BLE1",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\simulated_device\\Debug\\simulated_device_hl.dll",
+            "loading args": {
+              "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\simulated_device\\Debug\\simulated_device_hl.dll"
+            },
             "args":
             {
                 "macAddress" : "01-01-01-01-01-01"
@@ -87,7 +93,9 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
         },
         {
             "module name":"BLE2",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\simulated_device\\Debug\\simulated_device_hl.dll",
+            "loading args": {
+              "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\simulated_device\\Debug\\simulated_device_hl.dll"
+            },
             "args":
             {
                 "macAddress" : "02-02-02-02-02-02"
@@ -95,7 +103,9 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
         },
         {
             "module name":"Logger",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\logger\\Debug\\logger_hl.dll",
+            "loading args": {
+              "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\logger\\Debug\\logger_hl.dll"
+            },
             "args":
             {
                 "filename":"C:\\azure-iot-gateway-sdk\\deviceCloudUploadGatewaylog.log"

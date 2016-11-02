@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/10/2016"
+	ms.date="10/31/2016"
 	ms.author="banders"/>
 
 # Collecting Azure storage data in Log Analytics overview
@@ -39,7 +39,6 @@ Log Analytics can collect data for the following Azure resources:
 | Resource Type | Logs (Diagnostic Categories) | Log Analytics Solution |
 | --------------------------------------- | -------------------------------- | --------------- |
 | Application Insights | Availability <br> Custom Events <br> Exceptions <br> Requests <br> | Application Insights (Preview) |
-| API Management | | *none* (Preview) |
 | Automation <br> Microsoft.Automation/AutomationAccounts | JobLogs <br> JobStreams          | AzureAutomation (Preview) |
 | Key Vault <br> Microsoft.KeyVault/Vaults               | AuditEvent                       | KeyVault (Preview) |
 | Application Gateway <br> Microsoft.Network/ApplicationGateways   | ApplicationGatewayAccessLog <br> ApplicationGatewayPerformanceLog | AzureNetworking (Preview) |
@@ -63,9 +62,6 @@ You can help us prioritize additional logs for OMS to analyze by voting on our [
   - Web Roles
   - Worker Roles
   - Virtual Machines
-
-
-Application Insights is in private preview and it uses continuous export to blob storage. To join the private preview, contact your Microsoft Account team or refer to the details on the [feedback site](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
 
 ## Next steps
 

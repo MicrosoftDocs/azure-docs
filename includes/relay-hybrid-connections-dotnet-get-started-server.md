@@ -27,6 +27,7 @@
 3. Add a new method called `ProcessMessagesOnConnection` to the `Program` class like the following:
 
     ```cs
+    // Method is used to initiate connection
     private static async void ProcessMessagesOnConnection(HybridConnectionStream relayConnection, CancellationTokenSource cts)
     {
         Console.WriteLine("New session");

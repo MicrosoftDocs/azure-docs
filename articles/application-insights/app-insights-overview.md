@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights tutorial | Microsoft Azure" 
-	description="Track usage and performance of your live web application.  Detect, triage and diagnose problems. Continuously monitor and improve success with your users." 
+	pageTitle="Application Performance Management with Application Insights | Microsoft Azure" 
+	description="Track performance and usage of your live web application.  Detect, triage and diagnose problems." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2016" 
+	ms.date="11/01/2016" 
 	ms.author="awills"/>
  
-# Application Insights - introduction
+# Application Performance Management with Application Insights
 
-Visual Studio Application Insights is an extensible analytics service that monitors your live web application. With it you can detect and diagnose performance issues, and understand what users actually do with your app. It's designed for developers, to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. 
+Application Insights is an extensible Application Performance Management (APM) service for web developers. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It also integrates with your devOps process, and has connection points to a wide variety of other tools.
 
 ![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 

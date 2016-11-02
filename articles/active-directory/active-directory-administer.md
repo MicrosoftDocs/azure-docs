@@ -3,7 +3,7 @@
 	description="Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	writer="markvi"
 	manager="femila"
 	editor=""/>

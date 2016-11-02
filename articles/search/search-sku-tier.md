@@ -19,9 +19,9 @@
 
 # Choose a SKU or pricing tier for Azure Search
 
-In Azure Search, a [service is provisioned](search-create-service-portal.md) at a specific pricing tier or SKU. Options include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities. 
+In Azure Search, a [service is provisioned](search-create-service-portal.md) at a specific pricing tier or SKU that determines resourcing levels for your service. Options include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities. 
 
-The purpose of this article is to help you choose a tier. If a tier's capacity turns out to be too low, you will need to provision a new service at the higher tier and then reload your indexes. There is no in-place upgrade of the same service from one SKU to another. 
+The purpose of this article is to help you choose a tier. If capacity turns out to be too low, you will need to provision a new service at a higher tier and then reload your indexes. There is no in-place upgrade of the same service from one SKU to another. 
 
 > [AZURE.NOTE] After you choose a tier and [provision a search service](search-create-service-portal.md), you can increase replica and partition counts within the service. For guidance, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
 
@@ -29,9 +29,11 @@ The purpose of this article is to help you choose a tier. If a tier's capacity t
 
 In Azure Search, the tier determines capacity, not feature availability. Generally, features are available at every tier, including preview features. The one exception is no support for indexers in S3 HD.
 
+Most customers start with lower tiers, such as Basic or Standard 1, and run test workloads during development. The portal reports on QPS for the service as a whole, so you can easily monitor how well the current configuration handles indexing and query volumes.
+
 > [AZURE.TIP] We recommend that you always provision a **Free** service (one per subscription, with no expiration) so that its readily available for light-weight projects. Use the **Free** service for testing and evaluation; create a second billable service at the **Basic** or **Standard** tier for production or larger test workloads.
 
-Capacity and costs of running the service go hand-in-hand. Information in this article can help you decide which SKU delivers the right balance, but for any of it to be useful, you need at least rough estimates on the following:
+Capacity and costs of running the service go hand-in-hand. Information in this article can help you choose an initial SKU that delivers the right balance, but for any of it to be useful, you need at least rough estimates on the following:
 
 - Number and size of indexes you plan to create
 - Number and size of documents to upload
@@ -58,7 +60,7 @@ Tier|Primary scenarios
 **S3**|Standard 3 runs proportionally larger production workloads on higher end systems, in configurations of up to 12 partitions or 12 replicas under 36 search units. At this level, partitions are 200 GB each and QPS is more than 60 queries per second. 
 **S3 HD**|Standard 3 High Density is designed for a large number of smaller indexes. You can have up to 3 partitions, at 200 GB each. QPS is more than 60 queries per second. 
 
-> [AZURE.NOTE] Replica and partition maximums are billed out as search units (36 unit maximum per service), which imposes a lower effective limit than what the maximum implies at face value. For example, to use the maximum of 12 replicas, you could have at most 3 partitions (12 * 3 = 36 units). Similarly, to use maximum partitions, reduce replicas to 3. See [Scale resource levels for query and indexing workloads in Azure Search](search-capacity-planning.md) for a chart on allowable combinations.
+> [AZURE.NOTE] Replica and partition maximums are billed out as search units (36 unit maximum per service), which imposes a lower effective limit than what the maximum implies at face value. For example, to use the maximum of 12 replicas, you could have at most 3 partitions (12 * 3 = 36 units). Similarly, to use maximum partitions, reduce replicas to 3. See [Scale resource levels for query and indexing workloads in Azure Search](search-capacity-planning.md) for allowable combinations.
 
 ## Review limits per tier
 
@@ -76,17 +78,20 @@ Queries per second|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per re
 
 <sup>1</sup> Free and Preview SKUs do not come with SLAs. SLAs are enforced once a SKU becomes generally available.
 
-<sup>2</sup> S3 and S3 HD are backed by identical high capacity infrastructure but each one reaches its maximum limit in different ways. S3 targets a smaller number of very large indexes. As such, its maximum limit is resource-bound (2.4 TB for each service). S3 HD targets a large number of very small indexes. At 1,000 indexes, S3 HD reaches its limits in the form of index constraints. If you are an S3 HD customer who requires more than 1,000 indexes, contact Microsoft Support for information on how to proceed.
+<sup>2</sup> S3 and S3 HD are backed by identical high capacity infrastructure but each one reaches its maximum limit in different ways. S3 targets a smaller number of very large indexes. As such, its maximum limit is resource-bound at 2.4 TB per service. S3 HD targets a large number of very small indexes. At 1,000 indexes, S3 HD reaches its limit in the form of index constraints. However, if you are an S3 HD customer who requires more than 1,000 indexes, you can contact Microsoft Support for assistance.
 
 ## Eliminate SKUs that don't meet requirements 
 
 The following questions can help you arrive at the right SKU decision for your workload.
 
-1. Do you have **Service Level Agreement (SLA)** requirements? Narrow the SKU decision to Basic or non-preview Standard.
-2. **How many indexes** do you require? One of the biggest variables factoring into a SKU decision is the number of indexes supported by each SKU. Index support is at markedly different levels in the lower pricing tiers. Requirements on number of indexes could be a primary determinant of a SKU decision.
-3. **How many documents** will be loaded into each index? The number and size of documents will determine the eventual size of the index. Assuming you can estimate the projected size of the index, you can compare that number against the partition size per SKU, extended by the number of partitions required to store an index of that size. 
-4. **What is the expected query load**? Once storage requirements are understood, consider query workloads. S2 and both S3 SKUs offer near-equivalent throughput, but SLA requirements will rule out any preview SKUs. 
-5. If you are considering the S2 or S3 tier, determine whether you require [indexers](search-indexer-overview.md). Indexers are not yet available for the S3 HD tier. Alternative approach is to use a push model for index updates, where you write application code to push a data set to an index.
+1. **How many indexes do you require?** 
+One of the biggest variables factoring into a SKU decision is the number of indexes supported by each SKU. Index support is at markedly different levels in the lower pricing tiers. Requirements on number of indexes could be a primary determinant of a SKU decision.
+2. **How many documents will be loaded into each index?** 
+The number and size of documents will determine the eventual size of the index. Assuming you can estimate the projected size of the index, you can compare that number against the partition size per SKU, extended by the number of partitions required to store an index of that size. 
+3. **What is the expected query load?** 
+Once storage requirements are understood, consider query workloads. S2 and both S3 SKUs offer near-equivalent throughput, but SLA requirements will rule out any preview SKUs. 
+4. **Do you need indexers?** 
+If you are considering the S2 or S3 tier, be aware that [indexers](search-indexer-overview.md) are not yet available for the S3 HD tier. An alternative approach is to use a push model for index updates, where you write application code to push a data set to an index.
 
 Most customers can rule a specific SKU in or out based on their answers to the above questions. If you still aren't sure which SKU to go with, you can post questions to MSDN or StackOverflow forums, or contact Azure Support for further guidance.
 

@@ -3,8 +3,8 @@
    description="Tips for migrating your SQL code to Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
+   authors="jrowlandjones"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/02/2016"
-   ms.author="lodipalm;barbkess;sonyama;jrj"/>
+   ms.date="10/31/2016"
+   ms.author="jrj;barbkess"/>
 
 # Migrate your SQL code to SQL Data Warehouse
 

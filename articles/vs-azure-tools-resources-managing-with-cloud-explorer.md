@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Managing Azure resources with Cloud Explorer | Microsoft Azure"
    description="Learn how to use Cloud Explorer to browse and manage Azure resources within Visual Studio."
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-<tags 
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
@@ -23,13 +23,13 @@ Cloud Explorer is designed to let you more easily and quickly browse and manage 
 
 Cloud Explorer is built on the Azure resource manager stack, just like the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). It understands resources such as Azure resource groups and Azure services such as Logic apps and API apps, and it supports [role-based access control](./active-directory/role-based-access-control-configure.md) (RBAC). To see Azure resources that have been added or changed, choose the **Refresh** button on the Cloud Explorer toolbar.
 
-Cloud Explorer is installed as part of the Visual Studio Tools for Azure SDK 2.7. 
+Cloud Explorer is installed as part of the Visual Studio Tools for Azure SDK 2.7.
 
 ## Prerequisites
 
 - Visual Studio 2015 RTM.
 
-- The Visual Studio Tools for Azure SDK. 
+- The Visual Studio Tools for Azure SDK.
 - You must also have an Azure account and be logged into it to view Azure resources in Cloud Explorer. If you don't have one, you can create an account in just a couple of minutes. If you have an MSDN subscription, see [Azure Benefit for MSDN Subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, see [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).
 
 - If Cloud Explorer isn't visible, you can view it by choosing **View**, **Other Windows,** **Cloud Explorer** on the menu bar.
@@ -70,8 +70,8 @@ To view your Azure resources, you can choose either **Resource Types** or **Reso
 
 - Resource Groups view categorizes Azure resources by the Azure resource group they're associated with.
 
- 
-	A resource group is a bundle of Azure resources, typically used by a specific application. To learn more about Azure resource groups, see [Azure Resource Manager Overview](./resource-group-overview.md).
+
+	A resource group is a bundle of Azure resources, typically used by a specific application. To learn more about Azure resource groups, see [Azure Resource Manager Overview](./azure-resource-manager/resource-group-overview.md).
 
 ## View and navigate resources
 
@@ -94,4 +94,3 @@ To locate resources with a specific name in your Azure account subscriptions, en
 ![Finding resources in Cloud Explorer](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC820394.png)
 
 As you enter characters in the Search box, only resources that match those characters appear in the resource tree.
-

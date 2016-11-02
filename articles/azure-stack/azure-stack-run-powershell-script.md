@@ -62,7 +62,7 @@ Before you start, make sure that you at least 85 GB of space.
     This script downloads the Azure Stack TP2 support files to the folder specified by the $LocalPath parameter.
     
 6. Open an elevated PowerShell console and change the directory to where you copied the files.
-    - 11 MicrosoftAzureStackPOC-N.BIN (where N is 1-11)
+
 7. Right-Click on the MicrosoftAzureStackPOC.EXE > Run as an administrator.
 
 8. Run the PrepareBootFromVHD.ps1 script. This script and the unattend files are available with the other support scripts provided along with this build.

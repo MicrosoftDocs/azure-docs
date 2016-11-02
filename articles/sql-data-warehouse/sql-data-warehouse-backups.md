@@ -4,8 +4,8 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="lakshmi1812"
-   manager="barbkess"
-   editor="monicar"/>
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/06/2016"
+   ms.date="10/31/2016"
    ms.author="lakshmir;barbkess"/>
 
 # SQL Data Warehouse backups
