@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/14/2016"
+   ms.date="11/01/2016"
    ms.author="bwren" />
 
 # Azure Automation Hybrid Runbook Workers
@@ -41,7 +41,7 @@ When you start a runbook on a Hybrid Runbook Worker, you specify the group that 
 You must designate at least one on-premises computer to run hybrid runbook jobs.  This computer must have the following:
 
 - Windows Server 2012 or later
-- Windows PowerShell 4.0 or later
+- Windows PowerShell 4.0 or later.  We recommend installing Windows PowerShell 5.0 on the computer(s) for increased reliability. You can download the new version from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=50395)
 - Minimum of two cores and 4 GB of RAM
 
 Consider the following recommendations for hybrid workers: 

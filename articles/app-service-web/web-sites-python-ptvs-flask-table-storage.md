@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Flask and Azure Table Storage on Azure with Python Tools 2.2 for Visual Studio" 
-	description="Learn how to use the Python Tools for Visual Studio to create a Flask web app that stores data in Azure Table Storage and deploy it to Azure App Service Web Apps." 
+<properties
+	pageTitle="Flask and Azure Table Storage on Azure with Python Tools 2.2 for Visual Studio"
+	description="Learn how to use the Python Tools for Visual Studio to create a Flask web app that stores data in Azure Table Storage and deploy it to Azure App Service Web Apps."
 	services="app-service\web"
 	tags="python"
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
 	ms.date="07/07/2016"
 	ms.author="huvalo"/>
 
 
 
 
-# Flask and Azure Table Storage on Azure with Python Tools 2.2 for Visual Studio 
+# Flask and Azure Table Storage on Azure with Python Tools 2.2 for Visual Studio
 
 In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=qUtZWtPwbTk).
 
@@ -190,9 +190,9 @@ Follow these links to learn more about Python Tools for Visual Studio, Flask and
 
 <!--Link references-->
 [Python Developer Center]: /develop/python/
-[Azure Cloud Services]: ../cloud-services-python-ptvs.md
-[documentation]: ../storage-python-how-to-use-table-storage.md
-[How to Use the Table Storage Service from Python]: ../storage-python-how-to-use-table-storage.md
+[Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
+[documentation]: ../storage/storage-python-how-to-use-table-storage.md
+[How to Use the Table Storage Service from Python]: ../storage/storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
 [Azure Portal]: https://portal.azure.com
@@ -201,7 +201,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Flask and
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?linkid=518003
-[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
 [Flask Documentation]: http://flask.pocoo.org/
@@ -210,4 +210,3 @@ Follow these links to learn more about Python Tools for Visual Studio, Flask and
 [Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure Storage]: http://azure.microsoft.com/documentation/services/storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
- 

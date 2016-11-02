@@ -101,7 +101,7 @@ The portal and PowerShell both use the [Resource Manager REST API](https://msdn.
 
 ## Tags and billing
 
-For supported services, you can use tags to group your billing data. For example, [Virtual Machines integrated with Azure Resource Manager](./virtual-machines/virtual-machines-windows-compare-deployment-models.md) enable
+For supported services, you can use tags to group your billing data. For example, Virtual Machines deployed with Azure Resource Manager enable
 you to define and apply tags to organize the billing usage for virtual machines. If you are running multiple VMs for different organizations, you can use the tags to group usage by cost center.  
 You can also use tags to categorize costs by runtime environment; such as, the billing usage for VMs running in production environment.
 
@@ -118,3 +118,4 @@ When you download the usage CSV for services that support tags with billing, the
 - For an introduction to using Azure PowerShell when deploying resources, see [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md).
 - For an introduction to using Azure CLI when deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md).
 - For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](./azure-portal/resource-group-portal.md)  
+- For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).

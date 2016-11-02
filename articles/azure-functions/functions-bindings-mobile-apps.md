@@ -1,169 +1,244 @@
 <properties
-	pageTitle="Azure Functions Mobile Apps bindings | Microsoft Azure"
-	description="Understand how to use Azure Mobile Apps bindings in Azure Functions."
-	services="functions"
-	documentationCenter="na"
-	authors="ggailey777"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
+    pageTitle="Azure Functions Mobile Apps bindings | Microsoft Azure"
+    description="Understand how to use Azure Mobile Apps bindings in Azure Functions."
+    services="functions"
+    documentationCenter="na"
+    authors="ggailey777"
+    manager="erikre"
+    editor=""
+    tags=""
+    keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
 
 <tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/30/2016"
-	ms.author="glenga"/>
+    ms.service="functions"
+    ms.devlang="multiple"
+    ms.topic="reference"
+    ms.tgt_pltfrm="multiple"
+    ms.workload="na"
+    ms.date="10/31/2016"
+    ms.author="glenga"/>
 
 # Azure Functions Mobile Apps bindings
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code Azure Mobile Apps bindings in Azure Functions. 
+This article explains how to configure and code [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) bindings in Azure Functions. 
+Azure Functions supports input and output bindings for Mobile Apps.
+
+The Mobile Apps input and output bindings let you [read from and write to data tables](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations)
+in your mobile app.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-Azure App Service Mobile Apps lets you expose table endpoint data to mobile clients. This same tabular data can be used with both input and output bindings in Azure Functions. Because it supports dynamic schema, a Node.js backend mobile app is ideal for exposing tabular data for use with your functions. Dynamic schema is enabled by default and should be disabled in a production mobile app. For more information about table endpoints in a Node.js backend, see [Overview: table operations](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations). In Mobile Apps, the Node.js backend supports in-portal browsing and editing of tables. For more information, see [in-portal editing](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing) in the Node.js SDK topic. When you use a .NET backend mobile app with Azure Functions, you must manually update your data model as required by your function. For more information about table endpoints in a .NET backend mobile app, see [How to: Define a table controller](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) in the .NET backend SDK topic. 
+<a name="input"></a>
+## Mobile Apps input binding
 
-## Create an environment variable for your mobile app backend URL
+The Mobile Apps input binding loads a record from a mobile table endpoint and passes it into your function. 
+In a C# and F# functions, any changes made to the record are automatically sent back to the table when the function exits successfully.
 
-Mobile Apps bindings currently require you to create an environment variable that returns the URL of the mobile app backend itself. This URL can be found in the [Azure portal](https://portal.azure.com) by locating your mobile app and opening the blade.
+The Mobile Apps input to a function uses the following JSON object in the `bindings` array of function.json:
 
-![Mobile Apps blade in the Azure portal](./media/functions-bindings-mobile-apps/mobile-app-blade.png)
+    {
+        "name": "<Name of input parameter in function signature>",
+        "type": "mobileTable",
+        "tableName": "<Name of your mobile app's data table>",
+        "id" : "<Id of the record to retrieve - see below>",
+        "connection": "<Name of app setting that has your mobile app's URL - see below>",
+        "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
+        "direction": "in"
+    }
 
-To set this URL as an environment variable in your function app:
+Note the following:
 
-1. In your function app in the [Azure Functions portal](https://functions.azure.com/signin), click **Function app settings** > **Go to App Service settings**. 
+- `id` can be static, or it can be based on the trigger that invokes the function. For example, if you use a [queue trigger]() for your function, then 
+`"id": "{queueTrigger}"` uses the string value of the queue message as the record ID to retrieve.
+- `connection` should contain the name of an app setting in your function app, which in turn contains the URL of your mobile app. The function 
+uses this URL to construct the required REST operations against your mobile app. You [create an app setting in your function app]() that contains 
+your mobile app's URL (which looks like `http://<appname>.azurewebsites.net`), then specify the name of the app setting in the `connection` property 
+in your input binding. 
+- You need to specify `apiKey` if you [implement an API key in your Node.js mobile app backend](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key),
+or [implement an API key in your .NET mobile app backend](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). To do this,
+you [create an app setting in your function app]() that contains the API key, then add the `apiKey` property in your input binding with the name of the 
+app setting. 
 
-	![Function app settings blade](./media/functions-bindings-mobile-apps/functions-app-service-settings.png)
+    >[AZURE.IMPORTANT] This API key must not be shared with your mobile app clients. It should only be distributed securely to service-side clients, like Azure Functions. 
 
-2. In your function app, click **All settings**, scroll down to **Application settings**, then under **App settings** type a new **Name** for the environment variable, paste the URL into **Value**, making sure to use the HTTPS scheme, then click **Save** and close the function app blade to return to the Functions portal.   
+    >[AZURE.NOTE] Azure Functions stores your connection information and API keys as app settings so that they are not checked into your 
+    source control repository. This safeguards your sensitive information.
 
-	![Add an app setting environment variable](./media/functions-bindings-mobile-apps/functions-app-add-app-setting.png)
+<a name="inputusage"></a>
+## Input usage
 
-You can now set this new environment variable as the *connection* field in your bindings.
+This section shows you how to use your Mobile Apps input binding in your function code. 
 
-## <a id="mobiletablesapikey"></a> Use an API key to secure access to your Mobile Apps table endpoints.
+When the record with the specified table and record ID is found, it is passed into the named 
+[JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) parameter (or, in Node.js,
+it is passed into the `context.bindings.<name>` object). When the record is not found, the parameter is `null`. 
 
-In Azure Functions, mobile table bindings let you specify an API key, which is a shared secret that can be used to prevent unwanted access from apps other than your functions. Mobile Apps does not have built-in support for API key authentication. However, you can implement an API key in your Node.js backend mobile app by following the examples in [Azure App Service Mobile Apps backend implementing an API key](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key). You can similarly implement an API key in a [.NET backend mobile app](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key).
+In C# and F# functions, any changes you make to the input record (input parameter) is automatically sent back to the 
+Mobile Apps table when the function exits successfully. 
+In Node.js functions, use `context.bindings.<name>` to access the input record. You cannot modify a record in Node.js.
 
->[AZURE.IMPORTANT] This API key must not be distributed with your mobile app clients, it should only be distributed securely to service-side clients, like Azure Functions. 
+<a name="inputsample"></a>
+## Input sample
 
-## <a id="mobiletablesinput"></a> Azure Mobile Apps input binding
+Suppose you have the following function.json, that retrieves a Mobile App table record with the id of the queue trigger message:
 
-Input bindings can load a record from a mobile table endpoint and pass it directly to your binding. The record ID is determined based on the trigger that invoked the function. In a C# function, any changes made to the record are automatically sent back to the table when the function exits successfully.
+    {
+    "bindings": [
+        {
+        "name": "myQueueItem",
+        "queueName": "myqueue-items",
+        "connection":"",
+        "type": "queueTrigger",
+        "direction": "in"
+        },
+        {
+            "name": "record",
+            "type": "mobileTable",
+            "tableName": "MyTable",
+            "id" : "{queueTrigger}",
+            "connection": "My_MobileApp_Url",
+            "apiKey": "My_MobileApp_Key",
+            "direction": "in"
+        }
+    ],
+    "disabled": false
+    }
 
-#### function.json for Mobile Apps input binding
+See the language-specific sample that uses the input record from the binding. The C# and F# samples also modify the record's `text` property.
 
-The *function.json* file supports the following properties:
+- [C#](#inputcsharp)
+- [Node.js](#inputnodejs)
 
-- `name` : Variable name used in function code for the new record.
-- `type` : Biding type must be set to *mobileTable*.
-- `tableName` : The table where the new record will be created.
-- `id` : The ID of the record to retrieve. This property supports bindings similar to `{queueTrigger}`, which will use the string value of the queue message as the record Id.
-- `apiKey` : String that is the application setting that specifies the optional API key for the mobile app. This is required when your mobile app uses an API key to restrict client access.
-- `connection` : String that is the name of the environment variable in application settings that specifies the URL of your mobile app backend.
-- `direction` : Binding direction, which must be set to *in*.
+<a name="inputcsharp"></a>
+### Input sample in C\# 
 
-Example *function.json* file:
+    #r "Newtonsoft.Json"	
+    using Newtonsoft.Json.Linq;
+    
+    public static void Run(string myQueueItem, JObject record)
+    {
+        if (record != null)
+        {
+            record["Text"] = "This has changed.";
+        }    
+    }
 
-	{
-	  "bindings": [
-	    {
-	      "name": "record",
-	      "type": "mobileTable",
-	      "tableName": "MyTable",
-	      "id" : "{queueTrigger}",
-	      "connection": "My_MobileApp_Url",
-	      "apiKey": "My_MobileApp_Key",
-	      "direction": "in"
-	    }
-	  ],
-	  "disabled": false
-	}
+<!--
+<a name="inputfsharp"></a>
+### Input sample in F\# 
 
-#### Azure Mobile Apps code example for a C# queue trigger
+    #r "Newtonsoft.Json"	
+    open Newtonsoft.Json.Linq
+    let Run(myQueueItem: string, record: JObject) =
+      inputDocument?text <- "This has changed."
+-->
 
-Based on the example function.json above, the input binding retrieves the record from a Mobile Apps table endpoint with the ID that matches the queue message string and passes it to the *record* parameter. When the record is not found, the parameter is null. The record is then updated with the new *Text* value when the function exits.
+<a name="inputnodejs"></a>
+### Input sample in Node.js 
 
-	#r "Newtonsoft.Json"	
-	using Newtonsoft.Json.Linq;
-	
-	public static void Run(string myQueueItem, JObject record)
-	{
-	    if (record != null)
-	    {
-	        record["Text"] = "This has changed.";
-	    }    
-	}
+    module.exports = function (context, myQueueItem) {    
+        context.log(context.bindings.record);
+        context.done();
+    };
 
-#### Azure Mobile Apps code example for a Node.js queue trigger
+<a name="output"></a>
+## Mobile Apps output binding
 
-Based on the example function.json above, the input binding retrieves the record from a Mobile Apps table endpoint with the ID that matches the queue message string and passes it to the *record* parameter. In Node.js functions, updated records are not sent back to the table. This code example writes the retrieved record to the log.
+Use the Mobile Apps output binding to write a new record to a Mobile Apps table endpoint.  
 
-	module.exports = function (context, input) {    
-	    context.log(context.bindings.record);
-	    context.done();
-	};
+The Mobile Apps output for a function uses the following JSON object in the `bindings` array of function.json:
 
+    {
+        "name": "<Name of output parameter in function signature>",
+        "type": "mobileTable",
+        "tableName": "<Name of your mobile app's data table>",
+        "connection": "<Name of app setting that has your mobile app's URL - see below>",
+        "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
+        "direction": "out"
+    }
 
-## <a id="mobiletablesoutput"></a>Azure Mobile Apps output binding
+Note the following:
 
-Your function can write a record to a Mobile Apps table endpoint using an output binding. 
+- `connection` should contain the name of an app setting in your function app, which in turn contains the URL of your mobile app. The function 
+uses this URL to construct the required REST operations against your mobile app. You [create an app setting in your function app]() that contains 
+your mobile app's URL (which looks like `http://<appname>.azurewebsites.net`), then specify the name of the app setting in the `connection` property 
+in your input binding. 
+- You need to specify `apiKey` if you [implement an API key in your Node.js mobile app backend](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key),
+or [implement an API key in your .NET mobile app backend](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). To do this,
+you [create an app setting in your function app]() that contains the API key, then add the `apiKey` property in your input binding with the name of the 
+app setting. 
 
-#### function.json for Mobile Apps output binding
+    >[AZURE.IMPORTANT] This API key must not be shared with your mobile app clients. It should only be distributed securely to service-side clients, like Azure Functions. 
 
-The function.json file supports the following properties:
+    >[AZURE.NOTE] Azure Functions stores your connection information and API keys as app settings so that they are not checked into your 
+    source control repository. This safeguards your sensitive information.
 
-- `name` : Variable name used in function code for the new record.
-- `type` : Binding type that must be set to *mobileTable*.
-- `tableName` : The table where the new record is created.
-- `apiKey` : String that is the application setting that specifies the optional API key for the mobile app. This is required when your mobile app uses an API key to restrict client access.
-- `connection` : String that is the name of the environment variable in application settings that specifies the URL of your mobile app backend.
-- `direction` : Binding direction, which must be set to *out*.
+<a name="outputusage"></a>
+## Output usage
 
-Example function.json:
+This section shows you how to use your Mobile Apps output binding in your function code. 
 
-	{
-	  "bindings": [
-	    {
-	      "name": "record",
-	      "type": "mobileTable",
-	      "tableName": "MyTable",
-	      "connection": "My_MobileApp_Url",
-	      "apiKey": "My_MobileApp_Key",
-	      "direction": "out"
-	    }
-	  ],
-	  "disabled": false
-	}
+In C# functions, use a named output parameter of type `out object` to access the output record. In Node.js functions, use 
+`context.bindings.<name>` to access the output record.
 
-#### Azure Mobile Apps code example for a C# queue trigger
+<a name="outputsample"></a>
+## Output sample
 
-This C# code example inserts a new record into a Mobile Apps table endpoint with a *Text* property into the table specified in the above binding.
+Suppose you have the following function.json, that defines a queue trigger and a Mobile Apps output:
 
-	public static void Run(string myQueueItem, out object record)
-	{
-	    record = new {
-	        Text = $"I'm running in a C# function! {myQueueItem}"
-	    };
-	}
+    {
+    "bindings": [
+        {
+        "name": "myQueueItem",
+        "queueName": "myqueue-items",
+        "connection":"",
+        "type": "queueTrigger",
+        "direction": "in"
+        },
+        {
+        "name": "record",
+        "type": "mobileTable",
+        "tableName": "MyTable",
+        "connection": "My_MobileApp_Url",
+        "apiKey": "My_MobileApp_Key",
+        "direction": "out"
+        }
+    ],
+    "disabled": false
+    }
 
-#### Azure Mobile Apps code example for a Node.js queue trigger
+See the language-specific sample that creates a record in the Mobile Apps table endpoint with the content of the queue message.
 
-This Node.js code example inserts a new record into a Mobile Apps table endpoint with a *text* property into the table specified in the above binding.
+- [C#](#outcsharp)
+- [Node.js](#outnodejs)
 
-	module.exports = function (context, input) {
-	
-	    context.bindings.record = {
-	        text : "I'm running in a Node function! Data: '" + input + "'"
-	    }   
-	
-	    context.done();
-	};
+<a name="outcsharp"></a>
+### Output sample in C\# 
+
+    public static void Run(string myQueueItem, out object record)
+    {
+        record = new {
+            Text = $"I'm running in a C# function! {myQueueItem}"
+        };
+    }
+
+<!--
+<a name="outfsharp"></a>
+### Output sample in F\# 
+-->
+<a name="outnodejs"></a>
+### Output sample in Node.js
+
+    module.exports = function (context, myQueueItem) {
+    
+        context.bindings.record = {
+            text : "I'm running in a Node function! Data: '" + myQueueItem + "'"
+        }   
+    
+        context.done();
+    };
 
 ## Next steps
 

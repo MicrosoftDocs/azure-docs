@@ -3,7 +3,7 @@
 	description="Learn how to use Azure services to send multi-platform push notifications to your Xamarin.Forms apps."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="adrianhall"
+	authors="ysxu"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/01/2016"
-	ms.author="adrianha"/>
+	ms.date="10/12/2016"
+	ms.author="yuaxu"/>
 
 # Add push notifications to your Xamarin.Forms app
 
@@ -22,21 +22,17 @@
 
 ##Overview
 
-This tutorial shows you how to use Azure services to send push notifications to a Xamarin.Forms apps running on the various native device platforms, Android, iOS and Windows. The push notifications are sent from an Azure Mobile Apps backend using Azure Notification Hubs. Template registrations are used so that the same message can be sent to devices running on all platforms using the various push notification services (PNS). For more information about sending cross-platform push notifications, see the [Azure Notification Hubs](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) documentation. 
+In this tutorial, you add push notifications to all projects resulted from the [Xamarin.Forms quick start](app-service-mobile-xamarin-forms-get-started.md)  so that a push notification is sent to all cross-platform clients every time a record is inserted.
 
-You add push notifications to every project that your Xamarin.Forms app supports. Every time a record is inserted in the backend, a push notification is sent.
+If you do not use the downloaded quick start server project, you will need the push notification extension package. See [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) for more information.
 
 ##Prerequisites
 
-For the best result with this tutorial, we recommend that you first complete the [Create a Xamarin.Forms app](app-service-mobile-xamarin-forms-get-started.md) tutorial. After you complete this tutorial, you will have a Xamarin.Forms project that is a multi-platform TodoList app. 
+* For iOS, you will need an [Apple Developer Program membership](https://developer.apple.com/programs/ios/) and a physical iOS device because the [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
 
-If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+##<a name="configure-hub"></a>Configure a Notification Hub
 
-Sending push notifications to iOS devices requires [Apple Developer Program membership](https://developer.apple.com/programs/ios/). Also, you must use a physical iOS device because the [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
-
-##<a name="create-hub"></a>Create a Notification Hub
-
-[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+[AZURE.INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ##Update the server project to send push notifications
 
@@ -48,17 +44,17 @@ Sending push notifications to iOS devices requires [Apple Developer Program memb
 Complete this section to enable push notifications for the Xamarin.Forms Droid project for Android.
 
 
-###Enable Google Cloud Messaging (GCM)
+###Enable Firebase Cloud Messaging (FCM)
 
-[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+[AZURE.INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-###Configure the Mobile App backend to send push requests using GCM
+###Configure the Mobile App backend to send push requests using FCM
 
 [AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
 ###Add push notifications to the Android project
 
-With the backend configured to use Google Cloud Messaging (GCM), we can add the components and the code to the client that enables the app to register with GCM, register for push notifications with Azure Notification Hubs through the mobile app backend, and receive notifications.
+With the backend configured with FCM, we can add components and codes to the client to register with FCM, register for push notifications with Azure Notification Hubs through the mobile app backend, and receive notifications.
 
 1. In the **Droid** project, right-click the **Components** folder, click **Get More Components...**, search for the **Google Cloud Messaging Client** component and add it to the project. This component supports push notifications for a Xamarin Android project.
 
@@ -313,17 +309,14 @@ The first two steps are required only when testing on an emulator.
 
 This section is for running the Xamarin iOS project for iOS devices. You can skip this section if you are not working with iOS devices.
 
-[AZURE.INCLUDE [notification-hubs-xamarin-enable-apple-push-notifications](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
 
 ####Configure the notification hub for APNS
 
-1. Log into the [Azure portal](https://portal.azure.com/). Click **Browse** > **Mobile Apps** > your Mobile App > **Settings** > **Push** > **Apple (APNS)** > **Upload Certificate**. Upload the .p12 push certificate file you exported earlier.  Make sure to select **Sandbox** if you created a development push certificate for development and testing.  Otherwise, choose **Production**. Your service is now configured to work with push notifications for iOS.
+[AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
-
-
-	Next you will configure the iOS project setting in Xamarin Studio or Visual Studio.
+Next you will configure the iOS project setting in Xamarin Studio or Visual Studio.
 
 [AZURE.INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
@@ -480,9 +473,6 @@ This section is for running the Xamarin.Forms WinApp and WinPhone81 projects for
 ##Next steps
 
 Learn more about push notifications:
-
-* [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags)  
-Tags allow you to target segmented customers with pushes.  Learn how to add tags to a device installation.
 
 * [Diagnose push notification issues](../notification-hubs/notification-hubs-push-notification-fixer.md)  
 There are various reasons why notifications may get dropped or do not end up on devices. This topic shows you how to analyze and figure out the root cause of push notification failures. 

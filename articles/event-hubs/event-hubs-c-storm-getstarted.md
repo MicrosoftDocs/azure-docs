@@ -70,6 +70,6 @@ The following resources are available for developing applications integrating Ev
 [Event Hubs overview]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[HDInsight Storm overview]: ../hdinsight/hdinsight-storm-overview.md/
+[HDInsight Storm overview]: ../hdinsight/hdinsight-storm-overview.md
 [Analyzing sensor data with Storm and HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md

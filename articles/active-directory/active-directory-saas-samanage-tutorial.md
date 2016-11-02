@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="08/15/2016" 
+    ms.date="10/31/2016" 
     ms.author="jeedes" />
 
 # Tutorial: Azure Active Directory integration with Samanage

@@ -3,8 +3,8 @@
    description="Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/06/2016"
-   ms.author="barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
 # Query Azure SQL Data Warehouse (sqlcmd)
 
@@ -23,6 +23,7 @@
 - [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+- [SSMS](sql-data-warehouse-query-ssms.md)
 
 This walkthrough uses the [sqlcmd][] command-line utility to query an Azure SQL Data Warehouse.  
 

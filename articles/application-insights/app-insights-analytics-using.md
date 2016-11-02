@@ -171,7 +171,7 @@ Put the cursor in a query and choose **Export to Power BI**.
 
 ![Export from Analytics to Power BI](./media/app-insights-analytics-using/240.png)
 
-The query gets the data, which you then render in Power BI. You can refresh the data by re-running the query.
+You run the query in Power BI. You can set it to refresh on a schedule.
 
 With Power BI, you can create dashboards that bring together data from a wide variety of sources.
 

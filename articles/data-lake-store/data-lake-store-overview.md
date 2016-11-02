@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Overview of Azure Data Lake Store | Azure"
+   pageTitle="Overview of Azure Data Lake Store | Microsoft Azure"
    description="Understand what is Azure Data Lake Store and the value it provides over other data stores"
    services="data-lake-store"
    documentationCenter=""

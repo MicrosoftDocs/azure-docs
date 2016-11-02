@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="11/02/2016"
 	ms.author="jingwang"/>
 
 # Move data from Salesforce by using Azure Data Factory
@@ -21,10 +21,16 @@ This article outlines how you can use Copy Activity in an Azure data factory to 
 
 Azure Data Factory currently supports only moving data from Salesforce to [supported sink data stores]((data-factory-data-movement-activities.md#supported-data-stores), but does not support moving data from other data stores to Salesforce.
 
+## Supported versions
+This connector support the following editions of Salesforce: Developer Edition, Professional Edition, Enterprise Edition, or Unlimited Edition.
+
 ## Prerequisites
-- You must use one of the following editions of Salesforce: Developer Edition, Professional Edition, Enterprise Edition, or Unlimited Edition.
+
 - API permission must be enabled. See [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 - To copy data from Salesforce to on-premises data stores, you must have at least Data Management Gateway 2.0 installed in your on-premises environment.
+
+## Salesforce request limits
+Salesforce has limits for both total API requests and concurrent API requests. See the "API Request Limits" section in the [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details. Note if the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures; if the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours; you might also receive the “REQUEST_LIMIT_EXCEEDED“ error in both scenarios.
 
 ## Copy Data wizard
 The easiest way to create a pipeline that copies data from Salesforce to any of the supported sink data stores is to use the Copy Data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline by using the Copy Data wizard.
@@ -207,6 +213,7 @@ The **typeProperties** section is different for each type of dataset and provide
 ![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 ## RelationalSource type properties
+
 For a full list of sections and properties that are available for defining activities, see the [Creating pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, and various policies are available for all types of activities.
 
 The properties that are available in the typeProperties section of the activity, on the other hand, vary with each activity type. For Copy Activity, they vary depending on the types of sources and sinks.
@@ -217,19 +224,26 @@ In copy activity, when the source is of the type **RelationalSource** (which inc
 | -------- | ----------- | -------------- | -------- |
 | query | Use the custom query to read data. | A SQL-92 query or [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. For example:  `select * from MyTable__c`. | No (if the **tableName** of the **dataset** is specified) |
 
-> [AZURE.IMPORTANT] The "__c" part of the API Name is needed for any custom object.<br>
-When you specify a query that includes the **where** clause on the DateTime column, use SOQL. For example: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), or SQL query e.g. $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate   >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
+> [AZURE.IMPORTANT] The "__c" part of the API Name is needed for any custom object.
 
 ![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
-## Retrieving data from Salesforce Report
+## Query tips
+
+### Retrieving data using where clause on DateTime column
+When specify the SOQL or SQL query, pay attention to the DateTime format difference. For example:
+
+- **SOQL sample**: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)
+- **SQL sample**: $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
+
+### Retrieving data from Salesforce Report
 You can retrieve data from Salesforce reports by specifying query as `{call "<report name>"}`, e.g. `"query": "{call \"TestReport\"}"`.
 
-## Salesforce request limits
-Salesforce has limits for both total API requests and concurrent API requests. See the "API Request Limits" section in the [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
+### Retrieving deleted records from Salesforce Recycle Bin
+To query the soft deleted records from Salesforce Recycle Bin, you can specify **"IsDeleted = 1"** in your query. For example, 
 
-If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures. If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours. You might also receive the “REQUEST_LIMIT_EXCEEDED“ error in both scenarios.  
-
+- To query only the deleted records, specify "select * from MyTable__c **where IsDeleted= 1**"
+- To query all the records including the existing and the deleted, specify "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

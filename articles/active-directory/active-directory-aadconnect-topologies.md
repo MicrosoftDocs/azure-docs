@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="article"
-    ms.date="10/20/2016"
+    ms.date="11/01/2016"
     ms.author="billmath"/>
 
 # Topologies for Azure AD Connect
@@ -182,7 +182,7 @@ Azure AD tenants are by design isolated.
 It is supported to use FIM2010/MIM2016 on-premises to GALsync users between two Exchange organizations. The users in one organization shows up as foreign users/contacts in the other organization. These different on-premises ADs can then be synchronized to their own Azure AD tenants.
 
 ## Next steps
-To learn how to install Azure AD Connect for these scenarios, see [Custom installation of Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md).
+To learn how to install Azure AD Connect for these scenarios, see [Custom installation of Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md).
 
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 

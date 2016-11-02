@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Azure Insights: Use autoscale actions to send email and webhook alert notifications. | Microsoft Azure"
-	description="See how to use autoscale actions to call web URLs or send email notifications in Azure Insights. "
+	pageTitle="Use autoscale actions to send email and webhook alert notifications. | Microsoft Azure"
+	description="See how to use autoscale actions to call web URLs or send email notifications in Azure Monitor. "
 	authors="kamathashwin"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
@@ -16,7 +16,7 @@
 	ms.date="07/19/2016"
 	ms.author="ashwink"/>
 
-# Use autoscale actions to send email and webhook alert notifications in Azure Insights
+# Use autoscale actions to send email and webhook alert notifications in Azure Monitor
 
 This article shows you how set up triggers so that you can call specific web URLs or send emails based on autoscale actions in Azure.  
 
@@ -62,15 +62,15 @@ When using the REST API or Resource Manager template, include the notifications 
       }
     ]
 ```
-|Field	|Mandatory?|	Description|
-|---|---|---|
-|operation	|yes	|value must be "Scale"|
-|sendToSubscriptionAdministrator	|yes	|value must be "true" or "false"|
-|sendToSubscriptionCoAdministrators	|yes	|value must be "true" or "false"|
-|customEmails	|yes	|value can be null [] or string array of emails|
-|webhooks	|yes	|value can be null or valid Uri|
-|serviceUri	|yes	|a valid https Uri|
-|properties	|yes	|value must be empty {} or can contain key-value pairs|
+|Field								|Mandatory?	|Description|
+|---								|---		|---|
+|operation							|yes		|value must be "Scale"|
+|sendToSubscriptionAdministrator	|yes		|value must be "true" or "false"|
+|sendToSubscriptionCoAdministrators	|yes		|value must be "true" or "false"|
+|customEmails						|yes		|value can be null [] or string array of emails|
+|webhooks							|yes		|value can be null or valid Uri|
+|serviceUri							|yes		|a valid https Uri|
+|properties							|yes		|value must be empty {} or can contain key-value pairs|
 
 
 ## Authentication in webhooks

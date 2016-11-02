@@ -49,7 +49,7 @@ When a client sends a request to Service Bus, the Azure load balancer routes it 
 
 When the relay connection is established, the clients can exchange messages via the gateway node that is used for the rendezvous.
 
-![Processing of Incoming Relay Requests](./media/service-bus-architecture/IC690645.png)
+![Processing of Incoming WCF Relay Requests](./media/service-bus-architecture/IC690645.png)
 
 ## Next steps
 

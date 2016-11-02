@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/24/2016"
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="rortloff;barbkess"/>
 
 # Get started with Transparent Data Encryption (TDE)
 

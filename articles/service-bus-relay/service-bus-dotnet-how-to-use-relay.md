@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use the Service Bus relay with .NET | Microsoft Azure"
+	pageTitle="How to use the Service Bus WCF Relay with .NET | Microsoft Azure"
 	description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations."
 	services="service-bus"
 	documentationCenter=".net"
@@ -17,7 +17,7 @@
 	ms.author="sethm"/>
 
 
-# How to use the Azure Service Bus relay service
+# How to use the Service Bus WCF Relay with .NET
 
 This article describes how to use the Service Bus relay service. The samples are written in C# and use the Windows Communication Foundation (WCF) API with extensions contained in the Service Bus assembly. For more information about the Service Bus relay, see the [Service Bus relayed messaging](service-bus-relay-overview.md) overview.
 
@@ -27,7 +27,7 @@ This article describes how to use the Service Bus relay service. The samples are
 
 The [Service Bus *relay*](service-bus-relay-overview.md) service enables you to build hybrid applications that run in both an Azure datacenter and your own on-premises enterprise environment. The Service Bus relay facilitates this by enabling you to securely expose Windows Communication Foundation (WCF) services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or requiring intrusive changes to a corporate network infrastructure.
 
-![Relay Concepts](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
+![WCF Relay Concepts](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
 The Service Bus relay enables you to host WCF services within your existing enterprise environment. You can then delegate listening for incoming sessions and requests to these WCF services to the Service Bus
 service running within Azure. This enables you to expose these services to application code running in Azure, or to mobile workers or extranet partner environments. Service Bus enables you to securely control who can

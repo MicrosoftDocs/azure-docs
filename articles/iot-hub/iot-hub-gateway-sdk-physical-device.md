@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Use a real device with the Gateway SDK | Microsoft Azure"
-	description="Azure IoT Hub Gateway SDK walkthrough using a Texas Instruments SensorTag to send data to IoT Hub through a gateway running on an Intel Edison Compute Module"
+	pageTitle="Use a real device with the IoT Gateway SDK | Microsoft Azure"
+	description="Azure IoT Gateway SDK walkthrough using a Texas Instruments SensorTag device to send data to IoT Hub through a gateway running on A Raspberry Pi 3"
 	services="iot-hub"
 	documentationCenter=""
 	authors="chipalost"
@@ -13,13 +13,13 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="08/29/2016"
+     ms.date="11/01/2016"
      ms.author="andbuc"/>
 
 
-# IoT Gateway SDK (beta) – send device-to-cloud messages with a real device using Linux
+# Azure IoT Gateway SDK (beta) – send device-to-cloud messages with a real device using Linux
 
-This walkthrough of the [Bluetooth low energy sample][lnk-ble-samplecode] shows you how to use the [Microsoft Azure IoT Gateway SDK][lnk-sdk] to forward device-to-cloud telemetry to IoT Hub from a physical device and how to route commands from IoT Hub to a physical device.
+This walkthrough of the [Bluetooth low energy sample][lnk-ble-samplecode] shows you how to use the [Azure IoT Gateway SDK][lnk-sdk] to forward device-to-cloud telemetry to IoT Hub from a physical device and how to route commands from IoT Hub to a physical device.
 
 This walkthrough covers:
 
@@ -29,12 +29,12 @@ This walkthrough covers:
 
 ## Architecture
 
-The walkthrough shows you how to build and run an IoT Gateway on an Intel Edison Compute Module that runs Linux. The gateway is built using the IoT Gateway SDK. The sample uses a Texas Instruments SensorTag Bluetooth Low Energy (BLE) device to collect temperature data.
+The walkthrough shows you how to build and run an IoT Gateway on a Raspberry Pi 3 that runs Raspbian Linux. The gateway is built using the IoT Gateway SDK. The sample uses a Texas Instruments SensorTag Bluetooth Low Energy (BLE) device to collect temperature data.
 
 When you run the gateway it:
 
 - Connects to a SensorTag device using the Bluetooth Low Energy (BLE) protocol.
-- Connects to IoT Hub using the AMQP protocol.
+- Connects to IoT Hub using the HTTP protocol.
 - Forwards telemetry from the SensorTag device to IoT Hub.
 - Routes commands from IoT Hub to the SensorTag device.
 
@@ -74,33 +74,86 @@ The following block diagram illustrates the device command data flow pipeline:
 
 ## Prepare your hardware
 
-This tutorial assumes you are using a [Texas Instruments SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html) device connected to an Intel Edison board.
+This tutorial assumes you are using a [Texas Instruments SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html) device connected to a Raspberry Pi 3 running Raspbian.
 
-### Set up the Edison board
+### Install Raspbian
 
-Before you get started, you should make sure that you can connect your Edison device to your wireless network. To set up your Edison device, you need to connect it to a host computer. Intel provides getting started guides for the following operating systems:
+You can use either of the following options to install Raspbian on your Raspberry Pi 3 device. 
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64].
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32].
-- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx].
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux].
+- Use [NOOBS][lnk-noobs], a graphical user interface, to install the latest version of Raspbian. 
+- Manually [download][lnk-raspbian] and write the latest image of the Raspbian operating system to a SD card. 
 
-To set up your Edison device and familiarize yourself with it, you should complete all the steps in these "Get started" articles except for the last step, "Choose IDE", which is unnecessary for the current tutorial. At the end of the Edison setup process you have:
+### Install BlueZ 5.37
+The BLE modules talk to the Bluetooth hardware via the BlueZ stack. You need version 5.37 of BlueZ for the modules to work correctly. These instructions make sure the correct version of BlueZ is installed.
 
-- Flashed your Edison with the latest firmware.
-- Established a serial connection from your host to the Edison.
-- Run the **configure_edison** script to set a password and enable WiFi on your Edison.
-
-### Enable connectivity to the SensorTag device from your Edison board
-
-Before running the sample, you need to verify that your Edison board can connect to the SensorTag device.
-
-First you need to verify that your Edison can connect to the SensorTag device.
-
-1. Unblock bluetooth on the Edison and check that the version number is **5.37**.
+1. Stop the current bluetooth daemon:
     
     ```
-    rfkill unblock bluetooth
+    sudo systemctl stop bluetooth
+    ```
+
+2. Install dbus, a BlueZ dependency. 
+    
+    ```
+    sudo apt-get install libdbus-1-dev
+    ```
+ 
+3. Install ical, a BlueZ dependency. 
+    
+    ```
+    sudo apt-get install libical-dev
+    ```
+
+4. Install readline, a BlueZ dependency. 
+    
+    ```
+    sudo apt-get install libreadline-dev
+    ```
+
+5. Download the BlueZ source code from bluez.org. 
+    
+    ```
+    wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
+    ```
+
+6. Unzip the source code.
+    
+    ```
+    tar -xvf bluez-5.37.tar.xz
+    ```
+
+7. Change directories to the newly created folder.
+    
+    ```
+    cd bluez-5.37
+    ```
+
+8. Build BlueZ.
+    
+    ```
+    make
+    ```
+
+9. Install BlueZ once it is done building.
+    
+    ```
+    sudo make install
+    ```
+
+10. Change systemd service configuration for bluetooth so it points to the new bluetooth daemon in the file `/lib/systemd/system/bluetooth.service`. Replace the 'ExecStart' line with the following text: 
+    
+    ```
+    ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
+    ```
+
+### Enable connectivity to the SensorTag device from your Raspberry Pi 3 device
+
+Before running the sample, you need to verify that your Raspberry Pi 3 can connect to the SensorTag device.
+
+1. Unblock bluetooth on the Raspberry Pi 3 and check that the version number is **5.37**.
+    
+    ```
+    sudo rfkill unblock bluetooth
     bluetoothctl --version
     ```
 
@@ -109,7 +162,7 @@ First you need to verify that your Edison can connect to the SensorTag device.
 3. Enter the command **power on** to power up the bluetooth controller. You should see output similar to:
     
     ```
-    [NEW] Controller 98:4F:EE:04:1F:DF edison [default]
+    [NEW] Controller 98:4F:EE:04:1F:DF C3 raspberrypi [default]
     ```
 
 4. While still in the interactive bluetooth shell, enter the command **scan on** to scan for bluetooth devices. You should see output similar to:
@@ -119,7 +172,7 @@ First you need to verify that your Edison can connect to the SensorTag device.
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
     ```
 
-5. Make the SensorTag device discoverable by pressing the small button (the green LED should flash). The Edison should discover the SensorTag device:
+5. Make the SensorTag device discoverable by pressing the small button (the green LED should flash). The Raspberry Pi 3 should discover the SensorTag device:
     
     ```
     [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
@@ -136,7 +189,7 @@ First you need to verify that your Edison can connect to the SensorTag device.
     Discovery stopped
     ```
 
-7. Connect to your SensorTag device using its MAC address by entering **connect <MAC address>**. Note that the sample output below is abbreviated:
+7. Connect to your SensorTag device using its MAC address by entering **connect \<MAC address>**. Note that the sample output below is abbreviated:
     
     ```
     Attempting to connect to A0:E6:F8:B5:F6:00
@@ -165,54 +218,44 @@ First you need to verify that your Edison can connect to the SensorTag device.
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: no
     ```
 
-You're now ready to run the BLE Gateway sample on your Edison device.
+You're now ready to run the BLE Gateway sample on your Raspberry Pi 3.
 
 ## Run the BLE Gateway sample
 
-To run the BLE sample on your Edison, you need to complete three tasks:
+To run the BLE sample, you need to complete three tasks:
 
 - Configure two sample devices in your IoT Hub.
-- Build the Gateway SDK on your Edison device.
-- Configure and run the BLE sample on your Edison device.
+- Build the IoT Gateway SDK on your Raspberry Pi 3 device.
+- Configure and run the BLE sample on your Raspberry Pi 3 device.
 
-At the time of writing, the Gateway SDK only supports gateways that use BLE modules on Linux.
+At the time of writing, the IoT Gateway SDK only supports gateways that use BLE modules on Linux.
 
 ### Configure two sample devices in your IoT Hub
 
-- [Create an IoT hub][lnk-create-hub] in your Azure subscription, you will need the name of your hub to complete this walkthrough. If you don't already have an Azure subscription, you can get a [free account][lnk-free-trial].
+- [Create an IoT hub][lnk-create-hub] in your Azure subscription, you will need the name of your hub to complete this walkthrough. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
 - Add one device called **SensorTag_01** to your IoT hub and make a note of its id and device key. You can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tools to add this device to the IoT hub you created in the previous step and to retrieve its key. You will map this device to the SensorTag device when you configure the gateway.
 
-### Build the Gateway SDK on your Edison device
+### Build the IoT Gateway SDK on your Raspberry Pi 3
 
-The version of **git** on the Edsion does not support submodules. To download the full source for the Gateway SDK to the Edison you have two options:
-
-- Option #1: Clone the [Microsoft Azure IoT Gateway SDK][lnk-sdk] repository on your Edison and then manually clone the repository for each submodule.
-- Option #2: Clone the [Microsoft Azure IoT Gateway SDK][lnk-sdk] repository on a desktop device where **git** supports submodules and then copy the complete repository with submodules onto your Edison.
-
-If you choose option #2, use the following **git** commands to clone the Gateway SDK and all its submodules:
+Use the following **git** commands to clone the IoT Gateway SDK and all its submodules:
 
 ```
 git clone --recursive https://github.com/Azure/azure-iot-gateway-sdk.git 
+cd azure-iot-gateway-sdk
 git submodule update --init --recursive
 ```
 
-You should then zip the entire local repository into a single archive file before you copy it to the Edison. You can use a utility such as **pscp** which is included with **Putty** to copy the archive file to the Edison. For example:
-
-```
-pscp .\gatewaysdk.zip root@192.168.0.45:/home/root
-```
-
-When you have a complete copy of the Gateway SDK repository on your Edison, you can build it using the following command from the folder that contains the SDK:
+When you have a complete copy of the IoT Gateway SDK repository on your Raspberry Pi 3, you can build it using the following command from the folder that contains the SDK:
 
 ```
 ./tools/build.sh
 ```
 
-### Configure and run the BLE sample on your Edison device
+### Configure and run the BLE sample on your Raspberry Pi 3
 
-To bootstrap and run the sample, you need to configure each module that participates in the gateway. This configuration is provided in a JSON file and you need to configure all five participating modules. There is a sample JSON file provided in the repository called **gateway_sample.json** which you can use as the starting point for building your own configuration file. This file is in the **samples/ble_gateway_hl/src** folder in local copy of the Gateway SDK repository.
+To bootstrap and run the sample, you need to configure each module that participates in the gateway. This configuration is provided in a JSON file and you need to configure all five participating modules. There is a sample JSON file provided in the repository called **gateway_sample.json** which you can use as the starting point for building your own configuration file. This file is in the **samples/ble_gateway_hl/src** folder in local copy of the IoT Gateway SDK repository.
 
-The following sections describe how to edit this configuration file for the BLE sample and assume that the gateway SDK repository is in the **/home/root/azure-iot-gateway-sdk/** folder on your Edison device. If the repository is elsewhere, you should adjust the paths accordingly:
+The following sections describe how to edit this configuration file for the BLE sample and assume that the IoT Gateway SDK repository is in the **/home/root/azure-iot-gateway-sdk/** folder on your Raspberry Pi 3. If the repository is elsewhere, you should adjust the paths accordingly:
 
 #### Logger configuration
 
@@ -221,7 +264,9 @@ Assuming the gateway repository is located in the folder **/home/root/azure-iot-
 ```json
 {
     "module name": "logger",
-    "module path": "/home/root/azure-iot-gateway-sdk/build/modules/logger/liblogger_hl.so",
+    "loading args": {
+      "module path": "/home/root/azure-iot-gateway-sdk/build/modules/logger/liblogger_hl.so"
+    },
     "args":
     {
         "filename":"/home/root/gw_logger.log"
@@ -236,7 +281,9 @@ The sample configuration for the BLE device assumes a Texas Instruments SensorTa
 ```json
 {
   "module name": "SensorTag",
-  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/ble/libble_hl.so",
+  "loading args": {
+    "module path": "/home/root/azure-iot-gateway-sdk/build/modules/ble/libble_hl.so"
+  },
   "args": {
     "controller_index": 0,
     "device_mac_address": "<<AA:BB:CC:DD:EE:FF>>",
@@ -292,7 +339,9 @@ Add the name of your IoT Hub. The suffix value is typically **azure-devices.net*
 ```json
 {
   "module name": "IoTHub",
-  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/iothub/libiothub_hl.so",
+  "loading args": {
+    "module path": "/home/root/azure-iot-gateway-sdk/build/modules/iothub/libiothub_hl.so"
+  },
   "args": {
     "IoTHubName": "<<Azure IoT Hub Name>>",
     "IoTHubSuffix": "<<Azure IoT Hub Suffix>>",
@@ -308,7 +357,9 @@ Add the MAC address of your SensorTag device and the device Id and key of the **
 ```json
 {
   "module name": "mapping",
-  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/identitymap/libidentity_map_hl.so",
+  "loading args": {
+    "module path": "/home/root/azure-iot-gateway-sdk/build/modules/identitymap/libidentity_map_hl.so"
+  },
   "args": [
     {
       "macAddress": "<<AA:BB:CC:DD:EE:FF>>",
@@ -324,7 +375,9 @@ Add the MAC address of your SensorTag device and the device Id and key of the **
 ```json
 {
     "module name": "BLE Printer",
-    "module path": "/home/root/azure-iot-gateway-sdk/build/samples/ble_gateway_hl/ble_printer/libble_printer.so",
+    "loading args": {
+      "module path": "/home/root/azure-iot-gateway-sdk/build/samples/ble_gateway_hl/ble_printer/libble_printer.so"
+    },
     "args": null
 }
 ```
@@ -332,7 +385,7 @@ Add the MAC address of your SensorTag device and the device Id and key of the **
 #### Routing configuration
 
 The following configuration ensures the following:
-- The **Logger** module receives and log all messages.
+- The **Logger** module receives and logs all messages.
 - The **SensorTag** module sends messages to both the **mapping** and **BLE Printer** modules.
 - The **mapping** module sends messages to the **IoTHub** module to be sent up to your IoT Hub.
 - The **IoTHub** module sends messages back to the **mapping** module.
@@ -355,7 +408,7 @@ To run the sample you run the **ble_gateway_hl** binary passing the path to the 
 ./build/samples/ble_gateway_hl/ble_gateway_hl ./samples/ble_gateway_hl/src/gateway_sample.json
 ```
 
-You may need to press the small button on the SensorTag to make it discoverable before you run the sample.
+You may need to press the small button on the SensorTag device to make it discoverable before you run the sample.
 
 When you run the sample, you can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages the gateway forwards from the SensorTag device.
 
@@ -419,7 +472,7 @@ The default behavior for a device using the HTTP protocol to connect to IoT Hub 
 
 ## Next steps
 
-If you want to gain a more advanced understanding of the Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
+If you want to gain a more advanced understanding of the IoT Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
 
 - [Azure IoT Gateway SDK][lnk-sdk]
 
@@ -431,11 +484,9 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
-[lnk-setup-win64]: https://software.intel.com/get-started-edison-windows
-[lnk-setup-win32]: https://software.intel.com/get-started-edison-windows-32
-[lnk-setup-osx]: https://software.intel.com/get-started-edison-osx
-[lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
+[lnk-noobs]: https://www.raspberrypi.org/documentation/installation/noobs.md
+[lnk-raspbian]: https://www.raspberrypi.org/downloads/raspbian/
 
 
 [lnk-devguide]: iot-hub-devguide.md

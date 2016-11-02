@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="navalev"
-   manager=""
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -580,6 +580,7 @@ You can re-deploy the template by using the same commands you used when deployin
 
 ## Next steps
 
-- [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) is a great tool to visualize ARM templates, as they might become too large to understand just from reading the json file.
+- [Azure Resource Manager Template Visualizer](http://armviz.io/#/) is a great tool to visualize Resource Manager templates, as they might become too large to understand just from reading the json file.
 - To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 - To learn about deploying a template, see [Deploy a Resource Group with Azure Resource Manager template](resource-group-template-deploy.md)
+- For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](./virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md). This series covers application architecture, access and security, availability and scale, and application deployment.

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Diagnose failures and exceptions in ASP.NET apps with Application Insights" 
+	pageTitle="Diagnose failures and exceptions in ASP.NET apps with Application Insights | Microsoft Azure" 
 	description="Capture exceptions from ASP.NET apps along with request telemetry." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -12,18 +12,28 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/01/2016" 
 	ms.author="awills"/>
 
 
-# Set up Application Insights: Diagnose exceptions
+# Diagnose exceptions in your web apps with Application Insights
 
-[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+Exceptions in your live web app are reported by [Application Insights](app-insights-overview.md). You can correlate failed requests with exceptions and other events at both the client and server, so that you can quickly diagnose the causes.
 
+## Set up exception reporting
 
-By monitoring your application with [Visual Studio Application Insights][start], you can correlate failed requests with exceptions and other events at both the client and server, so that you can quickly diagnose the causes.
+* To have exceptions reported from your server app:
+ * Install [Application Insights SDK](app-insights-asp-net.md) in your app code, or 
+ * IIS web servers: Run [Application Insights Agent](app-insights-monitor-performance-live-website-now.md); or
+ * Azure web apps: Add the [Application Insights Extension](app-insights-azure-web-apps.md)
+* Install the [JavaScript snippet](app-insights-javascript.md) in your web pages to catch browser exceptions.
+* In some application frameworks or with some settings, you need to take some extra steps to catch more exceptions:
+ * [Web forms](#web-forms)
+ * [MVC](#mvc)
+ * [Web API 1.*](#web-api-1)
+ * [Web API 2.*](#web-api-2)
+ * [WCF](#wcf)
 
-To monitor an ASP.NET app, you have to [add Application Insights SDK][greenbrown] to your application, or [install Status Monitor on your IIS server][redfield], or, if your app is an Azure Web App, add the [Application Insights Extension](app-insights-azure-web-apps.md).
 
 ## Diagnosing exceptions using Visual Studio
 
@@ -68,21 +78,9 @@ From there you can look at the stack trace and detailed properties of each excep
 
 ![Drill through](./media/app-insights-asp-net-exceptions/050-exception-properties.png)
 
-[Learn more about Diagnostic Search][diagnostic].
+[Learn more about Diagnostic Search](app-insights-diagnostic-search.md).
 
 
-
-## Dependency failures
-
-A *dependency* is a service that your application calls, typically through a REST API or database connection. [Application Insights Status Monitor][redfield] automatically monitors a variety of types of dependency call, measuring call duration and success or failure. 
-
-To get dependency data, you have to [install Status Monitor][redfield] on your IIS server, or if your app is an Azure Web App, use the [Application Insights Extension](app-insights-azure-web-apps.md). 
-
-Failed calls to dependencies are listed on the Failures blade, and you can also find them under Related Items in the request details and exception details.
-
-*No dependency failures? That's good. But to verify that you're getting dependency data, open the Performance blade and look at the Dependency Duration chart.*
-
- 
 
 ## Custom tracing and log data
 
@@ -90,12 +88,12 @@ To get diagnostic data specific to your app, you can insert code to send your ow
 
 You have several options:
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) is typically used for monitoring usage patterns, but the data it sends also appears under Custom Events in diagnostic search. Events are named, and can carry string properties and numeric metrics on which you can [filter your diagnostic searches][diagnostic].
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) is typically used for monitoring usage patterns, but the data it sends also appears under Custom Events in diagnostic search. Events are named, and can carry string properties and numeric metrics on which you can [filter your diagnostic searches](app-insights-diagnostic-search.md).
 * [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) lets you send longer data such as POST information.
 * [TrackException()](#exceptions) sends stack traces. [More about exceptions](#exceptions).
-* If you already use a logging framework like Log4Net or NLog, you can [capture those logs][netlogs] and see them in diagnostic search alongside request and exception data.
+* If you already use a logging framework like Log4Net or NLog, you can [capture those logs](app-insights-asp-net-trace-logs.md) and see them in diagnostic search alongside request and exception data.
 
-To see these events, open [Search][diagnostic], open Filter, and then choose Custom Event, Trace, or Exception.
+To see these events, open [Search](app-insights-diagnostic-search.md), open Filter, and then choose Custom Event, Trace, or Exception.
 
 
 ![Drill through](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
@@ -107,8 +105,8 @@ To see these events, open [Search][diagnostic], open Filter, and then choose Cus
 
 Request details don't include the data sent to your app in a POST call. To have this data reported:
 
-* [Install the SDK][greenbrown] in your application project.
-* Insert code in your application to call [Microsoft.ApplicationInsights.TrackTrace()][api]. Send the POST data in the message parameter. There is a limit to the permitted size, so you should try to send just the essential data.
+* [Install the SDK](app-insights-asp-net.md) in your application project.
+* Insert code in your application to call [Microsoft.ApplicationInsights.TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace). Send the POST data in the message parameter. There is a limit to the permitted size, so you should try to send just the essential data.
 * When you investigate a failed request, find the associated traces.  
 
 ![Drill through](./media/app-insights-asp-net-exceptions/060-req-related.png)
@@ -116,7 +114,7 @@ Request details don't include the data sent to your app in a POST call. To have 
 
 ## <a name="exceptions"></a> Capturing exceptions and related diagnostic data
 
-At first, you won't see in the portal all the exceptions that cause failures in your app. You'll see any browser exceptions (if you're using the [JavaScript SDK][client] in your web pages). But most server exceptions are caught by IIS and you have to write a bit of code to see them.
+At first, you won't see in the portal all the exceptions that cause failures in your app. You'll see any browser exceptions (if you're using the [JavaScript SDK](app-insights-javascript.md) in your web pages). But most server exceptions are caught by IIS and you have to write a bit of code to see them.
 
 You can:
 
@@ -177,7 +175,7 @@ VB
       telemetry.TrackException(ex, properties, measurements)
     End Try
 
-The properties and measurements parameters are optional, but are useful for [filtering and adding][diagnostic] extra information. For example, if you have an app that can run several games, you could find all the exception reports related to a particular game. You can add as many items as you like to each dictionary.
+The properties and measurements parameters are optional, but are useful for [filtering and adding](app-insights-diagnostic-search.md) extra information. For example, if you have an app that can run several games, you could find all the exception reports related to a particular game. You can add as many items as you like to each dictionary.
 
 ## Browser exceptions
 
@@ -456,7 +454,7 @@ Add the attribute to the service implementations:
 
 ## Exception performance counters
 
-If you have [installed Status Monitor][redfield] on your server, you can get a chart of the exceptions rate, measured by .NET. This includes both handled and unhandled .NET exceptions.
+If you have [installed the Application Insights Agent](app-insights-monitor-performance-live-website-now.md) on your server, you can get a chart of the exceptions rate, measured by .NET. This includes both handled and unhandled .NET exceptions.
 
 Open a Metric Explorer blade, add a new chart, and select **Exception rate**, listed under Performance Counters. 
 
@@ -464,14 +462,11 @@ The .NET framework calculates the rate by counting the number of exceptions in a
 
 Note that it will be different from the 'Exceptions' count calculated by the Application Insights portal by counting TrackException reports. The sampling intervals are different, and the SDK doesn't send TrackException reports for all handled and unhandled exceptions.
 
-<!--Link references-->
+## Next steps
 
-[api]: app-insights-api-custom-events-metrics.md
-[client]: app-insights-javascript.md
-[diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-asp-net.md
-[netlogs]: app-insights-asp-net-trace-logs.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-overview.md
+* [Monitor REST, SQL and other calls to dependencies](app-insights-asp-net-dependencies.md)
+* [Monitor page load times, browser exceptions, and AJAX calls](app-insights-javascript.md)
+* [Monitor performance counters](app-insights-performance-counters.md)
+
 
  

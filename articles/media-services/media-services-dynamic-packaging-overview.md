@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/19/2016" 
+	ms.date="10/24/2016" 
 	ms.author="juliako"/>
 
 
-#Dynamic packaging
+# Dynamic packaging
 
 ##Overview
 
@@ -53,15 +53,6 @@ To prepare your asset for dynamic streaming you have two options:
 
 1. [Upload a master file](media-services-dotnet-upload-files.md).
 2. [Use the Media Encoder Standard encoder to produce H.264 MP4 adaptive bitrate sets](media-services-dotnet-encode-with-media-encoder-standard.md).
-3. [Stream your content](media-services-deliver-content-overview.md).
-
--OR-
-
-1. Upload pre-enocded MP4 files.
-
-	>[AZURE.NOTE] This opiton is not recommended.
-
-2. [Validate your pre-encoded files](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders).
 3. [Stream your content](media-services-deliver-content-overview.md).
 
 

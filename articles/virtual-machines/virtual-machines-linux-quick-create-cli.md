@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="09/08/2016"
+   ms.date="10/27/2016"
    ms.author="v-livech"/>
 
 
@@ -23,9 +23,9 @@ This article shows how to quickly deploy a Linux virtual machine (VM) on Azure b
 
 - an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
 
-- the [Azure CLI](../xplat-cli-install.md) logged in with `azure login`
+- the [Azure CLI](../xplat-cli-install.md) logged in with `azure login`.
 
-- the Azure CLI _must be in_ Azure Resource Manager mode `azure config mode arm`
+- the Azure CLI _must be in_ Azure Resource Manager mode `azure config mode arm`.
 
 You can also quickly deploy a Linux VM by using the [Azure portal](virtual-machines-linux-quick-create-portal.md).
 
@@ -34,14 +34,16 @@ You can also quickly deploy a Linux VM by using the [Azure portal](virtual-machi
 The following example shows how to deploy a CoreOS VM and attach your Secure Shell (SSH) key (your arguments might be different):
 
 ```bash
-azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
+azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 ```
 
-The following sections explain the command and its requirements using Ubuntu Server 14.04 LTS as the Linux distribution.  
+## Detailed walkthrough
+
+The following walkthrough has an UbuntuLTS VM being deployed, step by step, with explanations of what each step is doing.
 
 ## VM quick-create aliases
 
-A quick way to choose a distribution is to use the Azure CLI aliases mapped to the most common OS distributions. The following table lists the aliases (as of Azure CLI version 0.10). All deployments that use `quick-create` default to VMs that are backed by solid-state drive (SSD) storage, which offers faster provisioning and high-performance disk access. (These aliases represent a tiny portion of the available distributions on Azure. Find more images in the Azure Marketplace by [searching for an image](virtual-machines-linux-cli-ps-findimage.md), or [upload your own custom image](virtual-machines-linux-create-upload-generic.md).)
+A quick way to choose a distribution is to use the Azure CLI aliases mapped to the most common OS distributions. The following table lists the aliases (as of Azure CLI version 0.10). All deployments that use `quick-create` default to VMs that are backed by solid-state drive (SSD) storage, which offers faster provisioning and high-performance disk access. (These aliases represent a tiny portion of the available distributions on Azure. Find more images in the Azure Marketplace by [searching for an image in PowerShell](virtual-machines-linux-cli-ps-findimage.md), [on the web](https://azure.microsoft.com/marketplace/virtual-machines/), or [upload your own custom image](virtual-machines-linux-create-upload-generic.md).)
 
 | Alias     | Publisher | Offer        | SKU         | Version |
 |:----------|:----------|:-------------|:------------|:--------|
@@ -53,8 +55,6 @@ A quick way to choose a distribution is to use the Azure CLI aliases mapped to t
 | UbuntuLTS | Canonical | Ubuntu Server | 14.04.4-LTS | latest  |
 
 The following sections use the `UbuntuLTS` alias for the **ImageURN** option (`-Q`) to deploy an Ubuntu 14.04.4 LTS Server.
-
-## Detailed walkthrough
 
 The previous `quick-create` example only called out the `-M` flag to identify the SSH public key to upload while disabling SSH passwords, so you are prompted for the following arguments:
 
@@ -68,13 +68,13 @@ The following example specifies all the values so that no further prompting is r
 
 ```bash
 azure vm quick-create \
--g exampleResourceGroup \
--n exampleVMName \
--l westus \
--y Linux \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub \
--Q UbuntuLTS
+--resource-group myResourceGroup \
+--name myVM \
+--location westus \
+--os-type Linux \
+--admin-username myAdminUser \
+--ssh-public-file ~/.ssh/id_rsa.pub \
+--image-urn UbuntuLTS
 ```
 
 The output should look like the following output block:
@@ -82,7 +82,7 @@ The output should look like the following output block:
 ```bash
 info:    Executing command vm quick-create
 + Listing virtual machine sizes available in the location "westus"
-+ Looking up the VM "exampleVMName"
++ Looking up the VM "myVM"
 info:    Verifying the public key SSH file: /Users/ahmet/.ssh/id_rsa.pub
 info:    Using the VM Size "Standard_DS1"
 info:    The [OS, Data] Disk or image configuration requires storage account
@@ -102,8 +102,8 @@ info:    PublicIP with given name "examp-westu-1633070839-pip" not found, creati
 + Creating NIC "examp-westu-1633070839-nic"
 + Looking up the NIC "examp-westu-1633070839-nic"
 + Looking up the storage account clisto1710997031examplev
-+ Creating VM "exampleVMName"
-+ Looking up the VM "exampleVMName"
++ Creating VM "myVM"
++ Looking up the VM "myVM"
 + Looking up the NIC "examp-westu-1633070839-nic"
 + Looking up the public ip "examp-westu-1633070839-pip"
 data:    Id                              :/subscriptions/2<--snip-->d/resourceGroups/exampleResourceGroup/providers/Microsoft.Compute/virtualMachines/exampleVMName
@@ -131,8 +131,8 @@ data:        Vhd:
 data:          Uri                       :https://cli16330708391032639673.blob.core.windows.net/vhds/clic7fadb847357e9cf-os-1473374894359.vhd
 data:
 data:    OS Profile:
-data:      Computer Name                 :exampleVMName
-data:      User Name                     :exampleAdminUser
+data:      Computer Name                 :myVM
+data:      User Name                     :myAdminUser
 data:      Linux Configuration:
 data:        Disable Password Auth       :true
 data:
@@ -155,10 +155,12 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
+## Log in to the new VM
+
 Log in to your VM by using the public IP address listed in the output. You can also use the fully qualified domain name (FQDN) that's listed:
 
 ```bash
-ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
+ssh -i ~/.ssh/id_rsa.pub ahmet@138.91.247.29
 ```
 
 The login process should look something like the following output block:
@@ -192,7 +194,7 @@ individual files in /usr/share/doc/*/copyright.
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-exampleAdminUser@exampleVMName:~$
+myAdminUser@myVM:~$
 ```
 
 ## Next steps

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights tutorial | Microsoft Azure" 
-	description="Track usage and performance of your live web application.  Detect, triage and diagnose problems. Continuously monitor and improve success with your users." 
+	pageTitle="Application Performance Management with Application Insights | Microsoft Azure" 
+	description="Track performance and usage of your live web application.  Detect, triage and diagnose problems." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2016" 
+	ms.date="11/01/2016" 
 	ms.author="awills"/>
  
-# Application Insights - introduction
+# Application Performance Management with Application Insights
 
-Visual Studio Application Insights is an extensible analytics service that monitors your live web application. With it you can detect and diagnose performance issues, and understand what users actually do with your app. It's designed for developers, to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. 
+Application Insights is an extensible Application Performance Management (APM) service for web developers. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It also integrates with your devOps process, and has connection points to a wide variety of other tools.
 
 ![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 
@@ -336,10 +336,9 @@ You can configure [metric alerts](app-insights-alerts.md) to tell you when any m
 There are several ways you can get your telemetry data out of the Application Insights portal:
 
 * [Continuous Export](app-insights-export-telemetry.md) is ideal if you want to keep large parts of your telemetry for longer than the standard retention period.
-* [The Export button](app-insights-metrics-explorer.md#export-to-excel) at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet. 
-* [Analytics](app-insights-analytics.md) provides a powerful query  language for telemetry, and also can export results.
-* The Data Access REST API can be used to search for and extract data. It can run Analytics queries.
-* If you're looking to [explore your data in Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), you can do that without using Continuous Export.
+* [Metrics](app-insights-metrics-explorer.md#export-to-excel)  tables, search results, and [Analytics](app-insights-analytics.md) results can all be exported to an Excel spreadsheet. 
+* The Data Access REST API can be used to search for and extract data, including running Analytics queries. The API is currently in private preview. [Learn about joining the preview](https://visualstudio.uservoice.com/forums/357324-application-insights/suggestions/4999529-make-data-accessible-via-apis-for-custom-processin).
+* You can export [Analytics queries to Power BI](app-insights-export-power-bi.md) dashboards and view the results in Power BI visualizations, which can be automatically refreshed.
 
 ![Viewing data in Power BI](./media/app-insights-overview/210.png)
  

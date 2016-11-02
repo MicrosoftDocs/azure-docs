@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2016"
+	ms.date="10/25/2016"
 	ms.author="tomfitz"/>
 
 # Best practices for creating Azure Resource Manager templates
 
-The following guidelines will help you create Resource Manager templates that are reliable and easy-to-use. These guidelines are intended only as suggestions, not absolute requirements. Your scenario may require variations from these guidelines.
+The following guidelines help you create Resource Manager templates that are reliable and easy-to-use. These guidelines are intended only as suggestions, not absolute requirements. Your scenario may require variations from these guidelines.
 
 ## Resource names
 
-There are generally three types of resource names you will work with:
+There are generally three types of resource names you work with:
 
 1. Resource names that must be unique.
 2. Resource names that do not need to be unique but you want to provide a name that helps identify the context.
@@ -46,17 +46,17 @@ You must provide a unique resource name for any resource type that has a data ac
 
 Furthermore, storage account names must be lower-case, 24 characters or less, and not include any hyphens.
 
-Rather than providing a parameter for these resource names and trying to guess a unique name during deployment, you can create a variable that uses the [uniqueString()](resource-group-template-functions.md#uniquestring) function to generate a name. Frequently, you will also want to add a prefix or postfix to the **uniqueString** result so you can more easily determine the resource type by looking at the name. For example, you can generate a unique name for a storage account with the following variable.
+If you provide a parameter for these resource names, you must guess a unique name during deployment. Instead, you can create a variable that uses the [uniqueString()](resource-group-template-functions.md#uniquestring) function to generate a name. Frequently, you also want to add a prefix or postfix to the **uniqueString** result so you can more easily determine the resource type by looking at the name. For example, you generate a unique name for a storage account with the following variable:
 
     "variables": {
         "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
     }
 
-Storage accounts with a uniqueString prefix will not get clustered on the same racks.
+Storage accounts with a uniqueString prefix do not get clustered on the same racks.
 
 ### Resource names for identification
 
-For resource types that you want to name but you do not have to guarantee uniqueness, simply provide a name that identifies both its context and resource type. You'll want to provide a descriptive name that helps you recognize it from a list of resource names. If you need to vary the resource name during deployments, use a parameter for the name:
+For resource types that you want to name but you do not have to guarantee uniqueness, simply provide a name that identifies both its context and resource type. You want to provide a descriptive name that helps you recognize it from a list of resource names. If you need to vary the resource name during deployments, use a parameter for the name:
 
     "parameters": {
         "vmName": { 
@@ -137,7 +137,7 @@ For resource types that are largely accessed through another resource, you can u
             }
         }
  
-1. When possible, avoid using a parameter to specify the **location**. Instead, use the location property of the resource group. By using the **resourceGroup().location** expression for all your resources, the resources in the template will be deployed in the same location as the resource group.
+1. When possible, avoid using a parameter to specify the **location**. Instead, use the location property of the resource group. By using the **resourceGroup().location** expression for all your resources, the resources in the template are deployed in the same location as the resource group.
 
         "resources": [
           {
@@ -151,17 +151,17 @@ For resource types that are largely accessed through another resource, you can u
   
      If a resource type is supported in only a limited number of locations, consider specifying a valid location directly in the template. If you must use a location parameter, share that parameter value as much as possible with resources that are likely to be in the same location. This approach minimizes users having to provide locations for every resource type.
 
-1. Avoid using a parameter or variable for the API version for a resource type. Resource properties and values can vary by version number. Intellisense in code editors will not be able to determine the correct schema when the API version is set to a parameter or variable. Instead, hard-code the API version in the template.
+1. Avoid using a parameter or variable for the API version for a resource type. Resource properties and values can vary by version number. Intellisense in code editors is not able to determine the correct schema when the API version is set to a parameter or variable. Instead, hard-code the API version in the template.
 
 ## Variables 
 
-1. Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value will make your template easier to read.
+1. Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value makes your template easier to read.
 
 1. You cannot use the [reference](resource-group-template-functions.md#reference) function in the variables section. The reference function derives its value from the resource's runtime state, but variables are resolved during the initial parsing of the template. Instead, construct values that need the **reference** function directly in the **resources** or **outputs** section of the template.
 
 1. Include variables for resource names that need to be unique, as shown in [Resource names](#resource-names).
 
-1. You can group variables into complex objects. You can reference a value from a complex object in the format **variable.subentry**. Grouping variables helps you keep track of related variables and improves readability of the template.
+1. You can group variables into complex objects. You can reference a value from a complex object in the format **variable.subentry**. Grouping variables helps you track related variables and improves readability of the template.
 
         "variables": {
             "storage": {
@@ -203,7 +203,7 @@ For resource types that are largely accessed through another resource, you can u
 
 1. Use tags to add metadata to resources that enable you to add additional information about your resources. For example, you can add metadata to a resource for billing detail purposes. For more information, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
 
-1. If you use a **public endpoint** in your template (such as a blob storage public endpoint), **do not hardcode** the namespace. Use the **reference** function to retrieve the namespace dynamically. This allows you to deploy the template to different public namespace environments, without manually changing the endpoint in the template. Set the apiVersion to the same version you are using for the storageAccount in your template.
+1. If you use a **public endpoint** in your template (such as a blob storage public endpoint), **do not hardcode** the namespace. Use the **reference** function to retrieve the namespace dynamically. This approach allows you to deploy the template to different public namespace environments, without manually changing the endpoint in the template. Set the apiVersion to the same version you are using for the storageAccount in your template.
 
         "osDisk": {
             "name": "osdisk",
@@ -221,7 +221,7 @@ For resource types that are largely accessed through another resource, you can u
             }
         }
 
-     If you have other values in your template configured with a public namespace, change these to reflect the same reference function. For example, the storageUri property of the virtual machine diagnosticsProfile.
+     If you have other values in your template configured with a public namespace, change these values to reflect the same reference function. For example, the storageUri property of the virtual machine diagnosticsProfile.
 
         "diagnosticsProfile": {
             "bootDiagnostics": {
@@ -245,11 +245,11 @@ For resource types that are largely accessed through another resource, you can u
      For more information about connecting to virtual machines, see:
      - [Running VMs for an N-tier architecture on Azure](./guidance/guidance-compute-n-tier-vm.md)
      - [Setting up WinRM access for Virtual Machines in Azure Resource Manager](./virtual-machines/virtual-machines-windows-winrm.md)
-     - [Allow external access to your VM using the Azure Portal](./virtual-machines/virtual-machines-windows-nsg-quickstart-portal.md)
+     - [Allow external access to your VM using the Azure portal](./virtual-machines/virtual-machines-windows-nsg-quickstart-portal.md)
      - [Allow external access to your VM using PowerShell](./virtual-machines/virtual-machines-windows-nsg-quickstart-powershell.md)
      - [Opening ports and endpoints](./virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 
-1. The **domainNameLabel** property for publicIPAddresses must be unique. domainNameLabel is required to be between 3 and 63 characters long and to follow the rules specified by this regular expression `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. As the uniqueString function will generate a string that is 13 characters long in the example below it is presumed that the dnsPrefixString prefix string has been checked to be no more than 50 characters long and to conform to those rules.
+1. The **domainNameLabel** property for publicIPAddresses must be unique. domainNameLabel is required to be between 3 and 63 characters long and to follow the rules specified by this regular expression `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. As the uniqueString function generates a string that is 13 characters long, the dnsPrefixString parameter is limited to no more than 50 characters.
 
         "parameters": {
             "dnsPrefixString": {
@@ -281,11 +281,11 @@ For resource types that are largely accessed through another resource, you can u
             }
         }
 
-     > [AZURE.NOTE] In order to ensure that secrets which are passed as parameters to virtualMachines/extensions are encrypted, the protectedSettings property of the relevant extensions must be used.
+     > [AZURE.NOTE] To ensure that secrets are encrypted when passed as parameters to virtualMachines/extensions, use the protectedSettings property of the relevant extensions.
 
 ## Outputs
 
-If a template creates any new **publicIPAddresses** then it should have an **output** section that provides details of the IP address and fully qualified domain created to easily retrieve these details after deployment. When referencing the resource, use the API version that was used to create it. 
+If a template creates **publicIPAddresses**, it should have an **outputs** section that returns details of the IP address and the fully qualified domain name. These output values enable you to easily retrieve these details after deployment. When referencing the resource, use the API version that was used to create it. 
 
 ```
 "outputs": {
@@ -305,15 +305,15 @@ If a template creates any new **publicIPAddresses** then it should have an **out
 To deploy your solution, you can use either a single template or a main template with multiple nested templates. Nested templates are common for more advanced scenarios. Nested templates contain the following advantages:
 
 1. Can decompose solution into targeted components
-2. Can re-use nested templates with different main templates
+2. Can reuse nested templates with different main templates
 
-When you decide to decompose your template design into multiple nested templates, the following guidelines will help standardize the design. These guidelines are based on the [patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) documentation. The recommended design consists of the following templates.
+When you decide to decompose your template design into multiple nested templates, the following guidelines help standardize the design. These guidelines are based on the [patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) documentation. The recommended design consists of the following templates:
 
 + **Main template** (azuredeploy.json). Used for the input parameters.
-+ **Shared resources template**. Deploys the shared resources that all other resources use (e.g. virtual network, availability sets). The expression dependsOn enforces that this template is deployed before the other templates.
-+ **Optional resources template**. Conditionally deploys resources based on a parameter (e.g. a jumpbox)
-+ **Member resources templates**. Each instance type within an application tier has its own configuration. Within a tier, different instance types can be defined (such as, first instance creates a new cluster, additional instances are added to the existing cluster). Each instance type will have its own deployment template.
-+ **Scripts**. Widely reusable scripts are applicable for each instance type (e.g. initialize and format additional disks). Custom scripts are created for specific customization purpose are different per instance type.
++ **Shared resources template**. Deploys the shared resources that all other resources use (for example, virtual network, availability sets). The expression dependsOn enforces that this template is deployed before the other templates.
++ **Optional resources template**. Conditionally deploys resources based on a parameter (for example, a jumpbox)
++ **Member resources templates**. Each instance type within an application tier has its own configuration. Within a tier, different instance types can be defined (such as, first instance creates a cluster, additional instances are added to the existing cluster). Each instance type has its own deployment template.
++ **Scripts**. Widely reusable scripts are applicable for each instance type (for example, initialize and format additional disks). Custom scripts are created for specific customization purpose are different per instance type.
 
 ![nested template](./media/resource-manager-template-best-practices/nestedTemplateDesign.png)
 
@@ -359,6 +359,7 @@ You can conditionally link to nested templates by using a parameter that becomes
 
 ## Next steps
 
-1. For guidance on architecting your solution for virtual machines, see [Running a Windows VM on Azure](./guidance/guidance-compute-single-vm.md) and [Running a Linux VM on Azure](./guidance/guidance-compute-single-vm-linux.md).
-2. For guidance on setting up a storage account, see [Microsoft Azure Storage Performance and Scalability Checklist](./storage/storage-performance-checklist.md).
-3. For help with virtual networks, see [Networking infrastructure guidelines](./virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md).
+- For guidance on architecting your solution for virtual machines, see [Running a Windows VM on Azure](./guidance/guidance-compute-single-vm.md) and [Running a Linux VM on Azure](./guidance/guidance-compute-single-vm-linux.md).
+- For guidance on setting up a storage account, see [Microsoft Azure Storage Performance and Scalability Checklist](./storage/storage-performance-checklist.md).
+- For help with virtual networks, see [Networking infrastructure guidelines](./virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md).
+- For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).

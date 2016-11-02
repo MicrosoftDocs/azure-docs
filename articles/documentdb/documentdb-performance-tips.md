@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/17/2016" 
+	ms.date="11/01/2016" 
 	ms.author="mimig"/>
 
 # Performance tips for DocumentDB
@@ -32,10 +32,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     1. Gateway Mode (default)
     2. Direct Mode
-
-    Since DocumentDB is a distributed storage system, DocumentDB resources like collections are partitioned across numerous machines and each partition is replicated for high availability. The logical to physical address translation is kept in a routing table, which is also internally available as a resource.
-
-    In Gateway Mode, the DocumentDB gateway machines perform this routing, thereby allowing client code to be simple and compact. A client application issues requests to the DocumentDB gateway machines, which translate the logical URI in the request to the physical address of the backend node, and forward the request appropriately.  Conversely, in Direct Mode clients must maintain – and periodically refresh – a copy of this routing table, and then directly connect to the backend DocumentDB nodes.
 
     Gateway Mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to DocumentDB.   Because of this, Direct Mode offers better performance due to fewer network hops.
 
@@ -203,14 +199,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
 3. **Design for smaller documents for higher throughput**
 
     The request charge (i.e. request processing cost) of a given operation is directly correlated to the size of the document. Operations on large documents cost more than operations for small documents.
-
-## Consistency Levels
-
-1. **Use weaker consistency Levels for better read latencies**
-
-    Another important factor to take into account while tuning the performance of DocumentDB applications is consistency level. The choice of consistency level has performance implications for both reads and writes. You can configure the default consistency level on the database account and the chosen consistency level then applies to all the collections (across all of the databases) within the DocumentDB account. In terms of write operations, the impact of changing consistency level is observed as request latency. As stronger consistency levels are used, write latencies will increase. On the other hand, the impact of consistency level on read operations is observed in terms of throughput. Weaker consistency levels allow higher read throughput to be realized by the client.
-
-    By default all reads and queries issued against the user-defined resources will use the default consistency level specified on the database account. You can, however, lower the consistency level of a specific read/query request by specifying the x-ms-consistency-level request header. For more information, see [Consistency levels in DocumentDB](documentdb-consistency-levels.md).
 
 ## Next steps
 

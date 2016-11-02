@@ -2,7 +2,7 @@
 	pageTitle="Use PowerShell to create alerts for Azure services | Microsoft Azure"
     description="Use PowerShell to create Azure alerts, which can trigger notifications or automation when the conditions you specify are met."
 	authors="rboucher"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2016"
+	ms.date="10/20/2016"
 	ms.author="robb"/>
 
-# Use PowerShell to create alerts for Azure services 
+# Use PowerShell to create alerts for Azure services
 
 > [AZURE.SELECTOR]
 - [Portal](insights-alerts-portal.md)
 - [PowerShell](insights-alerts-powershell.md)
-- [CLI](insights-alerts-command-line-interface.md) 
+- [CLI](insights-alerts-command-line-interface.md)
 
 ## Overview
 
@@ -33,32 +33,32 @@ You can receive an alert based on monitoring metrics for, or events on, your Azu
 - **Activity log events** - An alert can trigger on *every* event, or, only when a certain number of events occur.
 
 You can configure an alert to do the following when it triggers:
- 
+
 - send email notifications to the service administrator and co-administrators
 - send email to additional emails that you specify.
 - call a webhook
-- start execution of an Azure runbook (only from the Azure portal) 
+- start execution of an Azure runbook (only from the Azure portal)
 
-You can configure and get information about alert rules using 
+You can configure and get information about alert rules using
 
 - [Azure portal](insights-alerts-portal.md)
-- [PowerShell](insights-alerts-powershell.md) 
-- [command-line interface (CLI)](insights-alerts-command-line-interface.md) 
-- [Azure Insights REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+- [PowerShell](insights-alerts-powershell.md)
+- [command-line interface (CLI)](insights-alerts-command-line-interface.md)
+- [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 
-For additional information, you can always type ```get-help``` and then the PowerShell command you want help on. 
+For additional information, you can always type ```get-help``` and then the PowerShell command you want help on.
 
 ## Create alert rules in PowerShell
 
 1. Log in to Azure.   
- 
+
 	```PowerShell
 	Login-AzureRmAccount
 
 	```
 
-2. Get a list of the subscriptions you have available. Verify that you are working with the right subscription. If not, set it to the right one using the output from `Get-AzureRmSubscription`. 
+2. Get a list of the subscriptions you have available. Verify that you are working with the right subscription. If not, set it to the right one using the output from `Get-AzureRmSubscription`.
 
 	```PowerShell
 	Get-AzureRmSubscription
@@ -73,12 +73,12 @@ For additional information, you can always type ```get-help``` and then the Powe
 	```
 
 4. To create a rule, you need to have several important pieces of information first. 
-	- The **Resource ID** for the resource you want to set and alert for
+	- The **Resource ID** for the resource you want to set an alert for
 	- The **metric definitions** available for that resource
-	
+
 	One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, select *Properties* under the *Settings* section. The RESOURCE ID is a field in the next blade. Another way is to use the [Azure Resource Explorer](https://resources.azure.com/).
 
-    An example resource id for a web app is 
+    An example resource id for a web app is
 
 	```
 	/subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
@@ -90,7 +90,7 @@ For additional information, you can always type ```get-help``` and then the Powe
 	Get-AzureRmMetricDefinition -ResourceId <resource_id>
 	```
 
-    The following example generates a table with the metric Name and the Unit for that metric. 
+    The following example generates a table with the metric Name and the Unit for that metric.
 
 	```PowerShell
 	Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -98,27 +98,27 @@ For additional information, you can always type ```get-help``` and then the Powe
 	```
     A full list of available options for Get-AzureRmMetricDefinition is available by running Get-MetricDefinitions.
 
- 
+
 5. The following example sets up an alert on a web site resource. The alert triggers whenever it consistently receives any traffic for 5 minutes and again when it receives no traffic for 5 minutes.
 
     ```PowerShell
 	Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Description "alert on any website activity"
-   
+
 	```
 
-6. To create webhook or send email when an alert triggers, first create the email and/or webhooks. Then immediately create the rule afterwards with the -Actions tag and as shown in the following example. You cannot associate webhook or emails with already created rules via PowerShell. 
+6. To create webhook or send email when an alert triggers, first create the email and/or webhooks. Then immediately create the rule afterwards with the -Actions tag and as shown in the following example. You cannot associate webhook or emails with already created rules via PowerShell.
 
- 
+
 	```PowerShell
     $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
 	$actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://www.contoso.com?token=mytoken
-	
+
 	Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Actions $actionEmail, $actionWebhook -Description "alert on any website activity"
 	```
 
 
 7. To create an alert that triggers on a specific condition in the activity log, use commands of the following form
- 	
+
 	```PowerShell
 	$actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
 	$actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://www.contoso.com?token=mytoken
@@ -153,4 +153,3 @@ For additional information, you can always type ```get-help``` and then the Powe
 * Learn more about [Azure Automation Runbooks](..\automation\automation-starting-a-runbook.md).
 * Get an [overview of collecting diagnostic logs](monitoring-overview-of-diagnostic-logs.md) to collect detailed high-frequency metrics on your service.
 * Get an [overview of metrics collection](insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
-

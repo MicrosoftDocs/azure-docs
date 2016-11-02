@@ -45,7 +45,7 @@ Now you can start using the cmdlets in the module. For a full description of the
 ## Connecting to the directory
 Before you can start managing groups using Azure AD PowerShell preview cmdlets, you must connect your PowerShell session to the directory you want to manage. To do this, use the following command:
 
-	PS C:\Windows\system32> Connect-AzureAD -Force
+	PS C:\Windows\system32> Connect-AzureAD
 
 The cmdlet will prompt you for the credentials you want to use to access your directory. In this example, we are using karen@drumkit.onmicrosoft.com to access the demonstration directory. The cmdlet will return a confirmation to show the session was connected successfully to your directory:
 

@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/10/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="mausher;barbkess"/>
 
 
 # Load data with bcp

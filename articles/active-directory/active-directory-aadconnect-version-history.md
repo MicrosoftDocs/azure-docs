@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/23/2016"
+   ms.date="11/01/2016"
    ms.author="billmath"/>
 
 # Azure AD Connect: Version Release History
@@ -27,7 +27,7 @@ This is list of related topics:
 Topic |  
 --------- | --------- |
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
-Required permissions | For permissions required to apply an update, see [accounts and permissions](./aad-connect/active-directory-aadconnect-accounts-permissions.md#upgrade)
+Required permissions | For permissions required to apply an update, see [accounts and permissions](./connect/active-directory-aadconnect-accounts-permissions.md#upgrade)
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 ## 1.1.281.0
@@ -114,7 +114,7 @@ Released: 2016 February
     - You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use MFA.
     - You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for MFA to properly work.
 - Allow changing the user's sign-in method after initial install.
-- Allow [Domain and OU filtering](./aad-connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the installation wizard. This also allows connecting to forests where not all domains are available.
+- Allow [Domain and OU filtering](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the installation wizard. This also allows connecting to forests where not all domains are available.
 - [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) is built-in to the sync engine.
 
 **Features promoted from preview to GA:**
@@ -209,9 +209,9 @@ Changed name from Azure AD Sync to Azure AD Connect.
 
 **New features:**
 
-- [Express settings](./aad-connect/active-directory-aadconnect-get-started-express.md) installation
-- Can [configure ADFS](./aad-connect/active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
-- Can [upgrade from DirSync](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
+- [Express settings](./connect/active-directory-aadconnect-get-started-express.md) installation
+- Can [configure ADFS](./connect/active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+- Can [upgrade from DirSync](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
 - [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 - Introduced [staging mode](active-directory-aadconnectsync-operations.md#staging-mode)
 
