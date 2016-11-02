@@ -25,7 +25,7 @@ Clone the sample Node.js application from GitHub and use the gulp tool to deploy
 
 ## What you will learn
 
-In this article you will learn:
+In this article, you will learn:
 
 - How to use the `device-discover-cli` tool to retrieve networking information about Pi.
 - How to deploy and run the sample application on Pi.
