@@ -20,13 +20,13 @@
 
 This article describes how to create and deploy Service Bus resources using Azure Resource Manager templates, PowerShell, and the Service Bus resource provider.
 
-Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions that you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). 
+Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions that you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
 >[AZURE.NOTE] The examples in this article show how to use Azure Resource Manager to create a Service Bus namespace and messaging entity (queue). For other template examples, visit the [Azure Quickstart Templates gallery][] and search for "Service Bus."
 
 ## Service Bus and Event Hubs Resource Manager templates
 
-These Service Bus Azure Resource Manager templates are available for download and deployment. Click the following links for details about each one, with links to the templates on GitHub: 
+These Service Bus Azure Resource Manager templates are available for download and deployment. Click the following links for details about each one, with links to the templates on GitHub:
 
 - [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
 - [Create a Service Bus namespace with queue](service-bus-resource-manager-namespace-queue.md)
@@ -124,7 +124,7 @@ Clone or copy the [201-servicebus-create-queue](https://github.com/Azure/azure-q
 
 ### Create a parameters file (optional)
 
-To use an optional parameters file, copy the [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) file. Replace the value of `serviceBusNamespaceName` with the name of the Service Bus namespace you want to create in this deployment, and replace the value of `serviceBusQueueName` with the name of the queue you want to create. 
+To use an optional parameters file, copy the [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) file. Replace the value of `serviceBusNamespaceName` with the name of the Service Bus namespace you want to create in this deployment, and replace the value of `serviceBusQueueName` with the name of the queue you want to create.
 
 ```
 {
@@ -217,7 +217,7 @@ New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyD
 To run a [complete](../resource-group-template-deploy.md#incremental-and-complete-deployments) deployment, set the **Mode** parameter to **Complete**:
 
 ```
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ### Verify the deployment
@@ -249,6 +249,6 @@ You've now seen the basic workflow and commands for deploying an Azure Resource 
 - [Authoring templates](../resource-group-authoring-templates.md)
 
 
-[Azure Resource Manager overview]: ../resource-group-overview.md
+[Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
 [Deploy resources with Azure Resource Manager templates]: ../resource-group-template-deploy.md
 [Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus
