@@ -62,8 +62,8 @@ Currently, apps that are registered in the Application Registration Portal are r
 
 The registration system compares the whole DNS name of the existing redirect URI to the DNS name of the redirect URI that you are adding. The request to add the DNS name will fail if either of the following conditions is true:  
 
-- The whole DNS name of the new redirect URI does not match the DNS name of the existing redirect URI
-- The whole DNS name of the new redirect URI is not a subdomain of the existing redirect URI
+- The whole DNS name of the new redirect URI does not match the DNS name of the existing redirect URI.
+- The whole DNS name of the new redirect URI is not a subdomain of the existing redirect URI.
 
 For example, if the app has this redirect URI:
 
@@ -90,8 +90,8 @@ To learn how to register an app in the Application Registration Portal, see [How
 ## Restrictions on services and APIs
 Currently, the v2.0 endpoint supports sign-in for any app that is registered in the Application Registration Portal, and which falls in the list of [supported authentication flows](active-directory-v2-flows.md). However, these apps can acquire OAuth 2.0 access tokens for a very limited set of resources. The v2.0 endpoint issues access tokens only for:
 
-- the app that requested the token. An app can acquire an access token for itself, if the logical app is composed of several different components or tiers. To see this scenario in action, check out our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) tutorials.
-- the Outlook Mail, Calendar, and Contacts REST APIs, all of which are located at https://outlook.office.com. To learn how to write an app that accesses these APIs, see the [Office Getting Started](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) tutorials.
+- The app that requested the token. An app can acquire an access token for itself, if the logical app is composed of several different components or tiers. To see this scenario in action, check out our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) tutorials.
+- The Outlook Mail, Calendar, and Contacts REST APIs, all of which are located at https://outlook.office.com. To learn how to write an app that accesses these APIs, see the [Office Getting Started](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) tutorials.
 - Microsoft Graph APIs. You can learn more about [Microsoft Graph](https://graph.microsoft.io) and the data that is available to you.
 
 No other services are supported at this time. More Microsoft Online Services will be added in the future, in addition to support for your own custom-built Web APIs and services.
@@ -99,7 +99,7 @@ No other services are supported at this time. More Microsoft Online Services wil
 ## Restrictions on libraries and SDKs
 Currently, library support for the v2.0 endpoint is limited. If you want to use the v2.0 endpoint in a production application, you have these options:
 
-- If you are building a web application, you can safely use Microsoft generally available server-side middleware to perform sign-in and token validation. These include the OWIN Open ID Connect middleware for ASP.NET and the NodeJS Passport plug-in. For code samples that use Microsoft middleware, see our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
+- If you are building a web application, you can safely use Microsoft generally available server-side middleware to perform sign-in and token validation. These include the OWIN Open ID Connect middleware for ASP.NET and the Node.js Passport plug-in. For code samples that use Microsoft middleware, see our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 - For other platforms, and for native and mobile applications, you can integrate with the v2.0 endpoint by directly sending and receiving protocol messages in your application code. The v2.0 OpenID Connect and OAuth protocols [are explicitly documented](active-directory-v2-protocols.md) to help you perform such an integration.
 - Finally, you can use open-source Open ID Connect and OAuth libraries to integrate with the v2.0 endpoint. The v2.0 protocol should be compatible with many open-source protocol libraries without major changes. The availability of these kinds of libraries varies by language and platform. The [Open ID Connect](http://openid.net/connect/) and [OAuth 2.0](http://oauth.net/2/) websites maintain a list of popular implementations. For more information, see [Azure Active Directory v2.0 and authentication libraries](active-directory-v2-libraries.md), and the list of open-source client libraries and samples that have been tested with the v2.0 endpoint.
 
