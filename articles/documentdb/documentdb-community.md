@@ -125,7 +125,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 | Event Name                                                                                                                 | Speaker                                                     | Location             | Date                     | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
 | [Capital City .NET Users Group](http://www.meetup.com/tally-dot-net/events/233768568/) | Santosh Hari | Tallahassee, FL | November 3, 2016 | n/a |
-| [Connect(); // 2016](https://connectevent.microsoft.com/) | Kirill Gavrylyuk | Online | November 16-18, 2016 | #MSFTConnect |
+| [Connect(); // 2016](https://connectevent.microsoft.com/) | Kirill Gavrylyuk | New York, NY | November 16-18, 2016 | #MSFTConnect |
 
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
