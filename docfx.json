@@ -15,11 +15,17 @@
         "dest": "."
       },
       {
-        "files": [
-          "bread/toc.yml"
+      "files": [
+          "**/*.md",
+          "**/*.yml"
         ],
-        "src": null,
-        "dest": null
+        "exclude": [        
+          "**/obj/**",
+          "**/includes/**",
+          "**/_themes/**"
+        ],
+        "src": "bread",
+        "dest": "bread"
       }
     ],
     "resource": [
