@@ -1,6 +1,6 @@
 <properties
    pageTitle="Storing Azure SQL Database Backups for up to 10 years | Microsoft Azure"
-   description="Learn how Azure SQL Database supports storing backups for up to 10 years."
+   description="Learn how Azure SQL Database supports storing backups for up to 99 years."
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -22,23 +22,23 @@
 
 Many applications have regulatory, compliance, or other business purposes that require you to retain the automatic full database backups beyond the 7-35 days provided by SQL Database's [automatic backups](sql-database-automated-backups.md).
 
-The **Long-Term Backup Retention** feature enables you to store your Azure SQL Database backups in an Azure Recovery Service Vault for up to 10 years. You can store up to 1000 databases per vault. You can select any backup in the vault to restore it as a new database.
+The **Long-Term Backup Retention** feature enables you to store your Azure SQL Database backups in an Azure Recovery Services vault for up to 99 years. You can store up to 1000 databases per vault. You can select any backup in the vault to restore it as a new database.
 
 > [AZURE.NOTE] You can enable up to 200 databases per vault during a 24-hour period. Therefore, we recommend that you use a separate vault for each server to minimize the impact of this limit. 
 
 ## How does SQL Database Long-Term Retention work?
 
-Long-term retention of backups allows you to associate an Azure SQL Database server with a Recovery Services Vault. 
+Long-term retention of backups allows you to associate an Azure SQL Database server with a Azure Recovery Services vault. 
 
 - The vault must be created in the same Azure subscription that created the SQL server and in the same geographic region and resource group. 
-- You then configure a retention policy for any database. The policy causes the weekly full database backups be copied to the Recovery Services Vault and retained for the specified retention period (up to 10 years). 
+- You then configure a retention policy for any database. The policy causes the weekly full database backups be copied to the Recovery Services vault and retained for the specified retention period (up to 10 years). 
 - You can then restore from any of these backups to a new database in any server in the subscription. The copy is performed by Azure storage from existing backups and has no performance impact on the existing database.
 
 ## How do I enable Long-Term Retention?
 
 To configure long-term backup retention for a database:
 
-1.	Create an Azure Recovery Services Vault in the same region, subscription, and resource group as your SQL Database server. 
+1.	Create an Azure Recovery Services vault in the same region, subscription, and resource group as your SQL Database server. 
 2.	Register the server to the vault
 3.	Create an Azure Recovery Services Protection Policy
 4.	Apply the protection policy to the databases that require long-term backup retention
@@ -70,7 +70,7 @@ After the Azure SQL Database server is registered to the vault, you are charged 
     $vault = New-AzureRmRecoveryServicesVault -Name <string> -ResouceGroupName $ResourceGroupName -Location 'WestUS' 
     Set-AzureRmRecoveryServicesBackupProperties   -BackupStorageRedundancy LocallyRedundant  -Vault $vault
     ```
-2.	Register your Azure SQL Database Server to the recovery service vault so databases within the server can have backups stored for long term.
+2.	Register your Azure SQL Database Server to the vault so databases within the server can have backups stored for long term.
 
     ```
     Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName 'RG1' -ServerName 'Server1' –ResourceId $vault.Id
@@ -110,7 +110,7 @@ After the Azure SQL Database server is registered to the vault, you are charged 
     ```
 ## Restore from a long-term retention backup
 
-Use the following steps to restore a database from a backup in the Azure Recovery Service Vault vault:
+Use the following steps to restore a database from a backup in the Azure Recovery Service vault:
 
 1.	Find the Recovery Service container associated with SQL server.
 
@@ -140,7 +140,7 @@ Use the following steps to restore a database from a backup in the Azure Recover
 
 ## Disabling Long-term Retention
 
-The Recovery Service automatically handles cleanup of backups based on the provided retention policy. To stop sending the backups for a specific database to the Recovery Service vault, remove the retention policy for that database.
+The Recovery Service automatically handles cleanup of backups based on the provided retention policy. To stop sending the backups for a specific database to the vault, remove the retention policy for that database.
 
     ```
     #This command removes the retention policy from the database and stop sending the backups to the vault
@@ -149,7 +149,7 @@ The Recovery Service automatically handles cleanup of backups based on the provi
 
 > [AZURE.NOTE] The backups already in the vault are not be impacted. They are automatically deleted by the Recovery Service when their retention period expires.
 
-## Removing backups from the Recovery Service vault
+## Removing backups from the Azure Recovery Services vault
 
 To manually remove backups from the vault.
 

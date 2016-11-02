@@ -112,7 +112,7 @@ You can use these backups to:
 - Restore a database to a point-in-time within the retention period. This operation will create a new database in the same server as the original database.
 - Restore a a deleted database to the time it was deleted or any time within the retention period. The deleted database can only be restored in the same server where the original database was created.
 - Restore a database to another geographical region. This allows you to recover from a geographic disaster when you cannot access your server and database. It creates a new database in any existing server anywhere in the world. 
--  Restore a database from a specific backup stored in your Azure Backup Services Vault. This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. See [Long-term retention](sql-database-long-term-retention.md).
+-  Restore a database from a specific backup stored in your Azure Recovery Services vault. This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. See [Long-term retention](sql-database-long-term-retention.md).
 - To perform a restore, see [restore database from backups](sql-database-recovery-using-backups.md).
 
 <!----------------- 
