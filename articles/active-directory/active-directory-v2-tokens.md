@@ -48,7 +48,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 
 #### Claims in ID tokens
 | Name | Claim | Example value | Description |
-| -------------------- | ------------------ | ------------------- | --------------------- |
+| ---- | ----- | ------------- | ----------- |
 | audience | `aud` | `6731de76-14a6-49ae-97bc-6eba6914391e` | Identifies the intended recipient of the token. In ID tokens, the audience is your app's Application ID, assigned to your app in the Microsoft Application Registration Portal. Your app should validate this value, and reject the token if the value does not match. |
 | issuer | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. Your app should validate the issuer claim to ensure that the token came from the v2.0 endpoint. It also should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | issued at | `iat` | `1452285331` | The time at which the token was issued, represented in epoch time. |
@@ -64,7 +64,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | preferred username | `preferred_username` | `thegreatbambino@nyy.onmicrosoft.com` | The primary username that represents the user in the v2.0 endpoint. It could be an email address, phone number, or a generic username without a specified format. Its value is mutable and might change over time. The `profile` scope is required in order to receive this claim. |
 | subject | `sub` | `MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. Because the subject is always present in the tokens that Azure AD issues, we recommend using this value in a general-purpose authorization system. |
 | object ID | `oid` | `a1dbdde8-e4f9-4571-ad93-3059e3750d23` | The object ID of the work or school account in the Azure AD system. This claim is not issued for personal Microsoft accounts. The `profile` scope is required in order to receive this claim. |
-ired in order to receive this claim. |
+
 
 
 ### Access tokens
