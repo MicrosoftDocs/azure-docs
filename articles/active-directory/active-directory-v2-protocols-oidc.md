@@ -70,7 +70,7 @@ When your web app needs to authenticate the user, it can direct the user to the 
 
 - The request must include the `openid` scope in the `scope` parameter.
 - The `response_type` parameter must include `id_token`.
-- The request must include the `nonce` parameter
+- The request must include the `nonce` parameter.
 
 For example:
 
@@ -104,7 +104,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | prompt | Optional | Indicates the type of user interaction that is required. The only valid values at this time are `login`, `none`, and `consent`. The `prompt=login` claim forces the user to enter their credentials on that request, which negates single sign-on. The `prompt=none` claim is the opposite. This claim ensures that the user is not presented with any interactive prompt whatsoever. If the request cannot be completed silently via single sign-on, the v2.0 endpoint returns an error. The `prompt=consent` claim triggers the OAuth consent dialog after the user signs in. The dialog asks the user to grant permissions to the app. |
 | login_hint | Optional | You can use this parameter to pre-fill the username and email address field of the sign-in page for the user, if you know the username ahead of time. Often, apps use this parameter during re-authentication, after already extracting the username from an earlier sign-in by using the `preferred_username` claim. |
 | domain_hint | Optional | This value can be `consumers` or `organizations`. If included, it skips the email-based discovery process that the user goes through on the v2.0 sign-in page, for a slightly more streamlined user experience. Often, apps use this parameter during re-authentication by extracting the `tid` claim from the ID token. If the `tid` claim value is `9188040d-6c67-4c5b-b112-36a304b66dad`, use `domain_hint=consumers`. Otherwise, use `domain_hint=organizations`. |
-At this point, the user is prompted to enter their credentials and complete the authentication. The v2.0 endpoint verifies that the user has consented to the permissions indicated in the `scope` query parameter. If the user has not consented to any of those permissions, the v2.0 endpoint prompts the user to consent to the required permissions. You can read more about [permissions, consent, and multi-tenant apps](active-directory-v2-scopes.md).
+At this point, the user is prompted to enter their credentials and complete the authentication. The v2.0 endpoint verifies that the user has consented to the permissions indicated in the `scope` query parameter. If the user has not consented to any of those permissions, the v2.0 endpoint prompts the user to consent to the required permissions. You can read more about [permissions, consent, and multitenant apps](active-directory-v2-scopes.md).
 
 After the user authenticates and grants consent, the v2.0 endpoint returns a response to your app at the indicated redirect URI by using the method specified in the `response_mode` parameter.
 
