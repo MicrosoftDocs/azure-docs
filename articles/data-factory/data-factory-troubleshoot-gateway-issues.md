@@ -17,19 +17,13 @@
 	ms.author="jingwang"/>
 
 # Data Management Gateway
-This article provides information on troubleshooting issues with using Data Management Gateway. It has the following subsections: 
-
-- [Failed to install or register gateway](#failed-to-install-or-register-gateway)
-- [Gateway is online with limited functionality](#gateway-is-online-with-limited-functionality)
-- [Authoring linked service fails](#authoring-linked-service-fails)
-- [Copy Activity fails](#copy-activity-fails)
-- [Gateway logs](#gateway-logs)
+This article provides information on troubleshooting issues with using Data Management Gateway. 
 
 > [AZURE.NOTE] See [Data Management Gateway](data-factory-data-management-gateway.md) article for detailed information about the gateway. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for a walkthrough of moving data from an on-premises SQL Server database to an Azure blob storage by using the gateway. 
 
 ## Failed to install or register gateway
 
-### Problem
+### 1. Problem
 You see this error message when installing/registering a gateway, specifically, while downloading the gateway installation file. 
 
 `Unable to connect to the remote server". Please check your local settings (Error Code: 10003).`
@@ -42,7 +36,7 @@ Check your firewall / proxy server settings to see whether the settings block ne
 
 Alternatively, you can download installation file for the latest gateway from the [download center](https://www.microsoft.com/en-US/download/details.aspx?id=39717) on other machines that can access the download center, copy the installer file to the gateway host machine, and run it manually to install/update the gateway.
 
-### Problem
+### 2. Problem
 You see this error when attempting to install a gateway by clicking 'install directly on this computer' in the Azure portal. 
 
 `Error:  Abort installing a new gateway on this computer because this computer has an existing installed gateway and a computer without any installed gateway is required for installing a new gateway.`  
@@ -53,7 +47,7 @@ A gateway is already installed on the machine.
 ### Resolution
 Uninstall the existing gateway on the machine and click the “install directly on this computer” link again.
 
-### Problem
+### 3. Problem
 You may see this error when registering a new gateway.
 
 `Error: The gateway has encountered an error during registration.`
@@ -68,7 +62,7 @@ You may see this message for one of the following reasons:
 ### Resolution
 Verify whether you are using the right gateway key from the Azure portal. If needed, regenerate a key and use the key to register the gateway.
 
-### Problem
+### 4. Problem
 You may see the following error message when registering a gateway: 
 
 `Error: The content or format of the gateway key "{gatewayKey}" is invalid, please go to azure portal to create one new gateway or regenerate the gateway key.`
@@ -83,7 +77,7 @@ The content or format of the input gateway key is incorrect. One of the reasons 
 ### Resolution
 Generate a gateway key in the Azure portal, and use the copy button to copy the whole key, and then paste it in this window to register the gateway.
 
-### Problem
+### 5. Problem
 You may see the following error message when registering a gateway:
 
 `Error: The gateway key is invalid or empty. Specify a valid gateway key from the portal.`
@@ -96,7 +90,7 @@ The gateway key has been regenerated or the gateway has been deleted in the Azur
 ### Resolution
 If gateway still exists, regenerate the gateway key in the Azure portal, and use the copy button to copy the whole key, and then paste it in this window to register the gateway. Otherwise, recreate the gateway and start over.
 
-### Problem
+### 6. Problem
 You may see the following error message when registering a gateway:
 
 `Error: Gateway has been online for a while, then shows “Gateway is not registered” with the status “Gateway key is invalid”`
@@ -111,7 +105,7 @@ If the gateway has been deleted, recreate the gateway from the portal, click Reg
 
 If the gateway still exists but its key has been regenerated, use the new key to register the gateway. If you don’t have the key, regenerate the key again from the portal. 
 
-### Problem
+### 7. Problem
 When registering a gateway, you may need to enter path and password for a certificate. 
 
 ![specify certificate](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
@@ -128,7 +122,7 @@ If you have exported the credential certificate from the original gateway machin
 
 You cannot skip this stage when recovering a gateway. If the certificate is missing, you need to delete the gateway from the portal and recreate a new gateway.  In addition, all linked services related to the gateway need to be updated by reentering their credentials. 
 
-### Problem
+### 8. Problem
 You may see the following error message: 
 
 `Error: The remote server returned an error: (407) Proxy Authentication Required.`
@@ -140,7 +134,7 @@ This error happens when your gateway is in an environment that requires an HTTP 
 Follow instructions in the [Proxy server considerations](#proxy-server-considerations) section in this document and configure proxy settings with Configuration Manager.
 
 ## Gateway is online with limited functionality 
-### Problem
+### 1. Problem
 You see status of the gateway as **online with limited functionality**. 
 
 ### Cause
@@ -154,7 +148,7 @@ When gateway is online with limited functionality, you may not be able to use th
 ### Resolution
 Resolution for this issue (online with limited functionality) is based on whether gateway cannot connect to cloud service or the other way. The following sections provide these resolutions. 
 
-### Problem
+### 2. Problem
 You see the following error: 
 
 `Error: Gateway cannot connect to cloud service through service bus`
@@ -171,7 +165,7 @@ Follow these steps to get the gateway back online:
 - Configure proxy settings on the gateway. See [Proxy server considerations](#proxy-server-considerations) section for detail.
 - Enable outbound ports 5671 and 9350-9354 on both the Windows Firewall on gateway machine and corporate firewall. See [Ports and firewall](#ports-and-firewall) section for detail. This step is optional, but recommended for performance consideration.
 
-### Problem
+### 3. Problem
 You see the following error: 
 
 `Error: Cloud service cannot connect to gateway through service bus.`
@@ -214,7 +208,7 @@ Follow these steps to solve the problem:
 
 ## Copy activity fails
 
-### Problem
+### 1. Problem
 You may notice the following "UserErrorFailedToConnectToSqlserver" failure after you set up a pipeline in the Azure portal. 
 
 `Error: Copy activity encountered a user error: ErrorCode=UserErrorFailedToConnectToSqlServer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server`
