@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="11/01/2016"
 	ms.author="mimig"/>
 
 # Performance levels in DocumentDB
@@ -74,7 +74,7 @@ Once a collection is created, the full allocation of RUs based on the designated
 
 Note that with both user-defined and pre-defined performance levels, DocumentDB operates based on reservation of throughput. By creating a collection, an application has reserved and is billed for reserved throughput regardless of how much of that throughput is actively used. With user-defined performance levels, storage is metered based on consumption, but with pre-defined performance levels, 10 GB of storage is reserved at the time of collection creation.  
 
-After collections are created, you can modify the performance level through the DocumentDB SDKs or through the Azure Classic Portal.
+After collections are created, you can modify the performance level through the DocumentDB SDKs or through the Azure portal.
 
 > [AZURE.IMPORTANT] DocumentDB Standard collections are billed at an hourly rate and each collection you create will be billed for a minimum one hour of usage.
 

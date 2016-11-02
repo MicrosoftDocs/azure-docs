@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="11/01/2016"
 	ms.author="curtand"/>
 
 # Setting up Azure Active Directory for self-service group management

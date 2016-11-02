@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Use twin properties | Microsoft Azure"
-	description="This tutorial shows you how to use twin properties"
+	pageTitle="Use device twin properties | Microsoft Azure"
+	description="This tutorial shows you how to use device twin properties"
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
@@ -91,7 +91,7 @@ In this section, you create a Node.js console app that connects to your hub as *
             }
         });
 
-    The **Client** object exposes all the methods required to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the twin for **myDeviceId**, and attaches a handler for the update on desired properties. The handler verifies that there is an actual configuration change request by comparing the configIds, then invokes a method that starts the configuration change.
+    The **Client** object exposes all the methods required to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for **myDeviceId**, and attaches a handler for the update on desired properties. The handler verifies that there is an actual configuration change request by comparing the configIds, then invokes a method that starts the configuration change.
 
     Note that for the sake of simplicity, the previous code uses a hard-coded default for the inital configuration. A real app would probably load that configuration from a local storage.
     
@@ -138,7 +138,7 @@ In this section, you create a Node.js console app that connects to your hub as *
             });
         };
 
-    The **initConfigChange** method updates reported properties on the local twin object with the config update request and sets the status to **Pending**, then updates the device twin on the service. After successfully updating the twin, it simulates a long running process that terminates in the execution of **completeConfigChange**. This method updates the local twin's reported properties setting the status to **Success** and removing the **pendingConfig** object. It then updates the twin on the service.
+    The **initConfigChange** method updates reported properties on the local device twin object with the config update request and sets the status to **Pending**, then updates the device twin on the service. After successfully updating the device twin, it simulates a long running process that terminates in the execution of **completeConfigChange**. This method updates the local device twin's reported properties setting the status to **Success** and removing the **pendingConfig** object. It then updates the device twin on the service.
 
     Note that, to save bandwidth, reported properties are updated by specifying only the properties to be modified (named **patch** in the above code), instead of replacing the whole document.
 
@@ -152,7 +152,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 
 ## Create the service app
 
-In this section, you will create a .NET console app that updates the *desired properties* on the twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the hub and shows the difference between the desired and reported configurations of the device.
+In this section, you will create a .NET console app that updates the *desired properties* on the device twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the hub and shows the difference between the desired and reported configurations of the device.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SetDesiredConfigurationAndQuery**.
 
@@ -192,7 +192,7 @@ In this section, you will create a .NET console app that updates the *desired pr
                 };
             
             await registryManager.UpdateTwinAsync(twin.DeviceId, JsonConvert.SerializeObject(patch), twin.ETag);
-            Console.WriteLine("Updated desired state");
+            Console.WriteLine("Updated desired configuration");
 
             while (true)
             {
@@ -209,8 +209,8 @@ In this section, you will create a .NET console app that updates the *desired pr
             }
         }
 
-	The **Registry** object exposes all the methods required to interact with device twins from the service. The previous code, after it initializes the **Registry** object, retrieves the twin for **myDeviceId**, and updates its desired properties with a new telemetry configuration object.
-    After that, every 10 seconds, it queries the twins stored in the hub and prints the desired and reported telemetry configurations. Refer to the [IoT Hub query language][lnk-query] to learn how to generate rich reports across all your devices.
+	The **Registry** object exposes all the methods required to interact with device twins from the service. The previous code, after it initializes the **Registry** object, retrieves the device twin for **myDeviceId**, and updates its desired properties with a new telemetry configuration object.
+    After that, every 10 seconds, it queries the device twins stored in the hub and prints the desired and reported telemetry configurations. Refer to the [IoT Hub query language][lnk-query] to learn how to generate rich reports across all your devices.
 
     > [AZURE.IMPORTANT] This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events use [device-to-cloud messages][lnk-d2c].
 
@@ -223,11 +223,11 @@ In this section, you will create a .NET console app that updates the *desired pr
 
 8. With **SimulateDeviceConfiguration.js** running, run the .NET application from Visual Studio using **F5** and you should see the reported configuration change from **Success** to **Pending** to **Success** again with the new active send frequency of five minutes instead of 24 hours.
 
-    > [AZURE.IMPORTANT] There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale. To retrieve consistent views of a single twin use the **getDeviceTwin** method in the **Registry** class.
+    > [AZURE.IMPORTANT] There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale. To retrieve consistent views of a single device twin use the **getDeviceTwin** method in the **Registry** class.
 
 ## Next steps
 
-In this tutorial, you set a desired configuration as *desired properties* from the back end, and wrote a device app to detect that change and simulate a multi-step update process reporting its status as *reported properties* to the twin.
+In this tutorial, you set a desired configuration as *desired properties* from the back end, and wrote a device app to detect that change and simulate a multi-step update process reporting its status as *reported properties* to the device twin.
 
 Use the following resources to learn how to:
 

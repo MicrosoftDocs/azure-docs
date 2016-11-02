@@ -90,7 +90,7 @@ Azure IoT Suite packages together multiple Azure services with preconfigured sol
 
 ## Job
 
-A [job](iot-hub-devguide-jobs.md) in IoT Hub enables you to perform operations such as a firmware upgrade across multiple devices connected to your hub.
+A [job](iot-hub-devguide-jobs.md) in IoT Hub enables you to perform operations such as a firmware update across multiple devices connected to your hub.
 
 ## MQTT
 
@@ -102,7 +102,7 @@ In the context of device twins, reported properties are used in conjunction with
 
 ## Tags
 
-In the context of devcie twins, tags are device meta-data stored and retrieved by the application back end in the form of a JSON document. Tags are not visible to apps on a device.
+In the context of device twins, tags are device metadata stored and retrieved by the application back end in the form of a JSON document. Tags are not visible to apps on a device.
 
 ## System properties
 
