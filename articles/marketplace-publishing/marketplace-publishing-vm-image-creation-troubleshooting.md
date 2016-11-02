@@ -18,6 +18,8 @@
 
 # How to troubleshoot common issues encountered during VHD creation
 
+This article is provided to help an Azure Marketplace publisher and/or co-administrator that may experience an issue or have common questions while publishing or managing their virtual machine solution(s).
+
 1. How do I change the name of the host?
 
     Once VM is created, users can’t update the name of the host.
