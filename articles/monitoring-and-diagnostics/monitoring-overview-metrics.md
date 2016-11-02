@@ -87,7 +87,7 @@ Azure Metrics can be accessed via the Azure Monitor APIs. There are two APIs tha
 For a more detailed walkthrough using the Azure Monitor REST APIs, see [Azure Monitor REST API walkthrough](monitoring-rest-api-walkthrough.md).
 
 ## Export metrics
-You can go to the **Diagnostics settings** blade under the **Monitor** tab and view the export options for metrics. You can select metrics (and diagnostic logs) to be routed to Blob storage, Azure Event Hubs, or to OMS for use-cases that were mentioned previously in this article.
+You can go to the **Diagnostics settings** blade under the **Monitor** tab and view the export options for metrics. You can select metrics (and diagnostic logs) to be routed to Blob storage, to Azure Event Hubs, or to OMS for use-cases that were mentioned previously in this article.
 
  ![Export options for metrics in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview3.png)
 
