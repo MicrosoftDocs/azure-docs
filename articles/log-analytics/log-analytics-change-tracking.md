@@ -67,7 +67,7 @@ Change Tracking collects software inventory and Windows Service metadata using t
 The following table shows data collection methods and other details about how data is collected for Change Tracking.
 
 | platform | Direct Agent | SCOM agent | Linux agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|
 |Windows and Linux|![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png)|![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png)|![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png)|            ![No](./media/log-analytics-change-tracking/oms-bullet-red.png)|![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png)| hourly|
 
 ## Use Change Tracking
