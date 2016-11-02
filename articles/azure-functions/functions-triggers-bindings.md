@@ -287,7 +287,7 @@ Node.js
 	}
 
 
-## Advanced Binding with Binder
+## Advanced binding with Binder
 
 Using `Binder`/ `IBinder` is an advanced binding technique that allows you to perform bindings imperatively in your code as opposed to declarative via the *function.json* metadata file. You might need to do this in cases where the computation of binding path or other inputs needs to happen at run-time in your function. Note that when using an `Binder` parameter, you **should not** include a corresponding entry in *function.json* for that parameter.
 
