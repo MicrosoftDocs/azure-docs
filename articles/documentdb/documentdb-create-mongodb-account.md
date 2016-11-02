@@ -52,7 +52,7 @@ To create a DocumentDB account with protocol support for MongoDB, perform the fo
 
 	- For **Subscription**, select the Azure subscription that you want to use for the account. If your account has only one subscription, that account is selected by default.
 
-	- In **Resource Group**, select or create a resource group for the account.  By default, an existing Resource group under the Azure subscription will be chosen.  You may, however, choose to select to create a new resource group to which you would like to add the account. For more information, see [Using the Azure portal to manage your Azure resources](./articles/resource-group-portal.md).
+	- In **Resource Group**, select or create a resource group for the account.  By default, an existing Resource group under the Azure subscription will be chosen.  You may, however, choose to select to create a new resource group to which you would like to add the account. For more information, see [Using the Azure portal to manage your Azure resources](../resource-group-portal.md).
 
 	- Use **Location** to specify the geographic location in which to host the account.
 
