@@ -140,7 +140,7 @@ The BLE modules talk to the Bluetooth hardware via the BlueZ stack. You need ver
     sudo make install
     ```
 
-10. Change systemd service configuration for bluetooth so it points to the new bluetooth daemon in the file `/lib/systemd/system/bluetooth.service`. Replace the 'ExecStart' line with the following: 
+10. Change systemd service configuration for bluetooth so it points to the new bluetooth daemon in the file `/lib/systemd/system/bluetooth.service`. Replace the 'ExecStart' line with the following text: 
     
     ```
     ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
@@ -148,7 +148,7 @@ The BLE modules talk to the Bluetooth hardware via the BlueZ stack. You need ver
 
 ### Enable connectivity to the SensorTag device from your Raspberry Pi 3 device
 
-Before running the sample, you need to verify that your Rasbeperry Pi 3 can connect to the SensorTag device.
+Before running the sample, you need to verify that your Raspbeerry Pi 3 can connect to the SensorTag device.
 
 1. Unblock bluetooth on the Raspberry Pi 3 and check that the version number is **5.37**.
     
@@ -385,7 +385,7 @@ Add the MAC address of your SensorTag device and the device Id and key of the **
 #### Routing configuration
 
 The following configuration ensures the following:
-- The **Logger** module receives and log all messages.
+- The **Logger** module receives and logs all messages.
 - The **SensorTag** module sends messages to both the **mapping** and **BLE Printer** modules.
 - The **mapping** module sends messages to the **IoTHub** module to be sent up to your IoT Hub.
 - The **IoTHub** module sends messages back to the **mapping** module.
