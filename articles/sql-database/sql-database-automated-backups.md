@@ -101,7 +101,7 @@ GUIDELINES for the first ## H2.
 	Explains first component of the backup feature
 ------------------>
 
-SQL Database uses SQL Server technology to create [full](https://msdn.microsoft.com/library/ms186289.aspx), [differential](https://msdn.microsoft.com/library/ms175526.aspx), and [transaction log](https://msdn.microsoft.com/library/ms191429.aspx) backups. The transaction log backups generall happen every 5 - 10 minutes, with the frequency based on the performance level and amount of database activity. Transaction log backups in conjunction with full and differential baackups allows you to do a point-in-time restore to the same server that hosts the database. When you restore a database, the service figures out which full, differential, and transaction log backups need to be restored.
+SQL Database uses SQL Server technology to create [full](https://msdn.microsoft.com/library/ms186289.aspx), [differential](https://msdn.microsoft.com/library/ms175526.aspx), and [transaction log](https://msdn.microsoft.com/library/ms191429.aspx) backups. The transaction log backups generall happen every 5 - 10 minutes, with the frequency based on the performance level and amount of database activity. Transaction log backups in conjunction with full and differential backups allows you to do a point-in-time restore to the same server that hosts the database. When you restore a database, the service figures out which full, differential, and transaction log backups need to be restored.
 
 <!--------------- 
 	Explicit list of what to do with a local backup. "Use a ..." helps people to scan the topic and find the uses quickly.
