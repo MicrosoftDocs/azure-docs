@@ -4,7 +4,7 @@
 	services=""
 	documentationCenter="java"
 	authors="rmcmurray"
-	manager="wpickett"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/26/2016" 
+	ms.date="11/01/2016" 
 	ms.author="robmcm;asirveda;martinsawicki"/>
 
 # What's New in the Azure Toolkit for IntelliJ
