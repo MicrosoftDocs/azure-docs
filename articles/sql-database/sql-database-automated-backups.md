@@ -72,7 +72,7 @@ Sentence #2 Explains why I should care about this.
 
 -------------------->
 
-SQL Database automatically creates a database backups and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen. Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. If you want to keep backups in your own storage container you can configure Long-term backup retention policy. For more information, see [Long-term retention](sql-database-long-term-retention.md).
+SQL Database automatically creates a database backups and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen. Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. If you want to keep backups in your own storage container you can configure a long-term backup retention policy. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
 <!-- This image needs work, so not putting it in right now.
 
@@ -112,7 +112,7 @@ You can use these backups to:
 - Restore a database to a point-in-time within the retention period. This operation will create a new database in the same server as the original database.
 - Restore a a deleted database to the time it was deleted or any time within the retention period. The deleted database can only be restored in the same server where the original database was created.
 - Restore a database to another geographical region. This allows you to recover from a geographic disaster when you cannot access your server and database. It creates a new database in any existing server anywhere in the world. 
--  Restore a database from a specific backup stored in your Azure Backup Services Vault. This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application.
+-  Restore a database from a specific backup stored in your Azure Backup Services Vault. This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. See [Long-term retention](sql-database-long-term-retention.md).
 - To perform a restore, see [restore database from backups](sql-database-recovery-using-backups.md).
 
 <!----------------- 
