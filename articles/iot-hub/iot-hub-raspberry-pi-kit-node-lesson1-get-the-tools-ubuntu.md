@@ -26,7 +26,7 @@
 
 ## What you will do
 
-Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, look for solutions in the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Download the development tools and the software for the first sample application for Raspberry Pi 3. If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## What you will learn
 
@@ -75,7 +75,7 @@ If you experience issues installing Node.js and these additional development too
 
 ## Summary
 
-You've installed the required development tools and software for the first sample application. In the next article, you create, deploy, and run the sample application on Pi.
+You've installed the required development tools and software for the first sample application. The next task is to create, deploy, and run the sample application on Pi.
 
 ## Next steps
 
