@@ -48,7 +48,7 @@ Application Gateway is useful for:
 - Applications that support websocket traffic
 - Protecting web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
 
-Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer. Traffic manager can be used to complete the scenario as seen in the following image, where Traffic Manager provides redirection and availability,of traffic to multiple application gateway resources in different regions, while application gateway provides cross region layer 7 load balancing. An example of this scenario can be found at: [Using load balancing services in the azure cloud](../traffic-manager/traffic-manager-load-balancing-azure.md)
+Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer. Traffic manager can be used to complete the scenario as seen in the following image, where Traffic Manager provides redirection and availability,of traffic to multiple application gateway resources in different regions, while application gateway provides cross region layer 7 load balancing. An example of this scenario can be found at: [Using load balancing services in the Azure cloud](../traffic-manager/traffic-manager-load-balancing-azure.md)
 
 ![traffic manager and application gateway scenario](./media/application-gateway-introduction/tm-lb-ag-scenario.png)
 
