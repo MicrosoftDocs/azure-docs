@@ -16,9 +16,10 @@
    ms.date="11/01/2016"
    ms.author="carlrab;barbkess"/>
 
+# Learn about SQL Database backups
+
 <!------------------
 This topic is annotated with TEMPLATE guidelines for FEATURE TOPICS.
-
 
 Metadata guidelines
 
@@ -29,9 +30,6 @@ description
 	115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
 
 	Example: "SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy."
------------------->
-
-<!----------------
 
 TEMPLATE GUIDELINES for feature topics
 
@@ -49,9 +47,7 @@ DO explain this:
 DON'T explain this:
 	• How to steps for using the feature (Tasks)
 	• How to solve business problems that incorporate the feature (Overviews)
-------------------->
 
-<!------------------
 GUIDELINES for the H1 
 	
 	The H1 should answer the question "What is in this topic?" Write the H1 heading in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
@@ -60,20 +56,13 @@ GUIDELINES for the H1
 
 	Heading must use an industry standard term. If your feature is a proprietary name like "Elastic database pools", use a synonym. For example:	"Learn about elastic database pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
 
--------------------->
-
-# Learn about SQL Database backups
-
-<!------------------
-	GUIDELINES for introduction
+GUIDELINES for introduction
 	
 	The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top key words that you are using throughout the article.The introduction should be brief and to the point of what the feature is, what it is used for, and what's in the article. 
 
 	If the introduction is short enough, your article can pop to the top in Google Instant Answers.
 
 	In this example:
-	
- 
 
 Sentence #1 Explains what the article will cover, which is what the feature is or does. This is also the metadata description. 
 	SQL Database automatically creates a local database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. 
