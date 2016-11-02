@@ -33,10 +33,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
     1. Gateway Mode (default)
     2. Direct Mode
 
-    Since DocumentDB is a distributed storage system, DocumentDB resources like collections are partitioned across numerous machines and each partition is replicated for high availability. The logical to physical address translation is kept in a routing table, which is also internally available as a resource.
-
-    In Gateway Mode, the DocumentDB gateway machines perform this routing, thereby allowing client code to be simple and compact. A client application issues requests to the DocumentDB gateway machines, which translate the logical URI in the request to the physical address of the backend node, and forward the request appropriately.  Conversely, in Direct Mode clients must maintain – and periodically refresh – a copy of this routing table, and then directly connect to the backend DocumentDB nodes.
-
     Gateway Mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to DocumentDB.   Because of this, Direct Mode offers better performance due to fewer network hops.
 
 2. **Connection policy: Use the TCP protocol**
