@@ -82,7 +82,7 @@ You can also create many identical web service endpoints, and then patch differe
 
 
 ### New web service
-If you are create new ARM (Azure Resource Management) based web service, endpoint construct is no longer available. Instead, you can generate WSD (web service definition) files, in JSON format, from your predictive experiment using the [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet, or using [*Export-AzureRmMlWebservice*](https://msdn.microsoft.com/library/azure/mt767935.aspx) PowerShell commandlet from an arleady deployed ARM based web service. 
+If you are create new Azure Resource Manager-based web service, endpoint construct is no longer available. Instead, you can generate WSD (web service definition) files, in JSON format, from your predictive experiment using the [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet, or using [*Export-AzureRmMlWebservice*](https://msdn.microsoft.com/library/azure/mt767935.aspx) PowerShell commandlet from an arleady deployed Resource Manager-based web service. 
 
 Once you have the exported WSD file and version control it. You can also deploy the WSD as a new web service in a different web service plan in a different Azure region. Just make sure you supply the proper storage account configuration as well as the new web service plan ID. To patch in different .iLearner files, you can modify the WSD file and update the location reference of the trained model, and deploy as a new web service.
 
