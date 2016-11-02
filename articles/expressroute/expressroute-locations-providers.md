@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2016"
+   ms.date="11/02/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -62,9 +62,9 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 |---------------|-----------------------|
 | **Amsterdam** | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Atlanta** | Equinix |
-| **Chennai** | Tata Communications |
+| **Chennai** | SIFY, Tata Communications |
 | **Chicago** | AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
-| **Dallas** | AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
+| **Dallas** | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
 | **Dublin** | Colt, Telecity Group |
 | **Hong Kong** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **London** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
@@ -80,11 +80,11 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Sao Paulo** | Equinix, Telefonica |
 | **Seattle** | Equinix, Level 3 Communications, Megaport |
 | **Silicon Valley** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
-| **Singapore** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
+| **Singapore** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sydney** | AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokyo** | Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **Toronto** | Cologix, Equinix, Zayo Group |
-| **Washington DC** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
+| **Washington DC** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** denotes coming soon
 
@@ -95,7 +95,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Location**  |**Service Providers** |
 |---------------|--------------------|
 | **Chicago** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **Dallas** |  Equinix, Verizon+ |
+| **Dallas** |  Equinix, Verizon |
 | **New York** | Equinix, Level 3 Communications+, Verizon |
 | **Washington DC** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 

@@ -16,12 +16,12 @@
    ms.workload="na"
    ms.date="09/22/2016"
    ms.author="masashin"/>
-   
+
 # Configuring resilience and recovery on Elasticsearch on Azure
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-This article is [part of a series](guidance-elasticsearch.md). 
+This article is [part of a series](guidance-elasticsearch.md).
 
 A key feature of Elasticsearch is the support that it provides for resiliency in the event of node failures and/or network partition events. Replication is the most obvious way in which you can improve the resiliency of any cluster, enabling Elasticsearch to ensure that more than one copy of any data item is available on different nodes in case one node should become inaccessible. If a node becomes temporarily unavailable, other nodes containing replicas of data from the missing node can serve the missing data until the problem is resolved. In the event of a longer term issue, the missing node can be replaced with a new one, and Elasticsearch can restore the data to the new node from the replicas.
 
@@ -43,15 +43,15 @@ One node in an Elasticsearch cluster is elected as the master node. The purpose 
 
 You should consider using dedicated master nodes in critical clusters, and ensure that there are 3 dedicated nodes whose only role is to be master. This configuration reduces the amount of resource intensive work that these nodes have to perform (they do not store data or handle queries) and helps to improve cluster stability. Only one of these nodes will be elected, but the others will contain a copy of the system state and can take over should the elected master fail.
 
-## Controlling high availability with Azure – update domains and fault domains 
+## Controlling high availability with Azure – update domains and fault domains
 
 Different VMs can share the same physical hardware. In an Azure datacenter, a single rack can host a number of VMs, and all of these VMs share a common power source and network switch. A single rack-level failure can therefore impact a number of VMs. Azure uses the concept of fault domains to try and spread this risk. A fault domain roughly corresponds to a group of VMs that share the same rack. To ensure that a rack-level failure does not crash a node and the nodes holding all of its replicas simultaneously, you should ensure that the VMs are distributed across fault domains.
 
 Similarly, VMs can be taken down by the [Azure Fabric Controller](https://azure.microsoft.com/documentation/videos/fabric-controller-internals-building-and-updating-high-availability-apps/) to perform planned maintenance and operating system upgrades. Azure allocates VMs to update domains. When a planned maintenance event occurs, only VMs in a single update domain are effected at any one time. VMs in other update domains are left running until the VMs in the update domain being updated are brought back online. Therefore, you also need to ensure that VMs hosting nodes and their replicas belong to different update domains wherever possible.
 
-> [AZURE.NOTE] For more information about fault domains and update domains, see [Manage the availability of virtual machines][].
+> [AZURE.NOTE] For more information about fault domains and update domains, see [Manage the availability of virtual machines](../virtual-machines/virtual-machines-linux-manage-availability.md).
 
-You cannot explicitly allocate a VM to a specific update domain and fault domain. This allocation is controlled by Azure when VMs are created. However, you can specify that VMs should be created as part of an availability set. VMs in the same availability set will be spread across update domains and fault domains. If you create VMs manually, Azure creates each availability set with two fault domains and five update domains. VMs are allocated to these fault domains and update domains, cycling round as further VMs are provisioned, as follows: 
+You cannot explicitly allocate a VM to a specific update domain and fault domain. This allocation is controlled by Azure when VMs are created. However, you can specify that VMs should be created as part of an availability set. VMs in the same availability set will be spread across update domains and fault domains. If you create VMs manually, Azure creates each availability set with two fault domains and five update domains. VMs are allocated to these fault domains and update domains, cycling round as further VMs are provisioned, as follows:
 
 | VM | Fault domain | Update domain |
 |----|--------------|---------------|
@@ -108,7 +108,7 @@ Consider the following points when selecting the snapshot storage mechanism:
 
 - The HDFS plugin supports any HDFS-compatible file system provided that the correct Hadoop configuration is used with Elasticsearch.
 
-  
+
 ## Handling intermittent connectivity between nodes
 
 Intermittent network glitches, VM reboots after routine maintenance at the datacenter, and other similar events can cause nodes to become temporarily inaccessible. In these situations, where the event is likely to be short lived, the overhead of rebalancing the shards occurs twice in quick succession (once when the failure is detected and again when the node become visible to the master) can become a significant overhead that impacts performance. You can prevent temporary node inaccessibility from causing the master to rebalance the cluster by setting the *delayed\_timeout* property of an index, or for all indexes. The example below sets the delay to 5 minutes:
@@ -168,7 +168,7 @@ For more information, see [Indices Recovery](https://www.elastic.co/guide/en/ela
 
 > [AZURE.NOTE] A cluster with shards that require recovery will have a status of *yellow* to indicate that not all shards are currently available. When all the shards are available, the cluster status should revert to *green*. A cluster with a status of *red* indicates that one or more shards are physically missing, it may be necessary to restore data from a backup.
 
-## Preventing split brain 
+## Preventing split brain
 
 A split brain can occur if the connections between nodes fail. If a master node becomes unreachable to part of the cluster, an election will take place in the network segment that remains contactable and another node will become the master. In an ill-configured cluster, it is possible for each part of the cluster to have different masters resulting in data inconsistencies or corruption. This phenomenon is known as a *split brain*.
 
@@ -180,11 +180,11 @@ discovery.zen.minimum_master_nodes: 2
 
 This value should be set to the lowest majority of the number of nodes that are able to fulfil the master role. For example, if your cluster has 3 master nodes, *minimum\_master\_nodes* should be set to 2. If you have 5 master nodes, *minimum\_master\_nodes* should be set to 3. Ideally, you should have an odd number of master nodes.
 
-> [AZURE.NOTE] It is possible for a split brain to occur if multiple master nodes in the same cluster are started simultaneously. While this occurrence is rare, you can prevent it by starting nodes serially with a short delay (5 seconds) between each one. 
+> [AZURE.NOTE] It is possible for a split brain to occur if multiple master nodes in the same cluster are started simultaneously. While this occurrence is rare, you can prevent it by starting nodes serially with a short delay (5 seconds) between each one.
 
 ## Handling rolling updates
 
-If you are performing a software upgrade to nodes yourself (such as migrating to a newer release or performing a patch), you may need to perform work on individual nodes that requires taking them offline while keeping the remainder of the cluster available. In this situation, consider implementing the following process. 
+If you are performing a software upgrade to nodes yourself (such as migrating to a newer release or performing a patch), you may need to perform work on individual nodes that requires taking them offline while keeping the remainder of the cluster available. In this situation, consider implementing the following process.
 
 1. Ensure that shard reallocation is delayed sufficiently to prevent the elected master from rebalancing shards from a missing node across the remainder of the cluster. By default, shard reallocation is delayed for 1 minute, but you can increase the duration if a node is likely to be unavailable for a longer period. The following example increases the delay to 5 minutes:
 
@@ -236,7 +236,7 @@ Beware of automated updates to items such as the JVM (ideally, disable automatic
 
 This section describes a series of tests that were performed to evaluate the resilience and recovery of an Elasticsearch cluster containing three data nodes and three master nodes.
 
-The following scenarios were tested: 
+The following scenarios were tested:
 
 - Node failure and restart with no data loss. A data node is stopped and restarted after 5 minutes. Elasticsearch was configured not to reallocate missing shards in this interval, so no additional I/O is incurred in moving shards around. When the node restarts, the recovery process brings the shards on that node back up to date.
 
@@ -254,7 +254,7 @@ The following sections summarize the results of these tests, noting any degradat
 
 ## Node failure and restart with no data loss: results
 
-<!-- TODO; reformat this pdf for display inline --> 
+<!-- TODO; reformat this pdf for display inline -->
 
 The results of this test are shown in the file [ElasticsearchRecoveryScenario1.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario1.pdf). The graphs show performance profile of the workload and physical resources for each node in the cluster. The initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes before being restarted. The statistics for a further 20 minutes are illustrated; the system takes approximately 10 minutes to recover and stabilize. This is illustrated by the transaction rates and response times for the different workloads.
 
@@ -270,7 +270,7 @@ Note the following points:
 
 - The shards for the indexes are not distributed exactly equally across all nodes. There are two indexes containing 5 shards and 1 replica each, making a total of 20 shards. Two nodes will therefore contain 6 shards while the other two hold 7 each. This is evident in the CPU utilization graphs during the initial 20-minute period, node 0 is less busy than the other two. After recovery is complete, some switching seems to occur as node 2 appears to become the more lightly loaded node.
 
-    
+
 ## Node failure with catastrophic data loss: results
 
 <!-- TODO; reformat this pdf for display inline -->
@@ -306,7 +306,7 @@ Note the following points:
 - During the period after node 0 is brought back online, the transaction rates and response times remain volatile.
 
 - The CPU utilization and disk activity graphs for node 0 shows very reduced initial action during the recovery phase. This is because at this point, node 0 is not serving any data. After a period of approximately 5 minutes, the node bursts into action <RBC: This made me snort out loud. I'm not coming up with a better way to say this though.  >> as shown by the sudden increase in network, disk, and CPU activity. This is most likely caused by the cluster redistributing shards across nodes. Node 0 then shows normal activity.
-  
+
 ## Rolling updates: results
 
 <!-- TODO; reformat this pdf for display inline -->
@@ -344,7 +344,7 @@ The tests performed indicated that:
 
 - Only the last scenario indicated potential data loss, and this loss only affected new data being added. It is good practice in applications performing data ingestion to mitigate this likelihood by retrying insert operations that have failed as the type of error reported is highly likely to be transient.
 
-- The results of the last test also show that if you are performing planned maintenance of the nodes in a cluster, performance will benefit if you allow several minutes between cycling one node and the next. In an unplanned situation (such as the datacenter recycling nodes after performing an operating system update), you have less control over how and when nodes are taken down and restarted. The contention that arises when Elasticsearch attempts to recover the state of the cluster after sequential node outages can result in timeouts and errors. 
+- The results of the last test also show that if you are performing planned maintenance of the nodes in a cluster, performance will benefit if you allow several minutes between cycling one node and the next. In an unplanned situation (such as the datacenter recycling nodes after performing an operating system update), you have less control over how and when nodes are taken down and restarted. The contention that arises when Elasticsearch attempts to recover the state of the cluster after sequential node outages can result in timeouts and errors.
 
 [Manage the Availability of Virtual Machines]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
 [Running the Automated Elasticsearch Resiliency Tests]: guidance-elasticsearch-running-automated-resilience-tests.md

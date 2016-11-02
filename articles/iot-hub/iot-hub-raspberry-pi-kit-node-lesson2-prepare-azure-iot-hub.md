@@ -1,6 +1,6 @@
 <properties
  pageTitle="Create your hub and register Raspberry Pi 3 | Microsoft Azure"
- description="Create a resource group, create an Azure hub, and register Pi in the hub by using Azure CLI."
+ description="Create a resource group, create an Azure IoT hub, and register Pi in the IoT hub by using Azure CLI."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
@@ -17,29 +17,29 @@
  ms.date="10/21/2016"
  ms.author="xshi"/>
 
-# Create your hub and register Raspberry Pi 3
+# Create your IoT hub and register Raspberry Pi 3
 
 ## What you will do
 
 - Create a resource group.
-- Create your hub in the resource group.
-- Add Raspberry Pi 3 to the hub by using the Azure command-line interface (Azure CLI).
+- Create your Azure IoT hub in the resource group.
+- Add Raspberry Pi 3 to the Azure IoT hub by using the Azure command-line interface (Azure CLI).
 
-When you use Azure CLI to add Pi to your hub, the service generates a key for Pi to authenticate with the service. If you have any problems, seek solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+When you use Azure CLI to add Pi to your IoT hub, the service generates a key for Pi to authenticate with the service. If you have any problems, seek solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## What you will learn
 
-- How to use Azure CLI to create a hub
-- How to create a device identity for Pi in your hub
+- How to use Azure CLI to create an IoT hub
+- How to create a device identity for Pi in your IoT hub
 
 ## What you need
 
 - An Azure account
 - A Mac or a Windows computer with Azure CLI installed
 
-## Create your hub
+## Create your IoT hub
 
-Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To create your hub, follow these steps:
+Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To create your IoT hub, follow these steps:
 
 1. Sign in to your Azure account by running the following command:
 
@@ -73,21 +73,21 @@ Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To 
     az resource group create --name iot-sample --location westus
     ```
 
-5. Create a hub in the iot-sample resource group by running the following command:
+5. Create an IoT hub in the iot-sample resource group by running the following command:
 
     ```bash
     az iot hub create --name {my hub name} --resource-group iot-sample
     ```
 
-    The default edition of the hub that you create is F1, which is free. For more information, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+    The default edition of the IoT hub that you create is F1, which is free. For more information, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-> [AZURE.NOTE] The name of your hub must be globally unique.
+> [AZURE.NOTE] The name of your IoT hub must be globally unique.
 >
-> You can create only one F1 edition of a hub under your Azure subscription.
+> You can create only one F1 edition of an IoT hub under your Azure subscription.
 
-## Register Pi in your hub
+## Register Pi in your IoT hub
 
-Each device that sends messages to your hub and receives messages from your hub must be registered with a unique ID.
+Each device that sends messages to your IoT hub and receives messages from your IoT hub must be registered with a unique ID.
 
 Register Pi in your hub by running following command:
 
@@ -97,8 +97,8 @@ az iot device create --device-id myraspberrypi --hub {my hub name} --resource-gr
 
 ## Summary
 
-You've created a hub and registered Pi with a device identity in your hub. You're ready to learn how to send messages from Pi to your hub.
+You've created an Azure IoT hub and registered Pi with a device identity in your IoT hub. You're ready to learn how to send messages from Pi to your IoT hub.
 
 ## Next steps
 
-[Create an Azure function app and an Azure storage account to process and store hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
+[Create an Azure function app and an Azure storage account to process and store IoT hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)

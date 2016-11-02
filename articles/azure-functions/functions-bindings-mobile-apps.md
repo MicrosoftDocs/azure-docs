@@ -109,7 +109,6 @@ Suppose you have the following function.json, that retrieves a Mobile App table 
 See the language-specific sample that uses the input record from the binding. The C# and F# samples also modify the record's `text` property.
 
 - [C#](#inputcsharp)
-<!-- - [F#](#inputfsharp) -->
 - [Node.js](#inputnodejs)
 
 <a name="inputcsharp"></a>
@@ -213,7 +212,6 @@ Suppose you have the following function.json, that defines a queue trigger and a
 See the language-specific sample that creates a record in the Mobile Apps table endpoint with the content of the queue message.
 
 - [C#](#outcsharp)
-<!-- - [F#](#outfsharp) -->
 - [Node.js](#outnodejs)
 
 <a name="outcsharp"></a>

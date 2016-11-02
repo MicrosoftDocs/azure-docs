@@ -158,5 +158,5 @@ Using the Azure CLI, you can either export a template that represents the curren
 
 * To get details of deployment operations and troubleshoot deployment errors with the Azure CLI, see [View deployment operations with Azure CLI](resource-manager-troubleshoot-deployments-cli.md).
 * If you want to use the CLI to set up an application or script to access resources, see [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md).
-
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 

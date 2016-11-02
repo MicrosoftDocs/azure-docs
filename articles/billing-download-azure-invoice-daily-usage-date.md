@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/10/2016"
+	ms.date="10/23/2016"
 	ms.author="genli"/>
 
 # How to download your Azure billing invoice and daily usage data
@@ -30,17 +30,14 @@ As the Azure account administrator, you can view the billing invoice and the dai
 
 	>[AZURE.NOTE] Only the  account administrator has permission to access the billing data. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](billing-subscription-transfer.md#faq).
 
-2. On the Hub menu, select **Billing**. On the **Billing** blade, you can find some useful information such as next billing date.
+2. On the Hub menu, select **Subscriptions**.
 
-	![billing button](./media/billing-download-azure-invoice-daily-usage-date/billing1.png)
-3. In the **Subscription costs** section, select the subscription that you want to view.
+	![Subscription button](./media/billing-download-azure-invoice-daily-usage-date/submenu.png)
+3. In the **Subscriptions** blade, select the subscription that you want to view, and then select **Billing & usage**.
 
-	![billing button](./media/billing-download-azure-invoice-daily-usage-date/billing2.png)
-4. Click **Billing & usage**.
+	![billing button](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
-	![billing and usage](./media/billing-download-azure-invoice-daily-usage-date/billing3.png)
-
-5. On the **Billing history** blade, click **Download Invoice** to view a copy of your bill. Click a billing period to view the daily usage data.
+4. On the **Billing & usage** blade, click **Download Invoice** to view a copy of your bill. Click a billing period to view the daily usage data.
 
 	![billing details](./media/billing-download-azure-invoice-daily-usage-date/billing4.png)
 
