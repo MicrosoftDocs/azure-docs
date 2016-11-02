@@ -39,6 +39,7 @@ Azure service names must be globally unique. The following names are used in thi
 |Property|Value|
 |--------|-----|
 | Azure AD VNet|contosoaadvnet|
+| Azure AD Vnet resource group|contosoaadrg|
 | Azure AD Virtual Machine (VM)|contosoaadadmin. This VM is used to configure organization unit and reverse DNS zone.|
 | Azure AD directory|contosoaaddirectory|
 | Azure AD domain name|contoso (contoso.onmicrosoft.com)|
@@ -83,7 +84,7 @@ In this section, you create a classic VNet using the Azure portal. In the next s
 	- **Subnet name**: Subnet1
 	- **Subnet address range**: 10.1.0.0/24
 	- **Subscription**: (Select a subscription used for creating this VNet.)
-	- **ResourceGroup**:
+	- **ResourceGroup**: contosoaadrg
 	- **Location**: (Select a region for your HDInsight cluster.)
 
 		> [AZURE.IMPORTANT] You must choose a location that supports Azure AD DS. For more information, see [Products available by region](https://azure.microsoft.com/en-us/regions/services/). 
