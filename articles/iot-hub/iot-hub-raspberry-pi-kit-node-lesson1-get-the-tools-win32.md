@@ -30,7 +30,7 @@ Download the development tools and the software for the first sample application
 
 ## What you will learn
 
-In this article you will learn:
+In this article, you will learn:
 
 - How to install Git and Node.js.
   - [Git](https://git-scm.com) is an open source distributed version control system. The sample application for this article is stored on Git.
