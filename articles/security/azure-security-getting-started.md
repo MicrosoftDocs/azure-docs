@@ -1,6 +1,6 @@
 <properties
    pageTitle="Getting started with Microsoft Azure security | Microsoft Azure"
-   description="This article provides an overview of Microsoft Azure Security capabilities and general considerations for organizations that are migrating their assets to a cloud provider."
+   description="This article provides an overview of Microsoft Azure security capabilities and general considerations for organizations that are migrating their assets to a cloud provider."
    services="security"
    documentationCenter="na"
    authors="YuriDio"
@@ -31,9 +31,9 @@ In this overview article on Azure security, we’ll look at:
 ## Identity and access management
 
 
-Controlling access to IT infrastructure, data, and applications is critical. Microsoft Azure delivers these capabilities by services such as Azure Active Directory, Azure Storage, and support for numerous standards and APIs.
+Controlling access to IT infrastructure, data, and applications is critical. Microsoft Azure delivers these capabilities by services such as Azure Active Directory (Azure AD), Azure Storage, and support for numerous standards and APIs.
 
-[Azure Active Directory](../active-directory/active-directory-whatis.md) (Azure AD) is an identity repository and engine that provides authentication, authorization, and access control for an organization's users, groups, and objects. Azure AD also offers developers an effective way to integrate identity management in their applications. Industry-standard protocols such as [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx), and [OpenID Connect](http://openid.net/connect/) make sign-in possible on platforms such as .NET, Java, Node.js, and PHP.
+[Azure AD](../active-directory/active-directory-whatis.md) is an identity repository and engine that provides authentication, authorization, and access control for an organization's users, groups, and objects. Azure AD also offers developers an effective way to integrate identity management in their applications. Industry-standard protocols such as [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx), and [OpenID Connect](http://openid.net/connect/) make sign-in possible on platforms such as .NET, Java, Node.js, and PHP.
 
 The REST-based Graph API enables developers to read and write to the directory from any platform. Through support for [OAuth 2.0](http://oauth.net/2/), developers can build mobile and web applications that integrate with Microsoft and third-party web APIs, and build their own secure web APIs. Open-source client libraries are available for .Net, Windows Store, iOS, and Android, with additional libraries under development.
 
@@ -49,7 +49,7 @@ Some other capabilities for identity and access management include:
 
 -   Azure AD provides Identity as a Service through federation by using [Active Directory Federation Services](../active-directory/fundamentals-identity.md), synchronization, and replication with on-premises directories.
 
--   [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) is the multi-factor authentication service that requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to secure on-premises resources with the Azure MFA Server, and also with custom applications and directories using the SDK.
+-   [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) is the multi-factor authentication service that requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to help secure on-premises resources with the Azure Multi-Factor Authentication server, and also with custom applications and directories using the SDK.
 
 -   [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) lets you join Azure virtual machines to a domain without deploying domain controllers. You can sign in to these virtual machines with your corporate Active Directory credentials and administer domain-joined virtual machines by using Group Policy to enforce security baselines on all your Azure virtual machines.
 
@@ -73,7 +73,7 @@ Other capabilities in Azure that will assist you to keep your data secure includ
 
 - Completely control the keys with client-side encryption for Azure Blob storage. The storage service never sees the keys and is incapable of decrypting the data.
 
--   [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) (with the [RMS SDK](https://msdn.microsoft.com/library/dn758244.aspx)) provides file and data-level encryption and data-leak prevention through policy-based access management.
+-   [Azure Rights Management (Azure RMS)](https://technet.microsoft.com/library/jj585026.aspx) (with the [RMS SDK](https://msdn.microsoft.com/library/dn758244.aspx)) provides file and data-level encryption and data-leak prevention through policy-based access management.
 
 -   Azure supports [table-level and column-level encryption (TDE/CLE)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database.aspx) in SQL Server virtual machines, and it supports third-party on-premises key management servers in datacenters.
 
@@ -89,7 +89,7 @@ The Azure platform uses a virtualized environment. User instances operate as sta
 
 Ring 0 is the most privileged and 3 is the least. The guest OS runs in a lesser-privileged Ring 1, and applications run in the least privileged Ring 3. This virtualization of physical resources leads to a clear separation between guest OS and hypervisor, resulting in additional security separation between the two.
 
-Azure’s Hypervisor acts like a micro-kernel and passes all hardware access requests from guest virtual machines to the host for processing by using a shared-memory interface called VMBus. This prevents users from obtaining raw read/write/execute access to the system and mitigates the risk of sharing system resources.
+The Azure hypervisor acts like a micro-kernel and passes all hardware access requests from guest virtual machines to the host for processing by using a shared-memory interface called VMBus. This prevents users from obtaining raw read/write/execute access to the system and mitigates the risk of sharing system resources.
 
 ![Microsoft Antimalware in Azure](./media/azure-security-getting-started/sec-azgsfig2.PNG)
 
