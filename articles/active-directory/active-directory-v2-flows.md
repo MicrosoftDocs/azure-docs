@@ -87,7 +87,7 @@ A Web API can receive access tokens from all types of apps, including web server
 
 To learn more about authorization codes, refresh tokens, and the detailed steps of getting access tokens, read about the [OAuth 2.0 protocol](active-directory-v2-protocols-oauth-code.md).
 
-To learn how to secure a Web API by using OAuth2 access tokens, check out the Web API code samples in our [Getting Started section](active-directory-appmodel-v2-overview.md#getting-started).
+To learn how to secure a Web API by using OAuth2 access tokens, check out the Web API code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
 
 ## Mobile and native apps
@@ -116,7 +116,7 @@ In this flow, the app interacts directly with the `/token` endpoint to obtain en
 To build a daemon app, see the client credentials documentation in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section, or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
 
 ## Current limitations
-Currently, the types of apps in this section are not supported by the v2.0 endpoint, but they are on the roadmap for future development. For additional limitations and restrictions for the v2.0 endpoint, see [Should I use the v2.0 endpoint?](active-directory-v2-limitations.md)
+Currently, the types of apps in this section are not supported by the v2.0 endpoint, but they are on the roadmap for future development. For additional limitations and restrictions for the v2.0 endpoint, see [Should I use the v2.0 endpoint?](active-directory-v2-limitations.md).
 
 ### Chained Web APIs (on-behalf-of)
 Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 endpoint. This scenario is common in native clients that have a Web API back end, which in turn calls an instance of Microsoft Online Services like Office 365, or the Graph API.
