@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="json"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="11/01/2016"
 	ms.author="richrund"/>
 
 # Manage Log Analytics using Azure Resource Manager templates
@@ -41,7 +41,7 @@ This article provides a template samples that illustrate some of the configurati
 
 The following template sample illustrates how to:
 
-1.	Create a workspace
+1.	Create a workspace, including setting data retention
 2.	Add solutions to the workspace
 3.	Create saved searches
 4.	Create a computer group
@@ -69,11 +69,20 @@ The following template sample illustrates how to:
       "type": "string",
       "allowedValues": [
         "Free",
-        "Standard",
-        "Premium"
+        "Standalone",
+        "PerNode"
       ],
       "metadata": {
-        "description": "Service Tier: Free, Standard, or Premium"
+        "description": "Service Tier: Free, Standalone, or PerNode"
+	}
+      },
+    "dataRetention": {
+      "type": "int",
+      "defaultValue": 30,
+      "minValue": 7,
+      "maxValue": 730,
+      "metadata": {
+        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and OMS plans include 30 days for free"
       }
     },
     "location": {
@@ -122,7 +131,8 @@ The following template sample illustrates how to:
       "properties": {
         "sku": {
           "Name": "[parameters('serviceTier')]"
-        }
+        },
+	"retentionInDays": "[parameters('dataRetention')]"
       },
       "resources": [
         {
