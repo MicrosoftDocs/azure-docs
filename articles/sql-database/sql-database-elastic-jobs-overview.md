@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="10/24/2016" 
 	ms.author="ddove" />
 
 # Managing scaled-out cloud databases
 
-To manage scaled-out sharded databases, the **Elastic Database jobs** feature (preview) enables you to  reliably execute a Transact-SQL (T-SQL) script or apply a DACPAC ([data-tier application](https://msdn.microsoft.com/library/ee210546.aspx)) across a group of databases, including:
+To manage scaled-out sharded databases, the **Elastic Database jobs** feature (preview) enables you to reliably execute a Transact-SQL (T-SQL) script across a group of databases, including:
 
 * a custom-defined collection of databases (explained below)
 * all databases in an [Elastic Database pool](sql-database-elastic-pool.md)
@@ -56,10 +56,6 @@ Jobs run the script and log the status of execution for each database. You also 
 **Flexibility**
 
 Define custom groups of Azure SQL Databases, and define schedules for running a job.
-
-**Deployment**
-
-Deploy data-tier applications (DACPACs).
 
 > [AZURE.NOTE] In the Azure portal, only a reduced set of functions limited to SQL Azure elastic pools is available. Use the PowerShell APIs to access the full set of current functionality.
 
