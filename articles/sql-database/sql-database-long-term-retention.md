@@ -24,7 +24,7 @@ Many applications have regulatory, compliance, or other business purposes that r
 
 The **Long-Term Backup Retention** feature enables you to store your Azure SQL Database backups in an Azure Recovery Service Vault for up to 10 years. You can store up to 1000 databases per vault. You can select any backup in the vault to restore it as a new database.
 
-> [AZURE.NOTE] You can only set up 200 databases per day per vault. We recommend that you use a separate vault for each server to minimize the impact of this limit. 
+> [AZURE.NOTE] You can enable up to 200 databases per vault during a 24-hour period. Therefore, we recommend that you use a separate vault for each server to minimize the impact of this limit. 
 
 ## How does SQL Database Long-Term Retention work?
 
