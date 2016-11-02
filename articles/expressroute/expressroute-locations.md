@@ -110,7 +110,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supported | Supported | Chicago, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Chicago, Dallas, New York, Washington DC |
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Supported | Chicago, New York+, Washington DC |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Supported | Chicago, Dallas+, New York, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Supported | Chicago, Dallas, New York, Washington DC |
 
 #### China
 
