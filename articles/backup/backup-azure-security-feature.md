@@ -53,13 +53,13 @@ Users creating recovery services vault would be able to avail all the Security F
 	![Enable security settings](./media/backup-azure-security-feature/enable-security-settings.png)
 
 > [AZURE.NOTE]
-1. Security Features should be enabled only if you are using: <br/>
+- Security Features should be enabled only if you are using: <br/>
 	- **MAB agent** - minimum agent version 2.0.9052 <br/>
 	- **Azure Backup Server** - minimum MAB agent version 2.0.9052 with Azure Backup Server upgrade 1 <br/>
 	- **DPM** - Do not enable this Setting for DPM. This feature is coming soon in future URs <br/>
-2. Once enabled, you get Security Features for all the Azure Recovery Services Agent (MARS) machines and Azure Backup Server registered with the vault. <br/>
-3. Enabling this setting is a one-time action and you cannot disable these features after enabling them. <br/>
-4. This feature is available only for Recovery Services vault.
+- Once enabled, you get Security Features for all the Azure Recovery Services Agent (MARS) machines and Azure Backup Server registered with the vault. <br/>
+- Enabling this setting is a one-time action and you cannot disable these features after enabling them. <br/>
+- This feature is available only for Recovery Services vault.
 
 ## Recovering deleted backup data
 As a security measure, Azure Backup retains deleted backup data for additional 14 days and not delete it immediately if Stop backup with delete backup data operation is performed. To restore this data in the 14-day period, use the following steps:
@@ -98,3 +98,8 @@ To ensure that there are always a valid number of recovery points available, fol
 Whenever some critical operations are performed, subscription admin would be sent an email notification with details about the operation. If you want to configure additional email ids to receive email notifications, you can use Azure portal to configure them.
 
 The Security features mentioned in this article, would provide defense mechanisms against targeted attacks preventing attackers to harm the backups. More importantly, these features provide an ability to recover backup data if at all attack happens.
+
+## Next Steps
+
+- [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) to enable these features
+- [Download latest Azure Recovery Services agent](backup-configure-vault.md) to protect Windows machines and guard your backup data against attacks
