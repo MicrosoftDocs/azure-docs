@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creating hybrid networks with Azure | Microsoft Azure"
+   pageTitle="Connecting your on-premises network to Azure | Microsoft Azure"
    description="Explains and compares the different methods available for establishing secure, robust network connections between the on-premises infrastructure and Azure.."
    services=""
    documentationCenter="na"
@@ -16,7 +16,7 @@
    ms.date="10/28/2016"
    ms.author="telmosampaio"/>
    
-# Creating Hybrid Networks with Azure
+# Connecting your on-premises network to Azure
 
 Many organizations have an existing on-premises infrastructure that they wish to integrate with Azure. This enables organizations to migrate existing applications to the cloud, and also to take advantage of the scalability, availability, security, and other enterprise features that Azure offers for new applications. The key part of this scenario is understanding how to establish a secure and robust network connection between your organization and Azure.
 
