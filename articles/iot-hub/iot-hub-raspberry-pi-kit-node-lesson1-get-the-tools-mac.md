@@ -49,7 +49,7 @@ To complete this operation, you will need:
 
 To install Git and Node.js, use the [Homebrew](http://brew.sh) package management utility by following these steps:
 
-1. Install Homebrew. If you've already installed Homebrew, go to Step 2.
+1. Install Homebrew. If you've already installed Homebrew, go to step 2.
   1. Press `Cmd + Space` and enter `Terminal` to open a terminal.
   2. Run the following command:
 
@@ -80,7 +80,7 @@ If you experience issues installing Node.js and these additional development too
 
 ## Summary
 
-You've installed the required development tools and software for the first sample application. In the next article, you create, deploy, and run the sample application on Pi.
+You've installed the required development tools and software for the first sample application. The next task is to create, deploy, and run the sample application on Pi.
 
 ## Next steps
 
