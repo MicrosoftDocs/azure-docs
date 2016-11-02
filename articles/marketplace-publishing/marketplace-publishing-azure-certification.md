@@ -4,7 +4,7 @@
    services="marketplace-publishing"
    documentationCenter="na"
    authors="HannibalSII"
-   manager=" "
+   manager="hascipio"
    editor=""
    tags=""/>
 

@@ -20,7 +20,7 @@
 
 # Add functionality to your first web app
 
-In [Deploy a web app to Azure in 5 minutes](app-service-web-get-started.md), you deployed a sample web app to
+In [Deploy your first web app to Azure in five minutes](app-service-web-get-started.md), you deployed a sample web app to
 [Azure App Service](../app-service/app-service-value-prop-what-is.md). In this article, you'll quickly add some
 great functionalities to your deployed web app. In a few minutes, you will:
 
@@ -91,9 +91,9 @@ Next, let's autoscale your app so that it will automatically adjust it capacity 
 Briefly, you scale your web app in two ways:
 
 - [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more CPU, memory, disk space, and extra features
-like dedicated VMs, custom domains and certificates, staging slots, autoscaling, and more. You scale out by changing the pricing tier of the
+like dedicated VMs, custom domains and certificates, staging slots, autoscaling, and more. You scale up by changing the pricing tier of the
 App Service plan your app belongs to.
-- [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increasing the number VM instances that run your app.
+- [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increasing the number of VM instances that run your app.
 You can scale out to as many as 50 instances, depending on your pricing tier.
 
 Without further ado, let's set up autoscaling.

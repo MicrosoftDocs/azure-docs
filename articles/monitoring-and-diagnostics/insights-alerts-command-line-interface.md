@@ -2,7 +2,7 @@
 	pageTitle="Use the cross-platform Command Line Interface (CLI) to create alerts for Azure services | Microsoft Azure"
 	description="Use the command line interface to create Azure alerts, which can trigger notifications or automation when the conditions you specify are met."
 	authors="rboucher"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/17/2016"
+	ms.date="10/24/2016"
 	ms.author="robb"/>
 
 # Use the cross-platform Command Line Interface (CLI) to create alerts for Azure services
@@ -26,6 +26,8 @@
 ## Overview
 
 This article shows you how to set up Azure alerts using the Command Line Interface (CLI).
+
+>[AZURE.NOTE] Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the commands below still contain the "insights".
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
@@ -44,18 +46,19 @@ You can configure and get information about alert rules using
 - [Azure portal](insights-alerts-portal.md)
 - [PowerShell](insights-alerts-powershell.md)
 - [command-line interface (CLI)](insights-alerts-command-line-interface.md)
-- [Azure Insights REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+- [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 
 You can always receive help for commands by typing a command and putting -help at the end. For example:
 
+	```console
 	azure insights alerts -help
 	azure insights alerts actions email create -help
-
+	```
 
 ## Create alert rules using the CLI
 
-1. Perform the Prerequisites and login to Azure. See [Azure Insights CLI samples](insights-cli-samples.md). In short, install the CLI and run these commands. They get you logged in, show what subscription you are using, and prepare to run insights commands.
+1. Perform the Prerequisites and login to Azure. See [Azure Monitor CLI samples](insights-cli-samples.md). In short, install the CLI and run these commands. They get you logged in, show what subscription you are using, and prepare you to run Azure Monitor commands.
 
 
 	```console
@@ -80,7 +83,7 @@ You can always receive help for commands by typing a command and putting -help a
 
     An example resource id for a web app is
 
-	```
+	```console
 	/subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
 	```
 

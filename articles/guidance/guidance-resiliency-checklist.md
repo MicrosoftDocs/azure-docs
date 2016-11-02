@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="petertaylor9999"
-   manager=""
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -14,34 +14,40 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/27/2016"
+   ms.date="10/24/2016"
    ms.author="petertay"/>
 
-# Resiliency checklist
+# Azure resiliency guidance: Resiliency checklist
 
 Designing your application for resiliency requires planning for and mitigating a variety of failure modes that could occur. Review the items in this checklist against your application design to make it more resilient.
 
-## Failure Mode Analysis
-
-- **Perform a failure mode analysis (FMA) for your application.** The FMA process identifis what types of failures an application might experience, where these failures will happen, and the best practices for recovery. For more information, see [Designing resilient applications for Azure: Failure mode analysis][fma].  
-
 ## Requirements
 
-- **Define your customer's availability requirements.** Your customer will have availability requirements for the components in your application and this will affect your application's design. Get agreement from your customer for the availability targets of each piece of your application, otherwise will not be able to effectively design each piece of the application to meet the customer's expectations. For more information, see the [Defining your resiliency requirements](guidance-resiliency-overview.md#defining-your-resiliency-requirements) section of the [Designing resilient applications for Azure](guidance-resiliency-overview.md) document.
+- **Define your customer's availability requirements.** Your customer will have availability requirements for the components in your application and this will affect your application's design. Get agreement from your customer for the availability targets of each piece of your application, otherwise your design may not meet the customer's expectations. For more information, see the [Defining your resiliency requirements](guidance-resiliency-overview.md#defining-your-resiliency-requirements) section of the [Designing resilient applications for Azure](guidance-resiliency-overview.md) document.
+
+## Failure Mode Analysis
+
+- **Perform a failure mode analysis (FMA) for your application.** FMA is a process for building resiliency into an application early in the design stage. The goals of an FMA include:  
+
+    - Identify what types of failures an application might experience. 
+    - Capture the potential effects and impact of each type of failure on the application.
+    - Identify recovery strategies. 
+
+    For more information, see [Designing resilient applications for Azure: Failure mode analysis][fma].  
 
 ## Application
 
 - **Deploy multiple instances of services.** Services will inevitably fail, and if your application depends on a single instance of a service it will inevitably fail also. To provision multiple instances for [Azure App Service](../app-service/app-service-value-prop-what-is.md), select an [App Service Plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) that offers multiple instances. For Azure Cloud Services, configure each of your roles to use [multiple instances](../cloud-services/cloud-services-choose-me.md#scaling-and-management). For [Azure Virtual Machines (VMs)](../virtual-machines/virtual-machines-windows-about.md), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set][availability-sets].   
 
-- **Use a load balancer to distribute requests.** A load balancer distributes your application's requests to healthy service instances by removing unhealthy instances from its pool. If your service uses Azure App Service or Azure Cloud Services, it is already load balanced for you. However, if your application uses Azure VMs, you will need to provision a load balancer. See the [Azure Load Balancer](../load-balancer/load-balancer-overview.md) overview for more details. 
+- **Use a load balancer to distribute requests.** A load balancer distributes your application's requests to healthy service instances by removing unhealthy instances from rotation. If your service uses Azure App Service or Azure Cloud Services, it is already load balanced for you. However, if your application uses Azure VMs, you will need to provision a load balancer. See the [Azure Load Balancer](../load-balancer/load-balancer-overview.md) overview for more details. 
 
 - **Configure Azure Application Gateways to use multiple instances.** Depending on your application's requirements, an [Azure Application Gateway](../application-gateway/application-gateway-introduction.md) may be better suited to distributing requests to your application's services. However, single instances of the Application Gateway service are not guaranteed by an SLA so it's possible that your application could fail if the Application Gateway instance fails. Provision more than one medium or larger Application Gateway instance to guarantee availability of the service under the terms of the [SLA](https://azure.microsoft.com/support/legal/sla/application-gateway/v1_0/).
 
-- **Use Availability Sets for each role in your application**. Placing your instances in an [availability set][availability-sets] guarantees connectivity to at least one VM instance within the terms of the [SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_2/). If your role instances aren't in an availability set you don't have guarantees protecting them and it's possible that they could all fail simultaneously. 
+- **Use Availability Sets for each application tier**. Placing your instances in an [availability set][availability-sets] guarantees connectivity to at least one VM instance within the terms of the [SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_2/). If your VMs aren't in an availability set you don't have guarantees protecting them and it's possible that they could all fail or be updated simultaneously. 
 
-- **Consider deploying your application across multiple regions.** If your application is deployed to a single region, in the rare event the entire region becomes unavailable your application will also be unavailable. This may be unacceptable under the terms of your application's SLA. In this case, consider deploying your application and its services across multiple regions in either an active-active pattern (distributing requests to currently available active instances) or an active-passive pattern (keeping a "warm" instance in reserve and routing requests to it when it comes online). We recommend that you deploy multiple instances of your application's services across regional pairs. More information is available in the ["What are paired regions?"](../best-practices-availability-paired-regions.md) document.
+- **Consider deploying your application across multiple regions.** If your application is deployed to a single region, in the rare event the entire region becomes unavailable, your application will also be unavailable. This may be unacceptable under the terms of your application's SLA. If so, consider deploying your application and its services across multiple regions. A multi-region deployment can use an active-active pattern (distributing requests across multiple active instances) or an active-passive pattern (keeping a "warm" instance in reserve, in case the primary instance fails). We recommend that you deploy multiple instances of your application's services across regional pairs. For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
-- **Implement resiliency patterns for remote operations where appropriate.** If your application is dependent on communication between remote services, the communication path will inevitably fail. If there are multiple failures, the remaining healthy instances of your application's services could be overwhelmed with requests. There are several patterns useful for dealing with common failures including the timeout pattern, the retry pattern, the circuit breaker pattern, and others. See the [Resiliency Guidelines](guidance-resiliency-overview.md#implementing-resiliency-strategies) for more information on how to implement these patterns. 
+- **Implement resiliency patterns for remote operations where appropriate.** If your application depends on communication between remote services, the communication path will inevitably fail. If there are multiple failures, the remaining healthy instances of your application's services could be overwhelmed with requests. There are several patterns useful for dealing with common failures including the timeout pattern, the [retry pattern][retry-pattern], the [circuit breaker][circuit-breaker] pattern, and others. For more information, see [Designing resilient applications for Azure](guidance-resiliency-overview.md#implementing-resiliency-strategies). 
 
 - **Use autoscaling to respond to increases in load.** If your application is not configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. For more details, see the following:
 
@@ -53,13 +59,22 @@ Designing your application for resiliency requires planning for and mitigating a
 
 - **Implement asynchronous operations whenever possible.** Synchronous operations can monopolize resources and block other operations while the caller waits for the process to complete. Design each part of your application to allow for asynchronous operations whenever possible. For more information on how to implement asynchronous programming in C#, see [Asynchronous Programming with async and await][asynchronous-c-sharp].
 
-- **Configure and test health probes for your load balancers and traffic managers.** Ensure that your health logic checks all of the critical parts of the system and responds appropriately to Load Balancer and Traffic Manager probes. If your application doesn't check a critical function such as storage or a database service but responds with a 200 (OK) to the Load Balancer or Traffic Manager, an unhealthy instance will remain in the pool and it will still be sent requests even though it's not capable of serving them. See the [Health Endpoint Monitoring Pattern](https://msdn.microsoft.com/library/dn589789.aspx) document for guidance on implementing health monitoring in your application.
+- **Use Azure Traffic Manager to route your application's traffic to different regions.**  [Azure Traffic Manager][traffic-manager] performs load balancing at the DNS level and can route traffic to different regions based on the [traffic routing][traffic-manager-routing] method you specify and the health of your application's endpoints. 
+
+- **Configure and test health probes for your load balancers and traffic managers.** Ensure that your health logic checks the critical parts of the system and responds appropriately to health probes.
+
+    - The health probes for [Azure Traffic Manager][traffic-manager] and [Azure Load Balancer][load-balancer] serve a specific function. For Traffic Manager, the health probe determines whether to fail over to another region. For a load balancer, it determines whether to remove a VM from rotation.      
+
+    - For a Traffic Manager probe, your health endpoint should check any critical dependencies that are deployed within the same region, and whose failure should trigger a failover to another region.  
+
+    - For a load balancer, the health endpoint should report the health of the VM. Don't include other tiers or external services. Otherwise, a failure that occurs outside the VM will cause the load balancer to remove the VM from rotation.
+
+    - For guidance on implementing health monitoring in your application, see [Health Endpoint Monitoring Pattern](https://msdn.microsoft.com/library/dn589789.aspx).
 
 - **Monitor third-party services.** If your application has dependencies on third-party services, identify where and how these third-party services can fail and what effect those failures will have on your application. A third-party service may not include monitoring and diagnostics, so it's important to log your invocations of them and correlate them with your application's health and diagnostic logging using a unique identifier. For more information on best practices for monitoring and diagnostics, see the [Monitoring and Diagnostics guidance][monitoring-and-diagnostics-guidance] document.
 
-- **Ensure that any third-party service you consume provide an SLA.** If your application depends on a third-party service but the third-party provides no guarantee of availability in the form of an SLA, your application's availability also cannot be guaranteed. Find another service provider that does provide an SLA to guarantee your application's uptime.
+- **Ensure that any third-party service you consume provides an SLA.** If your application depends on a third-party service, but the third party provides no guarantee of availability in the form of an SLA, your application's availability also cannot be guaranteed. Your SLA is only as good as the least available component of your application.
 
-- **Use Azure Traffic Manager to route your application's traffic to different regions.**  Azure Traffic Manager performs load balancing functions at the DNS level and can route traffic to different regions based on the traffic routing methods you specify and the health of your application's endpoints. See the [How Traffic Manager works](../traffic-manager/traffic-manager-how-traffic-manager-works.md) document for more information.   
 
 ## Data management
 
@@ -71,7 +86,7 @@ Designing your application for resiliency requires planning for and mitigating a
 
 - **Validate your data backups.** Regularly verify that your backup data is what you expect by running a script to validate data integrity, schema, and queries. There's no point having a backup if it's not useful to restore your data sources. Log and report any inconsistencies so the backup service can be repaired.
 
-- **Consider using a storage account type that is geo-redundant.** Data stored in an Azure Storage account is always replicated, however there are multiple replication strategies to choose from when the Storage Account is provisioned. Select [Azure Read-Access Geo Redundant Storage (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage) to protect your application data against the rare case when an entire region becomes unavailable.
+- **Consider using a storage account type that is geo-redundant.** Data stored in an Azure Storage account is always replicated locally. However, there are multiple replication strategies to choose from when a Storage Account is provisioned. Select [Azure Read-Access Geo Redundant Storage (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage) to protect your application data against the rare case when an entire region becomes unavailable.
 
     > [AZURE.NOTE] For VMs, do not rely on RA-GRS replication to restore the VM disks (VHD files). Instead, use [Azure Backup][azure-backup].   
 
@@ -85,11 +100,11 @@ Designing your application for resiliency requires planning for and mitigating a
 
 - **Implement an early warning system that alerts an operator.** Identify the key performance indicators of your application's health, such as transient exceptions and remote call latency, and set appropriate threshold values for each of them. Send an alert to operations when the threshold value is reached. Set these thresholds at levels that identify issues before they become critical and require a recovery response.
 
-- **Document the release process for your application.** Without detailed release process documentation it's possible that an operator may deploy a bad update or improperly configure settings for your application. Clearly define and document your release process and ensure that it's available to the entire operations team. Best practices for resilient deployment of your application are detailed in the [resilient deployment][guidance-resilient-deployment] section of the Resiliency Guidance document.
+- **Document the release process for your application.** Without detailed release process documentation, an operator might deploy a bad update or improperly configure settings for your application. Clearly define and document your release process, and ensure that it's available to the entire operations team. Best practices for resilient deployment of your application are detailed in the [resilient deployment][guidance-resilient-deployment] section of the Resiliency Guidance document.
 
 - **Ensure that more than one person on the team is trained to monitor the application and perform any manual recovery steps.** If you only have a single operator on the team who can monitor the application and kick off recovery steps, that person becomes a single point of failure. Train multiple individuals on detection and recovery and make sure there is always at least one active at any time.
 
-- **Automate your application's deployment process.** If your operations staff is required to manually deploy your application, human error can cause the deployment to fail. For more information on best practices for automating application deployment, see the [resilient deployment][guidance-resilient-deployment] section of the Resiliency Guidance document.  
+- **Automate your application's deployment process.** If your operations staff is required to manually deploy your application, human error can cause the deployment to fail. For more information on best practices for automating application deployment, see the [resilient deployment][guidance-resilient-deployment] section of the Resiliency Guidance document.
 
 - **Design your release process to maximize application availability.** If your release process requires services to go offline during deployment, your application will be unavailable until they come back online. Use the [blue/green](http://martinfowler.com/bliki/BlueGreenDeployment.html) or [canary release](http://martinfowler.com/bliki/CanaryRelease.html) deployment technique to deploy your application to production. Both of these techniques involve deploying your release code alongside production code so users of release code can be redirected to production code in the event of a failure. For more information, see the [resilient deployment][guidance-resilient-deployment] section of the Resiliency Guidance document.
 
@@ -119,15 +134,15 @@ Designing your application for resiliency requires planning for and mitigating a
 
 ## Test
 
-- **Perform failover testing for your application.** If you haven't fully tested failover, you can't be certain that the dependent services in your application come back up in a synchronized manner during disaster recovery. Ensure that your application's dependent services failover in the correct order.
+- **Perform failover and failback testing for your application.** If you haven't fully tested failover and failback, you can't be certain that the dependent services in your application come back up in a synchronized manner during disaster recovery. Ensure that your application's dependent services failover and fail back in the correct order.
 
-- **Perform fault-injection testing for your application.** Your application can fail for many different reasons, such as certificate expirations, exhaustion of system resources in a VM, or storage failures. Test your application in an environment as close as possible to production by either simulating or triggering real failures. Delete certificates, artificially consume system resources, delete a storage source. Verify your application's ability to recover from all types of faults, alone and in combination.
+- **Perform fault-injection testing for your application.** Your application can fail for many different reasons, such as certificate expiration, exhaustion of system resources in a VM, or storage failures. Test your application in an environment as close as possible to production, by simulating or triggering real failures. For example, delete certificates, artificially consume system resources, or delete a storage source. Verify your application's ability to recover from all types of faults, alone and in combination. Check that failures are not propagating or cascading through your system.
 
 - **Run tests in production using both synthetic and real user data.** Test and production are rarely identical, so it's important to use blue/green or a canary deployment and test your application in production. This allows you to test your application in production under real load and ensure it will function as expected when fully deployed.
 
 ## Security
 
-- **Implement application level protection against distributed denial of service (DDoS) attacks.** Azure services are protected against DDos attacks at the network layer. However, you Azure can not protect against application layer attacks because it is difficult to distinguish between true user requests and malicious user requests. For more information on how to protect against application-layer DDoS attacks, see the "Protecting against DDoS" section of the  [Microsoft Azure Network Security](http://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf) document.
+- **Implement application-level protection against distributed denial of service (DDoS) attacks.** Azure services are protected against DDos attacks at the network layer. However, Azure cannot protect against application-layer attacks, because it is difficult to distinguish between true user requests from malicious user requests. For more information on how to protect against application-layer DDoS attacks, see the "Protecting against DDoS" section of [Microsoft Azure Network Security](http://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf) (PDF download).
 
 - **Implement the principle of least privilege for access to the application's resources.** The default for access to the application's resources should be as restrictive as possible. Grant higher level permissions on an approval basis. Granting overly permissive access to your application's resources by default can result in someone purposely or accidentally deleting resources. Azure provides [role-based access control](../active-directory/role-based-access-built-in-roles.md) to manage user privileges, but it's important to verify least privilege permissions for other resources that have their own permissions systems such as SQL Server. 
 
@@ -135,17 +150,15 @@ Designing your application for resiliency requires planning for and mitigating a
 
 - **Log telemetry data while the application is running in the production environment.** Capture robust telemetry information while the application is running in the production environment or you will not have sufficient information to diagnose the cause of issues while it's actively serving users. More information is available in the logging best practices is available in the [Monitoring and Diagnostics guidance][monitoring-and-diagnostics-guidance] document.
 
-<!--- **Allow logging levels to be configured at runtime in production.** If you have configured your application to log minimal information in production for performance reasons, you might not have enough information to diagnose the root cause of issues that only occur in production. Add functionality to allow operators to adjust logging verbosity at runtime so you can request that they increase it. [PT - needs to be verified per Masashi]-->
-
-- **Implement logging using an asynchronous pattern.** If you execute your logging operations synchronously, it's possible that they will block your application code. Ensure that your logging operations are implemented in an asynchronous pattern, for example [Asynchronous Programming with async and await in C#][asynchronous-c-sharp]. 
+- **Implement logging using an asynchronous pattern.** If logging operations are synchronous, they might block your application code. Ensure that your logging operations are implemented as asynchronous operations. 
 
 - **Correlate log data across service boundaries.** In a typical n-tier application, a user request may traverse several service boundaries. For example, a user request typically originates in the web tier and is passed to the business tier and finally persisted in the data tier. In more complex scenarios, a user request may be distributed to many different services and data stores. Ensure that your logging system correlates calls across service boundaries so you can track the request throughout your application.
 
 ##  Azure Resources 
 
-- **Use Azure Resource Manager templates to provision resources.** Templates make it easier to automate deployments via PowerShell or the Azure CLI, which leads to a more reliable deployment process. 
+- **Use Azure Resource Manager templates to provision resources.** Resource Manager templates make it easier to automate deployments via PowerShell or the Azure CLI, which leads to a more reliable deployment process. For more information, see [Azure Resource Manager overview][resource-manager].
 
-- **Give resources meaningful names.** Makes it easier to locate a specific resource and understand its role. For more information, see [Recommended naming conventions for Azure resources](guidance-naming-conventions.md) 
+- **Give resources meaningful names.** Giving resources meaningful names makes it easier to locate a specific resource and understand its role. For more information, see [Recommended naming conventions for Azure resources](guidance-naming-conventions.md) 
 
 - **Use role-based access control (RBAC)**. Use RBAC to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team, to prevent accidental deletion or changes to deployed resources. For more information, see [Get started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md) 
 
@@ -171,7 +184,7 @@ The following checklist items apply to specific services in Azure.
 
 - **Separate web apps from web APIs**. If your solution has both a web front-end and a web API, consider decomposing them into separate App Service apps. This design makes it easier to decompose the solution by workload. You can run the web app and the API in separate App Service plans, so they can be scaled independently. If you don't need that level of scalability at first, you can deploy the apps into the same plan, and move them into separate plans later, if needed.
 
-- **Avoid using the App Service backup feature to back up Azure SQL databases.** Instead, use [SQL Database automated backups](SQL Database backups). App Service backup exports the database to a SQL .bacpac file, which costs DTUs.  
+- **Avoid using the App Service backup feature to back up Azure SQL databases.** Instead, use [SQL Database automated backups][sql-backup]. App Service backup exports the database to a SQL .bacpac file, which costs DTUs.  
 
 - **Deploy to a staging slot.** Create a deployment slot for staging. Deploy application updates to the staging slot, and verify the deployment before swapping it into production. This reduces the chance of a bad update in production. It also ensures that all instances are warmed up before being swapped into production. Many applications have a significant warmup and cold-start time. For more information, see [Set up staging environments for web apps in Azure App Service](../app-service-web/web-sites-staged-publishing.md). 
 
@@ -223,9 +236,9 @@ The following checklist items apply to specific services in Azure.
 
 - **Use sharding**. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, see [Scaling out with Azure SQL Database](../sql-database/sql-database-elastic-scale-introduction.md). 
 
-- **Use point-in-time restore to recover from human error.**  Point-in-time restore returns your database to an earlier point in time. For more information, see [SQL Database backups](../sql-database/sql-database-automated-backups.md).
+- **Use point-in-time restore to recover from human error.**  Point-in-time restore returns your database to an earlier point in time. For more information, see [Recover an Azure SQL database using automated database backups][sql-restore].
 
-- **Use geo-restore to recover from a service outage.** Geo-restore restores a database from a geo-redundant backup.  For more information, see [SQL Database backups](../sql-database/sql-database-business-continuity.md).
+- **Use geo-restore to recover from a service outage.** Geo-restore restores a database from a geo-redundant backup.  For more information, see [Recover an Azure SQL database using automated database backups][sql-restore].
 
 
 ###  SQL Server (running in a VM)
@@ -239,18 +252,18 @@ The following checklist items apply to specific services in Azure.
 
 - **Perform manual failback.** After a Traffic Manager failover, perform manual failback, rather than automatically failing back. Before failing back, verify that all application subsystems are healthy.  Otherwise, you can create a situation where the application flips back and forth between data centers. For more information, see [Running VMs in multiple regions](guidance-compute-multiple-datacenters.md).
 
-- **Create a health probe endpoint**. Create a custom endpoint that reports on the overall health of the application. This enables Traffic Manager to fail over if any critical path fails, not just the front end. The endpoint should return an HTTP error code if any critical dependency is unhealthy or unreachable. Don't report errors for non-critical services, however. Otherwise, the health probe might trigger failover when it's not needed, creating false positives. For more information, see [Traffic Manager endpoint monitoring and failover]../traffic-manager/traffic-manager-monitoring.md).
+- **Create a health probe endpoint**. Create a custom endpoint that reports on the overall health of the application. This enables Traffic Manager to fail over if any critical path fails, not just the front end. The endpoint should return an HTTP error code if any critical dependency is unhealthy or unreachable. Don't report errors for non-critical services, however. Otherwise, the health probe might trigger failover when it's not needed, creating false positives. For more information, see [Traffic Manager endpoint monitoring and failover](../traffic-manager/traffic-manager-monitoring.md).
 
 
 ###  Virtual Machines 
 
-- **Avoid running a production workload on a single VM.** A single VM deployment is not resilient to planned or unplanned maintenance. . Instead, put multiple VMs in an availability set or VM scale set, with a load balancer in front. In order to qualify for the SLA, at least two Virtual Machines must be deployed within the same availability set. For more information, see [Virtual Machine Scale Sets Overview](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). 
+- **Avoid running a production workload on a single VM.** A single VM deployment is not resilient to planned or unplanned maintenance. Instead, put multiple VMs in an availability set or VM scale set, with a load balancer in front. In order to qualify for the SLA, at least two Virtual Machines must be deployed within the same availability set. For more information, see [Virtual Machine Scale Sets Overview](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). 
 
 - **Specify the availability set when you provision the VM.** Currently, there is no way to add a Resource Manager VM to an availability set after the VM is provisioned. When you add a new VM to an existing availability set, make sure to create a NIC for the VM, and add the NIC to the back-end address pool on the load balancer. Otherwise, the load balancer won't route network traffic to that VM. 
 
 - **Put each application tier into a separate Availability Set.** In an N-tier application, don't put VMs from different tiers into the same availability set. VMs in an availability set are placed across fault domains (FDs) and update domains (UD). However, to get the redundancy benefit of FDs and UDs, every VM in the availability set must be able to handle the same client requests. 
 
-- **Choose the right VM size based on performance requirements.** When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premise servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk IOPS, and adjust the size if needed. This helps to ensure the application behaves as expected in a cloud environment. Also, if you need multiple NICs, be aware of the NIC limit for each size. 
+- **Choose the right VM size based on performance requirements.** When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk IOPS, and adjust the size if needed. This helps to ensure the application behaves as expected in a cloud environment. Also, if you need multiple NICs, be aware of the NIC limit for each size. 
 
 - **Use premium storage for VHDs.** Azure Premium Storage provides high-performance, low-latency disk support. For more information, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md) Choose a VM size that supports premium storage. 
 
@@ -284,11 +297,19 @@ The following checklist items apply to specific services in Azure.
 [availability-sets]:../virtual-machines/virtual-machines-windows-manage-availability.md
 [azure-backup]: https://azure.microsoft.com/documentation/services/backup/
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[circuit-breaker]: https://msdn.microsoft.com/library/dn589784.aspx
 [cloud-service-autoscale]: ../cloud-services/cloud-services-how-to-scale.md
 [diagnostics-logs]: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md
 [fma]: guidance-resiliency-failure-mode-analysis.md
 [guidance-resilient-deployment]: guidance-resiliency-overview.md#resilient-deployment
+[load-balancer]: load-balancer/load-balancer-overview.md
 [monitoring-and-diagnostics-guidance]: ../best-practices-monitoring.md
+[resource-manager]: ../azure-resource-manager/resource-group-overview.md
+[retry-pattern]: https://msdn.microsoft.com/library/dn589788.aspx
 [retry-service-guidance]: ../best-practices-retry-service-specific.md
 [search-optimization]: ../search/search-performance-optimization.md
+[sql-backup]: ../sql-database/sql-database-automated-backups.md
+[sql-restore]: ../sql-database/sql-database-recovery-using-backups.md
+[traffic-manager]: ../traffic-manager/traffic-manager-overview.md
+[traffic-manager-routing]: ../traffic-manager/traffic-manager-routing-methods.md
 [vmss-autoscale]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md

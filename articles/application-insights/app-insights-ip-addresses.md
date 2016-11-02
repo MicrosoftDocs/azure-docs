@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2016" 
+	ms.date="11/01/2016" 
 	ms.author="awills"/>
  
 # IP addresses used by Application Insights
@@ -29,22 +29,30 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 |Purpose|URL|IP|Ports
 |---|---|---|---
 | Telemetry|dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com| 40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221|443
-|LiveStream|rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |variable|443
+|Live Metrics Stream|rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |variable|443
+
+## Status Monitor
+
+Status Monitor Configuration - needed only when making changes.
+
+|Purpose | URL | IP | Ports
+|---|---|---|---
+|Configuration| `management.core.windows.net` | | `443`
+|Configuration|`management.azure.com` | | `443`
+|Configuration|`login.windows.net` | | `443`
+|Configuration|	`login.microsoftonline.com` | | `443`
+|Configuration|	`secure.aadcdn.microsoftonline-p.com` | | `443`
+|Configuration|	`auth.gfx.ms` | | `443`
+|Configuration|	`login.live.com` | | `443`
+|Installation| `packages.nuget.org` | | `443`
+
+## HockeyApp
 
 
+|Purpose|URL|IP|Ports
+|---|---|---|---
+|Crash data|gate.hockeyapp.net|104.45.136.42|80, 443
 
-+ Status Monitor Configuration - needed only when making changes:
- -	`management.core.windows.net:443` 
- -	`management.azure.com:443`
- -	`login.windows.net:443`
- -	`login.microsoftonline.com:443`
- -	`secure.aadcdn.microsoftonline-p.com:443`
- -	`auth.gfx.ms:443`
- -	`login.live.com:443`
-+ Status Monitor Installation:
- +	`packages.nuget.org:443`
-
-This list may change from time to time.
 
 ## Availability tests
 
@@ -178,13 +186,10 @@ Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 
 ## Data access API
 
-
-
-|URI|IP|Ports
-|---|---|---
-|api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io|13.82.26.252<br/>40.76.213.73|80,443
-|dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com|13.82.24.149<br/>40.114.82.10|80,443
-
+|Purpose|URI|IP|Ports
+|---|---|---|---
+|API|api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io|13.82.26.252<br/>40.76.213.73|80,443
+|API docs|dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com|13.82.24.149<br/>40.114.82.10|80,443
 
 
 

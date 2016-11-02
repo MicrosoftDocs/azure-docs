@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="10/21/2016"
    ms.author="larryfr"/>
 
 
 #Extend HDInsight capabilities by using Azure Virtual Network
 
-Azure Virtual Network allows you to extend your Hadoop solutions to incorporate on-premises resources such as SQL Server, or to create secure private networks between resources in the cloud.
+Azure Virtual Network allows you to extend your Hadoop solutions to incorporate on-premises resources such as SQL Server, combine multiple HDInsight cluster types, or to create secure private networks between resources in the cloud.
 
 [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
@@ -38,7 +38,7 @@ Azure Virtual Network allows you to extend your Hadoop solutions to incorporate 
 
 	* **Directly transferring data** between HDInsight and Azure SQL Database, SQL Server, or another data storage solution running on a virtual machine.
 
-	* **Combining multiple HDInsight servers** into a single solution. An example is using an HDInsight Storm server to consume incoming data, and then storing the processed data to an HDInsight HBase server. The raw data might also be stored to an HDInsight Hadoop server for future analysis by using MapReduce.
+	* **Combining multiple HDInsight servers** into a single solution. HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. Using a virtual network allows multiple clusters to directly communicate with each other.
 
 * Connect your cloud resources to your local datacenter network (site-to-site or point-to-site) by using a virtual private network (VPN).
 
@@ -96,6 +96,12 @@ Allowing inbound access from port 443 for these addresses will allow you to succ
 > [AZURE.IMPORTANT] HDInsight doesn't support restricting outbound traffic, only inbound traffic. When defining Network Security Group rules for the subnet that contains HDInsight, only use inbound rules.
 
 The following examples demonstrate how to create a new Network Security Group that allows the required addresses, and applies the security group to a subnet within your Virtual Network. These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into.
+
+> [AZURE.IMPORTANT] Note the `priority` value used in these examples; rules are tested against network traffic in order by priority. Once a rule matches the test criteria and is applied, no more rules are tested.
+>
+> If you have custom rules that broadly block inbound traffic (such as a __deny all__ rule), you may need to adjust the priority values in these examples or your custom rules so that the rules in the examples occur before the rules that block access. Otherwise, the __deny all__ rule will be tested first and the rules in this example will never apply. You must also take care not block the default rules for an Azure Virtual Network. For example, you should not create a __deny all__ rule that is applied before the default __ALLOW VNET INBOUND__ rule (which has a priority of 65000.)
+>
+> For more information on how rules are applied and the default inbound and outbound rules, see [What is a Network Security Group?](../virtual-network/virtual-networks-nsg.md).
 
 __Using Azure PowerShell__
 

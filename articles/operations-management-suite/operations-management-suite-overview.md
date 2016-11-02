@@ -12,10 +12,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/04/2016"
+   ms.date="10/24/2016"
    ms.author="bwren" />
 
-# Operations Management Suite (OMS) overview
+# What is Operations Management Suite (OMS)?
 
 Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.  Since OMS is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services.  New features are delivered automatically, saving you ongoing maintenance and upgrade costs.
 

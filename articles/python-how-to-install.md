@@ -71,9 +71,9 @@ Preview packages can be installed using the `--pre` flag:
    $ pip install --pre azure-mgmt-compute # will install only the latest Compute Management library
 ```
 
-You can also install a set of Azure libraries in a single line using the `azure` meta-package. Since not all packages in this meta-package are published as stable yet, the `azure` meta-package is still in preview. 
+You can also install a set of Azure libraries in a single line using the `azure` meta-package. Since not all packages in this meta-package are published as stable yet, the `azure` meta-package is still in preview.
 However, the core packages, from code quality/completeness perspectives can be considered "stable" at this time
-- it will be officially labeled as such in sync with other languages as soon as possible. 
+- it will be officially labeled as such in sync with other languages as soon as possible.
 We are not planning on any further major changes until then.
 
 Since it's a preview release, you need to use the `--pre` flag:
@@ -81,7 +81,7 @@ Since it's a preview release, you need to use the `--pre` flag:
 ```console
    $ pip install --pre azure
 ```
-   
+
 or directly
 
 ```console
@@ -101,7 +101,7 @@ The [Python Package Index][] (PyPI) has a rich selection of Python libraries.  I
 
 Using PTVS is optional, but is recommended as it gives you Python and Web Project/Solution support, debugging, profiling, interactive window, Template editing, and Intellisense.
 
-PTVS also makes it easy to deploy to Microsoft Azure, with support for deployment to [Cloud Services][] and [Websites][].
+PTVS also makes it easy to deploy to Microsoft Azure, with support for deployment to [Cloud Services](./cloud-services/cloud-services-python-ptvs.md) and [Websites](./app-service-web/web-sites-python-ptvs-django-mysql.md).
 
 PTVS works with your existing Visual Studio 2013 or 2015 installation.  For documentation, downloads and discussions, see [Python Tools for Visual Studio].  
 
@@ -115,15 +115,15 @@ For Linux or MacOS, main Azure scenarios that are supported:
 
 3. Developing and publishing to Azure Websites using Git
 
-The first scenario enables you to author rich web apps that take advantage of the Azure PaaS capabilities such as [blob storage][], [queue storage][], [table storage][] etc. via Pythonic wrappers for the Azure REST APIs. These works identically on Windows, Mac, and Linux.  You can also use these client libraries from your local development machine or a Linux VM running on Azure.
+The first scenario enables you to author rich web apps that take advantage of the Azure PaaS capabilities such as [blob storage](./virtual-machines/virtual-machines-linux-quick-create-cli.md), [queue storage](./storage/storage-python-how-to-use-queue-storage.md), [table storage](./storage/storage-python-how-to-use-table-storage.md) etc. via Pythonic wrappers for the Azure REST APIs. These works identically on Windows, Mac, and Linux.  You can also use these client libraries from your local development machine or a Linux VM running on Azure.
 
-For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython][] REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. See the [IPython Notebook on Azure][] tutorial for more information.
+For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython][] REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. See the [IPython Notebook on Azure](./virtual-machines/virtual-machines-linux-jupyter-notebook.md) tutorial for more information.
 
-For information on how to setup a Linux VM, please see the [Create a Virtual Machine Running Linux][] tutorial.
+For information on how to setup a Linux VM, please see the [Create a Virtual Machine Running Linux](./virtual-machines/virtual-machines-linux-quick-create-cli.md) tutorial.
 
 Using Git deployment, you can develop a Python web application and publish it to an Azure Website from any operating system.  When you push your repository to Azure, it will automatically create a virtual environment and pip install your required packages.
 
-For more information on developing and publishing Azure Websites, see the tutorials for [Creating Websites with Django][], [Creating Websites with Bottle][], and [Creating Websites with Flask][]. For more general information on using any WSGI-compliant framework, see [Configuring Python with Azure Websites][].
+For more information on developing and publishing Azure Websites, see the tutorials for [Creating Websites with Django](./app-service-web/web-sites-python-create-deploy-django-app.md), [Creating Websites with Bottle](./app-service-web/web-sites-python-create-deploy-bottle-app.md), and [Creating Websites with Flask](./app-service-web/web-sites-python-create-deploy-flask-app.md). For more general information on using any WSGI-compliant framework, see [Configuring Python with Azure Websites](./app-service-web/web-sites-python-configure.md).
 
 
 ## Additional Software and Resources:
@@ -138,7 +138,7 @@ For more information on developing and publishing Azure Websites, see the tutori
 * [NumPy - A numerics library for Python][]
 * [Django Project - A mature web framework/CMS][]
 * [IPython - an advanced REPL/Notebook for Python][]
-* [IPython Notebook on Azure][]
+* [IPython Notebook on Azure](./virtual-machines/virtual-machines-linux-jupyter-notebook.md)
 * [Python Tools for Visual Studio on GitHub][]
 * [Python Developer Center](/develop/python/)
 

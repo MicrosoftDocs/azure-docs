@@ -39,7 +39,7 @@ There are two primary benefits when using **DirectQuery**:
    There are a few limitations to using **DirectQuery**:
 
    -	All tables must come from a single database.
-   -	If the query is overly complex, an error will occur. To remedy the error you must refactor the query so it is less complex. If the quuery must be complex, you will need to import the data instead of using **DirectQuery**.
+   -	If the query is overly complex, an error will occur. To remedy the error you must refactor the query so it is less complex. If the query must be complex, you will need to import the data instead of using **DirectQuery**.
    -	Relationship filtering is limited to a single direction, rather than both directions.
    -	You cannot change the data type of a column.
    -	By default, limitations are placed on DAX expressions allowed in measures. See [DirectQuery and measures](#measures).

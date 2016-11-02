@@ -30,7 +30,7 @@ Learn how to submit Hive queries using HDInsight .NET SDK.
 
 Before you begin this article, you must have the following:
 
-- **A Hadoop cluster in HDInsight**. See [Create cluster and SQL databvase](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+- **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 - **Visual Studio 2012/2013/2015**.
 
 ##Submit Hive queries using HDInsight .NET SDK

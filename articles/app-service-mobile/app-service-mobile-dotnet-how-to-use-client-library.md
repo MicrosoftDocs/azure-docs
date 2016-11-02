@@ -972,7 +972,7 @@ When you sign out a user, you must also remove the stored credential, as follows
 	vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 
 Xamarin	apps use the [Xamarin.Auth] APIs to securely store credentials in an **Account** object. For an example
-of using these APIs, see the [AuthStore.cs] code file in the [ContosoMoments photo sharing sample].
+of using these APIs, see the [AuthStore.cs] code file in the [ContosoMoments photo sharing sample](https://github.com/azure-appservice-samples/ContosoMoments).
 
 When you use client-managed authentication, you can also cache the access token obtained from your provider such
 as Facebook or Twitter. This token can be supplied to request a new authentication token from the backend, as

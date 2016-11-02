@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/29/2016"
+   	ms.date="10/18/2016"
    	ms.author="jgao"/>
 
 # Publish HDInsight applications into the Azure Marketplace
@@ -54,8 +54,8 @@ There are two steps involved for publishing applications to the Azure Marketplac
 
 |Field	| Description	| Possible values|
 |-------|---------------|----------------|
-|types	|The cluster types that the application is compatible with.	|Hadoop, HBase, Storm, Spark, (or any combination of these)|
-|tiers	|The cluster tiers that the application is compatible with.	|Standard, Premium, (or both)|
+|types	| The cluster types that the application is compatible with.	|Hadoop, HBase, Storm, Spark, (or any combination of these)|
+|tiers	| The cluster tiers that the application is compatible with.	|Standard, Premium, (or both)|
 |versions|	The HDInsight cluster types that the application is compatible with.	|3.4|
 
 ## Package application
@@ -86,10 +86,12 @@ Create a zip file that contains all required files for installing your HDInsight
 Follow the following steps to publish an HDInsight application:
 
 1. Sign on to the [Azure Publishing portal](https://publish.windowsazure.com/).
-2. Click **Solution templates** to create a new solution template.
+2. Click **Solution templates** from the left to create a new solution template.
+3. Enter a title, and then click **Create a new solution template**.
 3. Click **Create Dev Center account and join the Azure program** to register your company if you haven't done so.  See [Create a Microsoft Developer account](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 4. Click **Define some Topologies to get Started**. A solution template is a "parent" to all of its topologies. You can define multiple topologies in one offer/solution template. When an offer is pushed to staging, it is pushed with all of its topologies. 
-5. Add a new version.
+4. Enter a topology name, and then click the plus sign.
+5. Enter a new version, and then click the Plus sign.
 6. Upload the zip file prepared in [Package application](#package-application).  
 7. Click **Request Certification**. The Microsoft certification team will review the files and certify the topology.
 

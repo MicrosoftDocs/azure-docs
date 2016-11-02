@@ -4,7 +4,7 @@
 	services="key-vault"
 	documentationCenter=""
 	authors="swgriffith"
-	manager=""
+	manager="mbaldwin"
 	tags=""/>
 
 <tags

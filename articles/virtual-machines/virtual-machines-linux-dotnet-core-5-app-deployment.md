@@ -31,6 +31,7 @@ Before detailing how virtual machine extensions are declared in an Azure Resourc
 
 To learn more about hosting a .Net Core application on Linux, see [Publish to a Linux production environment](https://docs.asp.net/en/latest/publishing/linuxproduction.html). 
 
+> This sample is for demonstration purposes.
 
 ```none
 #!/bin/bash

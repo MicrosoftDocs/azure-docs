@@ -20,7 +20,7 @@
 
 ## Overview
 
-As described by previous articles, Azure IoT Hub enables a number of building blocks ([device twin properties and tags][lnk-twin-devguide] and [cloud-to-device methods][lnk-dev-methods]).  Typically, IoT back end applications enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time.  Jobs encapsulate the execution of device twin updates and C2D methods against a set of devices at a schedule time.  For example, an operator would use a back end application that would initiate and track a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
+As described by previous articles, Azure IoT Hub enables a number of building blocks ([device twin properties and tags][lnk-twin-devguide] and [direct methods][lnk-dev-methods]).  Typically, IoT back end applications enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time.  Jobs encapsulate the execution of device twin updates and C2D methods against a set of devices at a schedule time.  For example, an operator would use a back end application that would initiate and track a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
 
 ### When to use
 
@@ -114,8 +114,8 @@ The following is a list of properties and corresponding descriptions, which can 
 | **startTime** | Application provided start time (ISO-8601) for the job. |
 | **endTime** | IoT Hub provided date (ISO-8601) for when the job completed. Valid only after the job reaches the 'completed' state. | 
 | **type** | Types of jobs: |
-| | **scheduledUpdateTwin**: A job used to update a set of twin desired properties or tags. |
-| | **scheduledDeviceMethod**: A job used to invoke a device method on a set of twin. |
+| | **scheduledUpdateTwin**: A job used to update a set of device twin desired properties or tags. |
+| | **scheduledDeviceMethod**: A job used to invoke a device method on a set of device twins. |
 | **status** | Current state of the job. Possible values for status: |
 | | **pending** : Scheduled and waiting to be picked up by the job service. |
 | | **scheduled** : Scheduled for a time in the future. |
@@ -143,7 +143,7 @@ Other reference topics in the Developer Guide include:
 - [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
 - [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 - [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-- [Query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+- [IoT Hub query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
 - [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps

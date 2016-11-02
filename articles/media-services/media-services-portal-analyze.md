@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/03/2016"
+	ms.date="10/24/2016"
 	ms.author="juliako"/>
 
 
@@ -29,7 +29,8 @@ This topic discusses how to process your media with Media Analytics media proces
 
 ## Choose an asset that you want to analyze 
  
-1. In the **Settings** window, select **Assets**.  
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
+2. In the **Settings** window, select **Assets**.  
 .
 	![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
 

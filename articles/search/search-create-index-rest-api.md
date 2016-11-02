@@ -4,7 +4,7 @@
     services="search"
     documentationCenter=""
     authors="ashmaka"
-    manager=""
+    manager="jhubbard"
     editor=""
     tags="azure-portal"/>
 

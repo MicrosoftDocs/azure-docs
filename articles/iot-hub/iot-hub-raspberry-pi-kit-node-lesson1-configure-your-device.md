@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/28/2016" 
+ ms.date="10/21/2016"
  ms.author="xshi"/>
 
 # 1.1 Configure your device
@@ -50,6 +50,7 @@ To complete this section, you need the following parts from your Raspberry Pi 3 
 You also need:
 
 - A wired or wireless connection for your Pi to connect to
+- An USB-SD adapter or mini-SD card to burn the OS image into the MicroSD card.
 - A computer running Windows, Mac, or Linux. The computer is used to install Raspbian on the MicroSD card.
 - An Internet connection to download the necessary tools and software
 
@@ -58,7 +59,7 @@ You also need:
 Prepare the MicroSD card to write the Raspbian image to.
 
 1. Download Raspbian.
-  1. [Download](https://downloads.raspberrypi.org/raspbian_latest) the zip file for Raspbian.
+  1. [Download](https://www.raspberrypi.org/downloads/raspbian/) the zip file for Raspbian Jessie with Pixel.
   2. Extract the Raspbian image into a folder on your computer.
 2. Install Raspbian to the MicroSD card.
   1. [Download](https://www.etcher.io) and install the Etcher SD card burner utility.

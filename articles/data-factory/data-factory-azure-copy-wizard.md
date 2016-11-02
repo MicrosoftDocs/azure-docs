@@ -39,7 +39,7 @@ The copy wizard allows you to review part of the data from the selected data sou
 ## Schema capture and mapping 
 The schema of input data may not match the schema of output data in some cases. In this scenario, you need to map columns from the source schema to columns from the destination schema. 
 
-The copy wizard automatically maps columns in the source schema to columns in the destination schema. You can override the mappings by using the drop-down lists (or) specify whether a column needs to be skipped while copying the data.   
+After you use the drop-down list to select a column from source schema to map a column in the destination schema, the copy wizard tries to understand your pattern for column mapping. It applies the same pattern to rest of the columns so that you do not need to select each of the columns one by one to complete the schema mapping.  You can override these mappings by using the drop-down lists to map the columns one by one. The pattern becomes more accurate as you map more columns. The copy wizard constantly updates the pattern and ultimately reaches the right pattern for column mapping you want to achieve.     
 
 ![Schema mapping](./media/data-factory-copy-wizard/schema-mapping.png)
 

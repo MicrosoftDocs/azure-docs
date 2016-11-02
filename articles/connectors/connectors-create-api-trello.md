@@ -1,10 +1,10 @@
 <properties
 pageTitle="Trello | Microsoft Azure"
 description="Create Logic apps with Azure App service. Trello gives you perspective over all your projects, at work and at home.  It is an easy, free, flexible, and visual way to manage your projects and organize anything.  Connect to Trello to manage your boards, lists and cards"
-services="logic-apps"	
+services="logic-apps"
 documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+authors="msftman"
+manager="erikre"
 editor=""
 tags="connectors" />
 
@@ -21,13 +21,13 @@ ms.author="deonhe"/>
 
 Trello gives you perspective over all your projects, at work and at home.  It is an easy, free, flexible, and visual way to manage your projects and organize anything.  Connect to Trello to manage your boards, lists and cards.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 
-The Trello connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+The Trello connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats.
 
  The Trello connector has the following action(s) and/or trigger(s) available:
 
@@ -55,12 +55,12 @@ You can listen for these event(s):
 
 
 ## Create a connection to Trello
-To create Logic apps with Trello, you must first create a **connection** then provide the details for the following properties: 
+To create Logic apps with Trello, you must first create a **connection** then provide the details for the following properties:
 
 |Property| Required|Description|
 | ---|---|---|
 |Token|Yes|Provide Trello Credentials|
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
+After you create the connection, you can use it to execute the actions and listen for the triggers described in this article.
 
 >[AZURE.INCLUDE [Steps to create a connection to Trello](../../includes/connectors-create-api-trello.md)]
 
@@ -70,9 +70,9 @@ After you create the connection, you can use it to execute the actions and liste
 Applies to version: 1.0
 
 ## OnNewCardInBoard
-When a new card is added to a board: Triggers a flow when a new card is added to a board 
+When a new card is added to a board: Triggers a flow when a new card is added to a board
 
-```GET: /trigger/boards/{board_id}/cards``` 
+```GET: /trigger/boards/{board_id}/cards```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -92,9 +92,9 @@ When a new card is added to a board: Triggers a flow when a new card is added to
 
 
 ## OnNewCardInList
-When a new card is added to a list: Triggers a flow when a new card is added to a list 
+When a new card is added to a list: Triggers a flow when a new card is added to a list
 
-```GET: /trigger/lists/{list_id}/cards``` 
+```GET: /trigger/lists/{list_id}/cards```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -115,9 +115,9 @@ When a new card is added to a list: Triggers a flow when a new card is added to 
 
 
 ## ListCards
-List cards in board: List cards in board 
+List cards in board: List cards in board
 
-```GET: /boards/{board_id}/cards``` 
+```GET: /boards/{board_id}/cards```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -150,9 +150,9 @@ List cards in board: List cards in board
 
 
 ## GetCard
-Get card by id: Get card by id 
+Get card by id: Get card by id
 
-```GET: /cards/{card_id}``` 
+```GET: /cards/{card_id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -196,9 +196,9 @@ Get card by id: Get card by id
 
 
 ## UpdateCard
-Update card: Update card 
+Update card: Update card
 
-```PUT: /cards/{card_id}``` 
+```PUT: /cards/{card_id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -220,9 +220,9 @@ Update card: Update card
 
 
 ## DeleteCard
-Delete card: Delete card 
+Delete card: Delete card
 
-```DELETE: /cards/{card_id}``` 
+```DELETE: /cards/{card_id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -243,9 +243,9 @@ Delete card: Delete card
 
 
 ## CreateCard
-Create card: Creates a new card in your trello account 
+Create card: Creates a new card in your trello account
 
-```POST: /cards``` 
+```POST: /cards```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -266,9 +266,9 @@ Create card: Creates a new card in your trello account
 
 
 ## ListBoards
-List boards: List boards 
+List boards: List boards
 
-```GET: /member/me/boards``` 
+```GET: /member/me/boards```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -299,9 +299,9 @@ List boards: List boards
 
 
 ## GetBoard
-Gets board by Id: Gets board by Id 
+Gets board by Id: Gets board by Id
 
-```GET: /boards/{board_id}``` 
+```GET: /boards/{board_id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -358,9 +358,9 @@ Gets board by Id: Gets board by Id
 
 
 ## ListLists
-List card lists in board: List card lists in board 
+List card lists in board: List card lists in board
 
-```GET: /boards/{board_id}/lists``` 
+```GET: /boards/{board_id}/lists```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -384,9 +384,9 @@ List card lists in board: List card lists in board
 
 
 ## GetList
-Gets list by Id: Gets list by Id 
+Gets list by Id: Gets list by Id
 
-```GET: /lists/{list_id}``` 
+```GET: /lists/{list_id}```
 
 | Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
@@ -411,7 +411,7 @@ Gets list by Id: Gets list by Id
 |default|Operation Failed|
 
 
-## Object definitions 
+## Object definitions
 
 ### Card
 
@@ -463,8 +463,6 @@ Gets list by Id: Gets list by Id
 ### Object
 
 
-| Property Name | Data Type | Required |
-|---|---|---|
 
 
 

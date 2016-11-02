@@ -22,6 +22,6 @@
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md

@@ -13,7 +13,7 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="09/07/2016" 
+ms.date="11/01/2016" 
 ms.author="eugenesh" />
 
 #Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)#
@@ -36,7 +36,7 @@ A **data source** specifies what data needs to be indexed, credentials to access
 
 The following data sources are currently supported:
 
-- **Azure SQL Database** and **SQL Server on Azure VMs**. For a targeted walk-through, see [this article](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). 
+- **Azure SQL Database** and **SQL Server on Azure VMs**. For a targeted walk-through, see [this article](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
 - **Azure DocumentDB**. For a targeted walk-through, see [this article](../documentdb/documentdb-search-indexer.md). 
 - **Azure Blob Storage**, including the following document formats: PDF, Microsoft Office (DOCX/DOC, XSLX/XLS, PPTX/PPT, MSG), HTML, XML, ZIP, and plain text files (including JSON). For  a targeted walk-through, see [this article](search-howto-indexing-azure-blob-storage.md).
 - **Azure Table Storage**. For a targeted walk-through, see [this article](search-howto-indexing-azure-tables.md).
@@ -78,7 +78,7 @@ Alternatively, you can use PUT and specify the data source name on the URI. If t
 
     PUT https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
 
-**Note**: The maximum number of data sources allowed varies by pricing tier. The free service allows up to 3 data sources. Standard service allows 50 data sources. See [Service Limits](search-limits-quotas-capacity.md) for details.
+> [AZURE.NOTE] The maximum number of data sources allowed varies by pricing tier. The free service allows up to 3 data sources. Standard service allows 50 data sources. See [Service Limits](search-limits-quotas-capacity.md) for details.
 
 **Request**
 
@@ -164,9 +164,9 @@ This policy can be specified as follows:
 		"highWaterMarkColumnName" : "[a row version or last_updated column name]" 
 	} 
 
-> [AZURE.NOTE] When using DocumentDB data sources, you must use the `_ts` property provided by DocumentDB. 
+When using DocumentDB data sources, you must use the `_ts` property provided by DocumentDB. 
 
-> [AZURE.NOTE] When using Azure Blob data sources, Azure Search automatically uses a high watermark change detection policy based on a blob's last-modified timestamp; you don't need to specify such a policy yourself.   
+When using Azure Blob data sources, Azure Search automatically uses a high watermark change detection policy based on a blob's last-modified timestamp; you don't need to specify such a policy yourself.   
 
 ***SQL Integrated Change Detection Policy***
 
@@ -197,7 +197,7 @@ The purpose of a data deletion detection policy is to efficiently identify delet
 		"softDeleteMarkerValue" : "the value that identifies a row as deleted" 
 	}
 
-**NOTE:** Only columns with string, integer, or boolean values are supported. The value used as `softDeleteMarkerValue` must be a string, even if the corresponding column holds integers or booleans. For example, if the value that appears in your data source is 1, use `"1"` as the `softDeleteMarkerValue`.    
+> [AZURE.NOTE]  Only columns with string, integer, or Boolean values are supported. The value used as `softDeleteMarkerValue` must be a string, even if the corresponding column holds integers or booleans. For example, if the value that appears in your data source is 1, use `"1"` as the `softDeleteMarkerValue`.    
 
 <a name="CreateDataSourceRequestExamples"></a>
 **Request Body Examples**
@@ -237,7 +237,7 @@ You can update an existing data source using an HTTP PUT request. You specify th
     Content-Type: application/json
     api-key: [admin key]
 
-The `api-version` is required. The current version is `2015-02-28`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
+The `api-version` is required. The current version is `2015-02-28`. [Azure Search API versions](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
 
 The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Create a Search service in the portal](search-create-service-portal.md) explains how to get the service URL and key properties used in the request.
 
@@ -245,9 +245,9 @@ The `api-key` must be an admin key (as opposed to a query key). Refer to the aut
 
 The request body syntax is the same as for [Create Data Source requests](#CreateDataSourceRequestSyntax).
 
-> [AZURE.NOTE] Some properties cannot be updated on an existing data source. For example, you cannot change the type of an existing data source.  
+Some properties cannot be updated on an existing data source. For example, you cannot change the type of an existing data source.  
 
-> [AZURE.NOTE] If you don't want to change the connection string for an existing data source, you can specify the literal `<unchanged>` for the connection string. This is helpful in situations where you need to update a data source but don't have convenient access to the connection string since it is security-sensitive data.
+If you don't want to change the connection string for an existing data source, you can specify the literal `<unchanged>` for the connection string. This is helpful in situations where you need to update a data source but don't have convenient access to the connection string since it is security-sensitive data.
 
 **Response**
 

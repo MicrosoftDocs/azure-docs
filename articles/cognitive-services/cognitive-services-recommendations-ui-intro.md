@@ -37,6 +37,9 @@ sign up process are provided in *Task 1* of the [Getting Started Guide](cognitiv
 
 1. Log in to the portal by entering your key in the **Account Key** field, and then click the **Login** button.
 
+	![Recommendations UI: Sign-in dialog.][reco_signin]
+
+
 <a name="Step2"></a>
 ## Step 2 - Let's gather some training data ##
 
@@ -63,13 +66,18 @@ A project (also known as *a model* in the API reference) is a container for your
 You can create several *builds* inside the project. We will walk you through the process in the next steps.
 
 1. To create a new project, type the name on the text box (Something like “MyFirstModel” would work) and click **Add Project**.
+ 
+	![Recommendations UI: Projects Page.][reco_projects]
 
 1. Once the project gets created, click the **Browse for File** button on the **Add a Catalog File** section. 
 Upload the catalog you got in step 2. If you saved it at *c:\data*, you need to navigate to that folder.
 
-1.	After the catalog is uploaded, click the **Browse for File** button on the **Add Usage Files** section. Add the usage_large.txt file.
+ 	![Recommendations UI: Adding Data to a Project.][reco_firstmodel]
 
-> *What if I have a large file of usage data?*
+1. After the catalog is uploaded, click the **Browse for File** button on the **Add Usage Files** section. Add the usage_large.txt file.
+
+> **What if I have a large file of usage data?**
+>
 > Only usage files smaller than 200-MB  can be uploaded. That said, the system can hold up to 2-GB worth of transaction data, so you can upload more than one file if necessary.
 > You may not need that much data to generate a good model, it’s not just the size of the data that matters, but the quality of 
 > the data. It is common to see usage data where most of the transactions are just on a handful of popular items, 
@@ -82,10 +90,16 @@ Now that you have uploaded both the catalog and the usage data, we are ready to 
 
 1.	Click the **New Build** button.
 
-1.	Select **Recommendations** as the build type. Notice that we support a Ranking Build and an FBT (Frequently Bought Together) build types as well.
+1.	Select **Recommendations** as the build type. Notice that we support a Ranking Build and an FBT
+        (Frequently Bought Together) build types as well.
 
- An FBT build allows you to identify patterns for products that are usually purchased/consumed in the same transaction. A ranking build is used to identify features of interest. 
- We won’t go very deep into FBT or ranking builds in this workshop, but if you are interested you should check out the [Build types and model quality documentation page](cognitive-services-recommendations-buildtypes.md).
+	![Recommendations UI: Build Dialog.][reco_build_dialog.png]
+
+
+	An FBT build allows you to identify patterns for products that are usually purchased/consumed in the same transaction.
+	A ranking build is used to identify features of interest. 
+	We won’t go very deep into FBT or ranking builds in this workshop, but if you are interested you should check out 
+	the [Build types and model quality documentation page](cognitive-services-recommendations-buildtypes.md).
 
 1. Click the **Build** button. The build process takes about five minutes if you are using the Books data. It takes longer on larger datasets.
 
@@ -95,6 +109,8 @@ Now that you have uploaded both the catalog and the usage data, we are ready to 
 Once your build is completed, you will notice a new build in the builds list. This build can be queried for item and user recommendations.
 
 1. Once your build is completed, click **Score**. This allows you to play with the model and see what items are recommended.
+
+	![Recommendations UI: Score button][reco_score_button]
 
 1. Select an item to see which items are returned as recommendations for that item. Notice that if there are not enough transactions to predict a recommendation for a particular item, the system 
 will not return any recommendations for that item.  If for some reason you have an item that returns no recommendations, try scoring other items.
@@ -107,3 +123,10 @@ that allows you to see the state of your projects and builds.
 Now that you have a model, you may want to learn how to do all the steps above programmatically. In order to do learn to call the API programmatically,
 we invite you to check the [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348) and 
 download the [Recommendations Sample Application](http://go.microsoft.com/fwlink/?LinkID=759344).
+
+
+[reco_signin]:../media/cognitive-services/reco_signin.PNG
+[reco_projects]:../media/cognitive-services/reco_projects.PNG
+[reco_firstmodel]:../media/cognitive-services/reco_firstmodel.png
+[reco_build_dialog.png]:../media/cognitive-services/reco_build_dialog.png
+[reco_score_button]:../media/cognitive-services/reco_score_button.png

@@ -272,16 +272,10 @@ To use the account SAS to access service-level APIs for the Blob service, constr
 
     static void UseAccountSAS(string sasToken)
     {
-        // In this case, we have access to the shared key credentials, so we'll use them
-        // to get the Blob service endpoint.
-	    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
-	    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
         // Create new storage credentials using the SAS token.
         StorageCredentials accountSAS = new StorageCredentials(sasToken);
-        // Use these credentials and the Blob storage endpoint to create a new Blob service client.
-        CloudStorageAccount accountWithSAS = new CloudStorageAccount(accountSAS, blobClient.StorageUri, null, null, null);
+        // Use these credentials and the account name to create a Blob service client.
+        CloudStorageAccount accountWithSAS = new CloudStorageAccount(accountSAS, "account-name", endpointSuffix: null, useHttps: true);
         CloudBlobClient blobClientWithSAS = accountWithSAS.CreateCloudBlobClient();
 
         // Now set the service properties for the Blob client created with the SAS.

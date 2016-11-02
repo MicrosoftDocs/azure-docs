@@ -60,9 +60,9 @@ A [device twin](iot-hub-devguide-device-twins.md) is a copy in  IoT Hub of the c
 
 A [direct method](iot-hub-devguide-direct-methods.md) is a way for you to trigger a method to execute on a device by invoking an API on your IoT hub.
 
-## Event hub-compatible endpoint
+## Event Hub-compatible endpoint
 
-To read device-to-cloud messages sent to your IoT hub, you can connect to an endpoint on your hub and use any Event hub-compatible method to read those messages. Event Hub-compatible methods include using the Event Hubs SDKs and Azure Stream Analytics.
+To read device-to-cloud messages sent to your IoT hub, you can connect to an endpoint on your hub and use any Event Hub-compatible method to read those messages. Event Hub-compatible methods include using the Event Hubs SDKs and Azure Stream Analytics.
 
 ## Field gateway
 
@@ -90,7 +90,7 @@ Azure IoT Suite packages together multiple Azure services with preconfigured sol
 
 ## Job
 
-A [job](iot-hub-devguide-jobs.md) in IoT Hub enables you to perform operations such as a firmware upgrade across multiple devices connected to your hub.
+A [job](iot-hub-devguide-jobs.md) in IoT Hub enables you to perform operations such as a firmware update across multiple devices connected to your hub.
 
 ## MQTT
 
@@ -102,7 +102,7 @@ In the context of device twins, reported properties are used in conjunction with
 
 ## Tags
 
-In the context of devcie twins, tags are device meta-data stored and retrieved by the application back end in the form of a JSON document. Tags are not visible to apps on a device.
+In the context of device twins, tags are device metadata stored and retrieved by the application back end in the form of a JSON document. Tags are not visible to apps on a device.
 
 ## System properties
 

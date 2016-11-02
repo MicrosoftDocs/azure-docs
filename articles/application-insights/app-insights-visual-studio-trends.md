@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/08/2016" 
+	ms.date="10/25/2016" 
 	ms.author="daviste"/>
 	
 # Analyzing Trends in Visual Studio

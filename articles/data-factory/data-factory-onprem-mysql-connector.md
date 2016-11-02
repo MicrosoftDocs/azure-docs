@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2016" 
+	ms.date="11/01/2016" 
 	ms.author="jingwang"/>
 
 # Move data From MySQL using Azure Data Factory
@@ -26,8 +26,8 @@ Data Factory service supports connecting to on-premises MySQL sources using the 
 
 Data factory currently supports only moving data from MySQL to other data stores, but not for moving data from other data stores to MySQL.
 
-## Installation 
-For Data Management Gateway to connect to the MySQL Database, you need to install the [MySQL Connector/Net 6.6.5 for Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) on the same system as the Data Management Gateway.
+## Supported versions and installation
+For Data Management Gateway to connect to the MySQL Database, you need to install the [MySQL Connector/Net 6.6.5 for Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) or above on the same system as the Data Management Gateway. MySQL version 5.1 and above is supported.
 
 > [AZURE.NOTE] See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
 

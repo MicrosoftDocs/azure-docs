@@ -4,8 +4,8 @@
    services="Azure-Government"
    cloud="gov"
    documentationCenter=""
-   authors="joharve2"
-   manager="chrisnie"
+   authors="brendalee"
+   manager="zakramer"
    editor=""/>
 
 <tags
@@ -14,18 +14,59 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="azure-government"
-   ms.date="06/01/2016"
+   ms.date="10/20/2016"
    ms.author="brendalee"/>
 
 
-#  Microsoft Azure Government Image Gallery
+#  Azure Government Marketplace Images
 
-<p> The Microsoft Azure Government image gallery is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
+## Overview
+The Microsoft Azure Government Marketplace is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
 
-The below provides a list of available images within the Azure Government image gallery.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
+The below provides a list of available images within the Azure Government Marketplace.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
+
+## Images - Azure Resource Manager
+
+Publisher|Image Name|
+---|---|
+Esri | ArcGIS 10.4.1 for Server
+Barracuda Networks, Inc. | Barracuda NextGen Control Center (BYOL)
+Barracuda Networks, Inc. | Barracuda NextGen Firewall F-Series (BYOL)
+Microsoft | BizTalk Server 2016 Community Technology Preview 2
+Microsoft | {BYOL} SQL Server 2012 SP3 Enterprise on Windows Server 2012 R2
+Microsoft | {BYOL} SQL Server 2012 SP3 Standard on Windows Server 2012 R2
+Microsoft | {BYOL} SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2
+Microsoft | {BYOL} SQL Server 2014 SP1 Standard on Windows Server 2012 R2
+Microsoft | {BYOL} SQL Server 2016 RTM Enterprise on Windows Server 2012 R2
+Microsoft | {BYOL} SQL Server 2016 RTM Standard on Windows Server 2012 R2
+OpenLogic | CentOS-based 6.7
+OpenLogic | CentOS-based 6.8
+OpenLogic | CentOS-based 7.2
+CoreOS | CoreOS Linux (Stable)
+F5 Networks | F5 BIG-IP ADC+SEC BEST – BYOL
+F5 Networks | F5 BIG-IP ADC BETTER – BYOL
+F5 Networks | F5 BIG-IP ADC GOOD (LTM) - BYOL
+Bitnami | Moodle
+Citrix | NetScaler VPX Bring Your Own License
+SUSE | openSUSE Leap 42.1
+Red Hat | Red Hat Enterprise Linux 6.8
+Red Hat | Red Hat Enterprise Linux 7.2
+Microsoft | SQL Server 2012 SP3 Enterprise on Windows Server 2012 R2
+Microsoft | SQL Server 2012 SP3 Standard on Windows Server 2012 R2
+Microsoft | SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2
+Microsoft | SQL Server 2014 SP1 Standard on Windows Server 2012 R2
+Microsoft | SQL Server 2016 RTM Enterprise on Windows Server 2012 R2
+Microsoft | SQL Server 2016 RTM Standard on Windows Server 2012 R2
+SUSE | SLES 11 SP4
+SUSE | SLES 12 SP1
+Microsoft | Windows Server 2012 R2 Datacenter
+Barracuda Networks, Inc. | Barracuda Web Application Firewall (WAF) - BYOL
+Microsoft | Windows Server 2008 R2 SP1
+Microsoft | Windows Server 2012 Datacenter
+Microsoft | Windows Server 2012 R2 Datacenter
 
 
-## Azure Government Image list
+## Images - Classic Resource Provider.
 
 Publisher|Image Name|Description|OS|Disk Size
 ---|---|---|---|---
@@ -146,8 +187,7 @@ SUSE|SUSE Linux Enterprise Server 12 SP1|Confidently run your production workloa
 SUSE|SUSE Linux Enterprise Server 11 SP4|Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n...|Linux|30 GB
 SUSE|SUSE Linux Enterprise Server 11 SP4|Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n...|Linux|30 GB
 Visual Studio|Team Foundation Server 2013 Update 4 on Windows Server 2012 R2|Microsoft Team Foundation Server 2013 Trial on Windows Server 2012 R2 Update. Virtual Machines created with this trial image will require a product key for Team Foundation Server (such as from an MSDN...|Windows|128 GB
-Visual Studio|Visual Studio Community 2013 Update 5 with Tools for Apache Cordova CTP 3.2 on Windows Server 2012 R2|This image provides Visual Studio Community 2013 Update 5, Azure Tools 2.8, and CTP 3.2 of the Tools for Apache Cordova running on Windows Server 2012 R2.  It allows you to easily and quickly set up a...|Windows|128 GB
-Visual Studio|Visual Studio Ultimate 2013 Update 5 on Windows Server 2012|The Visual Studio Ultimate 2013 Update 5 developer desktop is an offering exclusive to MSDN subscribers. The image includes Visual Studio Ultimate 2013 Update 5, SharePoint 2013 Trial, SQL Server 2012...|Windows|128 GB
+Visual Studio|Visual Studio Community 2013 Update 5 with Tools for Apache Cordova CTP 3.2 on Windows Server 2012 R2|This image provides Visual Studio Community 2013 Update 5, Azure Tools 2.8, and CTP 3.2 of the Tools for Apache Cordova running on Windows Server 2012 R2.  It allows you to easily and quickly set up a...|Windows|128 GBVisual Studio|Visual Studio Ultimate 2013 Update 5 on Windows Server 2012|The Visual Studio Ultimate 2013 Update 5 developer desktop is an offering exclusive to MSDN subscribers. The image includes Visual Studio Ultimate 2013 Update 5, SharePoint 2013 Trial, SQL Server 2012...|Windows|128 GB
 Visual Studio|Visual Studio Community 2015 with Azure SDK 2.9 on Windows Server 2012 R2|Visual Studio Community 2015 is our free, full featured and extensible IDE for non-enterprise application development.  This image contains Windows Server 2012 R2 with Visual Studio Community 2015.  I...|Windows|128 GB
 Visual Studio|Visual Studio Community 2015 Update 2 with Azure SDK 2.9 on Windows Server 2012 R2|Visual Studio Community 2015 Update 2 is our free, full featured and extensible IDE for non-enterprise application development. This image contains Windows Server 2012 R2 with Visual Studio Community...|Windows|128 GB
 Visual Studio|Visual Studio Enterprise 2015 with Azure SDK 2.9 on Windows Server 2012 R2|With Visual Studio Enterprise you can create applications across devices and services, using a single solution with a consistent development experience.  You get the tools, you need to deliver desktop...|Windows|128 GB
@@ -155,13 +195,40 @@ Visual Studio|Visual Studio Enterprise 2015 Update?3 with Azure SDK 2.9.1 on Win
 Visual Studio|Visual Studio Community 2013 Update 5 with Azure 2.9 on Windows Server 2012 R2|This image of Visual Studio Community 2013 Update 5 with Azure Tools 2.9 enables you to unleash the full power of Visual Studio to develop cross-platform solutions.  Create apps in one unified IDE, an...|Windows|128 GB
 Visual Studio|Visual Studio Enterprise 2015 Update 2 with Azure SDK 2.9 on Windows Server 2012 R2|With Visual Studio Enterprise 2015 Update 2 you can create applications across devices and services, using a single solution with a consistent development experience.  You get the tools, you need to d...|Windows|128 GB
 
-
-
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged -->
 
-## <a name="next"></a>Next steps
+## Quick Start Templates
 
-The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the <a href="../azure-government-developer-guide">Azure Government Developer Guide</a> to uncover an programmatic differences with endpoints when working with Azure Government.
+### Step 1
+Go to Azure Quickstart Templates GitHub Repository and select from the list of Solution Templates below:
+
+| Quick Start Template |
+| ------- |
+|<a href="https://github.com/Azure/azure-quickstart-templates/tree/master/ethereum-consortium-blockchain-network"> Ethereum Consortium Blockchain Network </a> |
+|<a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/splunk-on-ubuntu"> Splunk on Ubuntu </a> |
+|<a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v"> Cisco CSR1000v (2 NIC) </a>
+|<a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-4-nic"> Cisco CSR1000v (4 NIC) </a>
+|<a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-existing-vnet-4-nic"> Cisco CSR1000v (4 NIC existing Vnet) </a>
+
+### Step 2
+In the Readme file, launch the template by clicking on "Deploy to Azure Government" button/link at the top of the page.
+
+### Step 3
+A browser page will open the template deployment blade in the Azure Government portal. In the parameters blade, complete the required fields, and click "Okay."
+
+### Step 4
+Accept legal terms and conditions, and checkmark the “Pin to dashboard” box, then click create.
+
+>[AZURE.NOTE] You will need a valid Azure Government Account in order to continue. To experience the power of Azure Government for your organization, sign up for an [Azure Government Trial](https://azuregov.microsoft.com/trial/azuregovtrial).
+
+### Step 5
+The blades will close and it will go back to your portal dashboard view showing the image deployment. This will take several minutes. Once the VM solution is running, it will show up in your dashboard. If you did not select the “Pin to dashboard” option in step 4, you will need to search for the VM in your Resources.
+
+>[AZURE.NOTE] Solution templates are provided from Microsoft and third-party providers as a starting point only. You are solely responsible for developing, implementing, and managing your applications and/or subscriptions running on Microsoft Azure and Azure Government in compliance with applicable laws, regulations, and contractual obligations.  These templates are provided "AS-IS" and without any warranty of any kind, whether in express, implied or statutory, and Microsoft expressly disclaims all warranties of merchantability, fitness for a particular purpose, or non-infringement.
+
+## Next steps
+
+The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the [Azure Government Developer Guide](azure-government-developer-guide.md) to uncover an programmatic differences with endpoints when working with Azure Government.
 
 ###Other Resources:
 

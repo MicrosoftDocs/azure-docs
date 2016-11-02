@@ -4,17 +4,17 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/25/2016"
-   ms.author="barbkess;mausher;jrj;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess;mausher"/>
 
 
 # Data warehouse workload

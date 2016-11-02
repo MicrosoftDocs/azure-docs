@@ -10,3 +10,4 @@ The Gallery contains a variety of resources that you can use to develop your own
 - [Competitions](machine-learning-gallery-competitions.md)
 - [Tutorials](machine-learning-gallery-tutorials.md)
 - [Collections](machine-learning-gallery-collections.md)
+- [Custom Modules](machine-learning-gallery-custom-modules.md)
