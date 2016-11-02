@@ -140,10 +140,11 @@ Use the following steps to restore a database from a backup in the Azure Recover
 
 ## Disabling Long-term Retention
 
-The Recovery Service automatically handles cleanup of backups based on the provided retention policy. To stop sending the backups for a specific database to the vault, remove the retention policy for that database.
+The Recovery Service automatically handles cleanup of backups based on the provided retention policy. 
+
+- To stop sending the backups for a specific database to the vault, remove the retention policy for that database.
 
     ```
-    #This command removes the retention policy from the database and stop sending the backups to the vault
     Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName 'RG1' –ServerName 'Server1' -DatabaseName 'DB1' -State 'Disabled' -ResourceId $policy.Id
     ```
 
@@ -153,14 +154,25 @@ The Recovery Service automatically handles cleanup of backups based on the provi
 
 To manually remove backups from the vault.
 
+1. Identify the container in the vault for 'myserver'
+
     ```
-    #this step identifies the container for ‘myserver’
     Set-AzureRMRecoveryServicesVaultContext -Vault $vault $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName 'myserver'
-    #this step identifies the backup item to delete
+    ```
+
+2. Identify the backup item to delete.
+
+    ``` 
     $item=Get-AzureRmRecoveryServicesBackupItem –container $container -FriendlyName 'mydb'
-    #this step deletes the backup item (all backups for the database ‘mydb’)
+    ```
+3. Deletes the backup items (all backups for the database ‘mydb’)
+
+    ```
     $job = Disable-AzureRmRecoveryServicesBackupProtection –item $item -Removerecoverypoints Wait-AzureRmRecoveryServicesBackupJob $job
-    #this step deletes the container associated with ‘myserver’
+    ```
+4. Delete the container associated with ‘myserver’
+    
+    ```
     Unregister-AzureRmRecoveryServicesBackupContainer –AzureRmRecoveryServicesBackupContainer $container –Vault $vault
     ```
 
