@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="10/31/2016"
+	ms.date="11/02/2016"
 	ms.author="chrande"/>
 
 # Azure Functions Storage blob bindings
@@ -26,6 +26,10 @@ This article explains how to configure and code Azure Storage blob bindings in A
 Azure Functions supports trigger, input, and output bindings for Azure Storage blobs.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
+
+
+> [AZURE.NOTE] A [blob only storage account](../storage/storage-create-storage-account.md#blob-storage-accounts) is not supported. Azure Functions requires a general-purpose storage account to use with blobs. 
+
 
 <a name="trigger"></a>
 ## Storage blob trigger
