@@ -20,16 +20,16 @@
 
 This document introduces you to the developer experience by running the sample app. The sample creates a simple sharded application and explores key capabilities of elastic database tools. The sample demonstrates functions of the [elastic database client library](sql-database-elastic-database-client-library.md)
 
-To install the library, go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Note that the library is installed with the sample app described below.
+To install the library, go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). The library is installed with the sample app described below.
 
 ## Prerequisites
 
 1. Visual Studio 2012 or higher with C# is required. Download a free version at [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-2. Nuget 2.7 or higher. To get the latest version, see [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
+2. NuGet 2.7 or higher. To get the latest version, see [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
 
 ## Download and run the sample app
 
-The **Elastic Database with Azure SQL— Getting Started** sample application illustrates the most important aspects of the development experience for sharded applications using Azure SQL elastic database tools. It focuses on key use cases for [shard map management](sql-database-elastic-scale-shard-map-management.md), [data dependent routing](sql-database-elastic-scale-data-dependent-routing.md) and [multi-shard querying](sql-database-elastic-scale-multishard-querying.md). To download and run the sample, follow these steps: 
+The **Elastic Database with Azure SQL— Getting Started** sample application illustrates the most important aspects of the development experience for sharded applications using Azure SQL elastic database tools. It focuses on key use cases for [shard map management](sql-database-elastic-scale-shard-map-management.md), [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) and [multi-shard querying](sql-database-elastic-scale-multishard-querying.md). To download and run the sample, follow these steps: 
 
 1. Open Visual Studio and select **File -> New -> Project**.
 2. In the dialog, click **Online**.
@@ -38,7 +38,7 @@ The **Elastic Database with Azure SQL— Getting Started** sample application il
 3. Then click **Visual C#** under **Samples**.
 
     ![Click Visual C#][3]
-4. In the search box, type **elastic db** to search for the sample.The title **Elastic DB Tools for Azure SQL - Getting Started** appears.
+4. In the search box, type **elastic db** to search for the sample. The title **Elastic DB Tools for Azure SQL - Getting Started** appears.
 
     ![Search Box][1]
  
@@ -85,7 +85,7 @@ For more information about the elastic database tools, see:
     -    [Elastic DB with Azure SQL - Integrating with Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
     -    [Shard Elasticity on Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 -    Blog: [Elastic Scale Announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
--    Microsoft Virtual Acadamy: [Implementing Scale-Out Using Sharding with the Elastic Database Client Library Video](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554?l=lWyQhF1fC_6306218965) 
+-    Microsoft Virtual Academy: [Implementing Scale-Out Using Sharding with the Elastic Database Client Library Video](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554?l=lWyQhF1fC_6306218965) 
 -    Channel 9: [Elastic Scale Overview Video](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 -    Discussion Forum: [Azure SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 -    To measure performance: [Performance counters for shard map manager](sql-database-elastic-database-client-library.md)
