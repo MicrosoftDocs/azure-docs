@@ -1,6 +1,6 @@
 <properties
  pageTitle="Run the sample application to receive cloud-to-device messages | Microsoft Azure"
- description="The sample application runs on Pi and monitors incoming messages from your hub. A new gulp task sends messages to Pi from your hub to blink the LED."
+ description="The sample application runs on Pi and monitors incoming messages from your IoT hub. A new gulp task sends messages to Pi from your IoT hub to blink the LED."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
@@ -19,25 +19,25 @@
 
 # Run the sample application to receive cloud-to-device messages
 
-In this article, you deploy a sample application on Raspberry Pi 3. The sample application monitors incoming messages from your hub. You also run a gulp task on your computer to send messages to Pi from your hub. When the sample application receives the messages, it blinks the LED. If you have any problems, seek solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+In this article, you deploy a sample application on Raspberry Pi 3. The sample application monitors incoming messages from your IoT hub. You also run a gulp task on your computer to send messages to Pi from your IoT hub. When the sample application receives the messages, it blinks the LED. If you have any problems, seek solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## What you will do
 
-- Connect the sample application to your hub.
+- Connect the sample application to your IoT hub.
 - Deploy and run the sample application.
-- Send messages from your hub to Pi to blink the LED.
+- Send messages from your IoT hub to Pi to blink the LED.
 
 ## What you will learn
 
-- How to monitor incoming messages from your hub
-- How to send cloud-to-device messages from your hub to Pi.
+- How to monitor incoming messages from your IoT hub
+- How to send cloud-to-device messages from your IoT hub to Pi.
 
 ## What you need
 
 - Raspberry Pi 3, set up for use. To learn how to set up Pi, see [Configure your device](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md).
-- A hub that is created in your Azure subscription. To learn how to create your hub, see [Create your hub and register Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md).
+- An IoT hub that is created in your Azure subscription. To learn how to create your IoT hub, see [Create your IoT hub and register Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md).
 
-## Connect the sample application to your hub
+## Connect the sample application to your IoT hub
 
 1. Make sure that you're in the repo folder `iot-hub-node-raspberrypi-getting-started`. Open the sample application in Visual Studio Code by running the following commands:
 
@@ -46,7 +46,7 @@ In this article, you deploy a sample application on Raspberry Pi 3. The sample a
     code .
     ```
 
-    Notice the `app.js` file in the `app` subfolder. The `app.js` file is the key source file that contains the code to monitor incoming messages from Azure IoT Hub. The `blinkLED` function blinks the LED.
+    Notice the `app.js` file in the `app` subfolder. The `app.js` file is the key source file that contains the code to monitor incoming messages from the IoT hub. The `blinkLED` function blinks the LED.
 
     ![Repo structure in the sample application](media/iot-hub-raspberry-pi-lessons/lesson4/repo_structure.png)
 
@@ -63,7 +63,7 @@ In this article, you deploy a sample application on Raspberry Pi 3. The sample a
 
 - Replace **[device hostname or IP address]** with the IP address of Pi or the host name that you get by running the `devdisco list --eth` command.
 - Replace **[IoT device connection string]** with the device connection string that you get by running the `az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}` command.
-- Replace **[IoT hub connection string]** with the hub connection string that you get by running the `az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}` command.
+- Replace **[IoT hub connection string]** with the IoT hub connection string that you get by running the `az iot device show-connection-string --hub {my hub name} --device-id {device id} --resource-group {resource group name}` command.
 
 ## Deploy and run the sample application
 
@@ -73,17 +73,17 @@ Deploy and run the sample application on Pi by running the following command:
 gulp
 ```
 
-The gulp command runs the install-tools task first. Then it deploys the sample application to Pi. Finally, it runs the application on Pi and a separate task on your host computer to send 20 blink messages to Pi from your hub.
+The gulp command runs the install-tools task first. Then it deploys the sample application to Pi. Finally, it runs the application on Pi and a separate task on your host computer to send 20 blink messages to Pi from your IoT hub.
 
-After the sample application runs, it starts listening to messages from your hub. Meanwhile, the gulp task sends several "blink" messages from your hub to Pi. For each blink message that Pi receives, the sample application calls the `blinkLED` function to blink the LED.
+After the sample application runs, it starts listening to messages from your IoT hub. Meanwhile, the gulp task sends several "blink" messages from your IoT hub to Pi. For each blink message that Pi receives, the sample application calls the `blinkLED` function to blink the LED.
 
-You should see the LED blink every two seconds as the gulp task sends 20 messages from your hub to Pi. The last one is a "stop" message that tells the application to stop running.
+You should see the LED blink every two seconds as the gulp task sends 20 messages from your IoT hub to Pi. The last one is a "stop" message that tells the application to stop running.
 
 ![Sample application with gulp command and blink messages](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_blink.png)
 
 ## Summary
 
-You’ve successfully sent messages from your hub to Pi to blink the LED. The next task is optional: change the on and off behavior of the LED.
+You’ve successfully sent messages from your IoT hub to Pi to blink the LED. The next task is optional: change the on and off behavior of the LED.
 
 ## Next steps
 

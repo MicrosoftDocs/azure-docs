@@ -103,7 +103,7 @@ You should see the LED turn on for two seconds, and then turn off for another tw
 
 ![Sample application with on and off messages](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_on_and_off.png)
 
-Congratulations! You’ve successfully customized the messages that are sent to Pi from your hub.
+Congratulations! You’ve successfully customized the messages that are sent to Pi from your IoT hub.
 
 ### Summary
 
