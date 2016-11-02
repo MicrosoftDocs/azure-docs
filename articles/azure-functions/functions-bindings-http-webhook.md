@@ -311,7 +311,7 @@ Use the HTTP output binding to respond to the HTTP request sender.
 
 You can use the output parameter (e.g. `res`) to respond to the http or webhook caller. Alternatively, you can use the 
 standard `Request.CreateResponse()` (C#) or `context.res` pattern to return your response. For examples on how to use
-the latter method, see [HTTP trigger sample](#httptriggersample) and [Webhook trigger sample](hooktriggersample).
+the latter method, see [HTTP trigger sample](#httptriggersample) and [Webhook trigger sample](#hooktriggersample).
 
 <a name="validate"></a>
 ## Validate requests with API keys
