@@ -198,7 +198,7 @@ This can also be used with multiple output parameters by designating a single ou
 
 It is a best practice to store sensitive information as part of the run-time environment using app settings. By keeping sensitive information out of your app's configuration files, you limit exposure when a public repository is used to store app files.  
 
-The Azure Functions run-time resolves app settings to values when the app setting name is enclosed in percent signs, `%your app setting%`. The following [Twilio binding](functions-bindings-twilio.md) uses an app setting named `TWILIO_ACCT_PHONE`. This app setting is used to store the phone number used for the `from` field of the binding when sending SMS texts. 
+The Azure Functions run-time resolves app settings to values when the app setting name is enclosed in percent signs, `%your app setting%`. The following [Twilio binding](functions-bindings-twilio.md) uses an app setting named `TWILIO_ACCT_PHONE` for the `from` field of the binding. 
 
     {
       "type": "twilioSms",
@@ -210,6 +210,7 @@ The Azure Functions run-time resolves app settings to values when the app settin
       "body": "Thank you {name}, your order was received Node.js",
       "direction": "out"
     },
+
 
 
 
