@@ -210,13 +210,19 @@ A: No, currently the vault and server must be in both the same subscription and 
 3.	Q: Can I use a vault I created in a different region than my server’s region?
 A: No, the vault and server must be in the same region to minimize the copy time and avoid the traffic charges.
 
-4.	Q: How many databases can I backup to 1 vault?
-A: Currently we only support up to 2000 databases per vault. You can create up to 25 vaults per subscription.
+4.	Q: How many databases can I store in 1 vault?
+A: Currently we only support up to 1000 databases per vault. 
 
-5.	Q: Does long-term retention work with Elastic Database Pools?
+5. Q. How many vaults can I create per subscription?
+A. You can create up to 25 vaults per subscription.
+
+6. Q. How many databases can I configure per day per vault?
+You can only set up 200 databases per day per vault.
+
+7.	Q: Does long-term retention work with Elastic Database Pools?
 A: Yes. Any database in the pool can be configured with the retention policy.
 
-6.	Q: Can I choose the time at which the backup is created?
+8.	Q: Can I choose the time at which the backup is created?
 A: No, SQL Database controls the backups schedule in order to minimize the performance impact on your databases.
 
 ## Next steps
