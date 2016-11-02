@@ -34,7 +34,7 @@ Use the Service Bus trigger to respond to messages from a Service Bus queue or t
 
 The Notification Hubs queue and topic triggers to a function use the following JSON objects in the `bindings` array of function.json:
 
-    - *queue* trigger:
+- *queue* trigger:
 
         {
             "name" : "<Name of input parameter in function signature>",
@@ -45,7 +45,7 @@ The Notification Hubs queue and topic triggers to a function use the following J
             "direction" : "in"
         }
 
-    - *topic* trigger:
+- *topic* trigger:
 
         {
             "name" : "<Name of input parameter in function signature>",
@@ -152,7 +152,7 @@ See the language-specific sample that processes a Service Bus queue message.
 
 The Notification Hubs queue and topic output for a function use the following JSON objects in the `bindings` array of function.json:
 
-    - *queue* output:
+- *queue* output:
 
         {
             "name" : "<Name of output parameter in function signature>",
@@ -163,7 +163,7 @@ The Notification Hubs queue and topic output for a function use the following JS
             "direction" : "out"
         }
 
-    - *topic* output:
+- *topic* output:
 
         {
             "name" : "<Name of output parameter in function signature>",
@@ -266,15 +266,20 @@ Or, to create multiple messages:
 ### Output sample in Node.js
 
     module.exports = function (context, myTimer) {
-        var timeStamp = new Date().toISOString();
-        
-        if(myTimer.isPastDue)
-        {
-            context.log('Node.js is running late!');
-        }
         var message = 'Service Bus queue message created at ' + timeStamp;
         context.log(message);   
         context.bindings.outputSbQueueMsg = message;
+        context.done();
+    };
+
+Or, to create multiple messages:
+
+    module.exports = function (context, myTimer) {
+        var message = 'Service Bus queue message created at ' + timeStamp;
+        context.log(message);   
+        context.bindings.outputSbQueueMsg = [];
+        context.bindings.outputSbQueueMsg.push("1 " + message);
+        context.bindings.outputSbQueueMsg.push("2 " + message);
         context.done();
     };
 

@@ -290,7 +290,6 @@ a Storage blob input, and a Storage blob output:
 See the language-specific sample that copies the input blob to the output blob.
 
 - [C#](#incsharp)
-- [F#](#infsharp)
 - [Node.js](#innodejs)
 
 <a name="incsharp"></a>
@@ -302,8 +301,10 @@ See the language-specific sample that copies the input blob to the output blob.
         myOutputBlob = myInputBlob;
     }
 
+<!--
 <a name="infsharp"></a>
 ### Input usage in F\# 
+-->
 
 <a name="innodejs"></a>
 ### Input usage in Node.js
