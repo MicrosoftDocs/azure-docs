@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2016"
+   ms.date="11/02/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -62,7 +62,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Service provider**  |**Microsoft Azure** | **Office 365 and CRM Online** | **Locations** |
 |-----------------------|--------------------|----------------|---------------|
 | **AARNet** | Supported | Supported | Melbourne, Sydney |
-| **[Aryaka Networks]( http://www.aryaka.com/)** | Supported | Supported | Amsterdam, Silicon Valley, Singapore, Tokyo, Washington DC |
+| **[Aryaka Networks]( http://www.aryaka.com/)** | Supported | Supported | Amsterdam, Dallas, Silicon Valley, Singapore, Tokyo, Washington DC |
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supported | Supported | Amsterdam, Chicago, Dallas, London, Silicon Valley, Singapore, Sydney, Washington DC |
 | **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 |**CenturyLink** | Coming soon | Coming soon| Silicon Valley |
@@ -84,9 +84,10 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **MTN** | Supported | Supported | London |
 | **Next Generation Data** | Coming Soon | Coming Soon | Newport(Wales)+ |
 | **NEXTDC** | Supported | Supported | Melbourne, Sydney |
-| **NTT Communications** | Supported | Supported | London, Los Angeles, Osaka, Tokyo |
+| **NTT Communications** | Supported | Supported | London, Los Angeles, Osaka, Singapore, Tokyo, Washington DC |
 | **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** | Supported | Supported | Hong Kong |
+| **SIFY** | Supported | Supported | Chennai |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Supported | Supported | Singapore |
 | **Softbank** | Supported | Supported | Osaka, Tokyo | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supported | Supported | Amsterdam, Chennai, Hong Kong, London, Mumbai, Silicon Valley, Singapore, Washington DC |
@@ -109,7 +110,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supported | Supported | Chicago, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Chicago, Dallas, New York, Washington DC |
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Supported | Chicago, New York+, Washington DC |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Supported | Chicago, Dallas+, New York, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Supported | Chicago, Dallas, New York, Washington DC |
 
 #### China
 

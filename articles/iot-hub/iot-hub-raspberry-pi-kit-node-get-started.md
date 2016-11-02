@@ -1,6 +1,6 @@
 <properties
  pageTitle="Get started with Raspberry Pi 3 | Microsoft Azure"
- description="Get started with Raspberry Pi 3, create your Azure hub, and connect Pi to the hub."
+ description="Get started with Raspberry Pi 3, create your Azure IoT hub, and connect Pi to the IoT hub."
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
@@ -20,6 +20,8 @@
 # Get started with Raspberry Pi 3
 
 In this tutorial, you begin by learning the basics of working with Raspberry Pi 3 that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](iot-hub-what-is-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](http://www.windowsondevices.com/).
+
+Don't have a kit yet? Start [here](https://azure.microsoft.com/develop/iot/starter-kits).
 
 ## Lesson 1: Configure your device
 
@@ -50,11 +52,11 @@ Clone the sample Node.js blink application from GitHub, and use gulp to deploy t
 
 Go to [Create and deploy the blink application](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md).
 
-## Lesson 2: Create your hub
+## Lesson 2: Create your IoT hub
 
 ![Lesson 2 end-to-end diagram](media/iot-hub-raspberry-pi-lessons/e2e-lesson2.png)
 
-In this lesson, you create your free Azure account, provision your hub, and create your first device in Azure IoT Hub.
+In this lesson, you create your free Azure account, provision your Azure IoT hub, and create your first device in the IoT hub.
 
 Complete Lesson 1 before you start this lesson.
 
@@ -66,9 +68,9 @@ Install the Azure command-line interface (Azure CLI).
 
 Go to [Get Azure tools](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md).
 
-### Create your hub and register Raspberry Pi 3
+### Create your IoT hub and register Raspberry Pi 3
 
-Create your resource group, provision your first hub, and add your first device to Azure IoT Hub by using Azure CLI.
+Create your resource group, provision your first Azure IoT hub, and add your first device to the IoT hub by using Azure CLI.
 
 *Estimated time to complete: 10 minutes*
 
@@ -79,7 +81,7 @@ Go to [Create your IoT hub and register Raspberry Pi 3](iot-hub-raspberry-pi-kit
 
 ![Lesson 3 end-to-end diagram](media/iot-hub-raspberry-pi-lessons/e2e-lesson3.png)
 
-In this lesson, you send messages from Pi to your hub. You also create an Azure function app that gets incoming messages from your hub and writes them to Azure Table storage.
+In this lesson, you send messages from Pi to your IoT hub. You also create an Azure function app that gets incoming messages from your IoT hub and writes them to Azure Table storage.
 
 Complete Lesson 1 and Lesson 2 before you start this lesson.
 
@@ -93,7 +95,7 @@ Go to [Create an Azure function app and Azure storage account](iot-hub-raspberry
 
 ### Run a sample application to send device-to-cloud messages
 
-Deploy and run a sample application to your Raspberry Pi 3 device that sends messages to IoT Hub.
+Deploy and run a sample application to your Raspberry Pi 3 device that sends messages to the IoT hub.
 
 *Estimated time to complete: 10 minutes*
 
@@ -112,13 +114,13 @@ Go to [Read messages persisted in Azure Storage](iot-hub-raspberry-pi-kit-node-l
 
 ![Lesson 4 end-to-end diagram](media/iot-hub-raspberry-pi-lessons/e2e-lesson4.png)
 
-This lesson shows how to send messages from your hub to Raspberry Pi 3. The messages control the on and off behavior of the LED that is connected to Pi. A sample application is prepared for you to achieve this task.
+This lesson shows how to send messages from your Azure IoT hub to Raspberry Pi 3. The messages control the on and off behavior of the LED that is connected to Pi. A sample application is prepared for you to achieve this task.
 
 Complete Lesson 1, Lesson 2, and Lesson 3 before you start this lesson.
 
 ### Run the sample application to receive cloud-to-device messages
 
-The sample application in Lesson 4 runs on Pi and monitors incoming messages from your hub. A new gulp task sends messages to Pi from your hub to blink the LED.
+The sample application in Lesson 4 runs on Pi and monitors incoming messages from your IoT hub. A new gulp task sends messages to Pi from your IoT hub to blink the LED.
 
 *Estimated time to complete: 10 minutes*
 

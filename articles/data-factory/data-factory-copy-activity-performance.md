@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/25/2016"
+	ms.date="11/02/2016"
 	ms.author="jingwang"/>
 
 
@@ -22,7 +22,7 @@ Azure Data Factory Copy Activity delivers a first-class secure, reliable, and hi
 
 Azure provides a set of enterprise-grade data storage and data warehouse solutions, and Copy Activity offers a highly optimized data loading experience that is easy to configure and set up. With just a single copy activity, you can achieve:
 
-- Loading data into **Azure SQL Data Warehouse** at **1.2 GBps**
+- Loading data into **Azure SQL Data Warehouse** at **1.2 GBps**. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 - Loading data into **Azure Blob storage** at **1.0 GBps**
 - Loading data into **Azure Data Lake Store** at **1.0 GBps**
 

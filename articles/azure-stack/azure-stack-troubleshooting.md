@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Microsoft Azure Stack troubleshooting | Microsoft Azure"
 	description="Azure Stack troubleshooting."
 	services="azure-stack"
@@ -184,4 +184,4 @@ The following information about Azure Stack installation steps may be useful for
 
 ## Next steps
 
-[Frequently asked questions](azure-stack-FAQ.md)
+[Frequently asked questions](azure-stack-faq.md)

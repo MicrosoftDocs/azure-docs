@@ -128,17 +128,17 @@ When you're installing pip, a permission error is thrown when older packages are
 
 ## Azure IoT Hub issues
 
-If you've successfully provisioned Azure IoT Hub with Azure CLI, and you need a tool to manage the devices that are connecting to your hub, try the following tools.
+If you've successfully provisioned your Azure IoT hub with Azure CLI, and you need a tool to manage the devices that are connecting to your IoT hub, try the following tools.
 
 ### Device Explorer
 
-[Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) runs on your Windows local machine and connects to your hub in Azure. It communicates with the following [IoT Hub endpoints](iot-hub-devguide.md):
+[Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) runs on your Windows local machine and connects to your IoT hub in Azure. It communicates with the following [IoT Hub endpoints](iot-hub-devguide.md):
 
-- *Device identity management* to provision and manage devices registered with your hub.
-- *Receive device-to-cloud* so you can monitor messages sent from your device to your hub.
-- *Send cloud-to-device* so you can send messages to your devices from your hub.
+- *Device identity management* to provision and manage devices registered with your IoT hub.
+- *Receive device-to-cloud* so you can monitor messages sent from your device to your IoT hub.
+- *Send cloud-to-device* so you can send messages to your devices from your IoT hub.
 
-Configure your IoT Hub connection string within this tool to use all its capabilities.
+Configure your IoT hub connection string within this tool to use all its capabilities.
 
 ### iothub-explorer
 

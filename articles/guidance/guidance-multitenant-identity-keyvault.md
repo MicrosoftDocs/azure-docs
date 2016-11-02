@@ -257,7 +257,7 @@ You will use the thumbprint later.
 
     > [AZURE.NOTE] You can get the client IDs from the [Azure management portal][azure-management-portal]. Select the Azure AD tenant, select the application, and click **Configure**.
 
-    This script authorizes the web app and web API to retrieve secrets from your key vault. See [Get started with Azure Key Vault][authorize-app] for more information.
+    This script authorizes the web app and web API to retrieve secrets from your key vault. See [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md) for more information.
 
 ### Add configuration settings to your key vault
 

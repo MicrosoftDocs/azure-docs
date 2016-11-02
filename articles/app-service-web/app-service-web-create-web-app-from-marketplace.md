@@ -16,9 +16,9 @@
 	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
-<!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
-
 # Create a web app from the Azure Marketplace
+
+<!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 

@@ -385,4 +385,4 @@ The earlier deployment examples in this topic showed only the individual cmdlets
 - To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md).
 - For a detailed example of deploying a project, see [Deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - To learn about troubleshooting a deployment that failed, see [Troubleshooting resource group deployments in Azure](./resource-manager-troubleshoot-deployments-powershell.md).
-
+- For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).

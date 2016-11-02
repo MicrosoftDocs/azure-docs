@@ -1,4 +1,4 @@
-<properties 
+<properties
     pageTitle="Relay FAQ | Microsoft Azure"
     description="Answers some frequently-asked questions about Azure Relay."
     services="service-bus"
@@ -6,7 +6,7 @@
     authors="jtaubensee"
     manager=""
     editor="" />
-<tags 
+<tags
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
@@ -27,7 +27,7 @@ Azure [Relay service](relay-what-is-it.md) facilitates your hybrid applications 
 
 ### What is a Relay namespace?
 
-A [namespace](Relay-create-namespace-portal.md) provides a scoping container for addressing Relay resources within your application. Creating one is necessary to use Relay and will be one of the first steps in getting started.
+A [namespace](relay-create-namespace-portal.md) provides a scoping container for addressing Relay resources within your application. Creating one is necessary to use Relay and will be one of the first steps in getting started.
 
 ### What happened to the previously named Relay service?
 
@@ -45,19 +45,13 @@ For complete information about Relay pricing, please see [Service Bus pricing de
 
 Here are three example scenarios:
 
-1. If you have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month and you send 3 GB of data across the connection during the course of the month, your total charge will be $5. 
- 
-2. If you have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month and you send 10 GB of data across the connection during the course of the month, your total charge will be $7.5: $5 for the connection and first 5GB + $2.5 for the additional 5GB of data. 
- 
-3. If you have two instances, A and B, of the Hybrid Connections Manager installed and continuously running for the entire month and you send 3 GB of data across connection A and 6 GB across connection B, your total charge will be $10.5: $5 for connection A + $5 for connection B + $0.5(for the 6th GB on connection B). 
+1. If you have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month and you send 3 GB of data across the connection during the course of the month, your total charge will be $5.
 
-Please note that the prices used in the examples are applicable only during the preview period and are subject to change at general availability of Hybrid Connections. 
+2. If you have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month and you send 10 GB of data across the connection during the course of the month, your total charge will be $7.5: $5 for the connection and first 5GB + $2.5 for the additional 5GB of data.
 
-### What usage of Relay is subject to data transfer?
+3. If you have two instances, A and B, of the Hybrid Connections Manager installed and continuously running for the entire month and you send 3 GB of data across connection A and 6 GB across connection B, your total charge will be $10.5: $5 for connection A + $5 for connection B + $0.5(for the 6th GB on connection B).
 
-Relay includes 5 GB of data ingress per month, per subscription. There is no additional Azure ingress/egress charge for data used by Relay.
-
-The data charge for Relay is for ingress from senders only, as Relay listeners do not incur a data charge. For example, if you send 1 GB, you will only be billed for 1 GB, even though a listener also received 1 GB and may be outside of Azure's datacenters.
+Please note that the prices used in the examples are applicable only during the preview period and are subject to change at general availability of Hybrid Connections.
 
 ### How are WCF Relay hours calculated?
 
