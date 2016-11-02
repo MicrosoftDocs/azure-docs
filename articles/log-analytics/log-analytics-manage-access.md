@@ -18,11 +18,9 @@
 
 # Manage access to Log Analytics
 
-To manage access to Log Analytics, you'll use a variety of administrative tasks on users, accounts, OMS workspaces, and Azure accounts. To create a new workspace in the Operations Management Suite (OMS), you choose a workspace name, associate it with your account, and you choose a geographical location. A workspace is essentially a container that includes account information and simple configuration information for the account. You or other members of your organization might use multiple OMS workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
+To manage access to Log Analytics, you perform various administrative tasks on users, accounts, OMS workspaces, and Azure accounts. To create a workspace in the Operations Management Suite (OMS), you choose a workspace name, associate it with your account, and you choose a geographical location. A workspace is essentially a container that includes account information and simple configuration information for the account. You or other members of your organization might use multiple OMS workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
 
-The [Get started with Log Analytics](log-analytics-get-started.md) article shows you how to quickly get up and running and the rest of this article describes in more detail some of the actions you'll need to manage access to OMS.
-
-Although you might not need to perform every management task at first, we'll cover all the commonly used tasks that you might use in the following sections:
+The [Get started with Log Analytics](log-analytics-get-started.md) article shows you how to quickly get up and running. The rest of this article describes commonly used tasks:
 
 - Determine the number of workspaces you need
 - Manage accounts and users
@@ -37,7 +35,7 @@ Although you might not need to perform every management task at first, we'll cov
 
 A workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in the OMS portal.
 
-It is possible to create multiple OMS Log Analytics workspaces and for users to have access to one or more workspaces. In general you want to minimize the number of workspaces as this will allow you to query and correlate across the most data. This section describes when it can be helpful to create more than one workspace.
+It is possible to create multiple OMS Log Analytics workspaces and for users to have access to one or more workspaces. Minimizing the number of workspaces allows you to query and correlate across the most data. This section describes when it can be helpful to create more than one workspace.
 
 Today, a Log Analytics workspace provides:
 
@@ -55,7 +53,7 @@ Based on the above characteristics, you may want to create multiple workspaces i
 
 When using agents to collect data, you can configure each agent to report to the required workspace.
 
-If you are using System Center Operations manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Analytics workspace.
+If you are using System Center Operations Manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Analytics workspace.
 
 ### Workspace information
 
@@ -74,13 +72,12 @@ Each workspace can have multiple user accounts associated with it, and each user
 
 By default, the Microsoft account or Organizational account used to create the workspace becomes the Administrator of the workspace. The administrator can then invite additional Microsoft accounts or pick users from Azure Active Directory.
 
-Giving people access to the OMS workspace is controlled in 2 places:
+Giving people access to the OMS workspace is controlled in two places:
 
-- In Azure, you can use role-based access control to provide access to the Azure subscription and the associated Azure resources. This is also used for PowerShell and REST API access.
+- In Azure, you can use role-based access control to provide access to the Azure subscription and the associated Azure resources. These permission are also used for PowerShell and REST API access.
 - In the OMS portal, access to only the OMS portal - not the associated Azure subscription.
 
 If you give people access to the OMS portal but not to the Azure subscription that it is linked to, then the Automation, Backup, and Site Recovery solution tiles do not show any data to users when they sign-in the OMS portal.
-
 To allow all users to see the data in these solutions, ensure they have at least **reader** access for the Automation Account, Backup Vault, and Site Recovery vault that is linked to the OMS workspace.   
 
 ### Managing access to Log Analytics using the Azure portal
@@ -89,19 +86,19 @@ If you give people access to the Log Analytics workspace using Azure permissions
 
 Some points to keep in mind about the Azure portal:
 
-- This is not *Role-Based Access Control*. If you have *Reader* access permissions in the Azure portal for the Log Analytics workspace, then you can make changes using the OMS portal. The OMS portal has a concept of Administrator, Contributor, and ReadOnly User. If the account you are signed-in with is in the Azure Active Directory linked to the workspace you will be an Administrator in the OMS portal, otherwise you will be a Contributor.
+- This is not *Role-Based Access Control*. If you have *Reader* access permissions in the Azure portal for the Log Analytics workspace, then you can make changes using the OMS portal. The OMS portal has a concept of Administrator, Contributor, and ReadOnly User. If the account you are signed-in with is in the Azure Active Directory linked to the workspace then you are an Administrator in the OMS portal, otherwise you are a Contributor.
 
 - When you sign-in to the OMS portal using http://mms.microsoft.com, then by default, you see the **Select a workspace** list. It only contains workspaces that were added by using the OMS portal. To see the workspaces you have access to with Azure subscriptions, then you need to specify a tenant as part of the URL. For example:
 
   `mms.microsoft.com/?tenant=contoso.com` The tenant identifier is often that last part of the e-mail address that you sign-in with.
 
-- If the account you sign-in with is an account in the tenant Azure Active Directory, which is usually the case unless you’re signing-in as a CSP, then you will be an *Administrator* in the OMS portal. If your account is not in the tenant Azure Active Directory, then you will be a *User* in the OMS portal.
+- If the account you sign-in with is an account in the tenant Azure Active Directory, which is usually the case unless you’re signing-in as a CSP, then you are an *Administrator* in the OMS portal. If your account is not in the tenant Azure Active Directory, then you are a *User* in the OMS portal.
 
 - If you want to navigate directly to a portal that you have access to using Azure permissions, then you need to specify the resource as part of the URL. It is possible to get this URL using PowerShell.
 
-  For example,  `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
+  For example, `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
 
-  The URL will look like:
+  The URL looks like:
 `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
 
@@ -113,24 +110,22 @@ You manage users and group on the **Manage Users** tab under the **Accounts** ta
 
 #### Add a user to an existing workspace
 
-Use the following steps to add a user or group to an OMS workspace. The user or group will be able to view and act on all alerts that are associated with this workspace.
-
->[AZURE.NOTE] If you want to add a user or group from your Azure Active Directory organizational account, you must first ensure that you have associated your OMS account with your Active Directory domain. See [Add an Azure Active Directory Organization to an existing workspace](#add-an-azure-active-directory-organization-to-an-existing-workspace).
+Use the following steps to add a user or group to an OMS workspace.
 
 1. In OMS, click the **Settings** tile.
 2. Click the **Accounts** tab and then click the **Manage Users** tab.
 3. In the **Manage Users** section, choose the account type to add: **Organizational Account**, **Microsoft Account**, **Microsoft Support**.
     - If you choose Microsoft Account, type the email address of the user associated with the Microsoft Account.
-    - If you choose Organizational Account, you can enter part of the user or group’s name or email alias and a list of users and groups will appear. Select a user or group.
+    - If you choose Organizational Account, you can enter part of the user or group’s name or email alias and a list of matching users and groups appears in a drop down box. Select a user or group.
     - Use Microsoft Support to give a Microsoft Support engineer or other Microsoft employee temporary access to your workspace to help with troubleshooting.
 
     >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single OMS account to three—one for administrators, one for contributors, and one for read-only users. Using more groups might impact the performance of Log Analytics.
 
-5. Choose the type of user or group to add: **Administrator**, **Contributor**, or **ReadOnly User** .  
+5. Choose the type of user or group to add: **Administrator**, **Contributor**, or **ReadOnly User**.  
 6. Click **Add**.
 
-  If you are adding a Microsoft account, an invitation to join the workspace is sent to the email you provided. After the user follows the instructions in the invitation to join OMS, the user can view the alerts and account information for this OMS account, and you will be able to view the user information on the **Accounts**  tab of the **Settings** page.
-  If you are adding an organizational account, the user will be able to access Log Analytics immediately.  
+  If you are adding a Microsoft account, an invitation to join the workspace is sent to the email you provided. After the user follows the instructions in the invitation to join OMS, the user can access this OMS workspace.
+  If you are adding an organizational account, the user can access Log Analytics immediately.  
   ![invitation email](./media/log-analytics-manage-access/setup-workspace-invitation-email.png)
 
 #### Edit an existing user type
@@ -155,9 +150,9 @@ You can change the account role for a user associated with your OMS account. You
 3. Select the role for the user that you want to change.
 2. In the confirmation dialog box, click **Yes**.
 
-### Remove a user from a OMS workspace
+### Remove a user from an OMS workspace
 
-Use the following steps to remove a user from an OMS workspace. Note that this does not close the user’s workspace. Instead, it removes the association between that user and the workspace. If a user is associated with multiple workspaces, that user will still be able to sign in to OMS and see the other workspaces.
+Use the following steps to remove a user from an OMS workspace. This does not close the user’s workspace. Instead, it removes the association between that user and the workspace. If a user is associated with multiple workspaces, that user can still sign in to OMS and see their other workspaces.
 
 1. In OMS, click the **Settings** tile.
 2. Click the **Accounts** tab and then click the **Manage Users** tab.
@@ -175,13 +170,13 @@ Use the following steps to remove a user from an OMS workspace. Note that this d
 
 ## Link an existing workspace to an Azure subscription
 
-All workspaces created after September 26, 2016 must be linked to an Azure subscription at creation time. Workspaces created prior to this date must be linked to a workspace when you next login. 
+All workspaces created after September 26, 2016 must be linked to an Azure subscription at creation time. Workspaces created before this date must be linked to a workspace when you next login. 
 
->[AZURE.IMPORTANT] In order to link a workspace, your Azure account must already have access to the workspace you'd like to link.  In other words, the account you use to access the Azure portal must be **the same** as the account you use to access your OMS workspace. If this is not the case, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
+>[AZURE.IMPORTANT] To link a workspace, your Azure account must already have access to the workspace you'd like to link.  In other words, the account you use to access the Azure portal must be **the same** as the account you use to access your OMS workspace. If not, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
 ### To link a workspace to an Azure subscription in the OMS portal
 
-In order to link a workspace to an Azure subscription in the OMS portal, the signed-in user must already have a paid Azure account. The workspace that you're actively using gets linked to the Azure account.
+To link a workspace to an Azure subscription in the OMS portal, the signed-in user must already have a paid Azure account.
 
 1. In OMS, click the **Settings** tile.
 2. Click the **Accounts** tab and then click the **Azure Subscription & Data Plan** tab.
@@ -218,16 +213,16 @@ Your new data plan is displayed in the OMS portal ribbon at the top of your web 
 
 ## Upgrade a workspace to a paid plan
 
-There are three workspace plan types for OMS: **Free**, **Standalone**, and **OMS**.  If you are on the *Free* plan, there is a limit of 500MB of data per day sent to Log Analytics.  If you exceed this amount you need to change your workspace to a paid plan to avoid not collecting data beyond this limit. At any time you can change your plan type.  For more information on OMS pricing, see [Pricing Details](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing).
+There are three workspace plan types for OMS: **Free**, **Standalone**, and **OMS**.  If you are on the *Free* plan, there is a limit of 500 MB of data per day sent to Log Analytics.  If you exceed this amount, you need to change your workspace to a paid plan to avoid not collecting data beyond this limit. You can change your plan type at any time.  For more information on OMS pricing, see [Pricing Details](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing).
 
 
 ### Using entitlements from an OMS subscription 
 
 To use the entitlements that come from purchasing OMS E1, OMS E2 OMS or OMS Add-On for System Center, choose the *OMS* plan of OMS Log Analytics.
 
-When you purchase an OMS subscription the entitlements are added to your Enterprise Agreement. Any Azure subscription that is created under this agreement can make use of the entitlement. This allows you, for example, to have multiple OMS workspaces that use the entitlement from the OMS subscriptions.
+When you purchase an OMS subscription, the entitlements are added to your Enterprise Agreement. Any Azure subscription that is created under this agreement can make use of the entitlement. This allows you, for example, to have multiple OMS workspaces that use the entitlement from the OMS subscriptions.
 
-To ensure that usage of an OMS workspace is applied to your entitlements from the OMS subscription, you'll need to:
+To ensure that usage of an OMS workspace is applied to your entitlements from the OMS subscription, you need to:
 
 1. Create your OMS workspace in an Azure subscription that is part of the Enterprise Agreement that includes the OMS subscription
 2. Select the *OMS* plan for the workspace
@@ -266,9 +261,9 @@ If you need to change the Azure subscription that the OMS workspace is linked to
 
 You can associate your Log Analytics (OMS) workspace with an Azure Active Directory domain. This enables you to add users from Active Directory directly to your OMS workspace without requiring a separate Microsoft account.
 
-When you create the workspace from the Azure portal, or link your workspace to an Azure subscription your Azure Active Directory will be linked as your organizational account.
+When you create the workspace from the Azure portal, or link your workspace to an Azure subscription your Azure Active Directory is linked as your organizational account.
 
-When you create the workspace from the OMS portal you will be prompted to link to an Azure subscription and an organizational account.
+When you create the workspace from the OMS portal you are prompted to link to an Azure subscription and an organizational account for the Azure subscription is associated to the Log Analytics workspace.
 
 ### To add an Azure Active Directory Organization to an existing workspace
 
@@ -277,7 +272,7 @@ Adding an Azure Active Directory Organization allows you to add users and groups
 1. On the Settings page in OMS, click **Accounts** and then click the **Manage Users** tab.  
 2. Review the information about organizational accounts, and then click **Add Organization**.  
     ![add organization](./media/log-analytics-manage-access/manage-access-add-adorg01.png)
-3. Enter the identity information for the administrator of your Azure Active Directory domain. Afterward, you'll see an acknowledgment stating that your workspace is linked to your Azure Active Directory domain.
+3. Enter the identity information for the administrator of your Azure Active Directory domain. Afterward, you see an acknowledgment stating that your workspace is linked to your Azure Active Directory domain.
     ![linked workspace acknowledgment](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
 If you need to add users from a different directory you can click on the *Change Organization* button to associate the workspace with another directory.
