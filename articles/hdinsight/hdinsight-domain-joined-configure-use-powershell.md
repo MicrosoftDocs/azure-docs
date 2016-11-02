@@ -56,15 +56,15 @@ You must have the following items to go through this tutorial:
 
 ## Create an Azure classic VNet for your Azure AD.  
 
-See [here](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
+For the insturctions, see [here](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
 
 ## Create and configure Azure AD and Azure AD DS.  
 
-See [here](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad).
+For the instructions, see [here](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad).
 
 ## Run the PowerShell script
 
-The PowerShell script can be downloaded from [here](). Extract the zip file and save the files locally.
+The PowerShell script can be downloaded from [GitHub](https://github.com/hdinsight/DomainJoinedHDInsightConfigurationTool). Extract the zip file and save the files locally.
 
 
 **To edit the PowerShell script**
