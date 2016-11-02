@@ -26,7 +26,7 @@ In the past, application developers who wanted to sign up and sign in consumers 
 
 To build an application that accepts consumer sign up and sign in, you'll first need to register the application with an Azure Active Directory B2C tenant. Get your own tenant by using the steps outlined in [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md).
 
-You can write your application against the Azure Active Directory B2C service either by choosing to send protocol messages directly, using [OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-authorization-code-flow) or [Open ID Connect](active-directory-b2c-reference-protocols.md#openid-connect-sign-in-flow), or by using our libraries to do the work for you. Choose your favorite platform in the following table and get started.
+You can write your application against the Azure Active Directory B2C service either by choosing to send protocol messages directly, using [OAuth 2.0 or Open ID Connect](active-directory-b2c-reference-protocols.md), or by using our libraries to do the work for you. Choose your favorite platform in the following table and get started.
 
 [AZURE.INCLUDE [active-directory-b2c-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
