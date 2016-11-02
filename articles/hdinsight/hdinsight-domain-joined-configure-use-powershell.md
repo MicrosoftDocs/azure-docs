@@ -96,16 +96,11 @@ The PowerShell script can be downloaded from [GitHub](https://github.com/hdinsig
 	2. **Sign in to Azure Resource Manager portal** – Enter your credentials which you use to sign in to Azure Resource Manager portal.
 	3. **Domain user name** – Enter the credentials of the Domain user name that you want to be an admin on the HDInsight cluster. If you created an Azure AD from scratch, you must have created this user using this documentation. 
 	
-	>[AZURE.IMPORTANT] Enter the credentials in this format: 
+	>[AZURE.IMPORTANT] Enter the username in this format: 
 	>
 	>	Domainname\username (for example contoso.onmicrosoft.com\clusteradmin)
-	>	Password
 
-	This user must have 3 privileges.
-
-	- To join machines to the provided Active Directory domain
-	- To create service principals and machine objects within the provided Organizational Unit
-	- To add reverse DNS proxy rules
+	This user must have 3 privileges: To join machines to the provided Active Directory domain; to create service principals and machine objects within the provided Organizational Unit; and to add reverse DNS proxy rules.
 
 While creating reverse DNS zones, the script will prompt you to enter a network ID. This network ID must be the Resource Manager virtual network’s address prefix. For example, if your Resource Manager virtual network subnet address space is 10.2.0.0/24, enter 10.2.0.0/24 when the tool prompts you for the network ID. 
 
