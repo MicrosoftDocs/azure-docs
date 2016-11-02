@@ -40,7 +40,7 @@ The command performs the following workflow:
 
 2. Switch the roles of the two databases in the Geo-Replication partnership.  
 
-This sequence guarantees that the two databases are synchronized before the roles switch and therefore no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. For more information, see [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
+This sequence guarantees that the two databases are synchronized before the roles switch and therefore no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. For more information, see [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393(v=azure.300\).aspx).
 
 
 

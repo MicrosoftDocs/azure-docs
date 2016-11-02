@@ -35,14 +35,14 @@ You need to be running Azure PowerShell 1.0 or higher. For detailed information,
 
 ## Create a new pool
 
-The [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) cmdlet creates a new pool. The values for eDTU per pool, min, and max Dtus are constrained by the service tier value (basic, standard, or premium). See [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+The [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378(v=azure.300\).aspx) cmdlet creates a new pool. The values for eDTU per pool, min, and max Dtus are constrained by the service tier value (basic, standard, or premium). See [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
 ## Create a new elastic database in a pool
 
-Use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet and set the **ElasticPoolName** parameter to the target pool. To move an existing database into a pool, see [Move a database into an elastic pool](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool).
+Use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339(v=azure.300\).aspx) cmdlet and set the **ElasticPoolName** parameter to the target pool. To move an existing database into a pool, see [Move a database into an elastic pool](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool).
 
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
