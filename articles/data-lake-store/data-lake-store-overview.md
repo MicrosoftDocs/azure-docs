@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/28/2016"
+   ms.date="11/02/2016"
    ms.author="nitinme"/>
 
 # Overview of Azure Data Lake Store
@@ -65,7 +65,8 @@ Azure Data Lake Store uses Azure Active Directory for authentication and access 
 | Feature                                 | Description 							 |
 |-----------------------------------------|------------------------------------------|
 | Authentication | Azure Data Lake Store integrates with Azure Active Directory (AAD) for identity and access management for all the data stored in Azure Data Lake Store. As a result of the integration, Azure Data Lake benefits from all AAD features including multi-factor authentication, conditional access, role-based access control, application usage monitoring, security monitoring and alerting, etc. Azure Data Lake Store supports the OAuth 2.0 protocol for authentication with in the REST interface. |
-| Access control                          | Azure Data Lake Store provides access control by supporting POSIX-style permissions exposed by the WebHDFS protocol. In the current release, ACLs can be enabled on the root folder, sub-folders, as well as individual files. The ACLs you apply to the root folder will also applicable to all the child folders/files as well.|
+| Access control                          | Azure Data Lake Store provides access control by supporting POSIX-style permissions exposed by the WebHDFS protocol. In the Data Lake Store Public Preview (the current release), ACLs can be enabled on the root folder, on subfolders, and on individual files. For more information on how ACLs work in context of Data Lake Store, see [Access control in Data Lake Store](data-lake-store-access-control.md).|
+| Encryption | Data Lake Store also provides encryption for data that is stored in the account. You specify the encryption settings while creating a Data Lake Store account. You can chose to have your data encrypted or opt for no encryption. For more information on how to provide encryption-related configuration, see [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md).|
 
 Want to learn more about securing data in Data Lake Store. Follow the links below.
 
