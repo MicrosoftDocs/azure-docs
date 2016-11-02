@@ -20,8 +20,7 @@
 
 This article outlines how you can use Copy Activity in Azure Data Factory to move data from/to Azure SQL Data Warehouse to/from another data store. 
 
-You can specify whether you want to use PolyBase while loading data into Azure SQL Data Warehouse. We suggest that you use PolyBase to achieve best performance when loading data into Azure SQL Data Warehouse. The [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) section has details. 
-
+You can specify whether you want to use PolyBase while loading data into Azure SQL Data Warehouse. We suggest that you use PolyBase to achieve best performance when loading data into Azure SQL Data Warehouse. The [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) section has details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data to/from Azure SQL Data Warehouse is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
@@ -491,7 +490,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 ## Use PolyBase to load data into Azure SQL Data Warehouse
 Using **PolyBase** is an efficient way of loading large amount of data into Azure SQL Data Warehouse with high throughput. You can see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. See [copy performance reference number](data-factory-copy-activity-performance.md#performance-reference) with detailed comparison.
 
-- If your source data foramt is compatible with PolyBase, you can directly copy from source data store to Azure SQL Data Warehouse using PolyBase. See **[Direct copy using PolyBase](#direct-copy-using-polybase)** with details.
+- If your source data foramt is compatible with PolyBase, you can directly copy from source data store to Azure SQL Data Warehouse using PolyBase. See **[Direct copy using PolyBase](#direct-copy-using-polybase)** with details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 - If your source data format is not originally supported by PolyBase, you can leverage **[Staged Copy using PolyBase](#staged-copy-using-polybase)** instead, which will also provide you better throughput by automatically firstly converting the data into PolyBase-compatible format and storing in Azure Blob storage, then loading into SQL Data Warehouse.
 
 Set the **allowPolyBase** property to **true** as shown in the following example for Azure Data Factory to use PolyBase to copy data into Azure SQL Data Warehouse. When you set allowPolyBase to true, you can specify PolyBase specific properties using the **polyBaseSettings** property group. see the [SqlDWSink](#SqlDWSink) section for details about properties that you can use with polyBaseSettings.
