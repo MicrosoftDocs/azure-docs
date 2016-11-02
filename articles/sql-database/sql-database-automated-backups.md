@@ -147,7 +147,7 @@ Each SQL Database backup has a retention period that is based on the [service-ti
 	Using a list so the information is easy to find when scanning.
 ------------------->
 
-- Basic service tier is seven days.
+- Basic service tier is 7 days.
 - Standard service tier is 35 days.
 - Premium service tier is 35 days.
 
