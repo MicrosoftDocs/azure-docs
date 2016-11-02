@@ -23,7 +23,7 @@
 
 This article describes best practices for connecting an on-premises network to virtual networks on Azure by using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. The traffic flows between the on-premises network and an Azure virtual network (VNet) through an ExpressRoute connection.  If there is a loss of connectivity in the ExpressRoute circuit, traffic will be routed through an IPSec VPN tunnel.
 
-> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
+> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager](../azure-resource-manager/resource-group-overview.md) and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
 
 Typical use cases for this architecture include:
 
@@ -131,7 +131,7 @@ If you have an existing on-premises infrastructure already configured with a sui
 1. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
 [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-vpn-er%2Fazuredeploy.json)
 
-2. Wait for the link to open in the Azure portal, then follow these steps: 
+2. Wait for the link to open in the Azure portal, then follow these steps:
   - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-vpn-er-rg` in the text box.
   - Select the region from the **Location** drop down box.
   - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -143,7 +143,7 @@ If you have an existing on-premises infrastructure already configured with a sui
 4. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
 [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-vpn-er%2Fazuredeploy-expressRouteCircuit.json)
 
-5. Wait for the link to open in the Azure portal, then enter then follow these steps: 
+5. Wait for the link to open in the Azure portal, then enter then follow these steps:
   - Select **Use existing** in the **Resource group** section and enter `ra-hybrid-vpn-er-rg` in the text box.
   - Select the region from the **Location** drop down box.
   - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
