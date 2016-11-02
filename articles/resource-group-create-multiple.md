@@ -40,7 +40,7 @@ When creating multiple resources from an array of values, you can use the **leng
         "count": "[length(parameters('siteNames'))]"
     }
 
-You can only apply the copy object to a top level resource. You cannot apply it to a property on a resource type, or to a child resource. However, this topic shows how to iterate instances of a property and child resource. The following pseudo-code example shows where copy can be applied:
+You can only apply the copy object to a top-level resource. You cannot apply it to a property on a resource type, or to a child resource. However, this topic shows how to specify multiple items for a property, and create multiple instances of a child resource. The following pseudo-code example shows where copy can be applied:
 
     "resources": [
       {
@@ -64,7 +64,7 @@ You can only apply the copy object to a top level resource. You cannot apply it 
       }
     ] 
 
-Although you cannot apply **copy** to a property, that property is still part of each iteration of the resource. Therefore, you can use **copyIndex()** within the property to specify values.
+Although you cannot apply **copy** to a property, that property is still part of the iterations of the resource that contains the property. Therefore, you can use **copyIndex()** within the property to specify values.
 
 There are several scenarios where you might want to iterate on a property in a resource. For example, you may want to specify multiple data disks for a virtual machine. To see how to iterate on a property, see [Create multiple instances when copy won't work](#create-multiple-instances-when-copy-wont-work). 
 
@@ -186,35 +186,25 @@ copy element has **name** set to **storagecopy** and the **dependsOn** element f
 
 You cannot use a copy loop for a child resource. To create multiple instances of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the **type** and **name** properties.
 
-For example, suppose you typically define a dataset as a child resource within a Data Factory.
+For example, suppose you typically define a dataset as a child resource within a data factory.
 
-    "parameters": {
-        "dataFactoryName": {
-            "type": "string"
-         },
-         "dataSetName": {
-            "type": "string"
-         }
-    },
     "resources": [
     {
         "type": "Microsoft.DataFactory/datafactories",
-        "name": "[parameters('dataFactoryName')]",
+        "name": "exampleDataFactory",
         ...
         "resources": [
         {
             "type": "datasets",
-            "name": "[parameters('dataSetName')]",
+            "name": "exampleDataSet",
             "dependsOn": [
-                "[parameters('dataFactoryName')]"
+                "exampleDataFactory"
             ],
             ...
         }
     }]
     
-To create multiple instances of data sets, move it outside of the data factory. Notice in the following example that the dataset is now on the same level as the data factory. The data set is still a child resource of the data factory, but in the template they are defined individually. 
-
-You preserve the relationship between data set and data factory through the **type** and **name** properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the following format:
+To create multiple instances of data sets, move it outside of the data factory. The dataset must be at the same level as the data factory, but it is still a child resource of the data factory. You preserve the relationship between data set and data factory through the **type** and **name** properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the following format:
 
  **{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}** 
  
@@ -224,29 +214,21 @@ To establish a parent/child relationship with an instance of the data factory, p
 
 The following example shows the implementation:
 
-    "parameters": {
-        "dataFactoryName": {
-            "type": "string"
-         },
-         "dataSetName": {
-            "type": "array"
-         }
-    },
     "resources": [
     {
         "type": "Microsoft.DataFactory/datafactories",
-        "name": "[parameters('dataFactoryName')]",
+        "name": "exampleDataFactory",
         ...
     },
     {
         "type": "Microsoft.DataFactory/datafactories/datasets",
-        "name": "[concat(parameters('dataFactoryName'), '/', parameters('dataSetName')[copyIndex()])]",
+        "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
         "dependsOn": [
-            "[parameters('dataFactoryName')]"
+            "exampleDataFactory"
         ],
         "copy": { 
             "name": "datasetcopy", 
-            "count": "[length(parameters('dataSetName'))]" 
+            "count": "3" 
         } 
         ...
     }]
@@ -439,7 +421,7 @@ In the resources section, deploy multiple instances of the template that defines
   "properties": {
     "mode": "incremental",
     "templateLink": {
-      "uri": "https://raw.githubusercontent.com/tfitzmac/TemplateTests/master/nesteddatadisks.json",
+      "uri": "{data-disk-template-uri}",
       "contentVersion": "1.0.0.0"
     },
     "parameters": {
@@ -449,9 +431,11 @@ In the resources section, deploy multiple instances of the template that defines
     }
   }
 },
+```
 
 In the resources section, deploy multiple instances of the virtual machine. For the data disks, reference the nested deployment that contains the correct number or data disks and the correct names for data disks.
 
+```
 {
   "type": "Microsoft.Compute/virtualMachines",
   "name": "[concat('myvm', copyIndex())]",
