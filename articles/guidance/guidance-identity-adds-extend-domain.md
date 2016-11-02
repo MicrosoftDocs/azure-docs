@@ -134,7 +134,7 @@ The sample solution has the following prerequsites:
 
 - You have already configured your on-premises domain, and that you have configured DNS, and installed Routing and Remote Access services to support a VPN connect to the Azure VPN gateway.
 
-- You have installed and configured the latest version of the [Azure Powershell](./powershell-install-configure.md). 
+- You have installed and configured the latest version of the [Azure Powershell](../powershell-install-configure.md). 
 
 - Download the reference architecture deployment files from [Github](https://github.com/mspnp/reference-architectures/tree/master/guidance-ra-identity-adds).
 
