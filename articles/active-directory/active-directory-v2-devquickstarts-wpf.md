@@ -24,7 +24,7 @@ With the the v2.0 endpoint, you can quickly add authentication to your desktop a
 
 For [.NET native apps that run on a device](active-directory-v2-flows.md#mobile-and-native-apps), Azure AD provides the Microsoft Identity Authentication Library, or MSAL.  MSAL's sole purpose in life is to make it easy for your app to get tokens for calling web services.  To demonstrate just how easy it is, here we'll build a .NET WPF To-Do List app that:
 
-- Signs the user in & gets access tokens using the [OAuth 2.0 authentication protocol](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+- Signs the user in & gets access tokens using the [OAuth 2.0 authentication protocol](active-directory-v2-protocols.md).
 - Securely calls a backend To-Do List web service, which is also secured by OAuth 2.0.
 - Signs the user out.
 
@@ -85,7 +85,7 @@ try
     result = await app.AcquireTokenSilentAsync(new string[] { clientId });
     // If we got here, a valid token is in the cache - or MSAL was able to get a new oen via refresh token.
     // Proceed to fetch the user's tasks from the TodoListService via the GetTodoList() method.
-    
+
     SignInButton.Content = "Clear Cache";
     GetTodoList();
 }
