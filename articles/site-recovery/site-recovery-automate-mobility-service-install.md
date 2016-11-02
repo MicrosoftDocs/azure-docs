@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/26/2016"
+	ms.date="11/01/2016"
 	ms.author="krnese"/>
 
 # Replicate VMware virtual machines to Azure by using Site Recovery with Azure Automation DSC
