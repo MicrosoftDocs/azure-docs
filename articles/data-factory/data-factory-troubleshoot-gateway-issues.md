@@ -30,15 +30,17 @@ This article provides information on troubleshooting issues with using Data Mana
 ## Failed to install or register gateway
 
 ### Problem
-You see this error message when installing/registering a gateway. 
+You see this error message when installing/registering a gateway, specifically, while downloading the gateway installation file. 
 
-`Error: Download gateway failed with exception: "Unable to connect to the remote server". Please check your local settings (Error Code: 10003).`
+`Unable to connect to the remote server". Please check your local settings (Error Code: 10003).`
 
 ### Cause
 The machine on which you are trying to install the gateway has failed to download the latest gateway installation file from download center due to a network issue.
 
 ### Resolution
-Check your firewall / proxy server settings to see whether the settings block network connection from the machine to the [download center](https://download.microsoft.com/), and update the settings accordingly. Alternatively, you can download installation file for the latest gateway from the [download center](https://www.microsoft.com/en-US/download/details.aspx?id=39717) on other machines that can access the download center, copy the installer file to the gateway host machine, and run it manually to install/update the gateway.
+Check your firewall / proxy server settings to see whether the settings block network connection from the machine to the [download center](https://download.microsoft.com/), and update the settings accordingly. 
+
+Alternatively, you can download installation file for the latest gateway from the [download center](https://www.microsoft.com/en-US/download/details.aspx?id=39717) on other machines that can access the download center, copy the installer file to the gateway host machine, and run it manually to install/update the gateway.
 
 ### Problem
 You see this error when attempting to install a gateway by clicking 'install directly on this computer' in the Azure portal. 
@@ -92,7 +94,7 @@ You may see the following error message when registering a gateway:
 The gateway key has been regenerated or the gateway has been deleted in the Azure portal.
  
 ### Resolution
-If gateway still exists, regenerate the gateway key in the Azure portal, and use the copy button to copy the whole key, and then paste it in this window to register the gateway.. Otherwise, recreate the gateway and start over.
+If gateway still exists, regenerate the gateway key in the Azure portal, and use the copy button to copy the whole key, and then paste it in this window to register the gateway. Otherwise, recreate the gateway and start over.
 
 ### Problem
 You may see the following error message when registering a gateway:
@@ -129,7 +131,7 @@ You cannot skip this stage when recovering a gateway. If the certificate is miss
 ### Problem
 You may see the following error message: 
 
-	Error: The remote server returned an error: (407) Proxy Authentication Required.
+`Error: The remote server returned an error: (407) Proxy Authentication Required.`
 
 ### Cause
 This error happens when your gateway is in an environment that requires an HTTP proxy to access internet resources or your proxy's authentication password is changed but it's not updated accordingly in your gateway. 
@@ -146,7 +148,7 @@ You see status of the gateway as online with limited functionality for one of th
 
 - Gateway cannot connect to cloud service through service bus.
 - Cloud service cannot connect to gateway through service bus.
-- 
+
 When gateway is online with limited functionality, you may not be able to use the Data Factory Copy Wizard to create data pipelines for copying data to/from on-premises data stores. As a workaround, you can use Data Factory Editor in Azure portal (or) Visual Studio (or) Azure PowerShell.
 
 ### Resolution
@@ -155,7 +157,7 @@ Resolution for this issue (online with limited functionality) is based on whethe
 ### Problem
 You see the following error: 
 
-	Error: Gateway cannot connect to cloud service through service bus
+`Error: Gateway cannot connect to cloud service through service bus`
 
 ![Gateway cannot connect to cloud service](media/data-factory-troubleshoot-gateway-issues/gateway-cannot-connect-to-cloud-service.png)
 
@@ -172,7 +174,7 @@ Follow these steps to get the gateway back online:
 ### Problem
 You see the following error: 
 
-	Error: Cloud service cannot connect to gateway through service bus.
+`Error: Cloud service cannot connect to gateway through service bus.`
 
 ### Cause
 A transient error in network connectivity.
@@ -188,7 +190,7 @@ Follow these steps to get the gateway back online:
 ### Problem
 You may see this error when you try to use Credential Manager on the portal to input credentials for a new linked service, or update credentials for an existing linked service.
 
-	Error: The data store '<Server>/<Database>' cannot be reached. Check connection settings for the data source.
+`Error: The data store '<Server>/<Database>' cannot be reached. Check connection settings for the data source.`
 
 When you see this error, the settings page of Configuration Manager may look like:
 
@@ -215,7 +217,7 @@ Follow these steps to solve the problem:
 ### Problem
 You may notice the following "UserErrorFailedToConnectToSqlserver" failure after you set up a pipeline in the Azure portal. 
 
-	Error: Copy activity encountered a user error: ErrorCode=UserErrorFailedToConnectToSqlServer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server
+`Error: Copy activity encountered a user error: ErrorCode=UserErrorFailedToConnectToSqlServer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server`
 
 ### Cause
 This could happen for different reasons, and mitigation varies accordingly. 
