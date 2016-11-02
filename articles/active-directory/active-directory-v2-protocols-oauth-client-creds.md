@@ -44,10 +44,10 @@ This type of authorization is common for daemons and service accounts that need 
 ### Application permissions
 Instead of using ACLs, you can use APIs to expose a set of application permissions. An application permission is granted to an application by an organization's administrator, and can be used only to access data owned by that organization and its employees. For example, Microsoft Graph exposes several application permissions to do the following:
 
-- Read mail in all mailboxes.
-- Read and write mail in all mailboxes.
-- Send mail as any user.
-- Read directory data.
+- Read mail in all mailboxes
+- Read and write mail in all mailboxes
+- Send mail as any user
+- Read directory data
 
 
 For more information about application permissions, go to [Microsoft Graph](https://graph.microsoft.io).
