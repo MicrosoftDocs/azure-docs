@@ -84,7 +84,7 @@ Get all log entries with a specific caller:
 Get-AzureRmLog -Caller 'myname@company.com'
 ```
 
-The following command retrieves the last 1000 events from the audit log:
+The following command retrieves the last 1000 events from the activity log:
 
 ```PowerShell
 Get-AzureRmLog -MaxEvents 1000
@@ -184,7 +184,7 @@ Get-AzureRmAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 
 The Add alert cmdlet also updates the rule if an alert rule already exists for the given properties. To disable an alert rule, include the parameter **-DisableRule**.
 
-### Alert on audit log event
+### Alert on activity log event
 
 >[AZURE.NOTE] This feature is still in Preview.
 
@@ -284,7 +284,7 @@ Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -Reso
 For more information about managing Autoscale settings, see [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
 
 ## Autoscale history
-The following example shows you how you can view recent autoscale and alert events. Use the audit log search to view the Autoscale history.
+The following example shows you how you can view recent autoscale and alert events. Use the activity log search to view the autoscale history.
 
 ```PowerShell
 Get-AzureRmLog -Caller "Microsoft.Insights/autoscaleSettings" -DetailedOutput -StartTime 2015-03-01
@@ -320,9 +320,9 @@ You can use the `Remove-Autoscalesetting` cmdlet to delete an autoscale setting.
 Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
-## Manage log profiles for audit logs
+## Manage log profiles for activity log
 
-You can create a *log profile* and export data from your audit logs to a storage account and you can configure data retention for it. Optionally, you can also stream the data to your Event Hub. Note that this feature is currently in Preview and you can only create one log profile per subscription. You can use the following cmdlets with your current subscription to create and manage log profiles. You can also choose a particular subscription. Although PowerShell defaults to the current subscription, you can always change that using `Set-AzureRmContext`. You can configure audit logs to route data to any storage account or Event Hub within that subscription. Data is written as blob files in JSON format.
+You can create a *log profile* and export data from your activity log to a storage account and you can configure data retention for it. Optionally, you can also stream the data to your Event Hub. Note that this feature is currently in Preview and you can only create one log profile per subscription. You can use the following cmdlets with your current subscription to create and manage log profiles. You can also choose a particular subscription. Although PowerShell defaults to the current subscription, you can always change that using `Set-AzureRmContext`. You can configure activity log to route data to any storage account or Event Hub within that subscription. Data is written as blob files in JSON format.
 
 ### Get a log profile
 To fetch your existing log profiles, use the `Get-AzureRmLogProfile` cmdlet.

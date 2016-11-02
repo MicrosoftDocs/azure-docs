@@ -1,5 +1,5 @@
 <properties
-	pageTitle="View events and audit logs"
+	pageTitle="View events and activity(Audit) logs"
 	description="Learn how to see all of the events that happen in your Azure subscription."
 	authors="rboucher"
 	manager="carolz"
@@ -16,7 +16,7 @@
 	ms.date="04/28/2015"
 	ms.author="robb"/>
 
-# View events and audit logs
+# View events and activity logs
 
 All operations performed on Azure resources are fully audited by the Azure Resource Manager, from creation and deletions to granting or revoking access. You can browse these logs in the Azure portal, and you can also use the [REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to access the full set of events programmatically.
 

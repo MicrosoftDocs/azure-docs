@@ -74,9 +74,9 @@ To view a list of all supported Azure Monitor commands, perform the following.
 azure insights
 ```
 
-## View audit logs for a subscription
+## View activity log for a subscription
 
-To view a list of audit logs, perform the following.
+To view a list of activity log events, perform the following.
 
 ```console
 azure insights logs list [options]
