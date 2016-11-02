@@ -123,7 +123,7 @@ The Azure Fabric Controller is responsible for allocating infrastructure resourc
 
 -   Azure storage accounts are unique to each subscription, and access must be authenticated by using a storage account key.
 
--   Virtual Networks are logically isolated through a combination of unique private IP addresses, firewalls, and IP ACLs. Load balancers route traffic to the appropriate tenants based on endpoint definitions.
+-   Virtual networks are logically isolated through a combination of unique private IP addresses, firewalls, and IP ACLs. Load balancers route traffic to the appropriate tenants based on endpoint definitions.
 
 ## Virtual networks and firewalls
 
@@ -133,7 +133,7 @@ The [distributed and virtual networks](http://download.microsoft.com/download/4/
 
 Your subscription can contain multiple isolated private networks (and include firewall, load balancing, and network address translation).
 
-Azure provides three primary levels of network segregation in each Azure cluster to logically segregate traffic. [Virtual Local Area Networks](https://azure.microsoft.com/services/virtual-network/) (VLANs) are used to separate customer traffic from the rest of the Azure network. Access to the Azure network from outside the cluster is restricted through load balancers.
+Azure provides three primary levels of network segregation in each Azure cluster to logically segregate traffic. [Virtual local area networks](https://azure.microsoft.com/services/virtual-network/) (VLANs) are used to separate customer traffic from the rest of the Azure network. Access to the Azure network from outside the cluster is restricted through load balancers.
 
 Network traffic to and from virtual machines must pass through the hypervisor virtual switch. The IP filter component in the root OS isolates the root virtual machine from the guest virtual machines and the guest virtual machines from one another. It performs filtering of traffic to restrict communication between a tenant's nodes and the public Internet (based on the customer's service configuration), segregating them from other tenants.
 
@@ -151,7 +151,7 @@ You can place your virtual machines onto [Azure virtual networks](https://azure.
 
 You can use the following Azure Virtual Network technologies to help secure communications on your virtual network:
 
--   [**Network Security Groups (NSG)**](../virtual-network/virtual-networks-nsg.md). You can use an NSG to control traffic to one or more virtual machine instances in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port.
+-   [**Network Security Groups (NSGs)**](../virtual-network/virtual-networks-nsg.md). You can use an NSG to control traffic to one or more virtual machine instances in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port.
 
 -   [**User-defined routing**](../virtual-network/virtual-networks-udr-overview.md). You can control the routing of packets through a virtual appliance by creating user-defined routes that specify the next hop for packets flowing to a specific subnet to go to a virtual network security appliance.
 
@@ -165,7 +165,7 @@ You can use the following Azure Virtual Network technologies to help secure comm
 
 ### How Azure implements virtual networks and firewalls
 
-Azure implements packet-filtering firewalls on all host and guest virtual machines by default. Windows OS images from the Azure Gallery also have Windows Firewall enabled by default. Load balancers at the perimeter of Azure’s public-facing networks control communications based on IP ACLs managed by customer administrators.
+Azure implements packet-filtering firewalls on all host and guest virtual machines by default. Windows OS images from the Azure Marketplace also have Windows Firewall enabled by default. Load balancers at the perimeter of Azure public-facing networks control communications based on IP ACLs managed by customer administrators.
 
 If Azure moves a customer’s data as part of normal operations or during a disaster, it does so over private, encrypted communications channels. Other capabilities employed by Azure to use in virtual networks and firewalls are:
 
@@ -189,7 +189,7 @@ To securely extend your on-premises datacenter to the cloud, Azure provides both
 
 ### How Azure implements secure remote access
 
-Connections to the Azure portal must always be authenticated, and they require SSL/TLS. You can configure management certificates to enable secure management. Industry-standard secure protocols such as [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) and [IPsec](https://en.wikipedia.org/wiki/IPsec) are fully supported.
+Connections to the Azure portal must always be authenticated, and they require SSL/TLS. You can configure management certificates to enable secure management. Industry-standard security protocols such as [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) and [IPsec](https://en.wikipedia.org/wiki/IPsec) are fully supported.
 
 [Azure ExpressRoute](../expressroute/expressroute-introduction.md) lets you create private connections between Azure datacenters and infrastructure that’s on your premises or in a co-location environment. ExpressRoute connections do not go over the public Internet. They offer more reliability, faster speeds, lower latencies, and higher security than typical Internet-based links. In some cases, transferring data between on-premises locations and Azure by using ExpressRoute connections can also yield significant cost benefits.
 
@@ -211,7 +211,7 @@ Microsoft collects logs from network devices using the Syslog protocol, and from
 
 [Azure Diagnostics](https://msdn.microsoft.com/library/azure/gg433048.aspx) is a feature of Azure that enables you to collect diagnostic data from an application running in Azure. This is diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis, capacity planning, and auditing. After the diagnostic data is collected, it can be transferred to an Azure storage account for persistence. Transfers can either be scheduled or on demand.
 
-## Threat Mitigation
+## Threat mitigation
 
 In addition to isolation, encryption, and filtering, Azure employs a number of threat mitigation mechanisms and processes to protect infrastructure and services. These include internal controls and technologies used to detect and remediate advanced threats such as DDoS, privilege escalation, and the [OWASP Top-10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
 
