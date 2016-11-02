@@ -38,7 +38,7 @@ Select the desired access type:
 
 ![Public peering][api-management-vnet-public]
 
-* **Internal**: the API Management gateway and developer portal are accessible only from within the virtual network via an internal load balancer. The gateway can access resources within the virtual network
+* **Internal**: the API Management gateway and developer portal are accessible only from within the virtual network via an internal load balancer. The gateway can access resources within the virtual network.
 
 ![Private peering][api-management-vnet-private]
 
