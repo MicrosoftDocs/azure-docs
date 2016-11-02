@@ -49,7 +49,9 @@ After you have [created your standalone Service Fabric cluster on Windows Server
 .\RemoveNode.ps1 -ExistingClientConnectionEndpoint 182.17.34.50:19000
 ```
 
-Please note that even after removing a node, it may show up as being down in queries and SFX. This is a known defect and will be fixed in an upcoming release. 
+> [AZURE.NOTE] Some nodes may not be removed due to system services dependencies. These nodes are primary nodes and can be identified by querying the cluster manifest using `Get-ServiceFabricClusterManifest` and finding node entries marked with `IsSeedNode=”true”`. 
+
+Even after removing a node, if it shows up as being down in queries and SFX, please note that this is a known defect. It will be fixed in an upcoming release. 
 
 
 ## Next steps
