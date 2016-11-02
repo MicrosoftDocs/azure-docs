@@ -111,6 +111,75 @@ For AD-specific security considerations, see the *Security considerations* secti
 
 ## Solution deployment
 
+The solution assumes the following prerequisites:
+
+- You have an existing Azure subscription in which you can create resource groups.
+
+- You have downloaded and installed the most recent build of Azure Powershell. 
+
+To run the script that deploys the solution:
+
+1. Move to a convenient folder on your local computer and create the following subfolders:
+
+	- Scripts
+
+	- Scripts/Parameters
+
+	- Scripts/Parameters/Onpremise
+
+	- Scripts/Parameters/Azure
+
+2. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] file to the Scripts folder.
+
+3. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
+
+	```powershell
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>
+	```
+
+	Replace `<subscription id>` with your Azure subscription ID.
+
+	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
+
+	The `<mode>` parameter can have one of the following values:
+
+	- `Onpremise`, to create the simulated on-premises environment.
+
+	- `Infrastructure`, to create the VNet infrastructure and jump box in the cloud.
+
+	- `CreateVpn`, to build Azure virtual network gateway and connect it to the on-premises network.
+
+	- `AzureADDS`, to construct the VMs acting as ADDS servers, deploy Active Directory to these VMs, and create the domain in the cloud.
+
+	- `WebTier`, which creates the web tier VMs and load balancer.
+
+	- `Prepare`, which performs all the preceding tasks. **This is the recommended option if you are building an entirely new deployment and you don't have an existing on-premises infrastructure.**
+
+	- `Workload` to create the business and data tier VMs and load balancers. These VMs are not included as part of the `Prepare` option.
+
+	>[AZURE.NOTE] If you use the `Prepare` option, the script takes several hours to complete.
+
+4.	If you are using the sample on-premises configuration:
+
+	1. Connect to the jump box (*ra-adtrust-mgmt-vm1* in the *ra-adtrust-security-rg* resource group). Log in as *testuser* with password *AweS0me@PW*.
+
+	2.  On the jump box open an RDP session on the first VM in the *contoso.com* domain (the on-premises domain). This VM has the IP address 192.168.0.4. The username is *contoso\testuser* with password *AweS0me@PW*.
+
+	3. Download the [incoming-trust.ps1][incoming-trust] script and run it to create the incoming trust from the *treyresearch.com* domain.
+
+5. If you are using your own on-premises infrastructure:
+
+	1. Download the [incoming-trust.ps1][incoming-trust] script.
+
+	2. Edit the script and replace the value of the `$TrustedDomainName` variable with the name of your own domain.
+
+	3. Run the script.
+
+6. From the jump-box, connect to the first VM in the *treyresearch.com* domain (the domain in the cloud). This VM has the IP address 10.0.4.4. The username is *treyresearch\testuser* with password *AweS0me@PW*.
+
+7. Download the [outgoing-trust.ps1][outgoing-trust] script and run it to create the incoming trust from the *treyresearch.com* domain. If you are using your own on-premises machines, then edit the script first. Set the `$TrustedDomainName` variable to the name of your on-premises domain, and specify the IP addresses of the AD DS servers for this domain in the `$TrustedDomainDnsIpAddresses` variable.
+
+8. On an on-premises machine, perform the steps outlined in the article [Verify a Trust][verify-a-trust] to determine whether the trust relationship has been configured correctly between the *contoso.com* and *treyresearch.com* domains. You may need to wait for a few minutes after completing the previous steps before the trust can be validated.
 
 ## Next steps
 
@@ -135,6 +204,9 @@ For AD-specific security considerations, see the *Security considerations* secti
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
 [resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
 [running-VMs-for-an-N-tier-architecture-on-Azure]: ./guidance-compute-n-tier-vm.md
+[solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adds-trust/Deploy-ReferenceArchitecture.ps1
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[outgoing-trust]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adds-trust/extensions/outgoing-trust.ps1
+[verify-a-trust]: https://technet.microsoft.com/library/cc753821.aspx
 [0]: ./media/guidance-identity-aad-resource-forest/figure1.png "Secure hybrid network architecture with separate AD domains"
