@@ -40,7 +40,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Environment setup
 
 [Free account](https://azure.microsoft.com/free/)
- 
+
 [Install Azure PowerShell](../powershell-install-configure.md)
 
 [Install Azure CLI](../xplat-cli-install.md)
@@ -89,9 +89,9 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Manage
 
 [Manage your virtual machines by using Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
-	
+
 [Connect classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
-	
+
 [About the virtual machine agent and extensions](virtual-machines-windows-classic-agents-and-extensions.md)
 
 [Manage virtual machine extensions](virtual-machines-windows-classic-manage-extensions.md)
@@ -113,7 +113,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [About virtual machine extensions and features](virtual-machines-windows-extensions-features.md)
 
 [How to install and configure Symantec Endpoint Protection on a Windows VM](virtual-machines-windows-classic-install-symantec.md)
-	
+
 [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](virtual-machines-windows-classic-install-trend.md)
 
 [How to configure an availability set for virtual machines in the classic deployment model](virtual-machines-windows-classic-configure-availability.md)
@@ -123,7 +123,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Storage
 
 [About disks and VHDs for Azure virtual machines](virtual-machines-windows-about-disks-vhds.md)
-	
+
 [How to attach a data disk to a classic Windows virtual machine](virtual-machines-windows-classic-attach-disk.md)
 
 [How to detach a data disk from a classic Windows virtual machine](virtual-machines-windows-classic-detach-disk.md)
@@ -135,12 +135,12 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
 [Connect virtual machines created with the classic deployment model with a virtual network or cloud service](virtual-machines-windows-classic-connect-vms.md)
-	
+
 [Manage NSGs using Azure PowerShell](../virtual-network/virtual-networks-create-nsg-classic-ps.md)
-	
+
 [Create a load balancer](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 
-	
+
 
 ## Develop
 
@@ -151,7 +151,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [How to run a compute-intensive task in Java on a virtual machine](virtual-machines-windows-classic-java-run-compute-intensive-task.md)
 
 [Django Hello World web application on a Windows Server VM](virtual-machines-windows-classic-python-django-web-app.md)
-		
+
 
 
 ## Workloads
@@ -190,8 +190,4 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Troubleshoot classic deployment issues with creating a new Windows virtual machine in Azure](virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md)
 
-[Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](windows/classic/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-
-
-
-
+[Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](./windows/classic/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
