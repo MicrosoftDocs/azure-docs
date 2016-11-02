@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -152,11 +152,11 @@ copy element has **name** set to **storagecopy** and the **dependsOn** element f
 	    "outputs": {}
     }
 
-## Looping on a nested resource
+## Looping on a child resource
 
-You cannot use a copy loop for a nested resource. To create multiple instances of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the **type** and **name** properties.
+You cannot use a copy loop for a child resource. To create multiple instances of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the **type** and **name** properties.
 
-For example, suppose you typically define a dataset as a nested resource within a Data Factory.
+For example, suppose you typically define a dataset as a child resource within a Data Factory.
 
     "parameters": {
         "dataFactoryName": {
@@ -182,7 +182,17 @@ For example, suppose you typically define a dataset as a nested resource within 
         }
     }]
     
-To create multiple instances of datasets, you need to change your template as shown in the following example. Notice the dataset is no longer defined within the data factory, and the **type** and **name** have changed significantly. You must provide the fully qualified type in the format **{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}** because the type cannot be inferred from its position in the template. In this example, the type is Microsoft.DataFactory/datafactories/datasets. You also must provide a name that includes the parent resource name. The format of the name is **{parent-resource-name}/{child-resource-name}**.  
+To create multiple instances of data sets, move it outside of the data factory. Notice in the following example that the dataset is now on the same level as the data factory. The data set is still a child resource of the data factory, but in the template they are defined individually. 
+
+You preserve the relationship between data set and data factory through the **type** and **name** properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the following format:
+
+ **{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}** 
+ 
+To establish a parent/child relationship with an instance of the data factory, provide a name for the data set that includes the parent resource name. Use the following format for the name:
+
+**{parent-resource-name}/{child-resource-name}**.  
+
+The following example shows the implementation:
 
     "parameters": {
         "dataFactoryName": {
