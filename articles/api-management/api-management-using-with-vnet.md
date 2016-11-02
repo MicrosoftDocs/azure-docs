@@ -38,7 +38,7 @@ Select the desired access type:
 
 ![Public peering][api-management-vnet-public]
 
-* **Internal**: the API Management gateway and developer portal are accessible from within the virtual network via an internal load balancer. The gateway can access resources within the virtual network
+* **Internal**: the API Management gateway and developer portal are accessible only from within the virtual network via an internal load balancer. The gateway can access resources within the virtual network
 
 ![Private peering][api-management-vnet-private]
 
@@ -46,21 +46,33 @@ You will now see a list of all regions where your API Management service is prov
 
 ![Select VPN][api-management-setup-vpn-select]
 
-Click **Save** at the top of the screen. You will not be able to perform management operations on the API Management service while it is updating. The API Management gateway and developer portal will remain available.
+Click **Save** at the top of the screen. 
 
-Note that the VIP address of the API Management instance is likely to change each time VNET is enabled or disabled.
+> You will not be able to perform management operations on the API Management service while it is updating. The API Management gateway and developer portal will remain available.
+> Note that the VIP address of the API Management instance is likely to change each time VNET is enabled or disabled.
 
-## <a name="connect-vpn"> </a>Connect to a web service hosted within a virtual Network
+## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell commandlets
 
-After your API Management service is connected to the VNET, accessing backend services within it is no different than accessing public services. Just type in the local IP address or the host name (if a DNS server was configured for the VNET) of your web service into the **Web service URL** field when creating a new API or editing an existing one.
+You can also enable VNET connectivity using the PowerShell commandlet [Set-AzureRmApiManagementVirtualNetworks](https://msdn.microsoft.com/en-us/library/mt619277.aspx).
+
+## <a name="connect-vnet"> </a>Connect to a web service hosted within a virtual Network
+
+After your API Management service is connected to the VNET, accessing backend services within it is no different than accessing public services. Just type in the local IP address or the host name (if a DNS server is configured for the VNET) of your web service into the **Web service URL** field when creating a new API or editing an existing one.
 
 ![Add API from VPN][api-management-setup-vpn-add-api]
 
-## Required ports for API Management VPN support
+## <a name="custom-dns"> </a>Custom DNS server setup
 
-When an API Management service instance is hosted in a VNET, the ports in the following table are used. If these ports are blocked, the service may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using API Management with a VNET.
+API Management depends on a number of Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to be able to resolve hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup. See diagrams and ports table below for reference.
 
-| Port(s)                      | Direction        | Transport Protocol | Purpose                                                          | Source / Destination              | VNET Type           |
+
+## <a name="ports-required"> </a>Ports required for API Management
+
+> If any of these ports are unavailable API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is the most common misconfiguration issue when using API Management with a VNET.
+
+When an API Management service instance is hosted in a VNET, the ports in the following table are used.
+
+| Port(s)                      | Direction        | Transport protocol | Purpose                                                          | Source / destination              | Access type           |
 |------------------------------|------------------|--------------------|------------------------------------------------------------------|-----------------------------------|---------------------|
 | 80, 443                      | Inbound          | TCP                | Client communication to API Management 			              | INTERNET / VIRTUAL_NETWORK        | External            |
 | 3443                         | Inbound          | TCP                | Management endpoint 			                                  | INTERNET / VIRTUAL_NETWORK        | External & Internal |
@@ -70,10 +82,6 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | 5671                         | Outbound         | AMQP               | Dependency for Log to event Hub policy                           | VIRTUAL_NETWORK / INTERNET        | External & Internal |
 | 6381, 6382, 6383             | Inbound/Outbound | UDP                | Dependency on Redis Cache                                        | VIRTUAL_NETWORK / VIRTUAL_NETWORK | External & Internal |
 | 445                          | Outbound         | TCP                | Dependency on Azure File Share for GIT                           | VIRTUAL_NETWORK / INTERNET        | External & Internal |
-
-## <a name="custom-dns"> </a>Custom DNS server setup
-
-API Management depends on a number of Azure services. When an API Management service instance is hosted in a VNET where a custom DNS server is used, it needs to be able to resolve hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup. See diagrams and ports table above for reference.
 
 
 ## <a name="limitations"> </a>Limitations
@@ -89,7 +97,6 @@ API Management depends on a number of Azure services. When an API Management ser
 
 * [Create a virtual network with a site-to-site VPN connection using the Azure Portal][]
 * [How to use the API Inspector to trace calls in Azure API Management][]
-* [How to connect a classic VNET to an ARM VNET](https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-connect-different-deployment-models-portal/)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
