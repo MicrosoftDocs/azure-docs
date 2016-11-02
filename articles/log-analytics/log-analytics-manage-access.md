@@ -77,7 +77,7 @@ Giving people access to the OMS workspace is controlled in two places:
 - In Azure, you can use role-based access control to provide access to the Azure subscription and the associated Azure resources. These permissions are also used for PowerShell and REST API access.
 - In the OMS portal, access to only the OMS portal - not the associated Azure subscription.
 
-Users will not see data in the Backup and Site Recovery solution tiles if you only give the users access to the OMS portal but not to the Azure subscription that it is linked to.
+Users do not see data in the Backup and Site Recovery solution tiles if you only give them access to the OMS portal but not to the Azure subscription that it is linked to.
 To allow all users to see the data in these solutions, ensure they have at least **reader** access for the Backup Vault, and Site Recovery vault that is linked to the OMS workspace.   
 
 ### Managing access to Log Analytics using the Azure portal
@@ -88,11 +88,11 @@ Some points to keep in mind about the Azure portal:
 
 - This is not *Role-Based Access Control*. If you have *Reader* access permissions in the Azure portal for the Log Analytics workspace, then you can make changes using the OMS portal. The OMS portal has a concept of Administrator, Contributor, and ReadOnly User. If the account you are signed-in with is in the Azure Active Directory linked to the workspace then you are an Administrator in the OMS portal, otherwise you are a Contributor.
 
-- When you sign in to the OMS portal using http://mms.microsoft.com, then by default, you see the **Select a workspace** list. It only contains workspaces that were added by using the OMS portal. To see the workspaces you have access to with Azure subscriptions, then you need to specify a tenant as part of the URL. For example:
+- When you sign in to the OMS portal using http://mms.microsoft.com, then by default, you see the **Select a workspace** list. It only contains workspaces that were added by using the OMS portal. To see the workspaces you have access to with Azure subscriptions, you need to specify a tenant as part of the URL. For example:
 
   `mms.microsoft.com/?tenant=contoso.com` The tenant identifier is often that last part of the e-mail address that you use to sign in.
 
-- If the account you sign in is an account in the tenant Azure Active Directory, then you are an *Administrator* in the OMS portal. This is usually the case unless you’re signing in as a CSP.  If your account is not in the tenant Azure Active Directory, then you are a *User* in the OMS portal.
+- If the account you sign in with is an account in the tenant Azure Active Directory, then you are an *Administrator* in the OMS portal. This is usually the case unless you’re signing in as a CSP.  If your account is not in the tenant Azure Active Directory, then you are a *User* in the OMS portal.
 
 - If you want to navigate directly to a portal that you have access to using Azure permissions, then you need to specify the resource as part of the URL. It is possible to get this URL using PowerShell.
 
@@ -243,7 +243,7 @@ If you need to change the Azure subscription that the OMS workspace is linked to
 
 
 
-### To change a workspace to a paid data plan
+### Change a workspace to a paid data plan
 
 1.	Sign into the [Azure portal](http://portal.azure.com).
 2.	Browse for **Log Analytics** and then select it.
