@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="09/07/2016" 
+	ms.date="09/07/2016"
 	ms.author="larryfr"/>
 
 #Use Python with Hive and Pig in HDInsight
@@ -28,7 +28,7 @@ Hive and Pig are great for working with data in HDInsight, but sometimes you nee
 * A text editor
 
     > [AZURE.IMPORTANT] If you are using a Linux-based HDInsight server, but creating the Python files on a Windows client, you must use an editor that uses LF as a line ending. If you are not sure whether your editor uses LF or CRLF, see the [Troubleshooting](#troubleshooting) section for steps on removing the CR character using utilities on the HDInsight cluster.
-    
+
 ##<a name="python"></a>Python on HDInsight
 
 Python2.7 is installed by default on HDInsight 3.0 and later clusters. Hive can be used with this version of Python for stream processing (data is passed between Hive and Python using STDOUT/STDIN).
@@ -106,7 +106,7 @@ See [Running the examples](#running) for how to run this example on your HDInsig
 
 ##<a name="pigpython"></a>Pig and Python
 
-A Python script can be used as a UDF from Pig through the **GENERATE** statement. There's two ways to accomplish this; using Jython (Python implemented on the Java Virtual Machine,) and C Python (regular Python). 
+A Python script can be used as a UDF from Pig through the **GENERATE** statement. There's two ways to accomplish this; using Jython (Python implemented on the Java Virtual Machine,) and C Python (regular Python).
 
 The primary difference between these are that Jython runs on the JVM and can natively be called from Pig (also running on the JVM.) C Python is an external process (written in C.) So the data from Pig on the JVM is sent out to the script running in a Python process, then the output of that is sent back into Pig.
 
@@ -176,7 +176,7 @@ If you are using a Linux-based HDInsight cluster, use the **SSH** steps below. I
 
 ###SSH
 
-For more information on using SSH, see <a href="../hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X</a> or <a href="../hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Windows</a>.
+For more information on using SSH, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows).
 
 1. Using the Python examples [streaming.py](#streamingpy) and [pig_python.py](#jythonpy), create local copies of the files on your development machine.
 
@@ -282,13 +282,13 @@ These steps use Azure PowerShell. If this is not already installed and configure
         $context = New-AzureStorageContext `
             -StorageAccountName $storageAccountName `
             -StorageAccountKey $storageAccountKey
-        
+
         Set-AzureStorageBlobContent `
             -File $pathToStreamingFile `
             -Blob "streaming.py" `
             -Container $container `
             -Context $context
-		
+
         Set-AzureStorageBlobContent `
             -File $pathToJythonFile `
             -Blob "pig_python.py" `
@@ -320,7 +320,7 @@ The following script will run the __streaming.py__ script. Before running, it wi
     $context = New-AzureStorageContext `
         -StorageAccountName $storageAccountName `
         -StorageAccountKey $storageAccountKey
-    
+
     # If using a Windows-based HDInsight cluster, change the USING statement to:
     # "USING 'D:\Python27\python.exe streaming.py' AS " +
 	$HiveQuery = "add file wasbs:///streaming.py;" +
@@ -386,12 +386,12 @@ The following will use the __pig_python.py__ script, using the Jython interprete
     $storageAccountKey=(Get-AzureRmStorageAccountKey `
         -Name $storageAccountName `
         -ResourceGroupName $resourceGroup)[0].Value
-    
+
     #Create a storage content and upload the file
     $context = New-AzureStorageContext `
         -StorageAccountName $storageAccountName `
         -StorageAccountKey $storageAccountKey
-            
+
 	$PigQuery = "Register wasbs:///jython.py using jython as myfuncs;" +
 	            "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
 	            "LOG = FILTER LOGS by LINE is not null;" +
@@ -404,7 +404,7 @@ The following will use the __pig_python.py__ script, using the Jython interprete
         -ClusterName $clusterName `
         -JobDefinition $jobDefinition `
         -HttpCredential $creds
-        
+
 	Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
 	Wait-AzureRmHDInsightJob `
         -Job $job.JobId `
@@ -443,7 +443,7 @@ The output for the **Pig** job should appear similar to the following:
 When running the hive job, you may encounter an error similar to the following:
 
     Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
-    
+
 This problem may be caused by the line endings in the streaming.py file. Many Windows editors default to using CRLF as the line ending, but Linux applications usually expect LF.
 
 If you are using an editor that cannot create LF line endings, or are unsure what line endings are being used, use the following PowerShell statements to remove the CR characters before uploading the file to HDInsight:
