@@ -202,7 +202,7 @@ You can serialize objects in Node.js or C# functions. In C# functions, you can a
 <a name="outputsample"></a>
 ## Output sample
 
-The following *function.json* and *run.csx* example shows how to write table entities in C#.
+The following *function.json* and *run.csx* example shows how to write multiple table entities.
 
 ```json
 {
@@ -224,7 +224,7 @@ The following *function.json* and *run.csx* example shows how to write table ent
 }
 ```
 
-See the language-specific sample that creates table entities.
+See the language-specific sample that creates multiple table entities.
 
 - [C#](#outcsharp)
 - [F#](#outfsharp)
@@ -282,11 +282,16 @@ let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
 
 ```javascript
 module.exports = function (context) {
-    context.bindings.tableBinding = {
-        "PartitionKey": "Test",
-        "RowKey": context.bindings.input,
-        "Name": "Name" + myQueueItem 
-    }
+
+    context.bindings.outputTable = [];
+
+    for (i = 1; i < 10; i++) {
+        context.bindings.outputTable.push({
+            PartitionKey: "Test",
+            RowKey: i.toString(),
+            Name: "Name " + i
+        });
+
     context.done();
 };
 ```

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/11/2016" 
+	ms.date="11/01/2016" 
 	ms.author="jingwang"/>
 
 # Data Management Gateway
@@ -296,82 +296,9 @@ The Help page displays the following information:
 - Version number
 - Links to online help, privacy statement, and license agreement.  
 
-## Troubleshooting
+## Troubleshooting gateway issues
+See [Troubleshooting gateway issues](data-factory-troubleshoot-gateway-issues.md) article for information/tips for troubleshooting issues with using the Data Management Gateway.  
 
-- You can find detailed information in gateway logs in Windows event logs. You can find them by using Windows **Event Viewer** under **Application and Services Logs** > **Data Management Gateway**. When troubleshooting gateway-related issues, look for error level events in the event viewer.
-- If the gateway stops working after you **change the certificate**, restart the **Data Management Gateway Service** using the Microsoft Data Management Gateway Configuration Manager tool or Services control panel applet. If you still see an error, you may have to give explicit permissions for the Data Management Gateway service user to access the certificate in Certificates Manager (certmgr.msc).  The default user account for the service is: **NT Service\DIAHostService**. 
-- If the **Credential Manager** application fails to **encrypt** credentials when you click Encrypt button in Data Factory Editor, verify that you are running this application on the **gateway machine**. If not, run the application on the gateway machine and try to encrypt credentials.  
-- If you see data store connection or driver-related errors, do the following steps: 
-	- Launch **Data Management Gateway Configuration Manager** on the gateway machine.
-	- Switch to the **Diagnostics** tab
-	- Select/enter appropriate values for fields in the **Test connection to an on-premises data source using this gateway** group
-	- Click **Test connection** to see if you can connect to on-premises data source from the gateway machine using the connection information and credentials. If the test connection still fails after you install a driver, restart the gateway for it to pick up the latest change.  
-
-	![Test Connection](./media/data-factory-data-management-gateway/TestConnection.png)
-
-### Send gateway logs to Microsoft
-When you contact Microsoft Support to get help with troubleshooting gateway issues, you may be asked to share your gateway logs. The release of the gateway allows you to easily share required gateway logs through two button clicks in Gateway Configuration Manager.   
-
-1. Switch to **Diagnostics** tab of gateway configuration manager.
- 
-	![Data Management Gateway - Diagnostics tab](media/data-factory-data-management-gateway/data-management-gateway-diagnostics-tab.png)
-2. Click **Send logs** link to see the following dialog box: 
-
-	![Data Management Gateway - Send logs](media/data-factory-data-management-gateway/data-management-gateway-send-logs-dialog.png)
-3. (optional) Click **view logs** to review logs in the event viewer.
-4. (optional) Click **privacy** to review Microsoft online services privacy statement. 
-3. Once you are satisfied with what you are about to upload, click **Send logs** to actually send logs from last seven days to Microsoft for troubleshooting. You should see the status of the Send logs operation as shown in the following image:
-
-	![Data Management Gateway - Send logs status](media/data-factory-data-management-gateway/data-management-gateway-send-logs-status.png)
-4. Once the operation is complete, you see a dialog box as shown in the following image:
-	
-	![Data Management Gateway - Send logs status](media/data-factory-data-management-gateway/data-management-gateway-send-logs-result.png)
-5. Note down the **report ID** and share it with Microsoft Support. The report ID is used to locate your gateway logs you uploaded for troubleshooting.  The report ID is also saved in event viewer for your reference.  You can find it by looking at the event ID “25” and check the date and time.
-	
-	![Data Management Gateway - Send logs report ID](media/data-factory-data-management-gateway/data-management-gateway-send-logs-report-id.png)	
-
-### Archive gateway logs on gateway host machine
-There are some scenarios where you have gateway issues and you cannot share gateway logs directly: 
-
-- You manually install the gateway and register the gateway;
-- You try to register the gateway with a regenerated key on configuration manager; 
-- You try to send logs and the gateway host service cannot be connected;
-
-In such cases, you can save gateway logs as a zip file and share it when contacting Microsoft support later. For example, if you receive an error while registering the gateway as shown in the following image:   
-
-![Data Management Gateway - Registration error](media/data-factory-data-management-gateway/data-management-gateway-registration-error.png)
-
-Click **Archive gateway** logs link to archive and save logs and then share the zip file with Microsoft support. 
-
-![Data Management Gateway - Archive logs](media/data-factory-data-management-gateway/data-management-gateway-archive-logs.png)
-
-### Gateway is online with limited functionality 
-You see status of the gateway as **online with limited functionality** for one of the following reasons.
-
-- Gateway cannot connect to cloud service through service bus.
-- Cloud service cannot connect to gateway through service bus.
-
-When gateway is online with limited functionality, you may not be able to use the Data Factory Copy Wizard to create data pipelines for copying data to/from on-premises data stores.
-
-Resolution/workaround for this issue (online with limited functionality) is based on whether gateway cannot connect to cloud service or the other way. The following sections provide these workarounds. 
-
-#### Gateway cannot connect to cloud service through service bus
-Follow these steps to get the gateway back online: 
-
-1. Enable outbound ports 9350-9354 on both the Windows Firewall on gateway machine and Corporate Firewall. See [Ports and firewall](#ports-and-firewall) section for detail.
-2. Configure proxy settings on the gateway. See [Proxy server considerations](#proxy-server-considerations) section for detail. 
-
-As a workaround, use Data Factory Editor in Azure portal (or) Visual Studio (or) Azure PowerShell.
-
-#### Error: Cloud service cannot connect to gateway through service bus.
-Follow these steps to get the gateway back online:
- 
-1. Enable outbound ports 5671 and 9350-9354 on both the Windows Firewall on gateway machine and Corporate Firewall. See [Ports and firewall](#ports-and-firewall) section for detail.
-2. Configure proxy settings on the gateway. See [Proxy server considerations](#proxy-server-considerations) section for detail.
-3. Remove static IP limitation on the proxy server. 
-
-As a workaround, you can use Data Factory Editor in Azure portal (or) Visual Studio (or) Azure PowerShell.
- 
 ## Move gateway from a machine to another
 This section provides steps for moving gateway client from one machine to another machine. 
 

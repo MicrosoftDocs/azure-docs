@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/25/2016"
+	ms.date="11/02/2016"
 	ms.author="jingwang"/>
 
 # Move data from Salesforce by using Azure Data Factory
@@ -21,8 +21,11 @@ This article outlines how you can use Copy Activity in an Azure data factory to 
 
 Azure Data Factory currently supports only moving data from Salesforce to [supported sink data stores]((data-factory-data-movement-activities.md#supported-data-stores), but does not support moving data from other data stores to Salesforce.
 
+## Supported versions
+This connector support the following editions of Salesforce: Developer Edition, Professional Edition, Enterprise Edition, or Unlimited Edition.
+
 ## Prerequisites
-- You must use one of the following editions of Salesforce: Developer Edition, Professional Edition, Enterprise Edition, or Unlimited Edition.
+
 - API permission must be enabled. See [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 - To copy data from Salesforce to on-premises data stores, you must have at least Data Management Gateway 2.0 installed in your on-premises environment.
 

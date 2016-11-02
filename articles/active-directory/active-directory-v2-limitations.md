@@ -1,6 +1,6 @@
 <properties
-	pageTitle="v2.0 Endpoint Limitations & restrictions | Microsoft Azure"
-	description="A list of limitations & restrictions with the Azure AD v2.0 endpoint."
+	pageTitle="Azure Active Directory v2.0 endpoint limitations and restrictions | Microsoft Azure"
+	description="A list of limitations and restrictions for the Azure AD v2.0 endpoint."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -18,111 +18,113 @@
 
 # Should I use the v2.0 endpoint?
 
-When building applications that integrate with Azure Active Directory, you'll need to decide whether the v2.0 endpoint and authentication protocols meet your needs.  The original Azure AD endpoint is still fully supported and in some respects, is more feature rich than v2.0.  However, the v2.0 endpoint [introduces significant benefits](active-directory-v2-compare.md) for developers that may entice you to use the new programming model.
+When you build applications that integrate with Azure Active Directory (Azure AD), you need to decide whether the v2.0 endpoint and authentication protocols meet your needs. The original Azure AD endpoint is still fully supported and, in some respects, is more feature rich than v2.0. However, the v2.0 endpoint [introduces significant benefits](active-directory-v2-compare.md) for developers. The benefits of v2.0 might entice you to use the new programming model.
 
-At this point in time, our recommendation on use of the v2.0 endpoint is as follows:
+Here's our recommendation for using the v2.0 endpoint now:
 
-- If you want to support personal Microsoft accounts in your application, you should use the v2.0 endpoint.  But make sure to understand the limitations listed in this article, especially those pertaining specifically to work & school accounts.
-- If your application only requires supporting work & school accounts, you should use [the original Azure AD endpoints](active-directory-developers-guide.md).
+- If you want to support personal Microsoft accounts in your application, use the v2.0 endpoint. Before you do, be sure that you understand the limitations that we discuss in this article, especially those that apply to work and school accounts.
+- If your application needs to support only work and school accounts, use [the original Azure AD endpoints](active-directory-developers-guide.md).
 
-Over time, the v2.0 endpoint will grow to eliminate the restrictions listed here, so that you will only ever need to use the v2.0 endpoint.  In the meantime, this article is intended to help you determine if the v2.0 endpoint is for you.  We will continue to update this article over time to reflect the current state of the v2.0 endpoint, so check back to reevaluate your requirements against the v2.0 capabilities.
+Over time, the v2.0 endpoint will grow to eliminate the restrictions listed here, so that you will only ever need to use the v2.0 endpoint. In the meantime, this article is intended to help you determine whether the v2.0 endpoint is right for you. We will continue to update this article to reflect the current state of the v2.0 endpoint. Check back to reevaluate your requirements against v2.0 capabilities.
 
-If you have an existing app with Azure AD that does not use the v2.0 endpoint, there's no need to start from scratch.  In the future, we will be providing a way for you to enable your existing Azure AD applications for use with the v2.0 endpoint.
+If you have an existing Azure AD app that does not use the v2.0 endpoint, there's no need to start from scratch. In the future, we will provide a way for you to use your existing Azure AD applications with the v2.0 endpoint.
 
-## Restrictions on apps
-The following types of apps are not currently supported by the v2.0 endpoint.  For a description of the supported types of apps, refer to [this article](active-directory-v2-flows.md).
+## Restrictions on app types
+Currently, the following types of apps are not supported by the v2.0 endpoint. For a description of supported app types, see [App types for the Azure Active Directory v2.0 endpoint](active-directory-v2-flows.md).
 
-##### Standalone Web APIs
-With the v2.0 endpoint, you have the ability to [build a Web API that is secured using OAuth 2.0](active-directory-v2-flows.md#web-apis).  However, that Web API will only be able to receive tokens from an application that shares the same Application Id.  Building a web API that is accessed from a client with a different Application Id is not supported.  That client will not be able to request or obtain permissions to your web API.
+### Standalone Web APIs
+You can use the v2.0 endpoint to [build a Web API that is secured with OAuth 2.0](active-directory-v2-flows.md#web-apis). However, that Web API can receive tokens only from an application that has the same Application ID. You cannot access a Web API from a client that has a different Application ID. The client won't be able to request or obtain permissions to your Web API.
 
-To see how to build a Web API that accepts tokens from a client with the same App Id, see the v2.0 endpoint Web API samples in [Getting Started](active-directory-appmodel-v2-overview.md#getting-started).
+To see how to build a Web API that accepts tokens from a client that has the same Application ID, see the v2.0 endpoint Web API samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
-##### Web API On-Behalf-Of Flow
-Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 endpoint.  This scenario is common in native clients that have a Web API backend, which in turn calls a Microsoft online service or another custom built web API that supports Azure AD.
+### Web API on-behalf-of flow
+Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 endpoint. This scenario is common in native clients that have a Web API back end, which in turn calls an instance of Microsoft Online Services or another custom-built Web API that supports Azure AD.
 
-This scenario can be supported using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the On-Behalf-Of Flow.  However, the On-Behalf-Of flow is not currently supported for the v2.0 endpoint.  To see how this flow works in the generally available Azure AD service, check out the [On-Behalf-Of code sample on GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
+You can create this scenario by using the OAuth 2.0 JSON Web Token (JWT) bearer credential grant, otherwise known as the on-behalf-of flow. Currently, however, the on-behalf-of flow is not supported for the v2.0 endpoint. To see how this flow works in the generally available Azure AD service, check out the [on-behalf-of code sample on GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
 ## Restrictions on app registrations
-At this point in time, all apps that want to integrate with the v2.0 endpoint must create a new app registration at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  Any existing Azure AD or Microsoft Account apps will not be compatible with the v2.0 endpoint, nor will apps registered in any portal besides the new App Registration Portal.  We plan to provide a way to enable existing applications for use as a v2.0 app. At this time though, there is no migration path for an app to the v2.0 endpoint.
+Currently, for each app that you want to integrate with the v2.0 endpoint, you must create an app registration in the new [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). Existing Azure AD or Microsoft account apps are not compatible with the v2.0 endpoint. Apps that are registered in any portal other than the Application Registration Portal are not compatible with the v2.0 endpoint. In the future, we plan to provide a way to use an existing application as a v2.0 app. Currently, though, there is no migration path for an existing app to work with the v2.0 endpoint.
 
-Similarly, apps registered in the new App Registration Portal will not work against the original Azure AD authentication endpoint.  You can, however, use apps created in the App Registration Portal to integrate successfully with the Microsoft account authentication endpoint, `https://login.live.com`.
+Apps that are registered in the Application Registration Portal will not work with the original Azure AD authentication endpoint. However, you can use apps that you create in the Application Registration Portal to integrate successfully with the Microsoft account authentication endpoint `https://login.live.com`.
 
-In addition, app registrations created at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) have the following caveats:
+In addition, app registrations that you create in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) have the following caveats:
 
-- The **homepage** property, also known as the **sign-on URL** is not supported.  Without a homepage, these applications will not be displayed in the Office MyApps panel.
-- Only two app secrets are allowed per application Id at this time.
-- An app registration can only be viewed and managed by a single developer account.  It cannot be shared between multiple developers.
-- There are several restrictions on the format of redirect_uri allowed.  See the following section for more details.
+- The **homepage** property, also known as the *sign-on URL*, is not supported. Without a homepage, these applications will not appear in the Office MyApps panel.
+- Currently, only two app secrets are allowed per Application ID.
+- An app registration can be viewed and managed only by a single developer account. It cannot be shared between multiple developers.
+- There are several restrictions on the format of the redirect URI that is allowed. For more information about redirect URIs, see the next section.
 
-## Restrictions on Redirect URIs
-Apps that are registered in the new Application Registration Portal are currently restricted to a limited set of redirect_uri values.  The redirect_uri for web apps and services must begin with the scheme `https`, and all redirect_uri values must share a single DNS domain.  For example, it is not possible to register a web app that has redirect_uris:
+## Restrictions on redirect URIs
+Currently, apps that are registered in the Application Registration Portal are restricted to a limited set of redirect URI values. The redirect URI for web apps and services must begin with the scheme `https`, and all redirect URI values must share a single DNS domain. For example, you cannot register a web app that has one of these direct URIs:
 
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`
 
-The registration system compares the whole DNS name of the existing redirect_uri with the DNS name of the redirect_uri you are adding. The request to add the DNS name will fail if either of the following conditions are met:  
+The registration system compares the whole DNS name of the existing redirect URI to the DNS name of the redirect URI that you are adding. The request to add the DNS name will fail if either of the following conditions is true:  
 
-- If the whole DNS name of the new redirect_uri does not match the DNS name of the existing redirect_uri
-- if the whole DNS name of the new redirect_uri is not a subdomain of the existing redirect_uri
+- The whole DNS name of the new redirect URI does not match the DNS name of the existing redirect URI.
+- The whole DNS name of the new redirect URI is not a subdomain of the existing redirect URI.
 
-For example, if the app currently has redirect_uri:
+For example, if the app has this redirect URI:
 
 `https://login.contoso.com`
 
-Then it is possible to add:
+You can add to it, like this:
 
 `https://login.contoso.com/new`
 
-which exactly matches the DNS name, or:
+In this case, the DNS name matches exactly. Or, you can do this:
 
 `https://new.login.contoso.com`
 
-which is a DNS subdomain of login.contoso.com.  If you want to have an app that has login-east.contoso.com and login-west.contoso.com as redirect_uris, then you must add the following redirect_uris in order:
+In this case, you're referring to a DNS subdomain of login.contoso.com. If you want to have an app that has login-east.contoso.com and login-west.contoso.com as redirect URIs, you must add those redirect URIs in this order:
 
 `https://contoso.com`  
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`  
 
-The latter two can be added because they are subdomains of the first redirect_uri, contoso.com. This limitation will be removed in an upcoming release.
+You can add the latter two because they are subdomains of the first redirect URI, contoso.com. This limitation will be removed in an upcoming release.
 
-To learn how to register an app in the new Application Registration Portal, refer to [this article](active-directory-v2-app-registration.md).
+To learn how to register an app in the Application Registration Portal, see [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).
 
-## Restrictions on services & APIs
-The v2.0 endpoint currently supports sign-in for any app registered in the new Application Registration Portal, provided it falls into the list of [supported authentication flows](active-directory-v2-flows.md).  However, these apps will only be able to acquire OAuth 2.0 access tokens for a very limited set of resources.  The v2.0 endpoint will only issue access_tokens for:
+## Restrictions on services and APIs
+Currently, the v2.0 endpoint supports sign-in for any app that is registered in the Application Registration Portal, and which falls in the list of [supported authentication flows](active-directory-v2-flows.md). However, these apps can acquire OAuth 2.0 access tokens for a very limited set of resources. The v2.0 endpoint issues access tokens only for:
 
-- The app that requested the token.  An app can acquire an access_token for itself, if the logical app is composed of several different components or tiers.  To see this scenario in action, check out our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) tutorials.
-- The Outlook Mail, Calendar, and Contacts REST APIs, all of which are located at https://outlook.office.com.  To learn how to write an app that accesses these APIs, refer to these [Office Getting Started](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) tutorials.
-- The Microsoft Graph APIs.  To learn about the Microsoft Graph and all the data that is available, visit [https://graph.microsoft.io](https://graph.microsoft.io).
+- The app that requested the token. An app can acquire an access token for itself, if the logical app is composed of several different components or tiers. To see this scenario in action, check out our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) tutorials.
+- The Outlook Mail, Calendar, and Contacts REST APIs, all of which are located at https://outlook.office.com. To learn how to write an app that accesses these APIs, see the [Office Getting Started](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) tutorials.
+- Microsoft Graph APIs. You can learn more about [Microsoft Graph](https://graph.microsoft.io) and the data that is available to you.
 
-No other services are supported at this time.  More Microsoft Online services will be added in the future, as well as support for your own custom built Web APIs and services.
+No other services are supported at this time. More Microsoft Online Services will be added in the future, in addition to support for your own custom-built Web APIs and services.
 
-## Restrictions on libraries & SDKs
-Library support for the v2.0 endpoint is fairly limited at this time.  If you want to use the v2.0 endpoint in a production application, you have the following options:
+## Restrictions on libraries and SDKs
+Currently, library support for the v2.0 endpoint is limited. If you want to use the v2.0 endpoint in a production application, you have these options:
 
-- If you are building a web application, you can safely use our generally available server-side middleware to perform sign in and token validation.  These include the OWIN Open ID Connect middleware for ASP.NET and our NodeJS Passport plugin.  Code samples using our middleware are available in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section as well.
-- For other platforms and for native & mobile applications, you can also integrate with the v2.0 endpoint by directly sending & receiving protocol messages in your application code.  The v2.0 OpenID Connect and OAuth protocols [have been explicitly documented](active-directory-v2-protocols.md) to help you perform such an integration.
-- Finally, you can use open source Open ID Connect and OAuth libraries to integrate with the v2.0 endpoint.  The v2.0 protocol should be compatible with many open source protocol libraries without major changes.  The availability of such libraries varies per language and platform, and the [Open ID Connect](http://openid.net/connect/) and [OAuth 2.0](http://oauth.net/2/) websites maintain a list of popular implementations. See [Azure Active Directory (AD) v2.0 and authentication libraries](active-directory-v2-libraries.md) for more details, and the list of open source client libraries and samples that have been tested with the v2.0 endpoint.
+- If you are building a web application, you can safely use Microsoft generally available server-side middleware to perform sign-in and token validation. These include the OWIN Open ID Connect middleware for ASP.NET and the Node.js Passport plug-in. For code samples that use Microsoft middleware, see our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
+- For other platforms, and for native and mobile applications, you can integrate with the v2.0 endpoint by directly sending and receiving protocol messages in your application code. The v2.0 OpenID Connect and OAuth protocols [are explicitly documented](active-directory-v2-protocols.md) to help you perform such an integration.
+- Finally, you can use open-source Open ID Connect and OAuth libraries to integrate with the v2.0 endpoint. The v2.0 protocol should be compatible with many open-source protocol libraries without major changes. The availability of these kinds of libraries varies by language and platform. The [Open ID Connect](http://openid.net/connect/) and [OAuth 2.0](http://oauth.net/2/) websites maintain a list of popular implementations. For more information, see [Azure Active Directory v2.0 and authentication libraries](active-directory-v2-libraries.md), and the list of open-source client libraries and samples that have been tested with the v2.0 endpoint.
 
-We have also released an initial preview of the [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) for .NET only.  You are welcome to try out this library in .NET client and server applications, but as a preview library it will not be accompanied by GA-quality support.
+We have released an initial preview of the [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) only for .NET. You are welcome to try out this library in .NET client and server applications, but as a preview library, it is not accompanied by general availability (GA)-quality support.
 
 ## Restrictions on protocols
-The v2.0 endpoint only supports Open ID Connect & OAuth 2.0.  However, not all features and capabilities of each protocol have been incorporated into the v2.0 endpoint, including:
+The v2.0 endpoint supports only Open ID Connect and OAuth 2.0. However, not all features and capabilities of each protocol have been incorporated into the v2.0 endpoint.
 
-- The OpenID Connect `end_session_endpoint`, which allows an app to end the user's session with the v2.0 endpoint.
-- id_tokens issued by the v2.0 endpoint only contain a pairwise identifier for the user.  This means that two different applications will receive different IDs for the same user.  Note that by querying the Microsoft Graph `/me` endpoint, you will be able to get a correlatable ID for the user that can be used across applications.
-- id_tokens issued by the v2.0 endpoint do not contain an `email` claim for the user at this time, even if you acquire permission from the user to view their email.
-- The OpenID Connect User Info endpoint. The User Info endpoint is not implemented on the v2.0 endpoint at this time.  However, all user profile data you would potentially receive at this endpoint is available from the Microsoft Graph `/me` endpoint.
-- Role & Group claims.  At this time, the v2.0 endpoint does not support issuing role or group claims in id_tokens.
+These typical protocol features and capabilities currently are *not available* in the v2.0 endpoint:
 
-To better understand the scope of protocol functionality supported in the v2.0 endpoint, read through our [OpenID Connect & OAuth 2.0 Protocol Reference](active-directory-v2-protocols.md).
+- The OpenID Connect `end_session_endpoint` parameter, which allows an app to end the user's session, is not available with the v2.0 endpoint.
+- ID tokens that are issued by the v2.0 endpoint have only a pairwise identifier for the user. This means that two different applications receive different IDs for the same user. Note that by querying the Microsoft Graph `/me` endpoint, you can get a correlatable ID for the user that you can use across applications.
+- ID tokens that are issued by the v2.0 endpoint do not contain an `email` claim for the user, even if you acquire permission from the user to view their email.
+- The OpenID Connect UserInfo endpoint is not implemented on the v2.0 endpoint. However, all user profile data that you potentially would receive at this endpoint is available from the Microsoft Graph `/me` endpoint.
+- The v2.0 endpoint does not support issuing role or group claims in ID tokens.
 
-## Restrictions for work & school accounts
-There are a few features specific to Microsoft organization/business users that are not yet supported by the v2.0 endpoint.
+To better understand the scope of protocol functionality supported in the v2.0 endpoint, read through our [OpenID Connect and OAuth 2.0 protocol reference](active-directory-v2-protocols.md).
 
-##### Device-based conditional access, native and mobile apps, and the Microsoft Graph
-The v2.0 endpoint does not yet support device authentication for mobile and native applications, such as native apps running on iOS or Android.  This could block your native application from calling the Microsoft Graph for certain organizations.  Device authentication is required when an administrator sets a device-based conditional access policy on an application.  For the v2.0 endpoint, the most likely scenario for device-based conditional access is an administrator setting a policy on a resource in the Microsoft Graph, such as the Outlook API.  If an administrator sets this policy and your native application requests a token to the Microsoft Graph, the request will ultimately fail because device authentication is not yet supported.  Web applications that request tokens to the Microsoft Graph, however, are supported when device-based policies are configured.  In the web app scenario device authentication is performed through the user’s web browser.
+## Restrictions for work and school accounts
+A few features that are specific to Microsoft enterprise users are not yet supported by the v2.0 endpoint. For more information, read the next sections.
 
-As a developer, you most likely have no control over when policies are set on Microsoft Graph resources, or even aware when it happens.  If you are building an application for work and school users, you should use [the original Azure AD endpoint](active-directory-developers-guide.md) until the v2.0 endpoint supports device authentication.  For more information about device-based conditional access, check out [this article](active-directory-conditional-access.md#device-based-conditional-access).
+### Device-based conditional access, native and mobile apps, and Microsoft Graph
+The v2.0 endpoint does not yet support device authentication for mobile and native applications, such as native apps running on iOS or Android. For some organizations, this might block your native application from calling Microsoft Graph. Device authentication is required when an administrator sets a device-based conditional access policy on an application. For the v2.0 endpoint, the most likely scenario for device-based conditional access is if an administrator were to set a policy on a resource in Microsoft Graph, such as the Outlook API. If an administrator sets this policy and your native application requests a token to Microsoft Graph, the request ultimately will fail because device authentication is not yet supported. Web applications that request tokens to Microsoft Graph, however, are supported when device-based policies are configured. In the web app scenario, device authentication is performed through the user’s web browser.
 
-##### Windows integrated authentication for federated tenants
-If you've used ADAL (and therefore the original Azure AD endpoint) in Windows applications, you may have taken advantage of what is known as the SAML assertion grant.  This grant allows users of federated Azure AD tenants to silently authenticate with their on-premise Active Directory instance without having to enter their credentials.  The SAML assertion grant is currently not supported on the v2.0 endpoint.
+As a developer, you most likely have no control of when policies are set on Microsoft Graph resources. You might not even be aware when it happens. If you are building an application for work and school users, you should use [the original Azure AD endpoint](active-directory-developers-guide.md) until the v2.0 endpoint supports device authentication. You can learn more about [device-based conditional access in Azure AD](active-directory-conditional-access.md#device-based-conditional-access).
+
+### Windows integrated authentication for federated tenants
+If you've used Active Directory Authentication Library (ADAL) (with the original Azure AD endpoint) in Windows applications, you might have taken advantage of what is known as the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Azure AD tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. Currently, the SAML assertion grant is not supported on the v2.0 endpoint.

@@ -111,7 +111,6 @@ Suppose you have the following function.json, that defines a Storage queue trigg
 See the language-specific sample that retrieves and logs queue metadata.
 
 - [C#](#triggercsharp)
-<!-- - [F#](#triggerfsharp) -->
 - [Node.js](#triggernodejs)
 
 <a name="triggercsharp"></a>
@@ -147,17 +146,17 @@ public static void Run(string myQueueItem,
 <a name="triggernodejs"></a>
 ### Trigger sample in Node.js 
 
-module.exports = function (context) {
-    context.log('Node.js queue trigger function processed work item' context.bindings.myQueueItem);
-    context.log('queueTrigger =', context.bindingData.queueTrigger);
-    context.log('expirationTime =', context.bindingData.expirationTime);
-    context.log('insertionTime =', context.bindingData.insertionTime);
-    context.log('nextVisibleTime =', context.bindingData.nextVisibleTime);
-    context.log('id=', context.bindingData.id);
-    context.log('popReceipt =', context.bindingData.popReceipt);
-    context.log('dequeueCount =', context.bindingData.dequeueCount);
-    context.done();
-};
+    module.exports = function (context) {
+        context.log('Node.js queue trigger function processed work item' context.bindings.myQueueItem);
+        context.log('queueTrigger =', context.bindingData.queueTrigger);
+        context.log('expirationTime =', context.bindingData.expirationTime);
+        context.log('insertionTime =', context.bindingData.insertionTime);
+        context.log('nextVisibleTime =', context.bindingData.nextVisibleTime);
+        context.log('id=', context.bindingData.id);
+        context.log('popReceipt =', context.bindingData.popReceipt);
+        context.log('dequeueCount =', context.bindingData.dequeueCount);
+        context.done();
+    };
 
 
 <a name="output"></a>
@@ -229,28 +228,26 @@ Example *function.json* for a storage queue output binding that uses a queue tri
 }
 ``` 
 
-See the language-specific sample that writes an output queue message for each input queue message. The C# sample also shows
-how to write multiple output queue messages for one input queue message.
+See the language-specific sample that writes an output queue message for each input queue message.
 
 - [C#](#outcsharp)
-<!-- - [F#](#outfsharp) -->
 - [Node.js](#outnodejs)
 
 <a name="outcsharp"></a>
 ### Output sample in C\# 
 
-public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
-{
-    myQueue = myQueueItem + "(next step)";
-}
+    public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
+    {
+        myQueue = myQueueItem + "(next step)";
+    }
 
 Or, to send multiple messages,
 
-public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
-{
-    myQueue.Add(myQueueItem + "(step 1)");
-    myQueue.Add(myQueueItem + "(step 2)");
-}
+    public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
+    {
+        myQueue.Add(myQueueItem + "(step 1)");
+        myQueue.Add(myQueueItem + "(step 2)");
+    }
 
 <!--
 <a name="outfsharp"></a>
@@ -262,6 +259,16 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
     module.exports = function(context) {
         context.bindings.myQueue = context.bindings.myQueueItem + "(next step)";
+        context.done();
+    };
+
+Or, to send multiple messages,
+
+    module.exports = function(context) {
+        context.bindings.myQueue = [];
+
+        context.bindings.myQueueItem.push("(step 1)");
+        context.bindings.myQueueItem.push("(step 2)");
         context.done();
     };
 
