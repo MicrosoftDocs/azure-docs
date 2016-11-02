@@ -1,4 +1,4 @@
-<properties
+resource-group-overview.md<properties
    pageTitle="Implementing a Hybrid Network Architecture with Azure ExpressRoute | Reference Architecture | Microsoft Azure"
    description="How to implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected by using Azure ExpressRoute."
    services=""
@@ -23,7 +23,7 @@
 
 This article describes best practices for connecting an on-premises network to virtual networks on Azure by using ExpressRoute. ExpressRoute connections are made using a private dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure providing access to your own IaaS infrastructure in Azure, public endpoints used in PaaS services, and Office365 SaaS services. This document focuses on using ExpressRoute to connect to a single Azure virtual network (VNet) using what is called private peering.
 
-> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager](../azure-resource-manage/resource-group-overview.md) and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
+> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager](../azure-resource-manager/resource-group-overview.md) and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
 
 Typical use cases for this architecture include:
 
@@ -37,7 +37,7 @@ Typical use cases for this architecture include:
 
 - Using Azure as a disaster-recovery site.
 
-> [AZURE.NOTE] The [ExpressRoute technical overview](../expressrout/expressroute-introduction.md) provides an introduction to ExpressRoute.
+> [AZURE.NOTE] The [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) provides an introduction to ExpressRoute.
 
 ## Architecture diagram
 
@@ -175,7 +175,7 @@ You can upgrade the SKU without disruption, but you cannot switch from the unlim
 
 > [AZURE.NOTE] ExpressRoute offers two pricing plans to customers, based on metering or unlimited data. See [ExpressRoute pricing][expressroute-pricing] for details. Charges vary according to circuit bandwidth. Available bandwidth will likely vary from provider to provider. Use the `Get-AzureRmExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
 
-A single ExpressRoute circuit can support a number of peerings and VNet links. See [ExpressRoute limits](../articles/azure-subscription-service-limits.md) for more information.
+A single ExpressRoute circuit can support a number of peerings and VNet links. See [ExpressRoute limits](../azure-subscription-service-limits.md) for more information.
 
 For an extra charge, ExpressRoute Premium Add-on provides:
 
