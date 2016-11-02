@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get started with the IoT Hub Gateway SDK | Microsoft Azure"
-	description="Azure IoT Hub Gateway SDK walkthrough using Windows to illustrate key concepts you should understand when you use the Azure IoT Hub Gateway SDK."
+	description="Azure IoT Gateway SDK walkthrough using Windows to illustrate key concepts you should understand when you use the Azure IoT Gateway SDK."
 	services="iot-hub"
 	documentationCenter=""
 	authors="chipalost"
@@ -17,7 +17,7 @@
      ms.author="andbuc"/>
 
 
-# IoT Gateway SDK (beta) - Get started using Windows
+# Azure IoT Gateway SDK (beta) - Get started using Windows
 
 [AZURE.INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
@@ -35,7 +35,7 @@ Before you get started, you must [set up your development environment][lnk-setup
 
     The build script places **logger_hl.dll** in the **build\\modules\\logger\\Debug** folder and **hello_world_hl.dll** in the **build\\modules\\hello_world\\Debug** folder. Use these paths for the **module path** value as shown in the JSON settings file below.
 
-2. The file **hello_world_win.json** in the **samples\\hello_world\\src** folder is an example JSON settings file for Windows that you can use to run the sample. The example JSON settings shown below assumes that you cloned the Gateway SDK repository to the root of your **C:** drive. If you downloaded it to another location, you need to adjust the **module path** values in the **samples\\hello_world\\src\\hello_world_win.json** file accordingly.
+2. The file **hello_world_win.json** in the **samples\\hello_world\\src** folder is an example JSON settings file for Windows that you can use to run the sample. The example JSON settings shown below assumes that you cloned the IoT Gateway SDK repository to the root of your **C:** drive. If you downloaded it to another location, you need to adjust the **module path** values in the **samples\\hello_world\\src\\hello_world_win.json** file accordingly.
 
 3. For the **logger_hl** module, in the **args** section, set the **filename** value to the name and path of the file that will contain the log data.
 
@@ -47,7 +47,9 @@ Before you get started, you must [set up your development environment][lnk-setup
       [
         {
           "module name" : "logger_hl",
-          "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\logger\\Debug\\logger_hl.dll",
+          "loading args": {
+            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\logger\\Debug\\logger_hl.dll"
+          },
           "args" : 
           {
             "filename":"C:\\log.txt"
@@ -55,7 +57,9 @@ Before you get started, you must [set up your development environment][lnk-setup
         },
         {
           "module name" : "hello_world",
-          "module path" : "C:\\azure-iot-gateway-sdk\\build\\\\modules\\hello_world\\Debug\\hello_world_hl.dll",
+          "loading args": {
+            "module path" : "C:\\azure-iot-gateway-sdk\\build\\\\modules\\hello_world\\Debug\\hello_world_hl.dll"
+          },
           "args" : null
         }
       ],

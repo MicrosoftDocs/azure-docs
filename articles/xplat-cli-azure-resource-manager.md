@@ -5,7 +5,7 @@
 	editor=""
 	manager="timlt"
 	documentationCenter=""
-	authors="dlepow"
+	authors="tfitzmac"
 	services="azure-resource-manager"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="danlep"/>
+	ms.author="tomfitz"/>
 
 # Use the Azure CLI to manage Azure resources and resource groups
 

@@ -4,20 +4,20 @@
 
 ## Introduction
 
-Device twins are JSON documents that store device state information (meta-data, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub.
+Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub.
 
 Use device twins to:
 
-* Store device meta-data from your back end.
+* Store device metadata from your back end.
 * Report current state information such as available capabilities and conditions (for example, the connectivity method used) from your device app.
 * Synchronize the state of long-running workflows (such as firmware and configuration updates) between device app and back end.
-* Query your device meta-data, configuration, or state.
+* Query your device metadata, configuration, or state.
 
-> [AZURE.NOTE] Device twins are designed for synchronization and for querying device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [cloud-to-device methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
+> [AZURE.NOTE] Device twins are designed for synchronization and for querying device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [direct methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
 
 Device twins are stored in an IoT hub and contain:
 
-* *tags*, device meta-data accessible only by the back end;
+* *tags*, device metadata accessible only by the back end;
 * *desired properties*, JSON objects modifiable by the back end and observable by the device app; and
 * *reported properties*, JSON objects modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested.
 

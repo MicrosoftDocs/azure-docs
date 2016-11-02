@@ -143,13 +143,13 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
 Connect to R Server edge node of the HDInsight cluster using SSH:
 
-    ssh USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
+    ssh USERNAME@r-server.CLUSTERNAME-ed-ssh.azurehdinsight.net
     
-> [AZURE.NOTE] You can also find the `R-Server.CLUSTERNAME-ssh.azurehdinsight.net` address in the Azure portal by selecting your cluster, then __All Settings__, __Apps__, and __RServer__. This will display the SSH Endpoint information for the edge node.
+> [AZURE.NOTE] You can also find the `R-Server.CLUSTERNAME-ed-ssh.azurehdinsight.net` address in the Azure portal by selecting your cluster, then __All Settings__, __Apps__, and __RServer__. This will display the SSH Endpoint information for the edge node.
 >
 > ![Image of the SSH Endpoint for the edge node](./media/hdinsight-getting-started-with-r/sshendpoint.png)
     
-If you used a password to secure your SSH user account, you will be prompted to enter it. If you used a public key, you may have to use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net`.
+If you used a password to secure your SSH user account, you will be prompted to enter it. If you used a public key, you may have to use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@R-Server.CLUSTERNAME-ed-ssh.azurehdinsight.net`.
     
 For more information on using SSH with Linux-based HDInsight, see the following articles:
 
@@ -210,7 +210,7 @@ Per the section above regarding use of public/private key pairs to access the cl
     myNameNode <- "default"
     myPort <- 0 
  
-    mySshHostname  <- 'rkrrehdi1-ssh.azurehdinsight.net'  # HDI secure shell hostname
+    mySshHostname  <- 'rkrrehdi1-ed-ssh.azurehdinsight.net'  # HDI secure shell hostname
     mySshUsername  <- 'remoteuser'# HDI SSH username
     mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
  

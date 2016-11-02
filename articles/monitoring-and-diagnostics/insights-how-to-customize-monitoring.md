@@ -2,7 +2,7 @@
 	pageTitle="Overview of Metrics in Microsoft Azure | Microsoft Azure"
 	description="Learn how to customize monitoring charts in Azure."
 	authors="rboucher"
-	manager=""
+	manager="carolz"
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>

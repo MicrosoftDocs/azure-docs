@@ -35,7 +35,7 @@ In this article, you deploy the following resources and extensions:
 - Microsoft.Insights.VMDiagnosticsSettings
 - Microsoft.Insights/autoscaleSettings
 
-For more information about Resource Manager resources, see [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](../virtual-machines/virtual-machines-windows-compare-deployment-models.md).
+For more information about Resource Manager resources, see [Azure Resource Manager vs. classic deployment](../resource-manager-deployment-model.md).
 
 ## Step 1: Install Azure PowerShell
 
@@ -71,13 +71,13 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
         "adminUsername": { "type": "string" },
         "adminPassword": { "type": "securestring" },
         "resourcePrefix": { "type": "string" }
-        
+
     - A name for the separate virtual machine that is used to access the machines in the scale set.
     - The name of the storage account where the template is stored.
     - The number of virtual machines to initially create in the scale set.
     - The name and password of the administrator account on the virtual machines.
     - A name prefix for the resources that are created to support the scale set.
-    
+
 3. Variables can be used in a template to specify values that may change frequently or values that need to be created from a combination of parameter values. Add these variables under the variables parent element that you added to the template.
 
         "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')]",
@@ -103,7 +103,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	- The names and identifiers of the virtual network, load balancer, and network interfaces.
 	- Storage account names for the accounts associated with the machines in the scale set.
 	- Settings for the Diagnostics extension that is installed on the virtual machines. For more information about the Diagnostics extension, see [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
-    
+
 4. Add the storage account resource under the resources parent element that you added to the template. This template uses a loop to create the recommended five storage accounts where the operating system disks and diagnostic data are stored. This set of accounts can support up to 100 virtual machines in a scale set, which is the current maximum. Each storage account is named with a letter designator that was defined in the variables combined with the prefix that you provide in the parameters for the template.
 
         {
@@ -504,9 +504,9 @@ You can get some information about virtual machine scale sets using these method
  - Azure PowerShell - Use this command to get some information:
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
-        
+
         Or
-        
+
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceView
 
  - Connect to the separate virtual machine just like you would any other machine and then you can remotely access the virtual machines in the scale set to monitor individual processes.
@@ -522,11 +522,11 @@ Because you are charged for resources used in Azure, it is always a good practic
 If you want to keep your resource group, you can delete the scale set only.
 
 	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
-    
+
 ## Next steps
 
 - Manage the scale set that you just created using the information in [Manage virtual machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-manage.md).
 - Learn more about vertical scaling by reviewing [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md)
-- Find examples of Azure Insights monitoring features in [Azure Insights PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md)
-- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) 
-- Learn how to [Use audit logs to send email and webhook alert notifications in Azure Insights](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+- Find examples of Azure Monitor monitoring features in [Azure Monitor PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md)
+- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
+- Learn how to [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)

@@ -141,7 +141,9 @@ For information and considerations about using these sizes, see [About the H-ser
 | Standard_D12_v2 | 4         | 28           | 200                  | 8              | 8x500              | 4 / high                  |
 | Standard_D13_v2 | 8         | 56           | 400                  | 16             | 16x500             | 8 / high                  |
 | Standard_D14_v2 | 16        | 112          | 800                  | 32             | 32x500             | 8 / extremely high        |
-| Standard_D15_v2 | 20        | 140          | 1,000                | 40             | 40x500             | 8 / extremely high        |
+| Standard_D15_v2 | 20        | 140          | 1,000                | 40             | 40x500             | 8 / extremely high*        |
+
+*In some regions, accelerated networking is available for the Standard_D15_v2 size. For more information about usage and availability, see [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) and [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
 <br>
 ## DS-series*
@@ -179,12 +181,13 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 | Standard_DS12_v2 | 4         | 28           | 56                        | 8              | 16,000 / 128 (144)                     | 12,800 / 192                               | 4 high                       |
 | Standard_DS13_v2 | 8         | 56           | 112                       | 16             | 32,000 / 256 (288)                     | 25,600 / 384                               | 8 high                       |
 | Standard_DS14_v2 | 16        | 112          | 224                       | 32             | 64,000 / 512 (576)                     | 51,200 / 768                               | 8 extremely high             |
-| Standard_DS15_v2 | 20        | 140 GB       | 280                       | 40             | 80,000 / 640 (720)                     | 64,000 / 960                               | 8 extremely high             |
+| Standard_DS15_v2 | 20        | 140 GB       | 280                       | 40             | 80,000 / 640 (720)                     | 64,000 / 960                               | 8 extremely high**             |
 
 MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
 *The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
+**In some regions, accelerated networking is available for the Standard_DS15_v2 size. For more information about usage and availability, see [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) and [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
 <br>
 ## F-series
@@ -253,12 +256,12 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 
 | Size           | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max disk throughput: IOPS | Max NICs / Network bandwidth |
 |----------------|-----------|-------------|--------------------------|----------------|---------------------------|------------------------------|
-| Standard_H8    | 8         | 56          | 1000                     | 16             | 16 x 500                    | 8 / high                      |
-| Standard_H16   | 16        | 112         | 2000                     | 32             | 32 x 500                    | 8 / very high                  |
-| Standard_H8m   | 8         | 112         | 1000                     | 16             | 16 x 500                    | 8 / high                      |
-| Standard_H16m  | 16        | 224         | 2000                     | 32             | 32 x 500                    | 8 / very high                 |
-| Standard_H16r* | 16        | 112         | 2000                     | 32             | 32 x 500                    | 8 / very high                  |
-| Standard_H16mr* | 16        | 224         | 2000                     | 32             | 32 x 500                    | 8 / very high                  |
+| Standard_H8    | 8         | 56          | 1000                     | 16             | 16 x 500                    | 2 / high                      |
+| Standard_H16   | 16        | 112         | 2000                     | 32             | 32 x 500                    | 4 / very high                  |
+| Standard_H8m   | 8         | 112         | 1000                     | 16             | 16 x 500                    | 2 / high                      |
+| Standard_H16m  | 16        | 224         | 2000                     | 32             | 32 x 500                    | 4 / very high                 |
+| Standard_H16r* | 16        | 112         | 2000                     | 32             | 32 x 500                    | 4 / very high                  |
+| Standard_H16mr* | 16        | 224         | 2000                     | 32             | 32 x 500                    | 4 / very high                  |
 
 
 *RDMA capable

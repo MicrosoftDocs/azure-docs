@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/25/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="jrj;barbkess"/>
 
 # Migrate your schema to SQL Data Warehouse#
 

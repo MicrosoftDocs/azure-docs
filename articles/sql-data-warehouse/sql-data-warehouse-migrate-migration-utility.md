@@ -3,8 +3,8 @@
    description="Migrate to SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
+   authors="jrowlandjones"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="jrj;barbkess"/>
 
 
 # Data Warehouse Migration Utility (Preview)

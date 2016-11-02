@@ -24,7 +24,7 @@ At the end of this tutorial, you have three Java console applications:
 
 * **create-device-identity**, which creates a device identity and associated security key to connect your simulated device.
 * **read-d2c-messages**, which displays the telemetry sent by your simulated device.
-* **simulated-device**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second using the AMQPS protocol.
+* **simulated-device**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second using the AMQP protocol.
 
 > [AZURE.NOTE] The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution back end.
 
@@ -34,7 +34,7 @@ To complete this tutorial, you need the following:
 
 + Maven 3.  <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Maven for this tutorial on either Windows or Linux.
 
-+ An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
++ An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -42,7 +42,7 @@ As a final step, make a note of the **Primary key** value, and then click **Mess
 
 ![Azure portal IoT Hub Messaging blade][6]
 
-You have now created your IoT hub, and you have the IoT Hub hostname, IoT Hub connection string, IoT Hub Primary Key, Event Hubs-compatible name, and Event Hubs-compatible endpoint you need to complete this tutorial.
+You have now created your IoT hub, and you have the IoT Hub hostname, IoT Hub connection string, IoT Hub Primary Key, Event Hub-compatible name, and Event Hub-compatible endpoint you need to complete this tutorial.
 
 ## Create a device identity
 
@@ -134,9 +134,9 @@ In this section, you create a Java console app that creates a new device identit
 
 ## Receive device-to-cloud messages
 
-In this section, you create a Java console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Event Hub][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. The [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale. The [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how to process messages from Event Hubs and is applicable to the IoT Hub Event Hubs-compatible endpoints.
+In this section, you create a Java console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Event Hub][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. The [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale. The [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how to process messages from Event Hubs and is applicable to the IoT Hub Event Hub-compatible endpoints.
 
-> [AZURE.NOTE] The Event Hubs-compatible endpoint for reading device-to-cloud messages always uses the AMQPS protocol.
+> [AZURE.NOTE] The Event Hub-compatible endpoint for reading device-to-cloud messages always uses the AMQP protocol.
 
 1. In the iot-java-get-started folder you created in the *Create a device identity* section, create a new Maven project called **read-d2c-messages** using the following command at your command-prompt. Note this is a single, long command:
 
@@ -146,7 +146,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
 
 2. At your command prompt, navigate to the new read-d2c-messages folder.
 
-3. Using a text editor, open the pom.xml file in the read-d2c-messages folder and add the following dependency to the **dependencies** node. This enables you to use the eventhubs-client package in your application to read from the Event Hubs-compatible endpoint:
+3. Using a text editor, open the pom.xml file in the read-d2c-messages folder and add the following dependency to the **dependencies** node. This enables you to use the eventhubs-client package in your application to read from the Event Hub-compatible endpoint:
 
     ```
     <dependency> 
@@ -182,7 +182,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
     private static String connStr = "Endpoint={youreventhubcompatibleendpoint};EntityPath={youreventhubcompatiblename};SharedAccessKeyName=iothubowner;SharedAccessKey={youriothubkey}";
     ```
 
-8. Add the following **receiveMessages** method to the **App** class. This method creates an **EventHubClient** instance to connect to the Event Hubs-compatible endpoint and then asynchronously creates a **PartitionReceiver** instance to read from an Event Hub partition. It loops continuously and prints the message details until the application terminates.
+8. Add the following **receiveMessages** method to the **App** class. This method creates an **EventHubClient** instance to connect to the Event Hub-compatible endpoint and then asynchronously creates a **PartitionReceiver** instance to read from an Event Hub partition. It loops continuously and prints the message details until the application terminates.
 
     ```
     private static EventHubClient receiveMessages(final String partitionId)
@@ -329,12 +329,12 @@ In this section, you create a Java console app that simulates a device that send
 
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQP;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
 
-    This sample application uses the **protocol** variable when it instantiates a **DeviceClient** object. You can use either the HTTPS or AMQPS protocol to communicate with IoT Hub.
+    This sample application uses the **protocol** variable when it instantiates a **DeviceClient** object. You can use either the HTTP or AMQP protocol to communicate with IoT Hub.
 
 8. Add the following nested **TelemetryDataPoint** class inside the **App** class to specify the telemetry data your device sends to your IoT hub:
 
@@ -461,13 +461,13 @@ You are now ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you configured a new IoT hub in the portal, and then created a device identity in the hub's identity registry. You used this device identity to enable the simulated device app to send device-to-cloud messages to the hub. You also created an app that displays the messages received by the hub. 
+In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the hub's identity registry. You used this device identity to enable the simulated device app to send device-to-cloud messages to the hub. You also created an app that displays the messages received by the hub. 
 
 To continue getting started with IoT Hub and to explore other IoT scenarios see:
 
 - [Connecting your device][lnk-connect-device]
 - [Getting started with device management][lnk-device-management]
-- [Getting started with the Gateway SDK][lnk-gateway-SDK]
+- [Getting started with the IoT Gateway SDK][lnk-gateway-SDK]
 
 To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
 

@@ -66,6 +66,7 @@ For a hands-on guide to end-to-end troubleshooting in Azure Storage applications
 	+ [Your issue arises from using the storage emulator for development or test]
 	+ [You are encountering problems installing the Azure SDK for .NET]
 	+ [You have a different issue with a storage service]
+	+ [Troubleshooting Azure Files issues with Windows and Linux](storage-troubleshoot-file-connection-problems.md)
 + [Appendices]
 	+ [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic]
 	+ [Appendix 2: Using Wireshark to capture network traffic]

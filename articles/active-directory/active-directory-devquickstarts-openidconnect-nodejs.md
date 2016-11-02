@@ -3,7 +3,7 @@
 	description="How to build a node.js Express MVC Web App that integrates with Azure AD for sign in."
 	services="active-directory"
 	documentationCenter="nodejs"
-	authors="xerners"
+	authors="brandwe"
 	manager="mbaldwin"
 	editor=""/>
 

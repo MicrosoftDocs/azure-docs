@@ -29,7 +29,13 @@ Many of the steps in this document use the following utilities, which may need t
 * [jq](https://stedolan.github.io/jq/) - used to parse JSON documents
 * [Azure CLI](../xplat-cli-install.md) - used to remotely manage Azure services
 
-	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)] 
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+
+## Users
+
+Unless [domain-joined](hdinsight-domain-joined-introduction.md), HDInsight should be considered a __single-user__ system. A single SSH user account is created with the cluster, with administrator level permissions. Additional SSH accounts can be created, but they also have administrator access to the cluster.
+
+Domain-joined HDInsight provides support for multiple users and more granular permission and role settings. For more information, see [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
 
 ## Domain names
 

@@ -15,7 +15,7 @@
     ms.date="09/27/2016"
     ms.author="sethm" />
 
-# Service Bus Relay REST tutorial
+# Service Bus WCF Relay REST tutorial
 
 This tutorial describes how to build a simple Service Bus host application that exposes a REST-based interface. REST enables a web client, such as a web browser, to access the Service Bus APIs through HTTP requests.
 
@@ -599,6 +599,6 @@ Now that you've built an application that uses the Service Bus relay service, se
 
 - [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 
-- [How to Use the Service Bus Relay Service](service-bus-dotnet-how-to-use-relay.md)
+- [How to Use the Service Bus WCF Relay Service](service-bus-dotnet-how-to-use-relay.md)
 
 [Azure portal]: https://portal.azure.com

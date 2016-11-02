@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Deploy a Node.js application using MongoDB | Microsoft Azure"
+   pageTitle="Deploy a Node.js application that uses MongoDB | Microsoft Azure"
    description="Walkthrough on how to package multiple guest executables to deploy to an Azure Service Fabric cluster"
    services="service-fabric"
    documentationCenter=".net"
-   authors="bmscholl"
-   manager=""
+   authors="msfussell"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,20 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/20/2016"
-   ms.author="bscholl;mikhegn"/>
+   ms.date="10/22/2016"
+   ms.author="msfussell;mikhegn"/>
 
 
 # Deploy multiple guest executables
 
-This article shows how to package and deploy multiple guest executables to Azure Service Fabric by using the preview version of the Service Fabric packaging tool, which is available at [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
-
-For building a Service Fabric package manually, review how to [deploy a guest executable to Service Fabric](service-fabric-deploy-existing-app.md).
+This article shows how to package and deploy multiple guest executables to Azure Service Fabric. For building and deploying a single Service Fabric package read how to [deploy a guest executable to Service Fabric](service-fabric-deploy-existing-app.md).
 
 While this walkthrough shows how to deploy an application with a Node.js front end that uses MongoDB as the data store, you can apply the steps to any application that has dependencies on another application.   
 
-## Package the Node.js application
+You can use Visual Studio to produce the application package that contains multiple guest executables. See [Using Visual Studio to package an existing application](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-executable). After you have added the first guest executable, right click on the application project and select the **Add->New Service Fabric service** to add the second guest executable project to the solution. Note: If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source. 
 
+## Manually package the multiple guest executable application
+Alternatively you can manually package the guest executable. For the manual packaging, this article uses the Service Fabric packaging tool, which is available at [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+
+### Packaging the Node.js application
 This article assumes that Node.js is not installed on the nodes in the Service Fabric cluster. As a consequence, you need to add Node.exe to the root directory of your node application before packaging. The directory structure of the Node.js application (using Express web framework and Jade template engine) should look similar to the one below:
 
 ```
@@ -66,8 +68,6 @@ Below is a description of the parameters that are being used:
 - **/exe** defines the executable that Service Fabric is supposed to launch, in this case `node.exe`.
 - **/ma** defines the argument that is being used to launch the executable. As Node.js is not installed, Service Fabric needs to launch the Node.js web server by executing `node.exe bin/www`.  `/ma:'bin/www'` tells the packaging tool to use `bin/ma` as the argument for node.exe.
 - **/AppType** defines the Service Fabric application type name.
-
->[AZURE.NOTE] You can also use Visual Studio to produce the application package as part of an application project. If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source. [Using Visual Studio to package an existing application](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
 
 If you browse to the directory that was specified in the /target parameter, you can see that the tool has created a fully functioning Service Fabric package as shown below:
 
@@ -111,6 +111,7 @@ In this sample, the Node.js web server listens to port 3000, so you need to upda
       </Endpoints>
 </Resources>
 ```
+### Packaging the MongoDB application
 Now that you have packaged the Node.js application, you can go ahead and package MongoDB. As mentioned before, the steps that you go through now are not specific to Node.js and MongoDB. In fact, they apply to all applications that are meant to be packaged together as one Service Fabric application.  
 
 To package MongoDB, you want to make sure you package Mongod.exe and Mongo.exe. Both binaries are located in the `bin` directory of your MongoDB installation directory. The directory structure looks similar to the one below.
@@ -136,8 +137,6 @@ In PowerShell or the command shell, we run the packaging tool with the following
 ```
 
 In order to add MongoDB to your Service Fabric application package, you need to make sure that the /target parameter points to the same directory that already contains the application manifest along with the Node.js application. You also need to make sure that you are using the same ApplicationType name.
-
->[AZURE.NOTE] You can also use Visual Studio to produce the application package as part of an application project. If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source. [Using Visual Studio to package an existing application](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
 
 Let's browse to the directory and examine what the tool has created.
 
@@ -180,6 +179,7 @@ As you can see, the tool added a new folder, MongoDB, to the directory that cont
 </ApplicationManifest>  
 ```
 
+### Publishing the application
 The last step is to publish the application to the local Service Fabric cluster by using the PowerShell scripts below:
 
 ```
@@ -194,12 +194,10 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
->[AZURE.NOTE] Using Visual Studio, you can publish the application locally by debugging (F5) or using the publish wizard.
-
 Once the application is successfully published to the local cluster, you can access the Node.js application on the port that we have entered in the service manifest of the Node.js application--for example http://localhost:3000.
 
 In this tutorial, you have seen how to easily package two existing applications as one Service Fabric application. You have also learned how to deploy it to Service Fabric so that it can benefit from some of the Service Fabric features, such as high availability and health system integration.
 
 ## Next steps
 
-- Learn how to [package a guest application manually](service-fabric-deploy-existing-app.md).
+- Learn about deploying containers with [Service Fabric and containers overview](service-fabric-containers-overview.md)

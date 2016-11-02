@@ -14,12 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/09/2016"
+   ms.date="10/25/2016"
    ms.author="gwallace" />
 
 # Create an application gateway by using the Azure CLI
-
-Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application gateway has the following application delivery features: HTTP load balancing, cookie-based session affinity, and Secure Sockets Layer (SSL) offload, custom health probes, and support for multi-site.
 
 > [AZURE.SELECTOR]
 - [Azure portal](application-gateway-create-gateway-portal.md)
@@ -27,6 +25,8 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 - [Azure CLI](application-gateway-create-gateway-cli.md)
+
+Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application gateway has the following application delivery features: HTTP load balancing, cookie-based session affinity, and Secure Sockets Layer (SSL) offload, custom health probes, and support for multi-site.
 
 ## Prerequisite: Install the Azure CLI
 
@@ -101,7 +101,7 @@ The IP addresses used for the backend are the IP addresses for your backend serv
 
     azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
 
-
+> [AZURE.NOTE] For a list of parameters that can be provided during creation run the following command: **azure network application-gateway create --help**.
 
 This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful.
 If you already have your web application defined with the the backend pool in the preceding steps, once created, load balancing begins.

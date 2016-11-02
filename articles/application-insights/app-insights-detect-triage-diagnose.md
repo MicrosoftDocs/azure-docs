@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="11/06/2015"
+	ms.date="10/01/2016"
 	ms.author="awills"/>
 
 # Detect, Triage and Diagnose with Application Insights
@@ -20,23 +20,24 @@
 *Application Insights is in preview.*
 
 
-Application Insights helps you find out how your app is performing and being used when it's live. And if there's a problem, it lets you know about it, helps you assess the impact, and helps you determine the cause.
+[Application Insights](app-insights-overview.md) is an extensible Application Performance Management (APM) service for web developers. It helps you find out how your app is performing and being used when it's live. And if there's a problem, it lets you know about it, helps you assess the impact, and helps you determine the cause.
 
 Here's an account from a team that develops web applications:
 
 * *"A couple of days ago, we deployed a 'minor' hotfix. We didn't run a broad test pass, but unfortunately some unexpected change got merged into the payload, causing incompatibility between the front and back ends. Immediately, server exceptions surged, our alert fired, and we were made aware of the situation. A few clicks away on the Application Insights portal, we got enough information from exception callstacks to narrow down the problem. We rolled back immediately and limited the damage. Application Insights has made this part of the devops cycle very easy and actionable."*
 
-Let's see how a typical web development team uses Application Insights to monitor performance. We'll follow the team in Fabrikam Bank that develops the online banking system (OBS).
+Let's see how a typical web development team uses Application Insights for performance management. We'll follow the team in Fabrikam Bank that develops the online banking system (OBS).
 
 ![Example bank web site](./media/app-insights-detect-triage-diagnose/03-bank.png)
 
-The team works on a cycle like this:
+The team works on a devOps cycle like this:
 
 ![DevOps cycle](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
 
-Requirements feed into their development backlog (task list). They work in short sprints, which often deliver working software - usually in the form of improvements and extensions to the existing application. The live app is frequently updated with new features. While it's live, the team monitors it for performance and usage with the help of Application Insights. This analysis feeds back into their development backlog.
+Requirements feed into their development backlog (task list). They work in short sprints, which often deliver working software - usually in the form of improvements and extensions to the existing application. The live app is frequently updated with new features. While it's live, the team monitors it for performance and usage with the help of Application Insights. This  APM data feeds back into their development backlog.
 
 The team uses Application Insights to monitor the live web application closely for:
+
 * Performance. They want to understand how response times vary with request count; how much CPU, network, disk, and other resources are being used; and where the bottlenecks are.
 * Failures. If there are exceptions or failed requests, or if a performance counter goes outside its comfortable range, the team needs to know rapidly so that they can take action.
 * Usage. Whenever a new feature is released, the team want to know to what extent it is used, and whether users have any difficulties with it.
@@ -100,7 +101,7 @@ So she sets an [alerts][metrics], for response times greater than a typical thre
 
 Alerts can be set on a wide variety of other metrics. For example, you can receive emails if the exception count becomes high, or the available memory goes low, or if there is a peak in client requests.
 
-## Proactive diagnostic alerts
+## Smart detection alerts
 
 Next day, an alert email does arrive from Application Insights. But when she opens it, she finds isn't the response time alert that she set. Instead, it tells her there's been a sudden rise in failed requests - that is, requests that have returned failure codes of 500 or more.
 
@@ -108,7 +109,7 @@ Failed requests are where users have seen an error - typically following an exce
 
 This alert is a surprise, because the last time she looked at it, the failed request count was encouragingly low. A small number of failures is to be expected in a busy server. 
 
-It was also a bit of a surprise for her because she didn't have to configure this alert. In fact, Proactive Diagnostics comes automatically with Application Insights. It automatically adjusts to your app's usual failure pattern, and "gets used to" failures on a particular page, or under high load, or linked to other metrics. It raises the alarm only if there's a rise above what it comes to expect.
+It was also a bit of a surprise for her because she didn't have to configure this alert. In fact, Smart Detection comes automatically with Application Insights. It automatically adjusts to your app's usual failure pattern, and "gets used to" failures on a particular page, or under high load, or linked to other metrics. It raises the alarm only if there's a rise above what it comes to expect.
 
 ![proactive diagnostics email](./media/app-insights-detect-triage-diagnose/21.png)
 
@@ -271,7 +272,18 @@ Application Insights can also be used to learn what users do with an app. Once i
 
 ## Your applications
 
-So that's how one team use Application Insights not just to fix individual issues, but to improve their development lifecycle. I hope it has given you some ideas about how Application Insights can help you improve the performance of your own applications.
+So that's how one team use Application Insights not just to fix individual issues, but to improve their development lifecycle. I hope it has given you some ideas about how Application Insights can help you with application performance management in your own applications.
+
+## Next steps
+
+You can get started in several ways, depending on the characteristics of your application. Pick what suits you best:
+
+* [ASP.NET web application](app-insights-asp-net.md)
+* [Java web application](app-insights-java-get-started.md)
+* [Node.js web application](app-insights-nodejs.md)
+* Already deployed apps, hosted on [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) or [Azure](app-insights-azure.md).
+* [Web pages](app-insights-javascript.md) - Single Page App or ordinary web page - use this on its own or in addition to any of the server options.
+* [Availability tests](app-insights-monitor-web-app-availability.md) to test your app from the public internet.
 
 ## Video
 

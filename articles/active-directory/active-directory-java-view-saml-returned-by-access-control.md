@@ -1,7 +1,7 @@
 <properties
     pageTitle="View SAML Returned by the Access Control Service (Java)"
     description="Learn how to view SAML returned by the Access Control Service in Java applications hosted on Azure."
-	services="active-directory" 
+	services="active-directory"
     documentationCenter="java"
     authors="rmcmurray"
     manager="wpickett"
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/11/2016" 
+    ms.date="08/11/2016"
     ms.author="robmcm" />
 
 # How to view SAML returned by the Azure Access Control Service
 
-This guide will show you how to view the underlying Security Assertion Markup Language (SAML) returned to your application by the Azure Access Control Service (ACS). The guide builds on the [How to Authenticate Web Users with Azure Access Control Service Using Eclipse][] topic, by providing code that displays the SAML information. The completed application will look similar to the following.
+This guide will show you how to view the underlying Security Assertion Markup Language (SAML) returned to your application by the Azure Access Control Service (ACS). The guide builds on the [How to Authenticate Web Users with Azure Access Control Service Using Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md) topic, by providing code that displays the SAML information. The completed application will look similar to the following.
 
 ![Example SAML output][saml_output]
 
@@ -29,7 +29,7 @@ For more information on ACS, see the [Next steps](#next_steps) section.
 
 ## Prerequisites
 
-To complete the tasks in this guide, complete the sample at [How to Authenticate Web Users with Azure Access Control Service Using Eclipse][] and use it as the starting point for this tutorial.
+To complete the tasks in this guide, complete the sample at [How to Authenticate Web Users with Azure Access Control Service Using Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md) and use it as the starting point for this tutorial.
 
 ## Add the JspWriter library to your build path and deployment assembly
 
@@ -68,16 +68,16 @@ Modify **index.jsp** to use the following code.
 		<%!
 	    void displaySAMLInfo(Node node, String parent, JspWriter out)
 	    {
-	    
+
 		    try
 		    {
 				String nodeName;
 			    int nChild, i;
-			    
+
 			    nodeName = node.getNodeName();
 			    out.println("<br>");
 			    out.println("<u>Examining <b>" + parent + nodeName + "</b></u><br>");
-			       
+
 			       // Attributes.
 			       NamedNodeMap attribsMap = node.getAttributes();
 			       if (null != attribsMap)
@@ -88,7 +88,7 @@ Modify **index.jsp** to use the following code.
 	                            out.println("Attribute: <b>" + attrib.getNodeName() + "</b>: " + attrib.getNodeValue()  + "<br>");
 	                     }
 			       }
-			       
+
 			       // Child nodes.
 			       NodeList list = node.getChildNodes();
 			       if (null != list)
@@ -96,7 +96,7 @@ Modify **index.jsp** to use the following code.
 			              nChild = list.getLength();
 			              if (nChild > 0)
 			              {                    
-	
+
 				                 // If it is a text node, just print the text.
 				                 if (list.item(0).getNodeName() == "#text")
 				                 {
@@ -109,7 +109,7 @@ Modify **index.jsp** to use the following code.
 		   		                     for (i=0; i < nChild; i++)
 				                     {
 					                    Node temp = list.item(i);
-					                    
+
 					                    out.print("<b>" + temp.getNodeName() + "</b>");
 					                    if (i < nChild - 1)
 					                    {
@@ -121,10 +121,10 @@ Modify **index.jsp** to use the following code.
 					                    	// Finish the sentence.
 					                    	out.print(".");
 					                    }
-					                    	
+
 				                     }
 					                 out.println("<br>");
-					                 
+
 					                 // Process the child nodes.
 					                 for (i=0; i < nChild; i++)
 				                     {
@@ -142,44 +142,44 @@ Modify **index.jsp** to use the following code.
 			    }
 		    }
 	    %>
-	
+
 	    <%
-	    try 
+	    try
 	    {
 		    String data  = (String) request.getAttribute("ACSSAML");
-		    
+
 		    DocumentBuilder docBuilder;
 			Document doc = null;
 			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
 			docBuilderFactory.setIgnoringElementContentWhitespace(true);
 			docBuilder = docBuilderFactory.newDocumentBuilder();
 			byte[] xmlDATA = data.getBytes();
-			
-			ByteArrayInputStream in = new ByteArrayInputStream(xmlDATA); 
+
+			ByteArrayInputStream in = new ByteArrayInputStream(xmlDATA);
 			doc = docBuilder.parse(in);
 			doc.getDocumentElement().normalize();
-			
+
 			// Iterate the child nodes of the doc.
 	        NodeList list = doc.getChildNodes();
-	
+
 	        for (int i=0; i < list.getLength(); i++)
 	        {
 	        	displaySAMLInfo(list.item(i), "", out);
 	        }
 		}
-	    catch (Exception e) 
+	    catch (Exception e)
 	    {
 	    	out.println("Exception encountered.");
 	    	e.printStackTrace();
 		}
-	    
+
 	    %>
 	</body>
 	</html>
 
 ## Run the application
 
-1. Run your application in the computer emulator or deploy to Azure, using the steps documented at [How to Authenticate Web Users with Azure Access Control Service Using Eclipse][].
+1. Run your application in the computer emulator or deploy to Azure, using the steps documented at [How to Authenticate Web Users with Azure Access Control Service Using Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md).
 2. Launch a browser and open your web application. After you log on to your application, you'll see SAML information, including the security assertion provided by the identity provider.
 
 ## Next steps
@@ -194,4 +194,3 @@ To further explore ACS's functionality and to experiment with more sophisticated
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
- 
