@@ -16,7 +16,7 @@
 	ms.date="11/01/2016" 
 	ms.author="jingwang"/>
 
-# Data Management Gateway
+# Troubleshoot issues with using Data Management Gateway
 This article provides information on troubleshooting issues with using Data Management Gateway. 
 
 > [AZURE.NOTE] See [Data Management Gateway](data-factory-data-management-gateway.md) article for detailed information about the gateway. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for a walkthrough of moving data from an on-premises SQL Server database to an Azure blob storage by using the gateway. 
