@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/25/2016"
+   ms.date="11/02/2016"
    ms.author="nitinme"/>
 
 # Security in Azure Data Lake Store
@@ -86,7 +86,7 @@ Azure Data Lake Store protects your data throughout its life cycle. For data in 
 
 ![Encryption in Data Lake Store](./media/data-lake-store-security-overview/adls-encryption.png "Encryption in Data Lake Store")
 
-Data Lake Store also provides encryption for data that is stored in the account. Data Lake Store provides **always-on**, transparent, server side encryption. Data stored in Data Lake Store is always encrypted prior to storing on persistent media. This is the default behavior for all data and it cannot be changed. Data Lake Store automatically encrypts data prior to persisting and decrypts data prior to retrieval, so it is completely transparent to the client accessing the data. There is no code change required on the client side to encrypt/decrypt data.
+Data Lake Store also provides encryption for data that is stored in the account. You can chose to have your data encrypted or opt for no encryption. If you opt in for encryption, data stored in Data Lake Store is encrypted prior to storing on persistent media. In such a case, Data Lake Store automatically encrypts data prior to persisting and decrypts data prior to retrieval, so it is completely transparent to the client accessing the data. There is no code change required on the client side to encrypt/decrypt data.
 
 For key management, Data Lake Store provides two modes for managing your master encryption keys (MEKs), which are required for decrypting any data that is stored in the Data Lake Store. You can either let Data Lake Store manage the MEKs for you, or choose to retain ownership of the MEKs using your Azure Key Vault account. You specify the mode of key management while while creating a Data Lake Store account. For more information on how to provide encryption-related configuration, see [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md).
 
