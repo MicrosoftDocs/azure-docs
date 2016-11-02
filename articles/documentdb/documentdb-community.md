@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="09/26/2016"
+  ms.date="11/02/2016"
   ms.author="andrl"/>
 
 # Community portal
@@ -70,7 +70,11 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 **Community posts:**
 
-- [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *by Matias Quarantaas*
+- [**A Journey to Social**](https://medium.com/@Ealsur/a-journey-to-social-c47636bf25c9#.an669sx41) - *by Matías Quaranta* 
+
+- [**Azure DocumentDB protocol support for MongoDB in Preview, my test with Sitecore**](https://alwaysupalwayson.blogspot.ca/2016/05/azure-documentdb-protocol-support-for.html) - *by Mathieu Benoit* 
+
+- [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *by Matías Quaranta*
 
 - [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - *by Eric Langland*
 
@@ -120,10 +124,8 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Speaker                                                     | Location             | Date                     | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb)<br><br>[Keynote: Enable digital transformation using The Unreasonable Effectiveness of A.C.I.D with Joseph Sirosh](https://myignite.microsoft.com/sessions/34953)<br><br>[Session: Azure DocumentDB at massive scale: Customer success and design patterns with Syam Kumar Nair and Andrew Liu](https://myignite.microsoft.com/sessions/3066)<br><br>[Session: Manage IoT assets with Node.js and DocumentDB with Joshua Davis](https://myignite.microsoft.com/sessions/39704)<br><br>[Session: Build smarter and scalable applications using Microsoft Azure Database Services with Tara Jana and Moshe Gutman](https://myignite.microsoft.com/sessions/2633)| Andrew Liu, Syam Kumar Nair, and Tara Jana | Atlanta, GA | September 26-30, 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
-| [Meetup at Ignite: DocumentDB: Advanced Features for Large-Scale Apps](http://www.meetup.com/Azure-in-the-ATL/events/234252070/) | Andrew Liu, Syam Kumar Nair |  Atlanta, GA | September 27, 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) [@FlatironCity](https://twitter.com/FlatironCity) |
-| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | Come visit our booth! | New York, NY | September 26-29, 2016 | [#StrataConf](https://twitter.com/strataconf) |
 | [Capital City .NET Users Group](http://www.meetup.com/tally-dot-net/events/233768568/) | Santosh Hari | Tallahassee, FL | November 3, 2016 | n/a |
+| [Connect(); // 2016](https://connectevent.microsoft.com/) | Kirill Gavrylyuk | New York, NY | November 16-18, 2016 | #MSFTConnect |
 
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
@@ -132,6 +134,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Speaker                                                     | Location             | Date                   | Recording |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | DocumentDB team | Atlanta, GA | September 26-30, 2016 | [Slidedeck](http://www.slideshare.net/aliuy/pass-summit-2016-azure-documentdb-a-deep-dive-into-advanced-features) | 
 | [DevTeach](http://devteach.com/) | Ken Cenerelli  | Montreal, Canada | July 4-8, 2016 | [NoSQL, No Problem, Using Azure DocumentDB](http://www.slideshare.net/KenCenerelli) |
 | [Integration and IoT ](http://www.btug.be/events) | Eldert Grootenboer | Kontich, Belgium | June 30, 2016 | n/a |
 | [MongoDB World 2016](https://www.mongodb.com/world16) | Kirill Gavrylyuk | New York, New York | June 28-29, 2016 | n/a |
@@ -185,6 +188,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Show                                        | Speaker                     | Date               | Episode |
 | ------------------------------------------- | --------------------------- | ------------------ | ------- |
+| Azure Friday  | Kirill Gavrylyuk             | October 31, 2016  | [What's new in Azure DocumentDB?](https://channel9.msdn.com/Shows/Azure-Friday/AzureFridayNewinDocumentDB) |
 | Channel 9: Microsoft + Open Source          | Jose Miguel Parrella         | April 14, 2016    | [From MEAN to DEAN in Azure with Bitnami, VM Scale Sets and DocumentDB](https://channel9.msdn.com/Blogs/Open/From-MEAN-to-DEAN-in-Azure-with-Bitnami-VM-Scale-Sets-and-DocumentDB) |
 | Wired2WinWebinar                            | Sai Sankar Kunnathukuzhiyil | March 9, 2016      | [Developing Solutions with Azure DocumentDB](https://www.youtube.com/watch?v=xKttEwXv_bs)
 | Integration User Group                      | Han Wong                    | February 17, 2016  | [Analyze and visualize non-relational data with DocumentDB + Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |

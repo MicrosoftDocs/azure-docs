@@ -661,7 +661,7 @@ Unique scoped to deployment for a resource group
 The following example shows how to create a unique name for a storage account based on your resource group (inside this resource group the name is not unique if constructed the same way).
 
     "resources": [{ 
-        "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
+        "name": "[concat('storage', uniqueString(resourceGroup().id))]", 
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 

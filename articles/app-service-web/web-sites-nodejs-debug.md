@@ -5,7 +5,7 @@
 	services="app-service\web"
 	documentationCenter="nodejs"
 	authors="rmcmurray"
-	manager="wpickett"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="11/01/2016"
 	ms.author="robmcm"/>
 
 # How to debug a Node.js web app in Azure App Service

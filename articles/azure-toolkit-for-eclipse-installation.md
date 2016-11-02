@@ -4,7 +4,7 @@
 	services=""
 	documentationCenter="java"
 	authors="rmcmurray"
-	manager="wpickett"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/11/2016" 
+	ms.date="11/01/2016" 
 	ms.author="robmcm"/>
-
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
 # Installing the Azure Toolkit for Eclipse
 
@@ -109,3 +107,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [05]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-05.png
 [06]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-06.png
 
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->

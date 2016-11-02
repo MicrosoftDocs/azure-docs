@@ -4,7 +4,7 @@
 	services="cloud-services"
 	documentationCenter="nodejs"
 	authors="rmcmurray"
-	manager="wpickett"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="08/11/2016" 
+	ms.date="11/01/2016" 
 	ms.author="robmcm"/>
 
 # Build and deploy a Node.js application to an Azure Cloud Service

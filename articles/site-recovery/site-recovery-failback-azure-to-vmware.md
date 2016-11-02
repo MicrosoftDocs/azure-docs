@@ -115,7 +115,7 @@ If you have protected your machines as classic resources (that is the VM recover
 
 		![](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
 
-	2. Install the Process server as per the steps [given here](./site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server)
+	2. Install the Process server as per the steps [given here](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server)
 
 6. If you select the *Resource Manager* Azure network, you will need to give the following inputs to deploy the server.
 

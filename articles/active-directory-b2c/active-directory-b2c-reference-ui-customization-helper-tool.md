@@ -32,7 +32,7 @@ The sample content we've provided can be used to customze two pages in a [sign-u
 
 You will need to [register an application](active-directory-b2c-app-registration.md) in your B2C tenant that can be used to execute your policy. After registering your application, you have a few options that you can use to actually run your sign-up policy:
 
-- Build one of the Azure AD B2C quick-start applications listed in the "Get started" section of [Sign up and sign in consumers in your applications](active-directory-b2c-overview.md#getting-started).
+- Build one of the Azure AD B2C quick-start applications listed in the "Get started" section of [Sign up and sign in consumers in your applications](active-directory-b2c-overview.md#get-started).
 - Use the pre-built [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) application. If you choose to use the playground, you must register an application in your B2C tenant using the **redirect URI** `https://aadb2cplayground.azurewebsites.net/`.
 - Use the **Run Now** button on your policy in the [Azure portal](https://portal.azure.com/).
 

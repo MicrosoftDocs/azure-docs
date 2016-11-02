@@ -4,7 +4,7 @@
 	documentationCenter="php"
 	services="app-service\web"
 	authors="cephalin"
-	manager="wpickett"
+	manager="erikre"
 	editor=""
 	tags="mysql"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="11/01/2016"
 	ms.author="robmcm;cephalin"/>
 
 # Create and connect to a MySQL database in Azure

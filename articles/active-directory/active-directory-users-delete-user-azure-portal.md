@@ -18,9 +18,9 @@
 
 # Delete a user from a directory in Azure Active Directory preview
 
-This article explains how to delete a user from a directory in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-users-create-azure-portal.md).
+This article explains how to delete a user from a directory in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) For information about adding new users to your organization, see [Add new users to Azure Active Directory preview](active-directory-users-create-azure-portal.md).
 
-## Delete a user
+## To delete a user
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
@@ -39,10 +39,10 @@ This article explains how to delete a user from a directory in Azure Active Dire
     ![Selecting the Delete command](./media/active-directory-users-delete-user-azure-portal/create-users-delete-command.png)
 
 
-## What's next
+## Next steps
 
-- [Add a user](active-directory-users-create-azure-portal.md)
-- [Reset a user's password in the new Azure portal](active-directory-users-reset-password-azure-portal.md)
-- [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
-- [Change a user's work information](active-directory-users-work-info-azure-portal.md)
-- [Manage user profiles](active-directory-users-profile-azure-portal.md)
+- [Add new users to Azure Active Directory preview](active-directory-users-create-azure-portal.md)
+- [Reset the password for a user in Azure Active Directory preview](active-directory-users-reset-password-azure-portal.md)
+- [Assign a user to administrator roles in Azure Active Directory preview](active-directory-users-assign-role-azure-portal.md)
+- [Add or change profile information for a user in Azure Active Directory preview](active-directory-users-work-info-azure-portal.md)
+- [Delete a user from a directory in Azure Active Directory preview](active-directory-users-profile-azure-portal.md)

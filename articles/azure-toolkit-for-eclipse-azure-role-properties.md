@@ -4,7 +4,7 @@
     services=""
     documentationCenter="java"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,16 +13,14 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/11/2016" 
+    ms.date="11/01/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
-
-# Azure Role Properties #
+# Azure Role Properties
 
 Various configuration settings for your Azure role can be set within the Azure Toolkit for Eclipse.
 
-## Configuring Azure Role Properties ##
+## Configuring Azure Role Properties
 
 Configuring your Azure Role Properties is accomplished through the property dialogs for your worker role. Open the context menu for the role in Eclipse's Project Explorer pane and select the **Azure** sub-menu. (If you don't see the role in the Eclipse Project Explorer, expand your Azure project in Project Explorer.)
 
@@ -45,7 +43,7 @@ The following property pages are available for Azure roles.
 * [SSL offloading properties](#ssl_offloading_properties)
 	
 <a name="virtual_machine_properties"></a>
-### Virtual machine properties ###
+### Virtual machine properties
 
 Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Properties**, and you will have the ability to change the virtual machine size, and also change the number of instances, as shown in the following image.
 
@@ -54,7 +52,7 @@ Open the context menu for the role in Eclipse's Project Explorer pane, click **A
 >[AZURE.NOTE] Windows only: when you set the number of instances to a value greater than 1 and you also configure an application server, the toolkit will allow only 1 role instance to run in the emulator, regardless of this setting. This is to avoid port binding conflicts between the different server instances (for example, all trying to bind to port 8080) when they run on the same computer. Your desired instance count setting is preserved, but it goes into effect only when you deploy to the cloud.
 
 <a name="caching_properties"></a> 
-### Caching properties ###
+### Caching properties
 
 Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Caching**. Within this dialog, you can enable named co-located memcache-compatible caches, allowing you to help speed up your web applications.
 
@@ -90,7 +88,7 @@ To delete a cache, select the cache and click the **Remove** button in the **Cac
 For more information on how to use caching, see [How to Use Co-located Caching][].
 
 <a name="certificates_properties"></a> 
-### Certificates properties ###
+### Certificates properties
 
 Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Certificates**.
 
@@ -101,7 +99,7 @@ Within this dialog, you can add or remove certificates referenced by your Eclips
 When you deploy your project to Azure using the Publish wizard, you will be prompted to point at the Personal Information Exchange (PFX) files corresponding to these certificates, along with their passwords, in order to automatically upload them to the Azure service, but only if they have not been uploaded there previously.
 
 <a name="components_properties"></a> 
-### Components properties ###
+### Components properties
 
 Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Components**. Within this dialog, you have the ability to add, modify, or remove the components of your role, as well as change the order in which they are processed.
 
@@ -161,7 +159,7 @@ Components are processed in the order listed. Use the **Move Up** and **Move Dow
 >[AZURE.NOTE] The server configuration feature relies on components as well. Those components cannot be removed or edited without removing the corresponding server configuration. You will be prompted about that when attempting to make changes to such components.
 
 <a name="debugging_properties"></a> 
-### Debugging properties ###
+### Debugging properties
 
 Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Debugging**. Within this dialog, you have the ability to enable or disable remote debugging, as well as create debug configurations, as shown in the following image.
 
@@ -170,7 +168,7 @@ Open the context menu for the role in Eclipse's Project Explorer pane, click **A
 For related information about debugging, see [Debugging Azure Applications in Eclipse][].
 
 <a name="endpoints_properties"></a> 
-### Endpoints properties ###
+### Endpoints properties
 
 Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Endpoints**. Within this dialog, you have the ability to create an endpoint, as well as edit or remove an endpoint, as shown in the following image.
 
@@ -201,7 +199,7 @@ To delete an endpoint, select the endpoint and click the **Remove** button in th
 In order to properly configure some of the features (such as Caching, Remote Debugging, Session Affinity, or SSL offloading) enabled by the user on a role, the toolkit may automatically configure special endpoints that will be listed along with user-defined endpoints. The toolkit prevents the user from editing or deleting such automatically generated endpoints as long as the associated feature is enabled.
 
 <a name="environment_variables_properties"></a> 
-### Environment variables properties ###
+### Environment variables properties
 
 Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Environment Variables**. Within this dialog, you have the ability to create an environment variable, as well as modify or remove an environment variable, as shown in the following image.
 
@@ -233,7 +231,7 @@ To delete an environment variable, select the environment variable and click the
 In order to properly configure some of the features (such as Server Configuration, Remote Debugging or Local Storage) enabled by the user on a role, the toolkit may automatically configure special environment variables that will be listed along with user-defined environment variables. The toolkit prevents the user from editing or deleting such automatically generated environment variables as long as the associated feature is enabled.
 
 <a name="session_affinity_properties"></a> 
-### Load balancing / session affinity (a.k.a "sticky sessions") properties ###
+### Load balancing / session affinity (a.k.a "sticky sessions") properties
 
 Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Load Balancing**. Within this dialog, you have the ability to enable or disable session affinity, as shown in the following image.
 
@@ -242,7 +240,7 @@ Open the context menu for the role in Eclipse's Project Explorer pane, click **A
 For related information, see [Session Affinity][]. Also, note this feature's behavior in the context of SSL offloading, as described at [SSL Offloading][].
 
 <a name="local_storage_properties"></a> 
-### Local storage properties ###
+### Local storage properties
 
 Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Local Storage**. Within this dialog, you have the ability to create, modify or remove temporary local storage for the virtual machine that is running your application. Specific values can be set for the size of the local storage, as well as whether the contents are preserved when the role is recycled, as shown in the following image.
 
@@ -259,11 +257,11 @@ To modify a local storage resource, select the local storage resource and click 
 To delete a local storage resource, select the local storage resource and click the **Remove** button in the **Local Storage** property page, and then click **Yes** to confirm the deletion.
 
 <a name="server_configuration_properties"></a> 
-### Server configuration properties ###
+### Server configuration properties
 
 Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Server Configuration**. Within this dialog, you have the ability to add, remove, and modify the JDK and Java application server used by your deployment, as well as add or remove the applications (such as WAR, JAR or EAR files) used by your deployment.
 
-### JDK configuration ###
+### JDK configuration
 
 This dialog allows you to specify the JDK package to use for your deployment. If you are using Eclipse on Windows, you can specify the JDK package to use locally when running in the Azure emulator and you have the option to deploy that local installation to Azure. On non-Windows operating systems, the emulator JDK setting is not applicable and you cannot deploy the locally installed JDK since it is not compatible with Windows. However, regardless of the operating system that you are using, you can always choose among the 3rd party JDK packages to deploy to Azure, or point at your own Windows-compatible JDK package from an alternate download location.
 
@@ -305,7 +303,7 @@ If you are using the **Deploy a JDK from a custom download** option:
 
 That's it. Now, when you build for the cloud, you will notice the package size will be much smaller, the build process should typically take less time, and the deployment itself when you publish to the cloud should also take less time. Note that the **Deploy my local JDK (auto-upload to cloud storage)** or **Deploy a JDK from a custom download** options are in effect only when your application is deployed in the cloud. They have no effect on your compute emulator experience; the local version of the components will still be used when you deploy to the compute emulator. 
 
-### Server configuration ###
+### Server configuration
 
 The following is an example of how you can specify an application server.
 
@@ -350,7 +348,7 @@ Select a server installation path on your computer in the **Local server path** 
 
 If none of the preceding options apply to your situation, the local server setting is optional.
 
-### Applications configuration ###
+### Applications configuration
 
 The following is an example of how you can specify an application.
 
@@ -360,7 +358,7 @@ Click **Add** to add another application, or **Remove** to remove an application
 
 Beginning with the April 2014 release, your applications are automatically uploaded into the same storage account (under the **eclipsedeploy** container) as the one selected for your deployment. The startup logic of your deployment contains a step that first downloads those applications from that storage account. This means that you may upgrade your applications in your deployment without needing to rebuild and redeploy the entire package, by manually uploading newer versions of the application directly into that storage account (using the Azure portal for example), replacing the WAR files originally uploaded there by the toolkit. Then, just initiate the recycling of all those role instances using Azure's management portal again, or via command line utilities. (Triggering role recycling directly from within the Eclipse toolkit is not currently supported.)
 
-### Notes about server configuration ###
+### Notes about server configuration
 
 Changes made through the **Server configuration** property page are reflected in the `<component>` elements of the package.xml file.
 
@@ -381,7 +379,7 @@ If you want to disable the download verification (for example, if you feel it un
 If you selected the **Automatically upload...** option, then in the console window you will see build messages reporting the progress of the upload every 5 seconds, whenever an upload is necessary.
 
 <a name="ssl_offloading_properties"></a> 
-### SSL offloading properties ###
+### SSL offloading properties
 
 Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **SSL Offloading**. 
 
@@ -389,7 +387,7 @@ Open the context menu for the role in Eclipse's Project Explorer pane, click **A
 
 Within this dialog, you can enable SSL offloading, allowing you to easily enable Hypertext Transfer Protocol Secure (HTTPS) support in your Java deployment on Azure, without requiring you to configure SSL in your Java application server. For more information, see [SSL Offloading][] and [How to Use SSL Offloading][].
 
-## See Also ##
+## See Also
 
 [Azure Toolkit for Eclipse][]
 
@@ -445,3 +443,5 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [ic796926]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic796926.png
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
+
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->

@@ -4,7 +4,7 @@
 	services="virtual-machines-linux"
 	documentationCenter="nodejs"
 	authors="hanuk"
-	manager="wpickett"
+	manager="erikre"
 	editor=""
 	tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="11/01/2016"
 	ms.author="hanuk;robmcm"/>
 
 # Running Cassandra with Linux on Azure and Accessing it from Node.js
