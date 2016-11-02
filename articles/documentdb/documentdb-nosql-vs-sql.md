@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="06/24/2016"
+	ms.date="11/02/2016"
 	ms.author="mimig"/>
 
 # NoSQL vs SQL
 
-SQL Server and relational databases (RDBMS) have been the go-to databases for over 20 years. However, the increased need to process higher volumes and varieties of data at a rapid rate has altered the nature of data storage needs for application developers. In order to enable this scenario, NoSQL databases that enable storing unstructured and heterogeneous data at scale have gained in popularity. 
+SQL Server and relational databases (RDBMS) have been the go-to databases for over 20 years. However, the increased need to process higher volumes, velocities, and varieties of data at a rapid rate has altered the nature of data storage needs for application developers. In order to enable this scenario, NoSQL databases that enable storing unstructured and heterogeneous data at scale have gained in popularity. For most developers, relational databases are the default or go-to option because a table structure is easy to understand and is familiar, but there are many reasons to explore beyond relational databases.
 
 NoSQL is a category of databases distinctly different from SQL databases. NoSQL is often used to refer to data management systems that are “Not SQL” or an approach to data management that includes “Not only SQL". There are a number of technologies in the NoSQL category, including document databases, key value stores, column family stores, and graph databases, which are popular with gaming, social, and IoT apps.
 
@@ -37,7 +37,7 @@ So how do you store this data? If you're familiar with SQL, you might start draw
 
 So far, so good, but now think about the structure of a single post and how to display it. If you want to show the post and the associated images, audio, video, comments, points, and user info on a website or application, you'd have to perform a query with eight table joins just to retrieve the content. Now imagine a stream of posts that dynamically load and appear on the screen and you can easily predict that it's going to require thousands of queries and many joins to complete the task.
 
-Now you could use a relational solution like SQL Server to store the data - but there's another option, a NoSQL option that simplifies the approach. By transforming the post into a JSON document like the following and storing it in DocumentDB, an Azure NoSQL document database service, you can increase performance and retrieve the whole post with one query and no joins. It's a simpler, more straightforward, and more performant result.
+Now you could use a relational solution like SQL Server to store the data and query it using joins, as SQL supports dynamic data [formatted as JSON](https://msdn.microsoft.com/library/dn921897.aspx) - but there's another option, a NoSQL option that simplifies the approach for this specific scenario. By using a single document like the following and storing it in DocumentDB, an Azure NoSQL document database service, you can increase performance and retrieve the whole post with one query and no joins. It's a simpler, more straightforward, and more performant result.
 
     {
         "id":"ew12-res2-234e-544f",
@@ -56,7 +56,7 @@ Now you could use a relational solution like SQL Server to store the data - but 
         ]
     }
 
-In addition, this data can be partitioned by post id allowing the data to scale out naturally and take advantage of NoSQL scale characteristics. Also NoSQL systems allow developers to loosen consistency and offer highly available apps.  Finally, this solution does not require developers to define, manage and maintain schema in the data tier allowing for rapid iteration.
+In addition, this data can be partitioned by post id allowing the data to scale out naturally and take advantage of NoSQL scale characteristics. Also NoSQL systems allow developers to loosen consistency and offer highly available apps with low-latency.  Finally, this solution does not require developers to define, manage and maintain schema in the data tier allowing for rapid iteration.
 
 You can then build on this solution using other Azure services:
 
@@ -105,7 +105,7 @@ Microsoft has five SQL offerings:
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
-- [Azure SQL Data Warehouse (Preview)](https://azure.microsoft.com/services/sql-data-warehouse/)
+- [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)
 - [Analytics Platform System (on-premises appliance)](https://www.microsoft.com/en-us/server-cloud/products/analytics-platform-system/)
 
 If you're interested in SQL Server on a Virtual Machine or SQL Database, then read [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md) to learn more about the differences between the two.
@@ -122,7 +122,7 @@ We invite you to learn more about our SQL and NoSQL products by trying them out 
     - [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)
     - [Azure HBase as a part of HDInsight](https://azure.microsoft.com/services/hdinsight/)
     - [Azure Redis Cache](https://azure.microsoft.com/services/cache/)
-    - [Azure SQL Data Warehouse (Preview)](https://azure.microsoft.com/services/sql-data-warehouse/)
+    - [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)
     - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
     - [Azure Table Storage](https://azure.microsoft.com/services/storage/)
 
