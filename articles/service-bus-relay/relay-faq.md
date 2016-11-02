@@ -53,12 +53,6 @@ Here are three example scenarios:
 
 Please note that the prices used in the examples are applicable only during the preview period and are subject to change at general availability of Hybrid Connections.
 
-### What usage of Relay is subject to data transfer?
-
-Relay includes 5 GB of data ingress per month, per subscription. There is no additional Azure ingress/egress charge for data used by Relay.
-
-The data charge for Relay is for ingress from senders only, as Relay listeners do not incur a data charge. For example, if you send 1 GB, you will only be billed for 1 GB, even though a listener also received 1 GB and may be outside of Azure's datacenters.
-
 ### How are WCF Relay hours calculated?
 
 Relay hours are billed for the cumulative amount of time during which each Service Bus Relay is “open”. A Relay is implicitly instantiated and opened at a given Service Bus address (service namespace URL) when a Relay-enabled WCF service, or “Relay listener,” first connects to that address. It is closed only when the last listener disconnects from its address. Therefore, for billing purposes a Relay is considered “open” from the time the first Relay listener connects, to the time the last Relay listener disconnects from the Service Bus address of that Relay.

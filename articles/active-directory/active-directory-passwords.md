@@ -118,7 +118,7 @@ For more information on Azure AD Premium or Basic pricing, visit the [Active Dir
 | Where do I go to see password reset reports? | [Overview of password management reports](active-directory-passwords-get-insights.md#overview-of-password-management-reports) |
 | Where can I see how users are using password reset in my organization? | [View password reset activity](active-directory-passwords-get-insights.md#view-password-reset-activity) |
 | Where can I see how many users are registering, and what they are registering for? | [View password reset registration activity](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) |
-| How can I get password reset reports from an API? | [Creating an azure ad application to access the reporting API](active-directory-reporting-api-getting-started.md#creating-an-azure-ad-application-to-access-the-api) |
+| How can I get password reset reports from an API? | [Creating an azure ad application to access the reporting API](active-directory-reporting-api-getting-started.md) |
 | What kind of password reset reporting information is available through an API? | [Password reset and registration events available in the reporting API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview#SsprActivityEvent) |
 
 

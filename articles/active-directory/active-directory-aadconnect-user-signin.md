@@ -68,7 +68,7 @@ If you are deploying a new farm or using an existing farm:
 - Local administrator credentials on any workgroup (non-domain joined) servers on which you intend to deploy the Web Application Proxy role.
 - The machine on which you execute the wizard must be able to connect to any other machines on which you want to install AD FS or Web Application Proxy via Windows Remote Management.
 
-[Configuring SSO with AD FS](./aad-connect/active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) 
+[Configuring SSO with AD FS](./aad-connect/active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 
 #### Sign on using an earlier version of AD FS or a third party solution
 
@@ -88,7 +88,7 @@ The UPN of the user is of the format username@domai. For example, for an active 
 
 Azure AD Connect wizard will use the userPrincipalName attribute or let you specify the attribute (in custom install) to be used from on-premises as the user principal name in Azure AD. This is the value that will be used for signing in to Azure AD. If the value of the user principal name attribute does not correspond to a verified domain in Azure AD, then Azure AD will replace it with a default .onmicrosoft.com value.
 
-Every directory in Azure Active Directory comes with a built-in domain name in the form contoso.onmicrosoft.com that lets you get started using Azure or other Microsoft services. You can improve and simplify sign-in experience using custom domains. For information on custom domain names in Azure AD and how to verify a domain, please read [Add your custom domain name to Azure Active Directory](active-directory-add-domain.md#add-your-custom-domain-name-to-azure-active-directory)
+Every directory in Azure Active Directory comes with a built-in domain name in the form contoso.onmicrosoft.com that lets you get started using Azure or other Microsoft services. You can improve and simplify sign-in experience using custom domains. For information on custom domain names in Azure AD and how to verify a domain, please read [Add your custom domain name to Azure Active Directory](active-directory-add-domain.md#add-a-custom-domain-name-to-your-directory)
 
 ## Azure AD sign-in configuration
 
@@ -139,7 +139,7 @@ If you selected User sign-in option as "Federation with AD FS", then you must ha
 
 ## Changing user sign-in method
 
-You can change the user sign-in method from Federation to Password Sync using the tasks avaialble in Azure AD Connect after the initial configuration of Azure AD Connect using the wizard. Run the Azure AD Connect wizard again and you will be presented with a list of tasks that you can perform. Select **Change user sign-in** from the list of tasks. 
+You can change the user sign-in method from Federation to Password Sync using the tasks avaialble in Azure AD Connect after the initial configuration of Azure AD Connect using the wizard. Run the Azure AD Connect wizard again and you will be presented with a list of tasks that you can perform. Select **Change user sign-in** from the list of tasks.
 
 ![Change user sign-in"](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -152,10 +152,8 @@ On the **User sign-in** page, select **Password Synchronization**. This will cha
 ![Connect to Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin3.png)
 
 >[AZURE.NOTE] If you are making only a temporary switch to password synchronization, then check the **Do not convert user accounts**. Not checking on the option will lead to conversion of each user to federated and it can take several hours.
-  
+
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
 Learn more about [Azure AD Connect: Design concepts](active-directory-aadconnect-design-concepts.md)
-
-

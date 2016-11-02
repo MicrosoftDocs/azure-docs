@@ -69,7 +69,7 @@ You can use the **New-AzureRmSqlDatabaseSecondary** cmdlet to add a secondary da
 
 This cmdlet replaces **Start-AzureSqlDatabaseCopy** with the **–IsContinuous** parameter.  It will output an **AzureRmSqlDatabaseSecondary** object that can be used by other cmdlets to clearly identify a specific replication link. This cmdlet will return when the secondary database is created and fully seeded. Depending on the size of the database it may take from minutes to hours.
 
-The replicated database on the secondary server will have the same name as the database on the primary server and will, by default, have the same service level. The secondary database can be readable or non-readable, and can be a single database or an elastic database. For more information, see [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) and [Service Tiers](sql-database-service-tiers.md).
+The replicated database on the secondary server will have the same name as the database on the primary server and will, by default, have the same service level. The secondary database can be readable or non-readable, and can be a single database or an elastic database. For more information, see [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689(v=azure.300\).aspx) and [Service Tiers](sql-database-service-tiers.md).
 After the secondary is created and seeded, data will begin replicating from the primary database to the new secondary database. The steps below describe how to accomplish this task using PowerShell to create non-readable and readable secondaries, either with a single database or an elastic database.
 
 If the partner database already exists (for example - as a result of terminating a previous Geo-Replication relationship) the command will fail.
@@ -116,7 +116,7 @@ The following command creates a readable secondary of database "mydb" in the ela
 
 ## Remove secondary database
 
-Use the **Remove-AzureRmSqlDatabaseSecondary** cmdlet to permanently terminate the replication partnership between a secondary database and its primary. After the relationship termination, the secondary database becomes a read-write database. If the connectivity to secondary database is broken the command succeeds but the secondary will become read-write after connectivity is restored. For more information, see [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) and [Service Tiers](sql-database-service-tiers.md).
+Use the **Remove-AzureRmSqlDatabaseSecondary** cmdlet to permanently terminate the replication partnership between a secondary database and its primary. After the relationship termination, the secondary database becomes a read-write database. If the connectivity to secondary database is broken the command succeeds but the secondary will become read-write after connectivity is restored. For more information, see [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457(v=azure.300\).aspx) and [Service Tiers](sql-database-service-tiers.md).
 
 This cmdlet replaces Stop-AzureSqlDatabaseCopy for replication. 
 
@@ -136,7 +136,7 @@ The following removes replication link of database named "mydb" to server "srv2"
 
 Monitoring tasks include monitoring of the geo-replication configuration and monitoring data replication health.  
 
-[Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) can be used to retrieve the information about the forward replication links visible in the sys.geo_replication_links catalog view.
+[Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330(v=azure.300\).aspx) can be used to retrieve the information about the forward replication links visible in the sys.geo_replication_links catalog view.
 
 The following command retrieves status of the replication link between the primary database "mydb” and the secondary on server "srv2” of the resource group "rg2”.
 

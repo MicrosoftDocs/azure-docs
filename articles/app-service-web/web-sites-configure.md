@@ -4,7 +4,7 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="rmcmurray" 
-	manager="wpickett" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2016" 
+	ms.date="11/01/2016" 
 	ms.author="robmcm"/>
 
 # Configure web apps in Azure App Service #

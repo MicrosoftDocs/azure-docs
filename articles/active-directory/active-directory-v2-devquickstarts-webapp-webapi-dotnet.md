@@ -54,7 +54,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoList-WebApp
 ```
 
 ## Sign the user in
-Now configure the OWIN middleware to use the [OpenID Connect authentication protocol](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  
+Now configure the OWIN middleware to use the [OpenID Connect authentication protocol](active-directory-v2-protocols.md).  
 
 -	Open the `web.config` file in the root of the `TodoList-WebApp` project, and enter your app's configuration values in the `<appSettings>` section.
     -	The `ida:ClientId` is the **Application Id** assigned to your app in the registration portal.
@@ -77,7 +77,7 @@ public void ConfigureAuth(IAppBuilder app)
         new OpenIdConnectAuthenticationOptions
         {
 
-					// The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0 
+					// The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
 					// The `Scope` describes the permissions that your app will need.  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
 					// In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
 
@@ -105,7 +105,7 @@ public void ConfigureAuth(IAppBuilder app)
 ```
 
 ## Use MSAL to get access tokens
-In the `AuthorizationCodeReceived` notification, we want to use [OAuth 2.0 in tandem with OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) to redeem the authorization_code for an access token to the To-Do List Service.  MSAL can make this process easy for you:
+In the `AuthorizationCodeReceived` notification, we want to use [OAuth 2.0 in tandem with OpenID Connect](active-directory-v2-protocols.md) to redeem the authorization_code for an access token to the To-Do List Service.  MSAL can make this process easy for you:
 
 - First, install the preview version of MSAL:
 

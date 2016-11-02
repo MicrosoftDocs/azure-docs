@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2016" 
+	ms.date="11/02/2016" 
 	ms.author="jingwang"/>
 
 # Move data from PostgreSQL using Azure Data Factory
@@ -27,9 +27,9 @@ Data Factory service supports connecting to on-premises PostgreSQL sources using
 
 Data factory only supports moving data from PostgreSQL to other data stores, not from other data stores to PostgreSQL.
 
-## Installation 
+## Supported versions and installation 
 
-For Data Management Gateway to connect to the PostgreSQL Database, you need to install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) on the same system as the Data Management Gateway.
+For Data Management Gateway to connect to the PostgreSQL Database, you need to install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 or above on the same system as the Data Management Gateway. PostgreSQL version 7.4 and above is supported.
 
 > [AZURE.NOTE] See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
 

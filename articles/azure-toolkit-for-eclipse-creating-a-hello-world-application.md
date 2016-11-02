@@ -4,7 +4,7 @@
     services=""
     documentationCenter="java"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,12 +13,10 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/11/2016" 
+    ms.date="11/01/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
-
-# Create a Hello World Cloud Service for Azure in Eclipse #
+# Create a Hello World Cloud Service for Azure in Eclipse
 
 The following steps show you how to create and deploy a basic JSP application to Azure using the Azure Toolkit for Eclipse. A JSP example is shown for simplicity, but highly similar steps would be appropriate for a Java servlet, as far as Azure deployment is concerned.
 
@@ -26,7 +24,7 @@ The application will look similar to the following:
 
 ![][ic600360]
 
-## Prerequisites ##
+## Prerequisites
 
 * A Java Developer Kit (JDK), v 1.7 or later.
 * Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
@@ -34,7 +32,7 @@ The application will look similar to the following:
 * An Azure subscription, which can be acquired from <http://azure.microsoft.com/pricing/purchase-options/>.
 * The Azure Toolkit for Eclipse. For more information, see [Installing the Azure Toolkit for Eclipse][].
 
-## To create a Hello World application ##
+## To create a Hello World application
 
 First, we'll start off with creating a Java project.
 
@@ -54,7 +52,7 @@ First, we'll start off with creating a Java project.
 ```
 * Save index.jsp.
 
-## To deploy your application to Azure, the quick and simple way ##
+## To deploy your application to Azure, the quick and simple way
 
 As soon as you have a Java web application ready to test, you can use the following shortcut to try it out directly on the Azure cloud.
 
@@ -96,7 +94,7 @@ Although this walk-through was for a deployment to the staging environment, a de
 
 >[AZURE.WARNING] At this point you have deployed your Azure application to the cloud. However, before proceeding, realize that a deployed application, even if it is not running, will continue to accrue billable time for your subscription. Therefore, it is extremely important that you delete unwanted deployments from your Azure subscription.
 
-## About Azure deployment projects ##
+## About Azure deployment projects
 
 In order to deploy one or more Java applications to Azure, an Azure Deployment Project is needed. It plays the role of the "package" that your applications need to be wrapped into in order to be published on Azure.
 
@@ -121,7 +119,7 @@ To change the JDK, or the application server, or the application list in an exis
 
 Regardless of whether you started these server configuration steps by editing an existing Azure deployment project as shown above, or creating a new one from scratch, you will see the same type of dialogs allowing you to configure your JDK, server and application components. To learn more how to change the settings in those dialogs, for example to change the JDK, the application server and add or remove applications in a deployment, see the [Server configuration properties][] article.
 
-## Windows only: To deploy your application to the compute emulator ##
+## Windows only: To deploy your application to the compute emulator
 
 >[AZURE.NOTE] The Azure emulator is only available on Windows. Skip this section if you are using an operating system other than Windows.
 
@@ -145,7 +143,7 @@ If you have created a new Azure deployment project following the steps described
 
 When you are ready to stop your application from running in the compute emulator, in the Eclipse toolbar, click the **Reset Azure Emulator** button, ![][ic710880].
 
-## To delete your deployment ##
+## To delete your deployment
 
 To delete your deployment within the Azure Toolkit for Eclipse, ensure that **MyHelloWorld_onAzure** is selected in Eclipse's Project Explorer, ensure the Eclipse Project Explorer has the current window focus, and then click the **Unpublish** button, ![][ic710883], in the Eclipse toolbar. (You could do the same operation by right-clicking **MyHelloWorld_onAzure** in Eclipse's Project Explorer, clicking **Azure** and then clicking **Undeploy from Azure Cloud**.) This will display the **Unpublish Azure Project** dialog.
 
@@ -155,7 +153,7 @@ Select the subscription and cloud service that contains your deployment, select 
 
 (An alternative to using the toolkit to delete the deployment is to use the **Cloud Services** section of the Azure Management Portal: Navigate to your deployment, select it, and then click the **Delete** button. This will stop, and then delete, the deployment. If you only want to stop the deployment and not delete it, click the **Stop** button instead of the **Delete** button, but as mentioned above, if you do not delete the deployment, billable charges will continue to accrue for your deployment even if it is stopped).
 
-## See Also ##
+## See Also
 
 [Azure Toolkit for Eclipse][]
 
@@ -194,3 +192,5 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 [publishDropdownButton]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/publishDropdownButton.png
+
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->

@@ -4,7 +4,7 @@
     services=""
     documentationCenter="java"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,16 +13,14 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/11/2016" 
+    ms.date="11/01/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/jj835232.aspx -->
-
-# Azure Project Properties #
+# Azure Project Properties
 
 Various settings for your Azure project can be set within the Azure Toolkit for Eclipse.
 
-## Configuring Azure Project Properties ##
+## Configuring Azure Project Properties
 
 Configuring your Azure Project Properties is accomplished through the property dialogs for your Azure project. Right-click the project in Eclipse's Project Explorer pane, click **Properties**, and then select the **Azure** sub-menu.
 
@@ -34,7 +32,7 @@ Within this property page, you can change the following items:
 * **Build for:** Whether the project is set for building to the compute emulator or deployment to Azure.
 * **Target OS:** The operating system to use when your project is deployed to Azure.
 
-## See Also ##
+## See Also
 
 [Azure Toolkit for Eclipse][]
 
@@ -60,3 +58,5 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 <!-- IMG List -->
 
 [ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png
+
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/jj835232.aspx -->

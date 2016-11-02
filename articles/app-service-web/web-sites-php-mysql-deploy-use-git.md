@@ -4,7 +4,7 @@
 	services="app-service\web"
 	documentationCenter="php"
 	authors="rmcmurray"
-	manager="wpickett"
+	manager="erikre"
 	editor=""
 	tags="mysql"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="11/01/2016"
 	ms.author="robmcm"/>
 
 # Create a PHP-MySQL web app in Azure App Service and deploy using Git

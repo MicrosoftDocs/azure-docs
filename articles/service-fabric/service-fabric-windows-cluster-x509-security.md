@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Connect to a secure private cluster | Microsoft Azure"
+   pageTitle="Secure a standalone cluster | Microsoft Azure"
    description="This article describes how to secure communication within the standalone or private cluster as well as between clients and the cluster."
    services="service-fabric"
    documentationCenter=".net"
@@ -164,7 +164,7 @@ Here is example cluster configuration where the Cluster, Server, and Client cert
 }
  ```
 
-## Aquire the X.509 certificates
+## Acquire the X.509 certificates
 To secure communication within the cluster, you will first need to obtain X.509 certificates for your cluster nodes. Additionally, to limit connection to this cluster to authorized machines/users, you will need to obtain and install certificates for the client machines.
 
 For clusters that are running production workloads, you should use a [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority) signed X.509 certificate to secure the cluster. For details on obtaining these certificates, go to [How to: Obtain a Certificate](http://msdn.microsoft.com/library/aa702761.aspx).
@@ -207,38 +207,38 @@ Once you have certificate(s), you can install them on the cluster nodes. Your no
     ```
     param
     (
-        [Parameter(Position=1, Mandatory=$true)]
-        [ValidateNotNullOrEmpty()]
-        [string]$pfxThumbPrint,
+    [Parameter(Position=1, Mandatory=$true)]
+    [ValidateNotNullOrEmpty()]
+    [string]$pfxThumbPrint,
 
-        [Parameter(Position=2, Mandatory=$true)]
-        [ValidateNotNullOrEmpty()]
-        [string]$serviceAccount
-        )
+	[Parameter(Position=2, Mandatory=$true)]
+    [ValidateNotNullOrEmpty()]
+    [string]$serviceAccount
+    )
 
-        $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; };
+    $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; }
 
-        # Specify the user, the permissions and the permission type
-        $permission = "$($serviceAccount)","FullControl","Allow"
-        $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission;
+    # Specify the user, the permissions and the permission type
+    $permission = "$($serviceAccount)","FullControl","Allow"
+    $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission
 
-        # Location of the machine related keys
-        $keyPath = $env:ProgramData + "\Microsoft\Crypto\RSA\MachineKeys\";
-        $keyName = $cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName;
-        $keyFullPath = $keyPath + $keyName;
+    # Location of the machine related keys
+    $keyPath = $Join-Path -Path $env:ProgramData -ChildPath "\Microsoft\Crypto\RSA\MachineKeys"
+    $keyName = $cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName
+    $keyFullPath = Join-Path -Path $keyPath -ChildPath $keyName
 
-        # Get the current acl of the private key
-        $acl = (Get-Item $keyFullPath).GetAccessControl('Access')
+    # Get the current acl of the private key
+    $acl = (Get-Item $keyFullPath).GetAccessControl('Access')
 
-        # Add the new ace to the acl of the private key
-        $acl.SetAccessRule($accessRule);
+    # Add the new ace to the acl of the private key
+    $acl.SetAccessRule($accessRule)
 
-        # Write back the new acl
-        Set-Acl -Path $keyFullPath -AclObject $acl -ErrorAction Stop
+    # Write back the new acl
+    Set-Acl -Path $keyFullPath -AclObject $acl -ErrorAction Stop
 
-        #Observe the access rights currently assigned to this certificate.
-        get-acl $keyFullPath| fl
-        ```
+    # Observe the access rights currently assigned to this certificate.
+    get-acl $keyFullPath| fl
+    ```
 
 4. Repeat the steps above for each server certificate. You can also use these steps to install the client certificates on the machines that you want to allow access to the cluster.
 
@@ -266,3 +266,5 @@ To remove the cluster call the following command:
 ```
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json   -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
 ```
+
+> [AZURE.NOTE] Incorrect certificate configuration may prevent the cluster from coming up during deployment. To self-diagnose security issues, please look in event viewer group *Applications and Services Logs* > *Microsoft-Service Fabric*.

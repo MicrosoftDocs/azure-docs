@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
-   ms.author="v-jeana; hascipio"/>
+   ms.date="10/03/2016"
+   ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Understand your seller insights report
 
@@ -28,7 +28,7 @@ All VM and usage-based billing developer services publishers receive monthly rep
 
 - **Monthly sales reports:**  If you have usage, you will receive a second email that contains your reports and instructions on how to access your password:
 
-    - If you have a VM or usage-based billing developer services SKU that is generating usage, your monthly report will show you details about the orders, usage, markets, and customer details for your non-BYOL (bring your own license) offers.
+    - If you have a VM or usage-based billing developer services SKU that is generating usage, your monthly report will show you details about the orders, usage, markets, and customer details for your offers.
     - Reports are locked with a password that only you and Microsoft know in order to protect your customers’ data.
     - Microsoft will not send a report if none of your offers have generated usage during the month.
 

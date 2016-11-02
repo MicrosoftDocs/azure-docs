@@ -18,7 +18,7 @@
    ms.author="mwasson"/>
 
 
-# Improving scalability in a web application 
+# Improving scalability in a web application
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
@@ -30,11 +30,11 @@ This article shows a recommended architecture for improving scalability and perf
 
 The architecture has the following components:
 
-- **Resource group**. A [resource group][resource-group] is a logical container for Azure resources. 
+- **Resource group**. A [resource group][resource-group] is a logical container for Azure resources.
 
 - **[Web app][app-service-web-app]** and **[API app][app-service-api-app]**. A typical modern application might include both a website and one or more RESTful web APIs. A web API might be consumed by browser clients through AJAX, by native client applications, or by server-side applications. For considerations on designing web APIs, see [API design guidance][api-guidance].    
 
-- **WebJob**. Use [Azure WebJobs][webjobs] to run long-running tasks in the background. WebJobs can run on a schedule, continously, or in response to a trigger, such as putting a message on a queue. A WebJob runs as a background process in the context of an App Service app. 
+- **WebJob**. Use [Azure WebJobs][webjobs] to run long-running tasks in the background. WebJobs can run on a schedule, continously, or in response to a trigger, such as putting a message on a queue. A WebJob runs as a background process in the context of an App Service app.
 
 - **Queue**. In the architecture shown here, the application queues background tasks by putting a message onto an [Azure Queue Storage][queue-storage] queue to trigger a function in the WebJob. Service Bus queues can also be used. For a comparison, see [Azure Queues and Service Bus queues - compared and contrasted][queues-compared].
 
@@ -52,9 +52,9 @@ The architecture has the following components:
 
 You might have additional or differing requirements from the architecture described here. You can use the items in this section as a starting point for considering how to customize the architecture for your own system.
 
-### App Service apps 
+### App Service apps
 
-We recommend creating the web application and the web API as separate App Service apps. This design lets you run them in separate App Service plans so they can be scaled independently. If you don't need that level of scalability initially, you can instead deploy the apps into the same plan and move them into separate plans later if necessary. 
+We recommend creating the web application and the web API as separate App Service apps. This design lets you run them in separate App Service plans so they can be scaled independently. If you don't need that level of scalability initially, you can instead deploy the apps into the same plan and move them into separate plans later if necessary.
 
 > [AZURE.NOTE] For the Basic, Standard, and Premium plans, you are billed for the VM instances in the plan, not per app. See [App Service Pricing][app-service-pricing]
 
@@ -72,19 +72,19 @@ You can improve performance and scalability by using [Azure Redis Cache][azure-r
 
 - Session state.
 
-- HTML output. This can be useful in applications that render complex HTML output. 
+- HTML output. This can be useful in applications that render complex HTML output.
 
 For more detailed guidance on designing a caching strategy, see [Caching guidance][caching-guidance].
 
-### CDN 
+### CDN
 
-Use [Azure CDN][azure-cdn] to cache static content. CDN caches content at an *edge server* that is geographically close to the user, resulting in less latency. CDN can also reduce load on the application by handling traffic on behalf of the application. 
+Use [Azure CDN][azure-cdn] to cache static content. CDN caches content at an *edge server* that is geographically close to the user, resulting in less latency. CDN can also reduce load on the application by handling traffic on behalf of the application.
 
 If your app consists mostly of static pages, consider using [CDN to cache the entire app][cdn-app-service]. Otherwise, put static content such as images, CSS, and HTML files, into [Azure Storage and use CDN to cache those files][cdn-storage-account].
 
 > [AZURE.NOTE] Azure CDN cannot serve content that requires authentication.
 
-For more detailed guidance, see [Content Delivery Network (CDN) guidance][cdn-guidance]. 
+For more detailed guidance, see [Content Delivery Network (CDN) guidance][cdn-guidance].
 
 ### Storage
 
@@ -110,7 +110,7 @@ Similarly, consider putting a WebJob into its own plan so that background tasks 
 
 ### SQL Database
 
-Increase scalability of a SQL database by *sharding* the database. Sharding refers to partitioning the database horizontally. Sharding allows you to scale out the database horizontally using [Elastic Database tools][sql-elastic]. Some of the benefits of sharing are better transaction throughput and  faster running queries over a subset of the data. 
+Increase scalability of a SQL database by *sharding* the database. Sharding refers to partitioning the database horizontally. Sharding allows you to scale out the database horizontally using [Elastic Database tools][sql-elastic]. Some of the benefits of sharing are better transaction throughput and  faster running queries over a subset of the data.
 
 ### Azure Search
 
@@ -122,11 +122,11 @@ This section lists security considerations that are specific to the Azure servic
 
 ### Cross-Origin Resource Sharing (CORS)
 
-If you create a website and web API as separate apps, the website cannot make client-side AJAX calls to the API unless you enable CORS. 
+If you create a website and web API as separate apps, the website cannot make client-side AJAX calls to the API unless you enable CORS.
 
 > [AZURE.NOTE] Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the same-origin policy, and prevents a malicious site from reading sentitive data from another site. CORS is a W3C standard that allows a server to relax the same-origin policy and allow some cross-origin requests while rejecting others.
 
-App Services has built-in support for CORS, without needing to write any application code. See [Consume an API app from JavaScript using CORS][cors]. Add the website to the list of allowed origins for the API. 
+App Services has built-in support for CORS, without needing to write any application code. See [Consume an API app from JavaScript using CORS][cors]. Add the website to the list of allowed origins for the API.
 
 ### SQL Database encryption
 
@@ -149,7 +149,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [azure-search-scaling]: ../search/search-capacity-planning.md
 [background-jobs]: ../best-practices-background-jobs.md
 [basic-web-app]: guidance-web-apps-basic.md
-[basic-web-app-scalability]: guidance-web-apps-basic.md#scalability-considerations 
+[basic-web-app-scalability]: guidance-web-apps-basic.md#scalability-considerations
 [caching-guidance]: ../best-practices-caching.md
 [cdn-app-service]: ../app-service-web/cdn-websites-with-cdn.md
 [cdn-storage-account]: ../cdn/cdn-create-a-storage-account-with-cdn.md
@@ -159,7 +159,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [polyglot-storage]: https://github.com/mspnp/azure-guidance/blob/master/Polyglot-Solutions.md
 [queue-storage]: ../storage/storage-dotnet-how-to-use-queues.md
 [queues-compared]: ../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md
-[resource-group]: ../resource-group-overview.md#resource-groups
+[resource-group]: ../azure-resource-manager/resource-group-overview.md#resource-groups
 [sql-db]: https://azure.microsoft.com/en-us/documentation/services/sql-database/
 [sql-elastic]: ../sql-database/sql-database-elastic-scale-introduction.md
 [sql-encryption]: https://msdn.microsoft.com/en-us/library/dn948096.aspx
