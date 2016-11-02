@@ -31,7 +31,7 @@ The **Long-Term Backup Retention** feature enables you to store your Azure SQL D
 Long-term retention of backups allows you to associate an Azure SQL Database server with a Recovery Services Vault. 
 
 - The vault must be created in the same Azure subscription that created the SQL server and in the same geographic region and resource group. 
-- You then configure a retention policy for any database. The policy will cause the weekly full database backups be copied to the Recovery Services Vault and retained for the specified retention period (up to 10 years). 
+- You then configure a retention policy for any database. The policy causes the weekly full database backups be copied to the Recovery Services Vault and retained for the specified retention period (up to 10 years). 
 - You can then restore from any of these backups to a new database in any server in the subscription. The copy is performed by Azure storage from existing backups and has no performance impact on the existing database.
 
 ## How do I enable Long-Term Retention?
@@ -59,7 +59,7 @@ To recover from a long-term retention backup:
 
 Long-term retention of an Azure SQL database is charged according to the [Azure backup services pricing rates](https://azure.microsoft.com/pricing/details/backup/).
 
-After the Azure SQL Database server is registered to the vault you will be charged for the total storage that is used by the weekly backups of the databases in the server that are configured with retention policy.
+After the Azure SQL Database server is registered to the vault, you are charged for the total storage that is used by the weekly backups stored in the vault.
 
 ## Configuring Long-Term Retention using PowerShell
 
@@ -71,7 +71,7 @@ After the Azure SQL Database server is registered to the vault you will be charg
    Set-AzureRmRecoveryServicesBackupProperties   -BackupStorageRedundancy LocallyRedundant  -Vault $vault
    ```
 
-2.	Register your Azure SQL Database Server to the recovery service vault so databases within the server can have backups stored for long-term
+2.	Register your Azure SQL Database Server to the recovery service vault so databases within the server can have backups stored for long term.
 
    ```
    Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName 'RG1' -ServerName 'Server1' –ResourceId $vault.Id
@@ -134,7 +134,7 @@ Use the following steps to restore a database from a backup in the Azure Recover
 1.	Find the Recovery Service container associated with SQL server.
 
    ```
-   #the following commands will find the container associated with the server 'myserver' under resource group 'myresourcegroup'
+   #the following commands find the container associated with the server 'myserver' under resource group 'myresourcegroup'
 
    Set-AzureRMRecoveryServicesVaultContext -Vault $vault
       $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -Name 'Sql;myresourcegroup;myserver'
@@ -143,7 +143,7 @@ Use the following steps to restore a database from a backup in the Azure Recover
 2. Find the backup item associated with a database.
 
    ``` 
-   #the following command will find the backup item associated with the database 'mydb'
+   #the following command finds the backup item associated with the database 'mydb'
    
    $item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQL -Name 'mydb' 
    ```
@@ -151,7 +151,7 @@ Use the following steps to restore a database from a backup in the Azure Recover
 3.	Find the backup you want to restore from.
 
    ```
-   #The following command will list the backups (also known as the “recovery points”) created in the specific time period.
+   #The following command lists the backups (also known as the “recovery points”) created in the specific time period.
 
    $RP=Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $item –StartDate '2016-02-01' -EndDate '2016-02-20'
    ```
@@ -159,26 +159,26 @@ Use the following steps to restore a database from a backup in the Azure Recover
 4.	Restore from the recovery point into a new Azure SQL Database:
 
    ```
-   #This command will restore from a selected backup. If there are multiple recovery points in the specified range $RP[0] refers to the first one
+   #This command restores from a selected backup. If there are multiple recovery points in the specified range $RP[0] refers to the first one.
 
    Restore-AzureRMSqlDatabase –FromLongTermRetentionBackup –ResourceId $RP[0].ID TargetResourceGroupName 'RG2' -TargetServerName 'Server2' -TargetDatabaseName 'DB2' [-Edition <String>] [-ServiceObjectiveName <String>] [-ElasticPoolName <String>] [<CommonParameters>]
    ```
 
 ## Disabling Long-term Retention
 
-The Recovery Service automatically handles cleanup of backups based on the provided retention policy. To stop sending the backups for a specific database to the Recovery Service vault you must remove the retention policy for that database.
+The Recovery Service automatically handles cleanup of backups based on the provided retention policy. To stop sending the backups for a specific database to the Recovery Service vault, remove the retention policy for that database.
 
    ```
-   #this will remove the retention policy from the database and stop sending the backups to the vault
+   #This command removes the retention policy from the database and stop sending the backups to the vault
 
    Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName 'RG1' –ServerName 'Server1' -DatabaseName 'DB1' -State 'Disabled' -ResourceId $policy.Id
    ```
 
-> [AZURE.NOTE] The backups already in the vault will not be impacted. They will be automatically deleted by the Recovery Service when their retention period expires.
+> [AZURE.NOTE] The backups already in the vault are not be impacted. They are automatically deleted by the Recovery Service when their retention period expires.
 
 ## Removing backups from the Recovery Service vault
 
-To manulally remove backups from the vault.
+To manually remove backups from the vault.
 
    ```
    #this step identifies the container for ‘myserver’
@@ -201,25 +201,22 @@ To manulally remove backups from the vault.
 ## Long-Term Retention FAQ:
 
 
-1.	Q: Can I manually delete specific backups in the vault?
-A: Not at this point in time, the vault will automatically clean up backups when the retention has expired.
+1.	Q: Can I register my server to store Backups to more than one vault?
+A: No, today you can only store backups to 1 vault at a time.
 
-2.	Q: Can I register my server to backup to more than one vault?
-A: No, today you can only backup to one vault at a time.
-
-3.	Q: Can I have a vault and server in different subscriptions?
+2.	Q: Can I have a vault and server in different subscriptions?
 A: No, currently the vault and server must be in both the same subscription and resource group.
 
-4.	Q: Can I use a vault I created in a different region than my server’s region?
+3.	Q: Can I use a vault I created in a different region than my server’s region?
 A: No, the vault and server must be in the same region to minimize the copy time and avoid the traffic charges.
 
-5.	Q: How many databases can I backup to 1 vault?
+4.	Q: How many databases can I backup to 1 vault?
 A: Currently we only support up to 2000 databases per vault. You can create up to 25 vaults per subscription.
 
-6.	Q: Does long-term retention work with Elastic Database Pools?
+5.	Q: Does long-term retention work with Elastic Database Pools?
 A: Yes. Any database in the pool can be configured with the retention policy.
 
-7.	Q: Can I choose the time at which the backup is created?
+6.	Q: Can I choose the time at which the backup is created?
 A: No, SQL Database controls the backups schedule in order to minimize the performance impact on your databases.
 
 ## Next steps
