@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/16/2016"
+	ms.date="11/02/2016"
 	ms.author="banders"/>
 
 # Manage access to Log Analytics
@@ -31,7 +31,7 @@ Although you might not need to perform every management task at first, we'll cov
 - Upgrade a workspace to a paid data plan
 - Change a data plan type
 - Add an Azure Active Directory Organization to an existing workspace
-- Close your OMS workspace
+- Delete your OMS workspace
 
 ## Determine the number of workspaces you need
 
@@ -122,7 +122,7 @@ Use the following steps to add a user or group to an OMS workspace. The user or 
 3. In the **Manage Users** section, choose the account type to add: **Organizational Account**, **Microsoft Account**, **Microsoft Support**.
     - If you choose Microsoft Account, type the email address of the user associated with the Microsoft Account.
     - If you choose Organizational Account, you can enter part of the user or group’s name or email alias and a list of users and groups will appear. Select a user or group.
-    - Use Microsoft Support to give a Microsoft Support engineer temporary access to your workspace to help with troubleshooting.
+    - Use Microsoft Support to give a Microsoft Support engineer or other Microsoft employee temporary access to your workspace to help with troubleshooting.
 
     >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single OMS account to three—one for administrators, one for contributors, and one for read-only users. Using more groups might impact the performance of Log Analytics.
 
@@ -175,7 +175,7 @@ Use the following steps to remove a user from an OMS workspace. Note that this d
 
 ## Link an existing workspace to an Azure subscription
 
-It is possible to create a workspace from the [microsoft.com/oms](https://microsoft.com/oms) website.  However, certain limits exist for these workspaces, the most notable being a limit of 500MB/day of data uploads if you're using a free account. To make changes to this workspace you will need to *link your existing workspace to an Azure subscription*.
+All workspaces created after September 26, 2016 must be linked to an Azure subscription at creation time. Workspaces created prior to this date must be linked to a workspace when you next login. 
 
 >[AZURE.IMPORTANT] In order to link a workspace, your Azure account must already have access to the workspace you'd like to link.  In other words, the account you use to access the Azure portal must be **the same** as the account you use to access your OMS workspace. If this is not the case, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
@@ -216,31 +216,31 @@ Your new data plan is displayed in the OMS portal ribbon at the top of your web 
 >[AZURE.NOTE] If you do not see the workspace you'd like to link, then your Azure subscription does not have access to the OMS workspace that you created using the OMS website.  You will need to grant access to this account from inside your OMS workspace using the OMS website. To do so, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
 
+## Upgrade a workspace to a paid plan
 
-## Upgrade a workspace to a paid data plan
+There are three workspace plan types for OMS: **Free**, **Standalone**, and **OMS**.  If you are on the *Free* plan, there is a limit of 500MB of data per day sent to Log Analytics.  If you exceed this amount you need to change your workspace to a paid plan to avoid not collecting data beyond this limit. At any time you can change your plan type.  For more information on OMS pricing, see [Pricing Details](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing).
 
-There are three workspace data plan types for OMS: **Free**, **Standard**, and **Premium**.  If you are on a *Free* plan, you may have hit your data cap of 500MB.  You will need to upgrade your workspace to a ***pay-as-you-go plan*** in order to collect data beyond this limit. At any time you can convert your plan type.  For more information on OMS pricing, see [Pricing Details](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
 
->[AZURE.IMPORTANT] Workspace plans can only be changed if they are *linked* to an Azure subscription.  If you created your workspace in Azure or if you've *already* linked your workspace, you can ignore this message.  If you created your workspace with the [OMS website](http://www.microsoft.com/oms), you will need to follow the steps at [Link an existing workspace to an Azure subscription](#link-an-existing-workspace-to-an-azure-subscription).
+### Using entitlements from an OMS subscription 
 
-### Using entitlements from the OMS Add-On for System Center
+To use the entitlements that come from purchasing OMS E1, OMS E2 OMS or OMS Add-On for System Center, choose the *OMS* plan of OMS Log Analytics.
 
-The OMS Add-On for System Center provides an entitlement for the Premium plan of OMS Log Analytics, described at [OMS Pricing](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
+When you purchase an OMS subscription the entitlements are added to your Enterprise Agreement. Any Azure subscription that is created under this agreement can make use of the entitlement. This allows you, for example, to have multiple OMS workspaces that use the entitlement from the OMS subscriptions.
 
-When you purchase the OMS add-on for System Center, the OMS add-on is added as an entitlement on your System Center agreement. Any Azure subscription that is created under this agreement can make use of the entitlement. This allows you, for example, to have multiple OMS workspaces that use the entitlement from the OMS add-on.
+To ensure that usage of an OMS workspace is applied to your entitlements from the OMS subscription, you'll need to:
 
-To ensure that usage of an OMS workspace is applied to your entitlements from the OMS add-on, you'll need to:
+1. Create your OMS workspace in an Azure subscription that is part of the Enterprise Agreement that includes the OMS subscription
+2. Select the *OMS* plan for the workspace
 
-1. Link your OMS workspace to an Azure subscription that is part of the Enterprise Agreement that includes both the OMS add-on purchase and Azure subscription usage
-2. Select the Premium plan for the workspace
+>[AZURE.NOTE] If your workspace was created prior to September 26, 2016 and your Log Analytics pricing plan is *Premium*, then this workspace will use entitlements from the OMS Add-On for System Center. You can also use your entitlements by changing to the *OMS* pricing tier. 
 
-When you review your usage in the Azure or OMS portal, you won’t see the OMS add-on entitlements. However, you can see entitlements in the Enterprise Portal.  
+When you review your usage in the Azure or OMS portal, you won’t see the OMS subscription entitlements. However, you can see entitlements in the Enterprise Portal.  
 
 If you need to change the Azure subscription that your OMS workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.
 
 ### Using Azure Commitment from an Enterprise Agreement
 
-If you choose to use standalone pricing for OMS components, you will pay for each component of OMS separately and the usage will appear on your Azure bill.
+If you do not have an OMS subscription, you will pay for each component of OMS separately and the usage will appear on your Azure bill.
 
 If you have an Azure monetary commit on the enterprise enrollment to which your Azure subscriptions are linked, any usage of Log Analytics will automatically debit against any remaining monetary commit.
 
@@ -251,7 +251,7 @@ If you need to change the Azure subscription that the OMS workspace is linked to
 ### To change a workspace to a paid data plan
 
 1.	Sign into the [Azure portal](http://portal.azure.com).
-2.	Browse for **Log Analytics (OMS)** and then select it.
+2.	Browse for **Log Analytics** and then select it.
 3.	You’ll see your list of existing workspaces. Select a workspace.  
     ![list of workspaces](./media/log-analytics-manage-access/manage-access-change-plan01.png)
 4.	Under **Settings**, click **Pricing tier**.  
@@ -260,8 +260,6 @@ If you need to change the Azure subscription that the OMS workspace is linked to
     ![select plan](./media/log-analytics-manage-access/manage-access-change-plan03.png)
 6.	When you refresh your view in the Azure portal, you’ll see **Pricing tier** updated for the plan you selected.  
     ![update pricing tier](./media/log-analytics-manage-access/manage-access-change-plan04.png)
-
-Now you can collect data beyond the "free" data cap.
 
 
 ## Add an Azure Active Directory Organization to an existing workspace
@@ -274,21 +272,23 @@ When you create the workspace from the OMS portal you will be prompted to link t
 
 ### To add an Azure Active Directory Organization to an existing workspace
 
-1. On the Settings page in OMS, click **Accounts** and then click the **Workspace Information** tab.  
+Adding an Azure Active Directory Organization allows you to add users and groups from that directory to the workspace.
+
+1. On the Settings page in OMS, click **Accounts** and then click the **Manage Users** tab.  
 2. Review the information about organizational accounts, and then click **Add Organization**.  
     ![add organization](./media/log-analytics-manage-access/manage-access-add-adorg01.png)
 3. Enter the identity information for the administrator of your Azure Active Directory domain. Afterward, you'll see an acknowledgment stating that your workspace is linked to your Azure Active Directory domain.
     ![linked workspace acknowledgment](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
->[AZURE.NOTE] Once your account is linked to an Organizational Account, linking cannot be removed or changed.
+If you need to add users from a different directory you can click on the *Change Organization* button to associate the workspace with another directory.
 
-## Close your OMS workspace
+## Delete your Log Analytics workspace
 
-When you close an OMS workspace, all data related to your workspace is deleted from the OMS service within 30 days of closing the workspace.
+When you delete a Log Analytics workspace, all data related to your workspace is deleted from the OMS service within 30 days.
 
 If you are an administrator and there are multiple users associated with the workspace, the association between those users and the workspace is broken. If the users are associated with other workspaces, then they can continue using OMS with those other workspaces. However, if they are not associated with other workspaces then they will need to create a new workspace to use OMS.
 
-### To close an OMS workspace
+### To delete an OMS workspace
 
 1. In OMS, click the **Settings** tile.
 2. Click the **Accounts** tab and then click the **Workspace Information** tab.
