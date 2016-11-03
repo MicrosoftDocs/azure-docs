@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="10/31/2016"
+	ms.date="11/02/2016"
 	ms.author="chrande"/>
 
 # Azure Functions Storage queue bindings
@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code Azure Storage queue bindings in Azure Functions. 
-Azure Functions supports trigger and output bindings for Azure Storage blobs.
+Azure Functions supports trigger and output bindings for Azure Storage queues.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
@@ -45,6 +45,9 @@ The Storage queue trigger to a function use the following JSON objects in the `b
 `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
 editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
 one. To manually create this app setting, see [configure this app setting manually]().
+
+[Additional settings](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) can be provided in a host.json file to further fine tune storage queue triggers.  
+
 
 ### Handling poison queue messages
 

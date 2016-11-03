@@ -4,7 +4,7 @@
 	services="multiple"
 	documentationCenter=".net"
 	authors="rboucher"
-	manager="jwhit"
+	manager=""
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="10/25/2016"
 	ms.author="robb"/>
 
 

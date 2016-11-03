@@ -25,11 +25,11 @@ This document details how Virtual Machine extensions can automate application de
 
 ## Configuration script
 
-Virtual Machine extensions are specialized programs that execute against virtual machines to provide configuration automation. Extensions are available for many specific purposes such as anti-virus, logging configuration, and Docker configuration. A custom script extension can be used to run any script against a virtual machine. With the Music Store sample, it is up to the custom script extension to configure the Ubuntu virtual machines and install the Music Store application.
+Virtual Machine extensions are specialized programs that execute against virtual machines to provide configuration automation. Extensions are available for many specific purposes such as anti-virus, logging configuration, and Docker configuration. A custom script extension can be used to run any script against a virtual machine. With the Music Store sample, it is up to the custom script extension to configure the Ubuntu virtual machines and install the Music Store application. 
 
 Before detailing how virtual machine extensions are declared in an Azure Resource Manager template, examine the script that is run. This script configures the Ubuntu virtual machine to host the Music Store application. When run, the script installs all needed software, install the Music store application from source control, and prepare the database. 
 
-To learn more about hosting a .Net Core application on Linux, see [Publish to a Linux production environment](https://docs.asp.net/en/latest/publishing/linuxproduction.html). 
+To learn more about hosting a .Net Core application on Linux, see [Publish to a Linux production environment](https://docs.asp.net/en/latest/publishing/linuxproduction.html).
 
 > This sample is for demonstration purposes.
 

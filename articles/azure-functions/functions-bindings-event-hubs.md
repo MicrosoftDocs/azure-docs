@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="10/31/2016"
+	ms.date="11/02/2016"
 	ms.author="wesmc"/>
 
 # Azure Functions Event Hub bindings
@@ -50,6 +50,9 @@ used to subscribe to events in the hub. If omitted, the `$Default` consumer grou
 `connection` must be the name of an app setting that contains the connection string to the event hub's namespace. 
 Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub 
 itself. This connection string must have at least read permissions to activate the trigger.
+
+[Additional settings](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) can be provided in a host.json file to further fine tune Event Hub triggers.  
+
 
 <a name="triggerusage"></a>
 ## Trigger usage
