@@ -1,33 +1,28 @@
-<properties 
-	pageTitle="Using Diagnostic Search | Microsoft Azure" 
-	description="Search and filter individual events, requests, and log traces." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Using Diagnostic Search | Microsoft Docs
+description: Search and filter individual events, requests, and log traces.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/09/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 06/09/2016
+ms.author: awills
+
+---
 # Using Diagnostic Search in Application Insights
-
 Diagnostic Search is a feature of [Application Insights][start] that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
 ## Where do you see Diagnostic Search?
-
-
 ### In the Azure portal
-
 You can open diagnostic search explicitly:
 
 ![Open diagnostic search](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
-
 
 It also opens when you click through some charts and grid items. In this case, its filters are pre-set to focus on the type of item you selected. 
 
@@ -35,14 +30,11 @@ For example, if your application is a web service, the overview blade shows a ch
 
 ![Open diagnostic search](./media/app-insights-diagnostic-search/07-open-from-filters.png)
 
-
 The main body of Diagnostic Search is a list of telemetry items - server requests, page views, custom events that you have coded, and so on. At the top of the list is a summary chart showing counts of events over time.
 
 Events typically show up in diagnostic search before they appear in metric explorer. Although the blade refreshes itself at intervals, you can click Refresh if you're waiting for a particular event.
 
-
 ### In Visual Studio
-
 Open the Search window in Visual Studio:
 
 ![](./media/app-insights-diagnostic-search/32.png)
@@ -51,25 +43,19 @@ The Search window has the same features as the web portal:
 
 ![](./media/app-insights-diagnostic-search/34.png)
 
-
 ## Sampling
-
 If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
 
 [Learn about sampling](app-insights-sampling.md).
 
-
 ## Inspect individual items
-
 Select any telemetry item to see key fields and related items. If you want to see the full set of fields, click "...". 
-
 
 ![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/10-detail.png)
 
 To find the full set of fields, use plain strings (without wildcards). The available fields depend on the type of telemetry.
 
 ## Create work item
-
 You can create a bug in Visual Studio Team Services with  the details from any telemetry item. 
 
 ![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/42.png)
@@ -81,12 +67,9 @@ The first time you do this, you are asked to configure a link to your Team Servi
 (You can also get to the configuration blade from Settings > Work Items.)
 
 ## Filter event types
-
 Open the Filter blade and choose the event types you want to see. (If, later, you want to restore the filters with which you opened the blade, click Reset.)
 
-
 ![Choose Filter and select telemetry types](./media/app-insights-diagnostic-search/02-filter-req.png)
-
 
 The event types are:
 
@@ -97,7 +80,6 @@ The event types are:
 * **Exception** - Uncaught exceptions in the server, and those that you log by using TrackException().
 
 ## Filter on property values
-
 You can filter events on the values of their properties. The available properties depend on the event types you selected. 
 
 For example, pick out requests with a specific response code.
@@ -106,9 +88,7 @@ For example, pick out requests with a specific response code.
 
 Choosing no values of a particular property has the same effect as choosing all values; it switches off filtering on that property.
 
-
 ### Narrow your search
-
 Notice that the counts to the right of the filter values show how many occurrences there are in the current filtered set. 
 
 In this example, it's clear that the `Reports/Employees` request results in the majority of the 500 errors:
@@ -118,13 +98,11 @@ In this example, it's clear that the `Reports/Employees` request results in the 
 Additionally if you want to also see what other events were happening during this time, you can check **Include events with undefined properties**.
 
 ## Remove bot and web test traffic
-
 Use the filter **Real or synthetic traffic** and check **Real**.
 
 You can also filter by **Source of synthetic traffic**.
 
 ## Inspect individual occurrences
-
 Add that request name to the filter set, and you can then inspect individual occurrences of that event.
 
 ![Select a value](./media/app-insights-diagnostic-search/05-reqDetails.png)
@@ -136,21 +114,16 @@ Click through an exception to see its detail, including the stack trace.
 ![Click an exception](./media/app-insights-diagnostic-search/06-callStack.png)
 
 ## Find events with the same property
-
 Find all the items with the same property value:
 
 ![Right-click a property](./media/app-insights-diagnostic-search/12-samevalue.png)
 
 ## Search by metric value
-
 Get all the requests response time > 5s.  Times are represented in ticks: 10 000 ticks = 1ms.
 
 !["Response time":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
-
-
 ## Search the data
-
 You can search for terms in any of the property values. This is particularly useful if you have written [custom events][track] with property values. 
 
 You might want to set a time range, as searches over a shorter range are faster. 
@@ -159,33 +132,29 @@ You might want to set a time range, as searches over a shorter range are faster.
 
 Search for terms, not substrings. Terms are alphanumeric strings including some punctuation such as '.' and '_'. For example:
 
-term|is *not* matched by|but these do match
----|---|---
-HomeController.About|about<br/>home|h\*about<br/>home\*
-IsLocal|local<br/>is<br/>\*local|isl\*<br/>islocal<br/>i\*l\*
-New Delay|w d|new<br/>delay<br/>n\* AND d\*
-
+| term | is *not* matched by | but these do match |
+| --- | --- | --- |
+| HomeController.About |about<br/>home |h\*about<br/>home\* |
+| IsLocal |local<br/>is<br/>\*local |isl\*<br/>islocal<br/>i\*l\* |
+| New Delay |w d |new<br/>delay<br/>n\* AND d\* |
 
 Here are the search expressions you can use:
 
-Sample query | Effect 
----|---
-slow|Find all events in the date range whose fields include the term "slow"
-database??|Matches database01, databaseAB, ...<br/>? is not allowed at the start of a search term.
-database* |Matches database, database01, databaseNNNN<br/> * is not allowed at the start of a search term
-apple AND banana|Find events that contain both terms. Use capital "AND", not "and".
-apple OR banana<br/>apple banana|Find events that contain either term. Use "OR", not "or".</br/>Short form.
-apple NOT banana<br/>apple -banana|Find events that contain one term but not the other.<br/>Short form.
-app* AND banana -(grape pear)|Logical operators and bracketing.
-"Metric": 0 TO 500<br/>"Metric" : 500 TO * | Find events that contain the named measurement within the value range.
-
+| Sample query | Effect |
+| --- | --- |
+| slow |Find all events in the date range whose fields include the term "slow" |
+| database?? |Matches database01, databaseAB, ...<br/>? is not allowed at the start of a search term. |
+| database* |Matches database, database01, databaseNNNN<br/> * is not allowed at the start of a search term |
+| apple AND banana |Find events that contain both terms. Use capital "AND", not "and". |
+| apple OR banana<br/>apple banana |Find events that contain either term. Use "OR", not "or".</br/>Short form. |
+| apple NOT banana<br/>apple -banana |Find events that contain one term but not the other.<br/>Short form. |
+| app* AND banana -(grape pear) |Logical operators and bracketing. |
+| "Metric": 0 TO 500<br/>"Metric" : 500 TO * |Find events that contain the named measurement within the value range. |
 
 ## Save your search
-
 When you've set all the filters you want, you can save the search as a favorite. If you work in an organizational account, you can choose whether to share it with other team members.
 
 ![Click Favorite, set the name, and click Save](./media/app-insights-diagnostic-search/08-favorite-save.png)
-
 
 To see the search again, **go to the overview blade** and open Favorites:
 
@@ -193,9 +162,7 @@ To see the search again, **go to the overview blade** and open Favorites:
 
 If you saved with Relative time range, the re-opened blade has the latest data. If you saved with Absolute time range, you see the same data every time.
 
-
 ## Send more telemetry to Application Insights
-
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
 * Capture log traces from your favorite logging framework in [.NET][netlogs] or [Java][javalogs]. This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
@@ -203,24 +170,17 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 
 [Learn how to send logs and custom telemetry to Application Insights][trace].
 
-
 ## <a name="questions"></a>Q & A
-
 ### <a name="limits"></a>How much data is retained?
-
 Up to 500 events per second from each application. Events are retained for seven days.
 
 ### How can I see POST data in my server requests?
-
 We don't log the POST data automatically, but you can use [TrackTrace or log calls][trace]. Put the POST data in the message parameter. You can't filter on the message the way you can properties, but the size limit is longer.
 
 ## <a name="add"></a>Next steps
-
 * [Send logs and custom telemetry to Application Insights][trace]
 * [Set up availability and responsiveness tests][availability]
 * [Troubleshooting][qna]
-
-
 
 <!--Link references-->
 
@@ -232,4 +192,3 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 [trace]: app-insights-search-diagnostic-logs.md
 [track]: app-insights-api-custom-events-metrics.md
 
- 

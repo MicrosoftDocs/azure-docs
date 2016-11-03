@@ -1,25 +1,24 @@
-<properties
-	pageTitle="Azure Container Service Plugin for Jenkins | Microsoft Azure"
-	description="Deploy a docker container to an Azure Container Service cluster service by using the Azure Container Service Plugin for Jenkins."
-	services="container-service"
-	documentationCenter=""
-	authors="rmcmurray"
-	manager="erikre"
-	editor=""
-	tags="azure-container-service, jenkins"
-	keywords="Azure, Containers, Jenkins"/>
+---
+title: Azure Container Service Plugin for Jenkins | Microsoft Docs
+description: Deploy a docker container to an Azure Container Service cluster service by using the Azure Container Service Plugin for Jenkins.
+services: container-service
+documentationcenter: ''
+author: rmcmurray
+manager: erikre
+editor: ''
+tags: azure-container-service, jenkins
+keywords: Azure, Containers, Jenkins
 
-<tags
-	ms.service="container-service"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="10/19/2016" 
-	ms.author="robmcm"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 10/19/2016
+ms.author: robmcm
 
+---
 # Azure Container Service Plugin for Jenkins
-
 The Azure Container Service Plugin for Jenkins helps simplify the process of deploying [Docker] containers using [Marathon] to an Azure Container Cluster running a distributed processing system like [Mesosphere's Datacenter Operating System (DC/OS)][mesosphere] or [Apache Mesos][mesos].
 
 This tutorial will show you how to install the Azure Container Service Plugin for Jenkins, and how to configure a Jenkins project which will create an Azure Container Service with Marathon and a DC/OS orchestrator and use Marathon to deploy a Docker container to the cluster. If the Azure Container Service cluster does not exist, Jenkins will create the container cluster and use Marathon to deploy your docker container to the cluster when it is created; otherwise, Jenkins will deploy your docker container to the existing Azure Container Service cluster using Marathon.
@@ -27,7 +26,6 @@ This tutorial will show you how to install the Azure Container Service Plugin fo
 For more information about the Azure Container Service, see the [Azure Container Service introduction][acs-intro] article.
 
 ### Prerequisites
-
 Before working through the steps in this article, you will need to register and authorize your client application, and then retrieve your Client ID and Client Secret which will be sent to Azure Active Directory during authentication. For more information on these prerequisites, see the following articles:
 
 * [Integrating applications with Azure Active Directory][integrate-apps-with-AAD]
@@ -38,66 +36,55 @@ In addition, you will need to download the **azure-acs-plugin.hpi** file from th
 * [https://github.com/Microsoft/azure-acs-plugin/tree/master/install](https://github.com/Microsoft/azure-acs-plugin/tree/master/install)
 
 ## How to Install the Azure Container Service Plugin for Jenkins
-
 1. [Download the **azure-acs-plugin.hpi** file from GitHub][azure-acs-plugin-install]
-
-1. Log into your Jenkins dashboard.
-
-1. In the dashboard, click **Manage Jenkins**.
-
+2. Log into your Jenkins dashboard.
+3. In the dashboard, click **Manage Jenkins**.
+   
     ![Manage Jenkins][jenkins-dashboard]
-
-1. In the **Manage Jenkins** page, click **Manage Plugins**.
-
+4. In the **Manage Jenkins** page, click **Manage Plugins**.
+   
     ![Manage Plugins][manage-jenkins]
-
-1. Click the **Advanced** tab, and click **Browse** in the **Upload Plugin** section. Navigate to the location where you downloaded the **azure-acs-plugin.hpi** file in the **Prerequisites**, and click the **Upload** once you have selected the file.
-
+5. Click the **Advanced** tab, and click **Browse** in the **Upload Plugin** section. Navigate to the location where you downloaded the **azure-acs-plugin.hpi** file in the **Prerequisites**, and click the **Upload** once you have selected the file.
+   
     ![Upload Plugin][upload-plugin]
+6. Restart Jenkins if necessary.
 
-1. Restart Jenkins if necessary.
- 
 ## Configure the Azure Container Service Plugin
-
 1. In your Jenkins dashboard, click one of your projects.
-
+   
     ![Select Project][select-project]
-
-1. When your project's page appears, click **Configure** in the left-side menu.
-
+2. When your project's page appears, click **Configure** in the left-side menu.
+   
     ![Configure Project][configure-project]
-
-1. In the **Post-build Actions** section, click the **Add post-build action** drop down menu and select **Azure Container Service Configuration**. 
-
+3. In the **Post-build Actions** section, click the **Add post-build action** drop down menu and select **Azure Container Service Configuration**. 
+   
     ![Advanced Options][advanced-options]
-
-1. When the **Azure Container Service Configuration** section appears, enter your subscription ID, Client ID, Client Secret and OAuth 2.0 Token Endpoint information.
-
+4. When the **Azure Container Service Configuration** section appears, enter your subscription ID, Client ID, Client Secret and OAuth 2.0 Token Endpoint information.
+   
     ![Azure Container Service Config][azure-container-service-config]
-
-1. In the **ACS Profile Configuration** section, enter your Region, DNS Name Prefix, Agent Count, Agent VM Size, Admin Username, Master Count, and SSH RSA Public Key.
-
+5. In the **ACS Profile Configuration** section, enter your Region, DNS Name Prefix, Agent Count, Agent VM Size, Admin Username, Master Count, and SSH RSA Public Key.
+   
     ![ACS Profile Configuration][acs-profile-configuration]
-
-1. In the **Marathon Profile Configuration** section, enter path to your the Marathon config file, your SSH RSA private file path, and your SSH RSA private file password.
-
+6. In the **Marathon Profile Configuration** section, enter path to your the Marathon config file, your SSH RSA private file path, and your SSH RSA private file password.
+   
     ![Marathon Profile Configuration][marathon-profile-configuration]
-
-1. Click **Save** to save the settings for your project.
-
+7. Click **Save** to save the settings for your project.
+   
     ![Save Project][save-project]
-
-1. Click **Build Now** in the left-side menu.
-
+8. Click **Build Now** in the left-side menu.
+   
     ![Build Project][build-project]
 
 After the build has completed, the logs will be available in the builds console logs.
 
-> [AZURE.NOTE] If the Azure Container Service cluster does not exist, Jenkins will create the container cluster and use Marathon to deploy your docker container to the cluster when it is created; otherwise, Jenkins will deploy your docker container to the existing Azure Container Service cluster using Marathon.
+> [!NOTE]
+> If the Azure Container Service cluster does not exist, Jenkins will create the container cluster and use Marathon to deploy your docker container to the cluster when it is created; otherwise, Jenkins will deploy your docker container to the existing Azure Container Service cluster using Marathon.
+> 
+> 
 
 <a name="see-also"></a>
-## See Also
 
+## See Also
 For more information about working with Azure Container Service and DC/OS clusters, see the following articles:
 
 * [Azure Container Service Introduction][acs-intro]

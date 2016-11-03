@@ -1,13 +1,11 @@
-##<a name="create-client"></a>Create a Client Connection
-
+## <a name="create-client"></a>Create a Client Connection
 Create a client connection by creating a `WindowsAzure.MobileServiceClient` object.  Replace `appUrl` with the URL to your Mobile App.
 
 ```
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-##<a name="table-reference"></a>Work with Tables
-
+## <a name="table-reference"></a>Work with Tables
 To access or update data, create a reference to the backend table. Replace `tableName` with the name of your table
 
 ```
@@ -24,8 +22,7 @@ Once you have a table reference, you can work further with your table:
 * [Modifying Data](#modifying)
 * [Deleting Data](#deleting)
 
-###<a name="querying"></a>How to: Query a Table Reference
-
+### <a name="querying"></a>How to: Query a Table Reference
 Once you have a table reference, you can use it to query for data on the server.  Queries are made in a "LINQ-like" language.
 To return all data from the table, use the following:
 
@@ -61,8 +58,7 @@ when other query functions (such as `.includeTotalCount()`) are used.
 
 For more information on the Query syntax, refer to the [Query object documentation].
 
-####<a name="table-filter"></a>Filtering Data on the server
-
+#### <a name="table-filter"></a>Filtering Data on the server
 You can use a `where` clause on the table reference:
 
 ```
@@ -86,8 +82,7 @@ table
     .then(success, failure);
 ```
 
-####<a name="table-paging"></a>Paging through data
-
+#### <a name="table-paging"></a>Paging through data
 Utilize the take() and skip() methods.  For example, if you wish to split the table into 100-row records:
 
 ```
@@ -119,9 +114,7 @@ You can then use the pages variable and some UI buttons to provide a page list; 
 load the new records for each page.  You should implement some sort of caching to speed access to
 records that have already been loaded.
 
-
-####<a name="sorting-data"></a>How to: Return data sorted
-
+#### <a name="sorting-data"></a>How to: Return data sorted
 Use the .orderBy() or .orderByDescending() query methods:
 
 ```
@@ -133,8 +126,7 @@ table
 
 For more information on the Query object, refer to the [Query object documentation].
 
-###<a name="inserting"></a>How to: Insert Data
-
+### <a name="inserting"></a>How to: Insert Data
 Create a JavaScript object with the appropriate date and call table.insert() asynchronously:
 
 ```
@@ -158,8 +150,7 @@ In the case of dynamic schema, the schema of the table is updated on the fly, al
 columns to the table just by specifying them in an insert or update operation.  We recommend that
 you turn off dynamic schema before moving your application to production.
 
-###<a name="modifying"></a>How to: Modify Data
-
+### <a name="modifying"></a>How to: Modify Data
 Similar to the .insert() method, you should create an Update object and then call .update().  The update
 object must contain the ID of the record to be updated - this is obtained when reading the record or
 when calling .insert().
@@ -177,8 +168,7 @@ table
     }, failure);
 ```
 
-###<a name="deleting"></a>How to: Delete Data
-
+### <a name="deleting"></a>How to: Delete Data
 Call the .del() method to delete a record.  Pass the ID in an object reference:
 
 ```

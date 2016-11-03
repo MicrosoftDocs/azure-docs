@@ -1,33 +1,29 @@
-<properties 
-	pageTitle="Explore Java trace logs in Application Insights" 
-	description="Search Log4J or Logback traces in Application Insights" 
-	services="application-insights" 
-    documentationCenter="java"
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Explore Java trace logs in Application Insights
+description: Search Log4J or Logback traces in Application Insights
+services: application-insights
+documentationcenter: java
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 07/12/2016
+ms.author: awills
 
+---
 # Explore Java trace logs in Application Insights
-
 If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
 
 Install [Application Insights SDK for Java][java], if you haven't already done that.
 
-
 ## Add logging libraries to your project
-
 *Choose the appropriate way for your project.*
 
 #### If you're using Maven...
-
 If your project is already set up to use Maven for build, merge one of the following snippets of code into your pom.xml file.
 
 Then refresh the project dependencies, to get the binaries downloaded.
@@ -63,7 +59,6 @@ Then refresh the project dependencies, to get the binaries downloaded.
     </dependencies>
 
 #### If you're using Gradle...
-
 If your project is already set up to use Gradle for build, add one of the following lines to the `dependencies` group in your build.gradle file:
 
 Then refresh the project dependencies, to get the binaries downloaded.
@@ -81,20 +76,15 @@ Then refresh the project dependencies, to get the binaries downloaded.
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '1.0.+'
 
 #### Otherwise ...
-
 Download and extract the appropriate appender, then add the appropriate library to your project:
 
-
-Logger | Download | Library
-----|----|----
-Logback|[SDK with Logback appender](https://aka.ms/xt62a4)|applicationinsights-logging-logback
-Log4J v2.0|[SDK with Log4J v2 appender](https://aka.ms/qypznq)|applicationinsights-logging-log4j2 
-Log4j v1.2|[SDK with Log4J v1.2 appender](https://aka.ms/ky9cbo)|applicationinsights-logging-log4j1_2 
-
-
+| Logger | Download | Library |
+| --- | --- | --- |
+| Logback |[SDK with Logback appender](https://aka.ms/xt62a4) |applicationinsights-logging-logback |
+| Log4J v2.0 |[SDK with Log4J v2 appender](https://aka.ms/qypznq) |applicationinsights-logging-log4j2 |
+| Log4j v1.2 |[SDK with Log4J v1.2 appender](https://aka.ms/ky9cbo) |applicationinsights-logging-log4j1_2 |
 
 ## Add the appender to your logging framework
-
 To start getting traces, merge the relevant snippet of code to the Log4J or Logback configuration file: 
 
 *Logback*
@@ -108,7 +98,6 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
 
 
 *Log4J v2.0*
-
 
     <Configuration packages="com.microsoft.applicationinsights.Log4j">
       <Appenders>
@@ -135,13 +124,11 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
 The Application Insights appenders can be referenced by any configured logger, and not necessarily by the root logger (as shown in the code samples above).
 
 ## Explore your traces in the Application Insights portal
-
 Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Search][diagnostic] blade.
 
 ![In the Application Insights portal, open Search](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
 ## Next steps
-
 [Diagnostic search][diagnostic]
 
 <!--Link references-->
@@ -149,4 +136,4 @@ Now that you've configured your project to send traces to Application Insights, 
 [diagnostic]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
 
- 
+

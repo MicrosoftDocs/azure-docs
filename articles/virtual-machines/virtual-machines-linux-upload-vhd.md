@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Create and upload a custom Linux image | Microsoft Azure"
-	description="Create and upload a virtual hard disk (VHD) to Azure with a custom Linux image using the Resource Manager deployment model."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="iainfoulds"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager"/>
+---
+title: Create and upload a custom Linux image | Microsoft Docs
+description: Create and upload a virtual hard disk (VHD) to Azure with a custom Linux image using the Resource Manager deployment model.
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/10/2016"
-	ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: iainfou
 
+---
 # Upload and create a Linux VM from custom disk image
-
 This article shows you how to upload a virtual hard disk (VHD) to Azure using the Resource Manager deployment model and create Linux VMs from this custom image. This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
 
 ## Quick commands
@@ -42,7 +41,7 @@ Create a storage account to hold your virtual disks. The following example creat
 
 ```bash
 azure storage account create mystorageaccount --resource-group myResourceGroup \
-	--location "WestUS" --kind Storage --sku-name PLRS
+    --location "WestUS" --kind Storage --sku-name PLRS
 ```
 
 List the access keys for your storage account. Make a note of `key1`:
@@ -55,21 +54,21 @@ Create a container within your storage account using the storage key you obtaine
 
 ```bash
 azure storage container create --account-name mystorageaccount \
-	--account-key key1 --container myimages
+    --account-key key1 --container myimages
 ```
 
 Finally, upload your VHD to the container you created. Specify the local path to your VHD under `/path/to/disk/mydisk.vhd`:
 
 ```bash
 azure storage blob upload --blobtype page --account-name mystorageaccount \
-	--account-key key1 --container myimages /path/to/disk/mydisk.vhd
+    --account-key key1 --container myimages /path/to/disk/mydisk.vhd
 ```
 
 You can now create a VM from your uploaded virtual disk [using a Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd). You can also use the CLI by specifying the URI to your disk (`--image-urn`). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
 
 ```bash
 azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
-	--image-urn https://mystorageaccount.blob.core.windows.net/myimages/mydisk.vhd
+    --image-urn https://mystorageaccount.blob.core.windows.net/myimages/mydisk.vhd
 ```
 
 The destination storage account has to be the same as where you uploaded your virtual disk to. You also need to specify, or answer prompts for, all the additional parameters required by the `azure vm create` command such as virtual network, public IP address, username, and SSH keys. You can read more about the [available CLI Resource Manager parameters](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
@@ -77,15 +76,18 @@ The destination storage account has to be the same as where you uploaded your vi
 ## Requirements
 To complete the following steps, you need:
 
-- **Linux operating system installed in a .vhd file** - Install an [Azure-endorsed Linux distribution](virtual-machines-linux-endorsed-distros.md) (or see [information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md)) to a virtual disk in the VHD format. Multiple tools exist to create a VM and VHD:
-	- Install and configure [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) or [KVM](http://www.linux-kvm.org/page/RunningKVM), taking care to use VHD as your image format. If needed, you can [convert an image](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) using `qemu-img convert`.
-	- You can also use Hyper-V [on Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) or [on Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
+* **Linux operating system installed in a .vhd file** - Install an [Azure-endorsed Linux distribution](virtual-machines-linux-endorsed-distros.md) (or see [information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md)) to a virtual disk in the VHD format. Multiple tools exist to create a VM and VHD:
+  * Install and configure [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) or [KVM](http://www.linux-kvm.org/page/RunningKVM), taking care to use VHD as your image format. If needed, you can [convert an image](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) using `qemu-img convert`.
+  * You can also use Hyper-V [on Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) or [on Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
-> [AZURE.NOTE] The newer VHDX format is not supported in Azure. When you create a VM, specify VHD as the format. If needed, you can convert VHDX disks to VHD using [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) or the [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet. Further, Azure does not support uploading dynamic VHDs, so you need to convert such disks to static VHDs before uploading. You can use tools such as [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) to convert dynamic disks during the process of uploading to Azure.
+> [!NOTE]
+> The newer VHDX format is not supported in Azure. When you create a VM, specify VHD as the format. If needed, you can convert VHDX disks to VHD using [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) or the [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet. Further, Azure does not support uploading dynamic VHDs, so you need to convert such disks to static VHDs before uploading. You can use tools such as [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) to convert dynamic disks during the process of uploading to Azure.
+> 
+> 
 
-- VMs created from your custom image must reside in the same storage account as the image itself
-	- Create a storage account and container to hold both your custom image and created VMs
-	- After you have created all your VMs, you can safely delete your image
+* VMs created from your custom image must reside in the same storage account as the image itself
+  * Create a storage account and container to hold both your custom image and created VMs
+  * After you have created all your VMs, you can safely delete your image
 
 Make sure that you have [the Azure CLI](../xplat-cli-install.md) logged in and using Resource Manager mode:
 
@@ -95,24 +97,25 @@ azure config mode arm
 
 In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `mystorageaccount`, and `myimages`.
 
-
 <a id="prepimage"> </a>
-## Prepare the image to be uploaded
 
+## Prepare the image to be uploaded
 Azure supports various Linux distributions (see [Endorsed Distributions](virtual-machines-linux-endorsed-distros.md)). The following articles guide you through how to prepare the various Linux distributions that are supported on Azure:
 
-- **[CentOS-based Distributions](virtual-machines-linux-create-upload-centos.md)**
-- **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
-- **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)**
-- **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
-- **[SLES & openSUSE](virtual-machines-linux-suse-create-upload-vhd.md)**
-- **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
-- **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md)**
+* **[CentOS-based Distributions](virtual-machines-linux-create-upload-centos.md)**
+* **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
+* **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)**
+* **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
+* **[SLES & openSUSE](virtual-machines-linux-suse-create-upload-vhd.md)**
+* **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
+* **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md)**
 
 Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)** for more general tips on preparing Linux images for Azure.
 
-> [AZURE.NOTE] The [Azure platform SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) applies to VMs running Linux only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md).
-
+> [!NOTE]
+> The [Azure platform SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) applies to VMs running Linux only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md).
+> 
+> 
 
 ## Create a resource group
 Resource groups logically bring together all the Azure resources to support your virtual machines, such as the virtual networking and storage. Read more about [Azure resource groups here](../azure-resource-manager/resource-group-overview.md). Before uploading your custom disk image and creating VMs, you first need to create a resource group. 
@@ -130,7 +133,7 @@ The following example creates a storage account named `mystorageaccount` in the 
 
 ```bash
 azure storage account create mystorageaccount --resource-group myResourceGroup \
-	--location "WestUS" --kind Storage --sku-name PLRS
+    --location "WestUS" --kind Storage --sku-name PLRS
 ```
 
 ## List storage account keys
@@ -163,7 +166,7 @@ The following example creates a container named `myimages`, specifying the acces
 
 ```bash
 azure storage container create --account-name mystorageaccount \
-	--account-key key1 --container myimages
+    --account-key key1 --container myimages
 ```
 
 ## Upload VHD
@@ -173,12 +176,11 @@ Specify your access key, the container you created in the previous step, and the
 
 ```bash
 azure storage blob upload --blobtype page --account-name mystorageaccount \
-	--account-key key1 --container myimages /path/to/disk/mydisk.vhd
+    --account-key key1 --container myimages /path/to/disk/mydisk.vhd
 ```
 
 ## Create VM from custom image
 When you create VMs from your custom disk image, specify the URI to the disk image. Ensure that the destination storage account matches where your custom disk image is stored. You can create your VM using the Azure CLI or Resource Manager JSON template.
-
 
 ### Create a VM using the Azure CLI
 You specify the `--image-urn` parameter with the `azure vm create` command to point to your custom disk image. Ensure that `--storage-account-name` matches the storage account where your custom disk image is stored. You do not have to use the same container as the custom disk image to store your VMs. Make sure to create any additional containers in the same way as the earlier steps before uploading your custom disk images.
@@ -187,8 +189,8 @@ The following example creates a VM named `myVM` from your custom disk image:
 
 ```bash
 azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
-	--image-urn https://mystorageaccount.blob.core.windows.net/myimages/mydisk.vhd
-	--storage-account-name mystorageaccount
+    --image-urn https://mystorageaccount.blob.core.windows.net/myimages/mydisk.vhd
+    --storage-account-name mystorageaccount
 ```
 
 You still need to specify, or answer prompts for, all the additional parameters required by the `azure vm create` command such as virtual network, public IP address, username, and SSH keys. Read more about the [available CLI Resource Manager parameters](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
@@ -204,7 +206,7 @@ Within the `Microsoft.Compute/virtualMachines` provider of your template, you ha
             "name": "myVM",
             "osType": "Linux",
             "caching": "ReadWrite",
-			"createOption": "FromImage",
+            "createOption": "FromImage",
             "image": {
               "uri": "https://mystorageaccount.blob.core.windows.net/myimages/mydisk.vhd"
             },
@@ -220,16 +222,17 @@ Once you have a template configured, you create your VMs using the `azure group 
 
 ```bash
 azure group deployment create --resource-group myResourceGroup
-	--template-uri https://uri.to.template/mytemplate.json
+    --template-uri https://uri.to.template/mytemplate.json
 ```
 
 If you have a JSON file stored locally on your computer, you can use the `--template-file` parameter instead:
 
 ```bash
 azure group deployment create --resource-group myResourceGroup
-	--template-file /path/to/mytemplate.json
+    --template-file /path/to/mytemplate.json
 ```
 
 
 ## Next steps
 After you have prepared and uploaded your custom virtual disk, you can read more about [using Resource Manager and templates](../azure-resource-manager/resource-group-overview.md). You may also want to [add a data disk](virtual-machines-linux-add-disk.md) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](virtual-machines-linux-nsg-quickstart.md).
+

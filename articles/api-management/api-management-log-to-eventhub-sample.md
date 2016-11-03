@@ -1,23 +1,22 @@
-<properties
-    pageTitle="Monitor your APIs with Azure API Management, Event Hubs and Runscope"
-    description="Sample application demonstrating the log-to-eventhub policy by connecting Azure API Management, Azure Event Hubs and Runscope for HTTP  logging and monitoring"
-    services="api-management"
-    documentationCenter=""
-    authors="darrelmiller"
-    manager="erikre"
-    editor=""/>
+---
+title: Monitor your APIs with Azure API Management, Event Hubs and Runscope
+description: Sample application demonstrating the log-to-eventhub policy by connecting Azure API Management, Azure Event Hubs and Runscope for HTTP  logging and monitoring
+services: api-management
+documentationcenter: ''
+author: darrelmiller
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="10/25/2016"
-    ms.author="darrmi"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/25/2016
+ms.author: darrmi
 
+---
 # Monitor your APIs with Azure API Management, Event Hubs and Runscope
-
 The [API Management service](api-management-key-concepts.md) provides many capabilities to enhance the processing of HTTP requests sent to your HTTP API. However, the existence of the requests and responses are transient. The request is made and it flows through the API Management service to your backend API. Your API processes the request and a response flows back through to the API consumer. The API Management service keeps some important statistics about the APIs for display in the Publisher portal dashboard, but beyond that, the details are gone.
 
 By using the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) [policy](api-management-howto-policies.md) in the API Management service you can send any details from the request and response to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). There are a variety of reasons why you may want to generate events from HTTP messages being sent to your APIs. Some examples include audit trail of updates, usage analytics, exception alerting and 3rd party integrations.   
@@ -80,6 +79,7 @@ After building the `requestLine` we check to see if the request body should be t
 
 ### HTTP headers
 HTTP Headers can be simply transferred over into the message format in a simple key/value pair format. We have chosen to strip out certain security sensitive fields, to avoid unnecessarily leaking credential information. It is unlikely that API keys and other credentials would be used for analytics purposes. If we wish to do analysis on the user and the particular product they are using then we could get that from the `context` object and add that to the message.     
+
 ### Message Metadata
 When building the complete message to send to the event hub, the first line is not actually part of the `application/http` message. The first line is additional metadata consisting of whether the message is a request or response message and a message id which is used to correlate requests to responses. The message id is created by using another policy that looks like this:
 
@@ -90,9 +90,9 @@ We could have created the request message, stored that in a variable until the r
 The policy to send the response HTTP message looks very similar to the request and so the complete policy configuration looks like this:
 
       <policies>
-      	<inbound>
-      		<set-variable name="message-id" value="@(Guid.NewGuid())" />
-      		<log-to-eventhub logger-id="conferencelogger" partition-id="0">
+          <inbound>
+              <set-variable name="message-id" value="@(Guid.NewGuid())" />
+              <log-to-eventhub logger-id="conferencelogger" partition-id="0">
               @{
                   var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
                                                               context.Request.Method,
@@ -115,12 +115,12 @@ The policy to send the response HTTP message looks very similar to the request a
                                       + requestLine + headerString + "\r\n" + body;
               }
           </log-to-eventhub>
-      	</inbound>
-      	<backend>
-      		<forward-request follow-redirects="true" />
-      	</backend>
-      	<outbound>
-      		<log-to-eventhub logger-id="conferencelogger" partition-id="1">
+          </inbound>
+          <backend>
+              <forward-request follow-redirects="true" />
+          </backend>
+          <outbound>
+              <log-to-eventhub logger-id="conferencelogger" partition-id="1">
               @{
                   var statusLine = string.Format("HTTP/1.1 {0} {1}\r\n",
                                                       context.Response.StatusCode,
@@ -142,7 +142,7 @@ The policy to send the response HTTP message looks very similar to the request a
                                       + statusLine + headerString + "\r\n" + body;
              }
           </log-to-eventhub>
-      	</outbound>
+          </outbound>
       </policies>
 
 The `set-variable` policy creates a value that is accessible by both the `log-to-eventhub` policy in the `<inbound>` section and the `<outbound>` section.  
@@ -196,7 +196,6 @@ The `HttpMessage` instance contains a `MessageId` GUID that allows us to connect
 
 ### IHttpMessageProcessor
 The `HttpMessage` instance is then forwarded to implementation of `IHttpMessageProcessor` which is an interface I created to decouple the receiving and interpretation of the event from Azure Event Hub and the actual processing of it.
-
 
 ## Forwarding the HTTP message
 For this sample, I decided it would be interesting to push the HTTP Request over to [Runscope](http://www.runscope.com). Runscope is a cloud based service that specializes in HTTP debugging, logging and monitoring. They have a free tier, so it is easy to try and it allows us to see the HTTP requests in real-time flowing through our API Management service.
@@ -259,12 +258,12 @@ In the following animated image, you can see a request being made to an API in t
 Azure API Management service provides an ideal place to capture the HTTP traffic travelling to and from your APIs. Azure Event Hubs is a highly scalable, low cost solution for capturing that traffic and feeding it into secondary processing systems for logging, monitoring and other sophisticated analytics. Connecting to 3rd party traffic monitoring systems like Runscope is a simple as a few dozen lines of code.
 
 ## Next steps
--	Learn more about Azure Event Hubs
-	-	[Get started with Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-	-	[Receive messages with EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
-	-	[Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
--	Learn more about API Management and Event Hubs integration
-	-	[How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
-	-	[Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
-	-	[log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-	
+* Learn more about Azure Event Hubs
+  * [Get started with Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+  * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
+* Learn more about API Management and Event Hubs integration
+  * [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
+  * [Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+  * [log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+

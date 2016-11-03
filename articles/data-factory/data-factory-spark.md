@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Invoke Spark programs from Azure Data Factory" 
-	description="Learn how to invoke Spark programs from an Azure data factory using the MapReduce Activity." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+---
+title: Invoke Spark programs from Azure Data Factory
+description: Learn how to invoke Spark programs from an Azure data factory using the MapReduce Activity.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: spelluru
 
+---
 # Invoke Spark Programs from Data Factory
 ## Introduction
 You can use the MapReduce Activity in a Data Factory pipeline to run Spark programs on your HDInsight Spark cluster. See [MapReduce Activity](data-factory-map-reduce.md) article for detailed information on using the activity before reading this article. 
@@ -34,15 +34,17 @@ You find sample pipelines in the **ADFJsons/Pipeline** folder. Review a pipeline
 
 The MapReduce activity is configured to invoke **com.adf.sparklauncher.jar** in the **adflibs** container in your Azure storage (specified in the StorageLinkedService.json). The source code for this program is in Spark-ADF/src/main/java/com/adf/ folder and it calls spark-submit and run Spark jobs. 
 
-> [AZURE.IMPORTANT] 
+> [!IMPORTANT]
 > Read through [README.TXT](https://github.com/Azure/Azure-DataFactory/blob/master/Samples/Spark/README.txt) for the latest and additional information before using the sample. 
->  
+> 
 > Use your own HDInsight Spark cluster with this approach to invoke Spark programs using the MapReduce activity. Using an on-demand HDInsight cluster is not supported.   
-
+> 
+> 
 
 ## See Also
-- [Hive Activity](data-factory-hive-activity.md)
-- [Pig Activity](data-factory-pig-activity.md)
-- [MapReduce Activity](data-factory-map-reduce.md)
-- [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
-- [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Hive Activity](data-factory-hive-activity.md)
+* [Pig Activity](data-factory-pig-activity.md)
+* [MapReduce Activity](data-factory-map-reduce.md)
+* [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+* [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+

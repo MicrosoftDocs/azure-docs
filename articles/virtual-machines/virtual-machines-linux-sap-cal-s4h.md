@@ -1,34 +1,31 @@
-<properties 
-pageTitle="Deploying S/4 HANA or BW/4 HANA on an Azure VM | Microsoft Azure" 
-description="Deploying S/4 HANA or BW/4 HANA on an Azure VM" 
-services="virtual-machines-linux" 
-documentationCenter="" 
-authors="hermanndms" 
-manager="timlt" 
-editor="" 
-tags="azure-resource-manager" 
-  keywords=""/> 
-<tags 
-  ms.service="virtual-machines-linux" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.tgt_pltfrm="vm-linux" 
-  ms.workload="infrastructure-services" 
-  ms.date="09/15/2016" 
-  ms.author="hermannd"/> 
+---
+title: Deploying S/4 HANA or BW/4 HANA on an Azure VM | Microsoft Docs
+description: Deploying S/4 HANA or BW/4 HANA on an Azure VM
+services: virtual-machines-linux
+documentationcenter: ''
+author: hermanndms
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/15/2016
+ms.author: hermannd
 
-# Deploying S/4 HANA or BW/4 HANA on Microsoft Azure 
-
+---
+# Deploying S/4 HANA or BW/4 HANA on Microsoft Azure
 This article describes how to deploy S/4 HANA on Microsoft Azure via SAP Cloud Appliance Library 3.0.
 The screenshots show the process step by step. Deploying other SAP HANA-based solutions like BW/4 HANA 
 works the same way from a process perspective. One just has to select a different solution.
 
 To start with SAP Cloud Appliance Library (SAP CAL) go [here](https://cal.sap.com/). There is a blog from SAP about the new [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
-
 The following screenshots show step-by-step how to deploy S/4 HANA on Microsoft Azure. The process works the same way for other solutions likeBW/4 HANA.
-
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-1b.jpg)
 
@@ -107,10 +104,4 @@ contains a link to a user guide that describes all the default credentials to wo
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
 
 Another option is to login to the client Windows VM and start for example the pre-configured SAP GUI.
-
-
-
-
-
-
 

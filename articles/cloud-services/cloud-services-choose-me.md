@@ -1,29 +1,28 @@
-<properties
-	pageTitle="Azure compute options - Cloud Services | Microsoft Azure"
-	description="Learn about Azure compute hosting options and how they work: App Service, Cloud Services, and Virtual Machines"
-	services="cloud-services"
-    documentationCenter=""
-	authors="Thraka"
-	manager="timlt"/>
+---
+title: Azure compute options - Cloud Services | Microsoft Docs
+description: 'Learn about Azure compute hosting options and how they work: App Service, Cloud Services, and Virtual Machines'
+services: cloud-services
+documentationcenter: ''
+author: Thraka
+manager: timlt
 
-<tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/11/2016"
-	ms.author="adegeo"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/11/2016
+ms.author: adegeo
 
+---
 # Should I choose cloud services or something else?
-
 Is Azure Cloud Services the choice for you? Azure provides different hosting models for running applications. Each one provides a different set of services, so which one you choose depends on exactly what you're trying to do.
 
-[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+[!INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
 <a name="tellmecs"></a>
-## Tell me about cloud services
 
+## Tell me about cloud services
 Cloud Services is an example of [Platform-as-a-Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Like [App Service](../app-service-web/app-service-web-overview.md), this technology is designed to support applications that are scalable, reliable, and cheap to operate. Just like an App Service is hosted on VMs, so too are Cloud Services, however, you have more control over the VMs. You can install your own software on Cloud Service VMs and you can remote into them.
 
 ![cs_diagram](./media/cloud-services-choose-me/diagram.png)
@@ -36,7 +35,6 @@ Any combination of these two slightly different VM hosting options are available
 
 * **Web role**  
   Runs Windows Server with your web app automatically deployed to IIS.
-
 * **Worker role**  
   Runs Windows Server without IIS.
 
@@ -61,3 +59,4 @@ The PaaS nature of Cloud Services has other implications, too. One of the most i
 [Create a cloud service app in Node.js](cloud-services-nodejs-develop-deploy-app.md)  
 [Create a cloud service app in PHP](../cloud-services-php-create-web-role.md)  
 [Create a cloud service app in Python](cloud-services-python-ptvs.md)
+

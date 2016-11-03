@@ -2,10 +2,10 @@ You can create multiple services within a subscription, each one provisioned at 
 
 Maximum service limits can be raised upon request. Contact Azure Support if you need more services within the same subscription.
 
-Resource|Free|Basic|S1|S2|S3 |S3 HD <sup>1</sup>
----|---|---|---|----|---|----
-Maximum services |1 |12 |12  |6 |6 |6 
-Maximum scale in SU <sup>2</sup>|N/A <sup>3</sup>|3 SU <sup>4</sup> |36 SU|36 SU|36 SU|36 SU 
+| Resource | Free | Basic | S1 | S2 | S3 | S3 HD <sup>1</sup> |
+| --- | --- | --- | --- | --- | --- | --- |
+| Maximum services |1 |12 |12 |6 |6 |6 |
+| Maximum scale in SU <sup>2</sup> |N/A <sup>3</sup> |3 SU <sup>4</sup> |36 SU |36 SU |36 SU |36 SU |
 
 <sup>1</sup> S3 HD does not support [indexers](../articles/search/search-indexer-overview.md) at this time. 
 
@@ -14,7 +14,4 @@ Maximum scale in SU <sup>2</sup>|N/A <sup>3</sup>|3 SU <sup>4</sup> |36 SU|36 SU
 <sup>3</sup> Free is based on shared resources used by multiple subscribers. At this tier, there are no dedicated resources for an individual subscriber. For this reason, maximum scale is marked as not applicable.
 
 <sup>4</sup> Basic has one fixed partition. At this tier, additional SUs are used for allocating more replicas for increased query workloads.
-
-
-
 

@@ -1,62 +1,57 @@
-<properties
-   pageTitle="Is your data ready for data science? Data evaluation | Microsoft Azure"
-   description="Learn the 4 criteria for data to be ready for data science. Data Science for Beginners video 2 has concrete examples to help with basic data evaluation."
-   keywords="relevant data,evaluate data,prepare data,data criteria,data ready"
-   services="machine-learning"
-   documentationCenter="na"
-   authors="cjgronlund"
-   manager="jhubbard"
-   editor="cjgronlund"/>
+---
+title: Is your data ready for data science? Data evaluation | Microsoft Docs
+description: Learn the 4 criteria for data to be ready for data science. Data Science for Beginners video 2 has concrete examples to help with basic data evaluation.
+keywords: relevant data,evaluate data,prepare data,data criteria,data ready
+services: machine-learning
+documentationcenter: na
+author: cjgronlund
+manager: jhubbard
+editor: cjgronlund
 
-<tags
-   ms.service="machine-learning"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="10/20/2016"
-   ms.author="cgronlun;garye"/>
+ms.service: machine-learning
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/20/2016
+ms.author: cgronlun;garye
 
-
+---
 # Is your data ready for data science?
-
 ## Video 2: Data Science for Beginners series
-
 Learn how to evaluate your data to make sure it meets basic criteria to be ready for data science.
 
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
-> [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
+> [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]
+> 
+> 
 
 ## Other videos in this series
-
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
 
-  * Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-  * Video 2: Is your data ready for data science?
-  * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
-  * Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
-  * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Video 2: Is your data ready for data science?
+* Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+* Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
 ## Transcript: Is your data ready for data science?
-
 Welcome to "Is your data ready for data science?" the second video in the series *Data Science for Beginners*.  
 
 Before data science can give you the answers you want, you have to give it some high-quality raw materials to work with. Just like making a pizza, the better the ingredients you start with, the better the final product.
 
 ## Criteria for data
-
 So, in the case of data science, there are some ingredients that we need to pull together.
 
 We need data that is:
 
-  *	Relevant
-  *	Connected
-  *	Accurate
-  *	Enough to work with
+* Relevant
+* Connected
+* Accurate
+* Enough to work with
 
 ## Is your data relevant?
-
 So the first ingredient - we need data that's relevant.
 
 ![Relevant data vs. irrelevant data - evaluate data](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-relevant-and-irrelevant-data.png)
@@ -68,7 +63,6 @@ This is all perfectly legitimate data. It’s only fault is that it isn’t rele
 Now look at the table on the right. This time we measured each person’s body mass and counted the number of drinks they’ve had.  The numbers in each row are now relevant to each other. If I gave you my body mass and the number of Margaritas I've had, you could make a guess at my blood alcohol content.
 
 ## Do you have connected data?
-
 The next ingredient is connected data.
 
 ![Connected data vs. disconnected data - data criteria, data ready](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
@@ -82,7 +76,6 @@ If you look at the table on the left, there's so much missing data, it's hard to
 The table on the right, though, is full and complete - an example of connected data.
 
 ## Is your data accurate?
-
 The next ingredient we need is accuracy. Here are four targets that we’d like to hit with arrows.
 
 ![Accurate data vs. inaccurate data - data criteria](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-inaccurate-vs-accurate-data.png)
@@ -94,7 +87,6 @@ If you were to map out the center of these arrows, you'd see that it's very clos
 Now look at the upper-left target. Here our arrows hit very close together, a tight grouping. They're precise, but they're inaccurate because the center is way off the bullseye. And, of course, the arrows in the bottom-left target are both inaccurate and imprecise. This archer needs more practice.
 
 ## Do you have enough data to work with?
-
 Finally, ingredient #4 - we need to have enough data.
 
 ![Do you have enough data for analysis? Data evaluation](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-barely-enough-data.png)
@@ -111,10 +103,7 @@ With data that's relevant, connected, accurate, and enough, we have all the ingr
 
 Be sure to check out the other four videos in *Data Science for Beginners* from Microsoft Azure Machine Learning.
 
-
-
-
 ## Next steps
+* [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
+* [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-  * [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
-  * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)

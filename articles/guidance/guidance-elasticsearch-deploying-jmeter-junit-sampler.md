@@ -1,45 +1,51 @@
-<properties
-   pageTitle="Deploying a JMeter JUnit sampler for testing Elasticsearch performance | Microsoft Azure"
-   description="How to use a JUnit sampler to generate and upload data to an Elasticsearch cluster."
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="bennage"
-   editor=""
-   tags=""/>
+---
+title: Deploying a JMeter JUnit sampler for testing Elasticsearch performance | Microsoft Docs
+description: How to use a JUnit sampler to generate and upload data to an Elasticsearch cluster.
+services: ''
+documentationcenter: na
+author: dragon119
+manager: bennage
+editor: ''
+tags: ''
 
-<tags
-   ms.service="guidance"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/22/2016"
-   ms.author="masashin"/>
-   
+ms.service: guidance
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/22/2016
+ms.author: masashin
+
+---
 # Deploying a JMeter JUnit sampler for testing Elasticsearch performance
-
-[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+[!INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article is [part of a series](guidance-elasticsearch.md). 
 
 This document describes how to create and use a JUnit sampler that can generate and upload data to an Elasticsearch cluster as part of a JMeter test plan. This approach provides a highly flexible approach to load testing that can generate large quantities of test data without depending on external data files.
 
-> [AZURE.NOTE] The load tests used to assess the performance of data ingestion described in [Tuning data ingestion performance for Elasticsearch](guidance-elasticsearch-tuning-data-ingestion-performance.md) were constructed using this approach. The details of the JUnit code are described in that document.
+> [!NOTE]
+> The load tests used to assess the performance of data ingestion described in [Tuning data ingestion performance for Elasticsearch](guidance-elasticsearch-tuning-data-ingestion-performance.md) were constructed using this approach. The details of the JUnit code are described in that document.
+> 
+> 
 
 For testing data ingestion performance, the JUnit code was developing using Eclipse (Mars), and dependencies were resolved using Maven. The following procedures describe the step by step process for installing Eclipse, configuring Maven, creating a JUnit test, and deploying this test as a JUnit Request sampler in a JMeter test.
 
-> [AZURE.NOTE] For detailed information on the structure and configuration of the test environment, see [Creating a performance testing environment for Elasticsearch on Azure][].
+> [!NOTE]
+> For detailed information on the structure and configuration of the test environment, see [Creating a performance testing environment for Elasticsearch on Azure][Creating a performance testing environment for Elasticsearch on Azure].
+> 
+> 
 
 ## Installing prerequisites
-
 You will need the [Java Runtime Environment](http://www.java.com/en/download/ie_manual.jsp) on your development machine.
 You will also need to install the [Eclipse IDE for Java Developers](https://www.eclipse.org/downloads/index.php?show_instructions=TRUE).
 
-> [AZURE.NOTE] If you are using the JMeter master VM described in [Creating a performance testing environment for Elasticsearch on Azure][] as your development environment, download the Windows 32 Bit version of the Eclipse Installer.
+> [!NOTE]
+> If you are using the JMeter master VM described in [Creating a performance testing environment for Elasticsearch on Azure][Creating a performance testing environment for Elasticsearch on Azure] as your development environment, download the Windows 32 Bit version of the Eclipse Installer.
+> 
+> 
 
 ## Creating a JUnit test project for load testing Elasticsearch
-
 Start the Eclipse IDE if it is not already running, and then close the **Welcome** page.  On the **File** menu, 
 click, and then click **Java Project**.
 
@@ -77,8 +83,11 @@ Verify that the skeleton code for the JUnit test is generated and displayed in t
 In the **Package Explorer**, right-click the node for your project, click **Configure**, and then click 
 **Convert to Maven Project**.
 
-> [AZURE.NOTE] Using Maven enables you to more easily manage external dependencies (such as the 
+> [!NOTE]
+> Using Maven enables you to more easily manage external dependencies (such as the 
 > Elasticsearch Java client libraries) a project depends on.
+> 
+> 
 
 ![](./media/guidance-elasticsearch/jmeter-deploy14.png)
 
@@ -120,7 +129,6 @@ Expand this folder to view the jar files downloaded to support the Elasticsearch
 ![](./media/guidance-elasticsearch/jmeter-deploy21.png)
 
 ## Importing an existing JUnit test project into Eclipse
-
 This procedure assumes that you have downloaded a Maven project that was previously created by using 
 Eclipse.
 
@@ -144,7 +152,6 @@ be compiled and deployed following the instructions below.
 ![](./media/guidance-elasticsearch/jmeter-deploy25.png)
 
 ## Deploying a JUnit test to JMeter
-
 This procedure assumes you have created a project named LoadTest containing a JUnit Test class named 
 `BulkLoadTest.java` that accepts configuration parameters passed in as a single string to a 
 constructor (this is the mechanism that JMeter expects).

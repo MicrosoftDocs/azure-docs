@@ -1,27 +1,25 @@
-<properties
-	pageTitle="Log Analytics FAQ | Microsoft Azure"
-	description="Answers to frequently asked questions about the Log Analytics service."
-	services="log-analytics"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+---
+title: Log Analytics FAQ | Microsoft Docs
+description: Answers to frequently asked questions about the Log Analytics service.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-	ms.service="log-analytics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/10/2016"
-	ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
+---
 # Log Analytics FAQ
-
 This Microsoft FAQ is a list of commonly asked questions about Log Analytics in Microsoft Operations Management Suite (OMS). If you have any additional questions about Log Analytics, please go to the [discussion forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) and post your questions. Someone from our community will help you get your answers. If a question is commonly asked, we will add it to this article so that it can be found quickly and easily.
 
 ## General
-
 **Q. What checks are performed by the AD and SQL Assessment solutions?**
 
 A. The following query shows a description of all checks currently performed:
@@ -47,7 +45,7 @@ Also, being a cloud service means you don't need to keep the Log Analytics infra
 ## Configuration
 **Q. Can I change the name of the table/blob container used to read from Azure Diagnostics (WAD)?**  
 
-A.	No, this is not currently possible, but is planned for a future release.
+A.    No, this is not currently possible, but is planned for a future release.
 
 **Q. What IP addresses do the OMS services use? How do I ensure that my firewall only allows traffic to the OMS Services?**  
 
@@ -57,7 +55,7 @@ As service deployments are made, the actual IP addresses of the OMS services cha
 
 **Q. I use ExpressRoute for connecting to Azure. Will my Log Analytics traffic use my ExpressRoute connection?**  
 
-A. The different types of ExpressRoute traffic are described in the [ExpressRoute documentation](./expressroute/expressroute-faqs.md#supported-services).
+A. The different types of ExpressRoute traffic are described in the [ExpressRoute documentation](../expressroute/expressroute-faqs.md#supported-services).
 
 Traffic to Log Analytics uses the public-peering ExpressRoute circuit.
 
@@ -89,7 +87,6 @@ A: In SCOM, remove the computer from the OMS managed list. This stops all commun
 Under **Azure Log Analytics (OMS)**, remove all workspaces listed.
 
 ## Agent data
-
 **Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?**  
 A. The free plan sets a daily cap of 500 MB per workspace. The standard and premium plans have no limit on the amount of data that is uploaded. As a cloud service, Log Analytics in OMS designed to automatically scale up to handle the volume coming from a customer – even if it is terabytes per day.
 
@@ -105,9 +102,9 @@ A. Bandwidth is a function on the amount of data sent. Data is compressed as it 
 
 A. This largely depends on:
 
-- the solutions you have enabled
-- the number of logs and performance counters being collected
-- the volume of data in the logs
+* the solutions you have enabled
+* the number of logs and performance counters being collected
+* the volume of data in the logs
 
 The free pricing tier is a good way to onboard several servers and gauge the typical data volume. Overall usage is shown on the **Usage** page.
 For computers that are able to run the WireData agent, you can see how much data is being sent using the following query:
@@ -119,5 +116,5 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 
 ## Next steps
+* [Get started with Log Analytics](log-analytics-get-started.md) to learn more about Log Analytics and get up and running in minutes.
 
-- [Get started with Log Analytics](log-analytics-get-started.md) to learn more about Log Analytics and get up and running in minutes.

@@ -1,22 +1,22 @@
 
-<properties
-	pageTitle="Using Azure AD Connect Health with sync | Microsoft Azure"
-	description="This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect sync."
-	services="active-directory"
-	documentationCenter=""
-	authors="karavar"
-	manager="samueld"
-	editor="curtand"/>
+---
+title: Using Azure AD Connect Health with sync | Microsoft Docs
+description: This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect sync.
+services: active-directory
+documentationcenter: ''
+author: karavar
+manager: samueld
+editor: curtand
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="10/18/2016"
-	ms.author="vakarand"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 10/18/2016
+ms.author: vakarand
 
+---
 # Using Azure AD Connect Health for sync
 The following documentation is specific to monitoring Azure AD Connect (Sync) with Azure AD Connect Health.  For information on monitoring AD FS with Azure AD Connect Health see [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health see [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md).
 
@@ -43,8 +43,8 @@ You can change this by clicking "Settings" and allowing Azure AD Connect Health 
 ## Sync Insight
 Admins Frequently want to know about the time it takes to sync changes to Azure AD and the amount of changes taking place. This feature provides an easy way to visualize this using the below graphs:   
 
-- Latency of sync operations
-- Object Change trend
+* Latency of sync operations
+* Object Change trend
 
 ### Sync Latency
 This feature provides a graphical trend of latency of the sync operations (import, export, etc.) for connectors.  This provides a quick and easy way to understand not only the latency of your operations (larger if you have a large set of changes occurring) but also a way to detect anomalies in the latency that may require further investigation.
@@ -61,28 +61,28 @@ This feature provides a graphical trend of the number of changes that are being 
 ## Object Level Synchronization Error Report (Preview)
 This feature provides a report about synchronization errors that can occur when identity data is synchronized between Windows Server AD and Azure AD using Azure AD Connect.
 
-- The report covers errors recorded by the sync client (Azure AD Connect version 1.1.281.0 or higher)
-- It includes the errors that occurred in the last synchronization operation on the sync engine. ("Export" on the Azure AD Connector.)
-- Azure AD Connect Health agent for sync must have outbound connectivity to the required end points for the report to include the latest data. See the [Requirements section](active-directory-aadconnect-health-agent-install.md#Requirements) for details.
-- The report is **updated after every 30 minutes** using the data uploaded by Azure AD Connect Health agent for sync.
-It provides the following key capabilities
-
-    - Categorization of errors
-    - List of objects with error per category
-    - All the data about the errors at one place
-    - Side by side comparison of Objects with error due to a conflict
-    - Download the error report as a CVS (coming soon)
+* The report covers errors recorded by the sync client (Azure AD Connect version 1.1.281.0 or higher)
+* It includes the errors that occurred in the last synchronization operation on the sync engine. ("Export" on the Azure AD Connector.)
+* Azure AD Connect Health agent for sync must have outbound connectivity to the required end points for the report to include the latest data. See the [Requirements section](active-directory-aadconnect-health-agent-install.md#Requirements) for details.
+* The report is **updated after every 30 minutes** using the data uploaded by Azure AD Connect Health agent for sync.
+  It provides the following key capabilities
+  
+  * Categorization of errors
+  * List of objects with error per category
+  * All the data about the errors at one place
+  * Side by side comparison of Objects with error due to a conflict
+  * Download the error report as a CVS (coming soon)
 
 ### Categorization of Errors
 The report categorizes the existing synchronization errors in the following categories:
 
 | Category | Description |
-| -------------- | ----------- |
-| Duplicate Attribute | Errors when Azure AD Connect attempts create or update objects with duplicated values of one or more attributes in Azure AD that must be unique in a Tenant, such as proxyAddresses, UserPrincipalName. |
-| Data Mismatch | Errors when the soft-match fails to match objects that result in synchronization errors. |
-| Data Validation Failure | Errors due to invalid data, such as unsupported characters in critical attributes such as UserPrincipalName, format errors that fail validation before being written in Azure AD.|
-| Large Attribute | Errors when one or more attributes are larger than the allowed size, length or count.|
-| Other | All other errors that don't fit in the above categories. Based on feedback, this category will be split in sub categories.
+| --- | --- |
+| Duplicate Attribute |Errors when Azure AD Connect attempts create or update objects with duplicated values of one or more attributes in Azure AD that must be unique in a Tenant, such as proxyAddresses, UserPrincipalName. |
+| Data Mismatch |Errors when the soft-match fails to match objects that result in synchronization errors. |
+| Data Validation Failure |Errors due to invalid data, such as unsupported characters in critical attributes such as UserPrincipalName, format errors that fail validation before being written in Azure AD. |
+| Large Attribute |Errors when one or more attributes are larger than the allowed size, length or count. |
+| Other |All other errors that don't fit in the above categories. Based on feedback, this category will be split in sub categories. |
 
 ![Sync Error Report Summary](./media/active-directory-aadconnect-health-sync/errorreport01.png)
 ![Sync Error Report Categories](./media/active-directory-aadconnect-health-sync/errorreport02.png)
@@ -94,17 +94,15 @@ Drilling into each category will provide the list of objects having the error in
 ### Error Details
 Following data is available in the detailed view for each error
 
-- Identifiers for the *AD Object* involved
-- Identifiers for the *Azure AD Object* involved (as applicable)
-- Error description and how to fix
-- Related articles
+* Identifiers for the *AD Object* involved
+* Identifiers for the *Azure AD Object* involved (as applicable)
+* Error description and how to fix
+* Related articles
 
 ![Sync Error Report Details](./media/active-directory-aadconnect-health-sync/errorreport04.png)
 
 ### Download the error report as CSV
 This capability is coming soon. Stay tuned for more updates.
-
-
 
 ## Related links
 * [Troubleshooting Errors during synchronization](active-directory-aadconnect-troubleshoot-sync-errors.md)
@@ -116,3 +114,4 @@ This capability is coming soon. Stay tuned for more updates.
 * [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
+

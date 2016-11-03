@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Azure security videos on Channel 9 | Microsoft Azure"
-   description="The article provides a curated list of Azure security presentations on Channel 9. Channel 9 is a community that connects the people who use our products with the people behind our products."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Azure security videos on Channel 9 | Microsoft Docs
+description: The article provides a curated list of Azure security presentations on Channel 9. Channel 9 is a community that connects the people who use our products with the people behind our products.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Azure security videos on Channel 9
-
 [Channel 9](https://channel9.msdn.com/) is a community that brings forward the people behind our products and connects them with customers.
 
 They think there is a great future in software and they’re excited about it. Channel 9 is a community to participate in the ongoing conversation.
@@ -46,9 +45,9 @@ Jack Richins teaches [Scott](https://channel9.msdn.com/Niners/Glucose) how to ea
 
 Areas covered in this video:
 
-- Understanding encryption and SQL Server
-- Understanding the Data Protection API, master keys, and certificates
-- Using SQL commands to create the master key and certificates, and encrypt the database
+* Understanding encryption and SQL Server
+* Understanding the Data Protection API, master keys, and certificates
+* Using SQL commands to create the master key and certificates, and encrypt the database
 
 [How to set security in DevTest Labs](https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-security-in-your-DevTest-Lab)
 
@@ -66,12 +65,13 @@ Senior Program Manager Narayan Annamalai teaches Scott how to use Network Securi
 
 Azure Active Directory (AD) Privileged Identity Management is a premium functionality that allows you to discover, restrict, and monitor privileged identities and their access to resources. It also enforces on-demand, just in time administrative access when needed. Learn about:
 
-- Managing protection for Office 365 workload-specific administrative roles
-- Configuring Azure Multi-Factor Authentication(MFA) for privileged role activations
-- Measuring and improving your tenant security posture
-- Monitoring and fixing security findings
-- Reviewing who needs to remain in privileged roles for periodic recertification workflows
+* Managing protection for Office 365 workload-specific administrative roles
+* Configuring Azure Multi-Factor Authentication(MFA) for privileged role activations
+* Measuring and improving your tenant security posture
+* Monitoring and fixing security findings
+* Reviewing who needs to remain in privileged roles for periodic recertification workflows
 
 [Azure Key Vault with Amit Bapat](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 
 Amit Bapat introduces Scott to Azure Key Vault. With Azure Key Vault, you can encrypt keys and small secrets like passwords using keys stored in hardware security modules (HSMs). It's cloud-based, hardware-based secret management for Microsoft Azure!
+

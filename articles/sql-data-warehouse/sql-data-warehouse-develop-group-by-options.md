@@ -1,29 +1,29 @@
-<properties
-   pageTitle="Group by options in SQL Data Warehouse | Microsoft Azure"
-   description="Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Group by options in SQL Data Warehouse | Microsoft Docs
+description: Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="jrj;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
 
+---
 # Group by options in SQL Data Warehouse
-
-The [GROUP BY][] clause is used to aggregate data to a summary set of rows. It also has a few options that extend it's functionality that need to be worked around as they are not directly supported by Azure SQL Data Warehouse.
+The [GROUP BY][GROUP BY] clause is used to aggregate data to a summary set of rows. It also has a few options that extend it's functionality that need to be worked around as they are not directly supported by Azure SQL Data Warehouse.
 
 These options are
-- GROUP BY with ROLLUP
-- GROUPING SETS
-- GROUP BY with CUBE
+
+* GROUP BY with ROLLUP
+* GROUPING SETS
+* GROUP BY with CUBE
 
 ## Rollup and grouping sets options
 The simplest option here is to use `UNION ALL` instead to perform the rollup rather than relying on the explicit syntax. The result is exactly the same
@@ -44,9 +44,10 @@ GROUP BY ROLLUP (
 ```
 
 By using ROLLUP we have requested the following aggregations:
-- Country and Region
-- Country
-- Grand Total
+
+* Country and Region
+* Country
+* Grand Total
 
 To replace this you will need to use `UNION ALL`; specifying the aggregations required explicitly to return the same results:
 
@@ -175,9 +176,8 @@ ORDER BY 1,2,3
 
 By breaking the code up into sections and generating a looping construct the code becomes more manageable and maintainable.
 
-
 ## Next steps
-For more development tips, see [development overview][].
+For more development tips, see [development overview][development overview].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png

@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Azure Mobile Engagement User Interface - Home"
-   description="Learn how to manage your existing application and projects using Azure Mobile Engagement"
-   services="mobile-engagement"
-   documentationCenter=""
-   authors="piyushjo"
-   manager="dwrede"
-   editor=""/>
+---
+title: Azure Mobile Engagement User Interface - Home
+description: Learn how to manage your existing application and projects using Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile"
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # How to manage your existing application and projects
-
-
 This article describes the **Home** page of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. 
 
 To get to the home page, click **Home** on the top left of the page. It contains the list of all of your applications that are part of the chosen collection. On this page you just see a quick overview of your applications.
@@ -29,49 +27,42 @@ You can also view the comparison chart for the selected applications. Or, choose
 
 ![Home1][0]
 
-
 ## My applications
-
 The quick overview of your applications allows you to select which application you would like to open to view the detailed ribbon options. You can click the name of your application to return to the most recently visited ribbon location in your application, or click the gear icon to go directly to the "Settings" page of your application. You can search, filter, or sort the information displayed on the applications tables. You can also drag and drop the column headers to change the order.
 
 Among other things, the overview of your applications includes:
 
-- **New users trend**: Evolution of new users over the last two weeks.
-- **Active users**: Number of active users over the last 30 days.
-- **Active users trend**: Evolution of active users over the last two weeks.
-- **Sessions**: A session is one use of the application performed by a user, from the time the user starts using it, until the user stops.
-- **Session Trends**:  Evolution of sessions over the last two weeks.
+* **New users trend**: Evolution of new users over the last two weeks.
+* **Active users**: Number of active users over the last 30 days.
+* **Active users trend**: Evolution of active users over the last two weeks.
+* **Sessions**: A session is one use of the application performed by a user, from the time the user starts using it, until the user stops.
+* **Session Trends**:  Evolution of sessions over the last two weeks.
 
 Once you click on an application, you can start monitoring and managing your apps through the UI. For example:    
 
-- [Monitor real-time data about your application](mobile-engagement-user-interface-monitor.md)
-- [Analyze historical data about your application](mobile-engagement-user-interface-analytics.md)
-- [Create and manage segments of users to identify usage patterns](mobile-engagement-user-interface-segments.md)
-- [Reach out to the users of your application with push notifications](mobile-engagement-user-interface-reach.md)
+* [Monitor real-time data about your application](mobile-engagement-user-interface-monitor.md)
+* [Analyze historical data about your application](mobile-engagement-user-interface-analytics.md)
+* [Create and manage segments of users to identify usage patterns](mobile-engagement-user-interface-segments.md)
+* [Reach out to the users of your application with push notifications](mobile-engagement-user-interface-reach.md)
 
 ## My projects
-
 You can use projects to group your applications and give permissions to other users to access your applications. You give permissions to other users by providing email address. The **New project** button allows you to create a new project by only entering a "name" and a "description" of your new project. Once a project is created, you can click on the project name to edit the name and description of your product and to select all the applications you want to see in this project.
-
 
 ![Home6][60]
 
 Roles include:
 
-- **Viewer**: A Viewer is a User who can only view the applications associated to a Project. A Viewer can access analytics and monitor data and look at Reach results. A Viewer cannot change any information, nor manage Applications or Users. A Viewer cannot create or change Reach campaign status.
-- **Developer**: A Developer is a User who can do everything a Viewer can do, as well as manage Applications. A Developer can enable and disable applications, change applications' information (like package and signature), and create Reach campaigns. A Developer cannot manage Users.
-- **Administrator**: An Administrator is a User who can do everything a Developer can do, as well as manage Users. An Administrator can invite users to join a project, can change user roles, and can change project's information. Application level permissions can also be set in “settings”.
-
+* **Viewer**: A Viewer is a User who can only view the applications associated to a Project. A Viewer can access analytics and monitor data and look at Reach results. A Viewer cannot change any information, nor manage Applications or Users. A Viewer cannot create or change Reach campaign status.
+* **Developer**: A Developer is a User who can do everything a Viewer can do, as well as manage Applications. A Developer can enable and disable applications, change applications' information (like package and signature), and create Reach campaigns. A Developer cannot manage Users.
+* **Administrator**: An Administrator is a User who can do everything a Developer can do, as well as manage Users. An Administrator can invite users to join a project, can change user roles, and can change project's information. Application level permissions can also be set in “settings”.
 
 Click on a project to view all the applications that are part of this project. The following image shows the comparison chart for the selected applications.
 
 ![Home2][3]
 
-
 ## See also
-
-- [Concepts][Link 6]
-- [Troubleshooting Guide Service][Link 24]
+* [Concepts][Link 6]
+* [Troubleshooting Guide Service][Link 24]
 
 <!--Image references-->
 [0]: ./media/mobile-engagement-user-interface-home/home0.png

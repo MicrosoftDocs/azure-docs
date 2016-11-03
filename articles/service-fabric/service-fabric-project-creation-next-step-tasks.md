@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Service Fabric project creation next steps | Microsoft Azure"
-   description="This article contains links to a set of core development tasks for Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="seanmck"
-   manager="timlt"
-   editor=""/>
+---
+title: Service Fabric project creation next steps | Microsoft Docs
+description: This article contains links to a set of core development tasks for Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: seanmck
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotNet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="11/01/2016"
-   ms.author="seanmck"/>
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 11/01/2016
+ms.author: seanmck
 
+---
 # Your Service Fabric application and next steps
 Your Azure Service Fabric application has been created. This article describes the makeup of your project and some potential next steps.
 
@@ -25,15 +25,11 @@ Every new application includes an application project. There may be one or two a
 ### The application project
 The application project consists of:
 
-- A set of references to the services that make up your application.
-
-- Three publish profiles (1-Node Local, 5-Node Local, and Cloud) that you can use to maintain preferences for working with different environments--such as preferences related to a cluster endpoint and whether to perform upgrade deployments by default.
-
-- Three application parameter files (same as above) that you can use to maintain environment-specific application configurations, such as the number of partitions to create for a service.
-
-- A deployment script that you can use to deploy your application from the command line or as part of an automated continuous integration and deployment pipeline.
-
-- The application manifest, which describes the application. You can find the manifest under the ApplicationPackageRoot folder.
+* A set of references to the services that make up your application.
+* Three publish profiles (1-Node Local, 5-Node Local, and Cloud) that you can use to maintain preferences for working with different environments--such as preferences related to a cluster endpoint and whether to perform upgrade deployments by default.
+* Three application parameter files (same as above) that you can use to maintain environment-specific application configurations, such as the number of partitions to create for a service.
+* A deployment script that you can use to deploy your application from the command line or as part of an automated continuous integration and deployment pipeline.
+* The application manifest, which describes the application. You can find the manifest under the ApplicationPackageRoot folder.
 
 ### Stateless service
 When you add a new stateless service, Visual Studio adds a service project to your solution that includes a type descended from `StatelessService`. The service increments a local variable in a counter.
@@ -50,7 +46,6 @@ The actor project provides methods for setting and getting the value of a counte
 The stateless Web API project provides a basic web service that you can use to open your application to external clients. For more information about how the project structured, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md).
 
 ### ASP.NET core
-
 The Service Fabric SDK provides the same set of ASP.NET Core templates that are available for standalone ASP.NET Core projects: empty, [Web API][aspnet-webapi], and [Web Application][aspnet-webapp].
 
 ## Next steps
@@ -58,7 +53,6 @@ The Service Fabric SDK provides the same set of ASP.NET Core templates that are 
 The Service Fabric SDK provides a local cluster for development and testing. To create a cluster in Azure, see [Setting up a Service Fabric cluster from the Azure portal][create-cluster-in-portal].
 
 ### Try deploying to Azure for free with party clusters
-
 If you'd like to try deploying and managing applications in Azure without setting up your own clusters, you can use the free [party cluster service](http://aka.ms/tryservicefabric).
 
 ### Publish your application to Azure
@@ -72,7 +66,6 @@ Service Fabric enables independent versioning and upgrading of independent servi
 
 ### Configure continuous integration with Visual Studio Team Services
 To learn how you can set up a continuous integration process for your Service Fabric application, see [Configure continuous integration with Visual Studio Team Services][ci-with-vso].
-
 
 <!-- Links -->
 [add-web-frontend]: service-fabric-add-a-web-frontend.md

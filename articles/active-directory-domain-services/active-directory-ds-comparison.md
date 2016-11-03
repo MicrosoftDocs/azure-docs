@@ -1,53 +1,49 @@
-<properties
-	pageTitle="Azure AD Domain Services: Compare Azure AD Domain Services to DIY domain controllers | Microsoft Azure"
-	description="Comparing Azure Active Directory Domain Services to DIY domain controllers"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+---
+title: 'Azure AD Domain Services: Compare Azure AD Domain Services to DIY domain controllers | Microsoft Docs'
+description: Comparing Azure Active Directory Domain Services to DIY domain controllers
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: stevenpo
+editor: curtand
 
-<tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/01/2016"
-	ms.author="maheshu"/>
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: maheshu
 
+---
 # How to decide if Azure AD Domain Services is right for your use-case
 Azure AD Domain Services enables you to deploy your workloads in Azure Infrastructure Services, without having to worry about maintaining your identity infrastructure. This managed service is different from a typical Windows Server Active Directory deployment that you deploy and administer on your own. The service is designed for ease-of-deployment, automated health monitoring and remediation, and a simple identity infrastructure for the cloud. We are constantly evolving the service to add support for common deployment scenarios.
 
 To decide whether to use Azure AD Domain Services or spin up and manage your own AD infrastructure (do-it-yourself) in Azure:
 
-- See the list of [features offered by Azure AD Domain Services](active-directory-ds-features.md).
-
-- Review common [deployment scenarios for Azure AD Domain Services](active-directory-ds-scenarios.md).
-
-- Finally, [compare Azure AD Domain Services to a do-it-yourself AD option](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
-
+* See the list of [features offered by Azure AD Domain Services](active-directory-ds-features.md).
+* Review common [deployment scenarios for Azure AD Domain Services](active-directory-ds-scenarios.md).
+* Finally, [compare Azure AD Domain Services to a do-it-yourself AD option](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
 
 ## Compare Azure AD Domain Services to DIY AD domain in Azure
 The following table helps you decide between using Azure AD Domain Services and managing your own AD infrastructure in Azure.
 
-|**Feature**|**Azure AD Domain Services**|**'Do-it-yourself' AD in Azure VMs**|
-|---|:---:|:---:|
-|[**Managed service**](active-directory-ds-comparison.md#managed-service)|**&#x2713;**|**&#x2715;**|
-|[**Secure deployments**](active-directory-ds-comparison.md#secure-deployments)|**&#x2713;**|Administrator needs to secure the deployment.|
-|[**DNS server**](active-directory-ds-comparison.md#dns-server)|**&#x2713;** (managed service)|**&#x2713;**|
-|[**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges)|**&#x2715;**|**&#x2713;**|
-|[**Domain join**](active-directory-ds-comparison.md#domain-join)|**&#x2713;**|**&#x2713;**|
-|[**Domain authentication using NTLM and Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos)|**&#x2713;**|**&#x2713;**|
-|[**Custom OU structure**](active-directory-ds-comparison.md#custom-ou-structure)|**&#x2713;**|**&#x2713;**|
-|[**Schema extensions**](active-directory-ds-comparison.md#schema-extensions)|**&#x2715;**|**&#x2713;**|
-|[**AD domain/forest trusts**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts)|**&#x2715;**|**&#x2713;**|
-|[**LDAP read**](active-directory-ds-comparison.md#ldap-read)|**&#x2713;**|**&#x2713;**|
-|[**Secure LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap)|**&#x2713;**|**&#x2713;**|
-|[**LDAP write**](active-directory-ds-comparison.md#ldap-write)|**&#x2715;**|**&#x2713;**|
-|[**Group Policy**](active-directory-ds-comparison.md#group-policy)|Simple|Full|
-|[**Geo-distributed deployments**](active-directory-ds-comparison.md#geo-dispersed-deployments)|**&#x2715;**|**&#x2713;**|
-
+| **Feature** | **Azure AD Domain Services** | **'Do-it-yourself' AD in Azure VMs** |
+| --- |:---:|:---:|
+| [**Managed service**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
+| [**Secure deployments**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Administrator needs to secure the deployment. |
+| [**DNS server**](active-directory-ds-comparison.md#dns-server) |**&#x2713;** (managed service) |**&#x2713;** |
+| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
+| [**Domain join**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
+| [**Domain authentication using NTLM and Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
+| [**Custom OU structure**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
+| [**Schema extensions**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
+| [**AD domain/forest trusts**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
+| [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
+| [**Secure LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
+| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
+| [**Group Policy**](active-directory-ds-comparison.md#group-policy) |Simple |Full |
+| [**Geo-distributed deployments**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### Managed service
 Azure AD Domain Services domains are managed by Microsoft. You do not have to worry about patching, updates, monitoring, backups, and ensuring availability of your domain. These management tasks are offered as a service by Microsoft Azure for your managed domains.
@@ -91,24 +87,22 @@ Sophisticated group policy constructs aren’t supported on the AAD-DS managed d
 #### Geo-dispersed deployments
 Azure AD Domain Services managed domains are available in a single virtual network in Azure. For scenarios that require domain controllers to be available in multiple Azure regions across the world, setting up domain controllers in Azure IaaS VMs might be the better alternative.
 
-
 ## 'Do-it-yourself' (DIY) AD deployment options
 You may have deployment use-cases where you need some of the capabilities offered by a Windows Server AD installation. In these cases, consider one of the following do-it-yourself (DIY) options:
 
-- **Standalone cloud domain:** You can set up a standalone ‘cloud domain’ using Azure virtual machines that have been configured as domain controllers. This infrastructure does not integrate with your on-premises AD environment. This option would require a different set of ‘cloud credentials’ to login/administer VMs in the cloud.
+* **Standalone cloud domain:** You can set up a standalone ‘cloud domain’ using Azure virtual machines that have been configured as domain controllers. This infrastructure does not integrate with your on-premises AD environment. This option would require a different set of ‘cloud credentials’ to login/administer VMs in the cloud.
+* **Resource forest deployment:** You can set up a domain in the resource forest topology, using Azure virtual machines configured as domain controllers. Next, you can configure an AD trust relationship with your on-premises AD environment. You can domain-join computers (Azure VMs) to this resource forest in the cloud. User authentication happens over either a VPN/ExpressRoute connection to your on-premises directory.
+* **Extend your on-premises domain to Azure:** You can connect an Azure virtual network to your on-premises network using a VPN/ExpressRoute connection, so that Azure VMs can be joined to your on-premises AD. Another alternative is to promote replica domain controllers of your on-premises domain in Azure as a VM. You can then set it up to replicate over a VPN/ExpressRoute connection to your on-premises directory. This deployment mode effectively extends your on-premises domain to Azure.
 
-- **Resource forest deployment:** You can set up a domain in the resource forest topology, using Azure virtual machines configured as domain controllers. Next, you can configure an AD trust relationship with your on-premises AD environment. You can domain-join computers (Azure VMs) to this resource forest in the cloud. User authentication happens over either a VPN/ExpressRoute connection to your on-premises directory.
-
-- **Extend your on-premises domain to Azure:** You can connect an Azure virtual network to your on-premises network using a VPN/ExpressRoute connection, so that Azure VMs can be joined to your on-premises AD. Another alternative is to promote replica domain controllers of your on-premises domain in Azure as a VM. You can then set it up to replicate over a VPN/ExpressRoute connection to your on-premises directory. This deployment mode effectively extends your on-premises domain to Azure.
-
-> [AZURE.NOTE] You may determine that a DIY option is better suited for your deployment use-cases. Consider [sharing feedback](active-directory-ds-contact-us.md) to help us understand what features would help you chose Azure AD Domain Services in the future. This feedback helps us evolve the service to better suit your deployment needs and use-cases.
+> [!NOTE]
+> You may determine that a DIY option is better suited for your deployment use-cases. Consider [sharing feedback](active-directory-ds-contact-us.md) to help us understand what features would help you chose Azure AD Domain Services in the future. This feedback helps us evolve the service to better suit your deployment needs and use-cases.
+> 
+> 
 
 We have published [guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx) to help make DIY installations easier.
 
-
 ## Related Content
-- [Features - Azure AD Domain Services](active-directory-ds-features.md)
+* [Features - Azure AD Domain Services](active-directory-ds-features.md)
+* [Deployment scenarios - Azure AD Domain Services](active-directory-ds-scenarios.md)
+* [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
-- [Deployment scenarios - Azure AD Domain Services](active-directory-ds-scenarios.md)
-
-- [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)

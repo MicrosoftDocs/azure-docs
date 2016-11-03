@@ -1,33 +1,28 @@
-<properties
-	pageTitle="Import data into Machine Learning Studio from a local file | Microsoft Azure"
-	description="How to import your training data Azure Machine Learning Studio from a local file."
-	keywords="import data,data format,data types,data sources,training data"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Import data into Machine Learning Studio from a local file | Microsoft Docs
+description: How to import your training data Azure Machine Learning Studio from a local file.
+keywords: import data,data format,data types,data sources,training data
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="garye;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: garye;bradsev
 
-
+---
 # Import your training data into Azure Machine Learning Studio from a local file
-
-[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
-
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 To use your own data in Machine Learning Studio, you can upload a data file ahead of time from your local hard drive to create a dataset module in your workspace. 
 
-
 ## Import data from a local file
-
 You can import data from a local hard drive by doing the following:
 
 1. Click **+NEW** at the bottom of the Machine Learning Studio window.
@@ -41,6 +36,4 @@ If you know the file will take a long time, you can do other things inside Machi
 
 Once your data is uploaded, it's stored in a dataset module and is available to any experiment in your workspace.
 When you're editing an experiment, you can find the datasets you've created in the **My Datasets** list under the **Saved Datasets** list in the module palette. You can drag and drop the dataset onto the experiment canvas when you want to use the data set for the further analytics and machine learning.
-
-
 

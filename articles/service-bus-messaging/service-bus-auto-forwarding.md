@@ -1,27 +1,26 @@
-<properties 
-    pageTitle="Auto-forwarding Service Bus messaging entities | Microsoft Azure"
-    description="How to chain a queue or subscription to another queue or topic."
-    services="service-bus"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" /> 
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="09/29/2016"
-    ms.author="sethm" />
+---
+title: Auto-forwarding Service Bus messaging entities | Microsoft Docs
+description: How to chain a queue or subscription to another queue or topic.
+services: service-bus
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/29/2016
+ms.author: sethm
+
+---
 # Chaining Service Bus entities with auto-forwarding
-
 The *auto-forwarding* feature enables you to chain a queue or subscription to another queue or topic that is part of the same namespace. When auto-forwarding is enabled, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination). Note that it is still possible to send a message to the destination entity directly. Also, it is not possible to chain a subqueue, such as a deadletter queue, to another queue or topic.
 
 ## Using auto-forwarding
-
-You can enable auto-forwarding by setting the [QueueDescription.ForwardTo][] or [SubscriptionDescription.ForwardTo][] properties on the [QueueDescription][] or [SubscriptionDescription][] objects for the source, as in the following example.
+You can enable auto-forwarding by setting the [QueueDescription.ForwardTo][QueueDescription.ForwardTo] or [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] properties on the [QueueDescription][QueueDescription] or [SubscriptionDescription][SubscriptionDescription] objects for the source, as in the following example.
 
 ```
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -42,7 +41,6 @@ You can also use auto-forwarding to decouple message senders from receivers. For
 If Alice goes on vacation, her personal queue, rather than the ERP topic, fills up. In this scenario, because a sales representative has not received any messages, none of the ERP topics ever reach quota.
 
 ## Auto-forwarding considerations
-
 If the destination entity has accumulated many messages and exceeds the quota, or the destination entity is disabled, the source entity adds the messages to its [dead-letter queue](service-bus-dead-letter-queues.md) until there is space in the destination (or the entity is re-enabled). Those messages will continue to live in the dead-letter queue, so you must explicitly receive and process them from the dead-letter queue.
 
 When chaining together individual topics to obtain a composite topic with many subscriptions, it is recommended that you have a moderate number of subscriptions on the first-level topic and many subscriptions on the second-level topics. For example, a first-level topic with 20 subscriptions, each of them chained to a second-level topic with 200 subscriptions, allows for higher throughput than a first-level topic with 200 subscriptions, each chained to a second-level topic with 20 subscriptions.
@@ -52,19 +50,18 @@ Service Bus bills one operation for each forwarded message. For example, sending
 To create a subscription that is chained to another queue or topic, the creator of the subscription must have **manage** permissions on both the source and the destination entity. Sending messages to the source topic only requires **send** permissions on the source topic.
 
 ## Next steps
-
 For detailed information about auto-forwarding, see the following reference topics:
 
-- [SubscriptionDescription.ForwardTo][]
-- [QueueDescription][]
-- [SubscriptionDescription][]
+* [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo]
+* [QueueDescription][QueueDescription]
+* [SubscriptionDescription][SubscriptionDescription]
 
-To learn more about Service Bus performance improvements, see [Partitioned messaging entities][].
+To learn more about Service Bus performance improvements, see [Partitioned messaging entities][Partitioned messaging entities].
 
-  [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-  [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
-  [QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
-  [SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
-  [0]: ./media/service-bus-auto-forwarding/IC628631.gif
-  [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-  [Partitioned messaging entities]: service-bus-partitioning.md
+[QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
+[SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
+[QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
+[SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
+[0]: ./media/service-bus-auto-forwarding/IC628631.gif
+[1]: ./media/service-bus-auto-forwarding/IC628632.gif
+[Partitioned messaging entities]: service-bus-partitioning.md

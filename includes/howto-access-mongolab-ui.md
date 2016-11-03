@@ -5,14 +5,14 @@ You can use the MongoLab UI to perform most database tasks, such as inserting an
 To access the MongoLab UI, do the following:
 
 1. Select **Add-ons**.  
-![AddonsButton][button-addons]
-1. Locate your MongoLab service in your list of add-ons.  
-![MongolabEntry][entry-mongolabaddon]
-1. Cick the name of your add-on to reach the add-on page.
-1. Click **Manage**.  
-![ManageButton][button-manage]  
-A new browser tab opens, displaying the MongoLab database home page:  
-![DbHome][screen-dblanding]
+   ![AddonsButton][button-addons]
+2. Locate your MongoLab service in your list of add-ons.  
+   ![MongolabEntry][entry-mongolabaddon]
+3. Cick the name of your add-on to reach the add-on page.
+4. Click **Manage**.  
+   ![ManageButton][button-manage]  
+   A new browser tab opens, displaying the MongoLab database home page:  
+   ![DbHome][screen-dblanding]
 
 From here you can select a specific collection and drill down to individual documents. Log out when you are finished.
 

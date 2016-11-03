@@ -1,27 +1,26 @@
-<properties
-	pageTitle="Data Catalog developer concepts | Microsoft Azure"
-	description="Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API."
-	services="data-catalog"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
-	editor=""
-	tags=""/>
-<tags
-	ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="10/11/2016"
-	ms.author="spelluru"/>  
+---
+title: Data Catalog developer concepts | Microsoft Docs
+description: Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API.
+services: data-catalog
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: ''
+tags: ''
 
+ms.service: data-catalog
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-catalog
+ms.date: 10/11/2016
+ms.author: spelluru
+
+---
 # Azure Data Catalog developer concepts
-
 Microsoft **Azure Data Catalog** is a fully managed cloud service that provides capabilities for data source discovery and for crowdsourcing data source metadata. Developers can use the service via its REST APIs. Understanding the concepts implemented in the service is important for developers to successfully integrate with **Azure Data Catalog**.
 
 ## Key concepts
-
 The **Azure Data Catalog** conceptual model is based on four key concepts: The **Catalog**, **Users**, **Assets**, and **Annotations**.
 
 ![concept][1]
@@ -29,13 +28,11 @@ The **Azure Data Catalog** conceptual model is based on four key concepts: The *
 *Figure 1 - Azure Data Catalog simplified conceptual model*
 
 ### Catalog
-
 A **Catalog** is the top-level container for all the metadata an organization stores. There is one **Catalog** allowed per Azure Account. Catalogs are tied to an Azure subscription, but only one **Catalog** can be created for any given Azure account, even though an account can have multiple subscriptions.
 
 A catalog contains **Users** and **Assets**.
 
 ### Users
-
 Users are security principals that have permissions to perform actions (search the catalog, add, edit or remove items, etc.) in the Catalog.
 
 There are several different roles a user can have. For information on roles, see the section Roles and Authorization.
@@ -45,7 +42,6 @@ Individual users and security groups can be added.
 Azure Data Catalog uses Azure Active Directory for identity and access management. Each Catalog user must be a member of the Active Directory for the account.
 
 ### Assets
-
 A **Catalog** contains data assets. **Assets** are the unit of granularity managed by the catalog.
 
 The granularity of an asset varies by data source. For SQL Server or Oracle Database, an asset can be a Table or a View. For SQL Server Analysis Services, an asset can be a Measure, a Dimension, or a Key Performance Indicator (KPI). For SQL Server Reporting Services, an asset is a Report.
@@ -55,20 +51,18 @@ An **Asset** is the thing you add or remove from a Catalog. It is the unit of re
 An **Asset** is made up from its name, location, and type, and annotations that further describe it.
 
 ### Annotations
-
 Annotations are items that represent metadata about Assets.
 
 Examples of annotations are description, tags, schema, documentation, etc. A full list of the asset types and annotation types are in the Asset Object model section.
 
 ## Crowdsourcing annotations and user perspective (multiplicity of opinion)
-
 A key aspect of Azure Data Catalog is how it supports the crowdsourcing of metadata in the system. As opposed to a wiki approach – where there is only one opinion and the last writer wins – the Azure Data Catalog model allows multiple opinions to live side by side in the system.
 
 This approach reflects the real world of enterprise data where different users can have different perspectives on a given asset:
 
--	A database administrator may provide information about service level agreements, or the available processing window for bulk ETL operations
--	A data steward may provide information about the business processes to which the asset applies, or the classifications that the business has applied to it
--	A finance analyst may provide information about how the data is used during end-of-period reporting tasks
+* A database administrator may provide information about service level agreements, or the available processing window for bulk ETL operations
+* A data steward may provide information about the business processes to which the asset applies, or the classifications that the business has applied to it
+* A finance analyst may provide information about how the data is used during end-of-period reporting tasks
 
 To support this example, each user – the DBA, the data steward, and the analyst – can add a description to a single table that has been registered in the Catalog. All descriptions are maintained in the system, and in the Azure Data Catalog portal all descriptions are displayed.
 
@@ -78,20 +72,17 @@ For example, under the asset root is an array of description objects. The array 
 
 The UX can then choose how to display the combination. There are three different patterns for display.
 
--	The simplest pattern is “Show All”. In this pattern, all the objects are shown in a list view. The Azure Data Catalog portal UX uses this pattern for description.
--	Another pattern is “Merge”. In this pattern, all the values from the different users are merged together, with duplicate removed. Examples of this pattern in the Azure Data Catalog portal UX are the tags and experts properties.
--	A third pattern is “last writer wins”. In this pattern, only the most recent value typed in is shown. friendlyName is an example of this pattern.
+* The simplest pattern is “Show All”. In this pattern, all the objects are shown in a list view. The Azure Data Catalog portal UX uses this pattern for description.
+* Another pattern is “Merge”. In this pattern, all the values from the different users are merged together, with duplicate removed. Examples of this pattern in the Azure Data Catalog portal UX are the tags and experts properties.
+* A third pattern is “last writer wins”. In this pattern, only the most recent value typed in is shown. friendlyName is an example of this pattern.
 
 ## Asset object model
-
 As introduced in the Key Concepts section, the **Azure Data Catalog** object model includes items, which can be assets or annotations. Items have properties, which can be optional or required. Some properties apply to all items. Some properties apply to all assets. Some properties apply only to specific asset types.
 
 ### System properties
-
 <table><tr><td><b>Property Name</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>The last time the item was modified. This field is generated by the server when an item is inserted and every time an item is updated. The value of this property is ignored on input of publish operations.</td></tr><tr><td>id</td><td>Uri</td><td>Absolute url of the item (read-only). It is the unique addressable URI for the item.  The value of this property is ignored on input of publish operations.</td></tr><tr><td>type</td><td>String</td><td>The type of the asset (read-only).</td></tr><tr><td>etag</td><td>String</td><td>A string corresponding to the version of the item that can be used for optimistic concurrency control when performing operations that update items in the catalog. "*" can be used to match any value.</td></tr></table>
 
 ### Common properties
-
 These properties apply to all root asset types and all annotation types.
 
 <table>
@@ -102,10 +93,10 @@ These properties apply to all root asset types and all annotation types.
 ### Common root properties
 <p>
 These properties apply to all root asset types.
+
 <table><tr><td><b>Property Name</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr><tr><td>name</td><td>String</td><td>A name derived from the data source location information</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Uniquely describes the data source and is one of the identifiers for the asset. (See dual identity section).  The structure of the dsl varies by the protocol and source type.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>More detail on the type of asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Describes the user who most recently registered this asset.  Contains both the unique id for the user (the upn) and a display name (lastName and firstName).</td></tr><tr><td>containerId</td><td>String</td><td>Id of the container asset for the data source. This property is not supported for the Container type.</td></tr></table>
 
 ### Common non-singleton annotation properties
-
 These properties apply to all non-singleton annotation types (annotations, which allowed to be multiple per asset).
 
 <table>
@@ -114,14 +105,12 @@ These properties apply to all non-singleton annotation types (annotations, which
 </table>
 
 ### Root asset types
-
 Root asset types are those types that represent the various types of data assets that can be registered in the catalog. For each root type, there is a view, which describes asset and annotations included in the view. View name should be used in the corresponding {view_name} url segment when publishing an asset using REST API.
 
 <table><tr><td><b>Asset Type (View name)</b></td><td><b>Additional Properties</b></td><td><b>Data Type</b></td><td><b>Allowed Annotations</b></td><td><b>Comments</b></td></tr><tr><td>Table ("tables")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Schema<p>ColumnDescription<p>ColumnTag<p> Expert<p>Preview<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentation<p></td><td>A Table represents any tabular data.  For example: SQL Table, SQL View, Analysis Services Tabular Table, Analysis Services Multidimensional dimension, Oracle Table, etc.   </td></tr><tr><td>Measure ("measures")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents an Analysis Services measure.</td></tr><tr><td></td><td>measure</td><td>Column</td><td></td><td>Metadata describing the measure</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>Specifies if the measure is calculated or not.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Physical container for measure</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Physical container for measure</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>An MDX numeric expression or a calculation that returns the target value of the KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>An MDX numeric expression that returns the actual value of the KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>An MDX expression that represents the state of the KPI at a specified point in time.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>An MDX expression that evaluates the value of the KPI over time. The trend can be any time-based criterion that is useful in a specific business context.</td>
 <tr><td>Report ("reports")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents a SQL Server Reporting Services report </td></tr><tr><td></td><td>assetCreatedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>String</td><td></td><td></td></tr><tr><td>Container ("containers")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents a container of other assets such as a SQL database, an Azure Blobs container, or an Analysis Services model.</td></tr></table>
 
 ### Annotation types
-
 Annotation types represent types of metadata that can be assigned to other types within the catalog.
 
 <table>
@@ -178,8 +167,8 @@ column tags separately.  Thus there is an array of ColumnTag objects on each ass
 </table>
 
 ### Common types
-
 Common types can be used as the types for properties, but are not Items.
+
 <table>
 <tr><td><b>Common Type</b></td><td><b>Properties</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
@@ -248,18 +237,15 @@ The set of supported protocols can be extended programmatically (Refer to Data C
 </table>
 
 ## Roles and authorization
-
 Microsoft Azure Data Catalog provides authorization capabilities for CRUD operations on assets and annotations.
 
 ## Key concepts
-
 The Azure Data Catalog uses two authorization mechanisms:
 
-- Role-based authorization
-- Permission-based authorization
+* Role-based authorization
+* Permission-based authorization
 
 ### Roles
-
 There are three roles: **Administrator**, **Owner**, and **Contributor**.  Each role has its scope and rights, which are summarized in the following table.
 
 <table><tr><td><b>Role</b></td><td><b>Scope</b></td><td><b>Rights</b></td></tr><tr><td>Administrator</td><td>Catalog (all assets/annotations in the Catalog)</td><td>Read
@@ -280,12 +266,14 @@ Delete
 ViewRoles
 Note: all the rights are revoked if the Read right on the item is revoked from the Contributor</td></tr></table>
 
-> [AZURE.NOTE] **Read**, **Update**, **Delete**, **ViewRoles** rights are applicable to any item (asset or annotation) while **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions** are only applicable to the root asset.
->
->**Delete** right applies to an item and any subitems or single item underneath it. For example, deleting an asset also deletes any annotations for that asset.
+> [!NOTE]
+> **Read**, **Update**, **Delete**, **ViewRoles** rights are applicable to any item (asset or annotation) while **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions** are only applicable to the root asset.
+> 
+> **Delete** right applies to an item and any subitems or single item underneath it. For example, deleting an asset also deletes any annotations for that asset.
+> 
+> 
 
 ### Permissions
-
 Permission is as list of access control entries. Each access control entry assigns set of rights to a security principal. Permissions can only be specified on an asset (that is, root item) and apply to the asset and any subitems.
 
 During the **Azure Data Catalog** preview, only **Read** right is supported in the permissions list to enable scenario to restrict visibility of an asset.
@@ -293,84 +281,90 @@ During the **Azure Data Catalog** preview, only **Read** right is supported in t
 By default any authenticated user has **Read** right for any item in the catalog unless visibility is restricted to the set of principals in the permissions.
 
 ## REST API
-
 **PUT** and **POST** view item requests can be used to control roles and permissions: in addition to item payload, two system properties can be specified **roles** and **permissions**.
 
-> [AZURE.NOTE]
->
+> [!NOTE]
 > **permissions** only applicable to a root item.
->
+> 
 > **Owner** role only applicable to a root item.
->
+> 
 > By default when an item is created in the catalog its **Contributor** is set to the currently authenticated user. If item should be updatable by everyone, **Contributor** should be set to &lt;Everyone&gt; special security principal in the **roles** property when item is first published (refer to the following example). **Contributor** cannot be changed and stays the same during life-time of an item (even **Administrator** or **Owner** doesn’t have the right to change the **Contributor**). The only value supported for the explicit setting of the **Contributor** is &lt;Everyone&gt;: **Contributor** can only be a user who created an item or &lt;Everyone&gt;.
+> 
+> 
 
-###Examples
+### Examples
 **Set Contributor to &lt;Everyone&gt; when publishing an item.**
 Special security principal &lt;Everyone&gt; has objectId "00000000-0000-0000-0000-000000000201".
   **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
 
-  > [AZURE.NOTE] Some HTTP client implementations may automatically reissue requests in response to a 302 from the server, but typically strip Authorization headers from the request. Since the Authorization header is required to make requests to Azure Data Catalog, you must ensure the Authorization header is still provided when reissuing a request to a redirect location specified by Azure Data Catalog. The following sample code demonstrates it using the .NET HttpWebRequest object.
+> [!NOTE]
+> Some HTTP client implementations may automatically reissue requests in response to a 302 from the server, but typically strip Authorization headers from the request. Since the Authorization header is required to make requests to Azure Data Catalog, you must ensure the Authorization header is still provided when reissuing a request to a redirect location specified by Azure Data Catalog. The following sample code demonstrates it using the .NET HttpWebRequest object.
+> 
+> 
 
 **Body**
 
-	{
-		"roles": [
-			{
-				"role": "Contributor",
-				"members": [
-					{
-						"objectId": "00000000-0000-0000-0000-000000000201"
-					}
-				]
-			}
-		]
-	}
+    {
+        "roles": [
+            {
+                "role": "Contributor",
+                "members": [
+                    {
+                        "objectId": "00000000-0000-0000-0000-000000000201"
+                    }
+                ]
+            }
+        ]
+    }
 
   **Assign owners and restrict visibility for an existing root item**: **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
-	{
-		"roles": [
-			{
-				"role": "Owner",
-				"members": [
-					{
-						"objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
-						"upn": "user1@contoso.com"
-					},
-					{
-						"objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
-						"upn": "user2@contoso.com"
-					}
-				]
-			}
-		],
-		"permissions": [
-			{
-				"principal": {
-					"objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
-					"upn": "user3@contoso.com"
-				},
-				"rights": [
-					{
-						"right": "Read"
-					}
-				]
-			},
-			{
-				"principal": {
-					"objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
-					"upn": "user4@contoso.com"
-				},
-				"rights": [
-					{
-						"right": "Read"
-					}
-				]
-			}
-		]
-	}
+    {
+        "roles": [
+            {
+                "role": "Owner",
+                "members": [
+                    {
+                        "objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
+                        "upn": "user1@contoso.com"
+                    },
+                    {
+                        "objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
+                        "upn": "user2@contoso.com"
+                    }
+                ]
+            }
+        ],
+        "permissions": [
+            {
+                "principal": {
+                    "objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
+                    "upn": "user3@contoso.com"
+                },
+                "rights": [
+                    {
+                        "right": "Read"
+                    }
+                ]
+            },
+            {
+                "principal": {
+                    "objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
+                    "upn": "user4@contoso.com"
+                },
+                "rights": [
+                    {
+                        "right": "Read"
+                    }
+                ]
+            }
+        ]
+    }
 
-> [AZURE.NOTE] In PUT it’s not required to specify an item payload in the body: PUT can be used to update just roles and/or permissions.
+> [!NOTE]
+> In PUT it’s not required to specify an item payload in the body: PUT can be used to update just roles and/or permissions.
+> 
+> 
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png

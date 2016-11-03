@@ -7,5 +7,4 @@ You can create Azure queues by using Visual Studio **Server Explorer**.
 3. Select the **Queues** node and choose **Create Queue** from the context menu.
 4. Enter a name for the queue and choose **OK**.   
 
-
 [Image1]: ./media/vs-create-queue-in-server-explorer/vs-storage-queues-create-in-server-explorer.png

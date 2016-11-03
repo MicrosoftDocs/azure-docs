@@ -1,22 +1,21 @@
-<properties 
-	pageTitle="Smart Failure Detection in Application Insights | Microsoft Azure" 
-	description="Alerts you to unusual changes in the rate of failed requests to your web app, and provides diagnostic analysis. No configuration is needed." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="yorac" 
-	manager="douge"/>
+---
+title: Smart Failure Detection in Application Insights | Microsoft Docs
+description: Alerts you to unusual changes in the rate of failed requests to your web app, and provides diagnostic analysis. No configuration is needed.
+services: application-insights
+documentationcenter: ''
+author: yorac
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/31/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 10/31/2016
+ms.author: awills
+
+---
 # Smart Failure Anomaly Detection
-
 [Application Insights](app-insights-overview.md) automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failures. It detects an unusual rise in the rate of HTTP requests reported as failed. These are usually those with response codes in the 400- and 500- ranges. To help you triage and diagnose the problem, an analysis of the characteristics of failed requests and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up or configuration, as it uses machine learning algorithms to predict the normal failure rate.
 
 This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request telemetry - for example, if you have a worker role that calls [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request). 
@@ -27,7 +26,10 @@ Here's a sample alert.
 
 ![Sample smart alert showing cluster analysis around failure](./media/app-insights-proactive-failure-diagnostics/010.png)
 
-> [AZURE.NOTE] By default, you get a shorter format mail than this example. But you can [switch to this detailed format](#configure-alerts).
+> [!NOTE]
+> By default, you get a shorter format mail than this example. But you can [switch to this detailed format](#configure-alerts).
+> 
+> 
 
 Notice that it tells you:
 
@@ -38,11 +40,9 @@ Notice that it tells you:
 * Links directly to relevant searches on the telemetry in Application Insights.
 
 ## Benefits of smart detection
-
 Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a problem. But Smart Failure Detection starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
 ## How it works
-
 smart Failure Detection monitors the telemetry received from your app, and in particular the failed request rate. This metric counts the number of requests for which the `Successful request` property is false. By default, `Successful request== (resultCode < 400)` (unless you have written custom code to [filter](app-insights-api-filtering-sampling.md#filtering) or generate your own [TrackRequest](app-insights-api-custom-events-metrics.md#track-request) calls). 
 
 Your app’s performance has a typical pattern of behavior. Some requests will be more prone to failure than others; and the overall failure rate may go up as load increases. Smart Failure Detection uses machine learning to find these anomalies. 
@@ -57,9 +57,7 @@ The resulting analysis is sent to you as alert, unless you have configured it no
 
 Like the [alerts you set manually](app-insights-alerts.md), you can inspect the state of the alert and configure it in the Alerts blade of your Application Insights resource. But unlike other alerts, you don't need to set up or configure Smart Failure Detection. If you want, you can disable it or change its target email addresses.
 
-
-## Configure alerts 
-
+## Configure alerts
 You can disable Smart Failure Detection, change the email recipients, create a webhook, or opt in to more detailed alert messages.
 
 Open the Alerts page. Smart Failure Detection is included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
@@ -70,18 +68,14 @@ Click the alert to configure it.
 
 ![Configuration](./media/app-insights-proactive-failure-diagnostics/031.png)
 
-
 Notice that you can disable Smart Failure Detection, but you can't delete it (or create another one).
 
 #### Detailed alerts
-
 If you select "Receive detailed analysis" then the email will contain more diagnostic information. Sometimes you'll be able to diagnose the problem just from the data in the email. 
 
 There's a slight risk that the more detailed alert could contain sensitive information, because it includes exception and trace messages. However, this would only happen if your code could allow sensitive information into those messages. 
 
-
 ## Triaging and diagnosing an alert
-
 An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there is some problem with your app or its environment.
 
 From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example above, the failure rate of 22.5% compares with a normal rate of 1%, indicates that something bad is going on. On the other hand, only 11 users were affected. If it were your app, you'd be able to assess how serious that is.
@@ -94,15 +88,12 @@ To investigate further, the links in each section will take you straight to a [s
 
 In this example, clicking the 'View dependency failures details' link opens Application Insights search blade on the SQL statement with the root cause: NULLs where provided at mandatory fields and did not pass validation during the save operation.
 
-
 ![Diagnostic search](./media/app-insights-proactive-failure-diagnostics/051.png)
 
 ## Review recent alerts
-
 To review alerts in the portal, open **Settings, Audit logs**.
 
 ![Alerts summary](./media/app-insights-proactive-failure-diagnostics/041.png)
-
 
 Click any alert to see its full detail.
 
@@ -110,53 +101,46 @@ Or click **Smart detection** to get straight to the most recent alert:
 
 ![Alerts summary](./media/app-insights-proactive-failure-diagnostics/070.png)
 
-
-
-
 ## What's the difference ...
-
 Smart Failure Detection complements other similar but distinct features of Application Insights. 
 
 * [Metric Alerts](app-insights-alerts.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, proactive failure diagnostics cover a small range of critical metrics (currently only failed request rate), designed to notify you in near real time manner once your web app's failed request rate increases significantly compared to web app's normal behavior.
-
+  
     Smart Failure Detection automatically adjusts its threshold in response to prevailing conditions.
-
+  
     Smart Failure Detection starts the diagnostic work for you. 
 * [Smart Performance Detection](app-insights-proactive-performance-diagnostics.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Smart Failure Detection, the purpose of Smart Performance Detection is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for proactive failure diagnostics is performed continuously on incoming telemetry, and you will be notified within minutes if server failure rates are greater than expected.
 
 ## If you receive a Smart Failure Detection alert
-
 *Why have I received this alert?*
 
-*	We detected an abnormal rise in failed requests rate compared to the normal baseline of the preceding period. After analysis of the failures and associated telemetry, we think that there is a problem that you should look into. 
+* We detected an abnormal rise in failed requests rate compared to the normal baseline of the preceding period. After analysis of the failures and associated telemetry, we think that there is a problem that you should look into. 
 
 *Does the notification mean I definitely have a problem?*
 
-*	We try to alert on app disruption or degradation, but only you can fully understand the semantics and the impact on the app or users.
+* We try to alert on app disruption or degradation, but only you can fully understand the semantics and the impact on the app or users.
 
 *So, you guys look at my data?*
 
-*	No. The service is entirely automatic. Only you get the notifications. Your data is [private](app-insights-data-retention-privacy.md).
+* No. The service is entirely automatic. Only you get the notifications. Your data is [private](app-insights-data-retention-privacy.md).
 
 *Do I have to subscribe to this alert?* 
 
-*	No. Every application that sends request telemetry has the Smart Failure Detection alert rule.
+* No. Every application that sends request telemetry has the Smart Failure Detection alert rule.
 
 *Can I unsubscribe or get the notifications sent to my colleagues instead?*
 
-*	Yes, In Alert rules, click the Smart Failure Detection rule to configure it. You can disable the alert, or change recipients for the alert. 
+* Yes, In Alert rules, click the Smart Failure Detection rule to configure it. You can disable the alert, or change recipients for the alert. 
 
 *I lost the email. Where can I find the notifications in the portal?*
 
-*	In the Activity logs. In Azure, open the Application Insights resource for your app, then select Activity logs.
+* In the Activity logs. In Azure, open the Application Insights resource for your app, then select Activity logs.
 
 *Some of the alerts are about known issues and I do not want to receive them.*
 
-*	We have alert suppression on our backlog.
-
+* We have alert suppression on our backlog.
 
 ## Next steps
-
 These diagnostic tools help you inspect the telemetry from your app:
 
 * [Metric explorer](app-insights-metrics-explorer.md)
@@ -167,6 +151,4 @@ Smart detections are completely automatic. But maybe you'd like to set up some m
 
 * [Manually configured metric alerts](app-insights-alerts.md)
 * [Availability web tests](app-insights-monitor-web-app-availability.md) 
-
-
 

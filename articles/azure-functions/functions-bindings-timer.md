@@ -1,45 +1,44 @@
-<properties
-	pageTitle="Azure Functions timer trigger | Microsoft Azure"
-	description="Understand how to use timer triggers in Azure Functions."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
+---
+title: Azure Functions timer trigger | Microsoft Docs
+description: Understand how to use timer triggers in Azure Functions.
+services: functions
+documentationcenter: na
+author: christopheranderson
+manager: erikre
+editor: ''
+tags: ''
+keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-<tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="10/31/2016"
-	ms.author="chrande; glenga"/>
+ms.service: functions
+ms.devlang: multiple
+ms.topic: reference
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 10/31/2016
+ms.author: chrande; glenga
 
+---
 # Azure Functions timer trigger
-
-[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code timer triggers in Azure Functions. 
 Azure Functions supports the trigger for timers. Timer triggers call functions based on a schedule, one time or recurring. 
 
 The timer trigger supports multi-instance scale-out. One single instance of a particular timer function is run across all instances.
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 <a id="trigger"></a>
-## Timer trigger
 
+## Timer trigger
 The timer trigger to a function uses the following JSON object in the `bindings` array of function.json:
 
 ```json
 {
-	"schedule": "<CRON expression - see below>",
-	"name": "<Name of trigger parameter in function signature>",
-	"type": "timerTrigger",
-	"direction": "in"
+    "schedule": "<CRON expression - see below>",
+    "name": "<Name of trigger parameter in function signature>",
+    "type": "timerTrigger",
+    "direction": "in"
 }
 ```
 
@@ -49,8 +48,8 @@ The value of `schedule` is a [CRON expression](http://en.wikipedia.org/wiki/Cron
 [`schedule` examples](#examples) below.
 
 <a name="examples"></a>
-## `schedule` examples
 
+## `schedule` examples
 Here are some samples of CRON expressions you can use for the `schedule` property. 
 
 To trigger once every 5 minutes:
@@ -90,47 +89,47 @@ To trigger At 9:30 AM every weekday:
 ```
 
 <a name="usage"></a>
-## Trigger usage
 
+## Trigger usage
 When a timer trigger function is invoked, the 
 [timer object](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 
 is passed into the function. The following JSON is an example representation of the timer object. 
 
 ```
 {
-	"Schedule":{
-	},
-	"ScheduleStatus": {
-		"Last":"2016-10-04T10:15:00.012699+00:00",
-		"Next":"2016-10-04T10:20:00+00:00"
-	},
-	"IsPastDue":false
+    "Schedule":{
+    },
+    "ScheduleStatus": {
+        "Last":"2016-10-04T10:15:00.012699+00:00",
+        "Next":"2016-10-04T10:20:00+00:00"
+    },
+    "IsPastDue":false
 }
 ```
 
 <a name="sample"></a>
-## Trigger sample
 
+## Trigger sample
 Suppose you have the following timer trigger in the `bindings` array of function.json:
 
 ```json
 {
-	"schedule": "0 */5 * * * *",
-	"name": "myTimer",
-	"type": "timerTrigger",
-	"direction": "in"
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
 }
 ```
 
 See the language-specific sample that reads the timer object to see whether it's running late.
 
-- [C#](#triggercsharp)
-- [F#](#triggerfsharp)
-- [Node.js](#triggernodejs)
+* [C#](#triggercsharp)
+* [F#](#triggerfsharp)
+* [Node.js](#triggernodejs)
 
 <a name="triggercsharp"></a>
-### Trigger sample in C\# 
 
+### Trigger sample in C\
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
@@ -143,8 +142,8 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 ```
 
 <a name="triggerfsharp"></a>
-### Trigger sample in F\# 
 
+### Trigger sample in F\
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter ) =
     if (myTimer.IsPastDue) then
@@ -154,22 +153,22 @@ let Run(myTimer: TimerInfo, log: TraceWriter ) =
 ```
 
 <a name="triggernodejs"></a>
-### Trigger sample in Node.js
 
+### Trigger sample in Node.js
 ```JavaScript
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
-    
+
     if(myTimer.isPastDue)
     {
         context.log('Node.js is running late!');
     }
     context.log('Node.js timer trigger function ran!', timeStamp);   
-    
+
     context.done();
 };
 ```
 
 ## Next steps
+[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
-[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)] 

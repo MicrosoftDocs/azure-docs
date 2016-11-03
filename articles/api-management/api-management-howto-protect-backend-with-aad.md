@@ -1,35 +1,35 @@
-<properties
-	pageTitle="How to protect a Web API backend with Azure Active Directory and API Management"
-	description="Learn how to protect a Web API backend with Azure Active Directory and API Management." 
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="erikre"
-	editor=""/>
+---
+title: How to protect a Web API backend with Azure Active Directory and API Management
+description: Learn how to protect a Web API backend with Azure Active Directory and API Management.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/25/2016"
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/25/2016
+ms.author: sdanie
 
+---
 # How to protect a Web API backend with Azure Active Directory and API Management
-
 The following video shows how to build a Web API backend and protect it using OAuth 2.0 protocol with Azure Active Directory and API Management.  This article provides an overview and additional information for the steps in the video. This 24 minute video shows you how to:
 
--	Build a Web API backend and secure it with AAD - starting at 1:30
--	Import the API into API Management - starting at 7:10
--	Configure the Developer portal to call the API - starting at 9:09
--	Configure a desktop application to call the API - starting at 18:08
--	Configure a JWT validation policy to pre-authorize requests - starting at 20:47
+* Build a Web API backend and secure it with AAD - starting at 1:30
+* Import the API into API Management - starting at 7:10
+* Configure the Developer portal to call the API - starting at 9:09
+* Configure a desktop application to call the API - starting at 18:08
+* Configure a JWT validation policy to pre-authorize requests - starting at 20:47
 
->[AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
+> 
+> 
 
 ## Create an Azure AD directory
-
 To secure your Web API backed using Azure Active Directory you must first have a an AAD tenant. In this video a tenant named **APIMDemo** is used. To create an AAD tenant, sign-in to the [Azure Classic Portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Active Directory**->**Directory**->**Custom Create**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
@@ -39,7 +39,6 @@ In this example a directory named **APIMDemo** is created with a default domain 
 ![Azure Active Directory][api-management-create-aad]
 
 ## Create a Web API service secured by Azure Active Directory
-
 In this step, a Web API backend is created using Visual Studio 2013. This step of the video starts at 1:30. To create Web API backend project in Visual Studio click **File**->**New**->**Project**, and choose **ASP.NET Web Application** from the **Web** templates list. In this video the project is named **APIMAADDemo**. Click **OK** to create the project. 
 
 ![Visual Studio][api-management-new-web-app]
@@ -73,14 +72,13 @@ In this example a new **App Service plan** named **APIMAADDemo** is specified.
 Click **OK** to configure the Web App and create the project.
 
 ## Add the code to the Web API project
-
 The next step in the video adds the code to the Web API project. This step starts at 4:35.
 
 The Web API in this example implements a basic calculator service using a model and a controller. To add the model for the service, right-click **Models** in **Solution Explorer** and choose **Add**, **Class**. Name the class `CalcInput` and click **Add**.
 
 Add the following `using` statement to the top of the `CalcInput.cs` file.
 
-	using Newtonsoft.Json;
+    using Newtonsoft.Json;
 
  Replace the generated class with the following code.
 
@@ -143,16 +141,15 @@ Replace the generated controller class with the following code. This code implem
         public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
         {
             string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
-    	    HttpResponseMessage response = Request.CreateResponse();
-    	    response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-    	    return response;
-    	}
+            HttpResponseMessage response = Request.CreateResponse();
+            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+            return response;
+        }
     }
 
 Press **F6** to build and verify the solution.
 
 ## Publish the project to Azure
-
 In this step the Visual Studio project is published to Azure. This step of the video starts at 5:45.
 
 To publish the project to Azure, right-click the **APIMAADDemo** project in Visual Studio and choose **Publish**. Keep the default settings in the **Publish Web** dialog box and click **Publish**.
@@ -160,7 +157,6 @@ To publish the project to Azure, right-click the **APIMAADDemo** project in Visu
 ![Web Publish][api-management-web-publish]
 
 ## Grant permissions to the Azure AD backend service application
-
 A new application for the backend service is created in your Azure AD directory as part of the configuring and publishing process of your Web API project. In this step of the video, starting at 6:13, permissions are granted to the Web API backend.
 
 ![Application][api-management-aad-backend-app]
@@ -169,15 +165,17 @@ Click the name of the application to configure the required permissions. Navigat
 
 ![Add permissions][api-management-aad-add-permissions]
 
->[AZURE.NOTE] If **Windows** **Azure Active Directory** is not listed under permissions to other applications, click **Add application** and add it from the list.
+> [!NOTE]
+> If **Windows** **Azure Active Directory** is not listed under permissions to other applications, click **Add application** and add it from the list.
+> 
+> 
 
 Make a note of the **App Id URI** for use in a subsequent step when an Azure AD application is configured for the API Management developer portal.
 
 ![App Id URI][api-management-aad-sso-uri]
 
 ## Import the Web API into API Management
-
-APIs are configured from the API publisher portal, which is accessed through the Azure Portal. To reach it, click **Publisher portal** from the toolbar of your API Management service. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Manage your first API][] tutorial.
+APIs are configured from the API publisher portal, which is accessed through the Azure Portal. To reach it, click **Publisher portal** from the toolbar of your API Management service. If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Manage your first API][Manage your first API] tutorial.
 
 ![Publisher portal][api-management-management-console]
 
@@ -199,123 +197,123 @@ Create a file named `calcapi.json` with following contents and save it to your c
 ],
 "paths": {
 "/add?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a sum of two numbers.",
-			"operationId": "Add two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>51</code>.",
-				"required": true,
-				"default": "51",
-				"enum": [
-				  "51"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>49</code>.",
-				"required": true,
-				"default": "49",
-				"enum": [
-				  "49"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/sub?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a difference between two numbers.",
-			"operationId": "Subtract two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>100</code>.",
-				"required": true,
-				"default": "100",
-				"enum": [
-				  "100"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>50</code>.",
-				"required": true,
-				"default": "50",
-				"enum": [
-				  "50"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/div?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a quotient of two numbers.",
-			"operationId": "Divide two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>100</code>.",
-				"required": true,
-				"default": "100",
-				"enum": [
-				  "100"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>20</code>.",
-				"required": true,
-				"default": "20",
-				"enum": [
-				  "20"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/mul?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a product of two numbers.",
-			"operationId": "Multiply two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>20</code>.",
-				"required": true,
-				"default": "20",
-				"enum": [
-				  "20"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>5</code>.",
-				"required": true,
-				"default": "5",
-				"enum": [
-				  "5"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		}
-	  }
-	}
+          "get": {
+            "description": "Responds with a sum of two numbers.",
+            "operationId": "Add two integers",
+            "parameters": [
+              {
+                "name": "a",
+                "in": "query",
+                "description": "First operand. Default value is <code>51</code>.",
+                "required": true,
+                "default": "51",
+                "enum": [
+                  "51"
+                ]
+              },
+              {
+                "name": "b",
+                "in": "query",
+                "description": "Second operand. Default value is <code>49</code>.",
+                "required": true,
+                "default": "49",
+                "enum": [
+                  "49"
+                ]
+              }
+            ],
+            "responses": {}
+          }
+        },
+        "/sub?a={a}&b={b}": {
+          "get": {
+            "description": "Responds with a difference between two numbers.",
+            "operationId": "Subtract two integers",
+            "parameters": [
+              {
+                "name": "a",
+                "in": "query",
+                "description": "First operand. Default value is <code>100</code>.",
+                "required": true,
+                "default": "100",
+                "enum": [
+                  "100"
+                ]
+              },
+              {
+                "name": "b",
+                "in": "query",
+                "description": "Second operand. Default value is <code>50</code>.",
+                "required": true,
+                "default": "50",
+                "enum": [
+                  "50"
+                ]
+              }
+            ],
+            "responses": {}
+          }
+        },
+        "/div?a={a}&b={b}": {
+          "get": {
+            "description": "Responds with a quotient of two numbers.",
+            "operationId": "Divide two integers",
+            "parameters": [
+              {
+                "name": "a",
+                "in": "query",
+                "description": "First operand. Default value is <code>100</code>.",
+                "required": true,
+                "default": "100",
+                "enum": [
+                  "100"
+                ]
+              },
+              {
+                "name": "b",
+                "in": "query",
+                "description": "Second operand. Default value is <code>20</code>.",
+                "required": true,
+                "default": "20",
+                "enum": [
+                  "20"
+                ]
+              }
+            ],
+            "responses": {}
+          }
+        },
+        "/mul?a={a}&b={b}": {
+          "get": {
+            "description": "Responds with a product of two numbers.",
+            "operationId": "Multiply two integers",
+            "parameters": [
+              {
+                "name": "a",
+                "in": "query",
+                "description": "First operand. Default value is <code>20</code>.",
+                "required": true,
+                "default": "20",
+                "enum": [
+                  "20"
+                ]
+              },
+              {
+                "name": "b",
+                "in": "query",
+                "description": "Second operand. Default value is <code>5</code>.",
+                "required": true,
+                "default": "5",
+                "enum": [
+                  "5"
+                ]
+              }
+            ],
+            "responses": {}
+          }
+        }
+      }
+    }
 
 To import the calculator API, click **APIs** from the **API Management** menu on the left, and then click **Import API**.
 
@@ -333,7 +331,6 @@ Perform the following steps to configure the calculator API.
 Once the API is imported, the summary page for the API is displayed in the publisher portal.
 
 ## Call the API unsuccessfully from the developer portal
-
 At this point, the API has been imported into API Management, but cannot yet be called successfully from the developer portal because the backend service is protected with Azure AD authentication. This is demonstrated in the video starting at 7:40 using the following steps.
 
 Click **Developer portal** from the top-right side of the publisher portal.
@@ -355,7 +352,6 @@ Click **Send** and note the response status of **401 Unauthorized**.
 The request is unauthorized because the backend API is protected by Azure Active Directory. Before successfully calling the API the developer portal must be configured to authorize developers using OAuth 2.0. This process is described in the following sections.
 
 ## Register the developer portal as an AAD application
-
 The first step in configuring the developer portal to authorize developers using OAuth 2.0 is to register the developer portal as an AAD application. This is demonstrated starting at 8:27 in the video.
 
 Navigate to the Azure AD tenant from the first step of this video, in this example **APIMDemo** and navigate to the **Applications** tab.
@@ -377,7 +373,6 @@ For **App Id URL** enter the URL of your API Management service and append some 
 ![New application][api-management-aad-new-application-devportal-2]
 
 ## Configure an API Management OAuth 2.0 authorization server
-
 The next step is to configure an OAuth 2.0 authorization server in API Management. This step is demonstrated in the video starting at 9:43.
 
 Click **Security** from the API Management menu on the left, click **OAuth 2.0**, and then click **Add authorization** server.
@@ -424,7 +419,10 @@ To get the **Client Secret** click the **Select duration** drop-down in the **Ke
 
 Click **Save** to save the configuration and display the key. 
 
->[AZURE.IMPORTANT] Make a note of this key. Once you close the Azure Active Directory configuration window, the key cannot be displayed again.
+> [!IMPORTANT]
+> Make a note of this key. Once you close the Azure Active Directory configuration window, the key cannot be displayed again.
+> 
+> 
 
 Copy the key to the clipboard, switch back to the publisher portal, paste the key into the **Client Secret** textbox, and click **Save**.
 
@@ -447,7 +445,6 @@ Click **Delegated Permissions** for **APIMAADDemo** and check the box for **Acce
 ![Add permissions][api-management-aad-add-delegated-permissions]
 
 ## Enable OAuth 2.0 user authorization for the Calculator API
-
 Now that the OAuth 2.0 server is configured, you can specify it in the security settings for your API. This step is demonstrated in the video starting at 14:30.
 
 Click **APIs** in the left menu, and click  **Calculator** to view and configure its settings.
@@ -459,7 +456,6 @@ Navigate to the **Security** tab, check the **OAuth 2.0** checkbox, select the d
 ![Calculator API][api-management-enable-aad-calculator]
 
 ## Successfully call the Calculator API from the developer portal
-
 Now that the OAuth 2.0 authorization is configured on the API, its operations can be successfully called from the developer center. THis step is demonstrated in the video starting at 15:00.
 
 Navigate back to the **Add two integers** operation of the calculator service in the developer portal and click **Try it**. Note the new item in the **Authorization** section corresponding to the authorization server you just added.
@@ -475,11 +471,9 @@ Click **Send** and note the **Response status** of **200 OK** and the results of
 ![Calculator API][api-management-devportal-response]
 
 ## Configure a desktop application to call the API
-
 The next procedure in the video starts at 16:30 and configures a simple desktop application to call the API. The first step is to register the desktop application in Azure AD and give it access to the directory and to the backend service. At 18:25 there is a demonstration of the desktop application calling an operation on the calculator API.
 
 ## Configure a JWT validation policy to pre-authorize requests
-
 The final procedure in the video starts at 20:48 and shows you how to use the [Validate JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) policy to pre-authorize requests by validating the access tokens of each incoming request. If the request is not validated by the Validate JWT policy, the request is blocked by API Management and is not passed along to the backend.
 
     <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -494,8 +488,8 @@ The final procedure in the video starts at 20:48 and shows you how to use the [V
 For another demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 13:50. Fast forward to 15:00 to see the policies configured in the policy editor and then to 18:50 for a demonstration of calling an operation from the developer portal both with and without the required authorization token.
 
 ## Next steps
--	Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
--	For other ways to secure your backend service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md) and [Connect via VPN or ExpressRoute](api-management-howto-setup-vpn.md).
+* Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
+* For other ways to secure your backend service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md) and [Connect via VPN or ExpressRoute](api-management-howto-setup-vpn.md).
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 

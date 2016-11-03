@@ -1,22 +1,22 @@
-<properties 
-    pageTitle="Azure Relay Hybrid Connections Protocol | Microsoft Azure"
-    description="zure Relay Hybrid Connections Protocol Guide."
-    services="service-bus"
-    documentationCenter="na"
-    authors="clemensv"
-    manager="timlt"
-    editor="tysonn" />
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/28/2016"
-    ms.author="sethm" />
+---
+title: Azure Relay Hybrid Connections Protocol | Microsoft Docs
+description: zure Relay Hybrid Connections Protocol Guide.
+services: service-bus
+documentationcenter: na
+author: clemensv
+manager: timlt
+editor: tysonn
 
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/28/2016
+ms.author: sethm
+
+---
 # Azure Relay Hybrid Connections Protocol
-
 Azure Relay is one of the key capability pillars of the Azure Service Bus
 platform. The Relay’s new "Hybrid Connections" capability is a secure,
 open-protocol evolution based on HTTP and WebSockets. It supersedes the former,
@@ -31,7 +31,6 @@ interactions with the Hybrid Connections relay for connecting clients in
 listener and sender roles and how listeners accept new connections.
 
 ## Interaction model
-
 The Hybrid Connections relay connects two parties by providing a rendezvous
 point in the Azure cloud that both parties can discover and connect to from
 their own network’s perspective. That rendezvous point is called "Hybrid
@@ -59,12 +58,10 @@ connection towards a listener via the service is called the "sender" or in the
 "sender role".
 
 ### Listener interactions
-
 The listener has four interactions with the service; all wire details are
 described later in this document in the reference section.
 
 #### Listen
-
 To indicate readiness to the service that a listener is ready to accept
 connections, it creates an outbound web socket connection. The connection
 handshake carries the name of a Hybrid Connection configured in the Relay
@@ -77,7 +74,6 @@ connections will be balanced across them in random order; fair distribution is
 not guaranteed.
 
 #### Accept
-
 Whenever a sender opens up a new connection on the service, the service will
 pick and notify one of the active listeners on the Hybrid Connection. The
 notification is sent to the listener over the open control channel as a JSON
@@ -93,8 +89,7 @@ with the rendezvous URL is established, all further activity on this Web socket
 is relayed from and to the sender, without any intervention or interpretation by
 the service.
 
-#### Renew 
-
+#### Renew
 The security token that must be used to register the listener and maintain the
 control channel may expire while the listener is active. The token expiry will
 not affect ongoing connections, but it will cause the control channel to be
@@ -103,8 +98,7 @@ gesture is a JSON message that the listener can send to replace the token
 associated with the control channel, so that the control channel can be
 maintained for extended periods.
 
-#### Ping 
-
+#### Ping
 If the control channel stays idle for a long time, intermediaries on the way,
 such as load balancers or NATs may drop the TCP connection. The "ping" gesture
 avoids that by sending a small amount of data on the channel that reminds
@@ -113,11 +107,9 @@ also serves as a liveness test for the listener. If the ping fails, the control
 channel should be considered unusable and the listener should reconnect.
 
 ### Sender interaction
-
 The sender only has a single interaction with the service, it connects.
 
 #### Connect
-
 The "connect" gesture opens a Web socket on the service, providing the name of
 the Hybrid Connection and an (optional, but required by default) security token
 conferring "Send" permission in the query string. The service will then interact
@@ -127,7 +119,6 @@ socket has been accepted, all further interactions on the Web socket will
 therefore be with a connected listener.
 
 ### Interaction summary
-
 The result of this interaction model is that the sender client comes out of the
 handshake with a "clean" Web socket which is connected to a listener and that
 needs no further preambles or preparation. This allows practically any existing
@@ -142,8 +133,7 @@ between "accept" operations on their framework’s local network listeners and
 Hybrid Connections’ remote "accept" operations.
 
 ## Protocol reference
---------------------
-
+- - -
 This section describes the details of the protocol interactions described above.
 
 All Web socket connections are made on port 443 as an upgrade from HTTPS 1.1,
@@ -152,12 +142,10 @@ description here is kept implementation neutral, without suggesting a specific
 framework.
 
 ### Listener protocol
-
 The listener protocol consists of two connection gestures and three message
 operations.
 
 #### Listener control channel connection
-
 The control channel is opened with creating a Web socket connection to:
 
 `wss://{namespace-address}/**$hc/**{path}?sb-hc-action=...& sb-hc-id=...& sb-hc-token=...`
@@ -168,12 +156,12 @@ namespace that hosts the Hybrid Connection, typically of the form
 
 The query string parameter options are as follows
 
-| Parameter    | Required? | Description                                                                                                                                                           |
-|--------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| sb-hc-action | Yes       | For the listener role the parameter must be **sb-hc-action=listen**                                                                                                   |
-| {path}       | Yes       | The URL-encoded namespace path of the preconfigured Hybrid Connection to register this listener on. This expression is appended to the fixed ***$hc/*** path portion. |
-| sb-hc-token  | Yes\*     | The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Listen** right.              |
-| sb-hc-id     | No        | This client-supplied optional ID allows end-to-end diagnostic tracing.                                                                                                |
+| Parameter | Required? | Description |
+| --- | --- | --- |
+| sb-hc-action |Yes |For the listener role the parameter must be **sb-hc-action=listen** |
+| {path} |Yes |The URL-encoded namespace path of the preconfigured Hybrid Connection to register this listener on. This expression is appended to the fixed ***$hc/*** path portion. |
+| sb-hc-token |Yes\* |The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Listen** right. |
+| sb-hc-id |No |This client-supplied optional ID allows end-to-end diagnostic tracing. |
 
 If the Web Socket connection fails due to the Hybrid Connection path not being
 registered, or an invalid or missing token, or some other error, the error
@@ -181,12 +169,12 @@ feedback will be provided using the regular HTTP 1.1 status feedback model. The
 status description will contain an error tracking-id that can be communicated to
 Azure Support:
 
-| Code | Error          | Description                                                            |
-|------|----------------|------------------------------------------------------------------------|
-| 404  | Not Found      | The Hybrid Connection **path** is invalid or the base URL is malformed |
-| 401  | Unauthorized   | The security token is missing or malformed or invalid                  |
-| 403  | Forbidden      | The security token is not valid for this path for this action          |
-| 500  | Internal Error | Something went wrong in the service                                    |
+| Code | Error | Description |
+| --- | --- | --- |
+| 404 |Not Found |The Hybrid Connection **path** is invalid or the base URL is malformed |
+| 401 |Unauthorized |The security token is missing or malformed or invalid |
+| 403 |Forbidden |The security token is not valid for this path for this action |
+| 500 |Internal Error |Something went wrong in the service |
 
 If the Web socket connection is intentionally shut down by the service after it
 has been initially set up, the reason for doing so will be communicated using an
@@ -195,14 +183,13 @@ message that will also include a tracking-id. The service will not shut down the
 control channel without encountering an error condition. Any clean shutdown is
 client controlled.
 
-| WS Status | Description                                                                        |
-|-----------|------------------------------------------------------------------------------------|
-| 1001      | The Hybrid Connection path has been deleted or disabled.                           |
-| 1008      | The security token has expired and the authorization policy is therefore violated. |
-| 1011      | Something went wrong inside the service.                                           |
+| WS Status | Description |
+| --- | --- |
+| 1001 |The Hybrid Connection path has been deleted or disabled. |
+| 1008 |The security token has expired and the authorization policy is therefore violated. |
+| 1011 |Something went wrong inside the service. |
 
-### Accept handshake 
-
+### Accept handshake
 The accept notification is sent by the service to the listener over the
 previously established control channel as a JSON message in a Web socket text
 frame. There is no reply to this message.
@@ -210,19 +197,16 @@ frame. There is no reply to this message.
 The message contains a JSON object named "accept", which defines the following
 properties at this time:
 
-- **address** – the URL string to be used for establishing the Web Socket to the
-service to accept an incoming connection.
+* **address** – the URL string to be used for establishing the Web Socket to the
+  service to accept an incoming connection.
+* **id** – the unique identifier for this connection. If the id was supplied by
+  the sender client, it is the sender supplied value, otherwise it is a system
+  generated value.
+* **connectHeaders** – all HTTP headers that have been supplied to the Relay
+  endpoint by the sender, which also includes the Sec-WebSocket-Protocol and the
+  Sec-WebSocket-Extensions headers.
 
-- **id** – the unique identifier for this connection. If the id was supplied by
-the sender client, it is the sender supplied value, otherwise it is a system
-generated value.
-
-- **connectHeaders** – all HTTP headers that have been supplied to the Relay
-endpoint by the sender, which also includes the Sec-WebSocket-Protocol and the
-Sec-WebSocket-Extensions headers.
-
-#### Accept Message                                              
-
+#### Accept Message
 ``` JSON
 {                                                           
     "accept" : {
@@ -241,7 +225,6 @@ The address URL provided in the JSON message is used by the listener to
 establish the Web Socket for accepting or rejecting the sender socket.
 
 #### Accepting the Socket
-
 To accept, the listener establishes a WebSocket connection to the provided
 address.
 
@@ -260,12 +243,11 @@ the required "Sec-WebSocket-Extensions" handshake for the extension.
 The URL must be used as-is for establishing the accept socket, but contains the
 following parameters:
 
-| Parameter    | Required? | Description                                                               |
-|--------------|-----------|---------------------------------------------------------------------------|
-| sb-hc-action | Yes       | For accepting a socket the parameter must be **sb-hc-action=accept**      |
-| {path}       | Yes       | (see below)                                                               |
-| sb-hc-id     | No        | See description of **id** above.                                          |
-
+| Parameter | Required? | Description |
+| --- | --- | --- |
+| sb-hc-action |Yes |For accepting a socket the parameter must be **sb-hc-action=accept** |
+| {path} |Yes |(see below) |
+| sb-hc-id |No |See description of **id** above. |
 
 The {path} is the URL-encoded namespace path of the preconfigured Hybrid
 Connection to register this listener on. This expression is appended to the
@@ -284,23 +266,22 @@ For more detail see the "Sender Protocol" section below.
 
 If there’s an error, the service may reply as follows:
 
-| Code | Error          | Description                         |
-|------|----------------|-------------------------------------|
-| 403  | Forbidden      | The URL is not valid.               |
-| 500  | Internal Error | Something went wrong in the service |
+| Code | Error | Description |
+| --- | --- | --- |
+| 403 |Forbidden |The URL is not valid. |
+| 500 |Internal Error |Something went wrong in the service |
 
 After the connection has been established, the server will shut down the Web
 socket when the sender Web socket shuts down, or with the following status
 
-| WS Status | Description                                                                        |
-|-----------|------------------------------------------------------------------------------------|
-| 1001      | The sender client shuts down the connection                                        |
-| 1001      | The Hybrid Connection path has been deleted or disabled.                           |
-| 1008      | The security token has expired and the authorization policy is therefore violated. |
-| 1011      | Something went wrong inside the service.                                           |
+| WS Status | Description |
+| --- | --- |
+| 1001 |The sender client shuts down the connection |
+| 1001 |The Hybrid Connection path has been deleted or disabled. |
+| 1008 |The security token has expired and the authorization policy is therefore violated. |
+| 1011 |Something went wrong inside the service. |
 
 #### Rejecting the Socket
-
 Rejecting the socket after inspecting the "accept" message requires a similar
 handshake so that the status code and status description communicating the
 reason for the rejection can flow back to the sender.
@@ -313,10 +294,10 @@ employ an extra, bare HTTP client.
 To reject the socket, the client takes the address URI from the "accept" message
 and appends two query string parameters to it:
 
-| Param             | Required? | Description                             |
-|-------------------|-----------|-----------------------------------------|
-| statusCode        | Yes       | Numeric HTTP status code                |
-| statusDescription | Yes       | Human readable reason for the rejection |
+| Param | Required? | Description |
+| --- | --- | --- |
+| statusCode |Yes |Numeric HTTP status code |
+| statusDescription |Yes |Human readable reason for the rejection |
 
 The resulting URI is then used to establish a WebSocket connection; again, mind
 that the TLS certificate may not match the address during the preview, so
@@ -326,23 +307,21 @@ When completing correctly, this handshake will intentionally fail with an HTTP
 error code 410, since no WebSocket has been established. If an error occurs,
 these are the options:
 
-| Code | Error          | Description                         |
-|------|----------------|-------------------------------------|
-| 403  | Forbidden      | The URL is not valid.               |
-| 500  | Internal Error | Something went wrong in the service |
+| Code | Error | Description |
+| --- | --- | --- |
+| 403 |Forbidden |The URL is not valid. |
+| 500 |Internal Error |Something went wrong in the service |
 
 ### Listener token renewal
-
 When the listener’s token is about to expire, it can replace it by sending a
 text frame message to the service via the established control channel. The
 message contains a JSON object named "renewToken", which defines the following
 property at this time:
 
-- **token** – a valid, URL-encoded Service Bus Shared Access Token for the
-namespace or Hybrid Connection that confers the **Listen** right.
+* **token** – a valid, URL-encoded Service Bus Shared Access Token for the
+  namespace or Hybrid Connection that confers the **Listen** right.
 
-#### renewToken Message                                                                                                                                                       
-
+#### renewToken Message
 ``` JSON
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
@@ -354,13 +333,11 @@ namespace or Hybrid Connection that confers the **Listen** right.
 If the token validation fails, access is denied, and cloud service will close
 the control channel websocket with an error, otherwise there is no reply.
 
-| WS Status | Description                                                                        |
-|-----------|------------------------------------------------------------------------------------|
-| 1008      | The security token has expired and the authorization policy is therefore violated. |
-
+| WS Status | Description |
+| --- | --- |
+| 1008 |The security token has expired and the authorization policy is therefore violated. |
 
 ## Sender protocol
-
 The sender protocol is effectively identical to how a listener is established.
 The goal is maximum transparency for the end-to-end Web socket. The address to
 connect to is the same as for the listener, but the "action" differs and the
@@ -378,12 +355,12 @@ found on the "connectHeader" object of the "accept" control message.
 
 The query string parameter options are as follows
 
-| Param        | Required? | Description                                                                                                                                             |
-|--------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| sb-hc-action | Yes       | For the listener role the parameter must be **action=connect**                                                                                          |
-| {path}       | Yes       | (see below)                                                                                                                                             |
-| sb-hc-token  | Yes\*     | The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Send** right.  |
-| sb-hc-id     | No        | An optional ID that allows end-to-end diagnostic tracing and is made available to the listener during the accept handshake.                             |
+| Param | Required? | Description |
+| --- | --- | --- |
+| sb-hc-action |Yes |For the listener role the parameter must be **action=connect** |
+| {path} |Yes |(see below) |
+| sb-hc-token |Yes\* |The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Send** right. |
+| sb-hc-id |No |An optional ID that allows end-to-end diagnostic tracing and is made available to the listener during the accept handshake. |
 
 The {path} is the URL-encoded namespace path of the preconfigured Hybrid
 Connection to register this listener on. The path expression MAY be extended
@@ -391,9 +368,9 @@ with a suffix and a query string expression to communicate further If the Hybrid
 Connection is registered under the path "hyco", the path expression can be
 "**hyco/**suffix?param=value&..." followed by the query string parameters defined
 here. A complete expression may then be:
-                                                                                                                                                                                                                
+
 *wss://{ns}/**$hc/*** **hyco/**suffix?param=value*& sb-hc-action=...&sb-hc-id=...\[&sbc-hc-token=...\]*                                                                                                                  
-                                                                                                                                                                                                                
+
 The path expression is passed through to the listener in the address URI
 contained in the "accept" control message.
 
@@ -403,28 +380,28 @@ feedback will be provided using the regular HTTP 1.1 status feedback model. The
 status description will contain an error tracking-id that can be communicated to
 Azure Support:
 
-| Code | Error          | Description                                                            |
-|------|----------------|------------------------------------------------------------------------|
-| 404  | Not Found      | The Hybrid Connection **path** is invalid or the base URL is malformed |
-| 401  | Unauthorized   | The security token is missing or malformed or invalid                  |
-| 403  | Forbidden      | The security token is not valid for this path for this action          |
-| 500  | Internal Error | Something went wrong in the service                                    |
+| Code | Error | Description |
+| --- | --- | --- |
+| 404 |Not Found |The Hybrid Connection **path** is invalid or the base URL is malformed |
+| 401 |Unauthorized |The security token is missing or malformed or invalid |
+| 403 |Forbidden |The security token is not valid for this path for this action |
+| 500 |Internal Error |Something went wrong in the service |
 
 If the Web socket connection is intentionally shut down by the service after it
 has been initially set up, the reason for doing so will be communicated using an
 appropriate Web socket protocol error code along with a descriptive error
 message that will also include a tracking-id.
 
-| WS Status | Description                                                                             |
-|-----------|-----------------------------------------------------------------------------------------|
-| 1000      | The listener shut down the socket.                                                      | 
-| 1001      | The Hybrid Connection path has been deleted or disabled.                                | 
-| 1008      | The security token has expired and the authorization policy is therefore violated.      | 
-| 1011      | Something went wrong inside the service.                                                |
+| WS Status | Description |
+| --- | --- |
+| 1000 |The listener shut down the socket. |
+| 1001 |The Hybrid Connection path has been deleted or disabled. |
+| 1008 |The security token has expired and the authorization policy is therefore violated. |
+| 1011 |Something went wrong inside the service. |
 
 ## Next steps:
+* [Relay FAQ](relay-faq.md)
+* [Create a namespace](relay-create-namespace-portal.md)
+* [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)
+* [Get started with Node](relay-hybrid-connections-node-get-started.md)
 
-- [Relay FAQ](relay-faq.md)
-- [Create a namespace](relay-create-namespace-portal.md)
-- [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)
-- [Get started with Node](relay-hybrid-connections-node-get-started.md)

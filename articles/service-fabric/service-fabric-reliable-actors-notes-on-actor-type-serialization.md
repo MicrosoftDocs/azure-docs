@@ -1,28 +1,25 @@
-<properties
-   pageTitle="Reliable Actors notes on actor type serialization | Microsoft Azure"
-   description="Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actors states and interfaces"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor=""/>
+---
+title: Reliable Actors notes on actor type serialization | Microsoft Docs
+description: Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actors states and interfaces
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="10/19/2016"
-   ms.author="vturecek"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 10/19/2016
+ms.author: vturecek
 
+---
 # Notes on Service Fabric Reliable Actors type serialization
-
-
 The arguments of all methods, result types of the tasks returned by each method in an actor interface, and objects stored in an actor's State Manager must be [Data Contract serializable](https://msdn.microsoft.com/library/ms731923.aspx).. This also applies to the arguments of the methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md#actor-events). (Actor event interface methods always return void.)
 
 ## Custom data types
-
 In this example, the following actor interface defines a method that returns a custom data type called `VoicemailBox`.
 
 ```csharp
@@ -52,9 +49,10 @@ public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
 ```
 
 In this example, the `VoicemailBox` object is serialized when:
- - The object is transmitted between an actor instance and a caller.
- - The object is saved in the State Manager where it is persisted to disk and replicated to other nodes.
- 
+
+* The object is transmitted between an actor instance and a caller.
+* The object is saved in the State Manager where it is persisted to disk and replicated to other nodes.
+
 The Reliable Actor framework uses DataContract serialization. Therefore, the custom data objects and their members must be annotated with the **DataContract** and **DataMember** attributes, respectively
 
 ```csharp
@@ -90,9 +88,10 @@ public class VoicemailBox
 ```
 
 ## Next steps
- - [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
- - [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
- - [Actor events](service-fabric-reliable-actors-events.md)
- - [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
- - [Actor polymorphism and object-oriented design patterns](service-fabric-reliable-actors-polymorphism.md)
- - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
+* [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
+* [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
+* [Actor events](service-fabric-reliable-actors-events.md)
+* [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
+* [Actor polymorphism and object-oriented design patterns](service-fabric-reliable-actors-polymorphism.md)
+* [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
+

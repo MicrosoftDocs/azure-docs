@@ -1,34 +1,31 @@
-<properties
-   pageTitle="Availability and Scale in Azure Resource Manager Templates | Microsoft Azure"
-   description="Azure Virtual Machine DotNet Core Tutorial"
-   services="virtual-machines-linux"
-   documentationCenter="virtual-machines"
-   authors="neilpeterson"
-   manager="timlt"
-   editor="tysonn"
-   tags="azure-service-management"/>
+---
+title: Availability and Scale in Azure Resource Manager Templates | Microsoft Docs
+description: Azure Virtual Machine DotNet Core Tutorial
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-service-management
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="09/21/2016"
-   ms.author="nepeters"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 09/21/2016
+ms.author: nepeters
 
+---
 # Availability and scale in Azure Resource Manager templates
-
 Availability and scale refer to uptime and the ability to meet demand. If an application must be up 99.9% of the time, it needs to have an architecture that allows for multiple concurrent compute resources. For instance, rather than having a single website, a configuration with a higher level of availability includes multiple instances of the same site, with balancing technology in front of them. In this configuration, one instance of the application can be taken down for maintenance, while the remaining continue to function. Scale on the other hand refers to an applications ability to serve demand. With a load balanced application, adding or removing instances from the pool allows an application to scale to meet demand.
 
 This document details how the Music Store sample deployment is configured for availability and scale. All dependencies and unique configurations are highlighted. For the best experience, pre-deploy an instance of the solution to your Azure subscription and work along with the Azure Resource Manager template. The complete template can be found here – [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ## Availability Set
-
 An Availability Set logically spans Azure Virtual Machines across physical hosts and other infrastructural components such as power supplies and physical networking hardware. Availability sets ensure that during maintenance, device failure, or other down time, not all virtual machines are effected. An Availability Set can be added to an Azure Resource Manager template using the Visual Studio Add New Resource Wizard, or inserting valid JSON into a template.
 
 Follow this link to see the JSON sample within the Resource Manager template – [Availability Set](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L387).
-
 
 ```none
 {
@@ -51,7 +48,6 @@ An Availability Set is declared as a property of a Virtual Machine resource.
 
 Follow this link to see the JSON sample within the Resource Manager template – [Availability Set association with Virtual Machine](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L313).
 
-
 ```none
 "properties": {
   "availabilitySet": {
@@ -62,10 +58,9 @@ The availability set as seen from the Azure portal. Each virtual machine and det
 
 ![Availability Set](./media/virtual-machines-linux-dotnet-core/aset.png)
 
-For in-depth information on Availability Sets, see [Manage availability of virtual machines](./virtual-machines-linux-manage-availability.md). 
+For in-depth information on Availability Sets, see [Manage availability of virtual machines](virtual-machines-linux-manage-availability.md). 
 
 ## Network Load Balancer
-
 Whereas an availability set provides application fault tolerance, a load balancer makes many instances of the application available on a single network address. Multiple instances of an application can be hosted on many virtual machines, each one connected to a load balancer. As the application is accessed, the load balancer routes the incoming request across the attached members. A Load Balancer can be added using the Visual Studio Add New Resource Wizard, or by inserting properly formatted JSON resource into the Azure Resource Manager template.
 
 Follow this link to see the JSON sample within the Resource Manager template – [Network Load Balancer](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L208).
@@ -105,11 +100,9 @@ From the Azure portal, the network load balancer overview shows the association 
 ![Network Load Balancer](./media/virtual-machines-linux-dotnet-core/nlb.png)
 
 ## Load Balancer Rule
-
 When using a load balancer, rules are configured that control how traffic is balanced across the intended resources. With the sample Music Store application, traffic arrives on port 80 of the public IP address and is distributed across port 80 of all virtual machines. 
 
 Follow this link to see the JSON sample within the Resource Manager template – [Load Balancer Rule](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L270).
-
 
 ```none
 "loadBalancingRules": [
@@ -140,11 +133,9 @@ A view of the network load balancer rule from the portal.
 ![Network Load Balancer Rule](./media/virtual-machines-linux-dotnet-core/lbrule.png)
 
 ## Load Balancer Probe
-
 The load balancer also needs to monitor each virtual machine so that requests are served only to running systems. This monitoring takes place by constant probing of a pre-defined port. The Music Store deployment is configured to probe port 80 on all included virtual machines. 
 
 Follow this link to see the JSON sample within the Resource Manager template – [Load Balancer Probe](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L257).
-
 
 ```none
 "probes": [
@@ -165,7 +156,6 @@ The load balancer probe seen from the Azure portal.
 ![Network Load Balancer Probe](./media/virtual-machines-linux-dotnet-core/lbprobe.png)
 
 ## Inbound NAT Rules
-
 When using a Load Balancer, rules need to be put into place that provide non-load balanced access to each Virtual Machine. For instance, when creating an SSH connection with each virtual machine, this traffic should not be load balanced, rather a pre-determined path should be configured. pre-determined paths are configured using an Inbound NAT Rule resource. Using this resource, inbound communication can be mapped to individual Virtual Machines. 
 
 With the Music Store application, a port starting at 5000 is mapped to port 22 on each Virtual Machine for SSH access. The `copyindex()` function is used to increment the incoming port, such that the second Virtual Machine receives an incoming port of 5001, the third 5002, and so on. 
@@ -204,10 +194,9 @@ One example inbound NAT rule as seen in the Azure portal. An SSH NAT rule is cre
 
 ![Inbound NAT Rule](./media/virtual-machines-linux-dotnet-core/natrule.png)
 
-For in-depth information on the Azure Network Load Balancer, see [Load balancing for Azure infrastructure services](./virtual-machines-linux-load-balance.md).
+For in-depth information on the Azure Network Load Balancer, see [Load balancing for Azure infrastructure services](virtual-machines-linux-load-balance.md).
 
 ## Deploy multiple VMs
-
 Finally, for an Availability Set or Load Balancer to effectively function, multiple virtual machines are required. Multiple VMs can be deployed using the Azure Resource Manager template copy function. Using the copy function, it is not necessary to define a finite number of Virtual Machines, rather this value can be dynamically provided at the time of deployment. The copy function consumes the number of instances to created and handles deploying the proper number of virtual machines and associated resources.
 
 In the Music Store Sample template, a parameter is defined that takes in an instance count. This number is used throughout the template when creating virtual machines and related resources.
@@ -227,7 +216,6 @@ On the Virtual Machine resource, the copy loop is given a name and the number of
 
 Follow this link to see the JSON sample within the Resource Manager template – [Virtual Machine Copy Function](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L300). 
 
-
 ```none
 "apiVersion": "2015-06-15",
 "type": "Microsoft.Compute/virtualMachines",
@@ -242,7 +230,6 @@ Follow this link to see the JSON sample within the Resource Manager template –
 The current iteration of the copy function can be accessed with the `copyIndex()` function. The value of the copy index function can be used to name virtual machines and other resources. For instance, if two instances of a virtual machine are deployed, they need different names. The `copyIndex()` function can be used as part of the virtual machine name to create a unique name. An example of the `copyindex()` function used for naming purposes can be seen in the Virtual Machine resource. Here, the computer name is a concatenation of the `vmName` parameter, and the `copyIndex()` function. 
 
 Follow this link to see the JSON sample within the Resource Manager template – [Copy Index Function](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L319). 
-
 
 ```none
 "osProfile": {
@@ -267,7 +254,7 @@ The `copyIndex` function is used several times in the Music Store sample templat
 For more information on the copy function, see [Create multiple instances of resources in Azure Resource Manager](../resource-group-create-multiple.md).
 
 ## Next step
-
 <hr>
 
-[Step 4 - Application Deployment with Azure Resource Manager Templates](./virtual-machines-linux-dotnet-core-5-app-deployment.md)
+[Step 4 - Application Deployment with Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-5-app-deployment.md)
+

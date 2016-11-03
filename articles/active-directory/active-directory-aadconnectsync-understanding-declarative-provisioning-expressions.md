@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Azure AD Connect sync: Understanding Declarative Provisioning Expressions | Microsoft Azure"
-	description="Explains the declarative provisioning expressions."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD Connect sync: Understanding Declarative Provisioning Expressions | Microsoft Docs'
+description: Explains the declarative provisioning expressions.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
-	ms.author="markusvi;andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/31/2016
+ms.author: markusvi;andkjell
 
-
+---
 # Azure AD Connect sync: Understanding Declarative Provisioning Expressions
 Azure AD Connect sync builds on declarative provisioning first introduced in Forefront Identity Manager 2010. It allows you to implement your complete identity integration business logic without the need to write compiled code.
 
@@ -27,14 +26,13 @@ For more details, see [Welcome to the Visual Basic for Applications language ref
 The attributes are strongly typed. A function only accepts attributes of the correct type. It is also case-sensitive. Both function names and attribute names must have proper casing or an error is thrown.
 
 ## Language definitions and Identifiers
-
-- Functions have a name followed by arguments in brackets: FunctionName(argument 1, argument N).
-- Attributes are identified by square brackets: [attributeName]
-- Parameters are identified by percent signs: %ParameterName%
-- String constants are surrounded by quotes: For example, "Contoso" (Note: must use straight quotes "" and not smart quotes “”)
-- Numeric values are expressed without quotes and expected to be decimal. Hexadecimal values are prefixed with &H. For example, 98052, &HFF
-- Boolean values are expressed with constants: True, False.
-- Built-in constants and literals are expressed with only their name: NULL, CRLF, IgnoreThisFlow
+* Functions have a name followed by arguments in brackets: FunctionName(argument 1, argument N).
+* Attributes are identified by square brackets: [attributeName]
+* Parameters are identified by percent signs: %ParameterName%
+* String constants are surrounded by quotes: For example, "Contoso" (Note: must use straight quotes "" and not smart quotes “”)
+* Numeric values are expressed without quotes and expected to be decimal. Hexadecimal values are prefixed with &H. For example, 98052, &HFF
+* Boolean values are expressed with constants: True, False.
+* Built-in constants and literals are expressed with only their name: NULL, CRLF, IgnoreThisFlow
 
 ### Functions
 Declarative provisioning uses many functions to enable the possibility to transform attribute values. These functions can be nested so the result from one function is passed in to another function.
@@ -50,12 +48,12 @@ The Active Directory Connector provided the following parameters for inbound Syn
 
 | Parameter Name | Comment |
 | --- | --- |
-| Domain.Netbios | Netbios format of the domain currently being imported, for example FABRIKAMSALES |
-| Domain.FQDN | FQDN format of the domain currently being imported, for example sales.fabrikam.com |
-| Domain.LDAP | LDAP format of the domain currently being imported, for example DC=sales,DC=fabrikam,DC=com |
-| Forest.Netbios | Netbios format of the forest name currently being imported, for example FABRIKAMCORP |
-| Forest.FQDN | FQDN format of the forest name currently being imported, for example fabrikam.com |
-| Forest.LDAP | LDAP format of the forest name currently being imported, for example DC=fabrikam,DC=com |
+| Domain.Netbios |Netbios format of the domain currently being imported, for example FABRIKAMSALES |
+| Domain.FQDN |FQDN format of the domain currently being imported, for example sales.fabrikam.com |
+| Domain.LDAP |LDAP format of the domain currently being imported, for example DC=sales,DC=fabrikam,DC=com |
+| Forest.Netbios |Netbios format of the forest name currently being imported, for example FABRIKAMCORP |
+| Forest.FQDN |FQDN format of the forest name currently being imported, for example fabrikam.com |
+| Forest.LDAP |LDAP format of the forest name currently being imported, for example DC=fabrikam,DC=com |
 
 The system provides the following parameter, which is used to get the identifier of the Connector currently running:  
 `Connector.ID`
@@ -66,11 +64,11 @@ Here is an example that populates the metaverse attribute domain with the netbio
 ### Operators
 The following operators can be used:
 
-- **Comparison**: <, <=, <>, =, >, >=
-- **Mathematics**: +, -, \*, -
-- **String**: & (concatenate)
-- **Logical**: && (and), || (or)
-- **Evaluation order**: ( )
+* **Comparison**: <, <=, <>, =, >, >=
+* **Mathematics**: +, -, \*, -
+* **String**: & (concatenate)
+* **Logical**: && (and), || (or)
+* **Evaluation order**: ( )
 
 Operators are evaluated left to right and have the same evaluation priority. That is, the \* (multiplier) is not evaluated before - (subtraction). 2\*(5+3) is not the same as 2\*5+3. The brackets ( ) are used to change the evaluation order when left to right evaluation order isn't appropriate.
 
@@ -83,16 +81,16 @@ For example:
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Look for the SIP-address and remove it from the values.
 
 ## Next steps
-
-- Read more about the configuration model in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
-- See how declarative provisioning is used out-of-box in [Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md).
-- See how to make a practical change using declarative provisioning in [How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md).
+* Read more about the configuration model in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+* See how declarative provisioning is used out-of-box in [Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md).
+* See how to make a practical change using declarative provisioning in [How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md).
 
 **Overview topics**
 
-- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
 **Reference topics**
 
-- [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
+* [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
+

@@ -1,27 +1,27 @@
-<properties
-   pageTitle="Collect logs by using Azure Diagnostics | Microsoft Azure"
-   description="This article describes how to set up Azure Diagnostics to collect logs from a Service Fabric cluster running in Azure."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="ms-toddabel"
-   manager="timlt"
-   editor=""/>
+---
+title: Collect logs by using Azure Diagnostics | Microsoft Docs
+description: This article describes how to set up Azure Diagnostics to collect logs from a Service Fabric cluster running in Azure.
+services: service-fabric
+documentationcenter: .net
+author: ms-toddabel
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/28/2016"
-   ms.author="toddabel"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/28/2016
+ms.author: toddabel
 
-
+---
 # Collect logs by using Azure Diagnostics
-
-> [AZURE.SELECTOR]
-- [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-- [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
+> * [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
+> 
+> 
 
 When you're running an Azure Service Fabric cluster, it's a good idea to collect the logs from all the nodes in a central location. Having the logs in a central location helps you analyze and troubleshoot issues in your cluster, or issues in the applications and services running in that cluster.
 
@@ -36,14 +36,12 @@ You'll use these tools to perform some of the operations in this document:
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
 * [Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
-
 ## Log sources that you might want to collect
-- **Service Fabric logs**: Emitted from the platform to standard Event Tracing for Windows (ETW) and EventSource channels. Logs can be one of several types:
-  - Operational events: Logs for operations that the Service Fabric platform performs. Examples include creation of applications and services, node state changes, and upgrade information.
-  - [Reliable Actors programming model events](service-fabric-reliable-actors-diagnostics.md)
-  - [Reliable Services programming model events](service-fabric-reliable-services-diagnostics.md)
-- **Application events**: Events emitted from your service's code and written out by using the EventSource helper class provided in the Visual Studio templates. For more information on how to write logs from your application, see [Monitor and diagnose services in a local machine development setup](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-
+* **Service Fabric logs**: Emitted from the platform to standard Event Tracing for Windows (ETW) and EventSource channels. Logs can be one of several types:
+  * Operational events: Logs for operations that the Service Fabric platform performs. Examples include creation of applications and services, node state changes, and upgrade information.
+  * [Reliable Actors programming model events](service-fabric-reliable-actors-diagnostics.md)
+  * [Reliable Services programming model events](service-fabric-reliable-services-diagnostics.md)
+* **Application events**: Events emitted from your service's code and written out by using the EventSource helper class provided in the Visual Studio templates. For more information on how to write logs from your application, see [Monitor and diagnose services in a local machine development setup](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 ## Deploy the Diagnostics extension
 The first step in collecting logs is to deploy the Diagnostics extension on each of the VMs in the Service Fabric cluster. The Diagnostics extension collects logs on each VM and uploads them to the storage account that you specify. The steps vary a little based on whether you use the Azure portal or Azure Resource Manager. The steps also vary based on whether the deployment is part of cluster creation or is for a cluster that already exists. Let's look at the steps for each scenario.
@@ -76,7 +74,6 @@ To use the downloaded template to update a configuration:
 2. Modify the contents to reflect the new configuration.
 3. Start PowerShell and change to the folder where you extracted the content.
 4. Run **deploy.ps1** and fill in the subscription ID, the resource group name (use the same name to update the configuration), and a unique deployment name.
-
 
 ### Deploy the Diagnostics extension as part of cluster creation by using Azure Resource Manager
 To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full cluster Resource Manager template before you create the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
@@ -137,61 +134,60 @@ Then, update the `VirtualMachineProfile` section of the template.json file by ad
 
 ```json
 {
-	"name": "[concat(parameters('vmNodeType0Name'),'_Microsoft.Insights.VMDiagnosticsSettings')]",
-	"properties": {
-		"type": "IaaSDiagnostics",
-		"autoUpgradeMinorVersion": true,
-		"protectedSettings": {
-		"storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
-		"storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName')),'2015-05-01-preview').key1]",
-		"storageAccountEndPoint": "https://core.windows.net/"
-		},
-		"publisher": "Microsoft.Azure.Diagnostics",
-		"settings": {
-		"WadCfg": {
-			"DiagnosticMonitorConfiguration": {
-			"overallQuotaInMB": "50000",
-			"EtwProviders": {
-				"EtwEventSourceProviderConfiguration": [
-				{
-					"provider": "Microsoft-ServiceFabric-Actors",
-					"scheduledTransferKeywordFilter": "1",
-					"scheduledTransferPeriod": "PT5M",
-					"DefaultEvents": {
-					"eventDestination": "ServiceFabricReliableActorEventTable"
-					}
-				},
-				{
-					"provider": "Microsoft-ServiceFabric-Services",
-					"scheduledTransferPeriod": "PT5M",
-					"DefaultEvents": {
-					"eventDestination": "ServiceFabricReliableServiceEventTable"
-					}
-				}
-				],
-				"EtwManifestProviderConfiguration": [
-				{
-					"provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-					"scheduledTransferLogLevelFilter": "Information",
-					"scheduledTransferKeywordFilter": "4611686018427387904",
-					"scheduledTransferPeriod": "PT5M",
-					"DefaultEvents": {
-					"eventDestination": "ServiceFabricSystemEventTable"
-					}
-				}
-				]
-			}
-			}
-		},
-		"StorageAccount": "[parameters('applicationDiagnosticsStorageAccountName')]"
-		},
-		"typeHandlerVersion": "1.5"
-	}
+    "name": "[concat(parameters('vmNodeType0Name'),'_Microsoft.Insights.VMDiagnosticsSettings')]",
+    "properties": {
+        "type": "IaaSDiagnostics",
+        "autoUpgradeMinorVersion": true,
+        "protectedSettings": {
+        "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
+        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName')),'2015-05-01-preview').key1]",
+        "storageAccountEndPoint": "https://core.windows.net/"
+        },
+        "publisher": "Microsoft.Azure.Diagnostics",
+        "settings": {
+        "WadCfg": {
+            "DiagnosticMonitorConfiguration": {
+            "overallQuotaInMB": "50000",
+            "EtwProviders": {
+                "EtwEventSourceProviderConfiguration": [
+                {
+                    "provider": "Microsoft-ServiceFabric-Actors",
+                    "scheduledTransferKeywordFilter": "1",
+                    "scheduledTransferPeriod": "PT5M",
+                    "DefaultEvents": {
+                    "eventDestination": "ServiceFabricReliableActorEventTable"
+                    }
+                },
+                {
+                    "provider": "Microsoft-ServiceFabric-Services",
+                    "scheduledTransferPeriod": "PT5M",
+                    "DefaultEvents": {
+                    "eventDestination": "ServiceFabricReliableServiceEventTable"
+                    }
+                }
+                ],
+                "EtwManifestProviderConfiguration": [
+                {
+                    "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                    "scheduledTransferLogLevelFilter": "Information",
+                    "scheduledTransferKeywordFilter": "4611686018427387904",
+                    "scheduledTransferPeriod": "PT5M",
+                    "DefaultEvents": {
+                    "eventDestination": "ServiceFabricSystemEventTable"
+                    }
+                }
+                ]
+            }
+            }
+        },
+        "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountName')]"
+        },
+        "typeHandlerVersion": "1.5"
+    }
 }
 ```
 
 After you modify the template.json file as described, republish the Resource Manager template. If the template was exported, running the deploy.ps1 file republishes the template. After you deploy, ensure that **ProvisioningState** is **Succeeded**.
-
 
 ## Update Diagnostics to collect and upload logs from new EventSource channels
 To update Diagnostics to collect logs from new EventSource channels that represent a new application that you're about to deploy, perform the same steps as in the [previous section](#deploywadarm) for setup of Diagnostics for an existing cluster.
@@ -201,13 +197,13 @@ Update the `EtwEventSourceProviderConfiguration` section in the template.json fi
 For example, if your event source is named My-Eventsource, add the following code to place the events from My-Eventsource into a table named MyDestinationTableName.
 
 ```json
-		{
-			"provider": "My-Eventsource",
-			"scheduledTransferPeriod": "PT5M",
-			"DefaultEvents": {
-			"eventDestination": "MyDestinationTableName"
-			}
-		}
+        {
+            "provider": "My-Eventsource",
+            "scheduledTransferPeriod": "PT5M",
+            "DefaultEvents": {
+            "eventDestination": "MyDestinationTableName"
+            }
+        }
 ```
 
 To collect performance counters or event logs, modify the Resource Manager template by using the examples provided in [Create a Windows virtual machine with monitoring and diagnostics by using an Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md). Then, republish the Resource Manager template.
@@ -215,7 +211,7 @@ To collect performance counters or event logs, modify the Resource Manager templ
 ## Next steps
 To understand in more detail what events you should look for while troubleshooting issues, see the diagnostic events emitted for [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) and [Reliable Services](service-fabric-reliable-services-diagnostics.md).
 
-
 ## Related articles
 * [Learn how to collect performance counters or logs by using the Diagnostics extension](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 * [Service Fabric solution in Log Analytics](../log-analytics/log-analytics-service-fabric.md)
+

@@ -1,46 +1,38 @@
-<properties
-	pageTitle="Dashboards and navigation in the Application Insights portal | Microsoft Azure"
-	description="Create views of your key APM charts and queries."
-	services="application-insights"
-    documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+---
+title: Dashboards and navigation in the Application Insights portal | Microsoft Docs
+description: Create views of your key APM charts and queries.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="10/18/2016"
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: multiple
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: awills
 
+---
 # Navigation and Dashboards in the Application Insights portal
-
 After you have [set up Application Insights on your project](app-insights-overview.md), telemetry data about your app's performance and usage will appear in your project's Application Insights resource in the [Azure portal](https://portal.azure.com).
 
-
 ## Find your telemetry
-
 Sign in to the [Azure portal](https://portal.azure.com) and navigate to the Application Insights resource that you created for your app.
 
 ![Click Browse, select Application Insights, then your app.](./media/app-insights-dashboards/00-start.png)
 
 The overview blade (page) for your app shows a summary of the key diagnostic metrics of your app, and is a gateway to the other features of the portal.
 
-
 ![Major routes to view your telemetry](./media/app-insights-dashboards/010-oview.png)
 
 You can customize any of the other charts and pin them to a dashboard. That way, you can bring together the key charts from different apps.
 
-
 ## Dashboards
-
 The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Visual Studio Application Insights](app-insights-overview.md).
- 
 
 ![A customized dashboard.](./media/app-insights-dashboards/31.png)
-
 
 1. **Navigate to specific resources** such as your app in Application Insights: Use the left bar.
 2. **Return to the current dashboard**, or switch to other recent views: Use the drop-down menu at top left.
@@ -48,9 +40,7 @@ The first thing you see after you sign in to the [Microsoft Azure portal](https:
 4. **Create, edit, and share dashboards** in the dashboard toolbar.
 5. **Edit the dashboard**: Hover over a tile and then use its top bar to move, customize, or remove it.
 
-
 ## Add to a dashboard
-
 When you're looking at a blade or set of charts that's particularly interesting, you can pin a copy of it to the dashboard. You'll see it next time you return there.
 
 ![To pin a chart, hover over it and then click "..." in the header.](./media/app-insights-dashboards/33.png)
@@ -62,11 +52,9 @@ When you're looking at a blade or set of charts that's particularly interesting,
 Notice that charts are grouped into tiles: a tile can contain more than one chart. You pin the whole tile to the dashboard.
 
 ### Pin any query in Analytics
-
 You can also [pin Analytics](app-insights-analytics-using.md#pin-to-dashboard) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics. (There is a charge for this feature.)
 
 ## Adjust a tile on the dashboard
-
 Once a tile is on the dashboard, you can adjust it.
 
 ![Hover over a chart in order to edit it.](./media/app-insights-dashboards/36.png)
@@ -80,23 +68,18 @@ Tiles pinned from metric explorer blades have more editing options than tiles pi
 
 The original tile that you pinned isn't affected by your edits.
 
-
 ## Switch between dashboards
-
 You can save more than one dashboard and switch between them. When you pin a chart or blade, they're added to the current dashboard.
 
 ![To switch between dashboards, click Dashboard and select a saved dashboard. To create and save a new dashboard, click New. To rearrange, click Edit.](./media/app-insights-dashboards/32.png)
 
 For example, you might have one dashboard for displaying full screen in the team room, and another for general development.
 
-
 On the dashboard, a blade appears as a tile: click it to go to the blade. A chart replicates the chart in its original location.
 
 ![Click a tile to open the blade it represents](./media/app-insights-dashboards/35.png)
 
-
 ## Share dashboards
-
 When you've created a dashboard, you can share it with other users.
 
 ![In the dashboard header, click Share](./media/app-insights-dashboards/41.png)
@@ -104,16 +87,12 @@ When you've created a dashboard, you can share it with other users.
 Learn about [Roles and access control](app-insights-resources-roles-access-control.md).
 
 ## App navigation
-
 The overview blade is the gateway to more information about your app.
 
 * **Any chart or tile** - Click any tile or chart to see more detail about what it displays.
 
 ### Overview blade buttons
-
-
 ![Overview blade top navigation bar](./media/app-insights-dashboards/app-overview-top-nav.png)
-
 
 * [**Metrics Explorer**](app-insights-metrics-explorer.md) - Create your own charts of performance and usage.
 * [**Search**](app-insights-diagnostic-search.md) - Investigate specific instances of events such as requests, exceptions, or log traces.
@@ -122,14 +101,10 @@ The overview blade is the gateway to more information about your app.
 * **Delete** - Delete the Application Insights resource for this app. You should also either remove the Application Insights packages from your app code, or edit the [instrumentation key](app-insights-create-new-resource.md#copy-the-instrumentation-key) in your app to direct telemetry to a different Application Insights resource.
 
 ### Essentials tab
-
 * [Instrumentation key](app-insights-create-new-resource.md#copy-the-instrumentation-key) - Identifies this app resource. 
 * Pricing - Make features available and set volume caps.
 
-
 ### App navigation bar
-
-
 ![Left navigation bar](./media/app-insights-dashboards/app-left-nav-bar.png)
 
 * **Overview** - Return to the app overview blade.
@@ -146,7 +121,6 @@ INVESTIGATE
 * [**Failures, Performance**](app-insights-web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](app-insights-asp-net-dependencies.md).
 * [**Performance**](app-insights-web-monitor-performance.md) - Response time, dependency response times. 
 * [Servers](app-insights-web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](app-insights-monitor-performance-live-website-now.md).
-
 * **Browser** - Page view and AJAX performance. Available if you [instrument your web pages](app-insights-javascript.md).
 * **Usage** - Page view, user, and session counts. Available if you [instrument your web pages](app-insights-javascript.md).
 
@@ -163,8 +137,7 @@ CONFIGURE
 
 SETTINGS
 
-
-* [**Locks**](..\resource-group-lock-resources.md) - lock Azure resources
+* [**Locks**](../resource-group-lock-resources.md) - lock Azure resources
 * [**Automation script**](app-insights-powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
 
 SUPPORT
@@ -172,14 +145,9 @@ SUPPORT
 * **Support request** - requires a paid subscription. See also [Getting help](app-insights-get-dev-support.md).
 
 ## What's next?
-
-||
-|---|---
-|[Metrics explorer](app-insights-metrics-explorer.md)<br/>Filter and segment metrics|![Search example](./media/app-insights-dashboards/64.png)
-|[Diagnostic search](app-insights-diagnostic-search.md)<br/>Find and inspect events, related events, and create bugs |![Search example](./media/app-insights-dashboards/61.png)
-|[Analytics](app-insights-analytics.md)<br/>Powerful query language| ![Search example](./media/app-insights-dashboards/63.png)
-
-
-
-
+|  |  |
+| --- | --- |
+| [Metrics explorer](app-insights-metrics-explorer.md)<br/>Filter and segment metrics |![Search example](./media/app-insights-dashboards/64.png) |
+| [Diagnostic search](app-insights-diagnostic-search.md)<br/>Find and inspect events, related events, and create bugs |![Search example](./media/app-insights-dashboards/61.png) |
+| [Analytics](app-insights-analytics.md)<br/>Powerful query language |![Search example](./media/app-insights-dashboards/63.png) |
 

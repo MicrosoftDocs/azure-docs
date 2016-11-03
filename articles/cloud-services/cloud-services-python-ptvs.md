@@ -1,48 +1,45 @@
-<properties
-	pageTitle="Python web and worker roles with Visual Studio | Microsoft Azure"
-	description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles."
-	services="cloud-services"
-	documentationCenter="python"
-	authors="thraka"
-	manager="timlt"
-	editor=""/>
+---
+title: Python web and worker roles with Visual Studio | Microsoft Docs
+description: Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles.
+services: cloud-services
+documentationcenter: python
+author: thraka
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="hero-article"
-	ms.date="08/03/2016"
-	ms.author="adegeo"/>
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: python
+ms.topic: hero-article
+ms.date: 08/03/2016
+ms.author: adegeo
 
-
+---
 # Python web and worker roles with Python Tools for Visual Studio
-
-This article provides an overview of using Python web and worker roles using [Python Tools for Visual Studio][]. You will learn how to use Visual Studio to create and deploy a basic Cloud Service that uses Python.
+This article provides an overview of using Python web and worker roles using [Python Tools for Visual Studio][Python Tools for Visual Studio]. You will learn how to use Visual Studio to create and deploy a basic Cloud Service that uses Python.
 
 ## Prerequisites
+* Visual Studio 2013 or 2015
+* [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
+* [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] or [Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015]
+* [Python 2.7 32-bit][Python 2.7 32-bit] or [Python 3.5 32-bit][Python 3.5 32-bit]
 
- - Visual Studio 2013 or 2015
- - [Python Tools for Visual Studio][] (PTVS)
- - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2015][]
- - [Python 2.7 32-bit][] or [Python 3.5 32-bit][]
-
-[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+[!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## What are Python web and worker roles?
-
 Azure provides three compute models for running applications: [Web Apps feature in Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms], and [Azure Cloud Services][execution model-cloud services]. All three models support Python. Cloud Services, which include web and worker roles, provide *Platform as a Service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front-end web applications, while a worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
 
 For more information, see [What is a Cloud Service?].
 
-> [AZURE.NOTE] *Looking to build a simple website?*
-If your scenario involves just a simple website front-end, consider using the lightweight Web Apps feature in Azure App Service. You can easily upgrade to a Cloud Service as your website grows and your requirements change. See the <a href="/develop/python/">Python Developer Center</a> for articles that cover development of the Web Apps feature in Azure App Service.
-<br />
-
+> [!NOTE]
+> *Looking to build a simple website?*
+> If your scenario involves just a simple website front-end, consider using the lightweight Web Apps feature in Azure App Service. You can easily upgrade to a Cloud Service as your website grows and your requirements change. See the <a href="/develop/python/">Python Developer Center</a> for articles that cover development of the Web Apps feature in Azure App Service.
+> <br />
+> 
+> 
 
 ## Project creation
-
 In Visual Studio, you can select **Azure Cloud Service** in the **New Project** dialog box, under **Python**.
 
 ![New Project Dialog](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
@@ -62,13 +59,14 @@ You can add web or worker roles to an existing cloud service at any time.  You c
 Your cloud service can contain roles implemented in different languages.  For example, you can have a Python web role implemented using Django, with Python, or with C# worker roles.  You can easily communicate between your roles using Service Bus queues or storage queues.
 
 ## Install Python on the cloud service
-
->[AZURE.WARNING] The setup scripts that are installed with Visual Studio (at the time this article was last updated) do not work. This section describes a workaround.
+> [!WARNING]
+> The setup scripts that are installed with Visual Studio (at the time this article was last updated) do not work. This section describes a workaround.
+> 
+> 
 
 The main problem with the setup scripts are that they do not install python. First, define two [startup tasks](cloud-services-startup-tasks.md) in the [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) file. The first task (**PrepPython.ps1**) downloads and installs the Python runtime. The second task (**PipInstaller.ps1**) runs pip to install any dependencies you may have.
 
 The scripts below were written targeting Python 3.5. If you want to use the version 2.x of python, set the **PYTHON2** variable file to **on** for the two startup tasks and the runtime task: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
-
 
 ```xml
 <Startup>
@@ -89,7 +87,7 @@ The scripts below were written targeting Python 3.5. If you want to use the vers
       </Variable>
       <Variable name="PYTHON2" value="off" />
     </Environment>
-	
+
   </Task>
 
 </Startup>
@@ -113,7 +111,6 @@ The **PYTHON2** and **PYPATH** variables needs to be added to the worker startup
 ```
 
 #### Sample ServiceDefinition.csdef
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="AzureCloudServicePython" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -165,7 +162,6 @@ The **PYTHON2** and **PYPATH** variables needs to be added to the worker startup
 Next, create the **PrepPython.ps1** and **PipInstaller.ps1** files in the **./bin** folder of your role.
 
 #### PrepPython.ps1
-
 This script installs python. If the **PYTHON2** enviornment variable is set to **on** then Python 2.7 will be installed, otherwise Python 3.5 will be installed.
 
 ```powershell
@@ -174,45 +170,44 @@ $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
 if (-not $is_emulated){
-	Write-Output "Checking if python is installed...$nl"
-	if ($is_python2) {
-		& "${env:SystemDrive}\Python27\python.exe"  -V | Out-Null
-	}
-	else {
-		py -V | Out-Null
-	}
+    Write-Output "Checking if python is installed...$nl"
+    if ($is_python2) {
+        & "${env:SystemDrive}\Python27\python.exe"  -V | Out-Null
+    }
+    else {
+        py -V | Out-Null
+    }
 
-	if (-not $?) {
+    if (-not $?) {
 
-		$url = "https://www.python.org/ftp/python/3.5.2/python-3.5.2-amd64.exe"
-		$outFile = "${env:TEMP}\python-3.5.2-amd64.exe"
+        $url = "https://www.python.org/ftp/python/3.5.2/python-3.5.2-amd64.exe"
+        $outFile = "${env:TEMP}\python-3.5.2-amd64.exe"
 
-		if ($is_python2) {
-			$url = "https://www.python.org/ftp/python/2.7.12/python-2.7.12.amd64.msi"
-			$outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
-		}
-		
-		Write-Output "Not found, downloading $url to $outFile$nl"
-		Invoke-WebRequest $url -OutFile $outFile
-		Write-Output "Installing$nl"
+        if ($is_python2) {
+            $url = "https://www.python.org/ftp/python/2.7.12/python-2.7.12.amd64.msi"
+            $outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
+        }
 
-		if ($is_python2) {
-			Start-Process msiexec.exe -ArgumentList "/q", "/i", "$outFile", "ALLUSERS=1" -Wait
-		}
-		else {
-			Start-Process "$outFile" -ArgumentList "/quiet", "InstallAllUsers=1" -Wait
-		}
+        Write-Output "Not found, downloading $url to $outFile$nl"
+        Invoke-WebRequest $url -OutFile $outFile
+        Write-Output "Installing$nl"
 
-		Write-Output "Done$nl"
-	}
-	else {
-		Write-Output "Already installed"
-	}
+        if ($is_python2) {
+            Start-Process msiexec.exe -ArgumentList "/q", "/i", "$outFile", "ALLUSERS=1" -Wait
+        }
+        else {
+            Start-Process "$outFile" -ArgumentList "/quiet", "InstallAllUsers=1" -Wait
+        }
+
+        Write-Output "Done$nl"
+    }
+    else {
+        Write-Output "Already installed"
+    }
 }
 ```
 
 #### PipInstaller.ps1
-
 This script calls up pip and installs all of the dependencies in the **requirements.txt** file. If the **PYTHON2** enviornment variable is set to **on** then Python 2.7 will be used, otherwise Python 3.5 will be used.
 
 ```powershell
@@ -221,28 +216,30 @@ $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
 if (-not $is_emulated){
-	Write-Output "Checking if requirements.txt exists$nl"
-	if (Test-Path ..\requirements.txt) {
-		Write-Output "Found. Processing pip$nl"
+    Write-Output "Checking if requirements.txt exists$nl"
+    if (Test-Path ..\requirements.txt) {
+        Write-Output "Found. Processing pip$nl"
 
-		if ($is_python2) {
-			& "${env:SystemDrive}\Python27\python.exe" -m pip install -r ..\requirements.txt
-		}
-		else {
-			py -m pip install -r ..\requirements.txt
-		}
+        if ($is_python2) {
+            & "${env:SystemDrive}\Python27\python.exe" -m pip install -r ..\requirements.txt
+        }
+        else {
+            py -m pip install -r ..\requirements.txt
+        }
 
-		Write-Output "Done$nl"
-	}
-	else {
-		Write-Output "Not found$nl"
-	}
+        Write-Output "Done$nl"
+    }
+    else {
+        Write-Output "Not found$nl"
+    }
 }
 ```
 
 #### Modify LaunchWorker.ps1
-
->[AZURE.NOTE] In the case of a **worker role** project, **LauncherWorker.ps1** file is required to execute the startup file. In a **web role** project, the startup file is instead defined in the project properties.
+> [!NOTE]
+> In the case of a **worker role** project, **LauncherWorker.ps1** file is required to execute the startup file. In a **web role** project, the startup file is instead defined in the project properties.
+> 
+> 
 
 The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work but it doesn't really work. Replace the contents in that file with the following script.
 
@@ -255,36 +252,35 @@ $nl = [Environment]::NewLine
 
 if (-not $is_emulated)
 {
-	Write-Output "Running worker.py$nl"
+    Write-Output "Running worker.py$nl"
 
-	if ($is_python2) {
-		cd..
-		iex "$env:PYPATH\python.exe worker.py"
-	}
-	else {
-		cd..
-		iex "py worker.py"
-	}
+    if ($is_python2) {
+        cd..
+        iex "$env:PYPATH\python.exe worker.py"
+    }
+    else {
+        cd..
+        iex "py worker.py"
+    }
 }
 else
 {
-	Write-Output "Running (EMULATED) worker.py$nl"
+    Write-Output "Running (EMULATED) worker.py$nl"
 
-	# Customize to your local dev environment
+    # Customize to your local dev environment
 
-	if ($is_python2) {
-		cd..
-		iex "$env:PYPATH\python.exe worker.py"
-	}
-	else {
-		cd..
-		iex "py worker.py"
-	}
+    if ($is_python2) {
+        cd..
+        iex "$env:PYPATH\python.exe worker.py"
+    }
+    else {
+        cd..
+        iex "py worker.py"
+    }
 }
 ```
 
 #### ps.cmd
-
 The Visual Studio templates should have created a **ps.cmd** file in the **./bin** folder. This shell script calls out the PowerShell wrapper scripts above and provides logging based on the name of the PowerShell wrapper called. If this file wasn't created, here is what should be in it. 
 
 ```bat
@@ -299,7 +295,6 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 
 ## Run locally
-
 If you set your cloud service project as the startup project and press F5, the cloud service will run in the local Azure emulator.
 
 Although PTVS supports launching in the emulator, debugging (for example, breakpoints) will not work.
@@ -309,7 +304,6 @@ To debug your web and worker roles, you can set the role project as the startup 
 ![Solution Startup Project Properties](./media/cloud-services-python-ptvs/startup.png)
 
 ## Publish to Azure
-
 To publish, right-click the cloud service project in the solution and then select **Publish**.
 
 ![Microsoft Azure Publish Sign In](./media/cloud-services-python-ptvs/publish-sign-in.png)
@@ -325,23 +319,20 @@ Some progress will appear in the output window, then you'll see the Microsoft Az
 Deployment will take several minutes to complete, then your web and/or worker roles will be running on Azure!
 
 ### Investigate logs
-
 After the cloud service virtual machine starts up and installs Python, you can look at the logs to find any failure messages. These logs are located in the **C:\Resources\Directory\\{role}\LogFiles** folder. **PrepPython.err.txt** will have at least one error in it from when the script tries to detect if Python is installed and **PipInstaller.err.txt** may complain about an outdated version of pip.
 
 ## Next steps
-
 For more detailed information about working with web and worker roles in Python Tools for Visual Studio, see the PTVS documentation:
 
-- [Cloud Service Projects][]
+* [Cloud Service Projects][Cloud Service Projects]
 
 For more details about using Azure services from your web and worker roles, such as using Azure Storage or Service Bus, see the following articles.
 
-- [Blob Service][]
-- [Table Service][]
-- [Queue Service][]
-- [Service Bus Queues][]
-- [Service Bus Topics][]
-
+* [Blob Service][Blob Service]
+* [Table Service][Table Service]
+* [Queue Service][Queue Service]
+* [Service Bus Queues][Service Bus Queues]
+* [Service Bus Topics][Service Bus Topics]
 
 <!--Link references-->
 

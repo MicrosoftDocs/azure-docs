@@ -1,40 +1,38 @@
-<properties
-   pageTitle="Sign-up and tenant onboarding in multitenant applications | Microsoft Azure"
-   description="How to onboard tenants in a multitenant application"
-   services=""
-   documentationCenter="na"
-   authors="MikeWasson"
-   manager="roshar"
-   editor=""
-   tags=""/>
+---
+title: Sign-up and tenant onboarding in multitenant applications | Microsoft Docs
+description: How to onboard tenants in a multitenant application
+services: ''
+documentationcenter: na
+author: MikeWasson
+manager: roshar
+editor: ''
+tags: ''
 
-<tags
-   ms.service="guidance"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/23/2016"
-   ms.author="mwasson"/>
+ms.service: guidance
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/23/2016
+ms.author: mwasson
 
+---
 # Sign-up and tenant onboarding in a multitenant application
-
-[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+[!INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
-This article describes how to implement a _sign-up_ process in a multi-tenant application, which allows a customer to sign up their organization for your application.
+This article describes how to implement a *sign-up* process in a multi-tenant application, which allows a customer to sign up their organization for your application.
 There are several reasons to implement a sign-up process:
 
--	Allow an AD admin to consent for the customer's entire organization to use the application.
--	Collect credit card payment or other customer information.
--	Perform any one-time per-tenant setup needed by your application.
+* Allow an AD admin to consent for the customer's entire organization to use the application.
+* Collect credit card payment or other customer information.
+* Perform any one-time per-tenant setup needed by your application.
 
 ## Admin consent and Azure AD permissions
-
 In order to authenticate with Azure AD, an application needs access to the user's directory. At a minimum, the application needs permission to read the user's profile. The first time that a user signs in, Azure AD shows a consent page that lists the permissions being requested. By clicking **Accept**, the user grants permission to the application.
 
-By default, consent is granted on a per-user basis. Every user who signs in sees the consent page. However, Azure AD also supports  _admin consent_, which allows an AD administrator to consent for an entire organization.
+By default, consent is granted on a per-user basis. Every user who signs in sees the consent page. However, Azure AD also supports  *admin consent*, which allows an AD administrator to consent for an entire organization.
 
 When the admin consent flow is used, the consent page states that the AD admin is granting permission on behalf of the entire tenant:
 
@@ -49,13 +47,12 @@ Only an AD administrator can give admin consent, because it grants permission on
 If the application requires additional permissions at a later point, the customer will need to sign up again and consent to the updated permissions.  
 
 ## Implementing tenant sign-up
-
 For the [Tailspin Surveys][Tailspin] application,  we defined several requirements for the sign-up process:
 
--	A tenant must sign up before users can sign in.
--	Sign-up uses the admin consent flow.
--	Sign-up adds the user's tenant to the application database.
--	After a tenant signs up, the application shows an onboarding page.
+* A tenant must sign up before users can sign in.
+* Sign-up uses the admin consent flow.
+* Sign-up adds the user's tenant to the application database.
+* After a tenant signs up, the application shows an onboarding page.
 
 In this section, we'll walk through our implementation of the sign-up process.
 It's important to understand that "sign up" versus "sign in" is an application concept. During the authentication flow, Azure AD does not inherently know whether the user is in process of signing up. It's up to the application to keep track of the context.
@@ -103,7 +100,7 @@ public IActionResult SignUp()
 
 Like `SignIn`, the `SignUp` action also returns a `ChallengeResult`. But this time, we add a piece of state information to the `AuthenticationProperties` in the `ChallengeResult`:
 
--	signup: A Boolean flag, indicating that the user has started the sign-up process.
+* signup: A Boolean flag, indicating that the user has started the sign-up process.
 
 The state information in `AuthenticationProperties` gets added to the OpenID Connect [state] parameter, which round trips during the authentication flow.
 
@@ -112,7 +109,6 @@ The state information in `AuthenticationProperties` gets added to the OpenID Con
 After the user authenticates in Azure AD and gets redirected back to the application, the authentication ticket contains the state. We are using this fact to make sure the "signup" value persists across the entire authentication flow.
 
 ## Adding the admin consent prompt
-
 In Azure AD, the admin consent flow is triggered by adding a "prompt" parameter to the query string in the authentication request:
 
 ```
@@ -134,7 +130,10 @@ public override Task RedirectToAuthenticationEndpoint(RedirectContext context)
 }
 ```
 
-> [AZURE.NOTE] See [SurveyAuthenticationEvents.cs].
+> [!NOTE]
+> See [SurveyAuthenticationEvents.cs].
+> 
+> 
 
 Setting` ProtocolMessage.Prompt` tells the middleware to add the "prompt" parameter to the authentication request.
 
@@ -174,12 +173,15 @@ internal static bool IsSigningUp(this BaseControlContext context)
 }
 ```
 
-> [AZURE.NOTE] See [BaseControlContextExtensions.cs].
-
-> [AZURE.NOTE] Note: This code includes a workaround for a known bug in ASP.NET Core 1.0 RC1. In the `RedirectToAuthenticationEndpoint` event, there is no way to get the authentication properties that contains the "signup" state. As a workaround, the `AccountController.SignUp` method also puts the "signup" state into the `HttpContext`. This works because `RedirectToAuthenticationEndpoint` happens before the redirect, so we still have the same `HttpContext`.
+> [!NOTE]
+> See [BaseControlContextExtensions.cs].
+> 
+> [!NOTE]
+> Note: This code includes a workaround for a known bug in ASP.NET Core 1.0 RC1. In the `RedirectToAuthenticationEndpoint` event, there is no way to get the authentication properties that contains the "signup" state. As a workaround, the `AccountController.SignUp` method also puts the "signup" state into the `HttpContext`. This works because `RedirectToAuthenticationEndpoint` happens before the redirect, so we still have the same `HttpContext`.
+> 
+> 
 
 ## Registering a Tenant
-
 The Surveys application stores some information about each tenant and user in the application database.
 
 ![Tenant table](media/guidance-multitenant-identity/tenant-table.png)
@@ -234,17 +236,20 @@ public override async Task AuthenticationValidated(AuthenticationValidatedContex
 }
 ```
 
-> [AZURE.NOTE] See [SurveyAuthenticationEvents.cs].
+> [!NOTE]
+> See [SurveyAuthenticationEvents.cs].
+> 
+> 
 
 This code does the following:
 
-1.	Check if the tenant's issuer value is already in the database. If the tenant has not signed up, `FindByIssuerValueAsync` returns null.
-2.	If the user is signing up:
-  1.	Add the tenant to the database (`SignUpTenantAsync`).
-  2.	Add the authenticated user to the database (`CreateOrUpdateUserAsync`).
-3.	Otherwise complete the normal sign-in flow:
-  1.	If the tenant's issuer was not found in the database, it means the tenant is not registered, and the customer needs to sign up. In that case, throw an exception to cause the authentication to fail.
-  2.	Otherwise, create a database record for this user, if there isn't one already (`CreateOrUpdateUserAsync`).
+1. Check if the tenant's issuer value is already in the database. If the tenant has not signed up, `FindByIssuerValueAsync` returns null.
+2. If the user is signing up:
+   1. Add the tenant to the database (`SignUpTenantAsync`).
+   2. Add the authenticated user to the database (`CreateOrUpdateUserAsync`).
+3. Otherwise complete the normal sign-in flow:
+   1. If the tenant's issuer was not found in the database, it means the tenant is not registered, and the customer needs to sign up. In that case, throw an exception to cause the authentication to fail.
+   2. Otherwise, create a database record for this user, if there isn't one already (`CreateOrUpdateUserAsync`).
 
 Here is the [SignUpTenantAsync] method that adds the tenant to the database.
 
@@ -279,17 +284,15 @@ private async Task<Tenant> SignUpTenantAsync(BaseControlContext context, TenantM
 
 Here is a summary of the entire sign-up flow in the Surveys application:
 
-1.	The user clicks the **Sign Up** button.
-2.	The `AccountController.SignUp` action returns a challege result.  The authentication state includes "signup" value.
-3.	In the `RedirectToAuthenticationEndpoint` event, add the `admin_consent` prompt.
-4.	The OpenID Connect middleware redirects to Azure AD and the user authenticates.
-5.	In the `AuthenticationValidated` event, look for the "signup" state.
-6.	Add the tenant to the database.
+1. The user clicks the **Sign Up** button.
+2. The `AccountController.SignUp` action returns a challege result.  The authentication state includes "signup" value.
+3. In the `RedirectToAuthenticationEndpoint` event, add the `admin_consent` prompt.
+4. The OpenID Connect middleware redirects to Azure AD and the user authenticates.
+5. In the `AuthenticationValidated` event, look for the "signup" state.
+6. Add the tenant to the database.
 
 ## Next steps
-
-- Read the next article in this series: [Application roles in multitenant applications][app roles]
-
+* Read the next article in this series: [Application roles in multitenant applications][app roles]
 
 <!-- Links -->
 [app roles]: guidance-multitenant-identity-app-roles.md

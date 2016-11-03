@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Azure security overview | Microsoft Azure"
-   description="The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Azure security overview | Microsoft Docs
+description: The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Azure security overview
-
 The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions. If you are interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
 
 We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of the wide array of security tools and capabilities available. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform.
@@ -31,17 +30,21 @@ Each category has an Overview article. The goal of the Overview article is to pr
 
 The Azure Security Information site currently addresses the following categories:
 
-- Resources
-- Network security
-- Storage security
-- Virtual machine security
-- Endpoint protection
-- Security management and monitoring
-- Identity management
-- PaaS services
-- Industry specific
-- Architecture
+* Resources
+* Network security
+* Storage security
+* Virtual machine security
+* Endpoint protection
+* Security management and monitoring
+* Identity management
+* PaaS services
+* Industry specific
+* Architecture
 
-> [AZURE.NOTE] All the articles we have in the Azure Security Information site appear in the navigation on the left side of the page. If you want to see all the articles, click or tap **See More** at the bottom of the categories list.
+> [!NOTE]
+> All the articles we have in the Azure Security Information site appear in the navigation on the left side of the page. If you want to see all the articles, click or tap **See More** at the bottom of the categories list.
+> 
+> 
 
 We want your input! If there are categories you want added, let us know! If there are articles you want added to an existing category, let us know that too! You can use the Comments section below, or write to us at [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) and we’ll incorporate your recommendations into our plans.
+

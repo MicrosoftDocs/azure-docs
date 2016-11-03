@@ -1,119 +1,104 @@
-<properties 
-   pageTitle="Azure Mobile Engagement Troubleshooting Guide - SDK" 
-   description="Troubleshooting SDK integration issues in Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: Azure Mobile Engagement Troubleshooting Guide - SDK
+description: Troubleshooting SDK integration issues in Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Troubleshooting guide for SDK integration issues
-
 The following are possible issues you may encounter with how Azure Mobile Engagement integrates into your application.
 
 ## SDK issues discovered by a failure in another area of your application
-
 ### Issue
-- UI data collection failure (in Analytics, Monitoring, Segmentation, or Dashboards).
-- Push Failures (Pushes don't work in app, out of app, or both).
-- Advanced Feature Failures (Tracking, Geolocation, or platform specific Pushes don’t work).
-- API Failures (APIs fail often silently without error messages).
-- Service Failures (none of Azure Mobile Engagement works for your application).
+* UI data collection failure (in Analytics, Monitoring, Segmentation, or Dashboards).
+* Push Failures (Pushes don't work in app, out of app, or both).
+* Advanced Feature Failures (Tracking, Geolocation, or platform specific Pushes don’t work).
+* API Failures (APIs fail often silently without error messages).
+* Service Failures (none of Azure Mobile Engagement works for your application).
 
 ### Causes
-
-- Most issues that need to be resolved with the Azure Mobile Engagement SDK will be discovered by a failure in your application (such as a UI data collection failure, push failure, advanced feature failure, API failure, Application crashes, or apparent service outage).  
-- If a particular feature of Azure Mobile Engagement has never worked in your app before, you will need to complete the integration. 
-- If a particular feature of Azure Mobile Engagement was working and stopped, you may need to upgrade to the last version with the Azure Mobile Engagement SDK. Remember that there is a different version of the Azure Mobile Engagement SDK for each platform supported by Azure Mobile Engagement (Android, iOS, Windows, and Windows Phone).
+* Most issues that need to be resolved with the Azure Mobile Engagement SDK will be discovered by a failure in your application (such as a UI data collection failure, push failure, advanced feature failure, API failure, Application crashes, or apparent service outage).  
+* If a particular feature of Azure Mobile Engagement has never worked in your app before, you will need to complete the integration. 
+* If a particular feature of Azure Mobile Engagement was working and stopped, you may need to upgrade to the last version with the Azure Mobile Engagement SDK. Remember that there is a different version of the Azure Mobile Engagement SDK for each platform supported by Azure Mobile Engagement (Android, iOS, Windows, and Windows Phone).
 
 #### SDK Integration
-
-- Azure Mobile Engagement not correctly integrated in SDK (Analytics).
-- Reach not correctly integrated in SDK (In App and Out of App Pushes).
-- Certificate expired or incorrect PROD vs. DEV (iOS only).
-- GCM or ADM not correctly integrated in SDK (Android only - Service Specific Pushes).
-- Tracking not correctly integrated in SDK (Install store tracking).
-- Lazy Location or GPS Location not correctly integrated in SDK (Targeting by geo-location).
-
+* Azure Mobile Engagement not correctly integrated in SDK (Analytics).
+* Reach not correctly integrated in SDK (In App and Out of App Pushes).
+* Certificate expired or incorrect PROD vs. DEV (iOS only).
+* GCM or ADM not correctly integrated in SDK (Android only - Service Specific Pushes).
+* Tracking not correctly integrated in SDK (Install store tracking).
+* Lazy Location or GPS Location not correctly integrated in SDK (Targeting by geo-location).
 
 **See also:**
 
-- [SDK Documentation - Integration Guides][Link 5] 
-- [Troubleshooting Guide - Push][Link 23]
+* [SDK Documentation - Integration Guides][Link 5] 
+* [Troubleshooting Guide - Push][Link 23]
 
 #### SDK Upgrade
-
-- Need to upgrade SDK to resolve issues with older versions of the SDK (often related to newer versions of the device OS).
-- Uninstall all previous versions of your app from your device and reinstall the newest version of your app, the re-register your Device ID from the Azure Mobile Engagement UI to confirm that your device is using the newest version of your app.
+* Need to upgrade SDK to resolve issues with older versions of the SDK (often related to newer versions of the device OS).
+* Uninstall all previous versions of your app from your device and reinstall the newest version of your app, the re-register your Device ID from the Azure Mobile Engagement UI to confirm that your device is using the newest version of your app.
 
 **See also:**
 
-- [SDK Documentation - Release Notes](http://go.microsoft.com/fwlink/?LinkId= 525554) 
-- [SDK Documentation - Upgrade Guides](http://go.microsoft.com/fwlink/?LinkId= 525554)
+* [SDK Documentation - Release Notes](http://go.microsoft.com/fwlink/?LinkId= 525554) 
+* [SDK Documentation - Upgrade Guides](http://go.microsoft.com/fwlink/?LinkId= 525554)
 
 #### SDK Other
-
-- Errors in Application Manifest "AndroidManifest.xml" can cause Azure Mobile Engagement not to work (Android only).
-- A common issue with SDK integration and API usage is to confuse the SDK Key and the API Key.
+* Errors in Application Manifest "AndroidManifest.xml" can cause Azure Mobile Engagement not to work (Android only).
+* A common issue with SDK integration and API usage is to confuse the SDK Key and the API Key.
 
 **See also:**
 
-- [Concepts - Glossary][Link 6]
+* [Concepts - Glossary][Link 6]
 
 ## Advanced coding issues
-
 ### Issue
--  Platform specific code not directly related to Azure Mobile Engagement can cause issues on iOS, Android, and Windows Phone.
+* Platform specific code not directly related to Azure Mobile Engagement can cause issues on iOS, Android, and Windows Phone.
 
 ### Causes
-
-- Many advanced coding issues with Azure Mobile Engagement are caused by improperly written platform specific code not directly related to Azure Mobile Engagement. You will need to consult documentation specific to the platform you are developing for in addition to Azure Mobile Engagement documentation (Android, iOS, Web, Windows, and Windows Phone).
-- Not correctly configuring "categories", prevents linking from a notification to another location either inside or outside of the app (Android only). 
-- Not setting "UIKit.framework" to "optional" in your iOS code, shows a "Symbol not found error" and/or crashes on older iOS devices (iOS only).
-- Expired certificates or not correctly using the DEV or Prod version of the cert, causes push issues (iOS only).
-- There are some limitations inherent to a platform that Azure Mobile Engagement can't control (like how the system center works for out of app pushes in Android and iOS).
-- Azure Mobile Engagement publishes a full list of the internal packages used by Azure Mobile Engagement for iOS and Android for reference. Keep in mind that some features of Azure Mobile Engagement are specific to the platform (Android, iOS, Web, Windows, and Windows Phone).
+* Many advanced coding issues with Azure Mobile Engagement are caused by improperly written platform specific code not directly related to Azure Mobile Engagement. You will need to consult documentation specific to the platform you are developing for in addition to Azure Mobile Engagement documentation (Android, iOS, Web, Windows, and Windows Phone).
+* Not correctly configuring "categories", prevents linking from a notification to another location either inside or outside of the app (Android only). 
+* Not setting "UIKit.framework" to "optional" in your iOS code, shows a "Symbol not found error" and/or crashes on older iOS devices (iOS only).
+* Expired certificates or not correctly using the DEV or Prod version of the cert, causes push issues (iOS only).
+* There are some limitations inherent to a platform that Azure Mobile Engagement can't control (like how the system center works for out of app pushes in Android and iOS).
+* Azure Mobile Engagement publishes a full list of the internal packages used by Azure Mobile Engagement for iOS and Android for reference. Keep in mind that some features of Azure Mobile Engagement are specific to the platform (Android, iOS, Web, Windows, and Windows Phone).
 
 ### See also
-
- - [Troubleshooting Guide - Push][Link 23] 
- - [SDK Documentation - Release Notes][Link 5]
- - [SDK Documentation - Upgrade Guides][Link 5]
+* [Troubleshooting Guide - Push][Link 23] 
+* [SDK Documentation - Release Notes][Link 5]
+* [SDK Documentation - Upgrade Guides][Link 5]
 
 ## Application crashes
-
 ### Issue
-- Your application crashes on the end users' device.
+* Your application crashes on the end users' device.
 
 ### Causes
-
-- Crash information can be viewed in the *Analytics UI* or the *Analytics API*
-- You can find the Device ID of your test device and take the same action that caused your application to crash for an end user to help identify the cause of your crash.
-- Known issues with the Azure Mobile Engagement SDK that cause applications to crash are sometimes resolved by upgrading to the latest version of the SDK. Make sure to check the release notes about your platform when investigating crashes.
+* Crash information can be viewed in the *Analytics UI* or the *Analytics API*
+* You can find the Device ID of your test device and take the same action that caused your application to crash for an end user to help identify the cause of your crash.
+* Known issues with the Azure Mobile Engagement SDK that cause applications to crash are sometimes resolved by upgrading to the latest version of the SDK. Make sure to check the release notes about your platform when investigating crashes.
 
 ### See also
-
-- [SDK Documentation - Release Notes][Link 5]
-- [SDK Documentation - Upgrade Guides][Link 5]
+* [SDK Documentation - Release Notes][Link 5]
+* [SDK Documentation - Upgrade Guides][Link 5]
 
 ## App store upload failures
-
 ### Issue
-- Errors related to uploading the latest version of your app to Apple, Google, or the Windows App store.
+* Errors related to uploading the latest version of your app to Apple, Google, or the Windows App store.
 
 ### Causes
-
-- App stores sometimes block apps with certain features enabled (e.g. the Apple Store prevents the use of IDFV in apps in the store and the GooglePlay store prevents the sharing of application information between apps). 
-- Make sure that you check the release notes about your platform and current version of the SDK if you have difficulty uploading an app to the store.
+* App stores sometimes block apps with certain features enabled (e.g. the Apple Store prevents the use of IDFV in apps in the store and the GooglePlay store prevents the sharing of application information between apps). 
+* Make sure that you check the release notes about your platform and current version of the SDK if you have difficulty uploading an app to the store.
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
@@ -145,4 +130,4 @@ The following are possible issues you may encounter with how Azure Mobile Engage
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
- 
+

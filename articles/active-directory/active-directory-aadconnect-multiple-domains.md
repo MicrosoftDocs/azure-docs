@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Azure AD Connect Multiple Domains"
-	description="This document describes setting up and configuring multiple top level domains with O365 and Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="femila"
-	editor="curtand"/>
+---
+title: Azure AD Connect Multiple Domains
+description: This document describes setting up and configuring multiple top level domains with O365 and Azure AD.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/08/2016"
-	ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/08/2016
+ms.author: billmath
 
+---
 # Multiple Domain Support for Federating with Azure AD
 The following documentation provides guidance on how to use multiple top-level domains and sub-domains when federating with Office 365 or Azure AD domains.
 
@@ -24,7 +24,10 @@ Federating multiple, top-level domains with Azure AD requires some additional co
 
 When a domain is federated with Azure AD, several properties are set on the domain in Azure.  One important one is IssuerUri.  This is a URI that is used by Azure AD to identify the domain that the token is associated with.  The URI doesn’t need to resolve to anything but it must be a valid URI.  By default, Azure AD sets this to the value of the federation service identifier in your on-premises AD FS configuration.
 
->[AZURE.NOTE]The federation service identifier is a URI that uniquely identifies a federation service.  The federation service is an instance of AD FS that functions as the security token service. 
+> [!NOTE]
+> The federation service identifier is a URI that uniquely identifies a federation service.  The federation service is an instance of AD FS that functions as the security token service. 
+> 
+> 
 
 You can vew IssuerUri by using the PowerShell command `Get-MsolDomainFederationSettings -DomainName <your domain>`.
 
@@ -35,17 +38,15 @@ A problem arises when we want to add more than one top-level domain.  For exampl
 ![Domains](./media/active-directory-multiple-domains/domains.png)
 
 When we attempt to convert our bmfabrikam.com domain to be federated, we receive an error.  The reason for this is, Azure AD has a constraint that does not allow the IssuerUri property to have the same value for more than one domain.  
-  
 
 ![Federation error](./media/active-directory-multiple-domains/error.png)
 
 ### SupportMultipleDomain Parameter
-
 To workaround this, we need to add a different IssuerUri which can be done by using the `-SupportMultipleDomain` parameter.  This parameter is used with the following cmdlets:
-	
-- `New-MsolFederatedDomain`
-- `Convert-MsolDomaintoFederated`
-- `Update-MsolFederatedDomain`
+
+* `New-MsolFederatedDomain`
+* `Convert-MsolDomaintoFederated`
+* `Update-MsolFederatedDomain`
 
 This parameter makes Azure AD configure the IssuerUri so that it is based on the name of the domain.  This will be unique across directories in Azure AD.  Using the parameter allows the PowerShell command to complete successfully.
 
@@ -68,8 +69,10 @@ The following is the customized claim rule that implements this logic:
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
 
 
->[AZURE.IMPORTANT]In order to use the -SupportMultipleDomain switch when attempting to add new or convert already added domains, you need to have setup your federated trust to support them originally.  
-
+> [!IMPORTANT]
+> In order to use the -SupportMultipleDomain switch when attempting to add new or convert already added domains, you need to have setup your federated trust to support them originally.  
+> 
+> 
 
 ## How to update the trust between AD FS and Azure AD
 If you did not setup the federated trust between AD FS and your instance of Azure AD, you may need to re-create this trust.  This is because, when it is originally setup without the `-SupportMultipleDomain` parameter, the IssuerUri is set with the default value.  In the screenshot below you can see the IssuerUri is set to https://adfs.bmcontoso.com/adfs/services/trust.
@@ -90,33 +93,31 @@ Use the steps below to add an additional top-level domain.  If you have already 
 
 Use the following steps to remove the Microsoft Online trust and update your original domain.
 
-2.  On your AD FS federation server open **AD FS Management.** 
-2.  On the left, expand **Trust Relationships** and **Relying Party Trusts**
-3.  On the right, delete the **Microsoft Office 365 Identity Platform** entry.
-![Remove Microsoft Online](./media/active-directory-multiple-domains/trust4.png)
-1.  On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
-2.  Enter the username and password of a global administrator for the Azure AD domain you are federating with
-2.  In PowerShell enter `Connect-MsolService -Credential $cred`
-4.  In PowerShell enter `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`.  This is for the original domain.  So using the above domains it would be:  `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
-
+1. On your AD FS federation server open **AD FS Management.** 
+2. On the left, expand **Trust Relationships** and **Relying Party Trusts**
+3. On the right, delete the **Microsoft Office 365 Identity Platform** entry.
+   ![Remove Microsoft Online](./media/active-directory-multiple-domains/trust4.png)
+4. On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
+5. Enter the username and password of a global administrator for the Azure AD domain you are federating with
+6. In PowerShell enter `Connect-MsolService -Credential $cred`
+7. In PowerShell enter `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`.  This is for the original domain.  So using the above domains it would be:  `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
 
 Use the following steps to add the new top-level domain using PowerShell
 
-1.  On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
-2.  Enter the username and password of a global administrator for the Azure AD domain you are federating with
-2.  In PowerShell enter `Connect-MsolService -Credential $cred`
-3.  In PowerShell enter `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`
+1. On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
+2. Enter the username and password of a global administrator for the Azure AD domain you are federating with
+3. In PowerShell enter `Connect-MsolService -Credential $cred`
+4. In PowerShell enter `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`
 
 Use the following steps to add the new top-level domain using Azure AD Connect.
 
-1.	Launch Azure AD Connect from the desktop or start menu
-2.	Choose “Add an additional Azure AD Domain”
-![Add an additional Azure AD domain](./media/active-directory-multiple-domains/add1.png)
-3.	Enter your Azure AD and Active Directory credentials
-4.	Select the second domain you wish to configure for federation.
-![Add an additional Azure AD domain](./media/active-directory-multiple-domains/add2.png)
-5.	Click Install
-
+1. Launch Azure AD Connect from the desktop or start menu
+2. Choose “Add an additional Azure AD Domain”
+   ![Add an additional Azure AD domain](./media/active-directory-multiple-domains/add1.png)
+3. Enter your Azure AD and Active Directory credentials
+4. Select the second domain you wish to configure for federation.
+   ![Add an additional Azure AD domain](./media/active-directory-multiple-domains/add2.png)
+5. Click Install
 
 ### Verify the new top-level domain
 By using the PowerShell command `Get-MsolDomainFederationSettings -DomainName <your domain>`you can view the updated IssuerUri.  The screenshot below shows the federation settings were updated on our original domain http://bmcontoso.com/adfs/services/trust
@@ -127,8 +128,7 @@ And the IssuerUri on our new domain has been set to https://bmfabrikam.com/adfs/
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/settings2.png)
 
-
-##Support for Sub-domains
+## Support for Sub-domains
 When you add a sub-domain, because of the way Azure AD handled domains, it will inherit the settings of the parent.  This means that the IssuerUri needs to match the parents.
 
 So lets say for example that I have bmcontoso.com and then add corp.bmcontoso.com.  This means that the IssuerUri for a user from corp.bmcontoso.com will need to be **http://bmcontoso.com/adfs/services/trust.**  However the standard rule implemented above for Azure AD, will generate a token with an issuer as **http://corp.bmcontoso.com/adfs/services/trust.** which will not match the domain's required value and authentication will fail.
@@ -142,18 +142,19 @@ The following claim will do this:
 
 Use the following steps to add a custom claim to support sub-domains.
 
-1.	Open AD FS Management
-2.	Right click the Microsoft Online RP trust and choose Edit Claim rules
-3.	Select the third claim rule, and replace 
-![Edit claim](./media/active-directory-multiple-domains/sub1.png)
-4.	Replace the current claim:
-    
-	    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
-    	
-	with
-    
-	    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));
-	
+1. Open AD FS Management
+2. Right click the Microsoft Online RP trust and choose Edit Claim rules
+3. Select the third claim rule, and replace 
+   ![Edit claim](./media/active-directory-multiple-domains/sub1.png)
+4. Replace the current claim:
+   
+     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   
+   with
+   
+     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));
+
 ![Replace claim](./media/active-directory-multiple-domains/sub2.png)
-5.	Click Ok.  Click Apply.  Click Ok.  Close AD FS Management.
+
+1. Click Ok.  Click Apply.  Click Ok.  Close AD FS Management.
 

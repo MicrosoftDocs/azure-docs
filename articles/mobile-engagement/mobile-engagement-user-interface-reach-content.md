@@ -1,115 +1,113 @@
-<properties 
-   pageTitle="Azure Mobile Engagement User Interface - Reach Content" 
-   description="Learn how to manage the unique content of the different types of push notification campaigns in Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: Azure Mobile Engagement User Interface - Reach Content
+description: Learn how to manage the unique content of the different types of push notification campaigns in Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # How to manage the unique content of the different types of push notification campaigns
- 
 You can use the Content section of a new reach campaign to modify the content of your Announcements, Polls, Data Pushes, and Tiles (Windows Phone only). The content setting of Push campaigns is specific to the type of campaign. 
- 
+
 ### Content types:
-- Announcements
-- Polls
-- Data pushes
-- Tiles (Windows Phone Only)
- 
+* Announcements
+* Polls
+* Data pushes
+* Tiles (Windows Phone Only)
+
 ## Content of Announcements
  ![Reach-Content1][30] 
 
 ### Choose the type of your announcement:
--    Notification only: It is a simple standard notification. Meaning that if a user clicks on it, no additional view will appear, but only the action associated to it will occur.
--    Text announcement: It is a notification that engages the user to have a look at a text view.
--    Web announcement: It is a notification that engages the user to have a look at a web view.
+* Notification only: It is a simple standard notification. Meaning that if a user clicks on it, no additional view will appear, but only the action associated to it will occur.
+* Text announcement: It is a notification that engages the user to have a look at a text view.
+* Web announcement: It is a notification that engages the user to have a look at a web view.
 
 ### See also
-- [Reach - How Tos - Announcements][Link 3] 
+* [Reach - How Tos - Announcements][Link 3] 
 
 ### About Web View Announcements:
 Occurrences of the pattern "{deviceid}" in the HTML code or JavaScript code you provide here will be automatically replaced by the identifier of the device displaying the announcement. This is an easy way to retrieve Azure Mobile Engagement device identifiers in an external web service hosted on your back office.
 If you want to create a full screen web view (without the default Action and Exit buttons we provide) you can use the following functions from your web view announcement's JavaScript code: 
 
--    perform the announcement action: ReachContent.actionContent()
--    exit from the announcement: ReachContent.exitContent()
- 
-### Choose your Action:
+* perform the announcement action: ReachContent.actionContent()
+* exit from the announcement: ReachContent.exitContent()
 
+### Choose your Action:
 ### About Action URLs:
 Any URL that can be interpreted by a targeted device's operating system can be used as an action URL.
 Any dedicated URL that your application might support (e.g. to make users jump to a particular screen) can also be used as an action URL.
 Each occurrence of the {deviceid} pattern is automatically replaced by the identifier of the device performing the action. This can be used to easily retrieve Azure Mobile Engagement device identifiers via an external web service hosted on your back office.
 
-- **Android + iOS actions**
-    - Open a web page
-    - http://\[web-site-domain\] 
-    - Example:http://www.azure.com
-    - Send an e-mail
-    - mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
-    - Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
-    - Send a SMS
-    - sms:\[phone-number\] 
-    - Example:sms:2125551212
-    - Dial a phone number
-    - tel:\[phone-number\] 
-    - Example:tel:2125551212
-- **Android only actions**
-    - Download an application on the Play Store
-    - market://details?id=\[app package\] 
-    - Example:market://details?id=com.microsoft.office.word
-    - Start a geo-localized search
-    - geo:0,0?q=\[search query\] 
-    - Example:geo:0,0?q=starbucks,paris
-- **iOS only actions**
-    - Download an application on the App Store
-    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
-    - Example:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
-    - Windows Actions
-    - Open a web page
-    - http://\[web-site-domain\] 
-    - Example:http://www.azure.com
-    - Send an e-mail
-    - mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
-    - Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
-    - Send a SMS (Skype Store App required)
-    - sms:\[phone-number\] 
-    - Example:sms:2125551212
-    - Dial a phone number (Skype Store App required)
-    - tel:\[phone-number\] 
-    - Example:tel:2125551212
-    - Download an application on the Play Store
-    - ms-windows-store:PDP?PFN=\[app package ID\] 
-    - Example:ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
-    - Start a bingmaps search
-    - bingmaps:?q=\[search query\] 
-    - Example:bingmaps:?q=starbucks,paris
-    - Use a custom scheme
-    - \[custom scheme\]://\[custom scheme params\] 
-    - Example:myCustomProtocol://myCustomParams
-    - Use a package data (Store App for extension read required)
-    - \[folder\]\[data\].\[extension\] 
-    - Example:myfolderdata.txt
- 
+* **Android + iOS actions**
+  * Open a web page
+  * http://\[web-site-domain\] 
+  * Example:http://www.azure.com
+  * Send an e-mail
+  * mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
+  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+  * Send a SMS
+  * sms:\[phone-number\] 
+  * Example:sms:2125551212
+  * Dial a phone number
+  * tel:\[phone-number\] 
+  * Example:tel:2125551212
+* **Android only actions**
+  * Download an application on the Play Store
+  * market://details?id=\[app package\] 
+  * Example:market://details?id=com.microsoft.office.word
+  * Start a geo-localized search
+  * geo:0,0?q=\[search query\] 
+  * Example:geo:0,0?q=starbucks,paris
+* **iOS only actions**
+  * Download an application on the App Store
+  * http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
+  * Example:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+  * Windows Actions
+  * Open a web page
+  * http://\[web-site-domain\] 
+  * Example:http://www.azure.com
+  * Send an e-mail
+  * mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
+  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+  * Send a SMS (Skype Store App required)
+  * sms:\[phone-number\] 
+  * Example:sms:2125551212
+  * Dial a phone number (Skype Store App required)
+  * tel:\[phone-number\] 
+  * Example:tel:2125551212
+  * Download an application on the Play Store
+  * ms-windows-store:PDP?PFN=\[app package ID\] 
+  * Example:ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
+  * Start a bingmaps search
+  * bingmaps:?q=\[search query\] 
+  * Example:bingmaps:?q=starbucks,paris
+  * Use a custom scheme
+  * \[custom scheme\]://\[custom scheme params\] 
+  * Example:myCustomProtocol://myCustomParams
+  * Use a package data (Store App for extension read required)
+  * \[folder\]\[data\].\[extension\] 
+  * Example:myfolderdata.txt
+
 ### Build a Tracking URL:
--    See the “Settings” section of the <UI Documentation> for instruction on building a tracking URL that will allow users to download one of your other applications.
- 
+* See the “Settings” section of the <UI Documentation> for instruction on building a tracking URL that will allow users to download one of your other applications.
+
 ### Define the texts of your announcement
 Fill in the title, content, and button texts of your announcement. 
 You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on the feedback of whether this campaign was just pushed, replied, actioned, or exited.
 
 ### See also
-- [UI Documentation - Reach - New Push Criterion][Link 28]
+* [UI Documentation - Reach - New Push Criterion][Link 28]
 
 ## Content of Polls
 ![Reach-Content2][31] 
@@ -118,23 +116,23 @@ Then, add questions and choices for the answers to your questions.
 You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on whether this campaign was just pushed, replied, actioned, or exited. Audience targeting can also be based on Poll answer feedback, where the question and answer choice are used as criteria.
 
 ### See also
-- [UI Documentation - Reach - New Push Criterion][Link 28]
- 
+* [UI Documentation - Reach - New Push Criterion][Link 28]
+
 ## Content of Data Pushes
 ![Reach-Content3][32] 
 
 ### Choose the type of your data:
-- Text
-- Binary data
-- Base64 data
+* Text
+* Binary data
+* Base64 data
 
 ### Define the content of your data
-- If you selected to push text data, copy and paste the text into the "content" box.
-- If you selected to push either binary or base64 data, use the "upload your file" button to upload your file.
-- You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on whether this campaign was just pushed, replied, actioned, or exited.
+* If you selected to push text data, copy and paste the text into the "content" box.
+* If you selected to push either binary or base64 data, use the "upload your file" button to upload your file.
+* You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on whether this campaign was just pushed, replied, actioned, or exited.
 
 ### See also
-- [UI Documentation - Reach - New Push Criterion][Link 28]
+* [UI Documentation - Reach - New Push Criterion][Link 28]
 
 ## Content of Tiles (Windows Phone only)
 ![Reach-Content4][33]
@@ -144,7 +142,7 @@ The tile payload is the text to be displayed in the tile of your app on Windows 
 A tile push is the Microsoft Push Notification Service (MPNS) version of a native push for Windows Phone. The tile push type is the only push type that does not have a response and so the audience of future campaigns can't be built on the results of a tile push campaign. 
 
 ### See also
-- [API Documentation - Reach API - Native Push][Link 4]
+* [API Documentation - Reach API - Native Push][Link 4]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -236,4 +234,4 @@ A tile push is the Microsoft Push Notification Service (MPNS) version of a nativ
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
- 
+

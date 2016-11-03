@@ -3,13 +3,12 @@ To connect to an Azure Redis Cache instance, cache clients need the host name, p
 ![Redis cache settings](media/redis-cache-access-keys/redis-cache-settings.png)
 
 ### Host name and ports
-
 To access the host name and ports click **Properties**.
 
 ![Redis cache properties](media/redis-cache-access-keys/redis-cache-properties.png)
 
 ### Access keys
-
 To retrieve the access keys, click **Access keys**.
 
 ![Redis cache access keys](media/redis-cache-access-keys/redis-cache-access-keys.png)
+
