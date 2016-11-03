@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
-	ms.date="08/24/2016"
+	ms.date="11/02/2016"
 	ms.author="denlee"/>
 
 # Build a Java web application using DocumentDB
@@ -103,7 +103,7 @@ To do this, you will need to convert your project to a maven project by completi
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.5.1</version>
+		    <version>1.9.1</version>
 	    </dependency>
 
 5. Click **Ok** and Maven will install the DocumentDB Java SDK.
@@ -129,14 +129,10 @@ To do this, you will need to convert your project to a maven project by completi
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
 
-	    private static DocumentClient documentClient;
+	    private static DocumentClient documentClient = new DocumentClient(HOST, MASTER_KEY,
+	                    ConnectionPolicy.GetDefault(), ConsistencyLevel.Session);
 
 	    public static DocumentClient getDocumentClient() {
-	        if (documentClient == null) {
-	            documentClient = new DocumentClient(HOST, MASTER_KEY,
-	                    ConnectionPolicy.GetDefault(), ConsistencyLevel.Session);
-	        }
-
 	        return documentClient;
 	    }
 
