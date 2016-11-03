@@ -1,30 +1,28 @@
-<properties
-	pageTitle="Handling State in Resource Manager Templates | Microsoft Azure"
-	description="Shows recommended approaches for using complex objects to share state data with Azure Resource Manager templates and linked templates"
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="timlt"
-	editor="tysonn"/>
+---
+title: Handling State in Resource Manager Templates | Microsoft Docs
+description: Shows recommended approaches for using complex objects to share state data with Azure Resource Manager templates and linked templates
+services: azure-resource-manager
+documentationcenter: ''
+author: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/26/2016"
-	ms.author="tomfitz"/>
+ms.assetid: fd2f5e2d-d56d-4e01-a57d-34f3eaead4a9
+ms.service: azure-resource-manager
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/26/2016
+ms.author: tomfitz
 
+---
 # Sharing state in Azure Resource Manager templates
-
 This topic shows best practices for managing and sharing state within templates. The parameters and variables shown in this topic are examples of the type of objects you can define to conveniently organize your deployment requirements. From these examples, you can implement your own objects with property values that make sense for your environment.
 
 This topic is part of a larger whitepaper. To read the full paper, download [World Class Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
-
 ## Provide standard configuration settings
-
 Rather than offer a template that provides total flexibility and countless variations, a common pattern is to provide a selection of known configurations. In effect, users can select standard t-shirt sizes such as sandbox, small, medium, and large. Other examples of t-shirt sizes are product offerings, such as community edition or enterprise edition. In other cases, it may be workload-specific configurations of a technology – such as map reduce or no sql.
 
 With complex objects, you can create variables that contain collections of data, sometimes known as "property bags" and use that data to drive the resource declaration in your template. This approach provides good, known configurations of varying sizes that are preconfigured for customers. Without known configurations, users of the template must determine cluster sizing on their own, factor in platform resource constraints, and do math to identify the resulting partitioning of storage accounts and other resources (due to cluster size and resource constraints). In addition to making a better experience for the customer, a few known configurations are easier to support and can help you deliver a higher level of density.
@@ -168,21 +166,20 @@ for `variables('tshirtSize').vmSize` while the value for the disk size is retrie
     }
 
 ## Pass state to a template
-
 You share state into a template through parameters that you provide directly during deployment.
 
 The following table lists commonly used parameters in templates.
 
-Name | Value | Description
----- | ----- | -----------
-location	| String from a constrained list of Azure regions	| The location where the resources are deployed.
-storageAccountNamePrefix	| String	| Unique DNS name for the Storage Account where the VM's disks are placed
-domainName	| String	| Domain name of the publicly accessible jumpbox VM in the format: **{domainName}.{location}.cloudapp.com** For example: **mydomainname.westus.cloudapp.azure.com**
-adminUsername	| String	| Username for the VMs
-adminPassword	| String	| Password for the VMs
-tshirtSize	| String from a constrained list of offered t-shirt sizes	| The named scale unit size to provision. For example, "Small", "Medium", "Large"
-virtualNetworkName	| String	| Name of the virtual network that the consumer wants to use.
-enableJumpbox	| String from a constrained list (enabled/disabled)	| Parameter that identifies whether to enable a jumpbox for the environment. Values: "enabled", "disabled"
+| Name | Value | Description |
+| --- | --- | --- |
+| location |String from a constrained list of Azure regions |The location where the resources are deployed. |
+| storageAccountNamePrefix |String |Unique DNS name for the Storage Account where the VM's disks are placed |
+| domainName |String |Domain name of the publicly accessible jumpbox VM in the format: **{domainName}.{location}.cloudapp.com** For example: **mydomainname.westus.cloudapp.azure.com** |
+| adminUsername |String |Username for the VMs |
+| adminPassword |String |Password for the VMs |
+| tshirtSize |String from a constrained list of offered t-shirt sizes |The named scale unit size to provision. For example, "Small", "Medium", "Large" |
+| virtualNetworkName |String |Name of the virtual network that the consumer wants to use. |
+| enableJumpbox |String from a constrained list (enabled/disabled) |Parameter that identifies whether to enable a jumpbox for the environment. Values: "enabled", "disabled" |
 
 The **tshirtSize** parameter used in the previous section is defined as:
 
@@ -203,11 +200,9 @@ The **tshirtSize** parameter used in the previous section is defined as:
 
 
 ## Pass state to linked templates
-
 When connecting to linked templates, you often use a mix of static and generated variables.
 
 ### Static variables
-
 Static variables are often used to provide base values, such as URLs, that are used throughout a template.
 
 In the following template excerpt, `templateBaseUrl` specifies the root location for the template in GitHub. The next line builds a new variable `sharedTemplateUrl` that concatenates the base URL with the known name of the shared resources template. Below that line, a complex object variable is used to store a t-shirt size, where the base URL is 
@@ -236,15 +231,12 @@ in one place, which passes it throughout the linked templates.
     }
 
 ### Generated variables
-
 In addition to static variables, several variables are generated dynamically. This section identifies some of the common types of generated variables.
 
 #### tshirtSize
-
 You are familiar with this generated variable from the examples above.
 
 #### networkSettings
-
 In a capacity, capability, or end-to-end scoped solution template, the linked templates typically create resources that exist on a network. One straightforward approach is to use a complex object to store 
 network settings and pass them to linked templates.
 
@@ -268,7 +260,6 @@ An example of communicating network settings can be seen below.
     }
 
 #### availabilitySettings
-
 Resources created in linked templates are often placed in an availability set. In the following example, the availability set name is specified and also the fault domain and update domain count to use.
 
     "availabilitySetSettings": {
@@ -281,7 +272,6 @@ If you need multiple availability sets (for example, one for master nodes and an
 for creating a variable for a specific t-shirt size.
 
 #### storageSettings
-
 Storage details are often shared with linked templates. In the example below, a *storageSettings* object provides details about the storage account and container names.
 
     "storageSettings": {
@@ -291,7 +281,6 @@ Storage details are often shared with linked templates. In the example below, a 
     }
 
 #### osSettings
-
 With linked templates, you may need to pass operating system settings to various nodes types across different known configuration types. A complex object is an easy way to store and share operating system information and also makes 
 it easier to support multiple operating system choices for deployment.
 
@@ -307,7 +296,6 @@ The following example shows an object for *osSettings*:
     }
 
 #### machineSettings
-
 A generated variable, *machineSettings* is a complex object containing a mix of core variables for creating a VM. The variables include administrator user name and password, a prefix for the VM names, and an operating 
 system image reference.
 
@@ -327,7 +315,6 @@ Note that *osImageReference* retrieves the values from the *osSettings* variable
 on the preference of a template consumer.
 
 #### vmScripts
-
 The *vmScripts* object contains details about the scripts to download and execute on a VM instance, including outside and inside references. Outside references include the infrastructure. 
 Inside references include the installed software installed and configuration.
 
@@ -350,7 +337,6 @@ The variables section is where you find the variables that define the specific t
 
 
 ## Return state from a template
-
 Not only can you pass data into a template, you can also share data back to the calling template. In the **outputs** section of a linked template, you can provide key/value pairs that can be consumed 
 by the source template.
 
@@ -374,11 +360,10 @@ You can use this expression in either the outputs section or the resources secti
         "value": "[reference('master-node').outputs.masterip.value]",
         "type": "string"
       }
-     
+
 For an example of using the outputs section of a linked template to return data disks for a virtual machine, see [Creating multiple data disks for a Virtual Machine](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine).
 
 ## Define authentication settings for virtual machine
-
 You can use the same pattern shown previously for configuration settings to specify the authentication settings for a virtual machine. You create a parameter for passing in the type of authentication.
 
     "parameters": {
@@ -433,6 +418,6 @@ When defining the virtual machine, you set the **osProfile** to the variable you
 
 
 ## Next steps
-- To learn about the sections of the template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
-- To see the functions that are available within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md)
+* To learn about the sections of the template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
+* To see the functions that are available within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md)
 

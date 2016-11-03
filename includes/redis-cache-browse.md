@@ -11,3 +11,4 @@ Select the desired cache to view the properties for that cache.
 Click **Settings** or **All settings** to view and configure your cache.
 
 ![Redis Cache All Settings](media/redis-cache-browse/redis-cache-blade.png)
+

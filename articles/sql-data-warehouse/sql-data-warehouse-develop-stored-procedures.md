@@ -1,23 +1,23 @@
-<properties
-   pageTitle="Stored procedures in SQL Data Warehouse | Microsoft Azure"
-   description="Tips for implementing stored procedures in Azure SQL Data Warehouse for developing solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Stored procedures in SQL Data Warehouse | Microsoft Docs
+description: Tips for implementing stored procedures in Azure SQL Data Warehouse for developing solutions.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="jrj;barbkess"/>
+ms.assetid: 9b238789-6efe-4820-bf77-5a5da2afa0e8
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
 
+---
 # Stored procedures in SQL Data Warehouse
-
 SQL Data Warehouse supports many of the Transact-SQL features found in SQL Server. More importantly there are scale out specific features that we will want to leverage to maximize the performance of your solution.
 
 However, to maintain the scale and performance of SQL Data Warehouse there are also some features and functionality that have behavioral differences and others that are not supported.
@@ -42,6 +42,7 @@ The top level stored procedure call equates to nest level 1
 EXEC prc_nesting
 ```
 If the stored procedure also makes another EXEC call then this will increase the nest level to 2
+
 ```sql
 CREATE PROCEDURE prc_nesting
 AS
@@ -50,6 +51,7 @@ GO
 EXEC prc_nesting
 ```
 If the second procedure then executes some dynamic sql then this will increase the nest level to 3
+
 ```sql
 CREATE PROCEDURE prc_nesting_2
 AS
@@ -66,25 +68,24 @@ SQL Data Warehouse does not permit you to consume the result set of a stored pro
 Please refer to the following article on [temporary tables] for an example on how to do this.
 
 ## Limitations
-
 There are some aspects of Transact-SQL stored procedures that are not implemented in SQL Data Warehouse.
 
 They are:
 
-- temporary stored procedures
-- numbered stored procedures
-- extended stored procedures
-- CLR stored procedures
-- encryption option
-- replication option
-- table-valued parameters
-- read-only parameters
-- default parameters
-- execution contexts
-- return statement
+* temporary stored procedures
+* numbered stored procedures
+* extended stored procedures
+* CLR stored procedures
+* encryption option
+* replication option
+* table-valued parameters
+* read-only parameters
+* default parameters
+* execution contexts
+* return statement
 
 ## Next steps
-For more development tips, see [development overview][].
+For more development tips, see [development overview][development overview].
 
 <!--Image references-->
 

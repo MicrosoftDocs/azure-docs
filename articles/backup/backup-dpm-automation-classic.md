@@ -1,33 +1,33 @@
-<properties
-	pageTitle="Azure Backup - Deploy and manage back up for DPM using PowerShell | Microsoft Azure"
-	description="Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell"
-	services="backup"
-	documentationCenter=""
-	authors="Nkolli1"
-	manager="shreeshd"
-	editor=""/>
+---
+title: Azure Backup - Deploy and manage back up for DPM using PowerShell | Microsoft Docs
+description: Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell
+services: backup
+documentationcenter: ''
+author: Nkolli1
+manager: shreeshd
+editor: ''
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="jimpark; trinadhk; anuragm; markgal"/>
+ms.assetid: bcbcef79-9d33-4e84-a558-9866614f2cae
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: jimpark; trinadhk; anuragm; markgal
 
-
+---
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
-
-> [AZURE.SELECTOR]
-- [ARM](backup-dpm-automation.md)
-- [Classic](backup-dpm-automation-classic.md)
+> [!div class="op_single_selector"]
+> * [ARM](backup-dpm-automation.md)
+> * [Classic](backup-dpm-automation-classic.md)
+> 
+> 
 
 This article shows you how to use PowerShell to setup Azure Backup on a DPM server, and to manage backup and recovery.
 
 ## Setting up the PowerShell environment
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Before you can use PowerShell to manage backups from Data Protection Manager to Azure, you will need to have the right environment in PowerShell. At the start of the PowerShell session, ensure that you run the following command to import the right modules and allow you to correctly reference the DPM cmdlets:
 
@@ -56,15 +56,17 @@ PS C:\> Switch-AzureMode AzureResourceManager
 
 The following setup and registration tasks can be automated with PowerShell:
 
-- Create a backup vault
-- Installing the Azure Backup agent
-- Registering with the Azure Backup service
-- Networking settings
-- Encryption settings
+* Create a backup vault
+* Installing the Azure Backup agent
+* Registering with the Azure Backup service
+* Networking settings
+* Encryption settings
 
 ### Create a backup vault
-
-> [AZURE.WARNING] For customers using Azure Backup for the first time, you need to register the Azure Backup provider to be used with your subscription. This can be done by running the following command: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [!WARNING]
+> For customers using Azure Backup for the first time, you need to register the Azure Backup provider to be used with your subscription. This can be done by running the following command: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> 
+> 
 
 You can create a new backup vault using the **New-AzureRMBackupVault** commandlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
@@ -74,7 +76,6 @@ PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg”
 ```
 
 You can get a list of all the backup vaults in a given subscription using the **Get-AzureRMBackupVault** commandlet.
-
 
 ### Installing the Azure Backup agent on a DPM Server
 Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](http://aka.ms/azurebackup_agent) or from the backup vault's Dashboard page. Save the installer to an easily accessible location like *C:\Downloads\*.
@@ -101,23 +102,23 @@ PS C:\> MARSAgentInstaller.exe /?
 The available options include:
 
 | Option | Details | Default |
-| ---- | ----- | ----- |
-| /q | Quiet installation | - |
-| /p:"location" | Path to the installation folder for the Azure Backup agent. | C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Path to the cache folder for the Azure Backup agent. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /m | Opt-in to Microsoft Update | - |
-| /nu | Do not Check for updates after installation is complete | - |
-| /d | Uninstalls Microsoft Azure Recovery Services Agent | - |
-| /ph | Proxy Host Address | - |
-| /po | Proxy Host Port Number | - |
-| /pu | Proxy Host UserName | - |
-| /pw | Proxy Password | - |
+| --- | --- | --- |
+| /q |Quiet installation |- |
+| /p:"location" |Path to the installation folder for the Azure Backup agent. |C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"location" |Path to the cache folder for the Azure Backup agent. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m |Opt-in to Microsoft Update |- |
+| /nu |Do not Check for updates after installation is complete |- |
+| /d |Uninstalls Microsoft Azure Recovery Services Agent |- |
+| /ph |Proxy Host Address |- |
+| /po |Proxy Host Port Number |- |
+| /pu |Proxy Host UserName |- |
+| /pw |Proxy Password |- |
 
 ### Registering with the Azure Backup service
 Before you can register with the Azure Backup service, you need to ensure that the [prerequisites](backup-azure-dpm-introduction.md) are met. You must:
 
-- Have a valid Azure subscription
-- Have a backup vault
+* Have a valid Azure subscription
+* Have a backup vault
 
 To download the vault credentials, run the **Get-AzureBackupVaultCredentials** commandlet in an Azure PowerShell console and store it in a convenient location like *C:\Downloads\*.
 
@@ -137,7 +138,10 @@ PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredenti
 
 This will register the DPM Server named “TestingServer” with Microsoft Azure Vault using the specified vault credentials.
 
-> [AZURE.IMPORTANT] Do not use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
+> [!IMPORTANT]
+> Do not use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
+> 
+> 
 
 ### Initial configuration settings
 Once the DPM Server is registered with the Azure Backup vault, it will start with default subscription settings. These subscription settings include Networking, Encryption and the Staging area. To begin changing the subscription settings you need to first get a handle on the existing (default) settings using the [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) cmdlet:
@@ -174,7 +178,6 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 
 In the example above, the staging area will be set to *C:\StagingArea* in the PowerShell object ```$setting```. Ensure that the specified folder already exists, or else the final commit of the subscription settings will fail.
 
-
 ### Encryption settings
 The backup data sent to Azure Backup is encrypted to protect the confidentiality of the data. The encryption passphrase is the "password" to decrypt the data at the time of restore. It is important to keep this information safe and secure once it is set.
 
@@ -186,7 +189,10 @@ PS C:\> $Passphrase = ConvertTo-SecureString -string "passphrase123456789" -AsPl
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -EncryptionPassphrase $Passphrase
 ```
 
-> [AZURE.IMPORTANT] Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
+> [!IMPORTANT]
+> Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
+> 
+> 
 
 At this point, you should have made all the required changes to the ```$setting``` object. Remember to commit the changes.
 
@@ -307,9 +313,10 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 ## View the backup points
 You can use the [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) cmdlet to get a list of all recovery points for a datasource. In this example, we will:
-- fetch all the PGs on the DPM server which will be stored in an array ```$PG```
-- get the datasources corresponding to the ```$PG[0]```
-- get all the recovery points for a datasource.
+
+* fetch all the PGs on the DPM server which will be stored in an array ```$PG```
+* get the datasources corresponding to the ```$PG[0]```
+* get all the recovery points for a datasource.
 
 ```
 PS C:\> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
@@ -322,9 +329,9 @@ Restoring data is a combination of a ```RecoverableItem``` object and a ```Recov
 
 In the example below, we demonstrate how to restore a Hyper-V virtual machine from Azure Backup by combining backup points with the target for recovery. This includes:
 
-- Creating a recovery option using the  [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592) cmdlet.
-- Fetching the array of backup points using the ```Get-DPMRecoveryPoint``` cmdlet.
-- Choosing a backup point to restore from.
+* Creating a recovery option using the  [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592) cmdlet.
+* Fetching the array of backup points using the ```Get-DPMRecoveryPoint``` cmdlet.
+* Choosing a backup point to restore from.
 
 ```
 PS C:\> $RecoveryOption = New-DPMRecoveryOption -HyperVDatasource -TargetServer "HVDCenter02" -RecoveryLocation AlternateHyperVServer -RecoveryType Recover -TargetLocation “C:\VMRecovery”
@@ -339,5 +346,5 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 The commands can easily be extended for any datasource type.
 
 ## Next steps
+* For more information about Azure Backup for DPM see [Introduction to DPM Backup](backup-azure-dpm-introduction.md)
 
-- For more information about Azure Backup for DPM see [Introduction to DPM Backup](backup-azure-dpm-introduction.md)

@@ -1,26 +1,27 @@
-<properties
-   pageTitle="Migrate: Data Warehouse Migration Utility | Microsoft Azure"
-   description="Migrate to SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="jhubbard"
-   editor=""/>
+---
+title: 'Migrate: Data Warehouse Migration Utility | Microsoft Docs'
+description: Migrate to SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="jrj;barbkess"/>
+ms.assetid: 4d7ad981-ef31-4513-b337-50bdc4709c09
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
 
-
+---
 # Data Warehouse Migration Utility (Preview)
-
-> [AZURE.SELECTOR]
-- [Download Migration Utility][]
+> [!div class="op_single_selector"]
+> * [Download Migration Utility][Download Migration Utility]
+> 
+> 
 
 The Data Warehouse Migration Utility is a tool designed to migrate schema and data from SQL Server and Azure SQL Database to Azure SQL Data Warehouse. During schema migration, the tool automatically maps the corresponding schema from source to destination. After the schema has been migrated, the tools provides the option to move data with automatically generated scripts.
 
@@ -37,24 +38,22 @@ Launch the tool by clicking on the desktop icon which appears post install. Upon
 After authenticating, the tool will show a list of databases that are present in the server which you are connected to. You can begin the migration by selecting a database that you would like to migrate and then clicking on ‘Migrate selected’.
 
 ## Migration report
-Selecting ‘Check Database Compatibility’ in the tool will generate a report summarizing all object incompatibilities in the database you requested to migrate. A broader list of some of the SQL Server functionality that is not present in SQL Data Warehouse can be found in our [migration documentation][]. After the report is generated you will be able to save and open the report in Excel.
+Selecting ‘Check Database Compatibility’ in the tool will generate a report summarizing all object incompatibilities in the database you requested to migrate. A broader list of some of the SQL Server functionality that is not present in SQL Data Warehouse can be found in our [migration documentation][migration documentation]. After the report is generated you will be able to save and open the report in Excel.
 
 Please note that when generating the migration schema, most issues identified as ‘Object’ will be adjusted in order to allow immediate migration of that data. Please review the changes to ensure you do not want to make additional adjustments before applying the schema.
 
 ## Migrate schema
-
 After connecting, selecting ‘Migrate Schema’ will generate a schema migration script for the selected tables. This script ports the structure of the table, maps incompatible data types to more compatible forms, and creates security credentials and schema if this is indicated by the user in the migration settings. This code can be run against the targeted SQL Data Warehouse instance, saved to a file, copied to your clipboard, or even edited in-line before taking further action.  
 
 As noted above, when migrating schema review the migration changes that the tool has made in order to ensure that that you fully understand them.  
 
 ## Migrate data
-
 By clicking the ‘Migrate Data’ option you can generate BCP scripts that will move your data first to flat files on your server, and then directly into your SQL Data Warehouse. We recommend this process for moving small amounts of data and, as retries are not built-in and failures may occur if there is a loss of the network connection. In order to run this, you will need to have the BCP command-line utility installed and the schema for the data must already have been created.
 
 After you have filled out the parameters above you simply need to click run migration and a set of two packages will be generated to your specified location. Run the export file in order to export data from your migration source into flat files, and run the import file in order to import your data into SQL Data Warehouse.
 
 ## Next steps
-Now that you've migrated some data, check out how to [develop][].
+Now that you've migrated some data, check out how to [develop][develop].
 
 <!--Image references-->
 

@@ -1,31 +1,29 @@
-<properties
-   pageTitle="Service Fabric application model | Microsoft Azure"
-   description="How to model and describe applications and services in Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor="mani-ramaswamy"/>
+---
+title: Service Fabric application model | Microsoft Docs
+description: How to model and describe applications and services in Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: mani-ramaswamy
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="10/29/2016"   
-   ms.author="seanmck"/>
+ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 10/29/2016
+ms.author: seanmck
 
+---
 # Model an application in Service Fabric
-
 This article provides an overview of the Azure Service Fabric application model. It also describes how to define an application and service via manifest files and get the application packaged and ready for deployment.
 
 ## Understand the application model
-
 An application is a collection of constituent services that perform a certain function or functions. A service performs a complete and standalone function (it can start and run independently of other services) and is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at run time, and data consists of arbitrary static data to be consumed by the service. Each component in this hierarchical application model can be versioned and upgraded independently.
 
 ![The Service Fabric application model][appmodel-diagram]
-
 
 An application type is a categorization of an application and consists of a bundle of service types. A service type is a categorization of a service. The categorization can have different settings and configurations, but the core functionality remains the same. The instances of a service are the different service configuration variations of the same service type.  
 
@@ -43,11 +41,12 @@ The following diagram shows the relationship between applications and service in
 
 ![Partitions and replicas within a service][cluster-application-instances]
 
-
->[AZURE.TIP] You can view the layout of applications in a cluster using the Service Fabric Explorer tool available at http://&lt;yourclusteraddress&gt;:19080/Explorer. For more details, see [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> [!TIP]
+> You can view the layout of applications in a cluster using the Service Fabric Explorer tool available at http://&lt;yourclusteraddress&gt;:19080/Explorer. For more details, see [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> 
+> 
 
 ## Describe a service
-
 The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
 
 ~~~
@@ -93,7 +92,10 @@ The service manifest declaratively defines the service type and version. It spec
 </Settings>
 ~~~
 
-> [AZURE.NOTE] A service manifest can contain multiple code, configuration, and data packages. Each of those can be versioned independently.
+> [!NOTE]
+> A service manifest can contain multiple code, configuration, and data packages. Each of those can be versioned independently.
+> 
+> 
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -106,8 +108,6 @@ For more information about other features supported by service manifests, refer 
 -->
 
 ## Describe an application
-
-
 The application manifest declaratively describes the application type and version. It specifies service composition metadata such as stable names, partitioning scheme, instance count/replication factor, security/isolation policy, placement constraints, configuration overrides, and constituent service types. The load-balancing domains into which the application is placed are also described.
 
 Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is a simple example application manifest:
@@ -139,7 +139,10 @@ Like service manifests, **Version** attributes are unstructured strings and are 
 
 **DefaultServices** declares service instances that are automatically created whenever an application is instantiated against this application type. Default services are just a convenience and behave like normal services in every respect after they have been created. They are upgraded along with any other services in the application instance and can be removed as well.
 
-> [AZURE.NOTE] An application manifest can contain multiple service manifest imports and default services. Each service manifest import can be versioned independently.
+> [!NOTE]
+> An application manifest can contain multiple service manifest imports and default services. Each service manifest import can be versioned independently.
+> 
+> 
 
 To learn how to maintain different application and service parameters for individual environments, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
 
@@ -152,9 +155,7 @@ For more information about other features supported by application manifests, re
 -->
 
 ## Package an application
-
 ### Package layout
-
 The application manifest, service manifest(s), and other necessary package files must be organized in a specific layout for deployment into a Service Fabric cluster. The example manifests in this article would need to be organized in the following directory structure:
 
 ~~~
@@ -179,15 +180,12 @@ D:\TEMP\MYAPPLICATIONTYPE
 The folders are named to match the **Name** attributes of each corresponding element. For example, if the service manifest contained two code packages with the names **MyCodeA** and **MyCodeB**, then two folders with the same names would contain the necessary binaries for each code package.
 
 ### Use SetupEntryPoint
-
 Typical scenarios for using **SetupEntryPoint** are when you need to run an executable before the service starts or you need to perform an operation with elevated privileges. For example:
 
-- Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
-
-- Setting up access control by installing security certificates.
+* Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
+* Setting up access control by installing security certificates.
 
 ### Build a package by using Visual Studio
-
 If you use Visual Studio 2015 to create your application, you can use the Package command to automatically create a package that matches the layout described above.
 
 To create a package, right-click the application project in Solution Explorer and choose the Package command, as shown below:
@@ -197,7 +195,6 @@ To create a package, right-click the application project in Solution Explorer an
 When packaging is complete, you will find the location of the package in the **Output** window. Note that the packaging step occurs automatically when you deploy or debug your application in Visual Studio.
 
 ### Test the package
-
 You can verify the package structure locally through PowerShell by using the **Test-ServiceFabricApplicationPackage** command. This command will check for manifest parsing issues and verify all references. Note that this command only verifies the structural correctness of the directories and files in the package. It will not verify any of the code or data package contents beyond checking that all necessary files are present.
 
 ~~~
@@ -236,7 +233,6 @@ PS D:\temp>
 Once the application is packaged correctly and passes verification, then it's ready for deployment.
 
 ## Next steps
-
 [Deploy and remove applications][10]
 
 [Managing application parameters for multiple environments][11]

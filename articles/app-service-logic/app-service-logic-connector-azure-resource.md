@@ -1,23 +1,27 @@
-<properties
-   pageTitle="Using the Azure Resource Connector in Logic apps | Microsoft Azure App Service"
-   description="How to create and configure the Azure Resource Connector or API app and use it in a Logic app in Azure App Service"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="stepsic-microsoft-com"
-   manager="erikre"
-   editor=""/>
+---
+title: Using the Azure Resource Connector in Logic apps | Microsoft Docs
+description: How to create and configure the Azure Resource Connector or API app and use it in a Logic app in Azure App Service
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: stepsic-microsoft-com
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="09/01/2016"
-   ms.author="stepsic"/>
+ms.assetid: a32e5a5c-34d7-4422-b0f7-c5cf7b8abffa
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 09/01/2016
+ms.author: stepsic
 
+---
 # Get started with the Azure Resource Connector and add it to your Logic app
->[AZURE.NOTE] This version of the article applies to Logic apps 2014-12-01-preview schema version.
+> [!NOTE]
+> This version of the article applies to Logic apps 2014-12-01-preview schema version.
+> 
+> 
 
 Use the Azure Resource Connector to easily manage Azure Resources inside of your Logic app.
 
@@ -32,64 +36,66 @@ David Ebbo has written [a great blog post](http://blog.davidebbo.com/2014/12/azu
 ### Trigger
 There are two triggers that are supported in the Connector:
 
-Name | Description
----- | -----------
-Event occurs | Trigger when an event occurs to a resource in your subscription.
-Metric crosses threshold |  Trigger when a metric meets a certain threshold.
+| Name | Description |
+| --- | --- |
+| Event occurs |Trigger when an event occurs to a resource in your subscription. |
+| Metric crosses threshold |Trigger when a metric meets a certain threshold. |
 
 ### Action
-
 Likewise, you can provide a large number of actions inside your Azure subscription:
 
 For **Resource groups** you can:
 
-Name | Description
----- | -----------
-List resource groups | List all of the resource groups in the subscription.
-Get resource group | Get a resource group by its id.
-Create resource group | Create or update a resource group.
-Delete resource group | Delete a resource group.
+| Name | Description |
+| --- | --- |
+| List resource groups |List all of the resource groups in the subscription. |
+| Get resource group |Get a resource group by its id. |
+| Create resource group |Create or update a resource group. |
+| Delete resource group |Delete a resource group. |
 
 For **Resources** you can:
 
-Name | Description
----- | -----------
-List resources | List resources in your subscription by different types of filters.
-Get resource | Get a single resource by its resource Id.
-Create or update resource | Create a resource, or, update an existing resource. You must provide all of the properties for that resource.
-Resource action |  Perform any other action on a resource. You need to know the action name and the payload that this action takes (if any).
-Delete resource | Delete a resource.
+| Name | Description |
+| --- | --- |
+| List resources |List resources in your subscription by different types of filters. |
+| Get resource |Get a single resource by its resource Id. |
+| Create or update resource |Create a resource, or, update an existing resource. You must provide all of the properties for that resource. |
+| Resource action |Perform any other action on a resource. You need to know the action name and the payload that this action takes (if any). |
+| Delete resource |Delete a resource. |
 
 For **Resource Providers** you can:
 
-Name | Description
----- | -----------
-List resource providers | List all of the available resource providers in the subscription.
+| Name | Description |
+| --- | --- |
+| List resource providers |List all of the available resource providers in the subscription. |
 
 For **Resource Group Deployments** you can:
 
-Name | Description
----- | -----------
-List deployments | List all of the deployments in a resource group.
-Get deployment | Get a template deployment by its id.
-Create deployment | Create a new resource group deployment by providing a template.
+| Name | Description |
+| --- | --- |
+| List deployments |List all of the deployments in a resource group. |
+| Get deployment |Get a template deployment by its id. |
+| Create deployment |Create a new resource group deployment by providing a template. |
 
 For **Events** about resources you can:
 
-Name | Description
----- | -----------
-Get events | Get events in a subscription or for a resource.
+| Name | Description |
+| --- | --- |
+| Get events |Get events in a subscription or for a resource. |
 
 For **Metrics** about resources you can:
 
-Name | Description
----- | -----------
-Get metrics | Get a metric for a resource Id.
+| Name | Description |
+| --- | --- |
+| Get metrics |Get a metric for a resource Id. |
 
 ## Do more with your connector
 Now that the connector is created, you can add it to a business flow using a Logic app. See [What are Logic apps?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE] If you want to get started with Azure Logic apps before signing up for an Azure account, go to [Try Logic app](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
+> [!NOTE]
+> If you want to get started with Azure Logic apps before signing up for an Azure account, go to [Try Logic app](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
+> 
+> 
 
 View the Swagger REST API reference at [Connectors and API apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

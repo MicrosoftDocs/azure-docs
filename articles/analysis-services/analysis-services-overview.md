@@ -1,27 +1,32 @@
-<properties
-   pageTitle="What is Azure Analysis Services | Microsoft Azure"
-   description="Get the big picture of Analysis Services in Azure."
-   services="analysis-services"
-   documentationCenter=""
-   authors="minewiskan"
-   manager="erikre"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="analysis-services"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="na"
-   ms.date="10/25/2016"
-   ms.author="owend"/>
+---
+title: What is Azure Analysis Services | Microsoft Docs
+description: Get the big picture of Analysis Services in Azure.
+services: analysis-services
+documentationcenter: ''
+author: minewiskan
+manager: erikre
+editor: ''
+tags: ''
 
+ms.assetid: 83d7a29c-57ae-4aa0-8327-72dd8f00247d
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 10/25/2016
+ms.author: owend
+
+---
 # What is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Built on the proven analytics engine in Microsoft SQL Server Analysis Services, Azure Analysis Services provides enterprise-grade data modeling in the cloud.
 
-> [AZURE.IMPORTANT] Azure Analysis Services is in **preview**. There are some things that just aren't working yet. Be sure to check out [Preview expectations](#preview-expectations) later in this article. And, be sure to keep an eye on our [Azure Analysis Services blog](https://go.microsoft.com/fwlink/?linkid=830920) for the latest info.
+> [!IMPORTANT]
+> Azure Analysis Services is in **preview**. There are some things that just aren't working yet. Be sure to check out [Preview expectations](#preview-expectations) later in this article. And, be sure to keep an eye on our [Azure Analysis Services blog](https://go.microsoft.com/fwlink/?linkid=830920) for the latest info.
+> 
+> 
 
 ## Built on SQL Server Analysis Services
 Azure Analysis Services is compatible with the same SQL Server 2016 Analysis Services Enterprise Edition you already know. Azure Analysis Services supports tabular models at the 1200 compatibility level. DirectQuery, partitions, row-level security, bi-directional relationships, and translations are all supported.
@@ -48,7 +53,6 @@ Connect and [get data](analysis-services-connect.md) from your servers from abou
  \* Power BI Embedded is not yet supported in preview.
 
 ## Secure
-
 #### User authentication
 User authentication for Azure Analysis services is handled by [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). When attempting to log in to an Azure Analysis Services database, users use an organization account identity with access to the database they are trying to access. These user identities must be members of the default Azure Active Directory for the subscription where the Azure Analysis Services server resides. [Directory integration](https://technet.microsoft.com/library/jj573653.aspx) between AAD and an on-premises Active Directory is a great way to get your on-premises users access to an Azure Analysis Services database, but isn't required for all scenarios.
 
@@ -90,23 +94,20 @@ Azure Analysis Services currently supports Tabular mode for tabular models at th
 For preview, the following data sources are supported in tabular 1200 models deployed to an Azure Analysis Services server.
 
 | **Cloud** | **On-premises** |
-|--------------|------------|
-| SQL database | SQL Server |
-| SQL Data Warehouse | APS |
-|      | Oracle |
-|       | Teradata |
-
+| --- | --- |
+| SQL database |SQL Server |
+| SQL Data Warehouse |APS |
+| Oracle | |
+| Teradata | |
 
 ### Data source providers
 Data models in Azure Analysis Services may require different data providers to connect to data sources than data models in SQL Server Analysis Services. Data provider requirements depend on the data source being in the cloud or on-premises, and the type of data model; in-memory or Direct Query. To learn more, see [Datasource connections](analysis-services-datasource.md).
-
 
 ### Client connections
 Power BI Embedded is not yet supported in preview.
 
 Excel workbooks with live connections to an Azure Analysis Services server and saved on OneDrive or SharePoint Online are not supported.
 
-
-
 ## Next steps
 Now that you know more about Azure Analysis Services, it's time to get started. Learn how to [create a server](analysis-services-create-server.md) in Azure and [deploy a tabular model](analysis-services-deploy.md) to it.
+

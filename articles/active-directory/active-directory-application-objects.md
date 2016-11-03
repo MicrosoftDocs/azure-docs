@@ -1,21 +1,22 @@
-<properties
-pageTitle="Azure Active Directory Application and Service Principal Objects | Microsoft Azure"
-description="A discussion of the relationship between application and service principal objects in Azure Active Directory"
-documentationCenter="dev-center-name"
-authors="bryanla"
-manager="mbaldwin"
-services="active-directory"
-editor=""/>
+---
+title: Azure Active Directory Application and Service Principal Objects | Microsoft Docs
+description: A discussion of the relationship between application and service principal objects in Azure Active Directory
+documentationcenter: dev-center-name
+author: bryanla
+manager: mbaldwin
+services: active-directory
+editor: ''
 
-<tags
-ms.service="active-directory"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="identity"
-ms.date="08/10/2016"
-ms.author="bryanla;mbaldwin"/>
+ms.assetid: adfc0569-dc91-48fe-92c3-b5b4833703de
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/10/2016
+ms.author: bryanla;mbaldwin
 
+---
 # Application and service principal objects in Azure Active Directory
 When you read about an Azure Active Directory (AD) "application", it's not always clear exactly what is being referred to by the author. The goal of this article is to make it clearer, by defining the conceptual and concrete aspects of Azure AD application integration, with an example of registration and consent for a [multi-tenant application](active-directory-dev-glossary.md#multi-tenant-application).
 
@@ -35,14 +36,17 @@ The service principal object defines the policy and permissions for an applicati
 
 A service principal object is required in each tenant for which an instance of the application's usage must be represented, enabling secure access to resources owned by user accounts from that tenant. A single-tenant application will have only one service principal (in its home tenant). A multi-tenant [Web application](active-directory-dev-glossary.md#web-client) will also have a service principal in each tenant where an administrator or user(s) from that tenant have given consent, allowing it to access their resources. Following consent, the service principal object will be consulted for future authorization requests. 
 
-> [AZURE.NOTE] Any changes you make to your application object, are also reflected in its service principal object in the application's home tenant only (the tenant where it was registered). For multi-tenant applications, changes to the application object are not reflected in any consumer tenants' service principal objects, until the consumer tenant removes access and grants access again.
+> [!NOTE]
+> Any changes you make to your application object, are also reflected in its service principal object in the application's home tenant only (the tenant where it was registered). For multi-tenant applications, changes to the application object are not reflected in any consumer tenants' service principal objects, until the consumer tenant removes access and grants access again.
+> 
+> 
 
 ## Example
 The following diagram illustrates the relationship between an application's application object and corresponding service principal objects, in the context of a sample multi-tenant application called **HR app**. There are three Azure AD tenants in this scenario: 
 
-- **Adatum** - the tenant used by the company that developed the **HR app**
-- **Contoso** - the tenant used by the Contoso organization, which is a consumer of the **HR app**
-- **Fabrikam** - the tenant used by the Fabrikam organization, which also consumes the **HR app**
+* **Adatum** - the tenant used by the company that developed the **HR app**
+* **Contoso** - the tenant used by the Contoso organization, which is a consumer of the **HR app**
+* **Fabrikam** - the tenant used by the Fabrikam organization, which also consumes the **HR app**
 
 ![Relationship between an application object and a service principal object](./media/active-directory-application-objects/application-objects-relationship.png)
 
@@ -56,8 +60,6 @@ In Step 3, the consumer tenants of the HR application (Contoso and Fabrikam) eac
 An application's application object can be accessed via the Azure AD Graph API, as represented by its OData [Application entity][AAD-Graph-App-Entity]
 
 An application's service principal object can be accessed via the Azure AD Graph API, as represented by its OData [ServicePrincipal entity][AAD-Graph-Sp-Entity]
-
-
 
 <!--Image references-->
 

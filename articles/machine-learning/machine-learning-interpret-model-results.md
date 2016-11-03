@@ -1,27 +1,26 @@
-<properties
-	pageTitle="Interpret model results in Machine Learning | Microsoft Azure"
-	description="How to choose the optimal parameter set for an algorithm using and visualizing score model outputs."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Interpret model results in Machine Learning | Microsoft Docs
+description: How to choose the optimal parameter set for an algorithm using and visualizing score model outputs.
+services: machine-learning
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="bradsev" />
+ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: bradsev
 
-
+---
 # Interpret model results in Azure Machine Learning
-
 This topic explains how to visualize and interpret prediction results in Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 There are four major kinds of machine learning models in Azure Machine Learning:
 
@@ -42,7 +41,7 @@ This topic addresses prediction interpretation but not model evaluation. For mor
 
 If you are new to Azure Machine Learning and need help creating a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md) in Azure Machine Learning Studio.
 
-## Classification ##
+## Classification
 There are two subcategories of classification problems:
 
 * Problems with only two classes (two-class or binary classification)
@@ -50,7 +49,7 @@ There are two subcategories of classification problems:
 
 Azure Machine Learning has different modules to deal with each of these types of classification, but the methods for interpreting their prediction results are similar.
 
-### Two-class classification###
+### Two-class classification
 **Example experiment**
 
 An example of a two-class classification problem is the classification of iris flowers. The task is to classify iris flowers based on their features. The Iris data set provided in Azure Machine Learning is a subset of the popular [Iris data set](http://en.wikipedia.org/wiki/Iris_flower_data_set) containing instances of only two flower species (classes 0 and 1). There are four features for each flower (sepal length, sepal width, petal length, and petal width).
@@ -139,7 +138,6 @@ After you publish and run the web service and enter some input feature values, t
 Figure 10. Web service result of multiclass classification
 
 ## Regression
-
 Regression problems are different from classification problems. In a classification problem, you're trying to predict discrete classes, such as which class an iris flower belongs to. But as you can see in the following example of a regression problem, you're trying to predict a continuous variable, such as the price of a car.
 
 **Example experiment**
@@ -177,7 +175,6 @@ Running the web service, the returned result looks like Figure 14. The predicted
 Figure 14. Web service result of an automobile price regression problem
 
 ## Clustering
-
 **Example experiment**
 
 Let’s use the Iris data set again to build a clustering experiment. Here you can filter out the class labels in the data set so that it only has features and can be used for clustering. In this iris use case, specify the number of clusters to be two during the training process, which means you would cluster the flowers into two classes. The experiment is shown in Figure 15.
@@ -231,10 +228,10 @@ For recommender systems, you can use the restaurant recommendation problem as an
 
 There are several things we can do with the [Train Matchbox Recommender][train-matchbox-recommender] module in Azure Machine Learning:
 
-- Predict ratings for a given user and item
-- Recommend items to a given user
-- Find users related to a given user
-- Find items related to a given item
+* Predict ratings for a given user and item
+* Recommend items to a given user
+* Find users related to a given user
+* Find items related to a given item
 
 You can choose what you want to do by selecting from the four options in the **Recommender prediction kind** menu. Here you can walk through all four scenarios.
 
@@ -305,7 +302,6 @@ Running the web service, the returned result looks like Figure 26. The five reco
 ![Sample experiment results](./media/machine-learning-interpret-model-results/26.png)
 
 Figure 26. Web service result of restaurant recommendation problem
-
 
 <!-- Module References -->
 [assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/

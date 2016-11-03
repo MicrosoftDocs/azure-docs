@@ -1,25 +1,26 @@
-<properties
-	pageTitle="Overview of the Azure Activity Log | Microsoft Azure"
-	description="Learn what the Azure Activity Log is and how you can use it to understand events occurring within your Azure subscription."
-	authors="johnkemnetz"
-	manager="rboucher"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Overview of the Azure Activity Log | Microsoft Docs
+description: Learn what the Azure Activity Log is and how you can use it to understand events occurring within your Azure subscription.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/25/2016"
-	ms.author="johnkem"/>
+ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/25/2016
+ms.author: johnkem
 
+---
 # Overview of the Azure Activity Log
 The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations.
 
-The Activity Log differs from [Diagnostic Logs](./monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource.
+The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource.
 
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
@@ -28,20 +29,20 @@ View this [video introducing the Activity Log](https://channel9.msdn.com/Blogs/S
 ## What you can do with the Activity Log
 Here are some of the things you can do with the Activity Log:
 
-- Query and view it in the **Azure portal**.
-- Query it via REST API, PowerShell Cmdlet, or CLI.
-- [Create an email or webhook alert that triggers off an Activity Log event.](./insights-auditlog-to-webhook-email.md)
-- [Save it to a **Storage Account** for archival or manual inspection](./monitoring-archive-activity-log.md). You can specify the retention time (in days) using **Log Profiles**.
-- Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
-- [Stream it to an **Event Hub**](./monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
+* Query and view it in the **Azure portal**.
+* Query it via REST API, PowerShell Cmdlet, or CLI.
+* [Create an email or webhook alert that triggers off an Activity Log event.](insights-auditlog-to-webhook-email.md)
+* [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using **Log Profiles**.
+* Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Stream it to an **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 
 ## Export the Activity Log with Log Profiles
 A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
 
-- Where the Activity Log should be sent (Storage Account or Event Hubs)
-- Which event categories (Write, Delete, Action) should be sent
-- Which regions (locations) should be exported
-- How long the Activity Log should be retained in a Storage Account – a retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647. If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or OMS options are selected), the retention policies have no effect.
+* Where the Activity Log should be sent (Storage Account or Event Hubs)
+* Which event categories (Write, Delete, Action) should be sent
+* Which regions (locations) should be exported
+* How long the Activity Log should be retained in a Storage Account – a retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647. If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or OMS options are selected), the retention policies have no effect.
 
 These settings can be configured via the “Export” option in the Activity Log blade in the portal. They can also be configured programmatically [using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
 
@@ -49,18 +50,19 @@ These settings can be configured via the “Export” option in the Activity Log
 You can stream the Activity Log to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure portal.
 
 1. Navigate to the **Activity Log** blade using the menu on the left side of the portal.
-
+   
     ![Navigate to Activity Log in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Click the **Export** button at the top of the blade.
-
+   
     ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. In the blade that appears, you can select:  
-	- regions for which you would like to export events
-	- the Storage Account to which you would like to save events
-	- the number of days you want to retain these events in storage. A setting of 0 days retains the logs forever.
-	- the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
-
-    ![Export Activity Log blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+   
+   * regions for which you would like to export events
+   * the Storage Account to which you would like to save events
+   * the number of days you want to retain these events in storage. A setting of 0 days retains the logs forever.
+   * the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
+     
+     ![Export Activity Log blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
 
 ### Configure log profiles using the Azure PowerShell Cmdlets
@@ -74,14 +76,14 @@ Get-AzureRmLogProfile
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
-| Property         | Required | Description   |
-|------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name             | Yes      | Name of your log profile.                                 |
-| StorageAccountId | No       | Resource ID of the Storage Account to which the Activity Log should be saved.                         |
-| serviceBusRuleId | No       | Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. Is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Locations        | Yes      | Comma-separated list of regions for which you would like to collect Activity Log events.              |
-| RetentionInDays  | Yes      | Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever). |
-| Categories       | No       | Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action.                                 |
+| Property | Required | Description |
+| --- | --- | --- |
+| Name |Yes |Name of your log profile. |
+| StorageAccountId |No |Resource ID of the Storage Account to which the Activity Log should be saved. |
+| serviceBusRuleId |No |Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. Is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. |
+| Locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. |
+| RetentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever). |
+| Categories |No |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 
 #### Remove a log profile
 ```
@@ -103,14 +105,14 @@ The `name` property should be the name of your log profile.
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 
-| Property         | Required | Description   |
-|------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| name             | Yes      | Name of your log profile.                                 |
-| storageId        | No       | Resource ID of the Storage Account to which the Activity Log should be saved.                         |
-| serviceBusRuleId | No       | Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. Is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. |
-| locations        | Yes      | Comma-separated list of regions for which you would like to collect Activity Log events.              |
-| retentionInDays  | Yes      | Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever).     |
-| categories       | No       | Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action.                                 |
+| Property | Required | Description |
+| --- | --- | --- |
+| name |Yes |Name of your log profile. |
+| storageId |No |Resource ID of the Storage Account to which the Activity Log should be saved. |
+| serviceBusRuleId |No |Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. Is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. |
+| locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. |
+| retentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever). |
+| categories |No |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 
 #### Remove a log profile
 ```
@@ -201,30 +203,31 @@ Each event in the Activity Log has a JSON blob similar to this example:
 }
 ```
 
-| Element Name         | Description             |
-|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| authorization        | Blob of RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties.|
-| caller               | Email address of the user who has performed the operation, UPN claim, or SPN claim based on availability.|
-| channels             | One of the following values: “Admin”, “Operation”|
-| correlationId        | Usually a GUID in the string format. Events that share a correlationId belong to the same uber action.   |
-| description          | Static text description of an event.                              |
-| eventDataId          | Unique identifier of an event.    |
-| eventSource          | Name of the Azure service or infrastructure that has generated this event.    |
-| httpRequest          | Blob describing the Http Request. Usually includes the “clientRequestId”, “clientIpAddress” and “method” (HTTP method. For example, PUT).                            |
-| level                | Level of the event. One of the following values: “Critical”, “Error”, “Warning”, “Informational” and “Verbose”  |
-| resourceGroupName    | Name of the resource group for the impacted resource.               |
-| resourceProviderName | Name of the resource provider for the impacted resource             |
-| resourceUri          | Resource id of the impacted resource.                               |
-| operationId          | A GUID shared among the events that correspond to a single operation.         |
-| operationName        | Name of the operation.  |
-| properties           | Set of `<Key, Value>` pairs (that is, a Dictionary) describing the details of the event.                                |
-| status               | String describing the status of the operation. Some common values are: Started, In Progress, Succeeded, Failed, Active, Resolved.                                |
-| subStatus            | Usually the HTTP status code of the corresponding REST call, but can also include other strings describing a substatus, such as these common values: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504). |
-| eventTimestamp       | Timestamp when the event was generated by the Azure service processing the request corresponding the event.     |
-| submissionTimestamp  | Timestamp when the event became available for querying.             |
-| subscriptionId       | Azure Subscription Id.  |
-| nextLink             | Continuation token to fetch the next set of results when they are broken up into multiple responses. Typically needed when there are more than 200 records.     |
+| Element Name | Description |
+| --- | --- |
+| authorization |Blob of RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties. |
+| caller |Email address of the user who has performed the operation, UPN claim, or SPN claim based on availability. |
+| channels |One of the following values: “Admin”, “Operation” |
+| correlationId |Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
+| description |Static text description of an event. |
+| eventDataId |Unique identifier of an event. |
+| eventSource |Name of the Azure service or infrastructure that has generated this event. |
+| httpRequest |Blob describing the Http Request. Usually includes the “clientRequestId”, “clientIpAddress” and “method” (HTTP method. For example, PUT). |
+| level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, “Informational” and “Verbose” |
+| resourceGroupName |Name of the resource group for the impacted resource. |
+| resourceProviderName |Name of the resource provider for the impacted resource |
+| resourceUri |Resource id of the impacted resource. |
+| operationId |A GUID shared among the events that correspond to a single operation. |
+| operationName |Name of the operation. |
+| properties |Set of `<Key, Value>` pairs (that is, a Dictionary) describing the details of the event. |
+| status |String describing the status of the operation. Some common values are: Started, In Progress, Succeeded, Failed, Active, Resolved. |
+| subStatus |Usually the HTTP status code of the corresponding REST call, but can also include other strings describing a substatus, such as these common values: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504). |
+| eventTimestamp |Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
+| submissionTimestamp |Timestamp when the event became available for querying. |
+| subscriptionId |Azure Subscription Id. |
+| nextLink |Continuation token to fetch the next set of results when they are broken up into multiple responses. Typically needed when there are more than 200 records. |
 
 ## Next Steps
-- [Learn more about the Activity Log (formerly Audit Logs)](../resource-group-audit.md)
-- [Stream the Azure Activity Log to Event Hubs](./monitoring-stream-activity-logs-event-hubs.md)
+* [Learn more about the Activity Log (formerly Audit Logs)](../resource-group-audit.md)
+* [Stream the Azure Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
+

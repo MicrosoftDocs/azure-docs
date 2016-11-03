@@ -1,29 +1,36 @@
-<properties 
-   pageTitle="Learn about the latest Azure Guest OS Releases | Microsoft Azure" 
-   description="The latest release news and SDK compatibility for Azure Cloud Services Guest OS." 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="raiye" 
-   manager="timlt" 
-   editor=""/>
+---
+title: Learn about the latest Azure Guest OS Releases | Microsoft Docs
+description: The latest release news and SDK compatibility for Azure Cloud Services Guest OS.
+services: cloud-services
+documentationcenter: na
+author: raiye
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="11/01/2016"
-   ms.author="raiye"/>
+ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 11/01/2016
+ms.author: raiye
 
+---
 # Azure Guest OS releases and SDK compatibility matrix
-Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][], it is not vital that you read this page.
+Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][Azure Guest OS Update Settings], it is not vital that you read this page.
 
-> [AZURE.IMPORTANT] This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does **not apply** to IaaS Virtual Machines. 
+> [!IMPORTANT]
+> This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does **not apply** to IaaS Virtual Machines. 
+> 
+> 
 
 <!-- -->
 
-> [AZURE.TIP] Subscribe to the [Guest OS Update RSS Feed][rss] to receive the most timely notification on all Guest OS changes.
+> [!TIP]
+> Subscribe to the [Guest OS Update RSS Feed][rss] to receive the most timely notification on all Guest OS changes.
+> 
+> 
 
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
@@ -62,122 +69,129 @@ January Guest OS rollout is starting January 18 2016, and projected to be releas
 November 201511-02 Guest OS was released on January 4, 2016 for deployment. This OS version is not set as the default OS for automatic update, so the provisioning time of Guest OS deployment to November 201511-02 OS version would be slightly longer. 
 
 ## Releases
-
 ## Family 5 releases
 **Windows Server 2016**
 
 Supports .NET 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
->[AZURE.NOTE] Dates with a * are subject to change
+> [!NOTE]
+> Dates with a * are subject to change
+> 
+> 
 
-| Configuration String           | Release date    | Disable date  | Expired date |
-| ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-5.2_201610-02      | Nov 1 2016      | Jan 30 2017   | TBD |
+| Configuration String | Release date | Disable date | Expired date |
+| --- | --- | --- | --- |
+| WA-GUEST-OS-5.2_201610-02 |Nov 1 2016 |Jan 30 2017 |TBD |
 
 ## Family 4 releases
 **Windows Server 2012 R2**
 
 Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
->[AZURE.NOTE] Dates with a * are subject to change
+> [!NOTE]
+> Dates with a * are subject to change
+> 
+> 
 
-| Configuration String           | Release date    | Disable date  | Expired date |
-| ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.36_201609-01     | Oct 13 2016     | Post 4.38     | TBD |
-| WA-GUEST-OS-4.35_201608-01     | Sept 13 2016    | Post 4.37     | TBD |
-| WA-GUEST-OS-4.34_201607-01     | Aug 8 2016      | Post 4.36     | TBD |
-| WA-GUEST-OS-4.33_201606-01     | July 13 2016    | Oct 13 2016   | TBD |
-| WA-GUEST-OS-4.32_201605-01     | June 10 2016    | Sept 8 2016   | TBD |
-| WA-GUEST-OS-4.31_201604-01     | May 2 2016      | Aug 13 2016   | TBD |
-| WA-GUEST-OS-4.30_201603-01     | April 7 2016    | July 10 2016  | TBD |
-| WA-GUEST-OS-4.29_201602-02     | March 12 2016   | June 2 2016   | TBD |
-| WA-GUEST-OS-4.28_201601-01     | Feb 12 2016     | May 7 2016    | TBD | 
-| WA-GUEST-OS-4.27_201512-01     | Jan 12 2016     | April 12 2016 | TBD |
-| ~~WA-GUEST-OS-4.26_201511-02~~ | Jan 4 2016      | March 12 2016 | TBD |
-| ~~WA-GUEST-OS-4.26_201511-01~~ | Dec 10 2015     | March 12 2016 | TBD |
-| ~~WA-GUEST-OS-4.25_201510-01~~ | Nov 6 2015      | Feb 12 2016   | TBD |
-| ~~WA-GUEST-OS-4.24_201509-01~~ | Oct 1 2015      | Jan 10 2016   | TBD |
-| ~~WA-GUEST-OS-4.23_201508-02~~ | Sep 9 2015      | Dec 6 2015    | TBD |
-| ~~WA-GUEST-OS-4.22_201507-02~~ | Aug 7 2015      | Nov 1 2015    | TBD |
-| ~~WA-GUEST-OS-4.21_201506-01~~ | July 9 2015     | Oct 9 2015    | TBD |
-| ~~WA-GUEST-OS-4.20_201505-02~~ | June 12 2015    | Sep 7 2015    | TBD |
-| ~~WA-GUEST-OS-4.19_201504-01~~ | April 17 2015   | Aug 9 2015    | TBD |
+| Configuration String | Release date | Disable date | Expired date |
+| --- | --- | --- | --- |
+| WA-GUEST-OS-4.36_201609-01 |Oct 13 2016 |Post 4.38 |TBD |
+| WA-GUEST-OS-4.35_201608-01 |Sept 13 2016 |Post 4.37 |TBD |
+| WA-GUEST-OS-4.34_201607-01 |Aug 8 2016 |Post 4.36 |TBD |
+| WA-GUEST-OS-4.33_201606-01 |July 13 2016 |Oct 13 2016 |TBD |
+| WA-GUEST-OS-4.32_201605-01 |June 10 2016 |Sept 8 2016 |TBD |
+| WA-GUEST-OS-4.31_201604-01 |May 2 2016 |Aug 13 2016 |TBD |
+| WA-GUEST-OS-4.30_201603-01 |April 7 2016 |July 10 2016 |TBD |
+| WA-GUEST-OS-4.29_201602-02 |March 12 2016 |June 2 2016 |TBD |
+| WA-GUEST-OS-4.28_201601-01 |Feb 12 2016 |May 7 2016 |TBD |
+| WA-GUEST-OS-4.27_201512-01 |Jan 12 2016 |April 12 2016 |TBD |
+| ~~WA-GUEST-OS-4.26_201511-02~~ |Jan 4 2016 |March 12 2016 |TBD |
+| ~~WA-GUEST-OS-4.26_201511-01~~ |Dec 10 2015 |March 12 2016 |TBD |
+| ~~WA-GUEST-OS-4.25_201510-01~~ |Nov 6 2015 |Feb 12 2016 |TBD |
+| ~~WA-GUEST-OS-4.24_201509-01~~ |Oct 1 2015 |Jan 10 2016 |TBD |
+| ~~WA-GUEST-OS-4.23_201508-02~~ |Sep 9 2015 |Dec 6 2015 |TBD |
+| ~~WA-GUEST-OS-4.22_201507-02~~ |Aug 7 2015 |Nov 1 2015 |TBD |
+| ~~WA-GUEST-OS-4.21_201506-01~~ |July 9 2015 |Oct 9 2015 |TBD |
+| ~~WA-GUEST-OS-4.20_201505-02~~ |June 12 2015 |Sep 7 2015 |TBD |
+| ~~WA-GUEST-OS-4.19_201504-01~~ |April 17 2015 |Aug 9 2015 |TBD |
 
 ## Family 3 releases
-
 **Windows Server 2012**
 
 Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
->[AZURE.NOTE] Dates with a * are subject to change
+> [!NOTE]
+> Dates with a * are subject to change
+> 
+> 
 
-| Configuration String           | Release date   | Disable date  | Expired date |
-| ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.43_201609-01     | Oct 13 2016    | Post 3.45     | TBD |
-| WA-GUEST-OS-3.42_201608-01     | Sept 13 2016   | Post 3.44     | TBD |
-| WA-GUEST-OS-3.41_201607-01     | Aug 8 2016     | Post 3.43     | TBD |
-| WA-GUEST-OS-3.40_201606-01     | July 13 2016   | Oct 13 2016   | TBD |
-| WA-GUEST-OS-3.39_201605-01     | June 10 2016   | Sept 8 2016   | TBD |
-| WA-GUEST-OS-3.38_201604-01     | May 2 2016     | Aug 13 2016   | TBD |
-| WA-GUEST-OS-3.37_201603-01     | April 7 2016   | July 10 2016  | TBD |
-| WA-GUEST-OS-3.36_201602-02     | March 12 2016  | June 2 2016   | TBD |
-| WA-GUEST-OS-3.35_201601-01     | Feb 12 2016    | May 7 2016    | TBD |
-| WA-GUEST-OS-3.34_201512-01     | Jan 12 2016    | April 12 2016 | TBD |
-| ~~WA-GUEST-OS-3.33_201511-02~~ | Jan 4 2016     | March 12 2016 | TBD |
-| ~~WA-GUEST-OS-3.33_201511-01~~ | Dec 10 2015    | March 12 2016 | TBD |
-| ~~WA-GUEST-OS-3.32_201510-01~~ | Nov 6 2015     | Feb 12 2016   | TBD |
-| ~~WA-GUEST-OS-3.31_201509-01~~ | Oct 1 2015     | Jan 10 2016   | TBD |
-| ~~WA-GUEST-OS-3.30_201508-02~~ | Sep 9 2015     | Dec 6 2015    | TBD |
-| ~~WA-GUEST-OS-3.29_201507-02~~ | Aug 7 2015     | Nov 1 2015    | TBD |
-| ~~WA-GUEST-OS-3.28_201506-01~~ | July 9 2015    | Oct 9 2015    | TBD |
-| ~~WA-GUEST-OS-3.27_201505-02~~ | June 12 2015   | Sep 7 2015    | TBD |
-| ~~WA-GUEST-OS-3.26_201504-01~~ | April 17 2015  | Aug 9 2015    | TBD |
-
+| Configuration String | Release date | Disable date | Expired date |
+| --- | --- | --- | --- |
+| WA-GUEST-OS-3.43_201609-01 |Oct 13 2016 |Post 3.45 |TBD |
+| WA-GUEST-OS-3.42_201608-01 |Sept 13 2016 |Post 3.44 |TBD |
+| WA-GUEST-OS-3.41_201607-01 |Aug 8 2016 |Post 3.43 |TBD |
+| WA-GUEST-OS-3.40_201606-01 |July 13 2016 |Oct 13 2016 |TBD |
+| WA-GUEST-OS-3.39_201605-01 |June 10 2016 |Sept 8 2016 |TBD |
+| WA-GUEST-OS-3.38_201604-01 |May 2 2016 |Aug 13 2016 |TBD |
+| WA-GUEST-OS-3.37_201603-01 |April 7 2016 |July 10 2016 |TBD |
+| WA-GUEST-OS-3.36_201602-02 |March 12 2016 |June 2 2016 |TBD |
+| WA-GUEST-OS-3.35_201601-01 |Feb 12 2016 |May 7 2016 |TBD |
+| WA-GUEST-OS-3.34_201512-01 |Jan 12 2016 |April 12 2016 |TBD |
+| ~~WA-GUEST-OS-3.33_201511-02~~ |Jan 4 2016 |March 12 2016 |TBD |
+| ~~WA-GUEST-OS-3.33_201511-01~~ |Dec 10 2015 |March 12 2016 |TBD |
+| ~~WA-GUEST-OS-3.32_201510-01~~ |Nov 6 2015 |Feb 12 2016 |TBD |
+| ~~WA-GUEST-OS-3.31_201509-01~~ |Oct 1 2015 |Jan 10 2016 |TBD |
+| ~~WA-GUEST-OS-3.30_201508-02~~ |Sep 9 2015 |Dec 6 2015 |TBD |
+| ~~WA-GUEST-OS-3.29_201507-02~~ |Aug 7 2015 |Nov 1 2015 |TBD |
+| ~~WA-GUEST-OS-3.28_201506-01~~ |July 9 2015 |Oct 9 2015 |TBD |
+| ~~WA-GUEST-OS-3.27_201505-02~~ |June 12 2015 |Sep 7 2015 |TBD |
+| ~~WA-GUEST-OS-3.26_201504-01~~ |April 17 2015 |Aug 9 2015 |TBD |
 
 ## Family 2 releases
-
 **Windows Server 2008 R2 SP1**
 
 Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
->[AZURE.NOTE] Dates with a * are subject to change
+> [!NOTE]
+> Dates with a * are subject to change
+> 
+> 
 
-| Configuration String           | Release date  | Disable date  | Expired date |
-| ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.55_201609-01     | Oct 13 2016   | Post 2.57     | TBD |
-| WA-GUEST-OS-2.54_201608-01     | Sept 13 2016  | Post 2.56     | TBD |
-| WA-GUEST-OS-2.53_201607-01     | Aug 8 2016    | Post 2.55     | TBD |
-| WA-GUEST-OS-2.52_201606-01     | July 13 2016  | Oct 13 2016   | TBD |
-| WA-GUEST-OS-2.51_201605-01     | June 10 2016  | Sept 8 2016   | TBD |
-| WA-GUEST-OS-2.50_201604-01     | May 2 2016    | Aug 13 2016   | TBD |
-| WA-GUEST-OS-2.49_201603-01     | April 7 2016  | July 10 2016  | TBD |
-| WA-GUEST-OS-2.48_201602-02     | March 12 2016 | June 2 2016   | TBD |
-| WA-GUEST-OS-2.47_201601-01     | Feb 12 2016   | May 7 2016    | TBD |
-| WA-GUEST-OS-2.46_201512-01     | Jan 12 2016   | April 12 2016 | TBD |
-| ~~WA-GUEST-OS-2.45_201511-02~~ | Jan 4 2016    | March 12 2016 | TBD |
-| ~~WA-GUEST-OS-2.45_201511-01~~ | Dec 10 2015   | March 12 2016 | TBD |
-| ~~WA-GUEST-OS-2.44_201510-01~~ | Nov 6 2015    | Feb 12 2016   | TBD |
-| ~~WA-GUEST-OS-2.43_201509-01~~ | Oct 1 2015    | Jan 10 2016   | TBD |
-| ~~WA-GUEST-OS-2.42_201508-02~~ | Sep 9 2015    | Dec 6 2015    | TBD |
-| ~~WA-GUEST-OS-2.41_201507-02~~ | Aug 7 2015    | Nov 1 2015    | TBD |
-| ~~WA-GUEST-OS-2.40_201506-01~~ | July 9 2015   | Oct 9 2015    | TBD |
-| ~~WA-GUEST-OS-2.39_201505-02~~ | June 12 2015  | Sep 7 2015    | TBD |
-| ~~WA-GUEST-OS-2.38_201504-01~~ | April 17 2015 | Aug 9 2015    | TBD |
+| Configuration String | Release date | Disable date | Expired date |
+| --- | --- | --- | --- |
+| WA-GUEST-OS-2.55_201609-01 |Oct 13 2016 |Post 2.57 |TBD |
+| WA-GUEST-OS-2.54_201608-01 |Sept 13 2016 |Post 2.56 |TBD |
+| WA-GUEST-OS-2.53_201607-01 |Aug 8 2016 |Post 2.55 |TBD |
+| WA-GUEST-OS-2.52_201606-01 |July 13 2016 |Oct 13 2016 |TBD |
+| WA-GUEST-OS-2.51_201605-01 |June 10 2016 |Sept 8 2016 |TBD |
+| WA-GUEST-OS-2.50_201604-01 |May 2 2016 |Aug 13 2016 |TBD |
+| WA-GUEST-OS-2.49_201603-01 |April 7 2016 |July 10 2016 |TBD |
+| WA-GUEST-OS-2.48_201602-02 |March 12 2016 |June 2 2016 |TBD |
+| WA-GUEST-OS-2.47_201601-01 |Feb 12 2016 |May 7 2016 |TBD |
+| WA-GUEST-OS-2.46_201512-01 |Jan 12 2016 |April 12 2016 |TBD |
+| ~~WA-GUEST-OS-2.45_201511-02~~ |Jan 4 2016 |March 12 2016 |TBD |
+| ~~WA-GUEST-OS-2.45_201511-01~~ |Dec 10 2015 |March 12 2016 |TBD |
+| ~~WA-GUEST-OS-2.44_201510-01~~ |Nov 6 2015 |Feb 12 2016 |TBD |
+| ~~WA-GUEST-OS-2.43_201509-01~~ |Oct 1 2015 |Jan 10 2016 |TBD |
+| ~~WA-GUEST-OS-2.42_201508-02~~ |Sep 9 2015 |Dec 6 2015 |TBD |
+| ~~WA-GUEST-OS-2.41_201507-02~~ |Aug 7 2015 |Nov 1 2015 |TBD |
+| ~~WA-GUEST-OS-2.40_201506-01~~ |July 9 2015 |Oct 9 2015 |TBD |
+| ~~WA-GUEST-OS-2.39_201505-02~~ |June 12 2015 |Sep 7 2015 |TBD |
+| ~~WA-GUEST-OS-2.38_201504-01~~ |April 17 2015 |Aug 9 2015 |TBD |
 
 ## MSRC patch updates
 The list of patches that are included with each monthly Guest OS release is available [here][patches].
 
 ## SDK support
-
 Even though the [retirement policy for the Azure SDK][retire policy sdk] indicates that only versions above 2.2 are supported, specific Guest OS families allow you to use earlier versions. You should always use the latest supported SDK. 
 
 | Guest OS Family | Compatible SDK Versions |
-| --------------- | ----------------------- |
-| 5               | Version 2.9.5.1+ |
-| 4               | Version 2.1+ |
-| 3               | Version 1.8+ |
-| 2               | Version 1.3+ |
-| 1               | Version 1.0+ |
+| --- | --- |
+| 5 |Version 2.9.5.1+ |
+| 4 |Version 2.1+ |
+| 3 |Version 1.8+ |
+| 2 |Version 1.3+ |
+| 1 |Version 1.0+ |
 
 ## Guest OS Release Information
 There are three dates that are important to Guest OS releases: **release** date, **disabled** date, and **expiration** date. A Guest OS is considered available when it is in the Portal and can be selected as the target Guest OS. When a Guest OS hits the **disabled** date it is removed from Azure. However, any Cloud Service targetting that Guest OS will still operate as normal. 
@@ -189,16 +203,14 @@ When the **expiration** date passes and any Cloud Service still using that Guest
 ## Guest OS Family-Version Explanation
 The Guest OS families are based on released versions of Microsoft Windows Server. The Guest OS is the underlying operating system that Azure Cloud Services run on. Each Guest OS has a family, version and release number. 
 
-- **Guest OS family**  
-A Windows Server operating system release that a Guest OS is based on. For example, *family 3* is based on Windows Server 2012.
-
-- **Guest OS version**  
-Specific to a Guest OS family image plus relevant [Microsoft Security Response Center (MSRC)][msrc] patches that are available at the date the new Guest OS version is produced. Not all patches may be included. 
-
+* **Guest OS family**  
+  A Windows Server operating system release that a Guest OS is based on. For example, *family 3* is based on Windows Server 2012.
+* **Guest OS version**  
+  Specific to a Guest OS family image plus relevant [Microsoft Security Response Center (MSRC)][msrc] patches that are available at the date the new Guest OS version is produced. Not all patches may be included. 
+  
     Numbers start at 0 and increment by 1 each time a new set of updates is added. Trailing zeros are only shown if important. That is, version 2.10 is a different, much later version than version 2.1.
-
-- **Guest OS release**  
-A rerelease of a Guest OS version. A rerelease occurs if Microsoft finds issues during testing; requiring changes. The latest release always supersedes any previous releases, public or not. The Azure classic portal will only allow users to pick the latest release for a given version. Deployments running on a previous release are usually not force upgraded depending on the severity of the bug. 
+* **Guest OS release**  
+  A rerelease of a Guest OS version. A rerelease occurs if Microsoft finds issues during testing; requiring changes. The latest release always supersedes any previous releases, public or not. The Azure classic portal will only allow users to pick the latest release for a given version. Deployments running on a previous release are usually not force upgraded depending on the severity of the bug. 
 
 In the example below, 2 is the family, 12 is the version and "rel2" is the release.
 
@@ -218,7 +230,6 @@ When a new release of the Guest OS is published, it can take time to fully propa
 For a great deal of valuable information on restarts and pointers to more information technical details of Guest and Host OS updates, see the MSDN blog post titled [Role Instance Restarts Due to OS Upgrades][restarts].
 
 If you manually update your Guest OS, please read the [Guest OS retirement policy][retirepolicy].
-
 
 ## Guest OS Supportability and Retirement Policy
 The Guest OS supportability and retirement policy is explained [here][retirepolicy].
@@ -242,4 +253,4 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
- 
+

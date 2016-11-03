@@ -1,22 +1,22 @@
-<properties
-	pageTitle="Developer Analytics"
-	description="DevOps with Visual Studio, Application Insights, and HockeyApp"
-	authors="alancameronwills"
-	services="application-insights"
-    documentationCenter=""
-	manager="douge"/>
+---
+title: Developer Analytics
+description: DevOps with Visual Studio, Application Insights, and HockeyApp
+author: alancameronwills
+services: application-insights
+documentationcenter: ''
+manager: douge
 
-<tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="05/18/2016"
-	ms.author="awills"/>
+ms.assetid: 1f1207a5-9019-451f-bff0-c67c4685ba32
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 05/18/2016
+ms.author: awills
 
+---
 # Developer Analytics with Application Insights and HockeyApp
-
 *Application Insights is in preview.*
 
 Many projects operate a rapid [DevOps](https://en.wikipedia.org/wiki/DevOps) cycle. They build and distribute their applications, get feedback about how it performs and what users do with it, and then use that knowledge to plan further development cycles. 
@@ -34,7 +34,6 @@ In this article, we'll look at how the monitoring aspects of the devOps cycle fi
 If you'd like to look at a specific example, there's [an interesting case study](http://aka.ms/mydrivingdocs) that has multiple client and server components.
 
 ## A DevOps cycle
-
 Visual Studio and Developer Analytics tools offer a well-integrated devOps experience. For example, here is a typical cycle for a web application (which could be Java, Node.js, or ASP.NET):
 
 ![Web app devops cycle](./media/app-insights-developer-analytics/040.png)
@@ -46,9 +45,7 @@ Visual Studio and Developer Analytics tools offer a well-integrated devOps exper
 * Your next development cycle is informed by your analysis of the live telemetry.
 
 ### Device and desktop apps
-
 For device and desktop apps, the distribution part of the cycle is slightly different, because we aren't just uploading to one or two servers. Instead, a successful build and unit test can [trigger uploading to HockeyApp](https://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs). HockeyApp supervises distribution to your team of test users (or to the general public, if you prefer). 
-
 
 ![Device devops cycle](./media/app-insights-developer-analytics/030.png)
 
@@ -60,26 +57,20 @@ HockeyApp also collects performance and usage data, in the forms of:
 
 Once again, the devOps cycle is completed as you make your future development plans in the light of the feedback gained.
 
-
 ## Setting up Developer Analytics
-
 For each component of your application - mobile or web or desktop - the steps are basically the same. For many types of app, Visual Studio automatically performs some of these steps.
 
 1. Add the appropriate SDK to your app. For device apps, it's HockeyApp, and for web services it's Application Insights. Each has several variants for different platforms. (It's also possible to use either SDK for desktop apps, though we recommend HockeyApp.)
 2. Register your app with the Application Insights or HockeyApp portal, depending on the SDK you used. This is where you'll see analytics from your live app. You get an instrumentation key or ID that you configure into your app so that the SDK knows where to send its telemetry.
 3. Add custom code (if desired) to log events or metrics, to help you with diagnostics or to analyze performance or usage. There's a lot of monitoring built in, so you won't need this on your first cycle.
-3. For device apps:
- * Upload a debug build to HockeyApp. From there you can distribute it to a team of test users. Whenever you upload subsequent builds, the team will be notified.
- * When you set up your continuous build service, create a release definition that uses the plug-in step to upload to HockeyApp.
+4. For device apps:
+   * Upload a debug build to HockeyApp. From there you can distribute it to a team of test users. Whenever you upload subsequent builds, the team will be notified.
+   * When you set up your continuous build service, create a release definition that uses the plug-in step to upload to HockeyApp.
 
 ### Analytics and Export for HockeyApp telemetry
-
 You can investigate HockeyApp custom and log telemetry using the Analytics and Continuous Export features of Application Insights by [setting up a bridge](app-insights-hockeyapp-bridge-app.md).
 
-
-
 ## Next steps
- 
 Here are the detailed instructions for different types of app:
 
 * [ASP.NET web app](app-insights-asp-net.md) 
@@ -91,5 +82,4 @@ Here are the detailed instructions for different types of app:
 * [Universal Windows app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp)
 * [Windows Phone 8 and 8.1 app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81)
 * [Windows Presentation Foundation app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps)
-
 

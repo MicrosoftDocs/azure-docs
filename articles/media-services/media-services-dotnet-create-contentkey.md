@@ -1,27 +1,28 @@
-<properties 
-	pageTitle="Create ContentKeys with .NET" 
-	description="Learn how to create content keys that provide secure access to Assets." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Create ContentKeys with .NET
+description: Learn how to create content keys that provide secure access to Assets.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/26/2016"
-	ms.author="juliako"/>
+ms.assetid: 225b05e5-7d30-409c-b5b7-3ef0634310c7
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-#Create ContentKeys with .NET
-
-> [AZURE.SELECTOR]
-- [REST](media-services-rest-create-contentkey.md)
-- [.NET](media-services-dotnet-create-contentkey.md)
+---
+# Create ContentKeys with .NET
+> [!div class="op_single_selector"]
+> * [REST](media-services-rest-create-contentkey.md)
+> * [.NET](media-services-dotnet-create-contentkey.md)
+> 
+> 
 
 Media Services enables you to create and deliver encrypted assets. A **ContentKey** provides secure access to your **Asset**s. 
 
@@ -31,10 +32,12 @@ When you deliver assets to your clients, you can [configure for assets to be dyn
 
 Encrypted assets have to be associated with **ContentKey**s. This article describes how to create a content key.
 
->[AZURE.NOTE] When creating a new **StorageEncrypted** asset using the Media Services .NET SDK , the **ContentKey** is automatically created and linked with the asset.
+> [!NOTE]
+> When creating a new **StorageEncrypted** asset using the Media Services .NET SDK , the **ContentKey** is automatically created and linked with the asset.
+> 
+> 
 
-##ContentKeyType
-
+## ContentKeyType
 One of the values that you must set when create a content key is the content key type. Choose from one of the following values. 
 
     public enum ContentKeyType
@@ -61,8 +64,7 @@ One of the values that you must set when create a content key is the content key
         EnvelopeEncryption = 4
     }
 
-##<a id="envelope_contentkey"></a>Create envelope type ContentKey
-
+## <a id="envelope_contentkey"></a>Create envelope type ContentKey
 The following code snippet creates a content key of the envelope encryption type. It then associates the key with the specified asset.
 
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
@@ -95,12 +97,11 @@ The following code snippet creates a content key of the envelope encryption type
 
 call
 
-	IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
+    IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
 
 
 
-##<a id="common_contentkey"></a>Create common type ContentKey    
-
+## <a id="common_contentkey"></a>Create common type ContentKey
 The following code snippet creates a content key of the common encryption type. It then associates the key with the specified asset.
 
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
@@ -135,13 +136,12 @@ The following code snippet creates a content key of the common encryption type. 
     }
 call
 
-	IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
+    IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
 
-##Media Services learning paths
+## Media Services learning paths
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+## Provide feedback
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##Provide feedback
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

@@ -1,27 +1,27 @@
 
-<properties
-    pageTitle="Try Azure RemoteApp on your device in 3 minutes or less | Microsoft Azure"
-    description="Test drive Azure RemoteApp functionality without installing the service."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Try Azure RemoteApp on your device in 3 minutes or less | Microsoft Docs
+description: Test drive Azure RemoteApp functionality without installing the service.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="08/15/2016"
-    ms.author="mbaldwin" />
+ms.assetid: 95e9fb49-78bb-4797-8d66-aeb42d00f208
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/15/2016
+ms.author: mbaldwin
 
-
-
+---
 # Try Azure RemoteApp on your device in 3 minutes or less
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> 
+> 
 
 Want to see Azure RemoteApp on your device? You can access our demo deployment for 10 minutes, as long as you have a Microsoft account. We have Office and a few other applications available. This is a great way to test drive the user experience for Azure RemoteApp in less than 3 minutes.
 
@@ -36,4 +36,8 @@ You can now access applications running in real time on Azure RemoteApp.
 
 Your opinion matters. At the end of each session, you will see a dialog box for your feedback. If you have a minute, tell us your thoughts and let us know whether you would like Microsoft to contact you for additional information.
 
->[AZURE.NOTE] Because this is a controlled environment for demo use, we have not enabled external internet access from the published demo applications. Because of this, services like OneDrive are not accessible. Also, clipboard sharing (Copy & Paste) and USB and printer redirection are disabled.  
+> [!NOTE]
+> Because this is a controlled environment for demo use, we have not enabled external internet access from the published demo applications. Because of this, services like OneDrive are not accessible. Also, clipboard sharing (Copy & Paste) and USB and printer redirection are disabled.  
+> 
+> 
+

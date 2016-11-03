@@ -1,29 +1,31 @@
-<properties
-	pageTitle="Identity synchronization and duplicate attribute resiliency | Microsoft Azure"
-	description="New behavior of how to handle objects with UPN or ProxyAddress conflicts during directory sync using Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="MarkusVi"
-	manager="femila"
-	editor=""/>
+---
+title: Identity synchronization and duplicate attribute resiliency | Microsoft Docs
+description: New behavior of how to handle objects with UPN or ProxyAddress conflicts during directory sync using Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: MarkusVi
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/29/2016"
-	ms.author="markusvi"/>
+ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/29/2016
+ms.author: markusvi
 
-
-
+---
 # Identity synchronization and duplicate attribute resiliency
 Duplicate Attribute Resiliency is a feature in Azure Active Directory that will eliminate friction caused by **UserPrincipalName** and **ProxyAddress** conflicts when running one of Microsoft’s synchronization tools.
 
 These two attributes are generally required to be unique across all **User**, **Group**, or **Contact** objects in a given Azure Active Directory tenant.
 
-> [AZURE.NOTE] Only Users can have UPNs.
+> [!NOTE]
+> Only Users can have UPNs.
+> 
+> 
 
 The new behavior that this feature enables is in the cloud portion of the sync pipeline, therefore it is client agnostic and relevant for any Microsoft synchronization product including Azure AD Connect, DirSync and MIM + Connector. The generic term “sync client” is used in this document to represent any one of these products.
 
@@ -65,26 +67,20 @@ There are currently two methods to identify objects that have these errors due t
 ### Azure Active Directory PowerShell
 For the PowerShell cmdlets in this topic, the following is true:
 
-- All of the following cmdlets are case sensitive.
-- The **–ErrorCategory PropertyConflict** must always be included. There are currently no other types of
- **ErrorCategory**, but this may be extended in the future.
+* All of the following cmdlets are case sensitive.
+* The **–ErrorCategory PropertyConflict** must always be included. There are currently no other types of
+  **ErrorCategory**, but this may be extended in the future.
 
 First, get started by running **Connect-MsolService** and entering credentials for a tenant administrator.
 
 Then, use the following cmdlets and operators to view errors in different ways:
 
 1. [See All](#see-all)
-
 2. [By Property Type](#by-property-type)
-
 3. [By Conflicting Value](#by-conflicting-value)
-
 4. [Using a String Search](#using-a-string-search)
-
 5. [Sorted](#sorted)
-
 6. [In a Limited Quantity or All](#in-a-limited-quantity-or-all)
-
 
 #### See all
 Once connected, to see a general list of attribute provisioning errors in the tenant run:
@@ -93,7 +89,6 @@ Once connected, to see a general list of attribute provisioning errors in the te
 
 This produces a result like the following:  
  ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")  
-
 
 #### By property type
 To see errors by property type, add the **-PropertyName** flag with the **UserPrincipalName** or **ProxyAddresses** argument:
@@ -109,7 +104,6 @@ To see errors relating to a specific property add the **-PropertyValue** flag (*
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyValue User@domain.com -PropertyName UserPrincipalName`
 
-
 #### Using a string search
 To do a broad string search use the **-SearchString** flag. This can be used independently from all of the above flags, with the exception of **-ErrorCategory PropertyConflict**, which is always required:
 
@@ -117,20 +111,16 @@ To do a broad string search use the **-SearchString** flag. This can be used ind
 
 #### In a limited quantity or all
 1. **MaxResults <Int>** can be used to limit the query to a specific number of values.
-
 2. **All** can be used to ensure all results are retrieved in the case that a large number of errors exists.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
 ## Office 365 admin portal
-
 You can view directory synchronization errors in the Office 365 admin center. The report in the Office 365 portal only displays **User** objects that have these errors. It does not show info about conflicts between **Groups** and **Contacts**.
-
 
 ![Active Users](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1234.png "Active Users")
 
 For instructions on how to view directory synchronization errors in the Office 365 admin center, see [Identify directory synchronization errors in Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
-
 
 ### Identity synchronization error report
 When an object with a duplicate attribute conflict is handled with this new behavior a notification is included in the standard Identity Synchronization Error Report email that is sent to the Technical Notification contact for the tenant. However, there is an important change in this behavior. In the past, information about a duplicate attribute conflict would be included in every subsequent error report until the conflict was resolved. With this new behavior, the error notification for a given conflict does only appear once- at the time the conflicting attribute is quarantined.
@@ -149,31 +139,27 @@ None of these known issues causes data loss or service degradation. Several of t
 **Core behavior:**
 
 1. Objects with specific attribute configurations continue to receive export errors as opposed to the duplicate attribute(s) being quarantined.  
-For example:
-
+   For example:
+   
     a. New user is created in AD with a UPN of **Joe@contoso.com** and ProxyAddress **smtp:Joe@contoso.com**
-
+   
     b. The properties of this object conflict with an existing Group, where ProxyAddress is **SMTP:Joe@contoso.com**.
-
+   
     c. Upon export, a **ProxyAddress conflict** error is thrown instead of having the conflict attributes quarantined. The operation is retried upon each subsequent sync cycle, as it would have been before the resiliency feature was enabled.
-
 2. If two Groups are created on-premises with the same SMTP address, one fails to provision on the first attempt with a standard duplicate **ProxyAddress** error. However, the duplicate value is properly quarantined upon the next sync cycle.
 
 **Office Portal Report**:
 
 1. The detailed error message for two objects in a UPN conflict set is the same. This indicates that they have both had their UPN changed / quarantined, when in fact only a one of them had any data changed.
-
 2. The detailed error message for a UPN conflict shows the wrong displayName for a user who has had their UPN changed/quarantined. For example:
-
+   
     a. **User A** syncs up first with **UPN = User@contoso.com**.
-
+   
     b. **User B** is attempted to be synced up next with **UPN = User@contoso.com**.
-
+   
     c. **User B’s** UPN is changed to **User1234@contoso.onmicrosoft.com** and **User@contoso.com** is added to **DirSyncProvisioningErrors**.
-
+   
     d. The error message for **User B** should indicate that **User A** already has **User@contoso.com** as a UPN, but it shows **User B’s** own displayName.
-
-
 
 **Identity synchronization error report**:
 
@@ -182,11 +168,8 @@ The link for *steps on how to resolve this issue* is incorrect:
 
 It should point to [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
 
-
 ## See also
+* [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md)
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [Identify directory synchronization errors in Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 
-- [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md)
-
-- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
-- [Identify directory synchronization errors in Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)

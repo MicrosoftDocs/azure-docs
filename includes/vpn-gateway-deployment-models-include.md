@@ -3,3 +3,4 @@ It's important to understand that Azure currently works with two deployment mode
 For example, if you are working with a virtual network that was created using the classic deployment model and wanted to add a connection to the VNet, you would use the deployment methods that correspond to the classic deployment model, not Resource Manager. If you are working with a virtual network that was created using the Resource Manager deployment model, you would use the deployment methods that correspond with Resource Manager, not classic.
 
 For information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../articles/resource-manager-deployment-model.md).
+

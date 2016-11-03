@@ -1,22 +1,23 @@
-<properties
-   pageTitle="Introduction to FreeBSD on Azure | Microsoft Azure"
-   description="Learn about using FreeBSD virtual machines on Azure"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="KylieLiang"
-   manager="timlt"
-   editor=""
-   tags="azure-service-management"/>
+---
+title: Introduction to FreeBSD on Azure | Microsoft Docs
+description: Learn about using FreeBSD virtual machines on Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: KylieLiang
+manager: timlt
+editor: ''
+tags: azure-service-management
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="08/27/2016"
-   ms.author="kyliel"/>
+ms.assetid:32b87a5f-d024-4da0-8bf0-77e233d1422b
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 08/27/2016
+ms.author: kyliel
 
+---
 # Introduction to FreeBSD on Azure
 This topic provides an overview of running a FreeBSD virtual machine in Azure.
 
@@ -31,28 +32,26 @@ Deploying a FreeBSD virtual machine is a straightforward process using an image 
 Following are supported VM extensions in FreeBSD.
 
 ### VMAccess
-
 The [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) extension can:
 
-- Reset the password of the original sudo user.
-- Create a new sudo user with the password specified.
-- Set the public host key with the key given.
-- Reset the public host key provided during VM provisioning if the host key is not provided.
-- Open the SSH port (22) and restore the sshd_config if reset_ssh is set to true.
-- Remove the existing user.
-- Check disks.
-- Repair an added disk.
+* Reset the password of the original sudo user.
+* Create a new sudo user with the password specified.
+* Set the public host key with the key given.
+* Reset the public host key provided during VM provisioning if the host key is not provided.
+* Open the SSH port (22) and restore the sshd_config if reset_ssh is set to true.
+* Remove the existing user.
+* Check disks.
+* Repair an added disk.
 
 ### CustomScript
-
 The [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) extension can:
 
-- If provided, download the customized scripts from Azure Storage or external public storage (for example, GitHub).
-- Run the entry point script.
-- Support inline commands.
-- Convert Windows-style newline in shell and Python scripts automatically.
-- Remove BOM in shell and Python scripts automatically.
-- Protect sensitive data in CommandToExecute.
+* If provided, download the customized scripts from Azure Storage or external public storage (for example, GitHub).
+* Run the entry point script.
+* Support inline commands.
+* Convert Windows-style newline in shell and Python scripts automatically.
+* Remove BOM in shell and Python scripts automatically.
+* Protect sensitive data in CommandToExecute.
 
 ## Authentication: user names, passwords, and SSH keys
 When you're creating a FreeBSD virtual machine by using the Azure portal, you must provide a user name, password, or SSH public key.
@@ -69,5 +68,6 @@ After you're logged in through this user account, you can run commands as root b
 You can optionally obtain a root shell by using sudo -s.
 
 ## Next steps
-- Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/) to create a FreeBSD VM.
-- If you want to bring your own FreeBSD to Azure, refer to [Create and upload a FreeBSD VHD to Azure](../virtual-machines-linux-classic-freebsd-create-upload-vhd.md).
+* Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/) to create a FreeBSD VM.
+* If you want to bring your own FreeBSD to Azure, refer to [Create and upload a FreeBSD VHD to Azure](../virtual-machines-linux-classic-freebsd-create-upload-vhd.md).
+

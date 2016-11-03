@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Deep diagnostics for web apps and services with Application Insights | Microsoft Azure"
-	description="How Application Insights fits into the devOps cycle"
-	services="application-insights"
-    documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+---
+title: Deep diagnostics for web apps and services with Application Insights | Microsoft Docs
+description: How Application Insights fits into the devOps cycle
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="08/26/2016"
-	ms.author="awills"/>
+ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: multiple
+ms.topic: article
+ms.date: 08/26/2016
+ms.author: awills
 
+---
 # Deep diagnostics for web apps and services with Application Insights
-
 ## Why do I need Application Insights?
-
 Application Insights monitors your running web app. It tells you about failures and performance issues, and helps you analyze how customers use your app. It works for apps running on many platforms (ASP.NET, J2EE, Node.js, ...) and is hosted either in the Cloud or on-premises. 
 
 ![Aspects of the complexity of delivering web apps](./media/app-insights-devops/010.png)
@@ -30,7 +29,6 @@ Modern web applications are developed in a cycle of continuous delivery: release
 The most important aspect of this process is diagnostics and diagnosis. If the application fails, then business is being lost. The prime role of a monitoring framework is therefore to detect failures reliably, notify you immediately, and to present you with the information needed to diagnose the problem. This is exactly what Application Insights does.
 
 ### Where do bugs come from?
-
 Failures in web systems typically arise from configuration issues or bad interactions between their many components. The first task when tackling a live site incident is therefore to identify the locus of the problem: which component or relationship is the cause?
 
 Some of us, those with gray hair, can remember a simpler era in which a computer program ran in one computer. The developers would test it thoroughly before shipping it; and having shipped it, would rarely see or think about it again. The users would have to put up with the residual bugs for many years. 
@@ -44,7 +42,6 @@ Typical web applications have many live components. In addition to the client (i
 In configurations like these, it can be difficult and uneconomical to test for, or foresee, every possible failure mode, other than in the live system itself. 
 
 ### Questions ...
-
 Some questions we ask when we're developing a web system:
 
 * Is my app crashing? 
@@ -56,13 +53,8 @@ Some questions we ask when we're developing a web system:
 * What is the root cause? Was the failure in my component or a dependency? Is it a communication issue?
 * How many users are impacted? If I have more than one issue to tackle, which is the most important?
 
-
-
 ## What is Application Insights?
-
-
 ![Basic workflow of Application Insights](./media/app-insights-devops/020.png)
-
 
 1. Application Insights instruments your app and sends telemetry about it while the app is running. Either you can build the Application Insights SDK into the app, or you can apply instrumentation at runtime. The former method is more flexible, as you can add your own telemetry to the regular modules.
 2. The telemetry is sent to the Application Insights portal, where it is stored and processed. (Although Application Insights is hosted in Microsoft Azure, it can monitor any web apps - not just Azure apps.)
@@ -83,9 +75,7 @@ The main categories of data are:
 * Custom events that you can use to track business events
 * Log traces used for debugging.
 
-
 ## Case Study: Real Madrid F.C.
-
 The web service of [Real Madrid Football Club](http://www.realmadrid.com/) serves about 450 million fans around the world. Fans access it both through web browsers and the Club's mobile apps. Fans can not only book tickets, but also access information and video clips on results, players and upcoming games. They can search with filters such as numbers of goals scored. There are also links to social media. The user experience is highly personalized, and is designed as a two-way communication to engage fans.
 
 The solution [is a system of services and applications on Microsoft Azure](https://www.microsoft.com/en-us/enterprise/microsoftcloud/realmadrid.aspx). Scalability is a key requirement: traffic is variable and can reach very high volumes during and around matches.
@@ -98,11 +88,9 @@ Most of this telemetry data is automatically collected with no added code, which
 
 Real Madrid uses the Power BI module to view their telemetry.
 
-
 ![Power BI view of Application Insights telemetry](./media/app-insights-devops/080.png)
 
 ## Smart detection
-
 [Proactive diagnostics](app-insights-proactive-diagnostics.md) is a recent feature. Without any special configuration by you, Application Insights automatically detects and alerts you about unusual rises in failure rates in your app. It's smart enough to ignore a background of occasional failures, and also rises that are simply proportionate to a rise in requests. So for example, if there's a failure in one of the services you depend on, or if the new build you just deployed isn't working so well, then you'll know about it as soon as you look at your email. (And there are webhooks so that you can trigger other apps.)
 
 Another aspect of this feature performs a daily in-depth analysis of your telemetry, looking for unusual patterns of performance that are hard to discover. For example, it can find slow performance associated with a particular geographical area, or with a particular browser version.
@@ -114,19 +102,16 @@ In both cases, the alert not only tells you the symptoms it's discovered, but al
 Customer Samtec said: "During a recent feature cutover, we found an under-scaled database that was hitting its resource limits and causing timeouts. Proactive detection alerts came through literally as we were triaging the issue, very near real time as advertised. This alert coupled with the Azure platform alerts helped us almost instantly fix the issue. Total downtime < 10 minutes."
 
 ## Live Metrics Stream
-
 Deploying the latest build can be an anxious experience. If there are any problems, you want to know about them right away, so that you can back out if necessary. Live Metrics Stream gives you key metrics with a latency of about one second.
 
 ![Live metrics](./media/app-insights-devops/040.png)
 
 ## Application Map
-
 Application Map automatically discovers your application topology, laying the performance information on top of it, to let you easily identify performance bottlenecks and problematic flows across your distributed environment. It allows you to discover application dependencies on Azure Services. You can triage the problem by understanding if it is code-related or dependency related and from a single place drill into related diagnostics experience. For example, your application may be failing due to performance degradation in SQL tier. With application map, you can see it immediately and drill into the SQL Index Advisor or Query Insights experience.
 
 ![Application Map](./media/app-insights-devops/050.png)
 
 ## Application Insights Analytics
-
 With [Analytics](app-insights-analytics.md), you can write arbitrary queries in a powerful SQL-like language.  Diagnosing across the entire app stack becomes easy as various perspectives get connected and you can ask the right questions to correlate Service Performance with Business Metrics and Customer Experience. 
 
 You can query all your telemetry instance and metric raw data stored in the portal. The language includes filter, join, aggregation, and other operations. You can calculate fields and perform statistical analysis. There are both tabular and graphical visualizations.
@@ -143,16 +128,13 @@ For example, it's easy to:
 
 Customer DNN said: "Application Insights has provided us with the missing part of the equation for being able to combine, sort, query, and filter data as needed. Allowing our team to use their own ingenuity and experience to find data with a powerful query language has allowed us to find insights and solve problems we didn't even know we had. A lot of interesting answers come from the questions starting with *'I wonder if...'.*"
 
-## Development tools integration 
-
+## Development tools integration
 ### Configuring Application Insights
-
 Visual Studio and Eclipse have tools to configure the correct SDK packages for the project you are developing. There's a menu command to add Application Insights.
 
 If you happen to be using a trace logging framework such as Log4N, NLog, or System.Diagnostics.Trace, then you get the option to send the logs to Application Insights along with the other telemetry, so that you can easily correlate the traces with requests, dependency calls, and exceptions.
 
 ### Search telemetry in Visual Studio
-
 While developing and debugging a feature, you can view and search the telemetry directly in Visual Studio, using the same search facilities as in the web portal.
 
 And when Application Insights logs an exception, you can view the data point in Visual Studio and jump straight to the relevant code.
@@ -162,31 +144,23 @@ And when Application Insights logs an exception, you can view the data point in 
 During debugging, you have the option to keep the telemetry in your development machine, viewing it in Visual Studio but without sending it to the portal. This local option avoids mixing debugging with production telemetry.
 
 ### Build annotations
-
 If you use Visual Studio Team Services to build and deploy your app, deployment annotations show up on charts in the portal. If your latest release had any effect on the metrics, it becomes obvious.
 
 ![Build annotations](./media/app-insights-devops/070.png)
 
-### Work items 
-
+### Work items
 When an alert is raised, Application Insights can automatically create a work item in your work tracking system (Visual Studio Team Services only at present).
 
-
 ## But what about...?
-
 * [Privacy and storage](app-insights-data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
 * Performance - the impact is very low. Telemetry is batched.
 * [Support](app-insights-get-dev-support.md) - You can take advantage of the Azure support program. There are lively forums where you can get answers from our developers. And in the last resort, we can give you individual help.
 * [Pricing](app-insights-pricing.md) - You can get started for free, and that continues while you're in low volume.
 
-
 ## Next steps
-
 Getting started with Application Insights is easy. The main options are:
 
 * Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](app-insights-java-live.md) and [IIS servers](app-insights-monitor-performance-live-website-now.md), and also for [Azure web apps](app-insights-azure.md).
 * Instrument your project during development. You can do this for [ASP.NET](app-insights-asp-net.md) or [Java](app-insights-java-get-started.md) apps, as well as [Node.js](app-insights-nodejs.md) and a host of [other types](app-insights-platforms.md). 
 * Instrument [any web page](app-insights-javascript.md) by adding a short code snippet.
-
-
 

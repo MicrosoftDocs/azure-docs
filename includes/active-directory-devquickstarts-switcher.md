@@ -1,7 +1,10 @@
-> [AZURE.SELECTOR]
-- [iOS](active-directory-devquickstarts-ios.md)
-- [Android](active-directory-devquickstarts-android.md)
-- [.NET](active-directory-devquickstarts-dotnet.md)
-- [Windows Universal](active-directory-devquickstarts-windowsstore.md)
-- [Xamarin](active-directory-devquickstarts-xamarin.md)
-- [Cordova](active-directory-devquickstarts-cordova.md)
+> [!div class="op_single_selector"]
+> * [iOS](../articles/active-directory/active-directory-devquickstarts-ios.md)
+> * [Android](../articles/active-directory/active-directory-devquickstarts-android.md)
+> * [.NET](../articles/active-directory/active-directory-devquickstarts-dotnet.md)
+> * [Windows Universal](../articles/active-directory/active-directory-devquickstarts-windowsstore.md)
+> * [Xamarin](../articles/active-directory/active-directory-devquickstarts-xamarin.md)
+> * [Cordova](../articles/active-directory/active-directory-devquickstarts-cordova.md)
+> 
+> 
+

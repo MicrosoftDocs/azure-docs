@@ -1,55 +1,51 @@
-<properties
-	pageTitle="Azure Active Directory B2C | Microsoft Azure"
-	description="How to build a Windows desktop application that includes sign-in, sign-up, and profile management by using Azure Active Directory B2C."
-	services="active-directory-b2c"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Azure Active Directory B2C | Microsoft Docs
+description: How to build a Windows desktop application that includes sign-in, sign-up, and profile management by using Azure Active Directory B2C.
+services: active-directory-b2c
+documentationcenter: .net
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="dastrock"/>
+ms.assetid: 9da14362-8216-4485-960e-af17cd5ba3bd
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/22/2016
+ms.author: dastrock
 
+---
 # Azure AD B2C: Build a Windows desktop app
-
 By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your desktop app in a few short steps. This article will show you how to create a .NET Windows Presentation Foundation (WPF) "to-do list" app that includes user sign-up, sign-in, and profile management. The app will include support for sign-up and sign-in by using a user name or email. It will also include support for sign-up and sign-in by using social accounts such as Facebook and Google.
 
 ## Get an Azure AD B2C directory
-
 Before you can use Azure AD B2C, you must create a directory, or tenant.  A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
 
 ## Create an application
-
 Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to securely communicate with your app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to:
 
-- Include a **native client** in the application.
-- Copy the **Redirect URI** `urn:ietf:wg:oauth:2.0:oob`. It is the default URL for this code sample.
-- Copy the **Application ID** that is assigned to your app. You will need it later.
+* Include a **native client** in the application.
+* Copy the **Redirect URI** `urn:ietf:wg:oauth:2.0:oob`. It is the default URL for this code sample.
+* Copy the **Application ID** that is assigned to your app. You will need it later.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
-
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. You need to create a policy for each type, as described in the
 [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). When you create the three policies, be sure to:
 
-- Choose either **User ID sign-up** or **Email sign-up** in the identity providers blade.
-- Choose **Display name** and other sign-up attributes in your sign-up policy.
-- Choose **Display name** and **Object ID** claims as application claims for every policy. You can choose other claims as well.
-- Copy the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You'll need these policy names later.
+* Choose either **User ID sign-up** or **Email sign-up** in the identity providers blade.
+* Choose **Display name** and other sign-up attributes in your sign-up policy.
+* Choose **Display name** and **Object ID** claims as application claims for every policy. You can choose other claims as well.
+* Copy the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You'll need these policy names later.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 After you have successfully created the three policies, you're ready to build your app.
 
 ## Download the code
-
 The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). To build the sample as you go, you can [download a skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). You can also clone the skeleton:
 
 ```
@@ -92,8 +88,7 @@ public static class Globals
 }
 ```
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
-
+[!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### Create the PublicClientApplication
 The primary class of MSAL is `PublicClientApplication`. This class represents your application in the Azure AD B2C system. When the app initalizes, create an instance of `PublicClientApplication` in `MainWindow.xaml.cs`. This can be used throughout the window.
@@ -109,7 +104,7 @@ protected async override void OnInitialized(EventArgs e)
         // we've extended the MSAL TokenCache and created a simple FileCache in this app.
         UserTokenCache = new FileCache(),
     };
-    
+
     ...
 ```
 
@@ -170,13 +165,13 @@ You can initiate a sign-in flow in the same way that you initiate a sign-up flow
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
-	AuthenticationResult result = null;
-	try
-	{
-		result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+    AuthenticationResult result = null;
+    try
+    {
+        result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                     string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
                     Globals.signInPolicy);
-		...
+        ...
 ```
 
 ### Initiate an edit-profile flow
@@ -185,16 +180,15 @@ Again, you can execute an edit-profile policy in the same fashion:
 ```C#
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
-	AuthenticationResult result = null;
-	try
-	{
-		result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+    AuthenticationResult result = null;
+    try
+    {
+        result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                     string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
                     Globals.editProfilePolicy);
 ```
 
 In all of these cases, MSAL either returns a token in `AuthenticationResult` or throws an exception. Each time you get a token from MSAL, you can use the `AuthenticationResult.User` object to update the user data in the app, such as the UI. ADAL also caches the token for use in other parts of the application.
-
 
 ### Check for tokens on app start
 You can also use MSAL to keep track of the user's sign-in state.  In this app, we want the user to remain signed in even after they close the app & re-open it.  Back inside the `OnInitialized` override, use MSAL's `AcquireTokenSilent` method to check for cached tokens:
@@ -278,19 +272,19 @@ private async void GetTodoList()
 
         return;
     }
-	...
+    ...
 ```
 
 When the call to `AcquireTokenSilentAsync(...)` succeeds and a token is found in the cache, you can add the token to the `Authorization` header of the HTTP request. The task web API will use this header to authenticate the request to read the user's to-do list:
 
 ```C#
-	...
-	// Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
+    ...
+    // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
 
     // Call the To Do list service.
     HttpResponseMessage response = await httpClient.GetAsync(Globals.taskServiceUrl + "/api/tasks");
-	...
+    ...
 ```
 
 ## Sign the user out
@@ -316,19 +310,17 @@ private void SignOut(object sender, RoutedEventArgs e)
 ```
 
 ## Run the sample app
-
 Finally, build and run the sample.  Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit that user's profile. Sign out and sign up by using a different user.
 
 ## Add social IDPs
-
 Currently, the app supports only user sign-up and sign-in that use **local accounts**. These are accounts stored in your B2C directory that use a user name and password. By using Azure AD B2C, you can add support for other identity providers (IDPs) without changing any of your code.
 
 To add social IDPs to your app, begin by following the detailed instructions in these articles. For each IDP you want to support, you need to register an application in that system and obtain a client ID.
 
-- [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
-- [Set up Google as an IDP](active-directory-b2c-setup-goog-app.md)
-- [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
-- [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
+* [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
+* [Set up Google as an IDP](active-directory-b2c-setup-goog-app.md)
+* [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
+* [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
 
 After you add the identity providers to your B2C directory, you need to edit each of your three policies to include the new IDPs, as described in the [policy reference article](active-directory-b2c-reference-policies.md). After you save your policies, run the app again. You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
 
@@ -337,3 +329,4 @@ You can experiment with your policies and observe the effects on your sample app
 For reference, the completed sample [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). You can also clone it from GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
+

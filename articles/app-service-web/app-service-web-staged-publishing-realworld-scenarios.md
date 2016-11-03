@@ -1,23 +1,23 @@
-﻿<properties
-  pageTitle="Use DevOps environments effectively for your web app"
-  description="Learn how to use deployment slots to set up and manage multiple development environments for your application"
-  services="app-service\web"
-  documentationCenter=""
-  authors="sunbuild"
-  manager="yochayk"
-  editor=""/>
+---
+title: Use DevOps environments effectively for your web app
+description: Learn how to use deployment slots to set up and manage multiple development environments for your application
+services: app-service\web
+documentationcenter: ''
+author: sunbuild
+manager: yochayk
+editor: ''
 
-<tags
-  ms.service="app-service"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.tgt_pltfrm="na"
-  ms.workload="web"
-  ms.date="10/24/2016"
-  ms.author="sumuth"/>
+ms.assetid: 16a594dc-61f5-4984-b5ca-9d5abc39fb1e
+ms.service: app-service
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: web
+ms.date: 10/24/2016
+ms.author: sumuth
 
+---
 # Use DevOps environments effectively for your web apps
-
 This article shows you to set up and manage web application deployments for multiple versions of your application such as development, staging, QA and production. Each version of your application can be considered as development environment for specific need of within your deployment process. For example QA environment can be used by your team of developers to test the quality of the application before you push the changes to production.
 Setting up multiple development environments can be a challenging task as you need to track, manage the resources (compute, web app, database, cache etc.) and deploy code across environments.
 
@@ -31,7 +31,6 @@ Once you have a production web app up and running, the next step is to create a 
 To set up a staging deployment slot, see [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing.md). Every environment should include its own set of resources, for example if you web app uses a database then both production and staging web app should be using different databases. Add staging development environment resources such as database, storage or cache for setting you your staging development environment.
 
 ## Examples of using multiple development environments
-
 Any project should follow a source code management with at least two environments, a development and production environment but when using Content management systems, Application frameworks etc. we might run into issues where the application does not support this scenario out of the box. This is true for some of the popular frameworks discussed below. Lots of questions come to mind when working with a CMS/frameworks such as
 
 1. How to break it out into different environments
@@ -109,73 +108,71 @@ define('NONCE_SALT', 'put your unique phrase here');
 $table_prefix = 'wp_';
 ```
 
-Setting the security keys above can help preventing your web app from being hacked, so use unique values. If you need to generate the string for security keys mentioned above, you can go to the automatic generator to create new keys/values using this [link] (https://api.wordpress.org/secret-key/1.1/salt)
+Setting the security keys above can help preventing your web app from being hacked, so use unique values. If you need to generate the string for security keys mentioned above, you can go to the automatic generator to create new keys/values using this [link](https://api.wordpress.org/secret-key/1.1/salt)
 
 Copy the following code in `wp-config.azure.php`:
 
+```    <?php
+    // MySQL settings
+    /** The name of the database for WordPress */
 
-```	<?php
-	// MySQL settings
-	/** The name of the database for WordPress */
-	
-	define('DB_NAME', getenv('DB_NAME'));
-	
-	/** MySQL database username */
-	define('DB_USER', getenv('DB_USER'));
-	
-	/** MySQL database password */
-	define('DB_PASSWORD', getenv('DB_PASSWORD'));
-	
-	/** MySQL hostname */
-	define('DB_HOST', getenv('DB_HOST'));
-	
-	/**
-	* For developers: WordPress debugging mode.
-	*
-	* Change this to true to enable the display of notices during development.
-	* It is strongly recommended that plugin and theme developers use WP_DEBUG
-	* in their development environments.
-	* Turn on debug logging to investigate issues without displaying to end user. For WP_DEBUG_LOG to
-	* do anything, WP_DEBUG must be enabled (true). WP_DEBUG_DISPLAY should be used in conjunction
-	* with WP_DEBUG_LOG so that errors are not displayed on the page */
-	
-	*/
-	define('WP_DEBUG', getenv('WP_DEBUG'));
-	define('WP_DEBUG_LOG', getenv('TURN_ON_DEBUG_LOG'));
-	define('WP_DEBUG_DISPLAY',false);
-	
-	//Security key settings
-	/** If you need to generate the string for security keys mentioned above, you can go the automatic generator to create new keys/values: https://api.wordpress.org/secret-key/1.1/salt **/
-	define('AUTH_KEY',getenv('DB_AUTH_KEY'));
-	define('SECURE_AUTH_KEY', getenv('DB_SECURE_AUTH_KEY'));
-	define('LOGGED_IN_KEY', getenv('DB_LOGGED_IN_KEY'));
-	define('NONCE_KEY', getenv('DB_NONCE_KEY'));
-	define('AUTH_SALT', getenv('DB_AUTH_SALT'));
-	define('SECURE_AUTH_SALT', getenv('DB_SECURE_AUTH_SALT'));
-	define('LOGGED_IN_SALT',  getenv('DB_LOGGED_IN_SALT'));
-	define('NONCE_SALT',  getenv('DB_NONCE_SALT'));
-	
-	/**
-	* WordPress Database Table prefix.
-	*
-	* You can have multiple installations in one database if you give each a unique
-	* prefix. Only numbers, letters, and underscores please!
-	*/
-	$table_prefix = getenv('DB_PREFIX');
+    define('DB_NAME', getenv('DB_NAME'));
+
+    /** MySQL database username */
+    define('DB_USER', getenv('DB_USER'));
+
+    /** MySQL database password */
+    define('DB_PASSWORD', getenv('DB_PASSWORD'));
+
+    /** MySQL hostname */
+    define('DB_HOST', getenv('DB_HOST'));
+
+    /**
+    * For developers: WordPress debugging mode.
+    *
+    * Change this to true to enable the display of notices during development.
+    * It is strongly recommended that plugin and theme developers use WP_DEBUG
+    * in their development environments.
+    * Turn on debug logging to investigate issues without displaying to end user. For WP_DEBUG_LOG to
+    * do anything, WP_DEBUG must be enabled (true). WP_DEBUG_DISPLAY should be used in conjunction
+    * with WP_DEBUG_LOG so that errors are not displayed on the page */
+
+    */
+    define('WP_DEBUG', getenv('WP_DEBUG'));
+    define('WP_DEBUG_LOG', getenv('TURN_ON_DEBUG_LOG'));
+    define('WP_DEBUG_DISPLAY',false);
+
+    //Security key settings
+    /** If you need to generate the string for security keys mentioned above, you can go the automatic generator to create new keys/values: https://api.wordpress.org/secret-key/1.1/salt **/
+    define('AUTH_KEY',getenv('DB_AUTH_KEY'));
+    define('SECURE_AUTH_KEY', getenv('DB_SECURE_AUTH_KEY'));
+    define('LOGGED_IN_KEY', getenv('DB_LOGGED_IN_KEY'));
+    define('NONCE_KEY', getenv('DB_NONCE_KEY'));
+    define('AUTH_SALT', getenv('DB_AUTH_SALT'));
+    define('SECURE_AUTH_SALT', getenv('DB_SECURE_AUTH_SALT'));
+    define('LOGGED_IN_SALT',  getenv('DB_LOGGED_IN_SALT'));
+    define('NONCE_SALT',  getenv('DB_NONCE_SALT'));
+
+    /**
+    * WordPress Database Table prefix.
+    *
+    * You can have multiple installations in one database if you give each a unique
+    * prefix. Only numbers, letters, and underscores please!
+    */
+    $table_prefix = getenv('DB_PREFIX');
 ```
 
 #### Use Relative Paths
 One last thing is to configure the WordPress app to use relative paths. WordPress stores URL information in the database. This makes moving content from one environment to another more difficult as you need to update the database every time you move from local to stage or stage to production environments. To reduce the risk of issues that can be caused with deploying a database every time you deploy from one environment to another use the [Relative Root links plugin](https://wordpress.org/plugins/root-relative-urls/) which can be installed using WordPress administrator dashboard or download it manually from [here](https://downloads.wordpress.org/plugin/root-relative-urls.zip).
-
 
 Add the following entries to your `wp-config.php` file before the `That's all, stop editing!` comment:
 
 ```
 
   define('WP_HOME', 'http://'. filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
-	define('WP_SITEURL', 'http://'. filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
-	define('WP_CONTENT_URL', '/wp-content');
-	define('DOMAIN_CURRENT_SITE', filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
+    define('WP_SITEURL', 'http://'. filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
+    define('WP_CONTENT_URL', '/wp-content');
+    define('DOMAIN_CURRENT_SITE', filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
 ```
 
 Activate the plugin through the `Plugins` menu in WordPress Administrator dashboard. Save your permalink settings for WordPress app.
@@ -232,7 +229,7 @@ define('DOMAIN_CURRENT_SITE', $_SERVER['HTTP_HOST']);
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__). '/');
+    define('ABSPATH', dirname(__FILE__). '/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH. 'wp-settings.php');
@@ -254,15 +251,16 @@ Update the Connection strings for your stage deployment slot to point to newly c
 Developers can store key-value string pairs in Azure as part of the configuration information associated with a web app called App Settings. At runtime, App Service Web Apps automatically retrieves these values for you and makes them available to code running in your web app. From a security perspective that is a nice side benefit since sensitive information such as database connection strings with passwords never show up as clear text in a file such as `wp-config.php`.
 
 This process defined below is useful when you perform as it includes both file changes and database changes for WordPress app:
-- WordPress version upgrade
-- Add new or edit or upgrade Plugins
-- Add new or edit or upgrade themes
+
+* WordPress version upgrade
+* Add new or edit or upgrade Plugins
+* Add new or edit or upgrade themes
 
 Configure app settings for:
 
-- database information
-- turning on/off WordPress logging
-- WordPress security settings
+* database information
+* turning on/off WordPress logging
+* WordPress security settings
 
 ![App Settings for Wordpress web app](./media/app-service-web-staged-publishing-realworld-scenarios/3configure.png)
 
@@ -277,13 +275,14 @@ Browse and test your staging web app. Considering a scenario where the theme of 
 
 ![Browse staging web app before swapping slots](./media/app-service-web-staged-publishing-realworld-scenarios/5wpstage.png)
 
-
  If all looks good, click on the **Swap** button on your staging web app to move your content to the production environment. In this case you swap the web app and the database across environments during every **Swap** operation.
 
 ![Swap preview changes for WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- > [AZURE.NOTE]
- >If you have a scenario where you need to only push files (no database updates), then **Check** the **Slot Setting** for all the database related *app settings* and *connection strings settings* in web app setting blade within the Azure preview portal before doing the SWAP. In this case DB_NAME, DB_HOST, DB_PASSWORD, DB_USER, default connection string setting should not show up in preview changes when doing a **Swap**. At this time, when you complete the **Swap** operation the WordPress web app will have the updates files **ONLY**.
+> [!NOTE]
+> If you have a scenario where you need to only push files (no database updates), then **Check** the **Slot Setting** for all the database related *app settings* and *connection strings settings* in web app setting blade within the Azure preview portal before doing the SWAP. In this case DB_NAME, DB_HOST, DB_PASSWORD, DB_USER, default connection string setting should not show up in preview changes when doing a **Swap**. At this time, when you complete the **Swap** operation the WordPress web app will have the updates files **ONLY**.
+> 
+> 
 
 Before doing a SWAP, here is the production WordPress web app
 ![Production web app before swapping slots](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
@@ -318,25 +317,23 @@ In this section you will learn how the Umbraco CMS uses a custom module to deplo
 Always remember to remove the `install` folder under your application and never upload it to stage or production web apps. For this tutorial, I will be using WebMatrix
 
 #### Set up a staging environment
-- Create a deployment slot as mentioned above for Umbraco CMS web app, assuming you already have an Umbraco CMS web app up and running. If not you can create one from the marketplace.
-
-- Update the Connection string for your stage deployment slot to point to newly created database, **umbraco-stage-db**. Your production web app (umbraositecms-1) and staging web app (umbracositecms-1-stage) **MUST** point to different databases.
+* Create a deployment slot as mentioned above for Umbraco CMS web app, assuming you already have an Umbraco CMS web app up and running. If not you can create one from the marketplace.
+* Update the Connection string for your stage deployment slot to point to newly created database, **umbraco-stage-db**. Your production web app (umbraositecms-1) and staging web app (umbracositecms-1-stage) **MUST** point to different databases.
 
 ![Update Connection string for staging web app with new staging database](./media/app-service-web-staged-publishing-realworld-scenarios/9umbconnstr.png)
 
-- Click on **Get Publish settings** for the deployment slot **stage**. This will download a publish settings file that store all the information required by Visual Studio or Web Matrix to publish your application from local development web app to Azure web app.
-
- ![Get publish setting of the staging web app](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
-
-- Open your local development web app in **WebMatrix** or **Visual Studio**. In this tutorial I am using Web Matrix and first you need to import the publish settings file for your staging web app
+* Click on **Get Publish settings** for the deployment slot **stage**. This will download a publish settings file that store all the information required by Visual Studio or Web Matrix to publish your application from local development web app to Azure web app.
+  
+  ![Get publish setting of the staging web app](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
+* Open your local development web app in **WebMatrix** or **Visual Studio**. In this tutorial I am using Web Matrix and first you need to import the publish settings file for your staging web app
 
 ![Import Publish settings for Umbraco using Web Matrix](./media/app-service-web-staged-publishing-realworld-scenarios/11import.png)
 
-- Review changes in the dialog box and deploy your local web app to your Azure web app, *umbracositecms-1-stage*. When you deploy files directly to your staging web app you will omit any files in the `~/app_data/TEMP/` folder as these will be regenerated when the stage web app is first started. You should also omit the `~/app_data/umbraco.config` file as this, too, will be regenerated.
+* Review changes in the dialog box and deploy your local web app to your Azure web app, *umbracositecms-1-stage*. When you deploy files directly to your staging web app you will omit any files in the `~/app_data/TEMP/` folder as these will be regenerated when the stage web app is first started. You should also omit the `~/app_data/umbraco.config` file as this, too, will be regenerated.
 
 ![Review Publish changes in web matrix](./media/app-service-web-staged-publishing-realworld-scenarios/12umbpublish.png)
 
-- After successfully publishing the Umbraco local web app to staging web app, browse to your staging web app and run a few tests to rule out any issues.
+* After successfully publishing the Umbraco local web app to staging web app, browse to your staging web app and run a few tests to rule out any issues.
 
 #### Set up Courier2 deployment module
 With [Courier2](http://umbraco.com/products/more-add-ons/courier-2) module you can push content, stylesheets, development modules and more with a simple right-click from a staging web app to production web app for a more hassle free deployments and reducing risk of breaking your production web app when deploying an update.
@@ -412,11 +409,9 @@ Browse your production web app to see if the changes are reflected.
 To learn more about how to use Courier, review the documentation.
 
 #### How to upgrade Umbraco CMS version
-
 Courier will not help deploy with upgrading from one version of Umbraco CMS to another. When upgrading Umbraco CMS version, you must check for incompatibilities with your custom modules or third-party modules and the Umbraco Core libraries. As a best practice
 
 1. ALWAYS backup your web app and database before doing an upgrade. On Azure Web App, you can set up automatic backups for your websites using the backup feature and restore your site if needed using restore feature. For more details, see [How to back up your web app](web-sites-backup.md) and [How to restore your web app](web-sites-restore.md).
-
 2. Check if the third-party packages you're using are compatible with the version you're upgrading to. On the package's download page, review the Project compatibility with Umbraco CMS version.
 
 For more details on how to upgrade your web app locally, follow the guidelines as mentioned [here](https://our.umbraco.org/documentation/getting-started/set up/upgrading/general).
@@ -426,6 +421,7 @@ Once your local development site is upgraded, publish the changes to staging web
 ![Swap preview for deploying Umbraco CMS](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
 The advantage of swapping both the web app and database:
+
 1. Gives you the ability to roll back to the previous version of your web app with another **Swap** if there are any application issues.
 2. For an upgrade you need to deploy files and database from staging web app to production web app and database. There are many things that can go wrong when deploying files and database. By using the **swap** feature of slots, we can reduce downtime during an upgrade and reduce the risk of failures that can occur when deploying changes.
 3. Gives you the ability to do **A/B testing** using [Testing in production](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/) feature
@@ -438,3 +434,4 @@ This example shows you the flexibility of the platform where you can build custo
 [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing.md)
 
 [How to block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
+

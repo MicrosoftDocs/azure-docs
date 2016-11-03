@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="How to use scoring profiles in Azure Search | Microsoft Azure | Hosted cloud search service" 
-	description="Tune search ranking through scoring profiles in Azure Search, a hosted cloud search service on Microsoft Azure." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+---
+title: How to use scoring profiles in Azure Search | Microsoft Docs
+description: Tune search ranking through scoring profiles in Azure Search, a hosted cloud search service on Microsoft Azure.
+services: search
+documentationcenter: ''
+author: HeidiSteen
+manager: mblythe
+editor: ''
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="10/17/2016" 
-	ms.author="heidist"/>
+ms.assetid: 7af6ede7-318f-4cea-8fdb-27090460c261
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 10/17/2016
+ms.author: heidist
 
+---
 # How to use scoring profiles in Azure Search
-
 Scoring profiles are a feature of Microsoft Azure Search that customize the calculation of search scores, influencing how items are ranked in a search results list. You can think of scoring profiles as a way to model relevance, by boosting items that meet predefined criteria. For example, suppose your application is an online hotel reservation site. By boosting the `location` field, searches that include a term like Seattle will result in higher scores for items that have Seattle in the `location` field. Note that you can have more than one scoring profile, or none at all, if the default scoring is sufficient for your application.
 
 To help you experiment with scoring profiles, you can download a sample application that uses scoring profiles to change the rank order of search results. The sample is a console application – perhaps not very realistic for real-world application development – but useful nonetheless as  a learning tool. 
@@ -25,17 +25,17 @@ To help you experiment with scoring profiles, you can download a sample applicat
 The sample application demonstrates scoring behaviors using fictional data, called the `musicstoreindex`. The simplicity of the sample app makes it easy to modify scoring profiles and queries, and then see the immediate effects on rank order when the program is executed.
 
 <a id="sub-1"></a>
-## Prerequisites
 
+## Prerequisites
 The sample application is written in C# using Visual Studio 2013. Try the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) if you don't already have a copy of Visual Studio.
 
 You will need an Azure subscription and an Azure Search service to complete the tutorial. See [Create a Search service in the portal](search-create-service-portal.md) for help with setting up the service.
 
-[AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../../includes/free-trial-note.md)]
+[!INCLUDE [You need an Azure account to complete this tutorial:](../../includes/free-trial-note.md)]
 
 <a id="sub-2"></a>
-## Download the sample application
 
+## Download the sample application
 Go to [Azure Search Scoring Profiles Demo](https://azuresearchscoringprofiles.codeplex.com/) on codeplex to download the sample application described in this tutorial.
 
 On the Source Code tab, click **Download** to get a zip file of the solution. 
@@ -43,23 +43,22 @@ On the Source Code tab, click **Download** to get a zip file of the solution.
  ![][12]
 
 <a id="sub-3"></a>
-## Edit app.config
 
+## Edit app.config
 1. After you extract the files, open the solution in Visual Studio to edit the configuration file.
-1. In Solution Explorer, double-click **app.config**. This file specifies the service endpoint and an `api-key` used to authenticate the request. You can obtain these values from the Classic Portal.
-1. Sign in to the [Azure Portal](https://portal.azure.com).
-1. Go to the service dashboard for Azure Search.
-1. Click the **Properties** tile to copy the service URL
-1. Click the **Keys** tile to copy the `api-key`.
+2. In Solution Explorer, double-click **app.config**. This file specifies the service endpoint and an `api-key` used to authenticate the request. You can obtain these values from the Classic Portal.
+3. Sign in to the [Azure Portal](https://portal.azure.com).
+4. Go to the service dashboard for Azure Search.
+5. Click the **Properties** tile to copy the service URL
+6. Click the **Keys** tile to copy the `api-key`.
 
 When you are finished adding the URL and `api-key` to app.config, application settings should look like this:
 
    ![][11]
 
-
 <a id="sub-4"></a>
-## Explore the application
 
+## Explore the application
 You're almost ready to build and run the app, but before you do, take a look at the JSON files used to create and populate the index.
 
 **Schema.json** defines the index, including the scoring profiles that are emphasized in this demo. Notice that the schema defines all of the fields used in the index, including non-searchable fields, such as `margin`, that you can use in a scoring profile. Scoring profile syntax is documented in [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/library/azure/dn798928.aspx).
@@ -68,21 +67,16 @@ You're almost ready to build and run the app, but before you do, take a look at 
 
 **Program.cs** performs the following operations:
 
-- Opens a console window.
-
-- Connects to Azure Search using the service URL and `api-key`.
-
-- Deletes the `musicstoreindex` if it exists.
-
-- Creates a new `musicstoreindex` using the schema.json file.
-
-- Populates the index using the data files.
-
-- Queries the index using four queries. Notice that the scoring profiles are specified as a query parameter. All of the queries search for the same term, 'best'. The first query demonstrates default scoring. The remaining three queries use a scoring profile.
+* Opens a console window.
+* Connects to Azure Search using the service URL and `api-key`.
+* Deletes the `musicstoreindex` if it exists.
+* Creates a new `musicstoreindex` using the schema.json file.
+* Populates the index using the data files.
+* Queries the index using four queries. Notice that the scoring profiles are specified as a query parameter. All of the queries search for the same term, 'best'. The first query demonstrates default scoring. The remaining three queries use a scoring profile.
 
 <a id="sub-5"></a>
-## Build and run the application
 
+## Build and run the application
 To rule out connectivity or assembly reference problems, build and run the application to ensure there are no issues to work out first. You should see a console application open in the background. All four queries execute in sequence without pausing. On many systems, the entire program executes in under 15 seconds. If the console application includes a message stating “Complete. Press enter to continue”, the program completed successfully. 
 
 To compare query runs, you can mark-copy-paste the query results from the console and paste them into an Excel file. 
@@ -104,8 +98,8 @@ The next illustration shows the fourth and final query, boosted by 'margin'. The
 Now that you have experimented with scoring profiles, try changing the program to use different query syntax, scoring profiles, or richer data. Links in the next section provide more information.
 
 <a id="next-steps"></a>
-## Next steps
 
+## Next steps
 Learn more about scoring profiles. See [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) for details.
 
 Learn more about search syntax and query parameters. See [Search Documents (Azure Search REST API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) for details.

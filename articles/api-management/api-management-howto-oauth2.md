@@ -1,38 +1,42 @@
-<properties 
-	pageTitle="How to authorize developer accounts using OAuth 2.0 in Azure API Management" 
-	description="Learn how to authorize users using OAuth 2.0 in API Management." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: How to authorize developer accounts using OAuth 2.0 in Azure API Management
+description: Learn how to authorize users using OAuth 2.0 in API Management.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/25/2016" 
-	ms.author="sdanie"/>
+ms.assetid: 78c48247-64f0-4708-b2d0-98b61a821283
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/25/2016
+ms.author: sdanie
 
+---
 # How to authorize developer accounts using OAuth 2.0 in Azure API Management
-
 Many APIs support [OAuth 2.0](http://oauth.net/2/) to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. In order to use Azure API Management's interactive Developer Console with such APIs, the service allows you to configure your service instance to work with your OAuth 2.0 enabled API.
 
 ## <a name="prerequisites"> </a>Prerequisites
-
 This guide shows you how to configure your API Management service instance to use OAuth 2.0 authorization for developer accounts, but does not show you how to configure an OAuth 2.0 provider. The configuration for each OAuth 2.0 provider is different, although the steps are similar, and the required pieces of information used in configuring OAuth 2.0 in your API Management service instance are the same. This topic shows examples using Azure Active Directory as an OAuth 2.0 provider.
 
->[AZURE.NOTE] For more information on configuring OAuth 2.0 using Azure Active Directory, see the [WebApp-GraphAPI-DotNet][] sample.
+> [!NOTE]
+> For more information on configuring OAuth 2.0 using Azure Active Directory, see the [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet] sample.
+> 
+> 
 
 ## <a name="step1"> </a>Configure an OAuth 2.0 authorization server in API Management
-
-To get started, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
+To get started, click **Publisher portal** in the Azure Portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 
->[AZURE.NOTE] If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
+> [!NOTE]
+> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
+> 
+> 
 
 Click **Security** from the **API Management** menu on the left, click **OAuth 2.0**, and then click **Add authorization server**.
 
@@ -44,7 +48,10 @@ After clicking **Add authorization server**, the new authorization server form i
 
 Enter a name and an optional description in the **Name** and **Description** fields. 
 
->[AZURE.NOTE] These fields are used to identify the OAuth 2.0 authorization server within the current API Management service instance and their values do not come from the OAuth 2.0 server.
+> [!NOTE]
+> These fields are used to identify the OAuth 2.0 authorization server within the current API Management service instance and their values do not come from the OAuth 2.0 server.
+> 
+> 
 
 Enter the **Client registration page URL**. This page is where users can create and manage their accounts, and varies depending on the OAuth 2.0 provider used. The **Client registration page URL** points to the page that users can use to create and configure their own accounts for OAuth 2.0 providers that support user management of accounts. Some organizations do not configure or use this functionality even if the OAuth 2.0 provider supports it. If your OAuth 2.0 provider does not have user management of accounts configured, enter a placeholder URL here such as the URL of your company, or a URL such as `https://placeholder.contoso.com`.
 
@@ -81,7 +88,6 @@ If **Authorization code grant types** is set to **Resource owner password**, the
 Once the form is complete, click **Save** to save the API Management OAuth 2.0 authorization server configuration. Once the server configuration is saved, you can configure APIs to use this configuration, as shown in the next section.
 
 ## <a name="step2"> </a>Configure an API to use OAuth 2.0 user authorization
-
 Click **APIs** from the **API Management** menu on the left, click the name of the desired API, click **Security**, and then check the box for **OAuth 2.0**.
 
 ![User authorization][api-management-user-authorization]
@@ -91,7 +97,6 @@ Select the desired **Authorization server** from the drop-down list, and click *
 ![User authorization][api-management-user-authorization-save]
 
 ## <a name="step3"> </a>Test the OAuth 2.0 user authorization in the Developer Portal
-
 Once you have configured your OAuth 2.0 authorization server and configured your API to use that server, you can test it by going to the Developer Portal and calling an API.  Click **Developer portal** in the top right menu.
 
 ![Developer portal][api-management-developer-portal-menu]
@@ -100,7 +105,10 @@ Click **APIs** in the top menu and select **Echo API**.
 
 ![Echo API][api-management-apis-echo-api]
 
->[AZURE.NOTE] If you have only one API configured or visible to your account, then clicking APIs takes you directly to the operations for that API.
+> [!NOTE]
+> If you have only one API configured or visible to your account, then clicking APIs takes you directly to the operations for that API.
+> 
+> 
 
 Select the **GET Resource** operation, click **Open Console**, and then select **Authorization code** from the drop-down.
 
@@ -108,7 +116,10 @@ Select the **GET Resource** operation, click **Open Console**, and then select *
 
 When **Authorization code** is selected, a pop-up window is displayed with the sign-in form of the OAuth 2.0 provider. In this example the sign-in form is provided by Azure Active Directory.
 
->[AZURE.NOTE] If you have pop-ups disabled you will be prompted to enable them by the browser. After you enable them, select **Authorization code** again and the sign-in form will be displayed.
+> [!NOTE]
+> If you have pop-ups disabled you will be prompted to enable them by the browser. After you enable them, select **Authorization code** again and the sign-in form will be displayed.
+> 
+> 
 
 ![Sign in][api-management-oauth2-signin]
 
@@ -119,10 +130,11 @@ Once you have signed in, the **Request headers** are populated with an `Authoriz
 At this point you can configure the desired values for the remaining parameters, and submit the request. 
 
 ## Next steps
-
 For more information about using OAuth 2.0 and API Management, see the following video and accompanying [article](api-management-howto-protect-backend-with-aad.md).
 
-> [AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
+> 
+> 
 
 [api-management-management-console]: ./media/api-management-howto-oauth2/api-management-management-console.png
 [api-management-oauth2]: ./media/api-management-howto-oauth2/api-management-oauth2.png

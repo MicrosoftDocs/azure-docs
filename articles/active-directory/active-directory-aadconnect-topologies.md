@@ -1,35 +1,37 @@
-<properties
-    pageTitle="Azure AD Connect: Supported topologies | Microsoft Azure"
-    description="This topic details supported and unsupported topologies for Azure AD Connect"
-    services="active-directory"
-    documentationCenter=""
-    authors="AndKjell"
-    manager="femila"
-    editor=""/>
-<tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-	ms.topic="article"
-    ms.date="11/01/2016"
-    ms.author="billmath"/>
+---
+title: 'Azure AD Connect: Supported topologies | Microsoft Docs'
+description: This topic details supported and unsupported topologies for Azure AD Connect
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
+ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
+ms.service: active-directory
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.topic: article
+ms.date: 11/01/2016
+ms.author: billmath
+
+---
 # Topologies for Azure AD Connect
 The objective of this topic is to describe different on-premises and Azure AD topologies with Azure AD Connect sync as the key integration solution. It describes both supported and unsupported configurations.
 
 Legend for pictures in the document:
 
-Description | Icon
------|-----
-On-premises Active Directory forest| ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)
-Active Directory with filtered import| ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)
-Azure AD Connect sync server| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync1.png)
-Azure AD Connect sync server “Staging mode”| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync2.png)
-GALSync with FIM2010 or MIM2016| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync3.png)
-Azure AD Connect sync server, detailed| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync4.png)
-Azure AD directory |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)
-Unsupported scenario | ![Unsupported](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
+| Description | Icon |
+| --- | --- |
+| On-premises Active Directory forest |![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png) |
+| Active Directory with filtered import |![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png) |
+| Azure AD Connect sync server |![Sync](./media/active-directory-aadconnect-topologies/LegendSync1.png) |
+| Azure AD Connect sync server “Staging mode” |![Sync](./media/active-directory-aadconnect-topologies/LegendSync2.png) |
+| GALSync with FIM2010 or MIM2016 |![Sync](./media/active-directory-aadconnect-topologies/LegendSync3.png) |
+| Azure AD Connect sync server, detailed |![Sync](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
+| Azure AD directory |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
+| Unsupported scenario |![Unsupported](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
 
 ## Single forest, single Azure AD tenant
 ![Single Forest Single Tenant](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
@@ -61,8 +63,8 @@ The default configuration in Azure AD Connect sync assumes:
 
 If your environment does not match these assumptions, the following happens:
 
-- If you have more than one active account or more than one mailbox, the sync engine picks one and ignore the other.
-- A linked mailbox with no other active account is not exported to Azure AD. The user account is not represented as a member in any group. A linked mailbox in DirSync would always be represented as a normal mailbox. This change is intentionally a different behavior to better support multi-forest scenarios.
+* If you have more than one active account or more than one mailbox, the sync engine picks one and ignore the other.
+* A linked mailbox with no other active account is not exported to Azure AD. The user account is not represented as a member in any group. A linked mailbox in DirSync would always be represented as a normal mailbox. This change is intentionally a different behavior to better support multi-forest scenarios.
 
 More details can be found in [understanding the default configuation](active-directory-aadconnectsync-understanding-default-configuration.md).
 
@@ -116,10 +118,10 @@ In this scenario one (or more) **resource forest** trusts all **account forests*
 ## Office 365 and topology considerations
 Some Office 365 workloads have certain restrictions to supported topologies. If you plan to use any of these, then read the supported topologies topic for the workload.
 
-Workload |  
---------- | ---------
-Exchange Online | If there is more than one Exchange organization on-premises (that is, Exchange has been deployed to more than one forest), then you must use Exchange 2013 SP1 or later. Details can be found here: [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/library/jj873754.aspx)
-Skype for Business | If you use multiple forests on-premises, then only the account-resource forest topology is supported. Details for supported topologies can be found here: [Environmental requirements for Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx)
+| Workload |
+| --- | --- |
+| Exchange Online |
+| Skype for Business |
 
 ## Staging server
 ![Staging Server](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -136,9 +138,9 @@ It is possible to have more than one staging server when you want to have multip
 Microsoft recommends having a single tenant in Azure AD for an organization.
 Before you plan to use multiple Azure AD tenants, these topics cover common scenarios allowing you to use a single tenant.
 
-Topic |  
---------- | ---------
-Delegation using administrative units | [Administrative units management in Azure AD ](active-directory-administrative-units-management.md)
+| Topic |
+| --- | --- |
+| Delegation using administrative units |
 
 ![Multi Forest Multi tenant](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -153,28 +155,28 @@ There is no GALsync between the Azure AD tenant instances. The address book in E
 
 This topology has the following restrictions to otherwise supported scenarios:
 
-- Only one of the Azure AD tenants can enable Exchange hybrid with the on-premises Active Directory.
-- Windows 10 devices can only be associated with one Azure AD tenant.
+* Only one of the Azure AD tenants can enable Exchange hybrid with the on-premises Active Directory.
+* Windows 10 devices can only be associated with one Azure AD tenant.
 
 The requirement for mutually exclusive set of objects also applies to writeback. Some writeback features are not supported with this topology since these features assume a single configuration on-premises:
 
--	Group writeback with default configuration
--	Device writeback
+* Group writeback with default configuration
+* Device writeback
 
 ### Each object multiple times in an Azure AD tenant
 ![Single Forest Multi Tenant Unsupported](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![Single Forest Multi Connectors Unsupported](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
 
-- It is unsupported to sync the same user to multiple Azure AD tenants.
-- It is unsupported to make a configuration change to make users in one Azure AD appear as contacts in another Azure AD tenant.
-- It is unsupported to modify Azure AD Connect sync to connect to multiple Azure AD tenants.
+* It is unsupported to sync the same user to multiple Azure AD tenants.
+* It is unsupported to make a configuration change to make users in one Azure AD appear as contacts in another Azure AD tenant.
+* It is unsupported to modify Azure AD Connect sync to connect to multiple Azure AD tenants.
 
 ### GALsync by using writeback
 ![MultiForestMultiDirectoryGALSync1Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![MultiForestMultiDirectoryGALSync2Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
 
 Azure AD tenants are by design isolated.
 
-- It is unsupported to change the configuration of Azure AD Connect sync to read data from another Azure AD tenant.
-- It is unsupported to export users as contacts to another on-premises AD using Azure AD Connect sync.
+* It is unsupported to change the configuration of Azure AD Connect sync to read data from another Azure AD tenant.
+* It is unsupported to export users as contacts to another on-premises AD using Azure AD Connect sync.
 
 ### GALsync with on-premises sync server
 ![MultiForestMultiDirectoryGALSync](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync.png)
@@ -182,8 +184,9 @@ Azure AD tenants are by design isolated.
 It is supported to use FIM2010/MIM2016 on-premises to GALsync users between two Exchange organizations. The users in one organization shows up as foreign users/contacts in the other organization. These different on-premises ADs can then be synchronized to their own Azure AD tenants.
 
 ## Next steps
-To learn how to install Azure AD Connect for these scenarios, see [Custom installation of Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md).
+To learn how to install Azure AD Connect for these scenarios, see [Custom installation of Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
 
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

@@ -1,37 +1,34 @@
-﻿<properties
-   pageTitle="Access and Security in Azure Resource Manager Templates | Microsoft Azure" 
-   description="Azure Virtual Machine DotNet Core Tutorial"
-   services="virtual-machines-windows"
-   documentationCenter="virtual-machines"
-   authors="neilpeterson"
-   manager="timlt"
-   editor="tysonn"
-   tags="azure-resource-manager"/>
+---
+title: Access and Security in Azure Resource Manager Templates | Microsoft Docs
+description: Azure Virtual Machine DotNet Core Tutorial
+services: virtual-machines-windows
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="10/21/2016"
-   ms.author="nepeters"/>
+ms.assetid: e671fc45-5e4d-40fd-aac5-290892713cc0
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 10/21/2016
+ms.author: nepeters
 
+---
 # Access and security in Azure Resource Manager templates
-
 Applications hosted in Azure likely need to be access over the internet or a VPN / Express Route connection with Azure. With the Music Store application sample, the web site is made available on the internet with a public IP address. With access established, connections to the application and access to the virtual machine resources themselves should be secured. This access security is provided with a Network Security Group. 
 
 This document details how the Music Store application is secured in the sample Azure Resource Manager template. All dependencies and unique configurations are highlighted. For the best experience, pre-deploy an instance of the solution to your Azure subscription and work along with the Azure Resource Manager template. The complete template can be found here – [Music Store Deployment on Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
-
 ## Public IP Address
-
 To provide public access to an Azure resource, a public IP address resource can be used. Public IP address can be configured with a static or dynamic IP address. If a dynamic address is used, and the virtual machine is stopped and deallocated, the addresses is removed. When the machine is started again, it may be assigned a different public IP address. To prevent an IP address from changing, a reserved IP address can be used. 
 
 A Public IP Address can be added to an Azure Resource Manager template using the Visual Studio Add New Resource Wizard, or by inserting valid JSON into a template. 
 
 Follow this link to see the JSON sample within the Resource Manager template – [Public IP Address](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L110).
-
 
 ```none
 {
@@ -76,7 +73,6 @@ The public IP Address as seen from the Azure portal. Notice that the public IP a
 For more information on Azure Public IP Addresses, see [IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 ## Network Security Group
-
 Once access has been established to Azure resources, this access should be limited. For Azure virtual machines, secure access is accomplished using a network security group. With the Music Store application sample, all access to the virtual machine is restricted except for over port 80 for http access, and port 3389 for RDP access. A Network Security Group can be added to an Azure Resource Manager template using the Visual Studio Add New Resource Wizard, or by inserting valid JSON into a template.
 
 Follow this link to see the JSON sample within the Resource Manager template – [Network Security Group](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L57).
@@ -116,7 +112,6 @@ In this example, the network security group is associate with the subnet object 
 
 Follow this link to see the JSON sample within the Resource Manager template – [Network Security Group association with Virtual Network](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L143).
 
-
 ```none
 "subnets": [
   {
@@ -135,10 +130,10 @@ Here is what the network security group looks like from the Azure portal. Notice
 
 ![Network Security Group](./media/virtual-machines-windows-dotnet-core/nsg-win.png)
 
-For in-depth information on Network Security Groups, see [What is a Network Security Group]( https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/).
+For in-depth information on Network Security Groups, see [What is a Network Security Group](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/).
 
 ## Next step
-
 <hr>
 
-[Step 3 - Availability and Scale in Azure Resource Manager Templates](./virtual-machines-windows-dotnet-core-4-availability-scale.md)
+[Step 3 - Availability and Scale in Azure Resource Manager Templates](virtual-machines-windows-dotnet-core-4-availability-scale.md)
+

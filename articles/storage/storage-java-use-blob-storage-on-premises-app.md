@@ -1,51 +1,47 @@
-<properties
-	pageTitle="On-premises application with blob storage (Java) | Microsoft Azure"
-	description="Learn how to create a console application that uploads an image to Azure, and then displays the image in your browser. Code samples in Java."
-	services="storage"
-	documentationCenter="java"
-	authors="tamram"
-	manager="carmonm"
-	editor="tysonn"/>
+---
+title: On-premises application with blob storage (Java) | Microsoft Docs
+description: Learn how to create a console application that uploads an image to Azure, and then displays the image in your browser. Code samples in Java.
+services: storage
+documentationcenter: java
+author: tamram
+manager: carmonm
+editor: tysonn
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="10/18/2016"
-	ms.author="tamram"/>
+ms.assetid: ccc9a7d7-6fe4-467b-b7fd-a73f17539e3f
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: Java
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: tamram
 
+---
 # On-premises application with blob storage
-
 ## Overview
-
 The following example shows you how you can use Azure storage to
 store images in Azure. The code in this article is for a console
 application that uploads an image to Azure, and then creates an
 HTML file that displays the image in your browser.
 
 ## Prerequisites
-
-- A Java Developer Kit (JDK), version 1.6 or later, is installed.
-- The Azure SDK is installed.
-- The JAR for the Azure Libraries for Java, and any applicable
+* A Java Developer Kit (JDK), version 1.6 or later, is installed.
+* The Azure SDK is installed.
+* The JAR for the Azure Libraries for Java, and any applicable
     dependency JARs, are installed and are in the build path used by
-    your Java compiler. For information about installing the Azure Libraries for Java, see [Download the Azure SDK for Java](java-download-azure-sdk.md).
-- An Azure storage account has been set up. The account name
+    your Java compiler. For information about installing the Azure Libraries for Java, see [Download the Azure SDK for Java](../java-download-azure-sdk.md).
+* An Azure storage account has been set up. The account name
     and account key for the storage account will be used by the code
     in this article. See [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account) for information about creating a storage account,
     and [View and copy storage access keys](storage-create-storage-account.md#view-and-copy-storage-access-keys) for information about retrieving the account key.
-
-- You have created a local image file named stored at the path
+* You have created a local image file named stored at the path
     c:\\myimages\\image1.jpg. Alternatively, modify the
     **FileInputStream** constructor in the example to use a different
     image path and file name.
 
-[AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## To use Azure blob storage to upload a file
-
 A step-by-step procedure is presented here. If you'd like to skip ahead,
 the entire code is presented later in this article.
 
@@ -86,14 +82,14 @@ include the necessary open brackets, **{**.
 Declare variables of the following type (the descriptions are for how
 they are used in this example):
 
--   **CloudStorageAccount**: Used to initialize the account object with
-    your Azure storage account name and key, and to create the
-    blob client object.
--   **CloudBlobClient**: Used to access the blob service.
--   **CloudBlobContainer**: Used to create a blob container, list the
-    blobs in the container, and delete the container.
--   **CloudBlockBlob**: Used to upload a local image file to the
-    container.
+* **CloudStorageAccount**: Used to initialize the account object with
+  your Azure storage account name and key, and to create the
+  blob client object.
+* **CloudBlobClient**: Used to access the blob service.
+* **CloudBlobContainer**: Used to create a blob container, list the
+  blobs in the container, and delete the container.
+* **CloudBlockBlob**: Used to upload a local image file to the
+  container.
 
 <!-- -->
 
@@ -166,13 +162,13 @@ Close the **try** block by inserting a close bracket: **}**
 
 Handle the following exceptions:
 
--   **FileNotFoundException**: Can be thrown by the **FileInputStream**
-    or **FileOutputStream** constructors.
--   **StorageException**: Can be thrown by the Azure client
-    storage library.
--   **URISyntaxException**: Can be thrown by the **ListBlobItem.getUri**
-    method.
--   **Exception**: Generic exception handling.
+* **FileNotFoundException**: Can be thrown by the **FileInputStream**
+  or **FileOutputStream** constructors.
+* **StorageException**: Can be thrown by the Azure client
+  storage library.
+* **URISyntaxException**: Can be thrown by the **ListBlobItem.getUri**
+  method.
+* **Exception**: Generic exception handling.
 
 <!-- -->
 
@@ -360,7 +356,6 @@ Because the code contains your account name and account key, ensure that
 your source code is secure.
 
 ## To delete a container
-
 Because you are charged for storage, you may want to delete the
 **gettingstarted** container after you are done experimenting with this
 example. To delete a container, use the **CloudBlobContainer.delete**
@@ -419,10 +414,10 @@ deletes the container named **gettingstarted**.
 For an overview of other blob storage classes and methods, see [How to use Blob storage from Java](storage-java-how-to-use-blob-storage.md).
 
 ## Next steps
-
 Follow these links to learn more about more complex storage tasks.
 
-- [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
-- [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
-- [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
+* [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
+* [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+

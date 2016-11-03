@@ -1,23 +1,23 @@
-<properties
-	pageTitle="Azure IoT device SDK for C - Serializer | Microsoft Azure"
-	description="Learn more about using the Serializer library in the Azure IoT device SDK for C"
-	services="iot-hub"
-	documentationCenter=""
-	authors="olivierbloch"
-	manager="timlt"
-	editor=""/>
+---
+title: Azure IoT device SDK for C - Serializer | Microsoft Docs
+description: Learn more about using the Serializer library in the Azure IoT device SDK for C
+services: iot-hub
+documentationcenter: ''
+author: olivierbloch
+manager: timlt
+editor: ''
 
-<tags
-     ms.service="iot-hub"
-     ms.devlang="cpp"
-     ms.topic="article"
-     ms.tgt_pltfrm="na"
-     ms.workload="na"
-     ms.date="09/06/2016"
-     ms.author="obloch"/>
+ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
+ms.service: iot-hub
+ms.devlang: cpp
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/06/2016
+ms.author: obloch
 
+---
 # Microsoft Azure IoT device SDK for C – more about serializer
-
 The [first article](iot-hub-device-sdk-c-intro.md) in this series introduced the **Azure IoT device SDK for C**. The next article provided a more detailed description of the [**IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). This article completes coverage of the SDK by providing a more detailed description of the remaining component: the **serializer** library.
 
 The introductory article described how to use the **serializer** library to send events to and receive messages from IoT Hub. In this article, we extend that discussion by providing a more complete explanation of how to model your data with the **serializer** macro language. The article also includes more detail about how the library serializes messages (and in some cases how you can control the serialization behavior). We'll also describe some parameters you can modify that determine the size of the models you create.
@@ -29,7 +29,6 @@ Everything described in this article is based on the **serializer** SDK samples.
 You can find the **Azure IoT device SDK for C** in the [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) GitHub repository and view details of the API in the [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
 
 ## The modeling language
-
 The [introductory article](iot-hub-device-sdk-c-intro.md) in this series introduced the **Azure IoT device SDK for C** modeling language through the example provided in the **simplesample\_amqp** application:
 
 ```
@@ -54,28 +53,30 @@ Models contain a definition of the events you can ingress to IoT Hub (the *data*
 
 What’s not demonstrated in this sample are additional data types that are supported by the SDK. We'll cover that next.
 
-> [AZURE.NOTE] IoT Hub refers to the data a device sends to it as *events*, while the modeling language refers to it as *data* (defined using **WITH_DATA**). Likewise, IoT Hub refers to the data you send to devices as *messages*, while the modeling language refers to it as *actions* (defined using **WITH_ACTION**). Be aware that these terms may be used interchangeably in this article.
+> [!NOTE]
+> IoT Hub refers to the data a device sends to it as *events*, while the modeling language refers to it as *data* (defined using **WITH_DATA**). Likewise, IoT Hub refers to the data you send to devices as *messages*, while the modeling language refers to it as *actions* (defined using **WITH_ACTION**). Be aware that these terms may be used interchangeably in this article.
+> 
+> 
 
 ### Supported data types
-
 The following data types are supported in models created with the **serializer** library:
 
-| Type                    | Description                            |
-|-------------------------|----------------------------------------|
-| double                  | double precision floating point number |
-| int                     | 32 bit integer                         |
-| float                   | single precision floating point number |
-| long                    | long integer                           |
-| int8\_t                 | 8 bit integer                          |
-| int16\_t                | 16 bit integer                         |
-| int32\_t                | 32 bit integer                         |
-| int64\_t                | 64 bit integer                         |
-| bool                    | boolean                                |
-| ascii\_char\_ptr        | ASCII string                           |
-| EDM\_DATE\_TIME\_OFFSET | date time offset                       |
-| EDM\_GUID               | GUID                                   |
-| EDM\_BINARY             | binary                                 |
-| DECLARE\_STRUCT         | complex data type                      |
+| Type | Description |
+| --- | --- |
+| double |double precision floating point number |
+| int |32 bit integer |
+| float |single precision floating point number |
+| long |long integer |
+| int8\_t |8 bit integer |
+| int16\_t |16 bit integer |
+| int32\_t |32 bit integer |
+| int64\_t |64 bit integer |
+| bool |boolean |
+| ascii\_char\_ptr |ASCII string |
+| EDM\_DATE\_TIME\_OFFSET |date time offset |
+| EDM\_GUID |GUID |
+| EDM\_BINARY |binary |
+| DECLARE\_STRUCT |complex data type |
 
 Let’s start with the last data type. The **DECLARE\_STRUCT** allows you to define complex data types, which are groupings of the other primitive types. These groupings allow us to define a model that looks like this:
 
@@ -140,27 +141,27 @@ Basically, we’re assigning a value to every member of the **Test** structure a
 ```
 void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent)
 {
-	unsigned char* destination;
-	size_t destinationSize;
-	if (SERIALIZE(&destination, &destinationSize, *(const unsigned char*)dataEvent) ==
-	{
-		// null terminate the string
-		char* destinationAsString = (char*)malloc(destinationSize + 1);
-		if (destinationAsString != NULL)
-		{
-			memcpy(destinationAsString, destination, destinationSize);
-			destinationAsString[destinationSize] = '\0';
-			IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromString(destinationAsString);
-			if (messageHandle != NULL)
-			{
-				IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)0);
+    unsigned char* destination;
+    size_t destinationSize;
+    if (SERIALIZE(&destination, &destinationSize, *(const unsigned char*)dataEvent) ==
+    {
+        // null terminate the string
+        char* destinationAsString = (char*)malloc(destinationSize + 1);
+        if (destinationAsString != NULL)
+        {
+            memcpy(destinationAsString, destination, destinationSize);
+            destinationAsString[destinationSize] = '\0';
+            IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromString(destinationAsString);
+            if (messageHandle != NULL)
+            {
+                IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)0);
 
-				IoTHubMessage_Destroy(messageHandle);
-			}
-			free(destinationAsString);
-		}
-		free(destination);
-	}
+                IoTHubMessage_Destroy(messageHandle);
+            }
+            free(destinationAsString);
+        }
+        free(destination);
+    }
 }
 ```
 
@@ -171,16 +172,16 @@ One other helper function used in the previous code is **GetDateTimeOffset**. Th
 ```
 EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
 {
-	struct tm newTime;
-	gmtime_s(&newTime, &time);
-	EDM_DATE_TIME_OFFSET dateTimeOffset;
-	dateTimeOffset.dateTime = newTime;
-	dateTimeOffset.fractionalSecond = 0;
-	dateTimeOffset.hasFractionalSecond = 0;
-	dateTimeOffset.hasTimeZone = 0;
-	dateTimeOffset.timeZoneHour = 0;
-	dateTimeOffset.timeZoneMinute = 0;
-	return dateTimeOffset;
+    struct tm newTime;
+    gmtime_s(&newTime, &time);
+    EDM_DATE_TIME_OFFSET dateTimeOffset;
+    dateTimeOffset.dateTime = newTime;
+    dateTimeOffset.fractionalSecond = 0;
+    dateTimeOffset.hasFractionalSecond = 0;
+    dateTimeOffset.hasTimeZone = 0;
+    dateTimeOffset.timeZoneHour = 0;
+    dateTimeOffset.timeZoneMinute = 0;
+    return dateTimeOffset;
 }
 ```
 
@@ -197,7 +198,6 @@ This example demonstrates the advantage of using the **serializer** library -- i
 With this information, we can define models that include the range of supported data types, including complex types (we could even include complex types within other complex types). However, he serialized JSON generated by the example above brings up an important point. *How* we send data with the **serializer** library determines exactly how the JSON is formed. That particular point is what we'll cover next.
 
 ## More about serialization
-
 The previous section highlights an example of the output generated by the **serializer** library. In this section, we'll explain how the library serializes data and how you can control that behavior using the serialization APIs.
 
 In order to advance the discussion on serialization, we'll work with a new model based on a thermostat. First, let's provide some background on the scenario we're trying to address.
@@ -207,7 +207,6 @@ We want to model a thermostat that measures temperature and humidity. Each piece
 Given this scenario, we'll demonstrate two different ways to model the data, and we'll explain the effect that modeling has on the serialized output.
 
 ### Model 1
-
 Here's the first version of a model that supports the previous scenario:
 
 ```
@@ -300,7 +299,6 @@ With this model, you can imagine how additional events can easily be added. You 
 Now, let’s modify the model so that it includes the same data but with a different structure.
 
 ### Model 2
-
 Consider this alternative model to the one above:
 
 ```
@@ -444,7 +442,6 @@ If you think about your model in an object-oriented fashion, then the second app
 Nether approach is right or wrong. Just be aware of how the **serializer** library works, and pick the modeling approach that best fits your needs.
 
 ## Message handling
-
 So far this article has only discussed sending events to IoT Hub, and hasn't addressed receiving messages. The reason for this is that what we need to know about receiving messages has largely been covered in an [earlier article](iot-hub-device-sdk-c-intro.md). Recall from that article that you process messages by registering a message callback function:
 
 ```
@@ -529,7 +526,6 @@ The action name must exactly match an action defined in your model. The paramete
 This section described everything you need to know when sending events and receiving messages with the **serializer** library. Before moving on, let's cover some parameters you can configure that control how large your model is.
 
 ## Macro configuration
-
 If you’re using the **Serializer** library an important part of the SDK to be aware of is found in the azure-c-shared-utility library.
 If you have cloned the Azure-iot-sdks repository from GitHub using the --recursive option, then you will find this shared utility library here:
 
@@ -561,9 +557,8 @@ The two key parameters to be concerned with are **nArithmetic** and **nMacroPara
 
 These values are the default parameters included with the SDK. Each parameter has the following meaning:
 
--   nMacroParameters – Controls how many parameters you can have in one DECLARE\_MODEL macro definition.
-
--   nArithmetic – Controls the total number of members allowed in a model.
+* nMacroParameters – Controls how many parameters you can have in one DECLARE\_MODEL macro definition.
+* nArithmetic – Controls the total number of members allowed in a model.
 
 The reason these parameters are important is because they control how large your model can be. For example, consider this model definition:
 
@@ -590,6 +585,8 @@ In order to use the new version of macro\_utils.h, remove the **serializer** NuG
 Then add this project to your Visual Studio solution:
 
 > .\\c\\serializer\\build\\windows\\serializer.vcxproj
+> 
+> 
 
 When you're done, your solution should look like this:
 
@@ -602,37 +599,29 @@ Note that increasing these values high enough can exceed compiler limits. To thi
 So far we've covered just about everything you need to know about how to write code with the **serializer** library. Before concluding, let's revisit some topics from previous articles that you may be wondering about.
 
 ## The lower-level APIs
-
 The sample application on which this article focused is **simplesample\_amqp**. This sample uses the higher-level (the non-"LL") APIs to send events and receive messages. If you use these APIs, a background thread runs which takes care of both sending events and receiving messages. However, you can use the lower-level (LL) APIs to eliminate this background thread and take explicit control over when you send events or receive messages from the cloud.
 
 As described in a [previous article](iot-hub-device-sdk-c-iothubclient.md), there is a set of functions that consists of the higher-level APIs:
 
--   IoTHubClient\_CreateFromConnectionString
-
--   IoTHubClient\_SendEventAsync
-
--   IoTHubClient\_SetMessageCallback
-
--   IoTHubClient\_Destroy
+* IoTHubClient\_CreateFromConnectionString
+* IoTHubClient\_SendEventAsync
+* IoTHubClient\_SetMessageCallback
+* IoTHubClient\_Destroy
 
 These APIs are demonstrated in **simplesample\_amqp**.
 
 There is also an analogous set of lower-level APIs.
 
--   IoTHubClient\_LL\_CreateFromConnectionString
-
--   IoTHubClient\_LL\_SendEventAsync
-
--   IoTHubClient\_LL\_SetMessageCallback
-
--   IoTHubClient\_LL\_Destroy
+* IoTHubClient\_LL\_CreateFromConnectionString
+* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LL\_SetMessageCallback
+* IoTHubClient\_LL\_Destroy
 
 Note that the lower-level APIs work exactly the same way as described in the previous articles. You can use the first set of APIs if you want a background thread to handle sending events and receiving messages. You use the second set of APIs if you want explicit control over when you send and receive data from IoT Hub. Either set of APIs work equally well with the **serializer** library.
 
 For an example of how the lower-level APIs are used with the **serializer** library, see the **simplesample\_http** application.
 
 ## Additional topics
-
 A few other topics worth mentioning again are property handling, using alternate device credentials, and configuration options. These are all topics covered in a [previous article](iot-hub-device-sdk-c-iothubclient.md). The main point is that all of these features work in the same way with the **serializer** library as they do with the **IoTHubClient** library. For example, if you want to attach properties to an event from your model, you use **IoTHubMessage\_Properties** and **Map**\_**AddorUpdate**, the same way as described previously:
 
 ```
@@ -664,17 +653,15 @@ serializer_deinit();
 Otherwise, all of the other features listed above work the same in the **serializer** library as they do in the **IoTHubClient** library. For more information about any of these topics, see the [previous article](iot-hub-device-sdk-c-iothubclient.md) in this series.
 
 ## Next steps
-
 This article describes in detail the unique aspects of the **serializer** library contained in the **Azure IoT device SDK for C**. With the information provided you should have a good understanding of how to use models to send events and receive messages from IoT Hub.
 
 This also concludes the three-part series on how to develop applications with the **Azure IoT device SDK for C**. This should be enough information to not only get you started but give you a thorough understanding of how the APIs work. For additional information, there are a few samples in the SDK not covered here. Otherwise, the [SDK documentation](https://github.com/Azure/azure-iot-sdks) is a good resource for additional information.
-
 
 To learn more about developing for IoT Hub, see the [IoT Hub SDKs][lnk-sdks].
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 

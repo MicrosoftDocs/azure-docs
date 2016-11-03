@@ -7,7 +7,6 @@ When defining parameters, use the **allowedValues** field to specify which value
 We will describe each parameter in the template.
 
 ### logicAppName
-
 The name of the logic app to create.
 
     "logicAppName": {

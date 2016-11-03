@@ -1,12 +1,14 @@
 
 <br>
 
-> [AZURE.NOTE] If you were given a user name and password by an administrator, there's a good chance that you already have a work or school ID (also sometimes called an *organizational ID*). If so, you can immediately begin to use your Azure account to access Azure resources that require one. If you find that you cannot use those resources, you may need to return to this article for help. For more information, see [Accounts that you can use for sign in](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) and [How an Azure subscription is related to Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
+> [!NOTE]
+> If you were given a user name and password by an administrator, there's a good chance that you already have a work or school ID (also sometimes called an *organizational ID*). If so, you can immediately begin to use your Azure account to access Azure resources that require one. If you find that you cannot use those resources, you may need to return to this article for help. For more information, see [Accounts that you can use for sign in](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) and [How an Azure subscription is related to Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
+> 
+> 
 
 The steps are simple. You need to locate your signed on identity in the Azure classic portal, discover your default Azure Active Directory domain, and add a new user to it as an Azure co-administrator.
 
 ## Locate your default directory in the Azure classic portal
-
 Start by logging in to the [Azure classic portal](https://manage.windowsazure.com) with your personal Microsoft account identity. After you are logged in, scroll down the blue panel on the left side and click **ACTIVE DIRECTORY**.
 
 ![Azure Active Directory](./media/virtual-machines-common-create-aad-work-id/azureactivedirectorywidget.png)
@@ -26,7 +28,6 @@ To view the default domain name, click **DOMAINS**.
 Here you should be able to see that when the Azure account was created, Azure Active Directory created a personal default domain that is a hash value (a number generated from a string of text) of your personal ID used as a subdomain of onmicrosoft.com. That's the domain to which you will now add a new user.
 
 ## Creating a new user in the default domain
-
 Click **USERS** and look for your single personal account. You should see in the **SOURCED FROM** column that it is a **Microsoft account**. We want to create a user in your default .onmicrosoft.com Azure Active Directory domain.
 
 ![](./media/virtual-machines-common-create-aad-work-id/defaultdirectoryuserslisting.png)
@@ -58,7 +59,6 @@ If you use **SEND PASSWORD IN EMAIL**, the following kind of email is sent.
 ![](./media/virtual-machines-common-create-aad-work-id/emailreceivedfromnewusercreation.png)
 
 ## Adding Azure co-administrator rights for subscriptions
-
 Now you need to add the new user as a co-administrator of your subscription so the new user can sign in to the Management Portal. To do this, in the lower-left panel click **Settings**.
 
 ![](./media/virtual-machines-common-create-aad-work-id/thesettingswidget.png)
@@ -72,7 +72,6 @@ When you are done, you should now see two users, including your new co-administr
 ![](./media/virtual-machines-common-create-aad-work-id/newuseraddedascoadministrator.png)
 
 ## Logging in and changing the new user's password
-
 Log in as the new user you created.
 
 ![](./media/virtual-machines-common-create-aad-work-id/signinginwithnewuser.png)
@@ -85,9 +84,7 @@ You should be rewarded with success that looks like the following.
 
 ![](./media/virtual-machines-common-create-aad-work-id/successtourdialog.png)
 
-
 ## Next steps
-
 You can now use your new Azure Active Directory identity to use [Azure resource group templates](../articles/xplat-cli-azure-resource-manager.md).
 
     azure login

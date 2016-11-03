@@ -1,46 +1,47 @@
-<properties
-	pageTitle="Azure AD v2.0 Protocols | Microsoft Azure"
-	description="A guide to protocols supported by the Azure AD v2.0 endpoint."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Azure AD v2.0 Protocols | Microsoft Docs
+description: A guide to protocols supported by the Azure AD v2.0 endpoint.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: dastrock
 
+---
 # v2.0 Protocols - OAuth 2.0 & OpenID Connect
-
 The v2.0 endpoint can use Azure AD for identity-as-a-service with industry standard protocols, OpenID Connect and OAuth 2.0.  While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols.  The information here will be useful if you choose to write your code by directly sending & handling HTTP requests or use a 3rd party open source library, rather than using one of our open source libraries.
 <!-- TODO: Need link to libraries above -->
 
-> [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> [!NOTE]
+> Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> 
+> 
 
 ## The Basics
 In nearly all OAuth & OpenID Connect flows, there are four parties involved in the exchange:
 
 ![OAuth 2.0 Roles](../media/active-directory-v2-flows/protocols_roles.png)
 
-- The **Authorization Server** is the v2.0 endpoint.  It is responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens.  It is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in an flow.
-- The **Resource Owner** is typically the end-user.  It is the party that owns the data, and has the power to allow third parties to access that data, or resource.
-- The **OAuth Client** is your app, identified by its Application Id.  It is usually the party that the end-user interacts with, and it requests tokens from the authorization server.  The client must be granted permission to access the resource by the resource owner.
-- The **Resource Server** is where the resource or data resides.  It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access_tokens to ensure that access to a resource can be granted.
-
+* The **Authorization Server** is the v2.0 endpoint.  It is responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens.  It is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in an flow.
+* The **Resource Owner** is typically the end-user.  It is the party that owns the data, and has the power to allow third parties to access that data, or resource.
+* The **OAuth Client** is your app, identified by its Application Id.  It is usually the party that the end-user interacts with, and it requests tokens from the authorization server.  The client must be granted permission to access the resource by the resource owner.
+* The **Resource Server** is where the resource or data resides.  It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access_tokens to ensure that access to a resource can be granted.
 
 ## App Registration
 Every app that uses the v2.0 endpoint will need to be registered at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) before it can interact using OAuth or OpenID Connect.  The app registration process will collect & assign a few values to your app:
 
-- An **Application Id** that uniquely identifies your app
-- A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app
-- A few other scenario-specific values.
+* An **Application Id** that uniquely identifies your app
+* A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app
+* A few other scenario-specific values.
 
 For more details, learn how to [register an app](active-directory-v2-app-registration.md).
 
@@ -55,11 +56,11 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Where the `{tenant}` can take one of four different values:
 
 | Value | Description |
-| ----------------------- | ------------------------------- |
-| `common` | Allows users with both personal Microsoft accounts and work/school accounts from Azure Active Directory to sign into the application. |
-| `organizations` | Allows only users with work/school accounts from Azure Active Directory to sign into the application. |
-| `consumers` | Allows only users with personal Microsoft accounts (MSA) to sign into the application. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Allows only users with work/school accounts from a particular Azure Active Directory tenant to sign into the application.  Either the friendly domain name of the Azure AD tenant or the tenant's guid identifier can be used.  |
+| --- | --- |
+| `common` |Allows users with both personal Microsoft accounts and work/school accounts from Azure Active Directory to sign into the application. |
+| `organizations` |Allows only users with work/school accounts from Azure Active Directory to sign into the application. |
+| `consumers` |Allows only users with personal Microsoft accounts (MSA) to sign into the application. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` |Allows only users with work/school accounts from a particular Azure Active Directory tenant to sign into the application.  Either the friendly domain name of the Azure AD tenant or the tenant's guid identifier can be used. |
 
 For more information on how to interact with these endpoints, choose a particular app type below.
 
@@ -69,14 +70,13 @@ The v2.0 implementation of OAuth 2.0 and OpenID Connect make extensive use of be
 Further details of different types of tokens used in the v2.0 endpoint is available in [the v2.0 endpoint token reference](active-directory-v2-tokens.md).
 
 ## Protocols
-
 If you're ready to see some example requests, get started with one of the below tutorials.  Each one corresponds to a particular authentication scenario.  If you need help determining which is the right flow for you,
 check out [the types of apps you can build with the v2.0](active-directory-v2-flows.md).
 
-- [Build Mobile and Native Application with OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
-- [Build Web Apps with Open ID Connect](active-directory-v2-protocols-oidc.md)
-- [Build Single Page Apps with the OAuth 2.0 Implicit Flow](active-directory-v2-protocols-implicit.md)
-- [Build Daemons or Server Side Processes with the OAuth 2.0 Client Credentials Flow](active-directory-v2-protocols-oauth-client-creds.md)
-- Get tokens in a Web API with the OAuth 2.0 On Behalf Of Flow (coming soon)
+* [Build Mobile and Native Application with OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
+* [Build Web Apps with Open ID Connect](active-directory-v2-protocols-oidc.md)
+* [Build Single Page Apps with the OAuth 2.0 Implicit Flow](active-directory-v2-protocols-implicit.md)
+* [Build Daemons or Server Side Processes with the OAuth 2.0 Client Credentials Flow](active-directory-v2-protocols-oauth-client-creds.md)
+* Get tokens in a Web API with the OAuth 2.0 On Behalf Of Flow (coming soon)
 
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 

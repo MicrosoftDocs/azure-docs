@@ -1,23 +1,23 @@
-<properties
-	pageTitle="Use autoscale actions to send email and webhook alert notifications. | Microsoft Azure"
-	description="See how to use autoscale actions to call web URLs or send email notifications in Azure Monitor. "
-	authors="kamathashwin"
-	manager="carolz"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Use autoscale actions to send email and webhook alert notifications. | Microsoft Docs
+description: 'See how to use autoscale actions to call web URLs or send email notifications in Azure Monitor. '
+author: kamathashwin
+manager: carolz
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/19/2016"
-	ms.author="ashwink"/>
+ms.assetid: eb9a4c98-0894-488c-8ee8-5df0065d094f
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/19/2016
+ms.author: ashwink
 
+---
 # Use autoscale actions to send email and webhook alert notifications in Azure Monitor
-
 This article shows you how set up triggers so that you can call specific web URLs or send emails based on autoscale actions in Azure.  
 
 ## Webhooks
@@ -26,11 +26,10 @@ Webhooks allow you to route the Azure alert notifications to other systems for p
 ## Email
 Email can be sent to any valid email address. Administrators and co-administrators of the subscription where the rule is running will also be notified.
 
-
 ## Cloud Services and Web Apps
 You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Apps).
 
-- Choose the **scale by** metric.
+* Choose the **scale by** metric.
 
 ![scale by](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
 
@@ -62,16 +61,15 @@ When using the REST API or Resource Manager template, include the notifications 
       }
     ]
 ```
-|Field								|Mandatory?	|Description|
-|---								|---		|---|
-|operation							|yes		|value must be "Scale"|
-|sendToSubscriptionAdministrator	|yes		|value must be "true" or "false"|
-|sendToSubscriptionCoAdministrators	|yes		|value must be "true" or "false"|
-|customEmails						|yes		|value can be null [] or string array of emails|
-|webhooks							|yes		|value can be null or valid Uri|
-|serviceUri							|yes		|a valid https Uri|
-|properties							|yes		|value must be empty {} or can contain key-value pairs|
-
+| Field | Mandatory? | Description |
+| --- | --- | --- |
+| operation |yes |value must be "Scale" |
+| sendToSubscriptionAdministrator |yes |value must be "true" or "false" |
+| sendToSubscriptionCoAdministrators |yes |value must be "true" or "false" |
+| customEmails |yes |value can be null [] or string array of emails |
+| webhooks |yes |value can be null or valid Uri |
+| serviceUri |yes |a valid https Uri |
+| properties |yes |value must be empty {} or can contain key-value pairs |
 
 ## Authentication in webhooks
 There are two authentication URI forms:
@@ -109,21 +107,22 @@ When the autoscale notification is generated, the following metadata is included
 ```
 
 
-|Field	|Mandatory?|	Description|
-|---|---|---|
-|status	|yes	|The status that indicates that an autoscale action was generated|
-|operation|	yes	|For an increase of instances, it will be "Scale Out" and for a decrease in instances, it will be "Scale In"|
-|context|	yes	|The autoscale action context|
-|timestamp|	yes	|Time stamp when the autoscale action was triggered|
-|id	|Yes|	Resource Manager ID of the autoscale setting|
-|name	|Yes|	The name of the autoscale setting|
-|details|	Yes	|Explanation of the action that the autoscale service took and the change in the instance count|
-|subscriptionId|	Yes	|Subscription ID of the target resource that is being scaled|
-|resourceGroupName|	Yes|	Resource Group name of the target resource that is being scaled|
-|resourceName	|Yes|	Name of the target resource that is being scaled|
-|resourceType	|Yes|	The three supported values: "microsoft.classiccompute/domainnames/slots/roles" - Cloud Service roles, "microsoft.compute/virtualmachinescalesets" - Virtual Machine Scale Sets,  and "Microsoft.Web/serverfarms" - Web App|
-|resourceId	|Yes|Resource Manager ID of the target resource that is being scaled|
-|portalLink	|Yes	|Azure portal link to the summary page of the target resource|
-|oldCapacity|	Yes	|The current (old) instance count when Autoscale took a scale action|
-|newCapacity|	Yes	|The new instance count that Autoscale scaled the resource to|
-|Properties|	No|	Optional. Set of <Key, Value> pairs (for example,  Dictionary <String, String>). The properties field is optional. In a custom user interface  or Logic app based workflow, you can enter keys and values that can be passed using the payload. An alternate way to pass custom properties back to the outgoing webhook call is to use the webhook URI itself (as query parameters)|
+| Field | Mandatory? | Description |
+| --- | --- | --- |
+| status |yes |The status that indicates that an autoscale action was generated |
+| operation |yes |For an increase of instances, it will be "Scale Out" and for a decrease in instances, it will be "Scale In" |
+| context |yes |The autoscale action context |
+| timestamp |yes |Time stamp when the autoscale action was triggered |
+| id |Yes |Resource Manager ID of the autoscale setting |
+| name |Yes |The name of the autoscale setting |
+| details |Yes |Explanation of the action that the autoscale service took and the change in the instance count |
+| subscriptionId |Yes |Subscription ID of the target resource that is being scaled |
+| resourceGroupName |Yes |Resource Group name of the target resource that is being scaled |
+| resourceName |Yes |Name of the target resource that is being scaled |
+| resourceType |Yes |The three supported values: "microsoft.classiccompute/domainnames/slots/roles" - Cloud Service roles, "microsoft.compute/virtualmachinescalesets" - Virtual Machine Scale Sets,  and "Microsoft.Web/serverfarms" - Web App |
+| resourceId |Yes |Resource Manager ID of the target resource that is being scaled |
+| portalLink |Yes |Azure portal link to the summary page of the target resource |
+| oldCapacity |Yes |The current (old) instance count when Autoscale took a scale action |
+| newCapacity |Yes |The new instance count that Autoscale scaled the resource to |
+| Properties |No |Optional. Set of <Key, Value> pairs (for example,  Dictionary <String, String>). The properties field is optional. In a custom user interface  or Logic app based workflow, you can enter keys and values that can be passed using the payload. An alternate way to pass custom properties back to the outgoing webhook call is to use the webhook URI itself (as query parameters) |
+

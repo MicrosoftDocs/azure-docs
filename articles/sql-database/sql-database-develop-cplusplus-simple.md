@@ -1,34 +1,31 @@
-<properties
-	pageTitle="Connect to SQL Database using C and C++ | Microsoft Azure"
-	description="Use the sample code in this quick start to build a modern application with C++ and backed by a powerful relational database in the cloud with Azure SQL Database."
-	services="sql-database"
-	documentationCenter=""
-	authors="asthana86"
-	manager="danmoth"
-	editor=""/>
+---
+title: Connect to SQL Database using C and C++ | Microsoft Docs
+description: Use the sample code in this quick start to build a modern application with C++ and backed by a powerful relational database in the cloud with Azure SQL Database.
+services: sql-database
+documentationcenter: ''
+author: asthana86
+manager: danmoth
+editor: ''
 
-<tags
-	ms.service="sql-database"
-	ms.workload="drivers"
-	ms.tgt_pltfrm="na"
-	ms.devlang="cpp"
-	ms.topic="article"
-	ms.date="11/01/2016"
-	ms.author="tobiast"/>
+ms.assetid: 07d9e0b1-3234-4f17-a252-a7559160a9db
+ms.service: sql-database
+ms.workload: drivers
+ms.tgt_pltfrm: na
+ms.devlang: cpp
+ms.topic: article
+ms.date: 11/01/2016
+ms.author: tobiast
 
-
+---
 # Connect to SQL Database using C and C++
-
 This post is aimed at C and C++ developers trying to connect to Azure SQL DB. It is broken down into sections so you can jump to the section that best captures your interest. 
 
 ## Prerequisites for the C/C++ tutorial
-
 Make sure you have the following items:
 
-- An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/).
-- [Visual Studio](https://www.visualstudio.com/downloads/). You must install the C++ language components to build and run this sample.
-- [Visual Studio Linux Development](https://visualstudiogallery.msdn.microsoft.com/725025cf-7067-45c2-8d01-1e0fd359ae6e). If you are developing on Linux, you must also install the Visual Studio Linux extension. 
-
+* An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/).
+* [Visual Studio](https://www.visualstudio.com/downloads/). You must install the C++ language components to build and run this sample.
+* [Visual Studio Linux Development](https://visualstudiogallery.msdn.microsoft.com/725025cf-7067-45c2-8d01-1e0fd359ae6e). If you are developing on Linux, you must also install the Visual Studio Linux extension. 
 
 ## <a id="AzureSQL"></a>Azure SQL Database and SQL Server on virtual machines
 Azure SQL is built on Microsoft SQL Server and is designed to provide a high-availability, performant, and scalable service. There are many benefits to using SQL Azure over your proprietary database running on premises. With SQL Azure you don’t have to install, set up, maintain, or manage your database but only the content and the structure of your database. Typical things that we worry about with databases like fault tolerance and redundancy are all built in. 
@@ -36,15 +33,12 @@ Azure SQL is built on Microsoft SQL Server and is designed to provide a high-ava
 Azure currently has two options for hosting SQL server workloads: Azure SQL database, database as a service and SQL server on Virtual Machines (VM). We will not get into detail about the differences between these two except that Azure SQL database is your best bet for new cloud-based applications to take advantage of the cost savings and performance optimization that cloud services provide. If you are considering migrating or extending your on-premises applications to the cloud, SQL server on Azure virtual machine might work out better for you. To keep things simple for this article, let's create an Azure SQL database. 
 
 ## <a id="ODBC"></a>Data access technologies: ODBC and OLE DB
-
 Connecting to Azure SQL DB is no different and currently there are two ways to connect to databases: ODBC (Open Database connectivity) and OLE DB (Object Linking and Embedding database). In recent years, Microsoft has aligned with [ODBC for native relational data access](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC is relatively simple, and also much faster than OLE DB. The only caveat here is that ODBC does use an old C-style API. 
 
-## <a id="Create"></a>Step 1:  Creating your Azure SQL Database 
-
+## <a id="Create"></a>Step 1:  Creating your Azure SQL Database
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  Alternatively, you can follow this [short two-minute video](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) to create an Azure SQL database using the Azure portal.
 
 ## <a id="ConnectionString"></a>Step 2:  Get connection string
-
 After your Azure SQL database has been provisioned, you need to carry out the following steps to determine connection information and add your client IP for firewall access. 
 
 In [Azure portal](https://portal.azure.com/), go to your Azure SQL database ODBC connection string by using the **Show database connection strings** listed as a part of the overview section for your database: 
@@ -55,8 +49,7 @@ In [Azure portal](https://portal.azure.com/), go to your Azure SQL database ODBC
 
 Copy the contents of the **ODBC (Includes Node.js) [SQL authentication]** string. We use this string later to connect from our C++ ODBC command-line interpreter. This string provides details such as the driver, server, and other database connection parameters. 
 
-## <a id="Firewall"></a>Step 3:  Add your IP to the firewall 
-
+## <a id="Firewall"></a>Step 3:  Add your IP to the firewall
 Go to the firewall section for your Database server and add your [client IP to the firewall using these steps](sql-database-configure-firewall-settings.md) to make sure we can establish a successful connection: 
 
 ![AddyourIPWindow](./media/sql-database-develop-cplusplus-simple/ip.png)
@@ -64,7 +57,6 @@ Go to the firewall section for your Database server and add your [client IP to t
 At this point, you have configured your Azure SQL DB and are ready to connect from your C++ code. 
 
 ## <a id="Windows"></a>Step 4: Connecting from a Windows C/C++ application
-
 You can easily connect to your [Azure SQL DB using ODBC on Windows using this sample](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample) that builds with Visual Studio. The sample implements an ODBC command-line interpreter that can be used to connect to our Azure SQL DB. This sample takes either a Database source name file (DSN) file as a command-line argument or the verbose connection string that we copied earlier from the Azure portal. Bring up the property page for this project and paste the connection string as a command argument as shown here: 
 
 ![DSN Propsfile](./media/sql-database-develop-cplusplus-simple/props.png)
@@ -80,7 +72,6 @@ Alternatively, you could create a DSN file using the wizard that is launched whe
 ![Create DSN File](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
 Congratulations! You have now successfully connected to Azure SQL using C++ and ODBC on Windows. You can continue reading to do the same for Linux platform as well. 
-
 
 ## <a id="Linux"></a>Step 5: Connecting from a Linux C/C++ application
 In case you haven’t heard the news yet, Visual Studio now allows you to develop C++ Linux application as well. You can read about this new scenario in the [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blog. To build for Linux, you need a remote machine where your Linux distro is running. If you don’t have one available, you can set one up quickly using [Linux Azure Virtual machines](../virtual-machines/virtual-machines-linux-quick-create-cli.md). 
@@ -104,7 +95,7 @@ After connection over SSH is established, create an Empty project (Linux) templa
 
 ![New project template](./media/sql-database-develop-cplusplus-simple/template.png)
 
-You can then add a [new C source file and replace it with this content](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20(linux)/odbcconnector/odbcconnector.c). Using the ODBC APIs SQLAllocHandle, SQLSetConnectAttr, and SQLDriverConnect, you should be able to initialize and establish a connection to your database. 
+You can then add a [new C source file and replace it with this content](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20\(linux\)/odbcconnector/odbcconnector.c). Using the ODBC APIs SQLAllocHandle, SQLSetConnectAttr, and SQLDriverConnect, you should be able to initialize and establish a connection to your database. 
 Like with the Windows ODBC sample, you need to replace the SQLDriverConnect call with the details from your database connection string parameters copied from the Azure portal previously. 
 
      retcode = SQLDriverConnect(
@@ -130,21 +121,14 @@ Congratulations! You have successfully completed the tutorial and can now connec
 ## <a id="GetSolution"></a>Get the complete C/C++ tutorial solution
 You can find the GetStarted solution that contains all the samples in this article at github:
 
-- [ODBC C++ Windows sample](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20(windows)), Download the Windows C++ ODBC Sample to connect to Azure SQL
-- [ODBC C++ Linux sample](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20(linux)), Download the Linux C++ ODBC Sample to connect to Azure SQL
+* [ODBC C++ Windows sample](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20\(windows\)), Download the Windows C++ ODBC Sample to connect to Azure SQL
+* [ODBC C++ Linux sample](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20\(linux\)), Download the Linux C++ ODBC Sample to connect to Azure SQL
 
 ## Next steps
-
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
 * More information on the [ODBC API Reference](https://msdn.microsoft.com/library/ms714562\(v=vs.85\).aspx)
 
-## Additional resources 
-
+## Additional resources
 * [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
-
-
-
-
-
 

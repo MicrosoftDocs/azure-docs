@@ -1,25 +1,25 @@
-<properties 
-pageTitle="Deploying SAP IDES EHP7 SP3 for SAP ERP 6.0 on Microsoft Azure | Microsoft Azure" 
-description="Deploying SAP IDES EHP7 SP3 for SAP ERP 6.0 on Microsoft Azure" 
-services="virtual-machines-windows" 
-documentationCenter="" 
-authors="hermanndms" 
-manager="timlt" 
-editor="" 
-tags="azure-resource-manager" 
-keywords=""/> 
-<tags 
-ms.service="virtual-machines-windows" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.tgt_pltfrm="vm-windows" 
-ms.workload="infrastructure-services" 
-ms.date="09/16/2016" 
-ms.author="hermannd"/> 
+---
+title: Deploying SAP IDES EHP7 SP3 for SAP ERP 6.0 on Microsoft Azure | Microsoft Docs
+description: Deploying SAP IDES EHP7 SP3 for SAP ERP 6.0 on Microsoft Azure
+services: virtual-machines-windows
+documentationcenter: ''
+author: hermanndms
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.assetid: 626c1523-1026-478f-bd8a-22c83b869231
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 09/16/2016
+ms.author: hermannd
 
-# Deploying SAP IDES EHP7 SP3 for SAP ERP 6.0 on Microsoft Azure 
-
+---
+# Deploying SAP IDES EHP7 SP3 for SAP ERP 6.0 on Microsoft Azure
 This article describes how to deploy SAP IDES running with SQL Server and Windows OS on Microsoft Azure 
 via SAP Cloud Appliance Library 3.0. The screenshots show the process step by step. Deploying other 
 solutions in the list works the same way from a process perspective. One just has to select a different solution.
@@ -27,9 +27,7 @@ solutions in the list works the same way from a process perspective. One just ha
 To start with SAP Cloud Appliance Library (SAP CAL) go [here](https://cal.sap.com/). There is a blog from SAP about 
 the new [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
-
 The following screenshots show step-by-step how to deploy SAP IDES on Microsoft Azure. The process works the same way for other solutions.
-
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic1.jpg)
 
@@ -110,8 +108,4 @@ the guide for the IDES solution.
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
 
 Another option is to login to the Windows VM and start for example the pre-configured SAP GUI.
-
-
-
-
 

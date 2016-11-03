@@ -1,22 +1,22 @@
-<properties
-    pageTitle="Send Azure Diagnostic logs to Application Insights | Microsoft Azure"
-    description="Configure the details of the Azure Cloud Services diagnostic logs that are sent to the Application Insights portal."
-    services="application-insights"
-    documentationCenter=".net"
-    authors="sbtron"
-    manager="douge"/>
+---
+title: Send Azure Diagnostic logs to Application Insights | Microsoft Docs
+description: Configure the details of the Azure Cloud Services diagnostic logs that are sent to the Application Insights portal.
+services: application-insights
+documentationcenter: .net
+author: sbtron
+manager: douge
 
-<tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-    ms.devlang="na"
-    ms.topic="article"
-	ms.date="11/17/2015"
-    ms.author="awills"/>
+ms.assetid: a67dd20a-fc5d-4391-ba63-bfe164fb62f7
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 11/17/2015
+ms.author: awills
 
+---
 # Configure Azure Diagnostic logging to Application Insights
-
 When you set up a Cloud Services project or a Virtual Machine in Microsoft Azure, [Azure can generate a diagnostic log](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). You can have this sent on to Application Insights so that you can analyze it along with diagnostic and usage telemetry sent from within the app by the Application Insights SDK. The Azure log includes events in the management of the app such as start, stop, crashes, as well as performance counters. The log also includes calls in the app to System.Diagnostics.Trace.
 
 This article describes configuration of the diagnostic capture in detail.
@@ -24,14 +24,11 @@ This article describes configuration of the diagnostic capture in detail.
 You need Azure SDK 2.8 or later installed in Visual Studio.
 
 ## Get an Application Insights resource
-
 For the best experience, [add the Application Insights SDK to each role of your Cloud Services app](app-insights-cloudservices.md), or [to whatever app you will run in your VM](app-insights-overview.md). You can then send the diagnostic data to be  analyzed and displayed in the same Application Insights resource.
 
 Alternatively, if you don't want to use the SDK - for example, if the app is already live - you can just [create a new Application Insights resource](app-insights-create-new-resource.md) in the Azure portal. Choose **Azure Diagnostics** as the application type.
 
-
 ## Send Azure diagnostics to Application Insights
-
 If you are able to update your app project, then in Visual Studio select each role, choose its Properties, and in the Configuration tab, select **Send diagnostics to Application Insights**.
 
 Alternatively, when you use the Publish command to upload your app, you can choose the Application Insights option on the Diagnostics page.
@@ -45,7 +42,6 @@ We recommend that you send the data for separate roles to separate resources. Yo
 [Learn more about setting up Application Insights for a Cloud Services app](app-insights-cloudservices.md).
 
 ## Configuring the Azure diagnostics adapter
-
 Read on only if you want to select the parts of the log that you send to Application Insights. By default, everything is sent, including: Microsoft Azure events; performance counters; trace calls from the app to System.Diagnostics.Trace.
 
 When you change the diagnostics options in the role properties editor or publish wizard, you're actually changing the content of two sets of files:
@@ -56,18 +52,15 @@ When you change the diagnostics options in the role properties editor or publish
 Edit these files directly in order to effect more specific options than the wizards allow for. Read on for more details. 
 
 ## Separate development and production resources
-
 You can send the telemetry data from the development and production stamps of your app to different Application Insights resources. This avoids getting your development telemetry swamped by live telemetry. 
 
 1. [Create new Application Insights resources](app-insights-create-new-resource.md) for each stamp. Get the instrumentation key from the Essentials tab of each resource.
 2. Edit the two .cscfg files and insert different instrumentation keys.
 
 ## Choose the priority levels to send
-
 In the diagnostics configuration file `diagnostics.wadcfgx` for each role, you can filter the log messages by level.
 
 ### Define a sink
-
 `<SinksConfig>` defines the additional sink where the Azure diagnostics data can be sent.  An example `SinksConfig` looks like this:
 
 ```xml
@@ -87,7 +80,6 @@ In the diagnostics configuration file `diagnostics.wadcfgx` for each role, you c
 `Channels` names a data stream that will be sent to the sink. The channel acts like a filter. The `loglevel` attribute lets you specify the log level that the channel will send. The available values are: `{Verbose, Information, Warning, Error, Critical}`.
 
 ### Send data to the sink
-
 Send data to the Application Insights sink by adding the sinks attribute to under the DiagnosticMonitorConfiguration node, or any node under it. Adding the sinks element to each node specifies that you want data collected from that node and any node under it to be sent to the sink specified.
 
 For example, the default created by the Azure SDK is to send all the Azure diagnostic data:
@@ -156,10 +148,8 @@ There are some limitations to be aware of with this functionality:
 * The log level for a channel cannot exceed the log level for what is being collected by Azure diagnostics. For example: you cannot collect Application Log errors in the Logs element and try to send Verbose logs to the Application Insight sync. The scheduledTransferLogLevelFilter attribute must always collect equal or more logs than the logs you are trying to send to a sink.
 * You cannot send any blob data collected by Azure diagnostics extension to Application Insights. For example anything specified under the Directories node. For Crash Dumps the actual crash dump will still be sent to blob storage and only a notification that the crash dump was generated will be sent to Application Insights.
 
-
-
 ## Next steps
-
 * [Monitoring Azure Cloud Services with Application Insights](app-insights-cloudservices.md)
 * [Using PowerShell to send Azure diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Azure Diagnostics Configuration file](https://msdn.microsoft.com/library/azure/dn782207.aspx)
+

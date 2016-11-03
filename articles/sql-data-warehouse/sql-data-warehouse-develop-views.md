@@ -1,27 +1,29 @@
-<properties
-   pageTitle="Views in SQL Data Warehouse | Microsoft Azure"
-   description="Tips for using Transact-SQL views in Azure SQL Data Warehouse for developing solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Views in SQL Data Warehouse | Microsoft Docs
+description: Tips for using Transact-SQL views in Azure SQL Data Warehouse for developing solutions.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="jrj;barbkess"/>
+ms.assetid: b5208f32-8f4a-4056-8788-2adbb253d9fd
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
 
-
+---
 # Views in SQL Data Warehouse
-
 Views are particularly useful in SQL Data Warehouse. They can be used in a number of different ways to improve the quality of your solution.  This article highlights a few examples of how to enrich your solution with views, as well as the limitations that need to be considered.
 
-> [AZURE.NOTE] Syntax for `CREATE VIEW` is not discussed in this article. Please refer to the [CREATE VIEW][] article on MSDN for this reference information.
+> [!NOTE]
+> Syntax for `CREATE VIEW` is not discussed in this article. Please refer to the [CREATE VIEW][CREATE VIEW] article on MSDN for this reference information.
+> 
+> 
 
 ## Architectural abstraction
 A very common application pattern is to re-create tables using CREATE TABLE AS SELECT (CTAS) followed by an object renaming pattern whilst loading data.
@@ -54,16 +56,15 @@ Views can also be utilized to enforce performance optimized joins between tables
 ## Limitations
 Views in SQL Data Warehouse are metadata only.  Consequently the following options are not available:
 
-- 	There is no schema binding option
-- 	Base tables cannot be updated through the view
-- 	Views cannot be created over temporary tables
-- 	There is no support for the EXPAND / NOEXPAND hints
-- 	There are no indexed views in SQL Data Warehouse
-
+* There is no schema binding option
+* Base tables cannot be updated through the view
+* Views cannot be created over temporary tables
+* There is no support for the EXPAND / NOEXPAND hints
+* There are no indexed views in SQL Data Warehouse
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
-For `CREATE VIEW` syntax please refer to [CREATE VIEW][].
+For more development tips, see [SQL Data Warehouse development overview][SQL Data Warehouse development overview].
+For `CREATE VIEW` syntax please refer to [CREATE VIEW][CREATE VIEW].
 
 <!--Image references-->
 

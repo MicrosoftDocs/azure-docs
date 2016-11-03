@@ -1,21 +1,22 @@
-<properties
-	pageTitle="Understanding DNS in Azure Stack TP2 | Microsoft Azure"
-	description="Understanding new DNS features and capabilities in Azure Stack TP2"
-	services="azure-stack"
-	documentationCenter=""
-	authors="ScottNapolitan"
-	manager="darmour"
-	editor=""/>
+---
+title: Understanding DNS in Azure Stack TP2 | Microsoft Docs
+description: Understanding new DNS features and capabilities in Azure Stack TP2
+services: azure-stack
+documentationcenter: ''
+author: ScottNapolitan
+manager: darmour
+editor: ''
 
-<tags
-	ms.service="azure-stack"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/26/2016"
-	ms.author="scottnap"/>
+ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/26/2016
+ms.author: scottnap
 
+---
 # Introducing iDNS for Azure Stack
 ================================
 
@@ -27,17 +28,13 @@ without having to provide custom DNS server entries.
 
 It’s something that’s always been there in Azure, but now it's available in Windows Server 2016 and Azure Stack, too.
 
-What does iDNS do?
-------------------
-
+## What does iDNS do?
 With iDNS in Azure Stack, you get the following capabilities, without
 having to specify custom DNS server entries.
 
--   Shared DNS name resolution services for tenant workloads.
-
--   Authoritative DNS service for name resolution and DNS registration within the tenant virtual network.
-
--   Recursive DNS service for resolution of Internet names from tenant VMs. Tenants no longer need to specify custom DNS entries to resolve Internet names (for example, www.bing.com).
+* Shared DNS name resolution services for tenant workloads.
+* Authoritative DNS service for name resolution and DNS registration within the tenant virtual network.
+* Recursive DNS service for resolution of Internet names from tenant VMs. Tenants no longer need to specify custom DNS entries to resolve Internet names (for example, www.bing.com).
 
 You can still bring your own DNS and use custom DNS servers
 if you want. But now, if you just want to be able to resolve Internet DNS
@@ -45,9 +42,7 @@ names and be able to connect to other virtual machines in the same
 virtual network, you don’t need to specify anything and it will just
 work.
 
-What does iDNS not do?
----------------------
-
+## What does iDNS not do?
 What iDNS does not allow you to do is create a
 DNS record for a name that can be resolved from outside the virtual
 network.
@@ -67,19 +62,13 @@ prefix and the suffix together compose a Fully Qualified Domain Name
 In TP2, Azure Stack only supports iDNS for internal name
 registration, so it cannot do the following.
 
--   Create a DNS record under an existing hosted DNS zone (for example,
-    azurestack.local).
+* Create a DNS record under an existing hosted DNS zone (for example,
+  azurestack.local).
+* Create a DNS zone (such as Contoso.com).
+* Create a record under your own custom DNS zone.
+* Support the purchase of domain names.
 
--   Create a DNS zone (such as Contoso.com).
-
--   Create a record under your own custom DNS zone.
-
--   Support the purchase of domain names.
-
-
-Changes in DNS from Azure Stack TP1
------------------------------------
-
+## Changes in DNS from Azure Stack TP1
 In the Technology Preview 1 (TP1) release of Azure Stack, you had to
 provide custom DNS servers if you wanted to be able to resolve hosts by
 name rather than by IP address. This means that if you were creating a
@@ -103,3 +92,4 @@ get the DNS name resolution to work. The following image shows what this looked 
 
 In TP2, you no longer need to make these changes to your VM templates to
 allow your VMs to resolve Internet names. They should just work.
+

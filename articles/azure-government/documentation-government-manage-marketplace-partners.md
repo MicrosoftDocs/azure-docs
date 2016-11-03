@@ -1,28 +1,33 @@
-<properties
-            pageTitle="Azure Government documentation | Microsoft Azure"
-            description="This provides a comparison of features and guidance on developing applications for Azure Government."
-            services="Azure-Government"
-            cloud="gov"
-            documentationCenter=""
-            authors="tsingh"
-            manager="asimm"
-            editor=""/>
- 
-<tags    ms.service="multiple"
-            ms.devlang="na"
-            ms.topic="article"
-            ms.tgt_pltfrm="na"
-            ms.workload="azure-government"
-            ms.date="10/20/2016"
-            ms.author="zakramer;tsingh;divacc"/> 
+---
+title: Azure Government documentation | Microsoft Docs
+description: This provides a comparison of features and guidance on developing applications for Azure Government.
+services: Azure-Government
+cloud: gov
+documentationcenter: ''
+author: tsingh
+manager: asimm
+editor: ''
 
+ms.assetid: 7790d3c5-d0fa-4662-b4f0-a174cb7d6c9f
+ms.service: multiple
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: azure-government
+ms.date: 10/20/2016
+ms.author: zakramer;tsingh;divacc
+
+---
 # Azure Government Marketplace
 For partners interested in publishing your offerings to the Azure Marketplace for Government, find the details below.
 
 ## Publishing
->[AZURE.NOTE] If you are not an existing Azure Certified Marketplace partner, complete the steps [here](../marketplace-publishing/marketplace-publishing-getting-started.md) before proceeding.
+> [!NOTE]
+> If you are not an existing Azure Certified Marketplace partner, complete the steps [here](../marketplace-publishing/marketplace-publishing-getting-started.md) before proceeding.
+> 
+> 
 
-### Step 1 	
+### Step 1
 Log on to [https://publish.windowsazure.com](https://publish.windowsazure.com)
 
 ### Step 2
@@ -31,7 +36,10 @@ Click the offer you want to publish
 ### Step 3
 Click **SKUS** and click the Azure Government Cloud box
 
->[AZURE.NOTE] Only Bring Your Own License (BYOL) SKUs are supported.  This option is not available for Pay-as-You-Go (PayG) SKUs.
+> [!NOTE]
+> Only Bring Your Own License (BYOL) SKUs are supported.  This option is not available for Pay-as-You-Go (PayG) SKUs.
+> 
+> 
 
 ![alt text](./media/government-manage-marketplace-partner-1.png)
 
@@ -63,5 +71,5 @@ Once you have validated your image using the trial subscription, you can make th
 ![alt text](./media/government-manage-marketplace-partner-5.png)
 
 ## Next steps
-
 For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
+

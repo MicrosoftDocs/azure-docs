@@ -1,23 +1,23 @@
-<properties
-   pageTitle="Pen Testing | Microsoft Azure"
-   description="The article provides an overview of the penetration testing (pentest) process and how perform pentest against your apps running in Azure infrastructure."
-   services="security"
-   documentationCenter="na"
-   authors="YuriDio"
-   manager="swadhwa"
-   editor="TomSh"/>
+---
+title: Pen Testing | Microsoft Docs
+description: The article provides an overview of the penetration testing (pentest) process and how perform pentest against your apps running in Azure infrastructure.
+services: security
+documentationcenter: na
+author: YuriDio
+manager: swadhwa
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="10/25/2016"
-   ms.author="yurid"/>
+ms.assetid: 695d918c-a9ac-4eba-8692-af4526734ccc
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/25/2016
+ms.author: yurid
 
+---
 # Pen Testing
-
 One of the great things about using Microsoft Azure for application testing and deployment is that you don’t need to put together an on-premises infrastructure to develop, test and deploy your applications. All the infrastructure is taken care of by the Microsoft Azure platform services. You don’t have to worry about requisitioning, acquiring, and “racking and stacking” your own on-premises hardware.
 
 This is great – but you still need to make sure you perform your normal security due diligence. One of the things you need to do is penetration test the applications you deploy in Azure.
@@ -33,10 +33,11 @@ What to do?
 When you’re ready to pen test your Azure-hosted applications, you need to let us know. Once we know that you’re going to be performing specific tests, we won’t inadvertently shut you down (such as blocking the IP address that you’re testing from), as long as your tests conform to the Azure pen testing terms and conditions.
 Standard tests you can perform include:
 
-- Tests on your endpoints to uncover the [Open Web Application Security Project (OWASP) top 10 vulnerabilities](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
-- [Fuzz testing](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) of your endpoints
-- [Port scanning](https://en.wikipedia.org/wiki/Port_scanner) of your endpoints
+* Tests on your endpoints to uncover the [Open Web Application Security Project (OWASP) top 10 vulnerabilities](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
+* [Fuzz testing](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) of your endpoints
+* [Port scanning](https://en.wikipedia.org/wiki/Port_scanner) of your endpoints
 
 One type of test that you can’t perform is any kind of [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) attack. This includes initiating a DoS attack itself, or performing related tests that might determine, demonstrate or simulate any type of DoS attack.
 
 Are you ready to get started with pen testing your applications hosted in Microsoft Azure? If so, then head on over to the [Penetration Test Overview](https://security-forms.azure.com/penetration-testing/terms) page (and click the Create a Testing Request button at the bottom of the page. You’ll also find more information on the pen testing terms and conditions and helpful links on how you can report security flaws related to Azure or any other Microsoft service.
+

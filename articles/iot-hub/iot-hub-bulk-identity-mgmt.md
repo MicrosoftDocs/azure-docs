@@ -1,23 +1,23 @@
-<properties
- pageTitle="Import export of IoT Hub device identities | Microsoft Azure"
- description="Concepts and .NET code snippets for bulk management of IoT Hub device identities"
- services="iot-hub"
- documentationCenter=".net"
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Import export of IoT Hub device identities | Microsoft Docs
+description: Concepts and .NET code snippets for bulk management of IoT Hub device identities
+services: iot-hub
+documentationcenter: .net
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="10/05/2016"
- ms.author="dobett"/>
+ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/05/2016
+ms.author: dobett
 
+---
 # Bulk management of IoT Hub device identities
-
 Each IoT hub has a device identity registry you can use to create per-device resources in the service, such as a queue that contains in-flight cloud-to-device messages. The device identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from a device identity registry.
 
 Import and export operations take place in the context of *Jobs* that enable you to execute bulk service operations against an IoT hub.
@@ -25,11 +25,10 @@ Import and export operations take place in the context of *Jobs* that enable you
 The **RegistryManager** class includes the **ExportDevicesAsync** and **ImportDevicesAsync** methods that use the **Job** framework. These methods enable you to export, import, and synchronize the entirety of an IoT hub device registry.
 
 ## What are Jobs?
-
 Device identity registry operations use the **Job** system when the operation:
 
-*  Has a potentially long execution time compared to standard runtime operations, or
-*  Returns a large amount of data to the user.
+* Has a potentially long execution time compared to standard runtime operations, or
+* Returns a large amount of data to the user.
 
 In these cases, instead of a single API call waiting or blocking on the result of the operation, the operation asynchronously creates a **Job** for that IoT hub. The operation then immediately returns a **JobProperties** object.
 
@@ -62,20 +61,18 @@ while(true)
 ```
 
 ## Export devices
-
 Use the **ExportDevicesAsync** method to export the entirety of an IoT hub device registry to an [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob container using a [Shared Access Signature](https://msdn.microsoft.com/library/ee395415.aspx).
 
 This method enables you to create reliable backups of your device information in a blob container that you control.
 
 The **ExportDevicesAsync** method requires two parameters:
 
-*  A *string* that contains a URI of a blob container. This URI must contain a SAS token that grants write access to the container. The job creates a block blob in this container to store the serialized export device data. The SAS token must include these permissions:
-    
-    ```
-    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
-    ```
-
-*  A *boolean* that indicates if you want to exclude authentication keys from your export data. If **false**, authentication keys are included in export output; otherwise, keys are exported as **null**.
+* A *string* that contains a URI of a blob container. This URI must contain a SAS token that grants write access to the container. The job creates a block blob in this container to store the serialized export device data. The SAS token must include these permissions:
+  
+   ```
+   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
+   ```
+* A *boolean* that indicates if you want to exclude authentication keys from your export data. If **false**, authentication keys are included in export output; otherwise, keys are exported as **null**.
 
 The following C# code snippet shows how to initiate an export job that includes device authentication keys in the export data and then poll for completion:
 
@@ -127,31 +124,38 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 }
 ```
 
-> [AZURE.NOTE]  You can also use the **GetDevicesAsync** method of the **RegistryManager** class to fetch a list of your devices. However, this approach has a hard cap of 1000 on the number of device objects that are returned. The expected use case for the **GetDevicesAsync** method is for development scenarios to aid debugging and is not recommended for production workloads.
+> [!NOTE]
+> You can also use the **GetDevicesAsync** method of the **RegistryManager** class to fetch a list of your devices. However, this approach has a hard cap of 1000 on the number of device objects that are returned. The expected use case for the **GetDevicesAsync** method is for development scenarios to aid debugging and is not recommended for production workloads.
+> 
+> 
 
 ## Import devices
-
 The **ImportDevicesAsync** method in the **RegistryManager** class enables you to perform bulk import and synchronization operations in an IoT hub device registry. Like the **ExportDevicesAsync** method, the **ImportDevicesAsync** method uses the **Job** framework.
 
 Take care using the **ImportDevicesAsync** method because in addition to provisioning new devices in your device identity registry, it can also update and delete existing devices.
 
-> [AZURE.WARNING]  An import operation cannot be undone. Always back up your existing data using the **ExportDevicesAsync** method to another blob container before you make bulk changes to your device identity registry.
+> [!WARNING]
+> An import operation cannot be undone. Always back up your existing data using the **ExportDevicesAsync** method to another blob container before you make bulk changes to your device identity registry.
+> 
+> 
 
 The **ImportDevicesAsync** method takes two parameters:
 
-*  A *string* that contains a URI of an [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your device identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
+* A *string* that contains a URI of an [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your device identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
+  
+   ```
+   SharedAccessBlobPermissions.Read
+   ```
+* A *string* that contains a URI of an [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob container to use as *output* from the job. The job creates a block blob in this container to store any error information from the completed import **Job**. The SAS token must include these permissions:
+  
+   ```
+   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
+   ```
 
-    ```
-    SharedAccessBlobPermissions.Read
-    ```
-
-*  A *string* that contains a URI of an [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob container to use as *output* from the job. The job creates a block blob in this container to store any error information from the completed import **Job**. The SAS token must include these permissions:
-    
-    ```
-    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
-    ```
-
-> [AZURE.NOTE]  The two parameters can point to the same blob container. The separate parameters simply enable more control over your data as the output container requires additional permissions.
+> [!NOTE]
+> The two parameters can point to the same blob container. The separate parameters simply enable more control over your data as the output container requires additional permissions.
+> 
+> 
 
 The following C# code snippet shows how to initiate an import job:
 
@@ -160,38 +164,39 @@ JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasU
 ```
 
 ## Import behavior
-
 You can use the **ImportDevicesAsync** method to perform the following bulk operations in your device identity registry:
 
--   Bulk registration of new devices
--   Bulk deletions of existing devices
--   Bulk status changes (enable or disable devices)
--   Bulk assignment of new device authentication keys
--   Bulk auto-regeneration of device authentication keys
+* Bulk registration of new devices
+* Bulk deletions of existing devices
+* Bulk status changes (enable or disable devices)
+* Bulk assignment of new device authentication keys
+* Bulk auto-regeneration of device authentication keys
 
 You can perform any combination of the preceding operations within a single **ImportDevicesAsync** call. For example, you can register new devices and delete or update existing devices at the same time. When used along with the **ExportDevicesAsync** method, you can completely migrate all your devices from one IoT hub to another.
 
 Use the optional **importMode** property in the import serialization data for each device to control the import process per-device. The **importMode** property has the following options:
 
-| importMode |  Description |
-| -------- | ----------- |
-| **createOrUpdate** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. |
-| **create** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, an error is written to the log file. |
-| **update** | If a device already exists with the specified **id**, existing information is overwritten with the provided input data without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
-| **updateIfMatchETag** | If a device already exists with the specified **id**, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If the device does not exist, an error is written to the log file. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
-| **createOrUpdateIfMatchETag** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
-| **delete** | If a device already exists with the specified **id**, it is deleted without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
-| **deleteIfMatchETag** | If a device already exists with the specified **id**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. <br/>If there is an ETag mismatch, an error is written to the log file. |
+| importMode | Description |
+| --- | --- |
+| **createOrUpdate** |If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. |
+| **create** |If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, an error is written to the log file. |
+| **update** |If a device already exists with the specified **id**, existing information is overwritten with the provided input data without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
+| **updateIfMatchETag** |If a device already exists with the specified **id**, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If the device does not exist, an error is written to the log file. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
+| **createOrUpdateIfMatchETag** |If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
+| **delete** |If a device already exists with the specified **id**, it is deleted without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
+| **deleteIfMatchETag** |If a device already exists with the specified **id**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. <br/>If there is an ETag mismatch, an error is written to the log file. |
 
-> [AZURE.NOTE] If the serialization data does not explicitly define an **importMode** flag for a device, it defaults to **createOrUpdate** during the import operation.
+> [!NOTE]
+> If the serialization data does not explicitly define an **importMode** flag for a device, it defaults to **createOrUpdate** during the import operation.
+> 
+> 
 
-## Import devices example – bulk device provisioning 
-
+## Import devices example – bulk device provisioning
 The following C# code sample illustrates how to generate multiple device identities that:
 
-- Include authentication keys.
-- Write that device information to a block blob.
-- Import the devices into the device identity registry.
+* Include authentication keys.
+* Write that device information to a block blob.
+* Import the devices into the device identity registry.
 
 ```
 // Provision 1,000 more devices
@@ -255,7 +260,6 @@ while(true)
 ```
 
 ## Import devices example – bulk deletion
-
 The following code sample shows you how to delete the devices you added using the previous code sample:
 
 ```
@@ -306,8 +310,6 @@ while(true)
 ```
 
 ## Getting the container SAS URI
-
-
 The following code sample shows you how to generate a [SAS URI](../storage/storage-dotnet-shared-access-signature-part-2.md) with read, write, and delete permissions for a blob container:
 
 ```
@@ -335,16 +337,15 @@ static string GetContainerSasUri(CloudBlobContainer container)
 ```
 
 ## Next steps
-
 In this article, you learned how to perform bulk operations against the device identity registry in an IoT hub. Follow these links to learn more about managing Azure IoT Hub:
 
-- [Usage metrics][lnk-metrics]
-- [Operations monitoring][lnk-monitor]
+* [Usage metrics][lnk-metrics]
+* [Operations monitoring][lnk-monitor]
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Developer guide][lnk-devguide]
-- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Developer guide][lnk-devguide]
+* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md

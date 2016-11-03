@@ -1,22 +1,22 @@
-<properties
-	pageTitle="Upgrade from DirSync and Azure AD Sync | Microsoft Azure"
-	description="Describes how to upgrade from DirSync and Azure AD Sync to Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: Upgrade from DirSync and Azure AD Sync | Microsoft Docs
+description: Describes how to upgrade from DirSync and Azure AD Sync to Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/27/2016"
-	ms.author="billmath"/>
+ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/27/2016
+ms.author: billmath
 
-
+---
 # Upgrade Windows Azure Active Directory Sync (“DirSync”) and Azure Active Directory Sync (“Azure AD Sync”)
 Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.
 
@@ -28,25 +28,26 @@ The last release of DirSync was released in July 2014 and the last release of Az
 Azure AD Connect is the successor to DirSync and Azure AD Sync. It combines all scenarios these two supported. You can read more about it in [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
 ## Deprecation schedule
-
-Date | Comment
- --- | ---
-April 13, 2016 | Windows Azure Active Directory Sync (“DirSync”) and Microsoft Azure Active Directory Sync (“Azure AD Sync”) are announced as deprecated.
-April 13, 2017 | Support ends. Customers will no longer be able to open a support case without upgrading to Azure AD Connect first.
+| Date | Comment |
+| --- | --- |
+| April 13, 2016 |Windows Azure Active Directory Sync (“DirSync”) and Microsoft Azure Active Directory Sync (“Azure AD Sync”) are announced as deprecated. |
+| April 13, 2017 |Support ends. Customers will no longer be able to open a support case without upgrading to Azure AD Connect first. |
 
 ## How to transition to Azure AD Connect
 If you are running DirSync there are two ways you can upgrade: In-place upgrade and parallel deployment. An in-place upgrade is recommended for most customers and if you have a recent operating system and less than 50,000 objects. In other cases it is recommended to do a parallel deployment where your DirSync configuration is moved to a new server running Azure AD Connect.
 
 If you use Azure AD Sync an in-place upgrade is recommended. If you want to, it is possible to install a new Azure AD Connect server in parallel and do a swing migration from your Azure AD Sync server to Azure AD Connect.
 
-Solution | Scenario
------ | -----
-[Upgrade from DirSync](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>If you have an existing DirSync server already running.</li>
-[Upgrade from Azure AD Sync](active-directory-aadconnect-upgrade-previous-version.md)| <li>If you are moving from Azure AD Sync.</li>
+| Solution | Scenario |
+| --- | --- |
+| [Upgrade from DirSync](connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>If you have an existing DirSync server already running.</li> |
+| [Upgrade from Azure AD Sync](active-directory-aadconnect-upgrade-previous-version.md) |<li>If you are moving from Azure AD Sync.</li> |
 
 If you want to see how to do an in-place upgrade from DirSync to Azure AD Connect, then please see this Channel 9 video:
 
-> [AZURE.VIDEO azure-active-directory-connect-in-place-upgrade-from-legacy-tools]
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools/player]
+> 
+> 
 
 ## FAQ
 **Q: I have received an email notification from the Azure Team and/or a message from the Office 365 message center, but I am using Connect.**  
@@ -62,5 +63,5 @@ It is supported to upgrade from any DirSync release currently being used.
 The Azure AD Connector for FIM/MIM has **not** been announced as deprecated. It is at **feature freeze**; no new functionality is added and it receives no bug fixes. Microsoft recommends customers using it to plan to move from it to Azure AD Connect. It is strongly recommended to not start any new deployments using it. This Connector will be announced deprecated in the future.
 
 ## Additional Resources
-
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+

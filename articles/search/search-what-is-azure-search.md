@@ -1,26 +1,25 @@
-<properties
-	pageTitle="What is Azure Search | Microsoft Azure | Hosted cloud search service"
-	description="Azure Search is a fully-managed hosted cloud search service. Learn more in this feature overview."
-	services="search"
-	manager="jhubbard"
-	authors="ashmaka"
-	documentationCenter=""/>
+---
+title: What is Azure Search | Microsoft Docs
+description: Azure Search is a fully-managed hosted cloud search service. Learn more in this feature overview.
+services: search
+manager: jhubbard
+author: ashmaka
+documentationcenter: ''
 
-<tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.date="08/29/2016"
-	ms.author="ashmaka"/>
+ms.assetid: 50bed849-b716-4cc9-bbbc-b5b34e2c6153
+ms.service: search
+ms.devlang: NA
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
+---
 # What is Azure Search?
-
 Azure Search is a cloud search-as-a-service solution that delegates server and infrastructure management to Microsoft, leaving you with a ready-to-use service that you can populate with your data and then use to add search to your web or mobile application. Azure Search allows you to easily add a robust search experience to your applications using a simple [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) or [.NET SDK](search-howto-dotnet-sdk.md) without managing search infrastructure or becoming an expert in search.
 
 ## Give your users a powerful search experience
-
 **Powerful queries** can be formulated using the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports custom lexical analyzers to allow your application to handle complex search queries using phonetic matching and regular expressions.
 
 **Language support** is [included for 56 different languages](https://msdn.microsoft.com/library/azure/dn879793.aspx). Using both Lucene analyzers and Microsoft analyzers (refined by years of natural language processing in Office and Bing), Azure Search can analyze text in your application's search box to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (e.g. 'mouse' vs. 'mice'), word de-compounding, word-breaking (for languages with no spaces), and more.
@@ -36,7 +35,6 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 **Filters** can be used to easily incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create powerful filters using the [OData syntax](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
 ## Empower your developers with an easy-to-use service
-
 **High availability** ensures an extremely reliable search service experience. When scaled properly, [Azure Search offers a 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 **Fully managed** as an end-to-end solution, Azure Search requires absolutely no infrastructure management. Your service can be easily tailored to your needs by scaling in two dimensions to handle more document storage, higher query loads, or both.
@@ -56,7 +54,6 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 **Search explorer** allows you to issue queries against all of your indexes right from your account's Azure portal so you can easily test queries and refine scoring profiles.
 
 ## How it works
-
 ### 1. Provision service
 You can spin up an Azure Search service using either the [Azure Portal](https://portal.azure.com/) or the [Azure Resource Management API](https://msdn.microsoft.com/library/azure/dn832684.aspx).
 
@@ -83,3 +80,4 @@ Once you have populated your Azure Search index, you can now [issue search queri
 You can try Azure Search today! If you already have an Azure account, you can [provision a service in the Free tier](search-create-service-portal.md).
 
 If you don't have an Azure account you can try a free, 60-minute session with no sign up required. Go to the [Try Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) and select "Web App." Then select the "ASP.NET + Azure Search" template to get started.
+

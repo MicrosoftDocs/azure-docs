@@ -1,32 +1,30 @@
-<properties
- pageTitle="Developer guide - query language | Microsoft Azure"
- description="Azure IoT Hub developer guide - description of query language used to retrieve information about twins, methods, and jobs from your IoT hub"
- services="iot-hub"
- documentationCenter=".net"
- authors="fsautomata"
- manager="timlt"
- editor=""/>
+---
+title: Developer guide - query language | Microsoft Docs
+description: Azure IoT Hub developer guide - description of query language used to retrieve information about twins, methods, and jobs from your IoT hub
+services: iot-hub
+documentationcenter: .net
+author: fsautomata
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="multiple"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="09/30/2016" 
- ms.author="elioda"/>
+ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/30/2016
+ms.author: elioda
 
+---
 # Reference - query language for twins and jobs
-
 ## Overview
-
 IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins][lnk-twins] and [jobs][lnk-jobs]. This article presents:
 
 * An introduction to the major features of IoT Hub's query language, and
 * The detailed description of the language.
 
 ## Getting started with device twin queries
-
 [Device twins][lnk-twins] can contain arbitrary JSON objects as both tags and properties. IoT Hub allows to query device twins as a single JSON document containing all device twin information.
 Assume, for instance, that your IoT hub twins have the following structure:
 
@@ -72,7 +70,10 @@ So the following query retrieves the whole set of device twins:
 
         SELECT * FROM devices
 
-> [AZURE.NOTE] [IoT Hub SDKs][lnk-hub-sdks] support paging of large results.
+> [!NOTE]
+> [IoT Hub SDKs][lnk-hub-sdks] support paging of large results.
+> 
+> 
 
 IoT Hub allows you to retrieve device twins filtering with arbitrary conditions. For instance,
 
@@ -120,7 +121,6 @@ returns the count of the devices in each telemetry configuration status.
 The example above illustrates a situation where three devices reported successfull configuration, two are still applying the configuration, and one reported an error.
 
 ### C# example
-
 The query functionality is exposed by the [C# service SDK][lnk-hub-sdks] in the the **RegistryManager** class.
 Here is an example of a simple query:
 
@@ -138,7 +138,6 @@ Note how the **query** object is instantiated with a page size (up to 1000), and
 It is important to note that the query object exposes multiple **Next\***, depending on the deserialization option required by the query, such as device twin or job objects, or plain Json to be used when using projections.
 
 ### Node example
-
 The query functionality is exposed by the [Node service SDK][lnk-hub-sdks] in the the **Registry** object.
 Here is an example of a simple query:
 
@@ -163,11 +162,9 @@ Note how the **query** object is instantiated with a page size (up to 1000), and
 It is important to note that the query object exposes multiple **next\***, depending on the deserialization option required by the query, such as device twin or job objects, or plain Json to be used when using projections.
 
 ### Limitations
-
 Currently, projections are only supported when using aggregations, therfore non-aggregated queries can only use `SELECT *`. Also, aggregation are only supported in conjunction with grouping.
 
 ## Getting started with jobs queries
-
 [Jobs][lnk-jobs] provide a way to execute operations on sets of devices. Each device twin contains the information of the jobs of which it is part in a collection called **jobs**.
 Logically,
 
@@ -230,7 +227,6 @@ Currently, queries on **devices.jobs** do not support:
 * Peforming aggregations, such as count, avg, group by.
 
 ## Basics of an IoT Hub query
-
 Every IoT Hub query consists of a SELECT and FROM clauses and by optional WHERE and GROUP BY clauses. Every query is run on a collection of JSON documents, for example device twins. The FROM clause indicates the document collection to be iterated on (**devices** or **devices.jobs**). Then, the filter in the WHERE clause is applied. In the case of aggregations, the results of this step are grouped as specified in the GROUP BY clause and, for each group, a row is generated as specified in the SELECT clause.
 
         SELECT <select_list>
@@ -239,17 +235,14 @@ Every IoT Hub query consists of a SELECT and FROM clauses and by optional WHERE 
         [GROUP BY <group_specification>]
 
 ## FROM clause
-
 The **FROM <from_specification>** clause can assume only two values: **FROM devices**, to query device twins, or **FROM devices.jobs**, to query job per-device details.
 
 ## WHERE clause
-
 The **WHERE <filter_condition>** clause is optional. It specifies the condition(s) that the JSON documents in the FROM collection must satisfy in order to be included as part of the result. Any JSON document must evaluate the specified conditions to "true" to be included in the result.
 
 The allowed conditions are described in section [Expressions and conditions][lnk-query-expressions].
 
 ## SELECT clause
-
 The SELECT clause (**SELECT <select_list>**) is mandatory and specifies what values will be retrieved from the query. It specifies the JSON values to be used to generate new JSON objects 
 For each element of the filtered (and optionally grouped) subset of the FROM collection, the projection phase generates a new JSON object, constructed with the values specified in the SELECT clause.
 
@@ -278,7 +271,6 @@ where **attribute_name** refers to any property of the JSON document in the FROM
 Currently, selection clauses different than **SELECT \*** are only supported in aggregate queries on twins.
 
 ## GROUP BY clause
-
 The **GROUP BY <group_specification>** clause is an optional step that is can be executed after the filter specified in the WHERE clause, and before the projection specified in the SELECT. It groups documents based on the value of an attribute. These groups are used to generate aggregated values as specified in the SELECT clause.
 
 An example of a query using GROUP BY is:
@@ -300,7 +292,6 @@ where **attribute_name** refers to any property of the JSON document in the FROM
 Currently, the GROUP BY clause is only supported when querying twins.
 
 ## Expressions and conditions
-
 At a high level, an *expression*:
 
 * Evaluates to an instance of a JSON type (such as Boolean, number, string, array, or object), and
@@ -334,26 +325,24 @@ The syntax for expressions is:
 where:
 
 | Symbol | Definition |
-| -------------- | -----------------|
-| attribute_name | Any property of the JSON document in the FROM collection. |
-| unary_operator | Any unary operator as per Operators section. |
-| binary_operator | Any binary operator as per Operators section. |
-| decimal_literal | A float expressed in decimal notation. |
-| hexadecimal_literal | A number expressed by the string ‘0x’ followed by a string of hexadecimal digits. |
-| string_literal | String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes (apostrophe: ' ) or double quotes (quotation mark: "). Allowed escapes: `\'`, `\"`, `\\`, `\uXXXX` for Unicode characters defined by 4 hexadecimal digits. |
+| --- | --- |
+| attribute_name |Any property of the JSON document in the FROM collection. |
+| unary_operator |Any unary operator as per Operators section. |
+| binary_operator |Any binary operator as per Operators section. |
+| decimal_literal |A float expressed in decimal notation. |
+| hexadecimal_literal |A number expressed by the string ‘0x’ followed by a string of hexadecimal digits. |
+| string_literal |String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes (apostrophe: ' ) or double quotes (quotation mark: "). Allowed escapes: `\'`, `\"`, `\\`, `\uXXXX` for Unicode characters defined by 4 hexadecimal digits. |
 
 ### Operators
-
 The following operators are supported:
 
 | Family | Operators |
-| -------------- | -----------------|
-| Arithmetic | +,-,*,/,% |
-| Logical | AND, OR, NOT |
-| Comparison | 	=, !=, <, >, <=, >=, <> |
+| --- | --- |
+| Arithmetic |+,-,*,/,% |
+| Logical |AND, OR, NOT |
+| Comparison |=, !=, <, >, <=, >=, <> |
 
 ## Next steps
-
 Learn how to execute queries in your apps using [IoT Hub SDKs][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause

@@ -1,27 +1,28 @@
-<properties
-   pageTitle="Generic LDAP Connector | Microsoft Azure"
-   description="This article describes how to configure Microsoft's Generic LDAP Connector."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: Generic LDAP Connector | Microsoft Docs
+description: This article describes how to configure Microsoft's Generic LDAP Connector.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="08/30/2016"
-   ms.author="billmath"/>
+ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/30/2016
+ms.author: billmath
 
+---
 # Generic LDAP Connector technical reference
 This article describes the Generic LDAP Connector. The article applies to the following products:
 
-- Microsoft Identity Manager 2016 (MIM2016)
-- Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   Must use hotfix 4.1.3671.0 or later [KB3092178](https://support.microsoft.com/kb/3092178).
+* Microsoft Identity Manager 2016 (MIM2016)
+* Forefront Identity Manager 2010 R2 (FIM2010R2)
+  * Must use hotfix 4.1.3671.0 or later [KB3092178](https://support.microsoft.com/kb/3092178).
 
 For MIM2016 and FIM2010R2, the Connector is available as a download from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -35,63 +36,63 @@ Certain operations and schema elements, such as those needed to perform delta im
 
 From a high-level perspective, the following features are supported by the current release of the connector:
 
-Feature | Support
---- | --- |
-Connected data source | The Connector is supported with all LDAP v3 servers (RFC 4510 compliant). It has been tested with the following: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Microsoft Active Directory Global Catalog (AD GC)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (previously Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Notable directories not supported:** <li>Microsoft Active Directory Domain Services (AD DS) [Use the built-in Active Directory Connector instead]</li><li>Oracle Internet Directory (OID)</li>
-Scenarios	| <li>Object Lifecycle Management</li><li>Group Management</li><li>Password Management</li>
-Operations |The following operations are supported on all LDAP directories: <li>Full Import</li><li>Export</li>The following operations are only supported on specified directories:<li>Delta import</li><li>Set Password, Change Password</li>
-Schema | <li>Schema is detected from the LDAP schema (RFC3673 and RFC4512/4.2)</li><li>Supports structural classes, aux classes, and extensibleObject object class (RFC4512/4.3)</li>
+| Feature | Support |
+| --- | --- |
+| Connected data source |The Connector is supported with all LDAP v3 servers (RFC 4510 compliant). It has been tested with the following: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Microsoft Active Directory Global Catalog (AD GC)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (previously Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Notable directories not supported:** <li>Microsoft Active Directory Domain Services (AD DS) [Use the built-in Active Directory Connector instead]</li><li>Oracle Internet Directory (OID)</li> |
+| Scenarios |<li>Object Lifecycle Management</li><li>Group Management</li><li>Password Management</li> |
+| Operations |The following operations are supported on all LDAP directories: <li>Full Import</li><li>Export</li>The following operations are only supported on specified directories:<li>Delta import</li><li>Set Password, Change Password</li> |
+| Schema |<li>Schema is detected from the LDAP schema (RFC3673 and RFC4512/4.2)</li><li>Supports structural classes, aux classes, and extensibleObject object class (RFC4512/4.3)</li> |
 
 ### Delta import and password management support
 Supported Directories for Delta import and Password management:
 
-- Microsoft Active Directory Lightweight Directory Services (AD LDS)
-    - Supports all operations for delta import
-    - Supports Set Password
-- Microsoft Active Directory Global Catalog (AD GC)
-    - Supports all operations for delta import
-    - Supports Set Password
-- 389 Directory Server
-    - Supports all operations for delta import
-    - Supports Set Password and Change Password
-- Apache Directory Server
-    - Does not support delta import since this directory does not have a persistent change log
-    - Supports Set Password
-- IBM Tivoli DS
-    - Supports all operations for delta import
-    - Supports Set Password and Change Password
-- Isode Directory
-    - Supports all operations for delta import
-    - Supports Set Password and Change Password
-- Novell eDirectory and NetIQ eDirectory
-    - Supports Add, Update, and Rename operations for delta import
-    - Does not support Delete operations for delta import
-    - Supports Set Password and Change Password
-- Open DJ
-    - Supports all operations for delta import
-    - Supports Set Password and Change Password
-- Open DS
-    - Supports all operations for delta import
-    - Supports Set Password and Change Password
-- Open LDAP (openldap.org)
-    - Supports all operations for delta import
-    - Supports Set Password
-    - Does not support change password
-- Oracle (previously Sun) Directory Server Enterprise Edition
-    - Supports all operations for delta import
-    - Supports Set Password and Change Password
-- RadiantOne Virtual Directory Server (VDS)
-    - Must be using version 7.1.1 or higher
-    - Supports all operations for delta import
-    - Supports Set Password and Change Password
--  Sun One Directory Server
-    - Supports all operations for delta import
-    - Supports Set Password and Change Password
+* Microsoft Active Directory Lightweight Directory Services (AD LDS)
+  * Supports all operations for delta import
+  * Supports Set Password
+* Microsoft Active Directory Global Catalog (AD GC)
+  * Supports all operations for delta import
+  * Supports Set Password
+* 389 Directory Server
+  * Supports all operations for delta import
+  * Supports Set Password and Change Password
+* Apache Directory Server
+  * Does not support delta import since this directory does not have a persistent change log
+  * Supports Set Password
+* IBM Tivoli DS
+  * Supports all operations for delta import
+  * Supports Set Password and Change Password
+* Isode Directory
+  * Supports all operations for delta import
+  * Supports Set Password and Change Password
+* Novell eDirectory and NetIQ eDirectory
+  * Supports Add, Update, and Rename operations for delta import
+  * Does not support Delete operations for delta import
+  * Supports Set Password and Change Password
+* Open DJ
+  * Supports all operations for delta import
+  * Supports Set Password and Change Password
+* Open DS
+  * Supports all operations for delta import
+  * Supports Set Password and Change Password
+* Open LDAP (openldap.org)
+  * Supports all operations for delta import
+  * Supports Set Password
+  * Does not support change password
+* Oracle (previously Sun) Directory Server Enterprise Edition
+  * Supports all operations for delta import
+  * Supports Set Password and Change Password
+* RadiantOne Virtual Directory Server (VDS)
+  * Must be using version 7.1.1 or higher
+  * Supports all operations for delta import
+  * Supports Set Password and Change Password
+* Sun One Directory Server
+  * Supports all operations for delta import
+  * Supports Set Password and Change Password
 
 ### Prerequisites
 Before you use the Connector, make sure you have the following on the synchronization server:
 
-- Microsoft .NET 4.5.2 Framework or later
+* Microsoft .NET 4.5.2 Framework or later
 
 ### Detecting the LDAP server
 The Connector relies upon various techniques to detect and identify the LDAP server. The Connector uses the Root DSE, vendor name/version, and it inspects the schema to find unique objects and attributes known to exist in certain LDAP servers. This data, if found, is used to pre-populate the configuration options in the Connector.
@@ -133,15 +134,15 @@ The connector tries to detect the options present on the server. If the options 
 ### Delta import
 Delta import is only available when a support directory has been detected. The following methods are currently used:
 
-- LDAP Accesslog. See [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
-- LDAP Changelog. See [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
-- TimeStamp. For Novell/NetIQ eDirectory, the Connector uses last date/time to get created and updated objects. Novell/NetIQ eDirectory does not provide an equivalent means to retrieve deleted objects. This option can also be used if no other delta import method is active on the LDAP server. This option is not able to import deleted objects.
-- USNChanged. See: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
+* LDAP Accesslog. See [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
+* LDAP Changelog. See [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
+* TimeStamp. For Novell/NetIQ eDirectory, the Connector uses last date/time to get created and updated objects. Novell/NetIQ eDirectory does not provide an equivalent means to retrieve deleted objects. This option can also be used if no other delta import method is active on the LDAP server. This option is not able to import deleted objects.
+* USNChanged. See: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
 
 ### Not supported
 The following LDAP features are not supported:
 
-- LDAP referrals between servers (RFC 4511/4.1.10)
+* LDAP referrals between servers (RFC 4511/4.1.10)
 
 ## Create a new Connector
 To Create a Generic LDAP connector, in **Synchronization Service** select **Management Agent** and **Create**. Select the **Generic LDAP (Microsoft)** Connector.
@@ -153,10 +154,10 @@ On the Connectivity page, you must specify the Host, Port, and Binding informati
 
 ![Connectivity](./media/active-directory-aadconnectsync-connector-genericldap/connectivity.png)
 
-- The Connection Timeout setting is only used for the first connection to the server when detecting the schema.
-- If Binding is Anonymous, then neither username / password nor certificate are used.
-- For other bindings, enter information either in username / password or select a certificate.
-- If you are using Kerberos to authenticate, then also provide the Realm/Domain of the user.
+* The Connection Timeout setting is only used for the first connection to the server when detecting the schema.
+* If Binding is Anonymous, then neither username / password nor certificate are used.
+* For other bindings, enter information either in username / password or select a certificate.
+* If you are using Kerberos to authenticate, then also provide the Realm/Domain of the user.
 
 The **attribute aliases** text box is used for attributes defined in the schema with RFC4522 syntax. These attributes cannot be detected during schema detection and the Connector needs help to identify those attributes. For example the following is needed to be entered in the attribute aliases box to correctly identify the userCertificate attribute as a binary attribute:
 
@@ -179,29 +180,29 @@ The top section shows information provided by the server itself, such as the nam
 
 The **supported controls** checkboxes control the behavior for certain operations:
 
-- With tree delete selected, a hierarchy is deleted with one LDAP call. With tree delete unselected, the connector does a recursive delete if needed.
-- With paged results selected, the Connector does a paged import with the size specified on the run steps.
-- The VLVControl and SortControl is an alternative to the pagedResultsControl to read data from the LDAP directory.
-- If all three options (pagedResultsControl, VLVControl, and SortControl) are unselected then the Connector imports all object in one operation, which might fail if it is a large directory.
-- ShowDeletedControl is only used when the Delta import method is USNChanged.
+* With tree delete selected, a hierarchy is deleted with one LDAP call. With tree delete unselected, the connector does a recursive delete if needed.
+* With paged results selected, the Connector does a paged import with the size specified on the run steps.
+* The VLVControl and SortControl is an alternative to the pagedResultsControl to read data from the LDAP directory.
+* If all three options (pagedResultsControl, VLVControl, and SortControl) are unselected then the Connector imports all object in one operation, which might fail if it is a large directory.
+* ShowDeletedControl is only used when the Delta import method is USNChanged.
 
 The change log DN is the naming context used by the delta change log, for example **cn=changelog**. This value must be specified to be able to do delta import.
 
 The following is a list of default change log DNs:
 
-Directory | Delta change log
---- | ---
-Microsoft AD LDS and AD GC | Automatically detected. USNChanged.
-Apache Directory Server | Not available.
-Directory 389 | Change log. Default value to use: **cn=changelog**
-IBM Tivoli DS | Change log. Default value to use: **cn=changelog**
-Isode Directory | Change log. Default value to use: **cn=changelog**
-Novell/NetIQ eDirectory | Not available. TimeStamp. The Connector uses last updated date/time to get added and updated records.
-Open DJ/DS | Change log.  Default value to use: **cn=changelog**
-Open LDAP | Access log. Default value to use: **cn=accesslog**
-Oracle DSEE | Change log. Default value to use: **cn=changelog**
-RadiantOne VDS | Virtual directory. Depends on the directory connected to VDS.
-Sun One Directory Server | Change log. Default value to use: **cn=changelog**
+| Directory | Delta change log |
+| --- | --- |
+| Microsoft AD LDS and AD GC |Automatically detected. USNChanged. |
+| Apache Directory Server |Not available. |
+| Directory 389 |Change log. Default value to use: **cn=changelog** |
+| IBM Tivoli DS |Change log. Default value to use: **cn=changelog** |
+| Isode Directory |Change log. Default value to use: **cn=changelog** |
+| Novell/NetIQ eDirectory |Not available. TimeStamp. The Connector uses last updated date/time to get added and updated records. |
+| Open DJ/DS |Change log.  Default value to use: **cn=changelog** |
+| Open LDAP |Access log. Default value to use: **cn=accesslog** |
+| Oracle DSEE |Change log. Default value to use: **cn=changelog** |
+| RadiantOne VDS |Virtual directory. Depends on the directory connected to VDS. |
+| Sun One Directory Server |Change log. Default value to use: **cn=changelog** |
 
 The password attribute is the name of the attribute the Connector should use to set the password in password change and password set operations.
 This value is by default set to **userPassword** but can be changed when needed for a particular LDAP system.
@@ -231,19 +232,19 @@ This page does always have a preconfigured value and cannot be changed. If the s
 
 The following is a list of LDAP servers and the anchor being used:
 
-Directory | Anchor attribute
---- | ---
-Microsoft AD LDS and AD GC | objectGUID
-389 Directory Server | dn
-Apache Directory | dn
-IBM Tivoli DS | dn
-Isode Directory | dn
-Novell/NetIQ eDirectory | GUID
-Open DJ/DS | dn
-Open LDAP | dn
-Oracle ODSEE | dn
-RadiantOne VDS | dn
-Sun One Directory Server | dn
+| Directory | Anchor attribute |
+| --- | --- |
+| Microsoft AD LDS and AD GC |objectGUID |
+| 389 Directory Server |dn |
+| Apache Directory |dn |
+| IBM Tivoli DS |dn |
+| Isode Directory |dn |
+| Novell/NetIQ eDirectory |GUID |
+| Open DJ/DS |dn |
+| Open LDAP |dn |
+| Oracle ODSEE |dn |
+| RadiantOne VDS |dn |
+| Sun One Directory Server |dn |
 
 ## Other notes
 This section provides information of aspects that are specific to this Connector or for other reasons are important to know.
@@ -256,5 +257,5 @@ For Novell eDirectory, the delta import is not detecting any object deletes. For
 For directories with a delta change log that is based on date/time, it is highly recommended to run a full import at periodic times. This process allows the sync engine to find and dissimilarities between the LDAP server and what is currently in the connector space.
 
 ## Troubleshooting
+* For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
--	For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
