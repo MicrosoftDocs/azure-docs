@@ -13,6 +13,19 @@
         ],
         "src": "articles",
         "dest": "."
+      },
+      {
+      "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [        
+          "**/obj/**",
+          "**/includes/**",
+          "**/_themes/**"
+        ],
+        "src": "bread",
+        "dest": "bread"
       }
     ],
     "resource": [
