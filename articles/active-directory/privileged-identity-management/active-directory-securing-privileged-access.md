@@ -1,4 +1,4 @@
----
+﻿---
 title: Securing Privileged Access in Azure AD | Microsoft Docs
 description: A topic that explains the approaches for securing privileged access across Azure, Azure Active Directory and Microsoft Online Services.
 services: active-directory
@@ -7,6 +7,7 @@ author: kgremban
 manager: femila
 editor: mwahl
 
+ms.assetid:235a0ce9-1daf-4433-8f65-9c6afcd64d08
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

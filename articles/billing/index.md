@@ -1,4 +1,4 @@
----
+﻿---
 title: Understanding your bill | Microsoft Docs
 description: Learn how to read and understand the usage and bill for your Azure subscription
 services: ''
@@ -8,6 +8,7 @@ manager: stevenpo
 editor: ''
 tags: billing
 
+ms.assetid:9fe39aa6-93b2-4394-99b2-2fda88eaa915
 ms.service: billing
 ms.devlang: na
 ms.topic: article
