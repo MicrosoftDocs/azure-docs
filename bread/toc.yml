@@ -239,6 +239,21 @@
   - name: Virtual Machines
     tocHref: /azure/virtual-machines/
     topicHref: /azure/virtual-machines/
+    items:
+      - name: Linux
+        tocHref: /azure/virtual-machines/linux/
+        topicHref: /azure/virtual-machines/linux/virtual-machines-linux-azure-overview
+        items:
+          - name: Classic Deployment
+            tocHref: /azure/virtual-machines/linux/classic/
+            topicHref: /azure/virtual-machines/linux/classic/
+      - name: Windows
+        tocHref: /azure/virtual-machines/windows/
+        topicHref: /azure/virtual-machines/windows/virtual-machines-windows-about
+        items:
+          - name: Classic Deployment
+            tocHref: /azure/virtual-machines/windows/classic/
+            topicHref: /azure/virtual-machines/windows/classic/
   - name: Virtual Network
     tocHref: /azure/virtual-network/
     topicHref: /azure/virtual-network/virtual-networks-overview
