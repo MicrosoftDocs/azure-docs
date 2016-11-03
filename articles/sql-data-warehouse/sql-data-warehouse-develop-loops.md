@@ -1,23 +1,23 @@
-<properties
-   pageTitle="Loops in SQL Data Warehouse | Microsoft Azure"
-   description="Tips for Transact-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Loops in SQL Data Warehouse | Microsoft Docs
+description: Tips for Transact-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="jrj;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
 
+---
 # Loops in SQL Data Warehouse
-SQL Data Warehouse supports the [WHILE][] loop for repeatedly executing statement blocks. This will continue for as long as the specified conditions are true or until the code specifically terminates the loop using the `BREAK` keyword. Loops are particularly useful for replacing cursors defined in SQL code. Fortunately, almost all cursors that are written in SQL code are of the fast forward, read only variety. Therefore [WHILE] loops are a great alternative if you find yourself having to replace one.
+SQL Data Warehouse supports the [WHILE][WHILE] loop for repeatedly executing statement blocks. This will continue for as long as the specified conditions are true or until the code specifically terminates the loop using the `BREAK` keyword. Loops are particularly useful for replacing cursors defined in SQL code. Fortunately, almost all cursors that are written in SQL code are of the fast forward, read only variety. Therefore [WHILE] loops are a great alternative if you find yourself having to replace one.
 
 ## Leveraging loops and replacing cursors in SQL Data Warehouse
 However, before diving in head first you should ask yourself the following question: "Could this cursor be re-written to use set based operations?". In many cases the answer will be yes and is often the best approach. A set based operation often performs significantly faster than an iterative, row by row approach.
@@ -68,7 +68,7 @@ DROP TABLE #tbl;
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 ## Next steps
-For more development tips, see [development overview][].
+For more development tips, see [development overview][development overview].
 
 <!--Image references-->
 

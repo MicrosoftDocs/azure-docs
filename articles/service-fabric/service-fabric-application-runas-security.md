@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Understanding Service Fabric application and service security policies | Microsoft Azure"
-   description="An overview of how to run a Service Fabric application under system and local security accounts, including the SetupEntry point where an application needs to perform some privileged action before it starts"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager="timlt"
-   editor=""/>
+---
+title: Understanding Service Fabric application and service security policies | Microsoft Docs
+description: An overview of how to run a Service Fabric application under system and local security accounts, including the SetupEntry point where an application needs to perform some privileged action before it starts
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/22/2016"
-   ms.author="mfussell"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/22/2016
+ms.author: mfussell
 
+---
 # Configure security policies for your application
 By using Azure Service Fabric, you can help secure applications that are running in the cluster under different user accounts. Service Fabric also helps secure the resources that are used by applications at the time of deployment under the user accounts--for example, files, directories, and certificates. This makes running applications, even in a shared hosted environment, more secure from one another.
 
@@ -26,7 +26,6 @@ By default, Service Fabric applications run under the account that the Fabric.ex
 You can define and create user groups so that one or more users can be added to each group to be managed together. This is useful when there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
 
 ## Configure the policy for a service setup entry point
-
 As described in the [application model](service-fabric-application-model.md), the setup entry point, **SetupEntryPoint**, is a privileged entry point that runs with the same credentials as Service Fabric (typically the *NetworkService* account) before any other entry point. The executable that is specified by **EntryPoint** is typically the long-running service host. So having a separate setup entry point avoids having to run the service host executable with high privileges for extended periods of time. The executable that **EntryPoint** specifies is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted, and begins again with **SetupEntryPoint** if it ever terminates or crashes.
 
 The following is a simple service manifest example that shows the SetupEntryPoint and the main EntryPoint for the service.
@@ -56,7 +55,6 @@ The following is a simple service manifest example that shows the SetupEntryPoin
 ~~~
 
 ### Configure the policy by using a local account
-
 After you configure the service to have a setup entry point, you can change the security permissions that it runs under in the application manifest. The following example shows how to configure the service to run under user administrator account privileges.
 
 ~~~
@@ -116,7 +114,7 @@ Then, note the name of the node where the service was deployed and started in Se
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
-###  Configure the policy by using local system accounts
+### Configure the policy by using local system accounts
 Often, it's preferable to run the startup script by using a local system account rather than an administrator account. Running the RunAs policy as a member of the Administrators group typically doesn’t work well because machines have User Access Control (UAC) enabled by default. In such cases, **the recommendation is to run the SetupEntryPoint as LocalSystem, instead of as a local user added to Administrators group**. The following example shows setting the SetupEntryPoint to run as LocalSystem:
 
 ~~~
@@ -137,9 +135,8 @@ Often, it's preferable to run the startup script by using a local system account
 </ApplicationManifest>
 ~~~
 
-##  Start PowerShell commands from a setup entry point
+## Start PowerShell commands from a setup entry point
 To run PowerShell from the **SetupEntryPoint** point, you can run **PowerShell.exe** in a batch file that points to a PowerShell file. First, add a PowerShell file to the service project--for example, **MySetup.ps1**. Remember to set the *Copy if newer* property so that the file is also included in the service package. The following example shows a sample batch file that starts a PowerShell file called MySetup.ps1, which sets a system environment variable called **TestVariable**.
-
 
 MySetup.bat to start a PowerShell file:
 
@@ -154,7 +151,10 @@ In the PowerShell file, add the following to set a system environment variable:
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ~~~
 
-> [AZURE.NOTE] By default, when the batch file runs, it looks at the application folder called **work** for files. In this case, when MySetup.bat runs, we want this to find the MySetup.ps1 file in the same folder, which is the application **code package** folder. To change this folder, set the working folder:
+> [!NOTE]
+> By default, when the batch file runs, it looks at the application folder called **work** for files. In this case, when MySetup.bat runs, we want this to find the MySetup.ps1 file in the same folder, which is the application **code package** folder. To change this folder, set the working folder:
+> 
+> 
 
 ~~~
 <SetupEntryPoint>
@@ -168,7 +168,10 @@ In the PowerShell file, add the following to set a system environment variable:
 ## Use console redirection for local debugging
 Occasionally, it's useful to see the console output from running a script for debugging purposes. To do this, you can set a console redirection policy, which writes the output to a file. The file output is written to the application folder called **log** on the node where the application is deployed and run. (See where to find this in the preceding example.)
 
-> [AZURE.NOTE] Never use the console redirection policy in an application that is deployed in production because this can affect the application failover. *Only* use this for local development and debugging purposes.  
+> [!NOTE]
+> Never use the console redirection policy in an application that is deployed in production because this can affect the application failover. *Only* use this for local development and debugging purposes.  
+> 
+> 
 
 The following example shows setting the console redirection with a FileRetentionCount value:
 
@@ -358,7 +361,7 @@ The following application manifest shows many of the different settings:
       <DefaultRunAsPolicy UserRef="LocalAdmin" />
    </Policies>
    <Certificates>
-	 <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
+     <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
   </Certificates>
 </ApplicationManifest>
 ~~~
@@ -366,7 +369,6 @@ The following application manifest shows many of the different settings:
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-
 * [Understand the application model](service-fabric-application-model.md)
 * [Specify resources in a service manifest](service-fabric-service-manifest-resources.md)
 * [Deploy an application](service-fabric-deploy-remove-applications.md)

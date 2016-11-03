@@ -1,33 +1,32 @@
-<properties
-   pageTitle="Desired State Configuration Resource Manager Template | Microsoft Azure"
-   description="Resource Manager Template definition for Desired State Configuration in Azure with examples and troubleshooting"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="zjalexander"
-   manager="timlt"
-   editor=""
-   tags="azure-service-management,azure-resource-manager"
-   keywords=""/>
+---
+title: Desired State Configuration Resource Manager Template | Microsoft Docs
+description: Resource Manager Template definition for Desired State Configuration in Azure with examples and troubleshooting
+services: virtual-machines-windows
+documentationcenter: ''
+author: zjalexander
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager
+keywords: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
-   ms.date="09/15/2016"
-   ms.author="zachal"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: na
+ms.date: 09/15/2016
+ms.author: zachal
 
+---
 # Windows VMSS and Desired State Configuration with Azure Resource Manager templates
 This article describes the Resource Manager template for the [Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md). 
 
 ## Template example for a Windows VM
-
 The following snippet goes into the Resource section of the template.
 
 ```json
-			"name": "Microsoft.Powershell.DSC",
-			"type": "extensions",
+            "name": "Microsoft.Powershell.DSC",
+            "type": "extensions",
              "location": "[resourceGroup().location]",
              "apiVersion": "2015-06-15",
              "dependsOn": [
@@ -56,7 +55,6 @@ The following snippet goes into the Resource section of the template.
 ```
 
 ## Template example for Windows VMSS
-
 A VMSS node has a "properties" section with the "VirtualMachineProfile", "extensionProfile" attribute. DSC is added under "extensions". 
 
 ```json
@@ -89,7 +87,6 @@ A VMSS node has a "properties" section with the "VirtualMachineProfile", "extens
 ```
 
 ## Detailed Settings Information
-
 The following schema is for the settings portion of the Azure DSC extension in an Azure Resource Manager template.
 
 ```json
@@ -135,19 +132,19 @@ The following schema is for the settings portion of the Azure DSC extension in a
 ```
 
 ## Details
-| Property Name	| Type | Description |
+| Property Name | Type | Description |
 | --- | --- | --- |
-| settings.wmfVersion | string | Specifies the version of the Windows Management Framework that should be installed on your VM. Setting this property to 'latest' installs the most updated version of WMF. The only current possible values for this property are **'4.0', '5.0', '5.0PP', and 'latest'**. These possible values are subject to updates. The default value is 'latest'.|
-| settings.configuration.url | string | Specifies the URL location from which to download your DSC configuration zip file. If the URL provided requires a SAS token for access, you need to set the protectedSettings.configurationUrlSasToken property to the value of your SAS token. This property is required if settings.configuration.script and/or settings.configuration.function are defined. |
-| settings.configuration.script | string | Specifies the file name of the script that contains the definition of your DSC configuration. This script must be in the root folder of the zip file downloaded from the URL specified by the configuration.url property. This property is required if settings.configuration.url and/or settings.configuration.script are defined. |
-| settings.configuration.function | string | Specifies the name of your DSC configuration. The configuration named must be contained in the script defined by configuration.script. This property is required if settings.configuration.url and/or settings.configuration.function are defined. |
-| settings.configurationArguments | Collection | Defines any parameters you would like to pass to your DSC configuration. This property is not encrypted. |
-| settings.configurationData.url | string | Specifies the URL from which to download your configuration data (.pds1) file to use as input for your DSC configuration. If the URL provided requires a SAS token for access, you need to set the protectedSettings.configurationDataUrlSasToken property to the value of your SAS token.|
-| settings.privacy.dataEnabled | string | Enables or disables telemetry collection. The only possible values for this property are **'Enable', 'Disable', '', or $null**. Leaving this property blank or null enables telemetry. The default value is ''. [More Information](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) |
-| settings.advancedOptions.downloadMappings | Collection | Defines alternate locations from which to download the WMF. [More Information](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) |
-| protectedSettings.configurationArguments | Collection | Defines any parameters you would like to pass to your DSC configuration. This property is encrypted. |
-| protectedSettings.configurationUrlSasToken | string | Specifies the SAS token to access the URL defined by configuration.url. This property is encrypted. |
-| protectedSettings.configurationDataUrlSasToken | string | Specifies the SAS token to access the URL defined by configurationData.url. This property is encrypted. |
+| settings.wmfVersion |string |Specifies the version of the Windows Management Framework that should be installed on your VM. Setting this property to 'latest' installs the most updated version of WMF. The only current possible values for this property are **'4.0', '5.0', '5.0PP', and 'latest'**. These possible values are subject to updates. The default value is 'latest'. |
+| settings.configuration.url |string |Specifies the URL location from which to download your DSC configuration zip file. If the URL provided requires a SAS token for access, you need to set the protectedSettings.configurationUrlSasToken property to the value of your SAS token. This property is required if settings.configuration.script and/or settings.configuration.function are defined. |
+| settings.configuration.script |string |Specifies the file name of the script that contains the definition of your DSC configuration. This script must be in the root folder of the zip file downloaded from the URL specified by the configuration.url property. This property is required if settings.configuration.url and/or settings.configuration.script are defined. |
+| settings.configuration.function |string |Specifies the name of your DSC configuration. The configuration named must be contained in the script defined by configuration.script. This property is required if settings.configuration.url and/or settings.configuration.function are defined. |
+| settings.configurationArguments |Collection |Defines any parameters you would like to pass to your DSC configuration. This property is not encrypted. |
+| settings.configurationData.url |string |Specifies the URL from which to download your configuration data (.pds1) file to use as input for your DSC configuration. If the URL provided requires a SAS token for access, you need to set the protectedSettings.configurationDataUrlSasToken property to the value of your SAS token. |
+| settings.privacy.dataEnabled |string |Enables or disables telemetry collection. The only possible values for this property are **'Enable', 'Disable', '', or $null**. Leaving this property blank or null enables telemetry. The default value is ''. [More Information](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) |
+| settings.advancedOptions.downloadMappings |Collection |Defines alternate locations from which to download the WMF. [More Information](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) |
+| protectedSettings.configurationArguments |Collection |Defines any parameters you would like to pass to your DSC configuration. This property is encrypted. |
+| protectedSettings.configurationUrlSasToken |string |Specifies the SAS token to access the URL defined by configuration.url. This property is encrypted. |
+| protectedSettings.configurationDataUrlSasToken |string |Specifies the SAS token to access the URL defined by configurationData.url. This property is encrypted. |
 
 ## Settings vs. ProtectedSettings
 All settings are saved in a settings text file on the VM.
@@ -160,15 +157,14 @@ If the configuration needs credentials, they can be included in protectedSetting
 "protectedSettings": {
     "configurationArguments": {
         "parameterOfTypePSCredential1": {
-       	    "userName": "UsernameValue1",
-       	    "password": "PasswordValue1"
+               "userName": "UsernameValue1",
+               "password": "PasswordValue1"
         }
     }
 }
 ```
 
 ## Example
-
 The following example derives from the "Getting Started" section of the [DSC Extension Handler Overview page](virtual-machines-windows-extensions-dsc-overview.md).
 This example uses Resource Manager templates instead of cmdlets to deploy the extension. 
 Save the "IisInstall.ps1" configuration, place it in a .ZIP file, and upload the file in an accessible URL. This example uses Azure blob storage, but it is possible to download .ZIP files from any arbitrary location.
@@ -224,20 +220,19 @@ The following schema is what the previous settings schema looked like:
 
 Here's how the previous format adapts to the current format:
 
-| Property Name	| Previous Schema Equivalent |
+| Property Name | Previous Schema Equivalent |
 | --- | --- |
-| settings.wmfVersion | settings.WMFVersion |
-| settings.configuration.url | settings.ModulesUrl |
-| settings.configuration.script | First part of settings.ConfigurationFunction (before '\\\\') |
-| settings.configuration.function | Second part of settings.ConfigurationFunction (after '\\\\') |
-| settings.configurationArguments | settings.Properties |
-| settings.configurationData.url | protectedSettings.DataBlobUri (without SAS token) |
-| settings.privacy.dataEnabled | settings.Privacy.DataEnabled |
-| settings.advancedOptions.downloadMappings | settings.AdvancedOptions.DownloadMappings |
-| protectedSettings.configurationArguments | protectedSettings.Properties |
-| protectedSettings.configurationUrlSasToken | settings.SasToken |
-| protectedSettings.configurationDataUrlSasToken | SAS token from protectedSettings.DataBlobUri |
-
+| settings.wmfVersion |settings.WMFVersion |
+| settings.configuration.url |settings.ModulesUrl |
+| settings.configuration.script |First part of settings.ConfigurationFunction (before '\\\\') |
+| settings.configuration.function |Second part of settings.ConfigurationFunction (after '\\\\') |
+| settings.configurationArguments |settings.Properties |
+| settings.configurationData.url |protectedSettings.DataBlobUri (without SAS token) |
+| settings.privacy.dataEnabled |settings.Privacy.DataEnabled |
+| settings.advancedOptions.downloadMappings |settings.AdvancedOptions.DownloadMappings |
+| protectedSettings.configurationArguments |protectedSettings.Properties |
+| protectedSettings.configurationUrlSasToken |settings.SasToken |
+| protectedSettings.configurationDataUrlSasToken |SAS token from protectedSettings.DataBlobUri |
 
 ## Troubleshooting - Error Code 1100
 Error Code 1100 indicates that there is a problem with the user input to the DSC extension.
@@ -291,9 +286,9 @@ Solution: Remove one of the duplicate properties.
 Problem: A defined property needs another property that is missing.
 
 Solutions: 
-- Provide the missing property.
-- Remove the property that needs the missing property.
 
+* Provide the missing property.
+* Remove the property that needs the missing property.
 
 ## Next Steps
 Learn about DSC and virtual machine scale sets in [Using Virtual Machine Scale Sets with the Azure DSC Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md)
@@ -303,3 +298,4 @@ Find more details on [DSC's secure credential management](virtual-machines-windo
 For more information on the Azure DSC extension handler, see [Introduction to the Azure Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md). 
 
 For more information about PowerShell DSC, [visit the PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 
+

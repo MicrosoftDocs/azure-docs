@@ -1,22 +1,21 @@
-<properties 
-	pageTitle="PowerShell script to create an Application Insights resource | Microsoft Azure" 
-	description="Automate creation of Application Insights resources." 
-	services="application-insights" 
-    documentationCenter="windows"
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: PowerShell script to create an Application Insights resource | Microsoft Docs
+description: Automate creation of Application Insights resources.
+services: application-insights
+documentationcenter: windows
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/31/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 10/31/2016
+ms.author: awills
 
-#  PowerShell script to create an Application Insights resource
-
+---
+# PowerShell script to create an Application Insights resource
 *Application Insights is in preview.*
 
 When you want to monitor a new application - or a new version of an application - with [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/), you set up a new resource in Microsoft Azure. This resource is where the telemetry data from your app is analyzed and displayed. 
@@ -25,15 +24,16 @@ You can automate the creation of a new resource by using PowerShell.
 
 For example, if you are developing a mobile device app, it's likely that, at any time, there will be several published versions of your app in use by your customers. You don't want to get the telemetry results from different versions mixed up. So you get your build process to create a new resource for each build.
 
-> [AZURE.NOTE] If you want to create a set of resources all at the same time, consider [creating the resources using an Azure template](app-insights-powershell.md).
+> [!NOTE]
+> If you want to create a set of resources all at the same time, consider [creating the resources using an Azure template](app-insights-powershell.md).
+> 
+> 
 
 ## Script to create an Application Insights resource
-
 See the relevant cmdlet specs:
 
 * [New-AzureRmResource](https://msdn.microsoft.com/library/mt652510.aspx)
 * [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
-
 
 *PowerShell Script*  
 
@@ -94,23 +94,18 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
 ```
 
 ## What to do with the iKey
-
 Each resource is identified by its instrumentation key (iKey). The iKey is an output of the resource creation script. Your build script should provide the iKey to the Application Insights SDK embedded in your app.
 
 There are two ways to make the iKey available to the SDK:
-  
+
 * In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md): 
- * `<instrumentationkey>`*ikey*`</instrumentationkey>`
+  * `<instrumentationkey>`*ikey*`</instrumentationkey>`
 * Or in [initialization code](app-insights-api-custom-events-metrics.md): 
- * `Microsoft.ApplicationInsights.Extensibility.
+  * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
-
-
 ## See also
-
 * [Create Application Insights and web test resources from templates](app-insights-powershell.md)
 * [Set up monitoring of Azure diagnostics with PowerShell](app-insights-powershell-azure-diagnostics.md) 
 * [Set alerts by using PowerShell](app-insights-powershell-alerts.md)
 
- 

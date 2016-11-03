@@ -1,36 +1,33 @@
-<properties 
-	pageTitle="Streaming logs and console" 
-	description="Streaming logs and console overview" 
-	authors="btardif" 
-	manager="wpickett" 
-	editor="" 
-	services="app-service\web" 
-	documentationCenter=""/>
+---
+title: Streaming logs and console
+description: Streaming logs and console overview
+author: btardif
+manager: wpickett
+editor: ''
+services: app-service\web
+documentationcenter: ''
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="10/12/2016" 
-	ms.author="byvinyal"/>
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 10/12/2016
+ms.author: byvinyal
 
+---
 # Streaming Logs and the Console
-
 ## Streaming Logs
-
 The **Azure portal** provides an integrated streaming log viewer that 
 lets you view tracing events from your **App Service** apps in real time.  
 
 Setting up this feature requires a few simple steps:
 
-- Write traces in your code
-- Enable Application **Diagnostic Logs** for your app
-- View the stream from the built-in **Streaming Logs** UI in the **Azure portal**.
+* Write traces in your code
+* Enable Application **Diagnostic Logs** for your app
+* View the stream from the built-in **Streaming Logs** UI in the **Azure portal**.
 
-### How to write traces in your code ###
-
+### How to write traces in your code
 Writing traces in your code is easy.  In C# it's as easy as writing the following code:
 
 `````````````````````````
@@ -57,7 +54,7 @@ console.log("My trace statement").
 ![][BrowseSitesScreenshot]
 Diagnostics are enabled on a per app basis. Start by browsing to the site you 
 would like to enable this feature on.  
-  
+
 ![][DiagnosticsLogs]
 From settings menu, scroll down to the **Monitoring** section and click on 
 **(1) Diagnostic Logs**. Then **(2) enable** **Application Logging (Filesystem)** 
@@ -68,7 +65,10 @@ collected.
 
 Click **SAVE** at the top of the blade and you're ready to view logs.
 
->[AZURE.NOTE] The higher the **severity level** the more resources are consumed to log and the more traces are produced. Make sure **severity level** is configured to the correct verbosity for a production or high traffic site. 
+> [!NOTE]
+> The higher the **severity level** the more resources are consumed to log and the more traces are produced. Make sure **severity level** is configured to the correct verbosity for a production or high traffic site. 
+> 
+> 
 
 ![][StreamingLogsScreenshot]
 To view the **streaming logs** from within the Azure portal, click on 

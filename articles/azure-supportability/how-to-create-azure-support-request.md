@@ -1,33 +1,36 @@
-<properties
-	 pageTitle="How to create an Azure support request | Microsoft Azure"
-	 description="How to create an Azure support request."
-	 services="Azure Supportability"
-	 documentationCenter=""
-	 authors="ganganarayanan"
-	 manager="scotthit"
-	 editor=""/>
+---
+title: How to create an Azure support request | Microsoft Docs
+description: How to create an Azure support request.
+services: Azure Supportability
+documentationcenter: ''
+author: ganganarayanan
+manager: scotthit
+editor: ''
 
-<tags
-	 ms.service="azure-supportability"
-	 ms.workload="na"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="10/25/2016"
-	 ms.author="gangan"/>
+ms.service: azure-supportability
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/25/2016
+ms.author: gangan
 
+---
 # How to create an Azure support request
-
 ## Summary
 Azure customers can create and manage support requests in the Azure portal, [https://portal.azure.com](https://portal.azure.com).
->[AZURE.NOTE] Azure portal for Germany is [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
-Azure portal for the United States government is [https://portal.azure.us](https://portal.azure.us).
+
+> [!NOTE]
+> Azure portal for Germany is [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
+> Azure portal for the United States government is [https://portal.azure.us](https://portal.azure.us).
+> 
+> 
 
 Based on customer feedback, we’ve updated the support request experience to focus on three main goals:
 
-- **Streamlined**: Reduce clicks and blades to make the process of submitting a support request simple.
-- **Integrated**: When you’re troubleshooting an issue with an Azure resource, it should be easy to open a support request for that resource without switching context.
-- **Efficient**: Gather the key information your support engineer will need to efficiently resolve your issue.
+* **Streamlined**: Reduce clicks and blades to make the process of submitting a support request simple.
+* **Integrated**: When you’re troubleshooting an issue with an Azure resource, it should be easy to open a support request for that resource without switching context.
+* **Efficient**: Gather the key information your support engineer will need to efficiently resolve your issue.
 
 ## Getting started
 You can create a support request from the top navigation menu or directly from a resource blade.
@@ -48,7 +51,10 @@ Selecting the service ("Virtual Machine running Windows") and the resource (the 
 
 ![Basics blade](./media/how-to-create-azure-support-request/Basics.png)
 
->[AZURE.NOTE] Azure provides unlimited support for subscription management (things like billing, quota adjustments, and account transfers). For technical support, you need a support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
+> [!NOTE]
+> Azure provides unlimited support for subscription management (things like billing, quota adjustments, and account transfers). For technical support, you need a support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
+> 
+> 
 
 ## Problem
 The second step of the wizard gathers additional details about the issue. Providing accurate details in this step allows us to route your case to the best support engineer for the issue and to begin diagnosing the issue as soon as possible.
@@ -85,7 +91,10 @@ If you want to change the severity of the request, click the **Business impact**
 
 Clicking the tile shows you the list of severities you can assign to an open support request.
 
->[AZURE.NOTE] The maximum severity level depends on your support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
+> [!NOTE]
+> The maximum severity level depends on your support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
+> 
+> 
 
 ![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
 
@@ -94,3 +103,4 @@ We are always open to feedback and suggestions! Please send us your [suggestions
 
 ## Learn more
 [Azure Support FAQ](https://azure.microsoft.com/support/faq)
+

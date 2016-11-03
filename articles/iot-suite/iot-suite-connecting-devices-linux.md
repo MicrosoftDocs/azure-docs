@@ -1,29 +1,26 @@
-<properties
-   pageTitle="Connect a device using C on Linux | Microsoft Azure"
-   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Linux."
-   services=""
-   suite="iot-suite"
-   documentationCenter="na"
-   authors="dominicbetts"
-   manager="timlt"
-   editor=""/>
+---
+title: Connect a device using C on Linux | Microsoft Docs
+description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Linux.
+services: ''
+suite: iot-suite
+documentationcenter: na
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="iot-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="10/05/2016"
-   ms.author="dobett"/>
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/05/2016
+ms.author: dobett
 
-
+---
 # Connect your device to the remote monitoring preconfigured solution (Linux)
-
-[AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
+[!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## Build and run a sample C client Linux
-
 The following procedures show you how to create a client application, written in C and built and run on Ubuntu Linux, that communicates with the remote monitoring preconfigured solution. To complete these steps, you need a device running Ubuntu version 15.04 or 15.10. Before proceeding, install the prerequisite packages on your Ubuntu device using the following command:
 
 ```
@@ -31,30 +28,27 @@ sudo apt-get install cmake gcc g++
 ```
 
 ## Install the client libraries on your device
-
 The Azure IoT Hub client libraries are available as a package you can install on your Ubuntu device using the **apt-get** command. Complete the following steps to install the package that contains the IoT Hub client library and header files on your Ubuntu machine:
 
 1. Add the AzureIoT repository to the machine:
-
+   
     ```
     sudo add-apt-repository ppa:aziotsdklinux/ppa-azureiot
     sudo apt-get update
     ```
-
 2. Install the azure-iot-sdk-c-dev package
-
+   
     ```
     sudo apt-get install -y azure-iot-sdk-c-dev
     ```
 
 ## Add code to specify the behavior of the device
-
 On your Ubuntu machine, create a folder called **remote\_monitoring**. In the **remote\_monitoring** folder create the four files **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h**, and **CMakeLists.txt**.
 
 The IoT Hub serializer client libraries use a model to specify the format of messages the device sends to IoT Hub and the commands it receives from IoT Hub.
 
 1. In a text editor, open the **remote\_monitoring.c** file. Add the following `#include` statements:
-
+   
     ```
     #include "iothubtransportamqp.h"
     #include "schemalib.h"
@@ -64,61 +58,58 @@ The IoT Hub serializer client libraries use a model to specify the format of mes
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
     ```
-
 2. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values for your device from the remote monitoring solution dashboard. Use the IoT Hub Hostname from the dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
-
+   
     ```
     static const char* deviceId = "[Device Id]";
     static const char* deviceKey = "[Device Key]";
     static const char* hubName = "IoTHub Name]";
     static const char* hubSuffix = "azure-devices.net";
     ```
-
 3. Add the following code to define the model that enables the device to communicate with IoT Hub. This model specifies that the device sends temperature, external temperature, humidity, and a device id as telemetry. The device also sends metadata about the device to IoT Hub, including a list of commands that the device supports. This device responds to the commands **SetTemperature** and **SetHumidity**:
-
+   
     ```
     // Define the Model
     BEGIN_NAMESPACE(Contoso);
-
+   
     DECLARE_STRUCT(SystemProperties,
       ascii_char_ptr, DeviceID,
       _Bool, Enabled
     );
-
+   
     DECLARE_STRUCT(DeviceProperties,
       ascii_char_ptr, DeviceID,
       _Bool, HubEnabledState
     );
-
+   
     DECLARE_MODEL(Thermostat,
-
+   
       /* Event data (temperature, external temperature and humidity) */
       WITH_DATA(int, Temperature),
       WITH_DATA(int, ExternalTemperature),
       WITH_DATA(int, Humidity),
       WITH_DATA(ascii_char_ptr, DeviceId),
-
+   
       /* Device Info - This is command metadata + some extra fields */
       WITH_DATA(ascii_char_ptr, ObjectType),
       WITH_DATA(_Bool, IsSimulatedDevice),
       WITH_DATA(ascii_char_ptr, Version),
       WITH_DATA(DeviceProperties, DeviceProperties),
       WITH_DATA(ascii_char_ptr_no_quotes, Commands),
-
+   
       /* Commands implemented by the device */
       WITH_ACTION(SetTemperature, int, temperature),
       WITH_ACTION(SetHumidity, int, humidity)
     );
-
+   
     END_NAMESPACE(Contoso);
     ```
 
 ### Add code to implement the behavior of the device
-
 Add the functions to execute when the device receives a command from the hub, and the code to send simulated telemetry to the hub.
 
 1. Add the following functions that execute when the device receives the **SetTemperature** and **SetHumidity** commands defined in the model:
-
+   
     ```
     EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
     {
@@ -126,7 +117,7 @@ Add the functions to execute when the device receives a command from the hub, an
       thermostat->Temperature = temperature;
       return EXECUTE_COMMAND_SUCCESS;
     }
-
+   
     EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
     {
       (void)printf("Received humidity %d\r\n", humidity);
@@ -134,9 +125,8 @@ Add the functions to execute when the device receives a command from the hub, an
       return EXECUTE_COMMAND_SUCCESS;
     }
     ```
-
 2. Add the following function that sends a message to IoT Hub:
-
+   
     ```
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
     {
@@ -155,15 +145,14 @@ Add the functions to execute when the device receives a command from the hub, an
         {
           printf("IoTHubClient accepted the message for delivery\r\n");
         }
-
+   
         IoTHubMessage_Destroy(messageHandle);
       }
     free((void*)buffer);
     }
     ```
-
 3. Add the following function that hooks up the serialization library in the SDK:
-
+   
     ```
     static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
     {
@@ -199,9 +188,8 @@ Add the functions to execute when the device receives a command from the hub, an
       return result;
     }
     ```
-
 4. Add the following function to connect to IoT Hub, send and receive messages, and disconnect from the hub. Notice how the device sends metadata about itself, including the commands it supports, to IoT Hub when it connects. This metadata enables the solution to update the status of the device to **Running** on the dashboard:
-
+   
     ```
     void remote_monitoring_run(void)
     {
@@ -219,7 +207,7 @@ Add the functions to execute when the device receives a command from the hub, an
         {
           IOTHUB_CLIENT_CONFIG config;
           IOTHUB_CLIENT_HANDLE iotHubClientHandle;
-
+   
           config.deviceId = deviceId;
           config.deviceKey = deviceKey;
           config.deviceSasToken = NULL;
@@ -241,14 +229,14 @@ Add the functions to execute when the device receives a command from the hub, an
             else
             {
               STRING_HANDLE commandsMetadata;
-
+   
               if (IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, thermostat) != IOTHUB_CLIENT_OK)
               {
                 printf("unable to IoTHubClient_SetMessageCallback\r\n");
               }
               else
               {
-
+   
                 /* send the device info upon startup so that the cloud app knows
                    what commands are available and the fact that the device is up */
                 thermostat->ObjectType = "DeviceInfo";
@@ -256,7 +244,7 @@ Add the functions to execute when the device receives a command from the hub, an
                 thermostat->Version = "1.0";
                 thermostat->DeviceProperties.HubEnabledState = true;
                 thermostat->DeviceProperties.DeviceID = (char*)deviceId;
-
+   
                 commandsMetadata = STRING_new();
                 if (commandsMetadata == NULL)
                 {
@@ -274,7 +262,7 @@ Add the functions to execute when the device receives a command from the hub, an
                     unsigned char* buffer;
                     size_t bufferSize;
                     thermostat->Commands = (char*)STRING_c_str(commandsMetadata);
-
+   
                     /* Here is the actual send of the Device Info */
                     if (SERIALIZE(&buffer, &bufferSize, thermostat->ObjectType, thermostat->Version, thermostat->IsSimulatedDevice, thermostat->DeviceProperties, thermostat->Commands) != IOT_AGENT_OK)
                     {
@@ -284,24 +272,24 @@ Add the functions to execute when the device receives a command from the hub, an
                     {
                       sendMessage(iotHubClientHandle, buffer, bufferSize);
                     }
-
+   
                   }
-
+   
                   STRING_delete(commandsMetadata);
                 }
-
+   
                 thermostat->Temperature = 50;
                 thermostat->ExternalTemperature = 55;
                 thermostat->Humidity = 50;
                 thermostat->DeviceId = (char*)deviceId;
-
+   
                 while (1)
                 {
                   unsigned char*buffer;
                   size_t bufferSize;
-
+   
                   (void)printf("Sending sensor value Temperature = %d, Humidity = %d\r\n", thermostat->Temperature, thermostat->Humidity);
-
+   
                   if (SERIALIZE(&buffer, &bufferSize, thermostat->DeviceId, thermostat->Temperature, thermostat->Humidity, thermostat->ExternalTemperature) != IOT_AGENT_OK)
                   {
                     (void)printf("Failed sending sensor value\r\n");
@@ -310,11 +298,11 @@ Add the functions to execute when the device receives a command from the hub, an
                   {
                     sendMessage(iotHubClientHandle, buffer, bufferSize);
                   }
-
+   
                   ThreadAPI_Sleep(1000);
                 }
               }
-
+   
               DESTROY_MODEL_INSTANCE(thermostat);
             }
             IoTHubClient_Destroy(iotHubClientHandle);
@@ -325,9 +313,9 @@ Add the functions to execute when the device receives a command from the hub, an
       }
     }
     ```
-    
+   
     For reference, here is a sample **DeviceInfo** message sent to IoT Hub at startup:
-
+   
     ```
     {
       "ObjectType":"DeviceInfo",
@@ -344,15 +332,15 @@ Add the functions to execute when the device receives a command from the hub, an
       ]
     }
     ```
-    
+   
     For reference, here is a sample **Telemetry** message sent to IoT Hub:
-
+   
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
-    
+   
     For reference, here is a sample **Command** received from IoT Hub:
-    
+   
     ```
     {
       "Name":"SetHumidity",
@@ -363,7 +351,6 @@ Add the functions to execute when the device receives a command from the hub, an
     ```
 
 ### Add code to invoke the remote_monitoring_run function
-
 In a text editor, open the **remote_monitoring.h** file. Add the following code:
 
 ```
@@ -384,31 +371,29 @@ int main(void)
 ```
 
 ## Use CMake to build the client application
-
 The following steps describe how to use *CMake* to build your client application.
 
 1. In a text editor, open the **CMakeLists.txt** file in the **remote_monitoring** folder.
-
 2. Add the following instructions to define how to build your client application:
-
+   
     ```
     cmake_minimum_required(VERSION 2.8.11)
-
+   
     set(AZUREIOT_INC_FOLDER ".." "/usr/include/azureiot")
-
+   
     include_directories(${AZUREIOT_INC_FOLDER})
-
+   
     set(sample_application_c_files
         ./remote_monitoring.c
         ./main.c
     )
-
+   
     set(sample_application_h_files
         ./remote_monitoring.h
     )
-
+   
     add_executable(sample_app ${sample_application_c_files} ${sample_application_h_files})
-
+   
     target_link_libraries(sample_app
         serializer
         iothub_client
@@ -421,21 +406,19 @@ The following steps describe how to use *CMake* to build your client application
         crypto
     )
     ```
-
 3. In the **remote_monitoring** folder, create a folder to store the *make* files that CMake generates and then run the **cmake** and **make** commands as follows:
-
+   
     ```
     mkdir cmake
     cd cmake
     cmake ../
     make
     ```
-
 4. Run the client application and send telemetry to IoT Hub:
-
+   
     ```
     ./sample_app
     ```
 
-[AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
+[!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 

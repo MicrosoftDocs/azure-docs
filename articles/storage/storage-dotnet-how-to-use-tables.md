@@ -1,100 +1,89 @@
-<properties
-	pageTitle="Get started with Azure Table storage using .NET | Microsoft Azure"
-	description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
-	services="storage"
-	documentationCenter=".net"
-	authors="tamram"
-	manager="carmonm"
-	editor="tysonn"/>
+---
+title: Get started with Azure Table storage using .NET | Microsoft Docs
+description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
+services: storage
+documentationcenter: .net
+author: tamram
+manager: carmonm
+editor: tysonn
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="10/18/2016"
-	ms.author="tamram"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 10/18/2016
+ms.author: tamram
 
-
+---
 # Get started with Azure Table storage using .NET
+[!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-<br/>
-[AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Overview
-
 Azure Table storage is a service that stores structured NoSQL data in the cloud. Table storage is a key/attribute store with a schemaless design. Because Table storage is schemaless, it's easy to adapt your data as the needs of your application evolve. Access to data is fast and cost-effective for all kinds of applications. Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data.
 
 You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
 
 ### About this tutorial
-
 This tutorial shows how to write .NET code for some common scenarios using Azure Table storage, including creating and deleting a table and inserting, updating, deleting, and querying table data.
 
 **Estimated time to complete:** 45 minutes
 
 **Prerequisities:**
 
-- [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
-- [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
+* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+* An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
 
-[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+[!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 ### More samples
-
 For additional examples using Table storage, see [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). You can download the sample application and run it, or browse the code on GitHub.
 
+[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
-[AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
-
-[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
+[!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
 ### Add namespace declarations
-
 Add the following `using` statements to the top of the `program.cs` file:
 
-	using Microsoft.Azure; // Namespace for CloudConfigurationManager
-	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+    using Microsoft.Azure; // Namespace for CloudConfigurationManager
+    using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
 ### Parse the connection string
-
-[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
+[!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Create the Table service client
-
 The **CloudTableClient** class enables you to retrieve tables and entities stored in Table storage. Here's one way to create the service client:
 
-	// Create the table client.
-	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+    // Create the table client.
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 Now you are ready to write code that reads data from and writes data to Table storage.
 
 ## Create a table
-
 This example shows how to create a table if it does not already exist:
 
-	// Retrieve the storage account from the connection string.
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-	    CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    // Retrieve the storage account from the connection string.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-	// Create the table client.
-	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+    // Create the table client.
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-	// Retrieve a reference to the table.
+    // Retrieve a reference to the table.
     CloudTable table = tableClient.GetTableReference("people");
 
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
 
 ## Add an entity to a table
-
 Entities map to C\# objects by using a custom class derived from
 **TableEntity**. To add an entity to a table, create a
 class that defines the properties of your entity. The following code
@@ -132,8 +121,8 @@ is represented by a **TableOperation** object.  The following code example shows
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-	// Create the CloudTable object that represents the "people" table.
-	CloudTable table = tableClient.GetTableReference("people");
+    // Create the CloudTable object that represents the "people" table.
+    CloudTable table = tableClient.GetTableReference("people");
 
     // Create a new customer entity.
     CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
@@ -147,16 +136,15 @@ is represented by a **TableOperation** object.  The following code example shows
     table.Execute(insertOperation);
 
 ## Insert a batch of entities
-
 You can insert a batch of entities into a table in one write
 operation. Some other notes on batch
 operations:
 
--  You can perform updates, deletes, and inserts in the same single batch operation.
--  A single batch operation can include up to 100 entities.
--  All entities in a single batch operation must have the same
-    partition key.
--  While it is possible to perform a query as a batch operation, it must be the only operation in the batch.
+* You can perform updates, deletes, and inserts in the same single batch operation.
+* A single batch operation can include up to 100 entities.
+* All entities in a single batch operation must have the same
+   partition key.
+* While it is possible to perform a query as a batch operation, it must be the only operation in the batch.
 
 <!-- -->
 The following code example creates two entity objects and adds each
@@ -169,31 +157,30 @@ to **TableBatchOperation** by using the **Insert** method. Then, **CloudTable.Ex
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-	// Create the CloudTable object that represents the "people" table.
+    // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
     // Create the batch operation.
     TableBatchOperation batchOperation = new TableBatchOperation();
 
     // Create a customer entity and add it to the table.
-	CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
-	customer1.Email = "Jeff@contoso.com";
-	customer1.PhoneNumber = "425-555-0104";
+    CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
+    customer1.Email = "Jeff@contoso.com";
+    customer1.PhoneNumber = "425-555-0104";
 
-	// Create another customer entity and add it to the table.
-	CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
-	customer2.Email = "Ben@contoso.com";
-	customer2.PhoneNumber = "425-555-0102";
+    // Create another customer entity and add it to the table.
+    CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
+    customer2.Email = "Ben@contoso.com";
+    customer2.PhoneNumber = "425-555-0102";
 
-	// Add both customer entities to the batch insert operation.
-	batchOperation.Insert(customer1);
-	batchOperation.Insert(customer2);
+    // Add both customer entities to the batch insert operation.
+    batchOperation.Insert(customer1);
+    batchOperation.Insert(customer2);
 
-	// Execute the batch operation.
-	table.ExecuteBatch(batchOperation);
+    // Execute the batch operation.
+    table.ExecuteBatch(batchOperation);
 
 ## Retrieve all entities in a partition
-
 To query a table for all entities in a partition, use a **TableQuery** object.
 The following code example specifies a filter for entities where 'Smith'
 is the partition key. This example prints the fields of
@@ -220,7 +207,6 @@ each entity in the query results to the console.
     }
 
 ## Retrieve a range of entities in a partition
-
 If you don't want to query all the entities in a partition, you can
 specify a range by combining the partition key filter with a row key filter. The following code example
 uses two filters to get all entities in partition 'Smith' where the row
@@ -237,7 +223,7 @@ prints the query results.
     // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
-	// Create the table query.
+    // Create the table query.
     TableQuery<CustomerEntity> rangeQuery = new TableQuery<CustomerEntity>().Where(
         TableQuery.CombineFilters(
             TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"),
@@ -252,7 +238,6 @@ prints the query results.
     }
 
 ## Retrieve a single entity
-
 You can write a query to retrieve a single, specific entity. The
 following code uses **TableOperation** to specify the customer 'Ben Smith'.
 This method returns just one entity rather than a
@@ -277,13 +262,12 @@ retrieve a single entity from the Table service.
     TableResult retrievedResult = table.Execute(retrieveOperation);
 
     // Print the phone number of the result.
-	if (retrievedResult.Result != null)
-	   Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
-	else
-	   Console.WriteLine("The phone number could not be retrieved.");
+    if (retrievedResult.Result != null)
+       Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
+    else
+       Console.WriteLine("The phone number could not be retrieved.");
 
 ## Replace an entity
-
 To update an entity, retrieve it from the Table service, modify the
 entity object, and then save the changes back to the Table service. The
 following code changes an existing customer's phone number. Instead of
@@ -317,24 +301,23 @@ show you how to override this behavior.
     CustomerEntity updateEntity = (CustomerEntity)retrievedResult.Result;
 
     if (updateEntity != null)
-	{
-	   // Change the phone number.
-	   updateEntity.PhoneNumber = "425-555-0105";
+    {
+       // Change the phone number.
+       updateEntity.PhoneNumber = "425-555-0105";
 
-	   // Create the Replace TableOperation.
-	   TableOperation updateOperation = TableOperation.Replace(updateEntity);
+       // Create the Replace TableOperation.
+       TableOperation updateOperation = TableOperation.Replace(updateEntity);
 
-	   // Execute the operation.
-	   table.Execute(updateOperation);
+       // Execute the operation.
+       table.Execute(updateOperation);
 
-	   Console.WriteLine("Entity updated.");
-	}
+       Console.WriteLine("Entity updated.");
+    }
 
-	else
-	   Console.WriteLine("Entity could not be retrieved.");
+    else
+       Console.WriteLine("Entity could not be retrieved.");
 
 ## Insert-or-replace an entity
-
 **Replace** operations will fail if the entity has been changed since
 it was retrieved from the server.  Furthermore, you must retrieve
 the entity from the server first in order for the **Replace** operation to be successful.
@@ -367,28 +350,27 @@ overwritten.
     CustomerEntity updateEntity = (CustomerEntity)retrievedResult.Result;
 
     if (updateEntity != null)
-	{
-	   // Change the phone number.
-	   updateEntity.PhoneNumber = "425-555-1234";
+    {
+       // Change the phone number.
+       updateEntity.PhoneNumber = "425-555-1234";
 
-	   // Create the InsertOrReplace TableOperation.
-	   TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(updateEntity);
+       // Create the InsertOrReplace TableOperation.
+       TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(updateEntity);
 
-	   // Execute the operation.
-	   table.Execute(insertOrReplaceOperation);
+       // Execute the operation.
+       table.Execute(insertOrReplaceOperation);
 
-	   Console.WriteLine("Entity was updated.");
-	}
+       Console.WriteLine("Entity was updated.");
+    }
 
-	else
-	   Console.WriteLine("Entity could not be retrieved.");
+    else
+       Console.WriteLine("Entity could not be retrieved.");
 
 ## Query a subset of entity properties
-
 A table query can retrieve just a few properties from an entity instead of all the entity properties. This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities. The query in the
 following code returns only the email addresses of entities in the
 table. This is done by using a query of **DynamicTableEntity** and
-also **EntityResolver**. You can learn more about projection on the [Introducing Upsert and Query Projection blog post][]. Note that projection is not supported on the local storage emulator, so this code runs only when you're using an account on the Table service.
+also **EntityResolver**. You can learn more about projection on the [Introducing Upsert and Query Projection blog post][Introducing Upsert and Query Projection blog post]. Note that projection is not supported on the local storage emulator, so this code runs only when you're using an account on the Table service.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -412,7 +394,6 @@ also **EntityResolver**. You can learn more about projection on the [Introducing
     }
 
 ## Delete an entity
-
 You can easily delete an entity after you have retrieved it, by using the same pattern
 shown for updating an entity.  The following code
 retrieves and deletes a customer entity.
@@ -437,21 +418,20 @@ retrieves and deletes a customer entity.
     CustomerEntity deleteEntity = (CustomerEntity)retrievedResult.Result;
 
     // Create the Delete TableOperation.
-	if (deleteEntity != null)
-	{
-	   TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
+    if (deleteEntity != null)
+    {
+       TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
 
-	   // Execute the operation.
-	   table.Execute(deleteOperation);
+       // Execute the operation.
+       table.Execute(deleteOperation);
 
-	   Console.WriteLine("Entity deleted.");
-	}
+       Console.WriteLine("Entity deleted.");
+    }
 
-	else
-	   Console.WriteLine("Could not retrieve the entity.");
+    else
+       Console.WriteLine("Could not retrieve the entity.");
 
 ## Delete a table
-
 Finally, the following code example deletes a table from a storage account. A
 table that has been deleted will be unavailable to be re-created for a
 period of time following the deletion.
@@ -470,7 +450,6 @@ period of time following the deletion.
     table.DeleteIfExists();
 
 ## Retrieve entities in pages asynchronously
-
 If you are reading a large number of entities, and you want to process/display entities as they are retrieved rather than waiting for them all to return, you can retrieve entities by using a segmented query. This example shows how to return results in pages by using the Async-Await pattern so that execution is not blocked while you're waiting for a large set of results to return. For more details on using the Async-Await pattern in .NET, see [Asynchronous programming with Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
 
     // Initialize a default TableQuery to retrieve all the entities in the table.
@@ -496,33 +475,32 @@ If you are reading a large number of entities, and you want to process/display e
     } while(continuationToken != null);
 
 ## Next steps
-
 Now that you've learned the basics of Table storage, follow these links
 to learn about more complex storage tasks:
 
-- See more Table storage samples in [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
-- View the Table service reference documentation for complete details about available APIs:
-    - [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-    - [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
-- Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
-- View more feature guides to learn about additional options for storing data in Azure.
-    - [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) to store unstructured data.
-    - [Connect to SQL Database by using .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) to store relational data.
+* See more Table storage samples in [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
+* View the Table service reference documentation for complete details about available APIs:
+  * [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+  * [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
+* Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
+* View more feature guides to learn about additional options for storing data in Azure.
+  * [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) to store unstructured data.
+  * [Connect to SQL Database by using .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) to store relational data.
 
-  [Download and install the Azure SDK for .NET]: /develop/net/
-  [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
+[Download and install the Azure SDK for .NET]: /develop/net/
+[Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
 
-  [Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
-  [Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
-  [Blob7]: ./media/storage-dotnet-how-to-use-table-storage/blob7.png
-  [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
-  [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
+[Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
+[Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
+[Blob7]: ./media/storage-dotnet-how-to-use-table-storage/blob7.png
+[Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
+[Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
 
-  [Introducing Upsert and Query Projection blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
-  [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
-  [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-  [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-  [How to: Programmatically access Table storage]: #tablestorage
+[Introducing Upsert and Query Projection blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+[.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+[Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
+[OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
+[Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
+[Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+[How to: Programmatically access Table storage]: #tablestorage

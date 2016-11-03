@@ -1,25 +1,23 @@
-<properties 
-   pageTitle="Track B2B messages in your logic apps in Azure App Service | Microsoft Azure" 
-   description="This topic covers tracking of B2B processing" 
-   services="logic-apps" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajram" 
-   manager="erikre" 
-   editor=""/>
+---
+title: Track B2B messages in your logic apps in Azure App Service | Microsoft Docs
+description: This topic covers tracking of B2B processing
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: rajram
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="04/20/2016"
-   ms.author="rajram"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 04/20/2016
+ms.author: rajram
 
-
+---
 # Track B2B messages
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 ## B2B Tracking Information
 B2B communication involves message processing between trading partners. The relationships are defined as agreements between two trading partners. Once the communication is established, there needs to be a way to monitor if the communication is happening as expected. 

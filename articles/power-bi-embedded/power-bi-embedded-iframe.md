@@ -1,24 +1,23 @@
-<properties
-   pageTitle="How to use Power BI Embedded with REST | Microsoft Azure"
-   description="Learn how to use Power BI Embedded with REST "
-   services="power-bi-embedded"
-   documentationCenter=""
-   authors="guyinacube"
-   manager="erikre"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="power-bi-embedded"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="powerbi"
-   ms.date="10/04/2016"
-   ms.author="asaxton"/>
+---
+title: How to use Power BI Embedded with REST | Microsoft Docs
+description: 'Learn how to use Power BI Embedded with REST '
+services: power-bi-embedded
+documentationcenter: ''
+author: guyinacube
+manager: erikre
+editor: ''
+tags: ''
 
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 10/04/2016
+ms.author: asaxton
+
+---
 # How to use Power BI Embedded with REST
-
-
 ## Power BI Embedded: What it is and what it's for
 An overview of Power BI Embedded is described in the official [Power BI Embedded site](https://azure.microsoft.com/services/power-bi-embedded/), but let's take a quick look before we get into the details about using it with REST.
 
@@ -41,23 +40,25 @@ Before starting our application development, we must create the **Power BI works
 
 Each workspace of Power BI Embedded is the workspace for each customer (tenant), and we can add many workspaces in each workspace collection. The same access key is used in each workspace collection. In-effect, the workspace collection is the security boundary for Power BI Embedded.
 
-![](media\power-bi-embedded-iframe\create-workspace.png)
+![](media\\power-bi-embedded-iframe\\create-workspace.png)
 
 When we finish creating the workspace collection, copy the access key from Azure Portal.
 
-![](media\power-bi-embedded-iframe\copy-access-key.png)
+![](media\\power-bi-embedded-iframe\\copy-access-key.png)
 
-> [AZURE.NOTE] We can also provision the workspace collection and get access key via REST API. To learn more, see [Power BI Resource Provider APIs](https://msdn.microsoft.com/library/azure/mt712306.aspx).
+> [!NOTE]
+> We can also provision the workspace collection and get access key via REST API. To learn more, see [Power BI Resource Provider APIs](https://msdn.microsoft.com/library/azure/mt712306.aspx).
+> 
+> 
 
 ## Create .pbix file with Power BI Desktop
 Next, we must create the data connection and reports to be embedded.
 For this task, there’s no programming or code. We just use Power BI Desktop.
 In this article, we won't go through the details about how to use Power BI Desktop. If you need some help here, see [Getting started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/). For our example, we'll just use the [Retail Analysis Sample](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/).
 
-![](media\power-bi-embedded-iframe\power-bi-desktop-1.png)
+![](media\\power-bi-embedded-iframe\\power-bi-desktop-1.png)
 
 ## Create a Power BI workspace
-
 Now that the provisioning is all done, let’s get started creating a customer’s workspace in the workspace collection via REST APIs. The following HTTP POST Request (REST) is creating the new workspace in our existing workspace collection. In our example, the workspace collection name is **mypbiapp**.
 We just set the access key, which we previously copied, as **AppKey**. It’s very simple authentication!
 
@@ -243,21 +244,26 @@ Content-Type: application/json; charset=utf-8
 
 Or, we can use Row Level Security in Power BI Embedded and we can separate the data for each users in one report. As a result, we can provision each customer report with same .pbix \(UI, etc.) and different data sources.
 
-> [AZURE.NOTE] If you’re using **Import mode** instead of **DirectQuery mode**, there’s no way to refresh models via API. And, on-premises datasources through Power BI gateway isn't yet supported in Power BI Embedded. However, you'll really want to keep an eye on the [Power BI blog](https://powerbi.microsoft.com/blog/) for what's new and what's coming in future releases.
+> [!NOTE]
+> If you’re using **Import mode** instead of **DirectQuery mode**, there’s no way to refresh models via API. And, on-premises datasources through Power BI gateway isn't yet supported in Power BI Embedded. However, you'll really want to keep an eye on the [Power BI blog](https://powerbi.microsoft.com/blog/) for what's new and what's coming in future releases.
+> 
+> 
 
 ## Authentication and hosting (embedding) reports in our web page
-
 In the previous REST API, we can use the access key **AppKey** itself as the authorization header. Because these calls can be handled on the backend server side, it's safe.
 
 But, when we embed the report in our web page, this kind of security information would be handled using JavaScript \(frontend). Then the authorization header value must be secured. If our access key is discovered by a malicious user or malicious code, they can call any operations using this key.
 
 When we embed the report in our web page, we must use the computed token instead of access key **AppKey**. Our application must create the OAuth Json Web Token \(JWT) which consists of the claims and the computed digital signature. As illustrated below, this OAuth JWT is dot-delimited encoded string tokens.
 
-![](media\power-bi-embedded-iframe\oauth-jwt.png)
+![](media\\power-bi-embedded-iframe\\oauth-jwt.png)
 
 First, we must prepare the input value, which is signed later. This value is the base64 url encoded (rfc4648) string of the following json, and these are delimited by the dot \(.) character. Later, we'll explain how to get the report id.
 
-> [AZURE.NOTE] If we want to use Row Level Security (RLS) with Power BI Embedded, we must also specify **username** and **roles** in the claims.
+> [!NOTE]
+> If we want to use Row Level Security (RLS) with Power BI Embedded, we must also specify **username** and **roles** in the claims.
+> 
+> 
 
 ```
 {
@@ -311,9 +317,9 @@ $inputval = rfc4648_base64_encode($token1) .
 
 // 3. get encoded signature
 $hash = hash_hmac("sha256",
-	$inputval,
-	$accesskey,
-	true);
+    $inputval,
+    $accesskey,
+    true);
 $sig = rfc4648_base64_encode($hash);
 
 // 4. show result (which is the apptoken)
@@ -333,7 +339,6 @@ function rfc4648_base64_encode($arg) {
 ```
 
 ## Finally, embed the report into the web page
-
 For embedding our report, we must get the embed url and report **id** using the following REST API.
 
 **HTTP Request**
@@ -367,7 +372,10 @@ RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
 We can embed the report in our web app using the previous app token.
 If we look at the next sample code, the former part is the same as the previous example. In the latter part, this sample shows the **embedUrl** \(see the previous result) in the iframe, and is posting the app token into the iframe.
 
-> [AZURE.NOTE] You'll need to change the report id value to one of your own. Also, due to a bug in our content management system, the iframe tag in the code sample is read literally. Remove the capped text from the tag if you copy and paste this sample code.
+> [!NOTE]
+> You'll need to change the report id value to one of your own. Also, due to a bug in our content management system, the iframe tag in the code sample is read literally. Remove the capped text from the tag if you copy and paste this sample code.
+> 
+> 
 
 ```
     <?php
@@ -395,9 +403,9 @@ If we look at the next sample code, the former part is the same as the previous 
 
     // 3. get encoded signature value
     $hash = hash_hmac("sha256",
-    	$inputval,
-    	$accesskey,
-    	true);
+        $inputval,
+        $accesskey,
+        true);
     $sig = rfc4648_base64_encode($hash);
 
     // 4. get apptoken
@@ -449,10 +457,10 @@ If we look at the next sample code, the former part is the same as the previous 
 
 And here's our result:
 
-![](media\power-bi-embedded-iframe\view-report.png)
+![](media\\power-bi-embedded-iframe\\view-report.png)
 
 At this time, Power BI Embedded only shows the report in the iframe. But, keep an eye on the [Power BI Blog](). Future improvements could use new client side APIs that will let us send information into the iframe as well as get information out. Exciting stuff!
 
-
 ## See also
-- [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)
+* [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)
+

@@ -1,31 +1,27 @@
-<properties
-   pageTitle="Guide for using PolyBase in SQL Data Warehouse | Microsoft Azure"
-   description="Guidelines and recommendations for using PolyBase in SQL Data Warehouse scenarios."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="ckarst"
-   manager="barbkess"
-   editor=""/>
+---
+title: Guide for using PolyBase in SQL Data Warehouse | Microsoft Docs
+description: Guidelines and recommendations for using PolyBase in SQL Data Warehouse scenarios.
+services: sql-data-warehouse
+documentationcenter: NA
+author: ckarst
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="cakarst;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: cakarst;barbkess
 
-
+---
 # Guide for using PolyBase in SQL Data Warehouse
-
 This guide gives practical information for using PolyBase in SQL Data Warehouse.
 
-To get started, see the [Load data with PolyBase][] tutorial.
-
+To get started, see the [Load data with PolyBase][Load data with PolyBase] tutorial.
 
 ## Rotating storage keys
-
 From time to time you will want to change the access key to your blob storage for security reasons.
 
 The most elegant way to perform this task is to follow a process known as "rotating the keys". You may have noticed that you have two storage keys for your blob storage account. This is so that you can transition
@@ -51,8 +47,10 @@ SELECT * FROM [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE] A query on an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This indicates that your external data contains *dirty* records. A data record is considered 'dirty' if the actual data types/number of columns do not match the column definitions of the external table or if the data doesn't conform to the specified external file format. To fix this, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE DDL.
-
+> [!NOTE]
+> A query on an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This indicates that your external data contains *dirty* records. A data record is considered 'dirty' if the actual data types/number of columns do not match the column definitions of the external table or if the data doesn't conform to the specified external file format. To fix this, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE DDL.
+> 
+> 
 
 ## Load data from Azure blob storage
 This example loads data from Azure blob storage to SQL Data Warehouse database.
@@ -70,7 +68,7 @@ CREATE TABLE [dbo].[Customer_Speed]
 WITH
 (   
     CLUSTERED COLUMNSTORE INDEX
-,	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
+,    DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
 )
 AS
 SELECT *
@@ -78,11 +76,10 @@ FROM   [ext].[CarSensor_Data]
 ;
 ```
 
-See [CREATE TABLE AS SELECT (Transact-SQL)][].
+See [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].
 
 ## Create Statistics on newly loaded data
-
-Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics.  Below is a quick example of how to create statistics on the tabled loaded in this example.
+Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][Statistics] topic in the Develop group of topics.  Below is a quick example of how to create statistics on the tabled loaded in this example.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -125,7 +122,6 @@ To work around this requirement the best answer is to re-write to UTF-8 encoding
 There are several ways to do this. Below are two approaches using Powershell:
 
 ### Simple example for small files
-
 Below is a simple one line Powershell script that creates the file.
 
 ```PowerShell
@@ -135,7 +131,6 @@ Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name>
 However, whilst this is a simple way to re-encode the data it is by no means the most efficient. The io streaming example below is much, much faster and achieves the same result.
 
 ### IO Streaming example for larger files
-
 The code sample below is more complex but as it streams the rows of data from source to target it is much more efficient. Use this approach for larger files.
 
 ```PowerShell
@@ -173,7 +168,7 @@ $write.Dispose()
 ```
 
 ## Next steps
-To learn more about moving data to SQL Data Warehouse, see the [data migration overview][].
+To learn more about moving data to SQL Data Warehouse, see the [data migration overview][data migration overview].
 
 <!--Image references-->
 

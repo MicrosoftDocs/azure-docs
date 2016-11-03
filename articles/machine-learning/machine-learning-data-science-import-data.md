@@ -1,41 +1,43 @@
-<properties
-	pageTitle="Import data into Machine Learning Studio | Microsoft Azure"
-	description="How to import your data into Azure Machine Learning Studio from various data sources. Learn what data types and data formats are supported."
-	keywords="import data,data format,data types,data sources,training data"
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Import data into Machine Learning Studio | Microsoft Docs
+description: How to import your data into Azure Machine Learning Studio from various data sources. Learn what data types and data formats are supported.
+keywords: import data,data format,data types,data sources,training data
+services: machine-learning
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="garye;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/19/2016
+ms.author: garye;bradsev
 
-
+---
 # Import your training data into Azure Machine Learning Studio from various data sources
-
 To use your own data in Machine Learning Studio to develop and train a predictive analytics solution, you can: 
 
-- upload data from a **local file** ahead of time from your hard drive to create a dataset module in your workspace.  
-- access data from one of several **online data sources** while your experiment is running using the [Import Data][import-data] module. 
-- use data from another Azure Machine learning experiment saved as a **dataset**. 
+* upload data from a **local file** ahead of time from your hard drive to create a dataset module in your workspace.  
+* access data from one of several **online data sources** while your experiment is running using the [Import Data][import-data] module. 
+* use data from another Azure Machine learning experiment saved as a **dataset**. 
 
-[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Each of these options are described in one of the topics on the menu above. These topic shows you how to import data from these various data sources to use in Machine Learning Studio. 
 
-> [AZURE.NOTE] There are a number of sample datasets available in Machine Learning Studio that you can use for this purpose. For information on these, see [Use the sample datasets in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)).
+> [!NOTE]
+> There are a number of sample datasets available in Machine Learning Studio that you can use for this purpose. For information on these, see [Use the sample datasets in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)).
+> 
+> 
 
 This introductory topic also shows how to get data ready for use in Machine Learning Studio and describes which data formats and data types are supported. 
 
-> [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
+> [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+> 
+> 
 
 ## Get data ready for use in Azure Machine Learning Studio
 Machine Learning Studio is designed to work with rectangular or tabular data, such as text data that's delimited or structured data from a database, though in some circumstances non-rectangular data may be used.
@@ -47,21 +49,20 @@ However, there are modules available in Machine Learning Studio that enable some
 At any point in your experiment you can view or download the data that's produced by a module by right-clicking the output port. Depending on the module there may be different download options available, or you may be able to view the data within your web browser in Machine Learning Studio.
 
 ## Data formats and data types supported
-
 You can import a number of data types into your experiment, depending on what mechanism you use to import data and where it's coming from:
 
-- Plain text (.txt)
-- Comma-separated values (CSV) with a header (.csv) or without (.nh.csv)
-- Tab-separated values (TSV) with a header (.tsv) or without (.nh.tsv)
-- Excel file
-- Azure table
-- Hive table
-- SQL database table
-- OData values
-- SVMLight data (.svmlight) (see the [SVMLight definition](http://svmlight.joachims.org/) for format information)
-- Attribute Relation File Format (ARFF) data (.arff) (see the [ARFF definition](http://weka.wikispaces.com/ARFF) for format information)
-- Zip file (.zip)
-- R object or workspace file (.RData)
+* Plain text (.txt)
+* Comma-separated values (CSV) with a header (.csv) or without (.nh.csv)
+* Tab-separated values (TSV) with a header (.tsv) or without (.nh.tsv)
+* Excel file
+* Azure table
+* Hive table
+* SQL database table
+* OData values
+* SVMLight data (.svmlight) (see the [SVMLight definition](http://svmlight.joachims.org/) for format information)
+* Attribute Relation File Format (ARFF) data (.arff) (see the [ARFF definition](http://weka.wikispaces.com/ARFF) for format information)
+* Zip file (.zip)
+* R object or workspace file (.RData)
 
 If you import data in a format such as ARFF that includes metadata, Machine Learning Studio uses this metadata to define the heading and data type of each column.
 
@@ -71,12 +72,12 @@ You can explicitly specify or change the headings and data types for columns usi
 
 The following **data types** are recognized by Machine Learning Studio:
 
-- String
-- Integer
-- Double
-- Boolean
-- DateTime
-- TimeSpan
+* String
+* Integer
+* Double
+* Boolean
+* DateTime
+* TimeSpan
 
 Machine Learning Studio uses an internal data type called ***Data Table*** to pass data between modules. You can explicitly convert your data into Data Table format using the [Convert to Dataset][convert-to-dataset] module.
 
@@ -84,8 +85,6 @@ Any module that accepts formats other than Data Table will convert the data to D
 
 If necessary, you can convert Data Table format back into CSV, TSV, ARFF, or SVMLight format using other conversion modules.
 Look in the **Data Format Conversions** section of the module palette for modules that perform these functions.
-
-
 
 <!-- Module References -->
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/

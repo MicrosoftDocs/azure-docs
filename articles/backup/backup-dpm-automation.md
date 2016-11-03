@@ -1,33 +1,32 @@
-<properties
-	pageTitle="Azure Backup - Deploy and manage back up for DPM using PowerShell | Microsoft Azure"
-	description="Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell"
-	services="backup"
-	documentationCenter=""
-	authors="NKolli1"
-	manager="shreeshd"
-	editor=""/>
+---
+title: Azure Backup - Deploy and manage back up for DPM using PowerShell | Microsoft Docs
+description: Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell
+services: backup
+documentationcenter: ''
+author: NKolli1
+manager: shreeshd
+editor: ''
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="jimpark; anuragm;trinadhk;markgal"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/01/2016
+ms.author: jimpark; anuragm;trinadhk;markgal
 
-
+---
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
-
-> [AZURE.SELECTOR]
-- [ARM](backup-dpm-automation.md)
-- [Classic](backup-dpm-automation-classic.md)
+> [!div class="op_single_selector"]
+> * [ARM](backup-dpm-automation.md)
+> * [Classic](backup-dpm-automation-classic.md)
+> 
+> 
 
 This article shows you how to use PowerShell to setup Azure Backup on a DPM server, and to manage backup and recovery.
 
 ## Setting up the PowerShell environment
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Before you can use PowerShell to manage backups from Data Protection Manager to Azure, you need to have the right environment in PowerShell. At the start of the PowerShell session, ensure that you run the following command to import the right modules and allow you to correctly reference the DPM cmdlets:
 
@@ -56,44 +55,41 @@ PS C:\> Switch-AzureMode AzureResourceManager
 
 The following setup and registration tasks can be automated with PowerShell:
 
-- Create a Recovery Services vault
-- Installing the Azure Backup agent
-- Registering with the Azure Backup service
-- Networking settings
-- Encryption settings
+* Create a Recovery Services vault
+* Installing the Azure Backup agent
+* Registering with the Azure Backup service
+* Networking settings
+* Encryption settings
 
 ## Create a recovery services vault
-
 The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
 1. If you are using Azure Backup for the first time, you must use the **Register-AzureRMResourceProvider** cmdlet to register the Azure Recovery Service provider with your subscription.
-
+   
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-
 2. The Recovery Services vault is an ARM resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.  
-
+   
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
-
 3. Use the **New-AzureRmRecoveryServicesVault** cmdlet to create a new vault. Be sure to specify the same location for the vault as was used for the resource group.
-
+   
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-
 4. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) or [Geo Redundant Storage (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). The following example shows the -BackupStorageRedundancy option for testVault is set to GeoRedundant.
-
-    > [AZURE.TIP] Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
-
+   
+   > [!TIP]
+   > Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
+   > 
+   > 
+   
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
-
-
 
 ## View the vaults in a subscription
 Use **Get-AzureRmRecoveryServicesVault** to view the list of all vaults in the current subscription. You can use this command to check that a new  vault was created, or to see what vaults are available in the subscription.
@@ -137,20 +133,19 @@ PS C:\> MARSAgentInstaller.exe /?
 The available options include:
 
 | Option | Details | Default |
-| ---- | ----- | ----- |
-| /q | Quiet installation | - |
-| /p:"location" | Path to the installation folder for the Azure Backup agent. | C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Path to the cache folder for the Azure Backup agent. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /m | Opt-in to Microsoft Update | - |
-| /nu | Do not Check for updates after installation is complete | - |
-| /d | Uninstalls Microsoft Azure Recovery Services Agent | - |
-| /ph | Proxy Host Address | - |
-| /po | Proxy Host Port Number | - |
-| /pu | Proxy Host UserName | - |
-| /pw | Proxy Password | - |
+| --- | --- | --- |
+| /q |Quiet installation |- |
+| /p:"location" |Path to the installation folder for the Azure Backup agent. |C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"location" |Path to the cache folder for the Azure Backup agent. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m |Opt-in to Microsoft Update |- |
+| /nu |Do not Check for updates after installation is complete |- |
+| /d |Uninstalls Microsoft Azure Recovery Services Agent |- |
+| /ph |Proxy Host Address |- |
+| /po |Proxy Host Port Number |- |
+| /pu |Proxy Host UserName |- |
+| /pw |Proxy Password |- |
 
 ## Registering DPM to a Recovery Services Vault
-
 After you created the Recovery Services vault, download the latest agent and the vault credentials and store it in a convenient location like C:\Downloads.
 
 ```
@@ -207,7 +202,6 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 
 In the example above, the staging area will be set to *C:\StagingArea* in the PowerShell object ```$setting```. Ensure that the specified folder already exists, or else the final commit of the subscription settings will fail.
 
-
 ### Encryption settings
 The backup data sent to Azure Backup is encrypted to protect the confidentiality of the data. The encryption passphrase is the "password" to decrypt the data at the time of restore. It is important to keep this information safe and secure once it is set.
 
@@ -219,7 +213,10 @@ PS C:\> $Passphrase = ConvertTo-SecureString -string "passphrase123456789" -AsPl
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -EncryptionPassphrase $Passphrase
 ```
 
-> [AZURE.IMPORTANT] Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
+> [!IMPORTANT]
+> Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
+> 
+> 
 
 At this point, you should have made all the required changes to the ```$setting``` object. Remember to commit the changes.
 
@@ -340,9 +337,10 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 ## View the backup points
 You can use the [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) cmdlet to get a list of all recovery points for a datasource. In this example, we will:
-- fetch all the PGs on the DPM server and stored in an array ```$PG```
-- get the datasources corresponding to the ```$PG[0]```
-- get all the recovery points for a datasource.
+
+* fetch all the PGs on the DPM server and stored in an array ```$PG```
+* get the datasources corresponding to the ```$PG[0]```
+* get all the recovery points for a datasource.
 
 ```
 PS C:\> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
@@ -355,9 +353,9 @@ Restoring data is a combination of a ```RecoverableItem``` object and a ```Recov
 
 In the example below, we demonstrate how to restore a Hyper-V virtual machine from Azure Backup by combining backup points with the target for recovery. This example includes:
 
-- Creating a recovery option using the  [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592) cmdlet.
-- Fetching the array of backup points using the ```Get-DPMRecoveryPoint``` cmdlet.
-- Choosing a backup point to restore from.
+* Creating a recovery option using the  [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592) cmdlet.
+* Fetching the array of backup points using the ```Get-DPMRecoveryPoint``` cmdlet.
+* Choosing a backup point to restore from.
 
 ```
 PS C:\> $RecoveryOption = New-DPMRecoveryOption -HyperVDatasource -TargetServer "HVDCenter02" -RecoveryLocation AlternateHyperVServer -RecoveryType Recover -TargetLocation “C:\VMRecovery”
@@ -372,5 +370,5 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 The commands can easily be extended for any datasource type.
 
 ## Next steps
+* For more information about DPM to Azure Backup see [Introduction to DPM Backup](backup-azure-dpm-introduction.md)
 
-- For more information about DPM to Azure Backup see [Introduction to DPM Backup](backup-azure-dpm-introduction.md)

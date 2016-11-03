@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Service Fabric Cluster Resource Manager - Management Integration | Microsoft Azure"
-   description="An overview of the integration points between the Cluster Resource Manager and Service Fabric Management."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Service Fabric Cluster Resource Manager - Management Integration | Microsoft Docs
+description: An overview of the integration points between the Cluster Resource Manager and Service Fabric Management.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
-
+---
 # Cluster resource manager integration with Service Fabric cluster management
 The Service Fabric Cluster Resource Manager isn’t the main component of Service Fabric that handles management operations (like application upgrades) but it is involved. The first way that the Cluster Resource Manager helps with management is by tracking the desired state of the cluster and the services inside it from a resourcing and balance perspective and sending out health reports when it cannot put the cluster into the desired configuration (and example would be if there is insufficient capacity, or conflicting rules about where a service should be placed). Another piece of integration has to do with how upgrades work: during upgrades the Cluster Resource Manager alters its behavior. We’ll talk about both of these below.
 
@@ -69,29 +68,29 @@ HealthEvents          :
 
 Here's what this health message is telling us is:
 
-1.	All the replicas themselves are healthy (this is Service Fabric’s first priority)
-2.	That the Upgrade Domain distribution constraint is currently being violated (meaning that a particular Upgrade Domain has more of the replicas for this partition than it should)
-3.	Which node contains the replica causing the violation (The node with ID: 3d1a4a68b2592f55125328cd0f8ed477)
-4.	When this all happened (8/10/2015 7:13:02 PM)
+1. All the replicas themselves are healthy (this is Service Fabric’s first priority)
+2. That the Upgrade Domain distribution constraint is currently being violated (meaning that a particular Upgrade Domain has more of the replicas for this partition than it should)
+3. Which node contains the replica causing the violation (The node with ID: 3d1a4a68b2592f55125328cd0f8ed477)
+4. When this all happened (8/10/2015 7:13:02 PM)
 
 This is great data for an alert that fires in production to let you know something has gone wrong and you probably want to go take a look. In this case, for example, we’d want to see if we can figure out why the Resource Manager didn’t feel like it had any choice but to pack the replicas into the Upgrade Domain. This could be because all of the nodes in the other Upgrade Domains were down and there weren’t enough spare other domains, or if there were enough domains up something else which caused the nodes in those other Upgrade Domains to be invalid (like some placement policy on the service or insufficient capacity, for example).
 
 Let’s say however that you want to create a service, or the Resource Manager is trying to find a place to place some services, but there doesn’t appear to be any solutions that work. This could be for many reasons, but usually it is due to one of the two following conditions:
 
-1.	Some transient condition has made it impossible to place this service instance or replica correctly
-2.	The service’s requirements are misconfigured in a way that causes its requirements to be unsatisfiable.
+1. Some transient condition has made it impossible to place this service instance or replica correctly
+2. The service’s requirements are misconfigured in a way that causes its requirements to be unsatisfiable.
 
 In each of these conditions you’ll see a health report from the Cluster Resource Manager that provides information to help you determine what is going on and why the service can’t be placed. We call this process the “Constraint Elimination Sequence”. During it, the system walks through the configured constraints affecting the service and records what they eliminate. This way when services aren’t able to be placed, you can see which nodes were eliminated and why.
 
 ## Constraint types
 Let’s talk about each of the different constraints you can see in these health reports and what it is checking for. Note that most of the time you won’t see some these constraints eliminate nodes since the constraints are at the soft or optimize level by default (there's more about constraint priorities further along in this article). You could however see health messages related to these constrains if they are configured as hard constraints or in the rare cases that they do cause nodes to be eliminated, so we present them here for completeness:
 
--	ReplicaExclusionStatic and ReplicaExclusionDynamic – This is an internal constraint that indicates that during the search we ran into a situation where two stateful replicas or stateless instances from the same partition would have to be placed on the same node (which isn’t allowed). ReplicaExclusionStatic and ReplicaExclusionDynamic are almost exactly the same rule. The ReplicaExclusionDynamic constraint says “we couldn’t place this replica here because the only proposed solution already had placed a replica here”. This is different from the ReplicaExclusionStatic exclusion which indicates not a proposed conflict but an actual one – there is a replica already on the node. Is this confusing? Yes. Does it matter a lot? No. Suffice it to say that if you are seeing a constraint elimination sequence containing either the ReplicaExclusionStatic or ReplicaExclusionDynamic constraint that the Cluster Resource Manager thinks that there aren’t enough nodes to place all of the replicas. The further constraints can usually tell us how we’re ending up with too few in the first place.
--	PlacementConstraint: If you see this message, it means that we eliminated some nodes because they didn’t match the service’s placement constraints. We trace out the currently configured placement constraints as a part of this message. This is usually normal if you have any placement constraints provided, however if there is a bug in the placement constraint causing too many nodes to be eliminated this is where you could see that result.
--	NodeCapacity: If you see this constraint it means that we couldn’t place the replicas on the indicated nodes because doing so would cause the node to go over capacity
--	Affinity: This constraint indicates that we couldn’t place the replica on the affected nodes since it would cause a violation of the affinity constraint.
--	FaultDomain & UpgradeDomain: This constraint eliminates nodes if placing the replica on the indicated nodes would cause packing in a particular fault or upgrade domain. Several examples discussing this constraint are presented in the topic on [fault and upgrade domain constraints and resulting behavior](service-fabric-cluster-resource-manager-cluster-description.md)
--	PreferredLocation: You shouldn’t normally see this constraint causing nodes to get removed from the solution since it is optimization only by default. Further, the preferred location constraint is usually only present during upgrades (when it is used to move replicas back to where they were when the upgrade started), however it is possible.
+* ReplicaExclusionStatic and ReplicaExclusionDynamic – This is an internal constraint that indicates that during the search we ran into a situation where two stateful replicas or stateless instances from the same partition would have to be placed on the same node (which isn’t allowed). ReplicaExclusionStatic and ReplicaExclusionDynamic are almost exactly the same rule. The ReplicaExclusionDynamic constraint says “we couldn’t place this replica here because the only proposed solution already had placed a replica here”. This is different from the ReplicaExclusionStatic exclusion which indicates not a proposed conflict but an actual one – there is a replica already on the node. Is this confusing? Yes. Does it matter a lot? No. Suffice it to say that if you are seeing a constraint elimination sequence containing either the ReplicaExclusionStatic or ReplicaExclusionDynamic constraint that the Cluster Resource Manager thinks that there aren’t enough nodes to place all of the replicas. The further constraints can usually tell us how we’re ending up with too few in the first place.
+* PlacementConstraint: If you see this message, it means that we eliminated some nodes because they didn’t match the service’s placement constraints. We trace out the currently configured placement constraints as a part of this message. This is usually normal if you have any placement constraints provided, however if there is a bug in the placement constraint causing too many nodes to be eliminated this is where you could see that result.
+* NodeCapacity: If you see this constraint it means that we couldn’t place the replicas on the indicated nodes because doing so would cause the node to go over capacity
+* Affinity: This constraint indicates that we couldn’t place the replica on the affected nodes since it would cause a violation of the affinity constraint.
+* FaultDomain & UpgradeDomain: This constraint eliminates nodes if placing the replica on the indicated nodes would cause packing in a particular fault or upgrade domain. Several examples discussing this constraint are presented in the topic on [fault and upgrade domain constraints and resulting behavior](service-fabric-cluster-resource-manager-cluster-description.md)
+* PreferredLocation: You shouldn’t normally see this constraint causing nodes to get removed from the solution since it is optimization only by default. Further, the preferred location constraint is usually only present during upgrades (when it is used to move replicas back to where they were when the upgrade started), however it is possible.
 
 ### Constraint priorities
 In all of these constraints, you may have been thinking “Hey – I think that placement constraints are the most important thing in my system. I’m willing to violate other constraints, even things like affinity and capacity, if it ensures that the placement constraints aren’t ever violated.”
@@ -135,4 +134,5 @@ Another thing that happens during upgrades is that the Cluster Resource Manager 
 One of the things that comes up during upgrades is generally that you want the upgrade to complete even if the cluster is overall rather constrained or full. During upgrades being able to manage the capacity of the cluster is even more important than usual as there is typically between 5 and 20 percent of the capacity down at a time as the upgrade rolls through the cluster, and that workload usually has to go somewhere. This is where the notion of [buffered capacities](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity) really comes into play – while the buffered capacity is respected during normal operation (leaving some overhead), the Cluster Resource Manager will fill up to the total capacity (taking up the buffer) during upgrades.
 
 ## Next steps
-- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+* Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+

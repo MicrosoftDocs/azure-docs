@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Pulling SQL data into Azure Event Hubs | Microsoft Azure"
-   description="Overview of the Event Hubs import from SQL sample"
-   services="event-hubs"
-   documentationCenter="na"
-   authors="spyrossak"
-   manager="timlt"
-   editor=""/>
+---
+title: Pulling SQL data into Azure Event Hubs | Microsoft Docs
+description: Overview of the Event Hubs import from SQL sample
+services: event-hubs
+documentationcenter: na
+author: spyrossak
+manager: timlt
+editor: ''
 
-<tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/25/2016"
-   ms.author="spyros;sethm" />
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/25/2016
+ms.author: spyros;sethm
 
+---
 # Pulling data from SQL into an Azure Event Hub
-
 A typical architecture for an application for processing real-time data involves 
 first pushing it to an Azure Event Hub. It may be an IoT scenario, such as 
 monitoring the traffic on different stretches of a highway, or a gaming scenario, monitoring 
@@ -42,7 +41,6 @@ You need to review all sorts of security, performance, functionality, and cost f
 an end-to-end architecture.
 
 ## Application structure
-
 The application is written in C#, and the readme.md file in the sample contains all the information you need to
 modify, build, and publish the application. The following sections provide a high level overview of what the 
 application does.
@@ -60,29 +58,29 @@ pushing records to the event hub, then waiting for a user-defined sleep interval
 all over again. A few things are worth noting:
 
 1. The application is based upon the assumption that the SQL table is being updated by some
-external process, and you want to send all and only the updates to an Event Hub.
+   external process, and you want to send all and only the updates to an Event Hub.
 2. The SQL table needs to have a field that has a unique and increasing number, for example,
-a record numer. This can be as simple as a field called "Id", or anything else that is 
-incremented as whatever updates that database adds records such as "Creation_time" or "Sequence_number". The application notes and stores
-the value of that field in each iteration. In each subsequent pass through the loop, the
-application essentially queries the table for all records where the value of that field exceeds
-the value it saw the last time through the loop. We are calling this last value the "offset".
+   a record numer. This can be as simple as a field called "Id", or anything else that is 
+   incremented as whatever updates that database adds records such as "Creation_time" or "Sequence_number". The application notes and stores
+   the value of that field in each iteration. In each subsequent pass through the loop, the
+   application essentially queries the table for all records where the value of that field exceeds
+   the value it saw the last time through the loop. We are calling this last value the "offset".
 3. The application creates a table "TableOffsets" when it starts up, to store the offsets. The
-table is created with the query "CreateOffsetTableQuery" defined in the config file. 
+   table is created with the query "CreateOffsetTableQuery" defined in the config file. 
 4. There are several queries used for working with the offset table, defined in the config
-file as "OffsetQuery", "UpdateOffsetQuery", and "InsertOffsetQuery". You should not change these.
+   file as "OffsetQuery", "UpdateOffsetQuery", and "InsertOffsetQuery". You should not change these.
 5. Finally, the query "DataQuery" defined in the config file is the query that will be run to
-pull the records from your SQL table. It is currently limited to the top 1,000 records in each pass
-through the loop for optimization purposes - if, for example, 25,000 records have been added
-to the database since the last query, it could take a while to execute the query. By limiting
-the query to 1,000 records each time, the queries are much faster. Selecting 
-the top 1,000 simple pushes successive batches of 1,000 records to the event hub.    
+   pull the records from your SQL table. It is currently limited to the top 1,000 records in each pass
+   through the loop for optimization purposes - if, for example, 25,000 records have been added
+   to the database since the last query, it could take a while to execute the query. By limiting
+   the query to 1,000 records each time, the queries are much faster. Selecting 
+   the top 1,000 simple pushes successive batches of 1,000 records to the event hub.    
 
 ## Next Steps
-
 To deploy the solution, clone or download the SqlToEventHub 
 application, edit the App.config file, build it, and finally publish it. Once you have published the application, 
 you can see it running in the Azure classic portal under Cloud Services, and monitor the events
 coming in to your event hub. Note that the frequency will be determined by two things: the
 frequency of the updates to the SQL table, and the sleep interval you have specified in the
 config file for the application.
+

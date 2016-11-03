@@ -1,39 +1,37 @@
-<properties
-   pageTitle="Troubleshoot Linux VM deployment-RM | Microsoft Azure"
-   description="Troubleshoot Resource Manager deployment issues when you create a new Linux virtual machine in Azure"
-   services="virtual-machines-linux, azure-resource-manager"
-   documentationCenter=""
-   authors="JiangChen79"
-   manager="felixwu"
-   editor=""
-   tags="top-support-issue, azure-resource-manager"/>
+---
+title: Troubleshoot Linux VM deployment-RM | Microsoft Docs
+description: Troubleshoot Resource Manager deployment issues when you create a new Linux virtual machine in Azure
+services: virtual-machines-linux, azure-resource-manager
+documentationcenter: ''
+author: JiangChen79
+manager: felixwu
+editor: ''
+tags: top-support-issue, azure-resource-manager
 
-<tags
-  ms.service="virtual-machines-linux"
-  ms.workload="na"
-  ms.tgt_pltfrm="vm-linux"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="09/09/2016"
-  ms.author="cjiang"/>
+ms.service: virtual-machines-linux
+ms.workload: na
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 09/09/2016
+ms.author: cjiang
 
+---
 # Troubleshoot Resource Manager deployment issues with creating a new Linux virtual machine in Azure
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
-
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Collect audit logs
-
 To start troubleshooting, collect the audit logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
 
 [Troubleshoot resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
 
 [Audit operations with Resource Manager](../resource-group-audit.md)
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
+[!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
 **Y:** If the OS is Linux generalized, and it is uploaded and/or captured with the generalized setting, then there won’t be any errors. Similarly, if the OS is Linux specialized, and it is uploaded and/or captured with the specialized setting, then there won’t be any errors.
 
@@ -64,21 +62,22 @@ This error arises in situations when the new VM request is pinned to a cluster t
 
 **Resolution 1:**
 
-- Retry the request using a smaller VM size.
-- If the size of the requested VM cannot be changed:
-  - Stop all the VMs in the availability set.
-  Click **Resource groups** > *your resource group* > **Resources** > *your availability set* > **Virtual Machines** > *your virtual machine* > **Stop**.
-  - After all the VMs stop, create the new VM in the desired size.
-  - Start the new VM first, and then select each of the stopped VMs and click **Start**.
+* Retry the request using a smaller VM size.
+* If the size of the requested VM cannot be changed:
+  * Stop all the VMs in the availability set.
+    Click **Resource groups** > *your resource group* > **Resources** > *your availability set* > **Virtual Machines** > *your virtual machine* > **Stop**.
+  * After all the VMs stop, create the new VM in the desired size.
+  * Start the new VM first, and then select each of the stopped VMs and click **Start**.
 
 **Cause 2:** The cluster does not have free resources.
 
 **Resolution 2:**
 
-- Retry the request at a later time.
-- If the new VM can be part of a different availability set
-  - Create a new VM in a different availability set (in the same region).
-  - Add the new VM to the same virtual network.
+* Retry the request at a later time.
+* If the new VM can be part of a different availability set
+  * Create a new VM in a different availability set (in the same region).
+  * Add the new VM to the same virtual network.
 
 ## Next steps
 If you encounter issues when you start a stopped Linux VM or resize an existing Linux VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](virtual-machines-linux-restart-resize-error-troubleshooting.md).
+

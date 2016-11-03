@@ -1,34 +1,33 @@
-<properties
-	pageTitle="Manage Azure CDN with PowerShell | Microsoft Azure"
-	description="Learn how to use the Azure PowerShell cmdlets to manage Azure CDN."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+---
+title: Manage Azure CDN with PowerShell | Microsoft Docs
+description: Learn how to use the Azure PowerShell cmdlets to manage Azure CDN.
+services: cdn
+documentationcenter: ''
+author: camsoper
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="casoper"/>
+ms.service: cdn
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: casoper
 
-
+---
 # Manage Azure CDN with PowerShell
-
 PowerShell provides one of the most flexible methods to manage your Azure CDN profiles and endpoints.  You can use PowerShell interactively or by writing scripts to automate management tasks.  This tutorial demonstrates several of the most common tasks you can accomplish with PowerShell to manage your Azure CDN profiles and endpoints.
 
 ## Prerequisites
-
 To use PowerShell to manage your Azure CDN profiles and endpoints, you must have the Azure PowerShell module installed.  To learn how to install Azure PowerShell and connect to Azure using the `Login-AzureRmAccount` cmdlet, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
->[AZURE.IMPORTANT] You must log in with `Login-AzureRmAccount` before you can execute Azure PowerShell cmdlets.
+> [!IMPORTANT]
+> You must log in with `Login-AzureRmAccount` before you can execute Azure PowerShell cmdlets.
+> 
+> 
 
 ## Listing the Azure CDN cmdlets
-
 You can list all the Azure CDN cmdlets using the `Get-Command` cmdlet.
 
 ```text
@@ -59,7 +58,6 @@ Cmdlet          Unpublish-AzureRmCdnEndpointContent                2.0.0      Az
 ```
 
 ## Getting help
-
 You can get help with any of these cmdlets using the `Get-Help` cmdlet.  `Get-Help` provides usage and syntax, and optionally shows examples.
 
 ```text
@@ -91,7 +89,6 @@ REMARKS
 ```
 
 ## Listing existing Azure CDN profiles
-
 The `Get-AzureRmCdnProfile` cmdlet without any parameters retrieves all your existing CDN profiles.
 
 ```powershell
@@ -114,10 +111,12 @@ You can also return a single profile by specifying the profile name and resource
 Get-AzureRmCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 ```
 
->[AZURE.TIP] It is possible to have multiple CDN profiles with the same name, so long as they are in different resource groups.  Omitting the `ResourceGroupName` parameter returns all profiles with a matching name.
+> [!TIP]
+> It is possible to have multiple CDN profiles with the same name, so long as they are in different resource groups.  Omitting the `ResourceGroupName` parameter returns all profiles with a matching name.
+> 
+> 
 
 ## Listing existing CDN endpoints
-
 `Get-AzureRmCdnEndpoint` can retrieve an individual endpoint or all the endpoints on a profile.  
 
 ```powershell
@@ -135,7 +134,6 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState
 ```
 
 ## Creating CDN profiles and endpoints
-
 `New-AzureRmCdnProfile` and `New-AzureRmCdnEndpoint` are used to create CDN profiles and endpoints.
 
 ```powershell
@@ -151,7 +149,6 @@ New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku
 ```
 
 ## Checking endpoint name availability
-
 `Get-AzureRmCdnEndpointNameAvailability` returns an object indicating if an endpoint name is available.
 
 ```powershell
@@ -164,10 +161,12 @@ Else { Write-Host "No, that endpoint name is not available." }
 ```
 
 ## Adding a custom domain
-
 `New-AzureRmCdnCustomDomain` adds a custom domain name to an existing endpoint.
 
->[AZURE.IMPORTANT] You must set up the CNAME with your DNS provider as described in [How to map Custom Domain to Content Delivery Network (CDN) endpoint](./cdn-map-content-to-custom-domain.md).  You can test the mapping before modifying your endpoint using `Test-AzureRmCdnCustomDomain`.
+> [!IMPORTANT]
+> You must set up the CNAME with your DNS provider as described in [How to map Custom Domain to Content Delivery Network (CDN) endpoint](cdn-map-content-to-custom-domain.md).  You can test the mapping before modifying your endpoint using `Test-AzureRmCdnCustomDomain`.
+> 
+> 
 
 ```powershell
 # Get an existing endpoint
@@ -181,7 +180,6 @@ If($result.CustomDomainValidated){ New-AzureRmCdnCustomDomain -CustomDomainName 
 ```
 
 ## Modifying an endpoint
-
 `Set-AzureRmCdnEndpoint` modifies an existing endpoint.
 
 ```powershell
@@ -197,7 +195,6 @@ Set-AzureRmCdnEndpoint -CdnEndpoint $endpoint
 ```
 
 ## Purging/Pre-loading CDN assets
-
 `Unpublish-AzureRmCdnEndpointContent` purges cached assets, while `Publish-AzureRmCdnEndpointContent` pre-loads assets on supported endpoints.
 
 ```powershell
@@ -226,7 +223,6 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Start-AzureRmCdnEndpoint
 ```
 
 ## Deleting CDN resources
-
 `Remove-AzureRmCdnProfile` and `Remove-AzureRmCdnEndpoint` can be used to remove profiles and endpoints.
 
 ```powershell
@@ -241,9 +237,7 @@ Remove-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 ```
 
 ## Next Steps
+Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
 
-Learn how to automate Azure CDN with [.NET](./cdn-app-dev-net.md) or [Node.js](./cdn-app-dev-node.md).
-
-To learn about CDN features, see [CDN Overview](./cdn-overview.md).
-
+To learn about CDN features, see [CDN Overview](cdn-overview.md).
 

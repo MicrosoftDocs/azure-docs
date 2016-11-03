@@ -1,23 +1,23 @@
-<properties
-   pageTitle="Open ports to a VM using PowerShell | Microsoft Azure"
-   description="Learn how to open a port / create an endpoint to your Windows VM using the Azure resource manager deployment mode and Azure PowerShell"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Open ports to a VM using PowerShell | Microsoft Docs
+description: Learn how to open a port / create an endpoint to your Windows VM using the Azure resource manager deployment mode and Azure PowerShell
+services: virtual-machines-windows
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="10/27/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 10/27/2016
+ms.author: iainfou
 
+---
 # Opening ports and endpoints to a VM in Azure using PowerShell
-[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
+[!INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick commands
 To create a Network Security Group and ACL rules you need [the latest version of Azure PowerShell installed](../powershell-install-configure.md). You can also [perform these steps using the Azure portal](virtual-machines-windows-nsg-quickstart-portal.md).
@@ -80,6 +80,7 @@ If you need to use port-forwarding to map a unique external port to an internal 
 ## Next steps
 In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
 
-- [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
-- [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
-- [Azure Resource Manager Overview for Load Balancers](../load-balancer/load-balancer-arm.md)
+* [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
+* [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
+* [Azure Resource Manager Overview for Load Balancers](../load-balancer/load-balancer-arm.md)
+

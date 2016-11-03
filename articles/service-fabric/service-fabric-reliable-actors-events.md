@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Reliable Actors events | Microsoft Azure"
-   description="Introduction to events for Service Fabric Reliable Actors."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor=""/>
+---
+title: Reliable Actors events | Microsoft Docs
+description: Introduction to events for Service Fabric Reliable Actors.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/30/2016"
-   ms.author="amanbha"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/30/2016
+ms.author: amanbha
 
-
+---
 # Actor events
 Actor events provide a way to send best-effort notifications from the actor to the clients. Actor events are designed for actor-to-client communication and should not be used for actor-to-actor communication.
 
@@ -73,7 +72,8 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
 ## Next steps
- - [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
- - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
- - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Sample code](https://github.com/Azure/servicefabric-samples)
+* [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
+* [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
+* [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Sample code](https://github.com/Azure/servicefabric-samples)
+

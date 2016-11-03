@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Log searches in Log Analytics | Microsoft Azure"
-	description="Log searches allow you to combine and correlate any machine data from multiple sources within your environment."
-	services="log-analytics"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+---
+title: Log searches in Log Analytics | Microsoft Docs
+description: Log searches allow you to combine and correlate any machine data from multiple sources within your environment.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-	ms.service="log-analytics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/10/2016"
-	ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
+---
 # Log searches in Log Analytics
-
 At the core of Log Analytics is the log search feature which allows you to combine and correlate any machine data from multiple sources within your environment. Solutions are also powered by log search to bring you metrics pivoted around a particular problem area.
 
 On the Search page, you can create a query, and then when you search, you can filter the results by using facet controls. You can also create advanced queries to transform, filter, and report on your results.
@@ -31,11 +30,9 @@ We'll start with simple, practical examples and then build on them so that you c
 After you've familiar with search techniques, you can review the [Log Analytics log search reference](log-analytics-search-reference.md).
 
 ## Use basic filters
-
 The first thing to know is that the first part of a search query, before any "|" vertical pipe character, is always a *filter*. You can think of it as a WHERE clause in TSQL--it determines *what* subset of data to pull out of the OMS data store. Searching in the data store is largely about specifying the characteristics of the data that you want to extract, so it is natural that a query would start with the WHERE clause.
 
 The most basic filters you can use are *keywords*, such as ‘error’ or ‘timeout’, or a computer name. These types of simple queries generally return diverse shapes of data within the same result set. This is because Log Analytics has different *types* of data in the system.
-
 
 ### To conduct a simple search
 1. In the OMS portal, click **Log Search**.  
@@ -56,7 +53,7 @@ So, if the Type=Perf records have a field called 'CounterName', then you can wri
 This will give you only the performance data where the performance counter name is "% Processor Time".
 
 ### To search for processor time performance data
-- In the search query field, type `Type=Perf CounterName="% Processor Time"`
+* In the search query field, type `Type=Perf CounterName="% Processor Time"`
 
 You can also be more specific and use **InstanceName=_'Total'** in the query, which is a Windows performance counter. You can also select a facet and another **field:value**. The filter is automatically added to your filter in the query bar. You can see this in the following image. It shows you where to click to add **InstanceName:’_Total’** to the query without typing anything.
 
@@ -65,6 +62,7 @@ You can also be more specific and use **InstanceName=_'Total'** in the query, wh
 Your query now becomes `Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
 
 In this example, you don't have to specify **Type=Perf** to get to this result. Because the fields CounterName and InstanceName only exist for records of Type=Perf, the query is specific enough to return the same results as the longer, previous one:
+
 ```
 CounterName="% Processor Time" InstanceName="_Total"
 ```
@@ -93,7 +91,6 @@ EventLog=Application EventLog=System
 
 
 ## Use additional filters
-
 The following query returns entries for 2 event logs for all the computers that have sent data.
 
 ```
@@ -136,7 +133,6 @@ CounterName="% Processor Time"  AND InstanceName="_Total" AND (Computer=SERVER1.
 ### Boolean operators
 With datetime and numeric fields, you can search for values using *greater than*, *lesser than*, and *lesser than or equal*. You can use simple operators such as >, < , >=, <= , != in the query search bar.
 
-
 You can query a specific event log for a specific period of time. For example, the last 24 hours is expressed with the following mnemonic expression.
 
 ```
@@ -145,7 +141,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### To search using a boolean operator
-- In the search query field, type `EventLog=System TimeGenerated>NOW-24HOURS"`  
+* In the search query field, type `EventLog=System TimeGenerated>NOW-24HOURS"`  
     ![search with boolean](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Although you can control the time interval graphically, and most times you might want to do that, there are advantages to including a time filter directly into the query. For example, this works great with dashboards where you can override the time for each tile, regardless of the *global* time selector on the dashboard page. For more information, see [Time Matters in Dashboard](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
@@ -160,9 +156,9 @@ Comparison operators used for the TimeGenerated field are also useful in other s
 
 For example, given that Configuration Assessment’s alerts have the following severity values:
 
-- 0 = Information
-- 1 = Warning
-- 2 = Critical
+* 0 = Information
+* 1 = Warning
+* 2 = Critical
 
 You can query for both warning and critical alerts and also exclude informational ones with the following query:
 
@@ -178,10 +174,12 @@ Type=Event EventLog="Operations Manager" EventID:[2100..2199]
 ```
 
 
->[AZURE.NOTE] The range syntax you must use is the colon (:) field:value separator and *not* the equal sign (=). Enclose the lower and upper end of the range in square brackets and separate them with two periods (..).
+> [!NOTE]
+> The range syntax you must use is the colon (:) field:value separator and *not* the equal sign (=). Enclose the lower and upper end of the range in square brackets and separate them with two periods (..).
+> 
+> 
 
 ## Manipulate search results
-
 When you're searching for data, you'll want to refine your search query and have a good level of control over the results. When results are retrieved, you can apply commands to transform them.
 
 Commands in Log Analytics searches *must* follow after the vertical pipe character (|). A filter must always be the first part of a query string. It defines the data set you're working with and then "pipes" those results into a command. You can then use the pipe to add additional commands. This is loosely similar to the Windows PowerShell pipeline.
@@ -191,7 +189,6 @@ In general, the Log Analytics search language tries to follow PowerShell style a
 Commands have names of verbs so you can easily tell what they do.  
 
 ### Sort
-
 The sort command allows you to define the sorting order by one or multiple fields. Even if you don’t use it, by default, a time descending order is enforced. The most recent results are always at the top of search results. This means that when you run a search, with `Type=Event EventID=1234` what really is executed for you is:
 
 ```
@@ -230,17 +227,15 @@ Type=Event EventID=600 | Top 1
 
 
 #### To search using top
-- In the search query field, type `Type=Event EventID=600 | Top 1`   
+* In the search query field, type `Type=Event EventID=600 | Top 1`   
     ![search top](./media/log-analytics-log-searches/oms-search-top.png)
 
 In the image above, there are 358 thousand records with EventID=600. The fields, facets, and filters on the left always show information about the results returned *by the filter portion* of the query, which is the part before any pipe character. The **Results** pane only returns the most recent 1 result, because the example command shaped and transformed the results.
 
 ### Select
-
 The SELECT command behaves like Select-Object in PowerShell. It returns filtered results that do not have all of their original properties. Instead, it selects only the properties that you specify.
 
 #### To run a search using the select command
-
 1. In Search, type `Type=Event` and then click **Search**.
 2. Click **+ show more** in one of the results to view all the properties that the results have.
 3. Select some of those explicitly, and the query changes to `Type=Event | Select Computer,EventID,RenderedDescription`.  
@@ -248,14 +243,10 @@ The SELECT command behaves like Select-Object in PowerShell. It returns filtered
 
 This is command particularly useful when you want to control search output and choose only the portions of data that really matter for your exploration, which often isn’t the full record. This is also useful when records of different types have *some* common properties, but not *all* of their properties are common. The, you can generate output that looks more naturally like a table, or work well when exported to a CSV file and then massaged in Excel.
 
-
-
 ## Use the measure command
-
 MEASURE is one of the most versatile commands in Log Analytics searches. It allows you to apply statistical *functions* to your data and aggregate results grouped by a given field. There are multiple statistical functions that Measure supports.
 
 ### Measure count()
-
 The first statistical function to work with, and one of the simplest to understand is the *count()* function.
 
 Results from any search query such as `Type=Event`, show filters also called facets on the left side of search results. The filters show a distribution of values by a given field for the results in the search executed.
@@ -263,7 +254,6 @@ Results from any search query such as `Type=Event`, show filters also called fac
 ![search measure count](./media/log-analytics-log-searches/oms-search-measure-count01.png)
 
 For example, in the image above you'll see the **Computer** field and it shows that within the almost 739 thousand events in the results, there are 68 unique and distinct values for the **Computer** field in those records. The tile only shows the top 5, which are the most common 5 values that are written in the **Computer** fields), sorted by the number of documents that contain that specific value in that field. In the image you can see that – among those almost 369 thousand events – 90 thousand come from the OpsInsights04.contoso.com computer, 83 thousand from the DB03.contoso.com computer, and so on.
-
 
 What if you want to see all values, since the tile only shows only the top 5?
 
@@ -292,11 +282,9 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 ```
 
 #### To search using measure count
-
-- In the search query field, type `Type=Event | Measure count() by EventID`
-- Append `| Select EventID` to the end of the query.
-- Finally, append `| Sort EventID asc` to the end of the query.
-
+* In the search query field, type `Type=Event | Measure count() by EventID`
+* Append `| Select EventID` to the end of the query.
+* Finally, append `| Sort EventID asc` to the end of the query.
 
 There are a couple important points to notice and emphasize:
 
@@ -305,7 +293,6 @@ First, the results you see are not the original raw results anymore. Instead, th
 Second, **Measure count** currently returns only the top 100 distinct results. This limit does not apply to the other statistical functions. So, you'll usually need to use a more precise filter first to search for specific items before you apply measure count().
 
 ## Use the max and min functions with the measure command
-
 There are various scenarios where **Measure Max()** and **Measure Min()** are useful. However, since each function is opposite of each other, we'll illustrate Max() and you can experiment with Min() on your own.
 
 If you query for security events, they have a **Level** property that can vary. For example:
@@ -339,7 +326,6 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ```
 
 ## Use the avg function with the measure command
-
 The Avg() statistical function used with measure allows you to calculate the average value for some field, and group results by the same or other field. This is useful in a variety of cases, such as performance data.
 
 We'll start with performance data. Note that OMS currently collects performance counters for both Windows and Linux machines.
@@ -356,9 +342,9 @@ The first thing you'll notice is that Log Analytics shows you three perspectives
 
 In the image above, there are two sets of fields marked that indicate the following:
 
-- The first set identifies Windows Performance Counter Name, Object Name, and Instance Name in the query filter. These are the fields you probably will most commonly use as facets/filters
-- **CounterValue** is the actual value of the counter. In this example, the value is *75*.
-- **TimeGenerated** is 12:51, in 24-hour time format.
+* The first set identifies Windows Performance Counter Name, Object Name, and Instance Name in the query filter. These are the fields you probably will most commonly use as facets/filters
+* **CounterValue** is the actual value of the counter. In this example, the value is *75*.
+* **TimeGenerated** is 12:51, in 24-hour time format.
 
 Here's a view of the metrics in a graph.
 
@@ -381,8 +367,7 @@ Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor T
 ```
 
 ### To search using the avg function with the measure command
-- In the Search query box, type `Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor Time" TimeGenerated>NOW-6HOURS | Measure Avg(CounterValue) by Computer`.
-
+* In the Search query box, type `Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor Time" TimeGenerated>NOW-6HOURS | Measure Avg(CounterValue) by Computer`.
 
 You can aggregate and correlate data *across* computers. For example, imagine that you have a set of hosts in some sort of farm where each node is equal to any other one and they just do all the same type of work and load should be roughly balanced. You could get their counters all in one go with the following query and get averages for the entire farm. You can start by choosing the computers with the following example:
 
@@ -412,13 +397,11 @@ This gives you a useful compact view of a couple of your environment's KPIs.
 
 ![search avg grouping](./media/log-analytics-log-searches/oms-search-avg04.png)
 
-
 You can easily use the search query in a dashboard. For example, you could save the search query and create a dashboard from it named *Web Farm KPIs*. To learn more about using dashboards, see [Create a custom dashboard in Log Analytics](log-analytics-dashboards.md).
 
 ![search avg dashboard](./media/log-analytics-log-searches/oms-search-avg05.png)
 
 ### Use the sum function with the measure command
-
 The sum function is similar to other functions of the measure command. You can see an example about how to use the sum function at [W3C IIS Logs Search in Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx).
 
 You can use Max() and Min() with numbers, date times and text strings. With text strings, they are sorted alphabetically and you get first and last.
@@ -426,7 +409,6 @@ You can use Max() and Min() with numbers, date times and text strings. With text
 However, you cannot use Sum() with anything other than numerical fields. This also applies to Avg().
 
 ### Use the percentile function with the measure command
-
 The percentile function is similar to Avg() and Sum() in that you can only use it for numerical fields. You can use any percentile between 1 to 99 on a numeric field. You can also use both **percentile** and **pct** commands. Here are few examples:  
 
 ```
@@ -437,7 +419,6 @@ Type:Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Compute
 ```
 
 ## Use the where command
-
 The where command works like a filter, but it can be applied in the pipeline to further filter aggregated results that have been produced by a Measure command – as opposed to raw results that are filtered at the beginning of a query.
 
 For example:
@@ -459,7 +440,6 @@ You can use the query as a tile in **My Dashboard**, as a monitor of sorts, to s
 ![mobile dashboard](./media/log-analytics-log-searches/oms-search-mobile.png)
 
 ## Use the in operator
-
 The *IN* operator, along with *NOT IN* allows you to use subsearches, which are searches that include another search as an argument. They are contained in braces {} within another *primary* or *outer* search. The result of a subsearch, often a list of distinct results, is then used as an argument in its primary search.
 
 You can use subsearches to match subsets of your data that you cannot describe directly in a search expression, but which can be generated from a search. For example, if you’re interested in using one search to find all events from *computers missing security updates*, then you need to design a subsearch that first identifies that *computers missing security updates* before it finds events belonging to those hosts.
@@ -479,7 +459,6 @@ Type=Event Computer IN {Type:Update UpdateState=Needed Optional=false Classifica
 ```
 ![IN search example](./media/log-analytics-log-searches/oms-search-in02-revised.png)
 
-
 Also notice the time filter used in the inner search because the System Update Assessment takes a snapshot of all computers every 24 hours. You can make the inner query more lightweight and precise by only searching for a day. The outer search instead uses the time selection in the user interface, retrieving events from the last 7 days. See [Boolean operators](#boolean-operators) for more information about time operators.
 
 Because you really only use the results of the inner search as a filter value for the outer one, you can still apply commands in the outer search. For example, you can still group the above events with another measure command:
@@ -489,7 +468,6 @@ Type=Event Computer IN {Type:Update UpdateState=Needed Optional=false Classifica
 ```
 
 ![IN search example](./media/log-analytics-log-searches/oms-search-in03-revised.png)
-
 
 Generally, you want your inner query to execute quickly because Log Analytics has service-side timeouts for it and also to return a small amount of results. If the inner query returns more results, the result list gets truncated, which could potentially cause the outer search to return incorrect results.
 
@@ -524,7 +502,6 @@ Type=SecurityEvent EventID=4624   Account!="BACONLAND\\jochan" Computer IN { Typ
 ```
 
 ## Use the distinct command
-
 As the name suggests, this command provides a list of distinct values for a field. It's surprisingly simple but quite useful. The same could be achieved with measure count() command as well, as shown below.
 
 ```
@@ -582,14 +559,15 @@ Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval
 ![OMS-multiaggregates1](./media/log-analytics-log-searches/oms-multiaggregates1.png)
 
 Here is another example:
+
  ```
 * | measure countdistinct(Computer) as Computers, count() as TotalRecords by Type
 ```
 
 
 ## Next steps
-
 For additional information about log searches, see:
 
-- Use [Custom fields in Log Analytics](log-analytics-custom-fields.md) to extend log searches.
-- Review the [Log Analytics log search reference](log-analytics-search-reference.md) to view all of the search fields and facets available in Log Analytics.
+* Use [Custom fields in Log Analytics](log-analytics-custom-fields.md) to extend log searches.
+* Review the [Log Analytics log search reference](log-analytics-search-reference.md) to view all of the search fields and facets available in Log Analytics.
+

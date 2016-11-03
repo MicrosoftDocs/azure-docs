@@ -1,42 +1,39 @@
-<properties
-	pageTitle="Availability Set Guidelines | Microsoft Azure"
-	description="Learn about the key design and implementation guidelines for deploying Availability Sets in Azure infrastructure services."
-	documentationCenter=""
-	services="virtual-machines-windows"
-	authors="iainfoulds"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Availability Set Guidelines | Microsoft Docs
+description: Learn about the key design and implementation guidelines for deploying Availability Sets in Azure infrastructure services.
+documentationcenter: ''
+services: virtual-machines-windows
+author: iainfoulds
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="iainfou"/>
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2016
+ms.author: iainfou
 
+---
 # Availability sets guidelines
-
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)] 
+[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding the required planning steps for availability sets to ensure your applications remains accessible during planned or unplanned events.
 
 ## Implementation guidelines for availability sets
-
 Decisions:
 
-- How many availability sets do you need for the various roles and tiers in your application infrastructure?
+* How many availability sets do you need for the various roles and tiers in your application infrastructure?
 
 Tasks:
 
-- Define the number of VMs in each application tier you require.
-- Determine if you need to adjust the number of fault or update domains to be used for your application.
-- Define the required availability sets using your naming convention and what VMs reside in them. A VM can only reside in one availability set. 
+* Define the number of VMs in each application tier you require.
+* Determine if you need to adjust the number of fault or update domains to be used for your application.
+* Define the required availability sets using your naming convention and what VMs reside in them. A VM can only reside in one availability set. 
 
 ## Availability sets
-
 In Azure, virtual machines (VMs) can be placed in to a logical grouping called an availability set. When you create VMs within an availability set, the Azure platform distributes the placement of those VMs across the underlying infrastructure. Should there be a planned maintenance event to the Azure platform or an underlying hardware / infrastructure fault, the use of availability sets ensures that at least one VM remains running.
 
 As a best practice, applications should not reside on a single VM. An availability set that contains a single VM doesn't gain any protection from planned or unplanned events within the Azure platform. The [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines) requires two or more VMs within an availability set to allow the distribution of VMs across the underlying infrastructure.
@@ -47,6 +44,6 @@ When designing your application infrastructure, you should also plan the applica
 
 Load balancers can be utilized in front of each application tier to work alongside an availability set and ensure traffic can always be routed to a running instance. Without a load balancer, your VMs may continue running throughout planned and unplanned maintenance events, but your end users may not be able to resolve them if the primary VM is unavailable.
 
-
 ## Next steps
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)] 
+[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+

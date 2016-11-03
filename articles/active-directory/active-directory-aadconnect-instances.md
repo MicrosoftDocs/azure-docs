@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Azure AD Connect: Sync service instances | Microsoft Azure"
-	description="This page documents special considerations for Azure AD instances."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD Connect: Sync service instances | Microsoft Docs'
+description: This page documents special considerations for Azure AD instances.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/27/2016"
-	ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/27/2016
+ms.author: billmath
 
+---
 # Azure AD Connect: Special considerations for instances
 Azure AD Connect is most commonly used with the world-wide instance of Azure AD and Office 365. But there are also other instances and these have different requirements for URLs and other special considerations.
 
@@ -24,30 +24,30 @@ The [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) is a so
 
 This cloud is currently in preview. Many of the scenarios you normally can do by yourself, such as verify domains, must be done by the operator. Please contact your local Microsoft representative for more information on how to participate in the preview.
 
-URLs to open in proxy server |
---- |
-\*.microsoftonline.de |
-\*.windows.net |
-+Certificate Revocation Lists |
+| URLs to open in proxy server |
+| --- |
+| \*.microsoftonline.de |
+| \*.windows.net |
+| +Certificate Revocation Lists |
 
 When you sign in to your Azure AD directory you must use an account in the onmicrosoft.de domain.
 
 Features currently not present in the Microsoft Cloud Germany:
 
-- Azure AD Connect Health is not available.
-- Automatic updates is not available.
-- Password writeback is not available.
+* Azure AD Connect Health is not available.
+* Automatic updates is not available.
+* Password writeback is not available.
 
 ## Microsoft Azure Government cloud
 The [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/) is a cloud for US government.
 
 This cloud has been supported by earlier releases of DirSync. From build 1.1.180 of Azure AD Connect the next generation of the cloud is supported. This generation is using US-only based endpoints and have a different list of URLs to open in your proxy server.
 
-URLs to open in proxy server |
---- |
-\*.microsoftonline.com |
-\*.gov.us.microsoftonline.com |
-+Certificate Revocation Lists |
+| URLs to open in proxy server |
+| --- |
+| \*.microsoftonline.com |
+| \*.gov.us.microsoftonline.com |
+| +Certificate Revocation Lists |
 
 Azure AD Connect will not be able to automatically detect that your Azure AD directory is located in the Government cloud. Instead you need to take the following actions when you install Azure AD Connect.
 
@@ -58,9 +58,10 @@ Azure AD Connect will not be able to automatically detect that your Azure AD dir
 
 Features currently not present in the Microsoft Azure Government cloud:
 
-- Azure AD Connect Health is not available.
-- Automatic updates is not available.
-- Password writeback is not available.
+* Azure AD Connect Health is not available.
+* Automatic updates is not available.
+* Password writeback is not available.
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

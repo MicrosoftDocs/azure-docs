@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Active Directory Replication Status solution in Log Analytics | Microsoft Azure"
-	description="The Active Directory Replication Status solution pack regularly monitors your Active Directory environment for any replication failures and reports the results on your OMS dashboard."
-	services="log-analytics"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+---
+title: Active Directory Replication Status solution in Log Analytics | Microsoft Docs
+description: The Active Directory Replication Status solution pack regularly monitors your Active Directory environment for any replication failures and reports the results on your OMS dashboard.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-	ms.service="log-analytics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/10/2016"
-	ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
+---
 # Active Directory Replication Status solution in Log Analytics
-
 Active Directory is a key component of an enterprise IT environment. To ensure high availability and high performance, each domain controller has its own copy of the Active Directory database. Domain controllers replicate with each other in order to propagate changes across the enterprise. Failures in this replication process can cause a variety of problems across the enterprise.
 
 The AD Replication Status solution pack regularly monitors your Active Directory environment for any replication failures and reports the results on your OMS dashboard.
@@ -25,31 +24,32 @@ The AD Replication Status solution pack regularly monitors your Active Directory
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
-- Agents must be installed on domain controllers that are members of the domain to be evaluated, or on member servers configured to send AD replication data to OMS. To understand how to connect Windows computers to OMS, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md). If your domain controller is already part of an existing System Center Operations Manager environment that you’d like to connect to OMS, see [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md).
-- Add the Active Directory Replication Status solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
-
+* Agents must be installed on domain controllers that are members of the domain to be evaluated, or on member servers configured to send AD replication data to OMS. To understand how to connect Windows computers to OMS, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md). If your domain controller is already part of an existing System Center Operations Manager environment that you’d like to connect to OMS, see [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md).
+* Add the Active Directory Replication Status solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
 
 ## AD Replication Status data collection details
-
 The following table shows data collection methods and other details about how data is collected for AD Replication Status.
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
-|---|---|---|---|---|---|---|
-|Windows|![Yes](./media/log-analytics-ad-replication-status/oms-bullet-green.png)|![Yes](./media/log-analytics-ad-replication-status/oms-bullet-green.png)|![No](./media/log-analytics-ad-replication-status/oms-bullet-red.png)|![No](./media/log-analytics-ad-replication-status/oms-bullet-red.png)|![Yes](./media/log-analytics-ad-replication-status/oms-bullet-green.png)| every 5 days|
-
+| --- | --- | --- | --- | --- | --- | --- |
+| Windows |![Yes](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![Yes](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![No](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![No](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![Yes](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |every 5 days |
 
 ## Optionally, enable a non-domain controller to send AD data to OMS
 If you don’t want to connect any of your domain controllers directly to OMS, you can use any other OMS-connected computer in your domain to collect data for the AD Replication Status solution pack and have it send the data.
 
 ### To enable a non-domain controller to send AD data to OMS
-1.	Verify that the computer is a member of the domain that you wish to monitor using the AD Replication Status solution.
-2.	[Connect the Windows computer to OMS](log-analytics-windows-agents.md) or [connect it using your existing Operations Manager environment to OMS](log-analytics-om-agents.md), if it is not already connected.
-3.	On that computer, set the following registry key:
-    - Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-    - Value: **IsTarge**
-    - Value Data: **true**
-
-    >[AZURE.NOTE]These changes will not take effect until your restart the Microsoft Monitoring Agent service (HealthService.exe).
+1. Verify that the computer is a member of the domain that you wish to monitor using the AD Replication Status solution.
+2. [Connect the Windows computer to OMS](log-analytics-windows-agents.md) or [connect it using your existing Operations Manager environment to OMS](log-analytics-om-agents.md), if it is not already connected.
+3. On that computer, set the following registry key:
+   
+   * Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
+   * Value: **IsTarge**
+   * Value Data: **true**
+   
+   > [!NOTE]
+   > These changes will not take effect until your restart the Microsoft Monitoring Agent service (HealthService.exe).
+   > 
+   > 
 
 ## Understanding replication errors
 Once you have AD replication status data sent to OMS, you’ll see a tile similar to the following on the OMS dashboard indicating how many replication errors you currently have.  
@@ -59,7 +59,6 @@ Once you have AD replication status data sent to OMS, you’ll see a tile simila
 
 When you click the tile, you’ll see more information about the errors.
 ![AD Replication Status dashboard](./media/log-analytics-ad-replication-status/oms-ad-replication-dash.png)
-
 
 ### Destination Server Status and Source Server Status
 These blades show the status of destination servers and source servers that are experiencing replication errors. The number after each domain controller name indicates the number of replication errors on that domain controller.
@@ -92,7 +91,10 @@ These are errors that are clearly lingering, not transient, so they likely need 
 
 As noted earlier, the dashboard tile for the AD Replication Status solution shows the number of *critical* replication errors in your environment, which is defined as errors that are over 75% of tombstone lifetime (including errors that are over 100% of TSL). Strive to keep this number at 0.
 
->[AZURE.NOTE] All the tombstone lifetime percentage calculations are based on the actual tombstone lifetime for your Active Directory forest, so you can trust that those percentages are accurate, even if you have a custom tombstone lifetime value set.
+> [!NOTE]
+> All the tombstone lifetime percentage calculations are based on the actual tombstone lifetime for your Active Directory forest, so you can trust that those percentages are accurate, even if you have a custom tombstone lifetime value set.
+> 
+> 
 
 ### AD Replication status details
 When you click any item in one of the lists, you’ll see additional details about it using Log Search. The results are filtered to show only the errors related to that item. For example, if you click on the first domain controller listed under **Destination Server Status (ADDC02)**, you’ll see search results filtered to show errors with that domain controller listed as the destination server:
@@ -142,7 +144,6 @@ If you need assistance connecting one of your domain controllers, you can view d
 
 If you don’t want to connect any of your domain controllers directly to OMS or to SCOM, see [To enable a non-domain controller to send AD data to OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
-
 ## Next steps
+* Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Active Directory Replication status data.
 
-- Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Active Directory Replication status data.

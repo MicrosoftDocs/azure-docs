@@ -1,58 +1,61 @@
-﻿<properties
-    pageTitle="Logging and error handling in Logic Apps | Microsoft Azure"
-    description="View a real-life use case of advanced error handling and logging with Logic Apps"
-    keywords=""
-    services="logic-apps"
-    authors="hedidin"
-    manager="anneta"
-    editor=""
-    documentationCenter=""/>
+---
+title: Logging and error handling in Logic Apps | Microsoft Docs
+description: View a real-life use case of advanced error handling and logging with Logic Apps
+keywords: ''
+services: logic-apps
+author: hedidin
+manager: anneta
+editor: ''
+documentationcenter: ''
 
-<tags
-    ms.service="logic-apps"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/29/2016"
-    ms.author="b-hoedid"/>
+ms.service: logic-apps
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/29/2016
+ms.author: b-hoedid
 
+---
 # Logging and error handling in Logic Apps
-
 This article describes how you can extend a logic app to better support exception handling. It is a real-life use case and our answer to the question of, "Does Logic Apps support exception and error handling?"
 
->[AZURE.NOTE] The current version of the Logic Apps feature of Microsoft Azure App Service provides a standard template for action responses.
->This includes both internal validation and error responses returned from an API app.
+> [!NOTE]
+> The current version of the Logic Apps feature of Microsoft Azure App Service provides a standard template for action responses.
+> This includes both internal validation and error responses returned from an API app.
+> 
+> 
 
 ## Overview of the use case and scenario
-
 The following story is the use case for this article.
 A well-known healthcare organization engaged us to develop an Azure solution that would create a patient portal by using Microsoft Dynamics CRM Online. They needed to send appointment records between the Dynamics CRM Online patient portal and Salesforce.  We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all patient records.
 
 The project had two major requirements:  
 
- -  A method to log records sent from the Dynamics CRM Online portal
- -  A way to view any errors that occurred within the workflow
-
+* A method to log records sent from the Dynamics CRM Online portal
+* A way to view any errors that occurred within the workflow
 
 ## How we solved the problem
-
->[AZURE.TIP] You can view a high-level video of the project at the [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Integration User Group").
+> [!TIP]
+> You can view a high-level video of the project at the [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Integration User Group").
+> 
+> 
 
 We chose [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB") as a repository for the log and error records (DocumentDB refers to records as documents). Because Logic Apps has a standard template for all responses, we would not have to create a custom schema. We could create an API app to **Insert** and **Query** for both error and log records. We could also define a schema for each within the API app.  
 
 Another requirement was to purge records after a certain date. DocumentDB has a property called  [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL), which allowed us to set a **Time to Live** value for each record or collection. This eliminated the need to manually delete records in DocumentDB.
 
 ### Creation of the logic app
-
 The first step is to create the logic app and load it in the designer. In this example, we are using parent-child logic apps. Let's assume that we have already created the parent and are going to create one child logic app.
 
 Because we are going to be logging the record coming out of Dynamics CRM Online, let's start at the top. We need to use a Request trigger because the parent logic app triggers this child.
 
-> [AZURE.IMPORTANT] To complete this tutorial, you will need to create a DocumentDB database and two collections (Logging and Errors).
+> [!IMPORTANT]
+> To complete this tutorial, you will need to create a DocumentDB database and two collections (Logging and Errors).
+> 
+> 
 
 ### Logic app trigger
-
 We are using a Request trigger as shown in the following example.
 
 ```` json
@@ -92,30 +95,27 @@ We are using a Request trigger as shown in the following example.
 
 
 ### Steps
-
 We need to log the source (request) of the patient record from the Dynamics CRM Online portal.
 
 1. We need to get a new appointment record from Dynamics CRM Online.
     The trigger coming from CRM provides us with the **CRM PatentId**, **record type**, **New or Updated Record** (new or update Boolean value), and **SalesforceId**. The **SalesforceId** can be null because it's only used for an update.
     We will get the CRM record by using the CRM **PatientID** and the **Record Type**.
-1. Next, we need to add our DocumentDB API app **InsertLogEntry** operation as shown in the following figures.
-
+2. Next, we need to add our DocumentDB API app **InsertLogEntry** operation as shown in the following figures.
 
 #### Insert log entry designer view
-
 ![Insert Log Entry](./media/app-service-logic-scenario-error-and-exception-handling/lognewpatient.png)
 
 #### Insert error entry designer view
 ![Insert Log Entry](./media/app-service-logic-scenario-error-and-exception-handling/insertlogentry.png)
 
 #### Check for create record failure
-
 ![Condition](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)
 
-
 ## Logic app source code
-
->[AZURE.NOTE]  The following are samples only. Because this tutorial is based on an implementation currently in production, the value of a **Source Node** might not display properties that are related to scheduling an appointment.
+> [!NOTE]
+> The following are samples only. Because this tutorial is based on an implementation currently in production, the value of a **Source Node** might not display properties that are related to scheduling an appointment.
+> 
+> 
 
 ### Logging
 The following logic app code sample shows how to handle logging.
@@ -148,7 +148,6 @@ This is the logic app source code for inserting a log entry.
 ```
 
 #### Log request
-
 This is the log request message posted to the API app.
 
 ``` json
@@ -156,48 +155,47 @@ This is the log request message posted to the API app.
     "uri": "https://.../api/Log",
     "method": "post",
     "body": {
-	    "date": "Fri, 10 Jun 2016 22:31:56 GMT",
-	    "operation": "New Patient",
-	    "patientId": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
-	    "providerId": "",
-	    "source": "{\"Pragma\":\"no-cache\",\"x-ms-request-id\":\"e750c9a9-bd48-44c4-bbba-1688b6f8a132\",\"OData-Version\":\"4.0\",\"Cache-Control\":\"no-cache\",\"Date\":\"Fri, 10 Jun 2016 22:31:56 GMT\",\"Set-Cookie\":\"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1\",\"Server\":\"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0\",\"X-AspNet-Version\":\"4.0.30319\",\"X-Powered-By\":\"ASP.NET\",\"Content-Length\":\"1935\",\"Content-Type\":\"application/json; odata.metadata=minimal; odata.streaming=true\",\"Expires\":\"-1\"}"
-    	}
+        "date": "Fri, 10 Jun 2016 22:31:56 GMT",
+        "operation": "New Patient",
+        "patientId": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
+        "providerId": "",
+        "source": "{\"Pragma\":\"no-cache\",\"x-ms-request-id\":\"e750c9a9-bd48-44c4-bbba-1688b6f8a132\",\"OData-Version\":\"4.0\",\"Cache-Control\":\"no-cache\",\"Date\":\"Fri, 10 Jun 2016 22:31:56 GMT\",\"Set-Cookie\":\"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1\",\"Server\":\"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0\",\"X-AspNet-Version\":\"4.0.30319\",\"X-Powered-By\":\"ASP.NET\",\"Content-Length\":\"1935\",\"Content-Type\":\"application/json; odata.metadata=minimal; odata.streaming=true\",\"Expires\":\"-1\"}"
+        }
     }
 
 ```
 
 
 #### Log response
-
 This is the log response message from the API app.
 
 ``` json
 {
     "statusCode": 200,
     "headers": {
-	    "Pragma": "no-cache",
-	    "Cache-Control": "no-cache",
-	    "Date": "Fri, 10 Jun 2016 22:32:17 GMT",
-	    "Server": "Microsoft-IIS/8.0",
-	    "X-AspNet-Version": "4.0.30319",
-	    "X-Powered-By": "ASP.NET",
-	    "Content-Length": "964",
-	    "Content-Type": "application/json; charset=utf-8",
-	    "Expires": "-1"
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "Date": "Fri, 10 Jun 2016 22:32:17 GMT",
+        "Server": "Microsoft-IIS/8.0",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Content-Length": "964",
+        "Content-Type": "application/json; charset=utf-8",
+        "Expires": "-1"
     },
     "body": {
-	    "ttl": 2592000,
-	    "id": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0_1465597937",
-	    "_rid": "XngRAOT6IQEHAAAAAAAAAA==",
-	    "_self": "dbs/XngRAA==/colls/XngRAOT6IQE=/docs/XngRAOT6IQEHAAAAAAAAAA==/",
-	    "_ts": 1465597936,
-	    "_etag": "\"0400fc2f-0000-0000-0000-575b3ff00000\"",
-	    "patientID": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
-	    "timestamp": "2016-06-10T22:31:56Z",
-	    "source": "{\"Pragma\":\"no-cache\",\"x-ms-request-id\":\"e750c9a9-bd48-44c4-bbba-1688b6f8a132\",\"OData-Version\":\"4.0\",\"Cache-Control\":\"no-cache\",\"Date\":\"Fri, 10 Jun 2016 22:31:56 GMT\",\"Set-Cookie\":\"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1\",\"Server\":\"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0\",\"X-AspNet-Version\":\"4.0.30319\",\"X-Powered-By\":\"ASP.NET\",\"Content-Length\":\"1935\",\"Content-Type\":\"application/json; odata.metadata=minimal; odata.streaming=true\",\"Expires\":\"-1\"}",
-	    "operation": "New Patient",
-	    "salesforceId": "",
-	    "expired": false
+        "ttl": 2592000,
+        "id": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0_1465597937",
+        "_rid": "XngRAOT6IQEHAAAAAAAAAA==",
+        "_self": "dbs/XngRAA==/colls/XngRAOT6IQE=/docs/XngRAOT6IQEHAAAAAAAAAA==/",
+        "_ts": 1465597936,
+        "_etag": "\"0400fc2f-0000-0000-0000-575b3ff00000\"",
+        "patientID": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
+        "timestamp": "2016-06-10T22:31:56Z",
+        "source": "{\"Pragma\":\"no-cache\",\"x-ms-request-id\":\"e750c9a9-bd48-44c4-bbba-1688b6f8a132\",\"OData-Version\":\"4.0\",\"Cache-Control\":\"no-cache\",\"Date\":\"Fri, 10 Jun 2016 22:31:56 GMT\",\"Set-Cookie\":\"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1\",\"Server\":\"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0\",\"X-AspNet-Version\":\"4.0.30319\",\"X-Powered-By\":\"ASP.NET\",\"Content-Length\":\"1935\",\"Content-Type\":\"application/json; odata.metadata=minimal; odata.streaming=true\",\"Expires\":\"-1\"}",
+        "operation": "New Patient",
+        "salesforceId": "",
+        "expired": false
     }
 }
 
@@ -205,13 +203,10 @@ This is the log response message from the API app.
 
 Now let's look at the error handling steps.
 
-
 ### Error handling
-
 The following Logic Apps code sample shows how you can implement error handling.
 
 #### Create error record
-
 This is the Logic Apps source code for creating an error record.
 
 ``` json
@@ -244,11 +239,10 @@ This is the Logic Apps source code for creating an error record.
             "Create_NewPatientRecord": ["Failed" ]
         }
     }
-}  	       
+}             
 ```
 
 #### Insert error into DocumentDB--request
-
 ``` json
 
 {
@@ -271,8 +265,6 @@ This is the Logic Apps source code for creating an error record.
 ```
 
 #### Insert error into DocumentDB--response
-
-
 ``` json
 {
     "statusCode": 200,
@@ -311,7 +303,6 @@ This is the Logic Apps source code for creating an error record.
 ```
 
 #### Salesforce error response
-
 ``` json
 {
     "statusCode": 400,
@@ -340,11 +331,9 @@ This is the Logic Apps source code for creating an error record.
 ```
 
 ### Returning the response back to the parent logic app
-
 After you have the response, you can pass it back to the parent logic app.
 
 #### Return success response to the parent logic app
-
 ``` json
 "SuccessResponse": {
     "runAfter":
@@ -356,7 +345,7 @@ After you have the response, you can pass it back to the parent logic app.
             "status": "Success"
     },
     "headers": {
-    "	Content-type": "application/json",
+    "    Content-type": "application/json",
         "x-ms-date": "@utcnow()"
     },
     "statusCode": 200
@@ -366,7 +355,6 @@ After you have the response, you can pass it back to the parent logic app.
 ```
 
 #### Return error response to the parent logic app
-
 ``` json
 "ErrorResponse": {
     "runAfter":
@@ -390,46 +378,44 @@ After you have the response, you can pass it back to the parent logic app.
 
 
 ## DocumentDB repository and portal
-
 Our solution added additional capabilities with [DocumentDB](https://azure.microsoft.com/services/documentdb).
 
 ### Error management portal
-
 To view the errors, you can create an MVC web app to display the error records from DocumentDB. **List**, **Details**, **Edit**, and **Delete** operations are included in the current version.
 
-> [AZURE.NOTE] Edit operation: DocumentDB does a replace of the entire document.
+> [!NOTE]
+> Edit operation: DocumentDB does a replace of the entire document.
 > The records shown in the **List** and **Detail** views are samples only. They are not actual patient appointment records.
+> 
+> 
 
 Following are examples of our MVC app details created with the previously described approach.
 
 #### Error management list
-
 ![Error List](./media/app-service-logic-scenario-error-and-exception-handling/errorlist.png)
 
 #### Error management detail view
-
 ![Error Details](./media/app-service-logic-scenario-error-and-exception-handling/errordetails.png)
 
 ### Log management portal
-
 To view the logs, we also created an MVC web app.  Following are examples of our MVC app details created with the previously described approach.
 
 #### Sample log detail view
-
 ![Log Detail View](./media/app-service-logic-scenario-error-and-exception-handling/samplelogdetail.png)
 
 ### API app details
-
 #### Logic Apps exception management API
-
 Our open-source Logic Apps exception management API app provides the following functionality.
 
 There are two controllers:
 
-- **ErrorController** inserts an error record (document) in a DocumentDB collection.
-- **LogController** Inserts a log record (document) in a DocumentDB collection.
+* **ErrorController** inserts an error record (document) in a DocumentDB collection.
+* **LogController** Inserts a log record (document) in a DocumentDB collection.
 
-> [AZURE.TIP] Both controllers use `async Task<dynamic>` operations. This allows operations to be resolved at runtime, so we can create the DocumentDB schema in the body of the operation.
+> [!TIP]
+> Both controllers use `async Task<dynamic>` operations. This allows operations to be resolved at runtime, so we can create the DocumentDB schema in the body of the operation.
+> 
+> 
 
 Every document in DocumentDB must have a unique ID. We are using `PatientId` and adding a timestamp that is converted to a Unix timestamp value (double). We truncate it to remove the fractional value.
 
@@ -471,16 +457,15 @@ We call the API from a logic app by using the following syntax.
 The expression in the preceding code sample is checking for the *Create_NewPatientRecord* status of **Failed**.
 
 ## Summary
-
-- You can easily implement logging and error handling in a logic app.
-- You can use DocumentDB as the repository for log and error records (documents).
-- You can use MVC to create a portal to display log and error records.
+* You can easily implement logging and error handling in a logic app.
+* You can use DocumentDB as the repository for log and error records (documents).
+* You can use MVC to create a portal to display log and error records.
 
 ### Source code
 The source code for the Logic Apps exception management API application is available in this [GitHub repository](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "Logic App Exception Management API").
 
-
 ## Next steps
-- [View more Logic Apps examples and scenarios](app-service-logic-examples-and-scenarios.md)
-- [Learn about Logic Apps monitoring tools](app-service-logic-monitor-your-logic-apps.md)
-- [Create a Logic App automated deployment template](app-service-logic-create-deploy-template.md)
+* [View more Logic Apps examples and scenarios](app-service-logic-examples-and-scenarios.md)
+* [Learn about Logic Apps monitoring tools](app-service-logic-monitor-your-logic-apps.md)
+* [Create a Logic App automated deployment template](app-service-logic-create-deploy-template.md)
+

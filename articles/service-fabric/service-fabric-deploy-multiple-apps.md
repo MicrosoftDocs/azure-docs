@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Deploy a Node.js application that uses MongoDB | Microsoft Azure"
-   description="Walkthrough on how to package multiple guest executables to deploy to an Azure Service Fabric cluster"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager="timlt"
-   editor=""/>
+---
+title: Deploy a Node.js application that uses MongoDB | Microsoft Docs
+description: Walkthrough on how to package multiple guest executables to deploy to an Azure Service Fabric cluster
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="10/22/2016"
-   ms.author="msfussell;mikhegn"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 10/22/2016
+ms.author: msfussell;mikhegn
 
-
+---
 # Deploy multiple guest executables
-
 This article shows how to package and deploy multiple guest executables to Azure Service Fabric. For building and deploying a single Service Fabric package read how to [deploy a guest executable to Service Fabric](service-fabric-deploy-existing-app.md).
 
 While this walkthrough shows how to deploy an application with a Node.js front end that uses MongoDB as the data store, you can apply the steps to any application that has dependencies on another application.   
@@ -33,17 +31,17 @@ This article assumes that Node.js is not installed on the nodes in the Service F
 
 ```
 |-- NodeApplication
-	|-- bin
+    |-- bin
         |-- www
-	|-- node_modules
+    |-- node_modules
         |-- .bin
         |-- express
         |-- jade
         |-- etc.
-	|-- public
+    |-- public
         |-- images
         |-- etc.
-	|-- routes
+    |-- routes
         |-- index.js
         |-- users.js
     |-- views
@@ -62,12 +60,12 @@ As a next step, you create an application package for the Node.js application. T
 
 Below is a description of the parameters that are being used:
 
-- **/source** points to the directory of the application that should be packaged.
-- **/target** defines the directory in which the package should be created. This directory has to be different from the source directory.
-- **/appname** defines the application name of the existing application. It's important to understand that this translates to the service name in the manifest, and not to the Service Fabric application name.
-- **/exe** defines the executable that Service Fabric is supposed to launch, in this case `node.exe`.
-- **/ma** defines the argument that is being used to launch the executable. As Node.js is not installed, Service Fabric needs to launch the Node.js web server by executing `node.exe bin/www`.  `/ma:'bin/www'` tells the packaging tool to use `bin/ma` as the argument for node.exe.
-- **/AppType** defines the Service Fabric application type name.
+* **/source** points to the directory of the application that should be packaged.
+* **/target** defines the directory in which the package should be created. This directory has to be different from the source directory.
+* **/appname** defines the application name of the existing application. It's important to understand that this translates to the service name in the manifest, and not to the Service Fabric application name.
+* **/exe** defines the executable that Service Fabric is supposed to launch, in this case `node.exe`.
+* **/ma** defines the argument that is being used to launch the executable. As Node.js is not installed, Service Fabric needs to launch the Node.js web server by executing `node.exe bin/www`.  `/ma:'bin/www'` tells the packaging tool to use `bin/ma` as the argument for node.exe.
+* **/AppType** defines the Service Fabric application type name.
 
 If you browse to the directory that was specified in the /target parameter, you can see that the tool has created a fully functioning Service Fabric package as shown below:
 
@@ -75,7 +73,7 @@ If you browse to the directory that was specified in the /target parameter, you 
 |--[yourtargetdirectory]
     |-- NodeApplication
         |-- C
-		      |-- bin
+              |-- bin
               |-- data
               |-- node_modules
               |-- public
@@ -85,8 +83,8 @@ If you browse to the directory that was specified in the /target parameter, you 
               |-- package.json
               |-- node.exe
         |-- config
-		      |--Settings.xml
-	    |-- ServiceManifest.xml
+              |--Settings.xml
+        |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
 The generated ServiceManifest.xml now has a section that describes how the Node.js web server should be launched, as shown in the code snippet below:
@@ -107,7 +105,7 @@ In this sample, the Node.js web server listens to port 3000, so you need to upda
 ```xml
 <Resources>
       <Endpoints>
-     	<Endpoint Name="NodeServiceEndpoint" Protocol="http" Port="3000" Type="Input" />
+         <Endpoint Name="NodeServiceEndpoint" Protocol="http" Port="3000" Type="Input" />
       </Endpoints>
 </Resources>
 ```
@@ -118,7 +116,7 @@ To package MongoDB, you want to make sure you package Mongod.exe and Mongo.exe. 
 
 ```
 |-- MongoDB
-	|-- bin
+    |-- bin
         |-- mongod.exe
         |-- mongo.exe
         |-- anybinary.exe
@@ -128,7 +126,10 @@ Service Fabric needs to start MongoDB with a command similar to the one below, s
 ```
 mongod.exe --dbpath [path to data]
 ```
-> [AZURE.NOTE] The data is not being preserved in the case of a node failure if you put the MongoDB data directory on the local directory of the node. You should either use durable storage or implement a MongoDB replica set in order to prevent data loss.  
+> [!NOTE]
+> The data is not being preserved in the case of a node failure if you put the MongoDB data directory on the local directory of the node. You should either use durable storage or implement a MongoDB replica set in order to prevent data loss.  
+> 
+> 
 
 In PowerShell or the command shell, we run the packaging tool with the following parameters:
 
@@ -150,8 +151,8 @@ Let's browse to the directory and examine what the tool has created.
                 |-- mongo.exe
                 |-- etc.
         |-- config
-		    |--Settings.xml
-	    |-- ServiceManifest.xml
+            |--Settings.xml
+        |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
 As you can see, the tool added a new folder, MongoDB, to the directory that contains the MongoDB binaries. If you open the `ApplicationManifest.xml` file, you can see that the package now contains both the Node.js application and MongoDB. The code below shows the content of the application manifest.
@@ -199,5 +200,5 @@ Once the application is successfully published to the local cluster, you can acc
 In this tutorial, you have seen how to easily package two existing applications as one Service Fabric application. You have also learned how to deploy it to Service Fabric so that it can benefit from some of the Service Fabric features, such as high availability and health system integration.
 
 ## Next steps
+* Learn about deploying containers with [Service Fabric and containers overview](service-fabric-containers-overview.md)
 
-- Learn about deploying containers with [Service Fabric and containers overview](service-fabric-containers-overview.md)

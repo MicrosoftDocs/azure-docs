@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Retrain a Machine Learning Model | Microsoft Azure"
-	description="Learn how to retrain a model and update the Web service to use the newly trained model in Azure Machine Learning."
-	services="machine-learning"
-	documentationCenter=""
-	authors="vDonGlover"
-	manager="raymondl"
-	editor=""/>
+---
+title: Retrain a Machine Learning Model | Microsoft Docs
+description: Learn how to retrain a model and update the Web service to use the newly trained model in Azure Machine Learning.
+services: machine-learning
+documentationcenter: ''
+author: vDonGlover
+manager: raymondl
+editor: ''
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/10/2016"
-	ms.author="v-donglo"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: v-donglo
 
+---
 # Retrain a Machine Learning Model
-
 As part of the process of operationalization of machine learning models in Azure Machine Learning, your model is trained and saved. You then use it to create a predicative Web service. The Web service can then be consumed in web sites, dashboards, and mobile apps. 
 
 Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. 
@@ -26,16 +25,17 @@ Retraining may occur frequently. With the Programmatic Retraining API feature, y
 
 This document describes the retraining process, and shows you how to use the Retraining APIs.
 
-## Why retrain: defining the problem  
-
+## Why retrain: defining the problem
 As part of the machine learning training process, a model is trained using a set of data. Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained.
 
 In these scenarios, a programmatic API provides a convenient way to allow you or the consumer of your APIs to create a client that can, on a one-time or regular basis, retrain the model using their own data. They can then evaluate the results of retraining, and update the Web service API to use the newly trained model.
 
->[AZURE.NOTE] If you have an existing Training Experiment and New Web service, you may want to check out Retrain an existing Predictive Web service instead of following the walkthrough mentioned in the following section.
+> [!NOTE]
+> If you have an existing Training Experiment and New Web service, you may want to check out Retrain an existing Predictive Web service instead of following the walkthrough mentioned in the following section.
+> 
+> 
 
-## End-to-end workflow 
-
+## End-to-end workflow
 The process involves the following components: A Training Experiment and a Predictive Experiment published as a Web service. To enable retraining of a trained model, the Training Experiment must be published as a Web service with the output of a trained model. This enables API access to the model for retraining. 
 
 The following steps apply to both New and Classic Web services:
@@ -84,10 +84,9 @@ The process for setting up retraining for a New Web service involves the followi
 ![Retraining process overview][7]
 
 ## Other Resources
-
-- [Retraining and Updating Azure Machine Learning models with Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
-- [Create many Machine Learning models and web service endpoints from one experiment using PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md)
-- The [AML Retraining Models Using APIs](https://www.youtube.com/watch?v=wwjglA8xllg) video shows you how to retrain Machine Learning models created in Azure Machine Learning using the Retraining APIs and PowerShell.
+* [Retraining and Updating Azure Machine Learning models with Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
+* [Create many Machine Learning models and web service endpoints from one experiment using PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md)
+* The [AML Retraining Models Using APIs](https://www.youtube.com/watch?v=wwjglA8xllg) video shows you how to retrain Machine Learning models created in Azure Machine Learning using the Retraining APIs and PowerShell.
 
 <!--image links-->
 [1]: ./media/machine-learning-retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE01.png

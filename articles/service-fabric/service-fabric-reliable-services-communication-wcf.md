@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Reliable Services WCF communication stack | Microsoft Azure"
-   description="The built-in WCF communication stack in Service Fabric provides client-service WCF communication for Reliable Services."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="BharatNarasimman"
-   manager="timlt"
-   editor="vturecek"/>
+---
+title: Reliable Services WCF communication stack | Microsoft Docs
+description: The built-in WCF communication stack in Service Fabric provides client-service WCF communication for Reliable Services.
+services: service-fabric
+documentationcenter: .net
+author: BharatNarasimman
+manager: timlt
+editor: vturecek
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="07/26/2016"
-   ms.author="bharatn"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: required
+ms.date: 07/26/2016
+ms.author: bharatn
 
+---
 # WCF-based communication stack for Reliable Services
 The Reliable Services framework allows service authors to choose the communication stack that they want to use for their service. They can plug in the communication stack of their choice via the **ICommunicationListener** returned from the [CreateServiceReplicaListeners or CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) methods. The framework provides an implementation of the communication stack based on the Windows Communication Foundation (WCF) for service authors who want to use WCF-based communication.
 
@@ -113,11 +113,13 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
                 client => client.Channel.Add(2, 3)).Result;
 
 ```
->[AZURE.NOTE] The default ServicePartitionResolver assumes that the client is running in same cluster as the service. If that is not the case, create a ServicePartitionResolver object and pass in the cluster connection endpoints.
+> [!NOTE]
+> The default ServicePartitionResolver assumes that the client is running in same cluster as the service. If that is not the case, create a ServicePartitionResolver object and pass in the cluster connection endpoints.
+> 
+> 
 
 ## Next steps
 * [Remote procedure call with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
-
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
+

@@ -1,36 +1,36 @@
-<properties
-	pageTitle="Azure Functions NodeJS developer reference | Microsoft Azure"
-	description="Understand how to develop Azure Functions using NodeJS."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+---
+title: Azure Functions NodeJS developer reference | Microsoft Docs
+description: Understand how to develop Azure Functions using NodeJS.
+services: functions
+documentationcenter: na
+author: christopheranderson
+manager: erikre
+editor: ''
+tags: ''
+keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
-<tags
-	ms.service="functions"
-	ms.devlang="nodejs"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="05/13/2016"
-	ms.author="chrande"/>
+ms.service: functions
+ms.devlang: nodejs
+ms.topic: reference
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 05/13/2016
+ms.author: chrande
 
+---
 # Azure Functions NodeJS developer reference
-
-> [AZURE.SELECTOR]
-- [C# script](../articles/azure-functions/functions-reference-csharp.md)
-- [F# script](../articles/azure-functions/functions-reference-fsharp.md)
-- [Node.js](../articles/azure-functions/functions-reference-node.md)
+> [!div class="op_single_selector"]
+> * [C# script](functions-reference-csharp.md)
+> * [F# script](functions-reference-fsharp.md)
+> * [Node.js](functions-reference-node.md)
+> 
+> 
 
 The Node/JavaScript experience for Azure Functions makes it easy to export a function which is passed a `context` object for communicating with the runtime, and for receiving and sending data via bindings.
 
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
 
 ## Exporting a function
-
 All JavaScript functions must export a single `function` via `module.exports` for the runtime to find the function and run it. This function must always include a `context` object.
 
 ```javascript
@@ -54,7 +54,6 @@ The arguments are always passed along to the function in the order they occur in
 All bindings, regardless of direction, are also passed along on the `context` object (see below). 
 
 ## context object
-
 The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime.
 
 The context object is always the first parameter to a function and should always be included because it has methods such as `context.done` and `context.log` which are required to correctly use the runtime. You can name the object whatever you like (i.e. `ctx` or `c`).
@@ -67,7 +66,6 @@ module.exports = function(context) {
 ```
 
 ## context.bindings
-
 The `context.bindings` object collects all your input and output data. The data is added onto the `context.bindings` object via the `name` property of the binding. For instance, given the following binding definition in *function.json*, you can access the contents of the queue via `context.bindings.myInput`. 
 
 ```json
@@ -89,7 +87,6 @@ context.bindings.myOutput = {
 ```
 
 ## `context.done([err],[propertyBag])`
-
 The `context.done` function tells the runtime that you're done running. This is important to call when you're done with the function; if you don't, the runtime will still never know that your function completed. 
 
 The `context.done` function allows you to pass back a user-defined error to the runtime, as well as a property bag of properties which will overwrite the properties on the `context.bindings` object.
@@ -105,7 +102,6 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 ```
 
 ## context.log(message)
-
 The `context.log` method allows you to output log statements that are correlated together for logging purposes. If you use `console.log`, your messages will only show for process level logging, which isn't as useful.
 
 ```javascript
@@ -129,7 +125,6 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
 ## HTTP triggers: context.req and context.res
-
 In the case of HTTP Triggers, because it is such a common pattern to use `req` and `res` for the HTTP request and response objects, we decided to make it easy to access those on the context object, instead of forcing you to use the full `context.bindings.name` pattern.
 
 ```javascript
@@ -140,7 +135,6 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 ```
 
 ## Node Version & Package Management
-
 The node version is currently locked at `5.9.1`. We're investigating adding support for more versions and making it configurable.
 
 You can include packages in your function by 
@@ -149,11 +143,8 @@ uploading a *package.json* file to your function's folder in the function app's 
 You can also use `npm install` in the function app's SCM (Kudu) command line interface:
 
 1. Navigate to: `https://<function_app_name>.scm.azurewebsites.net`.
-
 2. Click **Debug Console > CMD**.
-
 3. Navigate to `D:\home\site\wwwroot\<function_name>`.
-
 4. Run `npm install`.
 
 Once the packages you need are installed, you import them to your function in the usual ways (i.e. via `require('packagename')`)
@@ -170,17 +161,16 @@ module.exports = function(context) {
 ```
 
 ## Environment variables
-
 To get an environment variable or an app setting value, use `process.env`, as shown in the following code example:
 
 ```javascript
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
-    
+
     context.log('Node.js timer trigger function ran!', timeStamp);   
     context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
     context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
-    
+
     context.done();
 };
 
@@ -191,14 +181,13 @@ function GetEnvironmentVariable(name)
 ```
 
 ## TypeScript/CoffeeScript support
-
 There isn't, yet, any direct support for auto-compiling TypeScript/CoffeeScript via the runtime, so that would all need to be handled outside the runtime, at deployment time. 
 
 ## Next steps
-
 For more information, see the following resources:
 
 * [Azure Functions developer reference](functions-reference.md)
 * [Azure Functions C# developer reference](functions-reference-csharp.md)
 * [Azure Functions F# developer reference](functions-reference-fsharp.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+

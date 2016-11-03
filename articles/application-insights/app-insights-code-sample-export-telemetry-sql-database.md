@@ -1,22 +1,21 @@
-<properties 
-	pageTitle="Code sample: Parse data exported from Application Insights" 
-	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature. Save data to SQL." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="mazharmicrosoft" 
-	manager="douge"/>
+---
+title: 'Code sample: Parse data exported from Application Insights'
+description: Code your own analysis of telemetry in Application Insights by using the continuous export feature. Save data to SQL.
+services: application-insights
+documentationcenter: ''
+author: mazharmicrosoft
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 01/05/2016
+ms.author: awills
+
+---
 # Code sample: Parse data exported from Application Insights
-
 This article shows how to process JSON data exported from Application Insights. As an example, we'll write code to move your telemetry data from [Visual Studio Application Insights][start] into an Azure SQL database by using [Continuous Export][export]. (You can also achieve this [by using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md), but our aim here is to show you some code.) 
 
 Continuous export moves your telemetry into Azure Storage in JSON format, so we'll write some code to parse the JSON objects and create rows in a database table.
@@ -26,147 +25,120 @@ More generally, Continuous Export is the way to do your own analysis of the tele
 We'll start with the assumption that you already have the app you want to monitor.
 
 ## Add Application Insights SDK
-
 To monitor your application, you [add an Application Insights SDK][start] to your application. There are different SDKs and helper tools for different platforms, IDEs and languages. You can monitor web pages, Java or ASP.NET web servers, and mobile devices of several kinds. All the SDKs send telemetry to the [Application Insights portal][portal], where you can use our powerful analysis and diagnostic tools, and export the data to storage.
 
 To get started:
 
 1. Get an [account in Microsoft Azure](https://azure.microsoft.com/pricing/).
 2. In the [Azure portal][portal], add a new Application Insights resource for your app:
-
+   
     ![Choose New, Developer Services, Application Insights, and choose the type of application](./media/app-insights-code-sample-export-telemetry-sql-database/010-new-asp.png)
 
-
     (Your app type and subscription might be different.)
-3. Open Quick Start to find how to set up the SDK for your app type.
-
+1. Open Quick Start to find how to set up the SDK for your app type.
+   
     ![Choose Quick Start and follow instructions](./media/app-insights-code-sample-export-telemetry-sql-database/020-quick.png)
-
+   
     If your app type isn't listed, take a look at the [Getting Started][start] page.
-
-4. In this example, we're monitoring a web app, so we can use the Azure tools in Visual Studio to install the SDK. We tell it the name of our Application Insights resource:
-
+2. In this example, we're monitoring a web app, so we can use the Azure tools in Visual Studio to install the SDK. We tell it the name of our Application Insights resource:
+   
     ![In Visual Studio, in the New Project dialog, check Add Application Insights, and under Send telemetry to, choose to create a new app, or use an existing one.](./media/app-insights-code-sample-export-telemetry-sql-database/030-new-project.png)
 
-
 ## Create storage in Azure
-
 Data from Application Insights is always exported to an Azure Storage account in JSON format. It's from this storage that your code will read the data.
 
 1. Create a "classic" storage account in your subscription in the [Azure portal][portal].
-
+   
     ![In Azure portal, choose New, Data, Storage](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
-
 2. Create a container
-
+   
     ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
-
 ## Start continuous export to Azure storage
-
 1. In the Azure portal, browse to the Application Insights resource you created for your application.
-
+   
     ![Choose Browse, Application Insights, your application](./media/app-insights-code-sample-export-telemetry-sql-database/060-browse.png)
-
 2. Create a continuous export.
-
+   
     ![Choose Settings, Continuous Export, Add](./media/app-insights-code-sample-export-telemetry-sql-database/070-export.png)
-
 
     Select the storage account you created earlier:
 
     ![Set the export destination](./media/app-insights-code-sample-export-telemetry-sql-database/080-add.png)
-    
+
     Set the event types you want to see:
 
     ![Choose event types](./media/app-insights-code-sample-export-telemetry-sql-database/085-types.png)
 
-3. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](app-insights-metrics-explorer.md) and individual events in [diagnostic search](app-insights-diagnostic-search.md). 
-
+1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](app-insights-metrics-explorer.md) and individual events in [diagnostic search](app-insights-diagnostic-search.md). 
+   
     And also, the data will export to your storage. 
-
-4. Inspect the exported data. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
-
+2. Inspect the exported data. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
+   
     ![In Visual Studio, open Server Browser, Azure, Storage](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
-
+   
     Make a note of the common part of the path name, which is derived from the application name and instrumentation key. 
 
 The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to write some code to move the data to a SQL database. That will make it easy to run lots of interesting queries.
 
 ## Create an Azure SQL Database
-
 For this example, we'll write code to push the data into a database.
 
 Once again starting from your subscription in [Azure portal][portal], create the database (and a new server, unless you've already got one) to which you'll write the data.
 
 ![New, Data, SQL](./media/app-insights-code-sample-export-telemetry-sql-database/090-sql.png)
 
-
 Make sure that the database server allows access to Azure services:
-
 
 ![Browse, Servers, your server, Settings, Firewall, Allow Access to Azure](./media/app-insights-code-sample-export-telemetry-sql-database/100-sqlaccess.png)
 
-
-## Create a worker role 
-
+## Create a worker role
 Now at last we can write [some code](https://sesitai.codeplex.com/) to parse the JSON in the exported blobs, and create records in the database. Since the export store and the database are both in Azure, we'll run the code in an Azure worker role.
 
 This code automatically extracts whatever properties are present in the JSON. For descriptions of the properties, see [Export data model](app-insights-export-data-model.md).
 
-
 #### Create worker role project
-
 In Visual Studio, create a new project for the worker role:
 
 ![New Project, Visual C#, Cloud, Azure Cloud Service](./media/app-insights-code-sample-export-telemetry-sql-database/110-cloud.png)
 
 ![In new cloud service dialog, choose Visual C#, Worker Role](./media/app-insights-code-sample-export-telemetry-sql-database/120-worker.png)
 
-
 #### Connect to the storage account
-
 In Azure, get the connection string from your Storage account:
 
 ![In the Storage Account, select Keys, and copy Primary Connection String](./media/app-insights-code-sample-export-telemetry-sql-database/055-get-connection.png)
 
 In Visual Studio, configure the worker role settings with the Storage account connection string:
 
-
 ![In Solution Explorer, under the Cloud Service project, expand Roles, and open your worker role. Open the settings tab, choose Add Setting, and set name=StorageConnectionString, type=connection string, click to set the value. Set it manually and paste the connection string.](./media/app-insights-code-sample-export-telemetry-sql-database/130-connection-string.png)
 
-
 #### Packages
-
 In Solution Explorer, right-click your Worker Role project and choose Manage NuGet Packages.
 Search for and install these packages: 
 
- * EntityFramework 6.1.2 or later - We'll use this to generate the DB table schema on the fly, based on the content of the JSON in the blob.
- * JsonFx -	We'll use this for flattening the JSON to C# class properties.
+* EntityFramework 6.1.2 or later - We'll use this to generate the DB table schema on the fly, based on the content of the JSON in the blob.
+* JsonFx -    We'll use this for flattening the JSON to C# class properties.
 
 Use this tool to generate C# Class out of our single JSON document. It requires some minor changes like flattening JSON arrays into single C# property in turn single column in DB table (ex. urlData_port) 
 
- * [JSON C# class generator](http://jsonclassgenerator.codeplex.com/)
+* [JSON C# class generator](http://jsonclassgenerator.codeplex.com/)
 
-## Code 
-
+## Code
 You can put this code in `WorkerRole.cs`.
 
 #### Imports
-
     using Microsoft.WindowsAzure.Storage;
 
     using Microsoft.WindowsAzure.Storage.Blob;
 
 #### Retrieve the storage connection string
-
     private static string GetConnectionString()
     {
       return Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("StorageConnectionString");
     }
 
 #### Run the worker at regular intervals
-
 Replace the existing run method, and choose the interval you prefer. It should be at least one hour, because the export feature completes one JSON object in an hour.
 
     public override void Run()
@@ -178,7 +150,7 @@ Replace the existing run method, and choose the interval you prefer. It should b
         Trace.WriteLine("Sleeping", "Information");
 
         Thread.Sleep(86400000); //86400000=24 hours //1 hour=3600000
-                
+
         Trace.WriteLine("Awake", "Information");
 
         ImportBlobtoDB();
@@ -186,8 +158,6 @@ Replace the existing run method, and choose the interval you prefer. It should b
     }
 
 #### Insert each JSON object as a table row
-
-
     public void ImportBlobtoDB()
     {
       try
@@ -200,7 +170,7 @@ Replace the existing run method, and choose the interval you prefer. It should b
         foreach (CloudBlobDirectory directory in container.ListBlobs())//Parent directory
         {
           foreach (CloudBlobDirectory subDirectory in directory.ListBlobs())//PageViewPerformance
-       	  {
+             {
             foreach (CloudBlobDirectory dir in subDirectory.ListBlobs())//2015-01-31
             {
               foreach (CloudBlobDirectory subdir in dir.ListBlobs())//22
@@ -218,48 +188,47 @@ Replace the existing run method, and choose the interval you prefer. It should b
       }
       catch (Exception ex)
       {
-		//handle exception
+        //handle exception
       }
     }
 
 #### Parse each blob
-
     private void ParseEachBlob(CloudBlobContainer container, IListBlobItem item)
     {
       try
       {
         var blob = container.GetBlockBlobReference(item.Parent.Prefix + item.Uri.Segments.Last());
-    
+
         string json;
-    
+
         using (var memoryStream = new MemoryStream())
         {
           blob.DownloadToStream(memoryStream);
           json = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
-    
+
           IEnumerable<string> entities = json.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
-    
+
           recCount = entities.Count();
           failureCount = 0; //resetting failure count
-    
+
           foreach (var entity in entities)
           {
             var reader = new JsonFx.Json.JsonReader();
             dynamic output = reader.Read(entity);
-    
+
             Dictionary<string, object> dict = new Dictionary<string, object>();
-    
+
             GenerateDictionary((System.Dynamic.ExpandoObject)output, dict, "");
-    
+
             switch (FilterType)
             {
               case "PageViewPerformance":
-    
+
               if (dict.ContainsKey("clientPerformance"))
                 {
                   GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["clientPerformance"])[0], dict, "");
-    	        }
-    
+                }
+
               if (dict.ContainsKey("context_custom_dimensions"))
               {
                 if (dict["context_custom_dimensions"].GetType() == typeof(System.Dynamic.ExpandoObject[]))
@@ -267,9 +236,9 @@ Replace the existing run method, and choose the interval you prefer. It should b
                   GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["context_custom_dimensions"])[0], dict, "");
                 }
               }
-    
+
             PageViewPerformance objPageViewPerformance = (PageViewPerformance)GetObject(dict);
-    
+
             try
             {
               using (var db = new TelemetryContext())
@@ -283,7 +252,7 @@ Replace the existing run method, and choose the interval you prefer. It should b
               failureCount++;
             }
             break;
-    
+
             default:
             break;
           }
@@ -297,8 +266,6 @@ Replace the existing run method, and choose the interval you prefer. It should b
     }
 
 #### Prepare a dictionary for each JSON document
-
-
     private void GenerateDictionary(System.Dynamic.ExpandoObject output, Dictionary<string, object> dict, string parent)
         {
             try
@@ -323,12 +290,11 @@ Replace the existing run method, and choose the interval you prefer. It should b
             }
             catch (Exception ex)
             {
-      		//handle exception 
-    	    }
+              //handle exception 
+            }
         }
 
 #### Cast the JSON document into C# class telemetry object properties
-
      public object GetObject(IDictionary<string, object> d)
         {
             PropertyInfo[] props = null;
@@ -358,19 +324,16 @@ Replace the existing run method, and choose the interval you prefer. It should b
             }
             catch (Exception ex)
             {
-      		//handle exception 
-    	    }
+              //handle exception 
+            }
 
             return res;
         }
 
 #### PageViewPerformance class file generated out of JSON document
-
-
-
     public class PageViewPerformance
     {
-    	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
         public string url { get; set; }
@@ -452,8 +415,7 @@ Replace the existing run method, and choose the interval you prefer. It should b
 
 
 #### DBcontext for SQL interaction by Entity Framework
-
-	public class TelemetryContext : DbContext
+    public class TelemetryContext : DbContext
     {
         public DbSet<PageViewPerformance> PageViewPerformanceContext { get; set; }
         public TelemetryContext()
@@ -465,52 +427,54 @@ Replace the existing run method, and choose the interval you prefer. It should b
 Add your DB connection string with name `TelemetryContext` in `app.config`.
 
 ## Schema (information only)
-
 This is the schema for the table that will be generated for PageView.
 
-> [AZURE.NOTE] You don't have to run this script. The attributes in the JSON determine the columns in the table.
+> [!NOTE]
+> You don't have to run this script. The attributes in the JSON determine the columns in the table.
+> 
+> 
 
     CREATE TABLE [dbo].[PageViewPerformances](
-	[Id] [uniqueidentifier] NOT NULL,
-	[url] [nvarchar](max) NULL,
-	[urlData_port] [int] NOT NULL,
-	[urlData_protocol] [nvarchar](max) NULL,
-	[urlData_host] [nvarchar](max) NULL,
-	[urlData_base] [nvarchar](max) NULL,
-	[urlData_hashTag] [nvarchar](max) NULL,
-	[total_value] [float] NOT NULL,
-	[networkConnection_value] [float] NOT NULL,
-	[sendRequest_value] [float] NOT NULL,
-	[receiveRequest_value] [float] NOT NULL,
-	[clientProcess_value] [float] NOT NULL,
-	[name] [nvarchar](max) NULL,
-	[User] [nvarchar](max) NULL,
-	[internal_data_id] [nvarchar](max) NULL,
-	[internal_data_documentVersion] [nvarchar](max) NULL,
-	[context_data_eventTime] [datetime] NULL,
-	[context_device_id] [nvarchar](max) NULL,
-	[context_device_type] [nvarchar](max) NULL,
-	[context_device_os] [nvarchar](max) NULL,
-	[context_device_osVersion] [nvarchar](max) NULL,
-	[context_device_locale] [nvarchar](max) NULL,
-	[context_device_userAgent] [nvarchar](max) NULL,
-	[context_device_browser] [nvarchar](max) NULL,
-	[context_device_browserVersion] [nvarchar](max) NULL,
-	[context_device_screenResolution_value] [nvarchar](max) NULL,
-	[context_user_anonId] [nvarchar](max) NULL,
-	[context_user_anonAcquisitionDate] [nvarchar](max) NULL,
-	[context_user_authAcquisitionDate] [nvarchar](max) NULL,
-	[context_user_accountAcquisitionDate] [nvarchar](max) NULL,
-	[context_session_id] [nvarchar](max) NULL,
-	[context_session_isFirst] [bit] NOT NULL,
-	[context_operation_id] [nvarchar](max) NULL,
-	[context_location_point_lat] [float] NOT NULL,
-	[context_location_point_lon] [float] NOT NULL,
-	[context_location_clientip] [nvarchar](max) NULL,
-	[context_location_continent] [nvarchar](max) NULL,
-	[context_location_country] [nvarchar](max) NULL,
-	[context_location_province] [nvarchar](max) NULL,
-	[context_location_city] [nvarchar](max) NULL,
+    [Id] [uniqueidentifier] NOT NULL,
+    [url] [nvarchar](max) NULL,
+    [urlData_port] [int] NOT NULL,
+    [urlData_protocol] [nvarchar](max) NULL,
+    [urlData_host] [nvarchar](max) NULL,
+    [urlData_base] [nvarchar](max) NULL,
+    [urlData_hashTag] [nvarchar](max) NULL,
+    [total_value] [float] NOT NULL,
+    [networkConnection_value] [float] NOT NULL,
+    [sendRequest_value] [float] NOT NULL,
+    [receiveRequest_value] [float] NOT NULL,
+    [clientProcess_value] [float] NOT NULL,
+    [name] [nvarchar](max) NULL,
+    [User] [nvarchar](max) NULL,
+    [internal_data_id] [nvarchar](max) NULL,
+    [internal_data_documentVersion] [nvarchar](max) NULL,
+    [context_data_eventTime] [datetime] NULL,
+    [context_device_id] [nvarchar](max) NULL,
+    [context_device_type] [nvarchar](max) NULL,
+    [context_device_os] [nvarchar](max) NULL,
+    [context_device_osVersion] [nvarchar](max) NULL,
+    [context_device_locale] [nvarchar](max) NULL,
+    [context_device_userAgent] [nvarchar](max) NULL,
+    [context_device_browser] [nvarchar](max) NULL,
+    [context_device_browserVersion] [nvarchar](max) NULL,
+    [context_device_screenResolution_value] [nvarchar](max) NULL,
+    [context_user_anonId] [nvarchar](max) NULL,
+    [context_user_anonAcquisitionDate] [nvarchar](max) NULL,
+    [context_user_authAcquisitionDate] [nvarchar](max) NULL,
+    [context_user_accountAcquisitionDate] [nvarchar](max) NULL,
+    [context_session_id] [nvarchar](max) NULL,
+    [context_session_isFirst] [bit] NOT NULL,
+    [context_operation_id] [nvarchar](max) NULL,
+    [context_location_point_lat] [float] NOT NULL,
+    [context_location_point_lon] [float] NOT NULL,
+    [context_location_clientip] [nvarchar](max) NULL,
+    [context_location_continent] [nvarchar](max) NULL,
+    [context_location_country] [nvarchar](max) NULL,
+    [context_location_province] [nvarchar](max) NULL,
+    [context_location_city] [nvarchar](max) NULL,
     CONSTRAINT [PK_dbo.PageViewPerformances] PRIMARY KEY CLUSTERED 
     (
      [Id] ASC
@@ -525,9 +489,7 @@ This is the schema for the table that will be generated for PageView.
 
 To see this example in action, [download](https://sesitai.codeplex.com/) the complete working code, change the `app.config` settings and publish the worker role to Azure.
 
-
 ## Related articles
-
 * [Export to SQL using a worker role](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Continuous Export in Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -542,4 +504,4 @@ To see this example in action, [download](https://sesitai.codeplex.com/) the com
 [portal]: http://portal.azure.com/
 [start]: app-insights-overview.md
 
- 
+

@@ -1,25 +1,24 @@
-<properties
-   pageTitle="Azure Container Service container management with Docker Swarm | Microsoft Azure"
-   description="Deploy containers to a Docker Swarm in Azure Container Service"
-   services="container-service"
-   documentationCenter=""
-   authors="neilpeterson"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+---
+title: Azure Container Service container management with Docker Swarm | Microsoft Docs
+description: Deploy containers to a Docker Swarm in Azure Container Service
+services: container-service
+documentationcenter: ''
+author: neilpeterson
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Docker, Containers, Micro-services, Mesos, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/13/2016"
-   ms.author="timlt"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/13/2016
+ms.author: timlt
 
+---
 # Container management with Docker Swarm
-
 Docker Swarm provides an environment for deploying containerized workloads across a pooled set of Docker hosts. Docker Swarm uses the native Docker API. The workflow for managing containers on a Docker Swarm is almost identical to what it would be on a single container host. This document provides simple examples of deploying containerized workloads in an Azure Container Service instance of Docker Swarm. For more in-depth documentation on Docker Swarm, see [Docker Swarm on Docker.com](https://docs.docker.com/swarm/).
 
 Prerequisites to the exercises in this document:
@@ -29,9 +28,7 @@ Prerequisites to the exercises in this document:
 [Connect with the Swarm cluster in Azure Container Service](container-service-connect.md)
 
 ## Deploy a new container
-
 To create a new container in the Docker Swarm, use the `docker run` command (ensuring that you have opened an SSH tunnel to the masters as per the prerequisites above). This example creates a container from the `yeasy/simple-web` image:
-
 
 ```bash
 user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
@@ -40,7 +37,6 @@ user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
 ```
 
 After the container has been created, use `docker ps` to return information about the container. Notice here that the Swarm agent that is hosting the container is listed:
-
 
 ```bash
 user@ubuntu:~$ docker ps
@@ -51,15 +47,12 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 You can now access the application that is running in this container through the public DNS name of the Swarm agent load balancer. You can find this information in the Azure portal:  
 
-
 ![Real visit results](media/real-visit.jpg)  
 
 By default the Load Balancer has ports 80, 8080 and 443 open. If you want to connect on another port you will need to open that port on the Azure Load Balancer for the Agent Pool.
 
 ## Deploy multiple containers
-
 As multiple containers are started, by executing 'docker run' multiple times, you can use the `docker ps` command to see which hosts the containers are running on. In the example below, three containers are spread evenly across the three Swarm agents:  
-
 
 ```bash
 user@ubuntu:~$ docker ps
@@ -71,7 +64,6 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ```  
 
 ## Deploy containers by using Docker Compose
-
 You can use Docker Compose to automate the deployment and configuration of multiple containers. To do so, ensure that a Secure Shell (SSH) tunnel has been created and that the DOCKER_HOST variable has been set (see the pre-requisites above).
 
 Create a docker-compose.yml file on your local system. To do this, use this [sample](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
@@ -92,7 +84,6 @@ rest:
 
 Run `docker-compose up -d` to start the container deployments:
 
-
 ```bash
 user@ubuntu:~/compose$ docker-compose up -d
 Pulling rest (adtd/rest:0.1)...
@@ -109,7 +100,6 @@ Creating compose_web_1
 
 Finally, the list of running containers will be returned. This list reflects the containers that were deployed by using Docker Compose:
 
-
 ```bash
 user@ubuntu:~/compose$ docker ps
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS                     NAMES
@@ -120,5 +110,5 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 Naturally, you can use `docker-compose ps` to examine only the containers defined in your `compose.yml` file.
 
 ## Next steps
-
 [Learn more about Docker Swarm](https://docs.docker.com/swarm/)
+

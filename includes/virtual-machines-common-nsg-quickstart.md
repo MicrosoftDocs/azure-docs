@@ -4,9 +4,10 @@ Let's use a common example of web traffic on port 80. Once you have a VM that is
 
 1. Create a Network Security Group.
 2. Create an inbound rule allowing traffic with:
-  - the destination port range of "80"
-  - the source port range of "*" (allowing any source port)
-  - a priority value of less 65,500 (to be higher in priority than the default catch-all deny inbound rule)
+   * the destination port range of "80"
+   * the source port range of "*" (allowing any source port)
+   * a priority value of less 65,500 (to be higher in priority than the default catch-all deny inbound rule)
 3. Associate the Network Security Group with the VM network interface or subnet.
-    
+
 You can create complex network configurations to secure your environment using Network Security Groups and rules. Our example uses only one or two rules that allow HTTP traffic or remote management. For more information, see the following ['More Information'](#more-information-on-network-security-groups) section or [What is a Network Security Group?](../articles/virtual-network/virtual-networks-nsg.md)
+

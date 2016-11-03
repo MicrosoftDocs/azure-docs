@@ -1,34 +1,33 @@
-<properties
- pageTitle="Secure your IoT solution from the ground up | Microsoft Azure"
- description="This article describes the built-in security features of the Microsoft Azure IoT Suite"
- services="iot-hub"
- documentationCenter=""
- authors="YuriDio"
- manager="timlt"
- editor=""/>
+---
+title: Secure your IoT solution from the ground up | Microsoft Docs
+description: This article describes the built-in security features of the Microsoft Azure IoT Suite
+services: iot-hub
+documentationcenter: ''
+author: YuriDio
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="10/17/2016"
- ms.author="yurid"/>
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/17/2016
+ms.author: yurid
 
-[AZURE.INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
+---
+[!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
 ## See also
-
 To learn more about securing your IoT solution, see:
 
-- [IoT Security Best Practices][lnk-security-best-practices]
-- [IoT Security Architecture][lnk-security-architecture]
-- [Secure your IoT deployment][lnk-security-deployment]
+* [IoT Security Best Practices][lnk-security-best-practices]
+* [IoT Security Architecture][lnk-security-architecture]
+* [Secure your IoT deployment][lnk-security-deployment]
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-security-best-practices]: iot-hub-security-best-practices.md
 [lnk-security-architecture]: iot-hub-security-architecture.md

@@ -1,28 +1,29 @@
 
-<properties
-	pageTitle="Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow | Microsoft Azure"
-	description="Build web applications by using the Azure AD implementation of the OAuth 2.0 authentication protocol."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow | Microsoft Docs
+description: Build web applications by using the Azure AD implementation of the OAuth 2.0 authentication protocol.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/26/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: dastrock
 
+---
 # Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow
-
 You can use the [OAuth 2.0 client credentials grant](http://tools.ietf.org/html/rfc6749#section-4.4), sometimes called *two-legged OAuth*, to access web-hosted resources by using the identity of an application. This type of grant commonly is used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications often are referred to as *daemons* or *service accounts*.
 
-> [AZURE.NOTE]
-The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> [!NOTE]
+> The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> 
+> 
 
 In the more typical *three-legged OAuth*, a client application is granted permission to access a resource on behalf of a specific user. The permission is delegated from the user to the application, usually during the [consent](active-directory-v2-scopes.md) process. However, in the client credentials flow, permissions are granted directly to the application itself. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action, and not that the user has authorization.
 
@@ -44,30 +45,26 @@ This type of authorization is common for daemons and service accounts that need 
 ### Application permissions
 Instead of using ACLs, you can use APIs to expose a set of application permissions. An application permission is granted to an application by an organization's administrator, and can be used only to access data owned by that organization and its employees. For example, Microsoft Graph exposes several application permissions to do the following:
 
-- Read mail in all mailboxes
-- Read and write mail in all mailboxes
-- Send mail as any user
-- Read directory data
-
+* Read mail in all mailboxes
+* Read and write mail in all mailboxes
+* Send mail as any user
+* Read directory data
 
 For more information about application permissions, go to [Microsoft Graph](https://graph.microsoft.io).
 
 To use application permissions in your app, do the steps we discuss in the next sections.
 
 #### Request the permissions in the app registration portal
-
 1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or [create an app](active-directory-v2-app-registration.md), if you haven't already. You'll need to use at least one Application Secret when you create your app.
 2. Locate the **Direct Application Permissions** section, and then add the permissions that your app requires.
 3. **Save** the app registration.
 
 #### Recommended: Sign the user in to your app
-
 Typically, when you build an application that uses application permissions, the app requires a page or view on which the admin approves the app's permissions. This page can be part of the app's sign-in flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
 If you sign the user in to your app, you can identify the organization to which the user belongs before you ask the user to approve the application permissions. Although not strictly necessary, it can help you create a more intuitive experience for your users. To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
 
 #### Request the permissions from a directory admin
-
 When you're ready to request permissions from the organization's admin, you can redirect the user to the v2.0 *admin consent endpoint*.
 
 ```
@@ -88,11 +85,11 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 ```
 
 | Parameter | Condition | Description |
-| ----------------------- | ------------------------------- | --------------- |
-| tenant | Required | The directory tenant that you want to request permission from. This can be in GUID or friendly name format. If you don't know which tenant the user belongs to and you want to let them sign in with any tenant, use `common`. |
-| client_id | Required | The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
-| redirect_uri | Required | The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL encoded, and it can have additional path segments. |
-| state | Recommended | A value that is included in the request that also is returned in the token response. It can be a string of any content that you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
+| --- | --- | --- |
+| tenant |Required |The directory tenant that you want to request permission from. This can be in GUID or friendly name format. If you don't know which tenant the user belongs to and you want to let them sign in with any tenant, use `common`. |
+| client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
+| redirect_uri |Required |The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL encoded, and it can have additional path segments. |
+| state |Recommended |A value that is included in the request that also is returned in the token response. It can be a string of any content that you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 
 At this point, Azure AD enforces that only a tenant administrator can sign in to complete the request. The administrator will be asked to approve all the direct application permissions that you have requested for your app in the app registration portal.
 
@@ -104,11 +101,10 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 ```
 
 | Parameter | Description |
-| ----------------------- | ------------------------------- | --------------- |
-| tenant | The directory tenant that granted your application the permissions that it requested, in GUID format. |
-| state | A value that is included in the request that also is returned in the token response. It can be a string of any content that you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-| admin_consent | Set to **true**. |
-
+| --- | --- | --- |
+| tenant |The directory tenant that granted your application the permissions that it requested, in GUID format. |
+| state |A value that is included in the request that also is returned in the token response. It can be a string of any content that you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
+| admin_consent |Set to **true**. |
 
 ##### Error response
 If the admin does not approve the permissions for your application, the failed response looks like this:
@@ -118,14 +114,13 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 ```
 
 | Parameter | Description |
-| ----------------------- | ------------------------------- | --------------- |
-| error | An error code string that you can use to classify types of errors, and which you can use to react to errors. |
-| error_description | A specific error message that can help you identify the root cause of an error. |
+| --- | --- | --- |
+| error |An error code string that you can use to classify types of errors, and which you can use to react to errors. |
+| error_description |A specific error message that can help you identify the root cause of an error. |
 
 After you've received a successful response from the app provisioning endpoint, your app has gained the direct application permissions that it requested. Now you can request a token for the resource that you want.
 
 ## Get a token
-
 After you've acquired the necessary authorization for your application, proceed with acquiring access tokens for APIs. To get a token by using the client credentials grant, send a POST request to the `/token` v2.0 endpoint:
 
 ```
@@ -141,11 +136,11 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 ```
 
 | Parameter | Condition | Description |
-| ----------------------- | ------------------------------- | --------------- |
-| client_id | Required | The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
-| scope | Required | The value passed for the `scope` parameter in this request should be the resource identifier (Application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. |
-| client_secret | Required | The Application Secret that you generated for your app in the app registration portal. |
-| grant_type | Required | Must be `client_credentials`. |
+| --- | --- | --- |
+| client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
+| scope |Required |The value passed for the `scope` parameter in this request should be the resource identifier (Application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. |
+| client_secret |Required |The Application Secret that you generated for your app in the app registration portal. |
+| grant_type |Required |Must be `client_credentials`. |
 
 ##### Successful response
 A successful response looks like this:
@@ -159,10 +154,10 @@ A successful response looks like this:
 ```
 
 | Parameter | Description |
-| ----------------------- | ------------------------------- |
-| access_token | The requested access token. The app can use this token to authenticate to the secured resource, such as to a Web API. |
-| token_type | Indicates the token type value. The only type that Azure AD supports is `bearer`. |
-| expires_in | How long the access token is valid (in seconds). |
+| --- | --- |
+| access_token |The requested access token. The app can use this token to authenticate to the secured resource, such as to a Web API. |
+| token_type |Indicates the token type value. The only type that Azure AD supports is `bearer`. |
+| expires_in |How long the access token is valid (in seconds). |
 
 ##### Error response
 An error response looks like this:
@@ -181,13 +176,13 @@ An error response looks like this:
 ```
 
 | Parameter | Description |
-| ----------------------- | ------------------------------- |
-| error | An error code string that you can use to classify types of errors that occur, and to react to errors. |
-| error_description | A specific error message that might help you identify the root cause of an authentication error. |
-| error_codes | A list of STS-specific error codes that might help with diagnostics. |
-| timestamp | The time at which the error occurred. |
-| trace_id | A unique identifier for the request that might help with diagnostics. |
-| correlation_id | A unique identifier for the request that might help with diagnostics across components. |
+| --- | --- |
+| error |An error code string that you can use to classify types of errors that occur, and to react to errors. |
+| error_description |A specific error message that might help you identify the root cause of an authentication error. |
+| error_codes |A list of STS-specific error codes that might help with diagnostics. |
+| timestamp |The time at which the error occurred. |
+| trace_id |A unique identifier for the request that might help with diagnostics. |
+| correlation_id |A unique identifier for the request that might help with diagnostics across components. |
 
 ## Use a token
 Now that you've acquired a token, use the token to make requests to the resource. When the token expires, repeat the request to the `/token` endpoint to acquire a fresh access token.
@@ -207,5 +202,5 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 ```
 
 ## Code sample
-
 To see an example of an application that implements the client credentials grant by using the admin consent endpoint, see our [v2.0 daemon code sample](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+

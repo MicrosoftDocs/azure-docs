@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Use the sample data sets in Machine Learning Studio | Microsoft Azure"
-	description="Descriptions of the data sets used in sample models included in ML Studio. You can use these sample data sets for your experiments."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Use the sample data sets in Machine Learning Studio | Microsoft Docs
+description: Descriptions of the data sets used in sample models included in ML Studio. You can use these sample data sets for your experiments.
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: garye
 
-
+---
 # Use the sample data sets in Azure Machine Learning Studio
-
 [top]: #machine-learning-sample-datasets
 
 When you create a new workspace in Azure Machine Learning, a number of sample data sets and experiments are included by default. Many of these sample data sets are used by the sample models in the [Azure Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/), and others are included as examples of various types of data typically used in machine learning.
@@ -28,15 +26,13 @@ Some of these data sets are available in Azure Blob storage. For these data sets
 The rest of these sample data sets are listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
 You can use any of these data sets in your own experiment by dragging it to your experiment canvas.
 
-
 <!--
 For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
 
 [sample-experiments]: machine-learning-sample-experiments.md
 -->
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 <table>
 

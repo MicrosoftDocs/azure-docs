@@ -1,43 +1,40 @@
-<properties
-	pageTitle="Build and deploy a Java API app in Azure App Service"
-	description="Learn how to create a Java API app package and deploy it to Azure App Service."
-	services="app-service\api"
-	documentationCenter="java"
-	authors="rmcmurray" 
-	manager="erikre"
-	editor="tdykstra"/>
+---
+title: Build and deploy a Java API app in Azure App Service
+description: Learn how to create a Java API app package and deploy it to Azure App Service.
+services: app-service\api
+documentationcenter: java
+author: rmcmurray
+manager: erikre
+editor: tdykstra
 
-<tags
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="java"
-	ms.topic="get-started-article"
-	ms.date="10/19/2016" 
-	ms.author="rachelap;robmcm"/>
+ms.service: app-service-api
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: java
+ms.topic: get-started-article
+ms.date: 10/19/2016
+ms.author: rachelap;robmcm
 
+---
 # Build and deploy a Java API app in Azure App Service
-
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 This tutorial shows how to create a Java application and deploy it to Azure App Service API Apps using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Java. The code in this tutorial is built using [Maven]. [Jax-RS] is used to create the RESTful Service, and is generated based on the [Swagger] metadata specification using the [Swagger Editor].
 
 ## Prerequisites
-
 1. [Java Developer's Kit 8] \(or later)
-1. [Maven] installed on your development machine
-1. [Git] installed on your development machine
-1. A paid or [free trial] subscription to [Microsoft Azure]
-1. An HTTP test application like [Postman]
+2. [Maven] installed on your development machine
+3. [Git] installed on your development machine
+4. A paid or [free trial] subscription to [Microsoft Azure]
+5. An HTTP test application like [Postman]
 
 ## Scaffold the API using Swagger.IO
-
 Using the swagger.io online editor, you can enter Swagger JSON or YAML code representing the structure of your API. Once you have the API surface area designed, you can export code for a variety of platforms and frameworks. In the next section, the scaffolded code will be modified to include mock functionality. 
 
 This demonstration will begin with a Swagger JSON body that you will paste into the swagger.io editor, which will then be used to generate code making use of JAX-RS to access a REST API endpoint. Then, you'll edit the scaffolded code to return mock data, simulating a REST API built atop a data persistence mechanism.  
 
 1. Copy the following Swagger JSON code to your clipboard:
-
+   
         {
             "swagger": "2.0",
             "info": {
@@ -130,50 +127,42 @@ This demonstration will begin with a Swagger JSON body that you will paste into 
                 }
             }
         }
-
-1. Navigate to the [Online Swagger Editor]. Once there, click the **File -> Paste JSON** menu item.
-
+2. Navigate to the [Online Swagger Editor]. Once there, click the **File -> Paste JSON** menu item.
+   
     ![Paste JSON menu item][paste-json]
-
-1. Paste in the Contacts List API Swagger JSON you copied earlier. 
-
+3. Paste in the Contacts List API Swagger JSON you copied earlier. 
+   
     ![Pasting JSON code into Swagger][pasted-swagger]
-
-1. View the documentation pages and API summary rendered in the editor. 
-
+4. View the documentation pages and API summary rendered in the editor. 
+   
     ![View Swagger Generated Docs][view-swagger-generated-docs]
-
-1. Select the **Generate Server -> JAX-RS** menu option to scaffold the server-side code you'll edit later to add mock implementation. 
-
+5. Select the **Generate Server -> JAX-RS** menu option to scaffold the server-side code you'll edit later to add mock implementation. 
+   
     ![Generate Code Menu Item][generate-code-menu-item]
-
+   
     Once the code is generated, you'll be provided a ZIP file to download. This file contains the code scaffolded by the Swagger code generator and all associated build scripts. Unzip the entire library to a directory on your development workstation. 
 
 ## Edit the Code to add API Implementation
-
 In this section, you'll replace the Swagger-generated code's server-side implementation with your custom code. The new code will return an ArrayList of Contact entities to the calling client. 
 
 1. Open the *Contact.java* model file, which is located in the *src/gen/java/io/swagger/model* folder, using [Visual Studio Code] or your favorite text editor. 
-
+   
     ![Open Contact Model File][open-contact-model-file]
-
-1. Add the following constructor to the **Contact** class. 
-
+2. Add the following constructor to the **Contact** class. 
+   
         public Contact(Integer id, String name, String email) 
         {
             this.id = id;
             this.name = name;
             this.emailAddress = email;
         }
-
-1. Open the *ContactsApiServiceImpl.java* service implementation file, which is located in the *src/main/java/io/swagger/api/impl* folder, using [Visual Studio Code] or your favorite text editor.
-
+3. Open the *ContactsApiServiceImpl.java* service implementation file, which is located in the *src/main/java/io/swagger/api/impl* folder, using [Visual Studio Code] or your favorite text editor.
+   
     ![Open Contact Service Code File][open-contact-service-code-file]
-
-1. Overwrite the code in the file with this new code to add a mock implementation to the service code. 
-
+4. Overwrite the code in the file with this new code to add a mock implementation to the service code. 
+   
         package io.swagger.api.impl;
-
+   
         import io.swagger.api.*;
         import io.swagger.model.*;
         import io.swagger.model.Contact;
@@ -184,10 +173,10 @@ In this section, you'll replace the Swagger-generated code's server-side impleme
         import com.sun.jersey.multipart.FormDataParam;
         import javax.ws.rs.core.Response;
         import javax.ws.rs.core.SecurityContext;
-
+   
         @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JaxRSServerCodegen", date = "2015-11-24T21:54:11.648Z")
         public class ContactsApiServiceImpl extends ContactsApiService {
-  
+   
             private ArrayList<Contact> loadContacts()
             {
                 ArrayList<Contact> list = new ArrayList<Contact>();
@@ -196,20 +185,20 @@ In this section, you'll replace the Swagger-generated code's server-side impleme
                 list.add(new Contact(3, "Lora Riggs", "lora@contoso.com"));
                 return list;
             }
-  
+   
             @Override
             public Response contactsGet(SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 return Response.ok().entity(list).build();
                 }
-  
+   
             @Override
             public Response contactsGetById(Integer id, SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 Contact ret = null;
-            
+   
                 for(int i=0; i<list.size(); i++)
                 {
                     if(list.get(i).getId() == id)
@@ -220,87 +209,71 @@ In this section, you'll replace the Swagger-generated code's server-side impleme
                 return Response.ok().entity(ret).build();
             }
         }
-
-1. Open a command prompt and change directory to the root folder of your application.
-
-1. Execute the following Maven command to build the code and run it using the Jetty app server locally. 
-
+5. Open a command prompt and change directory to the root folder of your application.
+6. Execute the following Maven command to build the code and run it using the Jetty app server locally. 
+   
         mvn package jetty:run
-
-1. You should see the command window reflect that Jetty has started your code on port 8080. 
-
+7. You should see the command window reflect that Jetty has started your code on port 8080. 
+   
     ![Open Contact Service Code File][run-jetty-war]
-
-1. Use [Postman] to make a request to the "get all contacts" API method at http://localhost:8080/api/contacts.
-
+8. Use [Postman] to make a request to the "get all contacts" API method at http://localhost:8080/api/contacts.
+   
     ![Call the Contacts API][calling-contacts-api]
-
-1. Use [Postman] to make a request to the "get specific contact" API method located at http://localhost:8080/api/contacts/2.
-
+9. Use [Postman] to make a request to the "get specific contact" API method located at http://localhost:8080/api/contacts/2.
+   
     ![Call the Contacts API][calling-specific-contact-api]
-
-1. Finally, build the Java WAR (Web ARchive) file by executing the following Maven command in your console. 
-
-        mvn package war:war
-
-1. Once the WAR file is built, it will be placed into the **target** folder. Navigate into the **target** folder and rename the WAR file to **ROOT.war**. (Make sure the capitalization matches this format).
-
-         rename swagger-jaxrs-server-1.0.0.war ROOT.war
-
-1. Finally, execute the following commands from the root folder of your application to create a **deploy** folder to use to deploy the WAR file to Azure. 
-
-         mkdir deploy
-         mkdir deploy\webapps
-         copy target\ROOT.war deploy\webapps
-         cd deploy
+10. Finally, build the Java WAR (Web ARchive) file by executing the following Maven command in your console. 
+    
+         mvn package war:war
+11. Once the WAR file is built, it will be placed into the **target** folder. Navigate into the **target** folder and rename the WAR file to **ROOT.war**. (Make sure the capitalization matches this format).
+    
+          rename swagger-jaxrs-server-1.0.0.war ROOT.war
+12. Finally, execute the following commands from the root folder of your application to create a **deploy** folder to use to deploy the WAR file to Azure. 
+    
+          mkdir deploy
+          mkdir deploy\webapps
+          copy target\ROOT.war deploy\webapps
+          cd deploy
 
 ## Publish the output to Azure App Service
-
 In this section you'll learn how to create a new API App using the Azure Portal, prepare that API App for hosting Java applications, and deploy the newly-created WAR file to Azure App Service to run your new API App. 
 
 1. Create a new API app in the [Azure portal], by clicking the **New -> Web + Mobile -> API app** menu item, entering your app details, and then clicking **Create**.
-
+   
     ![Create a new API App][create-api-app]
-
-1. Once your API app has been created, open your app's **Settings** blade, and then click the **Application settings** menu item. Select the latest Java versions from the available options, then select the latest Tomcat from the **Web container** menu, and then click **Save**.
-
+2. Once your API app has been created, open your app's **Settings** blade, and then click the **Application settings** menu item. Select the latest Java versions from the available options, then select the latest Tomcat from the **Web container** menu, and then click **Save**.
+   
     ![Set up Java in the API App blade][set-up-java]
-
-1. Click the **Deployment credentials** settings menu item, and provide a username and password you wish to use for publishing files to your API App. 
-
+3. Click the **Deployment credentials** settings menu item, and provide a username and password you wish to use for publishing files to your API App. 
+   
     ![Set deployment credentials][deployment-credentials]
-
-1. Click the **Deployment source** settings menu item. Once there, click the **Choose source** button, select the **Local Git Repository** option, and then click **OK**. This will create a Git repository running in Azure, that has an association with your API App. Each time you commit code to the *master* branch of your Git repository, your code will be published into your live running API App instance. 
-
+4. Click the **Deployment source** settings menu item. Once there, click the **Choose source** button, select the **Local Git Repository** option, and then click **OK**. This will create a Git repository running in Azure, that has an association with your API App. Each time you commit code to the *master* branch of your Git repository, your code will be published into your live running API App instance. 
+   
     ![Set up a new local Git repository][select-git-repo]
-
-1. Copy the new Git repository's URL to your clipboard. Save this as it will be important in a moment. 
-
+5. Copy the new Git repository's URL to your clipboard. Save this as it will be important in a moment. 
+   
     ![Set up a new Git repository for your app][copy-git-repo-url]
-
-1. Git push the WAR file to the online repository. To do this, navigate into the **deploy** folder you created earlier so that you can easily commit the code up to the repository running in your App Service. Once you're in the console window and navigated into the folder where the webapps folder is located, issue the following Git commands to launch the process and fire off a deployment. 
-
+6. Git push the WAR file to the online repository. To do this, navigate into the **deploy** folder you created earlier so that you can easily commit the code up to the repository running in your App Service. Once you're in the console window and navigated into the folder where the webapps folder is located, issue the following Git commands to launch the process and fire off a deployment. 
+   
          git init
          git add .
          git commit -m "initial commit"
          git remote add azure [YOUR GIT URL]
          git push azure master
-
+   
     Once you issue the **push** request, you'll be asked for the password you created for the deployment credential earlier. After you enter your credentials, you should see your portal display that the update was deployed.
-
-1. If you once again use Postman to hit the newly-deployed API App running in Azure App Service, you'll see that the behavior is consistent and that now it is returning contact data as expected, and using simple code changes to the Swagger.io scaffolded Java code. 
-
+7. If you once again use Postman to hit the newly-deployed API App running in Azure App Service, you'll see that the behavior is consistent and that now it is returning contact data as expected, and using simple code changes to the Swagger.io scaffolded Java code. 
+   
     ![Using your Java Contacts REST API live in Azure][postman-calling-azure-contacts]
 
 ## Next steps
-
 In this article, you were able to start with a Swagger JSON file and some scaffolded Java code obtained from the Swagger.io editor. From there, your simple changes and a Git deploy process resulted in having a functional API app written in Java. The next tutorial shows how to [consume API apps from JavaScript clients, using CORS][App Service API CORS]. Later tutorials in the series show how to implement authentication and authorization.
 
 To build on this sample, you can learn more about the [Storage SDK for Java] to persist the JSON blobs. Or, you could use the [Document DB Java SDK] to save your Contact data to Azure Document DB. 
 
 <a name="see-also"></a>
-## See Also
 
+## See Also
 For more information about using Azure with Java, see the [Azure Java Developer Center].
 
 <!-- URL List -->

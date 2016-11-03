@@ -1,22 +1,21 @@
-<properties 
-	pageTitle="Set Alerts in Application Insights | Microsoft Azure" 
-	description="Get notified about slow response times, exceptions, and other performance or usage changes in your web app." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Set Alerts in Application Insights | Microsoft Docs
+description: Get notified about slow response times, exceptions, and other performance or usage changes in your web app.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/14/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 10/14/2016
+ms.author: awills
+
+---
 # Set Alerts in Application Insights
-
 [Visual Studio Application Insights][start] can alert you to changes in performance or usage metrics in your web app. 
 
 Application Insights monitors your live app on a [wide variety of platforms][platforms] to help you diagnose performance issues and understand usage patterns.
@@ -30,7 +29,6 @@ There are three kinds of alerts:
 We focus on metric alerts in this article.
 
 ## Set a Metric alert
-
 Open the Alert rules blade, and then use the add button. 
 
 ![In the Alert rules blade, choose Add Alert. Set your app as the resource to measure, provide a name for the alert, and choose a metric.](./media/app-insights-alerts/01-set-metric.png)
@@ -45,12 +43,14 @@ Open the Alert rules blade, and then use the add button.
 
 *I don't see the Add Alert button.* 
 
-- Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at the Access Control blade. [Learn about access control][roles].
+* Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at the Access Control blade. [Learn about access control][roles].
 
-> [AZURE.NOTE] In the alerts blade, you'll see that there's already an alert set up: [Proactive Diagnostics](app-insights-proactive-failure-diagnostics.md). This is an automatic alert that monitors one particular metric, request failure rate. Unless you decide to disable the proactive alert, you don't need to set your own alert on request failure rate. 
+> [!NOTE]
+> In the alerts blade, you'll see that there's already an alert set up: [Proactive Diagnostics](app-insights-proactive-failure-diagnostics.md). This is an automatic alert that monitors one particular metric, request failure rate. Unless you decide to disable the proactive alert, you don't need to set your own alert on request failure rate. 
+> 
+> 
 
 ## See your alerts
-
 You get an email when an alert changes state between inactive and active. 
 
 The current state of each alert is shown in the Alert rules blade.
@@ -63,32 +63,19 @@ The history of state changes is in the Activity Log:
 
 ![On the Overview blade, click Settings, Audit logs](./media/app-insights-alerts/09-alerts.png)
 
-
-
 ## How alerts work
-
 * An alert has three states: "Never activated", "Activated", and "Resolved." Activated means the condition you specified was true, when it was last evaluated.
-
 * A notification is generated when an alert changes state. (If the alert condition was already true when you created the alert, you might not get a notification until the condition goes false.)
-
 * Each notification generates an email if you checked the emails box, or provided email addresses. You can also look at the Notifications drop-down list.
-
 * An alert is evaluated each time a metric arrives, but not otherwise.
-
 * The evaluation aggregates the metric over the preceding period, and then compares it to the threshold to determine the new state.
-
 * The period that you choose specifies the interval over which metrics are aggregated. It doesn't affect how often the alert is evaluated: that depends on the frequency of arrival of metrics.
-
 * If no data arrives for a particular metric for some time, the gap has different effects on alert evaluation and on the charts in metric explorer. In metric explorer, if no data is seen for longer than the chart's sampling interval, the chart shows a value of 0. But an alert based on the same metric is not be re-evaluated, and the alert's state remains unchanged. 
-
+  
     When data eventually arrives, the chart jumps back to a non-zero value. The alert evaluates based on the data available for the period you specified. If the new data point is the only one available in the period, the aggregate is based just on that data point.
-
 * An alert can flicker frequently between alert and healthy states, even if you set a long period. This can happen if the metric value hovers around the threshold. There is no hysteresis in the threshold: the transition to alert happens at the same value as the transition to healthy.
 
-
-
 ## What are good alerts to set?
-
 It depends on your application. To start with, it's best not to set too many metrics. Spend some time looking at your metric charts while your app is running, to get a feel for how it behaves normally. This helps you find ways to improve its performance. Then set up alerts to tell you when the metrics go outside the normal zone. 
 
 Popular alerts include:
@@ -100,17 +87,13 @@ Popular alerts include:
 Don't forget that [proactive failure rate diagnostics](app-insights-proactive-failure-diagnostics.md) automatically monitor the rate at which your app responds to requests with failure codes. 
 
 ## Automation
-
 * [Use PowerShell to automate setting up alerts](app-insights-powershell-alerts.md)
 * [Use webhooks to automate responding to alerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
 ## See also
-
 * [Availability web tests](app-insights-monitor-web-app-availability.md)
 * [Automate setting up alerts](app-insights-powershell-alerts.md)
 * [Proactive diagnostics](app-insights-proactive-diagnostics.md) 
-
-
 
 <!--Link references-->
 
@@ -120,4 +103,3 @@ Don't forget that [proactive failure rate diagnostics](app-insights-proactive-fa
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
- 

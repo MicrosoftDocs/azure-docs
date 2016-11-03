@@ -1,34 +1,30 @@
-<properties 
-	pageTitle="FAQ: Publish and use Machine Learning apps in Azure Marketplace | Microsoft Azure" 
-	description="Frequently Asked Questions" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bharaths" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: 'FAQ: Publish and use Machine Learning apps in Azure Marketplace | Microsoft Docs'
+description: Frequently Asked Questions
+services: machine-learning
+documentationcenter: ''
+author: bharaths
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/11/2016" 
-	ms.author="bharaths"/> 
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/11/2016
+ms.author: bharaths
 
-#Publishing and using Machine Learning apps in the Azure Marketplace: FAQ
-
-##Questions about consuming from Marketplace
-
-
+---
+# Publishing and using Machine Learning apps in the Azure Marketplace: FAQ
+## Questions about consuming from Marketplace
 **1. Why do I get the following error message after I enter input for the web service:**
 
 **The request resulted in a back-end time out or back-end error. The team is investigating the issue. We are sorry for the inconvenience. (500)**
 
 Your input parameter(s) may not conform to the required format for the specific web service. Please refer to the corresponding documentation link to find the correct format for input parameters and the limitations of this web service.
 
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 **2. If I copy the API link for the web service that I see on the "Explore this dataset" page and paste it into another browser window, what credentials should I use to access the results, and how do I see them?**
 
@@ -44,9 +40,7 @@ One or more input parameters of your web service may have exceeded the length li
 
 This is a known issue with the Azure Classic Portal Marketplace. The team is working to resolve this issue. 
 
-
-##Questions about publishing from Azure Machine Learning on Marketplace
-
+## Questions about publishing from Azure Machine Learning on Marketplace
 **1. Why are my transactions of logos or images not refreshing for my web service?** 
 
 Logos and images are cached in the publishing portal, and it may take up to 10 days for the new logo or image to update on the portal.
@@ -69,10 +63,5 @@ The batch input mode is currently not supported in Marketplace web services.
 
 **6. Who should I contact to get help if I have questions about becoming a data publisher, or if I have issues during publishing?**
 
-Please contact the Azure Marketplace team at <datamarketbd@microsoft.com> for more information.
+Please contact the Azure Marketplace team at <mailto:datamarketbd@microsoft.com> for more information.
 
-
-
-
-
- 

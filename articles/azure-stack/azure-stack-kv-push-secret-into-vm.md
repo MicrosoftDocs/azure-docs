@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Deploy a VM with a certificate using Azure Stack Key Vault  | Microsoft Azure"
-	description="Learn how deploy a VM and inject a certificate from Azure Stack Key Vault"
-	services="azure-stack"
-	documentationCenter=""
-	authors="rlfmendes"
-	manager="natmack"
-	editor=""/>
+---
+title: Deploy a VM with a certificate using Azure Stack Key Vault  | Microsoft Docs
+description: Learn how deploy a VM and inject a certificate from Azure Stack Key Vault
+services: azure-stack
+documentationcenter: ''
+author: rlfmendes
+manager: natmack
+editor: ''
 
-<tags
-	ms.service="azure-stack"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/26/2016"
-	ms.author="ricardom"/>
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/26/2016
+ms.author: ricardom
 
+---
 # Create VMs and include certificates retrieved from Key Vault
-
 In Azure Stack, VMs are deployed through Azure Resource Manager, and you
 can now store certificates in Azure Stack Key Vault. Then Azure Stack
 (Microsoft.Compute resource provider to be specific) pushes them into
@@ -33,16 +32,12 @@ Azure Stack Key Vault.
 
 Here is a quick overview of the process:
 
--   You need a certificate in the .pfx format.
-
--   Create a key vault (using either a template or the following sample script).
-
--   Make sure you have turned on the EnabledForDeployment switch.
-
--   Upload the certificate as a secret.
+* You need a certificate in the .pfx format.
+* Create a key vault (using either a template or the following sample script).
+* Make sure you have turned on the EnabledForDeployment switch.
+* Upload the certificate as a secret.
 
 ## Deploying VMs
-
 This sample script creates a key vault, and then stores a
 certificate stored in the .pfx file in a local directory, to the key
 vault as a secret.
@@ -59,7 +54,7 @@ vault as a secret.
     $fileContentBytes = get-content \$fileName -Encoding Byte
 
     $fileContentEncoded =
-    [System.Convert\]::ToBase64String(\$fileContentBytes)
+[System.Convert\]::ToBase64String(\$fileContentBytes)
     $jsonObject = @"
     {
     "data": "\$filecontentencoded",
@@ -93,56 +88,56 @@ Here's sample output from the preceding script:
     location
     'eastus'
     ResourceGroupName : contosovaultrg
-    Location          : eastus
+    Location          : eastus
     ProvisioningState : Succeeded
-    Tags              :
-    Permissions       :
-                        Actions NotActions
-                        ======= ==========
-                        \*
-    ResourceId        :
+    Tags              :
+    Permissions       :
+                        Actions NotActions
+                        ======= ==========
+                        \*
+    ResourceId        :
     /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-dd149b4aeb56/re
     sourceGroups/contosovaultrg
-    VaultUri             : https://contosovault.vault.azure.net
-    TenantId             : xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47
-    TenantName           : xxxxxxxx
-    Sku                  : standard
+    VaultUri             : https://contosovault.vault.azure.net
+    TenantId             : xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47
+    TenantName           : xxxxxxxx
+    Sku                  : standard
     EnabledForDeployment : True
-    AccessPolicies       : {xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47}
-    AccessPoliciesText   :
-                           Tenant ID              :
-                           xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47
-                           Object ID              :
-                           xxxxxxxx-xxxx-xxxx-xxxx-b092cebf0c80
-                           Application ID         :
-                           Display Name           : Derick Developer  (derick@contoso.com)
-                           Permissions to Keys    : get, create, delete,
-                           list, update, import, backup, restore
-                           Permissions to Secrets : all
-    OriginalVault        : Microsoft.Azure.Management.KeyVault.Vault
-    ResourceId           :
-    /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-dd149b4aeb56                 
+    AccessPolicies       : {xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47}
+    AccessPoliciesText   :
+                           Tenant ID              :
+                           xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47
+                           Object ID              :
+                           xxxxxxxx-xxxx-xxxx-xxxx-b092cebf0c80
+                           Application ID         :
+                           Display Name           : Derick Developer  (derick@contoso.com)
+                           Permissions to Keys    : get, create, delete,
+                           list, update, import, backup, restore
+                           Permissions to Secrets : all
+    OriginalVault        : Microsoft.Azure.Management.KeyVault.Vault
+    ResourceId           :
+    /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-dd149b4aeb56                 
     /resourceGroups/contosovaultrg/providers/Microsoft.KeyV
-                           ault/vaults/contosovault
-    VaultName            : contosovault
-    ResourceGroupName    : contosovaultrg
-    Location             : eastus
-    Tags                 : {}
-    TagsTable            :
-    SecretValue     : System.Security.SecureString
+                           ault/vaults/contosovault
+    VaultName            : contosovault
+    ResourceGroupName    : contosovaultrg
+    Location             : eastus
+    Tags                 : {}
+    TagsTable            :
+    SecretValue     : System.Security.SecureString
     SecretValueText :
     ew0KImRhdGEiOiAiTUlJSkN3SUJBekNDQ01jR0NTcUdTSWIzRFFFSEFh
-    Q0NDTGdFZ2dpME1JSUlzRENDQmdnR0NTcUdTSWIzRFFFSEFhQ0NCZmtF           
+    Q0NDTGdFZ2dpME1JSUlzRENDQmdnR0NTcUdTSWIzRFFFSEFhQ0NCZmtF           
     Z2dYMU1JSUY4VENDQmUwR0N5cUdTSWIzRFFFTUNnRUNvSUlFL2pDQ0JQ
     &lt;&lt;&lt; Output truncated… &gt;&gt;&gt;
-    Attributes      :
+    Attributes      :
     Microsoft.Azure.Commands.KeyVault.Models.SecretAttributes
-    VaultName       : contosovault
-    Name            : servicecert
-    Version         : e3391a126b65414f93f6f9806743a1f7
-    Id              :
+    VaultName       : contosovault
+    Name            : servicecert
+    Version         : e3391a126b65414f93f6f9806743a1f7
+    Id              :
     https://contosovault.vault.azure.net:443/secrets/servicecert
-                      /e3391a126b65414f93f6f9806743a1f7
+                      /e3391a126b65414f93f6f9806743a1f7
 
 Now we are ready to deploy a VM template. Note the URI of the
 secret from the output (as highlighted in the preceding output in green).
@@ -165,8 +160,6 @@ The application usually finds the certificate by using the thumbprint and
 doesn't need modification.
 
 ## Retiring certificates
-
-
 In the preceding section, we showed you how to push a new certificate to your
 existing VMs. But your old certificate is still in the VM and cannot be
 removed. For added security, you can change the attribute for old secret
@@ -177,8 +170,6 @@ secret version to be disabled:
     Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 
 ## Conclusion
-
-
 With this new method, the certificate can be kept separate from the VM
 image or the application payload. So we have removed one point of
 exposure.
@@ -197,7 +188,7 @@ manage all your certificates, including the all the versions that were
 deployed over time.
 
 ## Next Steps
-
 [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Allow an application to access Key Vault](azure-stack-kv-sample-app.md)
+

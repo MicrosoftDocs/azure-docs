@@ -3,22 +3,20 @@ Some packages may not install using pip when run on Azure.  It may simply be tha
 In this section, we'll look at ways to deal with this issue.
 
 ### Request wheels
-
 If the package installation requires a compiler, you should try contacting the package owner to request that wheels be made available for the package.
 
-With the recent availability of [Microsoft Visual C++ Compiler for Python 2.7][], it is now easier to build packages that have native code for Python 2.7.
+With the recent availability of [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7], it is now easier to build packages that have native code for Python 2.7.
 
 ### Build wheels (requires Windows)
-
 Note: When using this option, make sure to compile the package using a Python environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
 
 If the package doesn't install because it requires a compiler, you can install the compiler on your local machine and build a wheel for the package, which you will then include in your repository.
 
-Mac/Linux Users: If you don't have access to a Windows machine, see [Create a Virtual Machine Running Windows][] for how to create a VM on Azure.  You can use it to build the wheels, add them to the repository, and discard the VM if you like. 
+Mac/Linux Users: If you don't have access to a Windows machine, see [Create a Virtual Machine Running Windows][Create a Virtual Machine Running Windows] for how to create a VM on Azure.  You can use it to build the wheels, add them to the repository, and discard the VM if you like. 
 
-For Python 2.7, you can install [Microsoft Visual C++ Compiler for Python 2.7][].
+For Python 2.7, you can install [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
 
-For Python 3.4, you can install [Microsoft Visual C++ 2010 Express][].
+For Python 3.4, you can install [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
 
 To build wheels, you'll need the wheel package:
 
@@ -40,7 +38,6 @@ If you want to include all your dependencies in the \wheelhouse folder and not u
     --no-index
 
 ### Customize installation
-
 You can customize the deployment script to install a package in the virtual environment using an alternate installer, such as easy\_install.  See deploy.cmd for an example that is commented out.  Make sure that such packages aren't listed in requirements.txt, to prevent pip from installing them.
 
 Add this to the deployment script:
@@ -54,7 +51,6 @@ Add this to the deployment script:
     env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
 
 ### Include the virtual environment in the repository (requires Windows)
-
 Note: When using this option, make sure to use a virtual environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
 
 If you include the virtual environment in the repository, you can prevent the deployment script from doing virtual environment management on Azure by creating an empty file:
@@ -62,7 +58,6 @@ If you include the virtual environment in the repository, you can prevent the de
     .skipPythonDeployment
 
 We recommend that you delete the existing virtual environment on the app, to prevent leftover files from when the virtual environment was managed automatically.
-
 
 [Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
 [Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27

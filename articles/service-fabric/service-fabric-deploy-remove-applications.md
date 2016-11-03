@@ -1,26 +1,27 @@
-<properties
-   pageTitle="Service Fabric application deployment | Microsoft Azure"
-   description="How to deploy and remove applications in Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+---
+title: Service Fabric application deployment | Microsoft Docs
+description: How to deploy and remove applications in Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/25/2016"
-   ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/25/2016
+ms.author: ryanwi
 
+---
 # Deploy and remove applications using PowerShell
-
-> [AZURE.SELECTOR]
-- [PowerShell](service-fabric-deploy-remove-applications.md)
-- [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> [!div class="op_single_selector"]
+> * [PowerShell](service-fabric-deploy-remove-applications.md)
+> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> 
+> 
 
 <br/>
 
@@ -30,10 +31,12 @@ Once an [application type has been packaged][10], it's ready for deployment into
 2. Register the application type
 3. Create the application instance
 
->[AZURE.NOTE] If you use Visual Studio for deploying and debugging applications on your local development cluster, all the following steps are handled automatically through a PowerShell script found in the Scripts folder of the application project. This article provides background on what those scripts are doing so that you can perform the same operations outside of Visual Studio.
+> [!NOTE]
+> If you use Visual Studio for deploying and debugging applications on your local development cluster, all the following steps are handled automatically through a PowerShell script found in the Scripts folder of the application project. This article provides background on what those scripts are doing so that you can perform the same operations outside of Visual Studio.
+> 
+> 
 
 ## Upload the application package
-
 Uploading the application package puts it in a location that's accessible by internal Service Fabric components. You can use PowerShell to perform the upload. Before you run any PowerShell commands in this article, always start by using [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) to connect to the Service Fabric cluster.
 
 Suppose you have a folder named *MyApplicationType* that contains the necessary application manifest, service manifests, and code/config/data packages. The [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125905.aspx) command uploads the package to the cluster Image Store. The **Get-ImageStoreConnectionStringFromClusterManifest** cmdlet, which is part of the Service Fabric SDK PowerShell module, is used to get the image store connection string.  To import the SDK module, run:
@@ -92,7 +95,6 @@ PS D:\temp>
 ~~~
 
 ## Register the application package
-
 Registering the application package makes the application type and version declared in the application manifest available for use. The system reads the package uploaded in the previous step, verify the package (equivalent to running [Test-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125950.aspx) locally), process the package contents, and copy the processed package to an internal system location.
 
 ~~~
@@ -113,7 +115,6 @@ The [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/m
 The [Get-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125871.aspx) command lists all successfully registered application type versions.
 
 ## Create the application
-
 You can instantiate an application by using any application type version that has been registered successfully through the [New-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125913.aspx) command. The name of each application must start with the *fabric:* scheme and be unique for each application instance. Any default services defined in the application manifest of the target application type are created at this time.
 
 ~~~
@@ -153,7 +154,6 @@ The [Get-ServiceFabricService](https://msdn.microsoft.com/library/mt125889.aspx)
 Multiple application instances can be created for any given version of a registered application type. Each application instance runs in isolation, with its own work directory and process.
 
 ## Remove an application
-
 When an application instance is no longer needed, you can permanently remove it by using the [Remove-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125914.aspx) command. This command automatically removes all services that belong to the application as well, permanently removing all service state. This operation cannot be reversed, and application state cannot be recovered.
 
 ~~~
@@ -202,9 +202,7 @@ PS D:\temp>
 ~~~
 
 ## Troubleshooting
-
 ### Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
-
 The Service Fabric SDK environment should already have the correct defaults set up. But if needed, the ImageStoreConnectionString for all commands should match the value that the Service Fabric cluster is using. You can find this in the cluster manifest retrieved through the [Get-ServiceFabricClusterManifest](https://msdn.microsoft.com/library/mt126024.aspx) command:
 
 ~~~
@@ -232,7 +230,6 @@ PS D:\temp>
 ~~~
 
 ## Next steps
-
 [Service Fabric application upgrade](service-fabric-application-upgrade.md)
 
 [Service Fabric health introduction](service-fabric-health-introduction.md)

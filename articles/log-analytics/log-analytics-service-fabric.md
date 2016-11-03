@@ -1,36 +1,33 @@
-<properties
-	pageTitle="Optimize your environment with the Service Fabric solution in Log Analytics | Microsoft Azure"
-	description="You can use the Service Fabric solution to assess the risk and health of your Service Fabric applications, micro-services, nodes and clusters."
-	services="log-analytics"
-	documentationCenter=""
-	authors="niniikhena"
-	manager="jochan"
-	editor=""/>
+---
+title: Optimize your environment with the Service Fabric solution in Log Analytics | Microsoft Docs
+description: You can use the Service Fabric solution to assess the risk and health of your Service Fabric applications, micro-services, nodes and clusters.
+services: log-analytics
+documentationcenter: ''
+author: niniikhena
+manager: jochan
+editor: ''
 
-<tags
-	ms.service="log-analytics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2016"
-	ms.author="nini"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/21/2016
+ms.author: nini
 
-
-
-
+---
 # Service Fabric Solution in Log Analytics
-
-> [AZURE.SELECTOR]
-- [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
-- [PowerShell](log-analytics-service-fabric.md)
+> [!div class="op_single_selector"]
+> * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
+> * [PowerShell](log-analytics-service-fabric.md)
+> 
+> 
 
 This article describes how to use the Service Fabric solution in Log Analytics to help identify and troubleshoot issues across your Service Fabric cluster, by getting visibility into how your Service Fabric nodes are performing, and how your applications and micro-services are running.
 
 The Service Fabric solution uses Azure Diagnostics data from your Service Fabric VMs, by collecting this data from your Azure WAD tables. Log Analytics then reads Service Fabric framework events, including **Reliable Service Events**, **Actor Events**, **Operational Events**, and **Custom ETW events**. The Service Fabric solution dashboard shows you notable issues and relevant events in your Service Fabric environment.
 
 ## Installing and configuring the solution
-
 Follow these three easy steps to install and configure the solution:
 
 1. Ensure that the OMS workspace that you use is associated with the same Azure subscription that you used to create all cluster resources, including storage accounts. See [Get started with Log Analytics](log-analytics-get-started.md) for information about creating an OMS workspace.
@@ -40,17 +37,19 @@ Follow these three easy steps to install and configure the solution:
 ## Configure OMS to collect and view Service Fabric logs
 In this section, you'll learn how to configure OMS to retrieve Service Fabric logs. The logs allow you view, analyze, and troubleshoot issues in your cluster or in the applications and services running in that cluster, using the OMS portal.
 
->[AZURE.NOTE] The Azure Diagnostics extension must be configured to upload the logs to storage tables that match what OMS will look for. See [How to collect logs with Azure Diagnostics](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md) for more information about how to collect logs. The configuration settings examples in this article show you what the names of the storage tables should be. Once Diagnostics is set up on the cluster and is uploading logs to a storage account, the next step is to configure OMS to collect these logs.
+> [!NOTE]
+> The Azure Diagnostics extension must be configured to upload the logs to storage tables that match what OMS will look for. See [How to collect logs with Azure Diagnostics](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md) for more information about how to collect logs. The configuration settings examples in this article show you what the names of the storage tables should be. Once Diagnostics is set up on the cluster and is uploading logs to a storage account, the next step is to configure OMS to collect these logs.
+> 
+> 
 
 Ensure that you update the **EtwEventSourceProviderConfiguration** section in the **template.json** file to add entries for the new EventSources before you apply the configuration update by running **deploy.ps1**. The table for upload is the same as (ETWEventTable). At the moment, OMS can only read application ETW events from that table. However, support for custom ETW tables is in development.
 
 The following tools are used to perform some of the operations in this section:
 
--	Azure PowerShell
--	[Operations Management Suite](http://www.microsoft.com/oms)
+* Azure PowerShell
+* [Operations Management Suite](http://www.microsoft.com/oms)
 
 ### Configure an OMS workspace to show the cluster logs
-
 After you've created an OMS workspace as described above, the next step is to configure the workspace to pull the logs from the Azure storage tables where they are being uploaded from the cluster by the Diagnostics extension. In order to do this, run the following PowerShell script:
 
 ```
@@ -344,34 +343,32 @@ After the solution is enabled, the Service Fabric tile is added to your OMS Over
 ![Service Fabric tile](./media/log-analytics-service-fabric/sf2.png)
 
 ### View Service Fabric events
-
 Click the **Service Fabric** tile to open the Service Fabric dashboard. The dashboard includes the columns in the following table. Each column lists the top ten events by count matching that column's criteria for the specified time range. You can run a log search that provides the entire list by clicking **See all** at the right bottom of each column, or by clicking the column header.
 
 | **Service Fabric event** | **description** |
 | --- | --- |
-| Notable Issues | A Display of issues such as RunAsyncFailures RunAsynCancellations and Node Downs. |
-| Operational Events | Notable operational events such as application upgrade and deployments. |
-| Reliable Service Events | Notable reliable service events such a Runasyncinvocations. |
-| Actor Events | Notable actor events generated by your micro-services, such as exceptions thrown by an actor method, actor activations and deactivations, and so on. |
-| Application Events | All custom ETW events generated by your applications. |
+| Notable Issues |A Display of issues such as RunAsyncFailures RunAsynCancellations and Node Downs. |
+| Operational Events |Notable operational events such as application upgrade and deployments. |
+| Reliable Service Events |Notable reliable service events such a Runasyncinvocations. |
+| Actor Events |Notable actor events generated by your micro-services, such as exceptions thrown by an actor method, actor activations and deactivations, and so on. |
+| Application Events |All custom ETW events generated by your applications. |
 
 ![Service Fabric dashboard](./media/log-analytics-service-fabric/sf3.png)
 
 ![Service Fabric dashboard](./media/log-analytics-service-fabric/sf4.png)
 
-
 The following table shows data collection methods and other details about how data is collected for Service Fabric.
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
-|---|---|---|---|---|---|---|
-|Windows|![No](./media/log-analytics-malware/oms-bullet-red.png)|![No](./media/log-analytics-malware/oms-bullet-red.png)| ![Yes](./media/log-analytics-malware/oms-bullet-green.png)|            ![No](./media/log-analytics-malware/oms-bullet-red.png)|![No](./media/log-analytics-malware/oms-bullet-red.png)|10 minutes |
+| --- | --- | --- | --- | --- | --- | --- |
+| Windows |![No](./media/log-analytics-malware/oms-bullet-red.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |![Yes](./media/log-analytics-malware/oms-bullet-green.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |10 minutes |
 
-
->[AZURE.NOTE] You can change the scope of these events in the Service Fabric solution by clicking **Data based on last 7 days** at the top of the dashboard. You can also show events generated within the last 7 days, 1 day, or 6 hours. Or, you can select **Custom** to specify a custom date range.
-
+> [!NOTE]
+> You can change the scope of these events in the Service Fabric solution by clicking **Data based on last 7 days** at the top of the dashboard. You can also show events generated within the last 7 days, 1 day, or 6 hours. Or, you can select **Custom** to specify a custom date range.
+> 
+> 
 
 ## Troubleshoot your Service Fabric and OMS configuration
-
 If you need to verify your OMS configuration because you are unable to view event data in OMS, use the script below. It reads your Service Fabric diagnostics configuration, checks for data being written into the tables, and it verifies that OMS is configured to read from the tables.
 
 ```
@@ -529,14 +526,14 @@ function Check-ServiceFabricScaleSetDiagnostics {
     $etwManifestProviderList = ""
 
     if ( $scaleSetDiagnostics.xmlCfg )
-	{
-		Write-Debug ("Found XMLcfg")
-		$xmlCfg = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($scaleSetDiagnostics.xmlCfg))
-		Write-Debug $xmlCfg
-		$etwProviders = Select-Xml -Content $xmlCfg -XPath "//EtwProviders"                
-		$serviceFabricProviderList = $etwProviders.Node.EtwEventSourceProviderConfiguration
-		$etwManifestProviderList = $etwProviders.Node.EtwManifestProviderConfiguration
-	} elseif ($scaleSetDiagnostics.WadCfg )
+    {
+        Write-Debug ("Found XMLcfg")
+        $xmlCfg = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($scaleSetDiagnostics.xmlCfg))
+        Write-Debug $xmlCfg
+        $etwProviders = Select-Xml -Content $xmlCfg -XPath "//EtwProviders"                
+        $serviceFabricProviderList = $etwProviders.Node.EtwEventSourceProviderConfiguration
+        $etwManifestProviderList = $etwProviders.Node.EtwManifestProviderConfiguration
+    } elseif ($scaleSetDiagnostics.WadCfg )
     {
         Write-Debug ("Found WADcfg")
         Write-Debug $scaleSetDiagnostics.WadCfg
@@ -545,7 +542,7 @@ function Check-ServiceFabricScaleSetDiagnostics {
     } else
     {
         Write-Error "Unable to parse Azure Diagnostics setting for $id"
-		Write-Warning ("$id does not have diagnostics enabled")
+        Write-Warning ("$id does not have diagnostics enabled")
     }
 
     foreach ($provider in $serviceFabricProviderList)
@@ -634,5 +631,5 @@ foreach($storageAccount in $storageAccountsToCheck)
 
 
 ## Next steps
+* Use [Log Searches in Log Analytics](log-analytics-log-searches.md) to view detailed Service Fabric event data.
 
-- Use [Log Searches in Log Analytics](log-analytics-log-searches.md) to view detailed Service Fabric event data.

@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Azure AD Connect sync: Understanding Declarative Provisioning | Microsoft Azure"
-	description="Explains the declarative provisioning configuration model in Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD Connect sync: Understanding Declarative Provisioning | Microsoft Docs'
+description: Explains the declarative provisioning configuration model in Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/29/2016"
-	ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/29/2016
+ms.author: billmath
 
-
+---
 # Azure AD Connect sync: Understanding Declarative Provisioning
 This topic explains the configuration model in Azure AD Connect. The model is called Declarative Provisioning and it allows you to make a configuration change with ease. Many things described in this topic are advanced and not required for most customer scenarios.
 
@@ -29,12 +28,12 @@ The pipeline has several different modules. Each one is responsible for one conc
 
 ![Sync pipeline](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/pipeline.png)  
 
-- Source, The source object
-- [Scope](#scope), Finds all sync rules that are in scope
-- [Join](#join), Determines relationship between connector space and metaverse
-- [Transform](#transform), Calculates how attributes should be transformed and flow
-- [Precedence](#precedence), Resolves conflicting attribute contributions
-- Target, The target object
+* Source, The source object
+* [Scope](#scope), Finds all sync rules that are in scope
+* [Join](#join), Determines relationship between connector space and metaverse
+* [Transform](#transform), Calculates how attributes should be transformed and flow
+* [Precedence](#precedence), Resolves conflicting attribute contributions
+* Target, The target object
 
 ## Scope
 The scope module is evaluating an object and determines the rules that are in scope and should be included in the processing. Depending on the attributes values on the object, different sync rules are evaluated to be in scope. For example, a disabled user with no Exchange mailbox does have different rules than an enabled user with a mailbox.  
@@ -47,18 +46,18 @@ The scope in this picture should be read as (department = IT AND country = Denma
 
 The scope module supports the following operations.
 
-Operation | Description
---- | ---
-EQUAL, NOTEQUAL | A string compare that evaluates if value is equal to the value in the attribute. For multi-valued attributes, see ISIN and ISNOTIN.
-LESSTHAN, LESSTHAN_OR_EQUAL | A string compare that evaluates if value is less than of the value in the attribute.
-CONTAINS, NOTCONTAINS | A string compare that evaluates if value can be found somewhere inside value in the attribute.
-STARTSWITH, NOTSTARTSWITH | A string compare that evaluates if value is in the beginning of the value in the attribute.
-ENDSWITH, NOTENDSWITH | A string compare that evaluates if value is in the end of the value in the attribute.
-GREATERTHAN, GREATERTHAN_OR_EQUAL | A string compare that evaluates if value is greater than of the value in the attribute.
-ISNULL, ISNOTNULL | Evaluates if the attribute is absent from the object. If the attribute is not present and therefore null, then the rule is in scope.
-ISIN, ISNOTIN | Evaluates if the value is present in the defined attribute. This operation is the multi-valued variation of EQUAL and NOTEQUAL. The attribute is supposed to be a multi-valued attribute and if the value can be found in any of the attribute values, then the rule is in scope.
-ISBITSET, ISNOTBITSET | Evaluates if a particular bit is set. For example, can be used to evaluate the bits in userAccountControl to see if a user is enabled or disabled.
-ISMEMBEROF, ISNOTMEMBEROF | The value should contain a DN to a group in the connector space. If the object is a member of the group specified, the rule is in scope.
+| Operation | Description |
+| --- | --- |
+| EQUAL, NOTEQUAL |A string compare that evaluates if value is equal to the value in the attribute. For multi-valued attributes, see ISIN and ISNOTIN. |
+| LESSTHAN, LESSTHAN_OR_EQUAL |A string compare that evaluates if value is less than of the value in the attribute. |
+| CONTAINS, NOTCONTAINS |A string compare that evaluates if value can be found somewhere inside value in the attribute. |
+| STARTSWITH, NOTSTARTSWITH |A string compare that evaluates if value is in the beginning of the value in the attribute. |
+| ENDSWITH, NOTENDSWITH |A string compare that evaluates if value is in the end of the value in the attribute. |
+| GREATERTHAN, GREATERTHAN_OR_EQUAL |A string compare that evaluates if value is greater than of the value in the attribute. |
+| ISNULL, ISNOTNULL |Evaluates if the attribute is absent from the object. If the attribute is not present and therefore null, then the rule is in scope. |
+| ISIN, ISNOTIN |Evaluates if the value is present in the defined attribute. This operation is the multi-valued variation of EQUAL and NOTEQUAL. The attribute is supposed to be a multi-valued attribute and if the value can be found in any of the attribute values, then the rule is in scope. |
+| ISBITSET, ISNOTBITSET |Evaluates if a particular bit is set. For example, can be used to evaluate the bits in userAccountControl to see if a user is enabled or disabled. |
+| ISMEMBEROF, ISNOTMEMBEROF |The value should contain a DN to a group in the connector space. If the object is a member of the group specified, the rule is in scope. |
 
 ## Join
 The join module in the sync pipeline is responsible for finding the relationship between the object in the source and an object in the target. On an inbound rule, this relationship would be an object in a connector space finding a relationship to an object in the metaverse.  
@@ -146,17 +145,17 @@ For this scenario, you need to change the scope of the sync rules so the source 
 ![Multiple objects joined to the same mv object](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
 
 ## Next steps
-
-- Read more about the expression language in [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
-- See how declarative provisioning is used out-of-box in [Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md).
-- See how to make a practical change using declarative provisioning in [How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md).
-- Continue to read how users and contacts work together in [Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md).
+* Read more about the expression language in [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+* See how declarative provisioning is used out-of-box in [Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md).
+* See how to make a practical change using declarative provisioning in [How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md).
+* Continue to read how users and contacts work together in [Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 
 **Overview topics**
 
-- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
 **Reference topics**
 
-- [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
+* [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
+

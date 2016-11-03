@@ -1,22 +1,22 @@
 
-<properties
-	pageTitle="Using Azure AD Connect Health with AD DS | Microsoft Azure"
-	description="This is the Azure AD Connect Health page that will discuss how to monitor AD DS."
-	services="active-directory"
-	documentationCenter=""
-	authors="arluca"
-	manager="samueld"
-	editor="curtand"/>
+---
+title: Using Azure AD Connect Health with AD DS | Microsoft Docs
+description: This is the Azure AD Connect Health page that will discuss how to monitor AD DS.
+services: active-directory
+documentationcenter: ''
+author: arluca
+manager: samueld
+editor: curtand
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="10/18/2016"
-	ms.author="arluca"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 10/18/2016
+ms.author: arluca
 
+---
 # Using Azure AD Connect Health with AD DS
 The following documentation is specific to monitoring Active Directory Domain Services with Azure AD Connect Health. The supported versions of AD DS are: Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2.
 
@@ -51,7 +51,6 @@ This feature provides graphical trends of different performance counters, which 
 By default, we have preselected four performance counters; however, you can include others by clicking the filter command and selecting or deselecting any desired performance counters. Additionally, you can double-click a performance counter graph to open a new blade, which includes data points for each of the monitored domain controllers.
 
 ## Related links
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
@@ -59,3 +58,4 @@ By default, we have preselected four performance counters; however, you can incl
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
+

@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Advanced request throttling with Azure API Management"
-	description="Learn how to create and apply flexible quota and rate limiting policies with Azure API Management."
-	services="api-management"
-	documentationCenter=""
-	authors="darrelmiller"
-	manager="erikre"
-	editor=""/>
+---
+title: Advanced request throttling with Azure API Management
+description: Learn how to create and apply flexible quota and rate limiting policies with Azure API Management.
+services: api-management
+documentationcenter: ''
+author: darrelmiller
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="10/25/2016"
-	ms.author="darrmi"/>
+ms.service: api-management
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/25/2016
+ms.author: darrmi
 
-
+---
 # Advanced request throttling with Azure API Management
-
 Being able to throttle incoming requests is a key role of Azure API Management. Either by controlling the rate of requests or the total requests/data transferred, API Management allows API providers to protect their APIs from abuse and create value for different API product tiers.
 
 ## Product based throttling
@@ -71,4 +69,7 @@ Please give us your feedback in the Disqus thread for this topic. It would be gr
 ## Watch a video overview of these policies
 For more information on the [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) and [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) policies covered in this article, please watch the following video.
 
-> [AZURE.VIDEO advanced-request-throttling-with-azure-api-management]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Advanced-Request-Throttling-with-Azure-API-Management/player]
+> 
+> 
+

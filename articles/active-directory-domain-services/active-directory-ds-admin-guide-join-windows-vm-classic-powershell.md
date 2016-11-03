@@ -1,31 +1,34 @@
-<properties
-	pageTitle="Azure Active Directory Domain Services: Administration Guide | Microsoft Azure"
-	description="Join a Windows virtual machine to a managed domain using Azure PowerShell and the classic deployment model."
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+---
+title: 'Azure Active Directory Domain Services: Administration Guide | Microsoft Docs'
+description: Join a Windows virtual machine to a managed domain using Azure PowerShell and the classic deployment model.
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: stevenpo
+editor: curtand
 
-<tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/01/2016"
-	ms.author="maheshu"/>
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: maheshu
 
-
+---
 # Join a Windows Server virtual machine to a managed domain using PowerShell
-
-> [AZURE.SELECTOR]
-- [Azure classic portal - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
-- [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+> [!div class="op_single_selector"]
+> * [Azure classic portal - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
+> * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+> 
+> 
 
 <br>
 
-> [AZURE.IMPORTANT] Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure AD Domain Services does not currently support the Resource Manager model.
+> [!IMPORTANT]
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure AD Domain Services does not currently support the Resource Manager model.
+> 
+> 
 
 These steps show you how to customize a set of Azure PowerShell commands that create and preconfigure a Windows-based Azure virtual machine by using a building block approach. These steps help you build a Windows-based Azure virtual machine and join it to an Azure AD Domain Services managed domain.
 
@@ -34,23 +37,20 @@ These steps follow a fill-in-the-blanks approach for creating Azure PowerShell c
 If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) to install Azure PowerShell on your local computer. Then, open a Windows PowerShell command prompt.
 
 ## Step 1: Add your account
-
 1. At the PowerShell prompt, type **Add-AzureAccount** and click **Enter**.
 2. Type in the email address associated with your Azure subscription and click **Continue**.
 3. Type in the password for your account.
 4. Click **Sign in**.
 
 ## Step 2: Set your subscription and storage account
-
 Set your Azure subscription and storage account by running these commands at the Windows PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct names.
 
-	$subscr="<subscription name>"
-	$staccount="<storage account name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
+    $subscr="<subscription name>"
+    $staccount="<storage account name>"
+    Select-AzureSubscription -SubscriptionName $subscr –Current
+    Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
 You can get the correct subscription name from the SubscriptionName property of the output of the **Get-AzureSubscription** command. You can get the correct storage account name from the Label property of the output of the **Get-AzureStorageAccount** command after you run the **Select-AzureSubscription** command.
-
 
 ## Step 3: Step-by-step walkthrough - provision the virtual machine and join it to the managed domain
 Here is the corresponding Azure PowerShell command set to create this virtual machine, with blank lines between each block for readability.
@@ -113,11 +113,11 @@ Now, provision the domain-joined Windows VM.
 ## Script to provision a Windows VM and automatically join it to an AAD Domain Services managed domain
 This PowerShell command set creates a virtual machine for a line-of-business server that:
 
-- Uses the Windows Server 2012 R2 Datacenter image.
-- Is an extra small virtual machine.
-- Has the name contoso-test.
-- Is automatically domain joined to the contoso100 managed domain.
-- Is added to the same virtual network as the managed domain.
+* Uses the Windows Server 2012 R2 Datacenter image.
+* Is an extra small virtual machine.
+* Has the name contoso-test.
+* Is automatically domain joined to the contoso100 managed domain.
+* Is added to the same virtual network as the managed domain.
 
 Here is the full sample script to create the Windows virtual machine and automatically join it to the Azure AD Domain Services managed domain.
 
@@ -150,6 +150,6 @@ Here is the full sample script to create the Windows virtual machine and automat
 <br>
 
 ## Related Content
-- [Azure AD Domain Services - Getting Started guide](./active-directory-ds-getting-started.md)
+* [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
+* [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
 
-- [Administer an Azure AD Domain Services managed domain](./active-directory-ds-admin-guide-administer-domain.md)

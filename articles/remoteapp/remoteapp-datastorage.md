@@ -1,26 +1,26 @@
 
-<properties
-    pageTitle="Never store sensitive data on custom images for Azure RemoteApp | Microsoft Azure"
-    description="Learn about the guidelines for storing data in custom images in Azure RemoteApp"
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Never store sensitive data on custom images for Azure RemoteApp | Microsoft Docs
+description: Learn about the guidelines for storing data in custom images in Azure RemoteApp
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # Never store sensitive data on custom images
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> 
+> 
 
 When you host your own application in Azure RemoteApp, the first step is to create a custom image. We use that custom image to create VM instances that serve your apps to your users. The custom image should contain ONLY applications and never sensitive data that can be lost, such as SQL databases, personnel files, or special data files like QuickBooks company files. All sensitive data should reside external to Azure RemoteApp on a file server, another Azure VM, or in SQL Azure. The image should just host the application that connects to the data source and presents the data. Review [Requirements for Azure RemoteApp images](remoteapp-imagereqs.md) for more information. 
 
@@ -30,19 +30,18 @@ Once the collection is provisioned and users start connecting to the VMs, user d
 
 Example data that should not reside in the image:
 
-- Shared data for users to access
-- SQL DB or QuickBooks DB
-- Any data in D:\
+* Shared data for users to access
+* SQL DB or QuickBooks DB
+* Any data in D:\
 
 Example data that can reside in the default profile to be copied into every users’ UPD:
 
-- Configuration files per user
-- Scripts that users would need preserved in their UPD
+* Configuration files per user
+* Scripts that users would need preserved in their UPD
 
 Key points:
 
-- Never store sensitive data that can be lost on the image when creating a custom image.
-- Sensitive data should always reside on a separate file server, separate Azure VM, on the cloud, and always external to the VM instances hosting your applications within Azure RemoteApp. 
-- User data is saved and persists in the user profile disk (UPD)
-
+* Never store sensitive data that can be lost on the image when creating a custom image.
+* Sensitive data should always reside on a separate file server, separate Azure VM, on the cloud, and always external to the VM instances hosting your applications within Azure RemoteApp. 
+* User data is saved and persists in the user profile disk (UPD)
 

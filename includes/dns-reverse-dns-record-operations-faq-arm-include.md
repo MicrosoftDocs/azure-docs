@@ -1,6 +1,6 @@
 <BR> 
-## FAQ - Reverse DNS for your Azure-assigned IP address
 
+## FAQ - Reverse DNS for your Azure-assigned IP address
 ### How much do reverse DNS records cost?
 They’re free!  There is no additional cost for reverse DNS records or queries.
 
@@ -30,3 +30,4 @@ No. To leverage reverse DNS records for your Public IP Addresses, you must speci
 
 ### Can I send emails to external domains from my Azure Compute services?
 No. [Azure Compute services do not support sending emails to external domains](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).
+

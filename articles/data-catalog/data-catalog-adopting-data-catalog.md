@@ -1,21 +1,22 @@
-<properties
-	pageTitle="Adopting Azure Data Catalog | Microsoft Azure"
-	description="This article presents an approach and process for organizations considering adopting Azure Data Catalog, including defining a vision, identifying key business use cases, and choosing a pilot project."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
-<tags
-	ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="10/11/2016"
-	ms.author="maroche"/>
+---
+title: Adopting Azure Data Catalog | Microsoft Docs
+description: This article presents an approach and process for organizations considering adopting Azure Data Catalog, including defining a vision, identifying key business use cases, and choosing a pilot project.
+services: data-catalog
+documentationcenter: ''
+author: steelanddata
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: data-catalog
+ms.devlang: NA
+ms.topic: hero-article
+ms.tgt_pltfrm: NA
+ms.workload: data-catalog
+ms.date: 10/11/2016
+ms.author: maroche
+
+---
 # Adopting Azure Data Catalog
 This article helps you get started adopting **Azure Data Catalog** in your organization. To successfully adopt **Azure Data Catalog**, you focus on three key items: define your vision, identify key business use cases within your organization, and choose a pilot project.
 
@@ -34,10 +35,10 @@ An effective adoption plan successfully engages people in what is possible with 
 
 An adoption plan helps you communicate what is critical for people to succeed and achieve their goals. A typical plan explains how Data Catalog is going to make users' lives easier, and includes the following parts:
 
--	**Vision Statement** - This helps you concisely discuss the adoption plan with users, and stakeholders. It's your elevator pitch.
--	**Pilot team and Influencers** - Learning from a pilot team and influencers help you refine how to introduce teams and users to Data Catalog. Influencers can peer coach fellow users. It also helps you identify blockers and drivers to adoption.
--	**Plan for Communications and Buzz** - This helps users to understand how Data Catalog can help them, and can foster organic adoption within teams, and ultimately the entire organization.
--	**Training Plan** - Comprehensive training generally leads to adoption success and favorable results.
+* **Vision Statement** - This helps you concisely discuss the adoption plan with users, and stakeholders. It's your elevator pitch.
+* **Pilot team and Influencers** - Learning from a pilot team and influencers help you refine how to introduce teams and users to Data Catalog. Influencers can peer coach fellow users. It also helps you identify blockers and drivers to adoption.
+* **Plan for Communications and Buzz** - This helps users to understand how Data Catalog can help them, and can foster organic adoption within teams, and ultimately the entire organization.
+* **Training Plan** - Comprehensive training generally leads to adoption success and favorable results.
 
 Here are some tips to define an **Azure Data Catalog** adoption plan.
 
@@ -46,13 +47,10 @@ The first step to define an **Azure Data Catalog** adoption plan is to write an 
 
 Here are some tips to help you define you vision:
 
--	**Identify the key deployment driver** - Think about the specific data source management needs from the business that can be addressed with Data Catalog. This also helps you state the top advantages of using Data Catalog. For example, there may be common data sources that all new employees need to learn about and use, or important and complex data sources that only a few key people deeply understand. **Azure Data Catalog** can help make these data sources easy to discover and understand, so that these well-known pain points can be addressed directly and early in the adoption of the service.
-
--	**Be crisp and clear** - A clear understanding of the vision gets everyone on the same page about the value Data Catalog brings to the organization, and how the vision supports organizational goals.
-
--	**Inspire people to want to use Data Catalog** - Your vision, and communication plan should inspire folks to recognize that Data Catalog can benefit them to find and connect to data sources to achieve more with data.
-
--	**Specify goals and timeline** - This ensures your adoption plan has specific, achievable deliverables. A timeline keeps everyone focused, and allows for checkpoints to measure success.
+* **Identify the key deployment driver** - Think about the specific data source management needs from the business that can be addressed with Data Catalog. This also helps you state the top advantages of using Data Catalog. For example, there may be common data sources that all new employees need to learn about and use, or important and complex data sources that only a few key people deeply understand. **Azure Data Catalog** can help make these data sources easy to discover and understand, so that these well-known pain points can be addressed directly and early in the adoption of the service.
+* **Be crisp and clear** - A clear understanding of the vision gets everyone on the same page about the value Data Catalog brings to the organization, and how the vision supports organizational goals.
+* **Inspire people to want to use Data Catalog** - Your vision, and communication plan should inspire folks to recognize that Data Catalog can benefit them to find and connect to data sources to achieve more with data.
+* **Specify goals and timeline** - This ensures your adoption plan has specific, achievable deliverables. A timeline keeps everyone focused, and allows for checkpoints to measure success.
 
 Here is an example vision statement for a Data Catalog adoption plan for the fictitious company called Adventure Works:
 
@@ -67,23 +65,17 @@ It is best to choose use cases that represent low hanging fruit: cases that are 
 
 Here are some tips to identify use cases:
 
--	**Define the goals of the team** - How does the team achieve their goals? Don't focus on Data Catalog yet since you want to be objective at this stage. Remember it's about the business results, not about the technology.
-
--	**Define the business problem** - What are the issues faced by the team regarding finding and learning about data assets? For example, information about important data sources may be found in Excel workbooks in a network folder, and the team may spend a lot of time locating the workbooks.
-
--	**Understand team culture related to change** - Many adoption challenges relate to resistance to change rather than the implementation of a new tool. How a team responds to change is important when identifying use cases since the existing process could be in place because "this is how we've always done it" or "if it ain't broke, why fix it?". Adopting any new tool or process is always easiest when the people affected understand the value to be realized from the change, and appreciate the importance of the problems to be solved.
-
--	**Keep focus related to data assets** - When discussing the business problems a team faces, you need to "cut through the weeds", and focus on what's relevant to leveraging enterprise data assets more effectivity.
+* **Define the goals of the team** - How does the team achieve their goals? Don't focus on Data Catalog yet since you want to be objective at this stage. Remember it's about the business results, not about the technology.
+* **Define the business problem** - What are the issues faced by the team regarding finding and learning about data assets? For example, information about important data sources may be found in Excel workbooks in a network folder, and the team may spend a lot of time locating the workbooks.
+* **Understand team culture related to change** - Many adoption challenges relate to resistance to change rather than the implementation of a new tool. How a team responds to change is important when identifying use cases since the existing process could be in place because "this is how we've always done it" or "if it ain't broke, why fix it?". Adopting any new tool or process is always easiest when the people affected understand the value to be realized from the change, and appreciate the importance of the problems to be solved.
+* **Keep focus related to data assets** - When discussing the business problems a team faces, you need to "cut through the weeds", and focus on what's relevant to leveraging enterprise data assets more effectivity.
 
 Here are some example use cases related to Data Catalog:
 
 ### Example use cases
-
--	**Register central high-value data sources** - IT manages data sources used across the organization. IT can get started with Data Catalog by registering and annotating common enterprise data sources.
-
--	**Register team-based data sources** - Different teams have useful, line-of-business data sources. Get started with **Azure Data Catalog** by identifying and registering key data sources used by many different teams, and capture the team's tribal knowledge in **Azure Data Catalog** annotations.
-
--	**Self-service business intelligence** - Teams spend a lot of time combining data from multiple sources. Register and annotate data sources in a central location to eliminate a manual data source discovery process.
+* **Register central high-value data sources** - IT manages data sources used across the organization. IT can get started with Data Catalog by registering and annotating common enterprise data sources.
+* **Register team-based data sources** - Different teams have useful, line-of-business data sources. Get started with **Azure Data Catalog** by identifying and registering key data sources used by many different teams, and capture the team's tribal knowledge in **Azure Data Catalog** annotations.
+* **Self-service business intelligence** - Teams spend a lot of time combining data from multiple sources. Register and annotate data sources in a central location to eliminate a manual data source discovery process.
 
 These are just a few use cases for **Azure Data Catalog**. To read more about Data Catalog scenarios, see [Azure Data Catalog common scenarios](data-catalog-common-scenarios.md).
 
@@ -106,9 +98,8 @@ Your first pilot project should have a few individuals who produce data and cons
 
 One of the business problems that **Azure Data Catalog** solves is to connect **Data Producers** to **Data Consumers**. It does this by serving as a central repository for information about enterprise data sources. Using Data Catalog, David registers Adventure Works and SQL Server data sources. Using crowdsourcing any user who discovers this data source can share her opinions on the data, in addition to using the data she has discovered. For example, Nancy discovers the data sources by searching the catalog, and shares her specialized knowledge about the data.  Now, others in the organization benefit from shared knowledge by simply searching the data catalog.
 
--	To learn more about registering data sources, see [Register data sources](data-catalog-get-started.md#exercise-2-registering-data-sources).
-
--	To learn more about discovering data sources, see [Search data sources](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
+* To learn more about registering data sources, see [Register data sources](data-catalog-get-started.md#exercise-2-registering-data-sources).
+* To learn more about discovering data sources, see [Search data sources](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
 
 ### Start small and focused
 For most enterprise pilot projects, you should seed the catalog with high-value data sources so that business users can quickly see the value of Data Catalog. IT is a good place to start identifying common data sources that would be of interest to your pilot team. For supported data sources, such as SQL Server, we recommend using the **Azure Data Catalog** data source registration tool. With the data source registration tool, you can register a wide range of data sources including SQL Server and Oracle databases, and SQL Server Reporting Services reports. For a complete list of current data sources, see [Azure Data Catalog supported data sources](data-catalog-dsr.md).
@@ -126,7 +117,10 @@ To learn more about the data source registration tool, see [Get started with Azu
 
 As part of the pilot project, Nancy's team also uses data sources which are described in an Excel workbook that David and is colleagues maintain. Since other teams in the enterprise also use Excel workbooks to describe data sources, the IT team decides to create a tool to migrate the Excel workbook to Data Catalog. By using the Data Catalog REST API to import existing annotations, the pilot project team can have a complete data catalog consisting of metadata extracted from the data sources using the data source registration tool, complete with information previously documented by data producers and consumers, without the need for manual re-entry. As the enterprise data catalog grows, the organization can use the data source registration tool for common data sources, and the Data Catalog API for custom sources and uncommon scenarios.
 
-> [AZURE.NOTE] We wrote a sample tool that uses the **Azure Data Catalog** API to migrate an Excel workbook to Data Catalog. To learn more about the Data Catalog API and the sample tool, you can [Download the Ad Hoc workbook code sample](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/), and check out the [Azure Data Catalog REST API](https://msdn.microsoft.com/library/azure/mt267593.aspx) documentation.
+> [!NOTE]
+> We wrote a sample tool that uses the **Azure Data Catalog** API to migrate an Excel workbook to Data Catalog. To learn more about the Data Catalog API and the sample tool, you can [Download the Ad Hoc workbook code sample](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/), and check out the [Azure Data Catalog REST API](https://msdn.microsoft.com/library/azure/mt267593.aspx) documentation.
+> 
+> 
 
 After the pilot project is in place, it's time to execute your Data Catalog adoption plan.
 
@@ -135,15 +129,11 @@ At this point you have identified use cases for Data Catalog, and you have ident
 
 Here are some tips to get you started:
 
--	**Create excitement** - Business users will be excited if they believe that **Azure Data Catalog** makes their lives easier. Try to make the conversation around the solution and the benefits it provides, not the technology.
-
--	**Facilitate change** - Start small and communicate the plan to business users. To be successful, it's crucial to involve users from the beginning so that they influence the outcome and develop a sense of ownership about the solution.
-
--	**Groom early adopters** - Early adopters are business users that are passionate about what they do, and excited to evangelize the benefits of **Azure Data Catalog** to their peers.
-
--	**Target training** - Business users do not need to know everything about Data Catalog, so target training to address specific team goals. Focus on what users will do, and how some of their tasks might change, to incorporate **Azure Data Catalog** into their daily routine.
-
--	**Be willing to fail** - If the pilot isn't achieving the desired results, re-evaluate and identify areas to change - fix problems in the pilot before moving on to a larger scope.
+* **Create excitement** - Business users will be excited if they believe that **Azure Data Catalog** makes their lives easier. Try to make the conversation around the solution and the benefits it provides, not the technology.
+* **Facilitate change** - Start small and communicate the plan to business users. To be successful, it's crucial to involve users from the beginning so that they influence the outcome and develop a sense of ownership about the solution.
+* **Groom early adopters** - Early adopters are business users that are passionate about what they do, and excited to evangelize the benefits of **Azure Data Catalog** to their peers.
+* **Target training** - Business users do not need to know everything about Data Catalog, so target training to address specific team goals. Focus on what users will do, and how some of their tasks might change, to incorporate **Azure Data Catalog** into their daily routine.
+* **Be willing to fail** - If the pilot isn't achieving the desired results, re-evaluate and identify areas to change - fix problems in the pilot before moving on to a larger scope.
 
 Before your pilot team jumps into using Data Catalog, schedule a kick-off meeting to discuss expectations for the pilot project, and provide initial training.
 
@@ -165,10 +155,11 @@ The early adopters who participated in the pilot can be very helpful to get the 
 This article was about getting started with **Azure Data Catalog** in your organization. We hope you were able to start a Data Catalog pilot project, and expand Data Catalog throughout your organization.
 
 ## More information about Azure Data Catalog
--	[Azure Data Catalog product page](https://azure.microsoft.com/services/data-catalog/)
--	[Azure Data Catalog documentation](https://azure.microsoft.com/documentation/services/data-catalog/)
--	[Azure Data Catalog common scenarios](data-catalog-common-scenarios.md)
--	[Register data sources](data-catalog-get-started.md#exercise-2-registering-data-sources)
--	[Search data sources](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
--	[Annotate data sources](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-- [Crowdsourcing metadata](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
+* [Azure Data Catalog product page](https://azure.microsoft.com/services/data-catalog/)
+* [Azure Data Catalog documentation](https://azure.microsoft.com/documentation/services/data-catalog/)
+* [Azure Data Catalog common scenarios](data-catalog-common-scenarios.md)
+* [Register data sources](data-catalog-get-started.md#exercise-2-registering-data-sources)
+* [Search data sources](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
+* [Annotate data sources](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
+* [Crowdsourcing metadata](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
+

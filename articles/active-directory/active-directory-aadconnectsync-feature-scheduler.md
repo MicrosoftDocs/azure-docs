@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Azure AD Connect sync: Scheduler | Microsoft Azure"
-   description="This topic describes the built-in scheduler feature in Azure AD Connect sync."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Azure AD Connect sync: Scheduler | Microsoft Docs'
+description: This topic describes the built-in scheduler feature in Azure AD Connect sync.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="08/04/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/04/2016
+ms.author: billmath
 
+---
 # Azure AD Connect sync: Scheduler
 This topic describes the built-in scheduler in Azure AD Connect sync (a.k.a. sync engine).
 
@@ -28,8 +28,8 @@ In earlier releases the scheduler for objects and attributes was external to the
 
 The scheduler is responsible for two tasks:
 
-- **Synchronization cycle**. The process to import, sync, and export changes.
-- **Maintenance tasks**. Renew keys and certificates for Password reset and Device Registration Service (DRS). Purge old entries in the operations log.
+* **Synchronization cycle**. The process to import, sync, and export changes.
+* **Maintenance tasks**. Renew keys and certificates for Password reset and Device Registration Service (DRS). Purge old entries in the operations log.
 
 The scheduler itself is always running, but it can be configured to only run one or none of these tasks. For example if you need to have your own synchronization cycle process, you can disable this task in the scheduler but still run the maintenance task.
 
@@ -40,23 +40,23 @@ To see your current configuration settings, go to PowerShell and run `Get-ADSync
 
 If you see **The sync command or cmdlet is not available** when you run this cmdlet, then the PowerShell module is not loaded. This could happen if you run Azure AD Connect on a domain controller or on a server with higher PowerShell restriction levels than default settings. If you see this error, then run `Import-Module ADSync` to make the cmdlet available.
 
-- **AllowedSyncCycleInterval**. The most frequently Azure AD will allow synchronizations to occur. You cannot synchronize more frequently than this and still be supported.
-- **CurrentlyEffectiveSyncCycleInterval**. The schedule currently in effect. It will have the same value as CustomizedSyncInterval (if set) if it is not more frequent than AllowedSyncInterval. If you change CustomizedSyncCycleInterval, this will take effect after next synchronization cycle.
-- **CustomizedSyncCycleInterval**. If you want the scheduler to run at any other frequency than the default 30 minutes, you will configure this setting. In the picture above the scheduler has been set to run every hour instead. If you set this to a value lower than AllowedSyncInterval, the latter will be used.
-- **NextSyncCyclePolicyType**. Either Delta or Initial. Defines if the next run should only process delta changes, or if the next run should do a full import and sync, which would also reprocess any new or changed rules.
-- **NextSyncCycleStartTimeInUTC**. Next time the scheduler will start the next sync cycle.
-- **PurgeRunHistoryInterval**. The time operation logs should be kept. These can be reviewed in the synchronization service manager. The default is to keep these for 7 days.
-- **SyncCycleEnabled**. Indicates if the scheduler is running the import, sync, and export processes as part of its operation.
-- **MaintenanceEnabled**. Shows if the maintenance process is enabled. It will update the certificates/keys and purge the operations log.
-- **IsStagingModeEnabled**. Shows if [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) is enabled.
+* **AllowedSyncCycleInterval**. The most frequently Azure AD will allow synchronizations to occur. You cannot synchronize more frequently than this and still be supported.
+* **CurrentlyEffectiveSyncCycleInterval**. The schedule currently in effect. It will have the same value as CustomizedSyncInterval (if set) if it is not more frequent than AllowedSyncInterval. If you change CustomizedSyncCycleInterval, this will take effect after next synchronization cycle.
+* **CustomizedSyncCycleInterval**. If you want the scheduler to run at any other frequency than the default 30 minutes, you will configure this setting. In the picture above the scheduler has been set to run every hour instead. If you set this to a value lower than AllowedSyncInterval, the latter will be used.
+* **NextSyncCyclePolicyType**. Either Delta or Initial. Defines if the next run should only process delta changes, or if the next run should do a full import and sync, which would also reprocess any new or changed rules.
+* **NextSyncCycleStartTimeInUTC**. Next time the scheduler will start the next sync cycle.
+* **PurgeRunHistoryInterval**. The time operation logs should be kept. These can be reviewed in the synchronization service manager. The default is to keep these for 7 days.
+* **SyncCycleEnabled**. Indicates if the scheduler is running the import, sync, and export processes as part of its operation.
+* **MaintenanceEnabled**. Shows if the maintenance process is enabled. It will update the certificates/keys and purge the operations log.
+* **IsStagingModeEnabled**. Shows if [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) is enabled.
 
 You can change some of these settings with `Set-ADSyncScheduler`. The following parameters can be modified:
 
-- CustomizedSyncCycleInterval
-- NextSyncCyclePolicyType
-- PurgeRunHistoryInterval
-- SyncCycleEnabled
-- MaintenanceEnabled
+* CustomizedSyncCycleInterval
+* NextSyncCyclePolicyType
+* PurgeRunHistoryInterval
+* SyncCycleEnabled
+* MaintenanceEnabled
 
 The scheduler configuration is stored in Azure AD. If you have a staging server, any change on the primary server will also effect the staging server (with the exception of IsStagingModeEnabled).
 
@@ -76,24 +76,24 @@ The scheduler will by default run every 30 minutes. In some cases you might want
 **Delta sync cycle**  
 A delta sync cycle includes the following steps:
 
-- Delta import on all Connectors
-- Delta sync on all Connectors
-- Export on all Connectors
+* Delta import on all Connectors
+* Delta sync on all Connectors
+* Export on all Connectors
 
 It could be that you have an urgent change which must be synchronized immediately which is why you need to manually run a cycle. If you need to manually run a cycle, then from PowerShell run `Start-ADSyncSyncCycle -PolicyType Delta`.
 
 **Full sync cycle**  
 If you have made one of the following configuration changes, you need to run a full sync cycle (a.k.a. Initial):
 
-- Added more objects or attributes to be imported from a source directory
-- Made changes to the Synchronization rules
-- Changed [filtering](active-directory-aadconnectsync-configure-filtering.md) so a different number of objects should be included
+* Added more objects or attributes to be imported from a source directory
+* Made changes to the Synchronization rules
+* Changed [filtering](active-directory-aadconnectsync-configure-filtering.md) so a different number of objects should be included
 
 If you have made one of these changes, then you need to run a full sync cycle so the sync engine has the opportunity to reconsolidate the connector spaces. A full sync cycle includes the following steps:
 
-- Full Import on all Connectors
-- Full Sync on all Connectors
-- Export on all Connectors
+* Full Import on all Connectors
+* Full Sync on all Connectors
+* Export on all Connectors
 
 To initiate a full sync cycle, run `Start-ADSyncSyncCycle -PolicyType Initial` from a PowerShell prompt. This will start a full sync cycle.
 
@@ -106,8 +106,8 @@ When a sync cycle is running, you cannot make configuration changes. You could w
 
 1. Start by telling the scheduler to stop its current cycle with the PowerShell cmdlet `Stop-ADSyncSyncCycle`.
 2. Stopping the scheduler will not stop the current Connector from its current task. To force the Connector to stop, take the following actions:
-![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
-    - Start **Sychronization Service** from the start menu. Go to **Connectors**, highlight the Connector with the state **Running** and select **Stop** from the Actions.
+   ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
+   * Start **Sychronization Service** from the start menu. Go to **Connectors**, highlight the Connector with the state **Running** and select **Stop** from the Actions.
 
 The scheduler is still active and will start again on next opportunity.
 
@@ -157,3 +157,4 @@ If you start the installation wizard, then the scheduler will be temporarily sus
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

@@ -1,76 +1,71 @@
-<properties
-	pageTitle="Tutorial - Get started with the Azure Batch Python client | Microsoft Azure"
-	description="Learn the basic concepts of Azure Batch and how to develop the Batch service with a simple scenario"
-	services="batch"
-	documentationCenter="python"
-	authors="mmacy"
-	manager="timlt"
-	editor=""/>
+---
+title: Tutorial - Get started with the Azure Batch Python client | Microsoft Docs
+description: Learn the basic concepts of Azure Batch and how to develop the Batch service with a simple scenario
+services: batch
+documentationcenter: python
+author: mmacy
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="batch"
-	ms.devlang="python"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-compute"
-	ms.date="09/27/2016"
-	ms.author="marsma"/>
+ms.service: batch
+ms.devlang: python
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: big-compute
+ms.date: 09/27/2016
+ms.author: marsma
 
+---
 # Get started with the Azure Batch Python client
+> [!div class="op_single_selector"]
+> * [.NET](batch-dotnet-get-started.md)
+> * [Python](batch-python-tutorial.md)
+> 
+> 
 
-> [AZURE.SELECTOR]
-- [.NET](batch-dotnet-get-started.md)
-- [Python](batch-python-tutorial.md)
-
-Learn the basics of [Azure Batch][azure_batch] and the [Batch Python][py_azure_sdk] client as we discuss a small Batch application written in Python. We look at how two sample scripts use the Batch service to process a parallel workload on Linux virtual machines in the cloud, and how they interact with [Azure Storage](./../storage/storage-introduction.md) for file staging and retrieval. You'll learn a common Batch application workflow and gain a base understanding of the major components of Batch such as jobs, tasks, pools, and compute nodes.
+Learn the basics of [Azure Batch][azure_batch] and the [Batch Python][py_azure_sdk] client as we discuss a small Batch application written in Python. We look at how two sample scripts use the Batch service to process a parallel workload on Linux virtual machines in the cloud, and how they interact with [Azure Storage](../storage/storage-introduction.md) for file staging and retrieval. You'll learn a common Batch application workflow and gain a base understanding of the major components of Batch such as jobs, tasks, pools, and compute nodes.
 
 ![Batch solution workflow (basic)][11]<br/>
 
 ## Prerequisites
-
 This article assumes that you have a working knowledge of Python and familiarity with Linux. It also assumes that you're able to satisfy the account creation requirements that are specified below for Azure and the Batch and Storage services.
 
 ### Accounts
-
-- **Azure account**: If you don't already have an Azure subscription, [create a free Azure account][azure_free_account].
-- **Batch account**: Once you have an Azure subscription, [create an Azure Batch account](batch-account-create-portal.md).
-- **Storage account**: See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+* **Azure account**: If you don't already have an Azure subscription, [create a free Azure account][azure_free_account].
+* **Batch account**: Once you have an Azure subscription, [create an Azure Batch account](batch-account-create-portal.md).
+* **Storage account**: See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
 ### Code sample
-
 The Python tutorial [code sample][github_article_samples] is one of the many Batch code samples found in the [azure-batch-samples][github_samples] repository on GitHub. You can download all the samples by clicking  **Clone or download > Download ZIP** on the repository home page, or by clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link. Once you've extracted the contents of the ZIP file, the two scripts for this tutorial are found in the `article_samples` directory:
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
 
 ### Python environment
-
 To run the *python_tutorial_client.py* sample script on your local workstation, you need a **Python interpreter** compatible with version **2.7** or **3.3+**. The script has been tested on both Linux and Windows.
 
 ### cryptography dependencies
-
 You must install the dependencies for the [cryptography][crypto] library, required by the `azure-batch` and `azure-storage` Python packages. Perform one of the following operations appropriate for your platform, or refer to the [cryptography installation][crypto_install] details for more information:
 
 * Ubuntu
-
+  
     `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
-
 * CentOS
-
+  
     `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
-
 * SLES/OpenSUSE
-
+  
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
-
 * Windows
-
+  
     `pip install cryptography`
 
->[AZURE.NOTE] If installing for Python 3.3+ on Linux, use the python3 equivalents for the Python dependencies. For example, on Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
+> [!NOTE]
+> If installing for Python 3.3+ on Linux, use the python3 equivalents for the Python dependencies. For example, on Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
+> 
+> 
 
 ### Azure packages
-
 Next, install the **Azure Batch** and **Azure Storage** Python packages. You can do this with **pip** and the *requirements.txt* found here:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
@@ -84,17 +79,17 @@ Or, you can install the [azure-batch][pypi_batch] and [azure-storage][pypi_stora
 `pip install azure-batch`<br/>
 `pip install azure-storage`
 
-> [AZURE.TIP] You may need to prefix your commands with `sudo` if you are using an unprivileged account. For example, `sudo pip install -r requirements.txt`. For more information on installing Python packages, see [Installing Packages][pypi_install] on readthedocs.io.
+> [!TIP]
+> You may need to prefix your commands with `sudo` if you are using an unprivileged account. For example, `sudo pip install -r requirements.txt`. For more information on installing Python packages, see [Installing Packages][pypi_install] on readthedocs.io.
+> 
+> 
 
 ## Batch Python tutorial code sample
-
 The Batch Python tutorial code sample consists of two Python scripts and a few data files.
 
-- **python_tutorial_client.py**: Interacts with the Batch and Storage services to execute a parallel workload on compute nodes (virtual machines). The *python_tutorial_client.py* script runs on your local workstation.
-
-- **python_tutorial_task.py**: The script that runs on compute nodes in Azure to perform the actual work. In the sample, *python_tutorial_task.py* parses the text in a file downloaded from Azure Storage (the input file). Then it produces a text file (the output file) that contains a list of the top three words that appear in the input file. After it creates the output file, *python_tutorial_task.py* uploads the file to Azure Storage. This makes it available for download to the client script running on your workstation. The *python_tutorial_task.py* script runs in parallel on multiple compute nodes in the Batch service.
-
-- **./data/taskdata\*.txt**: These three text files provide the input for the tasks that run on the compute nodes.
+* **python_tutorial_client.py**: Interacts with the Batch and Storage services to execute a parallel workload on compute nodes (virtual machines). The *python_tutorial_client.py* script runs on your local workstation.
+* **python_tutorial_task.py**: The script that runs on compute nodes in Azure to perform the actual work. In the sample, *python_tutorial_task.py* parses the text in a file downloaded from Azure Storage (the input file). Then it produces a text file (the output file) that contains a list of the top three words that appear in the input file. After it creates the output file, *python_tutorial_task.py* uploads the file to Azure Storage. This makes it available for download to the client script running on your workstation. The *python_tutorial_task.py* script runs in parallel on multiple compute nodes in the Batch service.
+* **./data/taskdata\*.txt**: These three text files provide the input for the tasks that run on the compute nodes.
 
 The following diagram illustrates the primary operations that are performed by the client and task scripts. This basic workflow is typical of many compute solutions that are created with Batch. While it does not demonstrate every feature available in the Batch service, nearly every Batch scenario includes portions of this workflow.
 
@@ -107,7 +102,7 @@ The following diagram illustrates the primary operations that are performed by t
 [**Step 4.**](#step-4-create-batch-job) Create a Batch **job**.<br/>
 [**Step 5.**](#step-5-add-tasks-to-job) Add **tasks** to the job.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** The tasks are scheduled to execute on nodes.<br/>
-	&nbsp;&nbsp;&nbsp;&nbsp;**5b.** Each task downloads its input data from Azure Storage, then begins execution.<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Each task downloads its input data from Azure Storage, then begins execution.<br/>
 [**Step 6.**](#step-6-monitor-tasks) Monitor tasks.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** As tasks are completed, they upload their output data to Azure Storage.<br/>
 [**Step 7.**](#step-7-download-task-output) Download task output from Storage.
@@ -115,7 +110,6 @@ The following diagram illustrates the primary operations that are performed by t
 As mentioned, not every Batch solution performs these exact steps, and may include many more, but this sample demonstrates common processes found in a Batch solution.
 
 ## Prepare client script
-
 Before you run the sample, add your Batch and Storage account credentials to *python_tutorial_client.py*. If you have not done so already, open the file in your favorite editor and update the following lines with your credentials.
 
 ```python
@@ -147,15 +141,14 @@ if __name__ == '__main__':
 ```
 
 ## Step 1: Create Storage containers
-
 ![Create containers in Azure Storage][1]
 <br/>
 
 Batch includes built-in support for interacting with Azure Storage. Containers in your Storage account will provide the files needed by the tasks that run in your Batch account. The containers also provide a place to store the output data that the tasks produce. The first thing the *python_tutorial_client.py* script does is create three containers in [Azure Blob Storage](../storage/storage-introduction.md#blob-storage):
 
-- **application**: This container will store the Python script run by the tasks, *python_tutorial_task.py*.
-- **input**: Tasks will download the data files to process from the *input* container.
-- **output**: When tasks complete input file processing, they will upload the results to the *output* container.
+* **application**: This container will store the Python script run by the tasks, *python_tutorial_task.py*.
+* **input**: Tasks will download the data files to process from the *input* container.
+* **output**: When tasks complete input file processing, they will upload the results to the *output* container.
 
 In order to interact with a Storage account and create containers, we use the [azure-storage][pypi_storage] package to create a [BlockBlobService][py_blockblobservice] object--the "blob client." We then create three containers in the Storage account using the blob client.
 
@@ -178,10 +171,12 @@ In order to interact with a Storage account and create containers, we use the [a
 
 Once the containers have been created, the application can now upload the files that will be used by the tasks.
 
-> [AZURE.TIP] [How to use Azure Blob storage from Python](../storage/storage-python-how-to-use-blob-storage.md) provides a good overview of working with Azure Storage containers and blobs. It should be near the top of your reading list as you start working with Batch.
+> [!TIP]
+> [How to use Azure Blob storage from Python](../storage/storage-python-how-to-use-blob-storage.md) provides a good overview of working with Azure Storage containers and blobs. It should be near the top of your reading list as you start working with Batch.
+> 
+> 
 
 ## Step 2: Upload task script and data files
-
 ![Upload task application and input (data) files to containers][2]
 <br/>
 
@@ -250,28 +245,27 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 ```
 
 ### ResourceFiles
-
 A [ResourceFile][py_resource_file] provides tasks in Batch with the URL to a file in Azure Storage that is downloaded to a compute node before that task is run. The [ResourceFile][py_resource_file].**blob_source** property specifies the full URL of the file as it exists in Azure Storage. The URL may also include a shared access signature (SAS) that provides secure access to the file. Most task types in Batch include a *ResourceFiles* property, including:
 
-- [CloudTask][py_task]
-- [StartTask][py_starttask]
-- [JobPreparationTask][py_jobpreptask]
-- [JobReleaseTask][py_jobreltask]
+* [CloudTask][py_task]
+* [StartTask][py_starttask]
+* [JobPreparationTask][py_jobpreptask]
+* [JobReleaseTask][py_jobreltask]
 
 This sample does not use the JobPreparationTask or JobReleaseTask task types, but you can read more about them in [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
 
 ### Shared access signature (SAS)
-
 Shared access signatures are strings that provide secure access to containers and blobs in Azure Storage. The *python_tutorial_client.py* script uses both blob and container shared access signatures, and demonstrates how to obtain these shared access signature strings from the Storage service.
 
-- **Blob shared access signatures**: The pool's StartTask uses blob shared access signatures when it downloads the task script and input data files from Storage (see [Step #3](#step-3-create-batch-pool) below). The `upload_file_to_container` function in *python_tutorial_client.py* contains the code that obtains each blob's shared access signature. It does so by calling [BlockBlobService.make_blob_url][py_make_blob_url] in the Storage module.
+* **Blob shared access signatures**: The pool's StartTask uses blob shared access signatures when it downloads the task script and input data files from Storage (see [Step #3](#step-3-create-batch-pool) below). The `upload_file_to_container` function in *python_tutorial_client.py* contains the code that obtains each blob's shared access signature. It does so by calling [BlockBlobService.make_blob_url][py_make_blob_url] in the Storage module.
+* **Container shared access signature**: As each task finishes its work on the compute node, it uploads its output file to the *output* container in Azure Storage. To do so, *python_tutorial_task.py* uses a container shared access signature that provides write access to the container. The `get_container_sas_token` function in *python_tutorial_client.py* obtains the container's shared access signature, which is then passed as a command-line argument to the tasks. Step #5, [Add tasks to a job](#step-5-add-tasks-to-job), discusses the usage of the container SAS.
 
-- **Container shared access signature**: As each task finishes its work on the compute node, it uploads its output file to the *output* container in Azure Storage. To do so, *python_tutorial_task.py* uses a container shared access signature that provides write access to the container. The `get_container_sas_token` function in *python_tutorial_client.py* obtains the container's shared access signature, which is then passed as a command-line argument to the tasks. Step #5, [Add tasks to a job](#step-5-add-tasks-to-job), discusses the usage of the container SAS.
-
-> [AZURE.TIP] Check out the two-part series on shared access signatures, [Part 1: Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and use a SAS with the Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
+> [!TIP]
+> Check out the two-part series on shared access signatures, [Part 1: Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and use a SAS with the Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
+> 
+> 
 
 ## Step 3: Create Batch pool
-
 ![Create a Batch pool][3]
 <br/>
 
@@ -361,24 +355,22 @@ def create_pool(batch_service_client, pool_id,
 
 When you create a pool, you define a [PoolAddParameter][py_pooladdparam] that specifies several properties for the pool:
 
-- **ID** of the pool (*id* - required)<p/>As with most entities in Batch, your new pool must have a unique ID within your Batch account. Your code refers to this pool using its ID, and it's how you identify the pool in the Azure [portal][azure_portal].
-
-- **Number of compute nodes** (*target_dedicated* - required)<p/>This property specifies how many VMs should be deployed in the pool. It is important to note that all Batch accounts have a default **quota** that limits the number of **cores** (and thus, compute nodes) in a Batch account. You can find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) (such as the maximum number of cores in your Batch account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If you find yourself asking "Why won't my pool reach more than X nodes?" this core quota may be the cause.
-
-- **Operating system** for nodes (*virtual_machine_configuration* **or** *cloud_service_configuration* - required)<p/>In *python_tutorial_client.py*, we create a pool of Linux nodes using a [VirtualMachineConfiguration][py_vm_config]. The `select_latest_verified_vm_image_with_node_agent_sku` function in `common.helpers` simplifies working with [Azure Virtual Machines Marketplace][vm_marketplace] images. See [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about using Marketplace images.
-
-- **Size of compute nodes** (*vm_size* - required)<p/>Since we're specifying Linux nodes for our [VirtualMachineConfiguration][py_vm_config], we specify a VM size (`STANDARD_A1` in this sample) from [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md). Again, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information.
-
-- **Start task** (*start_task* - not required)<p/>Along with the above physical node properties, you may also specify a [StartTask][py_starttask] for the pool (it is not required). The StartTask executes on each node as that node joins the pool, and each time a node is restarted. The StartTask is especially useful for preparing compute nodes for the execution of tasks, such as installing the applications that your tasks run.<p/>In this sample application, the StartTask copies the files that it downloads from Storage (which are specified by using the StartTask's **resource_files** property) from the StartTask *working directory* to the *shared* directory that all tasks running on the node can access. Essentially, this copies `python_tutorial_task.py` to the shared directory on each node as the node joins the pool, so that any tasks that run on the node can access it.
+* **ID** of the pool (*id* - required)<p/>As with most entities in Batch, your new pool must have a unique ID within your Batch account. Your code refers to this pool using its ID, and it's how you identify the pool in the Azure [portal][azure_portal].
+* **Number of compute nodes** (*target_dedicated* - required)<p/>This property specifies how many VMs should be deployed in the pool. It is important to note that all Batch accounts have a default **quota** that limits the number of **cores** (and thus, compute nodes) in a Batch account. You can find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) (such as the maximum number of cores in your Batch account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If you find yourself asking "Why won't my pool reach more than X nodes?" this core quota may be the cause.
+* **Operating system** for nodes (*virtual_machine_configuration* **or** *cloud_service_configuration* - required)<p/>In *python_tutorial_client.py*, we create a pool of Linux nodes using a [VirtualMachineConfiguration][py_vm_config]. The `select_latest_verified_vm_image_with_node_agent_sku` function in `common.helpers` simplifies working with [Azure Virtual Machines Marketplace][vm_marketplace] images. See [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about using Marketplace images.
+* **Size of compute nodes** (*vm_size* - required)<p/>Since we're specifying Linux nodes for our [VirtualMachineConfiguration][py_vm_config], we specify a VM size (`STANDARD_A1` in this sample) from [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md). Again, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information.
+* **Start task** (*start_task* - not required)<p/>Along with the above physical node properties, you may also specify a [StartTask][py_starttask] for the pool (it is not required). The StartTask executes on each node as that node joins the pool, and each time a node is restarted. The StartTask is especially useful for preparing compute nodes for the execution of tasks, such as installing the applications that your tasks run.<p/>In this sample application, the StartTask copies the files that it downloads from Storage (which are specified by using the StartTask's **resource_files** property) from the StartTask *working directory* to the *shared* directory that all tasks running on the node can access. Essentially, this copies `python_tutorial_task.py` to the shared directory on each node as the node joins the pool, so that any tasks that run on the node can access it.
 
 You may notice the call to the `wrap_commands_in_shell` helper function. This function takes a collection of separate commands and creates a single command line appropriate for a task's command line property.
 
 Also notable in the code snippet above is the use of two environment variables in the **command_line** property of the StartTask: `AZ_BATCH_TASK_WORKING_DIR` and `AZ_BATCH_NODE_SHARED_DIR`. Each compute node within a Batch pool is automatically configured with several environment variables that are specific to Batch. Any process that is executed by a task has access to these environment variables.
 
-> [AZURE.TIP] To find out more about the environment variables that are available on compute nodes in a Batch pool, as well as information on task working directories, see **Environment settings for tasks** and **Files and directories** in the [overview of Azure Batch features](batch-api-basics.md).
+> [!TIP]
+> To find out more about the environment variables that are available on compute nodes in a Batch pool, as well as information on task working directories, see **Environment settings for tasks** and **Files and directories** in the [overview of Azure Batch features](batch-api-basics.md).
+> 
+> 
 
 ## Step 4: Create Batch job
-
 ![Create Batch job][4]<br/>
 
 A Batch **job** is a collection of tasks, and is associated with a pool of compute nodes. The tasks in a job execute on the associated pool's compute nodes.
@@ -413,7 +405,6 @@ def create_job(batch_service_client, job_id, pool_id):
 Now that a job has been created, tasks are added to perform the work.
 
 ## Step 5: Add tasks to job
-
 ![Add tasks to job][5]<br/>
 *(1) Tasks are added to the job, (2) the tasks are scheduled to run on nodes, and (3) the tasks download the data files to process*
 
@@ -463,18 +454,17 @@ def add_tasks(batch_service_client, job_id, input_files,
     batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-> [AZURE.IMPORTANT] When they access environment variables such as `$AZ_BATCH_NODE_SHARED_DIR` or execute an application not found in the node's `PATH`, task command lines must invoke the shell explicitly, such as with `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. This requirement is unnecessary if your tasks execute an application in the node's `PATH` and do not reference any environment variables.
+> [!IMPORTANT]
+> When they access environment variables such as `$AZ_BATCH_NODE_SHARED_DIR` or execute an application not found in the node's `PATH`, task command lines must invoke the shell explicitly, such as with `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. This requirement is unnecessary if your tasks execute an application in the node's `PATH` and do not reference any environment variables.
+> 
+> 
 
 Within the `for` loop in the code snippet above, you can see that the command line for the task is constructed with five command-line arguments that are passed to *python_tutorial_task.py*:
 
 1. **filepath**: This is the local path to the file as it exists on the node. When the ResourceFile object in `upload_file_to_container` was created in Step 2 above, the file name was used for this property (the `file_path` parameter in the ResourceFile constructor). This indicates that the file can be found in the same directory on the node as *python_tutorial_task.py*.
-
 2. **numwords**: The top *N* words should be written to the output file.
-
 3. **storageaccount**: The name of the Storage account that owns the container to which the task output should be uploaded.
-
 4. **storagecontainer**: The name of the Storage container to which the output files should be uploaded.
-
 5. **sastoken**: The shared access signature (SAS) that provides write access to the **output** container in Azure Storage. The *python_tutorial_task.py* script uses this shared access signature when creates its BlockBlobService reference. This provides write access to the container without requiring an access key for the storage account.
 
 ```python
@@ -488,7 +478,6 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
 ```
 
 ## Step 6: Monitor tasks
-
 ![Monitor tasks][6]<br/>
 *The script (1) monitors the tasks for completion status, and (2) the tasks upload result data to Azure Storage*
 
@@ -532,7 +521,6 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
 ```
 
 ## Step 7: Download task output
-
 ![Download task output from Storage][7]<br/>
 
 Now that the job is completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to `download_blobs_from_container` in *python_tutorial_client.py*:
@@ -569,10 +557,12 @@ def download_blobs_from_container(block_blob_client,
     print('  Download complete!')
 ```
 
-> [AZURE.NOTE] The call to `download_blobs_from_container` in *python_tutorial_client.py* specifies that the files should be downloaded to your home directory. Feel free to modify this output location.
+> [!NOTE]
+> The call to `download_blobs_from_container` in *python_tutorial_client.py* specifies that the files should be downloaded to your home directory. Feel free to modify this output location.
+> 
+> 
 
 ## Step 8: Delete containers
-
 Because you are charged for data that resides in Azure Storage, it is always a good idea to remove any blobs that are no longer needed for your Batch jobs. In *python_tutorial_client.py*, this is done with three calls to [BlockBlobService.delete_container][py_delete_container]:
 
 ```
@@ -584,7 +574,6 @@ blob_client.delete_container(output_container_name)
 ```
 
 ## Step 9: Delete the job and the pool
-
 In the final step, you are prompted to delete the job and the pool that were created by the *python_tutorial_client.py* script. Although you are not charged for jobs and tasks themselves, you *are* charged for compute nodes. Thus, we recommend that you allocate nodes only as needed. Deleting unused pools can be part of your maintenance process.
 
 The BatchServiceClient's [JobOperations][py_job] and [PoolOperations][py_pool] both have corresponding deletion methods, which are called if you confirm deletion:
@@ -598,13 +587,18 @@ if query_yes_no('Delete pool?') == 'yes':
     batch_client.pool.delete(_POOL_ID)
 ```
 
-> [AZURE.IMPORTANT] Keep in mind that you are charged for compute resources--deleting unused pools will minimize cost. Also, be aware that deleting a pool deletes all compute nodes within that pool, and that any data on the nodes will be unrecoverable after the pool is deleted.
+> [!IMPORTANT]
+> Keep in mind that you are charged for compute resources--deleting unused pools will minimize cost. Also, be aware that deleting a pool deletes all compute nodes within that pool, and that any data on the nodes will be unrecoverable after the pool is deleted.
+> 
+> 
 
 ## Run the sample script
-
 When you run the *python_tutorial_client.py* script from the tutorial [code sample][github_article_samples], the console output is similar to the following. There is a pause at `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` while the pool's compute nodes are created, started, and the commands in the pool's start task are executed. Use the [Azure portal][azure_portal] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure portal][azure_portal] or the [Microsoft Azure Storage Explorer][storage_explorer] to view the Storage resources (containers and blobs) that are created by the application.
 
->[AZURE.TIP] Run the *python_tutorial_client.py*  script from within the `azure-batch-samples/Python/Batch/article_samples` directory. It uses a relative path for the `common.helpers` module import, so you might see `ImportError: No module named 'common'` if you don't run the the script from within this directory.
+> [!TIP]
+> Run the *python_tutorial_client.py*  script from within the `azure-batch-samples/Python/Batch/article_samples` directory. It uses a relative path for the `common.helpers` module import, so you might see `ImportError: No module named 'common'` if you don't run the the script from within this directory.
+> 
+> 
 
 Typical execution time is **approximately 5-7 minutes** when you run the sample in its default configuration.
 
@@ -637,14 +631,13 @@ Press ENTER to exit...
 ```
 
 ## Next steps
-
 Feel free to make changes to *python_tutorial_client.py* and *python_tutorial_task.py* to experiment with different compute scenarios. For example, try adding an execution delay to *python_tutorial_task.py* to simulate long-running tasks and monitor them in the portal. Try adding more tasks or adjusting the number of compute nodes. Add logic to check for and allow the use of an existing pool to speed execution time.
 
 Now that you're familiar with the basic workflow of a Batch solution, it's time to dig in to the additional features of the Batch service.
 
-- Review the [Overview of Azure Batch features](batch-api-basics.md) article, which we recommend if you're new to the service.
-- Start on the other Batch development articles under **Development in-depth** in the [Batch learning path][batch_learning_path].
-- Check out a different implementation of processing the "top N words" workload with Batch in the [TopNWords][github_topnwords] sample.
+* Review the [Overview of Azure Batch features](batch-api-basics.md) article, which we recommend if you're new to the service.
+* Start on the other Batch development articles under **Development in-depth** in the [Batch learning path][batch_learning_path].
+* Check out a different implementation of processing the "top N words" workload with Batch in the [TopNWords][github_topnwords] sample.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/

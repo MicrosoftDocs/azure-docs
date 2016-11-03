@@ -1,59 +1,48 @@
-<properties
-   pageTitle="Connect a device using C on Windows | Microsoft Azure"
-   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Windows."
-   services=""
-   suite="iot-suite"
-   documentationCenter="na"
-   authors="dominicbetts"
-   manager="timlt"
-   editor=""/>
+---
+title: Connect a device using C on Windows | Microsoft Docs
+description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Windows.
+services: ''
+suite: iot-suite
+documentationcenter: na
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="iot-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="10/05/2016"
-   ms.author="dobett"/>
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/05/2016
+ms.author: dobett
 
-
+---
 # Connect your device to the remote monitoring preconfigured solution (Windows)
-
-[AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
+[!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## Create a C sample solution on Windows
-
 The following steps show you how to use Visual Studio to create a client application written in C that communicates with the Remote Monitoring preconfigured solution.
 
 Create a starter project in Visual Studio 2015 and add the IoT Hub device client NuGet packages:
 
 1. In Visual Studio 2015, create a C console application using the Visual C++ **Win32 Console Application** template. Name the project **RMDevice**.
-
 2. On the **Applications Settings** page in the **Win32 Application Wizard**, ensure that **Console application** is selected, and uncheck **Precompiled header** and **Security Development Lifecycle (SDL) checks**.
-
 3. In **Solution Explorer**, delete the files stdafx.h, targetver.h, and stdafx.cpp.
-
 4. In **Solution Explorer**, rename the file RMDevice.cpp to RMDevice.c.
-
 5. In **Solution Explorer**, right-click on the **RMDevice** project and then click **Manage NuGet packages**. Click **Browse**, then search for and install the following NuGet packages into the project:
-
-    - Microsoft.Azure.IoTHub.Serializer
-    - Microsoft.Azure.IoTHub.IoTHubClient
-    - Microsoft.Azure.IoTHub.HttpTransport
-
+   
+   * Microsoft.Azure.IoTHub.Serializer
+   * Microsoft.Azure.IoTHub.IoTHubClient
+   * Microsoft.Azure.IoTHub.HttpTransport
 6. In **Solution Explorer**, right-click on the **RMDevice** project and then click **Properties** to open the project's **Property Pages** dialog box. For details, see [Setting Visual C++ Project Properties][lnk-c-project-properties]. 
-
 7. Click the **Linker** folder, then click the **Input** property page.
-
 8. Add **crypt32.lib** to the **Additional Dependencies** property. Click **OK** and then **OK** again to save the project property values.
 
 ## Specify the behavior of the IoT Hub device
-
 The IoT Hub client libraries use a model to specify the format of the messages the device sends to IoT Hub and the commands it receives from IoT Hub.
 
 1. In Visual Studio, open the RMDevice.c file. Replace the existing `#include` statements with the following code:
-
+   
     ```
     #include "iothubtransporthttp.h"
     #include "schemalib.h"
@@ -63,61 +52,58 @@ The IoT Hub client libraries use a model to specify the format of the messages t
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
     ```
-
 2. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values for your device from the remote monitoring solution dashboard. Use the IoT Hub Hostname from the dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
-
+   
     ```
     static const char* deviceId = "[Device Id]";
     static const char* deviceKey = "[Device Key]";
     static const char* hubName = "[IoTHub Name]";
     static const char* hubSuffix = "azure-devices.net";
     ```
-
 3. Add the following code to define the model that enables the device to communicate with IoT Hub. This model specifies that the device sends temperature, external temperature, humidity, and a device id as telemetry. The device also sends metadata about the device to IoT Hub, including a list of commands that the device supports. This device responds to the commands **SetTemperature** and **SetHumidity**:
-
+   
     ```
     // Define the Model
     BEGIN_NAMESPACE(Contoso);
-
+   
     DECLARE_STRUCT(SystemProperties,
     ascii_char_ptr, DeviceID,
     _Bool, Enabled
     );
-
+   
     DECLARE_STRUCT(DeviceProperties,
     ascii_char_ptr, DeviceID,
     _Bool, HubEnabledState
     );
-
+   
     DECLARE_MODEL(Thermostat,
-
+   
     /* Event data (temperature, external temperature and humidity) */
     WITH_DATA(int, Temperature),
     WITH_DATA(int, ExternalTemperature),
     WITH_DATA(int, Humidity),
     WITH_DATA(ascii_char_ptr, DeviceId),
-
+   
     /* Device Info - This is command metadata + some extra fields */
     WITH_DATA(ascii_char_ptr, ObjectType),
     WITH_DATA(_Bool, IsSimulatedDevice),
     WITH_DATA(ascii_char_ptr, Version),
     WITH_DATA(DeviceProperties, DeviceProperties),
     WITH_DATA(ascii_char_ptr_no_quotes, Commands),
-
+   
     /* Commands implemented by the device */
     WITH_ACTION(SetTemperature, int, temperature),
     WITH_ACTION(SetHumidity, int, humidity)
     );
-
+   
     END_NAMESPACE(Contoso);
     ```
 
 ## Implement the behavior of the device
-
 Now add code that implements the behavior defined in the model.
 
 1. Add the following functions that execute when the device receives the **SetTemperature** and **SetHumidity** commands from IoT Hub:
-
+   
     ```
     EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
     {
@@ -125,7 +111,7 @@ Now add code that implements the behavior defined in the model.
       thermostat->Temperature = temperature;
       return EXECUTE_COMMAND_SUCCESS;
     }
-
+   
     EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
     {
       (void)printf("Received humidity %d\r\n", humidity);
@@ -133,9 +119,8 @@ Now add code that implements the behavior defined in the model.
       return EXECUTE_COMMAND_SUCCESS;
     }
     ```
-
 2. Add the following function that sends a message to IoT Hub:
-
+   
     ```
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
     {
@@ -154,15 +139,14 @@ Now add code that implements the behavior defined in the model.
         {
           printf("IoTHubClient accepted the message for delivery\r\n");
         }
-
+   
         IoTHubMessage_Destroy(messageHandle);
       }
     free((void*)buffer);
     }
     ```
-
 3. Add the following function that hooks up the serialization library in the SDK:
-
+   
     ```
     static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
     {
@@ -198,9 +182,8 @@ Now add code that implements the behavior defined in the model.
       return result;
     }
     ```
-
 4. Add the following function to connect to IoT Hub, send and receive messages, and disconnect from the hub. Notice how the device sends metadata about itself, including the commands it supports, to IoT Hub when it connects. This metadata enables the solution to update the status of the device to **Running** on the dashboard:
-
+   
     ```
     void remote_monitoring_run(void)
     {
@@ -212,7 +195,7 @@ Now add code that implements the behavior defined in the model.
       {
         IOTHUB_CLIENT_CONFIG config;
         IOTHUB_CLIENT_HANDLE iotHubClientHandle;
-
+   
         config.deviceId = deviceId;
         config.deviceKey = deviceKey;
         config.iotHubName = hubName;
@@ -235,14 +218,14 @@ Now add code that implements the behavior defined in the model.
           else
           {
             STRING_HANDLE commandsMetadata;
-
+   
             if (IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, thermostat) != IOTHUB_CLIENT_OK)
             {
               printf("unable to IoTHubClient_SetMessageCallback\r\n");
             }
             else
             {
-
+   
               /* send the device info upon startup so that the cloud app knows
               what commands are available and the fact that the device is up */
               thermostat->ObjectType = "DeviceInfo";
@@ -250,7 +233,7 @@ Now add code that implements the behavior defined in the model.
               thermostat->Version = "1.0";
               thermostat->DeviceProperties.HubEnabledState = true;
               thermostat->DeviceProperties.DeviceID = (char*)deviceId;
-
+   
               commandsMetadata = STRING_new();
               if (commandsMetadata == NULL)
               {
@@ -268,7 +251,7 @@ Now add code that implements the behavior defined in the model.
                   unsigned char* buffer;
                   size_t bufferSize;
                   thermostat->Commands = (char*)STRING_c_str(commandsMetadata);
-
+   
                   /* Here is the actual send of the Device Info */
                   if (SERIALIZE(&buffer, &bufferSize, thermostat->ObjectType, thermostat->Version, thermostat->IsSimulatedDevice, thermostat->DeviceProperties, thermostat->Commands) != IOT_AGENT_OK)
                   {
@@ -278,24 +261,24 @@ Now add code that implements the behavior defined in the model.
                   {
                     sendMessage(iotHubClientHandle, buffer, bufferSize);
                   }
-
+   
                 }
-
+   
                 STRING_delete(commandsMetadata);
               }
-
+   
               thermostat->Temperature = 50;
               thermostat->ExternalTemperature = 55;
               thermostat->Humidity = 50;
               thermostat->DeviceId = (char*)deviceId;
-
+   
               while (1)
               {
                 unsigned char*buffer;
                 size_t bufferSize;
-
+   
                 (void)printf("Sending sensor value Temperature = %d, Humidity = %d\r\n", thermostat->Temperature, thermostat->Humidity);
-
+   
                 if (SERIALIZE(&buffer, &bufferSize, thermostat->DeviceId, thermostat->Temperature, thermostat->Humidity, thermostat->ExternalTemperature) != IOT_AGENT_OK)
                 {
                   (void)printf("Failed sending sensor value\r\n");
@@ -304,11 +287,11 @@ Now add code that implements the behavior defined in the model.
                 {
                   sendMessage(iotHubClientHandle, buffer, bufferSize);
                 }
-
+   
                 ThreadAPI_Sleep(1000);
               }
             }
-
+   
             DESTROY_MODEL_INSTANCE(thermostat);
           }
           IoTHubClient_Destroy(iotHubClientHandle);
@@ -317,9 +300,9 @@ Now add code that implements the behavior defined in the model.
       }
     }
     ```
-    
+   
     For reference, here is a sample **DeviceInfo** message sent to IoT Hub at startup:
-
+   
     ```
     {
       "ObjectType":"DeviceInfo",
@@ -336,15 +319,15 @@ Now add code that implements the behavior defined in the model.
       ]
     }
     ```
-    
+   
     For reference, here is a sample **Telemetry** message sent to IoT Hub:
-
+   
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
-    
+   
     For reference, here is a sample **Command** received from IoT Hub:
-    
+   
     ```
     {
       "Name":"SetHumidity",
@@ -353,9 +336,8 @@ Now add code that implements the behavior defined in the model.
       "Parameters":{"humidity":23}
     }
     ```
-
 5. Replace the **main** function with following code to invoke the **remote_monitoring_run** function:
-
+   
     ```
     int main()
     {
@@ -363,12 +345,9 @@ Now add code that implements the behavior defined in the model.
       return 0;
     }
     ```
-
 6. Click **Build** and then **Build Solution** to build the device application.
-
 7. In **Solution Explorer**, right-click the **RMDevice** project, click **Debug**, and then click **Start new instance** to run the sample. The console displays messages as the application sends sample telemetry to IoT Hub and receives commands.
 
-[AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
-
+[!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
 [lnk-c-project-properties]: https://msdn.microsoft.com/library/669zx6zc.aspx

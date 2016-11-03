@@ -1,64 +1,58 @@
-<properties 
-   pageTitle="Create a Trading Partner Agreement in Azure App Service | Microsoft Azure" 
-   description="Create Trading Partner Agreements" 
-   services="logic-apps" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajram" 
-   manager="erikre" 
-   editor=""/>
+---
+title: Create a Trading Partner Agreement in Azure App Service | Microsoft Docs
+description: Create Trading Partner Agreements
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: rajram
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-	ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/23/2016"
-   ms.author="rajram"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 08/23/2016
+ms.author: rajram
 
-# Creating a Trading Partner Agreement   
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+---
+# Creating a Trading Partner Agreement
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Trading partners are the entities involved in B2B (Business-to-Business) communications. When two partners establish a relationship, this is referred to as an *Agreement*. The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific. The various B2B protocols and transports supported by Azure App Service include:
 
-- AS2 (Applicability Statement 2)
-- EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport (UN/EDIFACT))
-- X12 (ASC X12)
+* AS2 (Applicability Statement 2)
+* EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport (UN/EDIFACT))
+* X12 (ASC X12)
 
 ### BizTalk API Apps that support B2B scenarios
 The following API Apps enable these capabilities using a rich and intuitive experience in the Azure Portal:
 
-
 ## BizTalk Trading Partner Management (TPM)
-- Creation and management of Partners, Profiles & Identities
-- Storage and management of EDI Schemas
-- Storage and management of certificates (used in AS2 protocol)
-- Creation and management of AS2 Agreements
-- Creation and management of EDIFACT Agreements (includes batching on the send side)
-- Creation and management of X12 Agreements (includes batching on the send side)
+* Creation and management of Partners, Profiles & Identities
+* Storage and management of EDI Schemas
+* Storage and management of certificates (used in AS2 protocol)
+* Creation and management of AS2 Agreements
+* Creation and management of EDIFACT Agreements (includes batching on the send side)
+* Creation and management of X12 Agreements (includes batching on the send side)
 
 ![][1]
 
-
 ## AS2 Connector
-- Executes AS2 Agreements as defined in the related TPM API App instance
-- Surfaces AS2 processing/tracking information for troubleshooting
-
+* Executes AS2 Agreements as defined in the related TPM API App instance
+* Surfaces AS2 processing/tracking information for troubleshooting
 
 ## BizTalk EDIFACT
-- Executes EDIFACT Agreements as defined in the related TPM API App instance
-- Surfaces EDIFACT processing/tracking information for troubleshooting
-- Provides state management of batches (start and stop) as defined in EDIFACT Agreement(s) in the related TPM API App instance
-
+* Executes EDIFACT Agreements as defined in the related TPM API App instance
+* Surfaces EDIFACT processing/tracking information for troubleshooting
+* Provides state management of batches (start and stop) as defined in EDIFACT Agreement(s) in the related TPM API App instance
 
 ## BizTalk X12
-- Executes X12 Agreements as defined in the related TPM API App instance 
-- Surfaces X12 processing/tracking information for troubleshooting
-- Provides state management of batches (start and stop) as defined in X12 Agreement(s) in the related TPM API App instance
+* Executes X12 Agreements as defined in the related TPM API App instance 
+* Surfaces X12 processing/tracking information for troubleshooting
+* Provides state management of batches (start and stop) as defined in X12 Agreement(s) in the related TPM API App instance
 
 As previously stated, the AS2, X12, and EDIFACT API Apps require a TPM API App to function as expected.
-
 
 ## Getting Started
 To create trading partner agreements:
@@ -77,4 +71,4 @@ To create trading partner agreements:
 [1]: ./media/app-service-logic-create-a-trading-partner-agreement/TPMResourceView.png
 [2]: ./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.png
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
- 
+

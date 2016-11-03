@@ -1,141 +1,127 @@
-<properties
-	pageTitle="Azure Government documentation | Microsoft Azure"
-	description="This provides a comparison of features and guidance on developing applications for Azure Government."
-	services="Azure-Government"
-	cloud="gov" 
-	documentationCenter=""
-	authors="brendalee"
-	manager="zakramer"
-	editor=""/>
+---
+title: Azure Government documentation | Microsoft Docs
+description: This provides a comparison of features and guidance on developing applications for Azure Government.
+services: Azure-Government
+cloud: gov
+documentationcenter: ''
+author: brendalee
+manager: zakramer
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="azure-government"
-	ms.date="10/10/2016"
-	ms.author="brendalee"/>
+ms.service: multiple
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: azure-government
+ms.date: 10/10/2016
+ms.author: brendalee
 
-
+---
 # Azure Resource Manager
 For detailed information on Resource Manager providers, API versions, and schemas, please refer [here](../resource-manager-supported-services.md). The following tables list which services are supported through Resource Manager in Azure Government.
 
 ## Compute
-
 | Service | Resource Manager Enabled |
-| ------- | ------------------------ |
-| Batch   | Yes |
-|Container | No |
-| Dynamics Lifecycle Services | No  |
-| Scale Sets | Yes |
-| Service Fabric | Yes  |
-| Virtual Machines | Yes |
+| --- | --- |
+| Batch |Yes |
+| Container |No |
+| Dynamics Lifecycle Services |No |
+| Scale Sets |Yes |
+| Service Fabric |Yes |
+| Virtual Machines |Yes |
 
 ## Networking
-
 | Service | Resource Manager Enabled |
-| ------- | -------  |
-| Application Gateway | Yes |
-| DNS     | Yes |
-| ExpressRoute | Yes  |
-| Load Balancer | Yes  |
-| Traffic Manager | Yes |
-| Virtual Networks | Yes|
-| VPN Gateway | Yes |
+| --- | --- |
+| Application Gateway |Yes |
+| DNS |Yes |
+| ExpressRoute |Yes |
+| Load Balancer |Yes |
+| Traffic Manager |Yes |
+| Virtual Networks |Yes |
+| VPN Gateway |Yes |
 
 ## Data & Storage
-
 | Service | Resource Manager Enabled |
-| ------- | ------- |
-| DocumentDB | No  |
-| Redis Cache | Yes |
-| Search | No  |
-| Storage | Yes  |
-| SQL Database | Yes |
-| SQL Data Warehouse | Yes |
-| StorSimple | No  |
+| --- | --- |
+| DocumentDB |No |
+| Redis Cache |Yes |
+| Search |No |
+| Storage |Yes |
+| SQL Database |Yes |
+| SQL Data Warehouse |Yes |
+| StorSimple |No |
 
 ## Web & Mobile
-
 | Service | Resource Manager Enabled |
-| ------- | ------- |
-| API Apps | Yes |
-| API Management | No  |
-| Logic Apps | No   |
-| Mobile Apps | Yes |
-| Mobile Engagements | No  |
-| Web Apps | Yes |
+| --- | --- |
+| API Apps |Yes |
+| API Management |No |
+| Logic Apps |No |
+| Mobile Apps |Yes |
+| Mobile Engagements |No |
+| Web Apps |Yes |
 
 ## Analytics
-
 | Service | Resource Manager Enabled |
-| ------- | -------  |
-| Data Catalog | No  |
-| Data Factory | No |
-| Data Lake Analytics | No |
-| Data Lake Store | No |
-| HDInsights | No |
-| Machine Learning | No |
-| Power BI | No |
+| --- | --- |
+| Data Catalog |No |
+| Data Factory |No |
+| Data Lake Analytics |No |
+| Data Lake Store |No |
+| HDInsights |No |
+| Machine Learning |No |
+| Power BI |No |
 
 ## Intelligence
-
 | Service | Resource Manager Enabled |
-| ------- | ------- |
-| Cognitive Services | No |
+| --- | --- |
+| Cognitive Services |No |
 
 ## Internet of Things
-
 | Service | Resource Manager Enabled |
-| ------- | ------- |
-| Event Hub | Yes  |
-| IoTHubs | No |
-| Notification Hubs | No |
+| --- | --- |
+| Event Hub |Yes |
+| IoTHubs |No |
+| Notification Hubs |No |
 
 ## Media & CDN
-
 | Service | Resource Manager Enabled |
-| ------- | ------- |
-| CDN | No |
-| Media Service | No |
+| --- | --- |
+| CDN |No |
+| Media Service |No |
 
 ## Hybrid Integration
-
 | Service | Resource Manager Enabled |
-| ------- | ------- |
-| BizTalk Services | No |
-| Recovery Service | Yes (Hyper-V only) |
-| Service Bus | Yes |
+| --- | --- |
+| BizTalk Services |No |
+| Recovery Service |Yes (Hyper-V only) |
+| Service Bus |Yes |
 
 ## Developer Services
-
 | Service | Resource Manager Enabled |
-| ------- | ------- |
-| Application Insights | No  |
-| Bing Maps | No  |
-| DevTest Labs | No |
-| Visual Studio account | No   |
+| --- | --- |
+| Application Insights |No |
+| Bing Maps |No |
+| DevTest Labs |No |
+| Visual Studio account |No |
 
 ## Management and Security
-
 | Service | Resource Manager Enabled |
-| ------- | ------- |
-| Automation | Yes |
-| Key Vault | Yes |
-| Operational Insights | Yes |
-| Scheduler | Yes  |
-| Security (preview) | No |
+| --- | --- |
+| Automation |Yes |
+| Key Vault |Yes |
+| Operational Insights |Yes |
+| Scheduler |Yes |
+| Security (preview) |No |
 
 ## Resource Manager
-
 | Feature | Resource Manager Enabled |
-| ------- | ------- |
-| Authorization | Yes |
-| Resources | Yes |
-
+| --- | --- |
+| Authorization |Yes |
+| Resources |Yes |
 
 ## Next Steps
-
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+

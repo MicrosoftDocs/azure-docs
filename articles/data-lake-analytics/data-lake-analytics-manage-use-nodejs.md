@@ -1,49 +1,44 @@
-<properties
-   pageTitle="Manage Azure Data Lake Analytics using Azure SDK for Node.js | Azure"
-   description="Learn how to manage Data Lake Analytics accounts, data sources, jobs and users using Azure SDK for Node.js"
-   services="data-lake-analytics"
-   documentationCenter=""
-   authors="edmacauley"
-   manager="jhubbard"
-   editor="cgronlun"/>
+---
+title: Manage Azure Data Lake Analytics using Azure SDK for Node.js | Microsoft Docs
+description: Learn how to manage Data Lake Analytics accounts, data sources, jobs and users using Azure SDK for Node.js
+services: data-lake-analytics
+documentationcenter: ''
+author: edmacauley
+manager: jhubbard
+editor: cgronlun
 
-<tags
-   ms.service="data-lake-analytics"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="05/16/2016"
-   ms.author="edmaca"/>
+ms.service: data-lake-analytics
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 05/16/2016
+ms.author: edmaca
 
+---
 # Manage Azure Data Lake Analytics using Azure SDK for Node.js
-
-
-[AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 The Azure SDK for Node.js can be used for managing Azure Data Lake Analytics accounts, jobs and catalogs. To see management topic using other tools, click the tab select above.
 
 Right now it supports:
 
-  *  **Node.js version: 0.10.0 or higher**
-  *  **REST API version for Account: 2015-10-01-preview**
-  *  **REST API version for Catalog: 2015-10-01-preview**
-  *  **REST API version for Job: 2016-03-20-preview**
+* **Node.js version: 0.10.0 or higher**
+* **REST API version for Account: 2015-10-01-preview**
+* **REST API version for Catalog: 2015-10-01-preview**
+* **REST API version for Job: 2016-03-20-preview**
 
 ## Features
-
-- Account management: create, get, list, update, and delete.
-- Job management: submit, get, list, cancel.
-- Catalog management: get, list, create (secrets), update (secrets), delete (secrets).
+* Account management: create, get, list, update, and delete.
+* Job management: submit, get, list, cancel.
+* Catalog management: get, list, create (secrets), update (secrets), delete (secrets).
 
 ## How to Install
-
 ```bash
 npm install azure-arm-datalake-analytics
 ```
 
 ## Authenticate using Azure Active Directory
-
  ```javascript
  var msrestAzure = require('ms-rest-azure');
  //user authentication
@@ -53,7 +48,6 @@ npm install azure-arm-datalake-analytics
  ```
 
 ## Create the Data Lake Analytics client
-
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
 var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
@@ -62,7 +56,6 @@ var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credential
 ```
 
 ## Create a Data Lake Analytics account
-
 ```javascript
 var util = require('util');
 var resourceGroupName = 'testrg';
@@ -112,7 +105,6 @@ client.account.create(resourceGroupName, accountName, accountToCreate, function 
 ```
 
 ## Get a list of jobs
-
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -139,6 +131,6 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 ```
 
 ## See also
+* [Microsoft Azure SDK for Node.js](https://github.com/azure/azure-sdk-for-node)
+* [Microsoft Azure SDK for Node.js - Data Lake Store Management](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 
-- [Microsoft Azure SDK for Node.js](https://github.com/azure/azure-sdk-for-node)
-- [Microsoft Azure SDK for Node.js - Data Lake Store Management](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)

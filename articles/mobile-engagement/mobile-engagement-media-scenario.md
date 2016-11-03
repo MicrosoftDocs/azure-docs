@@ -1,25 +1,23 @@
-<properties 
-	pageTitle="Azure Mobile Engagement implementation for Media App"
-	description="Media app scenario to implement Azure Mobile Engagement" 
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+---
+title: Azure Mobile Engagement implementation for Media App
+description: Media app scenario to implement Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-engagement"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.workload="mobile" 
-	ms.date="08/19/2016"
-	ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
-#Implement Mobile Engagement with Media App
-
+---
+# Implement Mobile Engagement with Media App
 ## Overview
-
 John is a mobile project manager for a big media company. He recently launched a new app that has a very high download count. He has hit his goals for download but, still his Return On Investment(ROI) per user does not meet his requirements. 
 
 John has already identified why his ROI is too low. Users frequently stop using his app after only 2 weeks and most of them never come back. He wants to increase the retention of his app.
@@ -28,8 +26,7 @@ After some initial testing, he has learned when he engages his users with push n
 
 John has recently read the [Azure Mobile Engagement - Getting Started Guide with Best practices](mobile-engagement-getting-started-best-practices.md) and has decided to implement the recommendations from the guide.
 
-##Objectives and KPIs
-
+## Objectives and KPIs
 Key stakeholders for John's app meet. Business is generated from ads as users consume his media. By increasing content consumed per user, John increases his revenues. All agree on one main objective: To increase sales from ads by 25%. They create Business Key Performance Indicators (KPIs) to measure and drive this objective
 
 * Number of ads clicked per user
@@ -55,9 +52,8 @@ Based on recommendations from the IT team, the following Technical KPIs were add
 For each KPI, he classifies the data required and he records it in the proper location of his playbook.
 
 ## Engagement program and integration
-
 Now that John has finished defining his KPIs, he starts his Engagement strategy phase by defining 4 engagement programs and their objectives:
-	![][1]
+    ![][1]
 
 Then John goes deeper by detailing push notifications for each program. Push notification are defined by five elements:
 
@@ -66,15 +62,14 @@ Then John goes deeper by detailing push notifications for each program. Push not
 3. Target: who will receive the notification?
 4. Content: What is the wording and the format of the notification (In App/Out of App)
 5. When: what is the best moment to send this push notification
-
-	![][2]
+   
+    ![][2]
 
 For more information refer to the [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks).
 
 According to the part 2 of the white paper John uses target section to define what data he has to collect and writes his Tag Plan jointly with IT team to implement the solution. After 1 week of implementation and user acceptance testing, John can finally launch his programs.
 
-##Program Results
-
+## Program Results
 4 months later, John reviews performances of programs. The Welcome Program and the Weekly Program are meeting his goals. The number of user with only one session decreases, more features of the app are being used and the number of connections per week has doubled.
 
 The **Inactive Program** is helping John understand user tendencies. It appears that 15% of the inactive users come back to the app. However most of them don’t stay active more than 1 month. John foresees a potential optimization of this sequence with additional notifications and expanding his content choices.
@@ -86,10 +81,8 @@ John decides to use the Reach API which is an HTTP REST API that allows managing
 To ensure that feature works correctly, John asks IT team to be vigilant on the following points:
 
 1. **Operation Systems** : They all have their own rules to administrate push notifications, so John decides to list all cases and checks if the APIs handle it.
-E.g : Android push system allows big picture which is not the case with iOS.
-
+   E.g : Android push system allows big picture which is not the case with iOS.
 2. **Time frame**: John wants an API, which set the time frame and set an end to campaigns. He wants to preserve users from any disruptive notification bombing.
-
 3. **Categories**: Marketing team prepares template for each type of alerting. John asks IT team to set categories inside the API.
 
 After some tests John is satisfied. Thanks to this API, journalists can still send push notifications with their CMS and Azure Mobile Engagement collects all behavioral data for them
