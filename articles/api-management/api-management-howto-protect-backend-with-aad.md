@@ -177,7 +177,7 @@ Make a note of the **App Id URI** for use in a subsequent step when an Azure AD 
 
 ## Import the Web API into API Management
 
-APIs are configured from the API publisher portal, which is accessed through the Azure Classic Portal. To reach the publisher portal, click **Manage** in the Azure Classic Portal for your API Management service. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Manage your first API][] tutorial.
+APIs are configured from the API publisher portal, which is accessed through the Azure Portal. To reach it, click **Publisher portal** from the toolbar of your API Management service. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Manage your first API][] tutorial.
 
 ![Publisher portal][api-management-management-console]
 

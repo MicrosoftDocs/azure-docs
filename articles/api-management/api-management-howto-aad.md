@@ -26,7 +26,7 @@ This guide shows you how to enable access to the developer portal for all users 
 
 ## How to authorize developer accounts using Azure Active Directory
 
-To get started, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
+To get started, click **Publisher portal** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![Publisher portal][api-management-management-console]
 
