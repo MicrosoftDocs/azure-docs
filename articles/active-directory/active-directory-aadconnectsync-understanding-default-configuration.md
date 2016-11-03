@@ -1,20 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect sync: Understanding the default configuration | Microsoft Azure"
-    description="This article describes the default configuration in Azure AD Connect sync."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-	ms.topic="article"
-    ms.date="09/01/2016"
-    ms.author="andkjell"/>
+---
+title: 'Azure AD Connect sync: Understanding the default configuration | Microsoft Docs'
+description: This article describes the default configuration in Azure AD Connect sync.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
+ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/01/2016
+ms.author: billmath
+
+---
 # Azure AD Connect sync: Understanding the default configuration
 This article explains the out-of-box configuration rules. It documents the rules and how these rules impact the configuration. It also walks you through the default configuration of Azure AD Connect sync. The goal is that the reader understands how the configuration model, named declarative provisioning, is working in a real-world example. This article assumes that you have already installed and configure Azure AD Connect sync using the installation wizard.
 
@@ -28,74 +30,74 @@ These rules also apply to the iNetOrgPerson object type.
 
 A user object must satisfy the following to be synchronized:
 
-- Must have a sourceAnchor.
-- After the object has been created in Azure AD, then sourceAnchor cannot change. If the value is changed on-premises, the object stops synchronizing until the sourceAnchor is changed back to its previous value.
-- Must have the accountEnabled (userAccountControl) attribute populated. With an on-premises Active Directory, this attribute is always present and populated.
+* Must have a sourceAnchor.
+* After the object has been created in Azure AD, then sourceAnchor cannot change. If the value is changed on-premises, the object stops synchronizing until the sourceAnchor is changed back to its previous value.
+* Must have the accountEnabled (userAccountControl) attribute populated. With an on-premises Active Directory, this attribute is always present and populated.
 
 The following user objects are **not** synchronized to Azure AD:
 
-- `IsPresent([isCriticalSystemObject])`. Ensure many out-of-box objects in Active Directory, such as the built-in administrator account, are not synchronized.
-- `IsPresent([sAMAccountName]) = False`. Ensure user objects with no sAMAccountName attribute are not synchronized. This case would only practically happen in a domain upgraded from NT4.
-- `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. Do not synchronize the service account used by Azure AD Connect sync and its earlier versions.
-- Do not synchronize Exchange accounts that would not work in Exchange Online.
-    - `[sAMAccountName] = "SUPPORT_388945a0"`
-    - `Left([mailNickname], 14) = "SystemMailbox{"`
-    - `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`
-    - `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
-- Do not synchronize objects that would not work in Exchange Online.
-`CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
-This bitmask (&H21C07000) would filter out the following objects:
-    - Mail-enabled Public Folder
-    - System Attendant Mailbox
-    - Mailbox Database Mailbox (System Mailbox)
-    - Universal Security Group (wouldn't apply for a user, but is present for legacy reasons)
-    - Non-Universal Group (wouldn't apply for a user, but is present for legacy reasons)
-    - Mailbox Plan
-    - Discovery Mailbox
-- `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Do not synchronize any replication victim objects.
+* `IsPresent([isCriticalSystemObject])`. Ensure many out-of-box objects in Active Directory, such as the built-in administrator account, are not synchronized.
+* `IsPresent([sAMAccountName]) = False`. Ensure user objects with no sAMAccountName attribute are not synchronized. This case would only practically happen in a domain upgraded from NT4.
+* `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. Do not synchronize the service account used by Azure AD Connect sync and its earlier versions.
+* Do not synchronize Exchange accounts that would not work in Exchange Online.
+  * `[sAMAccountName] = "SUPPORT_388945a0"`
+  * `Left([mailNickname], 14) = "SystemMailbox{"`
+  * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`
+  * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
+* Do not synchronize objects that would not work in Exchange Online.
+  `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
+  This bitmask (&H21C07000) would filter out the following objects:
+  * Mail-enabled Public Folder
+  * System Attendant Mailbox
+  * Mailbox Database Mailbox (System Mailbox)
+  * Universal Security Group (wouldn't apply for a user, but is present for legacy reasons)
+  * Non-Universal Group (wouldn't apply for a user, but is present for legacy reasons)
+  * Mailbox Plan
+  * Discovery Mailbox
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Do not synchronize any replication victim objects.
 
 The following attribute rules apply:
 
-- `sourceAnchor <- IIF([msExchRecipientTypeDetails]=2,NULL,..)`. The sourceAnchor attribute is not contributed from a linked mailbox. It is assumed that if a linked mailbox has been found, the actual account is joined later.
-- Exchange related attributes are only synchronized if the attribute **mailNickName** has a value.
-- When there are multiple forests, then attributes are consumed in the following order:
-    1. Attributes related to sign-in (for example userPrincipalName) are contributed from the forest with an enabled account.
-    2. Attributes that can be found in an Exchange GAL (Global Address List) are contributed from the forest with an Exchange Mailbox.
-    3. If no mailbox can be found, then these attributes can come from any forest.
-    4. Exchange related attributes (technical attributes not visible in the GAL) are contributed from the forest where `mailNickname ISNOTNULL`.
-    5. If there are multiple forests that would satisfy one of these rules, then the creation order (date/time) of the Connectors (forests) is used to determine which forest contributes the attributes.
+* `sourceAnchor <- IIF([msExchRecipientTypeDetails]=2,NULL,..)`. The sourceAnchor attribute is not contributed from a linked mailbox. It is assumed that if a linked mailbox has been found, the actual account is joined later.
+* Exchange related attributes are only synchronized if the attribute **mailNickName** has a value.
+* When there are multiple forests, then attributes are consumed in the following order:
+  1. Attributes related to sign-in (for example userPrincipalName) are contributed from the forest with an enabled account.
+  2. Attributes that can be found in an Exchange GAL (Global Address List) are contributed from the forest with an Exchange Mailbox.
+  3. If no mailbox can be found, then these attributes can come from any forest.
+  4. Exchange related attributes (technical attributes not visible in the GAL) are contributed from the forest where `mailNickname ISNOTNULL`.
+  5. If there are multiple forests that would satisfy one of these rules, then the creation order (date/time) of the Connectors (forests) is used to determine which forest contributes the attributes.
 
 ### Contact out-of-box rules
 A contact object must satisfy the following to be synchronized:
 
-- The contact must be mail-enabled. It is verified with the following rules:
-    - `IsPresent([proxyAddresses]) = True)`. The proxyAddresses attribute must be populated.
-    - A primary email address can be found in either the proxyAddresses attribute or the mail attribute. The presence of an @ is used to verify that the content is an email address. One of these two rules must be evaluated to True.
-        - `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Is there an entry with "SMTP:" and if there is, can an @ be found in the string?
-        - `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Is the mail attribute populated and if it is, can an @ be found in the string?
+* The contact must be mail-enabled. It is verified with the following rules:
+  * `IsPresent([proxyAddresses]) = True)`. The proxyAddresses attribute must be populated.
+  * A primary email address can be found in either the proxyAddresses attribute or the mail attribute. The presence of an @ is used to verify that the content is an email address. One of these two rules must be evaluated to True.
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Is there an entry with "SMTP:" and if there is, can an @ be found in the string?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Is the mail attribute populated and if it is, can an @ be found in the string?
 
 The following contact objects are **not** synchronized to Azure AD:
 
-- `IsPresent([isCriticalSystemObject])`. Ensure no contact objects marked as critical are synchronized. Shouldn't be any with a default configuration.
-- `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
-- `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. These objects wouldn't work in Exchange Online.
-- `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Do not synchronize any replication victim objects.
+* `IsPresent([isCriticalSystemObject])`. Ensure no contact objects marked as critical are synchronized. Shouldn't be any with a default configuration.
+* `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
+* `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. These objects wouldn't work in Exchange Online.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Do not synchronize any replication victim objects.
 
 ### Group out-of-box rules
 A group object must satisfy the following to be synchronized:
 
-- Must have less than 50,000 members. This count is the number of members in the on-premises group.
-    - If it has more members before synchronization starts the first time, the group is not synchronized.
-    - If the number of members grow from when it was initially created, then when it reaches 50,000 members it stops synchronizing until the membership count is lower than 50,000 again.
-    - Note: The 50,000 membership count is also enforced by Azure AD. You are not able to synchronize groups with more members even if you modify or remove this rule.
-- If the group is a **Distribution Group**, then it must also be mail enabled. See [Contact out-of-box rules](#contact-out-of-box-rules) for this rule is enforced.
+* Must have less than 50,000 members. This count is the number of members in the on-premises group.
+  * If it has more members before synchronization starts the first time, the group is not synchronized.
+  * If the number of members grow from when it was initially created, then when it reaches 50,000 members it stops synchronizing until the membership count is lower than 50,000 again.
+  * Note: The 50,000 membership count is also enforced by Azure AD. You are not able to synchronize groups with more members even if you modify or remove this rule.
+* If the group is a **Distribution Group**, then it must also be mail enabled. See [Contact out-of-box rules](#contact-out-of-box-rules) for this rule is enforced.
 
 The following group objects are **not** synchronized to Azure AD:
 
-- `IsPresent([isCriticalSystemObject])`. Ensure many out-of-box objects in Active Directory, such as the built-in administrators group, are not synchronized.
-- `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. Legacy group used by DirSync.
-- `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Role Group.
-- `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Do not synchronize any replication victim objects.
+* `IsPresent([isCriticalSystemObject])`. Ensure many out-of-box objects in Active Directory, such as the built-in administrators group, are not synchronized.
+* `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. Legacy group used by DirSync.
+* `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Role Group.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Do not synchronize any replication victim objects.
 
 ### ForeignSecurityPrincipal out-of-box rules
 FSPs are joined to "any" (\*) object in the metaverse. In reality, this join only happens for users and security groups. This configuration ensures that cross-forest memberships are resolved and represented correctly in Azure AD.
@@ -103,7 +105,7 @@ FSPs are joined to "any" (\*) object in the metaverse. In reality, this join onl
 ### Computer out-of-box rules
 A computer object must satisfy the following to be synchronized:
 
-- `userCertificate ISNOTNULL`. Only Windows 10 computers populate this attribute. All computer objects with a value in this attribute are synchronized.
+* `userCertificate ISNOTNULL`. Only Windows 10 computers populate this attribute. All computer objects with a value in this attribute are synchronized.
 
 ## Understanding the out-of-box rules scenario
 In this example, we are using a deployment with one account forest (A), one resource forest (R), and one Azure AD directory.
@@ -114,9 +116,9 @@ In this configuration, it is assumed there is an enabled account in the account 
 
 Our goal with the default configuration is:
 
-- Attributes related to sign-in are synchronized from the forest with the enabled account.
-- Attributes that can be found in the GAL (Global Address List) are synchronized from the forest with the mailbox. If no mailbox can be found, any other forest is used.
-- If a linked mailbox is found, the linked enabled account must be found for the object to be exported to Azure AD.
+* Attributes related to sign-in are synchronized from the forest with the enabled account.
+* Attributes that can be found in the GAL (Global Address List) are synchronized from the forest with the mailbox. If no mailbox can be found, any other forest is used.
+* If a linked mailbox is found, the linked enabled account must be found for the object to be exported to Azure AD.
 
 ### Synchronization Rule Editor
 The configuration can be viewed and changed with the tool Synchronization Rules Editor (SRE) and a shortcut to it can be found in the start menu.
@@ -182,9 +184,9 @@ To put this configuration in context, in an Account-Resource forest deployment, 
 
 A transformation can have different types: Constant, Direct, and Expression.
 
-- A constant flow always flows a hardcoded value. In the case above, it always sets the value **True** in the metaverse attribute named **accountEnabled**.
-- A direct flow always flows the value of the attribute in the source to the target attribute as-is.
-- The third flow type is Expression and it allows for more advanced configurations.
+* A constant flow always flows a hardcoded value. In the case above, it always sets the value **True** in the metaverse attribute named **accountEnabled**.
+* A direct flow always flows the value of the attribute in the source to the target attribute as-is.
+* The third flow type is Expression and it allows for more advanced configurations.
 
 The expression language is VBA (Visual Basic for Applications), so people with experience of Microsoft Office or VBScript will recognize the format. Attributes are enclosed in square brackets, [attributeName]. Attribute names and function names are case-sensitive, but the Synchronization Rules Editor evaluates the expressions and provide a warning if the expression is not valid. All expressions are expressed on a single line with nested functions. To show the power of the configuration language, here is the flow for pwdLastSet, but with additional comments inserted:
 
@@ -212,23 +214,23 @@ The precedence for Synchronization Rules is set in groups by the installation wi
 ### Putting it all together
 We now know enough about Synchronization Rules to be able to understand how the configuration works with the different Synchronization Rules. If you look at a user and the attributes that are contributed to the metaverse, the rules are applied in the following order:
 
-Name | Comment
-:------------- | :-------------
-In from AD – User Join | Rule for joining connector space objects with metaverse.
-In from AD – UserAccount Enabled | Attributes required for sign-in to Azure AD and Office 365. We want these attributes from the enabled account.
-In from AD – User Common from Exchange | Attributes found in the Global Address List. We assume the data quality is best in the forest where we have found the user’s mailbox.
-In from AD – User Common | Attributes found in the Global Address List. In case we didn’t find a mailbox, any other joined object can contribute the attribute value.
-In from AD – User Exchange | Only exists if Exchange has been detected. It flows all infrastructure Exchange attributes.
-In from AD – User Lync | Only exists if Lync has been detected. It flows all infrastructure Lync attributes.
+| Name | Comment |
+|:--- |:--- |
+| In from AD – User Join |Rule for joining connector space objects with metaverse. |
+| In from AD – UserAccount Enabled |Attributes required for sign-in to Azure AD and Office 365. We want these attributes from the enabled account. |
+| In from AD – User Common from Exchange |Attributes found in the Global Address List. We assume the data quality is best in the forest where we have found the user’s mailbox. |
+| In from AD – User Common |Attributes found in the Global Address List. In case we didn’t find a mailbox, any other joined object can contribute the attribute value. |
+| In from AD – User Exchange |Only exists if Exchange has been detected. It flows all infrastructure Exchange attributes. |
+| In from AD – User Lync |Only exists if Lync has been detected. It flows all infrastructure Lync attributes. |
 
 ## Next steps
-
-- Read more about the configuration model in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
-- Read more about the expression language in [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
-- Continue reading how the out-of-box configuration works in [Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md)
-- See how to make a practical change using declarative provisioning in [How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md).
+* Read more about the configuration model in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+* Read more about the expression language in [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+* Continue reading how the out-of-box configuration works in [Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md)
+* See how to make a practical change using declarative provisioning in [How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md).
 
 **Overview topics**
 
-- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+

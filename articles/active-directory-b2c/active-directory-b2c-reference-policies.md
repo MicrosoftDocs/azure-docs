@@ -1,32 +1,31 @@
-<properties
-	pageTitle="Azure Active Directory B2C: Extensible policy framework | Microsoft Azure"
-	description="A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+---
+title: 'Azure Active Directory B2C: Extensible policy framework | Microsoft Docs'
+description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types
+services: active-directory-b2c
+documentationcenter: ''
+author: swkrish
+manager: mbaldwin
+editor: bryanla
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+ms.assetid: 0d453e72-7f70-4aa2-953d-938d2814d5a9
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/24/2016
+ms.author: swkrish
 
+---
 # Azure Active Directory B2C: Extensible policy framework
-
 ## The basics
-
 The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe consumer identity experiences such as sign-up, sign-in or profile editing. For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
 
-- Account types (social accounts such as Facebook, or local accounts such as email address) that consumers can use to sign up for the application.
-- Attributes (for example, first name, postal code, and shoe size) to be collected from the consumer during sign-up.
-- Use of Multi-Factor Authentication.
-- The look-and-feel of all sign-up pages.
-- Information (which manifests as claims in a token) that the application receives when the policy run finishes.
+* Account types (social accounts such as Facebook, or local accounts such as email address) that consumers can use to sign up for the application.
+* Attributes (for example, first name, postal code, and shoe size) to be collected from the consumer during sign-up.
+* Use of Multi-Factor Authentication.
+* The look-and-feel of all sign-up pages.
+* Information (which manifests as claims in a token) that the application receives when the policy run finishes.
 
 You can create multiple policies of different types in your tenant and use them in your applications as needed. Policies can be reused across applications. This allows developers to define and modify consumer identity experiences with minimal or no changes to their code.
 
@@ -63,7 +62,6 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 For more details about the policy framework, see this [blog post](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
 ## Create a sign-up policy
-
 To enable sign-up on your application, you will need to create a sign-up policy. This policy describes the experiences that consumers will go through during sign-up and the contents of tokens that the application will receive on successful sign-ups.
 
 1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -77,12 +75,13 @@ To enable sign-up on your application, you will need to create a sign-up policy.
 9. Open the policy by clicking "**B2C_1_SiUp**".
 10. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
 11. Click **Run now**. A new browser tab opens, and you can run through the consumer experience of signing up for your application.
-
-    > [AZURE.NOTE]
-    It takes up to a minute for policy creation and updates to take effect.
+    
+    > [!NOTE]
+    > It takes up to a minute for policy creation and updates to take effect.
+    > 
+    > 
 
 ## Create a sign-in policy
-
 To enable sign-in on your application, you will need to create a sign-in policy. This policy describes the experiences that consumers will go through during sign-in and the contents of tokens that the application will receive on successful sign-ins.
 
 1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -95,12 +94,13 @@ To enable sign-in on your application, you will need to create a sign-in policy.
 8. Open the policy by clicking "**B2C_1_SiIn**".
 9. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
 10. Click **Run now**. A new browser tab opens, and you can run through the consumer experience of signing into your application.
-
-    > [AZURE.NOTE]
-    It takes up to a minute for policy creation and updates to take effect.
+    
+    > [!NOTE]
+    > It takes up to a minute for policy creation and updates to take effect.
+    > 
+    > 
 
 ## Create a sign-up or sign-in policy
-
 This policy handles both consumer sign-up & sign-in experiences with a single configuration. Consumers are led down the right path (sign-up or sign-in) depending on the context. It also describes the contents of tokens that the application will receive upon successful sign-ups or sign-ins.  A code sample for the sign-up or sign-in policy is [available here](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
 
 1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -114,12 +114,13 @@ This policy handles both consumer sign-up & sign-in experiences with a single co
 9. Open the policy by clicking "**B2C_1_SiUpIn**".
 10. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
 11. Click **Run now**. A new browser tab opens, and you can run through the sign-up or sign-in consumer experience as configured.
-
-    > [AZURE.NOTE]
-    It takes up to a minute for policy creation and updates to take effect.
+    
+    > [!NOTE]
+    > It takes up to a minute for policy creation and updates to take effect.
+    > 
+    > 
 
 ## Create a profile editing policy
-
 To enable profile editing on your application, you will need to create a profile editing policy. This policy describes the experiences that consumers will go through during profile editing and the contents of tokens that the application will receive on successful completion.
 
 1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -133,12 +134,13 @@ To enable profile editing on your application, you will need to create a profile
 9. Open the policy by clicking "**B2C_1_SiPe**".
 10. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
 11. Click **Run now**. A new browser tab opens, and you can run through the profile editing consumer experience in your application.
-
-    > [AZURE.NOTE]
-    It takes up to a minute for policy creation and updates to take effect.
     
-## Create a password reset policy
+    > [!NOTE]
+    > It takes up to a minute for policy creation and updates to take effect.
+    > 
+    > 
 
+## Create a password reset policy
 To enable fine-grained password reset on your application, you will need to create a password reset policy. Note that the tenant-wide password reset option specified [here](active-directory-b2c-reference-sspr.md) is still applicable for sign-in policies. This policy describes the experiences that the consumers will go through during password reset and the contents of tokens that the application will receive on successful completion.
 
 1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -151,10 +153,12 @@ To enable fine-grained password reset on your application, you will need to crea
 8. Open the policy by clicking "**B2C_1_SSPR**".
 9. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
 10. Click **Run now**. A new browser tab opens, and you can run through the password reset consumer experience in your application.
-
-    > [AZURE.NOTE]
-    It takes up to a minute for policy creation and updates to take effect.
+    
+    > [!NOTE]
+    > It takes up to a minute for policy creation and updates to take effect.
+    > 
+    > 
 
 ## Additional resources
+* [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).
 
-- [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).

@@ -1,23 +1,23 @@
-<properties
-   pageTitle="Resource Manager Template Walkthrough | Microsoft Azure"
-   description="A step by step walkthrough of a resource manager template provisioning a basic Azure IaaS architecture."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="navalev"
-   manager=""
-   editor=""/>
+---
+title: Resource Manager Template Walkthrough | Microsoft Docs
+description: A step by step walkthrough of a resource manager template provisioning a basic Azure IaaS architecture.
+services: azure-resource-manager
+documentationcenter: na
+author: navalev
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/04/2016"
-   ms.author="navale;tomfitz"/>
-   
+ms.assetid: f1cfd704-f6e1-47d5-8094-b439c279c13f
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/04/2016
+ms.author: navale;tomfitz
+
+---
 # Resource Manager template walkthrough
-
 One of the first questions when creating a template is "how to start?". One can start from a blank template, following the basic structure described in [Authoring Template article](resource-group-authoring-templates.md#template-format), and add the resources and appropriate parameters and variables. A good alternative would be to start by going through the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) and look for similar scenarios to the one you are trying to create. You can merge several templates or edit an existing one to suit your own specific scenario. 
 
 Let's take a look at a common infrastructure:
@@ -32,10 +32,12 @@ This topic walks you through the steps of creating a Resource Manager template f
 
 But, that's a lot to build all at once, so let's first create a storage account and deploy it. After you have mastered creating the storage account, you will add the other resources and re-deploy the template to complete the infrastructure.
 
->[AZURE.NOTE] You can use any type of editor when creating the template. Visual Studio provides tools that simplify template development, but you do not need Visual Studio to complete this tutorial. For a tutorial on using Visual Studio to create a Web App and SQL Database deployment, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
+> [!NOTE]
+> You can use any type of editor when creating the template. Visual Studio provides tools that simplify template development, but you do not need Visual Studio to complete this tutorial. For a tutorial on using Visual Studio to create a Web App and SQL Database deployment, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
+> 
+> 
 
 ## Create the Resource Manager template
-
 The template is a JSON file that defines all of the resources you will deploy. It also permits you to define parameters that are specified during deployment, variables that constructed from other values and expressions, and outputs from the deployment. 
 
 Let's start with the simplest template:
@@ -79,7 +81,7 @@ You can learn more about the use of parameters at [Parameters](resource-group-au
 
 ```json
 "parameters" : {
-	"storageAccountName": {
+    "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Storage Account Name"
@@ -97,7 +99,7 @@ We have a full template for creating a new storage account. As you recall, the t
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters" : {
-	"storageAccountName": {
+    "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Storage Account Name"
@@ -162,14 +164,15 @@ The value you specify for **type** contains both the resource provider and the r
 ```
 
 Or, if you are using Azure CLI, you can run the following command:
+
 ```
     azure provider list
 ```
 Given that in this topic you are creating with storage accounts, virtual machines, and virtual networking, you will work with:
 
-- Microsoft.Storage
-- Microsoft.Compute
-- Microsoft.Network
+* Microsoft.Storage
+* Microsoft.Compute
+* Microsoft.Network
 
 To see the resource types for a particular provider, run the following PowerShell command:
 
@@ -389,7 +392,7 @@ You will create 2 virtual machines, using copyIndex() function, as you did in cr
 The VM creation depends on the storage account, network interface and availability set. This VM will be created from a marketplace image, as defined in the `storageProfile` property - `imageReference` is used to define the image publisher, offer, sku and version. 
 Finally, a diagnostic profile is configured to enable diagnostics for the VM. 
 
-To find the relevant properties for a marketplace image, follow the [select Linux virtual machine images](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) or [select Windows virtual machine images](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md) articles.
+To find the relevant properties for a marketplace image, follow the [select Linux virtual machine images](virtual-machines/virtual-machines-linux-cli-ps-findimage.md) or [select Windows virtual machine images](virtual-machines/virtual-machines-windows-cli-ps-findimage.md) articles.
 
 ```json
 {
@@ -450,12 +453,14 @@ To find the relevant properties for a marketplace image, follow the [select Linu
 }
 ```
 
->[AZURE.NOTE] For images published by **3rd party vendors**, you will need to specify another property named `plan`. An example can be found in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) from the quickstart gallery. 
+> [!NOTE]
+> For images published by **3rd party vendors**, you will need to specify another property named `plan`. An example can be found in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) from the quickstart gallery. 
+> 
+> 
 
 You have finished defining the resources for your template.
 
 ## Parameters
-
 In the parameters section, define the values that can be specified when deploying the template. Only define parameters for values that you think should be varied during deployment. You can provide a default value for a parameter that is used if one is not provided during deployment. You can also define the allowed values as shown for the **imageSKU** parameter.
 
 ```json
@@ -556,7 +561,6 @@ In the parameters section, define the values that can be specified when deployin
 ```
 
 ## Variables
-
 In the variables section, you can define values that are used in more than one place in your template, or values that are constructed from other expressions or variables. Variables are frequently used to simplify the syntax of your template.
 
 ```json
@@ -579,7 +583,8 @@ You have completed the template! You can compare your template against the full 
 You can re-deploy the template by using the same commands you used when deploying the storage account. You do not need to delete the storage account before re-deploying because Resource Manager will skip re-creating resources that already exist and have not changed.
 
 ## Next steps
+* [Azure Resource Manager Template Visualizer](http://armviz.io/#/) is a great tool to visualize Resource Manager templates, as they might become too large to understand just from reading the json file.
+* To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+* To learn about deploying a template, see [Deploy a Resource Group with Azure Resource Manager template](resource-group-template-deploy.md)
+* For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md). This series covers application architecture, access and security, availability and scale, and application deployment.
 
-- [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) is a great tool to visualize ARM templates, as they might become too large to understand just from reading the json file.
-- To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-- To learn about deploying a template, see [Deploy a Resource Group with Azure Resource Manager template](resource-group-template-deploy.md)

@@ -1,61 +1,54 @@
-<properties
-   pageTitle="Get started with a sample"
-   description="Power BI Embedded, use SDK to add interactive Power BI reports into your business intelligence application"
-   services="power-bi-embedded"
-   documentationCenter=""
-   authors="guyinacube"
-   manager="erikre"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="power-bi-embedded"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="powerbi"
-   ms.date="10/04/2016"
-   ms.author="asaxton"/>
+---
+title: Get started with a sample
+description: Power BI Embedded, use SDK to add interactive Power BI reports into your business intelligence application
+services: power-bi-embedded
+documentationcenter: ''
+author: guyinacube
+manager: erikre
+editor: ''
+tags: ''
 
+ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 10/04/2016
+ms.author: asaxton
+
+---
 # Get started with Power BI Embedded sample
-
 With **Microsoft Power BI Embedded**, you can integrate Power BI reports right into your web or mobile applications. In this article, we'll introduce you to the **Power BI Embedded** get started sample.
 
 Before we go any further, you'll probably want to save the following resources. They'll help you when integrating Power BI reports into the sample app and your own apps too.
 
- -	[Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493)
- -	[Power BI Embedded API reference](https://msdn.microsoft.com/library/mt711493.aspx)
- -	[Power BI Embedded .NET SDK ](http://go.microsoft.com/fwlink/?LinkId=746472) (available via NuGet)
+* [Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Power BI Embedded API reference](https://msdn.microsoft.com/library/mt711493.aspx)
+* [Power BI Embedded .NET SDK ](http://go.microsoft.com/fwlink/?LinkId=746472) (available via NuGet)
 
-
-
-> [AZURE.NOTE] Before you can configure and run the Power BI Embedded get started sample, you need to create at least one **Workspace Collection** in your Azure subscription. To learn how to create a **Workspace Collection** in the Azure Portal see [Getting Started with Power BI Embedded](power-bi-embedded-get-started.md).
+> [!NOTE]
+> Before you can configure and run the Power BI Embedded get started sample, you need to create at least one **Workspace Collection** in your Azure subscription. To learn how to create a **Workspace Collection** in the Azure Portal see [Getting Started with Power BI Embedded](power-bi-embedded-get-started.md).
+> 
+> 
 
 ## Configure the sample app
-
 Let's walk through setting up your Visual Studio development environment to access the  components needed to run the sample app.
 
 1. Download and unzip the [Power BI Embedded - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) sample on GitHub.
-
 2. Open **PowerBI-embedded.sln** in Visual Studio. You may need to execute the **Update-Package** command in the NuGET Package Manager Console in order to update the packages used in this solution.
-
 3. Build the solution.
-
 4. Run the **ProvisionSample** console app. In the sample console app, you provision a workspace and import a PBIX file.
-
 5. To provision a new **Workspace**, select option 5, **Provision a new workspace in an existing workspace collection**.
-
-    ![](media\powerbi-embedded-get-started-sample\console-option-5.png)
-
+   
+    ![](media\\powerbi-embedded-get-started-sample\\console-option-5.png)
 6. Enter your **Workspace Collection** name, and **Access Key**. You can get these in the **Azure Portal**. To learn more about how to get your **Access Key**, see [View Power BI API Access Keys](power-bi-embedded-get-started-sample.md#view-access-keys) in Get started with Microsoft Power BI Embedded.
-
-    ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
-
+   
+    ![](media\\powerbi-embedded-get-started-sample\\azure-portal.png)
 7. Copy and save the newly created **Workspace ID** to use later in this article. After the **Workspace ID** is created, you can find it the **Azure Portal**.
-
-    ![](media\powerbi-embedded-get-started-sample\workspace-id.png)
-
-8. To import a PBIX file into your **Workspace**, select option **6. Import PBIX Desktop file into an existing workspace**. If you don't have a PBIX file handy, you can download the [Retail Analysis Sample PBIX]  (http://go.microsoft.com/fwlink/?LinkID=780547).
-
+   
+    ![](media\\powerbi-embedded-get-started-sample\\workspace-id.png)
+8. To import a PBIX file into your **Workspace**, select option **6. Import PBIX Desktop file into an existing workspace**. If you don't have a PBIX file handy, you can download the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
 9. If prompted, enter a friendly name for your **Dataset**.
 
 You should see a response like:
@@ -65,17 +58,19 @@ Checking import state... Publishing
 Checking import state... Succeeded
 ```
 
-> [AZURE.NOTE] If your PBIX file contains any direct query connections, run option 7 to update the connection strings.
+> [!NOTE]
+> If your PBIX file contains any direct query connections, run option 7 to update the connection strings.
+> 
+> 
 
 At this point, you have a Power BI PBIX report imported into your **Workspace**. Now, let's look at how to run the **Power BI Embedded** get started sample web app.
 
 ## Run the sample web app
-
 The web app sample is a sample dashboard that renders reports imported into your **Workspace**. Here's how to configure the web app sample.
 
 1. In the **PowerBI-embedded** Visual Studio solution, right click the **EmbedSample** web application, and choose **Set as StartUp project**.
 2. In **web.config**, in the **EmbedSample** web application, edit the **appSettings**: **AccessKey**, **WorkspaceCollection** name, and **WorkspaceId**.
-
+   
     ```
     <appSettings>
         <add key="powerbi:AccessKey" value="" />
@@ -88,19 +83,21 @@ The web app sample is a sample dashboard that renders reports imported into your
 
 Once you run the **EmbedSample** web application, the left navigation panel should contain a **Reports** menu. To view the report you imported, expand **Reports**, and click a report. If you imported the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), the sample web app would look like this:
 
-![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
+![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-sample-left-nav.png)
 
 After you click a report, the **EmbedSample** web application should look something this:
 
-![](media\powerbi-embedded-get-started-sample\sample-web-app.png)
-
+![](media\\powerbi-embedded-get-started-sample\\sample-web-app.png)
 
 ## Explore the sample code
 The **Microsoft Power BI Embedded** sample is an example dashboard web app that shows you how to integrate **Power BI** reports into your app. It uses a Model-View-Controller (MVC) design pattern to demonstrate best practices. This section highlights parts of the sample code that you can explore within the **PowerBI-embedded** web app solution. The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes: Model, View, and Control. To learn more about MVC, see [Learn About ASP.NET](http://www.asp.net/mvc).
 
 The **Microsoft Power BI Embedded** sample code is separated as follows. Each section includes the file name in the PowerBI-embedded.sln solution so that you can easily find the code in the sample.
 
-> [AZURE.NOTE] This section is a summary of the sample code that shows how the code was written. To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
+> [!NOTE]
+> This section is a summary of the sample code that shows how the code was written. To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
+> 
+> 
 
 ### Model
 The sample has a **ReportsViewModel** and **ReportViewModel**.
@@ -135,10 +132,10 @@ The **View** manages the display of Power BI **Reports** and a Power BI **Report
 
 **Reports.cshtml**: Iterate over **Model.Reports** to create an **ActionLink**. The **ActionLink** is composed as follows:
 
-|Part|Description
-|---|---
-|Title| Name of the Report.
-|QueryString| A link to the Report ID.
+| Part | Description |
+| --- | --- |
+| Title |Name of the Report. |
+| QueryString |A link to the Report ID. |
 
     <div id="reports-nav" class="panel-collapse collapse">
         <div class="panel-body">
@@ -166,7 +163,6 @@ Report.cshtml: Set the **Model.AccessToken**, and the Lambda expression for **Po
     </div>
 
 ### Controller
-
 **DashboardController.cs**: Creates a PowerBIClient passing an **app token**. A JSON Web Token (JWT) is generated from the **Signing Key** to get the **Credentials**. The **Credentials** are used to create an instance of **PowerBIClient**. Once you have an instance of **PowerBIClient**, you can call GetReports() and GetReportsAsync().
 
 CreatePowerBIClient()
@@ -221,14 +217,11 @@ Task<ActionResult> Report(string reportId)
     }
 
 ### Integrate a report into your app
-
 Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report**. Here is a code snippet from  powerbi.js in the **Microsoft Power BI Embedded** sample.
 
-![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
-
+![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-iframe-code.png)
 
 ## Filter reports embedded in your application
-
 You can filter an embedded report using a URL syntax. To do this, you add a **$filter** query string parameter with an **eq** operator to your iFrame src url with the filter specified. Here is the filter query syntax:
 
 ```
@@ -237,10 +230,12 @@ https://app.powerbi.com/reportEmbed
 $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 ```
 
-> [AZURE.NOTE] {tableName/fieldName} cannot include spaces or special characters. The {fieldValue} accepts a single categorical value.  
-
+> [!NOTE]
+> {tableName/fieldName} cannot include spaces or special characters. The {fieldValue} accepts a single categorical value.  
+> 
+> 
 
 ## See also
+* [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
+* [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-- [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
-- [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)

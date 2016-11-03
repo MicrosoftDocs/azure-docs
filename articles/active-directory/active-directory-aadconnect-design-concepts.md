@@ -1,22 +1,23 @@
-<properties
-   pageTitle="Azure AD Connect: Design concepts | Microsoft Azure"
-   description="This topic details certain implementation design areas"
-   services="active-directory"
-   documentationCenter=""
-   authors="billmath"
-   manager="femila"
-   editor=""/>
+---
+title: 'Azure AD Connect: Design concepts | Microsoft Docs'
+description: This topic details certain implementation design areas
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.custom = "azure-ad-connect"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="Identity"
-   ms.date="09/13/2016"
-   ms.author="billmath"/>
+ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
+ms.service: active-directory
+ms.custom: azure-ad-connect
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: Identity
+ms.date: 09/13/2016
+ms.author: billmath
 
+---
 # Azure AD Connect: Design concepts
 The purpose of this topic is to describe areas that must be thought through during the implementation design of Azure AD Connect. This topic is a deep dive on certain areas and these concepts are briefly described in other topics as well.
 
@@ -27,23 +28,23 @@ The word immutable, that is "cannot be changed", is important to this topic. Sin
 
 The attribute is used for the following scenarios:
 
-- When a new sync engine server is built, or rebuilt after a disaster recovery scenario, this attribute links existing objects in Azure AD with objects on-premises.
-- If you move from a cloud-only identity to a synchronized identity model, then this attribute allows objects to "hard match" existing objects in Azure AD with on-premises objects.
-- If you use federation, then this attribute together with the **userPrincipalName** is used in the claim to uniquely identify a user.
+* When a new sync engine server is built, or rebuilt after a disaster recovery scenario, this attribute links existing objects in Azure AD with objects on-premises.
+* If you move from a cloud-only identity to a synchronized identity model, then this attribute allows objects to "hard match" existing objects in Azure AD with on-premises objects.
+* If you use federation, then this attribute together with the **userPrincipalName** is used in the claim to uniquely identify a user.
 
 This topic only talks about sourceAnchor as it relates to users. The same rules apply to all object types, but it is only for users this problem usually is a concern.
 
 ### Selecting a good sourceAnchor attribute
 The attribute value must follow the following rules:
 
-- Be less than 60 characters in length
-    - Characters not being a-z, A-Z, or 0-9 are encoded and counted as 3 characters
-- Not contain a special character: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
-- Must be globally unique
-- Must be either a string, integer, or binary
-- Should not be based on user's name, these changes
-- Should not be case-sensitive and avoid values that may vary by case
-- Should be assigned when the object is created
+* Be less than 60 characters in length
+  * Characters not being a-z, A-Z, or 0-9 are encoded and counted as 3 characters
+* Not contain a special character: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
+* Must be globally unique
+* Must be either a string, integer, or binary
+* Should not be based on user's name, these changes
+* Should not be case-sensitive and avoid values that may vary by case
+* Should be assigned when the object is created
 
 If the selected sourceAnchor is not of type string, then Azure AD Connect Base64Encode the attribute value to ensure no special characters appear. If you use another federation server than ADFS, make sure your server can also Base64Encode the attribute.
 
@@ -62,9 +63,9 @@ The sourceAnchor attribute value cannot be changed after the object has been cre
 
 For this reason, the following restrictions apply to Azure AD Connect:
 
-- The sourceAnchor attribute can only be set during initial installation. If you rerun the installation wizard, this option is read-only. If you need to change this setting, then you must uninstall and reinstall.
-- If you install another Azure AD Connect server, then you must select the same sourceAnchor attribute as previously used. If you have earlier been using DirSync and move to Azure AD Connect, then you must use **objectGUID** since that is the attribute used by DirSync.
-- If the value for sourceAnchor is changed after the object has been exported to Azure AD, then Azure AD Connect sync throws an error and does not allow any more changes on that object before the issue has been fixed and the sourceAnchor is changed back in the source directory.
+* The sourceAnchor attribute can only be set during initial installation. If you rerun the installation wizard, this option is read-only. If you need to change this setting, then you must uninstall and reinstall.
+* If you install another Azure AD Connect server, then you must select the same sourceAnchor attribute as previously used. If you have earlier been using DirSync and move to Azure AD Connect, then you must use **objectGUID** since that is the attribute used by DirSync.
+* If the value for sourceAnchor is changed after the object has been exported to Azure AD, then Azure AD Connect sync throws an error and does not allow any more changes on that object before the issue has been fixed and the sourceAnchor is changed back in the source directory.
 
 ## Azure AD sign-in
 While integrating your on-premises directory with Azure AD, it is important to understand how the synchronization settings can affect the way user authenticates. Azure AD uses userPrincipalName (UPN) to authenticate the user. However, when you synchronize your users, you must choose the attribute to be used for value of userPrincipalName carefully.
@@ -72,8 +73,8 @@ While integrating your on-premises directory with Azure AD, it is important to u
 ### Choosing the attribute for userPrincipalName
 When you are selecting the attribute for providing the value of UPN to be used in Azure one should ensure
 
-- The attribute values conform to the UPN syntax (RFC 822), that is it should be of the format username@domain
-- The suffix in the values matches to one of the verified custom domains in Azure AD
+* The attribute values conform to the UPN syntax (RFC 822), that is it should be of the format username@domain
+* The suffix in the values matches to one of the verified custom domains in Azure AD
 
 In express settings, the assumed choice for the attribute is userPrincipalName. If the userPrincipalName attribute does not contain the value you want your users to sign in to Azure, then you must choose **Custom Installation**.
 
@@ -91,3 +92,4 @@ Azure AD Connect detects if you are running in a non-routable domain environment
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

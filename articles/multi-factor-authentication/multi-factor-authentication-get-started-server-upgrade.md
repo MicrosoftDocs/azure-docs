@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Upgrading the PhoneFactor Agent to Azure Multi-Factor Authentication Server"
-	description="This document describes how to get started with Azure MFA Server and how to upgrade from the older phonefactor agent."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Upgrading the PhoneFactor Agent to Azure Multi-Factor Authentication Server
+description: This document describes how to get started with Azure MFA Server and how to upgrade from the older phonefactor agent.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.assetid: 42838ff7-bdf2-4d06-bacc-b3839a00cd76
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Upgrading the PhoneFactor Agent to Azure Multi-Factor Authentication Server
-
 Upgrading from the PhoneFactor Agent v5.x or older to the Azure Multi-Factor Authentication Server requires the PhoneFactor Agent and affiliated components to be uninstalled before the Multi-Factor Authentication Server and its affiliated components can be installed.
 
 ## To upgrade the PhoneFactor Agent to Azure Multi-Factor Authentication Server
@@ -39,6 +39,7 @@ Upgrading from the PhoneFactor Agent v5.x or older to the Azure Multi-Factor Aut
 
 
 <li>If the Mobile App Web Service is installed:
+
 <ol>
 <li>Go to the install folder and back up the web.config file. The default installation location is C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService.</li>
 <li>Uninstall the Mobile App Web Service through Windows Programs and Features.</li></ol>
@@ -56,6 +57,7 @@ Upgrading from the PhoneFactor Agent v5.x or older to the Azure Multi-Factor Aut
 <li>If the User Portal was previously installed on the PhoneFactor Agent Server, install the new Multi-Factor Authentication User Portal through the Multi-Factor Authentication Server User Interface. Note that the default virtual directory name is now “MultiFactorAuth” instead of “PhoneFactor”. If you want to use the previous name, you must change the name of the virtual directory during installation. Otherwise, if you allow the install to use the new default name, you should click the User Portal icon in the Multi-Factor Authentication Server and update the User Portal URL on the Settings tab.
 
 <li>If the User Portal and/or Mobile App Web Service was previously installed on a different server from the PhoneFactor Agent:
+
 <ol>
 <li>Go to the install location (e.g. C:\Program Files\PhoneFactor) and copy the appropriate installer(s) to the other server. There are 32-bit and 64-bit installers for both the User Portal and Mobile App Web Service. They are called MultiFactorAuthenticationUserPortalSetupXX.msi and MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi respectively.</li>
 <li>To install the User Portal on the web server, open a command prompt as an administrator and run the MultiFactorAuthenticationUserPortalSetupXX.msi. Note that the default virtual directory name is now “MultiFactorAuth” instead of “PhoneFactor”. If you want to use the previous name, you must change the name of the virtual directory during installation. Otherwise, if you allow the install to use the new default name, you should click the User Portal icon in the Multi-Factor Authentication Server and update the User Portal URL on the Settings tab. Existing users will need to be informed of the new URL.</li>

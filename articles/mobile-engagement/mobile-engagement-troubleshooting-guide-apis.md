@@ -1,65 +1,57 @@
-<properties 
-   pageTitle="Azure Mobile Engagement Troubleshooting Guide - APIs" 
-   description="Troubleshooting Guides for Azure Mobile Engagement - APIs" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="erikre" 
-   editor=""/>
+---
+title: Azure Mobile Engagement Troubleshooting Guide - APIs
+description: Troubleshooting Guides for Azure Mobile Engagement - APIs
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="10/04/2016"
-   ms.author="piyushjo"/>
+ms.assetid: 3efc8a52-2b74-4917-b887-815ae8277474
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 10/04/2016
+ms.author: piyushjo
 
+---
 # Troubleshooting guide for API issues
-
 The following are possible issues you may encounter with how administrators interact with Azure Mobile Engagement via the APIs.
 
 ## Syntax issues
-
 ### Issue
-- Syntax Errors using the API (or unexpected behavior).
+* Syntax Errors using the API (or unexpected behavior).
 
 ### Causes
-
-- Syntax issues:
-    - Make sure to check the Syntax of the specific API you are using to confirm that the option is available.
-    - A common issue with API usage is to confuse the Reach API and the Push API (most tasks should be performed with the Reach API instead of the Push API). 
-    - Another common issue with SDK integration and API usage is to confuse the SDK Key and the API Key.
-    - Scripts that connect to the APIs need to send data at least every 10 minutes or the connection will time out (especially common in Monitor API scripts listening for data). To prevent timeouts, have your script send an XMPP ping every 10 minutes to keep the session alive with the server.
+* Syntax issues:
+  * Make sure to check the Syntax of the specific API you are using to confirm that the option is available.
+  * A common issue with API usage is to confuse the Reach API and the Push API (most tasks should be performed with the Reach API instead of the Push API). 
+  * Another common issue with SDK integration and API usage is to confuse the SDK Key and the API Key.
+  * Scripts that connect to the APIs need to send data at least every 10 minutes or the connection will time out (especially common in Monitor API scripts listening for data). To prevent timeouts, have your script send an XMPP ping every 10 minutes to keep the session alive with the server.
 
 ### See also
- 
-- [API Documentation][Link 4]
-- [XMPP Protocol Info]( http://xmpp.org/extensions/xep-0199.html)
- 
+* [API Documentation][Link 4]
+* [XMPP Protocol Info](http://xmpp.org/extensions/xep-0199.html)
+
 ## Unable to use the API to perform the same action available in the Azure Mobile Engagement UI
-
 ### Issue
-- An action that works from the Azure Mobile Engagement UI doesn't work from the related Azure Mobile Engagement API.
+* An action that works from the Azure Mobile Engagement UI doesn't work from the related Azure Mobile Engagement API.
 
 ### Causes
-
-- Confirming that you can perform the same action from the Azure Mobile Engagement UI shows that you have correctly integrated this feature of Azure Mobile Engagement with the SDK.
+* Confirming that you can perform the same action from the Azure Mobile Engagement UI shows that you have correctly integrated this feature of Azure Mobile Engagement with the SDK.
 
 ### See also
- 
-- [UI Documentation][Link 1]
- 
-## Error Messages
+* [UI Documentation][Link 1]
 
+## Error Messages
 ### Issue
-- Error codes using the API displayed at runtime or in logs.
+* Error codes using the API displayed at runtime or in logs.
 
 ### Causes
-
-- Here is a composite list of common API status codes numbers for reference and preliminary troubleshooting:
-
+* Here is a composite list of common API status codes numbers for reference and preliminary troubleshooting:
+  
         200        Success.
         200        Account updated: device registered, associated, updated, or removed from the current account.
         200        Returns a list of projects as a JSON object or an authentication token generated and returned in the response’s body.
@@ -81,23 +73,19 @@ The following are possible issues you may encounter with how administrators inte
         504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
 ### See also
+* [API Documentation - for detailed errors on each specific API][Link 4]
 
-- [API Documentation - for detailed errors on each specific API][Link 4]
- 
 ## Silent failures
-
 ### Issue
-- API action fails with no error message displayed at runtime or in logs.
+* API action fails with no error message displayed at runtime or in logs.
 
 ### Causes
-
-- Many items will be disabled in the Azure Mobile Engagement UI if they aren't integrated correctly, but will fail silently from the API, so remember to test the same functionality from the UI to see if it works.
-- Azure Mobile Engagement, and many advanced features of Azure Mobile Engagement you are attempting to use, need to be individually integrated into your app with the SDK as separate steps before you can use them.
+* Many items will be disabled in the Azure Mobile Engagement UI if they aren't integrated correctly, but will fail silently from the API, so remember to test the same functionality from the UI to see if it works.
+* Azure Mobile Engagement, and many advanced features of Azure Mobile Engagement you are attempting to use, need to be individually integrated into your app with the SDK as separate steps before you can use them.
 
 ### See also
+* [Troubleshooting Guide - SDK][Link 25]
 
-- [Troubleshooting Guide - SDK][Link 25]
- 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface-home.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
@@ -128,4 +116,4 @@ The following are possible issues you may encounter with how administrators inte
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
- 
+

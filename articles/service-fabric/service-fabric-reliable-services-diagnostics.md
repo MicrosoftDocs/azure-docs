@@ -1,21 +1,22 @@
-<properties
-   pageTitle="Stateful Reliable Services diagnostics | Microsoft Azure"
-   description="Diagnostic functionality for Stateful Reliable Services"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="AlanWarwick"
-   manager="timlt"
-   editor=""/>
+---
+title: Stateful Reliable Services diagnostics | Microsoft Docs
+description: Diagnostic functionality for Stateful Reliable Services
+services: service-fabric
+documentationcenter: .net
+author: AlanWarwick
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="05/17/2016"
-   ms.author="alanwar"/>
+ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 05/17/2016
+ms.author: alanwar
 
+---
 # Diagnostic functionality for Stateful Reliable Services
 The Stateful Reliable Services StatefulServiceBase class emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events that can be used to debug the service, provide insights into how the runtime is operating, and help with troubleshooting.
 
@@ -28,17 +29,15 @@ Examples of tools and technologies that help in collecting and/or viewing EventS
 [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## Events
-
-|Event name|Event ID|Level|Event description|
-|----------|--------|-----|-----------------|
-|StatefulRunAsyncInvocation|1|Informational|Emitted when service RunAsync task is started|
-|StatefulRunAsyncCancellation|2|Informational|Emitted when service RunAsync task is cancelled|
-|StatefulRunAsyncCompletion|3|Informational|Emitted when service RunAsync task is completed|
-|StatefulRunAsyncSlowCancellation|4|Warning|Emitted when service RunAsync task takes too long to complete cancellation|
-|StatefulRunAsyncFailure|5|Error|Emitted when service RunAsync task throws an exception|
+| Event name | Event ID | Level | Event description |
+| --- | --- | --- | --- |
+| StatefulRunAsyncInvocation |1 |Informational |Emitted when service RunAsync task is started |
+| StatefulRunAsyncCancellation |2 |Informational |Emitted when service RunAsync task is cancelled |
+| StatefulRunAsyncCompletion |3 |Informational |Emitted when service RunAsync task is completed |
+| StatefulRunAsyncSlowCancellation |4 |Warning |Emitted when service RunAsync task takes too long to complete cancellation |
+| StatefulRunAsyncFailure |5 |Error |Emitted when service RunAsync task throws an exception |
 
 ## Interpret events
-
 StatefulRunAsyncInvocation, StatefulRunAsyncCompletion, and StatefulRunAsyncCancellation events are useful to the service writer to understand the lifecycle of a service--as well as the timing for when a service is started, cancelled, or completed. This can be useful when debugging service issues or understanding the service lifecycle.
 
 Service writers should pay close attention
@@ -49,3 +48,4 @@ the service RunAsync() task throws an exception. Typically, an exception thrown 
 
 StatefulRunAsyncSlowCancellation is emitted whenever a cancellation request for the RunAsync task takes longer than four seconds. When a service takes too long to complete cancellation, it impacts
 the ability for the service to be quickly restarted on another node. This may impact the overall availability of the service.
+

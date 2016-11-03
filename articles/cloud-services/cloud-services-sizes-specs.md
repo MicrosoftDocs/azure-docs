@@ -1,158 +1,177 @@
-<properties
- pageTitle="Sizes for cloud services"
- description="Lists the different virtual machine sizes for Azure cloud service web and worker roles."
- services="cloud-services"
- documentationCenter=""
- authors="Thraka"
- manager="timlt"
- editor=""/>
-<tags
- ms.service="cloud-services"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="08/10/2016"
- ms.author="adegeo"/>
+---
+title: Sizes for cloud services | Microsoft Docs
+description: Lists the different virtual machine sizes (and IDs) for Azure cloud service web and worker roles.
+services: cloud-services
+documentationcenter: ''
+author: Thraka
+manager: timlt
+editor: ''
 
+ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 10/27/2016
+ms.author: adegeo
+
+---
 # Sizes for Cloud Services
-
-This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources.
+This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources. Each size has an ID that you will put in your [service definition file](cloud-services-model-and-package.md#csdef).
 
 Cloud Services is one of several types of compute resources offered by Azure. Click [here](cloud-services-choose-me.md) for more information about Cloud Services.
 
-> [AZURE.NOTE]To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+> [!NOTE]
+> To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+> 
+> 
 
 ## Sizes for web and worker role instances
+There are multiple standard sizes to choose from on Azure. Considerations for some of these sizes include:
+
+* D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+* Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+* G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
+* The A-series VMs can be deployed on a variety of hardware types and processors. The size is throttled, based upon the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
+* The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.
+
+The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/). 
 
 The following considerations might help you decide on a size:
 
-* D-series VM instances are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
+* The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHZ and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz. For detailed information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md). 
+* Dv2-series, D-series, G-series, are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
+* Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11. As a result, you may see the error message **Failed to configure virtual machine {machine name}** or **Failed to create virtual machine {machine name}** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See  [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.  
+* Your subscription might also limit the number of cores you can deploy in certain size families. To increase a quota, contact Azure Support.
 
-* Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+## Performance considerations
+We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark. 
 
-* Web roles and worker roles require more temporary disk space than Azure Virtual Machines because of system requirements. The system files reserve 4 GB of space for the Windows page file, and 2 GB of space for the Windows dump file.  
+> [!IMPORTANT]
+> The ACU is only a guideline.  The results for your workload may vary. 
+> 
+> 
 
-* The OS disk contains the Windows guest OS and includes the Program Files folder (including installations done via startup tasks unless you specify another disk), registry changes, the System32 folder, and the .NET framework.  
+<br>
 
-* The **temporary storage disk** contains Azure logs and configuration files, Azure Diagnostics (which includes your IIS logs), and any local storage resources you define.  
+| SKU Family | ACU/Core |
+| --- | --- |
+| [Standard_A0](#a-series) |50 |
+| [Standard_A1-4](#a-series) |100 |
+| [Standard_A5-7](#a-series) |100 |
+| [A8-A11](#a-series) |225* |
+| [D1-14](#d-series) |160 |
+| [D1-15v2](#dv2-series) |210 - 250* |
+| [G1-5](#g-series) |180 - 240* |
+| [H](#h-series) |290 - 300* |
 
-* The **application disk** is where your .cspkg is extracted and includes your website, binaries, role host process, startup tasks, web.config, and so on.  
+ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
 
-* The A8/A10 and A9/A11 virtual machine sizes have the same capacities. The A8 and A9 virtual machine instances include an additional network adapter that is connected to a remote direct memory access (RDMA) network for fast communication between virtual machines. The A8 and A9 instances are designed for high-performance computing applications that require constant and low-latency communication between nodes during execution, for example, applications that use the Message Passing Interface (MPI). The A10 and A11 virtual machine instances do not include the additional network adapter. A10 and A11 instances are designed for high-performance computing applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
+## Size tables
+The following tables show the sizes and the capacities they provide.
 
-    >[AZURE.NOTE] If you're considering sizes A8 through A11, please read [this](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) information.
+* Storage capacity is shown in units of GiB or 1024^3 bytes. When comparing disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB
+* Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
+* Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to **ReadOnly** or **ReadWrite**.  For uncached data disk operation, the host cache mode is set to **None**.
+* Maximum network bandwidth is the maximum aggregated bandwidth allocated and assigned per VM type. The maximum bandwidth provides guidance for selecting the right VM type to ensure adequate network capacity is available. When moving between Low, Moderate, High and Very High, the throughput will increase accordingly. Actual network performance will depend on many factors including network and application loads, and application network settings.
 
->[AZURE.NOTE] All machine sizes provide an **application disk** that stores all the files from your cloud service package; it is around 1.5 GB in size. 
+## A-series
+| Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_A0 |1 |0.768 |20 |1 |1x500 |1 / low |
+| Standard_A1 |1 |1.75 |70 |2 |2x500 |1 / moderate |
+| Standard_A2 |2 |3.5 GB |135 |4 |4x500 |1 / moderate |
+| Standard_A3 |4 |7 |285 |8 |8x500 |2 / high |
+| Standard_A4 |8 |14 |605 |16 |16x500 |4 / high |
+| Standard_A5 |2 |14 |135 |4 |4X500 |1 / moderate |
+| Standard_A6 |4 |28 |285 |8 |8x500 |2 / high |
+| Standard_A7 |8 |56 |605 |16 |16x500 |4 / high |
 
-Please make sure you review the [pricing](https://azure.microsoft.com/pricing/details/cloud-services/) of each Cloud Service size.
+## A-series - compute-intensive instances
+For information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
-## General purpose
+| Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_A8* |8 |56 |382 |16 |16x500 |2 / high |
+| Standard_A9* |16 |112 |382 |16 |16x500 |4 / very high |
+| Standard_A10 |8 |56 |382 |16 |16x500 |2 / high |
+| Standard_A11 |16 |112 |382 |16 |16x500 |4 / very high |
 
-For websites, small-to-medium databases, and other everyday applications.
+*RDMA capable
 
->[AZURE.NOTE] Storage capacity is represented by using 1024^3 bytes as the unit of measurement for GB. This is sometimes referred to as gibibyte, or base 2 definition. When comparing sizes that use different base systems, remember that base 2 sizes may appear smaller than base 10 but for any specific size (such as 1 GB) a base 2 system provides more capacity than a base 10 system, because 1024^3 is greater than 1000^3. 
+## D-series
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_D1 |1 |3.5 |50 |2 |2x500 |1 / moderate |
+| Standard_D2 |2 |7 |100 |4 |4x500 |2 / high |
+| Standard_D3 |4 |14 |200 |8 |8x500 |4 / high |
+| Standard_D4 |8 |28 |400 |16 |16x500 |8 / high |
+| Standard_D11 |2 |14 |100 |4 |4x500 |2 / high |
+| Standard_D12 |4 |28 |200 |8 |8x500 |4 / high |
+| Standard_D13 |8 |56 |400 |16 |16x500 |8 / high |
+| Standard_D14 |16 |112 |800 |32 |32x500 |8 / very high |
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
-| --------------- | :-------: | ------: | :-----------: | -------: |
-| ExtraSmall      | 1         | 0.75 GB | Low           | 19 GB    |
-| Small           | 1         | 1.75 GB | Moderate      | 224 GB   |
-| Medium          | 2         | 3.5 GB  | Moderate      | 489 GB   |
-| Large           | 4         | 7 GB    | High          | 999 GB   |
-| ExtraLarge      | 8         | 14 GB   | High          | 2,039 GB |
+## Dv2-series
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_D1_v2 |1 |3.5 |50 |2 |2x500 |1 / moderate |
+| Standard_D2_v2 |2 |7 |100 |4 |4x500 |2 / high |
+| Standard_D3_v2 |4 |14 |200 |8 |8x500 |4 / high |
+| Standard_D4_v2 |8 |28 |400 |16 |16x500 |8 / high |
+| Standard_D5_v2 |16 |56 |800 |32 |32x500 |8 / extremely high |
+| Standard_D11_v2 |2 |14 |100 |4 |4x500 |2 / high |
+| Standard_D12_v2 |4 |28 |200 |8 |8x500 |4 / high |
+| Standard_D13_v2 |8 |56 |400 |16 |16x500 |8 / high |
+| Standard_D14_v2 |16 |112 |800 |32 |32x500 |8 / extremely high |
+| Standard_D15_v2 |20 |140 |1,000 |40 |40x500 |8 / extremely high |
 
->[AZURE.NOTE] **ExtraSmall** through **ExtraLarge** can also be named **A0-A4** respectively.
+## G-series
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max disk throughput: IOPS | Max NICs / Network bandwidth |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_G1 |2 |28 |384 |4 |4 x 500 |1 / high |
+| Standard_G2 |4 |56 |768 |8 |8 x 500 |2 / high |
+| Standard_G3 |8 |112 |1,536 |16 |16 x 500 |4 / very high |
+| Standard_G4 |16 |224 |3,072 |32 |32 x 500 |8 / extremely high |
+| Standard_G5 |32 |448 |6,144 |64 |64 x 500 |8 / extremely high |
 
-## Memory intensive
+## H-series
+Azure H-series virtual machines are the next generation high performance computing VMs aimed at high end computational needs, like molecular modeling, and computational fluid dynamics. These 8 and 16 core VMs are built on the Intel Haswell E5-2667 V3 processor technology featuring DDR4 memory and local SSD based storage. 
 
-For large databases, SharePoint server farms, and high-throughput applications.
+In addition to the substantial CPU power, the H-series offers diverse options for low latency RDMA networking using FDR InfiniBand and several memory configurations to support memory intensive computational requirements.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
-| --------------- | :-------: | ------: | :-----------: | ------:  |
-| A5              | 2         | 14 GB   | Moderate      | 489 GB   |
-| A6              | 4         | 28 GB   | High          | 999 GB   |
-| A7              | 8         | 56 GB   | High          | 2,039 GB |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max disk throughput: IOPS | Max NICs / Network bandwidth |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_H8 |8 |56 |1000 |16 |16 x 500 |8 / high |
+| Standard_H16 |16 |112 |2000 |32 |32 x 500 |8 / very high |
+| Standard_H8m |8 |112 |1000 |16 |16 x 500 |8 / high |
+| Standard_H16m |16 |224 |2000 |32 |32 x 500 |8 / very high |
+| Standard_H16r* |16 |112 |2000 |32 |32 x 500 |8 / very high |
+| Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |8 / very high |
 
-## Network optimized with InfiniBand support
+*RDMA capable
 
-Available in select data centers. A8 and A9 virtual machines feature [Intel® Xeon® E5 processors](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). Adds a 32 Gbit/s **InfiniBand** network with remote direct memory access (RDMA) technology. Ideal for Message Passing Interface (MPI) applications, high-performance clusters, modeling and simulations, video encoding, and other compute or network intensive scenarios.
+## Notes: Standard A0 - A4 using CLI and PowerShell
+In the classic deployment model, some VM size names are slightly different in CLI and PowerShell:
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
-| --------------- | :-------: | ------: | :-----------: | ------: |
-| A8              | 8         | 56 GB   | High          | 382 GB  |
-| A9              | 16        | 112 GB  | Very High     | 382 GB  |
-
-## Compute intensive
-
-Available in select data centers. A10 and A11 virtual machines feature [Intel® Xeon® E5 processors](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). For high-performance clusters, modeling and simulations, video encoding, and other compute or network intensive scenarios. Similar to A8 and A9 instance configuration without the InfiniBand network and RDMA technology.
-
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
-| --------------- | :-------: | ------: | :-----------: | ------: |
-| A10             | 8         | 56 GB   | High          | 382 GB  |
-| A11             | 16        | 112 GB  | Very High     | 382 GB  |
-
-## D-series: Optimized compute
-
-D-series virtual machines feature solid state drives (SSDs) and faster processors than the A-series (60% faster) and is also available for web or worker roles in Azure Cloud Services. This series is ideal for applications that demand faster CPUs, better local disk performance, or higher memory.
-
-## General purpose (D)
-
-For websites, small-to-medium databases, and other everyday applications.
-
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
-| --------------- | :-------: | ------: | :-----------: | ------: |
-| Standard_D1     | 1         | 3.5 GB  | Moderate      | 50 GB   |
-| Standard_D2     | 2         | 7 GB    | High          | 100 GB  |
-| Standard_D3     | 4         | 14 GB   | High          | 200 GB  |
-| Standard_D4     | 8         | 28 GB   | High          | 400 GB  |
-
-## Memory intensive (D)
-
-For large databases, SharePoint server farms, and high-throughput applications.
-
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
-| --------------- | :-------: | ------: | :-----------: | ------: |
-| Standard_D11    | 2         | 14 GB   | High          | 100 GB  |
-| Standard_D12    | 4         | 28 GB   | High          | 200 GB  |
-| Standard_D13    | 8         | 56 GB   | High          | 400 GB  |
-| Standard_D14    | 16        | 112 GB  | Very High     | 800 GB  |
-
-## Dv2-series: Optimized compute
-
-Dv2-series instances are the next generation of D-series instances that can be used as Virtual Machines or Cloud Services. Dv2-series instances will carry more powerful CPUs which are on average about 35% faster than D-series instances, and carry the same memory and disk configurations as the D-series. Dv2-series instances are based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with Intel Turbo Boost Technology 2.0 can go to 3.1 GHz. Dv2-series and D-series are ideal for applications that demand faster CPUs, better local disk performance, or higher memories and offer a powerful combination for many enterprise-grade applications.
-
-## General purpose (Dv2)
-
-For websites, small-to-medium databases, and other everyday applications.
-
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
-| --------------- | :-------: | ------: | :-----------: | ------: |
-| Standard_D1_v2  | 1         | 3.5 GB  | Moderate      | 50 GB   |
-| Standard_D2_v2  | 2         | 7 GB    | High          | 100 GB  |
-| Standard_D3_v2  | 4         | 14 GB   | High          | 200 GB  |
-| Standard_D4_v2  | 8         | 28 GB   | High          | 400 GB  |
-| Standard_D5_v2  | 16        | 56 GB   | Very High     | 800 GB  |
-
-## Memory intensive (Dv2)
-
-For large databases, SharePoint server farms, and high-throughput applications
-
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
-| --------------- | :-------: | ------: | :-----------: | -------: |
-| Standard_D11_v2 | 2         | 14 GB   | High          | 100 GB   |
-| Standard_D12_v2 | 4         | 28 GB   | High          | 200 GB   |
-| Standard_D13_v2 | 8         | 56 GB   | High          | 400 GB   |
-| Standard_D14_v2 | 16        | 112 GB  | Very High     | 800 GB   |
-| Standard_D15_v2 | 20        | 140 GB  | Very High     | 1,000 GB |
+* Standard_A0 is ExtraSmall 
+* Standard_A1 is Small
+* Standard_A2 is Medium
+* Standard_A3 is Large
+* Standard_A4 is ExtraLarge
 
 ## Configure sizes for Cloud Services
-
 You can specify the Virtual Machine size of a role instance as part of the service model described by the [service definition file](cloud-services-model-and-package.md#csdef). The size of the role determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirement.
 
 Here is an example for setting the role size to be [Standard_D2](#general-purpose-d) for a Web Role instance:
 
 ```xml
-<WebRole name="WebRole1" vmsize="<mark>Standard_D2</mark>">
+<WorkerRole name="Worker1" vmsize="<mark>Standard_D2</mark>">
 ...
-</WebRole>
+</WorkerRole>
 ```
+
+## Next steps
+* Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+* Learn more [about the H-series and compute-intensive A-series VMs](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) for workloads like High-performance Computing (HPC).
+

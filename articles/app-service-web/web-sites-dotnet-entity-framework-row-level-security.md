@@ -1,23 +1,23 @@
-<properties
-	pageTitle="Tutorial: Web app with a multi-tenant database using Entity Framework and Row-Level Security"
-	description="Learn how to develop an ASP.NET MVC 5 web app with a multi-tenant SQL Database backent, using Entity Framework and Row-Level Security."
-  metaKeywords="azure asp.net mvc entity framework multi tenant row level security rls sql database"
-	services="app-service\web"
-	documentationCenter=".net"
-	manager="jeffreyg"
-  authors="tmullaney"/>
+---
+title: 'Tutorial: Web app with a multi-tenant database using Entity Framework and Row-Level Security'
+description: Learn how to develop an ASP.NET MVC 5 web app with a multi-tenant SQL Database backent, using Entity Framework and Row-Level Security.
+metakeywords: azure asp.net mvc entity framework multi tenant row level security rls sql database
+services: app-service\web
+documentationcenter: .net
+manager: jeffreyg
+author: tmullaney
 
-<tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="04/25/2016"
-	ms.author="thmullan"/>
+ms.assetid: 8fdc47a5-6fc3-4d29-ab6a-33e79f50699f
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 04/25/2016
+ms.author: thmullan
 
+---
 # Tutorial: Web app with a multi-tenant database using Entity Framework and Row-Level Security
-
 This tutorial shows how to build a multi-tenant web app with a "[shared database, shared schema](https://msdn.microsoft.com/library/aa479086.aspx)" tenancy model, using Entity Framework and [Row-Level Security](https://msdn.microsoft.com/library/dn765131.aspx). In this model, a single database contains data for many tenants, and each row in each table is associated with a "Tenant ID." Row-Level Security (RLS), a new feature for Azure SQL Database, is used to prevent tenants from accessing each other's data. This requires just a single, small change to the application. By centralizing the tenant access logic within the database itself, RLS simplifies the application code and reduces the risk of accidental data leakage between tenants.
 
 Let's start with the simple Contact Manager application from [Create an ASP.NET MVP app with auth and SQL DB and deploy to Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Right now, the application allows all users (tenants) to see all contacts:
@@ -27,15 +27,14 @@ Let's start with the simple Contact Manager application from [Create an ASP.NET 
 With just a few small changes, we will add support for multi-tenancy, so that users are able to see only the contacts that belong to them.
 
 ## Step 1: Add an Interceptor class in the application to set the SESSION_CONTEXT
-
 There is one application change we need to make. Because all application users connect to the database using the same connection string (i.e. same SQL login), there is currently no way for an RLS policy to know which user it should filter for. This approach is very common in web applications because it enables efficient connection pooling, but it means we need another way to identify the current application user within the database. The solution is to have the application set a key-value pair for the current UserId in the [SESSION_CONTEXT](https://msdn.microsoft.com/library/mt590806) immediately after opening a connection, before it executes any queries. SESSION_CONTEXT is a session-scoped key-value store, and our RLS policy will use the UserId stored in it to identify the current user.
 
 We will add an [interceptor](https://msdn.microsoft.com/data/dn469464.aspx) (in particular, a [DbConnectionInterceptor](https://msdn.microsoft.com/library/system.data.entity.infrastructure.interception.idbconnectioninterceptor)), a new feature in Entity Framework (EF) 6, to automatically set the current UserId in the SESSION_CONTEXT by executing a T-SQL statement whenever EF opens a connection.
 
-1.	Open the ContactManager project in Visual Studio.
-2.	Right-click on the Models folder in the Solution Explorer, and choose Add > Class.
-3.	Name the new class "SessionContextInterceptor.cs" and click Add.
-4.	Replace the contents of SessionContextInterceptor.cs with the following code.
+1. Open the ContactManager project in Visual Studio.
+2. Right-click on the Models folder in the Solution Explorer, and choose Add > Class.
+3. Name the new class "SessionContextInterceptor.cs" and click Add.
+4. Replace the contents of SessionContextInterceptor.cs with the following code.
 
 ```
 using System;
@@ -53,7 +52,7 @@ namespace ContactManager.Models
     {
         public void Opened(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
-        	// Set SESSION_CONTEXT to current UserId whenever EF opens a connection
+            // Set SESSION_CONTEXT to current UserId whenever EF opens a connection
             try
             {
                 var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
@@ -73,7 +72,7 @@ namespace ContactManager.Models
                 // If no user is logged in, leave SESSION_CONTEXT null (all rows will be filtered)
             }
         }
-        
+
         public void Opening(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
         }
@@ -180,7 +179,6 @@ namespace ContactManager.Models
 That's the only application change required. Go ahead and build and publish the application.
 
 ## Step 2: Add a UserId column to the database schema
-
 Next, we need to add a UserId column to the Contacts table to associate each row with a user (tenant). We will alter the schema directly in the database, so that we don't have to include this field in our EF data model.
 
 Connect to the database directly, using either SQL Server Management Studio or Visual Studio, and then execute the following T-SQL:
@@ -210,7 +208,6 @@ WHERE ContactId IN (1, 2, 5)
 ```
 
 ## Step 3: Create a Row-Level Security policy in the database
-
 The final step is to create a security policy that uses the UserId in SESSION_CONTEXT to automatically filter the results returned by queries.
 
 While still connected to the database, execute the following T-SQL:
@@ -220,16 +217,16 @@ CREATE SCHEMA Security
 go
 
 CREATE FUNCTION Security.userAccessPredicate(@UserId nvarchar(128))
-	RETURNS TABLE
-	WITH SCHEMABINDING
+    RETURNS TABLE
+    WITH SCHEMABINDING
 AS
-	RETURN SELECT 1 AS accessResult
-	WHERE @UserId = CAST(SESSION_CONTEXT(N'UserId') AS nvarchar(128))
+    RETURN SELECT 1 AS accessResult
+    WHERE @UserId = CAST(SESSION_CONTEXT(N'UserId') AS nvarchar(128))
 go
 
 CREATE SECURITY POLICY Security.userSecurityPolicy
-	ADD FILTER PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts,
-	ADD BLOCK PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts
+    ADD FILTER PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts,
+    ADD BLOCK PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts
 go
 
 ```
@@ -243,9 +240,9 @@ Now run the application, and sign in as user1@contoso.com. This user now sees on
 To validate this further, try registering a new user. They will see no contacts, because none have been assigned to them. If they create a new contact, it will be assigned to them, and only they will be able to see it.
 
 ## Next steps
-
 That's it! The simple Contact Manager web app has been converted into a multi-tenant one where each user has its own contact list. By using Row-Level Security, we've avoided the complexity of enforcing tenant access logic in our application code. This transparency allows the application to focus on the real business problem at hand, and it also reduces the risk of accidentally leaking data as the application's codebase grows.
 
 This tutorial has only scratched the surface of what's possible with RLS. For instance, it's possible to have more sophisticated or granular access logic, and it's possible to store more than just the current UserId in the SESSION_CONTEXT. It's also possible to [integrate RLS with the elastic database tools client libraries](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md) to support multi-tenant shards in a scale-out data tier.
 
 Beyond these possibilities, we're also working to make RLS even better. If you have any questions, ideas, or things you'd like to see, please let us know in the comments. We appreciate your feedback!
+

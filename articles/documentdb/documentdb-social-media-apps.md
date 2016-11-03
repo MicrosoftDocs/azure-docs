@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="DocumentDB design pattern: Social media apps | Microsoft Azure" 
-	description="Learn about a design pattern for Social Networks by leveraging the storage flexibility of DocumentDB and other Azure services." 
-	keywords="social media apps"
-	services="documentdb" 
-	authors="ealsur" 
-	manager="" 
-	editor="" 
-	documentationCenter=""/>
+---
+title: 'DocumentDB design pattern: Social media apps | Microsoft Docs'
+description: Learn about a design pattern for Social Networks by leveraging the storage flexibility of DocumentDB and other Azure services.
+keywords: social media apps
+services: documentdb
+author: ealsur
+manager: jhubbard
+editor: ''
+documentationcenter: ''
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/27/2016" 
-	ms.author="mimig"/>
+ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: mimig
 
+---
 # Going social with DocumentDB
-
 Living in a massively-interconnected society means that, at some point in life, you become part of a **social network**. We use social networks to keep in touch with friends, colleagues, family, or sometimes to share our passion with people with common interests.
 
 As engineers or developers, we might have wondered how do these networks store and interconnect our data, or might have even been tasked to create or architect a new social network for a specific niche market yourselves. That’s when the big question arises: How is all this data stored?
@@ -40,7 +40,6 @@ Why isn't SQL the best choice in this scenario? Let’s look at the structure of
 We could, of course, use a humongous SQL instance with enough power to solve thousands of queries with these many joins to serve our content, but truly, why would we when a simpler solution exists?
 
 ## The NoSQL road
-
 There are special graph databases that can [run on Azure](http://neo4j.com/developer/guide-cloud-deployment/#_windows_azure) but they are not inexpensive and require IaaS services (Infrastructure-as-a-Service, Virtual Machines mainly) and maintenance. I’m going to aim this article at a lower cost solution that will work for most scenarios, running on Azure’s NoSQL database [DocumentDB](https://azure.microsoft.com/services/documentdb/). Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), our previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
 
     {
@@ -109,14 +108,14 @@ Points and likes over a post can be processed in a deferred manner using this sa
 Followers are trickier. DocumentDB has a document size limit of 512Kb, so you may think about storing followers as a document with this structure:
 
     {
-    	"id":"234d-sd23-rrf2-552d",
-    	"followersOf": "dse4-qwe2-ert4-aad2",
-    	"followers":[
-    		"ewr5-232d-tyrg-iuo2",
-    		"qejh-2345-sdf1-ytg5",
-    		//...
-    		"uie0-4tyg-3456-rwjh"
-    	]
+        "id":"234d-sd23-rrf2-552d",
+        "followersOf": "dse4-qwe2-ert4-aad2",
+        "followers":[
+            "ewr5-232d-tyrg-iuo2",
+            "qejh-2345-sdf1-ytg5",
+            //...
+            "uie0-4tyg-3456-rwjh"
+        ]
     }
 
 This might work for a user with a few thousands followers, but if some celebrity joins our ranks, this approach will eventually hit the document size cap.
@@ -124,17 +123,16 @@ This might work for a user with a few thousands followers, but if some celebrity
 To solve this, we can use a mixed approach. As part of the User Statistics document we can store the number of followers:
 
     {
-    	"id":"234d-sd23-rrf2-552d",
-    	"user": "dse4-qwe2-ert4-aad2",
-    	"followers":55230,
-    	"totalPosts":452,
-    	"totalPoints":11342
+        "id":"234d-sd23-rrf2-552d",
+        "user": "dse4-qwe2-ert4-aad2",
+        "followers":55230,
+        "totalPosts":452,
+        "totalPoints":11342
     }
 
 And the actual graph of followers can be stored on Azure Storage Tables using an [Extension](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) that allows for simple "A-follows-B" storage and retrieval. This way we can delegate the retrieval process of the exact followers list (when we need it) to Azure Storage Tables but for a quick numbers lookup, we keep using DocumentDB.
 
 ## The “Ladder” pattern and data duplication
-
 As you might have noticed in the JSON document that references a post, there are multiple occurrences of a user. And you’d have guessed right, this means that the information that represents a user, given this denormalization, might be present in more than one place.
 
 In order to allow for faster queries, we incur data duplication. The problem with this side-effect is that if by some action, a user’s data changes, we need to find all the activities he ever did and update them all. Doesn’t sound very practical, right?
@@ -156,7 +154,7 @@ Let’s take user information as an example:
         "totalPoints":100,
         "totalPosts":24
     }
-    
+
 By looking at this information, we can quickly detect which is critical information and which isn’t, thus creating a “Ladder”:
 
 ![Diagram of a ladder pattern](./media/documentdb-social-media-apps/social-media-apps-ladder.png)
@@ -185,27 +183,25 @@ And a Post would look like:
         "title":"Awesome post!",
         "date":"2016-01-02",
         "createdBy":{
-        	"id":"dse4-qwe2-ert4-aad2",
-    		"username":"johndoe"
+            "id":"dse4-qwe2-ert4-aad2",
+            "username":"johndoe"
         }
     }
 
 And when an edit arises where one of the attributes of the chunk is affected, it’s easy to find the affected documents by using queries that point to the indexed attributes (SELECT * FROM posts p WHERE p.createdBy.id == “edited_user_id”) and then updating the chunks.
 
 ## The search box
-
 Users will generate, luckily, a lot of content. And we should be able to provide the ability to search and find content that might not be directly in their content streams, maybe because we don’t follow the creators, or maybe we are just trying to find that old post we did 6 months ago.
 
 Thankfully, and because we are using Azure DocumentDB, we can easily implement a search engine using [Azure Search](https://azure.microsoft.com/services/search/) in a couple of minutes and without typing a single line of code (other than obviously, the search process and UI).
 
 Why is this so easy?
 
-Azure Search implements what they call [Indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx), background processes that hook in your data repositories and automagically add, update or remove your objects in the indexes. They support an [Azure SQL Database indexers](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blobs indexers](../search/search-howto-indexing-azure-blob-storage.md) and thankfully, [Azure DocumentDB indexers](../documentdb/documentdb-search-indexer.md). The transition of information from DocumentDB to Azure Search is straightforward, as both store information in JSON format, we just need to [create our Index](../search/search-create-index-portal.md) and map which attributes from our Documents we want indexed and that’s it, in a matter of minutes (depends on the size of our data), all our content will be available to be searched upon, by the best Search-as-a-Service solution in cloud infrastructure. 
+Azure Search implements what they call [Indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx), background processes that hook in your data repositories and automagically add, update or remove your objects in the indexes. They support an [Azure SQL Database indexers](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blobs indexers](../search/search-howto-indexing-azure-blob-storage.md) and thankfully, [Azure DocumentDB indexers](documentdb-search-indexer.md). The transition of information from DocumentDB to Azure Search is straightforward, as both store information in JSON format, we just need to [create our Index](../search/search-create-index-portal.md) and map which attributes from our Documents we want indexed and that’s it, in a matter of minutes (depends on the size of our data), all our content will be available to be searched upon, by the best Search-as-a-Service solution in cloud infrastructure. 
 
 For more information about Azure Search, you can visit the [Hitchhiker’s Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
 
 ## The underlying knowledge
-
 After storing all this content that grows and grows every day, we might find ourselves thinking: What can I do with all this stream of information from my users?
 
 The answer is straightforward: Put it to work and learn from it.
@@ -214,14 +210,13 @@ But, what can we learn? A few easy examples include [sentiment analysis](https:/
 
 Now that I got you hooked, you’ll probably think you need some PhD in math science to extract these patterns and information out of simple databases and files, but you’d be wrong.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), part of the [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), is the a fully managed cloud service that lets you create workflows using algorithms in a simple drag-and-drop interface, code your own algorithms in [R](https://en.wikipedia.org/wiki/R_(programming_language)) or use some of the already-built and ready to use APIs such as: [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2),  [Content Moderator](https://www.microsoft.com/moderator) or [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), part of the [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), is the a fully managed cloud service that lets you create workflows using algorithms in a simple drag-and-drop interface, code your own algorithms in [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) or use some of the already-built and ready to use APIs such as: [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2),  [Content Moderator](https://www.microsoft.com/moderator) or [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 To achieve any of these Machine Learning scenarios, we can use [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) to ingest the information from different sources, and use [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) to process the information and generate an output that can be processed by Azure Machine Learning.
 
 Another available option is to use [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services) to analyze our users content; not only can we understand them better (through analyzing what they write with [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)) , but we could also detect unwanted or mature content and act accordingly with [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services include a lot of out-of-the-box solutions that don't require any kind of Machine Learning knowledge to use.
 
 ## Conclusion
-
 This article tries to shed some light into the alternatives of creating social networks completely on Azure with low-cost services and providing great results by encouraging the use of a multi-layered storage solution and data distribution called “Ladder”.
 
 ![Diagram of interaction between Azure services for social networking](./media/documentdb-social-media-apps/social-media-apps-azure-solution.png)
@@ -229,7 +224,7 @@ This article tries to shed some light into the alternatives of creating social n
 The truth is that there is no silver bullet for this kind of scenarios, it’s the synergy created by the combination of great services that allow us to build great experiences: the speed and freedom of Azure DocumentDB to provide a great social application, the intelligence behind a first-class search solution like Azure Search, the flexibility of Azure App Services to host not even language-agnostic applications but powerful background processes and the expandable Azure Storage and Azure SQL Database for storing massive amounts of data and the analytic power of Azure Machine Learning to create knowledge and intelligence that can provide feedback to our processes and help us deliver the right content to the right users.
 
 ## Next steps
-
 Learn more about data modeling by reading the [Modeling data in DocumentDB](documentdb-modeling-data.md) article. If you're interested in other use cases for DocumentDB, see [Common DocumentDB use cases](documentdb-use-cases.md).
 
 Or learn more about DocumentDB by following the [DocumentDB Learning Path](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
+

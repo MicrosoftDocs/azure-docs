@@ -1,24 +1,24 @@
-<properties
-	pageTitle="Cortana Intelligence Solution Template Playbook for predictive maintenance in aerospace and other businesses | Microsoft Azure"
-	description="A Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation."
-	services="cortana-analytics"
-	documentationCenter=""
-	authors="fboylu"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Cortana Intelligence Solution Template Playbook for predictive maintenance in aerospace and other businesses | Microsoft Docs
+description: A Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation.
+services: cortana-analytics
+documentationcenter: ''
+author: fboylu
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="cortana-analytics"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="fboylu" />
+ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
+ms.service: cortana-analytics
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: fboylu
 
+---
 # Cortana Intelligence Solution Template Playbook for predictive maintenance in aerospace and other businesses
-
-## Executive summary  
+## Executive summary
 Predictive maintenance is one of the most demanded applications of
 predictive analytics with unarguable benefits including tremendous
 amount of cost savings. This playbook aims at providing a reference for
@@ -43,12 +43,14 @@ and [Azure Machine
 Learning](https://azure.microsoft.com/services/machine-learning/)
 pages.
 
->[AZURE.TIP]
-For a technical guide to implementing this Solution Template, see [Technical guide to the Cortana Intelligence Solution Template for predictive maintenance](cortana-analytics-technical-guide-predictive-maintenance.md).
-To download a diagram that provides an architectural overview of this template, see
-[Architecture of the Cortana Intelligence Solution Template for predictive maintenance](cortana-analytics-architecture-predictive-maintenance.md).
+> [!TIP]
+> For a technical guide to implementing this Solution Template, see [Technical guide to the Cortana Intelligence Solution Template for predictive maintenance](cortana-analytics-technical-guide-predictive-maintenance.md).
+> To download a diagram that provides an architectural overview of this template, see
+> [Architecture of the Cortana Intelligence Solution Template for predictive maintenance](cortana-analytics-architecture-predictive-maintenance.md).
+> 
+> 
 
-## Playbook overview and target audience  
+## Playbook overview and target audience
 This playbook is organized to benefit both technical
 and non-technical audience with varying backgrounds and interests in
 predictive maintenance space. The playbook covers both high-level
@@ -81,7 +83,6 @@ steps of data preprocessing such as data labeling and feature
 engineering, model selection, training/testing and performance evaluation
 best practices. These sections are suitable for technical audience.
 
-
 ## Predictive maintenance in IoT
 The impact of unscheduled equipment downtime can be extremely
 destructive for businesses. It is critical to keep field equipment
@@ -92,24 +93,24 @@ With the rise of the Internet of Things (IoT) applications, predictive maintenan
 
 Business problems in the predictive maintenance domain range from high operational risk due to unexpected failures and limited insight into the root cause of problems in complex business environments. The majority of these problems can be categorized to fall under the following business questions:
 
--   What is the probability that a piece of equipment fails in the near
-    future?
--   What is the remaining useful life of the equipment?
--   What are the causes of failures and what maintenance actions should
-    be performed to fix these issues?
+* What is the probability that a piece of equipment fails in the near
+  future?
+* What is the remaining useful life of the equipment?
+* What are the causes of failures and what maintenance actions should
+  be performed to fix these issues?
 
 By utilizing predictive maintenance to answer these questions,
 businesses can:
 
--   Reduce operational risk and increase rate of return on assets by
-    spotting failures before they occurred
--   Reduce unnecessary time-based maintenance operations and control
-    cost of maintenance
--   Improve overall brand image, eliminate bad publicity and resulting
-    lost sales from customer attrition.
--   Lower inventory costs by reducing inventory levels by predicting the
-    reorder point
--   Discover patterns connected to various maintenance problems
+* Reduce operational risk and increase rate of return on assets by
+  spotting failures before they occurred
+* Reduce unnecessary time-based maintenance operations and control
+  cost of maintenance
+* Improve overall brand image, eliminate bad publicity and resulting
+  lost sales from customer attrition.
+* Lower inventory costs by reducing inventory levels by predicting the
+  reorder point
+* Discover patterns connected to various maintenance problems
 
 Predictive maintenance solutions can provide businesses with key
 performance indicators such as health scores to monitor real-time asset condition, an estimate of the remaining lifespan of assets,
@@ -124,9 +125,9 @@ For example, if the target is to predict failures of train wheels, the training 
 
 There are three essential data sources we look for when qualifying a business problem to be suitable for a predictive maintenance solution:
 
-1.  Failure History: Typically, in predictive maintenance applications, failure events are very rare. However, when building predictive models that predict failures, the algorithm needs to learn the normal operation pattern as well as the failure pattern through the training process. Hence, it is essential that the training data contains sufficient number of examples in both categories in order to learn these two different patterns. For that reason, we require that data has sufficient number of failure events. Failure events can be found in maintenance records and parts replacement history or anomalies in the training data can also be used as failures as identified by the domain experts.
-2.  Maintenance/Repair History: An essential source of data for predictive maintenance solutions is the detailed maintenance history of the asset containing information about the components replaced, preventive maintenance activates performed, etc. It is extremely important to capture these events as these affect the degradation patterns and absence of this information causes misleading results.
-3.  Machine Conditions: In order to predict how many more days (hours, miles, transactions, etc.) a machine lasts before it fails, we assume the machine’s health status degrades over time during its operation. Therefore, we expect the data to contain time-varying features that capture this aging pattern and any anomalies that leads to degradation. In IoT applications, the telemetry data from different sensors represent one good example. In order to predict if a machine is going to fail within a time frame, ideally the data should capture degrading trend during this time frame before the actual failure event.
+1. Failure History: Typically, in predictive maintenance applications, failure events are very rare. However, when building predictive models that predict failures, the algorithm needs to learn the normal operation pattern as well as the failure pattern through the training process. Hence, it is essential that the training data contains sufficient number of examples in both categories in order to learn these two different patterns. For that reason, we require that data has sufficient number of failure events. Failure events can be found in maintenance records and parts replacement history or anomalies in the training data can also be used as failures as identified by the domain experts.
+2. Maintenance/Repair History: An essential source of data for predictive maintenance solutions is the detailed maintenance history of the asset containing information about the components replaced, preventive maintenance activates performed, etc. It is extremely important to capture these events as these affect the degradation patterns and absence of this information causes misleading results.
+3. Machine Conditions: In order to predict how many more days (hours, miles, transactions, etc.) a machine lasts before it fails, we assume the machine’s health status degrades over time during its operation. Therefore, we expect the data to contain time-varying features that capture this aging pattern and any anomalies that leads to degradation. In IoT applications, the telemetry data from different sensors represent one good example. In order to predict if a machine is going to fail within a time frame, ideally the data should capture degrading trend during this time frame before the actual failure event.
 
 Additionally, we require data that is directly related to the operating conditions of the target asset of prediction. The decision of target is based on both business needs and data availability. Taking the train wheel failure prediction as an example, we may predict "if the wheel is going to have a failure" or "if the whole train is going have a failure". The first one targets a more specific component whereas the
 second one targets failure of the train. The second one is a more general question that requires a lot more dispersed data elements than the first one, making it harder to build a model. Conversely, trying to predict wheel failures just by looking at the high-level train condition data may not be feasible as it does not contain information at the component level. In general, it is more sensible to predict specific failure events than
@@ -145,7 +146,7 @@ even be canceled. This is extremely costly as delays create problems in scheduli
 
 ##### *Business value of the predictive model*
 Using the available historical data, a predictive model was built using a multi-classification algorithm to predict the type of mechanical issue which results in a delay or cancellation of a flight within the next 24 hours. By making this prediction, necessary maintenance actions can be taken to mitigate the risk while an aircraft is being serviced and thus prevent possible delays or cancellations. Using Azure Machine Learning web service, the predictive models can seamlessly and easily be integrated
-into airlines’ existing operating platforms. 
+into airlines’ existing operating platforms. 
 
 #### Use Case 2: Aircraft component failure
 ##### *Business problem and data sources*
@@ -256,12 +257,11 @@ door failure, is extremely important foresight. It provides the opportunity
 to optimize train door servicing and reduce the train's down time.
 
 #### Data sources
-
 Three sources of data in this use-case are 
 
-- **train event data**, which is the historical records of train events, 
-- **maintenance data** such as maintenance types, work order types, and priority codes,  
-- **records of failures**.
+* **train event data**, which is the historical records of train events, 
+* **maintenance data** such as maintenance types, work order types, and priority codes,  
+* **records of failures**.
 
 ##### *Business value of the predictive model*
 Two models were built to predict next day failure probability using
@@ -275,11 +275,11 @@ the regular maintenance regimes.
 The common data elements for predictive maintenance problems can be
 summarized as follows:
 
--   Failure history: The failure history of a machine or component within the machine.
--   Maintenance history: The repair history of a machine, e.g. error codes, previous maintenance activities or component replacements.
--   Machine conditions and usage: The operating conditions of a machine e.g. data collected from sensors.
--   Machine features: The features of a machine, e.g. engine size, make and model, location.
--   Operator features: The features of the operator, e.g. gender, past experience.
+* Failure history: The failure history of a machine or component within the machine.
+* Maintenance history: The repair history of a machine, e.g. error codes, previous maintenance activities or component replacements.
+* Machine conditions and usage: The operating conditions of a machine e.g. data collected from sensors.
+* Machine features: The features of a machine, e.g. engine size, make and model, location.
+* Operator features: The features of the operator, e.g. gender, past experience.
 
 It is possible and usually the case that failure history is contained in
 maintenance history such as in the form of special error codes or order
@@ -320,7 +320,6 @@ these features to change over time and if so they should be treated as
 time stamped data sources.
 
 ### Merging data sources
-
 Before getting into any type of feature engineering or labeling process, we need to first prepare our data in the form required to create features from. The ultimate goal is to generate a record for each time unit for each asset with its features and labels to be fed into the machine learning algorithm. In order to prepare that clean final data set, some pre-processing steps should be taken. First step is to divide the duration of data collection into time units where each record belongs to a time unit for an asset. Data collection can also be divided into other units such as actions, however for simplicity we use time units for the rest of the explanations.
 
 The measurement unit for time can be in seconds, minutes, hours, days, months, cycles, miles or transactions depending on the efficiency of data preparation and the changes observed in the conditions of the asset from a time unit to the other or other factors specific to the domain. In other words, the time unit does not have to be the same as the frequency of data collection as in many cases data may not show any difference from one unit to the other. For example, if temperature values were being collected every 10 seconds, picking a time unit of 10 seconds for the whole analysis inflates the number of examples without providing any additional information. Better strategy would be to use average over an hour as an example.
@@ -424,14 +423,14 @@ During feature generation, some other important steps such as handling missing v
 
 The final feature table after feature engineering steps discussed in the earlier section should resemble the following example data schema when time unit is a day:
 
-|Asset ID|Time|Feature Columns|Label|
-|---|---|---|---|
-|1|Day 1|||
-|1|Day 2|||
-|...|...|||
-|2|Day 1|||
-|2|Day 2|||
-|...|...|||
+| Asset ID | Time | Feature Columns | Label |
+| --- | --- | --- | --- |
+| 1 |Day 1 | | |
+| 1 |Day 2 | | |
+| ... |... | | |
+| 2 |Day 1 | | |
+| 2 |Day 2 | | |
+| ... |... | | |
 
 ## Modeling techniques
 Predictive Maintenance is a very rich domain often employing business questions which may be approached from many different angles of the predictive modeling perspective. In the next sections, we provide main techniques that are used to model different business questions that can be answered with predictive maintenance solutions. Although there are similarities, each model has its own way of constructing labels which are described in detail. As an accompanying resource, you can refer to the predictive maintenance template that is included in the sample experiments provided within Azure Machine Learning. The links to the online material for this template are provided in the resources section. You can see how some of the feature engineering techniques discussed above and the modeling technique that is described in the next sections are applied to predict aircraft engine failures using Azure Machine Learning.
@@ -770,3 +769,4 @@ Figure 8. Example solution architecture for predictive maintenance
 
 For more information about each of the components of the architecture
 please refer to [Azure](https://azure.microsoft.com/) documentation.
+

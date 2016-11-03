@@ -1,38 +1,37 @@
-<properties
-   pageTitle="PowerShell script to deploy Windows HPC cluster | Microsoft Azure"
-   description="Run a PowerShell script to deploy a Windows HPC Pack cluster in Azure virtual machines"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="dlepow"
-   manager="timlt"
-   editor=""
-   tags="azure-service-management,hpc-pack"/>
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="big-compute"
-   ms.date="07/07/2016"
-   ms.author="danlep"/>
+---
+title: PowerShell script to deploy Windows HPC cluster | Microsoft Docs
+description: Run a PowerShell script to deploy a Windows HPC Pack cluster in Azure virtual machines
+services: virtual-machines-windows
+documentationcenter: ''
+author: dlepow
+manager: timlt
+editor: ''
+tags: azure-service-management,hpc-pack
 
+ms.assetid: 286b2be8-2533-40df-b02a-26156b1f1133
+ms.service: virtual-machines-windows
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 07/07/2016
+ms.author: danlep
+
+---
 # Create a Windows high-performance computing (HPC) cluster with the HPC Pack IaaS deployment script
-
 Run the HPC Pack IaaS deployment PowerShell script to deploy a complete HPC cluster for Windows workloads in Azure virtual machines. The cluster consists of an Active Directory-joined head node running Windows Server and Microsoft HPC Pack, and additional Windows compute resources you specify. If you want to deploy an HPC Pack cluster in Azure for Linux workloads, see [Create a Linux HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). You can also use an Azure Resource Manager template to deploy an HPC Pack cluster. For examples, see [Create an HPC cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) and [Create an HPC cluster with a custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
+[!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
 ## Example configuration files
-
 In the following examples, substitute your own values for your subscription Id or name and the account and service names.
 
 ### Example 1
-
 The following configuration file deploys an HPC Pack cluster
 that has a head node with local databases and five compute nodes running
-the Windows Server 2012 R2 operating system. All the cloud services are
+the Windows Server 2012 R2 operating system. All the cloud services are
 created directly in the West US location. The head node acts as domain
 controller of the domain forest.
 
@@ -71,15 +70,14 @@ controller of the domain forest.
 ```
 
 ### Example 2
-
 The following configuration file deploys an HPC Pack cluster in an existing domain forest. The cluster has 1 head node with local databases and 12 compute nodes with the BGInfo VM extension applied.
 Automatic installation of Windows updates is disabled for all the VMs in
 the domain forest. All the cloud services are created directly in the
 East Asia location. The compute nodes are created in three cloud services
-and three storage accounts: _MyHPCCN-0001_ to _MyHPCCN-0005_ in
-_MyHPCCNService01_ and _mycnstorage01_; _MyHPCCN-0006_ to _MyHPCCN0010_ in
-_MyHPCCNService02_ and _mycnstorage02_; and _MyHPCCN-0011_ to _MyHPCCN-0012_ in
-_MyHPCCNService03_ and _mycnstorage03_). The compute nodes are created from
+and three storage accounts: *MyHPCCN-0001* to *MyHPCCN-0005* in
+*MyHPCCNService01* and *mycnstorage01*; *MyHPCCN-0006* to *MyHPCCN0010* in
+*MyHPCCNService02* and *mycnstorage02*; and *MyHPCCN-0011* to *MyHPCCN-0012* in
+*MyHPCCNService03* and *mycnstorage03*). The compute nodes are created from
 an existing private image captured from a compute node. The auto grow
 and shrink service is enabled with default grow and shrink intervals.
 
@@ -144,7 +142,6 @@ and shrink service is enabled with default grow and shrink intervals.
 ```
 
 ### Example 3
-
 The following configuration file deploys an HPC Pack cluster
 in an existing domain forest. The cluster contains one head node, one
 database server with a 500 GB data disk, 2 broker nodes running the Windows
@@ -207,11 +204,10 @@ Scheduler REST API and HPC web portal are enabled on the head node.
 
 
 ### Example 4
-
 The following configuration file deploys an HPC Pack cluster
 in an existing domain forest. The cluster has two head node with local
 databases, two Azure node templates are created, and three size Medium Azure
-nodes are created for Azure node template _AzureTemplate1_. A script file runs on the head node after the head node is configured.
+nodes are created for Azure node template *AzureTemplate1*. A script file runs on the head node after the head node is configured.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -278,41 +274,34 @@ nodes are created for Azure node template _AzureTemplate1_. A script file runs o
 ```
 
 ## Troubleshooting
-
-
 * **“VNet doesn’t exist” error** - If you run the script to deploy multiple
-clusters in Azure concurrently under one subscription, one or more
-deployments may fail with the error “VNet *VNet\_Name* doesn't exist”.
-If this error occurs, run the script again for the failed deployment.
-
+  clusters in Azure concurrently under one subscription, one or more
+  deployments may fail with the error “VNet *VNet\_Name* doesn't exist”.
+  If this error occurs, run the script again for the failed deployment.
 * **Problem accessing the Internet from the Azure virtual network** - If you create a cluster with a new domain controller by using
-the deployment script, or you manually promote a head node VM to domain
-controller, you may experience problems connecting the VMs to the Internet. This problem can occur if a forwarder DNS
-server is automatically configured on the domain controller, and this
-forwarder DNS server doesn’t resolve properly.
-
+  the deployment script, or you manually promote a head node VM to domain
+  controller, you may experience problems connecting the VMs to the Internet. This problem can occur if a forwarder DNS
+  server is automatically configured on the domain controller, and this
+  forwarder DNS server doesn’t resolve properly.
+  
     To work around this problem, log on to the domain controller and either
     remove the forwarder configuration setting or configure a valid
     forwarder DNS server. To configure this setting, in Server Manager click **Tools** >
     **DNS** to open DNS Manager, and then double-click **Forwarders**.
-
 * **Problem accessing RDMA network from compute-intensive VMs** - If you add Windows Server compute or broker node VMs using an RDMA-capable size such as A8 or A9, you may experience problems
-connecting those VMs to the RDMA application network. One reason this
-problem occurs is if the HpcVmDrivers extension is not properly installed
-when the VMs are added to the cluster. For example, the
-extension might be stuck in the installing state.
-
+  connecting those VMs to the RDMA application network. One reason this
+  problem occurs is if the HpcVmDrivers extension is not properly installed
+  when the VMs are added to the cluster. For example, the
+  extension might be stuck in the installing state.
+  
     To work around this problem, first check the state of the extension in
     the VMs. If the extension is not properly installed, try removing the
     nodes from the HPC cluster and then add the nodes again. For example,
     you can add compute node VMs by running the Add-HpcIaaSNode.ps1 script on the head node.
-    
+
 ## Next steps
-
 * Try running a test workload on the cluster. For an example, see the HPC Pack [getting started guide](https://technet.microsoft.com/library/jj884144).
-
 * For a tutorial to script the cluster deployment and run an HPC workload, see [Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](virtual-machines-windows-excel-cluster-hpcpack.md).
-
 * Try HPC Pack's tools to start, stop, add, and remove compute nodes from a cluster you create. See [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md).
-
 * To get set up to submit jobs to the cluster from a local computer, see [Submit HPC jobs from an on-premises computer to an HPC Pack cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md).
+

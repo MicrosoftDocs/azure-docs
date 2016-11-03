@@ -1,33 +1,33 @@
-<properties
-	pageTitle="Azure AD v2.0 AngularJS Getting Started | Microsoft Azure"
-	description="How to build an Angular JS Single Page app that signs in users with both personal Microsoft accounts and work or school accounts."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Azure AD v2.0 AngularJS Getting Started | Microsoft Docs
+description: How to build an Angular JS Single Page app that signs in users with both personal Microsoft accounts and work or school accounts.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+ms.assetid: d286aa33-8a94-452f-beb7-ddc6c6daa5c8
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: javascript
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: dastrock
 
-
+---
 # Add sign-in to an AngularJS single page app - NodeJS
-
 In this article we'll add sign in with Microsoft powered accounts to an AngularJS app using the Azure Active Directory v2.0 endpoint. the v2.0 endpoint enable you to perform a single integration in your app and authenticate users with both personal and work/school accounts.
 
 This sample is a simple To-Do List single page app that stores tasks in a backend REST API, written in NodeJS and secured using OAuth bearer tokens from Azure AD.  The AngularJS app will use our open source JavaScript authentication library [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) to handle the entire sign in process and acquire tokens for calling the REST API.  The same pattern can be applied to authenticate to other REST APIs, like the [Microsoft Graph](https://graph.microsoft.com) or the Azure Resource Manager APIs.
 
-> [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> [!NOTE]
+> Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> 
+> 
 
 ## Download
-
 To get started, you'll need to download & install [node.js](https://nodejs.org).  Then you can clone or [download](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/skeleton.zip) a skeleton app:
 
 ```
@@ -41,17 +41,17 @@ git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-NodeJS.git
 ```
 
 ## Register an app
+First, create an app in the [App Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
 
-First, create an app in the [App Registration Portal](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
-
-- Add the **Web** platform for your app.
-- Enter the correct **Redirect URI**. The default for this sample is `http://localhost:8080`.
-- Leave the **Allow Implicit Flow** checkbox enabled. 
+* Add the **Web** platform for your app.
+* Enter the correct **Redirect URI**. The default for this sample is `http://localhost:8080`.
+* Leave the **Allow Implicit Flow** checkbox enabled. 
 
 Copy down the **Application ID** that is assigned to your app, you'll need it shortly. 
 
 ## Install adal.js
 To start, navigate to project you downloaded and install adal.js.  If you have [bower](http://bower.io/) installed, you can just run this command.  For any dependency version mismatches, just choose the higher version.
+
 ```
 bower install adal-angular#experimental
 ```
@@ -72,7 +72,6 @@ Now open the project in your favorite text editor, and load adal.js at the end o
 ```
 
 ## Set up the REST API
-
 While we're setting things up, lets get the backend REST API working.  In a command prompt, install all the necessary packages by running (make sure you're in the top-level directory of the project):
 
 ```
@@ -83,11 +82,11 @@ Now open `config.js` and replace the `audience` value:
 
 ```js
 exports.creds = {
-     
+
      // TODO: Replace this value with the Application ID from the registration portal
      audience: '<Your-application-id>',
-	 
-	 ...
+
+     ...
 }
 ```
 
@@ -116,19 +115,19 @@ You can now initialize the `adalProvider` with your Application ID:
 ...
 
 adalProvider.init({
-        
+
         // Use this value for the public instance of Azure AD
         instance: 'https://login.microsoftonline.com/', 
-        
+
         // The 'common' endpoint is used for multi-tenant applications like this one
         tenant: 'common',
-        
+
         // Your application id from the registration portal
         clientId: '<Your-application-id>',
-        
+
         // If you're using IE, uncommment this line - the default HTML5 sessionStorage does not work for localhost.
         //cacheLocation: 'localStorage',
-         
+
     }, $httpProvider);
 ```
 
@@ -157,16 +156,16 @@ angular.module('todoApp')
 // Load adal.js the same way for use in controllers and views   
 .controller('homeCtrl', ['$scope', 'adalAuthenticationService','$location', function ($scope, adalService, $location) {
     $scope.login = function () {
-        
+
         // Redirect the user to sign in
         adalService.login();
-        
+
     };
     $scope.logout = function () {
-        
+
         // Redirect the user to log out    
         adalService.logOut();
-    
+
     };
 ...
 ```
@@ -237,10 +236,10 @@ In a browser navigate to `http://localhost:8080`.  Sign in using either a person
 
 To continue learning about the the v2.0 endpoint, head back to our [v2.0 developer guide](active-directory-appmodel-v2-overview.md).  For additional resources, check out:
 
-- [Azure-Samples on GitHub >>](https://github.com/Azure-Samples)
-- [Azure AD on Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
-- Azure AD documentation on [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
+* [Azure-Samples on GitHub >>](https://github.com/Azure-Samples)
+* [Azure AD on Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* Azure AD documentation on [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
 ## Get security updates for our products
-
 We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
+

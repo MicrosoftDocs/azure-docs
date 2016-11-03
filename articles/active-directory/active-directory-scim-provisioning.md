@@ -1,25 +1,24 @@
-<properties
-	pageTitle="Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications | Microsoft Azure"
-	description="Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a Web service with the interface defined in the SCIM protocol specification"
-	services="active-directory"
-	documentationCenter=""
-	authors="asmalser-msft"
-	manager="femila"
-	editor=""/>
+---
+title: Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications | Microsoft Docs
+description: Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a Web service with the interface defined in the SCIM protocol specification
+services: active-directory
+documentationcenter: ''
+author: asmalser-msft
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/09/2016"
-	ms.author="asmalser-msft"/>
+ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/09/2016
+ms.author: asmalser-msft
 
-#Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications
-
-##Overview
-
+---
+# Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications
+## Overview
 Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a Web service with the interface defined in the [SCIM 2.0 protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory can send requests to create, modify and delete assigned users and groups to this Web service, which can then translate those requests into operations upon the target identity store. 
 
 ![][1]
@@ -30,66 +29,55 @@ This capability can be used in conjunction with the “[bring your own app](http
 There are two use cases for SCIM in Azure Active Directory:
 
 * **Provisioning users and groups to applications that support SCIM** - Applications that support SCIM 2.0 and use OAuth bearer tokens for authentication will work with Azure AD of the box.
-
 * **Build your own provisioning solution for applications that support other API-based provisioning** - For non-SCIM applications, you can create a SCIM endpoint to translate between Azure AD’s SCIM endpoint and whatever API the application supports for user provisioning.  To aid in the development of a SCIM endpoint, we provide CLI libraries along with code samples that show you how to do provide a SCIM endpoint and translate SCIM messages.  
 
-##Provisioning Users and Groups To Applications That Support SCIM
-
+## Provisioning Users and Groups To Applications That Support SCIM
 Azure Active Directory can be configured to automatically provision assigned users and groups to applications that implement a [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) Web service and accept OAuth bearer tokens for authentication. Within the SCIM 2.0 specification, applications must meet these requirements:
 
 * Supports creating users and/or groups, as per section 3.3 of the SCIM protocol.  
-
 * Supports modifying users and/or groups with patch requests as per section 3.5.2 of the SCIM protocol.  
-
 * Supports retrieving a known resource as per section 3.4.1 of the SCIM protocol.  
-
-*  Supports querying users and/or groups, as per section 3.4.2 of the SCIM protocol.  By default, users are queried by externalId and groups are queried by displayName.  
-
+* Supports querying users and/or groups, as per section 3.4.2 of the SCIM protocol.  By default, users are queried by externalId and groups are queried by displayName.  
 * Supports querying user by ID and by manager as per section 3.4.2 of the SCIM protocol.  
-
 * Supports querying groups by ID and by member as per section 3.4.2 of the SCIM protocol.  
-
 * Accepts OAuth bearer tokens for authorization as per section 2.1 of the SCIM protocol.
 
 You should check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
- 
-###Getting Started
 
+### Getting Started
 Applications that support the SCIM profile described above can be connected to Azure Active Directory using the "custom" app feature in the Azure AD application gallery. Once connected, Azure AD runs a synchronization process every 5 minutes where it queries the application's SCIM endpoint for assigned users and groups, and creates or modifies them according to the assignment details.
 
 **To connect an application that supports SCIM:**
 
-1.	In a web browser, launch the Azure management portal at https://manage.windowsazure.com.
-2.	Browse to **Active Directory > Directory > [Your Directory] > Applications**, and select **Add > Add an application from the gallery**.
-3.	Select the **Custom** tab on the left, enter a name for your application, and click the checkmark icon to create an app object.
+1. In a web browser, launch the Azure management portal at https://manage.windowsazure.com.
+2. Browse to **Active Directory > Directory > [Your Directory] > Applications**, and select **Add > Add an application from the gallery**.
+3. Select the **Custom** tab on the left, enter a name for your application, and click the checkmark icon to create an app object.
 
 ![][2]
 
-4.	In the resulting screen, select the second **Configure account provisioning** button.
-5.	In the **Provisioning Endpoint URL** field, enter the URL of the application's SCIM endpoint.
-6.	If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the **Authentication Token (optional)** field. Is this field is left blank, then Azure AD will include an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an idenity provider can validate this Azure AD -issued token.
-7.	Click **Next**, and click on the **Start Test** button to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempts fail, diagnostic information will be displayed.  
-8.	If the attempts to connect to the application succeed, then click **Next** on the remaining screens, and click **Complete** to exit the dialog.
-9.	In the resulting screen, select the third **Assign Accounts** button. In the resulting Users and Groups section, assign the users or groups you want to provision to the application.
-10.	Once users and groups are assigned, click the **Configure** tab near the top of the screen.
-11.	Under **Account Provisioning**, confirm that the Status is set to On. 
-12.	Under **Tools**, click **Restart account provisioning** to kick-start the provisioning process.
+1. In the resulting screen, select the second **Configure account provisioning** button.
+2. In the **Provisioning Endpoint URL** field, enter the URL of the application's SCIM endpoint.
+3. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the **Authentication Token (optional)** field. Is this field is left blank, then Azure AD will include an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an idenity provider can validate this Azure AD -issued token.
+4. Click **Next**, and click on the **Start Test** button to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempts fail, diagnostic information will be displayed.  
+5. If the attempts to connect to the application succeed, then click **Next** on the remaining screens, and click **Complete** to exit the dialog.
+6. In the resulting screen, select the third **Assign Accounts** button. In the resulting Users and Groups section, assign the users or groups you want to provision to the application.
+7. Once users and groups are assigned, click the **Configure** tab near the top of the screen.
+8. Under **Account Provisioning**, confirm that the Status is set to On. 
+9. Under **Tools**, click **Restart account provisioning** to kick-start the provisioning process.
 
 Note that 5-10 minutes may elapse before the provisioning process will begin to send requests to the SCIM endpoint.  A summary of connection attempts is provided on the application’s Dashboard tab, and both a report of provisioning activity and any provisioning errors can be downloaded from the directory’s Reports tab.
 
-##Building Your Own Provisioning Solution For Any Application
-
+## Building Your Own Provisioning Solution For Any Application
 By creating a SCIM web service that interfaces with Azure Active Directory, you can enable single sign-on and automatic user provisioning for virtually any application that provides a REST or SOAP user provisioning API.
 
 Here’s how it works:
 
-1.	Azure AD provides a common language infrastructure library named [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/). System integrators and developers can use this library to create and deploy a SCIM-based web service endpoint capable of connecting Azure AD to any application’s identity store.
-2.	Mappings are implemented in the web service to map the standardized user schema to the user schema and protocol required by the application.
-3.	The endpoint URL is registered in Azure AD as part of a custom application in the application gallery.
-4.	Users and groups are assigned to this application in Azure AD. Upon assignment, they are put into a queue to be synchronized to the target application. The synchronization process handling the queue runs every 5 minutes.
+1. Azure AD provides a common language infrastructure library named [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/). System integrators and developers can use this library to create and deploy a SCIM-based web service endpoint capable of connecting Azure AD to any application’s identity store.
+2. Mappings are implemented in the web service to map the standardized user schema to the user schema and protocol required by the application.
+3. The endpoint URL is registered in Azure AD as part of a custom application in the application gallery.
+4. Users and groups are assigned to this application in Azure AD. Upon assignment, they are put into a queue to be synchronized to the target application. The synchronization process handling the queue runs every 5 minutes.
 
-###Code Samples
-
+### Code Samples
 To make this process easier, a set of [code samples](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) are provided that create a SCIM web service endpoint and demonstrate automatic provisioning. One sample is of a provider that maintains a file with rows of comma-separated values representing users and groups.  The other is of a provider that operates on the Amazon Web Services Identity and Access Management service.  
 
 **Prerequisites**
@@ -100,55 +88,50 @@ To make this process easier, a set of [code samples](https://github.com/Azure/Az
 * [An Azure subscription with a trial or licensed version of Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
 * The Amazon AWS sample requires libraries from the [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). See the README file included with the sample for additional details
 
-###Getting Started
-
+### Getting Started
 The easiest way to implement a SCIM endpoint that can accept provisioning requests from Azure AD is to build and deploy the code sample that outputs the provisioned users to a comma-separated value (CSV) file.
 
 **To create a sample SCIM endpoint:**
 
-1.	Download the code sample package at [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
-2.	Unzip the package and place it on your Windows machine at a location such as C:\AzureAD-BYOA-Provisioning-Samples\.
-3.	In this folder, launch the FileProvisioningAgent solution in Visual Studio.
-4.	Select **Tools > Library Package Manager > Package Manager Console**, and execute the commands below for the FileProvisioningAgent project to resolve the solution references:
-
-    Install-Package Microsoft.SystemForCrossDomainIdentityManagement
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-    Install-Package Microsoft.Owin.Diagnostics
-    Install-Package Microsoft.Owin.Host.SystemWeb
-
-5.	Build the FileProvisioningAgent project.
-6.	Launch the Command Prompt application in Windows (as an Administrator), and use the **cd** command to change the directory to your **\AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug** folder.
-7.	Run the command below, replacing <ip-address> with the IP or domain name of the Windows Machine.
-
-    FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
-
-8.	In Windows under **Windows Settings > Network & Internet Settings**, select the **Windows Firewall > Advanced Settings**, and create an **Inbound Rule** that allows inbound access to port 9000.
-9.	If the Windows machine is behind a router, the router will need to be configured to perform Network Access Translation between its port 9000 that is exposed to the internet, and port 9000 on the Windows machine. This is required for Azure AD to be able to access this endpoint in the cloud.
-
+1. Download the code sample package at [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
+2. Unzip the package and place it on your Windows machine at a location such as C:\AzureAD-BYOA-Provisioning-Samples\.
+3. In this folder, launch the FileProvisioningAgent solution in Visual Studio.
+4. Select **Tools > Library Package Manager > Package Manager Console**, and execute the commands below for the FileProvisioningAgent project to resolve the solution references:
+   
+   Install-Package Microsoft.SystemForCrossDomainIdentityManagement
+   Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+   Install-Package Microsoft.Owin.Diagnostics
+   Install-Package Microsoft.Owin.Host.SystemWeb
+5. Build the FileProvisioningAgent project.
+6. Launch the Command Prompt application in Windows (as an Administrator), and use the **cd** command to change the directory to your **\AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug** folder.
+7. Run the command below, replacing <ip-address> with the IP or domain name of the Windows Machine.
+   
+   FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
+8. In Windows under **Windows Settings > Network & Internet Settings**, select the **Windows Firewall > Advanced Settings**, and create an **Inbound Rule** that allows inbound access to port 9000.
+9. If the Windows machine is behind a router, the router will need to be configured to perform Network Access Translation between its port 9000 that is exposed to the internet, and port 9000 on the Windows machine. This is required for Azure AD to be able to access this endpoint in the cloud.
 
 **To register the sample SCIM endpoint in Azure AD:**
 
-1.	In a web browser, launch the Azure management portal at https://manage.windowsazure.com.
-2.	Browse to **Active Directory > Directory > [Your Directory] > Applications**, and select **Add > Add an application from the gallery**.
-3.	Select the **Custom** tab on the left, enter a name such as “SCIM Test App”, and click the checkmark icon to create an app object. Note that the application object created is intend to represent the target app you would be provisioning to and implementing single sign-on for, and not just the SCIM endpoint.
+1. In a web browser, launch the Azure management portal at https://manage.windowsazure.com.
+2. Browse to **Active Directory > Directory > [Your Directory] > Applications**, and select **Add > Add an application from the gallery**.
+3. Select the **Custom** tab on the left, enter a name such as “SCIM Test App”, and click the checkmark icon to create an app object. Note that the application object created is intend to represent the target app you would be provisioning to and implementing single sign-on for, and not just the SCIM endpoint.
 
 ![][2]
 
-4.	In the resulting screen, select the second **Configure account provisioning** button.
-5.	In the dialog, enter the internet-exposed URL and port of your SCIM endpoint. This would be something like http://testmachine.contoso.com:9000 or http://<ip-address>:9000/, where <ip-address> is the internet exposed IP address.  
-6.	Click **Next**, and click on the **Start Test** button to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempts fail, diagnostic information will be displayed.  
-7.	If the attempts to connect to your Web service succeed, then click **Next** on the remaining screens, and click **Complete** to exit the dialog.
-8.	In the resulting screen, select the third **Assign Accounts** button. In the resulting Users and Groups section, assign the users or groups you want to provision to the application.
-9.	Once users and groups are assigned, click the **Configure** tab near the top of the screen.
-10.	Under **Account Provisioning**, confirm that the Status is set to On. 
-11.	Under **Tools**, click **Restart account provisioning** to kick-start the provisioning process.
+1. In the resulting screen, select the second **Configure account provisioning** button.
+2. In the dialog, enter the internet-exposed URL and port of your SCIM endpoint. This would be something like http://testmachine.contoso.com:9000 or http://<ip-address>:9000/, where <ip-address> is the internet exposed IP address.  
+3. Click **Next**, and click on the **Start Test** button to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempts fail, diagnostic information will be displayed.  
+4. If the attempts to connect to your Web service succeed, then click **Next** on the remaining screens, and click **Complete** to exit the dialog.
+5. In the resulting screen, select the third **Assign Accounts** button. In the resulting Users and Groups section, assign the users or groups you want to provision to the application.
+6. Once users and groups are assigned, click the **Configure** tab near the top of the screen.
+7. Under **Account Provisioning**, confirm that the Status is set to On. 
+8. Under **Tools**, click **Restart account provisioning** to kick-start the provisioning process.
 
 Note that 5-10 minutes may elapse before the provisioning process will begin to send requests to the SCIM endpoint.  A summary of connection attempts is provided on the application’s Dashboard tab, and both a report of provisioning activity and any provisioning errors can be downloaded from the directory’s Reports tab.
 
 The final step in verifying the sample is to open the TargetFile.csv file in the \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug folder on your Windows machine. Once the provisioning process is run, this file shows the details of all assigned and provisioned users and groups.
 
-###Development Libraries
-
+### Development Libraries
 To develop your own Web service that conforms to the SCIM specification, first familiarize yourself with the following libraries provided by Microsoft to help accelerate the development process: 
 
 **1:**  Common Language Infrastructure libraries are offered for use with languages based on that infrastructure, such as C#.  One of those libraries, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), declares an interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, shown in the figure below.  A developer using the libraries would implement that interface with a class that may be referred to, generically, as a provider.  The libraries enable the developer to easily deploy a Web service that conforms to the SCIM specification, either hosted within Internet Information Services, or any executable Common Language Infrastructure assembly.  Requests to that Web service will be translated into calls to the provider’s methods, which would be programmed by the developer to operate on some identity store.    
@@ -157,8 +140,7 @@ To develop your own Web service that conforms to the SCIM specification, first f
 
 **2:**  [Express route handlers](http://expressjs.com/guide/routing.html) are available for parsing node.js request objects representing calls (as defined by the SCIM specification), made to a node.js Web service.   
 
-###Building a Custom SCIM Endpoint
-
+### Building a Custom SCIM Endpoint
 Using the libraries described above, developers using those libraries can host their services within any executable Common Language Infrastructure assembly, or within Internet Information Services.  Here is sample code for hosting a service within an executable assembly, at the address http://localhost:9000: 
 
     private static void Main(string[] arguments)
@@ -167,7 +149,7 @@ Using the libraries described above, developers using those libraries can host t
     // Microsoft.SystemForCrossDomainIdentityManagement.IProvider and 
     // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
     // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
-    
+
     Microsoft.SystemForCrossDomainIdentityManagement.IMonitor monitor = 
       new DevelopersMonitor();
     Microsoft.SystemForCrossDomainIdentityManagement.IProvider provider = 
@@ -245,7 +227,7 @@ It is important to note that this service must have an HTTP address and server a
 A server authentication certificate can be bound to a port on a Windows host using the network shell utility, like so: 
 
     netsh http add sslcert ipport=0.0.0.0:443 certhash=0000000000003ed9cd0c315bbb6dc1c08da5e6 appid={00112233-4455-6677-8899-AABBCCDDEEFF}  
- 
+
 Here, the value provided for the certhash argument is the thumbprint of the certificate, while the value provided for the appid argument is an arbitrary globally-unique identifier.  
 
 To host the service within Internet Information Services, a developer would build a Common Language Infrastructure code library assembly with a class named Startup in the default namespace of the assembly.  Here is a sample of such a class: 
@@ -278,8 +260,7 @@ To host the service within Internet Information Services, a developer would buil
     }
     }
 
-###Handling Endpoint Authentication
-
+### Handling Endpoint Authentication
 Requests from Azure Active Directory include an OAuth 2.0 bearer token.   Any service receiving the request should authenticate the issuer as being Azure Active Directory on behalf of the expected Azure Active Directory tenant, for access to Azure Active Directory’s Graph Web service.  In the token, the issuer is identified by an iss claim, like, "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  In this example, the base address of the claim value, https://sts.windows.net, identifies Azure Active Directory as the issuer, while the relative address segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, is a unique identifier of the Azure Active Directory tenant on behalf of which the token was issued.  If the token was issued for accessing the Azure Active Directory’s Graph Web service, then the identifier of that service, 00000002-0000-0000-c000-000000000000, should be in the value of the token’s aud claim.  
 
 Developers using the Common Language Infrastructure libraries provided by Microsoft for building a SCIM service can authenticate requests from Azure Active Directory using the Microsoft.Owin.Security.ActiveDirectory package by following these steps: 
@@ -331,51 +312,45 @@ Developers using the Common Language Infrastructure libraries provided by Micros
       applicationBuilder.UseWindowsAzureActiveDirectoryBearerAuthentication(authenticationOptions);
     }
 
-##User and Group Schema
-
+## User and Group Schema
 Azure Active Directory can provision two types of resources to SCIM Web Services.  Those types of resources are users and groups.  
 
 User resources are identified by the schema identifier, urn:ietf:params:scim:schemas:extension:enterprise:2.0:User, which is included in this protocol specification: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  The default mapping of the attributes of users in Azure Active Directory to the attributes of urn:ietf:params:scim:schemas:extension:enterprise:2.0:User resources is provided in table 1, below.  
 
 Group resources are identified by the schema identifier, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Table 2, below, shows the default mapping of the attributes of groups in Azure Active Directory to the attributes of http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group resources.  
 
-###Table 1: Default user attribute mapping
-
+### Table 1: Default user attribute mapping
 | Azure Active Directory user | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
-| ------------- | ------------- |
-| IsSoftDeleted | active |
-| displayName | displayName |
-| Facsimile-TelephoneNumber | phoneNumbers[type eq "fax"].value |
-| givenName | name.givenName |
-| jobTitle | title |
-| mail | emails[type eq "work"].value |
-| mailNickname | externalId |
-| manager | manager |
-| mobile | phoneNumbers[type eq "mobile"].value |
-| objectId | id |
-| postalCode | addresses[type eq "work"].postalCode |
-| proxy-Addresses | emails[type eq "other"].Value |
-| physical-Delivery-OfficeName | addresses[type eq "other"].Formatted |
-| streetAddress | addresses[type eq "work"].streetAddress |
-| surname | name.familyName |
-| telephone-Number | phoneNumbers[type eq "work"].value |
-| user-PrincipalName | userName |
+| --- | --- |
+| IsSoftDeleted |active |
+| displayName |displayName |
+| Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
+| givenName |name.givenName |
+| jobTitle |title |
+| mail |emails[type eq "work"].value |
+| mailNickname |externalId |
+| manager |manager |
+| mobile |phoneNumbers[type eq "mobile"].value |
+| objectId |id |
+| postalCode |addresses[type eq "work"].postalCode |
+| proxy-Addresses |emails[type eq "other"].Value |
+| physical-Delivery-OfficeName |addresses[type eq "other"].Formatted |
+| streetAddress |addresses[type eq "work"].streetAddress |
+| surname |name.familyName |
+| telephone-Number |phoneNumbers[type eq "work"].value |
+| user-PrincipalName |userName |
 
-
-###Table 2: Default group attribute mapping
-
+### Table 2: Default group attribute mapping
 | Azure Active Directory group | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
-| ------------- | ------------- |
-| displayName | externalId |
-| mail | emails[type eq "work"].value |
-| mailNickname | displayName |
-| members | members |
-| objectId | id |
-| proxyAddresses | emails[type eq "other"].Value |
+| --- | --- |
+| displayName |externalId |
+| mail |emails[type eq "work"].value |
+| mailNickname |displayName |
+| members |members |
+| objectId |id |
+| proxyAddresses |emails[type eq "other"].Value |
 
-
-##User Provisioning and De-Provisioning
-
+## User Provisioning and De-Provisioning
 The figure below shows the messages that Azure Active Directory will send to a SCIM service to manage the lifecycle of a user in another identity store.  The diagram also shows how a SCIM service implemented using the Common Language Infrastructure libraries provided by Microsoft for building such services will translate those requests into calls to the methods of a provider.  
 
 ![][4]
@@ -408,13 +383,13 @@ Here is the definition of the Microsoft.SystemForCrossDomainIdentityManagement.I
     }
 
     public interface Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
-	{
+    {
       system.Collections.Generic.IReadOnlyCollection<string> ExcludedAttributePaths 
       { get; }
       System.Collections.Generic.IReadOnlyCollection<string> RequestedAttributePaths 
       { get; }
       string SchemaIdentifier 
-	  { get; }
+      { get; }
     }
 
     public interface Microsoft.SystemForCrossDomainIdentityManagement.IFilter
@@ -428,7 +403,7 @@ Here is the definition of the Microsoft.SystemForCrossDomainIdentityManagement.I
         string ComparisonValue 
           { get; }
     }
-    
+
     public enum Microsoft.SystemForCrossDomainIdentityManagement.ComparisonOperator
     {
         Equals
@@ -501,7 +476,7 @@ In a service built using the Common Language Infrastructure libraries provided b
          Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
            parameters, 
            string correlationIdentifier);
-    
+
     public interface 
       Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters:   
         IRetrievalParameters
@@ -609,7 +584,7 @@ The Microsoft Common Language Infrastructure libraries for implementing SCIM ser
     public Microsoft.SystemForCrossDomainIdentityManagement.OperationName 
       Name
       { get; set; }
-    
+
     public Microsoft.SystemForCrossDomainIdentityManagement.IPath 
       Path
       { get; set; }
@@ -640,7 +615,7 @@ The Microsoft Common Language Infrastructure libraries for implementing SCIM ser
     {
       public string Reference
       { get; set; }
-      
+
       public string Value
       { get; set; }
     }
@@ -662,7 +637,7 @@ In the case of the foregoing example of a request to update a user, the object p
 
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
-	
+
 If the service was built using the Common Language Infrastructure libraries provided by Microsoft for implementing SCIM services, then the request will be translated into a call to the Delete method of the service’s provider.   That method has this signature: 
 
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -672,14 +647,13 @@ If the service was built using the Common Language Infrastructure libraries prov
       Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier  
         resourceIdentifier, 
       string correlationIdentifier);
- 
+
 The object provided as the value of the resourceIdentifier argument will have these property values in the case of the foregoing example of a request to de-provision a user: 
 
 * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-##Group Provisioning and De-Provisioning
-
+## Group Provisioning and De-Provisioning
 The figure below shows the messages that Azure Active Directory will send to a SCIM service to manage the lifecycle of a group in another identity store.  Those messages differ from the messages pertaining to users in three ways: 
 
 * The schema of a group resource will be identified as http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
@@ -689,18 +663,15 @@ The figure below shows the messages that Azure Active Directory will send to a S
 ![][5]
 *Figure: Group provisioning and de-provisioning sequence*
 
-##Related Articles
+## Related Articles
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+* [Automate User Provisioning/Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md)
+* [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
+* [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+* [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
+* [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
+* [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
 
-- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-- [Automate User Provisioning/Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md)
-- [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
-- [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-- [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
-- [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
-- [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
-
-
-	
 <!--Image references-->
 [1]: ./media/active-directory-scim-provisioning/scim-figure-1.PNG
 [2]: ./media/active-directory-scim-provisioning/scim-figure-2.PNG

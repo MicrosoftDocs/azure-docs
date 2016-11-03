@@ -1,22 +1,23 @@
-<properties 
-   pageTitle="Alert management in Microsoft monitoring products | Microsoft Azure"
-   description="An alert indicates some issue that requires attention from an administrator.  This article describes the differences in how alerts are created and managed in System Center Operations Manager (SCOM) and Log Analytics and provides best practices in leveraging the two products for a hybrid alert management strategy." 
-   services="operations-management-suite"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags 
-   ms.service="operations-management-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
-   ms.author="bwren" />
+---
+title: Alert management in Microsoft monitoring products | Microsoft Docs
+description: An alert indicates some issue that requires attention from an administrator.  This article describes the differences in how alerts are created and managed in System Center Operations Manager (SCOM) and Log Analytics and provides best practices in leveraging the two products for a hybrid alert management strategy.
+services: operations-management-suite
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
-# Managing alerts with Microsoft monitoring 
+ms.assetid: 6572c3f8-78ca-4fa9-8fe1-d0b488590788
+ms.service: operations-management-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/06/2016
+ms.author: bwren
 
+---
+# Managing alerts with Microsoft monitoring
 An alert indicates some issue that requires attention from an administrator.  There are distinct differences between System Center Operations Manager (SCOM) and Log Analytics in Operations Management Suite (OMS) in terms of how alerts are created, how they are managed and analyzed, and how you are notified that a critical issue has been detected.
 
 ## Alerts in Operations Manager
@@ -58,7 +59,7 @@ You can’t completely manage SCOM alerts in Log Analytics though since you can 
 
 ## Alert Remediation
 [Remediation](http://technet.microsoft.com/library/mt614775.aspx) refers to an attempt to automatically correct the problem identified by an alert.
-  
+
 SCOM allows you to run Diagnostics and Recoveries in response to a monitor entering an unhealthy state.  This happens simultaneous to the monitor creating the alert.  Diagnostics and recoveries are typically implemented as a script that runs on the agent.  A diagnostic attempts to gather more information about the detected issue while a recovery attempts to correct the problem.
 
 Log Analytics allows you to start an [Azure Automation runbook](https://azure.microsoft.com/documentation/services/automation/) or call a webhook in response to a Log Analytics alert.  Runbooks can contain complex logic implemented in PowerShell.  The script runs in Azure and can access any Azure resources or external resources available from the cloud.  Azure Automation does have the ability to execute runbooks on a server in your local datacenter, but this feature is not currently available when starting the runbook in response to Log Analytics alerts.
@@ -68,5 +69,5 @@ Both recoveries in SCOM and runbooks in OMS can contain PowerShell scripts, but 
 If you use SCOM as a data source for Log Analytics, you could create a Log Analytics alert using a log query to retrieve SCOM alerts stored in the OMS repository.  This would allow you to run an Azure Automation runbook in response to a SCOM alert.  Of course, since the runbook will run in Azure, this would not be a viable strategy for recoveries of on-premises issues.
 
 ## Next steps
+* Learn the details of [alerts in System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
 
-- Learn the details of [alerts in System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh212913.aspx).

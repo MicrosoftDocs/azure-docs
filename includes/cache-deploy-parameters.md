@@ -1,6 +1,5 @@
 
 ### cacheSKUName
-
 The pricing tier of the new Azure Redis Cache.
 
     "cacheSKUName": {
@@ -19,7 +18,6 @@ The template defines the values that are permitted for this parameter (Basic or 
 Standard provides two-node Primary/Replica with multiple sizes available up to 53 GB and 99.9% SLA.
 
 ### cacheSKUFamily
-
 The family for the sku.
 
     "cacheSKUFamily": {
@@ -35,7 +33,6 @@ The family for the sku.
 
 
 ### cacheSKUCapacity
-
 The size of the new Azure Redis Cache instance. 
 
     "cacheSKUCapacity": {

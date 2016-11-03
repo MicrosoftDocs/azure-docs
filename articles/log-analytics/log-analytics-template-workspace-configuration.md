@@ -1,58 +1,55 @@
 
 
-<properties
-	pageTitle="Use Azure Resource Manager templates to Create and Configure a Log Analytics Workspace | Microsoft Azure"
-	description="You can use Azure Resource Manager templates to create and configure Log Analytics workspaces."
-	services="log-analytics"
-	documentationCenter=""
-	authors="richrundmsft"
-	manager="jochan"
-	editor=""/>
+---
+title: Use Azure Resource Manager templates to Create and Configure a Log Analytics Workspace | Microsoft Docs
+description: You can use Azure Resource Manager templates to create and configure Log Analytics workspaces.
+services: log-analytics
+documentationcenter: ''
+author: richrundmsft
+manager: jochan
+editor: ''
 
-<tags
-	ms.service="log-analytics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="json"
-	ms.topic="article"
-	ms.date="08/25/2016"
-	ms.author="richrund"/>
+ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: json
+ms.topic: article
+ms.date: 11/01/2016
+ms.author: richrund
 
+---
 # Manage Log Analytics using Azure Resource Manager templates
+You can use [Azure Resource Manager templates](../resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
 
-You can use [Azure Resource Manager templates] (../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
-
-+ Create a workspace
-+ Add a solution
-+ Create saved searches
-+ Create a computer group
-+ Enable collection of IIS logs from computers with the Windows agent installed
-+ Collect performance counters from Linux and Windows computers
-+ Collect events from syslog on Linux computers 
-+ Collect events from Windows event logs
-+ Collect custom event logs
-+ Add the log analytics agent to an Azure virtual machine
-+ Configure log analytics to index data collected using Azure diagnostics
-
+* Create a workspace
+* Add a solution
+* Create saved searches
+* Create a computer group
+* Enable collection of IIS logs from computers with the Windows agent installed
+* Collect performance counters from Linux and Windows computers
+* Collect events from syslog on Linux computers 
+* Collect events from Windows event logs
+* Collect custom event logs
+* Add the log analytics agent to an Azure virtual machine
+* Configure log analytics to index data collected using Azure diagnostics
 
 This article provides a template samples that illustrate some of the configuration that you can perform from templates.
 
 ## Create and configure a Log Analytics Workspace
-
 The following template sample illustrates how to:
 
-1.	Create a workspace
-2.	Add solutions to the workspace
-3.	Create saved searches
-4.	Create a computer group
-5.	Enable collection of IIS logs from computers with the Windows agent installed
-6.	Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
-7.	Collect syslog events from Linux computers
-8.	Collect Error and Warning events from the Application Event Log from Windows computers
-9.	Collect Memory Available Mbytes performance counter from Windows computers
-10.	Collect a custom log 
-11.	Collect IIS logs and Windows Event logs written by Azure diagnostics to a storage account
-
+1. Create a workspace, including setting data retention
+2. Add solutions to the workspace
+3. Create saved searches
+4. Create a computer group
+5. Enable collection of IIS logs from computers with the Windows agent installed
+6. Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
+7. Collect syslog events from Linux computers
+8. Collect Error and Warning events from the Application Event Log from Windows computers
+9. Collect Memory Available Mbytes performance counter from Windows computers
+10. Collect a custom log 
+11. Collect IIS logs and Windows Event logs written by Azure diagnostics to a storage account
 
 ```
 {
@@ -69,11 +66,20 @@ The following template sample illustrates how to:
       "type": "string",
       "allowedValues": [
         "Free",
-        "Standard",
-        "Premium"
+        "Standalone",
+        "PerNode"
       ],
       "metadata": {
-        "description": "Service Tier: Free, Standard, or Premium"
+        "description": "Service Tier: Free, Standalone, or PerNode"
+    }
+      },
+    "dataRetention": {
+      "type": "int",
+      "defaultValue": 30,
+      "minValue": 7,
+      "maxValue": 730,
+      "metadata": {
+        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and OMS plans include 30 days for free"
       }
     },
     "location": {
@@ -91,7 +97,7 @@ The following template sample illustrates how to:
           "description": "Name of the storage account with Azure diagnostics output"
         }
     },
-	"applicationDiagnosticsStorageAccountResourceGroup": {
+    "applicationDiagnosticsStorageAccountResourceGroup": {
         "type": "string",
         "metadata": {
           "description": "The resource group name containing the storage account with Azure diagnostics output"
@@ -111,10 +117,10 @@ The following template sample illustrates how to:
       "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
       "GalleryName": "SQLAssessment"
     },
-	"diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
+    "diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
   },
   "resources": [
-	{
+    {
       "apiVersion": "2015-11-01-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
@@ -122,7 +128,8 @@ The following template sample illustrates how to:
       "properties": {
         "sku": {
           "Name": "[parameters('serviceTier')]"
-        }
+        },
+    "retentionInDays": "[parameters('dataRetention')]"
       },
       "resources": [
         {
@@ -348,7 +355,7 @@ The following template sample illustrates how to:
               "key": "[listKeys(variables('diagnosticsStorageAccount'),'2015-06-15').key1]"
             }
           }
-		},
+        },
         {
           "apiVersion": "2015-11-01-preview",
           "location": "[parameters('location')]",
@@ -419,7 +426,6 @@ The following template sample illustrates how to:
 
 ```
 ### Deploying the sample template
-
 To deploy the sample template:
 
 1. Save the attached sample in a file, for example `azuredeploy.json` 
@@ -427,11 +433,9 @@ To deploy the sample template:
 3. Use PowerShell or the command line to deploy the template
 
 #### PowerShell
-
 `New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
 
 #### Command line
-
 ```
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
@@ -439,21 +443,16 @@ azure group deployment create <my-resource-group> <my-deployment-name> --Templat
 
 
 ## Example Resource Manager templates
-
 The Azure quickstart template gallery includes several templates for Log Analytics, including:
 
-+ [Deploy a virtual machine running Windows with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-+ [Deploy a virtual machine running Linux with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
-+ [Monitor Azure Site Recovery using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
-+ [Monitor Azure Web Apps using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-+ [Monitor SQL Azure using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-+ [Deploy a Service Fabric cluster and monitor it with an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-+ [Deploy a Service Fabric cluster and create a Log Analytics workspace to monitor it](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
-
+* [Deploy a virtual machine running Windows with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
+* [Deploy a virtual machine running Linux with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
+* [Monitor Azure Site Recovery using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
+* [Monitor Azure Web Apps using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
+* [Monitor SQL Azure using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
+* [Deploy a Service Fabric cluster and monitor it with an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
+* [Deploy a Service Fabric cluster and create a Log Analytics workspace to monitor it](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
 ## Next steps
-
-+ [Deploy agents into Azure VMs using Resource Manager templates](log-analytics-azure-vm-extension.md)
-
-
+* [Deploy agents into Azure VMs using Resource Manager templates](log-analytics-azure-vm-extension.md)
 

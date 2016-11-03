@@ -1,29 +1,28 @@
-<properties
-    pageTitle="User provisioning management for enterprise apps in the Azure Active Directory preview | Microsoft Azure"
-    description="Learn how to manage user account provisioning for enterprise apps using the Azure Active Directory preview"
-    services="active-directory"
-    documentationCenter=""
-    authors="asmalser"
-    manager="femila"
-    editor=""/>
+---
+title: User provisioning management for enterprise apps in the Azure Active Directory preview | Microsoft Docs
+description: Learn how to manage user account provisioning for enterprise apps using the Azure Active Directory preview
+services: active-directory
+documentationcenter: ''
+author: asmalser
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="09/12/2016"
-    ms.author="asmalser"/>
+ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/12/2016
+ms.author: asmalser
 
-#Preview: Managing user account provisioning for enterprise apps in the new Azure portal
-
+---
+# Preview: Managing user account provisioning for enterprise apps in the new Azure portal
 This article describes how to use the [Azure portal](https://portal.azure.com) to manage automatic user account provisioning and de-provisioning for applications that support it, particularly ones that have been added from the "featured" category of the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). This management experience in the new Azure portal is currently in public preview, and this article describes the new features as well as a few temporary limitations that are in place during the preview period. [What's in the preview?](active-directory-preview-explainer.md)
 
 To learn more about automatic user account provisioning and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md).
 
-##Finding your apps in the new portal
-
+## Finding your apps in the new portal
 As of September 2016, all applications that have been configured for single sign-on in a directory, by a directory administrator using the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) inside the [Azure classic portal](https://manage.windowsazure.com), can now be viewed and managed in the new Azure portal.
 
 These applications can be found in the **Enterprise Applications** section of the new Azure portal, which can be accessed through the **More Services** menu in the left navigation area. Enterprise apps are apps that have been deployed and are being used by users within your organization.
@@ -36,26 +35,21 @@ User account provisioning settings can be managed by selecting **Provisioning** 
 
 ![Application resource blade][1]
 
-
-##Provisioning modes
-
+## Provisioning modes
 The **Provisioning** blade begins with a **Mode** menu, which shows what provisioning modes are supported for an enterprise application, and allows them to be configured. The available options include:
 
 * **Automatic** - This option appears if Azure AD supports automatic API-based provisioning and/or de-provisioning of user accounts to this application. Selecting this mode displays an interface that guides administrators through configuring Azure AD to connect to the application's user management API, creating account mappings and workflows that define how user account data should flow between Azure AD and the app, and managing the Azure AD provisioning service.
-
 * **Manual** - This option is shown if Azure AD does not support automatic provisioning of user accounts to this application. This option means that user account records stored in the application must be managed using an external process, based on the user management and provisioning capabilities provided by that application (which can include SAML Just-In-Time provisioning).
 
-
-##Configuring automatic user account provisioning
-
+## Configuring automatic user account provisioning
 Selecting the **Automatic** option displays a screen that is divided in four sections:
 
-###Admin Credentials
+### Admin Credentials
 This is where the credentials required for Azure AD to connect to the application's user management API are entered. The input required varies depending on the application. To learn about the credential types and requirements for specific applications, see the [configuration tutorial for that specific application](active-directory-saas-app-provisioning.md#list-of-apps-that-support-automated-user-provisioning).
 
 Selecting the **Test Connection** button allows you to test the credentials by having Azure AD attempt to connect to the app's provisioning app using the supplied credentials.
 
-###Mappings
+### Mappings
 This is where admins can view and edit what user attributes flow between Azure AD and the target application, when user accounts are provisioned or updated.
 
 There is a preconfigured set of mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects, such as Groups or Contacts. Selecting one of these mappings in the table shows the mapping editor to the right, where they can be viewed and customized.
@@ -65,12 +59,10 @@ There is a preconfigured set of mappings between Azure AD user objects and each 
 Supported customizations during the first preview include:
 
 * Enabling and disabling mappings for specific objects, such as the Azure AD user object to the SaaS app's user object.
-
 * Editing which attributes flow from the Azure AD user object to the app's user object. For more information on attribute mapping, see [Understanding attribute mapping types](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
-
 * Filter what provisioning actions Azure AD should perform on the target application, which is a new feature in the Azure portal. Instead of having Azure AD fully-synchronize objects, you can limit the actions performed. For example, by only selecting **Update**, Azure AD only updates existing user accounts in an application and does not create new ones. By only selecting **Create**, Azure only creates new user accounts but does not update existing ones. This feature allows admins to create different mappings for account creation and update workflows. The full ability to create multiple mappings per app is planned for later in the preview period.
 
-###Settings
+### Settings
 This section allows admins to start and stop the Azure AD provisioning service for the selected application, as well as optionally clear the provisioning cache and restart the service.
 
 If provisioning is being enabled for the first time for an application, turn on the service by changing the **Provisioning Status** to **On**. This causes the Azure AD provisioning service to perform an initial sync, where it reads the users assigned in the **Users and groups** section, queries the target application for them, and then performs the provisioning actions defined in the Azure AD **Mappings** section. During this process, the provisioning service stores cached data about what user accounts it is managing, so non-managed accounts inside the target applications that were never in scope for assignment aren't affected by de-provisioning operations. After the initial sync, the provisioning service automatically synchronizes user and group objects on a ten minute interval.
@@ -79,7 +71,7 @@ Changing the **Provisioning Status** to **Off** simply pauses the provisioning s
 
 Selecting the **Clear current state and restart synchronization** checkbox and saving stops the provisioning service, dumps the cached data about what accounts Azure AD is managing, restarts the services and performs the initial synchronization again. This option allows admins to start the provisioning deployment process over again.
 
-###Synchronization Details
+### Synchronization Details
 This section provides addition details about the operation of the provisioning service, including the first and last times the provisioning service ran against the application, and how many user and group objects are being managed.
 
 Links are provided to the **Provisioning activity report**, which provides a log of all users and groups created, updated, and removed between Azure AD and the target application, and to the **Provisioning error report** which provides more detailed error messages for user and group objects that failed to be read, created, updated, or removed. 

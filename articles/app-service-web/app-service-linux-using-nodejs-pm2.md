@@ -1,62 +1,63 @@
-<properties 
-	pageTitle="Using PM2 Configuration for NodeJS in Web Apps on Linux | Microsoft Azure" 
-	description="Using PM2 Configuration for NodeJS in Web Apps on Linux" 
-	keywords="azure app service, web app, nodejs, pm2, linux, oss"
-	services="app-service" 
-	documentationCenter="" 
-	authors="naziml" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Using PM2 configuration for Node.js in Web Apps on Linux | Microsoft Docs
+description: Using PM2 configuration for Node.js in Web Apps on Linux
+keywords: azure app service, web app, nodejs, pm2, linux, oss
+services: app-service
+documentationcenter: ''
+author: naziml
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/10/2016" 
-	ms.author="naziml"/>
+ms.assetid: fb420f32-6d74-49c7-992f-0ed5616e66e7
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: naziml
 
-# Using PM2 Configuration for Node.js in Web Apps on Linux
+---
+# Use PM2 configuration for Node.js in Web Apps on Linux
+If you set the application stack to Node.js for Web Apps on Linux, you get the option to set a Node.js startup file as shown in the following image.
 
-If you set the application stack to Node.js for Web Apps on Linux, you will get the option to set a Node.js startup file as shown in the image below.
+![Set a Node.js startup file][1]
 
-![][1]
+You can use this to do one of the following tasks:
 
-You can use this to either
+* Specify the startup script for your Node.js app (for example: /bin/server.js).
+* Specify the PM2 configuration file to use for your Node.js app (for example: /foo/process.json).
+  
+  > [!NOTE]
+  > If you want your Node.js processes to restart automatically when certain files are modified, use the PM2 configuration. Otherwise, your application won't restart when it receives change notifications (for example, when your application code changes).
+  > 
+  > 
 
--	Specify the startup script for your Node.js app (for example: /bin/server.js)
--	Specify the PM2 configuration file to use for your Node.js app (for example: /foo/process.json)
+You can check the Node.js [process file documentation](http://pm2.keymetrics.io/docs/usage/application-declaration/) for all the options, but following is a sample of what you can use as your process.json file:
 
- >[AZURE.NOTE] If you want your Node processes to automatically restart when certain files are modified, you will need to use PM2 configuration. Otherwise your application will not restart when it receives change notifications from things like continuous deployment when your application code changes.
+        {
+          "name"        : "worker",
+          "script"      : "/bin/server.js",
+          "instances"   : 1,
+          "merge_logs"  : true,
+          "log_date_format" : "YYYY-MM-DD HH:mm Z",
+          "watch": ["/bin/server.js", "foo.txt"],
+          "watch_options": {
+            "followSymlinks": true,
+            "usePolling"   : true,
+            "interval"    : 5
+          }
+        }
 
-You can check the Node.js [process file documentation](http://pm2.keymetrics.io/docs/usage/application-declaration/) for all the options, but below is a sample of what you would use as your process.json file
+Important things to note in this configuration are:
 
-		{
-		  "name"        : "worker",
-		  "script"      : "/bin/server.js",
-		  "instances"   : 1,
-		  "merge_logs"  : true,
-		  "log_date_format" : "YYYY-MM-DD HH:mm Z",
-		  "watch": ["/bin/server.js", "foo.txt"],
-		  "watch_options": {
-		    "followSymlinks": true,
-		    "usePolling"   : true,
-		    "interval"    : 5
-		  }
-		}
+* The "script" property specifies your application's start script.
+* The "instances" property specifies how many instances of the node process to launch. If you are running your application on larger VMs that have multiple cores, it's a good idea to maximize your resources by setting a higher value here.
+* The "watch" array specifies all files that you want to restart the node process for when they change.
+* For the "watch_options", you currently need to specify "usePolling" as true because of the way your application content is mounted.
 
-Important things to note in this configuration are 
-
--	The "script" property specifies your application's start script.
--	The "instances" property specifies how many instances of the node process to launch. If you are running your application on larger VM sizes that have multiple cores, you want to maximize your resources by setting a higher value here.
--	The "watch" array specifies all files for whose change you want to restart your node processes.
--	For the "watch_options", you currently need to specify "usePolling" as true because of the way your application content is mounted.
-
-
-## Next Steps ##
-
-* [What is App Service on Linux?](./app-service-linux-intro.md)
+## Next steps
+* [What is App Service on Linux?](app-service-linux-intro.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-nodejs-pm2/nodejs-startup-file.png

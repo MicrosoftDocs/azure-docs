@@ -1,31 +1,30 @@
-<properties
-	pageTitle="How to Use Apache Cordova Plugin for Azure Mobile Apps"
-	description="How to Use Apache Cordova Plugin for Azure Mobile Apps"
-	services="app-service\mobile"
-	documentationCenter="javascript"
-	authors="adrianhall"
-	manager="erikre"
-	editor=""/>
+---
+title: How to Use Apache Cordova Plugin for Azure Mobile Apps
+description: How to Use Apache Cordova Plugin for Azure Mobile Apps
+services: app-service\mobile
+documentationcenter: javascript
+author: adrianhall
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-html"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="10/01/2016"
-	ms.author="adrianha"/>
+ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-html
+ms.devlang: javascript
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: adrianha
 
+---
 # How to Use Apache Cordova Client Library for Azure Mobile Apps
-
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+[!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 This guide teaches you to perform common scenarios using the latest [Apache Cordova Plugin for Azure Mobile Apps]. If you are new to Azure Mobile
 Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, and download a pre-built Apache Cordova project. In this
 guide, we focus on the client-side Apache Cordova Plugin.
 
 ## Supported Platforms
-
 This SDK supports Apache Cordova v6.0.0 and later on iOS, Android, and Windows devices.  The platform
 support is as follows:
 
@@ -35,8 +34,7 @@ support is as follows:
 * Windows Phone 8.1
 * Universal Windows Platform
 
-##<a name="Setup"></a>Setup and Prerequisites
-
+## <a name="Setup"></a>Setup and Prerequisites
 This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those
 tutorials. This guide also assumes that you have added the Apache Cordova Plugin to your code.  If you have not done so, you may add the Apache
 Cordova plugin to your project on the command line:
@@ -47,11 +45,9 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 
 For more information on creating [your first Apache Cordova app], see their documentation.
 
-[AZURE.INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
+[!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-
-##<a name="auth"></a>How to: Authenticate Users
-
+## <a name="auth"></a>How to: Authenticate Users
 Azure App Service supports authenticating and authorizing app users using various external identity
 providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict
 access for specific operations to only authenticated users. You can also use the identity of authenticated
@@ -67,18 +63,17 @@ authentication experience, as it relies on the provider's web authentication int
 for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific
 device-specific SDKs.
 
-[AZURE.INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
+[!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-###<a name="configure-external-redirect-urls"></a>How to: Configure your Mobile App Service for External Redirect URLs.
-
+### <a name="configure-external-redirect-urls"></a>How to: Configure your Mobile App Service for External Redirect URLs.
 Several types of Apache Cordova applications use a loopback capability to handle OAuth UI flows.  OAuth UI
 flows on localhost cause problems since the authentication service only knows how to utilize your service 
 by default.  Examples of problematic OAuth UI flows include:
 
-- The Ripple emulator.
-- Live Reload with Ionic.
-- Running the mobile backend locally
-- Running the mobile backend in a different Azure App Service than the one providing authentication.
+* The Ripple emulator.
+* Live Reload with Ionic.
+* Running the mobile backend locally
+* Running the mobile backend in a different Azure App Service than the one providing authentication.
 
 Follow these instructions to add your local settings to the configuration:
 
@@ -90,12 +85,12 @@ Follow these instructions to add your local settings to the configuration:
 6. Click **Edit**
 7. Look for the "allowedExternalRedirectUrls" element.  It may be set to null or an array of values.  Change 
    the value to the following value:
-
+   
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
-
+   
     Replace the URLs with the URLs of your service.  Examples include "http://localhost:3000" (for the Node.js sample
     service), or "http://localhost:4400" (for the Ripple service).  However, these URLs are examples - your situation,
     including for the services mentioned in the examples, may be different.
@@ -115,8 +110,7 @@ Also add these loopback URLs to the CORS settings for your App Service:
 
 It takes approximately 10-15 seconds for the new settings to take effect.
 
-##<a name="register-for-push"></a>How to: Register for Push Notifications
-
+## <a name="register-for-push"></a>How to: Register for Push Notifications
 Install the [phonegap-plugin-push] to handle push notifications.  This plugin can be easily added using the 
 `cordova plugin add` command on the command line, or via the Git plugin installer within Visual Studio.  The 
 following code in your Apache Cordova app registers your device for push notifications:

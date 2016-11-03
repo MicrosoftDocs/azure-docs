@@ -1,23 +1,23 @@
-<properties
-   pageTitle="REST-based application lifecycle sample | Microsoft Azure"
-   description="A Microsoft Azure Service Fabric sample that shows the application lifecycle by using the Service Fabric REST interface."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+---
+title: REST-based application lifecycle sample | Microsoft Docs
+description: A Microsoft Azure Service Fabric sample that shows the application lifecycle by using the Service Fabric REST interface.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="rest-api"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/25/2016"
-   ms.author="ryanwi"/>
+ms.assetid: 0a374e53-ff23-4ee8-8cc6-259d41e118e7
+ms.service: service-fabric
+ms.devlang: rest-api
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/25/2016
+ms.author: ryanwi
 
+---
 # REST-based application lifecycle sample
-
 This sample demonstrates the Service Fabric application lifecycle through REST API calls. For more information on the Service Fabric application lifecycle, see [Service Fabric application lifecycle](service-fabric-application-lifecycle.md).
 
 This sample performs the following:
@@ -37,15 +37,13 @@ This sample performs the following:
 * Unprovisions the 1.0.0 version of the WordCount sample.
 * Displays the list of application types, which no longer includes WordCount.
 
-
 ## Prerequisites
-
 This sample uses the [WordCount sample](http://aka.ms/servicefabricsamples) (found in the **Getting Started** samples). The WordCount sample must be built first, and then two application packages must be copied to the image store.
 
-|Folder|Description|
-|------|-----------|
-|WordCount|The WordCount sample application. The **ApplicationManifest.xml** file contains **ApplicationTypeVersion="1.0.0"**.|
-|WordCountUpgrade|The WordCount sample application. The ApplicationManifest.xml file must be changed to **ApplicationTypeVersion="1.1.0"** to allow the application upgrade to occur.|
+| Folder | Description |
+| --- | --- |
+| WordCount |The WordCount sample application. The **ApplicationManifest.xml** file contains **ApplicationTypeVersion="1.0.0"**. |
+| WordCountUpgrade |The WordCount sample application. The ApplicationManifest.xml file must be changed to **ApplicationTypeVersion="1.1.0"** to allow the application upgrade to occur. |
 
 To create the application packages and copy them to the image store, take the following steps:
 
@@ -74,7 +72,6 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpg
 When the PowerShell script finishes, this application is ready to run.
 
 ## Example
-
 The following example demonstrates the Service Fabric application lifecycle.
 
 ```csharp
@@ -706,5 +703,5 @@ namespace ServiceFabricRestCaller
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-
 [Service Fabric application lifecycle](service-fabric-application-lifecycle.md)
+

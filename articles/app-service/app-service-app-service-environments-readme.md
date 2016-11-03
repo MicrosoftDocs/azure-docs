@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="App Service Environment | Microsoft Azure" 
-	description="What is an Azure App Service Environment? An introduction to App Service Environment." 
-	keywords="azure app service environment, virtual network, secure networking"
-	services="app-service" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: App Service Environment | Microsoft Docs
+description: What is an Azure App Service Environment? An introduction to App Service Environment.
+keywords: azure app service environment, virtual network, secure networking
+services: app-service
+documentationcenter: ''
+author: stefsch
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/04/2016" 
-	ms.author="stefsch"/>
+ms.assetid: 1db5c057-3c56-4537-b580-cdd21fe3f3a7
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/04/2016
+ms.author: stefsch
 
+---
 # App Service Environment Documentation
-
 An App Service Environment is a [Premium][PremiumTier] service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale, including [Web Apps][WebApps], [Mobile Apps][MobileApps], and [API Apps][APIApps].  
 
 App Service Environments are ideal for application workloads requiring:
 
-- Very high scale
-- Isolation and secure network access
+* Very high scale
+* Isolation and secure network access
 
 Customers can create multiple App Service Environments within a single Azure region, as well as across multiple Azure regions.  This makes App Service Environments ideal for horizontally scaling state-less application tiers in support of high RPS workloads.
 
@@ -41,14 +41,14 @@ Apps frequently need to access corporate resources such as internal databases an
 * [Network Security and Architecture](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
 ## How To's
-
-[AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
-
+[!INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
 
 ## Videos
-[AZURE.VIDEO azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps]
+[!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player]
 
-[AZURE.VIDEO microsoft-ignite-2015-running-enterprise-web-and-mobile-apps-on-azure-app-service]
+
+[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
+
 
 
 <!-- LINKS -->

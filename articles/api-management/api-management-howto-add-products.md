@@ -1,32 +1,33 @@
-<properties 
-	pageTitle="How to create and publish a product in Azure API Management" 
-	description="Learn how to create and publish products in Azure API Management." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: How to create and publish a product in Azure API Management
+description: Learn how to create and publish products in Azure API Management.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+ms.assetid: 31de55cb-9384-490b-a2f2-6dfcf83da764
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/25/2016
+ms.author: sdanie
 
+---
 # How to create and publish a product in Azure API Management
-
 In Azure API Management, a product contains one or more APIs as well as a usage quota and the terms of use. Once a product is published, developers can subscribe to the product and begin to use the product's APIs. The topic provides a guide to creating a product, adding an API, and publishing it for developers.
 
 ## <a name="create-product"> </a>Create a product
-
-Operations are added and configured to an API in the publisher portal. To access the publisher portal, click **Manage** in the Azure Classic Portal for your API Management service.
+Operations are added and configured to an API in the publisher portal. To access the publisher portal, click **Publisher portal** in the Azure Portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 
->If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
+> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
+> 
+> 
 
 Click on **Products** in the menu on the left to display the **Products** page, and click **Add Product**.
 
@@ -38,7 +39,7 @@ Enter a descriptive name for the product in the **Name** field and a description
 
 Products in API Management can be **Open** or **Protected**. Protected products must be subscribed to before they can be used, while open products can be used without a subscription. Check **Require subscription** to create a protected product that requires a subscription. This is the default setting.
 
-Check **Require subscription approval** if you want an administrator to review and accept or reject subscription attempts to this product. If the box is unchecked, subscription attempts will be auto-approved. For more information on subscriptions, see [View subscribers to a product][].
+Check **Require subscription approval** if you want an administrator to review and accept or reject subscription attempts to this product. If the box is unchecked, subscription attempts will be auto-approved. For more information on subscriptions, see [View subscribers to a product][View subscribers to a product].
 
 To allow developer accounts to subscribe multiple times to the product, check the **Allow multiple subscriptions** check box. If this box is not checked, each developer account can subscribe only a single time to the product.
 
@@ -52,12 +53,13 @@ Once all new product options are configured, click **Save** to create the new pr
 
 ![Products][api-management-products-page]
 
->By default new products are unpublished, and are visible only to the  **Administrators** group.
+> By default new products are unpublished, and are visible only to the  **Administrators** group.
+> 
+> 
 
 To configure a product, click on the product name in the **Products** tab.
 
 ## <a name="add-apis"> </a>Add APIs to a product
-
 The **Products** page contains four links for configuration: **Summary**, **Settings**, **Visibility**, and **Subscribers**. The **Summary** tab is where you can add APIs and publish or unpublish a product.
 
 ![Summary][api-management-new-product-summary]
@@ -69,7 +71,6 @@ Before publishing your product you need to add one or more APIs. To do this, cli
 Select the desired APIs and click **Save**.
 
 ## <a name="add-description"> </a>Add descriptive information to a product
-
 The **Settings** tab allows you to provide detailed information about the product such as its purpose, the APIs it provides access to, and other useful information. The content is targeted at the developers that will be calling the API and can be written in plain text or HTML markup.
 
 ![Product settings][api-management-product-settings]
@@ -83,34 +84,34 @@ To allow developer accounts to subscribe multiple times to the product, check th
 Optionally fill in the **Terms of use** field describing the terms of use for the product which subscribers must accept in order to use the product.
 
 ## <a name="publish-product"> </a>Publish a product
-
 Before the APIs in a product can be called, the product must be published. On the **Summary** tab for the product, click **Publish**, and then click **Yes, publish it** to confirm. To make a previously published product private, click **Unpublish**.
 
 ![Publish product][api-management-publish-product]
 
 ## <a name="make-visible"> </a>Make a product visible to developers
-
 The **Visibility** tab allows you to choose which roles are able to see the product on the developer portal and subscribe to the product.
 
 ![Product visibility][api-management-product-visiblity]
 
 To enable or disable visibility of a product for the developers in a group, check or uncheck the check box beside the group and then click **Save**.
 
->For more information, see [How to create and use groups to manage developer accounts in Azure API Management][].
+> For more information, see [How to create and use groups to manage developer accounts in Azure API Management][How to create and use groups to manage developer accounts in Azure API Management].
+> 
+> 
 
 ## <a name="view-subscribers"> </a>View subscribers to a product
-
 The **Subscribers** tab lists the developers who have subscribed to the product. The details and settings for each developer can be viewed by clicking on the developer's name. In this example no developers have yet subscribed to the product.
 
 ![Developers][api-management-developer-list]
 
 ## <a name="next-steps"> </a>Next steps
-
-Once the desired APIs are added and the product published, developers can subscribe to the product and begin to call the APIs. For a tutorial that demonstrates these items as well as advanced product configuration see [How create and configure advanced product settings in Azure API Management][].
+Once the desired APIs are added and the product published, developers can subscribe to the product and begin to call the APIs. For a tutorial that demonstrates these items as well as advanced product configuration see [How create and configure advanced product settings in Azure API Management][How create and configure advanced product settings in Azure API Management].
 
 For more information about working with products, see the following video.
 
-> [AZURE.VIDEO using-products]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
+> 
+> 
 
 [Create a product]: #create-product
 [Add APIs to a product]: #add-apis

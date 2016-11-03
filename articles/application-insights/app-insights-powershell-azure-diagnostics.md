@@ -1,26 +1,48 @@
-<properties
-    pageTitle="Using PowerShell to send Azure Diagnostics to Application Insights | Microsoft Azure"
-    description="Automate configuring Azure Diagnostics to pipe to Application Insights."
-    services="application-insights"
-    documentationCenter=".net"
-    authors="sbtron"
-    manager="douge"/>
+---
+title: Using PowerShell to setup Application Insights in an Azure  | Microsoft Docs
+description: Automate configuring Azure Diagnostics to pipe to Application Insights.
+services: application-insights
+documentationcenter: .net
+author: sbtron
+manager: douge
 
-<tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na"
-    ms.topic="get-started-article"
-	ms.date="11/17/2015"
-    ms.author="awills"/>
+ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 11/17/2015
+ms.author: awills
 
-# Using PowerShell to send Azure Diagnostics to Application Insights
-
+---
+# Using PowerShell to set up Application Insights for an Azure web app
 [Microsoft Azure](https://azure.com) can be [configured to send Azure Diagnostics](app-insights-azure-diagnostics.md) to [Visual Studio Application Insights](app-insights-overview.md). The diagnostics relate to Azure Cloud Services and Azure VMs. They complement the telemetry that you send from within the app using the Application Insights SDK. As part of automating the process of creating new resources in Azure, you can configure diagnostics using PowerShell.
 
-## Enable diagnostics extension as part of deploying a Cloud Service
+## Azure template
+If the web app is in Azure and you create your resources using an Azure Resource Manager template, you can configure Application Insights by adding this to the resources node:
 
+    {
+      resources: [
+        /* Create Application Insights resource */
+        {
+          "apiVersion": "2015-05-01",
+          "type": "microsoft.insights/components",
+          "name": "nameOfAIAppResource",
+          "location": "centralus",
+          "kind": "web",
+          "properties": { "ApplicationId": "nameOfAIAppResource" },
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', myWebAppName)]"
+          ]
+        }
+       ]
+     } 
+
+* `nameOfAIAppResource` - a name for the Application Insights resource
+* `myWebAppName` - the id of the web app
+
+## Enable diagnostics extension as part of deploying a Cloud Service
 The `New-AzureDeployment` cmdlet has a parameter `ExtensionConfiguration`, which takes an array of diagnostics configurations. These can be created using the `New-AzureServiceDiagnosticsExtensionConfig` cmdlet. For example:
 
 ```ps
@@ -57,11 +79,10 @@ The `New-AzureDeployment` cmdlet has a parameter `ExtensionConfiguration`, which
 ``` 
 
 ## Enable diagnostics extension on an existing Cloud Service
-
 On an existing service, use `Set-AzureServiceDiagnosticsExtension`.
 
 ```ps
- 
+
     $service_name = "MyService"
     $diagnostics_storagename = "myservicediagnostics"
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
@@ -87,7 +108,6 @@ On an existing service, use `Set-AzureServiceDiagnosticsExtension`.
 ```
 
 ## Get current diagnostics extension configuration
-
 ```ps
 
     Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -95,7 +115,6 @@ On an existing service, use `Set-AzureServiceDiagnosticsExtension`.
 
 
 ## Remove diagnostics extension
-
 ```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -112,7 +131,6 @@ To remove the diagnostics extension from each individual role:
 
 
 ## See also
-
 * [Monitor Azure Cloud Services apps with Application Insights](app-insights-cloudservices.md)
 * [Send Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md)
 * [Automate configuring alerts](app-insights-powershell-alerts.md)

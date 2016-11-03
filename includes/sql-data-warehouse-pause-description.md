@@ -14,7 +14,8 @@ To save costs, you can pause and resume compute resources on-demand. For example
 
 When you pause a database:
 
-- Compute and memory resources are returned to the pool of available resources in the data center
-- DWU costs are zero for the duration of the pause.
-- Data storage is not affected and your data stays intact. 
-- SQL Data Warehouse cancels all running or queued operations.
+* Compute and memory resources are returned to the pool of available resources in the data center
+* DWU costs are zero for the duration of the pause.
+* Data storage is not affected and your data stays intact. 
+* SQL Data Warehouse cancels all running or queued operations.
+

@@ -1,25 +1,25 @@
-<properties
-   pageTitle="Deploying virtual appliances in high availability | Microsoft Azure"
-   description="How to deploy network virtual appliances in high availability."
-   services=""
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="christb"
-   editor=""
-   tags=""/>
+---
+title: Deploying virtual appliances in high availability | Microsoft Docs
+description: How to deploy network virtual appliances in high availability.
+services: ''
+documentationcenter: na
+author: telmosampaio
+manager: christb
+editor: ''
+tags: ''
 
-<tags
-   ms.service="guidance"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/21/2016"
-   ms.author="telmos"/>
+ms.assetid: d78ea9a8-a8f2-457b-a918-16341a377f5c
+ms.service: guidance
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/31/2016
+ms.author: telmos
 
+---
 # Deploying virtual appliances in high availability
-
-[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+[!INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article outlines a set of practices for deploying network virtual appliances (NVAs) in a highly available manner. Before continuing, make sure you understand how [user-defined routes (UDR)][udr-overview] and [load balancer][lb-overview] work in Azure.
 
@@ -31,11 +31,11 @@ Although the preceding deployment works, it introduces a single point of failure
 
 You can use one of the following solutions to deploy a highly available NVA environment.
 
-|Solution|Benefits|Considerations|
-|---|---|---|
-|Ingress with layer 7 virtual appliances|All nodes are active|Requires an NVA that can terminate connections and use SNAT<br/>Requires a separate set of NVAs for traffic coming from the Internet and from Azure<br/>Can only be used for traffic originating outside Azure|
-|Ingress-Egress with layer 7 virtual appliances|All nodes are active<br/>Able to handle traffic originated in Azure |Requires an NVA that can terminate connections and use SNAT<br/>Requires a separate set of NVAs for traffic coming from the Internet and from Azure|
-|PIP-UDR switch|Single set of NVAs for all traffic<br/>Can handle all traffic (no limit on port rules)|Active-passive<br/>Requires a failover process|
+| Solution | Benefits | Considerations |
+| --- | --- | --- |
+| Ingress with layer 7 virtual appliances |All nodes are active |Requires an NVA that can terminate connections and use SNAT<br/>Requires a separate set of NVAs for traffic coming from the Internet and from Azure<br/>Can only be used for traffic originating outside Azure |
+| Ingress-Egress with layer 7 virtual appliances |All nodes are active<br/>Able to handle traffic originated in Azure |Requires an NVA that can terminate connections and use SNAT<br/>Requires a separate set of NVAs for traffic coming from the Internet and from Azure |
+| PIP-UDR switch |Single set of NVAs for all traffic<br/>Can handle all traffic (no limit on port rules) |Active-passive<br/>Requires a failover process |
 
 ## Ingress with layer 7 virtual appliances
 You can use a set of NVAs behind an Azure load balancer to provide connectivity to Azure workloads behind a small set of server-side ports (such as HTTP and HTTPS). The following figure highlights how to provide high availability in this scenario at the NVA level.
@@ -44,7 +44,7 @@ You can use a set of NVAs behind an Azure load balancer to provide connectivity 
 
 In this scenario, the network virtual appliance used must terminate all connections, and pass them to the workload subnet. The workload virtual machines (VMs) respond to the NVA they received a request from, and traffic flows without issues. 
 
-## Ingress-egress with layer 7 virtual appliances
+## Egress with layer 7 virtual appliances
 You can extend the preceding architecture and add another set of NVAs to handle traffic originating from Azure to be handled by NVAs, as shown in the following figure:
 
 ![[2]][2]
@@ -61,9 +61,8 @@ This scenario is similar to the single NVA scenario. The only difference is that
 A possible implementation of this solution is to use a [ZooKeeper][zookeeper] daemon on the NVAs to handle leader election (deciding which node is the active node). Once a leader is elected, it calls to the Azure REST API to remove the PIP from the failed node and attach it to the leader. It should also change UDRs to point to the new leader's private IP address.
 
 ## Next steps
-
-- Learn how to [implement a DMZ between Azure and your on-premises datacenter][dmz-on-prem] using layer-7 NVAs.
-- Learn how to [implement a DMZ between Azure and the Internet][dmz-internet] using layer-7 NVAs.
+* Learn how to [implement a DMZ between Azure and your on-premises datacenter][dmz-on-prem] using layer-7 NVAs.
+* Learn how to [implement a DMZ between Azure and the Internet][dmz-internet] using layer-7 NVAs.
 
 <!-- links -->
 [udr-overview]: ../virtual-network/virtual-networks-udr-overview.md

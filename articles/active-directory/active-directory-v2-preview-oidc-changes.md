@@ -1,21 +1,22 @@
-<properties
-	pageTitle="Changes to the Azure AD v2.0 endpoint | Microsoft Azure"
-	description="A description of changes that are being made to the app model v2.0 public preview protocols."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Changes to the Azure AD v2.0 endpoint | Microsoft Docs
+description: A description of changes that are being made to the app model v2.0 public preview protocols.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+ms.assetid: e6c5b891-0b5d-47dc-8184-5d0ef6a1a006
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: dastrock
 
+---
 # Important Updates to the v2.0 Authentication Protocols
 Attention developers! Over the next two weeks, we will be making a few updates to our v2.0 authentication protocols that may mean breaking changes for any apps you have written during our preview period.  
 
@@ -47,10 +48,10 @@ The v2.0 endpoint uses JWT tokens extensively, which contain a header parameters
 
 ```
 { 
-	"type": "JWT",
-	"alg": "RS256",
-	"x5t": "MnC_VZcATfM5pOYiJHMba9goEKY",
-	"kid": "MnC_VZcATfM5pOYiJHMba9goEKY"
+    "type": "JWT",
+    "alg": "RS256",
+    "x5t": "MnC_VZcATfM5pOYiJHMba9goEKY",
+    "kid": "MnC_VZcATfM5pOYiJHMba9goEKY"
 }
 ```
 
@@ -58,7 +59,10 @@ Where both the "x5t" and "kid" properties identify the public key that should be
 
 The change we are making here is to remove the "x5t" property.  You may continue to use the same mechanisms to validate tokens, but should rely only on the "kid" property to retrieve the correct public key, as specified in the OpenID Connect protocol. 
 
-> [AZURE.IMPORTANT] **Your job: Make sure your app does not depend on the existence of the x5t value.**
+> [!IMPORTANT]
+> **Your job: Make sure your app does not depend on the existence of the x5t value.**
+> 
+> 
 
 ### Removing profile_info
 Previously, the v2.0 endpoint has been returning a base64 encoded JSON object in token responses called `profile_info`.  When requesting an access token from the v2.0 endpoint by sending a request to:
@@ -68,14 +72,15 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
 The response would look like the following JSON object:
+
 ```
 { 
-	"token_type": "Bearer",
-	"expires_in": 3599,
-	"scope": "https://outlook.office.com/mail.read",
-	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
-	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
-	"profile_info": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "token_type": "Bearer",
+    "expires_in": 3599,
+    "scope": "https://outlook.office.com/mail.read",
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
+    "profile_info": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 }
 ```
 
@@ -85,12 +90,12 @@ We are now removing the `profile_info` value – but don't worry, we are still p
 
 ```
 { 
-	"token_type": "Bearer",
-	"expires_in": 3599,
-	"scope": "https://outlook.office.com/mail.read",
-	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
-	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
-	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "token_type": "Bearer",
+    "expires_in": 3599,
+    "scope": "https://outlook.office.com/mail.read",
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 }
 ```
 
@@ -98,7 +103,10 @@ You may decode and parse the id_token to retrieve the same information that you 
 
 Over the next two weeks, you should code your app to retrieve the user information from either the `id_token` or `profile_info`; whichever is present.  That way when the change is made, your app can seamlessly handle the transition from `profile_info` to `id_token` without interruption.
 
-> [AZURE.IMPORTANT] **Your job: Make sure your app does not depend on the existence of the `profile_info` value.**
+> [!IMPORTANT]
+> **Your job: Make sure your app does not depend on the existence of the `profile_info` value.**
+> 
+> 
 
 ### Removing id_token_expires_in
 Similar to `profile_info`, we are also removing the `id_token_expires_in` parameter from responses.  Previously, the v2.0 endpoint would return a value for `id_token_expires_in` along with each id_token response, for instance in an authorize response:
@@ -111,19 +119,21 @@ Or in a token response:
 
 ```
 { 
-	"token_type": "Bearer",
-	"id_token_expires_in": 3599,
-	"scope": "openid",
-	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
-	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
-	"profile_info": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "token_type": "Bearer",
+    "id_token_expires_in": 3599,
+    "scope": "openid",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
+    "profile_info": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 }
 ```
 
 The `id_token_expires_in` value would indicate the number of seconds the id_token would remain valid for.  Now, we are removing the `id_token_expires_in` value completely.  Instead, you may use the OpenID Connect standard `nbf` and `exp` claims to examine the validity of an id_token.  See the [v2.0 token reference](active-directory-v2-tokens.md) for more information on these claims.
 
-> [AZURE.IMPORTANT] **Your job: Make sure your app does not depend on the existence of the `id_token_expires_in` value.**
-
+> [!IMPORTANT]
+> **Your job: Make sure your app does not depend on the existence of the `id_token_expires_in` value.**
+> 
+> 
 
 ### Changing the claims returned by scope=openid
 This change will be the most significant – in fact, it will affect almost every app that uses the v2.0 endpoint.  Many applications send requests to the v2.0 endpoint using the `openid` scope, like:
@@ -143,22 +153,22 @@ In this update, we are changing the information that the `openid` scope affords 
 
 ```
 { 
-	"aud": "580e250c-8f26-49d0-bee8-1c078add1609",
-	"iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0 ",
-	"iat": 1449520283,
-	"nbf": 1449520283,
-	"exp": 1449524183,
-	"nonce": "12345",
-	"sub": "MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q",
-	"tid": "b9410318-09af-49c2-b0c3-653adc1f376e",
-	"ver": "2.0",
+    "aud": "580e250c-8f26-49d0-bee8-1c078add1609",
+    "iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0 ",
+    "iat": 1449520283,
+    "nbf": 1449520283,
+    "exp": 1449524183,
+    "nonce": "12345",
+    "sub": "MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q",
+    "tid": "b9410318-09af-49c2-b0c3-653adc1f376e",
+    "ver": "2.0",
 }
 ```
 
 If you want to obtain personally identifiable information (PII) about the user in your app, your app will need to request additional permissions from the user.  We are introducing support for two new scopes from the OpenID Connect spec – the `email` and `profile` scopes – which allow you to do so.
 
-- The `email` scope is very straightforward – it allows your app access to the user's primary email address via the `email` claim in the id_token.  Note that the `email` claim will not always be present in id_tokens – it will only be included if available in the user's profile.
-- The `profile` scope affords your app access to all other basic information about the user – their name, preferred username, object ID, and so on.
+* The `email` scope is very straightforward – it allows your app access to the user's primary email address via the `email` claim in the id_token.  Note that the `email` claim will not always be present in id_tokens – it will only be included if available in the user's profile.
+* The `profile` scope affords your app access to all other basic information about the user – their name, preferred username, object ID, and so on.
 
 This allows you to code your app in a minimal-disclosure fashion – you can ask the user for just the set of information that your app requires to do its job.  If you want to continue getting the full set of user information that your app is currently receiving, you should include all three scopes in your authorization requests:
 
@@ -173,7 +183,10 @@ client_id=...
 
 Your app can begin sending the `email` and `profile` scopes immediately, and the v2.0 endpoint will accept these two scopes and begin requesting permissions from users as necessary.  However, the change in the interpretation of the `openid` scope will not take effect for a few weeks.
 
-> [AZURE.IMPORTANT] **Your job: Add the `profile` and `email` scopes if your app requires information about the user.**  Note that ADAL will include both of these permissions in requests by default. 
+> [!IMPORTANT]
+> **Your job: Add the `profile` and `email` scopes if your app requires information about the user.**  Note that ADAL will include both of these permissions in requests by default. 
+> 
+> 
 
 ### Removing the issuer trailing slash.
 Previously, the issuer value that appears in tokens from the v2.0 endpoint took the form
@@ -190,7 +203,10 @@ https://login.microsoftonline.com/{some-guid}/v2.0
 
 in both tokens and in the OpenID Connect discovery document.
 
-> [AZURE.IMPORTANT] **Your job: Make sure your app accepts the issuer value both with and without a trailing slash during issuer validation.**
+> [!IMPORTANT]
+> **Your job: Make sure your app accepts the issuer value both with and without a trailing slash during issuer validation.**
+> 
+> 
 
 ## Why change?
 The primary motivation for introducing these changes is to be compliant with the OpenID Connect standard specification.  By being OpenID Connect compliant, we hope to minimize differences between integrating with Microsoft identity services and with other identity services in the industry.  We want to enable developers to use their favorite open source authentication libraries without having to alter the libraries to accommodate Microsoft differences.
@@ -198,11 +214,11 @@ The primary motivation for introducing these changes is to be compliant with the
 ## What can you do?
 As of today, you can begin making all of the changes described above.  You should immediately:
 
-1.	**Remove any dependencies on the `x5t` header parameter.**
-2.	**Gracefully handle the transition from `profile_info` to `id_token` in token responses.**
-3.  **Remove any dependencies on the `id_token_expires_in` response parameter.**
-3.	**Add the `profile` and `email` scopes to your app if your app needs basic user information.**
-4.	**Accept issuer values in tokens both with and without a trailing slash.**
+1. **Remove any dependencies on the `x5t` header parameter.**
+2. **Gracefully handle the transition from `profile_info` to `id_token` in token responses.**
+3. **Remove any dependencies on the `id_token_expires_in` response parameter.**
+4. **Add the `profile` and `email` scopes to your app if your app needs basic user information.**
+5. **Accept issuer values in tokens both with and without a trailing slash.**
 
 Our [v2.0 protocol documentation](active-directory-v2-protocols.md) has already been updated to reflect these changes, so you may use it as reference in helping update your code.
 
@@ -216,3 +232,4 @@ Lastly, we would like to say thank you for trying things out during the preview 
 Happy coding!
 
 The Microsoft Identity Division
+

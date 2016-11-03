@@ -1,21 +1,22 @@
-<properties 
-	pageTitle="Cloud Services and management certificates | Microsoft Azure" 
-	description="Learn how to create and use certificates with Microsoft Azure" 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+---
+title: Cloud Services and management certificates | Microsoft Docs
+description: Learn how to create and use certificates with Microsoft Azure
+services: cloud-services
+documentationcenter: .net
+author: Thraka
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/11/2016"
-	ms.author="adegeo"/>
+ms.assetid: fc70d00d-899b-4771-855f-44574dc4bfc6
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/11/2016
+ms.author: adegeo
 
+---
 # Certificates overview for Azure Cloud Services
 Certificates are used in Azure for cloud services ([service certificates](#what-are-service-certificates)) and for authenticating with the management API ([management certificates](#what-are-management-certificates) when using the Azure classic portal and not ARM). This topic gives a general overview of both certificate types, how to [create](#create) and [deploy](#deploy) them to Azure.
 
@@ -33,15 +34,18 @@ Service certificates can be managed separately from your services, and may be ma
 ## What are management certificates?
 Management certificates allow you to authenticate with the Service Management API provided by Azure classic. Many programs and tools (such as Visual Studio or the Azure SDK) will use these certificates to automate configuration and deployment of various Azure services. These are not really related to cloud services. 
 
->[AZURE.WARNING] Be careful! These types of certificates allow anyone who authenticates with them to manage the subscription they are associated with. 
+> [!WARNING]
+> Be careful! These types of certificates allow anyone who authenticates with them to manage the subscription they are associated with. 
+> 
+> 
 
 ### Limitations
 There is a limit of 100 management certificates per subscription. There is also a limit of 100 management certificates for all subscriptions under a specific service administrator’s user ID. If the user ID for the account administrator has already been used to add 100 management certificates and there is a need for more certificates, you can add a co-administrator to add the additional certificates. 
 
 Before adding more than 100 certificates, see if you can reuse an existing certificate. Using co-administrators adds potentially unneeded complexity to your certificate management process.
 
-
 <a name="create"></a>
+
 ## Create a new self-signed certificate
 You can use any tool available to create a self-signed certificate as long as they adhere to these settings:
 
@@ -56,19 +60,19 @@ You can use any tool available to create a self-signed certificate as long as th
 There are two easy ways to create a certificate on Windows, with the `makecert.exe` utility, or IIS.
 
 ### Makecert.exe
-
 This utility has been deprecated and is no longer documented here. Please see [this MSDN article](https://msdn.microsoft.com/library/windows/desktop/aa386968) for more information.
 
 ### PowerShell
-
 ```powershell
 $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
 
->[AZURE.NOTE] If you want to use the certificate with an IP address instead of a domain, use the IP address in the -DnsName parameter.
-
+> [!NOTE]
+> If you want to use the certificate with an IP address instead of a domain, use the IP address in the -DnsName parameter.
+> 
+> 
 
 If you want to use this [certificate with the management portal](../azure-api-management-certs.md), export it to a **.cer** file:
 
@@ -77,7 +81,6 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ```
 
 ### Internet Information Services (IIS)
-
 There are many pages on the internet that cover how to do this with IIS. [Here](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) is a great one I found that I think explains it well. 
 
 ### Java
@@ -87,9 +90,12 @@ You can use Java to [create a certificate](../app-service-web/java-create-azure-
 [This](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) article describes how to create certificates with SSH.
 
 ## Next steps
-
 [Upload your service certificate to the Azure classic portal](cloud-services-configure-ssl-certificate.md) (or the [Azure portal](cloud-services-configure-ssl-certificate-portal.md)).
 
 Upload a [management API certificate](../azure-api-management-certs.md) to the Azure classic portal.
 
->[AZURE.NOTE] The Azure portal does not use management certificates to access the API but instead uses user accounts.
+> [!NOTE]
+> The Azure portal does not use management certificates to access the API but instead uses user accounts.
+> 
+> 
+
