@@ -22,7 +22,7 @@ In API Management, developers are the users of the APIs that you expose using AP
 
 ## <a name="create-developer"> </a>Create a new developer
 
-To create a new developer, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
+To create a new developer, click **Publisher portal** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
 ![Publisher portal][api-management-management-console]
 
