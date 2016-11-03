@@ -1,8 +1,7 @@
 ---
-title: Create an Azure Search index | Microsoft Docs
+title: Create an Azure Search index | Microsoft Azure | Hosted cloud search service
 description: What is an index in Azure Search and how is it used?
 services: search
-manager: jhubbard
 documentationcenter: ''
 author: ashmaka
 
