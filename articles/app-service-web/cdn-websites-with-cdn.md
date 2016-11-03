@@ -7,6 +7,7 @@ author: cephalin
 manager: wpickett
 editor: jimbe
 
+ms.assetid: b81ee930-dd6d-4b65-971f-c4cb7902168c
 ms.service: app-service
 ms.workload: tbd
 ms.tgt_pltfrm: na

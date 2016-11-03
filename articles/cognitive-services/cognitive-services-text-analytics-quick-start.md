@@ -7,6 +7,7 @@ author: onewth
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: e8b9e98c-40e7-4425-ae16-d1eaa7d2f837
 ms.service: cognitive-services
 ms.workload: data-services
 ms.tgt_pltfrm: na

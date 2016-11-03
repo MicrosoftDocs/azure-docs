@@ -7,6 +7,7 @@ author: seguler
 manager: jahogg
 editor: tysonn
 
+ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na

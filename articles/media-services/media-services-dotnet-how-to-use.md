@@ -7,6 +7,7 @@ author: juliako
 manager: erikre
 editor: ''
 
+ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na

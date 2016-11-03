@@ -8,6 +8,7 @@ author: AndrewHoh
 manager: jhubbard
 editor: monicar
 
+ms.assetid: 4c084dab-52a4-4b84-9952-6d36a3bbb731
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na

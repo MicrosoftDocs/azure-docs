@@ -7,6 +7,7 @@ author: MikeRayMSFT
 manager: jhubbard
 editor: monicar
 
+ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article

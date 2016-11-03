@@ -7,6 +7,7 @@ author: osamazia
 manager: ganesr
 editor: ''
 
+ms.assetid: eaaf0393-d384-4496-9a5c-328e94c262a7
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article

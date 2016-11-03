@@ -7,6 +7,7 @@ author: mlearned
 manager: douge
 editor: ''
 
+ms.assetid: 797f67ad-e4d4-4063-ae91-41cbdf154191
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na

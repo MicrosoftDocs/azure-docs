@@ -7,6 +7,7 @@ author: sbtron
 manager: timlt
 editor: ''
 
+ms.assetid: d3110ee8-6526-4585-aba5-d0bc9a713e9b
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na

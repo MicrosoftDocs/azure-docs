@@ -8,6 +8,7 @@ manager: jwhit
 editor: ''
 keywords: virtual machine backup; back up virtual machine; backup and disaster recovery; vm backup
 
+ms.assetid: c0ab5469-65fd-4af5-ae9b-f5d183f82ce8
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

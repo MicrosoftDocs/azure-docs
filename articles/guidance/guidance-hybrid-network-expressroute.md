@@ -8,6 +8,7 @@ manager: christb
 editor: ''
 tags: ''
 
+ms.assetid: 3ae3311f-04e8-4f7e-bdad-2d995dcccd6c
 ms.service: guidance
 ms.devlang: na
 ms.topic: article

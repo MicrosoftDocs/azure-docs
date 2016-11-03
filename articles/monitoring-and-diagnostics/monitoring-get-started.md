@@ -7,6 +7,7 @@ editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 
+ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na

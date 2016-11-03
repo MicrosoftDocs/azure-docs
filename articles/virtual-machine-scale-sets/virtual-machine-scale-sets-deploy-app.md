@@ -8,6 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na

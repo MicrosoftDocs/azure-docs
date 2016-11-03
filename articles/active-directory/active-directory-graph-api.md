@@ -7,6 +7,7 @@ author: PatAltimore
 manager: mbaldwin
 editor: mbaldwin
 
+ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

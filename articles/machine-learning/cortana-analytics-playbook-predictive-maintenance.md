@@ -7,6 +7,7 @@ author: fboylu
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: cortana-analytics
 ms.workload: data-services
 ms.tgt_pltfrm: na

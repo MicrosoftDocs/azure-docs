@@ -7,6 +7,7 @@ author: coreyp-at-msft
 manager: stevenka
 editor: tysonn
 
+ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
 ms.devlang: na
 ms.topic: article

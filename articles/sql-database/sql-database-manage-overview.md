@@ -7,6 +7,7 @@ author: stevestein
 manager: jhubbard
 editor: ''
 
+ms.assetid: 37767380-975f-4dee-a28d-80bc2036dda3
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

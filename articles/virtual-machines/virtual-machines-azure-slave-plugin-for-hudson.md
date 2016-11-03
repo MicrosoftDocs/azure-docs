@@ -7,6 +7,7 @@ author: rmcmurray
 manager: wpickett
 editor: ''
 
+ms.assetid: b2083d1c-4de8-4a19-a615-ccc9d9b6e1d9
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple

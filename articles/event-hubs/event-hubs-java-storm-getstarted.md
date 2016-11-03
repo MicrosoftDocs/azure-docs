@@ -7,6 +7,7 @@ author: fsautomata
 manager: timlt
 editor: ''
 
+ms.assetid: 385869bd-1ebe-44ae-8113-cc4679a568eb
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ author: vibronet
 manager: mbaldwin
 editor: ''
 
+ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

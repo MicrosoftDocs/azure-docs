@@ -8,6 +8,7 @@ manager: wpickett
 tags: ''
 keywords: microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, event processing, dynamic compute, serverless architecture
 
+ms.assetid: e9ccf7ad-efc4-41af-b9d3-584957b1515d
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article

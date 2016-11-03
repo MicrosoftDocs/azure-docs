@@ -7,6 +7,7 @@ author: asmalser-msft
 manager: femila
 editor: ''
 
+ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

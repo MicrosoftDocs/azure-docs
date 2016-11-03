@@ -8,6 +8,7 @@ manager: timlt
 editor: monicar
 tags: azure-service-management
 
+ms.assetid: 986cbc2e-553d-4eba-8acb-c34ad7fd1d8b
 ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article

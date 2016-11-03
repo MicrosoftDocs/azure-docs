@@ -8,6 +8,7 @@ manager: stefsch
 editor: cephalin
 tags: buy-ssl-certificates
 
+ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na

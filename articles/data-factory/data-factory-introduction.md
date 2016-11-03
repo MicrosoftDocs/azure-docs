@@ -8,6 +8,7 @@ author: sharonlo101
 manager: jhubbard
 editor: monicar
 
+ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na

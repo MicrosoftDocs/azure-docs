@@ -7,6 +7,7 @@ author: richcar
 manager: carmonm
 editor: ''
 
+ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article

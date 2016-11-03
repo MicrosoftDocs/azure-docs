@@ -7,6 +7,7 @@ author: mattmcg
 manager: darmour
 editor: ''
 
+ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

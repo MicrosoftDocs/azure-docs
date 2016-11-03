@@ -8,6 +8,7 @@ manager: christb
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: 67d86788-c22d-4394-beaf-b4acdf4e2e56
 ms.service: guidance
 ms.devlang: na
 ms.topic: article

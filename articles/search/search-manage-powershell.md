@@ -8,6 +8,7 @@ manager: mblythe
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: 9b3dc1f2-3619-4235-ba1f-d2d6f5c45dd5
 ms.service: search
 ms.devlang: na
 ms.workload: search

@@ -7,6 +7,7 @@ author: sbtron
 manager: douge
 editor: ''
 
+ms.assetid: f9e12c3e-c307-435e-a149-ef0fef20513a
 ms.service: application-insights
 ms.devlang: na
 ms.topic: article

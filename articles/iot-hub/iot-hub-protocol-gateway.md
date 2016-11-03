@@ -7,6 +7,7 @@ author: kdotchkoff
 manager: timlt
 editor: ''
 
+ms.assetid: 555e59ae-3136-4533-8ba8-f3a3b6acf648
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article

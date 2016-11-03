@@ -8,6 +8,7 @@ manager: NA
 editor: ''
 tags: ''
 
+ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article

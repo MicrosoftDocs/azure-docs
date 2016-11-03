@@ -7,6 +7,7 @@ author: markgalioto
 manager: cfreeman
 editor: ''
 
+ms.assetid: 68606e4f-536d-4eac-9f80-8a198ea94d52
 ms.service: backup
 ms.devlang: na
 ms.topic: article

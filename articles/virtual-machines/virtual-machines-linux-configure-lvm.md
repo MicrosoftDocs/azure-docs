@@ -8,6 +8,7 @@ manager: timlt
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 
+ms.assetid: 7f533725-1484-479d-9472-6b3098d0aecc
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux

@@ -8,6 +8,7 @@ manager: jhubbard
 editor: ''
 tags: ''
 
+ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
 ms.service: sql-data-warehouse
 ms.devlang: na
 ms.topic: article

@@ -7,6 +7,7 @@ author: piyushjo
 manager: dwrede
 editor: ''
 
+ms.assetid: 9ec3fab3-35ec-458e-bf41-6cdd69e3fa44
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android

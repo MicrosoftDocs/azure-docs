@@ -7,6 +7,7 @@ author: karavar
 manager: samueld
 editor: curtand
 
+ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

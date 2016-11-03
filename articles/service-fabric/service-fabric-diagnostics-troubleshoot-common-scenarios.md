@@ -7,6 +7,7 @@ author: mattrowmsft
 manager: timlt
 editor: ''
 
+ms.assetid: 5eb8ef21-da04-4ac8-8b9a-5f7ff1e0a180
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

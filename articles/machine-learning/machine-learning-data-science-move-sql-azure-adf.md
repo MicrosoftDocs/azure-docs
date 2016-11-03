@@ -7,6 +7,7 @@ author: bradsev
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 36837c83-2015-48be-b850-c4346aa5ae8a
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

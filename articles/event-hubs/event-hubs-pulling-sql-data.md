@@ -7,6 +7,7 @@ author: spyrossak
 manager: timlt
 editor: ''
 
+ms.assetid: 3dbc21f2-5e97-463f-85c8-78450369ca48
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article

@@ -7,6 +7,7 @@ author: jeffhollan
 manager: erikre
 editor: cgronlun
 
+ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.service: app-service-logic
 ms.workload: integration
 ms.tgt_pltfrm: na

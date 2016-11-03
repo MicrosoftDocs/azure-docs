@@ -7,6 +7,7 @@ author: vlivech
 manager: timlt
 editor: ''
 
+ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article

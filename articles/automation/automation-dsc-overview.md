@@ -8,6 +8,7 @@ manager: stevenka
 editor: tysonn
 keywords: powershell dsc, desired state configuration, powershell dsc azure
 
+ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
 ms.service: automation
 ms.devlang: NA
 ms.topic: article

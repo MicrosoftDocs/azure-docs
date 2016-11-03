@@ -7,6 +7,7 @@ author: navalev
 manager: timlt
 editor: ''
 
+ms.assetid: e8d7a1d2-1e82-4212-8288-8697341408c5
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article

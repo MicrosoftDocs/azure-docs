@@ -6,6 +6,7 @@ documentationcenter: .net
 author: NumberByColors
 manager: douge
 
+ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza

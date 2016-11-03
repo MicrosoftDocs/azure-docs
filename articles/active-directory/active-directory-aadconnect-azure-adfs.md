@@ -8,6 +8,7 @@ author: anandyadavmsft
 manager: femila
 editor: ''
 
+ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

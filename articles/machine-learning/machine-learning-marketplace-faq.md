@@ -7,6 +7,7 @@ author: bharaths
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 26b3a1e7-8b9a-4004-98bc-17456d4c25e8
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

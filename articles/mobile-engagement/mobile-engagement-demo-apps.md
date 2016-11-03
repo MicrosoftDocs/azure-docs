@@ -7,6 +7,7 @@ author: piyushjo
 manager: erikre
 editor: ''
 
+ms.assetid: f624d5aa-254b-4ad0-96a3-f00e6c3a2c97
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: na

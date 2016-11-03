@@ -7,6 +7,7 @@ author: YuriDio
 manager: timlt
 editor: ''
 
+ms.assetid: dfddaf86-2733-44fe-804c-586a5a7364cc
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article

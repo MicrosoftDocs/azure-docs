@@ -7,6 +7,7 @@ author: TomArcher
 manager: douge
 editor: ''
 
+ms.assetid: 80755da7-8350-4f5c-97ce-2962beabb36d
 ms.service: visual-studio-online
 ms.devlang: multiple
 ms.topic: article

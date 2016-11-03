@@ -8,6 +8,7 @@ manager: felixwu
 editor: ''
 tags: top-support-issue
 
+ms.assetid: 51f1610c-0290-464a-97d4-c2e485c7ae7f
 ms.service: virtual-machines-linux
 ms.topic: support-article
 ms.tgt_pltfrm: vm-linux

@@ -8,6 +8,7 @@ manager: jhubbard
 editor: ''
 tags: azure-service-management
 
+ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows-sql-server

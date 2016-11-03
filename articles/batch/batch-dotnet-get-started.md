@@ -7,6 +7,7 @@ author: mmacy
 manager: timlt
 editor: ''
 
+ms.assetid: 76cb9807-cbc1-405a-8136-d1e53e66e82b
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: hero-article

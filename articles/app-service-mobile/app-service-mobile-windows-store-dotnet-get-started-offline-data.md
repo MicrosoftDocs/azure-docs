@@ -7,6 +7,7 @@ manager: erikre
 editor: ''
 services: app-service\mobile
 
+ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows

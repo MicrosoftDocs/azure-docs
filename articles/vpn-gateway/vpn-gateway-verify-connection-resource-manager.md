@@ -8,6 +8,7 @@ manager: carmonm
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: 7e3d1043-caa9-4472-96d3-832f4e2c91ee
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article

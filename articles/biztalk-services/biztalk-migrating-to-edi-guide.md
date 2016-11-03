@@ -7,6 +7,7 @@ author: MandiOhlinger
 manager: erikre
 editor: ''
 
+ms.assetid: 61c179fa-3f37-495b-8016-dee7474fd3a6
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na

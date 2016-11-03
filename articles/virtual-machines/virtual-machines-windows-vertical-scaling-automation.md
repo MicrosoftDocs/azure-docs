@@ -8,6 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: 4f964713-fb67-4bcc-8246-3431452ddf7d
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows

@@ -8,6 +8,7 @@ manager: jhubbard
 author: mumian
 documentationcenter: ''
 
+ms.assetid: ccab792d-60d6-4287-96c2-479e5d0cf358
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na

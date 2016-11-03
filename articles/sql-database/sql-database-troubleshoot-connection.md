@@ -8,6 +8,7 @@ manager: felixwu
 editor: ''
 keywords: database on server is not currently available, connect to sql database
 
+ms.assetid: f61999ac-d46b-448a-8830-3b04978d84ec
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

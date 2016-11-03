@@ -7,6 +7,7 @@ author: douglaslMS
 manager: jhubbard
 editor: ''
 
+ms.assetid: 2341d446-9909-4694-8bb8-d288582daf54
 ms.service: sql-server-stretch-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ author: ysxu
 manager: dwrede
 editor: ''
 
+ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: NA

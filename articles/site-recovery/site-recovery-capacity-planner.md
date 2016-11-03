@@ -7,6 +7,7 @@ author: rayne-wiselman
 manager: jwhit
 editor: ''
 
+ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article

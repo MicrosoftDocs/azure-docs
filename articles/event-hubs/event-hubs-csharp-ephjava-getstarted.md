@@ -7,6 +7,7 @@ author: jtaubensee
 manager: timlt
 editor: ''
 
+ms.assetid: 059fb733-a397-400e-8e43-0c7ea5930b8b
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na

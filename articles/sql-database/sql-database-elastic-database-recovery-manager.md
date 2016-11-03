@@ -6,6 +6,7 @@ documentationcenter: ''
 manager: jhubbard
 author: ddove
 
+ms.assetid: 45520ca3-6903-4b39-88ba-1d41b22da9fe
 ms.service: sql-database
 ms.workload: sql-database
 ms.tgt_pltfrm: na

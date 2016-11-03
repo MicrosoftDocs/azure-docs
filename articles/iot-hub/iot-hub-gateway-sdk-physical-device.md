@@ -7,6 +7,7 @@ author: chipalost
 manager: timlt
 editor: ''
 
+ms.assetid: 212dacbf-e5e9-48b2-9c8a-1c14d9e7b913
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: article

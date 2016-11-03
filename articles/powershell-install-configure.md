@@ -7,6 +7,7 @@ documentationcenter: ''
 services: ''
 author: coreyp-at-msft
 
+ms.assetid: 802b28e0-1a8c-4872-a9ea-c889b15b9498
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: powershell

@@ -7,6 +7,7 @@ author: BYHAM
 manager: jhubbard
 editor: ''
 
+ms.assetid: c3b206b5-af6e-41af-8306-db12ecfc1b5d
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

@@ -8,6 +8,7 @@ author: cjgronlund
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: e56a396a-1b39-43e0-b543-f2dee5b8dd3a
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: get-started-article

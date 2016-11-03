@@ -9,6 +9,7 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 keywords: ''
 
+ms.assetid: c8f047b5-0e6c-4ef3-8a47-f1b284d32942
 ms.service: virtual-machine-scale-sets
 ms.devlang: na
 ms.topic: article

@@ -7,6 +7,7 @@ author: manuaery
 manager: syadav
 editor: ''
 
+ms.assetid: 7a2f4b1a-4ac9-4ce1-9359-bd40a9cbbb5d
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article

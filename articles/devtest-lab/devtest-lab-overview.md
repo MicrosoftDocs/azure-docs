@@ -7,6 +7,7 @@ author: tomarcher
 manager: douge
 editor: ''
 
+ms.assetid: 1b9eed3b-c69a-4c49-a36e-f388efea6f39
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na

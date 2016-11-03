@@ -7,6 +7,7 @@ author: mumian
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 78e4ea33-9714-424d-ac07-3d60ecaebf2e
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ author: v-shysun
 manager: felixwu
 editor: ''
 
+ms.assetid: dea01868-5757-41e2-826c-ec26361a339c
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

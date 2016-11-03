@@ -8,6 +8,7 @@ manager: carmonm
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: 64150862-6ced-42de-85dc-89d323257d7c
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: get-started-article

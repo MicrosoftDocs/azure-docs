@@ -6,6 +6,7 @@ manager: jhubbard
 author: ashmaka
 documentationcenter: ''
 
+ms.assetid: 72e9696a-553b-47dc-9e05-a82db0ebf094
 ms.service: search
 ms.devlang: NA
 ms.workload: search

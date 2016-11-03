@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 tags: azure-service-management
 
+ms.assetid: d627aa09-f7d6-4239-8110-f8fc5111b939
 ms.service: virtual-machines-windows
 ms.workload: web
 ms.tgt_pltfrm: vm-windows

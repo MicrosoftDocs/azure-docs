@@ -8,6 +8,7 @@ manager: jwhit
 editor: ''
 keywords: what is automation, azure automation, azure automation examples
 
+ms.assetid: 0cf1f3e8-dd30-4f33-b52a-e148e97802a9
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na

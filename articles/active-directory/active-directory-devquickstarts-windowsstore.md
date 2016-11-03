@@ -7,6 +7,7 @@ author: dstrockis
 manager: mbaldwin
 editor: ''
 
+ms.assetid: 3b96a6d1-270b-4ac1-b9b5-58070c896a68
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-store

@@ -7,6 +7,7 @@ author: kgremban
 manager: femila
 editor: ''
 
+ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ author: priyamohanram
 manager: mbaldwin
 editor: ''
 
+ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

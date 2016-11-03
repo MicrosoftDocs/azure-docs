@@ -7,6 +7,7 @@ author: Blackmist
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article

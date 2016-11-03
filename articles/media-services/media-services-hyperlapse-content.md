@@ -7,6 +7,7 @@ author: asolanki
 manager: johndeu
 editor: ''
 
+ms.assetid: 37d54db6-9cf3-4ae9-b3c6-0d29c744e965
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na

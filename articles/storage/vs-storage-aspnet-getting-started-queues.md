@@ -7,6 +7,7 @@ author: TomArcher
 manager: douge
 editor: ''
 
+ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started

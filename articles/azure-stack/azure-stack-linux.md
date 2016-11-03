@@ -7,6 +7,7 @@ author: anjayajodha
 manager: byronr
 editor: ''
 
+ms.assetid: d2155c59-902e-4f63-ac58-d19e6a765380
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

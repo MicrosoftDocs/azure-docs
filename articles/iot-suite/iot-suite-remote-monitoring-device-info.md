@@ -8,6 +8,7 @@ author: dominicbetts
 manager: timlt
 editor: ''
 
+ms.assetid: 1b334769-103b-4eb0-a293-184f3d1ba9a3
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article

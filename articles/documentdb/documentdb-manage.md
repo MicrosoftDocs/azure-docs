@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 documentationcenter: ''
 
+ms.assetid: d3c0bae3-1862-4203-9260-e36216a7823d
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na

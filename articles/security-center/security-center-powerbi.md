@@ -7,6 +7,7 @@ author: YuriDio
 manager: swadhwa
 editor: ''
 
+ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article

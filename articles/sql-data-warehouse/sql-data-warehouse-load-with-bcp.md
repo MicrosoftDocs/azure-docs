@@ -7,6 +7,7 @@ author: twounder
 manager: barbkess
 editor: ''
 
+ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article

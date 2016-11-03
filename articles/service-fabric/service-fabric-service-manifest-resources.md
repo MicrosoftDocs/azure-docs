@@ -7,6 +7,7 @@ author: mani-ramaswamy
 manager: timlt
 editor: ''
 
+ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

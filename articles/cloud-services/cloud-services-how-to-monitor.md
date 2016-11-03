@@ -7,6 +7,7 @@ author: rboucher
 manager: timlt
 editor: ''
 
+ms.assetid: 5c48d2fb-b8ea-420f-80df-7aebe2b66b1b
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na

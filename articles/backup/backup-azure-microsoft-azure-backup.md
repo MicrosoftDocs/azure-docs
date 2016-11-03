@@ -8,6 +8,7 @@ manager: shivamg
 editor: ''
 keywords: azure backup server; protect workloads; back up workloads
 
+ms.assetid: e7fb1907-9dc1-4ca1-8c61-50423d86540c
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

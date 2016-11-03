@@ -7,6 +7,7 @@ author: swgriffith
 manager: mbaldwin
 tags: ''
 
+ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na

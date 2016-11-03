@@ -7,6 +7,7 @@ documentationcenter: ''
 manager: jhubbard
 author: torsteng
 
+ms.assetid: f9e89c57-61a0-484f-b787-82dae2349cb6
 ms.service: sql-database
 ms.workload: sql-database
 ms.tgt_pltfrm: na

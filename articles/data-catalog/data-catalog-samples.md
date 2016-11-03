@@ -8,6 +8,7 @@ manager: jhubbard
 editor: ''
 tags: ''
 
+ms.assetid: 0dc23edd-04d8-49fc-841e-d132fb109ce7
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article

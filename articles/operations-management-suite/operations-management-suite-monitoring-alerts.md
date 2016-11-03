@@ -7,6 +7,7 @@ author: bwren
 manager: jwhit
 editor: tysonn
 
+ms.assetid: 6572c3f8-78ca-4fa9-8fe1-d0b488590788
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article

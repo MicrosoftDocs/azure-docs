@@ -7,6 +7,7 @@ author: annemill
 manager: jhubbard
 editor: ''
 
+ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
 ms.service: sql-database
 ms.devlang: na
 ms.topic: article

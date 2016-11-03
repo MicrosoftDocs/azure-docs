@@ -7,6 +7,7 @@ author: ronortloff
 manager: jhubbard
 editor: ''
 
+ms.assetid: dfe29ff3-dfeb-4309-83c0-c1a300f4f44e
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ author: ErikjeMS
 manager: byronr
 editor: ''
 
+ms.assetid: 0ad02941-ed14-4888-8695-b82ad6e43c66
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

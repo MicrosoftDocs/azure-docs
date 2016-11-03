@@ -7,6 +7,7 @@ author: asteen
 manager: femila
 editor: curtand
 
+ms.assetid: 1472b51d-53f4-4b0f-b1be-57f6fa88fa65
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

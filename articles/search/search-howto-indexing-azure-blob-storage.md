@@ -7,6 +7,7 @@ author: chaosrealm
 manager: pablocas
 editor: ''
 
+ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search

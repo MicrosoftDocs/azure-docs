@@ -7,6 +7,7 @@ author: cmatskas
 manager: timlt
 editor: tysonn
 
+ms.assetid: 78f2aa22-df1d-41bd-92ec-dabd1175db88
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: get-started-article

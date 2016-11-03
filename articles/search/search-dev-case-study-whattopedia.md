@@ -6,6 +6,7 @@ documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
 
+ms.assetid: fbecea71-7534-43ac-8bca-22ef6a19232f
 ms.service: search
 ms.devlang: NA
 ms.topic: article

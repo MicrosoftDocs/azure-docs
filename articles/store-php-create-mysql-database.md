@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 tags: mysql
 
+ms.assetid: 55465a9a-7e65-4fd9-8a65-dd83ee41f3e5
 ms.service: multiple
 ms.workload: data-management
 ms.tgt_pltfrm: na

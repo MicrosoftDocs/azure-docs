@@ -7,6 +7,7 @@ author: EvanBoyle
 manager: pablocas
 editor: v-lincan
 
+ms.assetid: 8b4df3c9-3ae5-4e3a-b4bb-74b516a91c8e
 ms.service: search
 ms.devlang: na
 ms.workload: search

@@ -7,6 +7,7 @@ author: dineshmurthy
 manager: jahogg
 editor: tysonn
 
+ms.assetid: 33563639-2945-4567-9254-bc4a7e80698f
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na

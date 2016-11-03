@@ -7,6 +7,7 @@ author: ysxu
 manager: yochayk
 editor: ''
 
+ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios

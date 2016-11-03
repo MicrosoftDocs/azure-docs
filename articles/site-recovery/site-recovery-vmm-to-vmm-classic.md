@@ -7,6 +7,7 @@ author: rayne-wiselman
 manager: jwhit
 editor: ''
 
+ms.assetid: a63acba3-8fb3-4926-aa29-b1e64a765681
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na

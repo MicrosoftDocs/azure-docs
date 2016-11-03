@@ -6,6 +6,7 @@ documentationcenter: ''
 author: alancameronwills
 manager: douge
 
+ms.assetid: 9cd2ecdb-c2b9-4e4a-b6aa-beb0c2ca4ffc
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza

@@ -7,6 +7,7 @@ author: steved0x
 manager: douge
 editor: ''
 
+ms.assetid: 57ff4e30-7e33-453f-9867-e19b3fdb9fe2
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na

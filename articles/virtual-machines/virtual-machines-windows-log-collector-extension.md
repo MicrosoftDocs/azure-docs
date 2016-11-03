@@ -7,6 +7,7 @@ author: squillace
 manager: timlt
 editor: ''
 
+ms.assetid: aa033a65-8eb8-4cae-9f91-0f80cbb55ae4
 ms.service: virtual-machines-windows
 ms.devlang: powershell
 ms.topic: article

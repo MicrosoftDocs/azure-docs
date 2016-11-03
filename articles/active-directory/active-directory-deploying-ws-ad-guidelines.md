@@ -7,6 +7,7 @@ author: femila
 manager: stevenpo
 editor: ''
 
+ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

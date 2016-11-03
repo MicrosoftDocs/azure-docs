@@ -7,6 +7,7 @@ author: stevestein
 manager: jhubbard
 editor: ''
 
+ms.assetid: 5849b600-89cb-4995-ae9f-0188a17b4e1b
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: article

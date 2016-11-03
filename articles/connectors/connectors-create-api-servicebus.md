@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 tags: connectors
 
+ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article

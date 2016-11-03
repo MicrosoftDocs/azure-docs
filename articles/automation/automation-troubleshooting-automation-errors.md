@@ -9,6 +9,7 @@ editor: tysonn
 tags: top-support-issue
 keywords: automation error, error handling
 
+ms.assetid: 5f3cfe61-70b0-4e9c-b892-d02daaeee07d
 ms.service: automation
 ms.devlang: na
 ms.topic: article

@@ -8,6 +8,7 @@ manager: felixwu
 editor: tysonn
 tags: storage
 
+ms.assetid: 0f7a8243-d8dc-432a-9d37-1272a0cb3a5c
 ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na

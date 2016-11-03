@@ -6,6 +6,7 @@ documentationcenter: java
 author: alancameronwills
 manager: douge
 
+ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza

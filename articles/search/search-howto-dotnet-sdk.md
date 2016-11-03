@@ -7,6 +7,7 @@ author: brjohnstmsft
 manager: pablocas
 editor: ''
 
+ms.assetid: 93653341-c05f-4cfd-be45-bb877f964fcb
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search

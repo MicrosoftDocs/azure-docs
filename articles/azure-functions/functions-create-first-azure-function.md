@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 tags: ''
 
+ms.assetid: 4a1669e7-233e-4ea2-9b83-b8624f2dbe59
 ms.service: functions
 ms.devlang: multiple
 ms.topic: hero-article

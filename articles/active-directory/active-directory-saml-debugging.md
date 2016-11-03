@@ -6,6 +6,7 @@ author: asmalser-msft
 documentationcenter: na
 manager: femila
 
+ms.assetid: edbe492b-1050-4fca-a48a-d1fa97d47815
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

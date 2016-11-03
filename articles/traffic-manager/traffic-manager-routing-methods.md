@@ -7,6 +7,7 @@ author: sdwheeler
 manager: carmonm
 editor: ''
 
+ms.assetid: db1efbf6-6762-4c7a-ac99-675d4eeb54d0
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article

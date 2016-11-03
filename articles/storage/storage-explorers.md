@@ -7,6 +7,7 @@ author: micurd
 manager: jahogg
 editor: tysonn
 
+ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na

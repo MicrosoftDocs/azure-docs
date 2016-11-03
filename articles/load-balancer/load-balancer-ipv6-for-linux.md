@@ -8,6 +8,7 @@ manager: carmonm
 editor: ''
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 
+ms.assetid: b32719b6-00e8-4cd0-ba7f-e60e8146084b
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

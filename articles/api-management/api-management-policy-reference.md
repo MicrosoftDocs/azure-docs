@@ -7,6 +7,7 @@ author: vladvino
 manager: erikre
 editor: ''
 
+ms.assetid: 9d4ac609-b221-4032-93ae-e27a1254d43d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na

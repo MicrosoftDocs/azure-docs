@@ -7,6 +7,7 @@ author: curtand
 manager: femila
 editor: ''
 
+ms.assetid: 746987b7-2dfd-4b35-819d-37c1b65c5c81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article

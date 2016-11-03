@@ -7,6 +7,7 @@ author: kgremban
 manager: femila
 editor: curtand
 
+ms.assetid: 19a4043f-c4ce-43c0-80e7-2548ee92cb74
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na

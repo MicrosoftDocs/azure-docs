@@ -8,6 +8,7 @@ author: YuriDio
 manager: timlt
 editor: ''
 
+ms.assetid: 95c23341-16b0-4954-b3f2-d2e82ab7b367
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article

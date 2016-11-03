@@ -7,6 +7,7 @@ author: masnider
 manager: timlt
 editor: vturecek; mani-ramaswamy
 
+ms.assetid: 0c88a533-73f8-4ae1-a939-67d17456ac06
 ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article

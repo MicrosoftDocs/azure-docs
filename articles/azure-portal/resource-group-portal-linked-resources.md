@@ -7,6 +7,7 @@ author: adamabdelhamed
 manager: wpickett
 editor: ''
 
+ms.assetid: dba96d29-f518-49c8-bfd2-f14cecb44cbf
 ms.service: azure-portal
 ms.workload: multiple
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ author: yuemlu
 manager: aungoo-msft
 editor: tysonn
 
+ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na

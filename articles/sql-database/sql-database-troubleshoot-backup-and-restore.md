@@ -7,6 +7,7 @@ author: dalechen
 manager: felixwu
 editor: ''
 
+ms.assetid: c82c5578-178f-42fe-b58d-91d2f716a8e7
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

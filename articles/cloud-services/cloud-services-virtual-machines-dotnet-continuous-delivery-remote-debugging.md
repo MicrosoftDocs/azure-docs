@@ -7,6 +7,7 @@ author: TomArcher
 manager: douge
 editor: ''
 
+ms.assetid: 7d423639-3b2f-4ca5-ac5a-9ac19a217c29
 ms.service: cloud-services
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple

@@ -7,6 +7,7 @@ author: rlfmendes
 manager: natmack
 editor: ''
 
+ms.assetid: 70f1684a-3fbb-4cd1-bf29-9f9882e98fe9
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

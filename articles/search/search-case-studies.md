@@ -8,6 +8,7 @@ manager: jhubbard
 editor: ''
 tags: azure-portal
 
+ms.assetid: ad48e927-aaf9-48f5-8efd-48150cfe79b2
 ms.service: search
 ms.devlang: NA
 ms.workload: search

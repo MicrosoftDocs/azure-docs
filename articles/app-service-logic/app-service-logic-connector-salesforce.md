@@ -7,6 +7,7 @@ author: msftman
 manager: erikre
 editor: ''
 
+ms.assetid: bcfec4af-9897-41e6-a9e2-9a1b56a079d3
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article

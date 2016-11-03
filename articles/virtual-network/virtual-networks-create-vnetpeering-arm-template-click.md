@@ -8,6 +8,7 @@ manager: jefco
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: 75f8d10e-23e8-44bd-9972-aab74048cf38
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article

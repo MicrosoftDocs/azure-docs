@@ -8,6 +8,7 @@ author: brohrer
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

@@ -6,6 +6,7 @@ documentationcenter: ''
 author: SoubhagyaDash
 manager: douge
 
+ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza

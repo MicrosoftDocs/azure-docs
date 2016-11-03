@@ -7,6 +7,7 @@ author: AlfredoPizzirani
 manager: byronr
 editor: ''
 
+ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

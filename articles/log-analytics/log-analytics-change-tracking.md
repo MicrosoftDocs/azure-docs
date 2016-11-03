@@ -7,6 +7,7 @@ author: bandersmsft
 manager: jwhit
 editor: ''
 
+ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
 ms.service: operations-management-suite
 ms.workload: na
 ms.tgt_pltfrm: na

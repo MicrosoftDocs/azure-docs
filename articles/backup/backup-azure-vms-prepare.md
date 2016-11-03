@@ -8,6 +8,7 @@ manager: cfreeman
 editor: ''
 keywords: backups; backing up;
 
+ms.assetid: 238ab93b-8acc-4262-81b7-ce930f76a662
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

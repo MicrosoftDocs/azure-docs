@@ -7,6 +7,7 @@ author: nitinme
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ author: georgewallace
 manager: carmonm
 editor: tysonn
 
+ms.assetid: 866e9b5f-0222-4b6a-a95f-77bc3d31d17b
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article

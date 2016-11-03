@@ -8,6 +8,7 @@ manager: erikre
 keywords: push notification, push notifications, iOS push notifications, android push notifications, ios push, android push
 editor: ''
 
+ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple

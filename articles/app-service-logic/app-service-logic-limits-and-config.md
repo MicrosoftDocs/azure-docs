@@ -7,6 +7,7 @@ author: jeffhollan
 manager: dwrede
 editor: ''
 
+ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na

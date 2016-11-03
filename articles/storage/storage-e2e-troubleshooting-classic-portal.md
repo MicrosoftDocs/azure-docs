@@ -6,6 +6,7 @@ documentationcenter: dotnet
 author: robinsh
 manager: carmonm
 
+ms.assetid: 6b23cba5-0d53-439e-870b-de8e406107d8
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na

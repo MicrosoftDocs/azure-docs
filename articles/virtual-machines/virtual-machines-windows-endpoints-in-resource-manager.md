@@ -7,6 +7,7 @@ author: iainfoulds
 manager: timlt
 editor: ''
 
+ms.assetid: 5420a5e6-72a2-4c46-a786-2a2b21bcead4
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article

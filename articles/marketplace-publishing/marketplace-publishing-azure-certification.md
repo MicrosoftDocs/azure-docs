@@ -8,6 +8,7 @@ manager: hascipio
 editor: ''
 tags: ''
 
+ms.assetid: 7e9ebf17-07a1-4796-921f-d1d62046892d
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article

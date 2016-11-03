@@ -7,6 +7,7 @@ author: juanjperez
 manager: timlt
 editor: ''
 
+ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article

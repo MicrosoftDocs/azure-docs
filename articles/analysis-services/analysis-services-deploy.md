@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 tags: ''
 
+ms.assetid: 5f1f0ae7-11de-4923-a3da-888b13a3638c
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article

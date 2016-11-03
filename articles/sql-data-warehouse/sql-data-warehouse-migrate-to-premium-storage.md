@@ -7,6 +7,7 @@ author: happynicolle
 manager: barbkess
 editor: ''
 
+ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article

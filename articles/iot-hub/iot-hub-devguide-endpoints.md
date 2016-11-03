@@ -7,6 +7,7 @@ author: dominicbetts
 manager: timlt
 editor: ''
 
+ms.assetid: 57ba52ae-19c6-43e4-bc6c-d8a5c2476e95
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article

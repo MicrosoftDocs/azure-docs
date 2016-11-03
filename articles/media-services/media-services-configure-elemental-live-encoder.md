@@ -7,6 +7,7 @@ author: cenkdin
 manager: erikre
 editor: ''
 
+ms.assetid: 9c6bf6a9-6273-4fdd-9477-f0e565280b5b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na

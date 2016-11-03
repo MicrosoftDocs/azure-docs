@@ -7,6 +7,7 @@ author: TomArcher
 manager: douge
 editor: ''
 
+ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.service: active-directory
 ms.devlang: multiple
 ms.topic: article

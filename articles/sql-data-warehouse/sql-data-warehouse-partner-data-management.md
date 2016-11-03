@@ -7,6 +7,7 @@ author: jrowlandjones
 manager: jhubbard
 editor: ''
 
+ms.assetid: c3d96b41-f049-49e8-af32-408f4a893477
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article

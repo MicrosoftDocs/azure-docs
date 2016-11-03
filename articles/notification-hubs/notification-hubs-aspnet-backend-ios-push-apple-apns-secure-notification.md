@@ -7,6 +7,7 @@ manager: erikre
 editor: ''
 services: notification-hubs
 
+ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios

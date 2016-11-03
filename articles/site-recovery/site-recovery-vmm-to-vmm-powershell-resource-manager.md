@@ -7,6 +7,7 @@ author: sujaytalasila
 manager: rochakm
 editor: raynew
 
+ms.assetid: 9d38e9c3-217c-4e44-830c-575e9a4141f2
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na

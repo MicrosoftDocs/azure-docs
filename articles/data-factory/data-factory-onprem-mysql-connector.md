@@ -7,6 +7,7 @@ author: linda33wj
 manager: jhubbard
 editor: monicar
 
+ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na

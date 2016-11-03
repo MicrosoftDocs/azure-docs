@@ -7,6 +7,7 @@ author: derek1ee
 manager: kevinlam1
 editor: ''
 
+ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na

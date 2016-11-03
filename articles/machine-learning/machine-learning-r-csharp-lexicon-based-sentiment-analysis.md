@@ -7,6 +7,7 @@ author: pengxia
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 912f41af-966c-4d79-a413-6f9fc02823df
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

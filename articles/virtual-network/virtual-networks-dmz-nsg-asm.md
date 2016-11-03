@@ -7,6 +7,7 @@ author: tracsman
 manager: rossort
 editor: ''
 
+ms.assetid: f8622b1d-c07d-4ea6-b41c-4ae98d998fff
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

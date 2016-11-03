@@ -8,6 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-service-management,hpc-pack
 
+ms.assetid: b11f3e1b-b9e1-4b0d-8455-6607b88814e9
 ms.service: cloud-services
 ms.workload: big-compute
 ms.tgt_pltfrm: na

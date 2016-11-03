@@ -7,6 +7,7 @@ author: kmouss
 manager: drewm
 editor: ''
 
+ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4
 ms.service: cloud-services
 ms.workload: cloud-services
 ms.tgt_pltfrm: na

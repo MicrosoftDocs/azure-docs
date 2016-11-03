@@ -7,6 +7,7 @@ author: liumichelle
 manager: vitinnan
 editor: ''
 
+ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article

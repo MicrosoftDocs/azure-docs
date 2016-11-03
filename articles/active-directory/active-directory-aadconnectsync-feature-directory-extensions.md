@@ -7,6 +7,7 @@ author: AndKjell
 manager: femila
 editor: ''
 
+ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

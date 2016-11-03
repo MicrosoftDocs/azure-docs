@@ -7,6 +7,7 @@ author: kgremban
 manager: femila
 editor: ''
 
+ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article

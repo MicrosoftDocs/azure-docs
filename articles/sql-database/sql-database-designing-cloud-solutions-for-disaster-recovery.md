@@ -8,6 +8,7 @@ author: anosov1960
 manager: jhubbard
 editor: monicar
 
+ms.assetid: e8a346ac-dd08-41e7-9685-46cebca04582
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: article

@@ -7,6 +7,7 @@ author: vlivech
 manager: timlt
 editor: ''
 
+ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: hero-article

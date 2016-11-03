@@ -6,6 +6,7 @@ author: jeevansd
 documentationcenter: na
 manager: femila
 
+ms.assetid: e9da692e-4a65-4231-8ab3-bc9a87b10bca
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

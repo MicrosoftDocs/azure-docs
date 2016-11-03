@@ -7,6 +7,7 @@ author: HeidiSteen
 manager: mblythe
 editor: ''
 
+ms.assetid: 7af6ede7-318f-4cea-8fdb-27090460c261
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search

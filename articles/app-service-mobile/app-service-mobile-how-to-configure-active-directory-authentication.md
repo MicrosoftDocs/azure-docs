@@ -7,6 +7,7 @@ documentationcenter: ''
 manager: erikre
 editor: ''
 
+ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na

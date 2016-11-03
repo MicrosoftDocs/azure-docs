@@ -7,6 +7,7 @@ author: mmacy
 manager: timlt
 editor: ''
 
+ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article

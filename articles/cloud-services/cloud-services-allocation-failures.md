@@ -8,6 +8,7 @@ manager: felixwu
 editor: ''
 tags: top-support-issue
 
+ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: ibiza

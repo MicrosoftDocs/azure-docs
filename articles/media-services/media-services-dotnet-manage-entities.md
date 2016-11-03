@@ -8,6 +8,7 @@ editor: ''
 services: media-services
 documentationcenter: ''
 
+ms.assetid: 1bd8fd42-7306-463d-bfe5-f642802f1906
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na

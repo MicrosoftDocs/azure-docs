@@ -7,6 +7,7 @@ author: karolz-ms
 manager: adegeo
 editor: ''
 
+ms.assetid: bd2c0511-36c9-4828-8dc3-69e4b6a70567
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article

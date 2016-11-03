@@ -7,6 +7,7 @@ author: bsiva
 manager: abhiag
 editor: ''
 
+ms.assetid: 05e0d76e-c3f5-4845-8052-094019b6d102
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article

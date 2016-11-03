@@ -7,6 +7,7 @@ author: shoatman
 manager: kbrint
 editor: ''
 
+ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

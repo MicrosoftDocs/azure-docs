@@ -8,6 +8,7 @@ manager: timlt
 editor: ''
 tags: ''
 
+ms.assetid: 46137640-a7d2-40e5-a1e9-9effef7eb190
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux

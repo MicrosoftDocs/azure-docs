@@ -8,6 +8,7 @@ manager: carmonm
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: daacb6e5-705a-456f-9a03-c4fc3f8c1f7e
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article

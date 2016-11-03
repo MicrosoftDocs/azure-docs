@@ -7,6 +7,7 @@ author: tdykstra
 manager: wpickett
 editor: ''
 
+ms.assetid: 4f980a97-b9f5-4d1d-87ab-82b60bb96e1c
 ms.service: app-service-api
 ms.workload: na
 ms.tgt_pltfrm: dotnet

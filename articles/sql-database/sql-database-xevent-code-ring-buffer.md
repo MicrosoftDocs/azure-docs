@@ -8,6 +8,7 @@ manager: jhubbard
 editor: ''
 tags: ''
 
+ms.assetid: 2510fb3f-c8f2-437a-8f49-9d5f6c96e75b
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

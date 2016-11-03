@@ -8,6 +8,7 @@ author: roalexan
 manager: jhubbard
 editor: ''
 
+ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

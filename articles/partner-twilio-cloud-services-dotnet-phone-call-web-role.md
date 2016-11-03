@@ -7,6 +7,7 @@ author: devinrader
 manager: timlt
 editor: ''
 
+ms.assetid: 789185ad-69dc-4e9e-a936-42e0a25315c8
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na

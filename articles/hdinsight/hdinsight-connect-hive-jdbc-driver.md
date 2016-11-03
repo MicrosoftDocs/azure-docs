@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 
+ms.assetid: 928f8d2a-684d-48cb-894c-11c59a5599ae
 ms.service: hdinsight
 ms.devlang: java
 ms.topic: article

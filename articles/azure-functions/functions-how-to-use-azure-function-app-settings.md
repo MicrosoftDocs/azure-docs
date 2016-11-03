@@ -7,6 +7,7 @@ author: rachelappel
 manager: erikre
 editor: ''
 
+ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: dotnet

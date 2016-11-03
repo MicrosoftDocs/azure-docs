@@ -7,6 +7,7 @@ author: mani-ramaswamy
 manager: markfuss
 editor: ''
 
+ms.assetid: 9fa47be0-50a2-4a51-84a5-20992af94bea
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

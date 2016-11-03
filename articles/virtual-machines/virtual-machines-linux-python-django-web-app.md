@@ -8,6 +8,7 @@ manager: wpickett
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: 00ad4c2c-4316-4f9a-913f-f7f49b158db7
 ms.service: virtual-machines-linux
 ms.workload: web
 ms.tgt_pltfrm: vm-linux

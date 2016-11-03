@@ -7,6 +7,7 @@ author: dhanyahk
 manager: mbaldwin
 editor: ''
 
+ms.assetid: 307eedf7-05bc-448d-a84d-bead5a4c5770
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

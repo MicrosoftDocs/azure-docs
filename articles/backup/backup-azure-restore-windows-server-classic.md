@@ -7,6 +7,7 @@ author: saurabhsensharma
 manager: shivamg
 editor: ''
 
+ms.assetid: 85585dfc-c764-4e8c-8f0e-40b969640ac2
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

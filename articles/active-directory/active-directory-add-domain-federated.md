@@ -7,6 +7,7 @@ author: jeffsta
 manager: femila
 editor: ''
 
+ms.assetid: 27126c7e-e6d6-4ef3-a4fb-f5f0706e749d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

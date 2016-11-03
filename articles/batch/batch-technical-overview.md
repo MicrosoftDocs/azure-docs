@@ -7,6 +7,7 @@ author: mmacy
 manager: timlt
 editor: ''
 
+ms.assetid: 93e37d44-7585-495e-8491-312ed584ab79
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na

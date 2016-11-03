@@ -7,6 +7,7 @@ author: trinadhk
 manager: shreeshd
 editor: ''
 
+ms.assetid: 117201fb-c0cd-4be4-b47f-abd88fe914cf
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

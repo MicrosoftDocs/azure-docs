@@ -6,6 +6,7 @@ documentationcenter: ''
 author: ericorman
 manager: mbaldwin
 
+ms.assetid: e2292cb2-5c89-4b2b-ab11-74dbacd07c31
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na

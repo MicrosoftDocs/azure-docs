@@ -7,6 +7,7 @@ author: bwren
 manager: jwhit
 editor: tysonn
 
+ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article

@@ -7,6 +7,7 @@ author: barbkess
 manager: jhubbard
 editor: ''
 
+ms.assetid: a91d1f53-03cb-464b-9d5b-4a9c1a194ed3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article

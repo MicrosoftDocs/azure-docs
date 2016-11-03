@@ -7,6 +7,7 @@ author: spelluru
 manager: jhubbard
 editor: monicar
 
+ms.assetid: 22ec1236-ea86-4eb7-b903-0e79a58b90c7
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na

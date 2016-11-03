@@ -9,6 +9,7 @@ editor: ''
 tags: azure-resource-manager
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 
+ms.assetid: 2998e943-13fc-4ea9-a68c-875e53a08db3
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

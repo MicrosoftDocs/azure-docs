@@ -8,6 +8,7 @@ author: bradygaster
 manager: wpickett
 editor: jimbe
 
+ms.assetid: 6b8cbc38-d282-4a0f-b0c5-762631bae6f3
 ms.service: app-service-api
 ms.workload: web
 ms.tgt_pltfrm: dotnet

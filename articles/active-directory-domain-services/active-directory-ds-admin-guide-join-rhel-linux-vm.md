@@ -7,6 +7,7 @@ author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
 
+ms.assetid: 87291c47-1280-43f8-8fb2-da1bd61a4942
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na

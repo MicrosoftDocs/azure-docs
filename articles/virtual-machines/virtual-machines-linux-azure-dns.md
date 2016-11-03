@@ -7,6 +7,7 @@ author: RicksterCDN
 manager: timlt
 editor: tysonn
 
+ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article

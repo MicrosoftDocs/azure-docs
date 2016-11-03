@@ -8,6 +8,7 @@ manager: jhubbard
 editor: mimig
 documentationcenter: ''
 
+ms.assetid: 58925d95-dde8-441b-8142-482b487e4bdd
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na

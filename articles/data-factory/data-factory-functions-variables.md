@@ -7,6 +7,7 @@ manager: jhubbard
 editor: monicar
 services: data-factory
 
+ms.assetid: b6b3c2ae-b0e8-4e28-90d8-daf20421660d
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na

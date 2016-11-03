@@ -7,6 +7,7 @@ author: raiye
 manager: markkie
 editor: ''
 
+ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article

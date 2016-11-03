@@ -7,6 +7,7 @@ author: Thraka
 manager: timlt
 editor: ''
 
+ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na

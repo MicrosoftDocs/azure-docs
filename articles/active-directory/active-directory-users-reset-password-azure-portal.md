@@ -7,6 +7,7 @@ author: curtand
 manager: femila
 editor: ''
 
+ms.assetid: fad5624b-2f13-4abc-b3d4-b347903a8f16
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

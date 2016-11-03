@@ -7,6 +7,7 @@ author: piyushjo
 manager: erikre
 editor: ''
 
+ms.assetid: 0448209e-fff6-47bd-985c-2cf074bac12f
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios

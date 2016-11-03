@@ -7,6 +7,7 @@ author: TerryLanfear
 manager: MBaldwin
 editor: ''
 
+ms.assetid: d2d088d3-d38d-47ff-a062-c78e0fd59226
 ms.service: security-center
 ms.devlang: na
 ms.topic: article

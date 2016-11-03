@@ -7,6 +7,7 @@ author: amsriva
 manager: rossort
 editor: amsriva
 
+ms.assetid: caa8eb19-825a-4031-8b49-18fbf3ebc04e
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article

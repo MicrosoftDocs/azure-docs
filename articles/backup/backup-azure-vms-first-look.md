@@ -7,6 +7,7 @@ author: markgalioto
 manager: cfreeman
 editor: ''
 
+ms.assetid: 722820dc-b65f-425c-a9e5-c1946e896a87
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

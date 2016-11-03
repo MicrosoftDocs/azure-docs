@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 tags: connectors
 
+ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na

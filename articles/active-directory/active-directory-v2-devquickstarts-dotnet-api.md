@@ -7,6 +7,7 @@ author: dstrockis
 manager: mbaldwin
 editor: ''
 
+ms.assetid: e77bc4e0-d0c9-4075-a3f6-769e2c810206
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

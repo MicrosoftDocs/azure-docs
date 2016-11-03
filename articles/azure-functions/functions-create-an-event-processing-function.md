@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 tags: ''
 
+ms.assetid: 84bd0373-65e2-4022-bcca-2b9cd9e696f5
 ms.service: functions
 ms.devlang: multiple
 ms.topic: get-started-article

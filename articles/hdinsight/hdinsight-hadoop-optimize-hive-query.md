@@ -8,6 +8,7 @@ manager: mwinkle
 editor: cgronlun
 tags: azure-portal
 
+ms.assetid: d6174c08-06aa-42ac-8e9b-8b8718d9978e
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article

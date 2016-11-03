@@ -7,6 +7,7 @@ author: ninarn
 manager: jhubbard
 tags: azure-resource-manager
 
+ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article

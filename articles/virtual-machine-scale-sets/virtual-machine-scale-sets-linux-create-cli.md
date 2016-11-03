@@ -8,6 +8,7 @@ manager: madhana
 editor: tysonn
 tags: azure-resource-manager
 
+ms.assetid: 0901d4ca-98dd-4c78-bf6c-a79c932e5b89
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na

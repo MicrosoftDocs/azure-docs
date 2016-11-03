@@ -8,6 +8,7 @@ manager: cfreeman
 editor: ''
 keywords: backup vault; back up a Windows server; backup windows;
 
+ms.assetid: 3b543bfd-8978-4f11-816a-0498fe14a8ba
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

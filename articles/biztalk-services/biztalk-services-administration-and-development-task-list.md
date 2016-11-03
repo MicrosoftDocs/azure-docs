@@ -7,6 +7,7 @@ author: msftman
 manager: erikre
 editor: ''
 
+ms.assetid: 0ab70b5b-1a88-4ba5-b329-ec51b785010e
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na

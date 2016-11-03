@@ -7,6 +7,7 @@ author: nberdy
 manager: timlt
 editor: ''
 
+ms.assetid: a47108fd-f994-4105-b21d-5b8f697b699c
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article

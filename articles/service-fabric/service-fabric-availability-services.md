@@ -7,6 +7,7 @@ author: appi101
 manager: timlt
 editor: ''
 
+ms.assetid: 279ba4a4-f2ef-4e4e-b164-daefd10582e4
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

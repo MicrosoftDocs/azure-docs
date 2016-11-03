@@ -7,6 +7,7 @@ author: rnagpal
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 9d5621fa-0e11-4619-a28b-a19d872bcf37
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na

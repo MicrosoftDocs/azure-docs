@@ -7,6 +7,7 @@ author: padmavc
 manager: erikre
 editor: ''
 
+ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na

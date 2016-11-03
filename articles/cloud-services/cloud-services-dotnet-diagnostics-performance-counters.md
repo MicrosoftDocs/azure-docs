@@ -7,6 +7,7 @@ author: rboucher
 manager: jwhit
 editor: tysonn
 
+ms.assetid: fc4c61e9-d49d-4ed9-a32c-b91cdf851909
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article

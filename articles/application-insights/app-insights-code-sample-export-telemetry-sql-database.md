@@ -6,6 +6,7 @@ documentationcenter: ''
 author: mazharmicrosoft
 manager: douge
 
+ms.assetid: 3ffb62b6-3fe9-455d-a260-b2a0201b5ecd
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza

@@ -7,6 +7,7 @@ author: YuriDio
 manager: swadhwa
 editor: ''
 
+ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.topic: get-started-article
 ms.devlang: na

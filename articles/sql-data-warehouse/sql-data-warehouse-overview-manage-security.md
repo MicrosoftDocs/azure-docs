@@ -7,6 +7,7 @@ author: ronortloff
 manager: jhubbard
 editor: ''
 
+ms.assetid: 8fa2f5ca-4cf5-4418-99a2-4dc745799850
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article

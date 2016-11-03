@@ -8,6 +8,7 @@ manager: cliffdi
 editor: ''
 tags: ''
 
+ms.assetid: 0c1cdde6-1988-4eff-a876-75c8f845f0ed
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article

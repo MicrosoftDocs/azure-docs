@@ -8,6 +8,7 @@ manager: wpickett
 editor: ''
 tags: mysql
 
+ms.assetid: cb73859d-48aa-470a-b486-d984746d6d26
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na

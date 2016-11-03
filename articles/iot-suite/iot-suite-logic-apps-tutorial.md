@@ -8,6 +8,7 @@ author: aguilaaj
 manager: timlt
 editor: ''
 
+ms.assetid: 4629a7af-56ca-4b21-a769-5fa18bc3ab07
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article

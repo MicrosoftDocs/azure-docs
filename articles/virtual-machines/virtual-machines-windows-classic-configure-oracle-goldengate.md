@@ -7,6 +7,7 @@ manager: timlt
 documentationcenter: ''
 tags: azure-service-management
 
+ms.assetid: 85ca238c-5925-4c5a-86c7-08338587b8c3
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article

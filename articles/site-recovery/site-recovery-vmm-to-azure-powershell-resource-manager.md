@@ -7,6 +7,7 @@ author: Rajani-Janaki-Ram
 manager: rochakm
 editor: raynew
 
+ms.assetid: 6ac509ad-5024-43d8-b621-d8fec019b9a9
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na

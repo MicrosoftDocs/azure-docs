@@ -7,6 +7,7 @@ author: ChackDan
 manager: timlt
 editor: ''
 
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

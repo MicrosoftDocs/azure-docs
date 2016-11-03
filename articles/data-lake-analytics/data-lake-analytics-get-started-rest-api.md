@@ -7,6 +7,7 @@ author: mumian
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 5e133d92-baaa-44c9-890c-ab2d85c91122
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article

@@ -7,6 +7,7 @@ author: sdwheeler
 manager: carmonm
 editor: ''
 
+ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
 ms.service: dns
 ms.devlang: na
 ms.topic: article

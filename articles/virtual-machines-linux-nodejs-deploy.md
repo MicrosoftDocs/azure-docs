@@ -7,6 +7,7 @@ author: stepro
 manager: dmitryr
 editor: ''
 
+ms.assetid: 857a812d-c73e-4af7-a985-2d0baf8b6f71
 ms.service: multiple
 ms.devlang: nodejs
 ms.topic: article

@@ -7,6 +7,7 @@ author: nickfloyd
 manager: timlt
 editor: ''
 
+ms.assetid: b01011be-c344-4e33-987d-c93dac1971fb
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na

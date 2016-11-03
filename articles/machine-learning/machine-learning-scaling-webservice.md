@@ -8,6 +8,7 @@ manager: srikants
 editor: cgronlun
 keywords: azure machine learning, web services, operationalization, scaling, endpoint, concurrency
 
+ms.assetid: c2c51d7f-fd2d-4f03-bc51-bf47e6969296
 ms.service: machine-learning
 ms.devlang: NA
 ms.workload: data-services

@@ -7,6 +7,7 @@ documentationcenter: ''
 author: lizap
 manager: mbaldwin
 
+ms.assetid: 774d460b-553b-434a-b468-b67363365701
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na

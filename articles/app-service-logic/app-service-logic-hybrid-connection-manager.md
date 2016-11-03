@@ -7,6 +7,7 @@ author: MandiOhlinger
 manager: anneta
 editor: ''
 
+ms.assetid: e2227c52-da6c-457e-828d-30e45a963db7
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na

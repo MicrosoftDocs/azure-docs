@@ -7,6 +7,7 @@ author: ysxu
 manager: dwrede
 editor: ''
 
+ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: hero-article

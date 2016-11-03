@@ -7,6 +7,7 @@ author: rwike77
 manager: timlt
 editor: chackdan;subramar
 
+ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

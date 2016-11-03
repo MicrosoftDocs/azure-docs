@@ -7,6 +7,7 @@ manager: dwrede
 editor: ''
 services: app-service\mobile
 
+ms.assetid: 91d59e4b-abaa-41f4-80cf-ee7933b32568
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android

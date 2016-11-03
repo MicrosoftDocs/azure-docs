@@ -7,6 +7,7 @@ author: hillaryc
 manager: timlt
 editor: ''
 
+ms.assetid: e2549ad3-41eb-47e5-b25f-20043a7ffa2a
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na

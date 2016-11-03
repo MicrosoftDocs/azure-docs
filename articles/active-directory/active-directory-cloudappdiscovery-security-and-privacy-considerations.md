@@ -7,6 +7,7 @@ author: MarkusVi
 manager: femila
 editor: ''
 
+ms.assetid: 2fce5c82-d3de-4097-808f-40214768df9e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

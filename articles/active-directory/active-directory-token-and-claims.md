@@ -7,6 +7,7 @@ services: active-directory
 manager: mbaldwin
 editor: ''
 
+ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

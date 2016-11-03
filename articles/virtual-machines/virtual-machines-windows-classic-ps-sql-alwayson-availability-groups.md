@@ -8,6 +8,7 @@ manager: jhubbard
 editor: ''
 tags: azure-service-management
 
+ms.assetid: a4e2f175-fe56-4218-86c7-a43fb916cc64
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article

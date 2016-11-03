@@ -7,6 +7,7 @@ author: skwan
 manager: mbaldwin
 editor: ''
 
+ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

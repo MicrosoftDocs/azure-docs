@@ -7,6 +7,7 @@ author: antonba
 manager: erikre
 editor: ''
 
+ms.assetid: 55a2a1e1-d07e-4111-9ce3-8837ed5040d6
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na

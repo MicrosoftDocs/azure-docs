@@ -8,6 +8,7 @@ manager: timlt
 tags: ''
 keywords: ''
 
+ms.assetid: a5a03a57-fe86-416f-90ff-6eca17775842
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article

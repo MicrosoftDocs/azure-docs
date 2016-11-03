@@ -9,6 +9,7 @@ editor: ''
 tags: azure-container-service, jenkins
 keywords: Azure, Containers, Jenkins
 
+ms.assetid: dd719bda-6d1f-452b-a918-9a3aa9302107
 ms.service: container-service
 ms.devlang: na
 ms.topic: article

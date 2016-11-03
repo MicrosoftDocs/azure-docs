@@ -7,6 +7,7 @@ author: banisadr
 manager: timlt
 editor: ''
 
+ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na

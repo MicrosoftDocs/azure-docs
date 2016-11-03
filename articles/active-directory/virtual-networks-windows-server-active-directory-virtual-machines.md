@@ -7,6 +7,7 @@ author: MarkusVi
 manager: femila
 tags: azure-classic-portal
 
+ms.assetid: 683f6bbb-61d0-423e-9aeb-66f0b0001d67
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

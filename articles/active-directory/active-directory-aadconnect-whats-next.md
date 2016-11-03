@@ -7,6 +7,7 @@ author: billmath
 manager: femila
 editor: curtand
 
+ms.assetid: c18bee36-aebf-4281-b8fc-3fe14116f1a5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

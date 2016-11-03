@@ -9,6 +9,7 @@ manager: jhubbard
 editor: ''
 tags: ''
 
+ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
 ms.devlang: na
 ms.topic: article

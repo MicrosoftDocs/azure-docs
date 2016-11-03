@@ -8,6 +8,7 @@ manager: felixwu
 editor: ''
 tags: top-support-issue
 
+ms.assetid: 9f01d237-ba39-4c32-b72d-18f5f505d43a
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows

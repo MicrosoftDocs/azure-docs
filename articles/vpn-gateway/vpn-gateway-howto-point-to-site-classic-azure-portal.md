@@ -8,6 +8,7 @@ manager: carmonm
 editor: ''
 tags: azure-service-management
 
+ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: hero-article

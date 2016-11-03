@@ -8,6 +8,7 @@ manager: pablocas
 editor: ''
 tags: complex data types; compound data types; aggregate data types
 
+ms.assetid: e4bf86b4-497a-4179-b09f-c1b56c3c0bb2
 ms.service: search
 ms.devlang: na
 ms.workload: search

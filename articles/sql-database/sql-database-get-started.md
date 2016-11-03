@@ -8,6 +8,7 @@ author: CarlRabeler
 manager: jhubbard
 editor: ''
 
+ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

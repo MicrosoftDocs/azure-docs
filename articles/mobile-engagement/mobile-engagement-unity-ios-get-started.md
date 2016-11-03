@@ -7,6 +7,7 @@ author: piyushjo
 manager: erikre
 editor: ''
 
+ms.assetid: 7ddfbac3-8d13-4ebe-b061-c865f357297f
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-unity-ios

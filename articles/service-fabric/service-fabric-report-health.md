@@ -7,6 +7,7 @@ author: oanapl
 manager: timlt
 editor: ''
 
+ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

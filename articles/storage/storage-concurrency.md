@@ -7,6 +7,7 @@ author: jasonnewyork
 manager: tadb
 editor: tysonn
 
+ms.assetid: cc6429c4-23ee-46e3-b22d-50dd68bd4680
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na

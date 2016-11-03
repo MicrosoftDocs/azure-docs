@@ -8,6 +8,7 @@ manager: femila
 editor: ''
 tags: ''
 
+ms.assetid: 1464387b-ee8b-4c7c-94b3-2c5567224c27
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article

@@ -7,6 +7,7 @@ author: cawaMS
 manager: paulyuk
 editor: tglee
 
+ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

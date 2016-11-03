@@ -7,6 +7,7 @@ author: ryancrawcour
 manager: jhubbard
 documentationcenter: ''
 
+ms.assetid: d428bb33-4244-4001-b93d-c77bed816527
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article

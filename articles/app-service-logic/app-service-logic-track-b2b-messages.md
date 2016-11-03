@@ -7,6 +7,7 @@ author: rajram
 manager: erikre
 editor: ''
 
+ms.assetid: eb811f0b-7e04-4f79-9069-d6d0b8a70b9d
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article

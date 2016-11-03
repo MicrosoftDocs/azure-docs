@@ -7,6 +7,7 @@ author: dhanyahk
 manager: femila
 editor: ''
 
+ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

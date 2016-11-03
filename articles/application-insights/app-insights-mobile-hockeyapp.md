@@ -6,6 +6,7 @@ services: application-insights
 documentationcenter: ''
 manager: douge
 
+ms.assetid: 93e0f108-9605-4d8b-8fce-512bfe8c3f0f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza

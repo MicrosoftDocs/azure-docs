@@ -7,6 +7,7 @@ author: TomArcher
 manager: douge
 editor: ''
 
+ms.assetid: 4f3c93c6-5c82-4779-9d19-7404a01e82ca
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na

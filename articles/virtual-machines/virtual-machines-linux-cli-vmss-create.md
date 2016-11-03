@@ -9,6 +9,7 @@ manager: madhana
 editor: tysonn
 tags: azure-resource-manager
 
+ms.assetid: ba1aedb6-49cb-4546-8b8b-da97aba8e42d
 ms.service: virtual-machine-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux

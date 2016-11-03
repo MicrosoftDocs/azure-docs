@@ -8,6 +8,7 @@ manager: felixwu
 editor: ''
 keywords: reset admin password
 
+ms.assetid: 9803fdcf-6501-4ac4-8cd0-f80071e052e1
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

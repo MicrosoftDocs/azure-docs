@@ -8,6 +8,7 @@ author: MChadalapaka
 manager: siroy
 editor: ''
 
+ms.assetid: 1d720ffa-848d-4853-b7b4-ac726fe82e99
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

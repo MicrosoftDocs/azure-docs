@@ -8,6 +8,7 @@ manager: anneta
 editor: ''
 tags: connectors
 
+ms.assetid: 47a8582a-1b1a-4fc3-beb5-97c60c4306fe
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article

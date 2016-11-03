@@ -7,6 +7,7 @@ author: msftman
 manager: erikre
 editor: cgronlun
 
+ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na

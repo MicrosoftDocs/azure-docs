@@ -7,6 +7,7 @@ author: ysxu
 manager: erikre
 editor: ''
 
+ms.assetid: 4c3f966d-0158-4a48-b949-9fa3666cb7e4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: java

@@ -8,6 +8,7 @@ manager: timlt
 editor: tysonn
 tags: azure-service-management
 
+ms.assetid: d529b1f5-864e-4163-9b34-b52d48ceedb1
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article

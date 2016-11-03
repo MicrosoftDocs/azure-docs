@@ -7,6 +7,7 @@ author: sbtron
 manager: timlt
 editor: tysonn
 
+ms.assetid: e93f387b-ef29-4731-ae41-0676722accb6
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article

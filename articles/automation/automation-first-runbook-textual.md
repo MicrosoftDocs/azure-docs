@@ -8,6 +8,7 @@ manager: jwhit
 editor: ''
 keywords: powershell workflow, powershell workflow examples, workflow powershell
 
+ms.assetid: 0002d7f7-e2b5-46e3-b5eb-4596b84fd526
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na

@@ -9,6 +9,7 @@ editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
+ms.assetid: f28cda01-15f3-4047-83f3-e89d5728301c
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference

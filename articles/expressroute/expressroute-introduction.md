@@ -7,6 +7,7 @@ author: cherylmc
 manager: carmonm
 editor: ''
 
+ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article

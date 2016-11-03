@@ -7,6 +7,7 @@ author: adrianhall
 manager: dwrede
 editor: ''
 
+ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin

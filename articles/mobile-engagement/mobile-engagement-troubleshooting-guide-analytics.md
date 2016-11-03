@@ -7,6 +7,7 @@ author: piyushjo
 manager: dwrede
 editor: ''
 
+ms.assetid: 04a7020a-ad74-4491-be69-0bd574890029
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article

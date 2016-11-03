@@ -7,6 +7,7 @@ author: rmcmurray
 manager: erikre
 editor: ''
 
+ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

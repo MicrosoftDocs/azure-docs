@@ -7,6 +7,7 @@ author: seanmck
 manager: timlt
 editor: ''
 
+ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article

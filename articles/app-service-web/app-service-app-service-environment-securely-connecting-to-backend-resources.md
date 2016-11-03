@@ -7,6 +7,7 @@ author: stefsch
 manager: wpickett
 editor: ''
 
+ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na

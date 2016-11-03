@@ -7,6 +7,7 @@ author: JeffreyRichter
 manager: timlt
 editor: ''
 
+ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article

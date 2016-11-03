@@ -7,6 +7,7 @@ author: bwren
 manager: jwhit
 editor: ''
 
+ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na

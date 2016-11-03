@@ -7,6 +7,7 @@ author: MikeRayMSFT
 manager: jhubbard
 tags: azure-service-management
 
+ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article

@@ -7,6 +7,7 @@ author: NarayanAnnamalai
 manager: jefco
 editor: ''
 
+ms.assetid: ad260ab9-d873-43b3-8896-f9a1db9858a5
 ms.service: virtual-network
 ms.workload: virtual-network
 ms.tgt_pltfrm: na

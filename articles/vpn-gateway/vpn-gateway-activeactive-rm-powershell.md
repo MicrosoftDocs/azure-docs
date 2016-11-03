@@ -8,6 +8,7 @@ manager: rossort
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article

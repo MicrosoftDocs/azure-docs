@@ -8,6 +8,7 @@ author: sdwheeler
 manager: carmonm
 editor: tysonn
 
+ms.assetid: 529b37aa-a45c-41d1-8877-fee8cc1fa375
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

@@ -7,6 +7,7 @@ author: jtaubensee
 manager: timlt
 editor: tysonn
 
+ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article

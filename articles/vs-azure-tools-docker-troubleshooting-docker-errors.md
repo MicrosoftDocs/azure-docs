@@ -7,6 +7,7 @@ author: mlearned
 manager: douge
 editor: ''
 
+ms.assetid: 346f70b9-7b52-4688-a8e8-8f53869618d3
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article

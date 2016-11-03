@@ -7,6 +7,7 @@ author: MehrdadMzfr
 manager: dwrede
 editor: ''
 
+ms.assetid: 2566eeb6-be82-4d83-aaf6-ebdcb8841189
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios

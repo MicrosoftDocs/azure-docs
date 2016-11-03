@@ -7,6 +7,7 @@ author: msfussell
 manager: timlt
 editor: ''
 
+ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

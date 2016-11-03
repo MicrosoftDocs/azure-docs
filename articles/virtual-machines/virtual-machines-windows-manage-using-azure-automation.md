@@ -7,6 +7,7 @@ author: jodoglevy
 manager: timlt
 editor: ''
 
+ms.assetid: ce49f83a-f409-42ee-af74-a8ea2caa9ae8
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na

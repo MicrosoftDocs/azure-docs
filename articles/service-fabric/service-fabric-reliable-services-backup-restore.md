@@ -7,6 +7,7 @@ author: mcoskun
 manager: timlt
 editor: subramar,jessebenson
 
+ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

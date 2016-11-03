@@ -7,6 +7,7 @@ author: jasonnewyork
 manager: tadb
 editor: tysonn
 
+ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
 ms.devlang: na
 ms.topic: article

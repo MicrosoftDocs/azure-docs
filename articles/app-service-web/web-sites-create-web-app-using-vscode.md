@@ -7,6 +7,7 @@ author: erikre
 manager: wpickett
 editor: jimbe
 
+ms.assetid: 877bff08-9ef7-405a-a1ca-1194f33c55f2
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: dotnet

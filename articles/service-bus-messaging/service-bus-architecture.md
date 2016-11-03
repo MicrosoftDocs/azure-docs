@@ -7,6 +7,7 @@ author: sethmanheim
 manager: timlt
 editor: ''
 
+ms.assetid: baf94c2d-0e58-4d5d-a588-767f996ccf7f
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article

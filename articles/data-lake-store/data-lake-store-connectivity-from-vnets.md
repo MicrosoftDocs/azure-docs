@@ -7,6 +7,7 @@ author: nitinme
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 683fcfdc-cf93-46c3-b2d2-5cb79f5e9ea5
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article

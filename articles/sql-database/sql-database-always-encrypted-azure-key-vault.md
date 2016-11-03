@@ -8,6 +8,7 @@ author: stevestein
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

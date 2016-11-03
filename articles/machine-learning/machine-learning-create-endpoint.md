@@ -7,6 +7,7 @@ author: hiteshmadan
 manager: padou
 editor: cgronlun
 
+ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
 ms.devlang: multiple
 ms.topic: article

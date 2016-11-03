@@ -7,6 +7,7 @@ author: bandersmsft
 manager: jwhit
 editor: ''
 
+ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na

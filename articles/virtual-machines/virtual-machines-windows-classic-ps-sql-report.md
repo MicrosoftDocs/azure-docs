@@ -8,6 +8,7 @@ manager: erikre
 editor: monicar
 tags: azure-service-management
 
+ms.assetid: 553af55b-d02e-4e32-904c-682bfa20fa0f
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article

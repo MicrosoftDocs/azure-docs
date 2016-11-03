@@ -7,6 +7,7 @@ author: charwen
 manager: carmonm
 editor: ''
 
+ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article

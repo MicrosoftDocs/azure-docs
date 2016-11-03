@@ -7,6 +7,7 @@ editor: ''
 services: notification-hubs
 documentationcenter: xamarin
 
+ms.assetid: 0be600fe-d5f3-43a5-9e5e-3135c9743e54
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android

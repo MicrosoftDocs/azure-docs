@@ -8,6 +8,7 @@ manager: douge
 editor: ''
 tags: ''
 
+ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na

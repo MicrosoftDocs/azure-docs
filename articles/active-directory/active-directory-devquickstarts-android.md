@@ -7,6 +7,7 @@ author: brandwe
 manager: mbaldwin
 editor: ''
 
+ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: mobile-android

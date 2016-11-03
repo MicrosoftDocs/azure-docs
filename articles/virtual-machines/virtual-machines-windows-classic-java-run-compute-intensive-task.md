@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 tags: azure-service-management,azure-resource-manager
 
+ms.assetid: ae6f2737-94c7-4569-9913-d871450c2827
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows

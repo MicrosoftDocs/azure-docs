@@ -7,6 +7,7 @@ author: MandiOhlinger
 manager: dwrede
 editor: cgronlun
 
+ms.assetid: b4345c11-0689-4d01-ac83-b799c355734c
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na

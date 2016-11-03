@@ -7,6 +7,7 @@ author: ysxu
 manager: erikre
 editor: ''
 
+ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34a9
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-android

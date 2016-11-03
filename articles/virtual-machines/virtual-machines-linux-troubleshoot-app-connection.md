@@ -9,6 +9,7 @@ editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: cannot start application, program won't open, listen port blocked, unable to start program, listen port blocked
 
+ms.assetid: b9ff7cd0-0c5d-4c3c-a6be-3ac47abf31ba
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux

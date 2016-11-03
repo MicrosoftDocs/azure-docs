@@ -7,6 +7,7 @@ author: AniAnirudh
 manager: darmour
 editor: ''
 
+ms.assetid: 092aba28-04bc-44c0-90e1-e79d82f4ff42
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

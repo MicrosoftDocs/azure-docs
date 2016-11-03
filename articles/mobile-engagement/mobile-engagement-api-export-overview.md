@@ -7,6 +7,7 @@ author: kpiteira
 manager: erikre
 editor: ''
 
+ms.assetid: 9380d47b-d7fa-4d4c-888f-97e6482196bb
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article

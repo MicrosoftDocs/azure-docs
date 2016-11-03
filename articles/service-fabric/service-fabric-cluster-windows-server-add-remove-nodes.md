@@ -7,6 +7,7 @@ author: dsk-2015
 manager: timlt
 editor: ''
 
+ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

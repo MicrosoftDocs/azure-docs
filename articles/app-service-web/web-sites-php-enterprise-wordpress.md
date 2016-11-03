@@ -7,6 +7,7 @@ author: sunbuild
 manager: yochayk
 editor: ''
 
+ms.assetid: 22d68588-2511-4600-8527-c518fede8978
 ms.service: app-service-web
 ms.devlang: php
 ms.topic: article

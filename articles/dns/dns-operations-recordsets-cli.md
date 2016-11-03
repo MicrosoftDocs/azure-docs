@@ -7,6 +7,7 @@ author: jtuliani
 manager: carmonm
 editor: ''
 
+ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: na
 ms.topic: article

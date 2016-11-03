@@ -7,6 +7,7 @@ author: MarkusVi
 manager: femila
 editor: ''
 
+ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article

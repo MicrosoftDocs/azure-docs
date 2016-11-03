@@ -7,6 +7,7 @@ author: rboucher
 manager: carolz
 editor: ''
 
+ms.assetid: 6f47f711-2208-4c21-8c1d-826a54c05c29
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: na

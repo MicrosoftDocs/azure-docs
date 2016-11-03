@@ -7,6 +7,7 @@ author: brandwe
 manager: mbaldwin
 editor: ''
 
+ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

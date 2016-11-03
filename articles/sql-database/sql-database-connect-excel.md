@@ -8,6 +8,7 @@ author: joseidz
 manager: jhubbard
 editor: ''
 
+ms.assetid: 906924bc-2707-48d3-bac6-397976a0409d
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

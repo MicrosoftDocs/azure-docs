@@ -7,6 +7,7 @@ author: ronortloff
 manager: barbkess
 editor: ''
 
+ms.assetid: 8ccefef3-1308-41ee-b336-5e491d1098ae
 ms.service: sql-data-warehouse
 ms.workload: data-management
 ms.tgt_pltfrm: na

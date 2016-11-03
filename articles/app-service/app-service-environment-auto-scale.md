@@ -7,6 +7,7 @@ author: btardif
 manager: wpickett
 editor: ''
 
+ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na

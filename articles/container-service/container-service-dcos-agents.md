@@ -9,6 +9,7 @@ editor: ''
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Mesos, Azure
 
+ms.assetid: 36d657c9-8845-4bf7-bed2-088323b67406
 ms.service: container-service
 ms.devlang: na
 ms.topic: article

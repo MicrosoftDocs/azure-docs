@@ -7,6 +7,7 @@ author: twounder
 manager: jhubbard
 editor: ''
 
+ms.assetid: 670aef98-31f7-4436-86c0-cc989a39fe7f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article

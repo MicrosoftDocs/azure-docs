@@ -7,6 +7,7 @@ author: aniedea
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 9356b821-5345-44f6-8e26-719f2dea5e6d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

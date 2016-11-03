@@ -7,6 +7,7 @@ author: GarethBradshawMSFT
 manager: carmonm
 editor: tysonn
 
+ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

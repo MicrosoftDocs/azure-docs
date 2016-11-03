@@ -8,6 +8,7 @@ manager: jhubbard
 editor: rmca14
 tags: ''
 
+ms.assetid: ed0ca8a8-fa53-4e56-b824-2d7e44641967
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article

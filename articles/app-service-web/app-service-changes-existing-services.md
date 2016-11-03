@@ -7,6 +7,7 @@ author: yochay
 manager: nirma
 editor: ''
 
+ms.assetid: 86c6a292-3c33-49f4-890c-89cc0321b397
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na

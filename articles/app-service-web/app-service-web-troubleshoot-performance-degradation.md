@@ -9,6 +9,7 @@ editor: ''
 tags: top-support-issue
 keywords: web app performance, slow app, app slow
 
+ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na

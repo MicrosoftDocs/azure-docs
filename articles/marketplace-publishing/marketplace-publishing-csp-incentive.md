@@ -7,6 +7,7 @@ author: DavidBosland
 manager: lakoch
 editor: ''
 
+ms.assetid: e5ce0301-ddc4-4fb0-8349-acc65d387b8e
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article

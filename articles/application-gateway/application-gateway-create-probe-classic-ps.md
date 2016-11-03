@@ -8,6 +8,7 @@ manager: carmonm
 editor: ''
 tags: azure-service-management
 
+ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article

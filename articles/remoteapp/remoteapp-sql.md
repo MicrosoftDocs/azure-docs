@@ -7,6 +7,7 @@ author: ericorman
 manager: mbaldwin
 editor: ''
 
+ms.assetid: 35f81d75-bfd7-4980-807e-00339f2cb2a4
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article

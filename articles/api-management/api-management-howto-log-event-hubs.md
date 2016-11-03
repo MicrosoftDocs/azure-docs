@@ -7,6 +7,7 @@ author: steved0x
 manager: erikre
 editor: ''
 
+ms.assetid: 88f6507d-7460-4eb2-bffd-76025b73f8c4
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na

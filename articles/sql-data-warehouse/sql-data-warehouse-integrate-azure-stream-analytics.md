@@ -7,6 +7,7 @@ author: kevinvngo
 manager: barbkess
 editor: ''
 
+ms.assetid: 8aeb2247-20c5-4a29-b327-30a8ce09dfdc
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article

@@ -7,6 +7,7 @@ author: steved0x
 manager: douge
 editor: ''
 
+ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis

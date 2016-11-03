@@ -8,6 +8,7 @@ documentationcenter: ''
 tags: azure-portal
 author: mumian
 
+ms.assetid: 87bacd13-7775-4b71-91da-161cb6224a96
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na

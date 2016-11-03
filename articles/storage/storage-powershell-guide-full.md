@@ -6,6 +6,7 @@ documentationcenter: na
 author: robinsh
 manager: carmonm
 
+ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na

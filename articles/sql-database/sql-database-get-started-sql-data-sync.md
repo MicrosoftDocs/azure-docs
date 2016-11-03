@@ -7,6 +7,7 @@ author: jennieHubbard
 manager: jhubbard
 editor: ''
 
+ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

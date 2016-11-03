@@ -7,6 +7,7 @@ author: TomShinder
 manager: MBaldwin
 editor: TomSh
 
+ms.assetid: 9e5e14aa-11d7-4242-8b7e-49fd0e79817a
 ms.service: security
 ms.devlang: na
 ms.topic: article

@@ -7,6 +7,7 @@ author: GarethBradshawMSFT
 manager: carmonm
 editor: ''
 
+ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
 ms.service: dns
 ms.devlang: na
 ms.topic: article

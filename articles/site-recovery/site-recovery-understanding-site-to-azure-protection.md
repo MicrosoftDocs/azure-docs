@@ -7,6 +7,7 @@ author: Rajani-Janaki-Ram
 manager: mkjain
 editor: ''
 
+ms.assetid: 97916915-1379-47df-8369-12ddf022c4da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article

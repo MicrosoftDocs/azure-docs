@@ -8,6 +8,7 @@ author: NarayanAnnamalai
 manager: jefco
 editor: tysonn
 
+ms.assetid: eb0ba07d-5fee-4db0-b1cb-a569b7060d2a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article

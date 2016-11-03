@@ -8,6 +8,7 @@ author: rmcmurray
 manager: erikre
 editor: ''
 
+ms.assetid: 029e6f46-f586-4309-adbf-71c7b8d537d4
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na

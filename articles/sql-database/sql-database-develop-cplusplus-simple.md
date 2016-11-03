@@ -7,6 +7,7 @@ author: asthana86
 manager: danmoth
 editor: ''
 
+ms.assetid: 07d9e0b1-3234-4f17-a252-a7559160a9db
 ms.service: sql-database
 ms.workload: drivers
 ms.tgt_pltfrm: na

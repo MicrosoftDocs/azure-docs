@@ -8,6 +8,7 @@ author: anandyadavmsft
 manager: samueld
 editor: ''
 
+ms.assetid: cf6880e2-af78-4cc9-91bc-b64de4428bbd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

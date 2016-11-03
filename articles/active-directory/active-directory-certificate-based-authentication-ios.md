@@ -6,6 +6,7 @@ author: MarkusVi
 documentationcenter: na
 manager: femila
 
+ms.assetid: 26a6fc54-0153-44fb-b970-9b432c99e9f9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

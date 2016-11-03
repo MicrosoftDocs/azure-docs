@@ -7,6 +7,7 @@ author: garyericson
 manager: opapel
 editor: cgronlun
 
+ms.assetid: 1684cdc0-dddc-4522-8eef-96620c549bcb
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

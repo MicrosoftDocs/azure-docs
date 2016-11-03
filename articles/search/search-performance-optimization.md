@@ -7,6 +7,7 @@ author: LiamCavanagh
 manager: pablocas
 editor: ''
 
+ms.assetid: 4d3cd864-29d2-4921-be0d-a3f1a819de46
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search

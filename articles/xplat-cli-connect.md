@@ -8,6 +8,7 @@ author: squillace
 services: virtual-machines-linux,virtual-network,storage,azure-resource-manager
 tags: azure-resource-manager,azure-service-management
 
+ms.assetid: ed856527-d75e-4e16-93fb-253dafad209d
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple

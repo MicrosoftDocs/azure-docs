@@ -7,6 +7,7 @@ author: ScottNapolitan
 manager: darmour
 editor: ''
 
+ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

@@ -9,6 +9,7 @@ editor: ''
 tags: billing,top-support-issue
 keywords: credit card declined, debit card declined, your credit card was declined, do not honor credit card
 
+ms.assetid: 407ef3db-2a64-4a04-a08f-7d1d1c4860c7
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza

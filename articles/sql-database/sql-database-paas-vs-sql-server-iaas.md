@@ -8,6 +8,7 @@ author: CarlRabeler
 manager: jhubbard
 editor: cjgronlund
 
+ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: vm-windows-sql-server

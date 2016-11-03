@@ -7,6 +7,7 @@ author: MightyPen
 manager: jhubbard
 editor: ''
 
+ms.assetid: 8020f904-ad27-40c5-8c59-bdf2e690f77d
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

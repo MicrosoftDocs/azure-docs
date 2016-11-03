@@ -8,6 +8,7 @@ author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na

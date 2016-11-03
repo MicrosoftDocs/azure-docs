@@ -8,6 +8,7 @@ manager: madhana
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple

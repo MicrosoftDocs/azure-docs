@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 tags: ''
 
+ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article
