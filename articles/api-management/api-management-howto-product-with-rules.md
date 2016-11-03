@@ -30,7 +30,7 @@ In this step, you will create a Free Trial product that does not require subscri
 
 >[AZURE.NOTE] If you already have a product configured and want to use it for this tutorial, you can jump ahead to [Configure call rate limit and quota policies][] and follow the tutorial from there using your product in place of the Free Trial product.
 
-To get started, click **Manage** in the Azure Classic for your API Management service. This takes you to the API Management publisher portal.
+To get started, click **Publisher portal** in the Azure Portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 

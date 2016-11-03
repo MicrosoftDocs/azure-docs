@@ -29,7 +29,7 @@ This guide shows how create a new API and import its operations in one step. For
 
 ## <a name="import-api"> </a>Import an API
 
-APIs are created and configured in the publisher portal. To access the publisher portal, click **Manage** in the Azure Classic Portal for your API Management service. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
+APIs are created and configured in the publisher portal. To access the publisher portal, click **Publisher portal** in the Azure Portal for your API Management service. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
 ![Publisher portal][api-management-management-console]
 
