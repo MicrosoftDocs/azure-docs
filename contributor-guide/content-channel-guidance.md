@@ -1,18 +1,12 @@
-<properties title="" pageTitle="Azure technical content channel guidance" description="Describes the Microsoft content channels that employees, partners, and community contributors should use for publishing Azure technical content." metaKeywords="" services="" solutions="" documentationCenter="" authors="tysonn" videoId="" scriptId="" manager="carolz" />
-
-<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/06/2015" ms.author="tysonn" />
-
 # Azure technical content channel guidance
 
 GitHub is a relatively easy way (once you get over the Git hump) to author and publish technical content. But we need to ensure that content stays within the boundaries of technical documentation - there are other channels for other types of information.
 
-##Technical content that belongs in the azure-content-pr repository
+## Technical content that belongs in the azure-docs-pr repository
 
-**Technical articles about using the product** belong in the azure-content and azure-content-pr repositories for publication to http://azure.microsoft.com/documentation/articles. They should contain conceptual or procedural information required to understand and use the product. The technical content channel is for technical content showing people **how** to do something. You can talk about the "what" and "why" to help customers understand intent, but the articles should focus on the actual content telling people how to do the task or complete the scenario.
+**Technical articles about using the product** belong in the azure-docs and azure-docs-pr repositories for publication to http://docs.microsoft.com. They should contain conceptual or procedural information required to understand and use the product. The technical content channel is for technical content showing people **how** to do something. You can talk about the "what" and "why" to help customers understand intent, but the articles should focus on the actual content telling people how to do the task or complete the scenario.
 
-##Technical content that does not belong in the azure-content-pr repository
-
-**Reference content**: managed reference, REST APIs, PowerShell cmdlet help, schema reference, and error reference belongs in the MSDN scoped Azure library (http://msdn.microsoft.com/library/azure/). Node, Ruby, and other language reference content belongs on http://azure.github.io/.
+## Technical content that does not belong in the azure-docs-pr repository
 
 The following types of content are delivered in other Azure or Microsoft content channels; in some cases, certain types of content are not part of our content strategy.
 
@@ -22,7 +16,7 @@ The following types of content are delivered in other Azure or Microsoft content
 
 - **Code and project samples**: Code and project samples go in the samples repositories and are featured in the sample gallery.
 
-- **Community spotlight/community resources**: Articles featuring community projects. The repo is for technical content about how to use the product from the Microsoft persective, not about how people are using the product. That's marketing or possibly blog content. Or, let the community tell it's own story in the places that community likes best!
+- **Community spotlight/community resources**: Articles featuring community projects. The repo is for technical content about how to use the product from the Microsoft perspective, not about how people are using the product. That's marketing or possibly blog content. Or, let the community tell it's own story in the places that community likes best!
 
 - **Compliance**: Industry standards and compliance information for Azure services must be posted to https://www.microsoft.com/en-us/TrustCenter/Compliance?service=Azure#Icons. This includes certification for standards such as ISO, country-specific and government certifications, banking, health, or other certifications.
 
@@ -43,6 +37,8 @@ The following types of content are delivered in other Azure or Microsoft content
 - **Privacy information**: There is an all-up privacy policy for Microsoft Online Services that covers all of Azure. Privacy information specific to a service should be presented as technical content, not "privacy statements". See https://azure.microsoft.com/en-us/support/legal/.
 
 - **Redirect articles**:  When you delete the content of an article, do not leave the article published with a link to the replacement content. Use a real redirect.
+
+- **Reference content**: managed reference, REST APIs, PowerShell cmdlet help, schema reference, and error reference content is published to docs.microsoft.com, but not through this repository.
 
 - **Release notes**: Unless it's an SDK article or a StorSimple article for a hardware update, this sort of information should just be embedded in the relevant technical content or included in the service updates channel.
 

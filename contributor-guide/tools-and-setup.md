@@ -1,21 +1,4 @@
-<properties
-pageTitle="Install and set up tools for authoring in GitHub"
-description="Tools and steps to get set up for authoring Azure content in GitHub."
-services="contributor-guide"
-documentationCenter=""
-authors="tysonn"  
-manager="carolz" />
-
-<tags
-ms.service="contributor-guide"
- ms.devlang=""
- ms.topic="article"
-  ms.tgt_pltfrm=""
-  ms.workload=""
-  ms.date="01/19/2015"
-  ms.author="tysonn" />
-
-#Install and set up tools for authoring in GitHub
+# Install and set up tools for authoring in GitHub
 
 Follow the steps in this article to set up tools for contributing to the Azure technical documentation. Casual and occasional contributors probably can use the GitHub UI described in step 2.
 

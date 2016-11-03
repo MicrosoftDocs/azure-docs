@@ -1,10 +1,6 @@
-<properties title="" pageTitle="Azure technical content contributors' guide index" description="Lists the articles available in the Azure technical content contributors' guide for azure.microsoft.com." metaKeywords="" services="" solutions="" documentationCenter="" authors="tysonn" videoId="" scriptId="" manager="carolz" />
+# Azure technical content contributors' guide index
 
-<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="12/19/2014" ms.author="tysonn" />
-
-#Azure technical content contributors' guide index
-
-##General guidance
+## General guidance
 
 - [Contribute to Azure documentation](./../README.md)
 
@@ -15,7 +11,7 @@
 - [Feedback, comments, and support](feedback-and-comments.md)
 
 
-##Authoring articles: tools, processes, guidance
+## Authoring articles: tools, processes, guidance
 
 - [Tools and setup for authoring in GitHub](tools-and-setup.md)
 
@@ -38,7 +34,7 @@
 - [Pull request comment automation](contributor-guide-pull-request-comments.md)
 
 
-##Authoring articles: markdown
+## Authoring articles: markdown
 
 - [Markdown basics](https://help.github.com/articles/markdown-basics/)
 
