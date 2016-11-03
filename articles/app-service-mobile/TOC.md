@@ -36,6 +36,7 @@
 ### [Azure App Service and existing Azure services](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [App Service plans in-depth](../app-service-web/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [High-density hosting](../app-service-web/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [App Service on Linux](../app-service/app-service-linux-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Using WebJobs in Azure App Service](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [App Service Environment](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [App Service Environment documentation](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -89,6 +90,7 @@
 ### Work with the server SDK
 #### [.NET backend](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 #### [Node.js backend](app-service-mobile-node-backend-how-to-use-server-sdk.md)
+#### [Client and server versioning](app-service-mobile-client-and-server-versioning.md)
 
 ### Web Jobs
 #### [What is the Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -101,6 +103,7 @@
 ### App Service Environment
 #### [Create a web app in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [How To Create an ILB ASE Using Azure Resource Manager Templates](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Using an Internal Load Balancer](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## [Deploy](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Deploy to App Service](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -115,6 +118,7 @@
 ### [App Service Environment](../app-service-web/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Geo Distributed Scale with App Service Environments](../app-service-web/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Scaling apps in an App Service Environment](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+#### [Autoscaling in an App Service Environment](../app-service/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Manage
 ### [Configure](../app-service-web/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

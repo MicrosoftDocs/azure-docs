@@ -39,6 +39,7 @@
 ### [Web Apps offerings for the enterprise](web-sites-enterprise-offerings.md)
 ### [Comparison: App Service, Virtual Machines, Service Fabric, and Cloud Services](choose-web-site-cloud-service-vm.md)
 ### [Developing WordPress sites on App Service](develop-wordpress-on-app-service-web-apps.md)
+### [App Service on Linux](../app-service/app-service-linux-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### Azure reference architectures
 #### [Basic web application](../guidance/guidance-web-apps-basic.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Web application with high availability](../guidance/guidance-web-apps-multi-region.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -107,6 +108,7 @@
 #### [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md)
 #### [Create a web app in an App Service Environment](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 #### [How To Create an ILB ASE Using Azure Resource Manager Templates](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
+#### [Using an Internal Load Balancer](app-service-environment-with-internal-load-balancer.md)
 
 ## [Deploy](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Deploy to App Service](web-sites-deploy.md)
@@ -127,6 +129,7 @@
 ### [App Service Environment](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Geo Distributed Scale with App Service Environments](app-service-app-service-environment-geo-distributed-scale.md)
 #### [Scaling apps in an App Service Environment](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+#### [Autoscaling in an App Service Environment](../app-service/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Azure CDN](../cdn/cdn-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
 ## [Manage](web-sites-manage-azure-website.md)
