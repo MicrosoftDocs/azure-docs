@@ -22,7 +22,7 @@ Before an API in API Management can be used, operations must be added. This guid
 
 ## <a name="add-operation"> </a>Add an operation
 
-Operations are added and configured to an API in the publisher portal. To access the publisher portal, click **Manage** in the Azure Classic Portal for your API Management service.
+Operations are added and configured to an API in the publisher portal. To access the publisher portal, click **Publisher portal** in the Azure Portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 
