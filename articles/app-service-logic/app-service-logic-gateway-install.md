@@ -7,6 +7,7 @@ author: jeffhollan
 manager: erikre
 editor: ''
 
+ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article

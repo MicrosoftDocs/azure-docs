@@ -7,6 +7,7 @@ author: TomArcher
 manager: timlt
 editor: ''
 
+ms.assetid: 54232365-34dd-42e0-a65f-8de62735d09b
 ms.service: virtual-machines-windows
 ms.devlang: multiple
 ms.topic: article

@@ -7,6 +7,7 @@ services: documentdb, storage, hdinsight
 documentationcenter: ''
 author: mimig1
 
+ms.assetid: eb9c081f-7d67-4d60-be77-1181108da30d
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: na

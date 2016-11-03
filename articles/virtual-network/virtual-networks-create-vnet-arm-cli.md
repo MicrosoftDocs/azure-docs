@@ -8,6 +8,7 @@ manager: carmonm
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article

@@ -9,6 +9,7 @@ manager: cfreeman
 editor: ''
 keywords: restore backup; how to restore; recovery point;
 
+ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

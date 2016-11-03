@@ -7,6 +7,7 @@ author: AlanWarwick
 manager: timlt
 editor: vturecek
 
+ms.assetid: af002ae6-7f6d-4769-b049-82aa1ba0891b
 ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article

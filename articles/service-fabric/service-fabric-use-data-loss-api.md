@@ -7,6 +7,7 @@ author: LMWF
 manager: rsinha
 editor: ''
 
+ms.assetid: f4e70f6f-cad9-4a3e-9655-009b4db09c6d
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

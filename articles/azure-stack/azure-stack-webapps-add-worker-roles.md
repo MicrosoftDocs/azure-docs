@@ -7,6 +7,7 @@ author: kathm
 manager: slinehan
 editor: ''
 
+ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na

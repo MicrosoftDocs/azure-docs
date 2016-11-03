@@ -7,6 +7,7 @@ author: willzhan
 manager: erikre
 editor: ''
 
+ms.assetid: 7814739b-cea9-4b9b-8370-538702e5c615
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na

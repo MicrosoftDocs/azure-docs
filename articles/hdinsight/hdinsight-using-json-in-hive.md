@@ -7,6 +7,7 @@ author: rashimg
 manager: mwinkle
 editor: cgronlun
 
+ms.assetid: e17794e8-faae-4264-9434-67f61ea78f13
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article

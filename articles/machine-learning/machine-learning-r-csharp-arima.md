@@ -7,6 +7,7 @@ author: yijichen
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 1e0d525f-8a9e-4b42-87e0-c9423f059f8c
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

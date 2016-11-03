@@ -8,6 +8,7 @@ manager: yochayk
 editor: ''
 tags: mysql
 
+ms.assetid: c2ed5e78-6d7d-4d0c-b7ee-a52ae41ceab8
 ms.service: multiple
 ms.workload: data-management
 ms.tgt_pltfrm: na

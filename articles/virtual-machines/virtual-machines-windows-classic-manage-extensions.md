@@ -8,6 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-service-management
 
+ms.assetid: 53f0543f-3217-4ad5-90ca-802810118ff9
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article

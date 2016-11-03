@@ -7,6 +7,7 @@ author: gplarsen
 manager: erikre
 editor: ''
 
+ms.assetid: ce28a0f3-7387-4c7d-ae47-193f733d8d31
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article

@@ -7,6 +7,7 @@ author: xstof
 manager: erikre
 editor: ''
 
+ms.assetid: 1ba52865-b4a8-4ca0-ac96-920d55b9d15b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na

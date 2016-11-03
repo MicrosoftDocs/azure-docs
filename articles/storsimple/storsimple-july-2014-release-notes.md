@@ -7,6 +7,7 @@ author: SharS
 manager: carmonm
 editor: ''
 
+ms.assetid: 12f1796e-37c3-42b4-b997-a84fc1950c20
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article

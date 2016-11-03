@@ -7,6 +7,7 @@ author: asthana86
 manager: jhubbard
 editor: ''
 
+ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na

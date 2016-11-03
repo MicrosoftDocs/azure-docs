@@ -7,6 +7,7 @@ author: apwestgarth
 manager: stefsch
 editor: ''
 
+ms.assetid: d7cb66b1-8f9e-46f3-9524-d2995381483a
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na

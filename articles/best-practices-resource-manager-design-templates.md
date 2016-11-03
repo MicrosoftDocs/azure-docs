@@ -7,6 +7,7 @@ author: tfitzmac
 manager: timlt
 editor: tysonn
 
+ms.assetid: ce1141d6-ece7-4976-acea-1db1f775409e
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na

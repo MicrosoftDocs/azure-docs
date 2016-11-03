@@ -8,6 +8,7 @@ author: shontnew
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
 ms.devlang: na
 ms.topic: get-started-article

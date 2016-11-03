@@ -7,6 +7,7 @@ author: stefsch
 manager: nirma
 editor: ''
 
+ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na

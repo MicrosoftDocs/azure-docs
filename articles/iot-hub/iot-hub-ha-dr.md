@@ -7,6 +7,7 @@ author: fsautomata
 manager: timlt
 editor: ''
 
+ms.assetid: ae320e58-aa20-45b9-abdc-fa4faae8e6dd
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article

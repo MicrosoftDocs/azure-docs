@@ -7,6 +7,7 @@ editor: ''
 services: logic-apps
 documentationcenter: ''
 
+ms.assetid: e484e5ce-77e9-4fa9-bcbe-f851b4eb42a6
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na

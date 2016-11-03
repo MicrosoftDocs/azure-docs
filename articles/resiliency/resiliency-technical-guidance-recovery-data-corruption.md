@@ -7,6 +7,7 @@ author: adamglick
 manager: saladki
 editor: ''
 
+ms.assetid: ecdfa1a8-d93f-43f2-b4a3-f5cfd13201e7
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article

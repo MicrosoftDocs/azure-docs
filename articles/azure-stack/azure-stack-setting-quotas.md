@@ -7,6 +7,7 @@ author: mattmcg
 manager: byronr
 editor: ''
 
+ms.assetid: 955c6dd8-cefe-42f3-af88-e11d17d22725
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

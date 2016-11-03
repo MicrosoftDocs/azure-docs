@@ -8,6 +8,7 @@ author: arramac
 manager: jhubbard
 editor: monicar
 
+ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: documentdb
 ms.devlang: na
 ms.topic: article

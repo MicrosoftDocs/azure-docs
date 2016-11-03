@@ -8,6 +8,7 @@ manager: cfreeman
 editor: ''
 keywords: how to backup; how to back up
 
+ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 tags: ''
 
+ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article

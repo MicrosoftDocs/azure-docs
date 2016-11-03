@@ -7,6 +7,7 @@ author: adrianhall
 manager: yochayk
 editor: ''
 
+ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-multiple

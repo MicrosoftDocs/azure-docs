@@ -8,6 +8,7 @@ author: kgremban
 manager: femila
 editor: yossib
 
+ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na

@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 tags: connectors
 
+ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.service: multiple
 ms.devlang: na
 ms.topic: article

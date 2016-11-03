@@ -7,6 +7,7 @@ author: vibronet
 manager: mbaldwin
 editor: ''
 
+ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

@@ -7,6 +7,7 @@ author: dstrockis
 manager: mbaldwin
 editor: ''
 
+ms.assetid: 66f5ac20-5e1f-4b9d-bb99-9b3305e26416
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-phone

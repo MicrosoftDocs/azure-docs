@@ -7,6 +7,7 @@ author: lindydonna
 manager: erikre
 editor: ''
 
+ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: multiple

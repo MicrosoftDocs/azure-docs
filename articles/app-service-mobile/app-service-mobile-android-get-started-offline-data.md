@@ -6,6 +6,7 @@ author: ysxu
 manager: erikre
 services: app-service\mobile
 
+ms.assetid: 32a8a079-9b3c-4faf-8588-ccff02097224
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android

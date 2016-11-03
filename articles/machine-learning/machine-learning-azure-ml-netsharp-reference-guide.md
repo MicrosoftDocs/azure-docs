@@ -7,6 +7,7 @@ author: jeannt
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

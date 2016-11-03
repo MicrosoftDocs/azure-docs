@@ -8,6 +8,7 @@ documentationcenter: ''
 author: tfitzmac
 services: azure-resource-manager
 
+ms.assetid: bb0af466-4f65-4559-ac3a-43985fa096ff
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple

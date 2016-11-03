@@ -7,6 +7,7 @@ author: ms-toddabel
 manager: timlt
 editor: ''
 
+ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

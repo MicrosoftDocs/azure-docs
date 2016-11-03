@@ -7,6 +7,7 @@ author: dushyantgill
 manager: timlt
 editor: tysonn
 
+ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article

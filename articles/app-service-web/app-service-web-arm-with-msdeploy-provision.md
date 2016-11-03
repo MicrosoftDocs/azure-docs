@@ -6,6 +6,7 @@ manager: erikre
 documentationcenter: ''
 author: jodehavi
 
+ms.assetid: 66366a72-cef7-4d75-8779-f4d32ed33cf7
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na

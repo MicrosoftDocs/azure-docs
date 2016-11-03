@@ -7,6 +7,7 @@ author: ysxu
 manager: dwrede
 editor: ''
 
+ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios

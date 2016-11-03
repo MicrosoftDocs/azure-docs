@@ -7,6 +7,7 @@ author: dhanyahk
 manager: stevepo
 editor: ''
 
+ms.assetid: bb142c29-d341-4fb8-8862-42b4d3a707e6
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

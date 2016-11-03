@@ -7,6 +7,7 @@ author: rothja
 manager: jhubbard
 tags: azure-resource-manager
 
+ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article

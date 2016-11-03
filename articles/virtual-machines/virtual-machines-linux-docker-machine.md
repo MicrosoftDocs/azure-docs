@@ -7,6 +7,7 @@ author: squillace
 manager: timlt
 editor: tysonn
 
+ms.assetid: 164b47de-6b17-4e29-8b7d-4996fa65bea4
 ms.service: virtual-machines-linux
 ms.devlang: multiple
 ms.topic: article

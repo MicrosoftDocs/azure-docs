@@ -7,6 +7,7 @@ author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 0deb0b1c-4094-459b-94fc-ec9b774c1f8a
 ms.service: HDInsight
 ms.devlang: R
 ms.topic: article

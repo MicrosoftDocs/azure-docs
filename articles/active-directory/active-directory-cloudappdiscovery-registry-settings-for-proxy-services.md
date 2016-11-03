@@ -6,6 +6,7 @@ documentationcenter: ''
 author: MarkusVi
 manager: femila
 
+ms.assetid: 8d78e925-e331-40ba-904a-e4ef14260cac
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

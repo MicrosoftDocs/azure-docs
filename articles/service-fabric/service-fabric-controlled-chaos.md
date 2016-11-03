@@ -7,6 +7,7 @@ author: motanv
 manager: rsinha
 editor: toddabel
 
+ms.assetid: 2bd13443-3478-4382-9a5a-1f6c6b32bfc9
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

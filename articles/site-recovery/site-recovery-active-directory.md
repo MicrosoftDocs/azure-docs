@@ -7,6 +7,7 @@ author: prateek9us
 manager: abhiag
 editor: ''
 
+ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article

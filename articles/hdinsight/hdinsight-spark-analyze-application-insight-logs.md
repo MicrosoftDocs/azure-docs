@@ -7,6 +7,7 @@ author: Blackmist
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 883beae6-9839-45b5-94f7-7eb0f4534ad5
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article

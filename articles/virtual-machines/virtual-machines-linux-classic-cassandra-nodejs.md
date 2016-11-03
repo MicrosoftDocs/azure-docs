@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 tags: azure-service-management
 
+ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux

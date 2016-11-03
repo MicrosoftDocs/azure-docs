@@ -7,6 +7,7 @@ author: djrosanova
 manager: timlt
 editor: ''
 
+ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na

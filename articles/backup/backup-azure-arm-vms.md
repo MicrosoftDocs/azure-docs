@@ -8,6 +8,7 @@ manager: cfreeman
 editor: ''
 keywords: virtual machine backup; back up virtual machine; backup and disaster recovery; arm vm backup
 
+ms.assetid: 5c68481d-7be3-4e68-b87c-0961c267053e
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

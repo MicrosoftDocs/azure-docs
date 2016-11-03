@@ -7,6 +7,7 @@ author: mmacy
 manager: timlt
 editor: ''
 
+ms.assetid: 42cae157-d43d-47f8-88f5-486ccfd334f4
 ms.service: batch
 ms.devlang: python
 ms.topic: hero-article

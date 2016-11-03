@@ -7,6 +7,7 @@ author: georgewallace
 manager: jdial
 editor: tysonn
 
+ms.assetid: 7403d28e-909f-46a2-b282-43a8e942f53c
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article

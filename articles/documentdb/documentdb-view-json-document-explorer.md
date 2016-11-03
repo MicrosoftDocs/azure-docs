@@ -8,6 +8,7 @@ manager: jhubbard
 editor: monicar
 documentationcenter: ''
 
+ms.assetid: 029d81b3-6382-4799-a1bd-0dcbccd9968d
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na

@@ -8,6 +8,7 @@ author: stevehob
 manager: timlt
 editor: ''
 
+ms.assetid: b370b3d7-2ce5-4906-9818-3aeedd471ee3
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article

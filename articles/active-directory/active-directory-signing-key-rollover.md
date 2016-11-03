@@ -7,6 +7,7 @@ author: gsacavdm
 manager: krassk
 editor: ''
 
+ms.assetid: ed964056-0723-42fe-bb69-e57323b9407f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

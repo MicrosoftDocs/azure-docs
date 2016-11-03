@@ -7,6 +7,7 @@ author: ganesr
 manager: carolz
 editor: tysonn
 
+ms.assetid: b5856acf-03c2-4933-8111-6ce12998d92a
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article

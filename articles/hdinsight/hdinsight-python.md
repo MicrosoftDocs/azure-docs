@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 
+ms.assetid: c44d6606-28cd-429b-b535-235e8f34a664
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na

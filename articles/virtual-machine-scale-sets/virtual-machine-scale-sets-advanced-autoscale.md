@@ -7,6 +7,7 @@ editor: ''
 services: virtual-machine-scale-sets
 documentationcenter: ''
 
+ms.assetid: ed2cf35f-2861-488f-b6c6-a9a24d36fc0e
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na

@@ -8,6 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface

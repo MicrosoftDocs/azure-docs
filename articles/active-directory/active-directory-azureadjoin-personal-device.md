@@ -10,6 +10,7 @@ manager: swadhwa
 editor: ''
 tags: azure-classic-portal
 
+ms.assetid: 9f3d38f5-1cfd-43d4-97da-4fed1255a1ff
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

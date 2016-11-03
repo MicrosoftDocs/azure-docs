@@ -7,6 +7,7 @@ author: kgremban
 manager: kgremban
 editor: ''
 
+ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

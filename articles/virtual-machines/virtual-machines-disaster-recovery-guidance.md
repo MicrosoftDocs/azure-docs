@@ -7,6 +7,7 @@ author: kmouss
 manager: timlt
 editor: ''
 
+ms.assetid: 65272148-ff06-4bce-91f1-851d706d4d40
 ms.service: virtual-machines
 ms.workload: virtual-machines
 ms.tgt_pltfrm: na

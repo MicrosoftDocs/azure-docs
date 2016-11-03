@@ -7,6 +7,7 @@ author: ckarst
 manager: barbkess
 editor: ''
 
+ms.assetid: 4757fce1-96b3-48ea-8a51-be1385705f9f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article

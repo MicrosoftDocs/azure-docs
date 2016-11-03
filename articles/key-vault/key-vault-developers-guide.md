@@ -7,6 +7,7 @@ author: BrucePerlerMS
 manager: mbaldwin
 editor: bruceper
 
+ms.assetid: b2b1bd28-e149-4d69-b08b-97f6c50ebe30
 ms.service: key-vault
 ms.devlang: na
 ms.topic: article

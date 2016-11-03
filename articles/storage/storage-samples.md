@@ -7,6 +7,7 @@ author: tamram
 manager: carmonm
 editor: tysonn
 
+ms.assetid: 8fceeff7-dd8a-47d6-b2cd-564a34a2a776
 ms.service: storage
 ms.devlang: na
 ms.topic: article

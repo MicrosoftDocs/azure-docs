@@ -7,6 +7,7 @@ author: LuisCabrer
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: bbbb5bb6-489d-4a62-a2ae-f36237e9e2e1
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

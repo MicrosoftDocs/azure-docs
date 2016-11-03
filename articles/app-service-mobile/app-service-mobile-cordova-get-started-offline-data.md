@@ -7,6 +7,7 @@ manager: erikre
 editor: ''
 services: app-service\mobile
 
+ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-cordova-ios

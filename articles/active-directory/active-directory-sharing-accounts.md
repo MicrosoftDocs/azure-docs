@@ -7,6 +7,7 @@ author: msStevenPo
 manager: femila
 editor: ''
 
+ms.assetid: e2d77104-d978-46a3-bfea-03ffdf3b61e6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

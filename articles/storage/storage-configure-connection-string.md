@@ -7,6 +7,7 @@ author: tamram
 manager: carmonm
 editor: tysonn
 
+ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na

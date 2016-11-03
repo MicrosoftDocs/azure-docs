@@ -9,6 +9,7 @@ editor: ''
 tags: acs, azure-container-service
 keywords: Containers, Marathon, Micro-services, DC/OS, Azure
 
+ms.assetid: 16ecc16e-e504-480e-8dc3-cac14e9e1561
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article

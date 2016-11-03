@@ -7,6 +7,7 @@ author: kiratp
 manager: jhubbard
 editor: ''
 
+ms.assetid: d4579378-0b3a-44a5-9f5b-630f1fa4c66d
 ms.service: documentdb
 ms.devlang: multiple
 ms.topic: article

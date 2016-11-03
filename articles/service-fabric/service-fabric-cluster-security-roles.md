@@ -8,6 +8,7 @@ author: mani-ramaswamy
 manager: coreysa
 editor: ''
 
+ms.assetid: 7bc808d9-3609-46a1-ac12-b4f53bff98dd
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

@@ -7,6 +7,7 @@ author: genlin
 manager: jimpark
 editor: ''
 
+ms.assetid: e379180a-db13-4e0c-90e4-28e5dd6f5b14
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

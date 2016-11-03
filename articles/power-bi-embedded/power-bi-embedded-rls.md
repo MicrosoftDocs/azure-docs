@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 tags: ''
 
+ms.assetid: 7936ade5-2c75-435b-8314-ea7ca815867a
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article

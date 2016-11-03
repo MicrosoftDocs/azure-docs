@@ -7,6 +7,7 @@ author: rayne-wiselman
 manager: cfreeman
 editor: ''
 
+ms.assetid: e9b97b00-0c92-4970-ae92-5166a4d43b68
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: get-started-article

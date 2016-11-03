@@ -7,6 +7,7 @@ author: tdykstra
 manager: wpickett
 editor: ''
 
+ms.assetid: c7f8e33a-61cc-486f-89df-4a97dc3c71d4
 ms.service: app-service-api
 ms.workload: na
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ author: nsoneji
 manager: jwhit
 editor: ''
 
+ms.assetid: b2cba944-d3b4-473c-8d97-9945c7eabf63
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na

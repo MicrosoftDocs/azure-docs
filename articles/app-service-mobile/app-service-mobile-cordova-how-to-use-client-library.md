@@ -7,6 +7,7 @@ author: adrianhall
 manager: erikre
 editor: ''
 
+ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-html

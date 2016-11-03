@@ -8,6 +8,7 @@ author: RahulPrasad16
 manager: jhubbard
 editor: monicar
 
+ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na

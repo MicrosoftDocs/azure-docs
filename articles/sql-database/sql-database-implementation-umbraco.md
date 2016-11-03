@@ -7,6 +7,7 @@ author: CarlRabeler
 manager: jhubbard
 editor: ''
 
+ms.assetid: 5243d31e-3241-4cb0-9470-ad488ff28572
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: article

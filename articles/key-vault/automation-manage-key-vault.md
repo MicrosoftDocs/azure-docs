@@ -7,6 +7,7 @@ author: mgoedtel
 manager: jwhit
 editor: ''
 
+ms.assetid: 4e780762-19b6-4ca6-b894-ebb44c538f35
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na

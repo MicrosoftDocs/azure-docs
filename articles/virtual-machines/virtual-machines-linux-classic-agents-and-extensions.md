@@ -8,6 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-service-management
 
+ms.assetid: b41e3b21-9132-4d8d-804d-34920b2d0942
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article

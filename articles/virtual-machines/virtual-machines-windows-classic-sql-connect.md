@@ -7,6 +7,7 @@ author: rothja
 manager: jhubbard
 tags: azure-service-management
 
+ms.assetid: 416948af-454f-4cfe-8fd2-7cf971cbd3e9
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article

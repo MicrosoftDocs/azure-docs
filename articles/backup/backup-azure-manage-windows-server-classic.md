@@ -7,6 +7,7 @@ author: markgalioto
 manager: jwhit
 editor: tysonn
 
+ms.assetid: f175eb12-0905-437f-91fd-eaee03ab6e81
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

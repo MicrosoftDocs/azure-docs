@@ -7,6 +7,7 @@ author: stuartleeks
 manager: ankodu
 editor: ''
 
+ms.assetid: 950f2298-b5dd-4343-b925-8ef28493cacf
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article

@@ -8,6 +8,7 @@ manager: roshar
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article

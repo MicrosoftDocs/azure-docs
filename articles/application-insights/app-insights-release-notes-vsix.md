@@ -6,6 +6,7 @@ documentationcenter: ''
 author: acearun
 manager: douge
 
+ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza

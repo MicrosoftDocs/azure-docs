@@ -8,6 +8,7 @@ manager: jwhit
 editor: ''
 keywords: service principal name, setspn, azure authentication
 
+ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na

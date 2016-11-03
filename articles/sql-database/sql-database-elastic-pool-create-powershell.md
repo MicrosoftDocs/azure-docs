@@ -7,6 +7,7 @@ author: srinia
 manager: jhubbard
 editor: ''
 
+ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article

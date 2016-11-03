@@ -8,6 +8,7 @@ manager: felixwu
 editor: ''
 keywords: sql performance tuning, database performance tuning, sql performance tuning tips, sql database performance tuning
 
+ms.assetid: eb7b3f66-3b33-4e1b-84fb-424a928a6672
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

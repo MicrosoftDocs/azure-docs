@@ -7,6 +7,7 @@ author: heathl17
 manager: byronr
 editor: ''
 
+ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

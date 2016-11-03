@@ -9,6 +9,7 @@ manager: timlt
 editor: ''
 tags: azure-service-management
 
+ms.assetid: f54a11c5-5a0e-40ff-af6c-e60bd464058b
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux

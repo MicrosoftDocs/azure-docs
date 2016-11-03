@@ -7,6 +7,7 @@ author: bzurcher
 manager: timlt
 editor: ''
 
+ms.assetid: a367e715-55f6-4593-bd68-7863cbf0eb81
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: get-started-article

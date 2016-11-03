@@ -7,6 +7,7 @@ author: TomShinder
 manager: swadhwa
 editor: ''
 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
 ms.service: security
 ms.devlang: na
 ms.topic: hero-article

@@ -7,6 +7,7 @@ author: richrundmsft
 manager: jochan
 editor: ''
 
+ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na

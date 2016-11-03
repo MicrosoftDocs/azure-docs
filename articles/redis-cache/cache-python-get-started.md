@@ -7,6 +7,7 @@ author: steved0x
 manager: douge
 editor: v-lincan
 
+ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
 ms.service: cache
 ms.devlang: python
 ms.topic: hero-article

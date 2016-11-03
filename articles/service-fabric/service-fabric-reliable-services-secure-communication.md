@@ -7,6 +7,7 @@ author: suchiagicha
 manager: timlt
 editor: vturecek
 
+ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

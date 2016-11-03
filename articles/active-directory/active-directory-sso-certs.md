@@ -7,6 +7,7 @@ author: asmalser-msft
 manager: femila
 editor: ''
 
+ms.assetid: f516f7f0-b25a-4901-8247-f5964666ce23
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

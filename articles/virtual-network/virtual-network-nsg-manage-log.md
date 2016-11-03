@@ -8,6 +8,7 @@ manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
 
+ms.assetid: 2e699078-043f-48bd-8aa8-b011a32d98ca
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

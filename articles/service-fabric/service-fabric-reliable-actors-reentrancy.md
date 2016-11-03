@@ -7,6 +7,7 @@ author: vturecek
 manager: timlt
 editor: amanbha
 
+ms.assetid: be23464a-0eea-4eca-ae5a-2e1b650d365e
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

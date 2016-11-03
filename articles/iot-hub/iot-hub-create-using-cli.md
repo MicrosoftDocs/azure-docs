@@ -7,6 +7,7 @@ author: BeatriceOltean
 manager: timlt
 editor: ''
 
+ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article

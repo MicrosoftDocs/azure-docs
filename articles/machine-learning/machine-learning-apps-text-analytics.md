@@ -7,6 +7,7 @@ author: onewth
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 5b60694e-5521-4e4d-bf6a-1a92fdf94b65
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

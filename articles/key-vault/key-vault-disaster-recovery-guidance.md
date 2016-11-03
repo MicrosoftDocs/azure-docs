@@ -7,6 +7,7 @@ author: adamglick
 manager: mbaldwin
 editor: ''
 
+ms.assetid: 19a9af63-3032-447b-9d1a-b0125f384edb
 ms.service: key-vault
 ms.workload: key-vault
 ms.tgt_pltfrm: na

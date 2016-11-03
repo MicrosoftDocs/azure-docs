@@ -8,6 +8,7 @@ manager: mbaldwin
 editor: ''
 tags: billing
 
+ms.assetid: f1397397-7e92-4c20-9862-ab6b93afefb7
 ms.service: billing
 ms.devlang: na
 ms.topic: article

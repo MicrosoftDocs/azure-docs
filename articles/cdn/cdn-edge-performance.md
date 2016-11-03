@@ -7,6 +7,7 @@ author: camsoper
 manager: erikre
 editor: ''
 
+ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na

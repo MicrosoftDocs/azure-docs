@@ -7,6 +7,7 @@ author: cabailey
 manager: mbaldwin
 tags: azure-resource-manager
 
+ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na

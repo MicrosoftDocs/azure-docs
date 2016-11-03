@@ -7,6 +7,7 @@ author: Mingfeiy
 manager: erikre
 editor: ''
 
+ms.assetid: 1a0aedda-5b87-4436-8193-09fc2f14310c
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na

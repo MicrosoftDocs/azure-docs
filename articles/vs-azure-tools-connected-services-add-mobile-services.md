@@ -7,6 +7,7 @@ author: mlhoop
 manager: douge
 editor: ''
 
+ms.assetid: 75c3cb93-88e1-476d-a416-f34caa3608e3
 ms.service: visual-studio-online
 ms.devlang: na
 ms.topic: article

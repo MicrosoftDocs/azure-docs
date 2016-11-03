@@ -7,6 +7,7 @@ author: bwren
 manager: stevenka
 editor: tysonn
 
+ms.assetid: 1a7da58c-7a98-49b5-9d9d-001a9f6e631a
 ms.service: automation
 ms.devlang: na
 ms.topic: article

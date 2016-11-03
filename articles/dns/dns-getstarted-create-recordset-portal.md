@@ -8,6 +8,7 @@ manager: carmonm
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: f93905f4-e82e-45db-b490-878d318e6aba
 ms.service: dns
 ms.devlang: na
 ms.topic: article

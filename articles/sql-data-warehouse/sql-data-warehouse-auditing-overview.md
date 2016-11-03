@@ -7,6 +7,7 @@ author: ronortloff
 manager: jhubbard
 editor: ''
 
+ms.assetid: 0e6af148-b218-4b43-bb5f-907917d20330
 ms.service: sql-data-warehouse
 ms.workload: data-management
 ms.tgt_pltfrm: na

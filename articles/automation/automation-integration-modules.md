@@ -7,6 +7,7 @@ author: mgoedtel
 manager: jwhit
 editor: ''
 
+ms.assetid: 27798efb-08b9-45d9-9b41-5ad91a3df41e
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na

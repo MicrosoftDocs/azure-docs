@@ -7,6 +7,7 @@ author: MightyPen
 manager: jhubbard
 editor: genemi
 
+ms.assetid: 13d899d3-cf46-4e4d-8919-cf4b41ca836d
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

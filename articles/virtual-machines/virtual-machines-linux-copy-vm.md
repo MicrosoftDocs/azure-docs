@@ -7,6 +7,7 @@ author: cynthn
 manager: timlt
 tags: azure-resource-manager
 
+ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux

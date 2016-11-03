@@ -8,6 +8,7 @@ author: ysxu
 manager: erikre
 editor: ''
 
+ms.assetid: b7fcd916-8db8-41a6-ae88-fc02d57cb914
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios

@@ -8,6 +8,7 @@ manager: jstrauss
 editor: ''
 tags: ''
 
+ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article

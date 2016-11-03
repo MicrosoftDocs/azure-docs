@@ -9,6 +9,7 @@ editor: ''
 tags: azure-service-management
 keywords: ''
 
+ms.assetid: 1b455be4-c02f-43e3-8d39-c2d5f216e646
 ms.service: virtual-machines-windows
 ms.devlang: NA
 ms.topic: campaign-page

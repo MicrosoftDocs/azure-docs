@@ -8,6 +8,7 @@ manager: narayan
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

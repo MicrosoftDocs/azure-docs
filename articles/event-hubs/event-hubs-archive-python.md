@@ -7,6 +7,7 @@ author: djrosanova
 manager: timlt
 editor: ''
 
+ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na

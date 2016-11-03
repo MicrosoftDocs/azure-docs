@@ -7,6 +7,7 @@ manager: sendgrid
 editor: mollybos
 author: thinkingserious
 
+ms.assetid: 51a9928a-4c9e-4b0a-aca8-9a408aeb6f47
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ author: ruturaj
 manager: gauravd
 editor: ''
 
+ms.assetid: f24eaa62-9dea-4fce-92e1-a72513ca0289
 ms.service: site-recovery
 ms.devlang: powershell
 ms.tgt_pltfrm: na

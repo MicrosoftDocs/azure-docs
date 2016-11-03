@@ -8,6 +8,7 @@ manager: narayan
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: hero-article

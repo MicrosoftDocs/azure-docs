@@ -7,6 +7,7 @@ author: genlin
 manager: cfreeman
 editor: ''
 
+ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

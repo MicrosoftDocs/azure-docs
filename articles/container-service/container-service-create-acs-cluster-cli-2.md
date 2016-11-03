@@ -9,6 +9,7 @@ editor: ''
 tags: acs, azure-container-service
 keywords: ''
 
+ms.assetid: 8da267e8-2aeb-4c24-9a7a-65bdca3a82d6
 ms.service: container-service
 ms.devlang: na
 ms.topic: article

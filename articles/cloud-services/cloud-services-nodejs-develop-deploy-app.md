@@ -7,6 +7,7 @@ author: rmcmurray
 manager: erikre
 editor: ''
 
+ms.assetid: 50951a87-fed4-48e0-bcfa-453b9e50452e
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na

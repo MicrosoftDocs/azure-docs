@@ -7,6 +7,7 @@ author: HeidiSteen
 manager: jhubbard
 editor: ''
 
+ms.assetid: cd4c41d8-81bd-4609-9a37-e112ddf1f21f
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search

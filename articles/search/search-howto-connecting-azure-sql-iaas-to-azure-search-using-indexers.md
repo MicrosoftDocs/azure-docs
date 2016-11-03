@@ -7,6 +7,7 @@ author: jack4it
 manager: pablocas
 editor: ''
 
+ms.assetid: 46e42e0e-c8de-4fec-b11a-ed132db7e7bc
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search

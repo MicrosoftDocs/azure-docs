@@ -8,6 +8,7 @@ writer: markvi
 manager: femila
 editor: ''
 
+ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na

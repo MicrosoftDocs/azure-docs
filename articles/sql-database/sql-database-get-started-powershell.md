@@ -8,6 +8,7 @@ author: stevestein
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 7d99869b-cec5-4583-8c1c-4c663f4afd4d
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: hero-article

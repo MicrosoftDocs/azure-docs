@@ -7,6 +7,7 @@ manager: yochayk
 editor: ''
 services: app-service\mobile
 
+ms.assetid: acf0f874-3ea5-4410-bd22-b0e72140f3b5
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios

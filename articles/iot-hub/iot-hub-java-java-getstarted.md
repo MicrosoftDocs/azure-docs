@@ -7,6 +7,7 @@ author: dominicbetts
 manager: timlt
 editor: ''
 
+ms.assetid: 70dae4a8-0e98-4c53-b5a5-9d6963abb245
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: hero-article

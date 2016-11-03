@@ -6,6 +6,7 @@ documentationcenter: ''
 author: noamben
 manager: douge
 
+ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza

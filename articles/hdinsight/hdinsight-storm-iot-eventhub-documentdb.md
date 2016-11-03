@@ -7,6 +7,7 @@ author: Blackmist
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 78980635-8bef-4c33-96c3-fae50e932e31
 ms.service: hdinsight
 ms.devlang: java
 ms.topic: article

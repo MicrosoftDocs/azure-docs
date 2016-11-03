@@ -7,6 +7,7 @@ author: mani-ramaswamy
 manager: timlt
 editor: ''
 
+ms.assetid: 459afade-145d-4ee6-b72b-ddf380ccd1bf
 ms.service: service-fabric
 ms.devlang: Java
 ms.topic: article

@@ -9,6 +9,7 @@ manager: shreeshd
 editor: ''
 keywords: restore backup; how to restore; recovery point;
 
+ms.assetid: fed877b3-b496-49fb-99e4-653be7c23e3a
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ author: mcoskun
 manager: timlt
 editor: masnider,vturecek
 
+ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

@@ -7,6 +7,7 @@ author: steved0x
 manager: douge
 editor: tysonn
 
+ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
 ms.devlang: na
 ms.topic: article

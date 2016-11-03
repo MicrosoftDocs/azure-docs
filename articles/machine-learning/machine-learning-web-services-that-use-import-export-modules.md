@@ -7,6 +7,7 @@ author: vDonGlover
 manager: raymondlaghaeian
 editor: ''
 
+ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

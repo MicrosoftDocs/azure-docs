@@ -7,6 +7,7 @@ author: TomArcher
 manager: douge
 editor: ''
 
+ms.assetid: e7caa9fa-c780-45eb-a546-299fc1c68455
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-what-happened

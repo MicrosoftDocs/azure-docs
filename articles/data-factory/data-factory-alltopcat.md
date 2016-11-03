@@ -7,6 +7,7 @@ author: spelluru
 manager: jhubbard
 editor: MightyPen
 
+ms.assetid: e1583734-f5fa-437b-91d2-262d23700108
 ms.service: data-factory
 ms.workload: data-factory
 ms.tgt_pltfrm: na

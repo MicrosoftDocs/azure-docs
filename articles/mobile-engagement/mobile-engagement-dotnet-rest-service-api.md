@@ -7,6 +7,7 @@ author: wesmc7777
 manager: erikre
 editor: ''
 
+ms.assetid: e8df4897-55ee-45df-b41e-ff187e3d9d12
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple

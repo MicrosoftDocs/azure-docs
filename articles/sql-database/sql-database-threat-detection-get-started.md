@@ -7,6 +7,7 @@ author: ronitr
 manager: jhubbard
 editor: v-romcal
 
+ms.assetid: b50d232a-4225-46ed-91e7-75288f55ee84
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: article

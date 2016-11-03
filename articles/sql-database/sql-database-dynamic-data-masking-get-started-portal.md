@@ -7,6 +7,7 @@ author: ronitr
 manager: jhubbard
 editor: ''
 
+ms.assetid: 5515d569-2b32-416f-a254-dcef090e8484
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: article

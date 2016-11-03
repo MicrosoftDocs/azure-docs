@@ -8,6 +8,7 @@ manager: cfreeman
 editor: ''
 keywords: backup vms, back up virtual machines
 
+ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ author: LuisBosquez
 manager: jhubbard
 editor: genemi
 
+ms.assetid: 08fc49b1-cd48-4dcc-a293-ff22a4d2d62c
 ms.service: sql-database
 ms.workload: drivers
 ms.tgt_pltfrm: na

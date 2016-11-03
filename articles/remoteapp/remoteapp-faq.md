@@ -7,6 +7,7 @@ author: lizap
 manager: swadhwa
 editor: ''
 
+ms.assetid: bad66603-91f9-437f-8a70-236405d2a27f
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na

@@ -8,6 +8,7 @@ manager: felixwu
 editor: ''
 tags: top-support-issue, azure-resource-manager
 
+ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows

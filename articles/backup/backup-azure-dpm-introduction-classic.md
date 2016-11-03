@@ -8,6 +8,7 @@ manager: shreeshd
 editor: ''
 keywords: System Center Data Protection Manager, data protection manager, dpm backup
 
+ms.assetid: 8f23972b-d167-4231-b331-e198db3b18b4
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

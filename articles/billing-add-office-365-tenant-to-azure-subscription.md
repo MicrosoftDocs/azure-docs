@@ -8,6 +8,7 @@ manager: mbaldwin
 editor: ''
 tags: billing,top-support-issue
 
+ms.assetid: cc9c57c6-7bfd-4dea-9027-c75ef3737589
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza

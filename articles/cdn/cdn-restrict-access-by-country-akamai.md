@@ -7,6 +7,7 @@ author: camsoper
 manager: akucer
 editor: ''
 
+ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na

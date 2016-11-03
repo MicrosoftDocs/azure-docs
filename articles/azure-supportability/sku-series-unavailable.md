@@ -7,6 +7,7 @@ author: ganganarayanan
 manager: scotthit
 editor: ''
 
+ms.assetid: 5496728b-8da4-4c99-8557-a196be14c42d
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na

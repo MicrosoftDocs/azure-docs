@@ -7,6 +7,7 @@ author: jtaubensee
 manager: timlt
 editor: ''
 
+ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: hero-article

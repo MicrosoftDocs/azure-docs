@@ -7,6 +7,7 @@ author: rupisure
 manager: byronr
 editor: ''
 
+ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

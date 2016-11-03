@@ -7,6 +7,7 @@ author: ZainRizvi
 manager: wpickett
 editor: ''
 
+ms.assetid: 22f97607-072e-4d1f-a46f-8d500420c33c
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na

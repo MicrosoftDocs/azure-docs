@@ -8,6 +8,7 @@ manager: jwhit
 editor: tysonn
 keywords: automation security, secure automation
 
+ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
 ms.devlang: na
 ms.topic: get-started-article

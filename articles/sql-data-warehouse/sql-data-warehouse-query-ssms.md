@@ -7,6 +7,7 @@ author: hirokib
 manager: jhubbard
 editor: ''
 
+ms.assetid: 299e50b3-e68a-471c-8aee-b0b9874781bd
 ms.service: sql-data-warehouse
 ms.devlang: na
 ms.topic: article

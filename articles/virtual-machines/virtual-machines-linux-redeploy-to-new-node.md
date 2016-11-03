@@ -7,6 +7,7 @@ author: iainfoulds
 manager: timlt
 tags: azure-resource-manager,top-support-issue
 
+ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: support-article

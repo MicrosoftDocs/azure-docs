@@ -8,6 +8,7 @@ services: virtual-machines-linux
 author: gbowerman
 tags: azure-service-management
 
+ms.assetid: e535241d-feca-4412-b07a-67c936ba88a0
 ms.service: virtual-machines-linux
 ms.workload: multiple
 ms.tgt_pltfrm: linux

@@ -7,6 +7,7 @@ author: raiye
 manager: timlt
 editor: ''
 
+ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article

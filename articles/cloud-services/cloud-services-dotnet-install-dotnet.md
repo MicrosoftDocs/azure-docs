@@ -7,6 +7,7 @@ author: thraka
 manager: timlt
 editor: ''
 
+ms.assetid: 8d1243dc-879c-4d1f-9ed0-eecd1f6a6653
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article

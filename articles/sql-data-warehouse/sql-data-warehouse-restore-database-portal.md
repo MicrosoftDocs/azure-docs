@@ -7,6 +7,7 @@ author: Lakshmi1812
 manager: barbkess
 editor: ''
 
+ms.assetid: b0aef539-7657-4b0e-9899-74098f5c21bc
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article

@@ -7,6 +7,7 @@ author: rdendtler
 manager: timlt
 editor: tysonn
 
+ms.assetid: e8fbeeb8-d7a1-48af-804f-6fe1a6024bcb
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article

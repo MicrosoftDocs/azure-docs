@@ -7,6 +7,7 @@ author: asmalser
 manager: femila
 editor: ''
 
+ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

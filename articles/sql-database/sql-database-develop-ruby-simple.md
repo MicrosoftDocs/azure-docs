@@ -7,6 +7,7 @@ author: ajlam
 manager: jhubbard
 editor: ''
 
+ms.assetid: 94fec528-58ba-4352-ba0d-25ae4b273e90
 ms.service: sql-database
 ms.workload: drivers
 ms.tgt_pltfrm: na

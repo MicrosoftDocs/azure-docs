@@ -8,6 +8,7 @@ manager: rossort
 editor: tysonn
 tags: azure-resource-manager
 
+ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article

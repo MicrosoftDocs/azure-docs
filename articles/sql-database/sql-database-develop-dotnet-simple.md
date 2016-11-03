@@ -7,6 +7,7 @@ author: tobbox
 manager: jhubbard
 editor: ''
 
+ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
 ms.workload: drivers
 ms.tgt_pltfrm: na

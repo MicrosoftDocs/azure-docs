@@ -8,6 +8,7 @@ editor: ''
 tags: azure-resource-manager
 documentationcenter: ''
 
+ms.assetid: eae5eec6-0e27-442c-abfc-ef6b7fd3f8d2
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na

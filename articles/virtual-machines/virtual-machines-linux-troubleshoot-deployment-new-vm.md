@@ -8,6 +8,7 @@ manager: felixwu
 editor: ''
 tags: top-support-issue, azure-resource-manager
 
+ms.assetid: 906a9c89-6866-496b-b4a4-f07fb39f990c
 ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux

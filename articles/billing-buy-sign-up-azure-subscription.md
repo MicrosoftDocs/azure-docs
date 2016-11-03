@@ -8,6 +8,7 @@ manager: mbaldwin
 editor: ''
 tags: billing,top-support-issue
 
+ms.assetid: 71fc2b94-4da1-460c-9aa9-3cfe29cda035
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na

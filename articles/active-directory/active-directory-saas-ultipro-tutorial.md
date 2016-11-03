@@ -7,6 +7,7 @@ author: jeevansd
 manager: femila
 editor: ''
 
+ms.assetid: afc0f2b9-2eac-47ec-af04-65ed0fb0ca5a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

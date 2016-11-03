@@ -8,6 +8,7 @@ manager: roshar
 editor: ''
 tags: ''
 
+ms.assetid: f5805ca8-d399-45fb-9f54-ca0766bbb31b
 ms.service: guidance
 ms.devlang: dotnet
 ms.topic: article

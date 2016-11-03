@@ -8,6 +8,7 @@ manager: felixwu
 editor: ''
 tags: billing
 
+ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ author: mlearned
 manager: erickson-doug
 editor: ''
 
+ms.assetid: b81c172a-be87-4adc-861e-d20b94be9e38
 ms.service: azure-resource-manager
 ms.devlang: multiple
 ms.topic: article

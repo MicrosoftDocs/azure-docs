@@ -7,6 +7,7 @@ author: guangyang
 manager: wpickett
 editor: jimbe
 
+ms.assetid: 493c3703-786d-4434-9dca-8f77744b2f5d
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: dotnet

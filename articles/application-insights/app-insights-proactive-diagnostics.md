@@ -6,6 +6,7 @@ documentationcenter: windows
 author: rakefetj
 manager: douge
 
+ms.assetid: 2eeb4a35-c7a1-49f7-9b68-4f4b860938b2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza

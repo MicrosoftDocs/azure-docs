@@ -7,6 +7,7 @@ author: darrelmiller
 manager: erikre
 editor: ''
 
+ms.assetid: 772bc8dd-5cda-41c4-95bf-b9f6f052bc85
 ms.service: api-management
 ms.devlang: dotnet
 ms.topic: article

@@ -7,6 +7,7 @@ author: edmacauley
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article

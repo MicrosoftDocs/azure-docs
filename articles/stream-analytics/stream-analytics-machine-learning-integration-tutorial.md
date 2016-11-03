@@ -8,6 +8,7 @@ author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article

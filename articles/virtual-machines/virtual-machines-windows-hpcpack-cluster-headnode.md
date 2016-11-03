@@ -8,6 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager,hpc-pack
 
+ms.assetid: e6a13eaf-9124-47b4-8d75-2bc4672b8f21
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article

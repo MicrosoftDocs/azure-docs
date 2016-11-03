@@ -7,6 +7,7 @@ author: motanv
 manager: timlt
 editor: toddabel
 
+ms.assetid: ed53ca5c-4d5e-4b48-93c9-e386f32d8b7a
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

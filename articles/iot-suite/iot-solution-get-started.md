@@ -7,6 +7,7 @@ suite: ''
 author: harikmenon
 manager: douge
 
+ms.assetid: f40ea71b-5721-4a6b-a886-53c2e9dffe8f
 ms.service: multiple
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza

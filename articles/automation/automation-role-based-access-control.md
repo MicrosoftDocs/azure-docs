@@ -8,6 +8,7 @@ manager: jwhit
 editor: tysonn
 keywords: automation rbac, role based access control, azure rbac
 
+ms.assetid: 04b5625e-0ee8-4b5b-85cd-7734c1b3d4a3
 ms.service: automation
 ms.devlang: na
 ms.topic: get-started-article

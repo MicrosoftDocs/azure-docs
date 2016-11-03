@@ -6,6 +6,7 @@ documentationcenter: java
 author: sethmanheim
 manager: timlt
 
+ms.assetid: f701439c-553e-402c-94a7-64400f997d59
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na

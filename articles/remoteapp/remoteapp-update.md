@@ -7,6 +7,7 @@ author: lizap
 manager: mbaldwin
 editor: ''
 
+ms.assetid: e553d432-e581-48fe-b996-c432357eb64a
 ms.service: remoteapp
 ms.devlang: NA
 ms.topic: article

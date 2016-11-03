@@ -8,6 +8,7 @@ manager: anneta
 editor: ''
 documentationcenter: ''
 
+ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na

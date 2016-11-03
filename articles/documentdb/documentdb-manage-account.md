@@ -8,6 +8,7 @@ author: kirillg
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 00fc172f-f86c-44ca-8336-11998dcab45c
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na

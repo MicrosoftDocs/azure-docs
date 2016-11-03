@@ -7,6 +7,7 @@ author: jodebrui
 manager: jhubbard
 editor: ''
 
+ms.assetid: 57957600-50f1-4eba-a7c7-d2ba4a97858e
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ manager: erikre
 editor: ''
 services: app-service\mobile
 
+ms.assetid: bb1a1437-0a31-46bb-9237-1b692b0ede21
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios

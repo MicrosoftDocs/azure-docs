@@ -7,6 +7,7 @@ author: rajeshramabathiran
 manager: erikre
 editor: ''
 
+ms.assetid: 077b7a99-dbe6-49c6-aa8c-07f6698a044a
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article

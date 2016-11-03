@@ -7,6 +7,7 @@ author: george-moore
 manager: georgem
 editor: tysonn
 
+ms.assetid: c862e9c7-276b-46bf-bc0a-11868ac11459
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na

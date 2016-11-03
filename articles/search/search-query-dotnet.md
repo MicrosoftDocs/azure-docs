@@ -6,6 +6,7 @@ manager: jhubbard
 documentationcenter: ''
 author: brjohnstmsft
 
+ms.assetid: 12c3efba-ea99-4187-9d2d-f63b5ec7040d
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search

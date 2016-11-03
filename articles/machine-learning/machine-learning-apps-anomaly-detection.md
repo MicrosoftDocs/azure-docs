@@ -7,6 +7,7 @@ author: alokkirpal
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article

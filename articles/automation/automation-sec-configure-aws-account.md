@@ -8,6 +8,7 @@ manager: jwhit
 editor: tysonn
 keywords: aws authentication, configure aws
 
+ms.assetid: b6dde4bb-26ac-4876-9aa9-e586bed30d6b
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na

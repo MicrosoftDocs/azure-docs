@@ -7,6 +7,7 @@ author: ccompy
 manager: stefsch
 editor: ''
 
+ms.assetid: cc0b9c21-405f-47c8-8608-50488cde298e
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na

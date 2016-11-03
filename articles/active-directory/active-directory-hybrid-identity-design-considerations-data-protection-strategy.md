@@ -7,6 +7,7 @@ author: billmath
 manager: femila
 editor: ''
 
+ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

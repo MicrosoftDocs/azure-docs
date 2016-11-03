@@ -7,6 +7,7 @@ author: bernitorres
 manager: pablocas
 editor: ''
 
+ms.assetid: b31d79cf-5924-4522-9276-a1bb5d527b13
 ms.service: search
 ms.devlang: multiple
 ms.workload: na

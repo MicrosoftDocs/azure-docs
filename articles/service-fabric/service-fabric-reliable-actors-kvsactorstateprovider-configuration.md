@@ -7,6 +7,7 @@ author: sumukhs
 manager: timlt
 editor: ''
 
+ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article

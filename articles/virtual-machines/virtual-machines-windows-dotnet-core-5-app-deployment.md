@@ -8,6 +8,7 @@ manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
+ms.assetid: 79c91304-6c1b-4354-a185-fecc129b139d
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article

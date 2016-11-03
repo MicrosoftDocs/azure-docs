@@ -8,6 +8,7 @@ manager: timlt
 editor: tysonn
 tags: azure-service-management
 
+ms.assetid: b9ccdeed-0ab8-4de2-937f-4046c7918bd8
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple

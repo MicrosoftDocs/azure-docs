@@ -8,6 +8,7 @@ author: cjgronlund
 manager: jhubbard
 editor: cjgronlund
 
+ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article

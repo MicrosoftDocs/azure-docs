@@ -8,6 +8,7 @@ manager: pablocas
 editor: ''
 tags: Lucene query analyzer syntax
 
+ms.assetid: 147f360d-a5ce-4d7b-a909-c8b65bfb748c
 ms.service: search
 ms.devlang: na
 ms.workload: search

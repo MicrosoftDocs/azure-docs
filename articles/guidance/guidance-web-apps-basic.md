@@ -8,6 +8,7 @@ manager: roshar
 editor: ''
 tags: ''
 
+ms.assetid: 12c8df2b-5693-4795-966f-533b54849799
 ms.service: guidance
 ms.devlang: na
 ms.topic: article

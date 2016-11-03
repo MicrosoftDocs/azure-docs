@@ -7,6 +7,7 @@ author: sdwheeler
 manager: carmonm
 editor: ''
 
+ms.assetid: adaf7d2c-dd7b-4ccf-977f-07e672e6a928
 ms.service: load-balancer
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux

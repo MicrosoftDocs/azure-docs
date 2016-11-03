@@ -7,6 +7,7 @@ author: yushwang
 manager: rossort
 editor: ''
 
+ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: get-started-article

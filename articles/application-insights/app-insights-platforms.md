@@ -6,6 +6,7 @@ documentationcenter: ''
 author: OlegAnaniev-MSFT
 manager: douge
 
+ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza

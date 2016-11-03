@@ -7,6 +7,7 @@ author: NKolli1
 manager: shreeshd
 editor: ''
 
+ms.assetid: e9bd223c-2398-4eb1-9bf3-50e08970fea7
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

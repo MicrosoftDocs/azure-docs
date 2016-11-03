@@ -8,6 +8,7 @@ manager: mbaldwin
 editor: ''
 tags: ''
 
+ms.assetid: 9dc268a9-32e8-402c-a43f-02b183c295c5
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

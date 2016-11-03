@@ -7,6 +7,7 @@ author: Blackmist
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 7b758492-87bf-4d82-8b8c-1664e7d177bd
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na

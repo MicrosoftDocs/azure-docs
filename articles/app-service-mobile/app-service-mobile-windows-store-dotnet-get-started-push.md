@@ -7,6 +7,7 @@ author: ysxu
 manager: dwrede
 editor: ''
 
+ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows

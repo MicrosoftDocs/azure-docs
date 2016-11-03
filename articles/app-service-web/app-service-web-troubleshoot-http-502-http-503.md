@@ -9,6 +9,7 @@ editor: ''
 tags: top-support-issue
 keywords: 502 bad gateway, 503 service unavailable, error 503, error 502
 
+ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na

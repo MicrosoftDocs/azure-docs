@@ -7,6 +7,7 @@ author: JPallavi
 manager: vijayts
 editor: ''
 
+ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

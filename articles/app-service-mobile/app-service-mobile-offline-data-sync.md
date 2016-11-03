@@ -7,6 +7,7 @@ manager: dwrede
 editor: ''
 services: app-service\mobile
 
+ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na

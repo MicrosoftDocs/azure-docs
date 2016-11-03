@@ -7,6 +7,7 @@ author: cabailey
 manager: mbaldwin
 editor: ''
 
+ms.assetid: 1a5f1222-57f0-4a2a-98ee-92bb899f9d75
 ms.service: key-vault
 ms.devlang: na
 ms.topic: article

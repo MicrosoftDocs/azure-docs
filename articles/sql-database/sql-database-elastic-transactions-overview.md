@@ -7,6 +7,7 @@ author: torsteng
 manager: jhubbard
 editor: torsteng
 
+ms.assetid: e14df7a3-7788-4cfb-bcd1-7ad6433ef1f9
 ms.service: sql-database
 ms.devlang: na
 ms.topic: article

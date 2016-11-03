@@ -7,6 +7,7 @@ author: rboucher
 manager: jwhit
 editor: ''
 
+ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na

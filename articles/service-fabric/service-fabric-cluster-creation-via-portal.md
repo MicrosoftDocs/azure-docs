@@ -8,6 +8,7 @@ author: chackdan
 manager: timlt
 editor: vturecek
 
+ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

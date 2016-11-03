@@ -7,6 +7,7 @@ author: wadepickett
 manager: wpickett
 editor: ''
 
+ms.assetid: 4f0281d2-1555-42b0-a99d-1222fade0b0f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

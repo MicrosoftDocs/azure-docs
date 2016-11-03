@@ -7,6 +7,7 @@ author: HannibalSII
 manager: hascipio
 editor: ''
 
+ms.assetid: 96194198-6991-43b4-918e-ee337e250339
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article

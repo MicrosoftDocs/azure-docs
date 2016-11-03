@@ -8,6 +8,7 @@ manager: jwhit
 editor: ''
 keywords: runbook, runbook template, runbook automation, azure runbook
 
+ms.assetid: dcb88f19-ed2b-4372-9724-6625cd287c8a
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na

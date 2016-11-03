@@ -8,6 +8,7 @@ manager: felixwu
 editor: na
 tags: storage
 
+ms.assetid: fbc5f600-131e-4b99-828a-42d0de85fff7
 ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na

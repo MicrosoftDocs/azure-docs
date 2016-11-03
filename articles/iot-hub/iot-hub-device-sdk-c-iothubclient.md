@@ -7,6 +7,7 @@ author: olivierbloch
 manager: timlt
 editor: ''
 
+ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: article

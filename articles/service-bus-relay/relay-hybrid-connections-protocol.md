@@ -7,6 +7,7 @@ author: clemensv
 manager: timlt
 editor: tysonn
 
+ms.assetid: 149f980c-3702-4805-8069-5321275bc3e8
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article

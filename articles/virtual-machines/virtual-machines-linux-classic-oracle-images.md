@@ -8,6 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-service-management, azure-resource-manager
 
+ms.assetid: 04a08678-510d-4bdb-aa18-eb7fbc885074
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article

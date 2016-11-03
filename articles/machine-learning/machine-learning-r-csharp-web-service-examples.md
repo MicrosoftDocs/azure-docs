@@ -8,6 +8,7 @@ author: jaymathe
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 97d66cb7-6a84-4ae9-8095-0b5f5ba82d7f
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

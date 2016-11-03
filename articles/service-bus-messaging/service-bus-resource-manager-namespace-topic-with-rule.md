@@ -7,6 +7,7 @@ author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
+ms.assetid: 9e0aaf58-0214-4bca-bd00-d29c08f9b1bc
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: article

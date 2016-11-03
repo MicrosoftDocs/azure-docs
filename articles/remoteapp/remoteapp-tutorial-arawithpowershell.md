@@ -7,6 +7,7 @@ author: guscatalano
 manager: mbaldwin
 editor: ''
 
+ms.assetid: 7d3d5ded-6f73-4de6-a8ac-c1d622e842a2
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: article

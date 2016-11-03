@@ -7,6 +7,7 @@ author: jtaubensee
 manager: ''
 editor: ''
 
+ms.assetid: 886d2c7f-838f-4938-bd23-466662fb1c8e
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article

@@ -8,6 +8,7 @@ manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
 
+ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article

@@ -8,6 +8,7 @@ author: mumian
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: c8689ef3-f56f-4708-8a3a-cc00abc54e8d
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article

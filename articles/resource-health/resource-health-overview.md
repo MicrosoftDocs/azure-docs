@@ -7,6 +7,7 @@ author: BernardoAMunoz
 manager: ''
 editor: ''
 
+ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: resource-health
 ms.devlang: na
 ms.topic: article

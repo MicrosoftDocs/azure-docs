@@ -7,6 +7,7 @@ author: cawaMS
 manager: timlt
 editor: ''
 
+ms.assetid: c8f32469-610e-4f37-a3aa-4fac5c714e13
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article

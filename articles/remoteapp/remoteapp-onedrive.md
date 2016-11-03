@@ -7,6 +7,7 @@ author: pavithir
 manager: mbaldwin
 editor: ''
 
+ms.assetid: 8c744c34-827b-426b-b2ca-9791dd663c9b
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article

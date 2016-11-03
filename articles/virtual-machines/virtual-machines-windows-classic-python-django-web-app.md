@@ -8,6 +8,7 @@ manager: wpickett
 editor: ''
 tags: azure-service-management
 
+ms.assetid: e36484d1-afbf-47f5-b755-5e65397dc1c3
 ms.service: virtual-machines-windows
 ms.workload: web
 ms.tgt_pltfrm: vm-windows

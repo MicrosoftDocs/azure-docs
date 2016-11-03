@@ -8,6 +8,7 @@ manager: felixwu
 editor: ''
 tags: billing,top-support-issue
 
+ms.assetid: a0907da1-cb2d-41d1-a97f-43841fabe355
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza

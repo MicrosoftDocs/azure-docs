@@ -7,6 +7,7 @@ author: amsriva
 manager: rossort
 editor: amsriva
 
+ms.assetid: b107d647-c9be-499f-8b55-809c4310c783
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article

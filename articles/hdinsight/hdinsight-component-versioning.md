@@ -8,6 +8,7 @@ author: saurinsh
 tags: azure-portal
 documentationcenter: ''
 
+ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na

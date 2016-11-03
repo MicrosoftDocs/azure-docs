@@ -7,6 +7,7 @@ author: dhanyahk
 manager: femila
 editor: ''
 
+ms.assetid: a074bc4e-cf3f-4ad1-8cc6-4199d2e09ce4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ manager: jhubbard
 author: ddove
 editor: ''
 
+ms.assetid: 0e9d647a-9ba9-4875-aa22-662d01283439
 ms.service: sql-database
 ms.workload: sql-database
 ms.tgt_pltfrm: na

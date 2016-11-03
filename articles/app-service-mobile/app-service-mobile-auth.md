@@ -7,6 +7,7 @@ author: mattchenderson
 manager: erikre
 editor: ''
 
+ms.assetid: a46dbf70-867d-48f6-8885-7f5207ad102e
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na

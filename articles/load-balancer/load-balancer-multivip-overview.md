@@ -7,6 +7,7 @@ author: chkuhtz
 manager: narayan
 editor: ''
 
+ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

@@ -8,6 +8,7 @@ manager: cfreeman
 editor: tysonn
 keywords: backup and restore; recovery services; backup solutions
 
+ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

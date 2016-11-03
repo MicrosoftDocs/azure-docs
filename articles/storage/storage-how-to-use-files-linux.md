@@ -7,6 +7,7 @@ author: mine-msft
 manager: aungoo
 editor: tysonn
 
+ms.assetid: 6edc37ce-698f-4d50-8fc1-591ad456175d
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na

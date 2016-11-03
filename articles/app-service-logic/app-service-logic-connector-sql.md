@@ -7,6 +7,7 @@ author: anuragdalmia
 manager: erikre
 editor: ''
 
+ms.assetid: 38619205-5c37-4791-8700-ae47a2dff3b1
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article

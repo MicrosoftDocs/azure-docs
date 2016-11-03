@@ -7,6 +7,7 @@ author: barbkess
 manager: jhubbard
 editor: ''
 
+ms.assetid: a26a6dec-9c08-4415-8f58-4ee1dd41f718
 ms.service: sql-data-warehouse
 ms.workload: sql-data-warehouse
 ms.tgt_pltfrm: na

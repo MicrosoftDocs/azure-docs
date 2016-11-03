@@ -7,6 +7,7 @@ author: v-jeana
 manager: lakoch
 editor: ''
 
+ms.assetid: f1ffde66-98f0-4c3e-ad94-fee1f97cae03
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article

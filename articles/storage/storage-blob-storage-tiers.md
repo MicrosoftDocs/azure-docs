@@ -7,6 +7,7 @@ author: michaelhauss
 manager: vamshik
 editor: tysonn
 
+ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na

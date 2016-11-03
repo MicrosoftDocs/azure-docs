@@ -8,6 +8,7 @@ manager: rossort
 editor: ''
 tags: ''
 
+ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article

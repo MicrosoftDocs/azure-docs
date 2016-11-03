@@ -8,6 +8,7 @@ manager: jwhit
 editor: tysonn
 keywords: azure active directory user, azure service management, azure ad user account
 
+ms.assetid: fcfe266d-b22e-4dfb-8272-adcab09fc0cf
 ms.service: automation
 ms.devlang: na
 ms.topic: get-started-article

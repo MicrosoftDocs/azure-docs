@@ -8,6 +8,7 @@ manager: erikre
 editor: ''
 services: notification-hubs
 
+ms.assetid: daf3de1c-f6a9-43c4-8165-a76bfaa70893
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: android

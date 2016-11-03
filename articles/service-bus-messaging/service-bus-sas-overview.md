@@ -7,6 +7,7 @@ author: djrosanova
 manager: timlt
 editor: ''
 
+ms.assetid: bb8ef6ca-e7df-4e46-9cf5-73b7d255ec32
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article

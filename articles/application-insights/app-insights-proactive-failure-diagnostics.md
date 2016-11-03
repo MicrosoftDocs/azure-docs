@@ -6,6 +6,7 @@ documentationcenter: ''
 author: yorac
 manager: douge
 
+ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza

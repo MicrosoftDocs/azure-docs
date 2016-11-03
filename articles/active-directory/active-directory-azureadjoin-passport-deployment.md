@@ -9,6 +9,7 @@ manager: femila
 editor: ''
 tags: azure-classic-portal
 
+ms.assetid: 7dbbe3c6-1cd7-429c-a9b2-115fcbc02416
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

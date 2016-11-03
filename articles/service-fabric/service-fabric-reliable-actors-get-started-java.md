@@ -7,6 +7,7 @@ author: vturecek
 manager: timlt
 editor: ''
 
+ms.assetid: d31dc8ab-9760-4619-a641-facb8324c759
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: article

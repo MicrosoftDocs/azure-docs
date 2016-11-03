@@ -9,6 +9,7 @@ editor: ''
 tags: marketplace, azure-resource-manager
 keywords: ''
 
+ms.assetid: 6ec20778-b578-4885-acb5-104b0e51ea1a
 ms.service: marketplace
 ms.devlang: na
 ms.topic: get-started-article

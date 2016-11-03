@@ -7,6 +7,7 @@ author: SSalahAhmed
 manager: gchander
 editor: ''
 
+ms.assetid: 79259c8a-2388-4747-b41e-c07434ea9a02
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

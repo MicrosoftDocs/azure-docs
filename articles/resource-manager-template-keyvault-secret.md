@@ -7,6 +7,7 @@ author: tfitzmac
 manager: timlt
 editor: ''
 
+ms.assetid: fd12bc81-b609-4ca8-b7e0-ee1049d70ab3
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article

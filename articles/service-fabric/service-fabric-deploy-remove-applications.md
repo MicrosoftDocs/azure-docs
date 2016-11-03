@@ -7,6 +7,7 @@ author: rwike77
 manager: timlt
 editor: ''
 
+ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article

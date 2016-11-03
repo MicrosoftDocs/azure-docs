@@ -6,6 +6,7 @@ documentationcenter: ''
 author: beckylino
 manager: douge
 
+ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza

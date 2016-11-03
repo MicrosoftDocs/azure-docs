@@ -7,6 +7,7 @@ author: rwike77
 manager: timlt
 editor: ''
 
+ms.assetid: 0a374e53-ff23-4ee8-8cc6-259d41e118e7
 ms.service: service-fabric
 ms.devlang: rest-api
 ms.topic: article

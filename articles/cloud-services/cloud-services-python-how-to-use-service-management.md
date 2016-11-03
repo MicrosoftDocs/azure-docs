@@ -7,6 +7,7 @@ author: lmazuel
 manager: wpickett
 editor: ''
 
+ms.assetid: 61538ec0-1536-4a7e-ae89-95967fe35d73
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na

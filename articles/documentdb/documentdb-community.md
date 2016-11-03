@@ -7,6 +7,7 @@ author: aliuy
 manager: johnmac
 editor: mimig
 
+ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
 ms.service: documentdb
 ms.devlang: na
 ms.topic: article

@@ -7,6 +7,7 @@ author: yijichen
 manager: ilanr9
 editor: yijichen
 
+ms.assetid: 7f1a866b-79b7-4b97-ae3e-bc6bebe8c756
 ms.service: cortana-analytics
 ms.workload: data-services
 ms.tgt_pltfrm: na

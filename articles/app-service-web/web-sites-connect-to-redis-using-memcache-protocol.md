@@ -7,6 +7,7 @@ author: SyntaxC4
 manager: wpickett
 editor: riande
 
+ms.assetid: 0fcdf9fa-2995-4839-ba4d-cfa389c4ba06
 ms.service: app-service-web
 ms.devlang: php
 ms.topic: get-started-article

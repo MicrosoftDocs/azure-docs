@@ -7,6 +7,7 @@ author: ddove
 manager: jhubbard
 editor: ''
 
+ms.assetid: 8c851d8e-8fd5-4327-89c1-9178b20ddd69
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: article

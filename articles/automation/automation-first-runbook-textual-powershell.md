@@ -8,6 +8,7 @@ manager: jwhit
 editor: ''
 keywords: azure powershell, powershell script tutorial, powershell automation
 
+ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na

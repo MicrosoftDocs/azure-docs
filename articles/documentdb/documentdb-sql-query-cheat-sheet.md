@@ -8,6 +8,7 @@ author: mimig1
 manager: jhubbard
 editor: monicar
 
+ms.assetid: fdbdbc39-5a46-4129-b4ed-b049d1c9ccab
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na

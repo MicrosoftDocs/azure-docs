@@ -7,6 +7,7 @@ author: robinsh
 manager: carmonm
 editor: tysonn
 
+ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
 ms.service: storage
 ms.devlang: na
 ms.topic: article

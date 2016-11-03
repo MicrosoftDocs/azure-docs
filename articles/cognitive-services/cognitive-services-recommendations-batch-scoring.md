@@ -8,6 +8,7 @@ author: luiscabrer
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 325d4922-8a07-4e67-99e0-f513201f14f7
 ms.service: cognitive-services
 ms.workload: data-services
 ms.tgt_pltfrm: na

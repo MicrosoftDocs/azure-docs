@@ -9,6 +9,7 @@ manager: timlt
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 
+ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows

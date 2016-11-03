@@ -8,6 +8,7 @@ editor: squillace
 manager: timlt
 tags: azure-service-management,azure-resource-manager
 
+ms.assetid: d72c9425-4a52-4f6d-935f-70f28df529d8
 ms.service: virtual-machines-linux
 ms.devlang: multiple
 ms.topic: article

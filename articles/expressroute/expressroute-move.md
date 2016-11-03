@@ -7,6 +7,7 @@ author: ganesr
 manager: carmonm
 editor: ''
 
+ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article

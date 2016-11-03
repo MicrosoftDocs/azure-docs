@@ -8,6 +8,7 @@ manager: jhubbard
 editor: ''
 tags: azure-sql-data-warehouse
 
+ms.assetid: ac7ddaa7-a3a5-4e15-b3cf-c696d2d105df
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article

@@ -7,6 +7,7 @@ author: stepsic-microsoft-com
 manager: erikre
 editor: ''
 
+ms.assetid: a32e5a5c-34d7-4422-b0f7-c5cf7b8abffa
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article

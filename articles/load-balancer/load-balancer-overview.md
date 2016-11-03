@@ -7,6 +7,7 @@ author: sdwheeler
 manager: carmonm
 editor: ''
 
+ms.assetid: 0f313dc0-f007-4cee-b2b9-f542357925a3
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

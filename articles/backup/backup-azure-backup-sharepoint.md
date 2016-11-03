@@ -7,6 +7,7 @@ author: adigan
 manager: Nkolli1
 editor: ''
 
+ms.assetid: e0c0c252-dc1d-4072-b777-7222c13950b0
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

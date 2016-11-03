@@ -8,6 +8,7 @@ manager: jeffreyg
 editor: ''
 tags: billing
 
+ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na

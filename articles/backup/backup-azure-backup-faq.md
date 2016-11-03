@@ -8,6 +8,7 @@ manager: jwhit
 editor: ''
 keywords: backup and disaster recovery; backup service
 
+ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na

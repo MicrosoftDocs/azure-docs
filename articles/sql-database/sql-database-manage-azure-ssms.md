@@ -7,6 +7,7 @@ author: stevestein
 manager: jhubbard
 editor: tysonn
 
+ms.assetid: da6f3608-5993-4134-a497-ff2811e9f31f
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ author: dennyglee
 manager: jhubbard
 editor: mimig
 
+ms.assetid: fdef3d1d-b814-4161-bdb8-e47d29da596f
 ms.service: documentdb
 ms.devlang: rest-api
 ms.topic: article

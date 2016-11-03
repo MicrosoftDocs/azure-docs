@@ -6,6 +6,7 @@ documentationcenter: .net
 author: sbtron
 manager: douge
 
+ms.assetid: a67dd20a-fc5d-4391-ba63-bfe164fb62f7
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza

@@ -7,6 +7,7 @@ author: edmacauley
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 1dfcbc3d-235d-4074-bc2a-e96def8298b6
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: hero-article

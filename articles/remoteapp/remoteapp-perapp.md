@@ -7,6 +7,7 @@ author: piotrci
 manager: mbaldwin
 editor: ''
 
+ms.assetid: 1fd0539d-fa65-4ea5-a98e-0be0cf580690
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article

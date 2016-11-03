@@ -7,6 +7,7 @@ author: jodoglevy
 manager: timlt
 editor: ''
 
+ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na

@@ -5,6 +5,7 @@ services: search
 documentationcenter: ''
 author: ashmaka
 
+ms.assetid: a395e166-bf2e-4fca-8bfc-116a46c5f7b1
 ms.service: search
 ms.devlang: na
 ms.workload: search

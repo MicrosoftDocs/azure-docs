@@ -7,6 +7,7 @@ author: meet-bhagdev
 manager: jhubbard
 editor: ''
 
+ms.assetid: 4e71db4a-a22f-4f1c-83e5-4a34a036ecf3
 ms.service: sql-database
 ms.workload: drivers
 ms.tgt_pltfrm: na

@@ -7,6 +7,7 @@ author: niniikhena
 manager: jochan
 editor: ''
 
+ms.assetid: 9c91aacb-c48e-466c-b792-261f25940c0c
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na

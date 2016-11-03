@@ -8,6 +8,7 @@ author: huguesv
 manager: wpickett
 editor: ''
 
+ms.assetid: d8e70a29-aca1-4010-95f5-cfe769e3be06
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na

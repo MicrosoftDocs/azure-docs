@@ -7,6 +7,7 @@ author: kmouss
 manager: timlt
 editor: ''
 
+ms.assetid: 6ce366d2-bd4c-4fef-a8f5-a3ae2374abcc
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article

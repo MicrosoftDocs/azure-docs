@@ -7,6 +7,7 @@ author: dlepow
 manager: timlt
 editor: ''
 
+ms.assetid: aab5401d-2baf-4cf2-bf20-ad224de33888
 ms.service: batch
 ms.devlang: NA
 ms.topic: get-started-article

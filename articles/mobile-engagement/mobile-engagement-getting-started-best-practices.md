@@ -7,6 +7,7 @@ author: wesmc7777
 manager: erikre
 editor: ''
 
+ms.assetid: dfce1183-6398-466e-aa7e-ed702fb52818
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: get-started-article

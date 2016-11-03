@@ -7,6 +7,7 @@ author: jimdial
 manager: carmonm
 editor: tysonn
 
+ms.assetid: 79bf09da-4809-45cb-8d21-705616ef24dc
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

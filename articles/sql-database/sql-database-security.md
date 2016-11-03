@@ -7,6 +7,7 @@ author: tmullaney
 manager: jhubbard
 editor: ''
 
+ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: article

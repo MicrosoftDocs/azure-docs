@@ -8,6 +8,7 @@ author: ysxu
 manager: erikre
 editor: ''
 
+ms.assetid: 75d4ff59-d04a-455f-bd44-0130a68e641f
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-chrome

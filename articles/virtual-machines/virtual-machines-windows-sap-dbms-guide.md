@@ -9,6 +9,7 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 
+ms.assetid: e0e05b5e-47aa-4c1e-bf83-0d62ee8f614e
 ms.service: virtual-machines-windows
 ms.devlang: NA
 ms.topic: article

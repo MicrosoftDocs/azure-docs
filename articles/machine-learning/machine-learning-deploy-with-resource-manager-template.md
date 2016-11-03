@@ -7,6 +7,7 @@ author: ahgyger
 manager: haining
 editor: garye
 
+ms.assetid: 4955ac4d-ff99-4908-aa27-69b6bfcc8e85
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

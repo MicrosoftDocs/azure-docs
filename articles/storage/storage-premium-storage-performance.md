@@ -7,6 +7,7 @@ author: aungoo-msft
 manager: tadb
 editor: tysonn
 
+ms.assetid: e6a409c3-d31a-4704-a93c-0a04fdc95960
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na

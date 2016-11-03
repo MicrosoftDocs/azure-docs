@@ -7,6 +7,7 @@ author: darrelmiller
 manager: erikre
 editor: ''
 
+ms.assetid: c528cf6f-5f16-4a06-beea-fa1207541a47
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na

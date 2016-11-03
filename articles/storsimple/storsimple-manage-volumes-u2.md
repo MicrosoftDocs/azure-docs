@@ -7,6 +7,7 @@ author: alkohli
 manager: carmonm
 editor: ''
 
+ms.assetid: 57896932-0aa5-4805-970c-d13403ae7551
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article

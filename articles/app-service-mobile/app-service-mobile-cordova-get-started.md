@@ -9,6 +9,7 @@ editor: ''
 tags: ''
 keywords: cordova,javascript,mobile,client
 
+ms.assetid: 0b08fc12-0a80-42d3-9cc1-9b3f8d3e3a3f
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-html

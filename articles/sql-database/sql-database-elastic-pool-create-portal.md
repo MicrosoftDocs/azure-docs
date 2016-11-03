@@ -8,6 +8,7 @@ author: ninarn
 manager: jhubbard
 editor: ''
 
+ms.assetid: bf12594b-d258-40e6-a9fc-d8a8710c2d65
 ms.service: sql-database
 ms.devlang: NA
 ms.date: 07/20/2016

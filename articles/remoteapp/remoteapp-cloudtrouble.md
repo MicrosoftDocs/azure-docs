@@ -7,6 +7,7 @@ documentationcenter: ''
 author: vkbucha
 manager: mbaldwin
 
+ms.assetid: 95eb7797-7b5e-4781-ad23-f15dd85b213d
 ms.service: remoteapp
 ms.workload: tbd
 ms.tgt_pltfrm: na

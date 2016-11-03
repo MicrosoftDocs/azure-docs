@@ -7,6 +7,7 @@ author: TomArcher
 manager: timlt
 editor: ''
 
+ms.assetid: 1d61cd36-5004-4d7f-96c6-cc62e57ddefe
 ms.service: virtual-machines-linux
 ms.devlang: multiple
 ms.topic: article
