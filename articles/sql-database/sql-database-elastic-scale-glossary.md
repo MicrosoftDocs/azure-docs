@@ -1,21 +1,22 @@
-<properties 
-    pageTitle="Elastic Database tools glossary | Microsoft Azure" 
-    description="Explanation of terms used for elastic database tools" 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="ddove" 
-    editor=""/>
+---
+title: Elastic Database tools glossary | Microsoft Docs
+description: Explanation of terms used for elastic database tools
+services: sql-database
+documentationcenter: ''
+manager: jhubbard
+author: ddove
+editor: ''
 
-<tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/27/2016" 
-    ms.author="ddove"/>
+ms.assetid: a23a4e81-6706-452d-afc1-a550e5e47af9
+ms.service: sql-database
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/24/2016
+ms.author: ddove
 
+---
 # Elastic Database tools glossary
 The following terms are defined for the [Elastic Database tools](sql-database-elastic-scale-introduction.md), a feature of Azure SQL Database. The tools are used to manage [shard maps](sql-database-elastic-scale-shard-map-management.md), and include the [client library](sql-database-elastic-database-client-library.md), the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md), [elastic pools](sql-database-elastic-pool.md), and [queries](sql-database-elastic-query-overview.md). 
 
@@ -65,9 +66,7 @@ Here is a representation of **sharded** single and multi-tenant databases.
 
 ![Mappings][2]
 
-
-##Verbs
-
+## Verbs
 **Horizontal scaling**: The act of scaling out (or in) a collection of shards by adding or removing shards to a shard map, as shown below.
 
 ![Horizontal and vertical scaling][3]
@@ -82,10 +81,10 @@ Here is a representation of **sharded** single and multi-tenant databases.
 
 **Vertical Scaling**: The act of scaling up (or down) the performance level of an individual shard. For example, changing a shard from Standard to Premium (which results in more computing resources). 
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]  
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
 [2]: ./media/sql-database-elastic-scale-glossary/mappings.png
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
- 
+

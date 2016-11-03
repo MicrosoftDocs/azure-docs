@@ -1,33 +1,32 @@
-<properties 
-    pageTitle="Working with Geospatial data in Azure DocumentDB | Microsoft Azure" 
-    description="Understand how to create, index and query spatial objects with Azure DocumentDB." 
-    services="documentdb" 
-    documentationCenter="" 
-    authors="arramac" 
-    manager="jhubbard" 
-    editor="monicar"/>
+---
+title: Working with Geospatial data in Azure DocumentDB | Microsoft Docs
+description: Understand how to create, index and query spatial objects with Azure DocumentDB.
+services: documentdb
+documentationcenter: ''
+author: arramac
+manager: jhubbard
+editor: monicar
 
-<tags 
-    ms.service="documentdb" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="data-services" 
-    ms.date="08/08/2016" 
-    ms.author="arramac"/>
-    
+ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
+ms.service: documentdb
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 11/01/2016
+ms.author: arramac
+
+---
 # Working with Geospatial data in Azure DocumentDB
-
 This article is an introduction to the geospatial functionality in [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). After reading this, you will be able to answer the following questions:
 
-- How do I store spatial data in Azure DocumentDB?
-- How can I query geospatial data in Azure DocumentDB in SQL and LINQ?
-- How do I enable or disable spatial indexing in DocumentDB?
+* How do I store spatial data in Azure DocumentDB?
+* How can I query geospatial data in Azure DocumentDB in SQL and LINQ?
+* How do I enable or disable spatial indexing in DocumentDB?
 
 Please see this [Github project](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) for code samples.
 
 ## Introduction to spatial data
-
 Spatial data describes the position and shape of objects in space. In most applications, these correspond to objects on the earth, i.e. geospatial data. Spatial data can be used to represent the location of a person, a place of interest, or the boundary of a city, or a lake. Common use cases often involve proximity queries, for e.g., "find all coffee shops near my current location". 
 
 ### GeoJSON
@@ -43,9 +42,12 @@ A **Point** denotes a single position in space. In geospatial data, a point repr
        "coordinates":[ 31.9, -4.8 ]
     }
 
->[AZURE.NOTE] The GeoJSON specification specifies longitude first and latitude second. Like in other mapping applications, longitude and latitude are angles and represented in terms of degrees. Longitude values are measured from the Prime Meridian and are between -180 and 180.0 degrees, and latitude values are measured from the equator and are between -90.0 and 90.0 degrees. 
->
+> [!NOTE]
+> The GeoJSON specification specifies longitude first and latitude second. Like in other mapping applications, longitude and latitude are angles and represented in terms of degrees. Longitude values are measured from the Prime Meridian and are between -180 and 180.0 degrees, and latitude values are measured from the equator and are between -90.0 and 90.0 degrees. 
+> 
 > DocumentDB interprets coordinates as represented per the WGS-84 reference system. Please see below for more details about coordinate reference systems.
+> 
+> 
 
 This can be embedded in a DocumentDB document as shown in this example of a user profile containing location data:
 
@@ -77,14 +79,16 @@ In addition to points, GeoJSON also supports LineStrings and Polygons. **LineStr
        ]
     }
 
->[AZURE.NOTE] The GeoJSON specification requires that for valid polygons, the last coordinate pair provided should be the same as the first, to create a closed shape.
->
->Points within a polygon must be specified in counter-clockwise order. A polygon specified in clockwise order represents the inverse of the region within it.
+> [!NOTE]
+> The GeoJSON specification requires that for valid polygons, the last coordinate pair provided should be the same as the first, to create a closed shape.
+> 
+> Points within a polygon must be specified in counter-clockwise order. A polygon specified in clockwise order represents the inverse of the region within it.
+> 
+> 
 
 In addition to Point, LineString and Polygon, GeoJSON also specifies the representation for how to group multiple geospatial locations, as well as how to associate arbitrary properties with geolocation as a **Feature**. Since these objects are valid JSON, they can all be stored and processed in DocumentDB. However DocumentDB only supports automatic indexing of points.
 
 ### Coordinate reference systems
-
 Since the shape of the earth is irregular, coordinates of geospatial data is represented in many coordinate reference systems (CRS), each with their own frames of reference and units of measurement. For example, the "National Grid of Britain" is a reference system is very accurate for the United Kingdom, but not outside it. 
 
 The most popular CRS in use today is the World Geodetic System  [WGS-84](http://earth-info.nga.mil/GandG/wgs84/). GPS devices, and many mapping services including Google Maps and Bing Maps APIs use WGS-84. DocumentDB supports indexing and querying of geospatial data using the WGS-84 CRS only. 
@@ -111,7 +115,7 @@ If you're working with the .NET (or Java) SDKs, you can use the new Point and Po
 **Create Document with Geospatial data in .NET**
 
     using Microsoft.Azure.Documents.Spatial;
-    
+
     public class UserProfile
     {
         [JsonProperty("name")]
@@ -119,10 +123,10 @@ If you're working with the .NET (or Java) SDKs, you can use the new Point and Po
 
         [JsonProperty("location")]
         public Point Location { get; set; }
-        
+
         // More properties
     }
-    
+
     await client.CreateDocumentAsync(
         UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
         new UserProfile 
@@ -134,7 +138,6 @@ If you're working with the .NET (or Java) SDKs, you can use the new Point and Po
 If you don't have the latitude and longitude information, but have the physical addresses or location name like city or country, you can look up the actual coordinates by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](https://msdn.microsoft.com/library/ff701713.aspx).
 
 ## Querying spatial types
-
 Now that we've taken a look at how to insert geospatial data, let's take a look at how to query this data using DocumentDB using SQL and LINQ.
 
 ### Spatial SQL built-in functions
@@ -146,20 +149,24 @@ DocumentDB supports the following Open Geospatial Consortium (OGC) built-in func
   <td><strong>Description</strong></td>
 </tr>
 <tr>
-  <td>ST_DISTANCE (point_expr, point_expr)</td>
-  <td>Returns the distance between the two GeoJSON point expressions.</td>
+  <td>ST_DISTANCE (spatial_expr, spatial_expr)</td>
+  <td>Returns the distance between the two GeoJSON Point, Polygon, or LineString expressions.</td>
 </tr>
 <tr>
-  <td>ST_WITHIN (point_expr, polygon_expr)</td>
-  <td>Returns a Boolean expression indicating whether the GeoJSON point specified in the first argument is within the GeoJSON polygon in the second argument.</td>
+  <td>ST_WITHIN (spatial_expr, spatial_expr)</td>
+  <td>Returns a Boolean expression indicating whether the first GeoJSON object (Point, Polygon, or LineString) is within the second GeoJSON object (Point, Polygon, or LineString).</td>
+</tr>
+<tr>
+  <td>ST_INTERSECTS (spatial_expr, spatial_expr)</td>
+  <td>Returns a Boolean expression indicating whether the two specified GeoJSON objects (Point, Polygon, or LineString) intersect.</td>
 </tr>
 <tr>
   <td>ST_ISVALID</td>
-  <td>Returns a Boolean value indicating whether the specified GeoJSON point or polygon expression is valid.</td>
+  <td>Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, or LineString expression is valid.</td>
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
-  <td>Returns a JSON value containing a Boolean value if the specified GeoJSON point or polygon expression is valid, and if invalid, additionally the reason as a string value.</td>
+  <td>Returns a JSON value containing a Boolean value if the specified GeoJSON Point, Polygon, or LineString expression is valid, and if invalid, additionally the reason as a string value.</td>
 </tr>
 </table>
 
@@ -188,8 +195,8 @@ Polygon arguments in ST_WITHIN can contain only a single ring, i.e. the polygons
     SELECT * 
     FROM Families f 
     WHERE ST_WITHIN(f.location, {
-    	'type':'Polygon', 
-    	'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+        'type':'Polygon', 
+        'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
     })
 
 **Results**
@@ -197,8 +204,30 @@ Polygon arguments in ST_WITHIN can contain only a single ring, i.e. the polygons
     [{
       "id": "WakefieldFamily",
     }]
-    
->[AZURE.NOTE] Similar to how mismatched types works in DocumentDB query, if the location value specified in either argument is malformed or invalid, then it will evaluate to **undefined** and the evaluated document to be skipped from the query results. If your query returns no results, run ST_ISVALIDDETAILED To debug why the spatail type is invalid.     
+
+> [!NOTE]
+> Similar to how mismatched types works in DocumentDB query, if the location value specified in either argument is malformed or invalid, then it will evaluate to **undefined** and the evaluated document to be skipped from the query results. If your query returns no results, run ST_ISVALIDDETAILED To debug why the spatail type is invalid.     
+> 
+> 
+
+DocumentDB also supports performing inverse queries, i.e. you can index polygons or lines in DocumentDB, then query for the areas that contain a specified point. This pattern is commonly used in logistics to identify e.g. when a truck enters or leaves a designated area. 
+
+**Query**
+
+    SELECT * 
+    FROM Areas a 
+    WHERE ST_WITHIN({'type': 'Point', 'coordinates':[31.9, -4.8]}, a.location)
+
+
+**Results**
+
+    [{
+      "id": "MyDesignatedLocation",
+      "location": {
+        "type":"Polygon", 
+        "coordinates": [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+      }
+    }]
 
 ST_ISVALID and ST_ISVALIDDETAILED can be used to check if a spatial object is valid. For example, the following query checks the validity of a point with an out of range latitude value (-132.8). ST_ISVALID returns just a Boolean value, and ST_ISVALIDDETAILED returns the Boolean and a string containing the reason why it is considered invalid.
 
@@ -217,20 +246,19 @@ These functions can also be used to validate polygons. For example, here we use 
 **Query**
 
     SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
-    	[ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
-    	]]})
+        [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
+        ]]})
 
 **Results**
 
     [{
        "$1": { 
-      	  "valid": false, 
-      	  "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
-      	}
+            "valid": false, 
+            "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
+          }
     }]
-    
-### LINQ Querying in the .NET SDK
 
+### LINQ Querying in the .NET SDK
 The DocumentDB .NET SDK also providers stub methods `Distance()` and `Within()` for use within LINQ expressions. The DocumentDB LINQ provider translates these method calls to the equivalent SQL built-in function calls (ST_DISTANCE and ST_WITHIN respectively). 
 
 Here's an example of a LINQ query that finds all documents in the DocumentDB collection whose "location" value is within a radius of 30km of the specified point using LINQ.
@@ -269,18 +297,20 @@ Similarly, here's a query for finding all the documents whose "location" is with
 Now that we've taken a look at how to query documents using LINQ and SQL, let's take a look at how to configure DocumentDB for spatial indexing.
 
 ## Indexing
-
-As we described in the [Schema Agnostic Indexing with Azure DocumentDB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) paper, we designed DocumentDB’s database engine to be truly schema agnostic and provide first class support for JSON. The write optimized database engine of DocumentDB now also natively understands spatial data represented in the GeoJSON standard.
+As we described in the [Schema Agnostic Indexing with Azure DocumentDB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) paper, we designed DocumentDB’s database engine to be truly schema agnostic and provide first class support for JSON. The write optimized database engine of DocumentDB natively understands spatial data (points, polygons and lines) represented in the GeoJSON standard.
 
 In a nutshell, the geometry is projected from geodetic coordinates onto a 2D plane then divided progressively into cells using a **quadtree**. These cells are mapped to 1D based on the location of the cell within a **Hilbert space filling curve**, which preserves locality of points. Additionally when location data is indexed, it goes through a process known as **tessellation**, i.e. all the cells that intersect a location are identified and stored as keys in the DocumentDB index. At query time, arguments like points and polygons are also tessellated to extract the relevant cell ID ranges, then used to retrieve data from the index.
 
 If you specify an indexing policy that includes spatial index for /* (all paths), then all points found within the collection are indexed for efficient spatial queries (ST_WITHIN and ST_DISTANCE). Spatial indexes do not have a precision value, and always use a default precision value.
 
->[AZURE.NOTE] DocumentDB supports automatic indexing of Points, Polygons (private preview), and LineStrings (private preview). For access to the preview, please email askdocdb@microsoft.com, or contact us via Azure Support.
+> [!NOTE]
+> DocumentDB supports automatic indexing of Points, Polygons, and LineStrings
+> 
+> 
 
 The following JSON snippet shows an indexing policy with spatial indexing enabled, i.e. index any GeoJSON point found within documents for spatial querying. If you are modifying the indexing policy using the Azure Portal, you can specify the following JSON for indexing policy to enable spatial indexing on your collection.
 
-**Collection Indexing Policy JSON with Spatial enabled**
+**Collection Indexing Policy JSON with Spatial enabled for points and polygons**
 
     {
        "automatic":true,
@@ -302,7 +332,11 @@ The following JSON snippet shows an indexing policy with spatial indexing enable
                 {
                    "kind":"Spatial",
                    "dataType":"Point"
-                }
+                },
+                {
+                   "kind":"Spatial",
+                   "dataType":"Polygon"
+                }                
              ]
           }
        ],
@@ -336,14 +370,18 @@ And here's how you can modify an existing collection to take advantage of spatia
         await Task.Delay(TimeSpan.FromSeconds(1));
     }
 
-> [AZURE.NOTE] If the location GeoJSON value within the document is malformed or invalid, then it will not get indexed for spatial querying. You can validate location values using ST_ISVALID and ST_ISVALIDDETAILED.
->
+> [!NOTE]
+> If the location GeoJSON value within the document is malformed or invalid, then it will not get indexed for spatial querying. You can validate location values using ST_ISVALID and ST_ISVALIDDETAILED.
+> 
 > If your collection definition includes a partition key, indexing transformation progress is not reported. 
+> 
+> 
 
 ## Next steps
 Now that you've learnt about how to get started with geospatial support in DocumentDB, you can:
 
-- Start coding with the [Geospatial .NET code samples on Github](https://github.com/Azure/azure-documentdb-dotnet/blob/e880a71bc03c9af249352cfa12997b51853f47e5/samples/code-samples/Geospatial/Program.cs)
-- Get hands on with geospatial querying at the [DocumentDB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
-- Learn more about [DocumentDB Query](documentdb-sql-query.md)
-- Learn more about [DocumentDB Indexing Policies](documentdb-indexing-policies.md)
+* Start coding with the [Geospatial .NET code samples on Github](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
+* Get hands on with geospatial querying at the [DocumentDB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
+* Learn more about [DocumentDB Query](documentdb-sql-query.md)
+* Learn more about [DocumentDB Indexing Policies](documentdb-indexing-policies.md)
+

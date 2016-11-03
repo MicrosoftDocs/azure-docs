@@ -5,25 +5,22 @@ The following steps will walk you through the creation of the vault used to stor
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
 2. Click **New** > **Data Services** > **Recovery Services** > **Backup Vault** and choose **Quick Create**.
-
+   
     ![Create vault](./media/backup-create-vault/createvault1.png)
-
 3. For the **Name** parameter, enter a friendly name to identify the backup vault. This needs to be unique for each subscription.
-
 4. For the **Region** parameter, select the geographic region for the backup vault. The choice determines the geographic region to which your backup data is sent. By choosing a geographic region close to your location, you can reduce the network latency when backing up to Azure.
-
 5. Click on **Create Vault** to complete the workflow. It can take a while for the backup vault to be created. To check the status, you can monitor the notifications at the bottom of the portal.
-
+   
     ![Creating Vault](./media/backup-create-vault/creatingvault1.png)
-
 6. After the backup vault has been created, a message tells you the vault has been successfully created. The vault is also listed in the resources for Recovery Services as **Active**.
-
+   
     ![Creating Vault status](./media/backup-create-vault/backupvaultstatus1.png)
 
-
 ### Azure Backup - Storage Redundancy Options
-
->[AZURE.IMPORTANT] The best time to identify your storage redundancy option is right after vault creation, and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
+> [!IMPORTANT]
+> The best time to identify your storage redundancy option is right after vault creation, and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
+> 
+> 
 
 Your business needs should determine the storage redundancy of the Azure Backup backend storage. If you are using Azure as a primary backup storage endpoint (e.g. you are backing up to Azure from a Windows Server), you should consider picking (the default) Geo-Redundant storage option. This is seen under the **Configure** option of your Backup vault.
 
@@ -38,3 +35,4 @@ Locally redundant storage (LRS) maintains three copies of your data. LRS is repl
 If you are using Azure as a tertiary backup storage endpoint (e.g. you are using SCDPM to have a local backup copy on-premises & using Azure for your long term retention needs), you should consider choosing Locally Redundant Storage from the **Configure** option of your Backup vault. This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.
 
 ![LRS](./media/backup-create-vault/lrs.png)
+

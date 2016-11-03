@@ -1,37 +1,33 @@
-<properties
-	pageTitle="Use Azure storage in Windows Store apps | Microsoft Azure"
-	description="Learn how to create a Windows Store app that uses Azure Blob, Queue, Table, or File storage."
-	services="storage"
-	documentationCenter=""
-	authors="tamram"
-	manager="carmonm"
-	editor="tysonn"/>
+---
+title: Use Azure storage in Windows Store apps | Microsoft Docs
+description: Learn how to create a Windows Store app that uses Azure Blob, Queue, Table, or File storage.
+services: storage
+documentationcenter: ''
+author: tamram
+manager: carmonm
+editor: tysonn
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="micurd;tamram"/>
-	
+ms.assetid: 63c4b29d-b2f2-4d7c-b164-a0d38f4d14f6
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: mobile-windows-store
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: tamram
+
+---
 # How to use Azure Storage in Windows Store apps
-
 ## Overview
-
 This guide shows how to get started with developing a Windows Store app that makes use of Azure Storage.
 
 ## Download required tools
-
-- [Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) makes it easy to build, debug, localize, package, and deploy Windows Store apps. Visual Studio 2012 or later is required.
-- The [Azure Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage) provides a Windows Runtime class library for working with Azure Storage.
-- [WCF Data Services Tools for Windows Store Apps](http://www.microsoft.com/download/details.aspx?id=30714) extends the Add Service Reference experience with client-side OData support for Windows Store apps in Visual Studio.
+* [Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) makes it easy to build, debug, localize, package, and deploy Windows Store apps. Visual Studio 2012 or later is required.
+* The [Azure Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage) provides a Windows Runtime class library for working with Azure Storage.
+* [WCF Data Services Tools for Windows Store Apps](http://www.microsoft.com/download/details.aspx?id=30714) extends the Add Service Reference experience with client-side OData support for Windows Store apps in Visual Studio.
 
 ## Develop apps
-
 ### Getting ready
-
 Create a new Windows Store app project in Visual Studio 2012 or later:
 
 ![store-apps-storage-vs-project][store-apps-storage-vs-project]
@@ -41,7 +37,6 @@ Next, add a reference to the Azure Storage Client Library by right-clicking **Re
 ![store-apps-storage-choose-library][store-apps-storage-choose-library]
 
 ### Using the library with the Blob and Queue services
-
 At this point, your app is ready to call the Azure Blob and Queue services. Add the following **using** statements so that Azure Storage types can be referenced directly:
 
     using Microsoft.WindowsAzure.Storage;
@@ -60,7 +55,6 @@ This code assumes that you have two string variables, *accountName* and *account
 Build and run the application. Clicking the button will check whether a container named *container1* exists in your account and then create it if not.
 
 ### Using the library with the Table service
-
 Types that are used to communicate with the Azure Table service depend on WCF Data Services for the Windows Store app library. Next, add a reference to the required WCF libraries by using the Package Manager Console:
 
 ![store-apps-storage-package-manager][store-apps-storage-package-manager]
@@ -82,8 +76,6 @@ When you have referenced the WCF Data Services NuGet package, change the code in
 This code checks whether a table named *table1* exists in your account, and then creates it if not.
 
 You can also add a reference to Microsoft.WindowsAzure.Storage.Table.dll, which is available in the same package that you downloaded. This library contains additional functionality, such as reflection-based serialization and generic queries. Note that this library does not support JavaScript.
-
-
 
 [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png

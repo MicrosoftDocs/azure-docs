@@ -1,113 +1,110 @@
-<properties
-	pageTitle="Create Azure BizTalk Services in the Azure portal | Microsoft Azure"
-	description="Learn how to provision or create Azure BizTalk Services in the Azure portal; MABS, WABS"
-	services="biztalk-services"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""/>
+---
+title: Create Azure BizTalk Services in the Azure portal | Microsoft Docs
+description: Learn how to provision or create Azure BizTalk Services in the Azure portal; MABS, WABS
+services: biztalk-services
+documentationcenter: ''
+author: MandiOhlinger
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="biztalk-services"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="08/15/2016"
-	ms.author="mandia"/>
+ms.assetid: 3ad18876-a649-40d6-9aa0-1509c1d62c43
+ms.service: biztalk-services
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/15/2016
+ms.author: mandia
 
-
-
+---
 # Create BizTalk Services using the Azure portal
-
 Create Azure BizTalk Services in the Azure portal.
 
-> [AZURE.TIP] To sign in to the Azure portal, you need an Azure account and Azure subscription. If you don't have an account, you can create a free trial account within a few minutes. See [Azure Free Trial](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> [!TIP]
+> To sign in to the Azure portal, you need an Azure account and Azure subscription. If you don't have an account, you can create a free trial account within a few minutes. See [Azure Free Trial](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> 
+> 
 
 ## Create a BizTalk Service
 Depending on the Edition you choose, not all BizTalk Service settings may be available.
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. In the bottom navigation pane, select **NEW**:  
-![Select the New button][NEWButton]
-
+   ![Select the New button][NEWButton]
 3. Select **APP SERVICES** > **BIZTALK SERVICE** > **CUSTOM CREATE**:  
-![Select BizTalk Service and select Custom Create][NewBizTalkService]
-
+   ![Select BizTalk Service and select Custom Create][NewBizTalkService]
 4. Enter the BizTalk Service settings:
-
-	<table border="1">
-	<tr>
-	<td><strong>BizTalk service name</strong></td>
-	<td>You can enter any name but be specific. Some examples include:<br/><br/>
-	<em>mycompany</em>.biztalk.windows.net<br/>
-	<em>mycompanymyapplication</em>.biztalk.windows.net<br/>
-	<em>myapplication</em>.biztalk.windows.net<br/><br/>".biztalk.windows.net" is automatically added to the name you enter. This creates a URL that is used to access your BizTalk Service, like <strong>https://<em>myapplication</em>.biztalk.windows.net</strong>.
-	</td>
-	</tr>
-	<tr>
-	<td><strong>Edition</strong></td>
-	<td>If you are in the testing/development phase, choose <strong>Developer</strong>. If you are in the production phase, use the <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">BizTalk Services: Editions Chart</a> to determine if <strong>Premium</strong>, <strong>Standard</strong>, or <strong>Basic</strong> is the correct choice for your business scenario.
-	</td>
-	</tr>
-	<tr>
-	<td><strong>Region</strong></td>
-	<td>Select the geographic region to host your BizTalk Service.</td>
-	</tr>
-	<tr>
-	<td><strong>Domain URL</strong></td>
-	<td><strong>Optional</strong>. By default, the domain URL is <em>YourBizTalkServiceName</em>.biztalk.windows.net. A custom domain can also be entered. For example, if your domain is <em>contoso</em>, you can enter: <br/><br/>
-	<em>MyCompany</em>.contoso.com<br/>
-	<em>MyCompanyMyApplication</em>.contoso.com<br/>
-	<em>MyApplication</em>.contoso.com<br/>
-	<em>YourBizTalkServiceName</em>.contoso.com<br/>
-	</td>
-	</tr>
-	</table>
-Select the NEXT arrow.
-
+   
+    <table border="1">
+    <tr>
+    <td><strong>BizTalk service name</strong></td>
+    <td>You can enter any name but be specific. Some examples include:<br/><br/>
+    <em>mycompany</em>.biztalk.windows.net<br/>
+    <em>mycompanymyapplication</em>.biztalk.windows.net<br/>
+    <em>myapplication</em>.biztalk.windows.net<br/><br/>".biztalk.windows.net" is automatically added to the name you enter. This creates a URL that is used to access your BizTalk Service, like <strong>https://<em>myapplication</em>.biztalk.windows.net</strong>.
+    </td>
+    </tr>
+    <tr>
+    <td><strong>Edition</strong></td>
+    <td>If you are in the testing/development phase, choose <strong>Developer</strong>. If you are in the production phase, use the <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">BizTalk Services: Editions Chart</a> to determine if <strong>Premium</strong>, <strong>Standard</strong>, or <strong>Basic</strong> is the correct choice for your business scenario.
+    </td>
+    </tr>
+    <tr>
+    <td><strong>Region</strong></td>
+    <td>Select the geographic region to host your BizTalk Service.</td>
+    </tr>
+    <tr>
+    <td><strong>Domain URL</strong></td>
+    <td><strong>Optional</strong>. By default, the domain URL is <em>YourBizTalkServiceName</em>.biztalk.windows.net. A custom domain can also be entered. For example, if your domain is <em>contoso</em>, you can enter: <br/><br/>
+    <em>MyCompany</em>.contoso.com<br/>
+    <em>MyCompanyMyApplication</em>.contoso.com<br/>
+    <em>MyApplication</em>.contoso.com<br/>
+    <em>YourBizTalkServiceName</em>.contoso.com<br/>
+    </td>
+    </tr>
+    </table>
+   Select the NEXT arrow.
 5. Enter the Storage and Database Settings:
-
-	<table border="1">
-	<tr>
-	<td><strong>Monitoring/Archiving storage account</strong></td>
-	<td>Select an existing storage account or create a new storage account. <br/><br/>If you create a new Storage account, enter the <strong>Storage Account Name</strong>.</td>
-	</tr>
-	<tr>
-	<td><strong>Tracking database</strong></td>
-	<td>If you use an existing Azure SQL Database, it cannot be used by another BizTalk Service. You need the login name and password entered when that Azure SQL Database Server was created.<br/><br/><strong>TIP</strong> Create the Tracking database and Monitoring/Archiving storage account in the same region as the BizTalk Service.</td>
-	</tr>
-	</table>
-Select the NEXT arrow.
-
+   
+    <table border="1">
+    <tr>
+    <td><strong>Monitoring/Archiving storage account</strong></td>
+    <td>Select an existing storage account or create a new storage account. <br/><br/>If you create a new Storage account, enter the <strong>Storage Account Name</strong>.</td>
+    </tr>
+    <tr>
+    <td><strong>Tracking database</strong></td>
+    <td>If you use an existing Azure SQL Database, it cannot be used by another BizTalk Service. You need the login name and password entered when that Azure SQL Database Server was created.<br/><br/><strong>TIP</strong> Create the Tracking database and Monitoring/Archiving storage account in the same region as the BizTalk Service.</td>
+    </tr>
+    </table>
+   Select the NEXT arrow.
 6. Enter the Database settings:
-
-	<table border="1">
-	<tr>
-	<td><strong>Name</strong></td>
-	<td>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.
-	<br/><br/>
-	Enter a SQL Database name to be used by your BizTalk Service.</td>
-	</tr>
-	<tr>
-	<td><strong>Server</strong></td>
-	<td>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.
-	<br/><br/>
-	Select an existing SQL Database Server or create a new SQL Database server.</td>
-	</tr>
-	<tr>
-	<td><strong>Server login name</strong></td>
-	<td>Enter the login user name.</td>
-	</tr>
-	<tr>
-	<td><strong>Server login password</strong></td>
-	<td>Enter the login password.</td>
-	</tr>
-	<tr>
-	<td><strong>Region</strong></td>
-	<td>Available when <strong>Create a new SQL Database instance</strong> is selected. Select the geographic region to host your SQL Database.</td>
-	</tr>
-	</table>
+   
+    <table border="1">
+    <tr>
+    <td><strong>Name</strong></td>
+    <td>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.
+    <br/><br/>
+    Enter a SQL Database name to be used by your BizTalk Service.</td>
+    </tr>
+    <tr>
+    <td><strong>Server</strong></td>
+    <td>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.
+    <br/><br/>
+    Select an existing SQL Database Server or create a new SQL Database server.</td>
+    </tr>
+    <tr>
+    <td><strong>Server login name</strong></td>
+    <td>Enter the login user name.</td>
+    </tr>
+    <tr>
+    <td><strong>Server login password</strong></td>
+    <td>Enter the login password.</td>
+    </tr>
+    <tr>
+    <td><strong>Region</strong></td>
+    <td>Available when <strong>Create a new SQL Database instance</strong> is selected. Select the geographic region to host your SQL Database.</td>
+    </tr>
+    </table>
 
 Select the check mark to complete the wizard. The progress icon appears:  
 ![Progress icon displays when complete][ProgressComplete]
@@ -116,12 +113,10 @@ When complete, the Azure BizTalk Service is created and ready for your applicati
 
 Depending on the state of the BizTalk Service, there are some operations that cannot be completed. For a list of these operations, go to [BizTalk Services State Chart](biztalk-service-state-chart.md).
 
-
 ## Post-provisioning steps
-
--  [Install the certificate on a local computer](#InstallCert)
--  [Add a production-ready certificate](#AddCert)
--  [Get the Access Control namespace](#ACS)
+* [Install the certificate on a local computer](#InstallCert)
+* [Add a production-ready certificate](#AddCert)
+* [Get the Access Control namespace](#ACS)
 
 #### <a name="InstallCert"></a>Install the certificate on a local computer
 As part of BizTalk Service provisioning, a self-signed certificate is created and associated with your BizTalk Service subscription. You must download this certificate and install it on computers from where you either deploy BizTalk Service applications or send messages to a BizTalk Service endpoint.
@@ -130,7 +125,7 @@ As part of BizTalk Service provisioning, a self-signed certificate is created an
 2. Select **BIZTALK SERVICES** in the left navigation pane, and then select your BizTalk Service subscription.
 3. Select the **Dashboard** tab.
 4. Select **Download SSL Certificate**:  
-![Modify SSL Certificate][QuickGlance]
+   ![Modify SSL Certificate][QuickGlance]
 5. Double-click the certificate and run through the wizard to install the certificate. Make sure you install the certificate under the **Trusted Root Certificate Authorities** store.
 
 #### <a name="AddCert"></a>Add a production-ready certificate
@@ -140,12 +135,10 @@ The self-signed certificate that is automatically created when creating BizTalk 
 2. Browse to your private SSL certificate (*CertificateName*.pfx) that includes your BizTalk Service name, enter the password, and then click the check mark.
 
 #### <a name="ACS"></a>Get the Access Control namespace
-
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Select **BIZTALK SERVICES** in the left navigation pane, and then select your BizTalk Service.
 3. In the task bar, select **Connection Information**:  
-![Select Connection Information][ACSConnectInfo]
-
+   ![Select Connection Information][ACSConnectInfo]
 4. Copy the Access Control values.
 
 When you deploy a BizTalk Service project from Visual Studio, you enter this Access Control namespace. The Access Control namespace is automatically created for your BizTalk Service.
@@ -157,13 +150,16 @@ Clicking **Manage** opens the Access Control Management Portal. In the Access Co
 
 The Access Control service identity is a set of credentials that allow applications or clients to authenticate directly with Access Control and receive a token.
 
-> [AZURE.IMPORTANT] The BizTalk Service uses **Owner** for the default service identity and the **Password** value. If you use the Symmetric Key value instead of the Password value, the following error may occur.<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
+> [!IMPORTANT]
+> The BizTalk Service uses **Owner** for the default service identity and the **Password** value. If you use the Symmetric Key value instead of the Password value, the following error may occur.<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
+> 
+> 
 
 [Managing Your ACS Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx) lists some guidelines and recommendations.
 
 ## Requirements explained
-
 These requirements do not apply to the Free Edition.
+
 <table border="1">
 <tr bgcolor="FAF9F9">
         <td><strong>What you need</strong></td>
@@ -246,7 +242,6 @@ A new or different certificate can be added after the BizTalk Service is created
 
 
 ## Hybrid Connections
-
 When you create an Azure BizTalk Service, the **Hybrid Connections** tab is available:
 
 ![Hybrid Connections Tab][HybridConnectionTab]
@@ -255,19 +250,17 @@ Hybrid Connections are used to connect an Azure website or Azure mobile service 
 
  See [Hybrid Connections](integration-hybrid-connection-overview.md) to learn more, including creating and managing Hybrid Connections.
 
-
 ## Next steps
-
 Now that a BizTalk Service is created, familiarize yourself with the different [BizTalk Services: Dashboard, Monitor and Scale tabs](biztalk-dashboard-monitor-scale-tabs.md). Your BizTalk Service is ready for your applications. To start creating applications, go to [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## See also
-- [BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md)<br/>
-- [BizTalk Services: State Chart](biztalk-service-state-chart.md)<br/>
-- [BizTalk Services: Backup and Restore](biztalk-backup-restore.md)<br/>
-- [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)<br/>
-- [BizTalk Services: Issuer Name and Issuer Key](biztalk-issuer-name-issuer-key.md)<br/>
-- [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-- [Hybrid Connections](integration-hybrid-connection-overview.md)
+* [BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md)<br/>
+* [BizTalk Services: State Chart](biztalk-service-state-chart.md)<br/>
+* [BizTalk Services: Backup and Restore](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)<br/>
+* [BizTalk Services: Issuer Name and Issuer Key](biztalk-issuer-name-issuer-key.md)<br/>
+* [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Hybrid Connections](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png

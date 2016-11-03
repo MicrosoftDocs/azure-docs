@@ -1,242 +1,274 @@
-<properties
-	pageTitle="Azure Functions DocumentDB bindings | Microsoft Azure"
-	description="Understand how to use Azure DocumentDB bindings in Azure Functions."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
+---
+title: Azure Functions DocumentDB bindings | Microsoft Docs
+description: Understand how to use Azure DocumentDB bindings in Azure Functions.
+services: functions
+documentationcenter: na
+author: christopheranderson
+manager: erikre
+editor: ''
+tags: ''
+keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-<tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/22/2016"
-	ms.author="chrande; glenga"/>
+ms.assetid: 3d8497f0-21f3-437d-ba24-5ece8c90ac85
+ms.service: functions
+ms.devlang: multiple
+ms.topic: reference
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 10/31/2016
+ms.author: chrande; glenga
 
+---
 # Azure Functions DocumentDB bindings
-
-[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code Azure DocumentDB bindings in Azure Functions. 
+Azure Functions supports input and output bindings for DocumentDB.
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a id="docdbinput"></a> Azure DocumentDB input binding
+For more information on DocumentDB, see [Introduction to DocumentDB](../documentdb/documentdb-introduction.md) 
+and [Build a DocumentDB console application](../documentdb/documentdb-get-started.md).
 
-Input bindings can load a document from a DocumentDB collection and pass it directly to your binding. The document id can be determined based on the trigger that invoked the function. In a C# function, any changes made to the record will be automatically sent back to the collection when the function exits successfully.
+<a id="docdbinput"></a>
 
-#### function.json for DocumentDB input binding
+## DocumentDB input binding
+The DocumentDB input binding retrieves a DocumentDB document and passes it to the named input parameter of the function. The document 
+ID can be determined based on the trigger that invokes the function. 
 
-The *function.json* file provides the following properties:
+The DocumentDB input to a function uses the following JSON object in the `bindings` array of function.json:
 
-- `name` : Variable name used in function code for the document.
-- `type` : must be set to "documentdb".
-- `databaseName` : The database containing the document.
-- `collectionName` : The collection containing the document.
-- `id` : The Id of the document to retrieve. This property supports bindings similar to "{queueTrigger}", which will use the string value of the queue message as the document Id.
-- `connection` : This string must be an Application Setting set to the endpoint for your DocumentDB account. If you choose your account from the Integrate tab, a new App setting will be created for you with a name that takes the following form, yourAccount_DOCUMENTDB. If you need to manually create the App setting, the actual connection string must take the following form, AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
-- `direction  : must be set to *"in"*.
+    {
+      "name": "<Name of input parameter in function signature>",
+      "type": "documentdb",
+      "databaseName": "<Name of the DocumentDB database>",
+      "collectionName": "<Name of the DocumentDB collection>",
+      "id": "<Id of the DocumentDB document - see below>",
+      "connection": "<Name of app setting with connection string - see below>",
+      "direction": "in"
+    },
 
-Example *function.json*:
- 
-	{
-	  "bindings": [
-	    {
-	      "name": "document",
-	      "type": "documentdb",
-	      "databaseName": "MyDatabase",
-	      "collectionName": "MyCollection",
-	      "id" : "{queueTrigger}",
-	      "connection": "MyAccount_DOCUMENTDB",     
-	      "direction": "in"
-	    }
-	  ],
-	  "disabled": false
-	}
+Note the following:
 
-#### Azure DocumentDB input code example for a C# queue trigger
- 
-Using the example function.json above, the DocumentDB input binding will retrieve the document with the id that matches the queue message string and pass it to the 'document' parameter. If that document is not found, the 'document' parameter will be null. The document is then updated with the new text value when the function exits.
- 
-	public static void Run(string myQueueItem, dynamic document)
-	{   
-	    document.text = "This has changed.";
-	}
+* `id` supports bindings similar to `{queueTrigger}`, which uses the string value of the queue message as the document Id.
+* `connection` must be the name of an app setting that points to the endpoint for your DocumentDB account (with the value 
+  `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). If you create a DocumentDB account through the 
+  Functions portal UI, the account creation process creates an app setting for you. To use an existing DocumentDB account, you need to 
+  [configure this app setting manually](). 
+* If the specified document is not found, the named input parameter to the function is set to `null`. 
 
-#### Azure DocumentDB input code example for an F# queue trigger
+## Input usage
+This section shows you how to use your DocumentDB input binding in your function code.
 
-Using the example function.json above, the DocumentDB input binding will retrieve the document with the id that matches the queue message string and pass it to the 'document' parameter. If that document is not found, the 'document' parameter will be null. The document is then updated with the new text value when the function exits.
+In C# and F# functions, any changes made to the input document (named input parameter) is automatically sent back to the 
+collection when the function exits successfully. 
+In Node.js functions, updates to the document in the input binding are not sent 
+back to the collection. However, you can use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to 
+make updates to input documents. See how it is done in the [Node.js sample](#innodejs).
 
-	open FSharp.Interop.Dynamic
-	let Run(myQueueItem: string, document: obj) =
-	    document?text <- "This has changed."
+<a name="inputsample"></a>
 
-You will need a `project.json` file that uses NuGet to specify the `FSharp.Interop.Dynamic` and `Dynamitey` packages as package dependencies, like this:
+## Input sample
+Suppose you have the following DocumentDB input binding in the `bindings` array of function.json:
 
-	{
-	  "frameworks": {
-	    "net46": {
-	      "dependencies": {
-	        "Dynamitey": "1.0.2",
-	        "FSharp.Interop.Dynamic": "3.0.0"
-	      }
-	    }
-	  }
-	}
+    {
+      "name": "inputDocument",
+      "type": "documentdb",
+      "databaseName": "MyDatabase",
+      "collectionName": "MyCollection",
+      "id" : "{queueTrigger}",
+      "connection": "MyAccount_DOCUMENTDB",     
+      "direction": "in"
+    }
 
-This will use NuGet to fetch your dependencies and will reference them in your script.
+See the language-specific sample that uses this input binding to update the document's text value.
 
-#### Azure DocumentDB input code example for a Node.js queue trigger
- 
-Using the example function.json above, the DocumentDB input binding will retrieve the document with the id that matches the queue message string and pass it to the `documentIn` binding property. In Node.js functions, updated documents are not sent back to the collection. However, you can pass the input binding directly to a DocumentDB output binding named `documentOut` to support updates. This code example updates the text property of the input document and sets it as the output document.
- 
-	module.exports = function (context, input) {   
-	    context.bindings.documentOut = context.bindings.documentIn;
-	    context.bindings.documentOut.text = "This was updated!";
-	    context.done();
-	};
+* [C#](#incsharp)
+* [F#](#infsharp)
+* [Node.js](#innodejs)
 
-## <a id="docdboutput"></a> Azure DocumentDB output bindings
+<a name="incsharp"></a>
 
-Your functions can write JSON documents to an Azure DocumentDB database using the **Azure DocumentDB Document** output binding. For more information on Azure DocumentDB review the [Introduction to DocumentDB](../documentdb/documentdb-introduction.md) and the [Getting Started tutorial](../documentdb/documentdb-get-started.md).
+### Input sample in C\
+    public static void Run(string myQueueItem, dynamic inputDocument)
+    {   
+      inputDocument.text = "This has changed.";
+    }
 
-#### function.json for DocumentDB output binding
+<a name="infsharp"></a>
 
-The function.json file provides the following properties:
+### Input sample in F\
+    open FSharp.Interop.Dynamic
+    let Run(myQueueItem: string, inputDocument: obj) =
+      inputDocument?text <- "This has changed."
 
-- `name` : Variable name used in function code for the new document.
-- `type` : must be set to *"documentdb"*.
-- `databaseName` : The database containing the collection where the new document will be created.
-- `collectionName` : The collection where the new document will be created.
-- `createIfNotExists` : This is a boolean value to indicate whether the collection will be created if it does not exist. The default is *false*. The reason for this is new collections are created with reserved throughput, which has pricing implications. For more details, please visit the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection` : This string must be an **Application Setting** set to the endpoint for your DocumentDB account. If you choose your account from the **Integrate** tab, a new App setting will be created for you with a name that takes the following form, `yourAccount_DOCUMENTDB`. If you need to manually create the App setting, the actual connection string must take the following form, `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
-- `direction` : must be set to *"out"*. 
- 
-Example function.json:
+You need to add a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
+dependencies:
 
-	{
-	  "bindings": [
-	    {
-	      "name": "document",
-	      "type": "documentdb",
-	      "databaseName": "MyDatabase",
-	      "collectionName": "MyCollection",
-	      "createIfNotExists": false,
-	      "connection": "MyAccount_DOCUMENTDB",
-	      "direction": "out"
-	    }
-	  ],
-	  "disabled": false
-	}
+    {
+      "frameworks": {
+        "net46": {
+          "dependencies": {
+            "Dynamitey": "1.0.2",
+            "FSharp.Interop.Dynamic": "3.0.0"
+          }
+        }
+      }
+    }
 
+To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
-#### Azure DocumentDB output code example for a Node.js queue trigger
+<a name="innodejs"></a>
 
-	module.exports = function (context, input) {
-	   
-	    context.bindings.document = {
-	        text : "I'm running in a Node function! Data: '" + input + "'"
-	    }   
-	 
-	    context.done();
-	};
+### Input sample in Node.js
+    module.exports = function (context) {   
+      context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
+      context.bindings.inputDocumentOut.text = "This was updated!";
+      context.done();
+    };
 
-The output document:
+## <a id="docdboutput"></a>DocumentDB output binding
+The DocumentDB output binding lets you write a new document to an Azure DocumentDB database. 
 
-	{
-	  "text": "I'm running in a Node function! Data: 'example queue data'",
-	  "id": "01a817fe-f582-4839-b30c-fb32574ff13f"
-	}
- 
+The output binding uses the following JSON object in the `bindings` array of function.json: 
 
-#### Azure DocumentDB output code example for an F# queue trigger
+    {
+      "name": "<Name of output parameter in function signature>",
+      "type": "documentdb",
+      "databaseName": "<Name of the DocumentDB database>",
+      "collectionName": "<Name of the DocumentDB collection>",
+      "createIfNotExists": <true or false - see below>,
+      "connection": "<Value of AccountEndpoint in Application Setting - see below>",
+      "direction": "out"
+    }
 
-	open FSharp.Interop.Dynamic
-	let Run(myQueueItem: string, document: obj) =
-	    document?text <- (sprintf "I'm running in an F# function! %s" myQueueItem)
+Note the following:
 
-#### Azure DocumentDB output code example for a C# queue trigger
+* Set `createIfNotExists` to `true` to create the database and collection if it doesn't exist. The default value is `false`. New collections are 
+  created with reserved throughput, which has pricing implications. For more information, see 
+  [DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/).
+* `connection` must be the name of an app setting that points to the endpoint for your DocumentDB account (with the value 
+  `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). If you create a DocumentDB account through the 
+  Functions portal UI, the account creation process creates a new app setting for you. To use an existing DocumentDB account, you need to 
+  [configure this app setting manually](). 
 
+## Output usage
+This section shows you how to use your DocumentDB output binding in your function code.
 
-	using System;
+When you write to the output parameter in your function, by default a new document is generated in your database, with an automatically generated
+GUID as the document ID. You can specify the document ID of output document by specifying the `id` JSON property in
+the output parameter. If a document with that ID already exists, the output document overwrites it. 
 
-	public static void Run(string myQueueItem, out object document, TraceWriter log)
-	{
-	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-	   
-	    document = new {
-	        text = $"I'm running in a C# function! {myQueueItem}"
-	    };
-	}
+<a name="outputsample"></a>
 
+## Output sample
+Suppose you have the following DocumentDB output binding in the `bindings` array of function.json:
 
-#### Azure DocumentDB output code example setting file name
+    {
+      "name": "employeeDocument",
+      "type": "documentdb",
+      "databaseName": "MyDatabase",
+      "collectionName": "MyCollection",
+      "createIfNotExists": true,
+      "connection": "MyAccount_DOCUMENTDB",     
+      "direction": "out"
+    }
 
-If you want to set the name of the document in the function, just set the `id` value.  For example, if JSON content for an employee was being dropped into the queue similar to the following:
+And you have a queue input binding for a queue that receives JSON in the following format:
 
-	{
-	  "name" : "John Henry",
-      "employeeId" : "123456",
-	  "address" : "A town nearby"
-	}
+    {
+      "name": "John Henry",
+      "employeeId": "123456",
+      "address": "A town nearby"
+    }
 
-You could use the following C# code in a queue trigger function: 
-	
-	#r "Newtonsoft.Json"
-	
-	using System;
-	using Newtonsoft.Json;
-	using Newtonsoft.Json.Linq;
-	
-	public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
-	{
-	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-	    
-	    dynamic employee = JObject.Parse(myQueueItem);
-	    
-	    employeeDocument = new {
-	        id = employee.name + "-" + employee.employeeId,
-	        name = employee.name,
-	        employeeId = employee.employeeId,
-	        address = employee.address
-	    };
-	}
+And you want to create DocumentDB documents in the following format for each record:
 
-Or the equivalent F# code:
+    {
+      "id": "John Henry-123456",
+      "name": "John Henry",
+      "employeeId": "123456",
+      "address": "A town nearby"
+    }
 
-	open FSharp.Interop.Dynamic
-	open Newtonsoft.Json
+See the language-specific sample that uses this output binding to add documents to your database.
 
-	type Employee = {
-	    id: string
-	    name: string
-	    employeeId: string
-	    address: string
-	}
+* [C#](#outcsharp)
+* [F#](#outfsharp)
+* [Node.js](#outnodejs)
 
-	let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
-	    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
-	    let employee = JObject.Parse(myQueueItem)
-	    employeeDocument <-
-	        { id = sprintf "%s-%s" employee?name employee?employeeId
-	          name = employee?name
-	          employeeId = employee?id
-	          address = employee?address }
+<a name="outcsharp"></a>
 
-Example output:
+### Output sample in C\
+    #r "Newtonsoft.Json"
 
-	{
-	  "id": "John Henry-123456",
-	  "name": "John Henry",
-	  "employeeId": "123456",
-	  "address": "A town nearby"
-	}
+    using System;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
 
-## Next steps
+    public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
+    {
+      log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+      dynamic employee = JObject.Parse(myQueueItem);
+
+      employeeDocument = new {
+        id = employee.name + "-" + employee.employeeId,
+        name = employee.name,
+        employeeId = employee.employeeId,
+        address = employee.address
+      };
+    }
+
+<a name="outfsharp"></a>
+
+### Output sample in F\
+    open FSharp.Interop.Dynamic
+    open Newtonsoft.Json
+
+    type Employee = {
+      id: string
+      name: string
+      employeeId: string
+      address: string
+    }
+
+    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
+      log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+      let employee = JObject.Parse(myQueueItem)
+      employeeDocument <-
+        { id = sprintf "%s-%s" employee?name employee?employeeId
+          name = employee?name
+          employeeId = employee?employeeId
+          address = employee?address }
+
+You need to add a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
+dependencies:
+
+    {
+      "frameworks": {
+        "net46": {
+          "dependencies": {
+            "Dynamitey": "1.0.2",
+            "FSharp.Interop.Dynamic": "3.0.0"
+          }
+        }
+      }
+    }
+
+To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
+
+<a name="outnodejs"></a>
+
+### Output sample in Node.js
+    module.exports = function (context) {
+
+      context.bindings.employeeDocument = JSON.stringify({ 
+        id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
+        name: context.bindings.myQueueItem.name,
+        employeeId: context.bindings.myQueueItem.employeeId,
+        address: context.bindings.myQueueItem.address
+      });
+
+      context.done();
+    };

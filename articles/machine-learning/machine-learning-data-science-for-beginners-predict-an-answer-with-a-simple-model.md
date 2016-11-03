@@ -1,50 +1,48 @@
-<properties
-   pageTitle="Predict an answer with a simple model - regression model | Microsoft Azure"
-   description="How to create a simple model to predict the price of a diamond in Data Science for Beginners video 4. Includes a basic linear regression with target data."                                  
-   keywords="create a model,simple model,simple data model,price prediction,simple regression model"
-   services="machine-learning"
-   documentationCenter="na"
-   authors="brohrer-ms"
-   manager="jhubbard"
-   editor="cjgronlund"/>
+---
+title: Predict an answer with a simple model - regression model | Microsoft Docs
+description: How to create a simple regression model to predict a price in Data Science for Beginners video 4. Includes a linear regression with target data.
+keywords: create a model,simple model,price prediction,simple regression model
+services: machine-learning
+documentationcenter: na
+author: cjgronlund
+manager: jhubbard
+editor: cjgronlund
 
-<tags
-   ms.service="machine-learning"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
+ms.service: machine-learning
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/20/2016
+ms.author: cgronlun;garye
 
+---
 # Predict an answer with a simple model
-
 ## Video 4: Data Science for Beginners series
+Learn how to create a simple regression model to predict the price of a diamond in Data Science for Beginners video 4. We'll draw a regression model with target data.
 
-Learn how to create a simple model to predict the price of a diamond in Data Science for Beginners video 4. We'll draw a regression model with target data.
+To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
-To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
-
-> [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
+> 
+> 
 
 ## Other videos in this series
-
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
 
-  * Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-  * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
-  * Video 4: Predict an answer with a simple model
-  * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+* Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+* Video 4: Predict an answer with a simple model
+* Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
 ## Transcript: Predict an answer with a simple model
-
 Welcome to the fourth video in the "Data Science for Beginners" series. In this one, we'll build a simple model and make a prediction.
 
 A *model* is a simplified story about our data. I'll show you what I mean.
 
 ## Collect relevant, accurate, connected, enough data
-
 Say I want to shop for a diamond. I have a ring that belonged to my grandmother with a setting for a 1.35 carat diamond, and I want to get an idea of how much it will cost. I take a notepad and pen into the jewelry store, and I write down the price of all of the diamonds in the case and how much they weigh in carats. Starting with the first diamond - it's 1.01 carats and $7,366.
 
 Now I go through and do this for all the other diamonds in the store.
@@ -61,13 +59,11 @@ We've actually created a small data set here - a table. Notice that it meets our
 * And, as we'll see, it's **enough** data to answer our question
 
 ## Ask a sharp question
-
 Now we'll pose our question in a sharp way: "How much will it cost to buy a 1.35 carat diamond?"
 
 Our list doesn't have a 1.35 carat diamond in it, so we'll have to use the rest of our data to get an answer to the question.
 
 ## Plot the existing data
-
 The first thing we'll do is draw a horizontal number line, called an axis, to chart the weights. The range of the weights is 0 to 2, so we'll draw a line that covers that range and put ticks for each half carat.
 
 Next we'll draw a vertical axis to record the price and connect it to the horizontal weight axis. This will be in units of dollars. Now we have a set of coordinate axes.
@@ -83,7 +79,6 @@ Now we go through each diamond on this list and do the same thing. When we're th
 ![Scatter plot](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
 
 ## Draw the model through the data points
-
 Now if you look at the dots and squint, the collection looks like a fat, fuzzy line. We can take our marker and draw a straight line through it.
 
 By drawing a line, we created a *model*. Think of this as taking the real world and making a simplistic cartoon version of it. Now the cartoon is wrong - the line doesn't go through all the data points. But, it's a useful simplification.
@@ -95,7 +90,6 @@ The fact that all the dots don't go exactly through the line is OK. Data scienti
 Because we're trying to answer the question *How much?* this is called a *regression*. And because we're using a straight line, it's a *linear regression*.
 
 ## Use the model to find the answer
-
 Now we have a model and we ask it our question: How much will a 1.35 carat diamond cost?
 
 To answer our question, we eyeball 1.35 carats and draw a vertical line. Where it crosses the model line, we eyeball a horizontal line to the dollar axis. It hits right at 10,000. Boom! That's the answer: A 1.35 carat diamond costs about $10,000.
@@ -103,7 +97,6 @@ To answer our question, we eyeball 1.35 carats and draw a vertical line. Where i
 ![Find the answer on the model](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## Create a confidence interval
-
 It's natural to wonder how precise this prediction is. It's useful to know whether the 1.35 carat diamond will be very close to $10,000, or a lot higher or lower. To figure this out, let's draw an envelope around the regression line that includes most of the dots. This envelope is called our *confidence interval*: We're pretty confident that prices fall within this envelope, because in the past most of them have. We can draw two more horizontal lines from where the 1.35 carat line crosses the top and the bottom of that envelope.
 
 ![Confidence interval](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
@@ -111,7 +104,6 @@ It's natural to wonder how precise this prediction is. It's useful to know wheth
 Now we can say something about our confidence interval:  We can say confidently that the price of a 1.35 carat diamond is about $10,000 - but it might be as low as $8,000 and it might be as high as $12,000.
 
 ## We're done, with no math or computers
-
 We did what data scientists get paid to do, and we did it just by drawing:
 
 * We asked a question that we could answer with data
@@ -134,9 +126,7 @@ Today, we've talked about how to do linear regression, and we made a prediction 
 
 Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning.
 
-
-
 ## Next steps
+* [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
+* [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-  * [Try your first data science experiment with Azure Machine Learning](machine-learning-create-experiment.md)
-  * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)

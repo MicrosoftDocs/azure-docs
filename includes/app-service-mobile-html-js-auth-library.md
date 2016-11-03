@@ -1,8 +1,7 @@
-###<a name="server-auth"></a>How to: Authenticate with a Provider (Server Flow)
-
+### <a name="server-auth"></a>How to: Authenticate with a Provider (Server Flow)
 To have Mobile Apps manage the authentication process in your app, you must register your app with your identity
 provider. Then in your Azure App Service, you need to configure the application ID and secret provided by your provider.
-For more information, see the tutorial [Add authentication to your app].
+For more information, see the tutorial [Add authentication to your app](../articles/app-service-mobile/app-service-mobile-ios-get-started-users.md).
 
 Once you have registered your identity provider, simply call the .login() method with the name of your provider. For
 example, to login with Facebook use the following code.
@@ -12,10 +11,8 @@ client.login("facebook").done(function (results) {
      alert("You are now logged in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
-});
-```
-
-If you are using an identity provider other than Facebook, change the value passed to the login method above to one of
+});app-service-mobile
+app-service-mobile-ios-get-started-users value passed to the login method above to one of
 the following: `microsoftaccount`, `facebook`, `twitter`, `google`, or `aad`.
 
 In this case, Azure App Service manages the OAuth 2.0 authentication flow by displaying the login page of the selected
@@ -42,6 +39,7 @@ client.login(
 }, function (err) {
      alert("Error: " + err);
 });
+
 ```
 This example assumes that the token provided by the respective provider SDK is stored in the token variable.
 
@@ -61,6 +59,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
             alert("Error: " + err);
       });
 });
+
 ```
 
 This example gets a token from Live Connect, which is supplied to your App Service by calling the login function.
@@ -83,5 +82,6 @@ fetch(url, { headers: headers })
     });
 ```
 
-Fetch is available as an npm package or for browser download from CDNJS. You could also use 
+Fetch is available as an npm package or for browser download from CDNJS. You could also use
 jQuery or another AJAX API to fetch the information.  Data will be received as a JSON object.
+

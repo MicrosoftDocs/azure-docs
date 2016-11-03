@@ -1,24 +1,26 @@
-<properties
-    pageTitle="Using Outlook in Azure RemoteApp | Microsoft Azure" 
-    description="Learn how to configure and use Outlook in Azure RemoteApp | Microsoft Azure"
-    services="remoteapp"
-    documentationCenter=""
-    authors="pavithir"
-    manager="mbaldwin" />
+---
+title: Using Outlook in Azure RemoteApp | Microsoft Docs
+description: Learn how to configure and use Outlook in Azure RemoteApp | Microsoft Azure
+services: remoteapp
+documentationcenter: ''
+author: pavithir
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.assetid: cb2a498f-9539-4522-a874-542114926a61
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
+---
 # Using Microsoft Outlook in Azure RemoteApp
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> 
+> 
 
 Azure RemoteApp supports Microsoft Outlook O365. Read more about how [Office works in Azure RemoteApp](remoteapp-officesubscription.md). There are a few recommended settings for Outlook when used in Azure RemoteApp.
 
@@ -31,3 +33,4 @@ Read [step by step instructions on enabling cached mode](https://technet.microso
 
 ## Search
 In Azure RemoteApp, using search within Outlook has limitations. Azure RemoteApp uses pooled VMs to accommodate user sessions. Search indexing depends on the machine ID, which is different for different VMs. It is possible that every time a user logs into Azure RemoteApp, they are directed to a new VM. That would mean, if we enable local search, the indexer will run every time the machine ID changes (when the user is on a different VM). Depending on the size of the .OST file, the indexer could take a long time to complete and use up resources needed for other apps. Search would not only be slow but might not produce results. Using an Online Mode account profile would work around this, but overall performance would suffer due to the lack of a local cache (see the link above for more information about the difference between cached and online mode). Unfortunately, indexed/local search cannot be disabled and online search cannot be enabled by default in Outlook 2013.
+

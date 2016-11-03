@@ -1,125 +1,108 @@
+---
+title: Applications that use conditional access rules in Azure Active Directory | Microsoft Docs
+description: With conditional access control, Azure Active Directory checks for specific conditions when it authenticates the user, and to allow application access.
+services: active-directory
+documentationcenter: ''
+author: MarkusVi
+manager: femila
+editor: ''
 
-<properties
-	pageTitle="Conditional access- What applications are supported | Microsoft Azure"
-	description="With conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
-    services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+ms.assetid: 62349fba-3cc0-4ab5-babe-372b3389eff6
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 10/26/2016
+ms.author: markvi
 
-<tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity" 
-	ms.date="09/26/2016"
-	ms.author="markvi"/>
+---
+# Applications that use conditional access rules in Azure Active Directory
+Conditional access rules are supported in Azure Active Directory (Azure AD)-connected applications, pre-integrated federated software as a service (SaaS) applications, applications that use password single sign-on (SSO), line-of-business applications, and applications that use Azure AD Application Proxy. For a detailed list of applications for which you can use conditional access, see [Services enabled with conditional access](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). Conditional access works both with mobile and desktop applications that use modern authentication. In this article, we cover how conditional access works in mobile and desktop apps.
 
+You can use Azure AD sign-in pages in applications that use modern authentication. With a sign-in page, a user is prompted for multi-factor authentication. A message is shown if the user's access is blocked. Modern authentication is required for the device to authenticate with Azure AD, so that device-based conditional access policies are evaluated.
 
-# Conditional access support for applications
+It's important to know which applications can use conditional access rules, and the steps that you might need to take to secure other application entry points.
 
-Conditional access rules are supported across Azure Active Directory connected applications, pre-integrated federated SaaS applications, applications that use password single sign-on, and line of business applications and Azure AD Application Proxy. For a detailed list of applications where you can enable conditional access, see [Services enabled with conditional access](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). Conditional access works with mobile and desktop applications that use modern authentication. This topic explains what is supported regarding mobile and desktop version of these apps.
+## Applications that use modern authentication
+> [!NOTE]
+> If you have a conditional access policy in Azure AD that has an equivalent in Office 365, configure both conditional access policies. This would apply, for example, to conditional access policies for Exchange Online or SharePoint Online.
+> 
+> 
 
-Applications with modern authentication can display Azure AD sign in pages. This allows a user to be prompted inline for multi-factor authentication or show an end user facing message when an access is blocked. Modern authentication is also required for the device to be able to authenticate with Azure AD so device-based conditional access policies are evaluated.
+The following applications support conditional access for Office 365 and other Azure AD-connected service applications:
 
-It is important to understand which applications are supported as well as steps that may be necessary to secure other entry points.
-
-## Applications using modern authentication
-The following applications support conditional access when accessing Office 365 and other Azure AD connected service applications:
-
-| Target Service  | Platform  | Application                                                  |
-|--------------|-----------------|----------------------------------------------------------------|
-|Office 365 Exchange Online | Windows 10|Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern auth enabled), Skype for Business (with modern auth)|
-|Office 365 Exchange Online| Windows 7, Windows 8.1, |Outlook 2016, Outlook 2013 (with modern auth enabled), Skype for Business (with modern auth)|
-|Office 365 Exchange Online|iOS, Android|  Outlook mobile app|
-|Office 365 Exchange Online|Mac OSX| Outlook 2016 for MFA/location only; device-based policies support coming in the future, Skype for Business support coming in the future|
-|Office 365 SharePoint Online|Windows 10| Office 2016 apps, Office Universal apps, Office 2013 (with modern auth enabled), OneDrive for Business app (NGSC or next generation sync client) support coming in the future, Office Groups support coming in the future, SharePoint app support coming in the future|
-|Office 365 SharePoint Online|Windows 7, Windows 8.1,|Office 2016 apps, Office 2013 (with modern auth enabled), OneDrive for Business app (Groove sync client)|
-|Office 365 SharePoint Online|iOS, Android|  Office mobile apps |
-|Office 365 SharePoint Online|Mac OSX| Office 2016 apps for MFA/location only; device-based policies support coming in the future|
-|Office 365 Yammer|Windows 10, iOS and Android | Office Yammer app|
-|Dynamics CRM|Windows 10, 7, 8.1, iOS and Android | Dynamics CRM app|
-|PowerBI service|Windows 10, 7, 8.1, iOS and Android | PowerBI app|
-|Azure Remote App service|Windows 10, 7, 8.1, iOS and Android, Mac OSX |Azure Remote app|
-|Any My Apps app service|Android and iOS|Any My Apps app service |
-
+| Target service | Platform | Application |
+| --- | --- | --- |
+| Office 365 Exchange Online |Windows 10 |Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication) |
+| Office 365 Exchange Online |Windows 8.1, Windows 7 |Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication) |
+| Office 365 Exchange Online |iOS, Android |Outlook mobile app |
+| Office 365 Exchange Online |Mac OS X |Outlook 2016 for multi-factor authentication and location only; device-based policy support planned for the future, Skype for Business support planned for the future |
+| Office 365 SharePoint Online |Windows 10 |Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), OneDrive for Business app (Next Generation Sync Client, or NGSC) support planned for the future, Office Groups support planned for the future, SharePoint app support planned for the future |
+| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Office 2016 apps, Office 2013 (with modern authentication), OneDrive for Business app (Groove sync client) |
+| Office 365 SharePoint Online |iOS, Android |Office mobile apps |
+| Office 365 SharePoint Online |Mac OS X |Office 2016 apps for multi-factor authentication and location only; device-based policy support planned for the future |
+| Office 365 Yammer |Windows 10, iOS, and Android |Office Yammer app |
+| Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS, and Android |Dynamics CRM app |
+| PowerBI service |Windows 10, Windows 8.1, Windows 7, iOS, and Android |PowerBI app |
+| Azure Remote App service |Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X |Azure Remote app |
+| Any My Apps app service |Android and iOS |Any My Apps app service |
 
 ## Applications that do not use modern authentication
+Currently, you must use other methods to block access to apps that do not use modern authentication. Access rules for apps that don't use modern authentication are not enforced by conditional access. This primarily is a consideration for Exchange and SharePoint access. Most earlier versions of apps use older access control protocols.
 
-Currently, apps that do not use modern authentication must be blocked access by using other methods, because they are not enforced by conditional access. This is primarily a consideration for Exchange and SharePoint access, as previous app versions have been built using older protocols.
-
-## Office 365 SharePoint Online
-
-Legacy protocols can be disabled at SharePoint, by using the Set-SPOTenant cmdlet. This cmdlet will prevent Office clients using non-modern authentication protocols from accessing SharePoint Online resources. 
+### Control access in Office 365 SharePoint Online
+You can disable legacy protocols for SharePoint access by using the Set-SPOTenant cmdlet. Use this cmdlet to prevent Office clients that use non-modern authentication protocols from accessing SharePoint Online resources.
 
 **Example command**:
     `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
- 
-## Office 365 Exchange Online
 
-On Exchange, there are two main categories of protocol review and select the right policy for your organization:
+### Control access in Office 365 Exchange Online
+Exchange offers two main categories of protocols. Review the following options, and then select the policy that is right for your organization.
 
-1. Exchange ActiveSync. By default, conditional access policy for MFA and Location is not enforced for Exchange ActiveSync. This allows access to be protected either by configuring Exchange ActiveSync policy directly, or by blocking Exchange ActiveSync using AD FS rules.
-2. Legacy protocols. Legacy protocols can be blocked at AD FS. This will block access for older Office clients, such as Office 2013 without modern authentication enabled and earlier.
+* **Exchange ActiveSync**. By default, conditional access policies for multi-factor authentication and location are not enforced for Exchange ActiveSync. You need to protect access to these services either by configuring Exchange ActiveSync policy directly, or by blocking Exchange ActiveSync by using Active Directory Federation Services (AD FS) rules.
+* **Legacy protocols**. You can block legacy protocols with AD FS. This blocks access to older Office clients, such as Office 2013 without modern authentication enabled, and earlier versions of Office.
 
+### Use AD FS to block legacy protocol
+You can use the following example rules to block legacy protocol access at the AD FS level. Choose from two common configurations.
 
-### Example AD FS Rules
-The following rules can be used to block legacy protocol access at AD FS, in two common configurations.
+#### Option 1: Allow Exchange ActiveSync, and allow legacy apps, but only on the intranet
+By applying the following three rules to the AD FS relying party trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic, and browser and modern authentication traffic, have access. Legacy apps are blocked from the extranet.
 
-### Option 1: Allow Exchange ActiveSync and only allow legacy apps on the intranet
+##### Rule 1
+    @RuleName = “Allow all intranet traffic”
+    c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"]
+    => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-By applying the following three rules to the AD FS Relying Party Trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic will be allowed, along with browser and modern authentication traffic. Legacy apps will be blocked from the extranet. 
+##### Rule 2
+    @RuleName = “Allow Exchange ActiveSync ”
+    c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
+    => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-Rule 1
+##### Rule 3
+    @RuleName = “Allow extranet browser and browser dialog traffic”
+    c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
+    c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
+    => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-    `@RuleName = “Allow all intranet traffic”
-	c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"] 
-	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
+#### Option 2: Allow Exchange ActiveSync, and block legacy apps
+By applying the following three rules to the AD FS relying party trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic, and browser and modern authentication traffic, have access. Legacy apps are blocked from any location.
 
-Rule 2
-
-    @RuleName = “Allow EAS”
-	c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"] 
-	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
-
-Rule 3
-
-	@RuleName = “Allow Extranet browser or browser dialog traffic”
-	c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && 
-	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
-	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
-
-### Option 2: Allow Exchange ActiveSync and block legacy apps 
-By applying the following three rules to the AD FS Relying Party Trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic will be allowed, along with browser and modern authentication traffic. Legacy apps will be blocked from any location. 
-
-Rule 1
-
+##### Rule 1
     @RuleName = “Allow all intranet traffic only for browser and modern authentication clients”
-	c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"] && 
-	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
-	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
+    c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"] &&
+    c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
+    => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-Rule 2 
-
-    @RuleName = “Allow EAS”
-	c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"] 
-	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
-
-
-Rule 3 
-
-    @RuleName = “Allow Extranet browser or browser dialog traffic”
-	c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && 
-	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
-	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
+##### Rule 2
+    @RuleName = “Allow Exchange ActiveSync”
+    c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
+    => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-
-
-
-
-
-
+##### Rule 3
+    @RuleName = “Allow extranet browser and browser dialog traffic”
+    c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
+    c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
+    => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");

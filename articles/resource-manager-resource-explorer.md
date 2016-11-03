@@ -1,21 +1,22 @@
-<properties
-   pageTitle="Azure Resource Explorer | Microsoft Azure"
-   description="Describes Azure Resource Explorer and how it can be used to view and update deployments through Azure Resource Manager"
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="stuartleeks"
-   manager="ankodu"
-   editor=""/>
+---
+title: Azure Resource Explorer | Microsoft Docs
+description: Describes Azure Resource Explorer and how it can be used to view and update deployments through Azure Resource Manager
+services: azure-resource-manager
+documentationcenter: na
+author: stuartleeks
+manager: ankodu
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/01/2016"
-   ms.author="stuartle;tomfitz"/>
+ms.assetid: 950f2298-b5dd-4343-b925-8ef28493cacf
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/01/2016
+ms.author: stuartle;tomfitz
 
+---
 # Use Azure Resource Explorer to view and modify resources
 The [Azure Resource Explorer](https://resources.azure.com) is a great tool for looking at resources that you've already created in your subscription. By using this tool, you can understand how the resources are structured, and see the properties assigned to each resource. You can learn about the REST API operations and PowerShell cmdlets that are available for a resource type, and you can issue commands through the interface. Resource Explorer can be particularly helpful when you are creating Resource Manager templates because it enables you to view the properties for existing resources.
 
@@ -45,7 +46,6 @@ Exploring a database shows us the properties for that database. In the screensho
 ![sql database](./media/resource-manager-resource-explorer/are-04-database-get.png)
 
 ## Change resources
-
 Once you have navigated to a resource, you can select the Edit button to make the JSON content editable. You can then use Resource Explorer to edit the JSON and send a PUT request to change the resource. For example, the image below shows the database tier changed to `S0`:
 
 ![database - PUT request](./media/resource-manager-resource-explorer/are-05-database-put.png)
@@ -57,7 +57,6 @@ Once the request has been submitted Resource Explorer re-issues the GET request 
 ![database - GET request2](./media/resource-manager-resource-explorer/are-06-database-get2.png)
 
 ## Performing Actions on resources
-
 The **Actions** tab enables you to see and perform additional REST operations. For example, when you have selected a web site resource, the Actions tab presents a long list of available operations, some of which are shown below.
 
 ![web - POST request](./media/resource-manager-resource-explorer/are-web-post.png)
@@ -73,5 +72,4 @@ For more information on The Azure PowerShell cmdlets, see [Using Azure PowerShel
 When working with Resource Manager, the Resource Explorer can be an extremely useful tool. It is a great way to find ways to use PowerShell to query and make changes. If you're working with the REST API it is a great way to get started and quickly test API calls before you start writing code. And if you're writing templates it can be a great way to understand the resource hierarchy and find where to put configuration - you can make a change in the Portal and then find the corresponding entries in Resource Explorer!
 
 For more information, watch the [Channel 9 video with Scott Hanselman and David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo)
-
 

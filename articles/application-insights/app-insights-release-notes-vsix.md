@@ -1,26 +1,29 @@
-<properties
-	pageTitle="Release notes for Visual Studio Extension for Developer Analytics"
-	description="The latest updates for Visual Studio tools for Developer Analytics."
-	services="application-insights"
-    documentationCenter=""
-	authors="acearun"
-	manager="douge"/>
-<tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/09/2016"
-	ms.author="acearun"/>
+---
+title: Release notes for Visual Studio Extension for Developer Analytics
+description: The latest updates for Visual Studio tools for Developer Analytics.
+services: application-insights
+documentationcenter: ''
+author: acearun
+manager: douge
 
+ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 06/09/2016
+ms.author: acearun
+
+---
 # Release Notes for Developer Analytics Tools
 What's new: Application Insights and HockeyApp analytics in Visual Studio.
+
 ## Version 7.0
 ### Visual Studio Application Insights Trends
 Visual Studio Application Insights is a new tool in Visual Studio that you can use to help you analyze how your app operates over time. To get started, on the **Application Insights** toolbar button or in the Application Insights Search window, choose **Explore Telemetry Trends**. Or, on the **View** menu, click **Other Windows**, and then click **Application Insights Trends**. Choose one of five common queries to get started. You can analyze different data sets based on telemetry types, time ranges, and other properties. To find anomalies in your data, choose one of the anomaly options in the **View Type** drop-down list. The filtering options at the bottom of the window make it easy to hone in on specific subsets of your telemetry.
 
-![Application Insights Trends](./media/app-insights-release-notes-vsix/Trends.PNG)
+![Application Insights Trends](./media/app-insights-release-notes-vsix/Trends.png)
 
 ### Exceptions in CodeLens
 Exception telemetry is now displayed in CodeLens. If you've connected your project to the Application Insights service, you'll see the number of exceptions that have occurred in each method in production in the past 24 hours. From CodeLens, you can jump to Search or Trends to investigate the exceptions in more detail.
@@ -30,11 +33,11 @@ Exception telemetry is now displayed in CodeLens. If you've connected your proje
 ### ASP.NET Core support
 Application Insights now supports ASP.NET Core RC2 projects in Visual Studio. You can add Application Insights to new ASP.NET Core RC2 projects from the **New Project** dialog, as in the following screenshot. Or, you can add it to an existing project, right-click the project in Solution Explorer, and then click **Add Application Insights Telemetry**.
 
-![ASP.NET Core support](./media/app-insights-release-notes-vsix/NetCoreSupport.PNG)
+![ASP.NET Core support](./media/app-insights-release-notes-vsix/NetCoreSupport.png)
 
 ASP.NET 5 RC1 and ASP.NET Core RC2 projects also have new support in the Diagnostic Tools window. You'll see Application Insights events like requests and exceptions from your ASP.NET app while you debug locally on your PC. From each event, click **Search** to drill down for more information.
 
-![Diagnostic Tools support](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
+![Diagnostic Tools support](./media/app-insights-release-notes-vsix/DiagnosticTools.png)
 
 ### HockeyApp for Universal Windows apps
 In addition to beta distribution and user feedback, HockeyApp provides symbolicated crash reporting for your Universal Windows apps. We've made it even easier to add the HockeyApp SDK: right-click on your Universal Windows project, and then click **Hockey App - Enable Crash Analytics**. This installs the SDK, sets up crash collection, and provisions a HockeyApp resource in the cloud, all without uploading your app to the HockeyApp service.
@@ -52,6 +55,7 @@ We are happy to announce the introduction of HockeyApp scenarios in Visual Studi
 With beta distribution, you upload early versions of your apps to HockeyApp for distribution to a selected subset of customers or testers. Beta distribution, combined with HockeyApp crash collection and user feedback features, can provide you with valuable information about your app before you make a broad release. You can use this information to address issues with your app so that you can avoid or minimize future problems, such as low app ratings, negative feedback, and so on.
 
 Check out how simple it is to upload builds for beta distribution from within Visual Studio.
+
 ### Universal Windows apps
 The context menu for a Universal Windows app project node now includes an option to upload your build to HockeyApp.
 
@@ -91,6 +95,7 @@ Note a new field in this wizard, for specifying the version of the app. For Univ
 The rest of the flow is similar to Universal Windows apps: choose build and release options, add release notes, upload, and manage in the HockeyApp portal.
 
 It’s as simple as that. Give it a try and let us know what you think.
+
 ## Version 4.3
 ### Search telemetry from local debug sessions
 With this release, you can now search for Application Insights telemetry generated in the Visual Studio debug session. Before, you could use search only if you registered your app with Application Insights. Now, your app only needs to have the Application Insights SDK installed to search for local telemetry.
@@ -99,9 +104,9 @@ If you have an ASP.NET application with the Application Insights SDK, do the fol
 
 1. Debug your application.
 2. Open Application Insights Search in one of these ways:
-	- On the **View** menu, click **Other Windows**, and then click **Application Insights Search**.
-	- Click the **Application Insights** toolbar button.
-	- In Solution Explorer, expand **ApplicationInsights.config**, and then click **Search debug session telemetry**.
+   * On the **View** menu, click **Other Windows**, and then click **Application Insights Search**.
+   * Click the **Application Insights** toolbar button.
+   * In Solution Explorer, expand **ApplicationInsights.config**, and then click **Search debug session telemetry**.
 3. If you haven't signed up with Application Insights, the Search window will open in debug session telemetry mode.
 4. Click the **Search** icon to see your local telemetry.
 
@@ -109,10 +114,12 @@ If you have an ASP.NET application with the Application Insights SDK, do the fol
 
 ## Version 4.2
 In this release, we added features to make searching for data easier in the context of events, with the ability to jump to code from more data events, and an effortless experience to send your logging data to Application Insights. This extension is updated monthly. If you have feedback or feature requests, send it to aidevtools@microsoft.com.
+
 ### No-click logging experience
 If you're already using NLog, log4net, or System.Diagnostics.Tracing, you don't have to worry about moving all of your traces to Application Insights. In this release, we've integrated the Application Insights logging adapters with the normal configuration experience.
 If you already have one of these logging frameworks configured, the following section describes how to get it.
 **If you've already added Application Insights:**
+
 1. Right-click the project node, and then click **Application Insights**, and then click **Configure Application Insights**. Make sure that you see the option to add the correct adapter in the configuration window.
 2. Alternatively, when you build the solution, note the pop-up window that appears on the top right of your screen and click **Configure**.
 
@@ -167,27 +174,24 @@ A pop-up dialog box appears when the project is published online, so that you ca
 ![Publish complete notification](./media/app-insights-release-notes-vsix/publishtoast.png)
 
 ## Version 4.0
-
 ### Search Application Insights data from within Visual Studio
 Like the search function in the Application Insights portal, now in Visual Studio you can filter and search on event types, property values, and text, and then inspect individual events.
 
 ![Search window](./media/app-insights-release-notes-vsix/search.png)
 
 ### See data coming from your local computer in Diagnostic Tools
-
 You can view your telemetry, in addition to other debugging data, on the Visual Studio Diagnostic Tools page. Only ASP.NET 4.5 is supported.
 
 ![Diagnostic Tools page](./media/app-insights-release-notes-vsix/diagtools.png)
 
 ### Add the SDK to your project without signing in to Azure
-
 You no longer have to sign in to Azure to add Application Insights packages to your project, either through the **New Project** dialog or from the project context menu. If you do sign in, the SDK will be installed and configured to send telemetry to the portal as before. If you don’t sign in, the SDK will be added to your project and it will generate telemetry for the diagnostic hub. You can configure it later if you want.
 
 ![New Project dialog](./media/app-insights-release-notes-vsix/newproject.png)
 
 ### Device support
-
 At *Connect();* 2015, we [announced](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) that our mobile developer experience for devices is HockeyApp. HockeyApp helps you distribute beta builds to your testers, collect and analyze all crashes from your app, and collect feedback directly from your customers.
 HockeyApp supports your app on whichever platform you choose to build it, whether that be iOS, Android, or Windows, or a cross-platform solution like Xamarin, Cordova, or Unity.
 
 In future releases of the Application Insights extension, we’ll introduce a more integrated experience between HockeyApp and Visual Studio. For now, you can start with HockeyApp by simply adding the NuGet reference. See the [documentation](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) for more information.
+

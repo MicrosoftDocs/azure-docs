@@ -1,24 +1,27 @@
-<properties
-	pageTitle="Manage and Monitor your Connectors and API Apps in App Service | Microsoft Azure"
-	description="View performance of your Connectors and API Apps in Logic Apps; microservices architecture"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+---
+title: Manage and Monitor your Connectors and API Apps in App Service | Microsoft Docs
+description: View performance of your Connectors and API Apps in Logic Apps; microservices architecture
+services: app-service\logic
+documentationcenter: .net,nodejs,java
+author: MandiOhlinger
+manager: anneta
+editor: cgronlun
 
-<tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="mandia"/>
+ms.assetid: c8958496-bffe-426c-b1ba-7c516ada331c
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: mandia
 
+---
 # Manage and Monitor your built-in API Apps and Connectors
-
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+> [!NOTE]
+> This version of the article applies to logic apps 2014-12-01-preview schema version.
+> 
+> 
 
 You created a built-in API App. Now what?
 
@@ -31,46 +34,43 @@ To see these built-in features, open your API App in the [Azure portal](http://g
 ![][browse]
 
 ## See the properties you entered
-
 When you open the API App, there are several features and tasks available:
 
 ![][settings]
 
 You can:
 
-- **Settings** shows specific information on the API App, including your subscription details, and lists the users who have access to your API app. You can also increase or decrease the number of instances of your API App using the Scale feature; among other features.
-- Use the **Start** and **Stop** buttons to control the API App.
-- When product updates are made to the underlying files used by your API App, you can click **Update** to get the latest versions. For example, if there is a fix or a security update released by Microsoft, clicking **Update** automatically updates your API App to include this fix.
-- Select **Change Plan** to upgrade or downgrade based on the data usage of the API App. You can also use this feature to see your data usage.
-- When you create a connector that has tables, like the SQL connector, you can optionally enter a table name to connect to. A schema based on the table is automatically created and available when you click **Download Schemas**. You can then use this downloaded schema to create a transform or a map.
+* **Settings** shows specific information on the API App, including your subscription details, and lists the users who have access to your API app. You can also increase or decrease the number of instances of your API App using the Scale feature; among other features.
+* Use the **Start** and **Stop** buttons to control the API App.
+* When product updates are made to the underlying files used by your API App, you can click **Update** to get the latest versions. For example, if there is a fix or a security update released by Microsoft, clicking **Update** automatically updates your API App to include this fix.
+* Select **Change Plan** to upgrade or downgrade based on the data usage of the API App. You can also use this feature to see your data usage.
+* When you create a connector that has tables, like the SQL connector, you can optionally enter a table name to connect to. A schema based on the table is automatically created and available when you click **Download Schemas**. You can then use this downloaded schema to create a transform or a map.
 
 ## Change your connector or API configuration values you entered
-
 After you configured or created your built-connector, you can change the values you entered. For example, if you configured the SQL Connector and you want to change the SQL Server name or table name, you can do this in the API App blade for your connector.
 
 Steps include:
 
 1. Open your connector or API App. When you do, the API App blade opens.
 2. In **Essentials**, click the hyperlink under the Host property. The hyperlink is named something like *slackconnector* or *microsoftsqlconnector123*:
-
-	![][apiapphost]
-
+   
+    ![][apiapphost]
 3. In the API App Host blade, select **Settings**. In the Settings blade, select **Application Settings**. Your configuration values are listed under **App Settings**:
-
-	![][hostsettings]
-
+   
+    ![][hostsettings]
 4. Click the setting you want to change, enter the new value, and **Save** your changes.
 
-
 ## Install the Hybrid Connection Manager - Optional
-
 ![][hcsetup]
 
 The Hybrid Connection Manager gives you the ability to connect to an on-premises system, like SQL Server or SAP. This hybrid connectivity uses Azure Service Bus to connect and to control the security between your Azure resources and your on-premises resources.
 
 See [Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md).
 
-> [AZURE.NOTE] Hybrid Connection Manager is required only if you are connecting to an on-premises resource behind your firewall. If you are not connecting to an on-premises system,  the Hybrid Connection Manager may not be listed in your connector blade.
+> [!NOTE]
+> Hybrid Connection Manager is required only if you are connecting to an on-premises resource behind your firewall. If you are not connecting to an on-premises system,  the Hybrid Connection Manager may not be listed in your connector blade.
+> 
+> 
 
 ## Monitor the performance
 Performance metrics are built-in features and included with every API App you create. These metrics are specific to your API App hosted in Azure. Sample metrics:
@@ -79,22 +79,21 @@ Performance metrics are built-in features and included with every API App you cr
 
 You can:
 
-- Select **Requests and errors** to add different performance metrics including commonly-known HTTP error codes, like 200, 400, or 500 HTTP status codes. You can also see response times,  see how many requests are made to the API App, and see how much data comes in and how much data goes out. Based on the performance metrics, you can create email Alerts if a metric exceeds a threshold of your choosing.
-- In **Usage**, you can see how much **CPU** is used by the API App, review the current **Usage Quota** in MB, and see your maximum data usage based on your cost tier. **Estimated spend**  can help you determine the potential costs of running your API App.
-- Select **Processes** to open Process Explorer. This shows your web instances and their properties, including thread count and memory usage.
+* Select **Requests and errors** to add different performance metrics including commonly-known HTTP error codes, like 200, 400, or 500 HTTP status codes. You can also see response times,  see how many requests are made to the API App, and see how much data comes in and how much data goes out. Based on the performance metrics, you can create email Alerts if a metric exceeds a threshold of your choosing.
+* In **Usage**, you can see how much **CPU** is used by the API App, review the current **Usage Quota** in MB, and see your maximum data usage based on your cost tier. **Estimated spend**  can help you determine the potential costs of running your API App.
+* Select **Processes** to open Process Explorer. This shows your web instances and their properties, including thread count and memory usage.
 
 Using these tools, you can determine if the App Service Plan should be scaled up or scaled down, based on your business needs. These features are built-in to the portal with no additional tools required.
 
 ## Control the security
-
 API Apps use role-based security. These roles apply to the entire Azure experience, including API Apps and other Azure resources. The roles include:
 
-Role | Description
---- | ---
-Owner | Have full access to the management experience and can give access to other users or groups.
-Contributor | Have full access to the management experience. Cannot give access to other users or groups.
-Reader | Can view all resources except secrets.
-User Access Administrator | Can view all resources, create/manage roles, and create/manage support tickets.
+| Role | Description |
+| --- | --- |
+| Owner |Have full access to the management experience and can give access to other users or groups. |
+| Contributor |Have full access to the management experience. Cannot give access to other users or groups. |
+| Reader |Can view all resources except secrets. |
+| User Access Administrator |Can view all resources, create/manage roles, and create/manage support tickets. |
 
 See [Role-based access control in the Microsoft Azure portal](../active-directory/role-based-access-control-configure.md).
 
@@ -102,30 +101,30 @@ You can easily add users and assign them specific roles to your API App. The por
 
 ![][access]  
 
-- Select **Users** to add a user, assign a role, and remove a user.
-- Select **Roles** to see all the users in a specific role, add a user to a role, and remove a user from a role.
-
+* Select **Users** to add a user, assign a role, and remove a user.
+* Select **Roles** to see all the users in a specific role, add a user to a role, and remove a user from a role.
 
 ## More Good Stuff
-- Select **API definition** to open the automatically-created Swagger file for your specific API app.
-- Select **Dependencies** to view the files required by your API App. For example, if you're using the SAP connector, you install some additional files on the on-premises Hybrid Connection Manager. These dependencies are shown in your API app blade.
+* Select **API definition** to open the automatically-created Swagger file for your specific API app.
+* Select **Dependencies** to view the files required by your API App. For example, if you're using the SAP connector, you install some additional files on the on-premises Hybrid Connection Manager. These dependencies are shown in your API app blade.
 
->[AZURE.IMPORTANT] When you open your API app properties and look under **Essentials**, there are **Host** and **Gateway** links that open new blades:
->
+> [!IMPORTANT]
+> When you open your API app properties and look under **Essentials**, there are **Host** and **Gateway** links that open new blades:
+> 
 > ![][host]
->
->These properties are specific to the website that hosts your API App. When using a built-in API App or connector, most of these properties don't really apply and we recommend that you  don't update these properties. If you created your own API App in Visual Studio and deployed it to your Azure subscription, then you can use the Host and Gateway blades. <br/><br/>
-
-
->[AZURE.NOTE] To get started with Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can create a short-lived starter logic app. No credit cards required and no commitments.
+> 
+> These properties are specific to the website that hosts your API App. When using a built-in API App or connector, most of these properties don't really apply and we recommend that you  don't update these properties. If you created your own API App in Visual Studio and deployed it to your Azure subscription, then you can use the Host and Gateway blades. <br/><br/>
+> 
+> [!NOTE]
+> To get started with Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can create a short-lived starter logic app. No credit cards required and no commitments.
+> 
+> 
 
 ## Read More
-
 [Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md)<br/>
 [Connectors and API Apps List in App Service](app-service-logic-connectors-list.md)<br/>
 [Role-based access control in the Microsoft Azure portal](../active-directory/role-based-access-control-configure.md)<br/>
 [Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md)
-
 
 <!--Image references-->
 [browse]: ./media/app-service-logic-monitor-your-connectors/browse.png

@@ -1,48 +1,48 @@
-<properties
-   pageTitle="Azure Active Directory v2.0 libraries | Microsoft Azure"
-   description="Provides a list of all compatible client libraries and server middleware libraries, along with related library/source/samples links, for the Azure Active Directory v2.0 endpoint."
-   services="active-directory"
-   documentationCenter=""
-   authors="skwan"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Azure Active Directory v2.0 authentication libraries | Microsoft Docs
+description: Compatible client libraries and server middleware libraries, and related library, source, and samples links, for the Azure Active Directory v2.0 endpoint.
+services: active-directory
+documentationcenter: ''
+author: skwan
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/30/2016"
-   ms.author="skwan;bryanla"/>
+ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/30/2016
+ms.author: skwan;bryanla
 
+---
+# Azure Active Directory v2.0 authentication libraries
+The Azure Active Directory (Azure AD) v2.0 endpoint supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. You can use various libraries from Microsoft and other organizations with the v2.0 endpoint.
 
-# Azure Active Directory (AD) v2.0 and authentication libraries
-The Azure AD v2.0 endpoint supports the industry standard OAuth 2.0 and OpenID Connect 1.0 protocols.  A variety of libraries from Microsoft and from others can be used with the v2.0 endpoint.
-
-When building an application that uses the v2.0 endpoint, we recommend you use libraries written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology, [such as the one followed by Microsoft][Microsoft-SDL].  If you decide to hand-code support for the protocols, we recommend you follow SDL and carefully observe the security considerations found in the standards specifications for each of the protocols.
+When you build an application that uses the v2.0 endpoint, we recommend that you use libraries that are written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology, like [the one followed by Microsoft][Microsoft-SDL]. If you decide to hand-code support for the protocols, we recommend you follow SDL methodology and pay close attention to the security considerations in the standards specifications for each protocol.
 
 ## Types of libraries
-There are two kinds of libraries that work with v2.0: 
+Azure AD v2.0 works with two types of libraries:
 
-- **Client libraries**:  Client libraries are used on native clients and on servers to obtain access tokens for calling a resource, such as the Microsoft Graph.
-- **Server middleware libraries**:  Server middleware libraries are used by web applications to sign a user in, and by web APIs to validate tokens that are sent by native clients or other servers.
+* **Client libraries**. Native clients and servers use client libraries to get access tokens for calling a resource, such as Microsoft Graph.
+* **Server middleware libraries**. Web apps use server middleware libraries for user sign-in. Web APIs use server middleware libraries to validate tokens that are sent by native clients or by other servers.
 
 ## Library support
-Since you can choose any standards-compliant library when using the v2.0 endpoint, it’s important to know where to go for support.  Issues and feature requests in library code go to the library owner. Issues and feature requests in the service-side protocol implementation go to Microsoft.
+Because you can choose any standards-compliant library when you use the v2.0 endpoint, it’s important to know where to go for support. For issues and feature requests in library code, contact the library owner. For issues and feature requests in the service-side protocol implementation, contact Microsoft.
 
 Libraries come in two support categories:
 
-- **Microsoft supported**:  Microsoft provides fixes for these libraries.  Microsoft has done Security Development Lifecycle due diligence on these libraries. 
-- **Compatible**:  Microsoft has tested a set of libraries in basic scenarios and confirmed they work with the v2.0 endpoint.  Microsoft does not provide fixes for these libraries and has not done a review of these libraries.  Issues and feature requests should be directed to the library’s open source project.
+* **Microsoft-supported**. Microsoft provides fixes for these libraries, and has done SDL due diligence on these libraries.
+* **Compatible**. Microsoft has tested these libraries in basic scenarios and confirmed that they work with the v2.0 endpoint. Microsoft does not provide fixes for these libraries and has not done a review of these libraries. Issues and feature requests should be directed to the library’s open-source project.
 
-For a list of libraries that work with the v2.0 endpoint, see the following sections. 
+For a list of libraries that work with the v2.0 endpoint, see the next sections in this article.
 
-## Microsoft supported client libraries
-| Platform| Library Name| Download | Source code | Sample |
-| :-: | :-: | :-: | :-: | :-: |
-| .NET, Windows Store, Xamarin | Microsoft Authentication Library (MSAL) for .NET | [Microsoft.Identity.Client (NuGet)][ClientLib-NET-Lib] | [MSAL for .NET (GitHub)][ClientLib-NET-Repo] | [Windows desktop native client sample][ClientLib-NET-Sample] |
-| Node.js | Microsoft Azure Active Directory Passport.js Plug-In | [Passport-Azure-AD (npm)][ClientLib-Node-Lib] | [Passport-Azure-AD (GitHub)][ClientLib-Node-Repo] | Coming soon |
+## Microsoft-supported client libraries
+| Platform | Library name | Download | Source code | Sample |
+|:---:|:---:|:---:|:---:|:---:|
+| .NET, Windows Store, Xamarin |Microsoft Authentication Library (MSAL) for .NET |[Microsoft.Identity.Client (NuGet)][ClientLib-NET-Lib] |[MSAL for .NET (GitHub)][ClientLib-NET-Repo] |[Windows desktop native client sample][ClientLib-NET-Sample] |
+| Node.js |Microsoft Azure Active Directory Passport.js Plug-In |[Passport-Azure-AD (npm)][ClientLib-Node-Lib] |[Passport-Azure-AD (GitHub)][ClientLib-Node-Repo] |Coming soon |
 
 <!--- COMMENTING OUT UNTIL THEY ARE READY
 | iOS, Mac | Microsoft Authentication Library (MSAL) for ObjC | In development | In development | In development |
@@ -50,25 +50,27 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 | JavaScript | Microsoft Authentication Library (MSAL) for JavaScript | In development | In development | In development |
  -->
 
-## Microsoft supported server middleware libraries
-| Platform| Library Name| Download | Source code | Sample |
-| :-: | :-: | :-: | :-: | :-: |
-| .NET 4.x | OWIN OpenID Connect Middleware for ASP.NET | [Microsoft.Owin.Security.OpenIdConnect (NuGet)][ServerLib-Net4-Owin-Oidc-Lib] | [Katana Project (CodePlex)][ServerLib-Net4-Owin-Oidc-Repo] | [Web app sample][ServerLib-Net4-Owin-Oidc-Sample] |
-| .NET 4.x | OWIN OAuth Bearer Middleware for ASP.Net | [Microsoft.Owin.Security.OAuth (NuGet)][ServerLib-Net4-Owin-Oauth-Lib] | [Katana Project (CodePlex)][ServerLib-Net4-Owin-Oauth-Repo] | [Web API sample][ServerLib-Net4-Owin-Oauth-Sample] |
-| .NET Core | OWIN OpenID Connect Middleware for .Net Core | [Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] | [ASP.Net Security (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] | [Web app sample][ServerLib-NetCore-Owin-Oidc-Sample] |
-| .NET Core | OWIN OAuth Bearer Middleware for .Net Core | [Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] | [ASP.Net Security (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] | Coming soon |
-| Node.js | Microsoft Azure Active Directory Passport.js Plug-In | [Passport-Azure-AD (npm)][ServerLib-Node-Lib] | [Passport-Azure-AD (GitHub)][ServerLib-Node-Repo] | [Web app sample][ServerLib-Node-Sample] |
+## Microsoft-supported server middleware libraries
+| Platform | Library name | Download | Source code | Sample |
+|:---:|:---:|:---:|:---:|:---:|
+| .NET 4.x |OWIN OpenID Connect Middleware for ASP.NET |[Microsoft.Owin.Security.OpenIdConnect (NuGet)][ServerLib-Net4-Owin-Oidc-Lib] |[Katana Project (CodePlex)][ServerLib-Net4-Owin-Oidc-Repo] |[Web app sample][ServerLib-Net4-Owin-Oidc-Sample] |
+| .NET 4.x |OWIN OAuth Bearer Middleware for ASP.NET |[Microsoft.Owin.Security.OAuth (NuGet)][ServerLib-Net4-Owin-Oauth-Lib] |[Katana Project (CodePlex)][ServerLib-Net4-Owin-Oauth-Repo] |[Web API sample][ServerLib-Net4-Owin-Oauth-Sample] |
+| .NET Core |OWIN OpenID Connect Middleware for .NET Core |[Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] |[ASP.NET Security (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] |[Web app sample][ServerLib-NetCore-Owin-Oidc-Sample] |
+| .NET Core |OWIN OAuth Bearer Middleware for .NET Core |[Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] |[ASP.NET Security (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] |Coming soon |
+| Node.js |Microsoft Azure Active Directory Passport.js plug-in |[Passport-Azure-AD (npm)][ServerLib-Node-Lib] |[Passport-Azure-AD (GitHub)][ServerLib-Node-Repo] |[Web app sample][ServerLib-Node-Sample] |
+
 <!--- COMMENTING UNTIL SAMPLE IS AVAILABLE
-| .NET 4.x, .NET Core | JSON Web Token Handler for .Net | [System.IdentityModel.Tokens.Jwt (NuGet)][ServerLib-Net-Jwt-Lib] | [Azure AD identity model extensions for .Net (GitHub)][ServerLib-Net-Jwt-Repo] | Coming soon |
+| .NET 4.x, .NET Core | JSON Web Token Handler for .NET | [System.IdentityModel.Tokens.Jwt (NuGet)][ServerLib-Net-Jwt-Lib] | [Azure AD identity model extensions for .NET (GitHub)][ServerLib-Net-Jwt-Repo] | Coming soon |
 --->
 ## Compatible client libraries
-| Platform| Name | Tested Version | Source code | Sample |
-| :-: | :-: | :-: | :-: | :-: |
-| Android | [OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) | 0.2.1 | [OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) | [Native app sample](active-directory-v2-devquickstarts-android.md) |
-| iOS | [NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) | 1.2.8 | [NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) | [Native app sample](active-directory-v2-devquickstarts-ios.md)|
-| JavaScript | [Hello.js](https://adodson.com/hello.js/) | 1.13.5 | [Hello.js](https://github.com/MrSwitch/hello.js) | Coming soon |
-| Python - Flask | [Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) | 0.9.3 | [Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) | Coming soon |
-| Ruby | [OmniAuth](https://github.com/omniauth/omniauth/wiki) | omniauth:1.3.1</br>omniauth-oauth2:1.4.0 | [OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) | Coming soon |
+| Platform | Library name | Tested version | Source code | Sample |
+|:---:|:---:|:---:|:---:|:---:|
+| Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Native app sample](active-directory-v2-devquickstarts-android.md) |
+| iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Native app sample](active-directory-v2-devquickstarts-ios.md) |
+| JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |Coming soon |
+| Python-Flask |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |Coming soon |
+| Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |Coming soon |
+
 <!--- REMOVING BRANDON'S FOR NOW
 |  |  |  |  |  |
 | Android | [OAuth2 Client](https://github.com/wuman/android-oauth-client) |   | [OAuth2 Client](https://github.com/wuman/android-oauth-client)  | Coming soon  |
@@ -78,14 +80,13 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 | PHP | [OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP) |   | [OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)  | Coming soon  |
 -->
 
-## Compatible server middleware libraries 
+## Compatible server middleware libraries
 Coming soon
 
-
 ## Related content
-See the [Azure AD App Model v2 Overview][AAD-App-Model-V2-Overview] for more information on the Azure AD v2.0 endpoint. 
+For more information about the Azure AD v2.0 endpoint, see the [Azure AD app model v2.0 overview][AAD-App-Model-V2-Overview].
 
-Please use the following Disqus comments section to provide feedback and help us refine and shape our content.
+To help us refine and shape our content, please use the Disqus comments feature at the end of this article to provide feedback.
 
 <!--Image references-->
 
@@ -106,6 +107,7 @@ Please use the following Disqus comments section to provide feedback and help us
 [ClientLib-Js-Lib]:
 [ClientLib-Js-Repo]:
 [ClientLib-Js-Sample]:
+
 [Microsoft-SDL]: http://www.microsoft.com/sdl/default.aspx
 [ServerLib-Net4-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/
 [ServerLib-Net4-Owin-Oidc-Repo]: http://katanaproject.codeplex.com/
@@ -125,4 +127,3 @@ Please use the following Disqus comments section to provide feedback and help us
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
 [ServerLib-Node-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-node-web/
-
