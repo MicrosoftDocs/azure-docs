@@ -23,7 +23,6 @@
   "branches_to_filter": [],
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
-  "enable_incremental_build": true,
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
