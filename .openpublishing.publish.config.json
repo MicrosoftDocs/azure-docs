@@ -14,9 +14,9 @@
         "Conceptual": "Content",
         "ManagedReference": "Content",
         "RestApi": "Content"
-      },
+    },
       "build_entry_point": "docs",
-      "template_folder": "_themes"
+      "template_folder": "_themes",
       "customized_template_paths" :  ["_plugins/CustomRules"]
     }
   ],
@@ -31,7 +31,7 @@
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "master",
       "branch_mapping": {}
-    }
+    },
     {
       "path_to_root": "_plugins",
       "url": "https://github.com/Microsoft/csi-custom-validation-rules",
