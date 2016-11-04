@@ -1,4 +1,4 @@
----
+﻿---
 title: The Azure AD v2.0 endpoint | Microsoft Docs
 description: An comparison between the original Azure AD and the v2.0 endpoints.
 services: active-directory

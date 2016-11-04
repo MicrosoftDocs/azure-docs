@@ -1,4 +1,4 @@
----
+﻿---
 title: Considerations for using Oracle VM images | Microsoft Docs
 description: Learn about supported configurations and limitations for an Oracle VM on Windows Server in Azure before you deploy.
 services: virtual-machines-windows

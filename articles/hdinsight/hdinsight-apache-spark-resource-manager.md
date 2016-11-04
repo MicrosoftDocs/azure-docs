@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Resource Manager to allocate resources to the Apache Spark cluster in HDInsight| Microsoft Docs
 description: Learn how to use the Resource Manager for Spark clusters on HDInsight for better performance.
 services: hdinsight

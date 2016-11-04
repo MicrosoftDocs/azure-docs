@@ -1,4 +1,4 @@
----
+﻿---
 title: Autoscale HPC Pack cluster nodes | Microsoft Docs
 description: Automatically grow and shrink the number of HPC Pack cluster compute nodes in Azure
 services: virtual-machines-windows

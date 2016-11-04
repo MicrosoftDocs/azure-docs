@@ -1,4 +1,4 @@
----
+﻿---
 title: Introduction to Stream Analytics Window functions | Microsoft Docs
 description: Learn about the three Window functions in Stream Analytics (tumbling, hopping, sliding).
 keywords: tumbling window, sliding window, hopping window

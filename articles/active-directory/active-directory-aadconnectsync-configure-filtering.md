@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync: Configure filtering | Microsoft Docs'
 description: Explains how to configure filtering in Azure AD Connect sync.
 services: active-directory

@@ -1,4 +1,4 @@
----
+﻿---
 title: Desired State Configuration Resource Manager Template | Microsoft Docs
 description: Resource Manager Template definition for Desired State Configuration in Azure with examples and troubleshooting
 services: virtual-machines-windows

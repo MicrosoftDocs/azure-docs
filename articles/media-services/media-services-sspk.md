@@ -1,4 +1,4 @@
----
+﻿---
 title: Licensing Microsoft® Smooth Streaming Client Porting Kit
 description: Learn about how to licensing the Microsoft® Smooth Streaming Client Porting Kit.
 services: media-services

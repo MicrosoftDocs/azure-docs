@@ -1,4 +1,4 @@
----
+﻿---
 title: What is Microsoft Azure Active Directory licensing? | Microsoft Docs
 description: Description of Microsoft Azure Active Directory licensing, how it works, how to get started, and best practices, including Office 365, Microsoft Intune, and Azure Active Directory Premium and Basic editions
 services: active-directory

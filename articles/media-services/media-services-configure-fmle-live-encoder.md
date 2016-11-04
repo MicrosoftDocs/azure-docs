@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure the FMLE encoder to send a single bitrate live stream | Microsoft Docs
 description: This topic shows how to configure the Flash Media Live Encoder (FMLE) encoder to send a single bitrate stream to AMS channels that are enabled for live encoding.
 services: media-services

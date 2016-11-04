@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect Azure virtual machines to Log Analytics  | Microsoft Docs
 description: For Windows and Linux virtual machines running in Azure, the recommended way of collected logs and metrics is by installing the Log Analytics Azure VM extension. You can use the Azure portal or PowerShell to install the Log Analytics virtual machine extension onto Azure VMs.
 services: log-analytics

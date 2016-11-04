@@ -1,4 +1,4 @@
----
+﻿---
 title: Query examples for common usage patterns in Stream Analytics | Microsoft Docs
 description: 'Common Azure Stream Analytics Query Patterns '
 keywords: query examples

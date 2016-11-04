@@ -1,4 +1,4 @@
----
+﻿---
 title: Stretch Database overview | Microsoft Docs
 description: Learn how Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud.
 services: sql-server-stretch-database

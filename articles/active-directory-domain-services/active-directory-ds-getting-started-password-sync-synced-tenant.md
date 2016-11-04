@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Domain Services: Enable password synchronization | Microsoft Docs'
 description: Getting started with Azure Active Directory Domain Services
 services: active-directory-ds

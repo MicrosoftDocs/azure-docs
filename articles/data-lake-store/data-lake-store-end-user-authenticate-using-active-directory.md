@@ -1,4 +1,4 @@
----
+﻿---
 title: Authenticate with Data Lake Store using Active Directory | Microsoft Docs
 description: Learn how to authenticate with Data Lake Store using Active Directory
 services: data-lake-store

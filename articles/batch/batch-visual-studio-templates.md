@@ -1,4 +1,4 @@
----
+﻿---
 title: Visual Studio templates for Azure Batch | Microsoft Docs
 description: Learn how these Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch
 services: batch

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory hybrid identity design considerations - determine identity requirements | Microsoft Docs
 description: Identify the company’s business needs that will lead you to define the requirements for the hybrid identity design.
 documentationcenter: ''

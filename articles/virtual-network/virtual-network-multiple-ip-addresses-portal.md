@@ -1,4 +1,4 @@
----
+﻿---
 title: Multiple IP addresses for virtual machines - Portal | Microsoft Docs
 description: Learn how to assign multiple IP addresses to a virtual machine using the Azure Portal.
 services: virtual-network

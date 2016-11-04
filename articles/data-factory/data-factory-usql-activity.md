@@ -1,4 +1,4 @@
----
+﻿---
 title: Run U-SQL script on Azure Data Lake Analytics from Azure Data Factory
 description: Learn how to process data by running U-SQL scripts on Azure Data Lake Analytics compute service.
 services: data-factory

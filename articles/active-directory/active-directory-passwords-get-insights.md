@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Get Insights: Azure AD Password Management Reports | Microsoft Docs'
 description: This article describes how to use reports to get insight into Password Management operations in your organization.
 services: active-directory

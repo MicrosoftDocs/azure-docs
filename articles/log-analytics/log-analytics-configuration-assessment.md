@@ -1,4 +1,4 @@
----
+﻿---
 title: Configuration Assessment solution in Log Analytics | Microsoft Docs
 description: The Configuration Assessment solution in Log Analytics provides you with detailed information about the current state of your System Center Operations Manager server infrastructure when using Operations Manager agents or an Operations Manager management group.
 services: log-analytics

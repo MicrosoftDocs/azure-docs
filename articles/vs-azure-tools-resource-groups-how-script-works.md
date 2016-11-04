@@ -1,4 +1,4 @@
----
+﻿---
 title: Overview of the Azure Resource Group project deployment script  | Microsoft Docs
 description: Describes how the PowerShell script in the Azure Resource Group deployment project works.
 services: visual-studio-online

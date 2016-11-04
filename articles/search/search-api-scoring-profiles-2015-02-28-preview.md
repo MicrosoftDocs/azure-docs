@@ -1,4 +1,4 @@
----
+﻿---
 title: Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Docs
 description: Azure Search is a hosted cloud search service that supports tuning of ranked results based on user-defined scoring profiles.
 services: search

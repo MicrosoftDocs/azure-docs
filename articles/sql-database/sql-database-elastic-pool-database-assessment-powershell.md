@@ -1,4 +1,4 @@
----
+﻿---
 title: Powershell script to identify single databases suitable for a pool | Microsoft Docs
 description: An elastic database pool is a collection of available resources that are shared by a group of elastic databases. This document provides a Powershell script to help assess the suitability of using an elastic database pool for a group of databases.
 services: sql-database

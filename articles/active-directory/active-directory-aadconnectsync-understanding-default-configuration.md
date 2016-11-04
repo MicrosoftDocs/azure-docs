@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync: Understanding the default configuration | Microsoft Docs'
 description: This article describes the default configuration in Azure AD Connect sync.
 services: active-directory

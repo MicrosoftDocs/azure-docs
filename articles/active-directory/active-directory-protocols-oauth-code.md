@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD .NET Protocol Overview | Microsoft Docs
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OAuth 2.0.
 services: active-directory

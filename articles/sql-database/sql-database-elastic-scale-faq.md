@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SQL Elastic Scale FAQ | Microsoft Docs
 description: Frequently Asked Questions about Azure SQL Database Elastic Scale.
 services: sql-database

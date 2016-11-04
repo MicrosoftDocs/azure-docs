@@ -1,4 +1,4 @@
----
+﻿---
 title: Understanding DNS in Azure Stack TP2 | Microsoft Docs
 description: Understanding new DNS features and capabilities in Azure Stack TP2
 services: azure-stack

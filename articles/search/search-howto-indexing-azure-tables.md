@@ -1,4 +1,4 @@
----
+﻿---
 title: Indexing Azure Table Storage with Azure Search
 description: Learn how to index data stored in Azure Tables with Azure Search
 services: search

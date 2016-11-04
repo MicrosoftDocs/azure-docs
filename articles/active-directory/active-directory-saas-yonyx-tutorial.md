@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Yonyx Interactive Guides | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Yonyx Interactive Guides.
 services: active-directory

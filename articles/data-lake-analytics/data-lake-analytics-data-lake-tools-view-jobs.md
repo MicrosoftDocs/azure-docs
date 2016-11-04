@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Job Browser and Job View for Azure Data Lake Analytics jobs | Microsoft Docs
 description: 'Learn how to use Job Browser and Job View for Azure Data Lake Analytics jobs. '
 services: data-lake-analytics

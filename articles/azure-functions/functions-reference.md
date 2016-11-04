@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Functions developer reference | Microsoft Docs
 description: Understand Azure Functions concepts and components that are common to all languages and bindings.
 services: functions

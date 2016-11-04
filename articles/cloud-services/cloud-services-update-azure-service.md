@@ -1,4 +1,4 @@
----
+﻿---
 title: How to update a cloud service | Microsoft Docs
 description: Learn how to update cloud services in Azure. Learn how an update on a cloud service proceeds to ensure availability.
 services: cloud-services

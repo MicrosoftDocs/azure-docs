@@ -1,4 +1,4 @@
----
+﻿---
 title: StorSimple virtual device Update 2| Microsoft Docs
 description: Learn how to create, deploy, and manage a StorSimple virtual device in a Microsoft Azure virtual network. (Applies to StorSimple Update 2).
 services: storsimple

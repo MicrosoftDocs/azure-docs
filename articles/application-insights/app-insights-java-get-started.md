@@ -1,4 +1,4 @@
----
+﻿---
 title: Java web app analytics with Application Insights | Microsoft Docs
 description: 'Monitor performance and usage of your Java website with Application Insights. '
 services: application-insights

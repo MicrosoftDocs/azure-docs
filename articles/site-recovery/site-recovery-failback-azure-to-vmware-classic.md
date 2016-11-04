@@ -1,4 +1,4 @@
----
+﻿---
 title: Fail back VMware virtual machines and physical servers to the on-premises site | Microsoft Docs
 description: Learn about failing back to the on-premises site after failover of VMware VMs and physical servers to Azure.
 services: site-recovery

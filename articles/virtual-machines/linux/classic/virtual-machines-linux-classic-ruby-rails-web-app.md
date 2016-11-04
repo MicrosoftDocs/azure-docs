@@ -8,7 +8,7 @@ manager: erikre
 editor: ''
 tags: azure-service-management
 
-ms.assetid:aad32685-3550-4bff-9c73-beb8d70b3291
+ms.assetid: aad32685-3550-4bff-9c73-beb8d70b3291
 ms.service: virtual-machines-linux
 ms.workload: web
 ms.tgt_pltfrm: vm-linux

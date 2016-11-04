@@ -1,4 +1,4 @@
----
+﻿---
 title: Best Practices for Azure App Service
 description: Learn best practices and troubleshooting for Azure App Service.
 services: app-service

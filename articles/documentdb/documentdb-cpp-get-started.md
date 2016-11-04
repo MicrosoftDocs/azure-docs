@@ -1,4 +1,4 @@
----
+﻿---
 title: NoSQL C++ tutorial for DocumentDB | Microsoft Docs
 description: A NoSQL C++ tutorial that creates a C++ database and console application using a DocumentDB endorsed SDK for C++. DocumentDB is a planet-scale NoSQL database service.
 services: documentdb

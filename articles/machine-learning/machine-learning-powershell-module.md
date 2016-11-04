@@ -1,4 +1,4 @@
----
+﻿---
 title: PowerShell module for Machine Learning | Microsoft Docs
 description: The PowerShell module for Azure Machine Learning is available in public preview mode. Use PowerShell to create and manage workspaces, experiments, web services, and more.
 keywords: experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment

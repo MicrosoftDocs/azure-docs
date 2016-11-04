@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Cimpl | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Cimpl.
 services: active-directory

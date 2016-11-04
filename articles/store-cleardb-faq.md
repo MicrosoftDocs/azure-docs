@@ -1,4 +1,4 @@
----
+﻿---
 title: FAQ for ClearDB MySql databases with Azure App Service | Microsoft Docs
 description: Answers to common questions about using ClearDB MySQL databases with Azure App Service.
 documentationcenter: php

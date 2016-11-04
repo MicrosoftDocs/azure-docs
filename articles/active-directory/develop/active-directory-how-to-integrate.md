@@ -7,7 +7,7 @@ author: bryanla
 manager: mbaldwin
 editor: ''
 
-ms.assetid:d13bba54-96bd-4b81-bee9-c8025ffa1648
+ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Domain Services: Compare Azure AD Domain Services to DIY domain controllers | Microsoft Docs'
 description: Comparing Azure Active Directory Domain Services to DIY domain controllers
 services: active-directory-ds

@@ -1,4 +1,4 @@
----
+﻿---
 title: Changes to the Azure AD v2.0 endpoint | Microsoft Docs
 description: A description of changes that are being made to the app model v2.0 public preview protocols.
 services: active-directory

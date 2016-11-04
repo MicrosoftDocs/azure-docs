@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a WordPress web app in Azure App Service | Microsoft Docs
 description: Learn how to create a new Azure web app for a WordPress blog using the Azure Portal.
 services: app-service\web

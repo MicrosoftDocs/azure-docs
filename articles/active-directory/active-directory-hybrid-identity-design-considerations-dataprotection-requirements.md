@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory hybrid identity design considerations - determine data protection requirements | Microsoft Docs
 description: When planning your hybrid identity solution, identify the data protection requirements for your business and which options are available to best fulfil these requirements.
 documentationcenter: ''

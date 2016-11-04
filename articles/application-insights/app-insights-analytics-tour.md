@@ -1,4 +1,4 @@
----
+﻿---
 title: A tour through Analytics in Application Insights | Microsoft Docs
 description: Short samples of all the main queries in Analytics, the powerful search tool of Application Insights.
 services: application-insights

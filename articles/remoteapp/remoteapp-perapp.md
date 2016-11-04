@@ -1,4 +1,4 @@
----
+﻿---
 title: Publish applications to individual users in an Azure RemoteApp collection (Preview) | Microsoft Docs
 description: Learn how you can publish apps to individual users, instead of depending on groups, in Azure RemoteApp.
 services: remoteapp-preview

@@ -1,4 +1,4 @@
----
+﻿---
 title: Learn what is Hive and how to use HiveQL | Microsoft Docs
 description: Learn about Apache Hive and how to use it with Hadoop in HDInsight. Choose how to run your Hive job, and use HiveQL to analyze a sample Apache log4j file.
 keywords: hiveql,what is hive

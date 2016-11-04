@@ -1,4 +1,4 @@
----
+﻿---
 title: Patterns for Resource Manager templates | Microsoft Docs
 description: Show design patterns for Azure Resource Manager templates
 services: azure-resource-manager

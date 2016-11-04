@@ -1,4 +1,4 @@
----
+﻿---
 title: Using U-SQL window functions for Azure Data Lake Aanlytics jobs | Microsoft Docs
 description: 'Learn how to use U-SQL window functions. '
 services: data-lake-analytics

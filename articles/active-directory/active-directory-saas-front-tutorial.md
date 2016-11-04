@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Front | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Front.
 services: active-directory

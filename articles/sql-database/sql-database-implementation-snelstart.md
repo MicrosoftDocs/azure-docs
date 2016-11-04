@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SQL Database Azure Case Study - Snelstart | Microsoft Docs
 description: Learn about how SnelStart uses SQL Database to rapidly expanded its business services at a rate of 1,000 new Azure SQL Databases per month
 services: sql-database

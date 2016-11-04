@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a Trading Partner Agreement in Azure App Service | Microsoft Docs
 description: Create Trading Partner Agreements
 services: logic-apps

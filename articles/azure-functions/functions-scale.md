@@ -1,4 +1,4 @@
----
+﻿---
 title: How to scale Azure Functions | Microsoft Docs
 description: Understand how Azure Functions scale to meet the needs of your event-driven workloads.
 services: functions
