@@ -1,12 +1,14 @@
 # Install and set up tools for authoring in GitHub
+
 Follow the steps in this article to set up tools for contributing to the Azure technical documentation. Casual and occasional contributors probably can use the GitHub UI described in step 2.
 
-If you're unfamiliar with Git, you might want to review some Git terminology: [https://help.github.com/articles/github-glossary](https://help.github.com/articles/github-glossary). In addition, this StackOverflow thread contains a glossary of Git terms you'll encounter in this set of steps: [http://stackoverflow.com/questions/7076164/terminology-used-by-git](http://stackoverflow.com/questions/7076164/terminology-used-by-git)
+If you're unfamiliar with Git, you might want to review some Git terminology: [https://help.github.com/articles/github-glossary](https://help.github.com/articles/github-glossary). In addition, this StackOverflow thread contains a glossary of Git terms you'll encounter here: [http://stackoverflow.com/questions/7076164/terminology-used-by-git](http://stackoverflow.com/questions/7076164/terminology-used-by-git)
 
 ## Contents
 * [Create a GitHub account and set up your profile](#create-a-github-account-and-set-up-your-profile)
-* [Sign up for Disqus](#sign-up-for-disqus)
-* [Determine whether you really need to follow the rest of these steps](#determine-whether-you-really-need-to-follow-the-rest-of-these-steps)
+* [Sign up for LiveFyre](#sign-up-for-disqus)
+* [Modify articles using the GitHub UI](#modify-articles-using-the-github-ui)
+* [Private or public repo?](#private-or-public-repo?)
 * [Permissions in GitHub](#permissions-in-github)
 * [Install Git for Windows](#install-git-for-windows)
 * [Enable two-factor authentication](#enable-two-factor-authentication)
@@ -32,29 +34,26 @@ Your profile should resemble this profile:
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/githubprofile.png)
 
-## Sign up for Disqus
-Every published Azure technical article has a comment stream provided by the Disqus service.
+## Sign up for Livefyre
+Every published Azure technical article has a comment stream provided by the Livefyre service.
 
- ![Discus logo](./media/tools-and-setup/discus.png)
+If you are a Microsoft employee, and if you are the author of or a contributor to an article, you need to sign up for Livefyre so you can participate in the comment stream for the article.
 
-If you are a Microsoft employee, and if you are the author of or a contributor to an article, you need to sign up for Disqus so you can participate in the comment stream for the article.
+1. Sign up for an account [on the Livefyre site](https://livefyre.zendesk.com/hc/en-us/articles/200329426-How-do-I-create-a-Livefyre-Account-)
+2. During account creation, select option "b" - Creating a Livefyre Account with a username, email, and password, so you can be easily identified when you post responses, and complete your profile as follows:
 
-1. Sign up for an account at [http://www.disqus.com/](http://www.disqus.com/)
-2. Fill out your profile as follows:
-   
-   * **Full Name**: your full name as displayed in your Microsoft address book listing, plus the bracketed info, which is your alias plus @MSFT. Format: *First Last [alias@MSFT]*
-   * **Location**: Your location
-   * **Short Bio**: Your title
+ - **Username:** your Microsoft email alias plus @MSFT, ie: alias@MSFT
+ - **Email:** Your Microsoft.com email address.
 
-## Determine whether you really need to follow the rest of these steps
+## Modify articles using the GitHub UI
 You might not need to follow all the steps in this article. It depends on the sort of content contribution you want or need to make.
 
 ### Submit a text-only change to an existing article
-If you only need or want to make textual updates to an existing article, you probably don't need to follow the rest of the steps. You can use GitHub's web-based markdown editor to submit your changes. Just click the GitHub link in the article you want to modify:
+If you only need or want to make textual updates to an existing article, you probably don't need to follow the rest of the steps. You can use GitHub's web-based markdown editor to submit your changes. 
 
- ![GitHub profile example](./media/tools-and-setup/contributetogit.png)
+1. Click the Edit button on the article page you want to modify.
 
- Then, click the edit icon in the GitHub version of the article
+2. Then, click the edit icon in the GitHub version of the article
 
  ![GitHub profile example](./media/tools-and-setup/editicon.PNG)
 
@@ -74,10 +73,22 @@ For the following sorts of work, we strongly recommend you install and learn to 
 * Updating an article over a period of days without publishing changes each of those days
 * Creating content for a release that has to go out on a certain day at a certain time
 
-## Permissions in GitHub
-Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Azure/azure-content](https://github.com/Azure/azure-content). No special permissions are required.
+## Private or public repo?
+ 
+ The public repository is for the community and for occasional internal Microsoft contrbutors who are not listed as authors of articles or responsible as owners of articles.
 
-If you are a Microsoft PM or writer who is working on Azure content, you must work in our private content repository, azure-content-pr. Visit [https://repos.opensource.microsoft.com ](https://repos.opensource.microsoft.com) to request the read permissions that will let you make contributions through the private repo - sign in to GitHub using the button > click Azure > click **Join a team** or **Join another team**, and then search for and join the **azure-content-read** group.
+ If you are the author of an article and you are a Microsoft employee, you must work in the private repo. Your public repo contributions will be automatically closed by our repo automation. Request permissions to the private repo, per the instructions in the next section.
+ 
+ To easily switch from the public repo version of an article to the private repo version, just add "-pr" the URL, as shown here:
+
+ - github.com/Microsoft/azure-docs/blob/master/articles/batch/batch-account-create-portal.md
+
+ - github.com/Microsoft/azure-docs**-pr**/blob/master/articles/batch/batch-account-create-portal.md
+
+## Permissions in GitHub
+Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Microsoft/azure-docs](https://github.com/Microsoft/azure-docs). No special permissions are required.
+
+If you are a Microsoft PM or writer who is working on Azure content as a designated author or reviewer, you must work in our private content repository, azure-docs-pr. Visit [https://repos.opensource.microsoft.com ](https://repos.opensource.microsoft.com) to join the Microsoft GitHub organization. Once you are a member of the Microsoft organization, you can access the private azure-docs-pr repository.
 
 ## Install Git for Windows
 Install Git for Windows from [http://git-scm.com/download/win](http://git-scm.com/download/win). This download installs the Git version control system, and it installs Git Bash, the command-line app that you will use to interact with your local Git repository.
@@ -87,12 +98,10 @@ You can accept the default settings; if you want the commands to be available wi
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/gitbashinstall.png)
 
-(Note: This is not the same as "Github for Windows". "Github for Windows" is a different GUI-based tool that will also work if you want to read up on yourself. [https://windows.github.com/](https://windows.github.com/))
-
 ## Enable two-factor authentication
-You have to enable two factor authentication (2FA) on your GitHub account if you are working in the private content repository. It's required in the private repository.
+You have to enable two factor authentication (2FA) on your GitHub account if you are working in the private content repository. It's required.
 
-To enable this, follow the instructions in both the following GitHub help topics:
+To enable 2FA, follow the instructions in both the following GitHub help topics:
 
 * [About Two-Factor Authentication](https://help.github.com/articles/about-two-factor-authentication/)
 * [Creating an access token for command-line use](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
@@ -123,35 +132,35 @@ If you use Atom, you'll need to set a few things up.
 * To turn on the markdown preview, click Packages>Markdown Preview>Toggle Preview. You can use Ctrl-Shift-M to toggle the preview HTML view.
 
 ## Fork the repository and copy it to your computer
-1. Create a fork of the repository in GitHub - go to the top-right of the page and click the Fork button. If prompted, select your account as the location where the fork should be created. This creates a copy of the repository within your Git Hub account. Generally speaking, technical writers and program managers need to fork azure-content-pr, the private repo. Community contributors need to fork azure-content, the public repo. You only need to fork one time; after your first setup, if you want to copy your fork to another computer, you only have to run the commands that follow in this section to copy the repo to your computer.  If you choose to create forks of both repositories, you will need to create a fork for each repository.
+1. Create a fork of the repository in GitHub - go to the top-right of the page and click the Fork button. If prompted, select your account as the location where the fork should be created. This creates a copy of the repository within your Git Hub account. Generally speaking, technical writers and program managers need to fork azure-docs-pr, the private repo. Community contributors need to fork azure-docs, the public repo. You only need to fork one time; after your first setup, if you want to copy your fork to another computer, you only have to run the commands that follow in this section to copy the repo to your computer.  If you choose to create forks of both repositories, you will need to create a fork for each repository.
 2. Copy the Personal Access Token that you got from [https://github.com/settings/tokens](https://github.com/settings/tokens). You can accept the default permissions for the token.  Save the Personal Access Token in a text file for later reuse.
 3. Next, copy the repository to your computer with your credentials embedded in the command string.  To do this, open Git Bash and run it as an administrator. At the command prompt, enter the following command.  This command creates a azure-content(-pr) directory on your computer.  If you're using the default location, it will be at c:\users<your Windows user name>\azure-content(-pr).
 
 Public repo:
 
-        git clone https://[your GitHub user name]:[token]@github.com/<your GitHub user name>/azure-content.git
+        git clone https://[your GitHub user name]:[token]@github.com/<your GitHub user name>/azure-docs.git
 
 Private repo:
 
-        git clone https://[your GitHub user name]:[token]@github.com/<your GitHub user name>/azure-content-pr.git
+        git clone https://[your GitHub user name]:[token]@github.com/<your GitHub user name>/azure-docs-pr.git
 
 For example, this clone command could look something like this:
 
-        git clone https://smithj:b428654321d613773d423ef2f173ddf4a312345@github.com/smithj/azure-content-pr.git  
+        git clone https://smithj:b428654321d613773d423ef2f173ddf4a312345@github.com/smithj/azure-docs-pr.git  
 
 ## Set remote repository connection and configure credentials
 Create a reference to the root repository by entering these commands. This sets up connections to the repository in GitHub so that you can get the latest changes onto your local machine and push your changes back to GitHub. This command also configures your token locally so that you don't have to enter your name and password each time you try to access the upstream repo and your fork on GitHub.
 
 Public repo:
 
-        cd azure-content
-        git remote add upstream https://[your GitHub user name]:[token]@github.com/Azure/azure-content.git
+        cd azure-docs
+        git remote add upstream https://[your GitHub user name]:[token]@github.com/Microsoft/azure-docs.git
         git fetch upstream
 
 Private repo:
 
         cd azure-content-pr
-        git remote add upstream https://[your GitHub user name]:[token]@github.com/Azure/azure-content-pr.git
+        git remote add upstream https://[your GitHub user name]:[token]@github.com/Microsoft/azure-docs-pr.git
         git fetch upstream
 
 This usually takes a while. After you do this, you won't have to fork again or enter your credentials again. You would only have to copy the forks to a local computer again if you set the tools up on another computer.
@@ -159,16 +168,16 @@ This usually takes a while. After you do this, you won't have to fork again or e
 ## Configure your user name and email locally
 To ensure you are listed correctly as a contributor, you need to configure your user name and email locally in Git.
 
-1. Start Git Bash, and switch into azure-content or azure-content-pr:
+1. Start Git Bash, and switch into azure-docs or azure-docs-pr:
    
    ````
-   cd azure-content
+   cd azure-docs
    ````
    
    or
    
    ````
-   cd azure-content-pr
+   cd azure-docs-pr
    ````
 2. Configure your user name so it matches your name as you set it up in your GitHub profile:
    
