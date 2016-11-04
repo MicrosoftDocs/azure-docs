@@ -1,4 +1,4 @@
-﻿---
+---
 title: Setup emulator express to debug Cloud Services applications in Visual Studio | Microsoft Docs
 description: Explains how to install the C++ redistributable to enable Emulator Express in Visual Studio
 services: cloud-services
