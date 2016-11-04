@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage VMs using Resource Manager and PowerShell | Microsoft Docs
 description: Manage virtual machines using Azure Resource Manager and PowerShell.
 services: virtual-machines-windows

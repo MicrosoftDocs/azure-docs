@@ -1,4 +1,4 @@
----
+﻿---
 title: Release notes for Visual Studio Extension for Developer Analytics
 description: The latest updates for Visual Studio tools for Developer Analytics.
 services: application-insights

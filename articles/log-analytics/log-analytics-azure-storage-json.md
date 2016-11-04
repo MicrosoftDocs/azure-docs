@@ -1,4 +1,4 @@
----
+﻿---
 title: Analyze Azure diagnostic logs using Log Analytics | Microsoft Docs
 description: Log Analytics can read the logs from Azure services that write Azure diagnostic logs to blob storage in JSON format.
 services: log-analytics

@@ -1,4 +1,4 @@
----
+﻿---
 title: SQL Data Warehouse system views | Microsoft Docs
 description: Links to system views content for SQL Data Warehouse.
 services: sql-data-warehouse

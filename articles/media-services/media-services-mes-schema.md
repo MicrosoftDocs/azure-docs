@@ -1,4 +1,4 @@
----
+﻿---
 title: Media Encoder Standard schema | Microsoft Docs
 description: The topic gives an overview of the Media Encoder Standard schema.
 author: Juliako

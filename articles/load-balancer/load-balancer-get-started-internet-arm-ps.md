@@ -1,4 +1,4 @@
----
+﻿---
 title: Create an Internet-facing load balancer in Resource Manager by using PowerShell | Microsoft Docs
 description: Learn how to create an Internet-facing load balancer in Resource Manager by using PowerShell
 services: load-balancer

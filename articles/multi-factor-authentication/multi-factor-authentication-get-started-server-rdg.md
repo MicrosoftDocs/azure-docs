@@ -1,4 +1,4 @@
----
+﻿---
 title: Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS
 description: This is the Azure Multi-factor authentication page that will assist in deploying Remote Desktop (RD) Gateway and Azure Multi-Factor Authentication Server using RADIUS.
 services: multi-factor-authentication

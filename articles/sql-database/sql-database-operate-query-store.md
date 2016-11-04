@@ -1,4 +1,4 @@
----
+﻿---
 title: Operating Query Store in Azure SQL Database
 description: Learn how to operate the Query Store in Azure SQL Database
 keywords: ''

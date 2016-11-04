@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory Integration with PolicyStat | Microsoft Docs'
 description: Learn how to use PolicyStat with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory

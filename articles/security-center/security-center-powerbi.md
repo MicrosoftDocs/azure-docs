@@ -1,4 +1,4 @@
----
+﻿---
 title: Get insights from Azure Security Center data with Power BI| Microsoft Docs
 description: The Azure Security Center Power BI content pack makes it easy to find  security alerts, recommendations, attacked resources and trends, based on a dataset that has been created for your reporting.
 services: security-center

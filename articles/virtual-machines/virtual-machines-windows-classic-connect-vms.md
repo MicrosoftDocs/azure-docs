@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect Windows VMs in a cloud service | Microsoft Docs
 description: Connect Windows virtual machines created with the classic deployment model to an Azure cloud service or virtual network.
 services: virtual-machines-windows

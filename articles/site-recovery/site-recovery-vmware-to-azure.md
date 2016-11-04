@@ -1,4 +1,4 @@
----
+﻿---
 title: Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery in the Azure portal | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of on-premises VMware virtual machines and Windows/Linux physical servers to Azure using the Azure portal
 services: site-recovery

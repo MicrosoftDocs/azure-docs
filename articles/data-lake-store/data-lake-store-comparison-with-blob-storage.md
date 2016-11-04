@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Data Lake Store comparison with Azure Storage Blob | Microsoft Docs
 description: Azure Data Lake Store comparison with Azure Storage Blob
 services: data-lake-store

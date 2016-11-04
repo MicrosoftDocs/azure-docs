@@ -1,4 +1,4 @@
----
+﻿---
 title: Optimize your environment with the SQL Assessment solution in Log Analytics | Microsoft Docs
 description: You can use the SQL Assessment solution to assess the risk and health of your server environments on a regular interval.
 services: log-analytics

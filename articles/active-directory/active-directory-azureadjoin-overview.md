@@ -1,4 +1,4 @@
----
+﻿---
 title: Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join| Microsoft Docs
 description: Provides a detailed overview of how Windows 10 devices can utilize Azure AD Join to get registered on Azure Active Directory.
 services: active-directory

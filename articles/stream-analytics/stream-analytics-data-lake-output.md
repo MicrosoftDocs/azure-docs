@@ -1,4 +1,4 @@
----
+﻿---
 title: Stream Analytics Data Lake Store Output | Microsoft Docs
 description: Configuration of authentication and authorization of an Azure Data Lake Store in a Stream Analytics job
 keywords: ''

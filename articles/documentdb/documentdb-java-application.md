@@ -1,4 +1,4 @@
----
+﻿---
 title: Java application development tutorial using DocumentDB | Microsoft Docs
 description: This Java web application tutorial shows you how to use the Azure DocumentDB service to store and access data from a Java application hosted on Azure Websites.
 keywords: Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure

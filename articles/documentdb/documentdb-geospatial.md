@@ -1,4 +1,4 @@
----
+﻿---
 title: Working with Geospatial data in Azure DocumentDB | Microsoft Docs
 description: Understand how to create, index and query spatial objects with Azure DocumentDB.
 services: documentdb

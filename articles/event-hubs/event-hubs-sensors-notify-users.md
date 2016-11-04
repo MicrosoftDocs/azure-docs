@@ -1,4 +1,4 @@
----
+﻿---
 title: Notify users of data received from sensors or other systems | Microsoft Docs
 description: Describes how to use Event Hubs to notify users of sensor data.
 services: event-hubs

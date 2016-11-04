@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Docs
 description: Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Natural Language Analyzers and moreLikeThis searches.
 services: search

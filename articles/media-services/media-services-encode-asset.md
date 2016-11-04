@@ -1,4 +1,4 @@
----
+﻿---
 title: Overview and comparison of Azure on demand media encoders | Microsoft Docs
 description: This topic gives an overview and comparison of Azure on demand media encoders.
 services: media-services

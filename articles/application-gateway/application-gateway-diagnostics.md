@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitor access and performance logs and Metrics for Application Gateway | Microsoft Docs
 description: Learn how to enable and manage Access and Performance logs for Application Gateway
 services: application-gateway

@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy the SQL Server resource provider on Azure Stack | Microsoft Docs
 description: Detailed steps to deploy a SQL Server Resource Provider Adapter on Azure Stack.
 services: azure-stack

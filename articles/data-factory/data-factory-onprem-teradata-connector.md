@@ -1,4 +1,4 @@
----
+﻿---
 title: Move data from Teradata | Microsoft Docs
 description: Learn about Teradata Connector for the Data Factory service that lets you move data from Teradata Database
 services: data-factory

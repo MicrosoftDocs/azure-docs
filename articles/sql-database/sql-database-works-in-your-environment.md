@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SQL Database Works in Your Environment
 description: Learn how SQL Database helps, secures and protects
 keywords: ''

@@ -1,4 +1,4 @@
----
+﻿---
 title: Run Hadoop MapReduce samples on Linux-based HDInsight | Microsoft Docs
 description: Get started using MapReduce samples with Linux-based HDInsight. Use SSH to connect to the cluster, then use the Hadoop command to run sample jobs.
 services: hdinsight

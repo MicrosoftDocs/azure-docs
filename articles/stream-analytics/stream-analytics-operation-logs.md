@@ -1,4 +1,4 @@
----
+﻿---
 title: Debug using operation and service logs in Stream Analytics | Microsoft Docs
 description: How-to use Stream Analytics operation logs
 keywords: service logs

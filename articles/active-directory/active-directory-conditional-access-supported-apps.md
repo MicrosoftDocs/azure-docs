@@ -1,4 +1,4 @@
----
+﻿---
 title: Applications that use conditional access rules in Azure Active Directory | Microsoft Docs
 description: With conditional access control, Azure Active Directory checks for specific conditions when it authenticates the user, and to allow application access.
 services: active-directory

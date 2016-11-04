@@ -1,4 +1,4 @@
----
+﻿---
 title: Partitioning and scaling in Azure DocumentDB | Microsoft Docs
 description: Learn about how partitioning works in Azure DocumentDB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
 services: documentdb

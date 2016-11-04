@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect Windows computers to Log Analytics | Microsoft Docs
 description: This article shows the steps to connect the Windows computers in your on-premises infrastructure directly to OMS by using a customized version of the Microsoft Monitoring Agent (MMA).
 services: log-analytics

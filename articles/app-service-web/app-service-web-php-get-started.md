@@ -1,4 +1,4 @@
----
+﻿---
 title: Create, configure, and deploy a PHP web app to Azure
 description: A tutorial that shows how to make a PHP (Laravel) web app run in Azure App Service. Learn how to configure Azure App Service to meet the requirements of the PHP framework you choose.
 services: app-service\web

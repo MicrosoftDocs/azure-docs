@@ -1,4 +1,4 @@
----
+﻿---
 title: Distribute data globally with DocumentDB | Microsoft Docs
 description: Learn about planet-scale geo-replication, failover, and data recovery using global databases from Azure DocumentDB, a fully managed NoSQL database service.
 services: documentdb

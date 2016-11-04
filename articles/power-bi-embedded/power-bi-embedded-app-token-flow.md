@@ -1,4 +1,4 @@
----
+﻿---
 title: Authenticating and authorizing with Power BI Embedded
 description: Authenticating and authorizing with Power BI Embedded
 services: power-bi-embedded

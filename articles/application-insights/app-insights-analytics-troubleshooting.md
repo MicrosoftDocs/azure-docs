@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshooting Analytics - the powerful search tool of Application Insights | Microsoft Docs
 description: 'Problems with Application Insights analytics? Start here. '
 services: application-insights

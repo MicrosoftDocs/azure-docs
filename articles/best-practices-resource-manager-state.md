@@ -1,4 +1,4 @@
----
+﻿---
 title: Handling State in Resource Manager Templates | Microsoft Docs
 description: Shows recommended approaches for using complex objects to share state data with Azure Resource Manager templates and linked templates
 services: azure-resource-manager

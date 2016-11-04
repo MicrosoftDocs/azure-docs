@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure a Virtual Network and Gateway for ExpressRoute in the classic portal | Microsoft Docs
 description: This article walks you through setting up a virtual network for ExpressRoute using the classic deployment model and the classic portal.
 documentationcenter: na

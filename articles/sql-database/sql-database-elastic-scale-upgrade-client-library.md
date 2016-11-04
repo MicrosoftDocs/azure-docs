@@ -1,4 +1,4 @@
----
+﻿---
 title: Upgrade to the latest elastic database client library | Microsoft Docs
 description: Upgrade apps and libraries using Nuget
 services: sql-database

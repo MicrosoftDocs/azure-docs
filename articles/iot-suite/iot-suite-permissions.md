@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure IoT Suite and Azure Active Directory | Microsoft Docs
 description: Describes how Azure IoT Suite uses Azure Active Directory to manage permissions.
 services: ''

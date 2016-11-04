@@ -1,4 +1,4 @@
----
+﻿---
 title: Create an HPC Pack head node in an Azure VM | Microsoft Docs
 description: Learn how to use the Azure portal and the Resource Manager deployment model to create a Microsoft HPC Pack head node in an Azure VM.
 services: virtual-machines-windows

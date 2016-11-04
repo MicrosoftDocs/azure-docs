@@ -1,4 +1,4 @@
----
+﻿---
 title: JSON output for Stream Analytics | Microsoft Docs
 description: Learn how Stream Analytics can target Azure DocumentDB for JSON output, for data archiving and low-latency queries on unstructured JSON data.
 keywords: JSON output

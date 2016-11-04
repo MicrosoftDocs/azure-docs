@@ -1,4 +1,4 @@
----
+﻿---
 title: Move data to/from Oracle using Data Factory | Microsoft Docs
 description: Learn how to move data to/from Oracle database that is on-premises using Azure Data Factory.
 services: data-factory

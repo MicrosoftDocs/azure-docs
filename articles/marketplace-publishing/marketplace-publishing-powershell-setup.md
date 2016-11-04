@@ -1,4 +1,4 @@
----
+﻿---
 title: Set up PowerShell to create a VM for the Marketplace | Microsoft Docs
 description: Instructions for setting up Azure PowerShell and using it as an optional process flow to create VM images to deploy to, and sell on, the Azure Marketplace
 services: marketplace-publishing

@@ -1,4 +1,4 @@
----
+﻿---
 title: Publish Azure Application Wizard | Microsoft Docs
 description: Publish Azure Application Wizard
 services: visual-studio-online

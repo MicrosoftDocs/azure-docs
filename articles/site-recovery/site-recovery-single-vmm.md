@@ -1,4 +1,4 @@
-
+﻿
 ---
 title: 'Azure Site Recovery: Replicate Hyper-V virtual machines on a single VMM server | Microsoft Docs'
 description: This article describes how to replicate Hyper-V virtual machines when you only have a single VMM server.

@@ -1,4 +1,4 @@
----
+﻿---
 title: Retry general guidance | Microsoft Docs
 description: Guidance on retry for transient fault handling.
 services: ''

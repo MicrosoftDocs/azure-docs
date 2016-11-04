@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Azure MFA Server with AD FS 2.0 | Microsoft Docs
 description: This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS 2.0.
 services: multi-factor-authentication

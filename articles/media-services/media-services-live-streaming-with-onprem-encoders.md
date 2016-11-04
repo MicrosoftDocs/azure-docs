@@ -1,4 +1,4 @@
----
+﻿---
 title: Live streaming with on-premise encoders that create multi-bitrate streams | Microsoft Docs
 description: 'This topic describes how to set up a Channel that receives a multi-bitrate live stream from an on-premises encoder. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS.'
 services: media-services

@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshooting guide for live streaming | Microsoft Docs
 description: This topic gives suggestions on how to troubleshoot live streaming problems.
 services: media-services

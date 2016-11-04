@@ -1,4 +1,4 @@
----
+﻿---
 title: StorSimple Virtual Array iSCSI server setup | Microsoft Docs
 description: Describes how to perform initial setup, register your StorSimple iSCSI server, and complete device setup.
 services: storsimple

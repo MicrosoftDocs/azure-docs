@@ -1,4 +1,4 @@
----
+﻿---
 title: Add company branding to your sign-in and Access Panel pages
 description: Learn how to add a company branding to the Azure sign-in page and the access panel page
 services: active-directory

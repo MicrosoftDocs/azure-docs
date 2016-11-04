@@ -1,4 +1,4 @@
----
+﻿---
 title: Upload large amounts of data into Data Lake Store by using offline methods | Microsoft Docs
 description: Use the AdlCopy tool to copy data from Azure Storage blobs to Data Lake Store
 services: data-lake-store

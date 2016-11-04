@@ -1,4 +1,4 @@
----
+﻿---
 title: Advanced encoding with Media Encoder Standard
 description: This topic shows how to perform advanced encoding by customizing Media Encoder Standard task presets. The topic shows how to use Media Services .NET SDK to create an encoding task and job. It also shows how to supply custom presets to the encoding job.
 services: media-services

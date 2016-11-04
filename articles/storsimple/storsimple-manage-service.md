@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy the StorSimple Manager service | Microsoft Docs
 description: Explains how to create and delete the StorSimple Manager service in the Azure classic portal, and describes how to manage the service registration key.
 services: storsimple

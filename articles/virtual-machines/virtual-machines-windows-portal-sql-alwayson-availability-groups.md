@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure Always On availability group in Azure VM automatically - Resource Manager
 description: Create an Always On availability group with Azure virtual machines in Azure Resource Manager mode. This tutorial primarily uses the user interface to automatically create the entire solution.
 services: virtual-machines-windows

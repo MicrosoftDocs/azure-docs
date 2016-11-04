@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure Azure Run As Account | Microsoft Docs
 description: Tutorial that walks you through the creation, testing, and example use of security principal authentication in Azure Automation.
 services: automation

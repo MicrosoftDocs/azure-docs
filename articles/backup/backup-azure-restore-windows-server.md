@@ -1,4 +1,4 @@
----
+﻿---
 title: Restore data to a Windows Server or Windows Client from Azure using the Resource Manager deployment model | Microsoft Docs
 description: Learn how to restore from a Windows Server or Windows Client.
 services: backup

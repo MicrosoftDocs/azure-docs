@@ -1,4 +1,4 @@
----
+﻿---
 title: All topics for Data Factory service | Microsoft Docs
 description: Table of all topics for the Azure service named Data Factory that exist on http://azure.microsoft.com/documentation/articles/, Title and description.
 services: data-factory

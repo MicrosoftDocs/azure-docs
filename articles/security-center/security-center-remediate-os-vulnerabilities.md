@@ -1,4 +1,4 @@
----
+﻿---
 title: Remediate OS vulnerabilities in Azure Security Center | Microsoft Docs
 description: This document shows you how to implement the Azure Security Center recommendation **Remediate OS vulnerabilities**.
 services: security-center

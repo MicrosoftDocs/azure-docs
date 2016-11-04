@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage permissions to resources per user in Azure Stack (service administrator and tenant) | Microsoft Docs
 description: As a service administrator or tenant, learn how to manage permissions to resources per user.
 services: azure-stack

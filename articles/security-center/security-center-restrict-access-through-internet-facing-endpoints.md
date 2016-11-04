@@ -1,4 +1,4 @@
----
+﻿---
 title: Restrict access through Internet-facing endpoints in Azure Security Center  | Microsoft Docs
 description: This document shows you how to implement the Azure Security Center recommendation **Restrict access through Internet facing endpoint**.
 services: security-center

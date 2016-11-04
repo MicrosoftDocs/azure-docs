@@ -1,4 +1,4 @@
----
+﻿---
 title: What is Azure Active Directory?
 description: Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications.
 services: active-directory

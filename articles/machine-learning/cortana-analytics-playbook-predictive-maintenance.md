@@ -1,4 +1,4 @@
----
+﻿---
 title: Cortana Intelligence Solution Template Playbook for predictive maintenance in aerospace and other businesses | Microsoft Docs
 description: A Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation.
 services: cortana-analytics

@@ -1,4 +1,4 @@
----
+﻿---
 title: Data scenarios involving Data Lake Store | Microsoft Docs
 description: Understand the different scenarios and tools using which data can ingested, processed, downloaded, and visualized in a Data Lake Store
 services: data-lake-store

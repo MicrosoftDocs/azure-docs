@@ -1,4 +1,4 @@
----
+﻿---
 title: Known issues of Apache Spark in HDInsight | Microsoft Docs
 description: Known issues of Apache Spark in HDInsight.
 services: hdinsight

@@ -1,4 +1,4 @@
----
+﻿---
 title: Geo Distributed Scale with App Service Environments
 description: Learn how to horizontally scale apps using geo-distribution with Traffic Manager and App Service Environments.
 services: app-service

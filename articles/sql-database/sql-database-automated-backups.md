@@ -1,4 +1,4 @@
----
+﻿---
 title: SQL Database backups - automatic, geo-redundant | Microsoft Docs
 description: SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy.
 services: sql-database
