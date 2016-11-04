@@ -35,7 +35,7 @@
 
 # Resources
 ## [FAQ](iot-suite-faq.md)
-## [Hardware compatibility](iot-hub-tested-configurations.md)
+
 
 
 
