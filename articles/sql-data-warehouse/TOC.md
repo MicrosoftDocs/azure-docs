@@ -35,7 +35,7 @@
 
 ### [Overview](sql-data-warehouse-connect-overview.md)
 ### [Connection strings](sql-data-warehouse-connection-strings.md)
-### [Connect - sqlcmd](sql-data-warehouse-get-started-connect-sql.md)
+### [Connect - sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 ### [Connect - SSMS](sql-data-warehouse-query-ssms.md)
 ### [Connect - Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Install Visual Studio](sql-data-warehouse-install-visual-studio.md)
