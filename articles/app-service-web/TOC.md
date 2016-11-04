@@ -2,6 +2,7 @@
 ## [Web Apps overview](app-service-web-overview.md)
 ## [What is App Service](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service plans](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+## [App Service on Linux](app-service-linux-intro.md)
 
 # Get started
 
@@ -53,6 +54,7 @@
 
 ## Develop
 ### [Add functionality to your first web app](app-service-web-get-started-2.md)
+### [Create a web app on Linux](app-service-linux-how-to-create-a-web-app.md)
 
 ### ASP.NET apps
 #### [Deploy your first .NET web app to Azure in five minutes](app-service-web-get-started-dotnet.md)
@@ -136,6 +138,7 @@
 ### [Configure](web-sites-configure.md)
 #### [Configure PHP](web-sites-php-configure.md)
 #### [Configure Python](web-sites-python-configure.md)
+#### [Configure Node.js startup on Linux](app-service-linux-using-nodejs-pm2.md)
 
 ### Custom domains
 #### [Buy and configure custom domains](custom-dns-web-site-buydomains-web-app.md)

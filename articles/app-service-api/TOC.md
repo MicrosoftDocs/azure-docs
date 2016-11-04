@@ -38,7 +38,6 @@
 ### [Azure App Service and existing Azure services](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [App Service plans in-depth](../app-service-web/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [High-density hosting](../app-service-web/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [App Service on Linux](../app-service/app-service-linux-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Using WebJobs in Azure App Service](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [App Service Environment](app-service-app-service-environment-intro.md)
 #### [App Service Environment documentation](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
