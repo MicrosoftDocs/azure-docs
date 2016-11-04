@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Azure SQL Database with PowerShell | Microsoft Docs
 description: Azure SQL Database management with PowerShell.
 services: sql-database

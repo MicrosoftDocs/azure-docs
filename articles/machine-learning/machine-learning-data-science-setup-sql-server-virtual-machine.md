@@ -1,4 +1,4 @@
----
+﻿---
 title: Set up a SQL Server virtual machine as an IPython Notebook server | Microsoft Docs
 description: Set up a Data Science Virtual Machine with SQL Server and IPython Server.
 services: machine-learning

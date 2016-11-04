@@ -1,4 +1,4 @@
----
+﻿---
 title: Compatibility level, how to assess | Microsoft Docs
 description: Steps and tools for determining which compatibility level is best for your database on Azure SQL Database or Microsoft SQL Server
 services: sql-database

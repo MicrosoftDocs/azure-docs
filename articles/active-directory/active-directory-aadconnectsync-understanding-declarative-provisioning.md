@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync: Understanding Declarative Provisioning | Microsoft Docs'
 description: Explains the declarative provisioning configuration model in Azure AD Connect.
 services: active-directory

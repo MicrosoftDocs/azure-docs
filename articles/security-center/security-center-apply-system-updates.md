@@ -1,4 +1,4 @@
----
+﻿---
 title: Apply system updates in Azure Security Center | Microsoft Docs
 description: This document shows you how to implement the Azure Security Center recommendations **Apply system updates** and **Reboot after system updates**.
 services: security-center

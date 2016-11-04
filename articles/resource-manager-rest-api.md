@@ -1,4 +1,4 @@
----
+﻿---
 title: Resource Manager REST APIs| Microsoft Docs
 description: An overview of the Resource Manager REST APIs authentication and usage examples
 services: azure-resource-manager

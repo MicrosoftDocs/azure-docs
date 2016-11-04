@@ -1,4 +1,4 @@
----
+﻿---
 title: Quickstart guide for manual installation of SAP HANA on Azure VMs | Microsoft Docs
 description: Quickstart guide for manual installation of SAP HANA on Azure VMs
 services: virtual-machines-linux

@@ -1,4 +1,4 @@
----
+﻿---
 title: Resiliency technical guidance index | Microsoft Docs
 description: Index of technical articles on understanding and designing resilient, highly available, fault-tolerant applications, as well as planning for disaster recovery and business continuity
 services: ''

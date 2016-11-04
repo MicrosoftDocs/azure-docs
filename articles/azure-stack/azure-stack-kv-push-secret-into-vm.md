@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy a VM with a certificate using Azure Stack Key Vault  | Microsoft Docs
 description: Learn how deploy a VM and inject a certificate from Azure Stack Key Vault
 services: azure-stack

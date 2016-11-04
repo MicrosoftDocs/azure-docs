@@ -1,4 +1,4 @@
----
+﻿---
 title: MFA software development kit for custom apps | Microsoft Docs
 description: This article shows you how to download and use the Azure MFA SDK to enable two-step verification for your custom apps.
 services: multi-factor-authentication

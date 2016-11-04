@@ -1,4 +1,4 @@
----
+﻿---
 title: Learn about Enterprise Integration Pack Decode EDIFACT Message Connector | Microsoft Docs
 description: Learn how to use partners with the Enterprise Integration Pack and Logic apps
 services: logic-apps

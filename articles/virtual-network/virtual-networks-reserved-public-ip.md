@@ -1,4 +1,4 @@
----
+﻿---
 title: Reserved IP | Microsoft Docs
 description: Understand reserved IPs and how to manage them
 services: virtual-network

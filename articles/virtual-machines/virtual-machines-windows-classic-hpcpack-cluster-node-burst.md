@@ -1,4 +1,4 @@
----
+﻿---
 title: Add burst nodes to an HPC Pack cluster | Microsoft Docs
 description: Learn how to expand an HPC Pack cluster in Azure on-demand by adding worker role instances running in a cloud service
 services: virtual-machines-windows

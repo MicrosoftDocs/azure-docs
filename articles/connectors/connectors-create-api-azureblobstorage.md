@@ -1,4 +1,4 @@
----
+﻿---
 title: Add the Azure blob storage Connector in your Logic Apps | Microsoft Docs
 description: Overview of Azure blob storage Connector with REST API parameters
 services: ''

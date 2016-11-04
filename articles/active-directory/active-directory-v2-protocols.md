@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD v2.0 Protocols | Microsoft Docs
 description: A guide to protocols supported by the Azure AD v2.0 endpoint.
 services: active-directory

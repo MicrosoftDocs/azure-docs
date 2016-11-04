@@ -1,4 +1,4 @@
----
+﻿---
 title: Tuning data ingestion performance for Elasticsearch on Azure | Microsoft Docs
 description: How to maximize data ingestion performance with Elasticsearch on Azure.
 services: ''

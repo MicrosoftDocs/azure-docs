@@ -1,4 +1,4 @@
----
+﻿---
 title: Forecasting-Exponential Smoothing | Microsoft Docs
 description: 'Web service: Forecasting-Exponential Smoothing'
 services: machine-learning

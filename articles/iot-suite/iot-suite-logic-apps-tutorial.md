@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure IoT Suite and Logic Apps | Microsoft Docs
 description: A tutorial on how to hook up Logic Apps to Azure IoT Suite for business process.
 services: ''

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Get started with Stream Analytics: Real-time fraud detection | Microsoft Docs'
 description: Learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing.
 keywords: anomaly detection, fraud detection, real time anomaly detection

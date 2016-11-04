@@ -1,4 +1,4 @@
----
+﻿---
 title: Add a Web Apps Resource Provider to Azure Stack | Microsoft Docs
 description: Detailed guidance for deploying Web Apps in Azure Stack
 services: azure-stack

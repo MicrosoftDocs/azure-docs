@@ -1,4 +1,4 @@
----
+﻿---
 title: Configuring Oracle Data Guard in VMs | Microsoft Docs
 description: Step through a tutorial for setting up and implementing Oracle Data Guard on Azure virtual machines for high availability and disaster recovery.
 services: virtual-machines-windows

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Always Encrypted: Protect sensitive data in Azure SQL Database with database encryption | Microsoft Docs'
 description: Protect sensitive data in your SQL database in minutes.
 keywords: data encryption, encryption key, cloud encryption

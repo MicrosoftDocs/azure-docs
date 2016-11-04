@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage streaming endpoints with the Azure portal | Microsoft Docs
 description: This topic shows how to manage streaming endpoints with the Azure portal.
 services: media-services

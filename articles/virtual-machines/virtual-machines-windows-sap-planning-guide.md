@@ -1,4 +1,4 @@
----
+﻿---
 title: SAP NetWeaver on Windows virtual machines (VMs) – Planning and Implementation Guide | Microsoft Docs
 description: SAP NetWeaver on Windows virtual machines (VMs) – Planning and Implementation Guide
 services: virtual-machines-windows

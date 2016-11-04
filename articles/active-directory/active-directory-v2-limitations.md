@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory v2.0 endpoint limitations and restrictions | Microsoft Docs
 description: A list of limitations and restrictions for the Azure AD v2.0 endpoint.
 services: active-directory

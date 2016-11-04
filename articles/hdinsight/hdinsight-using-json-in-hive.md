@@ -1,4 +1,4 @@
----
+﻿---
 title: Analyze and Process JSON documents with Hive in HDInsight | Microsoft Docs
 description: Learn how to use JSON documents and analyze them using Hive in HDInsight.
 services: hdinsight

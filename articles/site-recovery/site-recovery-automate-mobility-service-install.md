@@ -1,4 +1,4 @@
----
+﻿---
 title: Replicate VMware virtual machines to Azure by using Site Recovery with Azure Automation DSC | Microsoft Docs
 description: Describes how to use Azure Automation DSC to automatically deploy the Azure Site Recovery Mobility service and Azure agent for virtual/physical machines to Azure.
 services: site-recovery

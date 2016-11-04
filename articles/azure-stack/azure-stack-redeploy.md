@@ -1,4 +1,4 @@
----
+﻿---
 title: Redeploy Azure Stack | Microsoft Docs
 description: Redeploy Azure Stack.
 services: azure-stack

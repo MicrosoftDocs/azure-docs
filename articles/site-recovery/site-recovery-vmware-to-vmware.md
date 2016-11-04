@@ -1,4 +1,4 @@
----
+﻿---
 title: Replicate on-premises VMware virtual machines or physical servers to a secondary site | Microsoft Docs
 description: Use this article to replicate VMware VMs or Windows/Linux physical servers to a secondary site with Azure Site Recovery.
 services: site-recovery

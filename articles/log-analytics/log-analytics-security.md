@@ -1,4 +1,4 @@
----
+﻿---
 title: Log Analytics data security | Microsoft Docs
 description: Learn about how Log Analytics protects your privacy and secures your data.
 services: log-analytics

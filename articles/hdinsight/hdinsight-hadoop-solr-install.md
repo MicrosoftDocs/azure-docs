@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Script Action to install Solr on Hadoop cluster | Microsoft Docs
 description: Learn how to customize HDInsight cluster with Solr using Script Action.
 services: hdinsight

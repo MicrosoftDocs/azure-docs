@@ -1,4 +1,4 @@
----
+﻿---
 title: High Availability and Disaster Recovery for SQL Server | Microsoft Docs
 description: A discussion of the various types of HADR strategies for SQL Server running in Azure Virtual Machines.
 services: virtual-machines-windows

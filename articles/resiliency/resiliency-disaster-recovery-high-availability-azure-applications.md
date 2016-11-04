@@ -1,4 +1,4 @@
----
+﻿---
 title: Disaster Recovery and High Availability for Azure Applications | Microsoft Docs
 description: Technical overviews and depth information on designing applications for high availability and disaster recovery of applications built on Microsoft Azure.
 services: ''

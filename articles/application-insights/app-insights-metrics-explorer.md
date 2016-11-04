@@ -1,4 +1,4 @@
----
+﻿---
 title: Exploring Metrics in Application Insights | Microsoft Docs
 description: How to interpret charts on metric explorer, and how to customize metric explorer blades.
 services: application-insights

@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Beeline to work with Hive on HDInsight (Hadoop) | Microsoft Docs
 description: Learn how to use SSH to connect to a Hadoop cluster in HDInsight, and then interactively submit Hive queries by using Beeline. Beeline is a utility for working with HiveServer2 over JDBC.
 services: hdinsight

@@ -1,4 +1,4 @@
----
+﻿---
 title: Security alerts by Type in Azure Security Center | Microsoft Docs
 description: This document helps to understand the type of security alerts available in Azure Security Center.
 services: security-center

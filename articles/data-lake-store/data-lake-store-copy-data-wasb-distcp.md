@@ -1,4 +1,4 @@
----
+﻿---
 title: Copy data to and from WASB into Data Lake Store using Distcp| Microsoft Docs
 description: Use Distcp tool to copy data to and from Azure Storage Blobs to Data Lake Store
 services: data-lake-store

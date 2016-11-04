@@ -1,4 +1,4 @@
----
+﻿---
 title: Service Fabric application deployment | Microsoft Docs
 description: How to deploy and remove applications in Service Fabric
 services: service-fabric

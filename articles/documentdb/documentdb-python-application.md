@@ -1,4 +1,4 @@
----
+﻿---
 title: Python Flask Web Application Development with DocumentDB | Microsoft Docs
 description: Review a database tutorial on using DocumentDB to store and access data from a Python Flask web application hosted on Azure. Find application development solutions.
 keywords: Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure

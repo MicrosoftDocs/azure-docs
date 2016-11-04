@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage your StorSimple storage account | Microsoft Docs
 description: Explains how you can use the StorSimple Manager Configure page to add, edit, delete, or rotate the security keys for a storage account associated with the StorSimple Virtual Array.
 services: storsimple

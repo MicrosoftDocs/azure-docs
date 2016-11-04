@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Configuring Workday for Inbound Synchronization | Microsoft Docs'
 description: Learn how to use Inbound Synchronization with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory

@@ -1,4 +1,4 @@
----
+﻿---
 title: Known Networks | Microsoft Docs
 description: By configuring known networks, you can avoid having IP addresses that are owned by your organization included in the Sign ins from multiple geographies and Sign ins from IP addresses with suspicious activity reports.
 services: active-directory

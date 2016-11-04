@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD Connect sync service features and configuration | Microsoft Docs
 description: Describes service side features for Azure AD Connect sync service.
 services: active-directory

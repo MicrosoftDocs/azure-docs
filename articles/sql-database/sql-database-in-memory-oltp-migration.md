@@ -1,4 +1,4 @@
----
+﻿---
 title: In-Memory OLTP improves SQL txn perf | Microsoft Docs
 description: Adopt In-Memory OLTP to improve transactional performance in an existing SQL database.
 services: sql-database

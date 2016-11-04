@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Lifesize Cloud | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Lifesize Cloud.
 services: active-directory

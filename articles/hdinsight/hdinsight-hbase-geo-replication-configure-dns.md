@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure DNS between two Azure virtual networks | Microsoft Docs
 description: Learn how to configure VPN connections and domain name resolution between two virtual networks, and how to configure HBase geo-replication.
 services: hdinsight,virtual-network
