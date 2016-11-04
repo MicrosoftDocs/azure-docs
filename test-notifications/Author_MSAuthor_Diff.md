@@ -3,7 +3,7 @@
 	description="Test"
 	services="active-directory"
 	documentationCenter=".net"
-	authors="jamarw"
+	authors="daveba"
 	manager="jamarw-manager"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="05/23/2016"
-	ms.author="csitoolsrepo;jamarw" />
+	ms.author="jamarw" />
 
 # Test PR Notification System
 Testing
