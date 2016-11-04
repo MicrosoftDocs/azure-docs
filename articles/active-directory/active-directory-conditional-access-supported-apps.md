@@ -18,7 +18,7 @@ ms.author: markvi
 
 ---
 # Applications that use conditional access rules in Azure Active Directory
-Conditional access rules are supported in Azure Active Directory (Azure AD)-connected applications, pre-integrated federated software as a service (SaaS) applications, applications that use password single sign-on (SSO), line-of-business applications, and applications that use Azure AD Application Proxy. For a detailed list of applications for which you can use conditional access, see [Services enabled with conditional access](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). Conditional access works both with mobile and desktop applications that use modern authentication. In this article, we cover how conditional access works in mobile and desktop apps.
+Conditional access rules are supported in Azure Active Directory (Azure AD)-connected applications, pre-integrated federated software as a service (SaaS) applications, applications that use password single sign-on (SSO), line-of-business applications, and applications that use Azure AD Application Proxy. For a detailed list of applications for which you can use conditional access, see [Services enabled with conditional access](active-directory-conditional-access-technical-reference.md). Conditional access works both with mobile and desktop applications that use modern authentication. In this article, we cover how conditional access works in mobile and desktop apps.
 
 You can use Azure AD sign-in pages in applications that use modern authentication. With a sign-in page, a user is prompted for multi-factor authentication. A message is shown if the user's access is blocked. Modern authentication is required for the device to authenticate with Azure AD, so that device-based conditional access policies are evaluated.
 
@@ -27,8 +27,8 @@ It's important to know which applications can use conditional access rules, and 
 ## Applications that use modern authentication
 > [!NOTE]
 > If you have a conditional access policy in Azure AD that has an equivalent in Office 365, configure both conditional access policies. This would apply, for example, to conditional access policies for Exchange Online or SharePoint Online.
-> 
-> 
+>
+>
 
 The following applications support conditional access for Office 365 and other Azure AD-connected service applications:
 
