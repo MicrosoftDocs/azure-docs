@@ -246,7 +246,7 @@
 #### [Notifications](active-directory-identityprotection-notifications.md)
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](active-directory-securing-privileged-access.md)
+### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 ## [Deploy on Azure VMs](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory on Azure VMs](active-directory-deploying-ws-ad-guidelines.md)
@@ -283,7 +283,7 @@
 ## [Azure Active Directory PowerShell module](https://msdn.microsoft.com/library/azure/mt757189.aspx)
 
 # Related
-## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
 
 # Resources
 ## [Azure Active Directory forum](https://feedback.azure.com/forums/169401-azure-active-directory)
