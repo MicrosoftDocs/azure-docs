@@ -7,7 +7,7 @@ author: cawa
 manager: paulyuk
 editor: ''
 
-ms.service: cloud-services
+ms.assetid: 22b20f7a-23f4-4f7f-b536-3bf1e01adcd1QQWERTYms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
