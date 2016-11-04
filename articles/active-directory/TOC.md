@@ -270,6 +270,8 @@
 ### [Next steps](active-directory-hybrid-identity-design-considerations-nextsteps.md)
 ### [Tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
+## [Develop](./develop/active-directory-how-to-integrate.md)
+
 ## [Deploy AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
@@ -284,6 +286,9 @@
 
 # Related
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
+## [Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+## [Azure AD for developers](./develop/active-directory-how-to-integrate.md)
+## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Resources
 ## [Azure Active Directory forum](https://feedback.azure.com/forums/169401-azure-active-directory)
