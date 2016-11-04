@@ -9,7 +9,8 @@ editor: dlepow
 tags: ''
 keywords: ''
 
-ms.assetid: 128a937a-766a-415b-b9fc-35a6c2f27417QQWERTYms.service: container-registry
+ms.assetid: 128a937a-766a-415b-b9fc-35a6c2f27417
+ms.service: container-registry
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na

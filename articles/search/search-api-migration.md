@@ -7,7 +7,8 @@ author: brjohnstmsft
 manager: pablocas
 editor: ''
 
-ms.assetid: 6183fa6c-48bb-4af7-adae-4be3bc43c3edQQWERTYms.service: search
+ms.assetid: 6183fa6c-48bb-4af7-adae-4be3bc43c3ed
+ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article

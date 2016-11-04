@@ -1,4 +1,4 @@
----
+﻿---
 title: Continuous delivery for cloud services with Visual Studio Online | Microsoft Docs
 description: Learn how to set up continuous delivery for Azure cloud apps without saving diagnostics storage key to the service configuration files
 services: cloud-services
@@ -7,7 +7,8 @@ author: cawa
 manager: paulyuk
 editor: ''
 
-ms.assetid: 148b2959-c5db-4e4a-a7e9-fccb252e7e8aQQWERTYms.service: cloud-services
+ms.assetid: 148b2959-c5db-4e4a-a7e9-fccb252e7e8a
+ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
