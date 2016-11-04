@@ -17,9 +17,9 @@
 ### [Template functions](resource-group-template-functions.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
 ### [Create multiple instances of resource type](resource-group-create-multiple.md)
-### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
+### [Pass secure values during deployment](../resource-manager-keyvault-parameter.md)
 ### [Link to other templates](resource-group-linked-templates.md)
-### [Share state between linked templates](best-practices-resource-manager-state.md)
+### [Share state between linked templates](../best-practices-resource-manager-state.md)
 ### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
 ## Deploy
 ### [PowerShell](resource-group-template-deploy.md)
@@ -30,7 +30,7 @@
 ## Manage
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Portal](resource-group-portal.md)
+### [Portal](../azure-portal/resource-group-portal.md)
 ### [REST API](resource-manager-rest-api.md)
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
@@ -38,7 +38,7 @@
 ### [Azure Resource Explorer](resource-manager-resource-explorer.md)
 ## Control Access
 ### [Create service principal with PowerShell](resource-group-authenticate-service-principal.md)
-### [Create service principal with Azure CLI](resource-group-authenticate-service-principal-cli.md)
+### [Create service principal with Azure CLI](../resource-group-authenticate-service-principal-cli.md)
 ### [Create service principal with portal](resource-group-create-service-principal-portal.md)
 ### [App access to subscriptions](resource-manager-api-authentication.md)
 ### [Set management policies](resource-manager-policy.md)
