@@ -31,7 +31,6 @@
 ### [Malware assessment](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [System update assessment](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## [Integrate with OMS](operations-management-suite-integration.md)
-## [Create a solution](operations-management-suite-custom-solutions.md)
 ## Management solutions
 ### [Plan and deploy](operations-management-suite-solutions-creating.md)
 ### [Automation resources](operations-management-suite-solutions-resources-automation.md)
