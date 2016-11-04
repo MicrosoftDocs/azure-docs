@@ -48,14 +48,14 @@
 #### [Unix metrics](app-insights-java-collectd.md)
 #### [Dependencies](app-insights-java-agent.md)
 
-## Alerts
+### Alerts
 
-### [Availability](app-insights-monitor-web-app-availability.md)
-### [Metric Alerts](app-insights-alerts.md)
+#### [Availability](app-insights-monitor-web-app-availability.md)
+#### [Metric Alerts](app-insights-alerts.md)
 
-## [Smart detection](app-insights-proactive-detection.md)
-### [Failure detection](app-insights-proactive-failure-diagnostics.md)
-### [Anomaly detection](app-insights-proactive-anomaly-diagnostics.md)
+### [Smart detection](app-insights-proactive-diagnostics.md)
+#### [Failure detection](app-insights-proactive-failure-diagnostics.md)
+#### [Anomaly detection](app-insights-proactive-performance-diagnostics.md)
 
 ## Analyze
 
