@@ -72,7 +72,7 @@
 #### [Deploy your first PHP web app to Azure in five minutes](app-service-web-get-started-php.md)
 #### [Create a PHP-SQL web app and deploy using Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Create a WordPress web app in Azure App Service](web-sites-php-web-site-gallery.md)
-#### [Create and connect to a MySQL database in Azure](store-php-create-mysql-database.md)
+#### [Create and connect to a MySQL database in Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Enterprise-class WordPress on Azure App Service](web-sites-php-enterprise-wordpress.md)
 
 ### Java apps
@@ -98,7 +98,7 @@
 ### [Deploy your first basic web app to Azure in five minutes](app-service-web-get-started-html.md)
 ### [Get started with test in production for Web Apps](app-service-web-test-in-production-get-start.md)
 
-### [Web Jobs](app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Web Jobs](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [What is the Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md)
 #### [Create a .NET WebJob](websites-dotnet-webjobs-sdk-get-started.md)
 #### [How to use Azure blob storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
@@ -224,7 +224,7 @@
 ### [Controlling Azure web app traffic with Azure Traffic Manager](web-sites-traffic-manager.md)
 ### Redis cache
 #### [Connect to Redis Cache via the Memcache protocol](web-sites-connect-to-redis-using-memcache-protocol.md)
-#### [Create a Redis Cache using a template](cache-redis-cache-arm-provision.md)
+#### [Create a Redis Cache using a template](../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Manage session state with Azure Redis cache](web-sites-dotnet-session-state-caching.md)
 ### [Create a web app in Azure that connects to MongoDB running on a virtual machine](web-sites-dotnet-store-data-mongodb-vm.md)
 ### [How to sendeEmail using SendGrid](sendgrid-dotnet-how-to-send-email.md)
