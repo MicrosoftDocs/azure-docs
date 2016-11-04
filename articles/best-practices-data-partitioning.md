@@ -1,4 +1,4 @@
----
+﻿---
 title: Data partitioning guidance | Microsoft Docs
 description: Guidance for how to separate partitions to be managed and accessed separately.
 services: ''

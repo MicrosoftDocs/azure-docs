@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory Identity Protection playbook | Microsoft Docs
 description: Learn how Azure AD Identity Protection enables you to limit the ability of an attacker to exploit a compromised identity or device and to secure an identity or a device that was previously suspected or known to be compromised.
 services: active-directory

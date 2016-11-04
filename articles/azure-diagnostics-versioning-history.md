@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Diagnostics Version History
 description: Explanation of changes in the different versions of Azure diagnostics as shipped with different Microsoft Azure SDKs versions.
 services: multiple

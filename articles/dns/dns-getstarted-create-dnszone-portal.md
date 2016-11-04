@@ -1,4 +1,4 @@
----
+﻿---
 title: How to create and manage a DNS zone in the Azure portal | Microsoft Docs
 description: Learn how to create DNS zones for Azure DNS. This is a Step-by-step guide to create and manage your first DNS and start hosting your DNS domain using the Azure portal.
 services: dns

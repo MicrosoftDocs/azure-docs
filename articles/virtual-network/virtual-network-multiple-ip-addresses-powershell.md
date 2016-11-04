@@ -1,4 +1,4 @@
----
+﻿---
 title: Multiple IP addresses for virtual machines - PowerShell | Microsoft Docs
 description: Learn how to assign multiple IP addresses to a virtual machine using Azure PowerShell.
 services: virtual-network

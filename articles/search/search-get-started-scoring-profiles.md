@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use scoring profiles in Azure Search | Microsoft Docs
 description: Tune search ranking through scoring profiles in Azure Search, a hosted cloud search service on Microsoft Azure.
 services: search

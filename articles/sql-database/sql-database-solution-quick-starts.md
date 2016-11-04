@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SQL Database Solution Quick Starts | Microsoft Docs
 description: Learn about Azure SQL Database Solutions
 services: sql-database

@@ -1,4 +1,4 @@
----
+﻿---
 title: Share a single Azure AD tenant across Office 365 and Azure subscriptions | Microsoft Docs
 description: Learn how to share your Office 365 Azure AD tenant and its users with your Azure subscription, or vice versa
 services: ''

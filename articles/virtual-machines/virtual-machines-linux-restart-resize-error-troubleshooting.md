@@ -1,4 +1,4 @@
----
+﻿---
 title: VM restarting or resizing issues | Microsoft Docs
 description: Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure
 services: virtual-machines-linux, azure-resource-manager

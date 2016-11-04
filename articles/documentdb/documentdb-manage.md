@@ -1,4 +1,4 @@
----
+﻿---
 title: DocumentDB storage and performance | Microsoft Docs
 description: Learn about data storage and document storage in DocumentDB and how you can scale DocumentDB to meet the capacity needs of your application.
 keywords: document storage

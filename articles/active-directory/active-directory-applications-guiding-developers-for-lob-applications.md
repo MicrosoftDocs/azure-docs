@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD and Applications: Guiding Developers | Microsoft Docs'
 description: Written for the IT Pro, this article provides guidelines for integrating Azure applications with Active Directory.
 services: active-directory

@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot Network Security Groups - PowerShell | Microsoft Docs
 description: Learn how to troubleshoot Network Security Groups in the Azure Resource Manager deployment model using Azure PowerShell.
 services: virtual-network

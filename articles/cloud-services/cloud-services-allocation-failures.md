@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshooting Cloud Service allocation failure | Microsoft Docs
 description: Troubleshooting allocation failure when you deploy Cloud Services in Azure
 services: azure-service-management, cloud-services

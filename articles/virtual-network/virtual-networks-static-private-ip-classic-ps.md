@@ -1,4 +1,4 @@
----
+﻿---
 title: How to set a static private IP in classic mode using PowerShell| Microsoft Docs
 description: Understanding static private IPs (DIPs) and how to manage them in classic mode and PowerShell
 services: virtual-network

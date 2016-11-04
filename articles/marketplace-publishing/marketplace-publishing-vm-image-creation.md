@@ -1,4 +1,4 @@
----
+﻿---
 title: Creating a virtual machine image for the Azure Marketplace | Microsoft Docs
 description: Detailed instructions on how to create a virtual machine image for the Azure Marketplace for others to purchase.
 services: Azure Marketplace

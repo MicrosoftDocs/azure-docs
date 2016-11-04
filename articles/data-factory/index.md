@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: billing
 
-ms.assetid:88cbe1e2-c6d6-460c-96d3-5d2ce3d0ed12
+ms.assetid: 88cbe1e2-c6d6-460c-96d3-5d2ce3d0ed12
 ms.service: value
 ms.devlang: na
 ms.topic: article

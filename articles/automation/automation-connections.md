@@ -1,4 +1,4 @@
----
+﻿---
 title: Connection assets in Azure Automation | Microsoft Docs
 description: Connection assets in Azure Automation contain the information required to connect to an external service or application from a runbook or DSC configuration. This article explains the details of connections and how to work with them in both textual and graphical authoring.
 services: automation

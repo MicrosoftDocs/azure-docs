@@ -1,4 +1,4 @@
----
+﻿---
 title: Face redaction with Azure media analytics | Microsoft Docs
 description: This topic demonstrates how to redact faces with Azure media analytics.
 services: media-services

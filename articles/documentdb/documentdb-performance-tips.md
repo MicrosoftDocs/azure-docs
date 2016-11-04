@@ -1,4 +1,4 @@
----
+﻿---
 title: DocumentDB performance tips | Microsoft Docs
 description: Learn client configuration options to improve Azure DocumentDB database performance
 keywords: how to improve database performance

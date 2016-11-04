@@ -1,4 +1,4 @@
----
+﻿---
 title: Managing Applications with Azure Active Directory | Microsoft Docs
 description: This article the benefits of integrating Azure Active Directory with your on-premises, cloud and SaaS applications.
 services: active-directory

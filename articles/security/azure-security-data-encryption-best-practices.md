@@ -1,4 +1,4 @@
----
+﻿---
 title: Data Security and Encryption Best Practices | Microsoft Docs
 description: This article provides a set of best practices for data security and encryption using built in Azure capabilities.
 services: security

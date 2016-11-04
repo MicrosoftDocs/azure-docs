@@ -1,4 +1,4 @@
----
+﻿---
 title: Configuring resilience and recovery on Elasticsearch on Azure
 description: Considerations related to resiliency and recovery for Elasticsearch.
 services: ''

@@ -1,4 +1,4 @@
----
+﻿---
 title: Use reference data and lookup tables in Stream Analytics | Microsoft Docs
 description: Use reference data in a Stream Analytics query
 keywords: lookup table, reference data

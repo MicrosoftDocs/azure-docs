@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Version Release History | Microsoft Docs'
 description: This topic lists all releases of Azure AD Connect and Azure AD Sync
 services: active-directory

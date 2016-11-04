@@ -1,4 +1,4 @@
----
+﻿---
 title: Archive the Azure Activity Log | Microsoft Docs
 description: Learn how to archive your Azure Activity Log for long-term retention in a storage account.
 author: johnkemnetz

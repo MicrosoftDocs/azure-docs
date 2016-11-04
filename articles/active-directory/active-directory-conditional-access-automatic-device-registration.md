@@ -1,4 +1,4 @@
----
+﻿---
 title: Automatic device registration with Azure Active Directory for Windows Domain-Joined Devices| Microsoft Docs
 description: IT admins can choose to have their domain-joined Windows devices to register automatically and silently with Azure Active Directory (Azure AD) .
 services: active-directory

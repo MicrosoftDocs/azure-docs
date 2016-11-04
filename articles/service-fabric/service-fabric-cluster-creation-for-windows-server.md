@@ -1,4 +1,4 @@
----
+﻿---
 title: Create and manage a standalone Azure Service Fabric cluster | Microsoft Docs
 description: Create and manage an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in any cloud.
 services: service-fabric

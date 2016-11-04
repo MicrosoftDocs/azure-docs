@@ -1,4 +1,4 @@
----
+﻿---
 title: Red Hat Update Infrastructure (RHUI) | Microsoft Docs
 description: Learn about Red Hat Update Infrastructure (RHUI) for on-demand Red Hat Enterprise Linux instances in Microsoft Azure
 services: virtual-machines-linux

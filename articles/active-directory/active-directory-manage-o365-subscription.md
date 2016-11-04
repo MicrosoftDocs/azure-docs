@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage the directory for your Office 365 subscription in Azure | Microsoft Docs
 description: Managing an Office 365 subscription directory using Azure Active Directory and the Azure classic portal
 services: active-directory

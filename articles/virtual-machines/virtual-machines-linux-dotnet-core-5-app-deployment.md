@@ -1,4 +1,4 @@
----
+﻿---
 title: Automating Application Deployment with Virtual Machine Extensions | Microsoft Docs
 description: Azure Virtual Machine DotNet Core Tutorial
 services: virtual-machines-linux

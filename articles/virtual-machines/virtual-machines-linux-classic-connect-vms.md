@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect Linux VMs in a cloud service | Microsoft Docs
 description: Connect Linux virtual machines created with the classic deployment model to an Azure cloud service or virtual network.
 services: virtual-machines-linux

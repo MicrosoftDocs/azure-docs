@@ -1,4 +1,4 @@
----
+﻿---
 title: Collect logs by using Azure Diagnostics | Microsoft Docs
 description: This article describes how to set up Azure Diagnostics to collect logs from a Service Fabric cluster running in Azure.
 services: service-fabric

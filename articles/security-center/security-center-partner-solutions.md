@@ -1,4 +1,4 @@
----
+﻿---
 title: Managing partner solutions in Azure Security Center | Microsoft Docs
 description: This document walks you through how Azure Security Center lets you monitor at a glance the health status of your partner solutions integrated with your Azure subscription.
 services: security-center

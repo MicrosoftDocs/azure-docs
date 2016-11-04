@@ -1,4 +1,4 @@
----
+﻿---
 title: All topics for SQL Database service | Microsoft Docs
 description: Table of all topics for the Azure service named SQL Database that exist on http://azure.microsoft.com/documentation/articles/, Title and description.
 services: sql-database

@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a read-only snapshot of a blob | Microsoft Docs
 description: Learn how to create a snapshot of a blob to back up blob data at a given moment in time. Understand how snapshots are billed and how to use them to minimize capacity charges.
 services: storage

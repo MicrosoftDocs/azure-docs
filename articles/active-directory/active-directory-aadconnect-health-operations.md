@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD Connect Health Operations.
 description: This article describes additional operations that can be performed once you have deployed Azure AD Connect Health.
 services: active-directory

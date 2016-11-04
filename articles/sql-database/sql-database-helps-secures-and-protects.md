@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SQL Database Secures and Protects
 description: Learn how SQL Database helps secure and protect
 keywords: ''

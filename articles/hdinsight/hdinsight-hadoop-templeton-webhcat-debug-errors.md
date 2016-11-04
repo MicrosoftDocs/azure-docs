@@ -1,4 +1,4 @@
----
+﻿---
 title: Understand and resolve WebHCat errors on HDInsight
 description: Learn how to about common errors returned by WebHCat on HDInsight and how to resolve them.
 services: hdinsight

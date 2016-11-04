@@ -1,4 +1,4 @@
----
+﻿---
 title: Replace a StorSimple device controller | Microsoft Docs
 description: Explains how to remove and replace one or both controller modules on your StorSimple device.
 services: storsimple

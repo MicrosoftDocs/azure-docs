@@ -1,4 +1,4 @@
----
+﻿---
 title: How to Use Azure Redis Cache | Microsoft Docs
 description: Learn how to improve the performance of your Azure applications with Azure Redis Cache
 services: redis-cache,app-service

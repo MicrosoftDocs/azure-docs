@@ -1,4 +1,4 @@
----
+﻿---
 title: SAP NetWeaver on Windows virtual machines (VMs) - High-Availability Guide | Microsoft Docs
 description: High-availability guide for SAP NetWeaver on Windows virtual machines
 services: virtual-machines-windows,virtual-network,storage

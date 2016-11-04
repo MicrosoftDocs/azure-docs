@@ -1,4 +1,4 @@
----
+﻿---
 title: Configuring asset delivery policies using Media Services REST API | Microsoft Docs
 description: This topic shows how to configure different asset delivery policies using Media Services REST API.
 services: media-services

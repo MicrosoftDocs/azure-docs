@@ -1,4 +1,4 @@
----
+﻿---
 title: How to Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio | Microsoft Docs
 description: Learn how to migrate and publish your web application to an Azure cloud service by using Visual Studio.
 services: visual-studio-online

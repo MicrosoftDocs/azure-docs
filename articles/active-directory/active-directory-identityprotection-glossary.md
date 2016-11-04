@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory Identity Protection Glossary | Microsoft Docs
 description: Azure Active Directory Identity Protection Glossary
 services: active-directory

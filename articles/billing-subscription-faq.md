@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure billing and subscription FAQ | Microsoft Docs
 description: Provide answers to the common Azure Billing and Subscription questions
 services: ''

@@ -1,4 +1,4 @@
----
+﻿---
 title: How to update your own password using Azure Active Directory| Microsoft Docs
 description: Learn that ways you can register for password reset, how to change your password, and how to reset your own password in case you ever forget it.
 services: active-directory

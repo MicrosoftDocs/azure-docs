@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure forced tunneling for Site-to-Site connections using the Resource Manager deployment model | Microsoft Docs
 description: How to redirect or 'force' all Internet-bound traffic back to your on-premises location.
 services: vpn-gateway

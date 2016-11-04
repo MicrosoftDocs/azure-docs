@@ -1,4 +1,4 @@
----
+﻿---
 title: The 5 data science questions - Data Science for Beginners | Microsoft Docs
 description: Get a quick introduction to data science from Data Science for Beginners, five short videos that start with The 5 Questions Data Science Answers.
 keywords: doing data science,data science beginners,data science for beginners, types of questions,data science questions, data science video

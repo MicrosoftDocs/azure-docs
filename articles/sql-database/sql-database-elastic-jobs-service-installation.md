@@ -1,4 +1,4 @@
----
+﻿---
 title: Installing elastic database jobs | Microsoft Docs
 description: Walk through installation of the elastic job feature.
 services: sql-database

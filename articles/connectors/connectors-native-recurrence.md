@@ -1,4 +1,4 @@
----
+﻿---
 title: Add the recurrence trigger in logic apps | Microsoft Docs
 description: Overview of the recurrence trigger, and how to use it with an Azure logic app.
 services: ''

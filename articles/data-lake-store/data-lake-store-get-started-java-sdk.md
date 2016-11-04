@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Data Lake Store Java SDK to develop applications | Microsoft Docs
 description: Use Azure Data Lake Store Java SDK to develop applications
 services: data-lake-store

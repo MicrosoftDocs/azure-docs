@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage access to Log Analytics | Microsoft Docs
 description: Manage access to Log Analytics using a variety of administrative tasks on users, accounts, OMS workspaces, and Azure accounts.
 services: log-analytics

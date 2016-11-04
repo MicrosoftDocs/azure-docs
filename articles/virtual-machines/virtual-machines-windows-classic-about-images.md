@@ -1,4 +1,4 @@
----
+﻿---
 title: About images for Windows virtual machines | Microsoft Docs
 description: Learn about how images are used with Windows virtual machines in Azure.
 services: virtual-machines-windows
