@@ -144,7 +144,7 @@
 ## [Java SDK API](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [Migration from Azure Endpoint Monitoring to Availability tests](app-insights-migrate-azure-endpoint-tests.md)
 
-### Samples and walkthroughs
+### [Samples and walkthroughs](app-insights-code-samples.md)
 
 #### [Walkthrough: Enabling Telemetry for Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 #### [Walkthrough: Export to SQL using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
