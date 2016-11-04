@@ -16,7 +16,7 @@
         "RestApi": "Content"
       },
       "build_entry_point": "docs",
-      "template_folder": "_themes"
+      "template_folder": "_themes",
       "customized_template_paths" :  ["_plugins/CustomRules"]
     }
   ],
