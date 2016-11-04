@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a Java web app in Azure App Service | Microsoft Docs
 description: This tutorial shows you how to deploy a Java web app to Azure App Service.
 services: app-service\web

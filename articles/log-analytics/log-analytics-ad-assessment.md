@@ -1,4 +1,4 @@
----
+﻿---
 title: Optimize your environment with the Active Directory Assessment solution in Log Analytics | Microsoft Docs
 description: You can use the Active Directory Assessment solution to assess the risk and health of your server environments on a regular interval.
 services: log-analytics

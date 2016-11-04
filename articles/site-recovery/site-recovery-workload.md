@@ -1,4 +1,4 @@
----
+﻿---
 title: What workloads can you protect with Azure Site Recovery?
 description: Azure Site Recovery protects your workloads and applications by coordinating the replication, failover and recovery of on-premises virtual machines and physical servers to Azure or to a secondary on-premises site
 services: site-recovery

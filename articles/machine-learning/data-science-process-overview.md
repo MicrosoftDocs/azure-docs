@@ -1,4 +1,4 @@
----
+﻿---
 title: Team Data Science Process Lifecycle | Microsoft Docs
 description: An outline of the key components of the Team Data Science Team Lifecycle.
 services: machine-learning

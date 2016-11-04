@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use table storage from PHP | Microsoft Docs
 description: Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table.
 services: storage

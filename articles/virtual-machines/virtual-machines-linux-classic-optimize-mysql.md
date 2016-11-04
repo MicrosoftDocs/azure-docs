@@ -1,4 +1,4 @@
----
+﻿---
 title: Optimize MySQL Performance on Linux VMs | Microsoft Docs
 description: Learn how to optimize MySQL running on an Azure virtual machine (VM) running Linux.
 services: virtual-machines-linux

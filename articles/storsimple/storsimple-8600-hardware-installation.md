@@ -1,4 +1,4 @@
----
+﻿---
 title: Install your StorSimple 8600 device | Microsoft Docs
 description: Describes how to unpack, rack mount, and cable your StorSimple 8600 device before you deploy and configure the software.
 services: storsimple

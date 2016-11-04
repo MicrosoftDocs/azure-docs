@@ -1,4 +1,4 @@
----
+﻿---
 title: Working with Custom Domains in Azure AD Application Proxy | Microsoft Docs
 description: Covers how work with custom domains in Azure AD Application Proxy.
 services: active-directory

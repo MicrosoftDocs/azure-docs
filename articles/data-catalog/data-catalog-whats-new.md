@@ -1,4 +1,4 @@
----
+﻿---
 title: What's New in Azure Data Catalog | Microsoft Docs
 description: This article provides an overview of new capabilities added to Azure Data Catalog.
 services: data-catalog

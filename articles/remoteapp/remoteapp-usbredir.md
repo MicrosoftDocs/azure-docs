@@ -1,4 +1,4 @@
----
+﻿---
 title: How do you redirect USB devices in Azure RemoteApp? | Microsoft Docs
 description: Learn how to use redirection for USB devices in Azure RemoteApp.
 services: remoteapp

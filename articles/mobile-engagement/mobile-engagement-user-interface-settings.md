@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Mobile Engagement User Interface - Settings
 description: Learn how to manage the global settings of your application using Azure Mobile Engagement
 services: mobile-engagement

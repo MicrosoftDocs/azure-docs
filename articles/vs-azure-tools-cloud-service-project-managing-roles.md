@@ -1,4 +1,4 @@
----
+﻿---
 title: Managing roles in the Azure cloud services projects with Visual Studio | Microsoft Docs
 description: Learn how to add new roles to your Azure cloud service project or remove existing roles from it by using Visual Studio.
 services: visual-studio-online

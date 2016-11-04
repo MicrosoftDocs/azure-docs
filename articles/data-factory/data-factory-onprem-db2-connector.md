@@ -1,4 +1,4 @@
----
+﻿---
 title: Move data from DB2 | Microsoft Docs
 description: Learn about how move data from DB2 Database using Azure Data Factory
 services: data-factory

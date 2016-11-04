@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started with Azure DNS | Microsoft Docs
 description: Learn how to create DNS zones for Azure DNS .This is a Step by step to get your first DNS zone created to start hosting your DNS domain using PowerShell.
 services: dns

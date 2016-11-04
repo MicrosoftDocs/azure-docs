@@ -1,4 +1,4 @@
----
+﻿---
 title: Set device-based conditional access policy for Azure Active Directory-connected applications | Microsoft Docs
 description: Set device-based conditional access policies for Azure AD-connected applications.
 services: active-directory

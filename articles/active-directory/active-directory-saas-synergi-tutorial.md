@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Synergi | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Synergi.
 services: active-directory

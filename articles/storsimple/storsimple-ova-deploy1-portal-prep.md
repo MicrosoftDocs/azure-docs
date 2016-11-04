@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy StorSimple Virtual Array 1 - Portal Preparation
 description: First tutorial to deploy StorSimple virtual array involves preparing the portal
 services: storsimple

@@ -1,4 +1,4 @@
----
+﻿---
 title: Data upload in Azure Search using the .NET SDK | Microsoft Docs
 description: Learn how to upload data to an index in Azure Search using the .NET SDK.
 services: search

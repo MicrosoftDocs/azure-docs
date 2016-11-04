@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a Virtual Machine Scale Set using PowerShell | Microsoft Docs
 description: Create a Virtual Machine Scale Set using PowerShell
 services: virtual-machine-scale-sets

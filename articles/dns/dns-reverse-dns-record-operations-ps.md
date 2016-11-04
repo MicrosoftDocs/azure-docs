@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage reverse DNS records for your Azure services using PowerShell | Microsoft Docs
 description: How to manage reverse DNS records or PTR records for Azure services using PowerShell in Resource Manager
 services: DNS

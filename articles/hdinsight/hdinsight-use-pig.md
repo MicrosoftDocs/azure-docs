@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Hadoop Pig in HDInsight | Microsoft Docs
 description: Learn how to use Pig with Hadoop on HDInsight.
 services: hdinsight

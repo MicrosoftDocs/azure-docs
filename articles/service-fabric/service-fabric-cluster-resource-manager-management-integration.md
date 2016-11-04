@@ -1,4 +1,4 @@
----
+﻿---
 title: Service Fabric Cluster Resource Manager - Management Integration | Microsoft Docs
 description: An overview of the integration points between the Cluster Resource Manager and Service Fabric Management.
 services: service-fabric

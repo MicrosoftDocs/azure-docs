@@ -1,4 +1,4 @@
----
+﻿---
 title: Prepare a Windows VHD to upload to Azure | Microsoft Docs
 description: Recommended practices for preparing a Windows VHD before uploading to Azure
 services: virtual-machines-windows

@@ -1,4 +1,4 @@
----
+﻿---
 title: Application Performance Management with Application Insights | Microsoft Docs
 description: Track performance and usage of your live web application.  Detect, triage and diagnose problems.
 services: application-insights

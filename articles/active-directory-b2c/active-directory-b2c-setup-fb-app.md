@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure Active Directory B2C: Facebook configuration | Microsoft Docs'
 description: Provide sign-up and sign-in to consumers with Facebook accounts in your applications that are secured by Azure Active Directory B2C.
 services: active-directory-b2c

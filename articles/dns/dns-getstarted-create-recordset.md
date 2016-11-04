@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a record set and records for a DNS zone using PowerShell | Microsoft Docs
 description: How to create host records for Azure DNS.Setting up record sets and records using PowerShell
 services: dns

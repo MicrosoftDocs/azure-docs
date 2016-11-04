@@ -1,4 +1,4 @@
----
+﻿---
 title: 'DocumentDB design pattern: Social media apps | Microsoft Docs'
 description: Learn about a design pattern for Social Networks by leveraging the storage flexibility of DocumentDB and other Azure services.
 keywords: social media apps

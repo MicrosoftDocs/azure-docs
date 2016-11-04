@@ -1,4 +1,4 @@
----
+﻿---
 title: 'SQL Database performance & options: Service tiers | Microsoft Docs'
 description: Compare SQL Database performance and business continuity features of the service tiers to balance cost and capability as you scale.
 keywords: database options,database performance

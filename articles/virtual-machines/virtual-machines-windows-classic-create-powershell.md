@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a Windows VM with PowerShell | Microsoft Docs
 description: Create Windows virtual machines using Azure PowerShell and the classic deployment model.
 services: virtual-machines-windows

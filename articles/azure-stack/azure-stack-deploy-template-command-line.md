@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy templates with the command line in Azure Stack | Microsoft Docs
 description: Learn how to use the cross-platform command line interface (CLI) to deploy templates from inside the ClientVM or after using the VPN to connect to Azure Stack.
 services: azure-stack

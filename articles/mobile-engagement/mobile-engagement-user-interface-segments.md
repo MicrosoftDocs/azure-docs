@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Mobile Engagement User Interface - Segments
 description: Learn how to create and manage segments of users to identify usage patterns using Azure Mobile Engagement
 services: mobile-engagement

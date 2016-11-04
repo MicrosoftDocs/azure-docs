@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Proofpoint on Demand | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Proofpoint on Demand.
 services: active-directory

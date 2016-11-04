@@ -1,4 +1,4 @@
----
+﻿---
 title: Service Fabric Cluster Resource Manager - Placement Policies | Microsoft Docs
 description: Overview of additional placement policies and rules for Service Fabric Services
 services: service-fabric

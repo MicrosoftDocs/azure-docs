@@ -1,4 +1,4 @@
----
+﻿---
 title: Error During Authentication Detection
 description: The active directory connection wizard detected an incompatible authentication type
 services: active-directory

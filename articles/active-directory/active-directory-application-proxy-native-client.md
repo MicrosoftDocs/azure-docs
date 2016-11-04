@@ -1,4 +1,4 @@
----
+﻿---
 title: How to enable publishing of native client apps with proxy applications | Microsoft Docs
 description: Covers how to enable native client apps to communicate with Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory

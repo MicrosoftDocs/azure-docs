@@ -1,4 +1,4 @@
----
+﻿---
 title: How to Manage Data Assets | Microsoft Docs
 description: How-to article highlighting how to control visibility and ownership of data assets registered in Azure Data Catalog.
 services: data-catalog

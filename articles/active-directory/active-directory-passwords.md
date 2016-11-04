@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD Password Reset | Microsoft Docs
 description: Description of password management capabilities in Azure AD, including password reset, change, password management reporting, and writeback to your local on-premises Active Directory.
 services: active-directory

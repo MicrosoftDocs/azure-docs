@@ -1,4 +1,4 @@
----
+﻿---
 title: Managing scaled-out cloud databases | Microsoft Docs
 description: Illustrates the elastic database job service
 metakeywords: azure sql database elastic databases

@@ -1,4 +1,4 @@
----
+﻿---
 title: Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory | Microsoft Docs
 description: Learn how to custom the claims issued in the SAML token for pre-integrated apps in Azure Active Directory
 services: active-directory

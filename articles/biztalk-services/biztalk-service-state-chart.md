@@ -1,4 +1,4 @@
----
+﻿---
 title: Tasks allowed in different states or statuses in BizTalk Services | Microsoft Docs
 description: 'The actions/operations allowed in different MABS status: stop, start, restart, suspend, resume, delete, scale, update configuration, and backing up'
 services: biztalk-services

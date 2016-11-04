@@ -1,4 +1,4 @@
----
+﻿---
 title: Custom logs in Log Analytics | Microsoft Docs
 description: Log Analytics can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in the OMS repository.
 services: log-analytics

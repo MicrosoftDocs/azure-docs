@@ -1,4 +1,4 @@
----
+﻿---
 title: Network Resource Provider Overview | Microsoft Docs
 description: Learn about the new Network Resource Provider in Azure Resource Manager
 services: virtual-network

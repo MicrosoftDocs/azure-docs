@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Directions on Microsoft | Microsoft Docs'
 description: Learn how to use Directions on Microsoft with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory

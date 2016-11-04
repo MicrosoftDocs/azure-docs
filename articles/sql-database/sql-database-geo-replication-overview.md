@@ -1,4 +1,4 @@
----
+﻿---
 title: Active Geo-Replication for Azure SQL Database
 description: Active Geo-Replication enables you to setup 4 replicas of your database in any of the Azure datacenters.
 services: sql-database

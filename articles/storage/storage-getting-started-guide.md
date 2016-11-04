@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started with Azure Storage in five minutes | Microsoft Docs
 description: Quickly ramp up on Microsoft Azure Blobs, Table, and Queues using Azure Storage Quick Starts, Visual Studio, and the Azure storage emulator. Run your first Azure Storage application in five minutes.
 services: storage

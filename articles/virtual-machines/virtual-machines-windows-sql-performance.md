@@ -1,4 +1,4 @@
----
+﻿---
 title: Performance best practices for SQL Server | Microsoft Docs
 description: Provides best practices for optimizing SQL Server performance in Microsoft Azure VMs.
 services: virtual-machines-windows

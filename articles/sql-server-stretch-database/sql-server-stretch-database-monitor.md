@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitor and troubleshoot data migration (Stretch Database) | Microsoft Docs
 description: Learn how to monitor the status of data migration.
 services: sql-server-stretch-database

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'FAQ: Publish and use Machine Learning apps in Azure Marketplace | Microsoft Docs'
 description: Frequently Asked Questions
 services: machine-learning

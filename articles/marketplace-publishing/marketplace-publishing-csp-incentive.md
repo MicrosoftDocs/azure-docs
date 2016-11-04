@@ -1,4 +1,4 @@
----
+﻿---
 title: How to view and change the Cloud Solution Provider's Reseller Incentive | Microsoft Docs
 description: How to view and change your selection for CSP Reseller Incentive
 services: marketplace-publishing

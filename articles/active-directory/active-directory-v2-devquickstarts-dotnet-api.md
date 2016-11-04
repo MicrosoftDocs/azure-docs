@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD v2.0 .NET Web API| Microsoft Docs
 description: How to build a .NET MVC Web Api that accepts tokens from both personal Microsoft Account and work or school accounts.
 services: active-directory

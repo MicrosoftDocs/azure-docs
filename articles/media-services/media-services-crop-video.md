@@ -1,4 +1,4 @@
----
+﻿---
 title: How to crop video | Microsoft Docs
 description: This article shows how to crop videos with Media Encoder Standard.
 services: media-services

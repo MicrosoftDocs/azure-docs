@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Monitoring REST API Walkthrough | Microsoft Docs
 description: How to authenticate requests to and use the Azure Monitoring REST API.
 author: mcollier

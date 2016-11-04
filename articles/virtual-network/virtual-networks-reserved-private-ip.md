@@ -1,4 +1,4 @@
----
+﻿---
 title: How to set a static internal private IP
 description: Understanding static internal IPs (DIPs) and how to manage them
 services: virtual-network

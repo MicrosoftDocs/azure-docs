@@ -1,4 +1,4 @@
----
+﻿---
 title: Batch and HPC solutions in the cloud | Microsoft Docs
 description: Learn about batch and high-performance computing (HPC and Big Compute) scenarios and solution options in Azure
 services: batch, virtual-machines, cloud-services

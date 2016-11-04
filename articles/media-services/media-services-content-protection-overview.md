@@ -1,4 +1,4 @@
----
+﻿---
 title: Protecting content overview | Microsoft Docs
 description: This articles give an overview of content protection with Media Services.
 services: media-services

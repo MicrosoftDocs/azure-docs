@@ -1,4 +1,4 @@
----
+﻿---
 title: Failure mode analysis | Microsoft Docs
 description: Guidelines for performing failure mode analysis for cloud solutions based on Azure.
 services: ''

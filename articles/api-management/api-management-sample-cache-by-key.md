@@ -1,4 +1,4 @@
----
+﻿---
 title: Custom caching in Azure API Management
 description: Learn how to cache items by key in Azure API Management
 services: api-management

@@ -1,4 +1,4 @@
----
+﻿---
 title: Slow web app performance in App Service | Microsoft Docs
 description: This article helps you troubleshoot slow web app performance issues in Azure App Service.
 services: app-service\web

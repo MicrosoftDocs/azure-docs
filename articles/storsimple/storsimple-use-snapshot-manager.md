@@ -1,4 +1,4 @@
----
+﻿---
 title: StorSimple Snapshot Manager user interface | Microsoft Docs
 description: Describes the StorSimple Snapshot Manager user interface and explains how to use it to manage backup jobs and the backup catalog.
 services: storsimple

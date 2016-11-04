@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Mobile Engagement User Interface - Monitor
 description: Learn how to monitor real-time data about your application using Azure Mobile Engagement
 services: mobile-engagement

@@ -1,4 +1,4 @@
----
+﻿---
 title: Application Architecture on Microsoft Azure | Microsoft Docs
 description: Architecture overview that covers common design patterns
 services: ''

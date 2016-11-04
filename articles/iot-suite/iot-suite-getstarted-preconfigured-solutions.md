@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started with preconfigured solutions | Microsoft Docs
 description: Follow this tutorial to learn how to deploy an Azure IoT Suite preconfigured solution.
 services: ''

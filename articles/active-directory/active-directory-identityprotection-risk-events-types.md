@@ -1,4 +1,4 @@
----
+﻿---
 title: Types of risk events detected by Azure Active Directory Identity Protection | Microsoft Docs
 description: This topic gives you a detailed overview of the available types of risk events in Azure Active Directory Identity Protection
 services: active-directory

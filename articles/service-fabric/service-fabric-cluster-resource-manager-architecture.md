@@ -1,4 +1,4 @@
----
+﻿---
 title: Resource Manager Architecture | Microsoft Docs
 description: An architectural overview of Service Fabric Cluster Resource Manager.
 services: service-fabric

@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage DNS record sets and records by using the Azure portal| Microsoft Docs
 description: Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All PowerShell commands for operations on record sets and records.
 services: dns

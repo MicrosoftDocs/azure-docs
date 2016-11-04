@@ -1,4 +1,4 @@
----
+﻿---
 title: Frequently asked questions | Microsoft Docs
 description: Frequently asked questions (FAQs)
 services: media-services

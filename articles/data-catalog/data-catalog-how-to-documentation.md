@@ -1,4 +1,4 @@
----
+﻿---
 title: How to document data sources | Microsoft Docs
 description: How-to article highlighting how to document data assets in Azure Data Catalog.
 services: data-catalog

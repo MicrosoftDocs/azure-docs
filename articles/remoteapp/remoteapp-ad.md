@@ -1,4 +1,4 @@
-
+﻿
 ---
 title: Azure AD + Active Directory requirements for Azure RemoteApp | Microsoft Docs
 description: Learn how to set up Active Directory to work with Azure RemoteApp.

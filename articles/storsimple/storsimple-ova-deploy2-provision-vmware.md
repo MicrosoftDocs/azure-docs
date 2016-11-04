@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy StorSimple Virtual Array - Provision in VMware
 description: This second tutorial in StorSimple Virtual Array deployment series involves provisioning a virtual device in VMware.
 services: storsimple

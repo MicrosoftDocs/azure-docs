@@ -1,4 +1,4 @@
----
+﻿---
 title: Log Analytics FAQ | Microsoft Docs
 description: Answers to frequently asked questions about the Log Analytics service.
 services: log-analytics
