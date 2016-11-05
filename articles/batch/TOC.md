@@ -35,6 +35,8 @@
 ## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
 ## [Big Compute in Azure: Technical resources](big-compute-resources.md)
 # Resources
+## [Service Updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=))
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 ## [Batch C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Batch Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
