@@ -1,42 +1,69 @@
 {
+
   "build_entry_point": "docs",
+
   "need_generate_pdf": false,
+
   "need_generate_intellisense": false,
+
   "docsets_to_publish": [
+
     {
+
       "docset_name": "azure-documents",
+
       "build_source_folder": ".",
+
       "build_output_subfolder": "azure",
+
       "locale": "en-us",
+
       "version": 0,
+
       "open_to_public_contributors": false,
+
       "type_mapping": {
+
         "Conceptual": "Content",
+
         "ManagedReference": "Content",
+
         "RestApi": "Content"
-    },
+
+      },
+
       "build_entry_point": "docs",
-      "template_folder": "_themes",
-      "customized_template_paths" :  ["_plugins/CustomRules"]
+
+      "template_folder": "_themes"
+
     }
+
   ],
+
   "notification_subscribers": [],
+
   "branches_to_filter": [],
+
   "skip_source_output_uploading": false,
+
   "need_preview_pull_request": true,
+
   "enable_incremental_build": true,
+
   "dependent_repositories": [
+
     {
+
       "path_to_root": "_themes",
+
       "url": "https://github.com/Microsoft/templates.docs.msft",
+
       "branch": "master",
+
       "branch_mapping": {}
-    },
-    {
-      "path_to_root": "_plugins",
-      "url": "https://github.com/Microsoft/csi-custom-validation-rules",
-      "branch": "master",
-      "branch_mapping": {}
+
     }
+
   ]
+
 }
