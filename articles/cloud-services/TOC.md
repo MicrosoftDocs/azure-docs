@@ -8,7 +8,7 @@
 ## [Retirement policy for Azure Guest OS](cloud-services-guestos-retirement-policy.md)
 ## [Azure Guest OS release news](cloud-services-guestos-update-matrix.md)
 
-# Get Started test
+# Get Started
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [Example .NET Cloud Service](cloud-services-dotnet-get-started.md)
 ## [Example Python for Visual Studio Cloud Service](cloud-services-python-ptvs.md)
