@@ -55,7 +55,6 @@
 ### [IoT Hub endpoints](iot-hub-devguide-endpoints.md)
 ### [Query language](iot-hub-devguide-query-language.md)
 ### [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
-### [Pricing](iot-hub-devguide-pricing.md)
 ### [Device and service SDKs](iot-hub-devguide-sdks.md)
 ### [MQTT support](iot-hub-mqtt-support.md)
 ### [Glossary](iot-hub-devguide-glossary.md)
