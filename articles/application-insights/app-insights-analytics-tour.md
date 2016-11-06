@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # A tour of Analytics in Application Insights
-[Analytics](app-insights-analytics.md) is the powerful search feature of 
+[Analytics](app-insights-analytics.md) is the powerful search feature of
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
@@ -40,10 +40,10 @@ Let's start by examining a few sample rows of the table:
 
 > [!NOTE]
 > Put the cursor somewhere in the statement before you click Go. You can split a statement over more than one line, but don't put blank lines in a statement. Blank lines are a convenient way to keep several separate queries in the window.
-> 
-> 
+>
+>
 
-Choose columns, drag them, group by columns, and filter: 
+Choose columns, drag them, group by columns, and filter:
 
 ![Click column selection at upper right of results](./media/app-insights-analytics-tour/030.png)
 
@@ -52,9 +52,9 @@ Expand any item to see the detail:
 ![Choose Table, and use Configure Columns](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Click the head of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Sorting this way doesn't always show you the actual highest or lowest items. To sort items reliably, use the `top` or `sort` operator. 
-> 
-> 
+> Click the head of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Sorting this way doesn't always show you the actual highest or lowest items. To sort items reliably, use the `top` or `sort` operator.
+>
+>
 
 ## [Top](app-insights-analytics-reference.md#top-operator) and [sort](app-insights-analytics-reference.md#sort-operator)
 `take` is useful to get a quick sample of a result, but it shows rows from the table in no particular order. To get an ordered view, use `top` (for a sample) or `sort` (over the whole table).
@@ -63,7 +63,7 @@ Show me the first n rows, ordered by a particular column:
 
 ```AIQL
 
-    requests | top 10 by timestamp desc 
+    requests | top 10 by timestamp desc
 ```
 
 * *Syntax:* Most operators have keyword parameters such as `by`.
@@ -97,19 +97,19 @@ You can also rename columns and define new ones:
 
 ```AIQL
 
-    requests 
-    | top 10 by timestamp desc 
+    requests
+    | top 10 by timestamp desc
     | project  
-            name, 
+            name,
             response = resultCode,
-            timestamp, 
+            timestamp,
             ['time of day'] = floor(timestamp % 1d, 1s)
 ```
 
 ![result](./media/app-insights-analytics-tour/270.png)
 
 * [Column names](app-insights-analytics-reference.md#names) can include spaces or symbols if they are bracketed like this: `['...']` or `["..."]`
-* `%` is the usual modulo operator. 
+* `%` is the usual modulo operator.
 * `1d` (that's a digit one, then a 'd') is a timespan literal meaning one day. Here are some more timespan literals: `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (alias `bin`) rounds a value down to the nearest multiple of the base value you provide. So `floor(aTime, 1s)` rounds a time down to the nearest second.
 
@@ -120,7 +120,7 @@ If you just want to add columns to the existing ones, use [`extend`](app-insight
 
 ```AIQL
 
-    requests 
+    requests
     | top 10 by timestamp desc
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
@@ -128,7 +128,7 @@ If you just want to add columns to the existing ones, use [`extend`](app-insight
 Using [`extend`](app-insights-analytics-reference.md#extend-operator) is less verbose than [`project`](app-insights-analytics-reference.md#project-operator) if you want to keep all the existing columns.
 
 ## [Summarize](app-insights-analytics-reference.md#summarize-operator): aggregate groups of rows
-`Summarize` applies a specified *aggregation function* over groups of rows. 
+`Summarize` applies a specified *aggregation function* over groups of rows.
 
 For example, the time your web app takes to respond to a request is reported in the field `duration`. Let's see the average response time to all requests:
 
@@ -138,7 +138,7 @@ Or we could separate the result into requests of different names:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` collects the data points in the stream into groups for which the `by` clause evaluates equally. Each value in the `by` expression - each operation name in the above example - results in a row in the result table. 
+`Summarize` collects the data points in the stream into groups for which the `by` clause evaluates equally. Each value in the `by` expression - each operation name in the above example - results in a row in the result table.
 
 Or we could group results by time of day:
 
@@ -153,9 +153,9 @@ We can use the same technique to reduce ranges of strings:
 Notice that you can use `name=` to set the name of a result column, either in the aggregation expressions or the by-clause.
 
 ## Counting sampled data
-`sum(itemCount)` is the recommended aggregation to count events. In many cases, itemCount==1, so the function simply counts up the number of rows in the group. But when [sampling](app-insights-sampling.md) is in operation, only a fraction of the original events will be retained as data points in Application Insights, so that for each data point you see, there are `itemCount` events. 
+`sum(itemCount)` is the recommended aggregation to count events. In many cases, itemCount==1, so the function simply counts up the number of rows in the group. But when [sampling](app-insights-sampling.md) is in operation, only a fraction of the original events will be retained as data points in Application Insights, so that for each data point you see, there are `itemCount` events.
 
-For example, if sampling discards 75% of the original events, then itemCount==4 in the retained records - that is, for every retained record, there were four original records. 
+For example, if sampling discards 75% of the original events, then itemCount==4 in the retained records - that is, for every retained record, there were four original records.
 
 Adaptive sampling causes itemCount to be higher during periods when your application is being heavily used.
 
@@ -170,7 +170,7 @@ There's a range of [aggregation functions](app-insights-analytics-reference.md#a
 ## Charting the results
 ```AIQL
 
-    exceptions 
+    exceptions
        | summarize count()  
          by bin(timestamp, 1d)
 ```
@@ -192,10 +192,10 @@ Let's see just exceptions reported from browsers:
 
 ```AIQL
 
-    exceptions 
-    | where client_Type == "Browser" 
-    |  summarize count() 
-       by client_Browser, outerMessage 
+    exceptions
+    | where client_Type == "Browser"
+    |  summarize count()
+       by client_Browser, outerMessage
 ```
 
 ![](./media/app-insights-analytics-tour/250.png)
@@ -213,7 +213,7 @@ Find unsuccessful requests:
 
 ```AIQL
 
-    requests 
+    requests
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
@@ -225,7 +225,7 @@ Summarize the different responses:
 
     requests
     | where isnotempty(resultCode) and toint(resultCode) >= 400
-    | summarize count() 
+    | summarize count()
       by resultCode
 ```
 
@@ -251,15 +251,15 @@ Multiple expressions in the `by` clause creates multiple rows, one for each comb
 ```AIQL
 
     requests
-    | summarize count(), avg(duration) 
-      by bin(timestamp, 1d), client_StateOrProvince, client_City 
+    | summarize count(), avg(duration)
+      by bin(timestamp, 1d), client_StateOrProvince, client_City
     | order by timestamp asc, client_StateOrProvince, client_City
 ```
 
 ![](./media/app-insights-analytics-tour/090.png)
 
 ### Segment a chart by dimensions
-If you chart a table that has a string column and a numeric column, the string can be used to split the numeric data into separate series of points. If there's more than one string column, you can choose which column to use as the discriminator. 
+If you chart a table that has a string column and a numeric column, the string can be used to split the numeric data into separate series of points. If there's more than one string column, you can choose which column to use as the discriminator.
 
 ![Segment an analytics chart](./media/app-insights-analytics-tour/100.png)
 
@@ -268,7 +268,7 @@ If you chart a table that more than one numeric column, in addition to the times
 
 ![Segment an analytics chart](./media/app-insights-analytics-tour/110.png)
 
-You must select Don't Split before you can select multiple numeric columns You can't split by a string column at the same time as displaying more than one numeric column. 
+You must select Don't Split before you can select multiple numeric columns You can't split by a string column at the same time as displaying more than one numeric column.
 
 ## Daily average cycle
 How does usage vary over the average day?
@@ -278,7 +278,7 @@ Count requests by the time modulo one day, binned into hours:
 ```AIQL
 
     requests
-    | extend hour = floor(timestamp % 1d , 1h) 
+    | extend hour = floor(timestamp % 1d , 1h)
           + datetime("2016-01-01")
     | summarize event_count=count() by hour
 ```
@@ -287,8 +287,8 @@ Count requests by the time modulo one day, binned into hours:
 
 > [!NOTE]
 > Notice we currently have to convert time durations to datetimes in order to display on the a chart.
-> 
-> 
+>
+>
 
 ## Compare multiple daily series
 How does usage vary over the time of day in different countries?
@@ -298,8 +298,8 @@ How does usage vary over the time of day in different countries?
  requests  | where tostring(operation_SyntheticSource)
      | extend hour= floor( timestamp % 1d , 1h)
            + datetime("2001-01-01")
-     | summarize event_count=count() 
-       by hour, client_CountryOrRegion 
+     | summarize event_count=count()
+       by hour, client_CountryOrRegion
      | render timechart
 ```
 
@@ -310,13 +310,13 @@ How many sessions are there of different lengths?
 
 ```AIQL
 
-    requests 
-    | where isnotnull(session_Id) and isnotempty(session_Id) 
-    | summarize min(timestamp), max(timestamp) 
-      by session_Id 
-    | extend sessionDuration = max_timestamp - min_timestamp 
-    | where sessionDuration > 1s and sessionDuration < 3m 
-    | summarize count() by floor(sessionDuration, 3s) 
+    requests
+    | where isnotnull(session_Id) and isnotempty(session_Id)
+    | summarize min(timestamp), max(timestamp)
+      by session_Id
+    | extend sessionDuration = max_timestamp - min_timestamp
+    | where sessionDuration > 1s and sessionDuration < 3m
+    | summarize count() by floor(sessionDuration, 3s)
     | project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
@@ -333,13 +333,13 @@ Use the above query, but replace the last line:
 
 ```AIQL
 
-    requests 
-    | where isnotnull(session_Id) and isnotempty(session_Id) 
-    | summarize min(timestamp), max(timestamp) 
-      by session_Id 
-    | extend sesh = max_timestamp - min_timestamp 
+    requests
+    | where isnotnull(session_Id) and isnotempty(session_Id)
+    | summarize min(timestamp), max(timestamp)
+      by session_Id
+    | extend sesh = max_timestamp - min_timestamp
     | where sesh > 1s
-    | summarize count() by floor(sesh, 3s) 
+    | summarize count() by floor(sesh, 3s)
     | summarize percentiles(sesh, 5, 20, 50, 80, 95)
 ```
 
@@ -349,7 +349,7 @@ We also removed the upper limit in the where clause, so as to get correct figure
 
 From which we can see that:
 
-* 5% of sessions have a duration of less than 3 minutes 34s; 
+* 5% of sessions have a duration of less than 3 minutes 34s;
 * 50% of sessions last less than 36 minnutes;
 * 5% of sessions last more than 7 days
 
@@ -357,11 +357,11 @@ To get a separate breakdown for each country, we just have to bring the client_C
 
 ```AIQL
 
-    requests 
-    | where isnotnull(session_Id) and isnotempty(session_Id) 
-    | summarize min(timestamp), max(timestamp) 
+    requests
+    | where isnotnull(session_Id) and isnotempty(session_Id)
+    | summarize min(timestamp), max(timestamp)
       by session_Id, client_CountryOrRegion
-    | extend sesh = max_timestamp - min_timestamp 
+    | extend sesh = max_timestamp - min_timestamp
     | where sesh > 1s
     | summarize count() by floor(sesh, 3s), client_CountryOrRegion
     | summarize percentiles(sesh, 5, 20, 50, 80, 95)
@@ -370,16 +370,16 @@ To get a separate breakdown for each country, we just have to bring the client_C
 
 ![](./media/app-insights-analytics-tour/190.png)
 
-## [Join](app-insights-analytics-reference.md#join)
+## Join
 We have access to several tables, including requests and exceptions.
 
 To find the exceptions related to a request that returned a failure response, we can join the tables on `session_Id`:
 
 ```AIQL
 
-    requests 
-    | where toint(responseCode) >= 500 
-    | join (exceptions) on operation_Id 
+    requests
+    | where toint(responseCode) >= 500
+    | join (exceptions) on operation_Id
     | take 30
 ```
 
@@ -388,21 +388,21 @@ It's good practice to use `project` to select just the columns we need before pe
 In the same clauses, we rename the timestamp column.
 
 ## [Let](app-insights-analytics-reference.md#let-clause): Assign a result to a variable
-Use [let](app-insights-analytics-reference.md#let-statements) to separate out the parts of the previous expression. The results are unchanged:
+Use *let* to separate out the parts of the previous expression. The results are unchanged:
 
 ```AIQL
 
-    let bad_requests = 
+    let bad_requests =
       requests
         | where  toint(resultCode) >= 500  ;
     bad_requests
-    | join (exceptions) on session_Id 
+    | join (exceptions) on session_Id
     | take 30
 ```
 
 > Tip: In the Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
-> 
-> 
+>
+>
 
 ## Accessing nested objects
 Nested objects can be accessed easily. For example, in the exceptions stream you'll see structured objects like this:
@@ -426,7 +426,7 @@ For example, if your app includes:
 
 ```C#
 
-    var dimensions = new Dictionary<string, string> 
+    var dimensions = new Dictionary<string, string>
                      {{"p1", "v1"},{"p2", "v2"}};
     var measurements = new Dictionary<string, double>
                      {{"m1", 42.0}, {"m2", 43.2}};
@@ -438,10 +438,10 @@ To extract these values in Analytics:
 ```AIQL
 
     customEvents
-    | extend p1 = customDimensions.p1, 
+    | extend p1 = customDimensions.p1,
       m1 = todouble(customMeasurements.m1) // cast to expected type
 
-``` 
+```
 
 ## Tables
 The stream of telemetry received from your app is accessible through several tables. The schema of properties available for each table is visible at the left of the window.
@@ -456,13 +456,13 @@ Find the requests that fail most:
 ![Count requests segmented by name](./media/app-insights-analytics-tour/analytics-failed-requests.png)
 
 ### Custom events table
-If you use [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) to send your own events, you can read them from this table. 
+If you use [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) to send your own events, you can read them from this table.
 
 Let's take an example where your app code contains these lines:
 
 ```C#
 
-    telemetry.TrackEvent("Query", 
+    telemetry.TrackEvent("Query",
        new Dictionary<string,string> {{"query", sqlCmd}},
        new Dictionary<string,double> {
            {"retry", retryCount},
@@ -484,26 +484,26 @@ If you are using [TrackMetric()](app-insights-api-custom-events-metrics.md#track
 
 > [!NOTE]
 > In [Metrics Explorer](app-insights-metrics-explorer.md), all custom measurements attached to any type of telemetry appear together in the metrics blade along with metrics sent using `TrackMetric()`. But in Analytics, custom measurements are still attached to whichever type of telemetry they were carried on - events or requests, and so on - while metrics sent by TrackMetric appear in their own stream.
-> 
-> 
+>
+>
 
 ### Performance counters table
 [Performance counters](app-insights-performance-counters.md) show you basic system metrics for your app, such as CPU, memory, and network utilization. You can configure the SDK to send additional counters, including your own custom counters.
 
-The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter. Counter instance names are only applicable to some performance counters, and typically indicate the name of the process to which the count relates. In the telemetry for each application, you’ll see only the counters for that application. For example, to see what counters are available: 
+The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter. Counter instance names are only applicable to some performance counters, and typically indicate the name of the process to which the count relates. In the telemetry for each application, you’ll see only the counters for that application. For example, to see what counters are available:
 
 ![Performance counters in Application Insights analytics](./media/app-insights-analytics-tour/analytics-performance-counters.png)
 
-To get a chart of available memory over the recent period: 
+To get a chart of available memory over the recent period:
 
 ![Memory timechart in Application Insights analytics](./media/app-insights-analytics-tour/analytics-available-memory.png)
 
-Like other telemetry, **performanceCounters** also has a column `cloud_RoleInstance` that indicates the identity of the host machine on which your app is running. For example, to compare the performance of your app on the different machines: 
+Like other telemetry, **performanceCounters** also has a column `cloud_RoleInstance` that indicates the identity of the host machine on which your app is running. For example, to compare the performance of your app on the different machines:
 
 ![Performance segmented by role instance in Application Insights analytics](./media/app-insights-analytics-tour/analytics-metrics-role-instance.png)
 
 ### Exceptions table
-[Exceptions reported by your app](app-insights-asp-net-exceptions.md) are available in this table. 
+[Exceptions reported by your app](app-insights-asp-net-exceptions.md) are available in this table.
 
 To find the HTTP request that your app was handling when the exception was raised, join on operation_Id:
 
@@ -512,7 +512,7 @@ To find the HTTP request that your app was handling when the exception was raise
 ### Browser timings table
 `browserTimings` shows page load data collected in your users' browsers.
 
-[Set up your app for client-side telemetry](app-insights-javascript.md) in order to see these metrics. 
+[Set up your app for client-side telemetry](app-insights-javascript.md) in order to see these metrics.
 
 The schema includes [metrics indicating the lengths of different stages of the page loading process](app-insights-javascript.md#page-load-performance). (They don’t indicate the length of time your users read a page.)  
 
@@ -521,7 +521,7 @@ Show the popularities of different pages, and load times for each page:
 ![Page load times in Analytics](./media/app-insights-analytics-tour/analytics-page-load.png)
 
 ### Availbility results table
-`availabilityResults` shows the results of your [web tests](app-insights-monitor-web-app-availability.md). Each run of your tests from each test location is reported separately. 
+`availabilityResults` shows the results of your [web tests](app-insights-monitor-web-app-availability.md). Each run of your tests from each test location is reported separately.
 
 ![Page load times in Analytics](./media/app-insights-analytics-tour/analytics-availability.png)
 
@@ -541,4 +541,3 @@ You can pin your results to a dashboard in order to bring together all your most
 * [Analytics language reference](app-insights-analytics-reference.md)
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
