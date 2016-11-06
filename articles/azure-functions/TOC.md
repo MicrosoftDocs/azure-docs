@@ -45,3 +45,5 @@
 # Related
 
 # Resources
+## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
