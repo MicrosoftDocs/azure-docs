@@ -3,7 +3,7 @@ title: DocumentDB Documentation | Microsoft Azure
 description: DocumentDB Documentation
 services: ''
 documentationcenter: ''
-author: kriscr
+author: kriscrider
 manager: carolz
 editor: ''
 tags: documentdb
