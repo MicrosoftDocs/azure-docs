@@ -24,7 +24,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
 
 <ul class="panelContent cardsA">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview/">
+        <a href="active-directory-b2c-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -42,7 +42,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-get-started/">
+        <a href="active-directory-b2c-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -60,7 +60,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
         </a>
     </li>  
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-ios/">
+        <a href="active-directory-b2c-devquickstarts-ios">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -78,7 +78,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-android//">
+        <a href="active-directory-b2c-devquickstarts-android">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -96,7 +96,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-api-node/">
+        <a href="active-directory-b2c-devquickstarts-api-node">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -114,7 +114,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet/">
+        <a href="active-directory-b2c-devquickstarts-web-dotnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -132,7 +132,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
         </a>
     </li>
     <li>
-    <a href="https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-api/">
+    <a href="active-directory-b2c-devquickstarts-web-api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
