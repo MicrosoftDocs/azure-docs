@@ -24,7 +24,7 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
 
 <ul class="panelContent cardsA">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview">
+        <a href="functions-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -60,7 +60,25 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function">
+        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=azure-functions ">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="images/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <p>Azure Functions Video Library</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="functions-create-first-azure-function">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -78,7 +96,7 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
         </a>
     </li>
    <li>
-        <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-an-azure-connected-function">
+        <a href="functions-create-an-azure-connected-function">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -96,7 +114,7 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
         </a>
     </li>             
        <li>
-       <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-a-web-hook-or-api-function">
+       <a href="functions-create-a-web-hook-or-api-function">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -114,7 +132,7 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
         </a>
     </li>
    <li>
-        <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-an-event-processing-function">
+        <a href="functions-create-an-event-processing-function">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
