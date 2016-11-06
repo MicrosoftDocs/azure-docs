@@ -1,21 +1,21 @@
 ---
 title: Mobile Engagement Documentation | Microsoft Azure
 description: Mobile Engagement Documentation
-services: ''
+services: mobile-engagement
 documentationcenter: ''
-author: squillace
-manager: timlt
+author: kriscrider
+manager: carolz
 editor: ''
-tags: billing
+tags: 
 
 ms.assetid: 0a7ecde1-3648-4f6a-8b3c-55a6b47de779
-ms.service: value
+ms.service: mobile-engagement
 ms.devlang: na
-ms.topic: article
+ms.topic: landing page
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
+ms.date: 11/06/2016
+ms.author: kriscr
 
 ---
 # Mobile Engagement Documentation
@@ -34,7 +34,7 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
                         </div>
                     </div>
                     <div class="cardText">                       
-                        <p>Learn how to use Azure Mobile Engagement</p>
+                        <p>Learn about Azure Mobile Engagement</p>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
                         </div>
                     </div>
                     <div class="cardText">                        
-                        <p>Get Started with Mobile Engagement for Andriod</p>
+                       <p>Create an Andriod app using GCM</p>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
                         </div>
                     </div>
                     <div class="cardText">                        
-                        <p>Get Started with Mobile Engagement for Cordova/Phonegap</p>
+                        <p>Create a Cordova app using Mac and integrate Mobile Engagement SDK</p>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
                         </div>
                     </div>
                     <div class="cardText">                        
-                        <p>Get Started with Mobile Engagement for iOS in Objective C</p>
+                        <p>Create an iOS app using APNS</p>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
                         </div>
                     </div>
                     <div class="cardText">                        
-                        <p>Get Started with Mobile Engagement for iOS apps in Swift</p>
+                        <p>Create an iOS apps in Swift</p>
                     </div>
                 </div>
             </div>
@@ -142,7 +142,7 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
                         </div>
                     </div>
                     <div class="cardText">                        
-                        <p>Get Started with Mobile Engagement for Unity Andriod Deployment</p>
+                        <p>Create an Andriod app using Unity</p>
                     </div>
                 </div>
             </div>
@@ -160,7 +160,7 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
                         </div>
                     </div>
                     <div class="cardText">                        
-                        <p>Get Started with Mobile Engagement for Unity iOS Deployment</p>
+                        <p>Create an iOS app using Unity</p>
                     </div>
                 </div>
             </div>
@@ -178,7 +178,7 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
                         </div>
                     </div>
                     <div class="cardText">                        
-                        <p>Get Started with Mobile Engagement for Windows Universal Apps</p>
+                        <p>Create a Windows Universal App</p>
                     </div>
                 </div>
             </div>
@@ -188,7 +188,15 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
 </ul>
 
 ---
+## Reference
 
+### .NET
+[Mobile Engagement .NET API Reference](/dotnet/api)
+
+### REST
+[Mobile Engagement REST API Reference](/rest/api/mobile-engagement)
+
+---
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">
         <div class="img"></div>
