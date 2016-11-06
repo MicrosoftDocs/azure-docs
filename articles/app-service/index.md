@@ -1,21 +1,21 @@
 ---
 title: App Service Documentation | Microsoft Azure
 description: App Service Documentation
-services: ''
+services: app-service
 documentationcenter: ''
-author: squillace
-manager: timlt
+author: kriscrider
+manager: carolz
 editor: ''
-tags: billing
+tags: 
 
 ms.assetid: f8d6ceaf-0578-4738-b80e-fb75768adbfd
-ams.service: value
+ams.service: app-service
 ms.devlang: na
-ms.topic: article
+ms.topic: landing page
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
+ms.date: 11/06/2016
+ms.author: kriscr
 
 ---
 # App Service Documentation
@@ -24,7 +24,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
 
 <ul class="panelContent cardsA">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/app-service/app-service-value-prop-what-is">
+        <a href="app-service-value-prop-what-is">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -34,7 +34,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Learn how to use Azure App Service<p>
+                        <p>Learn about Azure App Service<p>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Learn how to create and deploy an Node.js Web App with Git and Azure App Service (Video)<p>
+                        <p>Get started with Azure App Service (Video)<p>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-dotnet-get-started">
+        <a href="app-service-api-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -88,7 +88,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Get started with API Apps in App Service<p>
+                        <p>Create API metadata in Swagger format<p>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-android-get-started">
+        <a href="app-service-api-java-api-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -106,7 +106,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Get started with Mobile Apps in App Service<p>
+                        <p>Create a Java API app in Azure App Service<p>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-dotnet-get-started">
+        <a href="app-service-api-nodejs-api-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -124,23 +124,44 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Get Started with Web Apps in App Service<p>
+                        <p>Create a Node.js API and deploy to an API app in Azure<p>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
+    <li>
+        <a href="app-service-api-cors-consume-javascript">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="images/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <p>Create an API app from JavaScript using CORS<p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    
 </ul>
 
 ## Reference
 
-### REST
-[App Service REST API Reference](https://docs.microsoft.com/en-us/rest/api/appservice)
 ### Azure CLI
-[App Service with Azure CLI Reference](https://docs.microsoft.com/cli/azure/)
+[App Service with Azure CLI Reference](/cli/azure/)
+
 ### Java
-[App Service with the Java SDK](https://docs.microsoft.com/en-us/java/api/)
+[App Service with the Java SDK](/java/api/)
+
+### REST
+[App Service REST API Reference](/rest/api/appservice)
 
 ---
 
