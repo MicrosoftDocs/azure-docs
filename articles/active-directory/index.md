@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
 
 <ul class="panelContent cardsA">
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory/active-directory-whatis">
+        <a href="active-directory-whatis">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -60,7 +60,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory/virtual-networks-windows-server-active-directory-virtual-machines">
+        <a href="virtual-networks-windows-server-active-directory-virtual-machines">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">                    <div class="cardImageOuter">
@@ -77,7 +77,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview">
+        <a href="active-directory-hybrid-identity-design-considerations-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -95,7 +95,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory/active-directory-aadconnect-azure-adfs">
+        <a href="active-directory-aadconnect-azure-adfs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
