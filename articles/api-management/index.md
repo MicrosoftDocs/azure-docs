@@ -24,7 +24,7 @@ API Management helps organizations publish APIs to external, partner and interna
 
 <ul class="panelContent cardsA">
     <li>
-        <a href="https://docs.microsoft.com/azure/api-management/api-management-key-concepts">
+        <a href="api-management-key-concepts">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -60,7 +60,7 @@ API Management helps organizations publish APIs to external, partner and interna
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/api-management/api-management-get-started">
+        <a href="api-management-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -78,7 +78,7 @@ API Management helps organizations publish APIs to external, partner and interna
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-product-with-rules">
+        <a href="api-management-howto-product-with-rules">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -96,7 +96,7 @@ API Management helps organizations publish APIs to external, partner and interna
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-cache">
+        <a href="api-management-howto-cache">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -123,7 +123,7 @@ API Management helps organizations publish APIs to external, partner and interna
 [API Management REST API Reference](https://docs.microsoft.com/rest/api/apimanagement/)
 
 ### PowerShell
-[API Management PowerShell cmdlet reference (ARM)](https://docs.microsoft.com/en-us/powershell/resourcemanager)
+[API Management PowerShell cmdlet reference (ARM)](https://docs.microsoft.com/powershell/resourcemanager)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">
