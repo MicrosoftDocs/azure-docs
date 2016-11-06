@@ -1,21 +1,21 @@
 ---
 title: API Management Documentation | Microsoft Azure
 description: API Management Documentation
-services: ''
+services: api-management
 documentationcenter: ''
-author: squillace
-manager: timlt
+author: kriscrider
+manager: carolz
 editor: ''
-tags: billing
+tags: 
 
 ms.assetid: 7173473b-d0a8-4a4c-87d0-d57415fdd1c3
-ms.service: value
+ms.service: api-management
 ms.devlang: na
-ms.topic: article
+ms.topic: landing page
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
+ms.date: 11/06/2016
+ms.author: kriscr
 
 ---
 # API Management Documentation
@@ -34,7 +34,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>What is API Management<p>
+                        <p>Learn about API Management<p>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Manage your first API<p>
+                        <p>Create your first API<p>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Protect your API with rate limits<p>
+                        <p>Create protection for the API with rate limits<p>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Add caching to improve performance<p>
+                        <p>Create caching to improve performance<p>
                     </div>
                 </div>
             </div>
@@ -119,11 +119,16 @@ API Management helps organizations publish APIs to external, partner and interna
 
 ## Reference
 
+### PowerShell
+[API Management PowerShell cmdlet reference (ARM)](/powershell/resourcemanager) | [API Management PowerShell cmdlet reference (ASM)](/powershell/servicemanagement)
+
+### Policies
+[API Management Policy Reference ](https://msdn.microsoft.com/en-us/library/azure/dn894081)
+
 ### REST
 [API Management REST API Reference](https://docs.microsoft.com/rest/api/apimanagement/)
 
-### PowerShell
-[API Management PowerShell cmdlet reference (ARM)](https://docs.microsoft.com/powershell/resourcemanager)
+---
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">
