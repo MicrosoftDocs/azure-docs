@@ -1,21 +1,21 @@
 ---
 title: Active Directory DS Documentation | Microsoft Azure
 description: Active Directory DS Documentation
-services: ''
+services: active-directory-ds
 documentationcenter: ''
-author: squillace
-manager: timlt
+author: kriscrider
+manager: carolz
 editor: ''
-tags: billing
+tags: 
 
 ms.assetid: c83e7572-7903-47cb-83ce-46f81cf9e803
-ms.service: value
+ms.service: active-directory-ds
 ms.devlang: na
-ms.topic: article
+ms.topic: landing page
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
+ms.date: 11/06/2016
+ms.author: kriscr
 
 ---
 
@@ -35,7 +35,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Learn how Azure AD DS works?<p>
+                        <p>Learn about Azure Active Directory Domain Services<p>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Active Directory Videos<p>
+                        <p>Active Directory Video Library<p>
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-vnet">
+        <a href="active-directory-ds-getting-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -71,7 +71,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create or select a Virtual network<p>
+                        <p>Create an administrative group<p>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns">
+        <a href="active-directory-ds-getting-started-vnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -89,43 +89,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Update DNS settings<p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <p>Enable password sync for Cloud-only tenant<p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <p>Enable password sync for Synced tenant<p>
+                        <p>Create or select a virtual network for Azure AD Domain Services<p>
                     </div>
                 </div>
             </div>
