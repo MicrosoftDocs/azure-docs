@@ -1,5 +1,5 @@
 ---
-title: To be submitted | Microsoft Azure
+title: Landing Page under construction | Microsoft Azure
 description: To be submitted.
 services: ''
 documentationcenter: ''
@@ -18,4 +18,4 @@ ms.date: 10/21/2016
 ms.author: tysonn
 
 ---
-# To be submitted.
+# Landing Page under construction

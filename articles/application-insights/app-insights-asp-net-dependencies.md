@@ -40,7 +40,7 @@ Partial dependency information is collected automatically by the [Application In
 | --- | --- |
 | IIS Server |Either [install Status Monitor on your server](app-insights-monitor-performance-live-website-now.md) or [Upgrade your application to .NET framework 4.6 or later](http://go.microsoft.com/fwlink/?LinkId=528259) and install the [Application Insights SDK](app-insights-asp-net.md)  in your app. |
 | Azure Web App |In your web app control panel, [open the Application Insights blade in your web app control panel](app-insights-azure-web-apps.md) and choose Install if prompted. |
-| Azure Cloud Service |[Use startup task](app-insights-cloudservices.md#dependencies) or [Install .NET framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Azure Cloud Service |[Use startup task](app-insights-cloudservices.md) or [Install .NET framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## Where to find dependency data
 * [Application Map](#application-map) visualizes dependencies between your app and neighbouring components.
@@ -54,13 +54,13 @@ Application Map acts as a visual aid to discovering dependencies between the com
 
 ![Application Map](./media/app-insights-asp-net-dependencies/08.png)
 
-* **Navigate from the boxes** to relevant dependency and other charts. 
+* **Navigate from the boxes** to relevant dependency and other charts.
 * **Pin the map** to the [dashboard](app-insights-dashboards.md), where it will be fully functional.
 
 [Learn more](app-insights-app-map.md).
 
 ## Performance and failure blades
-The performance blade shows the duration of dependency calls made by the server app. There's a summary chart and a table segmented by call. 
+The performance blade shows the duration of dependency calls made by the server app. There's a summary chart and a table segmented by call.
 
 ![Performance blade dependency charts](./media/app-insights-asp-net-dependencies/dependencies-in-performance-blade.png)
 
@@ -72,14 +72,14 @@ Click through the summary charts or the table items to search raw occurrences of
 
 > [!NOTE]
 > **100% failures?** - This probably indicates that you are only getting partial dependency data. You need to [set up dependency monitoring appropriate to your platform](#set-up-dependency-monitoring).
-> 
-> 
+>
+>
 
 ## AJAX Calls
 The Browsers blade shows the duration and failure rate of AJAX calls from [JavaScript in your web pages](app-insights-javascript.md). They are shown as Dependencies.
 
 ## <a name="diagnosis"></a> Diagnose slow requests
-Each request event is associated with the dependency calls, exceptions and other events that are tracked while your app is processing the request. So if some requests are performing badly, you can find out whether it's due to slow responses from a dependency. 
+Each request event is associated with the dependency calls, exceptions and other events that are tracked while your app is processing the request. So if some requests are performing badly, you can find out whether it's due to slow responses from a dependency.
 
 Let's walk through an example of that.
 
@@ -98,7 +98,7 @@ Click any long-running instance to inspect it further, and scroll down to the re
 
 ![Find Calls to Remote Dependencies, identify unusual Duration](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
-It looks like most of the time servicing this request was spent in a call to a local service. 
+It looks like most of the time servicing this request was spent in a call to a local service.
 
 Select that row to get more information:
 
@@ -143,9 +143,9 @@ You can track dependencies in the [Analytics query language](app-insights-analyt
 
 ```
 
-    dependencies 
-    | where timestamp > ago(1d) and  client_Type != "Browser" 
-    | join (requests | where timestamp > ago(1d)) 
+    dependencies
+    | where timestamp > ago(1d) and  client_Type != "Browser"
+    | join (requests | where timestamp > ago(1d))
       on operation_Id  
 ```
 
@@ -154,16 +154,16 @@ You can track dependencies in the [Analytics query language](app-insights-analyt
 
 ```
 
-    dependencies 
-    | where timestamp > ago(1d) and  client_Type == "Browser" 
+    dependencies
+    | where timestamp > ago(1d) and  client_Type == "Browser"
     | join (browserTimings | where timestamp > ago(1d))
-      on operation_Id 
+      on operation_Id
 ```
 
 
 
 ## Custom dependency tracking
-The standard dependency-tracking module automatically discovers external dependencies such as databases and REST APIs. But you might want some additional components to be treated in the same way. 
+The standard dependency-tracking module automatically discovers external dependencies such as databases and REST APIs. But you might want some additional components to be treated in the same way.
 
 You can write code that sends dependency information, using the same [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) that is used by the standard modules.
 
@@ -199,4 +199,3 @@ If you want to switch off the standard dependency tracking module, remove the re
 * [Exceptions](app-insights-asp-net-exceptions.md)
 * [User & page data](app-insights-javascript.md)
 * [Availability](app-insights-monitor-web-app-availability.md)
-

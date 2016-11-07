@@ -94,7 +94,7 @@
 
 ## [Secure](app-service-security-readme.md)
 ### [Secure an app in Azure App Service](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Authentication and authorization](../app-service-web/app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Authentication and authorization](app-service-authentication-overview.md)
 ### Authenticate with identity providers
 #### [Azure Active Directory authentication](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Facebook authentication](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
