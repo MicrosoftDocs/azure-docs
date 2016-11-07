@@ -103,7 +103,7 @@
 ####[Detailed troubleshooting steps for remote desktop connection issues to classic Windows VMs](../../virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Troubleshoot Access to an Application](../../virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Troubleshoot classic deployment issues with creating a new VM](../../virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-### [Troubleshoot classic deployment issues with restarting or resizing an existing VM](../../virtual-machines-windows-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+### [Troubleshoot classic deployment issues with restarting or resizing an existing VM](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 # Reference
 ## [Azure CLI commands](../../../virtual-machines-command-line-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)

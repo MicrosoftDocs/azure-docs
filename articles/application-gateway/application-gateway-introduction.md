@@ -57,7 +57,7 @@ Application Gateway is currently offered in three sizes: Small, Medium, and Larg
 
 There are currently two skus for Application Gateway: WAF and Standard.
 
-You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 20 http listeners. For a complete list of application gateway limits visit the [Service Limits](../azure-subscription-service-limits.md#application-gateway) page.
+You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 20 http listeners. For a complete list of application gateway limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
 The following table shows an average performance throughput for each application gateway instance:
 
@@ -68,8 +68,8 @@ The following table shows an average performance throughput for each application
 
 > [!NOTE]
 > These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. For exact performance numbers, you should run your own tests, these values are only provided for capacity planning guidance.
-> 
-> 
+>
+>
 
 ## Health monitoring
 Azure Application Gateway automatically monitors the health of the back-end instances through basic or custom health probes. By using health probes, this ensures that only healthy hosts respond to traffic. For more information, see [Application Gateway health monitoring overview](application-gateway-probe-overview.md).
@@ -83,4 +83,3 @@ You can create and manage an application gateway by using REST APIs, PowerShell 
 After learning about Application gateway, you can [create an application gateway](application-gateway-create-gateway-portal.md) or you can [create an application gateway SSL offload](application-gateway-ssl-arm.md) to load-balance HTTPS connections.
 
 To learn how to create an application gateway using URL-based content routing, go to [Create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) for more information.
-

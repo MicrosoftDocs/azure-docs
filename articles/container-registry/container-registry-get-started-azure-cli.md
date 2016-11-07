@@ -9,6 +9,7 @@ editor: dlepow
 tags: ''
 keywords: ''
 
+ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
 ms.service: container-registry
 ms.devlang: na
 ms.topic: get-started-article

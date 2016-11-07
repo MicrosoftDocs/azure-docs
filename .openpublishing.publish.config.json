@@ -17,7 +17,6 @@
       },
       "build_entry_point": "docs",
       "template_folder": "_themes"
-      "customized_template_paths" :  ["_plugins/CustomRules"]
     }
   ],
   "notification_subscribers": [],
@@ -29,12 +28,6 @@
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
-      "branch": "master",
-      "branch_mapping": {}
-    }
-    {
-      "path_to_root": "_plugins",
-      "url": "https://github.com/Microsoft/csi-custom-validation-rules",
       "branch": "master",
       "branch_mapping": {}
     }

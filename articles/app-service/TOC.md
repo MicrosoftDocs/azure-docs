@@ -32,11 +32,11 @@
 ## Plan & design
 ### [Best Practices for Azure App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Azure App Service and existing Azure services](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [App Service plans in-depth](../app-service-web/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [High-density hosting](../app-service-web/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [App Service plans in-depth](azure-web-sites-web-hosting-plans-in-depth-overview.md)
+### [High-density hosting](app-service-high-density-hosting.md)
 ### [App Service on Linux](app-service-linux-readme.md)
 ### [Using WebJobs in Azure App Service](app-service-webjobs-readme.md)
-### [App Service Environment](app-service-app-service-environment-intro.md)
+### [App Service Environment](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [App Service Environment documentation](app-service-app-service-environments-readme.md)
 
 ## Develop
@@ -57,14 +57,14 @@
 ## [Deploy](app-service-deployment-readme.md)
 ### [Deploy to App Service](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Cloud sync deployment](../app-service-web/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Continuous deployment](../app-service-web/app-service-continous-deployment.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Continuous deployment](../app-service-web/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Staging environments](../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Local Git deployment](../app-service-web/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Deploy WebJobs using Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [Scale](app-service-scale-readme.md)
 ### [Scale-up an app](../app-service-web/web-sites-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [App Service Environment](../app-service-web/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [App Service Environment](app-service-app-service-environments-readme.md)
 #### [Geo Distributed Scale with App Service Environments](../app-service-web/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Scaling apps in an App Service Environment](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 #### [Autoscale in App Service Environment](app-service-environment-auto-scale.md)
@@ -94,7 +94,7 @@
 
 ## [Secure](app-service-security-readme.md)
 ### [Secure an app in Azure App Service](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Authentication and authorization](../app-service-web/app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Authentication and authorization](app-service-authentication-overview.md)
 ### Authenticate with identity providers
 #### [Azure Active Directory authentication](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Facebook authentication](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -129,7 +129,7 @@
 #### [Web + SQL ](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [MSDeploy with custom hostname and SSL certificate](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### Powershell
-#### [Automate backup and restore](../app-service-web/app-service-powershell-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Automate backup and restore](app-service-powershell-backup.md)
 #### [App cloning](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [SSL Certificate Binding](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Use Azure Resource Manager with PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service%2ftoc.json)

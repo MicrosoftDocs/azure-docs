@@ -45,26 +45,26 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
    ![Connect to Azure AD](media\\active-directory-aadconnect-federation-management\\RepairADTrust2.PNG)
 3. On the **Remote access credentials** page, enter the credentials for the domain administrator.
    ![Remote access credentials](media\\active-directory-aadconnect-federation-management\\RepairADTrust3.PNG)
-   
+
     After you click **Next**, Azure AD Connect will check for certificate health and show any issues.
-   
+
     ![State of certificates](media\\active-directory-aadconnect-federation-management\\RepairADTrust4.PNG)
-   
+
     The **Ready to configure** page will show the list of actions that will be performed to repair the trust.
-   
+
     ![Ready to configure](media\\active-directory-aadconnect-federation-management\\RepairADTrust5.PNG)
 4. Click **Install** to repair the trust.
 
 > [!NOTE]
 > Azure AD Connect can only repair or act on certificates that are self-signed. Azure AD Connect cannot repair third-party certificates.
-> 
-> 
+>
+>
 
 ### Add an AD FS server <a name=addadfsserver></a>
 > [!NOTE]
 > Azure AD Connect requires the PFX certificate file to add an AD FS server. Therefore, you can perform this operation only if you configured the AD FS farm by using Azure AD Connect.
-> 
-> 
+>
+>
 
 1. Select **Deploy an additional Federation Server** and click **Next**.
    ![Additional federation server](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer1.PNG)
@@ -74,20 +74,20 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
    ![Domain administrator credentials](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer3.PNG)
 4. Azure AD Connect will ask for the password of the PFX file that you provided while configuring your new AD FS farm with Azure AD Connect. Click **Enter Password** to provide the password for the PFX file.
    ![Certificate password](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer4.PNG)
-   
+
     ![Specify SSL certificate](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer5.PNG)
 5. On the **AD FS Servers** page, enter the server name or IP address to be added to the AD FS farm.
    ![AD FS servers](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer6.PNG)
 6. Click **Next** and go through the final **Configure** page. After Azure AD Connect has finished adding the servers to the AD FS farm, you will be given the option to verify the connectivity.
    ![Ready to configure](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer7.PNG)
-   
+
     ![Installation complete](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer8.PNG)
 
 ### Add an AD FS web application proxy server <a name=addwapserver></a>
 > [!NOTE]
 > Azure AD Connect requires the PFX certificate file to add a web application proxy server. Therefore, you will be able to perform this operation only if you configured the AD FS farm by using Azure AD Connect.
-> 
-> 
+>
+>
 
 1. Select **Deploy Web Application Proxy** from the list of available tasks.
    ![Deploy web application proxy](media\\active-directory-aadconnect-federation-management\\WapServer1.PNG)
@@ -95,7 +95,7 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
    ![Connect to Azure AD](media\\active-directory-aadconnect-federation-management\\wapserver2.PNG)
 3. On the **Specify SSL certificate** page, provide the password for the PFX file that you provided when configuring the AD FS farm with Azure AD Connect.
    ![Certificate password](media\\active-directory-aadconnect-federation-management\\WapServer3.PNG)
-   
+
     ![Specify SSL certificate](media\\active-directory-aadconnect-federation-management\\WapServer4.PNG)
 4. Add the server to be added as a web application proxy. Because the web application proxy server might not be joined to the domain, the wizard will ask for administrative credentials to the server being added.
    ![Administrative server credentials](media\\active-directory-aadconnect-federation-management\\WapServer5.PNG)
@@ -117,7 +117,7 @@ It's easy to add a domain to be federated with Azure AD by using Azure AD Connec
    ![Remote access credentials](media\\active-directory-aadconnect-federation-management\\additionaldomain3.PNG)
 4. On the next page, the wizard will provide a list of Azure AD domains with which you can federate your on-premises directory. Choose the domain from the list.
    ![Azure AD domain](media\\active-directory-aadconnect-federation-management\\AdditionalDomain4.PNG)
-   
+
     After you choose the domain, the wizard will provide you with appropriate information regarding further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that is not yet verified in Azure AD, the wizard will provide you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](active-directory-add-domain.md) for more details.
 5. Click **Next**, and the **Ready to configure** page will show the list of actions that Azure AD Connect will perform. Click **Install** to finish the configuration.
    ![Ready to configure](media\\active-directory-aadconnect-federation-management\\AdditionalDomain5.PNG)
@@ -130,15 +130,15 @@ To change the logo of the company that is displayed on the **Sign-in** page, use
 
 > [!NOTE]
 > The recommended dimensions for the logo are 260x35 @ 96 dpi with a file size no greater than 10 KB.
-> 
-> 
+>
+>
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 
 > [!NOTE]
 > The *TargetName* parameter is required. The default theme that is released with AD FS is named Default.
-> 
-> 
+>
+>
 
 ### Add a sign-in description <a name=addsignindescription></a>
 To add a sign-in page description to the **Sign-in page**, use the following Windows PowerShell cmdlet and syntax.
@@ -186,11 +186,11 @@ In this rule, you are simply checking the temporary flag **idflag**. You decide 
 
 > [!NOTE]
 > The sequence of these rules is important.
-> 
-> 
+>
+>
 
 #### SSO with a subdomain UPN
-You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain). You must modify the UPN claim so that the issuer ID corresponds to the root domain and not the subdomain, because the federated root domain also covers the child.
+You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](active-directory-aadconnect-federation-management.md#addfeddomain). You must modify the UPN claim so that the issuer ID corresponds to the root domain and not the subdomain, because the federated root domain also covers the child.
 
 By default, the claim rule for issuer ID is set as:
 
@@ -218,4 +218,3 @@ To have only the root domain in the issuer claim value, change the claim rule to
 
 ## Next steps
 Learn more about [user sign-in options](active-directory-aadconnect-user-signin.md).
-
