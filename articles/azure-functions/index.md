@@ -1,21 +1,21 @@
 ---
 title: Azure Functions Documentation | Microsoft Azure
 description: Azure Functions Documentation
-services: ''
+services: azure-functions
 documentationcenter: ''
-author: squillace
-manager: timlt
+author: kriscrider
+manager: carolz
 editor: ''
-tags: billing
+tags: 
 
 ms.assetid: 4d991e72-f48c-482c-acf8-cde0c066f667
-ms.service: value
+ms.service: azure-functions
 ms.devlang: na
-ms.topic: article
+ms.topic: landing page
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
+/06/2016ms.date: 11
+ms.author: kriscr
 
 ---
 # Azure Functions Documentation
@@ -34,7 +34,7 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Learn how to run Azure Functions in the Cloud</p>
+                        <p>Learn about Azure Functions</p>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create your first Azure Function</p>
+                        <p>Create an Azure Function</p>
                     </div>
                 </div>
             </div>
@@ -150,6 +150,18 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
         </a>
     </li>     
 </ul>
+
+---
+# Reference
+
+## Node.js
+[Azure Functions Node.js developer reference](functions-reference-node)
+
+## C#
+[Azure Functions C# developer reference](functions-reference-csharp)
+
+## F#
+[Auzre Functions F# Developer reference](functions-reference-fsharp)
 
 ---
 <div class="downloadHolder">
