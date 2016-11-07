@@ -16,13 +16,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2016
 ms.author: kriscr
-
 ---
+Layout: Landing Page
+---
+
 #DocumentDB Documentation
 
-DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. [Learn more about how DocumentDB works](documentdb-introduction)
+DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. As a schema-free NoSQL database, DocumentDB provides rich and familiar SQL query capabilities with consistent low latencies on JSON data - ensuring that 99% of your reads are served under 10 milliseconds and 99% of your writes are served under 15 milliseconds. These unique benefits make DocumentDB a great fit for web, mobile, gaming, and IoT, and many other applications that need seamless scale and global replication.
 
 <ul class="panelContent cardsA">
+    <li>
+        <a href="documentdb-introduction">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="images/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <p>Learn about DocumentDB<p>                  
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 <li>
         <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=documentdb">
         <div class="cardSize">
@@ -34,7 +54,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Get started with the DocumentDB Video Library<p>                  
+                        <p>DocumentDB Video Library<p>                  
                     </div>
                 </div>
             </div>
@@ -53,7 +73,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Build a DocumentDB C# console<p>                  
+                        <p>Create a DocumentDB C# console application with .NET<p>                  
                     </div>
                 </div>
             </div>
@@ -61,7 +81,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="documentdb-nodejs-get-started/">
+        <a href="documentdb-nodejs-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -72,7 +92,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Build your first DocumentDB Node.js console<p>                        
+                        <p>Create a DocumentDB Node.js console application<p>                        
                     </div>
                 </div>
             </div>
@@ -91,7 +111,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Build Web app in DocumentDB using ASP.NET MVC<p>                        
+                        <p>Create a Web app in DocumentDB using ASP.NET MVC<p>                        
                     </div>
                 </div>
             </div>
@@ -110,7 +130,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Get started with DocumentDB using Node.js Express<p>                        
+                        <p>Create a Node.js web application using DocumentDB<p>                        
                     </div>
                 </div>
             </div>
@@ -129,7 +149,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Build a Java web app using DocumentDB<p>
+                        <p>Create a Java web app using DocumentDB<p>
                         
                     </div>
                 </div>
@@ -148,8 +168,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Get started with DocumentDB using a Python Flask Web app<p>
-                        
+                        <p>Create a Python Flask Web Application Development with DocumentDB<p>                        
                     </div>
                 </div>
             </div>
@@ -160,13 +179,19 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
 
 ---
 
-##Reference
+## Reference
 
-###REST
+### .NET 
+[DocumentDB Managed Reference API](documentdb-sdk-dotnet)
+
+### Java
+[Java SDK Reference](documentdb-sdk-java)
+
+### Node.js 
+[Node.js SDK Reference](documentdb-sdk-node)
+
+### REST
 [DocumentDB REST API Reference](rest/api/documentdb/)
-
-###.NET 
-[DocumentDB Managed Reference API](/dotnet/api/)
 
 ---
 
