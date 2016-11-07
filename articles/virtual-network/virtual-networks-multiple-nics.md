@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a VM with multiple NICs
 description: Learn how to create and configure vms with multiple nics
 services: virtual-network, virtual-machines

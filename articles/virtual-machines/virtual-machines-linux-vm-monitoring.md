@@ -1,4 +1,4 @@
----
+﻿---
 title: Enable or Disabling Azure VM Monitoring
 description: Describes How to Enable or Disable Azure VM Monitoring
 services: virtual-machines-linux

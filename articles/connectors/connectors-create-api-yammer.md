@@ -1,4 +1,4 @@
----
+﻿---
 title: Add the Yammer Connector in your Logic Apps | Microsoft Docs
 description: Overview of the Yammer Connector with REST API parameters
 services: ''

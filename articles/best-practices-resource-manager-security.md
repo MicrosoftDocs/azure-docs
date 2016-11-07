@@ -1,4 +1,4 @@
----
+﻿---
 title: Security considerations for Resource Manager | Microsoft Docs
 description: Shows recommended approaches in Azure Resource Manager for securing resources with keys and secrets, role-based access control and network security groups.
 services: azure-resource-manager

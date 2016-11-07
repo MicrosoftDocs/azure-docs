@@ -1,4 +1,4 @@
----
+﻿---
 title: Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses | Microsoft Docs
 description: A technical guide to the Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation.
 services: cortana-analytics

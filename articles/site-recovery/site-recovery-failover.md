@@ -1,4 +1,4 @@
----
+﻿---
 title: Failover in Site Recovery | Microsoft Docs
 description: Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failover to Azure or a secondary datacenter.
 services: site-recovery

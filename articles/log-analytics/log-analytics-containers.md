@@ -1,4 +1,4 @@
----
+﻿---
 title: Containers solution in Log Analytics | Microsoft Docs
 description: The Containers solution in Log Analytics helps you view and manage your Docker container hosts in a single location.
 services: log-analytics

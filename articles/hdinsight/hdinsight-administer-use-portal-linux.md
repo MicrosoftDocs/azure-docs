@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Linux-based Hadoop clusters in HDInsight using Azure portal | Microsoft Docs
 description: Learn how to create and manage Linux-based HDInsight clusters using the Azure portal.
 services: hdinsight

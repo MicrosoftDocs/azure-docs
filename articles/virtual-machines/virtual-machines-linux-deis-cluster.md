@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy a 3-node Deis cluster | Microsoft Docs
 description: This article describes how to create a 3-node Deis cluster on Azure using an Azure Resource Manager template
 services: virtual-machines-linux

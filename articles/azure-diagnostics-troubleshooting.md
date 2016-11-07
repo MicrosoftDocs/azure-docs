@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshooting Azure Diagnostics
 description: 'Troubleshoot problems when using Azure diagnostics in Azure Cloud Services, Virtual Machines and '
 services: multiple

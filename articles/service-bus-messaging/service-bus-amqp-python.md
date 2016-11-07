@@ -1,4 +1,4 @@
----
+﻿---
 title: Service Bus and Python with AMQP 1.0 | Microsoft Docs
 description: Using Service Bus from Python with AMQP.
 services: service-bus

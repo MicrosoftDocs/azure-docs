@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploying Your Own Private Docker Registry on Azure | Microsoft Docs
 description: Describes how you can use Docker Registry to host your container images on the Azure Blob Storage service.
 services: virtual-machines-linux

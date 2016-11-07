@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Role-Based Access Control (RBAC) with Azure CLI | Microsoft Docs
 description: Learn how to manage Role-Based Access Control (RBAC) with the Azure command-line interface by listing roles and role actions and by assigning roles to the subscription and application scopes.
 services: active-directory

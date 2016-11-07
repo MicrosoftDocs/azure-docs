@@ -97,7 +97,7 @@ You can inspect the object and which rule applied for a particular attribute flo
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview2.png)
 
 **Log**  
-The Log page is used to see the password sync status and history, see [Troubleshoot password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization) for more information.
+The Log page is used to see the password sync status and history.
 
 ### Metaverse Object Properties
 **Attributes**  
@@ -112,4 +112,3 @@ This tab also allows you to navigate to the [connector space object](#connector-
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-

@@ -1,4 +1,4 @@
----
+﻿---
 title: DocumentDB hierarchical resource model and concepts | Microsoft Docs
 description: Learn about DocumentDB’s hierarchical model of databases, collections, user defined function (UDF), documents, permissions to manage resources, and more.
 keywords: Hierarchical model, documentdb, azure, Microsoft azure

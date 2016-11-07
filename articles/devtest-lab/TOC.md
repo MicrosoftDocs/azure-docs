@@ -1,7 +1,7 @@
 # [Overview](devtest-lab-overview.md)
 ## [Why DevTest Labs?](devtest-lab-why.md)
 ## [DevTest Labs concepts](devtest-lab-concepts.md)
-## [Azure DevTest Labs FAQ](devtest-lab-faq.md)
+
 # Get Started
 ## [Create a lab](devtest-lab-create-lab.md)
 ## [Create VM artifacts](devtest-lab-add-vm-with-artifacts.md)
@@ -29,3 +29,6 @@
 # Related
 # Resources
 ## [Azure DevTest Labs FAQ](devtest-lab-faq.md)
+## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=devtest-lab&updatetype=&platform=)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
+

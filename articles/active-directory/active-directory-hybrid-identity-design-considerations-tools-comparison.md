@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Hybrid Identity: Directory integration tools comparison | Microsoft Docs'
 description: This is page provides a comprehensive table that compares the various directory integration tools that can be used for directory integration.
 services: active-directory

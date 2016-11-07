@@ -1,4 +1,4 @@
----
+﻿---
 title: What's new in SQL Database V12 | Microsoft Docs
 description: Describes why business systems that are using Azure SQL Database in the cloud will benefit by upgrading to version V12 now.
 services: sql-database

@@ -1,4 +1,4 @@
----
+﻿---
 title: Optimize your Hive queries for faster execution in HDInsight | Microsoft Docs
 description: Learn how to optimize your Hive queries for Hadoop in HDInsight.
 services: hdinsight

@@ -1,4 +1,4 @@
----
+﻿---
 title: Migrate virtual machines from Amazon Web Services to Azure with Site Recovery | Microsoft Docs
 description: This article describes how to migrate virtual machines running in Amazon Web Services (AWS) to Azure using Azure Site Recovery.
 services: site-recovery

@@ -1,4 +1,4 @@
----
+﻿---
 title: Split-merge security configuration | Microsoft Docs
 description: Set up x409 certificates for encryption
 metakeywords: Elastic Database certificates security

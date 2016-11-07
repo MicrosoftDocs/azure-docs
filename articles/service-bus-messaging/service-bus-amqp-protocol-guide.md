@@ -1,4 +1,4 @@
----
+﻿---
 title: AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Microsoft Docs
 description: Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs
 services: service-bus,event-hubs

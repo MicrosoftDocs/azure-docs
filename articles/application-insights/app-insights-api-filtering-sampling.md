@@ -1,4 +1,4 @@
----
+﻿---
 title: Filtering and preprocessing in the Application Insights SDK | Microsoft Docs
 description: Write Telemetry Processors and Telemetry Initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 services: application-insights
@@ -19,7 +19,7 @@ ms.author: borooji
 # Filtering and preprocessing telemetry in the Application Insights SDK
 *Application Insights is in preview.*
 
-You can write and configure plug-ins for the Application Insights SDK to customize how telemetry is captured and processed before it is sent to the Application Insights service. 
+You can write and configure plug-ins for the Application Insights SDK to customize how telemetry is captured and processed before it is sent to the Application Insights service.
 
 Currently these features are available for the ASP.NET SDK.
 
@@ -30,41 +30,41 @@ Currently these features are available for the ASP.NET SDK.
 
 Before you start:
 
-* Install the [Application Insights SDK for ASP.NET v2](app-insights-asp-net.md) in your app. 
+* Install the [Application Insights SDK for ASP.NET v2](app-insights-asp-net.md) in your app.
 
 <a name="filtering"></a>
 
 ## Filtering: ITelemetryProcessor
 This technique gives you more direct control over what is included or excluded from the telemetry stream. You can use it in conjunction with Sampling, or separately.
 
-To filter telemetry, you write a telemetry processor and register it with the SDK. All telemetry goes through your processor, and you can choose to drop it from the stream, or add properties. This includes telemetry from the standard modules such as the HTTP request collector and the dependency collector, as well as telemetry you have written yourself. You can, for example, filter out telemetry about requests from robots, or successful dependency calls. 
+To filter telemetry, you write a telemetry processor and register it with the SDK. All telemetry goes through your processor, and you can choose to drop it from the stream, or add properties. This includes telemetry from the standard modules such as the HTTP request collector and the dependency collector, as well as telemetry you have written yourself. You can, for example, filter out telemetry about requests from robots, or successful dependency calls.
 
 > [!WARNING]
 > Filtering the telemetry sent from the SDK using processors can skew the statistics that you see in the portal, and make it difficult to follow related items.
-> 
+>
 > Instead, consider using [sampling](app-insights-sampling.md).
-> 
-> 
+>
+>
 
 ### Create a telemetry processor
 1. Verify that the Application Insights SDK in your project is  version 2.0.0 or later. Right-click your project in Visual Studio Solution Explorer and choose Manage NuGet Packages. In NuGet package manager, check Microsoft.ApplicationInsights.Web.
-2. To create a filter, implement ITelemetryProcessor. This is another extensibility point like telemetry module, telemetry initializer, and telemetry channel. 
-   
+2. To create a filter, implement ITelemetryProcessor. This is another extensibility point like telemetry module, telemetry initializer, and telemetry channel.
+
     Notice that Telemetry Processors construct a chain of processing. When you instantiate a telemetry processor, you pass a link to the next processor in the chain. When a telemetry data point is passed to the Process method, it does its work and then calls the next Telemetry Processor in the chain.
-   
+
     ``` C#
-   
+
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
-   
+
     public class SuccessfulDependencyFilter : ITelemetryProcessor
       {
-   
+
         private ITelemetryProcessor Next { get; set; }
-   
+
         // You can pass values from .config
         public string MyParamFromConfigFile { get; set; }
-   
+
         // Link processors to each other in a chain.
         public SuccessfulDependencyFilter(ITelemetryProcessor next)
         {
@@ -72,23 +72,23 @@ To filter telemetry, you write a telemetry processor and register it with the SD
         }
         public void Process(ITelemetry item)
         {
-            // To filter out an item, just return 
+            // To filter out an item, just return
             if (!OKtoSend(item)) { return; }
-            // Modify the item if required 
+            // Modify the item if required
             ModifyItem(item);
-   
+
             this.Next.Process(item);
         }
-   
+
         // Example: replace with your own criteria.
         private bool OKtoSend (ITelemetry item)
         {
             var dependency = item as DependencyTelemetry;
             if (dependency == null) return true;
-   
+
             return dependency.Success != true;
         }
-   
+
         // Example: replace with your own modifiers.
         private void ModifyItem (ITelemetry item)
         {
@@ -97,7 +97,7 @@ To filter telemetry, you write a telemetry processor and register it with the SD
     }
 
     ```
-1. Insert this in ApplicationInsights.config: 
+1. Insert this in ApplicationInsights.config:
 
 ```XML
 
@@ -112,12 +112,12 @@ To filter telemetry, you write a telemetry processor and register it with the SD
 
 (This is the same section where you initialize a sampling filter.)
 
-You can pass string values from the .config file by providing public named properties in your class. 
+You can pass string values from the .config file by providing public named properties in your class.
 
 > [!WARNING]
 > Take care to match the type name and any property names in the .config file to the class and property names in the code. If the .config file references a non-existent type or property, the SDK may silently fail to send any telemetry.
-> 
-> 
+>
+>
 
 **Alternatively,** you can initialize the filter in code. In a suitable initialization class - for example AppStart in Global.asax.cs - insert your processor into the chain:
 
@@ -145,14 +145,14 @@ Filter out bots and web tests. Although Metrics Explorer gives you the option to
     {
       if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
 
-      // Send everything else: 
+      // Send everything else:
       this.Next.Process(item);
     }
 
 ```
 
 #### Failed authentication
-Filter out requests with a "401" response. 
+Filter out requests with a "401" response.
 
 ```C#
 
@@ -163,22 +163,22 @@ public void Process(ITelemetry item)
     if (request != null &&
     request.ResponseCode.Equals("401", StringComparison.OrdinalIgnoreCase))
     {
-        // To filter out an item, just terminate the chain: 
+        // To filter out an item, just terminate the chain:
         return;
     }
-    // Send everything else: 
+    // Send everything else:
     this.Next.Process(item);
 }
 
 ```
 
 #### Filter out fast remote dependency calls
-If you only want to diagnose calls that are slow, filter out the fast ones. 
+If you only want to diagnose calls that are slow, filter out the fast ones.
 
 > [!NOTE]
 > This will skew the statistics you see on the portal. The dependency chart will look as if the dependency calls are all failures.
-> 
-> 
+>
+>
 
 ``` C#
 
@@ -201,11 +201,11 @@ public void Process(ITelemetry item)
 <a name="add-properties"></a>
 
 ## Add properties: ITelemetryInitializer
-Use telemetry initializers to define global properties that are sent with all telemetry; and to override selected behavior of the standard telemetry modules. 
+Use telemetry initializers to define global properties that are sent with all telemetry; and to override selected behavior of the standard telemetry modules.
 
 For example, the Application Insights for Web package collects telemetry about HTTP requests. By default, it flags as failed any request with a response code >= 400. But if you want to treat 400 as a success, you can provide a telemetry initializer that sets the Success property.
 
-If you provide a telemetry initializer, it is called whenever any of the Track*() methods is called. This includes methods called by the standard telemetry modules. By convention, these modules do not set any property that has already been set by an initializer. 
+If you provide a telemetry initializer, it is called whenever any of the Track*() methods is called. This includes methods called by the standard telemetry modules. By convention, these modules do not set any property that has already been set by an initializer.
 
 **Define your initializer**
 
@@ -221,9 +221,9 @@ If you provide a telemetry initializer, it is called whenever any of the Track*(
     namespace MvcWebRole.Telemetry
     {
       /*
-       * Custom TelemetryInitializer that overrides the default SDK 
+       * Custom TelemetryInitializer that overrides the default SDK
        * behavior of treating response codes >= 400 as failed requests
-       * 
+       *
        */
       public class MyTelemetryInitializer : ITelemetryInitializer
       {
@@ -255,7 +255,7 @@ In ApplicationInsights.config:
     <ApplicationInsights>
       <TelemetryInitializers>
         <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/> 
+        <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/>
         ...
       </TelemetryInitializers>
     </ApplicationInsights>
@@ -279,7 +279,7 @@ In ApplicationInsights.config:
 ### JavaScript telemetry initializers
 *JavaScript*
 
-Insert a telemetry initializer immediately after the initialization code that you got from the portal: 
+Insert a telemetry initializer immediately after the initialization code that you got from the portal:
 
 ```JS
 
@@ -321,9 +321,9 @@ Insert a telemetry initializer immediately after the initialization code that yo
     </script>
 ```
 
-For a summary of the non-custom properties available on the telemetryItem, see the [data model](app-insights-export-data-model.md#lttelemetrytypegt).
+For a summary of the non-custom properties available on the telemetryItem, see [Application Insights Export Data Model](app-insights-export-data-model.md).
 
-You can add as many initializers as you like. 
+You can add as many initializers as you like.
 
 ## ITelemetryProcessor and ITelemetryInitializer
 What's the difference between telemetry processors and telemetry initializers?
@@ -334,57 +334,57 @@ What's the difference between telemetry processors and telemetry initializers?
 * TelemetryProcessors don't process performance counter telemetry.
 
 ## Persistence Channel
-If your app runs where the internet connection is not always available or slow, consider using the persistence channel instead of the default in-memory channel. 
+If your app runs where the internet connection is not always available or slow, consider using the persistence channel instead of the default in-memory channel.
 
 The default in-memory channel loses any telemetry that has not been sent by the time the app closes. Although you can use `Flush()` to attempt to send any data remaining in the buffer, it still loses data if there is no internet connection, or if the app shuts down before transmission is complete.
 
-By contrast, the persistence channel buffers telemetry in a file, before sending it to the portal. `Flush()` ensures that data is stored in the file. If any data is not sent by the time the app closes, it remains in the file. When the app restarts, the data will be sent then, if there is an internet connection. Data accumulates in the file for as long as is necessary until a connection is available. 
+By contrast, the persistence channel buffers telemetry in a file, before sending it to the portal. `Flush()` ensures that data is stored in the file. If any data is not sent by the time the app closes, it remains in the file. When the app restarts, the data will be sent then, if there is an internet connection. Data accumulates in the file for as long as is necessary until a connection is available.
 
 ### To use the persistence channel
 1. Import the NuGet package [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel/1.2.3).
 2. Include this code in your app, in a suitable initialization location:
-   
-    ```C# 
-   
+
+    ```C#
+
       using Microsoft.ApplicationInsights.Channel;
       using Microsoft.ApplicationInsights.Extensibility;
       ...
-   
-      // Set up 
+
+      // Set up
       TelemetryConfiguration.Active.InstrumentationKey = "YOUR INSTRUMENTATION KEY";
-   
+
       TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
-   
-    ``` 
+
+    ```
 3. Use `telemetryClient.Flush()` before your app closes, to make sure data is either sent to the portal or saved to the file.
-   
+
     Note that Flush() is synchronous for the persistence channel, but asynchronous for other channels.
 
-The persistence channel is optimized for devices scenarios, where the number of events produced by application is relatively small and the connection is often unreliable. This channel will write events to the disk into reliable storage first and then attempt to send it. 
+The persistence channel is optimized for devices scenarios, where the number of events produced by application is relatively small and the connection is often unreliable. This channel will write events to the disk into reliable storage first and then attempt to send it.
 
 #### Example
 Let’s say you want to monitor unhandled exceptions. You subscribe to the `UnhandledException` event. In the callback, you include a call to Flush to make sure that  the telemetry is persisted.
 
-```C# 
+```C#
 
-AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException; 
+AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
-... 
+...
 
-private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) 
-{ 
-    ExceptionTelemetry excTelemetry = new ExceptionTelemetry((Exception)e.ExceptionObject); 
-    excTelemetry.SeverityLevel = SeverityLevel.Critical; 
-    excTelemetry.HandledAt = ExceptionHandledAt.Unhandled; 
+private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+{
+    ExceptionTelemetry excTelemetry = new ExceptionTelemetry((Exception)e.ExceptionObject);
+    excTelemetry.SeverityLevel = SeverityLevel.Critical;
+    excTelemetry.HandledAt = ExceptionHandledAt.Unhandled;
 
-    telemetryClient.TrackException(excTelemetry); 
+    telemetryClient.TrackException(excTelemetry);
 
-    telemetryClient.Flush(); 
-} 
+    telemetryClient.Flush();
+}
 
-``` 
+```
 
-When the app shuts down, you'll see a file in `%LocalAppData%\Microsoft\ApplicationInsights\`, which contains the compressed events. 
+When the app shuts down, you'll see a file in `%LocalAppData%\Microsoft\ApplicationInsights\`, which contains the compressed events.
 
 Next time you start this application, the channel will pick up this file and deliver telemetry to the Application Insights if it can.
 
@@ -429,7 +429,7 @@ namespace ConsoleApplication1
 ```
 
 
-The code of the persistence channel is on [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/v1.2.3/src/TelemetryChannels/PersistenceChannel). 
+The code of the persistence channel is on [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/v1.2.3/src/TelemetryChannels/PersistenceChannel).
 
 ## Reference docs
 * [API Overview](app-insights-api-custom-events-metrics.md)
@@ -459,5 +459,3 @@ The code of the persistence channel is on [github](https://github.com/Microsoft/
 [qna]: app-insights-troubleshoot-faq.md
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
-
-

@@ -1,4 +1,4 @@
----
+﻿---
 title: Publishing a Cloud Service using the Azure Tools | Microsoft Docs
 description: Learn about how to publish Azure cloud service projects by using Visual Studio.
 services: visual-studio-online

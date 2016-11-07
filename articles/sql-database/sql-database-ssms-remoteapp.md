@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect to SQL Database using SQL Server Management Studio in Azure RemoteApp | Microsoft Docs
 description: Use this tutorial to learn how to use SQL Server Management Studio in Azure RemoteApp for security and performance when connecting to SQL Database
 services: sql-database

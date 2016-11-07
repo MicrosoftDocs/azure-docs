@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory hybrid identity design considerations - determine directory synchronization requirements | Microsoft Docs
 description: Identify what requirements are needed for synchronizing all the users between on=premises and cloud for the enterprise.
 documentationcenter: ''

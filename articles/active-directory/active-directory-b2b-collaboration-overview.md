@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory B2B collaboration | Microsoft Docs
 description: Azure Active Directory B2B collaboration enables business partners to access your corporate applications, with each of their users represented by a single Azure AD account
 services: active-directory

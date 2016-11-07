@@ -1,4 +1,4 @@
----
+﻿---
 title: Connecting DocumentDB with Azure Search using indexers | Microsoft Docs
 description: This article shows you how to use to Azure Search indexer with DocumentDB as a data source.
 services: documentdb

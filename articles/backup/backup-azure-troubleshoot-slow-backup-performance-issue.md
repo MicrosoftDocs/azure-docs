@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot slow backup of files and folders in Azure Backup| Microsoft Docs
 description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
 services: backup

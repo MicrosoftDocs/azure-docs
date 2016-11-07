@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Multi-Factor Authentication - How it works
 description: Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy verification options.
 services: multi-factor-authentication

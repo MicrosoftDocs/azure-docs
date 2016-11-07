@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Data Catalog release notes | Microsoft Docs
 description: Release notes for Azure Data Catalog.
 services: data-catalog

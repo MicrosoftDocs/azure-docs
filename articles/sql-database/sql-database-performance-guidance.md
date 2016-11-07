@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SQL Database and performance for single databases | Microsoft Docs
 description: This article can help you determine which service tier to choose for your application. It also recommends ways to tune your application to get the most from Azure SQL Database.
 services: sql-database

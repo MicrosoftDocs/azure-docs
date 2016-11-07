@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot deleting Azure storage accounts, containers, or VHDs in a classic deployment| Microsoft Docs
 description: Troubleshoot deleting Azure storage accounts, containers, or VHDs in a classic deployment
 services: storage

@@ -1,4 +1,4 @@
----
+﻿---
 title: Log Analytics search reference | Microsoft Docs
 description: The Log Analytics search reference describes the search language and provides the general query syntax options you can use when searching for data and filtering expressions to help narrow your search.
 services: log-analytics

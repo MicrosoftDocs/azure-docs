@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with KnowBe4 | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and KnowBe4.
 services: active-directory

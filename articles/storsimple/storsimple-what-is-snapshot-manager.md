@@ -1,4 +1,4 @@
----
+﻿---
 title: What is StorSimple Snapshot Manager? | Microsoft Docs
 description: Describes the StorSimple Snapshot Manager, its architecture, and its features.
 services: storsimple

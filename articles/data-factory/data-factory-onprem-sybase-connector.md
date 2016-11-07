@@ -1,4 +1,4 @@
----
+﻿---
 title: Move data from Sybase | Microsoft Docs
 description: Learn about how to move data from Sybase Database using Azure Data Factory.
 services: data-factory

@@ -1,4 +1,4 @@
----
+﻿---
 title: Encrypt an Azure Virtual Machine | Microsoft Docs
 description: This document helps you to encrypt an Azure Virtual Machine after receiving an alert from Azure Security Center.
 services: security, security-center

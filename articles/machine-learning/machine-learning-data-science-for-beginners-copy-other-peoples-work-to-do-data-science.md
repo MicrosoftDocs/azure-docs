@@ -1,4 +1,4 @@
----
+﻿---
 title: Copy others' data science work - machine learning example | Microsoft Docs
 description: 'Trade secret of data science: Get others to do your work for you. See examples in Cortana Analytics Gallery such as a clustering algorithm example.'
 keywords: data science examples,machine learning example,clustering algorithm,clustering algorithm example

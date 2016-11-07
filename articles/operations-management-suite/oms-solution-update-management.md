@@ -1,4 +1,4 @@
----
+﻿---
 title: Update Management solution in OMS | Microsoft Docs
 description: This article is intended to help you understand how to use this solution to manage updates for your Windows and Linux computers.
 services: operations-management-suite

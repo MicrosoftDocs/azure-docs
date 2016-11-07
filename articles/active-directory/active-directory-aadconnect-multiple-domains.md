@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD Connect Multiple Domains
 description: This document describes setting up and configuring multiple top level domains with O365 and Azure AD.
 services: active-directory

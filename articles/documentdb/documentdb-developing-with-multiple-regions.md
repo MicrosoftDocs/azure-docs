@@ -1,4 +1,4 @@
----
+﻿---
 title: Developing with multiple regions in DocumentDB | Microsoft Docs
 description: Learn how to access your data in multiple regions from Azure DocumentDB, a fully managed NoSQL database service.
 services: documentdb

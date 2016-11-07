@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitor and manage an elastic database pool with the Azure portal | Microsoft Docs
 description: Learn how to use the Azure portal and SQL Database's built-in intelligence to manage, monitor, and right-size a scalable elastic database pool to optimize database performance and manage cost.
 keywords: ''

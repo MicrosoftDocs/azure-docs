@@ -1,4 +1,4 @@
----
+﻿---
 title: Stream Analytics Release Notes | Microsoft Docs
 description: Stream Analytics Release Notes
 services: stream-analytics

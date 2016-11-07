@@ -1,4 +1,4 @@
----
+﻿---
 title: Cortana Intelligence Solution Template Playbook for demand forecasting of energy | Microsoft Docs
 description: A Solution Template with Microsoft Cortana Intelligence that helps forecast demand for an energy utility company.
 services: cortana-analytics

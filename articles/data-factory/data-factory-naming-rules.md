@@ -1,4 +1,4 @@
----
+﻿---
 title: Data Factory - Naming Rules | Microsoft Docs
 description: Describes naming rules for Data Factory entities.
 services: data-factory

@@ -1,4 +1,4 @@
----
+﻿---
 title: Dedicated groups in Azure Active Directory | Microsoft Docs
 description: Overview of how dedicated groups work in Azure Active Directory and how they are created.
 services: active-directory

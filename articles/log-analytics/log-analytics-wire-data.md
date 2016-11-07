@@ -1,4 +1,4 @@
----
+﻿---
 title: Wire Data solution in Log Analytics | Microsoft Docs
 description: Wire data is consolidated network and performance data from computers with OMS agents, including Operations Manager and Windows-connected agents. Network data is combined with your log data to help you correlate data.
 services: log-analytics

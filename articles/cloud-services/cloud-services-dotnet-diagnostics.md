@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use Azure diagnostics (.NET) with Cloud Services | Microsoft Docs
 description: Using Azure diagnostics to gather data from Azure cloud Services for debugging, measuring performance, monitoring, traffic analysis, and more.
 services: cloud-services

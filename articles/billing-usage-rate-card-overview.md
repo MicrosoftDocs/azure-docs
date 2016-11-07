@@ -1,4 +1,4 @@
----
+﻿---
 title: Gain insights into your Microsoft Azure resource consumption | Microsoft Docs
 description: Provides a conceptual overview of the Azure Billing Usage and RateCard APIs, which are used to provide insights into Azure resource consumption and trends.
 services: ''

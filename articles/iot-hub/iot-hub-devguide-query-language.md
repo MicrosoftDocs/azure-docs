@@ -1,4 +1,4 @@
----
+﻿---
 title: Developer guide - query language | Microsoft Docs
 description: Azure IoT Hub developer guide - description of query language used to retrieve information about twins, methods, and jobs from your IoT hub
 services: iot-hub

@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Apache Phoenix and SQuirreL in HDInsight | Microsoft Docs
 description: Learn how to use Apache Phoenix in HDInsight, and how to install and configure SQuirreL on your workstation to connect to an HBase cluster in HDInsight.
 services: hdinsight

@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Storage Analytics to collect logs and metrics data | Microsoft Docs
 description: Storage Analytics enables you to track metrics data for all storage services, and to collect logs for Blob, Queue, and Table storage.
 services: storage

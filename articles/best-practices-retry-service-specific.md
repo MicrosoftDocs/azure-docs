@@ -1,4 +1,4 @@
----
+﻿---
 title: Retry service specific guidance | Microsoft Docs
 description: Service specific guidance for setting the retry mechanism.
 services: ''

@@ -191,3 +191,7 @@
 ## [REST API reference](https://go.microsoft.com/fwlink/p/?LinkID=532910)
 ## [Java API Reference](https://go.microsoft.com/fwlink/p/?linkid=833410)
 ## [Sample code](http://aka.ms/servicefabricsamples)
+
+# Resources
+## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=service-fabric&updatetype=&platform=)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric)

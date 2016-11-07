@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD federation compatibility list
 description: This page has non-Microsoft identity providers that can be used to implement single sign-on.
 services: active-directory

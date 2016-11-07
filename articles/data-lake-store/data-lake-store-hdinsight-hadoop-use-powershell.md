@@ -1,4 +1,4 @@
----
+﻿---
 title: Create HDInsight clusters with Azure Data Lake Store using PowerShell | Microsoft Docs
 description: Use Azure PowerShell to create and use HDInsight clusters with Azure Data Lake
 services: data-lake-store,hdinsight

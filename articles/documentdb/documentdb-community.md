@@ -1,4 +1,4 @@
----
+﻿---
 title: DocumentDB community & news | Microsoft Docs
 description: Join the Azure DocumentDB community to build relationships, showcase your work, and sharpen your skills.
 services: documentdb

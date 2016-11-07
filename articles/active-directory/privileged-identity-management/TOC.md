@@ -22,5 +22,5 @@
 ### [Use the audit log](../active-directory-privileged-identity-management-how-to-use-audit-log.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
 # Related
-## [Azure Active Directory](../index.md)
+## [Azure Active Directory](/azure/active-directory/)
 ## [Role-Based Access Control](../role-based-access-control-what-is.md)

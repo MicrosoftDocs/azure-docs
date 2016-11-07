@@ -60,7 +60,7 @@ Once a tile is on the dashboard, you can adjust it.
 
 ![Hover over a chart in order to edit it.](./media/app-insights-dashboards/36.png)
 
-1. Add a chart to the tile. 
+1. Add a chart to the tile.
 2. Set the metric, group-by dimension and style (table, graph) of a chart.
 3. Drag across the diagram to zoom in; click the undo button to reset the timespan; set filter properties for the charts on the tile.
 4. Set tile title.
@@ -102,7 +102,7 @@ The overview blade is the gateway to more information about your app.
 * **Delete** - Delete the Application Insights resource for this app. You should also either remove the Application Insights packages from your app code, or edit the [instrumentation key](app-insights-create-new-resource.md#copy-the-instrumentation-key) in your app to direct telemetry to a different Application Insights resource.
 
 ### Essentials tab
-* [Instrumentation key](app-insights-create-new-resource.md#copy-the-instrumentation-key) - Identifies this app resource. 
+* [Instrumentation key](app-insights-create-new-resource.md#copy-the-instrumentation-key) - Identifies this app resource.
 * Pricing - Make features available and set volume caps.
 
 ### App navigation bar
@@ -117,10 +117,10 @@ INVESTIGATE
 
 * [**Application map**](app-insights-app-map.md) - Active map showing the components of your application, derived from the dependency information.
 * [**Proactive diagnostics**](app-insights-proactive-diagnostics.md) - Review recent performance alerts.
-* [**Live Stream**](app-insights-metrics-explorer.md#live-stream) - A fixed set of near-instant metrics, useful when deploying a new build or debugging.
-* [**Availability / Web tests**](app-insights-monitor-web-app-availability.md) - Send regular requests to your web app from around the world.* 
+* [**Live Stream**](app-insights-metrics-explorer.md#live-metrics-stream) - A fixed set of near-instant metrics, useful when deploying a new build or debugging.
+* [**Availability / Web tests**](app-insights-monitor-web-app-availability.md) - Send regular requests to your web app from around the world.*
 * [**Failures, Performance**](app-insights-web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](app-insights-asp-net-dependencies.md).
-* [**Performance**](app-insights-web-monitor-performance.md) - Response time, dependency response times. 
+* [**Performance**](app-insights-web-monitor-performance.md) - Response time, dependency response times.
 * [Servers](app-insights-web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](app-insights-monitor-performance-live-website-now.md).
 * **Browser** - Page view and AJAX performance. Available if you [instrument your web pages](app-insights-javascript.md).
 * **Usage** - Page view, user, and session counts. Available if you [instrument your web pages](app-insights-javascript.md).
@@ -151,4 +151,3 @@ SUPPORT
 | [Metrics explorer](app-insights-metrics-explorer.md)<br/>Filter and segment metrics |![Search example](./media/app-insights-dashboards/64.png) |
 | [Diagnostic search](app-insights-diagnostic-search.md)<br/>Find and inspect events, related events, and create bugs |![Search example](./media/app-insights-dashboards/61.png) |
 | [Analytics](app-insights-analytics.md)<br/>Powerful query language |![Search example](./media/app-insights-dashboards/63.png) |
-

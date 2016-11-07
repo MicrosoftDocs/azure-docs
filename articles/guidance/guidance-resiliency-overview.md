@@ -1,4 +1,4 @@
----
+﻿---
 title: Designing resilient applications | Microsoft Docs
 description: How to build resilient applications in Azure, for high availability and disaster recovery.
 services: ''

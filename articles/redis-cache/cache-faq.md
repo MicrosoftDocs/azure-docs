@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Redis Cache FAQ | Microsoft Docs
 description: Learn the answers to common questions, patterns and best practices for Azure Redis Cache
 services: redis-cache

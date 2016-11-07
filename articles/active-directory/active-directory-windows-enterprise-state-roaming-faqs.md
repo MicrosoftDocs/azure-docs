@@ -1,4 +1,4 @@
----
+﻿---
 title: Settings and data roaming FAQ | Microsoft Docs
 description: Provides answers to some questions IT administrators might have about settings and app data sync.
 services: active-directory

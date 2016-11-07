@@ -1,4 +1,4 @@
----
+﻿---
 title: Flighting deployment (beta testing) in Azure App Service
 description: Learn how to flight new features in your app or beta test your updates in this end-to-end tutorial. It brings together App Service features like continuous publishing, slots, traffic routing, and Application Insights integration.
 services: app-service\web

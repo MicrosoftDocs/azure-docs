@@ -1,4 +1,4 @@
----
+﻿---
 title: Managing statistics on tables in SQL Data Warehouse | Microsoft Docs
 description: Getting started with statistics on tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse

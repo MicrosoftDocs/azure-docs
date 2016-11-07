@@ -43,7 +43,7 @@
 #### [Malware Assessment](log-analytics-malware.md)
 #### [Networking Analytics](log-analytics-azure-networking-analytics.md)
 #### [Network Performance Monitor](log-analytics-network-performance-monitor.md)
-#### [Security Audit](oms-security-getting-started.md)
+#### [Security Audit](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Service Fabric](log-analytics-service-fabric.md)
 #### [SQL Assessment](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)

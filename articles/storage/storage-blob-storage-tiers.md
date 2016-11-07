@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure cool storage for blobs | Microsoft Docs
 description: Storage tiers for Azure Blob storage offer cost-efficient storage for object data based on access patterns. The cool storage tier is optimized for data that is accessed less frequently.
 services: storage

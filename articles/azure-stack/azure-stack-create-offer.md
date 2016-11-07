@@ -1,4 +1,4 @@
----
+﻿---
 title: Create an offer in Azure Stack | Microsoft Docs
 description: As a service administrator, learn how to create an offer for your tenants in Azure Stack.
 services: azure-stack

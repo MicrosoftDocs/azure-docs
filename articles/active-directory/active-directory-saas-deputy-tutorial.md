@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Deputy | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Deputy.
 services: active-directory

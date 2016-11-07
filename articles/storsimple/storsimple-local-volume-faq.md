@@ -1,4 +1,4 @@
----
+﻿---
 title: StorSimple locally pinned volumes FAQ| Microsoft Docs
 description: Provides answers to frequently asked questions about StorSimple locally pinned volumes.
 services: storsimple

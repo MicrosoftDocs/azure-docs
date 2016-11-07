@@ -1,4 +1,4 @@
----
+﻿---
 title: StorSimple security | Microsoft Docs
 description: Describes the security and privacy features that protect your StorSimple service, device, and data on premises and in the cloud.
 services: storsimple

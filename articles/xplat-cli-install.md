@@ -1,4 +1,4 @@
----
+﻿---
 title: Install the Azure Command-Line Interface | Microsoft Docs
 description: Install the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows to start using Azure services
 editor: ''

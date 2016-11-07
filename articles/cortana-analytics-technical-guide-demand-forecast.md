@@ -1,4 +1,4 @@
----
+﻿---
 title: Demand Forecast in Energy Technical Guide | Microsoft Docs
 description: A technical guide to the Solution Template with Microsoft Cortana Intelligence for demand forecast in energy.
 services: cortana-analytics

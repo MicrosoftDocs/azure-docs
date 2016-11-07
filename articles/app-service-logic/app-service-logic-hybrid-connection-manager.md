@@ -1,4 +1,4 @@
----
+﻿---
 title: Using the Hybrid Connection Manager | Microsoft Docs
 description: Install and configure the Hybrid Connection Manager and connect to on-premises connectors in Logic Apps
 services: app-service\logic

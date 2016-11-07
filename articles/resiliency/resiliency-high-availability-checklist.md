@@ -1,4 +1,4 @@
----
+﻿---
 title: High availability checklist | Microsoft Docs
 description: A quick checklist of settings and actions that you can take to ensure you are improving your applications availability with Azure.
 services: ''

@@ -1,4 +1,4 @@
----
+﻿---
 title: Tutorial - Get started with the Azure Batch .NET library | Microsoft Docs
 description: Learn the basic concepts of Azure Batch and how to develop for the Batch service with an example scenario.
 services: batch

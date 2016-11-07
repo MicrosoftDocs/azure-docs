@@ -1,4 +1,4 @@
----
+﻿---
 title: StorSimple Manager Virtual Array administration | Microsoft Docs
 description: Learn how to manage your StorSimple on-premises Virtual Array by using the StorSimple Manager service in the Azure classic portal.
 services: storsimple
