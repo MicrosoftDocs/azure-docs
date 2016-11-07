@@ -39,7 +39,7 @@ The following diagram shows the relationship between your Windows computers and 
 
 
 ## System requirements and required configuration
-Before you install or deploy agents, review the following details to ensure you meet necessary requirements.
+Before you install or deploy agents, review the following details to ensure you meet necessary requirements. 
 
 - You can only install the OMS MMA on computers running Windows Server 2008 SP 1 or later or Windows 7 SP1 or later.
 - You'll need an OMS subscription.  For additional information, see [Get started with Log Analytics](log-analytics-get-started.md).
