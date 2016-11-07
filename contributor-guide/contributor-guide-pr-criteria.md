@@ -18,6 +18,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Metadata | The ms.date value cannot be set more than 5 days into the future. |
 | Content |The article is a technical document, and therefore in the correct content channel. See the [what goes where guidance](content-channel-guidance.md). |
 | Content |The subject matter in the technical document is appropriate for a technical article. See the [what goes where guidance](content-channel-guidance.md). |
+| Content |The article contains only one H1 heading. |
 | Content |The article contains an introductory paragraph, and a procedural or conceptual body of content. The article needs to contain sufficient, complete content to stand on its own as an article. It should not be a small fragment of information. (Exception: A "Limits" topic if it is in the context of a large article that lists all of the limits of a service.) |
 | Content |Elements that should be numbered lists are numbered, elements that should be unordered lists are bulleted. This is basic usability. |
 | Content |Unusual or novel graphics, information architecture or structures, or obviously non-standard designs need to be vetted with the lead PR reviewer. Teams that are experimenting with new things need to have a problem/solution canvas or plan in place for evaluating experiments. |
@@ -35,7 +36,8 @@ The updates in the pull request must comply with the following criteria to be me
 | Terminology |The use of the ARM acronym, V1, or V2 as references to the classic and Resource Manager deployment models is a blocking terminology item. |
 | Images |Animated GIFs are not accepted into the repo. |
 | Images |Images have clear resolution, are free of misspelled words, and contain no private information |
-| Staging |The article preview must be clean on staging. It cannot contain any obvious formatting issues: <br><br>- A numbered or bulleted list that appears as a paragraph <br> - Code in a code block appearing partly in the code block and partly outside it <br>- Numbered steps numbered incorrectly due to faulty indentation |
+| Localizability | Links to pages on azure.microsoft.com, TechNet, and MSDN are coded as locale agnostic. Do not include en-us, en-gb, en-in, or any other locale in links to these sites. |
+| Staging |The article preview must be clean on staging. It cannot contain any obvious formatting issues: <br><br>- A numbered or bulleted list that appears as a paragraph <br> - Code in a code block appearing partly in the code block and partly outside it <br>- Numbered steps numbered incorrectly due to faulty indentation <br><br>- Leftover merge conflict markers |
 
 ## Non-blocking content quality items
 For these items, pull request reviewers provide feedback and instructions for the author to follow up with fixes in a later pull request. However, this feedback does not block the decision to merge. Authors should follow up within 3 business days with fixes.
