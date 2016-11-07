@@ -100,7 +100,7 @@
 
 ## [Secure](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Secure an app in Azure App Service](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Authentication and authorization](../app-service-web/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Authentication and authorization](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Service principal authentication](app-service-api-dotnet-service-principal-auth.md)
 ### [User authentication](app-service-api-dotnet-user-principal-auth.md)
 ### Authenticate with identity providers
