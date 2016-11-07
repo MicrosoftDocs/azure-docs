@@ -79,7 +79,7 @@ To create a backup vault:
 6. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
 
     ![Create vault toast notification](./media/backup-azure-vms-prepare/creating-vault.png)
-7. A message will confirm that the vault has been successfully created. It will be listed on the **recovery services** page as **Active**. Make sure to choose the appropriate storage redundancy option right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#step-1--create-a-recovery-services-vault).
+7. A message will confirm that the vault has been successfully created. It will be listed on the **recovery services** page as **Active**. Make sure to choose the appropriate storage redundancy option right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#step-1-create-a-recovery-services-vault).
 
     ![List of backup vaults](./media/backup-azure-vms-prepare/backup_vaultslist.png)
 8. Click the backup vault to go to the **Quick Start** page, where the instructions for backing up Azure virtual machines are shown.
