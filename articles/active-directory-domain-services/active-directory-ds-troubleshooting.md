@@ -75,8 +75,8 @@ Use the following PowerShell script to find the application and delete it.
 
 > [!NOTE]
 > This script uses **Azure AD PowerShell version 2** cmdlets. For a full list of all available cmdlets and to download the module, read the [AzureAD PowerShell reference documentation](https://msdn.microsoft.com/library/azure/mt757189.aspx).
-> 
-> 
+>
+>
 
 ```
 $InformationPreference = "Continue"
@@ -129,18 +129,18 @@ If one or more users in your Azure AD tenant are unable to sign in to the newly 
 
 > [!NOTE]
 > We recommend using the UPN format to sign in to the Azure AD Domain Services managed domain.
-> 
-> 
+>
+>
 
 * Ensure that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) in accordance with the steps outlined in the Getting Started guide.
 * **External accounts:** Ensure that the affected user account is not an external account in the Azure AD tenant. Examples of external accounts include Microsoft accounts (for example, 'joe@live.com') or user accounts from an external Azure AD directory. Since Azure AD Domain Services does not have credentials for such user accounts, these users cannot sign in to the managed domain.
 * **Synced accounts:** If the affected user accounts are synchronized from an on-premises directory, verify that:
-  
-  * You have deployed or updated to the [latest recommended release of Azure AD Connect](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect).
+
+  * You have deployed or updated to the [latest recommended release of Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
   * You have configured Azure AD Connect to [perform a full synchronization](active-directory-ds-getting-started-password-sync.md).
   * Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in Azure AD Domain Services. Ensure you wait long enough before retrying authentication (depending on the size of your directory - a few hours to a day or two for large directories).
   * If the issue persists after verifying the preceding steps, try restarting the Microsoft Azure AD Sync Service. From your sync machine, launch a command prompt and execute the following commands:
-    
+
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
 * **Cloud-only accounts**: If the affected user account is a cloud-only user account, ensure that the user has changed their password after you enabled Azure AD Domain Services. This step causes the credential hashes required for Azure AD Domain Services to be generated.
@@ -152,4 +152,3 @@ To remove the user account fully from your managed domain, delete the user perma
 
 ## Contact Us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
-

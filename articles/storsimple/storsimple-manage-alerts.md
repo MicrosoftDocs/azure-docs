@@ -1,4 +1,4 @@
----
+﻿---
 title: View and manage StorSimple alerts | Microsoft Docs
 description: Describes StorSimple alert conditions and severity, how to configure alert notifications, and how to use the StorSimple Manager service to manage alerts.
 services: storsimple

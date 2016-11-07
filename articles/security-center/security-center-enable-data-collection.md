@@ -1,4 +1,4 @@
----
+﻿---
 title: Enable data collection in Azure Security Center | Microsoft Docs
 description: " Learn how to enable data collection in Azure Security Center. "
 services: security-center

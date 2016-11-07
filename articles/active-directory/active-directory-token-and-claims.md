@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD Token Reference | Microsoft Docs
 description: A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)
 documentationcenter: na

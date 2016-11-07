@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Troubleshooting: Azure AD Password Management | Microsoft Docs'
 description: Common troubleshooting steps for Azure AD Password Management, including reset, change, writeback, registration, and what information to include when looking for help.
 services: active-directory

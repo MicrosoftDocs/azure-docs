@@ -1,4 +1,4 @@
----
+﻿---
 title: Integrating Azure Security Center alerts with Azure log integration (Preview) | Microsoft Docs
 description: This article helps you get started with integrating Security Center alerts with Azure log integration.
 services: security-center

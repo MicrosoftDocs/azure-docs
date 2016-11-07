@@ -1,4 +1,4 @@
----
+﻿---
 title: Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Docs
 description: Azure Search is a hosted cloud search service that supports tuning of ranked results based on user-defined scoring profiles.
 services: search
@@ -14,14 +14,14 @@ ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.author: heidist
-ms.date: 08/29/2016
-
+ms.date: 10/27/2016
 ---
+
 # Scoring Profiles (Azure Search REST API Version 2015-02-28-Preview)
 > [!NOTE]
-> This article describes scoring profiles in the [2015-02-28-Preview](search-api-2015-02-28-preview.md). Currently there is no difference between the `2015-02-28` version documented on [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) and the `2015-02-28-Preview` version described here, but we offer this document anyway in order to provide document coverage across the entire API.
-> 
-> 
+> This article describes scoring profiles in the [2015-02-28-Preview](search-api-2015-02-28-preview.md). Currently there is no difference between the `2016-09-01` version documented on [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) and the `2015-02-28-Preview` version described here, but we offer this document anyway in order to provide document coverage across the entire API.
+>
+>
 
 ## Overview
 Scoring refers to the computation of a search score for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search score calculated for each item.
@@ -149,7 +149,7 @@ This example shows the schema of an index with two scoring profiles (`boostGenre
 
 
 ## Workflow
-To implement custom scoring behavior, add a scoring profile to the schema that defines the index. You can have multiple scoring profiles within an index, but you can only specify one profile at time in any given query.
+To implement custom scoring behavior, add a scoring profile to the schema that defines the index. You can have up to 16 scoring profiles within an index (see [Service Limits](search-limits-quotas-capacity.md)), but you can only specify one profile at time in any given query.
 
 Start with the [Template](#bkmk_template) provided in this topic.
 
@@ -234,8 +234,10 @@ This section shows the syntax and template for scoring profiles. Refer to [Index
 <a name="bkmk_indexref"></a>
 
 ## Scoring profile property reference
-**Note**
-A scoring function can only be applied to fields that are filterable.
+> [!NOTE]
+> A scoring function can only be applied to fields that are filterable.
+>
+>
 
 | Property | Description |
 | --- | --- |

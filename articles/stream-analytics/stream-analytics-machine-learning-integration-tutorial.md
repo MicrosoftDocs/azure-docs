@@ -1,4 +1,4 @@
----
+﻿---
 title: Sentiment analysis by using Azure Stream Analytics and Azure Machine Learning | Microsoft Docs
 description: How to use a user-defined function and Machine Learning in a Stream Analytics job
 keywords: ''

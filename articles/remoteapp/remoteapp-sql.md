@@ -1,4 +1,4 @@
----
+﻿---
 title: SQL Azure with Azure RemoteApp | Microsoft Docs
 description: Learn how to use SQL Azure with Azure RemoteApp.
 services: remoteapp

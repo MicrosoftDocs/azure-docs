@@ -1,4 +1,4 @@
----
+﻿---
 title: Log Analytics alert webhook sample
 description: One of the actions you can run in response to a Log Analytics alert is a *webhook*, which allows you to invoke an external process through a single HTTP request. This article walks through an example of creating a webhook action in a Log Analytics alert using Slack.
 services: log-analytics

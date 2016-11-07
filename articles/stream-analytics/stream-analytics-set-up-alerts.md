@@ -1,4 +1,4 @@
----
+﻿---
 title: Set up alerts for queries in Stream Analytics | Microsoft Docs
 description: Understanding Stream Analytics Alerting
 keywords: set up alerts

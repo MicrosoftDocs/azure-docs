@@ -1,4 +1,4 @@
----
+﻿---
 title: Use the Azure Stack Policy Module| Microsoft Docs
 description: Learn how to constrain an Azure subscription to behave like an Azure Stack subscription
 services: azure-stack

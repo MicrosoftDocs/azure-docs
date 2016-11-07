@@ -1,4 +1,4 @@
----
+﻿---
 title: What to do in the event that an Azure service disruption impacts Azure virtual machines | Microsoft Docs
 description: Learn what to do in the event that an Azure service disruption impacts Azure virtual machines.
 services: virtual-machines

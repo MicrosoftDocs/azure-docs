@@ -1,4 +1,4 @@
----
+﻿---
 title: Protect your HLS content with Apple FairPlay and/or Microsoft PlayReady | Microsoft Docs
 description: This topic gives an overview and shows how to use Azure Media Services to dynamically encrypt your HTTP Live Streaming (HLS) content with  Apple FairPlay. It also shows how to use the Media Services license delivery service to deliver FairPlay licenses to clients.
 services: media-services

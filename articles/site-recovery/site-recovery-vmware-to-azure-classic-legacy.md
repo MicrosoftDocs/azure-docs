@@ -1,4 +1,4 @@
----
+﻿---
 title: Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery (legacy) | Microsoft Docs
 description: Describes how to replicate on-premises VMs and Windows/Linux physical servers to Azure using Azure Site Recovery in a legacy deployment in the classic portal.
 services: site-recovery

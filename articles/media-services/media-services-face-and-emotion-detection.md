@@ -1,4 +1,4 @@
----
+﻿---
 title: Detect Face and Emotion with Azure Media Analytics | Microsoft Docs
 description: This topic demonstrates how to detect faces and emotions with Azure Media Analytics.
 services: media-services

@@ -1,4 +1,4 @@
----
+﻿---
 title: FAQ for Linux VMs | Microsoft Docs
 description: Provides answers to some of the common questions about Linux virtual machines created with the Resource Manager model.
 services: virtual-machines-linux

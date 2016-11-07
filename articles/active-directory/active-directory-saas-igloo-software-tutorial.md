@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Igloo Software | Microsoft Docs'
 description: Learn how to use Igloo Software with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync: Attributes synchronized to Azure Active Directory | Microsoft Docs'
 description: Lists the attributes that are synchronized to Azure Active Directory.
 services: active-directory

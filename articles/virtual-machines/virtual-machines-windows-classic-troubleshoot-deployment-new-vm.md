@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot Windows VM deployment-Classic | Microsoft Docs
 description: Troubleshoot classic deployment issues when you create a new Windows virtual machine in Azure
 services: virtual-machines-windows

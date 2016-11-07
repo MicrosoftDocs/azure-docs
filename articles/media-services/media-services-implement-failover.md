@@ -1,4 +1,4 @@
----
+﻿---
 title: Implementing failover streaming scenario | Microsoft Docs
 description: This topic shows how to implement failover streaming scenario.
 services: media-services

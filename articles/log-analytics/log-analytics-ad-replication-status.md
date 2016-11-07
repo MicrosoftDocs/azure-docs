@@ -1,4 +1,4 @@
----
+﻿---
 title: Active Directory Replication Status solution in Log Analytics | Microsoft Docs
 description: The Active Directory Replication Status solution pack regularly monitors your Active Directory environment for any replication failures and reports the results on your OMS dashboard.
 services: log-analytics

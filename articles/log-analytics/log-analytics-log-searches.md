@@ -1,4 +1,4 @@
----
+﻿---
 title: Log searches in Log Analytics | Microsoft Docs
 description: Log searches allow you to combine and correlate any machine data from multiple sources within your environment.
 services: log-analytics

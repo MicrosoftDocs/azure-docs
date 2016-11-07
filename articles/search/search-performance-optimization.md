@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Search performance and optimization considerations | Microsoft Docs
 description: Tune Azure Search performance and configure optimum scale
 services: search

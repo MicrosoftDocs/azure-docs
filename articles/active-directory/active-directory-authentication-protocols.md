@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory Authentication Protocols | Microsoft Docs
 description: An overview of the authentication protocols supported by Azure Active Directory (AD)
 documentationcenter: dev-center-name

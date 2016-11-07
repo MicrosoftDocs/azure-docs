@@ -1,4 +1,4 @@
----
+﻿---
 title: API implementation guidance | Microsoft Docs
 description: Guidance upon how to implement an API.
 services: ''

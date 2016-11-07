@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Azure Stack storage accounts  | Microsoft Docs
 description: Learn how to find, manage, recover and reclaim Azure Stack storage accounts
 services: azure-stack

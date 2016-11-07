@@ -1,4 +1,4 @@
----
+﻿---
 title: Fix a SQL connection error, transient error | Microsoft Docs
 description: 'Learn how to troubleshoot, diagnose, and prevent a SQL connection error or transient error in Azure SQL Database. '
 keywords: sql connection,connection string,connectivity issues,transient error,connection error

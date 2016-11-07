@@ -1,4 +1,4 @@
----
+﻿---
 title: Introduction to Microsoft Azure log integration | Microsoft Docs
 description: Learn about Azure log integration, its key capabilities, and how it works.
 services: security

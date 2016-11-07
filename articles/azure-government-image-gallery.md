@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Government Image Gallery | Microsoft Docs
 description: This article provides an overview of the Azure Government Image Gallery and the images included
 services: Azure-Government

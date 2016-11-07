@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory Integration with Bime | Microsoft Docs'
 description: Learn how to use Bime with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory

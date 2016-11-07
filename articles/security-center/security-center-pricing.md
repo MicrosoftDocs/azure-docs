@@ -1,4 +1,4 @@
----
+﻿---
 title: Security Center pricing | Microsoft Docs
 description: This article provides information on pricing for Azure Security Center.
 services: security-center

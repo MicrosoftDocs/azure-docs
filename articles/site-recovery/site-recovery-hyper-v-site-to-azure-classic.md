@@ -1,4 +1,4 @@
----
+﻿---
 title: Replicate between on-premises Hyper-V virtual machines and Azure (without VMM) with Site Recovery | Microsoft Docs
 description: This article describes how to replicate Hyper-V virtual machines to Azure with Azure Site Recovery when machines aren't managed in VMM clouds.
 services: site-recovery

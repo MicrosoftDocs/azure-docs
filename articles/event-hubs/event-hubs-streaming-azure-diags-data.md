@@ -1,4 +1,4 @@
----
+﻿---
 title: Streaming Azure Diagnostics data in the hot path using Event Hubs | Microsoft Docs
 description: Illustrates how to configure Azure Diagnostics with Event Hubs from end to end, including guidance for common scenarios.
 services: event-hubs

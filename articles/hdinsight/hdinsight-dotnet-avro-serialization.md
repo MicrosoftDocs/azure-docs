@@ -1,4 +1,4 @@
----
+﻿---
 title: Serialize data with the Microsoft Avro Library | Microsoft Docs
 description: Learn how Azure HDInsight uses Avro to serialize big data.
 services: hdinsight

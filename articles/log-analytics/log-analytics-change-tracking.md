@@ -1,4 +1,4 @@
----
+﻿---
 title: Change Tracking solution in Log Analytics | Microsoft Docs
 description: You can use the Configuration Change Tracking solution in Log Analytics to help you easily identify software and Windows Services changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues.
 services: operations-management-suite

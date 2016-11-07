@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage HPC Pack cluster compute nodes | Microsoft Docs
 description: Learn about PowerShell script tools to add, remove, start, and stop HPC Pack cluster compute nodes in Azure
 services: virtual-machines-windows

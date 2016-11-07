@@ -1,4 +1,4 @@
----
+﻿---
 title: Caching guidance | Microsoft Docs
 description: Guidance on caching to improve performance and scalability.
 services: ''

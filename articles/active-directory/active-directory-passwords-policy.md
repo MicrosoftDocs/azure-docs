@@ -1,4 +1,4 @@
----
+﻿---
 title: Password policies and restrictions in Azure Active Directory | Microsoft Docs
 description: Describes the policies that apply to passwords in Azure Active Directory, including allowed characters, length, and expiration
 services: active-directory

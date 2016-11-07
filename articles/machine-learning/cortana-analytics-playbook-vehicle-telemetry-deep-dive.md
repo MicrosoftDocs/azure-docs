@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Vehicle telemetry analytics solution playbook: deep dive into the solution | Microsoft Docs'
 description: Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits.
 services: machine-learning

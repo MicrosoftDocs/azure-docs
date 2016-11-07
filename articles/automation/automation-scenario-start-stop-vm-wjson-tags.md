@@ -1,4 +1,4 @@
----
+﻿---
 title: Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown | Microsoft Docs
 description: This article demonstrates how to use JSON strings on tags to automate the scheduling of VM startup and shutdown.
 services: automation

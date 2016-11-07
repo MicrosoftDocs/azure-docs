@@ -1,4 +1,4 @@
----
+﻿---
 title: Reference in Analytics in Application Insights | Microsoft Docs
 description: 'Reference for statements in Analytics, the powerful search tool of Application Insights. '
 services: application-insights

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Machine Learning APIs: Text Analytics | Microsoft Docs'
 description: Microsoft's Machine Learning Text Analytics APIs can be used to analyze unstructured text for sentiment analysis, key phrase extraction, language detection and topic detection.
 services: machine-learning

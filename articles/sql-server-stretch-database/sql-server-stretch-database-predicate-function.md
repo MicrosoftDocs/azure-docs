@@ -1,4 +1,4 @@
----
+﻿---
 title: Select rows to migrate by using a filter function (Stretch Database) | Microsoft Docs
 description: Learn how to select rows to migrate by using a filter function.
 services: sql-server-stretch-database

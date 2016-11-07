@@ -1,4 +1,4 @@
----
+﻿---
 title: API versions of Azure Search | Microsoft Docs
 description: Version policy for Azure Search REST APIs and the client library in the .NET SDK.
 services: search
@@ -13,10 +13,10 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/16/2016
+ms.date: 10/27/2016
 ms.author: brjohnst
-
 ---
+
 # API versions in Azure Search
 Azure Search rolls out feature updates on a regular basis. Sometimes, but not always, these updates require us to publish a new version of our API in order to preserve backward compatibility. Publishing a new version allows you to control when and how you integrate search service updates in your code.
 
@@ -31,20 +31,20 @@ Below is a snapshot of the current versions of all programming interfaces to Azu
 | --- | --- | --- |
 | [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) |1.1 |Generally Available, released February 2016 |
 | [.NET SDK Preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) |2.0-preview |Preview, released August 2016 |
-| [Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) |2015-02-28 |Generally Available |
+| [Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) |2016-09-01 |Generally Available |
 | [Service REST API Preview](search-api-2015-02-28-preview.md) |2015-02-28-Preview |Preview |
 | [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) |2015-08-19 |Generally Available |
 
 For the REST APIs, including the `api-version` on each call is required. This makes it easy to target a specific version, such as a preview API. The following example illustrates how the `api-version` parameter is specified:
 
-    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2015-02-28
+    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2016-09-01
 
 > [!NOTE]
 > Although each request has an `api-version`, we recommend that you use the same version for all API requests. This is especially true when new API versions introduce attributes or operations that are not recognized by previous versions. Mixing API versions can have unintended consequences and should be avoided.
-> 
+>
 > The Service REST API and Management REST API are versioned independently of each other. Any similarity in version numbers is co-incidental.
-> 
-> 
+>
+>
 
 Generally available (or GA) APIs can be used in production and are subject to Azure service level agreements. Preview versions have experimental features that are not always migrated to a GA version. **We strongly advise against using preview APIs in production applications.**
 
@@ -57,16 +57,15 @@ The .NET SDK is now generally available and work is already underway on the next
 | --- | --- | --- | --- |
 | 1.1 |2015-02-28 |Lucene query syntax |February 2016 |
 | 2.0-preview |2015-02-28-Preview |Custom analyzers, Azure Blob and Table indexers, Field mappings, ETags |August 2016 |
-| 2.x |New GA API version |Same as 2.0-preview |Early Q4 2016 |
+| 3.x |2016-09-01 |Same as 2.0-preview, minus Blob Indexer support for CSV and JSON files |November 2016 |
 
 ## About Preview and Generally Available versions
 Azure Search always pre-releases experimental features through the REST API first, then through prerelease versions of the .NET SDK.
 
-Preview features are not guaranteed to be migrated to a GA release. Whereas features in a GA version are considered stable and unlikely to change with the exception of small backward-compatible fixes and enhancements, preview features are available for testing and experimentation, with the goal of gathering feedback on feature design and implementation. 
+Preview features are not guaranteed to be migrated to a GA release. Whereas features in a GA version are considered stable and unlikely to change with the exception of small backward-compatible fixes and enhancements, preview features are available for testing and experimentation, with the goal of gathering feedback on feature design and implementation.
 
-However, because preview features are subject to change, we recommend against writing production code that takes a dependency on preview versions. If you are using an older preview version, we recommend migrating to the generally available (GA) version. 
+However, because preview features are subject to change, we recommend against writing production code that takes a dependency on preview versions. If you are using an older preview version, we recommend migrating to the generally available (GA) version.
 
 For the .NET SDK: Guidance for code migration can be found at [Upgrade the .NET SDK](search-dotnet-sdk-migration.md).
 
 General availability means that Azure Search is now under the service level agreement (SLA). The SLA can be found at [Azure Search Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-

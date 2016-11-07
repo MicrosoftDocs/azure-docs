@@ -1,4 +1,4 @@
----
+﻿---
 title: Create and Manage Hybrid Connections | Microsoft Docs
 description: Learn how to create a hybrid connection, manage the connection, and install the Hybrid Connection Manager. MABS, WABS
 services: biztalk-services

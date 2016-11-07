@@ -1,4 +1,4 @@
----
+﻿---
 title: Detailed SSH troubleshooting for an Azure VM | Microsoft Docs
 description: More detailed SSH troubleshooting steps for issues connecting to an Azure virtual machine
 keywords: ssh connection refused,ssh error,azure ssh,SSH connection failed

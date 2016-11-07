@@ -1,4 +1,4 @@
----
+﻿---
 title: Deep diagnostics for web apps and services with Application Insights | Microsoft Docs
 description: How Application Insights fits into the devOps cycle
 services: application-insights

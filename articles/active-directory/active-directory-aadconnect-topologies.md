@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Supported topologies | Microsoft Docs'
 description: This topic details supported and unsupported topologies for Azure AD Connect
 services: active-directory

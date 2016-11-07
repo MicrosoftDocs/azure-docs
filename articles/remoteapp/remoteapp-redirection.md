@@ -1,4 +1,4 @@
----
+﻿---
 title: Using redirection in Azure RemoteApp | Microsoft Docs
 description: Learn how to configure and use redirection in RemoteApp
 services: remoteapp

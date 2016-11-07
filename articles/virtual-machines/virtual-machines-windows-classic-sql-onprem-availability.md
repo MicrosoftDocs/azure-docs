@@ -1,4 +1,4 @@
----
+﻿---
 title: Extend on-premises Always On Availability Groups to Azure | Microsoft Docs
 description: This tutorial uses resources created with the classic deployment model, and describes how to use the Add Replica wizard in SQL Server Management Studio (SSMS) to add an Always On Availability Group replica in Azure.
 services: virtual-machines-windows

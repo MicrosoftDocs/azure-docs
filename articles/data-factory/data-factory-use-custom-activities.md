@@ -1,4 +1,4 @@
----
+﻿---
 title: Use custom activities in an Azure Data Factory pipeline
 description: Learn how to create custom activities and use them in an Azure Data Factory pipeline.
 services: data-factory

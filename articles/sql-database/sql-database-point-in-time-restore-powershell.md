@@ -1,4 +1,4 @@
----
+﻿---
 title: Restore an Azure SQL Database to a previous point in time (PowerShell) | Microsoft Docs
 description: Restore an Azure SQL Database to a previous point in time
 services: sql-database

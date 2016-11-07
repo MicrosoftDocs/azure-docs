@@ -1,4 +1,4 @@
----
+﻿---
 title: Common startup tasks for Cloud Services | Microsoft Docs
 description: Provides some examples of common startup tasks you may want to perform in your cloud services web role or worker role.
 services: cloud-services

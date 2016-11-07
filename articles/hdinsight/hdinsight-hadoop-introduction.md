@@ -1,4 +1,4 @@
----
+﻿---
 title: Intro to Hadoop - What is Hadoop on HDInsight? | Microsoft Docs
 description: Get an introduction to Hadoop, distributed big data processing and analysis, and the components of the Hadoop ecosystem in the cloud on HDInsight.
 keywords: big data analysis,introduction to hadoop,what is hadoop,hadoop technology stack,hadoop ecosystem

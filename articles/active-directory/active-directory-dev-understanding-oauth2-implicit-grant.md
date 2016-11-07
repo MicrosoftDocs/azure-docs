@@ -1,4 +1,4 @@
----
+﻿---
 title: Understanding the OAuth2 implicit grant flow in Azure Active Directory | Microsoft Docs
 description: Learn more about Azure Active Directory's implementation of the OAuth2 implicit grant flow, and whether it's right for your application.
 services: active-directory
@@ -43,7 +43,7 @@ Currently, the preferred method of protecting calls to a Web API is to use the O
 
 The implicit grant flow does not issue refresh tokens, mostly for security reasons. A refresh token isn’t as narrowly scoped as access tokens, granting far more power hence inflicting far more damage in case it is leaked out. In the implicit flow, tokens are delivered in the URL, hence the risk of interception is higher than in the authorization code grant.
 
-However, note that a JavaScript application has another mechanism at its disposal for renewing access tokens without repeatedly prompting the user for credentials. The application can use a hidden iframe to perform new token requests against the authorization endpoint of Azure AD: as long as the browser still has an active session (read: has a session cookie) against the Azure AD domain, the authentication request can successfully occur without any need for user interaction. 
+However, note that a JavaScript application has another mechanism at its disposal for renewing access tokens without repeatedly prompting the user for credentials. The application can use a hidden iframe to perform new token requests against the authorization endpoint of Azure AD: as long as the browser still has an active session (read: has a session cookie) against the Azure AD domain, the authentication request can successfully occur without any need for user interaction.
 
 This model grants the JavaScript application the ability to independently renew access tokens and even acquire new ones for a new API (provided that the user previously consented for them. This avoids the added burden of acquiring, maintaining and protecting a high value artifact such as a refresh token. The artifact which makes the silent renewal possible, the Azure AD session cookie, is managed outside of the application. Another advantage of this approach is a user can sign out from Azure AD, using any of the applications signed into Azure AD, running in any of the browser tabs. This results in the deletion of the Azure AD session cookie, and the JavaScript application will automatically lose the ability to renew tokens for the signed out user.
 
@@ -63,7 +63,6 @@ If you are developing a Web application which includes a backend, and consuming 
 <!--Reference style links in use-->
 [AAD-Developers-Guide]: active-directory-developers-guide.md
 [ACOM-How-And-Why-Apps-Added-To-AAD]: active-directory-how-applications-are-added.md
-[ACOM-How-To-Integrate]: active-directory-how-to-integrate.md
-[OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16 
+[ACOM-How-To-Integrate]: ./develop/active-directory-how-to-integrate.md
+[OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
 [OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
-

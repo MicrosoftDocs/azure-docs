@@ -1,4 +1,4 @@
----
+﻿---
 title: Customize your sign-in page in the Azure Active Directory preview | Microsoft Docs
 description: Learn how to add a company branding to the Azure sign-in page
 services: active-directory

@@ -1,4 +1,4 @@
----
+﻿---
 title: Secure a standalone cluster | Microsoft Docs
 description: This article describes how to secure communication within the standalone or private cluster as well as between clients and the cluster.
 services: service-fabric

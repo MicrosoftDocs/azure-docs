@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory FAQ | Microsoft Docs
 description: Azure Active Directory FAQ that provides answers to questions in conjunction with accessing Azure and Azure Active Directory, password management and application access.
 services: active-directory

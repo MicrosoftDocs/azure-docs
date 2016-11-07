@@ -1,4 +1,4 @@
----
+﻿---
 title: Move data to/from Azure Data Lake Store | Microsoft Docs
 description: Learn how to move data to/from Azure Data Lake Store using Azure Data Factory
 services: data-factory

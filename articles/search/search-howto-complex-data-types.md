@@ -1,4 +1,4 @@
----
+﻿---
 title: How to model complex data types in Azure Search | Microsoft Docs
 description: Nested or hierarchical data structures can be modeled in an Azure Search index using flattened rowset and Collections data type.
 services: search

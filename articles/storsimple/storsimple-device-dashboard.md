@@ -1,4 +1,4 @@
----
+﻿---
 title: Use the StorSimple Manager device dashboard | Microsoft Docs
 description: Describes the StorSimple Manager service device dashboard and how to use it to view storage metrics and connected initiators and find the serial number and IQN.
 services: storsimple
