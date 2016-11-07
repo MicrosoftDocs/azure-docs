@@ -1,21 +1,21 @@
 ---
 title: Automation Documentation | Microsoft Azure
 description: Automation Documentation
-services: ''
+services: automation
 documentationcenter: ''
-author: squillace
-manager: timlt
+author: kriscrider
+manager: carolz
 editor: ''
-tags: billing
+tags: 
 
 ms.assetid: 4e73be25-f7ab-4524-b5c8-066399e34222
-ms.service: value
+ms.service: automation
 ms.devlang: na
-ms.topic: article
+ms.topic: landing page
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
+ms.date: 11/07/2016
+ms.author: kriscr
 
 ---
 # Automation Documentation
@@ -34,7 +34,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Learn how to simplify cloud management with automation<p>
+                        <p>Learn about Azure Automation<p>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Get started with Automation Videos<p>
+                        <p>Azure Automation Video Library<p>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/automation/automation-first-runbook-graphical/">
+        <a href="automation-first-runbook-graphical/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -70,7 +70,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create your first graphical Runbook<p>
+                        <p>Create a graphical Runbook<p>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,25 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell">
+        <a href="automation-first-runbook-textual-powershell">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+r                        <div class="cardImage">
+                            <img src="images/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <p>Create a PowerShell Runbook<p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="automation-first-runbook-textual">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -88,7 +106,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create your first PowerShell Runbook<p>
+                        <p>Create a PowerShell Workflow Runbook<p>
                     </div>
                 </div>
             </div>
@@ -96,7 +114,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/automation/automation-first-runbook-textual">
+        <a href="automation-role-based-access-control">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -106,25 +124,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create your first PowerShell Workflow Runbook<p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://docs.microsoft.com/azure/automation/automation-role-based-access-control">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <p>Use RBAC to enable access management for Azure resources<p>
+                        <p>Create a Role-based access control for Azure resources<p>
                     </div>
                 </div>
             </div>
@@ -137,11 +137,15 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
 
 ## Reference
 
+### PowerShell
+[Automation PowerShell Cmdlets (ARM)](/powershell/resourcemanager) 
+[Automation PowerShell Cmdlets (ASM)](/powershell/servicemanagement)
+
 ### .NET
 [Automation Managed Reference API](https://docs.microsoft.com/dotnet/api)
 
-### PowerShell
-[Automation PowerShell Cmdlets (ARM)](/powershell/resourcemanager) | [Automation PowerShell Cmdlets (ASM)](/powershell/servicemanagement)
+### REST
+[Automation REST API Reference](https://msdn.microsoft.com/library/azure/dn690262)
 
 ---
 
