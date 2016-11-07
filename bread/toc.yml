@@ -14,13 +14,13 @@
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/analysis-services-overview
-  - name: Api Management
+  - name: API Management
     tocHref: /azure/api-management/
     topicHref: /azure/api-management/api-management-key-concepts
   - name: App Service
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/app-service-how-works-readme
-  - name: App Service Api
+  - name: App Service API
     tocHref: /azure/app-service-api/
     topicHref: /azure/app-service-api/app-service-api-apps-why-best-platform
   - name: App Service Logic
@@ -41,22 +41,22 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/automation-intro
-  - name: Azure Functions
+  - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/functions-overview
-  - name: Azure Government
+  - name: Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/documentation-government-overview
-  - name: Azure Portal
+  - name: Portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/azure-portal-overview
-  - name: Azure Resource Manager
+  - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/resource-group-overview
   - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/azure-stack-poc
-  - name: Azure Supportability
+  - name: Supportability
     tocHref: /azure/azure-supportability/
     topicHref: /azure/azure-supportability/
   - name: Backup
@@ -74,7 +74,7 @@
   - name: Cache
     tocHref: /azure/cache/
     topicHref: /azure/cache/
-  - name: Cdn
+  - name: CDN
     tocHref: /azure/cdn/
     topicHref: /azure/cdn/cdn-overview
   - name: Cloud Services
@@ -104,10 +104,10 @@
   - name: Devtest Lab
     tocHref: /azure/devtest-lab/
     topicHref: /azure/devtest-lab/devtest-lab-overview
-  - name: Dns
+  - name: DNS
     tocHref: /azure/dns/
     topicHref: /azure/dns/dns-overview
-  - name: Documentdb
+  - name: DocumentDB
     tocHref: /azure/documentdb/
     topicHref: /azure/documentdb/documentdb-introduction
   - name: Event Hubs
@@ -119,13 +119,13 @@
   - name: Guidance
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/guidance-resiliency-overview
-  - name: Hdinsight
+  - name: HDInsight
     tocHref: /azure/hdinsight/
     topicHref: /azure/hdinsight/hdinsight-hadoop-introduction
-  - name: Iot Hub
+  - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/iot-hub-what-is-azure-iot
-  - name: Iot Suite
+  - name: IoT Suite
     tocHref: /azure/iot-suite/
     topicHref: /azure/iot-suite/iot-suite-what-is-azure-iot
   - name: Key Vault
@@ -146,9 +146,6 @@
   - name: Marketplace Publishing
     tocHref: /azure/marketplace-publishing/
     topicHref: /azure/marketplace-publishing/
-  - name: Media
-    tocHref: /azure/media/
-    topicHref: /azure/media/
   - name: Media Services
     tocHref: /azure/media-services/
     topicHref: /azure/media-services/media-services-overview
@@ -161,7 +158,7 @@
   - name: Monitoring And Diagnostics
     tocHref: /azure/monitoring-and-diagnostics/
     topicHref: /azure/monitoring-and-diagnostics/../azure-portal/monitoring-get-started
-  - name: Multi Factor Authentication
+  - name: Multi-Factor Authentication
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/multi-factor-authentication
   - name: Notification Hubs
@@ -170,7 +167,7 @@
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/operations-management-suite-overview
-  - name: Power Bi Embedded
+  - name: Power BI Embedded
     tocHref: /azure/power-bi-embedded/
     topicHref: /azure/power-bi-embedded/power-bi-embedded-what-is-power-bi-embedded
   - name: Redis Cache
@@ -257,6 +254,6 @@
   - name: Virtual Network
     tocHref: /azure/virtual-network/
     topicHref: /azure/virtual-network/virtual-networks-overview
-  - name: Vpn Gateway
+  - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
