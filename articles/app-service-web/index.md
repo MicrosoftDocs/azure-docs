@@ -1,21 +1,21 @@
 ---
 title: Web Apps Documentation | Microsoft Azure
 description: Web Apps Documentation
-services: ''
+services: app-service-web
 documentationcenter: ''
-author: squillace
-manager: timlt
+author: kriscrider
+manager: carolz
 editor: ''
-tags: billing
+tags: 
 
 ms.assetid: 12e13097-ce24-4388-928e-c566752799b5
-ms.service: value
+ms.service: app-service-web
 ms.devlang: na
-ms.topic: article
+ms.topic: Landing Page
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
+ms.date: 11/06/2016
+ms.author: kriscr
 
 ---
 # Azure Web Apps Documentation
@@ -34,7 +34,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Learn how to use App Service Web Apps</p>
+                        <p>Learn about Web Apps</p>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Deploy an ASP.NET web app to an Azure Web app</p>
+                        <p>Create an ASP.NET web app using Visual Studio</p>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Get started with Node.js web apps</p>
+                        <p>Create a Node.js web apps in Azure App Service</p>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Learn about Django and MySQL on Azure with Python Tools 2.2</p>
+                        <p>Create a simple polls web app using Python tools for Visual Studio</p>
                     </div>
                 </div>
             </div>
@@ -192,11 +192,12 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
 ---
 ## Reference
 
-### REST
-[Web Apps REST API Reference](/rest/api/appservice)
 
 ### Java
 [Web Apps Java Reference](/java/api/)
+
+### REST
+[Web Apps REST API Reference](/rest/api/appservice)
 
 ---
 
