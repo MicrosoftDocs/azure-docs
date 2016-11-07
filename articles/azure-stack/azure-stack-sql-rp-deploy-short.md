@@ -66,7 +66,7 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
    2. Run scripts in the **Deploy** tab from left to right to:
 
       * [Deploy a VM](azure-stack-sql-rp-deploy-long.md) that hosts both your resource provider and SQL Server. This script references a JSON parameter file, which you need to update with some values before you run the script.
-      * [Register a local DNS record](azure-stack-sql-rp-deploy-long.md#Update-the-local-DNS) that maps to your resource provider VM.
+      * [Register a local DNS record](azure-stack-sql-rp-deploy-long.md) that maps to your resource provider VM.
       * [Register your resource provider](azure-stack-sql-rp-deploy-long.md) with the local Azure Resource Manager.
 
         > [!IMPORTANT]
