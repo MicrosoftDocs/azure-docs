@@ -23,49 +23,49 @@ ms.author: shlo
 > [Pig](data-factory-pig-activity.md)  
 > [MapReduce](data-factory-map-reduce.md)  
 > [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+> [Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > [Stored Procedure](data-factory-stored-proc-activity.md)
 > [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
 > [.NET custom](data-factory-use-custom-activities.md)
-> 
-> 
+>
+>
 
 ## Introduction
-[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps: 
+[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
 
 1. **Create a training experiment**. You do this step by using the Azure ML Studio. The ML studio is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.
 2. **Convert it to a predictive experiment**. Once your model has been trained with existing data and you are ready to use it to score new data, you prepare and streamline your experiment for scoring.
 3. **Deploy it as a web service**. You can publish your scoring experiment as an Azure web service. You can send data to your model via this web service end point and receive result predictions fro the model.  
 
-Azure Data Factory enables you to easily create pipelines that use a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. See [Introduction to Azure Data Factory](data-factory-introduction.md) and [Build your first pipeline](data-factory-build-your-first-pipeline.md) articles to quickly get started with the Azure Data Factory service. 
+Azure Data Factory enables you to easily create pipelines that use a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. See [Introduction to Azure Data Factory](data-factory-introduction.md) and [Build your first pipeline](data-factory-build-your-first-pipeline.md) articles to quickly get started with the Azure Data Factory service.
 
 Using the **Batch Execution Activity** in an Azure Data Factory pipeline, you can invoke an Azure ML web service to make predictions on the data in batch. See [Invoking an Azure ML web service using the Batch Execution Activity](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) section for details.
 
-Over time, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. You can retrain an Azure ML model from a Data Factory pipeline by doing the following steps: 
+Over time, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. You can retrain an Azure ML model from a Data Factory pipeline by doing the following steps:
 
 1. Publish the training experiment (not predictive experiment) as a web service. You do this step in the Azure ML Studio as you did to expose predictive experiment as a web service in the previous scenario.
-2. Use the Azure ML Batch Execution Activity to invoke the web service for the training experiment. Basically, you can use the Azure ML Batch Execution activity to invoke both training web service and scoring web service. 
+2. Use the Azure ML Batch Execution Activity to invoke the web service for the training experiment. Basically, you can use the Azure ML Batch Execution activity to invoke both training web service and scoring web service.
 
-After you are done with retraining, you want to update the scoring web service (predictive experiment exposed as a web service) with the newly trained model. Here are the steps: 
+After you are done with retraining, you want to update the scoring web service (predictive experiment exposed as a web service) with the newly trained model. Here are the steps:
 
 1. Add a non-default end point to the scoring web service. The default endpoint of the web service cannot be updated, so you need to create a non-default endpoint using the Azure portal. See the [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article for both conceptual information and procedural steps.
 2. Update existing Azure ML linked services for scoring to use the non-default endpoint. Start using the new endpoint to use the web service that is updated.
 3. Use the **Azure ML Update Resource Activity** to update the web service with the newly trained model.  
 
-See [Updating Azure ML models using the Update Resource Activity](#updating-azure-ml-models-using-the-update-resource-activity) section for details. 
+See [Updating Azure ML models using the Update Resource Activity](#updating-azure-ml-models-using-the-update-resource-activity) section for details.
 
 ## Invoking a web service using Batch Execution Activity
 You use Azure Data Factory to orchestrate data movement and processing, and then perform batch execution using Azure Machine Learning. Here are the top-level steps:
 
 1. Create an Azure Machine Learning linked service. You need the following:
-   
+
    1. **Request URI** for the Batch Execution API. You can find the Request URI by clicking the **BATCH EXECUTION** link in the web services page.
-   2. **API key** for the published Azure Machine Learning web service. You can find the API key by clicking the web service that you have published. 
-      
+   2. **API key** for the published Azure Machine Learning web service. You can find the API key by clicking the web service that you have published.
+
       1. Use the **AzureMLBatchExecution** activity.
-      
+
       ![Machine Learning Dashboard](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
-      
+
       ![Batch URI](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
 ### Scenario: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
@@ -73,12 +73,12 @@ In this scenario, the Azure Machine Learning Web service makes predictions using
 
 > [!IMPORTANT]
 > If the web service takes multiple inputs, use the **webServiceInputs** property instead of using **webServiceInput**. See the [Web service requires multiple inputs](#web-service-requires-multiple-inputs) section for an example of using the webServiceInputs property.
-> 
+>
 > Datasets that are referenced by the **webServiceInput**/**webServiceInputs** and **webServiceOutputs** properties (in **typeProperties**) must also be included in the Activity **inputs** and **outputs**.
-> 
-> In your Azure ML experiment, web service input and output ports and global parameters have default names ("input1", "input2") that you can customize. The names you use for webServiceInputs, webServiceOutputs, and globalParameters settings must exactly match the names in the experiments. You can view the sample request payload on the Batch Execution Help page for your Azure ML endpoint to verify the expected mapping. 
-> 
-> 
+>
+> In your Azure ML experiment, web service input and output ports and global parameters have default names ("input1", "input2") that you can customize. The names you use for webServiceInputs, webServiceOutputs, and globalParameters settings must exactly match the names in the experiments. You can view the sample request payload on the Batch Execution Help page for your Azure ML endpoint to verify the expected mapping.
+>
+>
 
     {
       "name": "PredictivePipeline",
@@ -122,16 +122,16 @@ In this scenario, the Azure Machine Learning Web service makes predictions using
 
 > [!NOTE]
 > Only inputs and outputs of the AzureMLBatchExecution activity can be passed as parameters to the Web service. For example, in the above JSON snippet, DecisionTreeInputBlob is an input to the AzureMLBatchExecution activity, which is passed as an input to the Web service via webServiceInput parameter.   
-> 
-> 
+>
+>
 
 ### Example
-This example uses Azure Storage to hold both the input and output data. 
+This example uses Azure Storage to hold both the input and output data.
 
 We recommend that you go through the [Build your first pipeline with Data Factory][adf-build-1st-pipeline] tutorial before going through this example. Use the Data Factory Editor to create Data Factory artifacts (linked services, datasets, pipeline) in this example.   
 
 1. Create a **linked service** for your **Azure Storage**. If the input and output files are in different storage accounts, you need two linked services. Here is a JSON example:
-   
+
         {
           "name": "StorageLinkedService",
           "properties": {
@@ -142,7 +142,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
           }
         }
 2. Create the **input** Azure Data Factory **dataset**. Unlike some other Data Factory datasets, these datasets must contain both **folderPath** and **fileName** values. You can use partitioning to cause each batch execution (each data slice) to process or produce unique input and output files. You may need to include some upstream activity to transform the input into the CSV file format and place it in the storage account for each slice. In that case, you would not include the **external** and **externalData** settings shown in the following example, and your DecisionTreeInputBlob would be the output dataset of a different Activity.
-   
+
         {
           "name": "DecisionTreeInputBlob",
           "properties": {
@@ -170,18 +170,18 @@ We recommend that you go through the [Build your first pipeline with Data Factor
             }
           }
         }
-   
+
     Your input csv file must have the column header row. If you are using the **Copy Activity** to create/move the csv into the blob storage, you should set the sink property **blobWriterAddHeader** to **true**. For example:
-   
-         sink: 
+
+         sink:
          {
              "type": "BlobSink",     
-             "blobWriterAddHeader": true 
+             "blobWriterAddHeader": true
          }
-   
+
     If the csv file does not have the header row, you may see the following error: **Error in Activity: Error reading string. Unexpected token: StartObject. Path '', line 1, position 1**.
 3. Create the **output** Azure Data Factory **dataset**. This example uses partitioning to create a unique output path for each slice execution. Without the partitioning, the activity would overwrite the file.
-   
+
         {
           "name": "DecisionTreeResultBlob",
           "properties": {
@@ -220,7 +220,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
           }
         }
 4. Create a **linked service** of type: **AzureMLLinkedService**, providing the API key and model batch execution URL.
-   
+
         {
           "name": "MyAzureMLLinkedService",
           "properties": {
@@ -232,20 +232,20 @@ We recommend that you go through the [Build your first pipeline with Data Factor
           }
         }
 5. Finally, author a pipeline containing an **AzureMLBatchExecution** Activity. At runtime, pipeline performs the following steps:
-   
+
    1. Gets the location of the input file from your input datasets.
    2. Invokes the Azure Machine Learning batch execution API
-   3. Copies the batch execution output to the blob given in your output dataset. 
-      
+   3. Copies the batch execution output to the blob given in your output dataset.
+
       > [!NOTE]
       > AzureMLBatchExecution activity can have zero or more inputs and one or more outputs.
-      > 
-      > 
-      
+      >
+      >
+
        {
          "name": "PredictivePipeline",
          "properties": {
-      
+
            "description": "use AzureML model",
            "activities": [
              {
@@ -282,13 +282,13 @@ We recommend that you go through the [Build your first pipeline with Data Factor
            "end": "2016-02-14T00:00:00Z"
          }
        }
-      
+
       Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
-      
+
       > [!NOTE]
-      > Specifying input for the AzureMLBatchExecution activity is optional. 
-      > 
-      > 
+      > Specifying input for the AzureMLBatchExecution activity is optional.
+      >
+      >
 
 ### Scenario: Experiments using Reader/Writer Modules to refer to data in various storages
 Another common scenario when creating Azure ML experiments is to use Reader and Writer modules. The reader module is used to load data into an experiment and the writer module is to save data from your experiments. For details about reader and writer modules, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library.     
@@ -296,11 +296,11 @@ Another common scenario when creating Azure ML experiments is to use Reader and 
 When using the reader and writer modules, it is good practice to use a Web service parameter for each property of these reader/writer modules. These web parameters enable you to configure the values during runtime. For example, you could create an experiment with a reader module that uses an Azure SQL Database: XXX.database.windows.net. After the web service has been deployed, you want to enable the consumers of the web service to specify another Azure SQL Server called YYY.database.windows.net. You can use a Web service parameter to allow this value to be configured.
 
 > [!NOTE]
-> Web service input and output are different from Web service parameters. In the first scenario, you have seen how an input and output can be specified for an Azure ML Web service. In this scenario, you pass parameters for a Web service that correspond to properties of reader/writer modules. 
-> 
-> 
+> Web service input and output are different from Web service parameters. In the first scenario, you have seen how an input and output can be specified for an Azure ML Web service. In this scenario, you pass parameters for a Web service that correspond to properties of reader/writer modules.
+>
+>
 
-Let's look at a scenario for using Web service parameters. You have a deployed Azure Machine Learning web service that uses a reader module to read data from one of the data sources supported by Azure Machine Learning (for example: Azure SQL Database). After the batch execution is performed, the results are written using a Writer module (Azure SQL Database).  No web service inputs and outputs are defined in the experiments. In this case, we recommend that you configure relevant web service parameters for the reader and writer modules. This configuration allows the reader/writer modules to be configured when using the AzureMLBatchExecution activity. You specify Web service parameters in the **globalParameters** section in the activity JSON as follows. 
+Let's look at a scenario for using Web service parameters. You have a deployed Azure Machine Learning web service that uses a reader module to read data from one of the data sources supported by Azure Machine Learning (for example: Azure SQL Database). After the batch execution is performed, the results are written using a Writer module (Azure SQL Database).  No web service inputs and outputs are defined in the experiments. In this case, we recommend that you configure relevant web service parameters for the reader and writer modules. This configuration allows the reader/writer modules to be configured when using the AzureMLBatchExecution activity. You specify Web service parameters in the **globalParameters** section in the activity JSON as follows.
 
     "typeProperties": {
         "globalParameters": {
@@ -318,12 +318,12 @@ You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn8
       }
 
 > [!NOTE]
-> The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service. 
-> 
-> 
+> The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service.
+>
+>
 
 ### Using a Reader module to read data from multiple files in Azure Blob
-Big data pipelines with activities such as Pig and Hive can produce one or more output files with no extensions. For example, when you specify an external Hive table, the data for the external Hive table can be stored in Azure blob storage with the following name 000000_0. You can use the reader module in an experiment to read multiple files, and use them for predictions. 
+Big data pipelines with activities such as Pig and Hive can produce one or more output files with no extensions. For example, when you specify an external Hive table, the data for the external Hive table can be stored in Azure blob storage with the following name 000000_0. You can use the reader module in an experiment to read multiple files, and use them for predictions.
 
 When using the reader module in an Azure Machine Learning experiment, you can specify Azure Blob as an input. The files in the Azure blob storage can be the output files (Example: 000000_0) that are produced by a Pig and Hive script running on HDInsight. The reader module allows you to read files (with no extensions) by configuring the **Path to container, directory/blob**. The **Path to container** points to the container and **directory/blob** points to folder that contains the files as shown in the following image. The asterisk that is, \*) **specifies that all the files in the container/folder (that is, data/aggregateddata/year=2014/month-6/\*)** are read as part of the experiment.
 
@@ -506,15 +506,15 @@ The Azure ML web service reader and writer modules might be configured to run wi
 
 The **takeaways** are:
 
-* If your experiment endpoint uses a webServiceInput: it is represented by a blob dataset and is included in the activity inputs and the webServiceInput property. Otherwise, the webServiceInput property is omitted. 
+* If your experiment endpoint uses a webServiceInput: it is represented by a blob dataset and is included in the activity inputs and the webServiceInput property. Otherwise, the webServiceInput property is omitted.
 * If your experiment endpoint uses webServiceOutput(s): they are represented by blob datasets and are included in the activity outputs and in the webServiceOutputs property. The activity outputs and webServiceOutputs are mapped by the name of each output in the experiment. Otherwise, the webServiceOutputs property is omitted.
-* If your experiment endpoint exposes globalParameter(s), they are given in the activity globalParameters property as key, value pairs. Otherwise, the globalParameters property is omitted. The keys are case-sensitive. [Azure Data Factory functions](data-factory-scheduling-and-execution.md#data-factory-functions-reference) may be used in the values. 
-* Additional datasets may be included in the Activity inputs and outputs properties, without being referenced in the Activity typeProperties. These datasets govern execution using slice dependencies but are otherwise ignored by the AzureMLBatchExecution Activity. 
+* If your experiment endpoint exposes globalParameter(s), they are given in the activity globalParameters property as key, value pairs. Otherwise, the globalParameters property is omitted. The keys are case-sensitive. Azure Data Factory functions may be used in the values. 
+* Additional datasets may be included in the Activity inputs and outputs properties, without being referenced in the Activity typeProperties. These datasets govern execution using slice dependencies but are otherwise ignored by the AzureMLBatchExecution Activity.
 
 ## Updating models using Update Resource Activity
-Over time, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained ML model. The typical steps to enable retraining and updating Azure ML models via web services are: 
+Over time, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained ML model. The typical steps to enable retraining and updating Azure ML models via web services are:
 
-1. Create an experiment in [Azure ML Studio](https://studio.azureml.net). 
+1. Create an experiment in [Azure ML Studio](https://studio.azureml.net).
 2. When you are satisfied with the model, use Azure ML Studio to publish web services for both the **training experiment** and scoring/**predictive experiment**.
 
 The following table describes the web services used in this example.  See [Retrain Machine Learning models programmatically](../machine-learning/machine-learning-retrain-models-programmatically.md) for details.
@@ -524,20 +524,20 @@ The following table describes the web services used in this example.  See [Retra
 | **Training web service** |Receives training data and produces trained models. The output of the retraining is an .ilearner file in an Azure Blob storage.  The **default endpoint** is automatically created for you when you publish the training experiment as a web service. You can create more endpoints but the example uses only the default endpoint |
 | **Scoring web service** |Receives unlabeled data examples and makes predictions. The output of prediction could have various forms, such as a .csv file or rows in an Azure SQL database, depending on the configuration of the experiment. The default endpoint is automatically created for you when you publish the predictive experiment as a web service. Create the second **non-default and updatable endpoint** by using the [Azure portal](https://manage.windowsazure.com). You can create more endpoints but this example uses only one non-default updatable endpoint. See the [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article for steps. |
 
-The following picture depicts the relationship between training and scoring endpoints in Azure ML. 
+The following picture depicts the relationship between training and scoring endpoints in Azure ML.
 
 ![Web services](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-You can invoke the **training web service** by using the **Azure ML Batch Execution Activity**. Invoking a training web service is same as invoking an Azure ML web service (scoring web service) for scoring data. The preceding sections cover how to invoke an Azure ML web service from an Azure Data Factory pipeline in detail. 
+You can invoke the **training web service** by using the **Azure ML Batch Execution Activity**. Invoking a training web service is same as invoking an Azure ML web service (scoring web service) for scoring data. The preceding sections cover how to invoke an Azure ML web service from an Azure Data Factory pipeline in detail.
 
-You can invoke the **scoring web service** by using the **Azure ML Update Resource Activity** to update the web service with the newly trained model. As mentioned in the table above, you must create and use the non-default updatable endpoint. In addition, update any existing linked services in your data factory to use the non-default endpoint so that they always use the latest retrained model. 
+You can invoke the **scoring web service** by using the **Azure ML Update Resource Activity** to update the web service with the newly trained model. As mentioned in the table above, you must create and use the non-default updatable endpoint. In addition, update any existing linked services in your data factory to use the non-default endpoint so that they always use the latest retrained model.
 
-The following scenario provides more details. It has an example for retraining and updating Azure ML models from an Azure Data Factory pipeline. 
+The following scenario provides more details. It has an example for retraining and updating Azure ML models from an Azure Data Factory pipeline.
 
 ### Scenario: retraining and updating an Azure ML model
-This section provides a sample pipeline that uses the **Azure ML Batch Execution activity** to retrain a model. The pipeline also uses the **Azure ML Update Resource activity** to update the model in the scoring web service. The section also provides JSON snippets for all the linked services, datasets, and pipeline in the example. 
+This section provides a sample pipeline that uses the **Azure ML Batch Execution activity** to retrain a model. The pipeline also uses the **Azure ML Update Resource activity** to update the model in the scoring web service. The section also provides JSON snippets for all the linked services, datasets, and pipeline in the example.
 
-Here is the diagram view of the sample pipeline. As you can see, the Azure ML Batch Execution Activity takes the training input and produces a training output (iLearner file). The Azure ML Update Resource Activity takes this training output and updates the model in the scoring web service endpoint. The Update Resource Activity does not produce any output. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline. 
+Here is the diagram view of the sample pipeline. As you can see, the Azure ML Batch Execution Activity takes the training input and produces a training output (iLearner file). The Azure ML Update Resource Activity takes this training output and updates the model in the scoring web service endpoint. The Update Resource Activity does not produce any output. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
 
 ![pipeline diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
@@ -547,7 +547,7 @@ The Azure Storage holds the following data:
 * training data. The input data for the Azure ML training web service.  
 * iLearner file. The output from the Azure ML training web service. This file is also the input to the Update Resource activity.  
 
-Here is the sample JSON definition of the linked service: 
+Here is the sample JSON definition of the linked service:
 
     {
         "name": "StorageLinkedService",
@@ -561,7 +561,7 @@ Here is the sample JSON definition of the linked service:
 
 
 #### Training input dataset:
-The following dataset represents the input training data for the Azure ML training web service. The Azure ML Batch Execution activity takes this dataset as an input. 
+The following dataset represents the input training data for the Azure ML training web service. The Azure ML Batch Execution activity takes this dataset as an input.
 
     {
         "name": "trainingData",
@@ -612,7 +612,7 @@ The following dataset represents the output iLearner file from the Azure ML trai
     }
 
 #### Linked service for Azure ML training endpoint
-The following JSON snippet defines an Azure Machine Learning linked service that points to the default endpoint of the training web service. 
+The following JSON snippet defines an Azure Machine Learning linked service that points to the default endpoint of the training web service.
 
     {    
         "name": "trainingEndpoint",
@@ -628,7 +628,7 @@ The following JSON snippet defines an Azure Machine Learning linked service that
 In **Azure ML Studio**, do the following to get values for **mlEndpoint** and **apiKey**:
 
 1. Click **WEB SERVICES** on the left menu.
-2. Click the **training web service** in the list of web services. 
+2. Click the **training web service** in the list of web services.
 3. Click copy next to **API key** text box. Paste the key in the clipboard into the Data Factory JSON editor.
 4. In the **Azure ML studio**, click **BATCH EXECUTION** link.
 5. Copy the **Request URI** from the **Request** section and paste it into the Data Factory JSON editor.   
@@ -654,7 +654,7 @@ Before creating and deploying an Azure ML linked service, follow the steps in [C
 After you create the non-default updatable endpoint, do the following:
 
 * Click **BATCH EXECUTION** to get the URI value for the **mlEndpoint** JSON property.
-* Click **UPDATE RESOURCE** link to get the URI value for the **updateResourceEndpoint** JSON property. The API key is on the endpoint page itself (in the bottom-right corner). 
+* Click **UPDATE RESOURCE** link to get the URI value for the **updateResourceEndpoint** JSON property. The API key is on the endpoint page itself (in the bottom-right corner).
 
 ![updatable endpoint](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
 
@@ -681,7 +681,7 @@ The Azure ML Update Resource activity does not generate any output. However, Azu
 
 
 #### Pipeline
-The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The Azure ML Batch Execution activity takes the training data as input and produces an iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline. 
+The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The Azure ML Batch Execution activity takes the training data as input and produces an iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
 
 ![pipeline diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
@@ -755,10 +755,10 @@ For details about Azure Blob/Azure SQL reader/writer, see [Reader](https://msdn.
 ## Frequently asked questions
 **Q:** I have multiple files that are generated by my big data pipelines. Can I use the AzureMLBatchExecution Activity to work on all the files?
 
-**A:** Yes. See the **Using a Reader module to read data from multiple files in Azure Blob** section for details. 
+**A:** Yes. See the **Using a Reader module to read data from multiple files in Azure Blob** section for details.
 
 ## Azure ML Batch Scoring Activity
-If you are using the **AzureMLBatchScoring** activity to integrate with Azure Machine Learning, we recommend that you use the latest **AzureMLBatchExecution** activity. 
+If you are using the **AzureMLBatchScoring** activity to integrate with Azure Machine Learning, we recommend that you use the latest **AzureMLBatchExecution** activity.
 
 The AzureMLBatchExecution activity is introduced in the August 2015 release of Azure SDK and Azure PowerShell.
 
@@ -799,7 +799,7 @@ If you want to continue using the AzureMLBatchScoring activity, continue reading
     }
 
 ### Web Service Parameters
-To specify values for Web service parameters, add a **typeProperties** section to the **AzureMLBatchScoringActivty** section in the pipeline JSON as shown in the following example: 
+To specify values for Web service parameters, add a **typeProperties** section to the **AzureMLBatchScoringActivty** section in the pipeline JSON as shown in the following example:
 
     "typeProperties": {
         "webServiceParameters": {
@@ -818,9 +818,9 @@ You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn8
       }
 
 > [!NOTE]
-> The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service. 
-> 
-> 
+> The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service.
+>
+>
 
 ## See Also
 * [Azure blog post: Getting started with Azure Data Factory and Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
@@ -828,6 +828,3 @@ You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn8
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
-
-
-
