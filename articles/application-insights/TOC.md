@@ -1,7 +1,6 @@
 # Overview
 ## [What is Application Insights?](app-insights-overview.md)
 ## [How it works](app-insights-detect-triage-diagnose.md)
-### [FAQ for ASP.NET](app-insights-troubleshoot-faq.md)
 
 # Get started
 ## Monitor Azure
@@ -27,6 +26,7 @@
 ### [SharePoint sites](app-insights-sharepoint.md)
 ### [More platforms](app-insights-platforms.md)
 
+## [FAQ for ASP.NET](app-insights-troubleshoot-faq.md)
 
 # How to
 ## Plan and design
