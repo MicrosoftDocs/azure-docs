@@ -159,7 +159,7 @@ Public repo:
 
 Private repo:
 
-        cd azure-content-pr
+        cd azure-docs-pr
         git remote add upstream https://[your GitHub user name]:[token]@github.com/Microsoft/azure-docs-pr.git
         git fetch upstream
 
