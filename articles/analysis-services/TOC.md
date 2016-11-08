@@ -5,17 +5,12 @@
 
 # How to 
 ## Deploy
-###[Deploy to a server](analysis-services-deploy.md)
-
+### [Deploy](analysis-services-deploy.md)
 ## Manage
 ###[Connect to a server](analysis-services-connect.md)
 ###[Manage a server](analysis-services-manage.md)
 ## Integrate
 ###[On-premise data gateway](analysis-services-gateway.md)
 
-# Reference
-
-# Related 
-
-# Resources
+# References
 ##[Datasource connections](analysis-services-datasource.md)
