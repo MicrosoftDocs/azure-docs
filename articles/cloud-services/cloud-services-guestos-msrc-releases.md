@@ -18,7 +18,7 @@ ms.author: raiye
 
 ---
 # Azure Guest OS
-The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
+The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
 ## October Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -310,8 +310,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 > [!NOTE]
 > Bulletin MS15-031 may appear as uninstalled. However, it does not apply to this Guest OS release.
-> 
-> 
+>
+>
 
 ## February Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -483,11 +483,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3124903]: http://support.microsoft.com/kb/3124903
 [3125540]: http://support.microsoft.com/kb/3125540
 [3124584]: http://support.microsoft.com/kb/3124584
-[3124901]: http://support.microsoft.com/kb/3124901 
+[3124901]: http://support.microsoft.com/kb/3124901
 [3124605]: http://support.microsoft.com/kb/3124605
 [2755801]: http://support.microsoft.com/kb/2755399
 [3109853]: http://support.microsoft.com/kb/3109853
-[3123479]: http://support.microsoft.com/kb/3123479 
+[3123479]: http://support.microsoft.com/kb/3123479
 [2736233]: http://support.microsoft.com/kb/2736233
 
 [3116180]: http://support.microsoft.com/kb/3116180
@@ -629,5 +629,4 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
-[family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
-
+[family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation
