@@ -17,14 +17,13 @@
 ## Write your first app
 ### [.NET console app](documentdb-get-started.md)
 ### [Node.js console app](documentdb-nodejs-get-started.md)
-## [FAQ](documentdb-faq.md)
-
 ## Build a web app
 ### [.NET web app](documentdb-dotnet-application.md)
 ### [Node.js web app](documentdb-nodejs-application.md)
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
+## [FAQ](documentdb-faq.md)
+
 
 
 # How To
@@ -106,6 +105,7 @@
 ## [Schema agnostic indexing paper](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
 ## [Data consistency explained through baseball](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [Book: Using Microsoft Azure DocumentDB in a Node.js Application](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
 
