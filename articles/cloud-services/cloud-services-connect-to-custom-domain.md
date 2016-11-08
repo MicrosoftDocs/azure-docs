@@ -1,37 +1,35 @@
-<properties
-  pageTitle="Connect a Cloud Service to a custom Domain Controller | Microsoft Azure"
-  description="Learn how to connect your web/worker roles to a custom AD Domain using PowerShell and AD Domain Extension"
-  services="cloud-services"
-  documentationCenter=""
-  authors="Thraka"
-  manager="timlt"
-  editor=""/>
+---
+title: Connect a Cloud Service to a custom Domain Controller | Microsoft Docs
+description: Learn how to connect your web/worker roles to a custom AD Domain using PowerShell and AD Domain Extension
+services: cloud-services
+documentationcenter: ''
+author: Thraka
+manager: timlt
+editor: ''
 
-  <tags
-    ms.service="cloud-services"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/21/2016"
-    ms.author="adegeo"/>
+ms.assetid: 1e2d7c87-d254-4e7a-a832-67f84411ec95
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/21/2016
+ms.author: adegeo
 
+---
 # Connecting Azure Cloud Services Roles to a custom AD Domain Controller hosted in Azure
-
 We will first set up a Virtual Network (VNet) in Azure. We will then add an Active Directory Domain Controller (hosted on an Azure Virtual Machine) to the VNet. Next, we will add existing cloud service roles to the pre-created VNet and subsequently connect them to the Domain Controller.
 
 Before we get started, couple of things to keep in mind:
 
-1.	This tutorial uses PowerShell, so please make sure you have Azure PowerShell installed and ready to go. To get help with setting up Azure PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-
-2.	Your AD Domain Controller and Web/Worker Role instances need to be in the VNet.
+1. This tutorial uses PowerShell, so please make sure you have Azure PowerShell installed and ready to go. To get help with setting up Azure PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+2. Your AD Domain Controller and Web/Worker Role instances need to be in the VNet.
 
 Follow this step-by-step guide and if you run into any issues, leave us a comment below. Someone will get back to you (yes, we do read comments).
 
-3. The network that is referenced by the cloud service <mark>must be</mark> a **classic virtual network**.
+1. The network that is referenced by the cloud service <mark>must be</mark> a **classic virtual network**.
 
 ## Create a Virtual Network
-
 You can create a Virtual Network in Azure using the Azure classic portal or PowerShell. For this tutorial, we will use PowerShell. To create a Virtual Network using the Azure classic portal, see [Create Virtual Network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 ```powershell
@@ -62,7 +60,6 @@ Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath
 ```
 
 ## Create a Virtual Machine
-
 Once you have completed setting up the Virtual Network, you will need to create an AD Domain Controller. For this tutorial, we will be setting up an AD Domain Controller on an Azure Virtual Machine.
 
 To do this, create a virtual machine through PowerShell using the commands below:
@@ -97,7 +94,6 @@ Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-
 Once you are logged into the VM, setup your Virtual Machine as an AD Domain Controller by following the step-by-step guide on [How to setup your customer AD Domain Controller](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
 ## Add your Cloud Service to the Virtual Network
-
 Next, you need to add your cloud service deployment to the VNet you just created. To do this, modify your cloud service cscfg by adding the relevant sections to your cscfg using Visual Studio or the editor of your choice.
 
 ```xml
@@ -129,10 +125,9 @@ Next, you need to add your cloud service deployment to the VNet you just created
 </ServiceConfiguration>
 ```
 
-Next build your cloud services project and deploy it to Azure. To get help with deploying your cloud services package to Azure, see [How to Create and Deploy a Cloud Service](cloud-services-how-to-create-deploy.md#deploy)
+Next build your cloud services project and deploy it to Azure. To get help with deploying your cloud services package to Azure, see [How to Create and Deploy a Cloud Service](cloud-services-how-to-create-deploy.md#how-to-deploy-a-cloud-service)
 
 ## Connect your web/worker role(s) to the domain
-
 Once your cloud service project is deployed on Azure, connect your role instances to the custom AD domain using the AD Domain Extension. To add the AD Domain Extension to your existing cloud services deployment and join the custom domain, execute the following commands in PowerShell:
 
 ```powershell

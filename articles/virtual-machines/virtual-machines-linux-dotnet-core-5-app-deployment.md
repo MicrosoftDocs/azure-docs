@@ -1,30 +1,29 @@
-﻿<properties
-   pageTitle="Automating Application Deployment with Virtual Machine Extensions | Microsoft Azure"
-   description="Azure Virtual Machine DotNet Core Tutorial"
-   services="virtual-machines-linux"
-   documentationCenter="virtual-machines"
-   authors="neilpeterson"
-   manager="timlt"
-   editor="tysonn"
-   tags="azure-service-management"/>
+﻿---
+title: Automating Application Deployment with Virtual Machine Extensions | Microsoft Docs
+description: Azure Virtual Machine DotNet Core Tutorial
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-service-management
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="09/21/2016"
-   ms.author="nepeters"/>
+ms.assetid: 9fc8b1ba-60f5-410b-8190-9f1ff885e50e
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 09/21/2016
+ms.author: nepeters
 
+---
 # Application deployment with Azure Resource Manager templates
-
 Once all Azure infrastructural requirements have been identified and translated into a deployment template, the actual application deployment needs to be addressed. Application deployment here is referring to installing the actual application binaries onto Azure resources. For the Music Store sample, .Net Core, NGINX, and Supervisor need to be installed and configured on each virtual machine. The Music Store binaries need to be installed onto the virtual machine, and the Music Store database pre-created.
 
 This document details how Virtual Machine extensions can automate application deployment and configuration to Azure virtual machines. All dependencies and unique configurations are highlighted. For the best experience, pre-deploy an instance of the solution to your Azure subscription and work along with the Azure Resource Manager template. The complete template can be found here – [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ## Configuration script
-
 Virtual Machine extensions are specialized programs that execute against virtual machines to provide configuration automation. Extensions are available for many specific purposes such as anti-virus, logging configuration, and Docker configuration. A custom script extension can be used to run any script against a virtual machine. With the Music Store sample, it is up to the custom script extension to configure the Ubuntu virtual machines and install the Music Store application. 
 
 Before detailing how virtual machine extensions are declared in an Azure Resource Manager template, examine the script that is run. This script configures the Ubuntu virtual machine to host the Music Store application. When run, the script installs all needed software, install the Music store application from source control, and prepare the database. 
@@ -32,6 +31,8 @@ Before detailing how virtual machine extensions are declared in an Azure Resourc
 To learn more about hosting a .Net Core application on Linux, see [Publish to a Linux production environment](https://docs.asp.net/en/latest/publishing/linuxproduction.html).
 
 > This sample is for demonstration purposes.
+> 
+> 
 
 ```none
 #!/bin/bash
@@ -74,7 +75,6 @@ sudo service supervisor start
 ```
 
 ## VM Script Extension
-
 VM Extensions can be run against a virtual machine at build time by including the extension resource in the Azure Resource Manager template. The extension can be added with the Visual Studio Add Resource wizard, or by inserting valid JSON into the template. The Script Extension resource is nested inside the Virtual Machine resource; this can be seen in the following example.
 
 Follow this link to see the JSON sample within the Resource Manager template – [VM Script Extension](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L359). 
@@ -110,10 +110,10 @@ Notice in the below JSON that the script is stored in GitHub. This script could 
 }
 ```
 
-For more information on using the custom script extension, see [Custom script extensions with Resource Manager templates](./virtual-machines-linux-extensions-customscript.md).
+For more information on using the custom script extension, see [Custom script extensions with Resource Manager templates](virtual-machines-linux-extensions-customscript.md).
 
 ## Next Step
-
 <hr>
 
 [Explore More Azure Resource Manager Templates](https://github.com/Azure/azure-quickstart-templates)
+

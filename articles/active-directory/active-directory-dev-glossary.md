@@ -1,21 +1,22 @@
-<properties
-   pageTitle="Azure Active Directory Developer Glossary | Microsoft Azure"
-   description="A list of terms for commonly used Azure Active Directory developer concepts and features."
-   services="active-directory"
-   documentationCenter=""
-   authors="bryanla"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Azure Active Directory Developer Glossary | Microsoft Docs
+description: A list of terms for commonly used Azure Active Directory developer concepts and features.
+services: active-directory
+documentationcenter: ''
+author: bryanla
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="08/31/2016"
-   ms.author="bryanla"/>
+ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/31/2016
+ms.author: bryanla
 
+---
 # Azure Active Directory developer glossary
 This article contains definitions for some of the core Azure Active Directory (AD) developer concepts, which are helpful when learning about application development for Azure AD.
 
@@ -24,25 +25,25 @@ A type of [security token](#security-token) issued by an [authorization server](
 
 Access tokens are sometimes referred to as "User+App" or "App-Only", depending on the credentials being represented. For example, when a client application uses the:
 
-- ["Authorization code" authorization grant](#authorization-grant), the end user authenticates first as the resource owner, delegating authorization to the client to access the resource. The client authenticates afterward when obtaining the access token. The token can sometimes be referred to more specifically as a "User+App" token, as it represents both the user that authorized the client application, and the application.
-- ["Client credentials" authorization grant](#authorization-grant), the client provides the sole authentication, functioning without the resource-owner's authentication/authorization, so the token can sometimes be referred to as an "App-Only" token.
+* ["Authorization code" authorization grant](#authorization-grant), the end user authenticates first as the resource owner, delegating authorization to the client to access the resource. The client authenticates afterward when obtaining the access token. The token can sometimes be referred to more specifically as a "User+App" token, as it represents both the user that authorized the client application, and the application.
+* ["Client credentials" authorization grant](#authorization-grant), the client provides the sole authentication, functioning without the resource-owner's authentication/authorization, so the token can sometimes be referred to as an "App-Only" token.
 
 See [Azure AD Token Reference][AAD-Tokens-Claims] for more details.
 
-## application manifest  
+## application manifest
 A feature provided by the [Azure classic portal][AZURE-classic-portal], which produces a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [Application][AAD-Graph-App-Entity] and [ServicePrincipal][AAD-Graph-Sp-Entity] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
 
-## application object  
+## application object
 When you register/update an application in the [Azure classic portal][AZURE-classic-portal], the portal creates/updates both an application object and a corresponding [service principal object](#service-principal-object) for that tenant. The application object *defines* the application's identity configuration globally (across all tenants where it has access), providing a template from which its corresponding service principal object(s) are *derived* for use locally at run-time (in a specific tenant).
 
 See [Application and Service Principal Objects][AAD-App-SP-Objects] for more information.
 
-## application registration  
+## application registration
 In order to allow an application to integrate with and delegate Identity and Access Management functions to Azure AD, it must be registered with an Azure AD [tenant](#tenant). When you register your application with Azure AD, you are providing an identity configuration for your application, allowing it to integrate with Azure AD and use features such as:
 
-- Robust management of Single Sign-On using Azure AD Identity Management and [OpenID Connect][OpenIDConnect] protocol implementation
-- Brokered access to [protected resources](#resource-server) by [client applications](#client-application), via Azure AD's OAuth 2.0 [authorization server](#authorization-server) implementation
-- [Consent framework](#consent) for managing client access to protected resources, based on resource owner authorization.
+* Robust management of Single Sign-On using Azure AD Identity Management and [OpenID Connect][OpenIDConnect] protocol implementation
+* Brokered access to [protected resources](#resource-server) by [client applications](#client-application), via Azure AD's OAuth 2.0 [authorization server](#authorization-server) implementation
+* [Consent framework](#consent) for managing client access to protected resources, based on resource owner authorization.
 
 See [Integrating applications with Azure Active Directory][AAD-Integrating-Apps] for more details.
 
@@ -52,8 +53,8 @@ The act of challenging a party for legitimate credentials, providing the basis f
 ## authorization
 The act of granting an authenticated security principal permission to do something. There are two primary use cases in the Azure AD programming model:
 
-- During an [OAuth2 authorization grant](#authorization-grant) flow: when the [resource owner](#resource-owner) grants authorization to the [client application](#client-application), allowing the client to access the resource owner's resources.
-- During resource access by the client: as implemented by the [resource server](#resource-server), using the [claim](#claim) values present in the [access token](#access-token) to make access control decisions based upon them.
+* During an [OAuth2 authorization grant](#authorization-grant) flow: when the [resource owner](#resource-owner) grants authorization to the [client application](#client-application), allowing the client to access the resource owner's resources.
+* During resource access by the client: as implemented by the [resource server](#resource-server), using the [claim](#claim) values present in the [access token](#access-token) to make access control decisions based upon them.
 
 ## authorization code
 A short lived "token" provided to a [client application](#client-application) by the [authorization endpoint](#authorization-endpoint), as part of the "authorization code" flow, one of the four OAuth2 [authorization grants](#authorization-grant). The code is returned to the client application in response to authentication of a [resource owner](#resource-owner), indicating the resource owner has delegated authorization to access the requested resources. As part of the flow, the code is later redeemed for an [access token](#access-token).
@@ -76,7 +77,7 @@ A [security token](#security-token) contains claims, which provide assertions ab
 
 See [Azure AD token reference][AAD-Tokens-Claims] for more details.
 
-## client application  
+## client application
 As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an application that makes protected resource requests on behalf of the [resource owner](#resource-owner). The term "client" does not imply any particular hardware implementation characteristics (for instance, whether the application executes on a server, a desktop, or other devices).  
 
 A client application requests [authorization](#authorization) from a resource owner to participate in an [OAuth2 authorization grant](#authorization-grant) flow, and may access APIs/data on the resource owner's behalf. The OAuth2 Authorization Framework [defines two types of clients][OAuth2-Client-Types], "confidential" and "public", based on the client's ability to maintain the confidentiality of its credentials. Applications can implement a [web client (confidential)](#web-client) which runs on a web server, a [native client (public)](#native-client) installed on a device, or a [user-agent-based client (public)](#user-agent-based-client) which runs in a device's browser.
@@ -100,8 +101,8 @@ A type of [client application](#client-application) that is installed natively o
 ## permissions
 A [client application](#client-application) gains access to a [resource server](#resource-server) by declaring permission requests. Two types are available:
 
-- "Delegated" permissions, which request [scope-based](#scopes) access under delegated authorization from the signed-in [resource owner](#resource-owner), are presented to the resource at run-time as ["scp" claims](#claim) in the client's [access token](#access-token).
-- "Application" permissions, which request [role-based](#roles) access under the client application's credentials/identity, are presented to the resource at run-time as ["roles" claims](#claim) in the client's access token.
+* "Delegated" permissions, which request [scope-based](#scopes) access under delegated authorization from the signed-in [resource owner](#resource-owner), are presented to the resource at run-time as ["scp" claims](#claim) in the client's [access token](#access-token).
+* "Application" permissions, which request [role-based](#roles) access under the client application's credentials/identity, are presented to the resource at run-time as ["roles" claims](#claim) in the client's access token.
 
 They also surface during the [consent](#consent) process, giving the administrator or resource owner the opportunity to grant/deny the client access to resources in their tenant.
 
@@ -150,9 +151,9 @@ The process of un-authenticating an end user, detaching the user state associate
 ## tenant
 An instance of an Azure AD directory is referred to as an Azure AD tenant. It provides a variety of features, including:
 
-- a registry service for integrated applications
-- authentication of user accounts and registered applications
-- REST endpoints required to support various protocols including OAuth2 and SAML, including the [authorization endpoint](#authorization-endpoint), [token endpoint](#token-endpoint) and the "common" endpoint used by [multi-tenant applications](#multi-tenant-application).
+* a registry service for integrated applications
+* authentication of user accounts and registered applications
+* REST endpoints required to support various protocols including OAuth2 and SAML, including the [authorization endpoint](#authorization-endpoint), [token endpoint](#token-endpoint) and the "common" endpoint used by [multi-tenant applications](#multi-tenant-application).
 
 A tenant is also associated with an Azure AD or Office 365 subscription during provisioning of the subscription, providing Identity & Access Management features for the subscription. See [How to get an Azure Active Directory tenant][AAD-How-To-Tenant] for details on the various ways you can get access to a tenant. See [How Azure subscriptions are associated with Azure Active Directory][AAD-How-Subscriptions-Assoc] for details on the relationship between subscriptions and an Azure AD tenant.
 

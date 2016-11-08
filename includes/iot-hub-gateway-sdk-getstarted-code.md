@@ -1,41 +1,38 @@
 ## Typical output
-
 Below is an example of the output written to the log file by the Hello World sample. Newline and Tab characters have been added for legibility:
 
 ```
 [{
-	"time": "Mon Apr 11 13:48:07 2016",
-	"content": "Log started"
+    "time": "Mon Apr 11 13:48:07 2016",
+    "content": "Log started"
 }, {
-	"time": "Mon Apr 11 13:48:48 2016",
-	"properties": {
-		"helloWorld": "from Azure IoT Gateway SDK simple sample!"
-	},
-	"content": "aGVsbG8gd29ybGQ="
+    "time": "Mon Apr 11 13:48:48 2016",
+    "properties": {
+        "helloWorld": "from Azure IoT Gateway SDK simple sample!"
+    },
+    "content": "aGVsbG8gd29ybGQ="
 }, {
-	"time": "Mon Apr 11 13:48:55 2016",
-	"properties": {
-		"helloWorld": "from Azure IoT Gateway SDK simple sample!"
-	},
-	"content": "aGVsbG8gd29ybGQ="
+    "time": "Mon Apr 11 13:48:55 2016",
+    "properties": {
+        "helloWorld": "from Azure IoT Gateway SDK simple sample!"
+    },
+    "content": "aGVsbG8gd29ybGQ="
 }, {
-	"time": "Mon Apr 11 13:49:01 2016",
-	"properties": {
-		"helloWorld": "from Azure IoT Gateway SDK simple sample!"
-	},
-	"content": "aGVsbG8gd29ybGQ="
+    "time": "Mon Apr 11 13:49:01 2016",
+    "properties": {
+        "helloWorld": "from Azure IoT Gateway SDK simple sample!"
+    },
+    "content": "aGVsbG8gd29ybGQ="
 }, {
-	"time": "Mon Apr 11 13:49:04 2016",
-	"content": "Log stopped"
+    "time": "Mon Apr 11 13:49:04 2016",
+    "content": "Log stopped"
 }]
 ```
 
 ## Code snippets
-
 This section discusses some key parts of the code in the Hello World sample.
 
 ### Gateway creation
-
 The developer must write the *gateway process*. This program creates the internal infrastructure (the broker), loads the modules, and sets everything up to function correctly. The SDK provides the **Gateway_Create_From_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway_Create_From_JSON** function you must pass it the path to a JSON file that specifies the modules to load. 
 
 You can find the code for the gateway process in the Hello World sample in the [main.c][lnk-main-c] file. For legibility, the snippet below shows an abbreviated version of the gateway process code. This program creates a gateway and then waits for the user to press the **ENTER** key before it tears down the gateway. 
@@ -55,19 +52,20 @@ int main(int argc, char** argv)
         (void)getchar();
         Gateway_LL_Destroy(gateway);
     }
-	return 0;
+    return 0;
 }
 ```
 
 The JSON settings file contains a list of modules to load. Each module must specify a:
 
-- **module_name**: a unique name for the module.
-- **module_path**: the path to the library containing the module. For Linux this is a .so file, on Windows this is a .dll file.
-- **args**: any configuration information the module needs.
+* **module_name**: a unique name for the module.
+* **module_path**: the path to the library containing the module. For Linux this is a .so file, on Windows this is a .dll file.
+* **args**: any configuration information the module needs.
 
 The JSON file also contains the links between the modules that will be passed to the broker. A link has two properties:
-- **source**: a module name from the `modules` section, or "\*".
-- **sink**: a module name from the `modules` section
+
+* **source**: a module name from the `modules` section, or "\*".
+* **sink**: a module name from the `modules` section
 
 Each link defines a message route and direction. Messages from module `source` are to be delivered to the module `sink`. The `source` may be set to "\*", indicating that messages from any module will be received by `sink`.
 
@@ -89,7 +87,7 @@ The following sample shows the JSON settings file used to configure the Hello Wo
             "loading args": {
               "module path" : "./modules/hello_world/libhello_world_hl.so"
             },
-			"args" : null
+            "args" : null
         }
     ],
     "links" :
@@ -103,7 +101,6 @@ The following sample shows the JSON settings file used to configure the Hello Wo
 ```
 
 ### Hello World module message publishing
-
 You can find the code used by the "hello world" module to publish messages in the ['hello_world.c'][lnk-helloworld-c] file. The snippet below shows an amended version with additional comments and some error handling code removed for legibility:
 
 ```
@@ -113,7 +110,7 @@ int helloWorldThread(void *param)
     HELLOWORLD_HANDLE_DATA* handleData = param;
     MESSAGE_CONFIG msgConfig;
     MAP_HANDLE propertiesMap = Map_Create(NULL);
-    
+
     // add a property named "helloWorld" with a value of "from Azure IoT
     // Gateway SDK simple sample!" to a set of message properties that
     // will be appended to the message before publishing it. 
@@ -125,7 +122,7 @@ int helloWorldThread(void *param)
 
     // set the properties for the message
     msgConfig.sourceProperties = propertiesMap;
-    
+
     // create a message based on the msgConfig structure
     MESSAGE_HANDLE helloWorldMessage = Message_Create(&msgConfig);
 
@@ -153,7 +150,6 @@ int helloWorldThread(void *param)
 ```
 
 ### Hello World module message processing
-
 The Hello World module never needs to process any messages that other modules publish to the broker. This makes implementation of the message callback in the Hello World module a no-op function.
 
 ```
@@ -164,7 +160,6 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 ```
 
 ### Logger module message publishing and processing
-
 The Logger module receives messages from the broker and writes them to a file. It never publishes any messages. Therefore, the code of the logger module never calls the **Broker_Publish** function.
 
 The **Logger_Recieve** function in the [logger.c][lnk-logger-c] file is the callback the broker invokes to deliver messages to the logger module. The snippet below shows an amended version with additional comments and some error handling code removed for legibility:
@@ -209,11 +204,10 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ```
 
 ## Next steps
-
 To learn about how to use the IoT Gateway SDK, see the following:
 
-- [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated].
-- [Azure IoT Gateway SDK][lnk-gateway-sdk] on GitHub.
+* [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated].
+* [Azure IoT Gateway SDK][lnk-gateway-sdk] on GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c

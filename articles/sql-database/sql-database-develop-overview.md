@@ -1,22 +1,22 @@
-<properties
-	pageTitle="SQL Database Develop Overview | Microsoft Azure"
-	description="Learn about available connectivity libraries and best practices for applications connecting to SQL Database."
-	services="sql-database"
-	documentationCenter=""
-	authors="annemill"
-	manager="jhubbard"
-	editor="genemi"/>
+---
+title: SQL Database Develop Overview | Microsoft Docs
+description: Learn about available connectivity libraries and best practices for applications connecting to SQL Database.
+services: sql-database
+documentationcenter: ''
+author: annemill
+manager: jhubbard
+editor: genemi
 
+ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: annemill
 
-<tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="annemill"/>
-
+---
 # SQL Database Development Overview
 This article walks through the basic considerations that a developer should be aware of when writing code to connect to Azure SQL Database.
 
@@ -64,5 +64,5 @@ Elastic Scale simplifies the process of scaling out (and in).
 * [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
 
 ## Next steps
-
 Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+

@@ -1,24 +1,27 @@
-<properties
-   pageTitle="Developing with multiple regions in DocumentDB | Microsoft Azure"
-   description="Learn how to access your data in multiple regions from Azure DocumentDB, a fully managed NoSQL database service."
-   services="documentdb"
-   documentationCenter=""
-   authors="kiratp"
-   manager="jhubbard"
-   editor=""/>
+﻿---
+title: Developing with multiple regions in DocumentDB | Microsoft Docs
+description: Learn how to access your data in multiple regions from Azure DocumentDB, a fully managed NoSQL database service.
+services: documentdb
+documentationcenter: ''
+author: kiratp
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="documentdb"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="10/25/2016"
-   ms.author="kipandya"/>
-   
+ms.assetid: d4579378-0b3a-44a5-9f5b-630f1fa4c66d
+ms.service: documentdb
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/25/2016
+ms.author: kipandya
+
+---
 # Developing with multi-region DocumentDB accounts
-
-> [AZURE.NOTE] Global distribution of DocumentDB databases is generally available and automatically enabled for any newly created DocumentDB accounts. We are working to enable global distribution on all existing accounts, but in the interim, if you want global distribution enabled on your account, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you now.
+> [!NOTE]
+> Global distribution of DocumentDB databases is generally available and automatically enabled for any newly created DocumentDB accounts. We are working to enable global distribution on all existing accounts, but in the interim, if you want global distribution enabled on your account, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you now.
+> 
+> 
 
 In order to take advantage of [global distribution](documentdb-distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the Azure DocumentDB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SDK to perform write and read operations. 
 
@@ -34,15 +37,17 @@ The application can verify the current write endpoint and read endpoint chosen b
 
 If the PreferredLocations property is not set, all requests will be served from the current write region. 
 
-
 ## .NET SDK
 The SDK can be used without any code changes. In this case, the SDK automatically directs both reads and writes to the current write region. 
 
-In version 1.8 and later of the .NET SDK, the ConnectionPolicy parameter for the DocumentClient constructor has a property called Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. This property is of type Collection `<string>` and should contain a list of region names. The string values are formatted per the Region Name column on the [Azure Regions] [regions] page, with no spaces before or after the first and last character respectively.
+In version 1.8 and later of the .NET SDK, the ConnectionPolicy parameter for the DocumentClient constructor has a property called Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. This property is of type Collection `<string>` and should contain a list of region names. The string values are formatted per the Region Name column on the [Azure Regions][regions] page, with no spaces before or after the first and last character respectively.
 
 The current write and read endpoints are available in DocumentClient.WriteEndpoint and DocumentClient.ReadEndpoint respectively.
 
-> [AZURE.NOTE] The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK handles this change automatically.
+> [!NOTE]
+> The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK handles this change automatically.
+> 
+> 
 
     // Getting endpoints from application settings or other configuration location
     Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
@@ -66,28 +71,31 @@ The current write and read endpoints are available in DocumentClient.WriteEndpoi
 ## NodeJS, JavaScript, and Python SDKs
 The SDK can be used without any code changes. In this case, the SDK will automatically direct both reads and writes to the current write region. 
 
-In version 1.8 and later of each SDK, the ConnectionPolicy parameter for the DocumentClient constructor a new property called DocumentClient.ConnectionPolicy.PreferredLocations. This is parameter is an array of strings that takes a list of region names. The names are formatted per the Region Name column in the [Azure Regions] [regions] page. You can also use the predefined constants in the convenience object AzureDocuments.Regions
+In version 1.8 and later of each SDK, the ConnectionPolicy parameter for the DocumentClient constructor a new property called DocumentClient.ConnectionPolicy.PreferredLocations. This is parameter is an array of strings that takes a list of region names. The names are formatted per the Region Name column in the [Azure Regions][regions] page. You can also use the predefined constants in the convenience object AzureDocuments.Regions
 
 The current write and read endpoints are available in DocumentClient.getWriteEndpoint and DocumentClient.getReadEndpoint respectively.
 
-> [AZURE.NOTE] The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK will handle this change automatically.
+> [!NOTE]
+> The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK will handle this change automatically.
+> 
+> 
 
 Below is a code example for NodeJS/Javascript. Python and Java will follow the same pattern.
 
     // Creating a ConnectionPolicy object
     var connectionPolicy = new DocumentBase.ConnectionPolicy();
-    
+
     // Setting read region selection preference, in the following order -
     // 1 - West US
     // 2 - East US
     // 3 - North Europe
     connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
-    
+
     // initialize the connection
     var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
 
 
-## REST 
+## REST
 Once a database account has been made available in multiple regions, clients can query its availability by performing a GET request on the following URI.
 
     https://{databaseaccount}.documents.azure.com/
@@ -127,20 +135,19 @@ Example response
     }
 
 
--	All PUT, POST and DELETE requests must go to the indicated write URI
--	All GETs and other read-only requests (for example queries) may go to any endpoint of the client’s choice
+* All PUT, POST and DELETE requests must go to the indicated write URI
+* All GETs and other read-only requests (for example queries) may go to any endpoint of the client’s choice
 
 Write requests to read-only regions will fail with HTTP error code 403 (“Forbidden”).
 
 If the write region changes after the client’s initial discovery phase, subsequent writes to the previous write region will fail with HTTP error code 403 (“Forbidden”). The client should then GET the list of regions again to get the updated write region.
 
 ## Next steps
-
 Learn more about the distributing data globally with DocumentDB in the following articles:
 
-- [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md)
-- [Consistency levels](documentdb-consistency-levels.md)
-- [How throughput works with multiple regions](documentdb-manage.md#how-throughput-works-with-multiple-regions)
-- [Add regions using the Azure portal](documentdb-portal-global-replication.md)
+* [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md)
+* [Consistency levels](documentdb-consistency-levels.md)
+* [How throughput works with multiple regions](documentdb-manage.md#how-throughput-works-with-multiple-regions)
+* [Add regions using the Azure portal](documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/ 

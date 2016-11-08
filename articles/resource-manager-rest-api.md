@@ -1,28 +1,30 @@
-<properties
-   pageTitle="Resource Manager REST APIs| Microsoft Azure"
-   description="An overview of the Resource Manager REST APIs authentication and usage examples"
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="navalev"
-   manager="timlt"
-   editor=""/>
+﻿---
+title: Resource Manager REST APIs| Microsoft Docs
+description: An overview of the Resource Manager REST APIs authentication and usage examples
+services: azure-resource-manager
+documentationcenter: na
+author: navalev
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="06/23/2016"
-   ms.author="navale;tomfitz;"/>
-   
+ms.assetid: e8d7a1d2-1e82-4212-8288-8697341408c5
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 06/23/2016
+ms.author: navale;tomfitz;
+
+---
 # Resource Manager REST APIs
-
-> [AZURE.SELECTOR]
-- [Azure PowerShell](powershell-azure-resource-manager.md)
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
-- [Portal](./azure-portal/resource-group-portal.md) 
-- [REST API](resource-manager-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Azure PowerShell](powershell-azure-resource-manager.md)
+> * [Azure CLI](xplat-cli-azure-resource-manager.md)
+> * [Portal](azure-portal/resource-group-portal.md) 
+> * [REST API](resource-manager-rest-api.md)
+> 
+> 
 
 Behind every call to Azure Resource Manager, behind every deployed template, behind every configured storage account there is one or 
 several calls to the Azure Resource Manager’s RESTful API. 
@@ -41,9 +43,9 @@ APIs, we will also assume that you don’t want to authenticate with a normal us
 for username and password and perhaps even other authentication mechanisms used in two factor authentication scenarios. 
 Therefore, we will create what is called an Azure AD Application and a Service Principal that will be used to login with. 
 But remember that Azure AD support several authentication procedures and all of them could be used to retrieve that authentication token that we need for subsequent API requests.
-Follow [Create Azure AD Application and Service Principle](./resource-group-create-service-principal-portal.md) for step by step instructions.
+Follow [Create Azure AD Application and Service Principle](resource-group-create-service-principal-portal.md) for step by step instructions.
 
-### Generating an Access Token 
+### Generating an Access Token
 Authentication against Azure AD is done by calling out to Azure AD, located at login.microsoftonline.com. 
 In order to authenticate you need to have the following information:
 
@@ -97,11 +99,9 @@ The access token you received in the previous HTTP call must be passed in for al
 As you can see from the above HTTP Result, the token is valid for a specific period of time during which you should cache and re-use that same token. Even if it is possible to authenticate against Azure AD for each API call, it would be highly inefficient.
 
 ## Calling ARM REST APIs
-
 [Azure Resource Manager REST APIs are documented here](https://msdn.microsoft.com/library/azure/dn790568.aspx) and it's out of scope for this tutorial to document the usage of each and every. This documentation will only use a few APIs to explain the basic usage of the APIs and after that we refer you to the official documentation.
 
 ### List all subscriptions
-
 One of the simplest operations you can do is to list the available subscriptions that you can access. In the below request you can see how the Access Token is passed in as a header.
 
 (Replace YOUR_ACCESS_TOKEN with your actual Access Token.)
@@ -135,7 +135,6 @@ Content-Type: application/json
 ```
 
 ### List all resource groups in a specific subscription
-
 All resources available with the ARM APIs are nested inside a Resource Group. We are going to query ARM for existing Resource Groups in our subscription using the below HTTP GET Request. Notice how the Subscription ID is passed in as part of the URL this time.
 
 (Replace YOUR_ACCESS_TOKEN and SUBSCRIPTION_ID with your actual Access Token and Subscription ID)
@@ -178,7 +177,6 @@ The response you get will depend whether you have any resource groups defined an
 ```
 
 ### Create a resource group
-
 So far we've only been querying the ARM APIs for information, it's time we create some resources instead and let's start by the simplest of them all, a resource group. The following HTTP request creates a new Resource Group in a region/location of your choice and adds one or more tags to it (the sample below actually only adds one tag).
 
 (Replace YOUR_ACCESS_TOKEN, SUBSCRIPTION_ID, RESOURCE_GROUP_NAME with your actual Access Token, Subscription ID and name of the Resource Group you want to create)
@@ -216,7 +214,6 @@ If successful, you'll get a similar response to this
 You've successfully created a Resource Group in Azure. Congratulations!
 
 ### Deploy resources to a Resource Group using an ARM Template
-
 With ARM, you can deploy your resources using ARM Templates. An ARM Template defines several resources and their dependencies. For this section we will just assume you are familiar with ARM Templates and we will just show you how to make the API call to start deployment of one. A detailed documentation of ARM Templates can be found here.
 
 Deployment of an ARM template doesn't differ much to how you call other APIs. One important aspect is that deployment of a template can take quite a long time, depending on what's inside of the template, and the API call will just return and it's up to you as developer to query for status of the deployment in order to find out when the deployment is done.

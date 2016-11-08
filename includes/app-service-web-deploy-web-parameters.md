@@ -8,7 +8,6 @@ during deployment.
 We will describe each parameter in the template.
 
 ### siteName
-
 The name of the web app that you wish to create.
 
     "siteName":{
@@ -16,15 +15,13 @@ The name of the web app that you wish to create.
     }
 
 ### hostingPlanName
-
 The name of the App Service plan to use for hosting the web app.
-    
+
     "hostingPlanName":{
       "type":"string"
     }
 
 ### sku
-
 The pricing tier for the hosting plan.
 
     "sku": {
@@ -52,7 +49,6 @@ The pricing tier for the hosting plan.
 The template defines the values that are permitted for this parameter, and assigns a default value (S1) if no value is specified.
 
 ### workerSize
-
 The instance size of the hosting plan (small, medium, or large).
 
     "workerSize":{
@@ -64,5 +60,6 @@ The instance size of the hosting plan (small, medium, or large).
       ],
       "defaultValue":"0"
     }
-    
+
 The template defines the values that are permitted for this parameter (0, 1, or 2), and assigns a default value (0) if no value is specified. The values correspond to small, medium and large.
+

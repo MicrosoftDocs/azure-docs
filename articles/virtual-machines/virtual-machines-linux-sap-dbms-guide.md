@@ -1,24 +1,25 @@
-<properties
-   pageTitle="SAP NetWeaver on Linux virtual machines (VMs) – DBMS Deployment Guide | Microsoft Azure"
-   description="SAP NetWeaver on Linux virtual machines (VMs) – DBMS Deployment Guide"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="MSSedusch"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"
-   keywords=""/>
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="08/18/2016"
-   ms.author="sedusch"/>
+﻿---
+title: SAP NetWeaver on Linux virtual machines (VMs) – DBMS Deployment Guide | Microsoft Docs
+description: SAP NetWeaver on Linux virtual machines (VMs) – DBMS Deployment Guide
+services: virtual-machines-linux
+documentationcenter: ''
+author: MSSedusch
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.assetid: 5654dac7-4204-4387-b312-3d8b2898eb3a
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 11/08/2016
+ms.author: sedusch
+
+---
 # SAP NetWeaver on Azure virtual machines (VMs) – DBMS Deployment Guide
-
 [767598]:https://service.sap.com/sap/support/notes/767598
 [773830]:https://service.sap.com/sap/support/notes/773830
 [826037]:https://service.sap.com/sap/support/notes/826037
@@ -70,7 +71,7 @@
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../azure-subscription-service-limits.md#subscription
+[azure-subscription-service-limits-subscription]:../azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:virtual-machines-linux-sap-dbms-guide.md (SAP NetWeaver on Linux virtual machines (VMs) – DBMS Deployment Guide)
 [dbms-guide-2.1]:virtual-machines-linux-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Caching for VMs and VHDs)
@@ -256,7 +257,7 @@
 [virtual-machines-linux-agent-user-guide-command-line-options]:virtual-machines-linux-agent-user-guide.md#command-line-options
 [virtual-machines-linux-capture-image]:virtual-machines-linux-capture-image.md
 [virtual-machines-linux-capture-image-resource-manager]:virtual-machines-linux-capture-image.md
-[virtual-machines-linux-capture-image-resource-manager-capture]:virtual-machines-linux-capture-image.md#capture-the-vm
+[virtual-machines-linux-capture-image-resource-manager-capture]:virtual-machines-linux-capture-image.md#step-2-capture-the-vm
 [virtual-machines-linux-configure-raid]:virtual-machines-linux-configure-raid.md
 [virtual-machines-linux-configure-lvm]:virtual-machines-linux-configure-lvm.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
@@ -296,13 +297,15 @@
 [xplat-cli]:../xplat-cli-install.md
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+
+classic deployment model.
 
 This guide is part of the documentation on implementing and deploying the SAP software on Microsoft Azure. Before reading this guide, please read the [Planning and Implementation Guide][planning-guide]. This document covers the deployment of various Relational Database Management Systems (RDBMS) and related products in combination with SAP on Microsoft Azure Virtual Machines (VMs) using the Azure Infrastructure as a Service (IaaS) capabilities.
 
 The paper complements the SAP Installation Documentation and SAP Notes which represent the primary resources for installations and deployments of SAP software on given platforms
 
-[AZURE.INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
+[!INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
 
 ## General considerations
 In this chapter, considerations of running SAP related DBMS systems in Azure VMs are introduced. There are few references to specific DBMS systems in this chapter. Instead the specific DBMS systems are handled within this paper, after this chapter.
@@ -320,7 +323,10 @@ Throughout the document we will use the following terms:
 * Cloud-Only deployment: A deployment where the Azure subscription is not connected via a site-to-site or ExpressRoute connection to the on-premises network infrastructure. In common Azure documentation these kinds of deployments are also described as ‘Cloud-Only’ deployments. Virtual Machines deployed with this method are accessed through the Internet and public Internet endpoints assigned to the VMs in Azure. The on-premises Active Directory (AD) and DNS is not extended to Azure in these types of deployments. Hence the VMs are not part of the on-premises Active Directory. Note: Cloud-Only deployments in this document are defined as complete SAP landscapes which are running exclusively in Azure without extension of Active Directory or name resolution from on-premises into public cloud. Cloud-Only configurations are not supported for production SAP systems or configurations where SAP STMS or other on-premises resources need to be used between SAP systems hosted on Azure and resources residing on-premises.
 * Cross-Premises: Describes a scenario where VMs are deployed to an Azure subscription that has site-to-site, multi-site or ExpressRoute connectivity between the on-premises datacenter(s) and Azure. In common Azure documentation, these kinds of deployments are also described as Cross-Premises scenarios. The reason for the connection is to extend on-premises domains, on-premises Active Directory and on-premises DNS into Azure. The on-premises landscape is extended to the Azure assets of the subscription. Having this extension, the VMs can be part of the on-premises domain. Domain users of the on-premises domain can access the servers and can run services on those VMs (like DBMS services). Communication and name resolution between VMs deployed on-premises and VMs deployed in Azure is possible. We expect this to be the most common scenario for deploying SAP assets on Azure. See [this][vpn-gateway-cross-premises-options] article and [this][vpn-gateway-site-to-site-create] for more information.
 
-> [AZURE.NOTE] Cross-Premises deployments of SAP systems where Azure Virtual Machines running SAP systems are members of an on-premises domain are supported for production SAP systems. Cross-Premises configurations are supported for deploying parts or complete SAP landscapes into Azure. Even running the complete SAP landscape in Azure requires having those VMs being part of on-premises domain and ADS. In former versions of the documentation we talked about Hybrid-IT scenarios, where the term ‘Hybrid’ is rooted in the fact that there is a cross-premises connectivity between on-premises and Azure. In this case ‘Hybrid’ also means that the VMs in Azure are part of the on-premises Active Directory.
+> [!NOTE]
+> Cross-Premises deployments of SAP systems where Azure Virtual Machines running SAP systems are members of an on-premises domain are supported for production SAP systems. Cross-Premises configurations are supported for deploying parts or complete SAP landscapes into Azure. Even running the complete SAP landscape in Azure requires having those VMs being part of on-premises domain and ADS. In former versions of the documentation we talked about Hybrid-IT scenarios, where the term ‘Hybrid’ is rooted in the fact that there is a cross-premises connectivity between on-premises and Azure. In this case ‘Hybrid’ also means that the VMs in Azure are part of the on-premises Active Directory.
+> 
+> 
 
 Some Microsoft documentation describes Cross-Premises scenarios a bit differently, especially for DBMS HA configurations. In the case of the SAP related documents, the Cross-Premises scenario just boils down to having a site-to-site or private (ExpressRoute) connectivity and to the fact that the SAP landscape is distributed between on-premises and Azure.
 
@@ -333,25 +339,28 @@ The following guides are available for the topic of SAP deployments on Azure:
 
 The following SAP Notes are related to the topic of SAP on Azure:
 
-| Note number	| Title
-|------------|--------
-| [1928533] | SAP Applications on Azure: Supported Products and Azure VM types
-| [2015553] | SAP on Microsoft Azure: Support Prerequisites
-| [1999351] | Troubleshooting Enhanced Azure Monitoring for SAP
-| [2178632] | Key Monitoring Metrics for SAP on Microsoft Azure
-| [1409604] | Virtualization on Windows: Enhanced Monitoring
-| [2191498] | SAP on Linux with Azure: Enhanced Monitoring
-| [2039619] | SAP Applications on Microsoft Azure using the Oracle Database: Supported Products and Versions
-| [2233094] | DB6: SAP Applications on Azure Using IBM DB2 for Linux, UNIX, and Windows - Additional Information
-| [2243692] | Linux on Microsoft Azure (IaaS) VM: SAP license issues
-| [1984787] | SUSE LINUX Enterprise Server 12: Installation notes
-| [2002167] | Red Hat Enterprise Linux 7.x: Installation and Upgrade
+| Note number | Title |
+| --- | --- |
+| [1928533] |SAP Applications on Azure: Supported Products and Azure VM types |
+| [2015553] |SAP on Microsoft Azure: Support Prerequisites |
+| [1999351] |Troubleshooting Enhanced Azure Monitoring for SAP |
+| [2178632] |Key Monitoring Metrics for SAP on Microsoft Azure |
+| [1409604] |Virtualization on Windows: Enhanced Monitoring |
+| [2191498] |SAP on Linux with Azure: Enhanced Monitoring |
+| [2039619] |SAP Applications on Microsoft Azure using the Oracle Database: Supported Products and Versions |
+| [2233094] |DB6: SAP Applications on Azure Using IBM DB2 for Linux, UNIX, and Windows - Additional Information |
+| [2243692] |Linux on Microsoft Azure (IaaS) VM: SAP license issues |
+| [1984787] |SUSE LINUX Enterprise Server 12: Installation notes |
+| [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade |
 
 Please also read the [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) that contains all SAP Notes for Linux.
 
 You should have a working knowledge about the Microsoft Azure Architecture and how Microsoft Azure Virtual Machines are deployed and operated. You can find more information here <https://azure.microsoft.com/documentation/>
- 
-> [AZURE.NOTE] We are **not** discussing Microsoft Azure Platform as a Service (PaaS) offerings of the Microsoft Azure Platform. This paper is about running a database management system (DBMS) in Microsoft Azure Virtual Machines (IaaS) just as you would run the DBMS in your on-premises environment. Database capabilities and functionalities between these two offers are very different and should not be mixed up with each other. See also: <https://azure.microsoft.com/services/sql-database/>
+
+> [!NOTE]
+> We are **not** discussing Microsoft Azure Platform as a Service (PaaS) offerings of the Microsoft Azure Platform. This paper is about running a database management system (DBMS) in Microsoft Azure Virtual Machines (IaaS) just as you would run the DBMS in your on-premises environment. Database capabilities and functionalities between these two offers are very different and should not be mixed up with each other. See also: <https://azure.microsoft.com/services/sql-database/>
+> 
+> 
 
 Since we are discussing IaaS, in general the Windows, Linux and DBMS installation and configuration are essentially the same as any virtual machine or bare metal machine you would install on-premises. However, there are some architecture and system management implementation decisions which will be different when utilizing IaaS. The purpose of this document is to explain the specific architectural and system management differences that you must be prepared for when using IaaS.
 
@@ -377,25 +386,25 @@ Dependent on leveraging Azure Standard or Premium Storage (e.g. by using the DS-
 * The data throughput per VHD.
 * The number of additional VHDs possible per VM size.
 * The overall storage throughput a VM can provide.
- 
+
 Azure will enforce an IOPS quota per VHD drive. These quotas are different for VHDs hosted on Azure Standard Storage and Premium Storage. I/O latencies will also be very different between the two storage types with Premium Storage delivering factors better I/O latencies. Each of the different VM types have a limited number of VHDs that you are able to attach. Another restriction is that only certain VM types can leverage Azure Premium Storage. This means the decision for a certain VM type might not only be driven by the CPU and memory requirements, but also by the IOPS, latency and disk throughput requirements that usually are scaled with the number of VHDs or the type of Premium Storage disks. Especially with Premium Storage the size of a VHD also might be dictated by the number of IOPS and throughput that needs to be achieved by each VHD.
 
 The fact that the overall IOPS rate, the number of VHDs mounted, and the size of the VM are all tied together, might cause an Azure configuration of an SAP system to be different than its on-premises deployment. The IOPS limits per LUN are usually configurable in on-premises deployments. Whereas with Azure Storage those limits are fixed or as in Premium Storage dependent on the disk type. So with on-premises deployments we see customer configurations of database servers which are using many different volumes for special executables like SAP and the DBMS or special volumes for temporary databases or table spaces. When such an on-premises system is moved to Azure it might lead to a waste of potential IOPS bandwidth by wasting a VHD for executables or databases which do not perform any or not a lot of IOPS. Therefore, in Azure VMs we recommend that the DBMS and SAP executables be installed on the OS disk if possible.
 
 The placement of the database files and log files and the type of Azure Storage used, should be defined by IOPS, latency and throughput requirements. In order to have enough IOPS for the transaction log, you might be forced to leverage multiple VHDs for the transaction log file or use a larger Premium Storage disk. In such a case one would simply build a software RAID (e.g. Windows Storage Pool for Windows or MDADM and LVM (Logical Volume Manager) for Linux) with the VHDs which will contain the transaction log.
 
-___
-
+- - -
 > ![Windows][Logo_Windows] Windows
->
+> 
 > Drive D:\ in an Azure VM is a non-persisted drive which is backed by some local disks on the Azure compute node. Because it is non-persisted, this means that any changes made to the content on the D:\ drive is lost when the VM is rebooted. By "any changes", we mean saved files, directories created, applications installed, etc.
->
+> 
 > ![Linux][Logo_Linux] Linux
->
+> 
 > Linux Azure VMs automatically mount a drive at /mnt/resource which is a non-persisted drive backed by local disks on the Azure compute node. Because it is non-persisted, this means that any changes made to content in /mnt/resource is lost when the VM is rebooted. By any changes, we mean files saved, directories created, applications installed, etc.
+> 
+> 
 
-___
-
+- - -
 Dependent on the Azure VM-series, the local disks on the compute node show different performance which can be categorized like:
 
 * A0-A7: Very limited performance. Not usable for anything beyond windows page file
@@ -409,7 +418,7 @@ Statements above are applying to the VM types that are certified with SAP. The V
 
 ### <a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>Caching for VMs and VHDs
 When we create those disks/VHDs through the portal or when we mount uploaded VHDs to VMs, we can choose whether the I/O traffic between the VM and those VHDs located in Azure storage are cached. Azure Standard and Premium Storage use two different technologies for this type of cache. In both cases the cache itself would be disk backed on the same drives used by the temporary disk (D:\ on Windows or /mnt/resource on Linux) of the VM.
- 
+
 For Azure Standard Storage the possible cache types are:
 
 * No caching
@@ -429,30 +438,28 @@ Recommendation for Azure Premium Storage is to leverage **Read caching for data 
 As already stated above, you will need to balance the number of IOPS needed for the database files across the number of VHDs you can configure and the maximum IOPS an Azure VM will provide per VHD or Premium Storage disk type. Easiest way to deal with the IOPS load over VHDs is to build a software RAID over the different VHDs. Then place a number of data files of the SAP DBMS on the LUNS carved out of the software RAID. Dependent on the requirements you might want to consider the usage of Premium Storage as well since two of the three different Premium Storage disks provide higher IOPS quota than VHDs based on Standard Storage. Besides the significant better I/O latency provided by Azure Premium Storage. 
 
 Same applies to the transaction log of the different DBMS systems. With a lot of them just adding more Tlog files does not help since the DBMS systems write into one of the files at a time only. If higher IOPS rates are needed than a single Standard Storage based VHD can deliver, you can stripe over multiple Standard Storage VHDs or you can use a larger Premium Storage disk type that beyond higher IOPS rates also delivers factors lower latency for the write I/Os into the transaction log.
- 
+
 Situations experienced in Azure deployments which would favor using a software RAID are:
 
 * Transaction Log/Redo Log require more IOPS than Azure provides for a single VHD. As mentioned above this can be solved by building a LUN over multiple VHDs using a software RAID.
 * Uneven I/O workload distribution over the different data files of the SAP database. In such cases one can experience one data file hitting the quota rather often. Whereas other data files are not even getting close to the IOPS quota of a single VHD. In such cases the easiest solution is to build one LUN over multiple VHDs using a software RAID. 
 * You don’t know what the exact I/O workload per data file is and only roughly know what the overall IOPS workload against the DBMS is. Easiest to do is to build one LUN with the help of a software RAID. The sum of quotas of multiple VHDs behind this LUN should then fulfill the known IOPS rate.
 
-___
-
+- - -
 > ![Windows][Logo_Windows] Windows
->
+> 
 > Usage of Windows Server 2012 or higher Storage Spaces is preferable since it is more efficient than Windows Striping of earlier Windows versions. Please be aware that you might need to create the Windows Storage Pools and Storage Spaces by PowerShell commands when using Windows Server 2012 as Operating System. The PowerShell commands can be found here <https://technet.microsoft.com/library/jj851254.aspx>
-
 > 
 > ![Linux][Logo_Linux] Linux
->
+> 
 > Only MDADM and LVM (Logical Volume Manager) are supported to build a software RAID on Linux. For more information, read the following articles:
->
+> 
 > * [Configure Software RAID on Linux][virtual-machines-linux-configure-raid] (for MDADM)
 > * [Configure LVM on a Linux VM in Azure][virtual-machines-linux-configure-lvm]
+> 
+> 
 
-
-___
-
+- - -
 Considerations for leveraging VM-series which are able to work with Azure Premium Storage usually are:
 
 * Demands for I/O latencies that are close to what SAN/NAS devices deliver.
@@ -474,22 +481,25 @@ Azure Storage Local Replication (Locally Redundant) provides levels of protectio
 * **Zone Redundant Storage (ZRS)**: In this case the 3 replicas of the data remain in the same Azure Region. As explained in [this][planning-guide-3.1] chapter of the [Planning Guide][planning-guide] an Azure region can be a number of datacenters in close proximity. In the case of LRS the replicas would be distributed over the different datacenters that make one Azure region.
 
 More information can be found [here][storage-redundancy].
- 
-> [AZURE.NOTE] For DBMS deployments, the usage of Geo Redundant Storage is not recommended
->
+
+> [!NOTE]
+> For DBMS deployments, the usage of Geo Redundant Storage is not recommended
+> 
 > Azure Storage Geo-Replication is asynchronous. Replication of individual VHDs mounted to a single VM are not synchronized in lock step. Therefore, it is not suitable to replicate DBMS files that are distributed over different VHDs or deployed against a software RAID based on multiple VHDs. DBMS software requires that the persistent disk storage is precisely synchronized across different LUNs and underlying disks/VHDs/spindles. DBMS software uses various mechanisms to sequence IO write activities and a DBMS will report that the disk storage targeted by the replication is corrupted if these vary even by a few milliseconds. Hence if one really wants a database configuration with a database stretched across multiple VHDs geo-replicated, such a replication needs to be performed with database means and functionality. One should not rely on Azure Storage Geo-Replication to perform this job. 
->
+> 
 > The problem is simplest to explain with an example system. Let’s assume you have an SAP system uploaded into Azure which has 8 VHDs containing data files of the DBMS plus one VHD containing the transaction log file. Each one of these 9 VHDs will have data written to them in a consistent method according to the DBMS, whether the data is being written to the data or transaction log files.
->
+> 
 > In order to properly geo-replicate the data and maintain a consistent database image, the content of all nine VHDs would have to be geo-replicated in the exact order the I/O operations were executed against the nine different VHDs. However, Azure Storage geo-replication does not allow to declare dependencies between VHDs. This means Microsoft Azure Storage geo-replication doesn’t know about the fact that the content in these nine different VHDs are related to each other and that the data changes are consistent only when replicating in the order the I/O operations happened across all the 9 VHDs.
->
+> 
 > Besides chances being high that the geo-replicated images in the scenario do not provide a consistent database image, there also is a performance penalty that shows up with geo redundant storage that can severely impact performance. In summary do not use this type of storage redundancy for DBMS type workloads.
- 
+> 
+> 
+
 #### Mapping VHDs into Azure Virtual Machine Service Storage Accounts
 An Azure Storage Account is not only an administrative construct, but also a subject of limitations. Whereas the limitations vary on whether we talk about an Azure Standard Storage Account or an Azure Premium Storage Account. The exact capabilities and limitations are listed [here][storage-scalability-targets]
- 
+
 So for Azure Standard Storage it is important to note there is a limit on the IOPS per storage account (Row containing ‘Total Request Rate’ in [the article][storage-scalability-targets]). In addition, there is an initial limit of 100 Storage Accounts per Azure subscription (as of July 2015). Therefore, it is recommended to balance IOPS of VMs between multiple storage accounts when using Azure Standard Storage. Whereas a single VM ideally uses one storage account if possible. So if we talk about DBMS deployments where each VHD that is hosted on Azure Standard Storage could reach its quota limit, you should only deploy 30-40 VHDs per Azure Storage Account that uses Azure Standard Storage. On the other hand, if you leverage Azure Premium Storage and want to store large database volumes, you might be fine in terms of IOPS. But an Azure Premium Storage Account is way more restrictive in data volume than an Azure Standard Storage Account. As a result, you can only deploy a limited number of VHDs within an Azure Premium Storage Account before hitting the data volume limit. At the end think of an Azure Storage Account as a “Virtual SAN” that has limited capabilities in IOPS and/or capacity. As a result, the task remains, as in on-premises deployments, to define the layout of the VHDs of the different SAP systems over the different ‘imaginary SAN devices’ or Azure Storage Accounts.
- 
+
 For Azure Standard Storage it is not recommended to present storage from different storage accounts to a single VM if possible.
 
 Whereas using the DS or GS-series of Azure VMs it is possible to mount VHDs out of Azure Standard Storage Accounts and Premium Storage Accounts. Use cases like writing backups into Standard Storage backed VHDs whereas having DBMS data and log files on Premium Storage come to mind where such heterogeneous storage could be leveraged. 
@@ -499,7 +509,7 @@ Based on customer deployments and testing around 30 to 40 VHDs containing databa
 As with SAN devices on-premises, sharing requires some monitoring in order to eventually detect bottlenecks on an Azure Storage Account. The Azure Monitoring Extension for SAP and the Azure Portal are tools that can be used to detect busy Azure Storage Accounts that may be delivering suboptimal IO performance.  If this situation is detected it is recommended to move busy VMs to another Azure Storage Account. Please refer to the [Deployment Guide][deployment-guide] for details on how to activate the SAP host monitoring capabilities.
 
 Another article summarizing best practices around Azure Standard Storage and Azure Standard Storage Accounts can be found here <https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>
- 
+
 #### Moving deployed DBMS VMs from Azure Standard Storage to Azure Premium Storage
 We encounter quite some scenarios where you as customer want to move a deployed VM from Azure Standard Storage into Azure Premium Storage. This is not possible without physically moving the data. There are several ways to achieve the goal:
 
@@ -518,7 +528,7 @@ You like to take a Microsoft or 3rd party provided image from the Azure Marketpl
 Due to specific patch requirements in regards to your OS or DBMS version, the provided images in the Azure Marketplace might not fit your needs. Therefore, you might need to create a VM using your own ‘private’ OS/DBMS VM image which can be deployed several times afterwards. To prepare such a ‘private’ image for duplication, the OS must be generalized on the on-premises VM. Please refer to the [Deployment Guide][deployment-guide] for details on how to generalize a VM.
 
 If you have already installed SAP content in your on-premises VM (especially for 2-Tier systems), you can adapt the SAP system settings after the deployment of the Azure VM through the instance rename procedure supported by the SAP Software Provisioning Manager (SAP Note [1619720]). Otherwise you can install the SAP software later after the deployment of the Azure VM.
- 
+
 As of the database content used by the SAP application, you can either generate the content freshly by an SAP installation or you can import your content into Azure by using a VHD with a DBMS database backup or by leveraging capabilities of the DBMS to directly backup into Microsoft Azure Storage. In this case, you could also prepare VHDs with the DBMS data and log files on-premises and then import those as Disks into Azure. But the transfer of DBMS data which is getting loaded from on-premises to Azure would work over VHD disks that need to be prepared on-premises.
 
 #### Moving a VM from on-premises to Azure with a non-generalized disk
@@ -540,6 +550,7 @@ If we want to create highly available configurations of DBMS deployments (indepe
 
 * Add the VMs to the same Azure Virtual Network (<https://azure.microsoft.com/documentation/services/virtual-network/>)
 * The VMs of the HA configuration should also be in the same subnet. Name resolution between the different subnets is not possible in Cloud-Only deployments, only IP resolution will work. Using site-to-site or ExpressRoute connectivity for Cross-Premises deployments, a network with at least one subnet will be already established. Name resolution will be done according to the on-premises AD policies and network infrastructure. 
+
 [comment]: <> (MSSedusch TODO Test if still true in ARM)
 
 #### IP Addresses
@@ -553,20 +564,25 @@ Even for Cross-Premises scenarios, by default a shutdown and de-allocation will 
 * The exception is if one assigns a static IP address to a network interface as described [here][virtual-networks-reserved-private-ip].
 * In such a case the IP address remains fixed as long as the network interface is not deleted.
 
-> [AZURE.IMPORTANT] In order to keep the whole deployment simple and manageable, the clear recommendation is to setup the VMs partnering in a DBMS HA or DR configuration within Azure in a way that there is a functioning name resolution between the different VMs involved.
- 
+> [!IMPORTANT]
+> In order to keep the whole deployment simple and manageable, the clear recommendation is to setup the VMs partnering in a DBMS HA or DR configuration within Azure in a way that there is a functioning name resolution between the different VMs involved.
+> 
+> 
+
 ## Deployment of Host Monitoring
 For productive usage of SAP Applications in Azure Virtual Machines, SAP requires the ability to get host monitoring data from the physical hosts running the Azure Virtual Machines. A specific SAP HostAgent patch level will be required that enables this capability in SAPOSCOL and SAP HostAgent. The exact patch level is documented in SAP Note [1409604].
 
 For the details regarding deployment of components that deliver host data to SAPOSCOL and SAPHostAgent and the lifecycle management of those components, please refer to the [Deployment Guide][deployment-guide]
 
 ## <a name="3264829e-075e-4d25-966e-a49dad878737"></a>Specifics to Microsoft SQL Server
-
 ### SQL Server IaaS
 Starting with Microsoft Azure, you can easily migrate your existing SQL Server applications built on Windows Server platform to Azure Virtual Machines. SQL Server in a Virtual Machine enables you to reduce the total cost of ownership of deployment, management and maintenance of enterprise breadth applications by easily migrating these applications to Microsoft Azure. With SQL Server in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises. 
 
-> [AZURE.IMPORTANT] Please note we are not discussing Microsoft Azure SQL Database which is a Platform as a Service offer of the Microsoft Azure Platform. The discussion in this paper is about running the SQL Server product as it is known for on-premises deployments in Azure Virtual Machines, leveraging the Infrastructure as a Service capability of Azure. Database capabilities and functionalities between these two offers are different and should not be mixed up with each other. See also: <https://azure.microsoft.com/services/sql-database/>
- 
+> [!IMPORTANT]
+> Please note we are not discussing Microsoft Azure SQL Database which is a Platform as a Service offer of the Microsoft Azure Platform. The discussion in this paper is about running the SQL Server product as it is known for on-premises deployments in Azure Virtual Machines, leveraging the Infrastructure as a Service capability of Azure. Database capabilities and functionalities between these two offers are different and should not be mixed up with each other. See also: <https://azure.microsoft.com/services/sql-database/>
+> 
+> 
+
 It is strongly recommended to review [this][virtual-machines-sql-server-infrastructure-services] documentation before continuing.
 
 In the following sections pieces of parts of the documentation under the link above will be aggregated and mentioned. Specifics around SAP are mentioned as well and some concepts are described in more detail. However, it is highly recommended to work through the documentation above first before reading the SQL Server specific documentation.
@@ -579,9 +595,8 @@ There is some SQL Server in IaaS specific information you should know before con
 * **SQL Performance**: We are confident that Microsoft Azure hosted Virtual Machines will perform very well in comparison to other public cloud virtualization offerings, but individual results may vary. Check out [this][virtual-machines-sql-server-performance-best-practices] article.
 * **Using Images from Azure Marketplace**: The fastest way to deploy a new Microsoft Azure VM is to use an image from the Azure Marketplace. There are images in the Azure Marketplace which contain SQL Server. The images where SQL Server already is installed can’t be immediately used for SAP NetWeaver applications. The reason is the default SQL Server collation is installed within those images and not the collation required by SAP NetWeaver systems. In order to use such images, please check the steps documented in chapter [Using a SQL Server images out of the Microsoft Azure Marketplace][dbms-guide-5.6]. 
 * Check out [Pricing Details](https://azure.microsoft.com/pricing/) for more information. The [SQL Server 2012 Licensing Guide](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf) and [SQL Server 2014 Licensing Guide](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf) are also an important resource.
- 
-### SQL Server configuration guidelines for SAP related SQL Server installations in Azure VMs
 
+### SQL Server configuration guidelines for SAP related SQL Server installations in Azure VMs
 #### Recommendations on VM/VHD structure for SAP related SQL Server deployments
 In accordance with the general description, SQL Server executables should be located or installed into the system drive of the VM’s base VHD (drive C:\).  Typically, most of the SQL Server system databases are not utilized at a high level by SAP NetWeaver workload. Hence the system databases of SQL Server (master, msdb, and model) can remain on the C:\ drive as well. An exception could be tempdb, which in the case of some SAP ERP and all BW workloads, might require either higher data volume or I/O operations volume which can’t fit into the original VM. For such systems, the following steps should be performed:
 
@@ -589,11 +604,11 @@ In accordance with the general description, SQL Server executables should be loc
 * Add any additional tempdb data files to each of the other logical drives containing a data file of the SAP user database.
 * Add the tempdb logfile to the logical drive which contains the user database’s log file.
 * **Exclusively for VM types that use local SSDs** on the compute node tempdb data and log files might be placed on the D:\ drive. Nevertheless, it might be recommended to use multiple tempdb data files. Be aware D:\ drive volumes are different based on the VM type.
- 
+
 These configurations enable tempdb to consume more space than the system drive is able to provide. In order to determine the proper tempdb size, one can check the tempdb sizes on existing systems which run on-premises. In addition, such a configuration would enable IOPS numbers against tempdb which cannot be provided with the system drive. Again, systems that are running on-premises can be used to monitor I/O workload against tempdb so that you can derive the IOPS numbers you expect to see on your tempdb.
 
 A VM configuration which runs SQL Server with a SAP database and where tempdb data and tempdb logfile are placed on the D:\ drive would look like:
- 
+
 ![Reference Configuration of Azure IaaS VM for SAP][dbms-guide-figure-300]
 
 Be aware that the D:\ drive has different sizes dependent on the VM type. Dependent on the size requirement of tempdb you might be forced to pair tempdb data and log files with the SAP database data and log files in cases where D:\ drive is too small.
@@ -602,10 +617,10 @@ Be aware that the D:\ drive has different sizes dependent on the VM type. Depend
 For SQL Server the NTFS block size for VHDs containing SQL Server data and log files should be 64K. There is no need to format the D:\ drive. This drive comes pre-formatted.
 
 In order to make sure that the restore or creation of databases is not initializing the data files by zeroing the content of the files, one should make sure that the user context the SQL Server service is running in has a certain permission. Usually users in the Windows Administrator group have these permissions. If the SQL Server service is run in the user context of non-Windows Administrator user, you need to assign that user the User Right ‘Perform volume maintenance tasks’.  See the details in this Microsoft Knowledge Base Article: <https://support.microsoft.com/kb/2574695>
- 
+
 #### Impact of database compression
 In configurations where I/O bandwidth can become a limiting factor, every measure which reduces IOPS might help to stretch the workload one can run in an IaaS scenario like Azure. Therefore, if not yet done, applying SQL Server PAGE compression is strongly recommended by both SAP and Microsoft before uploading an existing SAP databases to Azure.
- 
+
 The recommendation to perform Database Compression before uploading to Azure is given out of two reasons:
 
 * The amount of data to be uploaded is lower.
@@ -613,16 +628,17 @@ The recommendation to perform Database Compression before uploading to Azure is 
 * Smaller database sizes might lead to less costs for disk allocation
 
 Database compression works as well in an Azure Virtual Machines as it does on-premises. For more details on how to compress an existing SAP SQL Server database please check here: <https://blogs.msdn.com/b/saponsqlserver/archive/2010/10/08/compressing-an-sap-database-using-report-msscompress.aspx>
-  
+
 ### SQL Server 2014 – Storing Database Files directly on Azure Blog Storage
 SQL Server 2014 opens the possibility to store database files directly on Azure Blob Store without the ‘wrapper’ of a VHD around them. Especially with using Standard Azure Storage or smaller VM types this enables scenarios where you can overcome the limits of IOPS that would be enforced by a limited number of VHDs that can be mounted to some smaller VM types. This works for user databases however not for system databases of SQL Server. It also works for data and log files of SQL Server. If you’d like to deploy a SAP SQL Server database this way instead of ‘wrapping’ it into VHDs, please keep the following in mind:
 
 * The Storage Account used needs to be in the same Azure Region as the one that is used to deploy the VM SQL Server is running in.
 * Considerations listed earlier in regards to distribute VHDs over different Azure Storage Accounts apply for this method of deployments as well. Means the I/O operations count against the limits of the Azure Storage Account.
+
 [comment]: <> (MSSedusch TODO But this will use network bandwith and not storage bandwith, doesn't it?)
 
 Details about this type of deployment are listed here: <https://msdn.microsoft.com/library/dn385720.aspx>
- 
+
 In order to store SQL Server data files directly on Azure Premium Storage, you need to have a minimum SQL Server 2014 patch release which is documented here: <https://support.microsoft.com/kb/3063054>. Storing SQL Server data files on Azure Standard Storage does work with the released version of SQL Server 2014. However, the very same patches contain another series of fixes which make the direct usage of Azure Blob Storage for SQL Server data files and backups more reliable. Therefore we recommend to use these patches in general.
 
 ### SQL Server 2014 Buffer Pool Extension
@@ -633,14 +649,14 @@ For more details about this functionality, please check this documentation: <htt
 When deploying SQL Server into Azure your backup methodology must be reviewed. Even if the system is not a productive system, the SAP database hosted by SQL Server must be backed up periodically. Since Azure Storage keeps three images, a backup is now less important in respect to compensating a storage crash. The priority reason for maintaining a proper backup and recovery plan is more that you can compensate for logical/manual errors by providing point in time recovery capabilities. So the goal is to either use backups to restore the database back to a certain point in time or to use the backups in Azure to seed another system by copying the existing database. For example, you could transfer from a 2-Tier SAP configuration to a 3-Tier system setup of the same system by restoring a backup.
 
 There are three different ways to backup SQL Server to Azure Storage:
- 
+
 1. SQL Server 2012 CU4 and higher can natively backup databases to a URL. This is detailed in the blog [New functionality in SQL Server 2014 – Part 5 – Backup/Restore Enhancements](https://blogs.msdn.com/b/saponsqlserver/archive/2014/02/15/new-functionality-in-sql-server-2014-part-5-backup-restore-enhancements.aspx). See chapter [SQL Server 2012 SP1 CU4 and later][dbms-guide-5.5.1].
-1. SQL Server releases prior to SQL 2012 CU4 can use a redirection functionality to backup to a VHD and basically move the write stream towards an Azure Storage location that has been configured. See chapter [SQL Server 2012 SP1 CU3 and earlier releases][dbms-guide-5.5.2].
-1. The final method is to perform a conventional SQL Server backup to disk command onto a VHD disk device.  This is identical to the on-premises deployment pattern and is not discussed in detail in this document.
+2. SQL Server releases prior to SQL 2012 CU4 can use a redirection functionality to backup to a VHD and basically move the write stream towards an Azure Storage location that has been configured. See chapter [SQL Server 2012 SP1 CU3 and earlier releases][dbms-guide-5.5.2].
+3. The final method is to perform a conventional SQL Server backup to disk command onto a VHD disk device.  This is identical to the on-premises deployment pattern and is not discussed in detail in this document.
 
 #### <a name="0fef0e79-d3fe-4ae2-85af-73666a6f7268"></a>SQL Server 2012 SP1 CU4 and later
 This functionality allows you to directly backup to Azure BLOB storage. Without this method, you must backup to other Azure VHDs which would consume VHD and IOPS capacity. The idea is basically this:
- 
+
  ![Using SQL Server 2012 Backup to Microsoft Azure Storage BLOB][dbms-guide-figure-400]
 
 The advantage in this case is that one doesn’t need to spend VHDs to store SQL Server backups on. So you have fewer VHDs allocated and the whole bandwidth of VHD IOPS can be used for data and log files. Please note that the maximum size of a backup is limited to a maximum of 1 TB as documented in the section ‘Limitations’ in this article: <https://msdn.microsoft.com/library/dn435916.aspx#limitations>. If the backup size, despite using SQL Server Backup compression would exceed 1 TB in size, the functionality described in chapter [SQL Server 2012 SP1 CU3 and earlier releases][dbms-guide-5.5.2] in this document needs to be used.
@@ -648,13 +664,13 @@ The advantage in this case is that one doesn’t need to spend VHDs to store SQL
 [Related documentation](https://msdn.microsoft.com/library/dn449492.aspx) describing the restore of databases from backups against Azure Blob Store recommend not to restore directly from Azure BLOB store if the backups is >25GB. The recommendation in this article is simply based on performance considerations and not due to functional restrictions. Therefore, different conditions may apply on a case by case basis.
 
 Documentation on how this type of backup is set up and leveraged can be found in [this](https://msdn.microsoft.com/library/dn466438.aspx) tutorial
- 
+
 An example of the sequence of steps can be read [here](https://msdn.microsoft.com/library/dn435916.aspx).
 
 Automating backups, it is of highest importance to make sure that the BLOBs for each backup are named differently. Otherwise they will be overwritten and the restore chain is broken.
- 
+
 In order not to mix up things between the 3 different types of backups, it is advisable to create different containers underneath the storage account used for backups. The containers could be by VM only or by VM and Backup type. The schema could look like:
- 
+
  ![Using SQL Server 2012 Backup to Microsoft Azure Storage BLOB – Different containers under separate Storage Account][dbms-guide-figure-500]
 
 In the example above, the backups would not be performed into the same storage account where the VMs are deployed. There would be a new storage account specifically for the backups. Within the storage accounts, there would be different containers created with a matrix of the type of backup and the VM name. Such segmentation will make it easier to administrate the backups of the different VMs.
@@ -663,24 +679,24 @@ The BLOBs one directly writes the backups to, are not adding to the count of the
 
 #### <a name="f9071eff-9d72-4f47-9da4-1852d782087b"></a>SQL Server 2012 SP1 CU3 and earlier releases
 The first step you must perform in order to achieve a backup directly against Azure Storage would be to download the msi which is linked to [this](https://www.microsoft.com/download/details.aspx?id=40740) KBA article.
- 
+
 Download the x64 installation file and the documentation. The file will install a program called: ‘Microsoft SQL Server Backup to Microsoft Azure Tool’. Read the documentation of the product thoroughly.  The tool basically works in the following way:
 
 * From the SQL Server side, a disk location for the SQL Server backup is defined (don’t use the D:\ drive for this).
 * The tool will allow you to define rules which can be used to direct different types of backups to different Azure Storage containers.
 * Once the rules are in place, the tool will redirect the write stream of the backup to one of the VHDs/disks to the Azure Storage location which was defined earlier.
 * The tool will leave a small stub file of a few KB size on the VHD/Disk which was defined for the SQL Server backup. **This file should be left on the storage location since it is required to restore again from Azure Storage.**
-	* If you have lost the stub file (e.g. through loss of the storage media that contained the stub file) and you have chosen the option of backing up to a Microsoft Azure Storage account, you may recover the stub file through Microsoft Azure Storage by downloading it from the storage container in which it was placed. You should then place the stub file into a folder on the local machine where the Tool is configured to detect and upload to the same container with the same encryption password if encryption was used with the original rule. 
+  * If you have lost the stub file (e.g. through loss of the storage media that contained the stub file) and you have chosen the option of backing up to a Microsoft Azure Storage account, you may recover the stub file through Microsoft Azure Storage by downloading it from the storage container in which it was placed. You should then place the stub file into a folder on the local machine where the Tool is configured to detect and upload to the same container with the same encryption password if encryption was used with the original rule. 
 
 This means the schema as described above for more recent releases of SQL Server can be put in place as well for SQL Server releases which are not allowing direct address an Azure Storage location.
- 
+
 This method should not be used with more recent SQL Server releases which support backing up natively against Azure Storage. Exceptions are where limitations of the native backup into Azure are blocking native backup execution into Azure.
 
 #### Other possibilities to backup SQL Server databases
 Other possibilities to backup databases is to attach additional VHDs to a VM that you use to store backups on. In such a case you would need to make sure that the VHDs are not running full. If that is the case, you would need to unmount the VHD and so to speak ‘archive’ it and replace it with a new empty VHD. If you go down that path, you want to keep these VHDs in separate Azure Storage Accounts from the ones that the VHDs with the database files.
 
 A second possibility is to use a large VM that can have many VHDs attached. E.g. D14 with 32VHDs. Use Storage Spaces to build a flexible environment where you could build shares that are used then as backup targets for the different DBMS servers.
- 
+
 Some best practices got documented [here](https://blogs.msdn.com/b/sqlcat/archive/2015/02/26/large-sql-server-database-backup-on-an-azure-vm-and-archiving.aspx) as well. 
 
 #### Performance considerations for backups/restores
@@ -692,7 +708,7 @@ As in bare-metal deployments, backup/restore performance is dependent on how man
 * The smaller the VM size, the smaller the storage throughput quota writing and reading from Azure Storage. Independent of whether the backups are directly stored on Azure Blob or whether they are stored in VHDs that again are stored in Azure Blobs.
 
 When using a Microsoft Azure Storage BLOB as the backup target in more recent releases, you are restricted to designating only one URL target for each specific backup.
- 
+
 But when using the ‘Microsoft SQL Server Backup to Microsoft Azure Tool’ in older releases, you can define more than one file target. With more than one target, the backup can scale and the throughput of the backup is higher. This would result then in multiple files as well in the Azure Storage account. In our testing, using multiple file destinations one can definitely achieve the throughput which one could achieve with the backup extensions implemented in from SQL Server 2012 SP1 CU4 on. You also are not blocked by the 1TB limit as in the native backup into Azure.
 
 However, keep in mind, the throughput also is dependent on the location of the Azure Storage Account you use for the backup. An idea might be to locate the storage account in a different region than the VMs are running in. E.g. you would run the VM configuration in West-Europe, but put the Storage Account that you use to back up against in North-Europe. That certainly will have impact on the backup throughput and is not likely to generate a throughput of 150MB/sec as it seems to be possible in cases where the target storage and the VMs are running in the same regional datacenter.
@@ -723,7 +739,7 @@ Since the SQL Server images in the Azure Marketplace are not set up to use the c
 * Open a Windows Command Window ‘as administrator’.
 * Change the directory to C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012.
 * Execute the command: Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2   
-	* `<local_admin_account_name`> is the account which was defined as the administrator account when deploying the VM for the first time through the gallery.
+  * `<local_admin_account_name`> is the account which was defined as the administrator account when deploying the VM for the first time through the gallery.
 
 The process should only take a few minutes. In order to make sure whether the step ended up with the correct result, please perform the following steps:
 
@@ -733,7 +749,7 @@ The process should only take a few minutes. In order to make sure whether the st
 
 The desired result should look like:
 
-	Latin1-General, binary code point comparison sort for Unicode Data, SQL Server Sort Order 40 on Code Page 850 for non-Unicode Data
+    Latin1-General, binary code point comparison sort for Unicode Data, SQL Server Sort Order 40 on Code Page 850 for non-Unicode Data
 
 If this is not the result, STOP deploying SAP and investigate why the setup command did not work as expected. Deployment of SAP NetWeaver applications onto SQL Server instance with different SQL Server codepages than the one mentioned above is **NOT** supported.
 
@@ -747,7 +763,7 @@ As mentioned earlier in this paper, there is no possibility to create shared sto
 One of the methods of high availability (HA) is SQL Server Log Shipping. If the VMs participating in the HA configuration have working name resolution, there is no problem and the setup in Azure will not differ from any setup that is done on-premises. It is not recommended to rely on IP resolution only. In regards to setting up Log Shipping and the principles around Log Shipping please check this documentation:
 
 <https://technet.microsoft.com/library/ms187103.aspx>
- 
+
 In order to really achieve any high availability, one needs to deploy the VMs which are within such a Log Shipping configuration to be within the same Azure Availability Set.
 
 #### Database Mirroring
@@ -767,6 +783,7 @@ Some considerations using an Availability Group Listener are:
 * Using an Availability Group Listener is only possible with Windows Server 2012 or Windows Server 2012 R2 as guest OS of the VM. For Windows Server 2012 you need to make sure that this patch is applied: <https://support.microsoft.com/kb/2854082> 
 * For Windows Server 2008 R2 this patch does not exist and AlwaysOn would need to be used in the same manner as Database Mirroring by specifying a failover partner in the connections string (done through the SAP default.pfl parameter dbs/mss/server – see SAP Note [965908]).
 * When using an Availability Group Listener, the Database VMs need to be connected to a dedicated Load Balancer. Name resolution in Cloud-Only deployments would either require all VMs of an SAP system (application servers, DBMS server and (A)SCS server) are in the same virtual network or would require from an SAP application layer the maintenance of the etc\host file in order to get the VM names of the SQL Server VMs resolved. In order to avoid that Azure is assigning new IP addresses in cases where both VMs incidentally are shutdown, one should assign static IP addresses to the network interfaces of those VMs in the AlwaysOn configuration (defining a static IP address is described in [this][virtual-networks-reserved-private-ip] article)
+
 [comment]: <> (Old blogs)
 [comment]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>) 
 * There are special steps required when building the WSFC cluster configuration where the cluster needs a special IP address assigned, because Azure with its current functionality would assign the cluster name the same IP address as the node the cluster is created on. This means a manual step must be performed to assign a different IP address to the cluster.
@@ -778,12 +795,13 @@ Some considerations using an Availability Group Listener are:
 [comment]: <> (Preconfigured AlwaysOn setup via the Azure gallery <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
 [comment]: <> (Creating an Availability Group Listener is best described in [this][virtual-machines-windows-classic-ps-sql-int-listener] tutorial)
 [comment]: <> (Securing network endpoints with ACLs are explained best here:)
-[comment]: <> (*	<https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
-[comment]: <> (*	<https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> )
-[comment]: <> (*	<https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
-[comment]: <> (*	<https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>) 
+[comment]: <> (*    <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
+[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> )
+[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
+[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>) 
 
 It is possible to deploy a SQL Server AlwaysOn Availability Group over different Azure Regions as well. This functionality will leverage the Azure VNet-to-Vnet connectivity ([more details][virtual-networks-configure-vnet-to-vnet-connection]).
+
 [comment]: <> (TODO old blog)
 [comment]: <> (The setup of SQL Server AlwaysOn Availability Groups in such a scenario is described here: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
 
@@ -798,28 +816,28 @@ Looking at matching technologies one can argue that the first two cases can be c
 
 You will need to balance the more complex setup of AlwaysOn, compared to Database Mirroring, with the advantages of AlwaysOn. Those advantages can be listed like:
 
-*	Readable secondary replicas.
-*	Backups from secondary replicas.
-*	Better scalability.
-*	More than one secondary replicas.
+* Readable secondary replicas.
+* Backups from secondary replicas.
+* Better scalability.
+* More than one secondary replicas.
 
 ### <a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>General SQL Server for SAP on Azure Summary
 There are many recommendations in this guide and we recommend you read it more than once before planning your Azure deployment. In general, though, be sure to follow the top ten general DBMS on Azure specific points:
 
 [comment]: <> (2.3 higher throughput than what? Than one VHD?)
 1. Use the latest DBMS release, like SQL Server 2014, that has the most advantages in Azure. For SQL Server, this is SQL Server 2012 SP1 CU4 which would include the feature of backing up against Azure Storage. However, in conjunction with SAP we would recommend at least SQL Server 2014 SP1 CU1 or SQL Server 2012 SP2 and the latest CU.
-1. Carefully plan your SAP system landscape in Azure to balance the data file layout and Azure restrictions:
-	* Don’t have too many VHDs, but have enough to ensure you can reach your required IOPS.
-	* Remember that IOPS are also limited per Azure Storage Account and that Storage Accounts are limited within each Azure subscription ([more details][azure-subscription-service-limits]). 
-	* Only stripe across VHDs if you need to achieve a higher throughput.
-1. Never install software or put any files that require persistence on the D:\ drive as it is non-permanent and anything on this drive will be lost at a Windows reboot.
-1. Don’t use Azure VHD caching for Azure Standard Storage.
-1. Don’t use Azure geo-replicated Storage Accounts.  Use Locally Redundant for DBMS workloads.
-1. Use your DBMS vendor’s HA/DR solution to replicate database data.
-1. Always use Name Resolution, don’t rely on IP addresses.
-1. Use the highest database compression possible. For SQL Server this is page compression.
-1. Be careful using SQL Server images from the Azure Marketplace. If you use the SQL Server one, you must change the instance collation before installing any SAP NetWeaver system on it.
-1. Install and configure the SAP Host Monitoring for Azure as described in [Deployment Guide][deployment-guide].
+2. Carefully plan your SAP system landscape in Azure to balance the data file layout and Azure restrictions:
+   * Don’t have too many VHDs, but have enough to ensure you can reach your required IOPS.
+   * Remember that IOPS are also limited per Azure Storage Account and that Storage Accounts are limited within each Azure subscription ([more details][azure-subscription-service-limits]). 
+   * Only stripe across VHDs if you need to achieve a higher throughput.
+3. Never install software or put any files that require persistence on the D:\ drive as it is non-permanent and anything on this drive will be lost at a Windows reboot.
+4. Don’t use Azure VHD caching for Azure Standard Storage.
+5. Don’t use Azure geo-replicated Storage Accounts.  Use Locally Redundant for DBMS workloads.
+6. Use your DBMS vendor’s HA/DR solution to replicate database data.
+7. Always use Name Resolution, don’t rely on IP addresses.
+8. Use the highest database compression possible. For SQL Server this is page compression.
+9. Be careful using SQL Server images from the Azure Marketplace. If you use the SQL Server one, you must change the instance collation before installing any SAP NetWeaver system on it.
+10. Install and configure the SAP Host Monitoring for Azure as described in [Deployment Guide][deployment-guide].
 
 ## Specifics to SAP ASE on Windows
 Starting with Microsoft Azure, you can easily migrate your existing SAP ASE applications to Azure Virtual Machines. SAP ASE in a Virtual Machine enables you to reduce the total cost of ownership of deployment, management and maintenance of enterprise breadth applications by easily migrating these applications to Microsoft Azure. With SAP ASE in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises.
@@ -830,23 +848,22 @@ We are confident that Microsoft Azure hosted Virtual Machines will perform very 
 
 Statements and recommendations in regard to the usage of Azure Storage, Deployment of SAP VMs or SAP Monitoring apply to deployments of SAP ASE in conjunction with SAP applications as stated throughout the first four chapters of this document.
 
-### SAP ASE Version Support 
+### SAP ASE Version Support
 SAP currently supports SAP ASE version 16.0 for use with SAP Business Suite products. All updates for SAP ASE server, or JDBC and ODBC drivers to be used with SAP Business Suite products are provided solely through the SAP Service Marketplace at: <https://support.sap.com/swdc>.
 
 As for installations on-premises, do not download updates for the SAP ASE server, or for the JDBC and ODBC drivers directly from Sybase websites. For detailed information on patches which are supported for use with SAP Business Suite products on-premises and in Azure Virtual Machines see the following SAP Notes:
 
 * [1590719]
 * [1973241]
- 
+
 General information on running SAP Business Suite on SAP ASE can be found in the [SCN](https://scn.sap.com/community/ase)
 
 ### SAP ASE Configuration Guidelines for SAP related SAP ASE Installations in Azure VMs
-
 #### Structure of the SAP ASE Deployment
 In accordance with the general description, SAP ASE executables should be located or installed into the system drive of the VM’s base VHD (drive c:\). Typically, most of the SAP ASE system and tools databases are not really leveraged hard by SAP NetWeaver workload. Hence the system and tools databases (master, model, saptools, sybmgmtdb, sybsystemdb) can remain on the C:\drive as well. 
 
 An exception could be the temporary database containing all work tables and temporary tables created by SAP ASE, which in case of some SAP ERP and all BW workloads might require either higher data volume or I/O operations volume which can’t fit into the original VM’s base VHD (drive c:\).
- 
+
 Depending on the version of SAPInst/SWPM used to install the system, the database might contain:
 
 * A single SAP ASE tempdb which is created when installing SAP ASE
@@ -881,28 +898,36 @@ For SAP systems which are using SAP ASE as database platform, the DBACockpit is 
 As with on-premises systems several steps are required to enable all SAP NetWeaver functionality used by the Webdynpro implementation of the DBACockpit. Please follow SAP Note [1245200] to enable the usage of webdynpros and generate the required ones. When following the instructions in the above notes you will also configure the Internet Communication Manager (icm) along with the ports to be used for http and https connections. The default setting for http looks like this:
 
 > icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
->
+> 
 > icm/server_port_1 = PROT=HTTPS,PORT=443$$,PROCTIMEOUT=600,TIMEOUT=600
+> 
+> 
 
 and the links generated in transaction DBACockpit will look similar to this:
 
 > https://`<fullyqualifiedhostname`>:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > http://`<fullyqualifiedhostname`>:8000/sap/bc/webdynpro/sap/dba_cockpit
+> 
+> 
 
 Depending on if and how the Azure Virtual Machine hosting the SAP system is connected via site-to-site, multi-site or ExpressRoute (Cross-Premises deployment) you need to make sure that ICM is using a fully qualified hostname that can be resolved on the machine where you are trying to open the DBACockpit from. Please see SAP Note [773830] to understand how ICM determines the fully qualified host name depending on profile parameters and set parameter icm/host_name_full explicitly if required.
 
 If you deployed the VM in a Cloud-Only scenario without cross-premises connectivity between on-premises and Azure, you need to define a public IP address and a domainlabel. The format of the public DNS name of the VM will then look like this :
 
 > `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
+> 
+> 
 
 More details related to the DNS name can be found [here][virtual-machines-azurerm-versus-azuresm].
 
 Setting the SAP profile parameter icm/host_name_full to the DNS name of the Azure VM the link might look similar to:
 
 > https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
-
+> 
 > http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
+> 
+> 
 
 In this case you need to make sure to:
 
@@ -921,7 +946,7 @@ Further information about DBA Cockpit for SAP ASE can be found in the following 
 * [1757924]
 * [1757928]
 * [1758182]
-* [1758496]	
+* [1758496]    
 * [1814258]
 * [1922555]
 * [1956005]
@@ -955,7 +980,6 @@ To increase the number of targets to write to there are two options which can be
 Striping a volume over multiple mounted VHDs has been discussed earlier in this guide. For more information on using multiple directories in the SAP ASE dump configuration please refer to the documentation on Stored Procedure sp_config_dump which is used to create the dump configuration on the [Sybase Infocenter](http://infocenter.sybase.com/help/index.jsp).
 
 ### Disaster Recovery with Azure VMs
-
 #### Data Replication with SAP Sybase Replication Server
 With the SAP Sybase Replication Server (SRS) SAP ASE provides a warm standby solution to transfer database transactions to a distant location asynchronously. 
 
@@ -964,7 +988,6 @@ The installation and operation of SRS works as well functionally in a VM hosted 
 ASE HADR via SAP Replication Server is planned with a future release. It will be tested with and released for Microsoft Azure platforms as soon as it is available.
 
 ## Specifics to SAP ASE on Linux
-
 Starting with Microsoft Azure, you can easily migrate your existing SAP ASE applications to Azure Virtual Machines. SAP ASE in a Virtual Machine enables you to reduce the total cost of ownership of deployment, management and maintenance of enterprise breadth applications by easily migrating these applications to Microsoft Azure. With SAP ASE in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises.
 
 For deploying Azure VMs it's important to know the official SLAs which can be found here : <https://azure.microsoft.com/support/legal/sla>
@@ -979,24 +1002,23 @@ The following two SAP Notes include general information about ASE on Linux and A
 * [2134316]
 * [1941500]
 
-### SAP ASE Version Support 
+### SAP ASE Version Support
 SAP currently supports SAP ASE version 16.0 for use with SAP Business Suite products. All updates for SAP ASE server, or JDBC and ODBC drivers to be used with SAP Business Suite products are provided solely through the SAP Service Marketplace at: <https://support.sap.com/swdc>.
 
 As for installations on-premises, do not download updates for the SAP ASE server, or for the JDBC and ODBC drivers directly from Sybase websites. For detailed information on patches which are supported for use with SAP Business Suite products on-premises and in Azure Virtual Machines see the following SAP Notes:
 
 * [1590719]
 * [1973241]
- 
+
 General information on running SAP Business Suite on SAP ASE can be found in the [SCN](https://scn.sap.com/community/ase)
 
 ### SAP ASE Configuration Guidelines for SAP related SAP ASE Installations in Azure VMs
-
 #### Structure of the SAP ASE Deployment
 In accordance with the general description, SAP ASE executables should be located or installed into the root file system of the VM
 ( /sybase ). Typically, most of the SAP ASE system and tools databases are not really leveraged hard by SAP NetWeaver workload. Hence the system and tools databases (master, model, saptools, sybmgmtdb, sybsystemdb) can remain on the root file system as well. 
 
 An exception could be the temporary database containing all work tables and temporary tables created by SAP ASE, which in case of some SAP ERP and all BW workloads might require either higher data volume or I/O operations volume which can’t fit into the original VM’s OS disk.
- 
+
 Depending on the version of SAPInst/SWPM used to install the system, the database might contain:
 
 * A single SAP ASE tempdb which is created when installing SAP ASE
@@ -1032,14 +1054,18 @@ For SAP systems which are using SAP ASE as database platform, the DBACockpit is 
 As with on-premises systems several steps are required to enable all SAP NetWeaver functionality used by the Webdynpro implementation of the DBACockpit. Please follow SAP Note [1245200] to enable the usage of webdynpros and generate the required ones. When following the instructions in the above notes you will also configure the Internet Communication Manager (icm) along with the ports to be used for http and https connections. The default setting for http looks like this:
 
 > icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
->
+> 
 > icm/server_port_1 = PROT=HTTPS,PORT=443$$,PROCTIMEOUT=600,TIMEOUT=600
+> 
+> 
 
 and the links generated in transaction DBACockpit will look similar to this:
 
 > https://`<fullyqualifiedhostname`>:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > http://`<fullyqualifiedhostname`>:8000/sap/bc/webdynpro/sap/dba_cockpit
+> 
+> 
 
 Depending on if and how the Azure Virtual Machine hosting the SAP system is connected via site-to-site, multi-site or ExpressRoute (Cross-Premises deployment) you need to make sure that ICM is using a fully qualified hostname that can be resolved on the machine where you are trying to open the DBACockpit from. Please see SAP Note [773830] to understand how ICM determines the fully qualified host name depending on profile parameters and set parameter icm/host_name_full explicitly if required.
 
@@ -1047,6 +1073,8 @@ If you deployed the VM in a Cloud-Only scenario without cross-premises connectiv
 to define a public IP address and a domainlabel. The format of the public DNS name of the VM will then look like this :
 
 > `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
+> 
+> 
 
 More details related to the DNS name can be found [here][virtual-machines-azurerm-versus-azuresm].
 
@@ -1055,6 +1083,8 @@ Setting the SAP profile parameter icm/host_name_full to the DNS name of the Azur
 > https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
+> 
+> 
 
 In this case you need to make sure to:
 
@@ -1073,7 +1103,7 @@ Further information about DBA Cockpit for SAP ASE can be found in the following 
 * [1757924]
 * [1757928]
 * [1758182]
-* [1758496]	
+* [1758496]    
 * [1814258]
 * [1922555]
 * [1956005]
@@ -1107,7 +1137,6 @@ To increase the number of targets to write to there are two options which can be
 Striping a volume over multiple mounted VHDs has been discussed earlier in this guide. For more information on using multiple directories in the SAP ASE dump configuration please refer to the documentation on Stored Procedure sp_config_dump which is used to create the dump configuration on the [Sybase Infocenter](http://infocenter.sybase.com/help/index.jsp).
 
 ### Disaster Recovery with Azure VMs
-
 #### Data Replication with SAP Sybase Replication Server
 With the SAP Sybase Replication Server (SRS) SAP ASE provides a warm standby solution to transfer database transactions to a distant location asynchronously. 
 
@@ -1126,14 +1155,13 @@ All details about Oracle versions and corresponding OS versions which are suppor
 General information about running SAP Business Suite on Oracle can be found on SCN: <https://scn.sap.com/community/oracle>
 
 ### Oracle Configuration Guidelines for SAP Installations in Azure VMs
-
 #### Storage configuration
 Only single instance Oracle using NTFS formatted disks is supported. All database files must be stored on the NTFS file system based on VHD disks. These VHDs are mounted to the Azure VM and are based on Azure Page BLOB Storage (<https://msdn.microsoft.com/library/azure/ee691964.aspx>). 
 Any kind of network drives or remote shares like Azure file services:
- 
+
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx> 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
- 
+
 are **NOT** supported for Oracle database files!
 
 Using Azure VHDs based on Azure Page BLOB Storage, the statements made in this document in chapter [Caching for VMs and VHDs][dbms-guide-2.1] and [Microsoft Azure Storage][dbms-guide-2.3] apply to deployments with the Oracle Database as well.
@@ -1158,7 +1186,6 @@ in [this][virtual-machines-windows-classic-configure-oracle-data-guard] document
 All other general topics like Azure Availability Sets or SAP monitoring apply as described in the first three chapters of this document for deployments of VMs with the Oracle Database as well.
 
 ## Specifics for the SAP MaxDB Database on Windows
-
 ### SAP MaxDB Version Support
 SAP currently supports SAP MaxDB version 7.9 for use with SAP NetWeaver-based products in Azure. All updates for SAP MaxDB server, or JDBC and ODBC drivers to be used with SAP NetWeaver-based products are provided solely through the SAP Service Marketplace at <https://support.sap.com/swdc>.
 General information on running SAP NetWeaver on SAP MaxDB can be found at <https://scn.sap.com/community/maxdb>.
@@ -1173,13 +1200,15 @@ It is highly recommended to use the newest version of the operating system Micro
 
 ### Available SAP MaxDB Documentation
 You can find the updated list of SAP MaxDB documentation in the following SAP Note [767598]
-	
-### SAP MaxDB Configuration Guidelines for SAP Installations in Azure VMs
 
+### SAP MaxDB Configuration Guidelines for SAP Installations in Azure VMs
 #### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Storage configuration
 Azure storage best practices for SAP MaxDB follow the general recommendations mentioned in chapter [Structure of a RDBMS Deployment][dbms-guide-2].
 
-> [AZURE.IMPORTANT] Like other databases, SAP MaxDB also has data and log files. However, in SAP MaxDB terminology the correct term is “volume” (not “file”). For example, there are SAP MaxDB data volumes and log volumes. Do not confuse these with OS disk volumes. 
+> [!IMPORTANT]
+> Like other databases, SAP MaxDB also has data and log files. However, in SAP MaxDB terminology the correct term is “volume” (not “file”). For example, there are SAP MaxDB data volumes and log volumes. Do not confuse these with OS disk volumes. 
+> 
+> 
 
 In short you have to:
 
@@ -1209,9 +1238,9 @@ To increase the number of targets to write to, there are two options that you ca
 * Dedicating separate volumes for backup
 * Striping the backup target volume over multiple mounted VHDs in order to improve the IOPS throughput on that striped disk volume
 * Having separate dedicated logical disk devices for:
-    * SAP MaxDB backup volumes (i.e. files)
-    * SAP MaxDB data volumes ( i.e. files)
-    * SAP MaxDB log volumes ( i.e. files)
+  * SAP MaxDB backup volumes (i.e. files)
+  * SAP MaxDB data volumes ( i.e. files)
+  * SAP MaxDB log volumes ( i.e. files)
 
 Striping a volume over multiple mounted VHDs has been discussed earlier in chapter [Software RAID][dbms-guide-2.2] of this document. 
 
@@ -1224,7 +1253,6 @@ Other SAP MaxDB-specific settings are transparent to Azure VMs and are described
 * [1173395]
 
 ## Specifics for SAP liveCache on Windows
-
 ### SAP liveCache Version Support
 Minimal version of SAP liveCache supported in Azure Virtual Machines is **SAP LC/LCAPPS 10.0 SP 25** including **liveCache 7.9.08.31** and **LCA-Build 25**, released for **EhP 2 for SAP SCM 7.0** and higher.
 
@@ -1237,7 +1265,6 @@ To find the supported Microsoft Windows version for SAP liveCache on Azure, see:
 It is highly recommended to use the newest version of the operating system Microsoft Windows, which is Microsoft Windows 2012 R2. 
 
 ### SAP liveCache Configuration Guidelines for SAP Installations in Azure VMs
-
 #### Recommended Azure VM Types
 As SAP liveCache is an application that performs huge calculations, the amount and speed of RAM and CPU has a major influence on SAP liveCache performance. 
 
@@ -1252,7 +1279,7 @@ As SAP liveCache is based on SAP MaxDB technology, all the Azure storage best pr
 
 #### Dedicated Azure VM for liveCache
 As SAP liveCache intensively uses computational power, for productive usage it is highly recommended to deploy on a dedicated Azure Virtual Machine. 
- 
+
 ![Dedicated Azure VM for liveCache for productive use case][dbms-guide-figure-700]
 
 #### Backup and Restore
@@ -1284,15 +1311,14 @@ To find out supported Windows version for SAP Content Server on Azure, see:
 It is highly recommended to use the newest version of Microsoft Windows, which at the time of writing this document is **Windows Server 2012 R2**.
 
 ### SAP Content Server Configuration Guidelines for SAP Installations in Azure VMs
-
-#### Storage Configuration 
+#### Storage Configuration
 If you configure SAP Content Server to store files in the SAP MaxDB database, all Azure storage best practices recommendation mentioned for SAP MaxDB in chapter [Storage Configuration][dbms-guide-8.4.1] are also valid for the SAP Content Server scenario. 
 
 If you configure SAP Content Server to store files in the file system, it is recommended to use a dedicated logical drive. Using storage spaces enables you to also increase logical disk size and IOPS throughput, as described in in chapter [Software RAID][dbms-guide-2.2]. 
 
 #### SAP Content Server Location
 SAP Content Server has to be deployed in the same Azure region and Azure VNET where the SAP system is deployed. You are free to decide whether you want to deploy SAP Content Server components on a dedicated Azure VM or on the same VM where the SAP system is running. 
- 
+
 ![Dedicated Azure VM for SAP Content Server][dbms-guide-figure-800]
 
 #### SAP Cache Server Location
@@ -1301,12 +1327,12 @@ The SAP Cache Server is an additional server-based component to provide access t
 Here you have two options:
 
 1. **Client is a backend SAP system**
-If a backend SAP system is configured to access SAP Content Server, that SAP system is a client. As both SAP system and SAP Content Server are deployed in the same Azure region – in the same Azure datacenter – they are physically close to each other. Therefore, there is no need to have a dedicated SAP Cache Server. SAP UI clients (SAP GUI or web browser) access the SAP system directly, and the SAP system retrieves documents from the SAP Content Server.
-1. **Client is an on-premises web browser**
-The SAP Content Server can be configured to be accessed directly by the web browser. In this case, a web browser running on–premises is a client of the SAP Content Server. On-premises datacenter and Azure datacenter are placed in different physical locations (ideally close to each other). Your on-premises datacenter is connected to Azure via Azure Site-to-Site VPN or ExpressRoute. Although both options offer secure VPN network connection to Azure, site-to-site network connection does not offer a network bandwidth and latency SLA between the on-premises datacenter and the Azure datacenter. To speed up access to documents, you can do one of the following:
-    1. Install SAP Cache Server on-premises, close to the on-premises web browser (option on [this][dbms-guide-900-sap-cache-server-on-premises] Figure)
-    1. Configure Azure ExpressRoute, which offers a high-speed and low-latency dedicated network connection between on-premises datacenter and Azure datacenter.
- 
+   If a backend SAP system is configured to access SAP Content Server, that SAP system is a client. As both SAP system and SAP Content Server are deployed in the same Azure region – in the same Azure datacenter – they are physically close to each other. Therefore, there is no need to have a dedicated SAP Cache Server. SAP UI clients (SAP GUI or web browser) access the SAP system directly, and the SAP system retrieves documents from the SAP Content Server.
+2. **Client is an on-premises web browser**
+   The SAP Content Server can be configured to be accessed directly by the web browser. In this case, a web browser running on–premises is a client of the SAP Content Server. On-premises datacenter and Azure datacenter are placed in different physical locations (ideally close to each other). Your on-premises datacenter is connected to Azure via Azure Site-to-Site VPN or ExpressRoute. Although both options offer secure VPN network connection to Azure, site-to-site network connection does not offer a network bandwidth and latency SLA between the on-premises datacenter and the Azure datacenter. To speed up access to documents, you can do one of the following:
+   1. Install SAP Cache Server on-premises, close to the on-premises web browser (option on [this][dbms-guide-900-sap-cache-server-on-premises] Figure)
+   2. Configure Azure ExpressRoute, which offers a high-speed and low-latency dedicated network connection between on-premises datacenter and Azure datacenter.
+
 ![Option to install SAP Cache Server on-premises][dbms-guide-figure-900]
 <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
 
@@ -1333,14 +1359,13 @@ SAP on IBM DB2 for LUW on Microsoft Azure Virtual Machine Services is supported 
 For information about supported SAP products and Azure VM types, please refer to SAP Note [1928533].
 
 ### IBM DB2 for Linux, UNIX, and Windows Configuration Guidelines for SAP Installations in Azure VMs
-
 #### Storage Configuration
 All database files must be stored on the NTFS file system based on VHD disks. These VHDs are mounted to the Azure VM and are based in Azure Page BLOB Storage (<https://msdn.microsoft.com/library/azure/ee691964.aspx>). 
 Any kind of network drives or remote shares like the following Azure file services are **NOT** supported for database files: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
- 
+
 If you are using Azure VHDs based on Azure Page BLOB Storage, the statements made in this document in chapter [Structure of a RDBMS Deployment][dbms-guide-2] also apply to deployments with the IBM DB2 for LUW Database. 
 
 As explained earlier in the general part of the document, quotas on IOPS throughput for Azure VHDs exist. The exact quotas depend on the VM type used. A list of VM types with their quotas can be found [here][virtual-machines-sizes].
@@ -1392,7 +1417,6 @@ SAP on IBM DB2 for LUW on Microsoft Azure Virtual Machine Services is supported 
 For information about supported SAP products and Azure VM types, please refer to SAP Note [1928533].
 
 ### IBM DB2 for Linux, UNIX, and Windows Configuration Guidelines for SAP Installations in Azure VMs
-
 #### Storage Configuration
 All database files must be stored on a file system based on VHD disks. These VHDs are mounted to the Azure VM and are based in Azure Page BLOB Storage (<https://msdn.microsoft.com/library/azure/ee691964.aspx>).
 Any kind of network drives or remote shares like the following Azure file services are **NOT** supported for database files:
@@ -1436,3 +1460,4 @@ Do not use Azure Store Geo-Replication. For further information, refer to chapte
 All other general topics like Azure Availability Sets or SAP monitoring apply as described in the first three chapters of this document for deployments of VMs with IBM DB2 for LUW as well.
 
 Also refer to chapter [General SQL Server for SAP on Azure Summary][dbms-guide-5.8].
+

@@ -1,33 +1,30 @@
-<properties
-	pageTitle="Cortana Intelligence Gallery competitions | Microsoft Azure"
-	description="Discover competitions in the Cortana Intelligence Gallery."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Cortana Intelligence Gallery competitions | Microsoft Docs
+description: Discover competitions in the Cortana Intelligence Gallery.
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/13/2016"
-	ms.author="roopalik;garye"/>
+ms.assetid: ef74f411-bce4-4b02-aa34-902fc8d7b519
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/13/2016
+ms.author: roopalik;garye
 
-
+---
 # Discover competitions in the Cortana Intelligence Gallery
-
-[AZURE.INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
+[!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Cortana Intelligence Competitions
-
 **[Competitions](https://gallery.cortanaintelligence.com/competitions)**
 provide an exciting opportunity to compete with the community of data scientists to solve complex problems using Cortana Intelligence Suite.
 
 ## Discover
-
   To browse for
  competitions
   in the Gallery, open the [Gallery](http://gallery.cortanaintelligence.com), point your mouse to **More** at the top of the Gallery home page, and select
@@ -53,21 +50,20 @@ competition's
 competition
  to invite other users to view the page.
 
-![Share this item with friends](media\machine-learning-gallery-how-to-use-contribute-publish\share-links.png)
+![Share this item with friends](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
 
-![Add your own comments](media\machine-learning-gallery-how-to-use-contribute-publish\comments.png)
+![Add your own comments](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
 
 ## Enter a competition
-
 If the competition is open, the status on the details page will be **Active**. To enter the competition, click **Enter Competition** and you will be given instructions on the resources you need and the steps you need to take.
 
-![Competition has completed](media\machine-learning-gallery-competitions\open-competition.png)
+![Competition has completed](media\\machine-learning-gallery-competitions\\open-competition.png)
 
 If the competition is no longer open, it's status on the details page will be **Completed** and the **Enter Competition** link will be replaced with the word **Finished**.
 
-![Competition has completed](media\machine-learning-gallery-competitions\completed-competition.png)
-
+![Competition has completed](media\\machine-learning-gallery-competitions\\completed-competition.png)
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+

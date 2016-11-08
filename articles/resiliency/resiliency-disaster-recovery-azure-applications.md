@@ -1,38 +1,35 @@
-<properties
-   pageTitle="Disaster recovery for Azure applications | Microsoft Azure"
-   description="Technical overview and in-depth information about designing applications for disaster recovery on Microsoft Azure."
-   services=""
-   documentationCenter="na"
-   authors="adamglick"
-   manager="saladki"
-   editor=""/>
+﻿---
+title: Disaster recovery for Azure applications | Microsoft Docs
+description: Technical overview and in-depth information about designing applications for disaster recovery on Microsoft Azure.
+services: ''
+documentationcenter: na
+author: adamglick
+manager: saladki
+editor: ''
 
-<tags
-   ms.service="resiliency"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/18/2016"
-   ms.author="aglick"/>
+ms.assetid: f9e0cbdc-ec82-46dc-bee6-558b35518252
+ms.service: resiliency
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/18/2016
+ms.author: aglick
 
-#Disaster recovery for applications built on Microsoft Azure
-
+---
+# Disaster recovery for applications built on Microsoft Azure
 Whereas high availability is about temporary failure management, disaster recovery (DR) is about the catastrophic loss of application functionality. For example, consider the scenario where a region goes down. In this case, you need to have a plan to run your application or access your data outside the Azure region. Execution of this plan involves people, processes, and supporting applications that allow the system to function. The business and technology owners who define the system's operational mode for a disaster also determine the level of functionality for the service during a disaster. The level of functionality can take a few forms: completely unavailable, partially available (degraded functionality or delayed processing), or fully available.
 
-##Azure disaster recovery features
+## Azure disaster recovery features
+As with availability considerations, Azure has [resiliency technical guidance](resiliency-technical-guidance.md) that's designed to support disaster recovery. There is also a relationship between some of the availability features of Azure and disaster recovery. For example, the management of roles across fault domains increases the availability of an application. Without that management, an unhandled hardware failure would become a “disaster” scenario. So the correct application of availability features and strategies is an important part of disaster-proofing your application. However, this article goes beyond general availability issues to more serious (and rarer) disaster events.
 
-As with availability considerations, Azure has [resiliency technical guidance](./resiliency-technical-guidance.md) that's designed to support disaster recovery. There is also a relationship between some of the availability features of Azure and disaster recovery. For example, the management of roles across fault domains increases the availability of an application. Without that management, an unhandled hardware failure would become a “disaster” scenario. So the correct application of availability features and strategies is an important part of disaster-proofing your application. However, this article goes beyond general availability issues to more serious (and rarer) disaster events.
-
-##Multiple datacenter regions
-
+## Multiple datacenter regions
 Azure maintains datacenters in many regions around the world. This infrastructure supports several disaster recovery scenarios, such as the system-provided geo-replication of Azure Storage to secondary regions. It also means that you can easily and inexpensively deploy a cloud service to multiple locations around the world. Compare this with the cost and difficulty of running your own datacenters in multiple regions. Deploying data and services to multiple regions helps protect your application from major outages in a single region.
 
-##Azure Traffic Manager
-
+## Azure Traffic Manager
 When a region-specific failure occurs, you must redirect traffic to services or deployments in another region. You can do this routing manually, but it's more efficient to use an automated process. Azure Traffic Manager is designed for this task. You can use it to automatically manage the failover of user traffic to another region in case the primary region fails. Because traffic management is an important part of the overall strategy, it's important to understand the basics of Traffic Manager.
 
-In the following diagram, users connect to a URL that's specified for Traffic Manager (__http://myATMURL.trafficmanager.net__) and that abstracts the actual site URLs (__http://app1URL.cloudapp.net__ and __http://app2URL.cloudapp.net__). Based on how you configure the criteria for when to route users, users will be sent to the correct actual site when the policy dictates. The policy options are round-robin, performance, or failover. For the sake of this article, we will be concerned with only the failover option.
+In the following diagram, users connect to a URL that's specified for Traffic Manager (**http://myATMURL.trafficmanager.net**) and that abstracts the actual site URLs (**http://app1URL.cloudapp.net** and **http://app2URL.cloudapp.net**). Based on how you configure the criteria for when to route users, users will be sent to the correct actual site when the policy dictates. The policy options are round-robin, performance, or failover. For the sake of this article, we will be concerned with only the failover option.
 
 ![Routing via Azure Traffic Manager](./media/resiliency-disaster-recovery-azure-applications/routing-using-azure-traffic-manager.png)
 
@@ -44,33 +41,28 @@ Although Traffic Manager decides where to go in a failover, you can decide wheth
 
 For more information on how Azure Traffic Manager works, refer to:
 
- * [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md)
- * [Configure failover routing method](../traffic-manager/traffic-manager-configure-failover-routing-method.md)
+* [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md)
+* [Configure failover routing method](../traffic-manager/traffic-manager-configure-failover-routing-method.md)
 
-##Azure disaster scenarios
-
+## Azure disaster scenarios
 The following sections cover several different types of disaster scenarios. Region-wide service disruptions are not the only cause of application-wide failures. Poor design or administration errors can also lead to outages. It's important to consider the possible causes of a failure during both the design and testing phases of your recovery plan. A good plan takes advantage of Azure features and augments them with application-specific strategies. The chosen response is dictated by the importance of the application, the recovery point objective (RPO), and the recovery time objective (RTO).
 
-###Application failure
-
+### Application failure
 Azure Traffic Manager automatically handles failures that result from the underlying hardware or operating system software in the host virtual machine. Azure creates a new instance of the role on a functioning server and adds it to the load-balancer rotation. If the number of role instances is greater than one, Azure shifts processing to the other running role instances while replacing the failed node.
 
 There are serious application errors that happen independently of any hardware or operating system failures. The application might fail due to the catastrophic exceptions caused by bad logic or data integrity issues. You must incorporate enough telemetry into the code so that a monitoring system can detect failure conditions and notify an application administrator. An administrator who has full knowledge of the disaster recovery processes can make a decision to invoke a failover process. Alternatively, an administrator can simply accept an availability outage to resolve the critical errors.
 
-###Data corruption
-
+### Data corruption
 Azure automatically stores your Azure SQL Database and Azure Storage data three times redundantly within different fault domains in the same region. If you use geo-replication, the data is stored three additional times in a different region. However, if your users or your application corrupts that data in the primary copy, the data quickly replicates to the other copies. Unfortunately, this results in three copies of corrupt data.
 
 To manage potential corruption of your data, you have two options. First, you can manage a custom backup strategy. You can store your backups in Azure or on-premises, depending on your business requirements or governance regulations. Another option is to use the new point-in-time restore option for recovering a SQL database. For more information, see the section on [data strategies for disaster recovery](#data-strategies-for-disaster-recovery).
 
-###Network outage
-
+### Network outage
 When parts of the Azure network are inaccessible, you might not be able to get to your application or data. If one or more role instances are unavailable due to network issues, Azure uses the remaining available instances of your application. If your application can’t access its data because of an Azure network outage, you can potentially run in degraded mode locally by using cached data. You need to architect the disaster recovery strategy for running in degraded mode in your application. For some applications, this might not be practical.
 
 Another option is to store data in an alternate location until connectivity is restored. If degraded mode is not an option, the remaining options are application downtime or failover to an alternate region. The design of an application running in degraded mode is as much a business decision as a technical one. This is discussed further in the section on [degraded application functionality](#degraded-application-functionality).
 
-###Failure of a dependent service
-
+### Failure of a dependent service
 Azure provides many services that can experience periodic downtime. Consider [Azure Redis Cache](https://azure.microsoft.com/services/cache/) as an example. This multi-tenant service provides caching capabilities to your application. It's important to consider what happens in your application if the dependent service is unavailable. In many ways, this scenario is similar to the network outage scenario. However, considering each service independently results in potential improvements to your overall plan.
 
 Azure Redis Cache provides caching to your application from within your cloud service deployment, which provides disaster recovery benefits. First, the service now runs on roles that are local to your deployment. Therefore, you're better able to monitor and manage the status of the cache as part of your overall management processes for the cloud service. This type of caching also exposes new features. One of the new features is high availability for cached data. This helps to preserve cached data if a single node fails by maintaining duplicate copies on other nodes.
@@ -79,27 +71,27 @@ Note that high availability decreases throughput and increases latency because o
 
 With each dependent service, you should understand the implications of a service disruption. In the caching example, it might be possible to access the data directly from a database until you restore your cache. This would be a degraded mode in terms of performance but would provide full functionality with regard to data.
 
-###Region-wide service disruption
-
+### Region-wide service disruption
 The previous failures have primarily been failures that can be managed within the same Azure region. However, you must also prepare for the possibility that there is a service disruption of the entire region. If a region-wide service disruption occurs, the locally redundant copies of your data are not available. If you have enabled geo-replication, there are three additional copies of your blobs and tables in a different region. If Microsoft declares the region lost, Azure remaps all of the DNS entries to the geo-replicated region.
 
->[AZURE.NOTE] Be aware that you don't have any control over this process, and it will occur only for region-wide service disruption. Because of this, you must rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [data strategies for disaster recovery](#data-strategies-for-disaster-recovery).
+> [!NOTE]
+> Be aware that you don't have any control over this process, and it will occur only for region-wide service disruption. Because of this, you must rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [data strategies for disaster recovery](#data-strategies-for-disaster-recovery).
+> 
+> 
 
-###Azure-wide service disruption
-
+### Azure-wide service disruption
 In disaster planning, you must consider the entire range of possible disasters. One of the most severe service disruptions would involve all Azure regions simultaneously. As with other service disruptions, you might decide that you'll take the risk of temporary downtime in that event. Widespread service disruptions that span regions should be much rarer than isolated service disruptions that involve dependent services or single regions.
 
 However, for some mission-critical applications, you might decide that there must be a backup plan for this scenario as well. The plan for this event might include failing over to services in an [alternative cloud](#alternative-cloud) or a [hybrid on-premises and cloud solution](#hybrid-on-premises-and-cloud-solution).
 
-###Degraded application functionality
-
+### Degraded application functionality
 A well-designed application typically uses a collection of modules that communicate with each other though the implementation of loosely coupled information-interchange patterns. A DR-friendly application requires separation of tasks at the module level. This is to prevent the disruption of a dependent service from bringing down the entire application. For example, consider a web commerce application for Company Y. The following modules might constitute the application:
 
- * __Product Catalog__ allows users to browse products.
- * __Shopping Cart__ allows users to add/remove products in their shopping cart.
- * __Order Status__ shows the shipping status of user orders.
- * __Order Submission__ finalizes the shopping session by submitting the order with payment.
- * __Order Processing__ validates the order for data integrity and performs a quantity availability check.
+* **Product Catalog** allows users to browse products.
+* **Shopping Cart** allows users to add/remove products in their shopping cart.
+* **Order Status** shows the shipping status of user orders.
+* **Order Submission** finalizes the shopping session by submitting the order with payment.
+* **Order Processing** validates the order for data integrity and performs a quantity availability check.
 
 When a dependent of a module in this application goes down, how does the module function until that part recovers? A well-architected system implements isolation boundaries through separation of tasks both at design time and at runtime. You can categorize every failure as recoverable and non-recoverable. Non-recoverable errors will take down the module, but you can mitigate a recoverable error through alternatives. As discussed in the high-availability section, you can hide some problems from users by handling faults and taking alternate actions. During a more serious service disruption, the application might be completely unavailable. However, a third option is to continue servicing users in degraded mode.
 
@@ -111,16 +103,14 @@ Another variation of degraded mode centers on performance rather than capabiliti
 
 Deciding how much of an application will continue to function in degraded mode is both a business decision and a technical decision. The application must also decide how to inform the users of the temporary problems. In this example, the application might allow viewing products and even adding them to a shopping cart. However, when the user attempts to make a purchase, the application notifies the user that the sales module is temporarily inaccessible. It isn't ideal for the customer, but it does prevent an application-wide service disruption.
 
-##Data strategies for disaster recovery
-
+## Data strategies for disaster recovery
 Handling data correctly is the hardest area to get right in any disaster recovery plan. Restoring data is also the part of the recovery process that typically takes the most time. Different choices in degradation modes result in difficult challenges for data recovery from failure and consistency after failure.
 
 One of the factors is the need to restore or maintain a copy of the application’s data. You will use this data for reference and transactional purposes at a secondary site. An on-premises setting requires an expensive and lengthy planning process to implement a multiple-region disaster recovery strategy. Conveniently, most cloud providers, including Azure, readily allow the deployment of applications to multiple regions. These regions are geographically distributed in such a way that multiple-region service disruption should be extremely rare. The strategy for handling data across regions is one of the contributing factors for the success of any disaster recovery plan.
 
 The following sections discuss disaster recovery techniques related to data backups, reference data, and transactional data.
 
-###Backup and restore
-
+### Backup and restore
 Regular backups of application data can support some disaster recovery scenarios. Different storage resources require different techniques.
 
 For the Basic, Standard, and Premium SQL Database tiers, you can take advantage of point-in-time restore to recover your database. For more information, see [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md). Another option is to use Active Geo-Replication for SQL Database. This automatically replicates database changes to secondary databases in the same Azure region or even in a different Azure region. This provides a potential alternative to some of the more manual data synchronization techniques presented in this article. For more information, see [Overview: SQL Database Active Geo-Replication](../sql-database/sql-database-geo-replication-overview.md).
@@ -131,11 +121,10 @@ The built-in redundancy of Azure Storage creates two replicas of the backup file
 
 For Azure Storage, you can develop your own custom backup process or use one of many third-party backup tools. Note that most application designs have additional complexities where storage resources reference each other. For example, consider a SQL database that has a column that links to a blob in Azure Storage. If the backups do not happen simultaneously, the database might have the pointer to a blob that was not backed up before the failure. The application or disaster recovery plan must implement processes to handle this inconsistency after a recovery.
 
-###Reference data pattern for disaster recovery
-
+### Reference data pattern for disaster recovery
 Reference data is read-only data that supports application functionality. It typically does not change frequently. Although backup and restore is one method to handle region-wide service disruptions, the RTO is relatively long. When you deploy the application to a secondary region, some strategies can improve the RTO for reference data.
 
-Because reference data changes infrequently, you can improve the RTO by maintaining a permanent copy of the reference data in the secondary region. This eliminates the time required to restore backups in the event of a disaster. To meet the multiple-region disaster recovery requirements, you must deploy the application and the reference data together in multiple regions. As mentioned in [Reference data pattern for high availability](./resiliency-high-availability-azure-applications.md#reference-data-pattern-for-high-availability), you can deploy reference data to the role itself, to external storage, or to a combination of both.
+Because reference data changes infrequently, you can improve the RTO by maintaining a permanent copy of the reference data in the secondary region. This eliminates the time required to restore backups in the event of a disaster. To meet the multiple-region disaster recovery requirements, you must deploy the application and the reference data together in multiple regions. As mentioned in [Reference data pattern for high availability](resiliency-high-availability-azure-applications.md#reference-data-pattern-for-high-availability), you can deploy reference data to the role itself, to external storage, or to a combination of both.
 
 The reference data deployment model within compute nodes implicitly satisfies the disaster recovery requirements. Reference data deployment to SQL Database requires that you deploy a copy of the reference data to each region. The same strategy applies to Azure Storage. You must deploy a copy of any reference data that's stored in Azure Storage to the primary and secondary regions.
 
@@ -143,14 +132,12 @@ The reference data deployment model within compute nodes implicitly satisfies th
 
 You must implement your own application-specific backup routines for all data, including reference data. Geo-replicated copies across regions are used only in a region-wide service disruption. To prevent extended downtime, deploy the mission-critical parts of the application’s data to the secondary region. For an example of this topology, see the [active-passive model](#active-passive).
 
-###Transactional data pattern for disaster recovery
-
+### Transactional data pattern for disaster recovery
 Implementation of a fully functional disaster mode strategy requires asynchronous replication of the transactional data to the secondary region. The practical time windows within which the replication can occur will determine the RPO characteristics of the application. You might still recover the data that was lost from the primary region during the replication window. You might also be able to merge with the secondary region later.
 
 The following architecture examples provide some ideas on different ways of handling transactional data in a failover scenario. It's important to note that these examples are not exhaustive. For example, intermediate storage locations such as queues might be replaced with Azure SQL Database. The queues themselves might be either Azure Storage or Azure Service Bus queues (see [Azure queues and Service Bus queues--compared and contrasted](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)). Server storage destinations might also vary, such as Azure tables instead of SQL Database. In addition, worker roles might be inserted as intermediaries in various steps. The important thing is not to emulate these architectures exactly, but to consider various alternatives in the recovery of transactional data and related modules.
 
-####Replication of transactional data in preparation for disaster recovery
-
+#### Replication of transactional data in preparation for disaster recovery
 Consider an application that uses Azure Storage queues to hold transactional data. This allows worker roles to process the transactional data to the server database in a decoupled architecture. This requires the transactions to use some form of temporary caching if the front-end roles require the immediate query of that data. Depending on the level of data-loss tolerance, you might choose to replicate the queues, the database, or all of the storage resources. With only database replication, if the primary region goes down, you can still recover the data in the queues when the primary region comes back.
 
 The following diagram shows an architecture where the server database is synchronized across regions.
@@ -161,10 +148,12 @@ The biggest challenge to implementing this architecture is the replication strat
 
 One potential implementation might make use of the intermediate queue in the previous example. The worker role that processes the data to the final storage destination might make the change in both the primary region and the secondary region. These are not trivial tasks, and complete guidance for replication code is beyond the scope of this article. The important point is that a lot of your time and testing should focus on how you replicate your data to the secondary region. Additional processing and testing can help ensure that the failover and recovery processes correctly handle any possible data inconsistencies or duplicate transactions.
 
->[AZURE.NOTE] Most of this paper focuses on platform as a service (PaaS). However, additional replication and availability options for hybrid applications use Azure Virtual Machines. These hybrid applications use infrastructure as a service (IaaS) to host SQL Server on virtual machines in Azure. This allows traditional availability approaches in SQL Server, such as AlwaysOn Availability Groups or Log Shipping. Some techniques, such as AlwaysOn, work only between on-premises SQL Server instances and Azure virtual machines. For more information, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+> [!NOTE]
+> Most of this paper focuses on platform as a service (PaaS). However, additional replication and availability options for hybrid applications use Azure Virtual Machines. These hybrid applications use infrastructure as a service (IaaS) to host SQL Server on virtual machines in Azure. This allows traditional availability approaches in SQL Server, such as AlwaysOn Availability Groups or Log Shipping. Some techniques, such as AlwaysOn, work only between on-premises SQL Server instances and Azure virtual machines. For more information, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+> 
+> 
 
-####Degraded application mode for transaction capture
-
+#### Degraded application mode for transaction capture
 Consider a second architecture that operates in degraded mode. The application on the secondary region deactivates all the functionality, such as reporting, business intelligence (BI), or draining queues. It accepts only the most important types of transactional workflows, as defined by business requirements. The system captures the transactions and writes them to queues. The system might postpone processing the data during the initial stage of the service disruption. If the system on the primary region is reactivated within the expected time window, the worker roles in the primary region can drain the queues. This process eliminates the need for database merging. If the primary region service disruption goes beyond the tolerable window, the application can start processing the queues.
 
 In this scenario, the database on the secondary contains incremental transactional data that must be merged after the primary is reactivated. The following diagram shows this strategy for temporarily storing transactional data until the primary region is restored.
@@ -173,8 +162,7 @@ In this scenario, the database on the secondary contains incremental transaction
 
 For more discussion of data management techniques for resilient Azure applications, see [Failsafe: Guidance for Resilient Cloud Architectures](https://channel9.msdn.com/Series/FailSafe).
 
-##Deployment topologies for disaster recovery
-
+## Deployment topologies for disaster recovery
 You must prepare mission-critical applications for the possibility of a region-wide service disruption. You do this by incorporating a multiple-region deployment strategy into the operational planning.
 
 Multiple-region deployments might involve IT-pro processes to publish the application and reference data to the secondary region after a disaster. If the application requires instant failover, the deployment process might involve an active/passive setup or an active/active setup. This type of deployment has existing instances of the application running in the alternate region. A routing tool such as Azure Traffic Manager provides load-balancing services at the DNS level. It can detect service disruptions and route the users to different regions when needed.
@@ -183,8 +171,7 @@ Part of a successful Azure disaster recovery is architecting that recovery into 
 
 The following sections cover different deployment topologies for disaster recovery. Typically, there's a tradeoff in increased cost or complexity for additional availability.
 
-###Single-region deployment
-
+### Single-region deployment
 A single-region deployment is not really a disaster recovery topology, but is meant to contrast with the other architectures. Single-region deployments are common for applications in Azure. However, this type of deployment is not a serious contender for a disaster recovery plan.
 
 The following diagram depicts an application running in a single Azure region. Azure Traffic Manager and the use of fault and upgrade domains increase availability of the application within the region.
@@ -197,8 +184,7 @@ For all but the least critical applications, you must devise a plan to deploy yo
 
 Let’s take a look now at specific patterns to support failover across different regions. These examples all use two regions to describe the process.
 
-###Redeployment to a secondary Azure region
-
+### Redeployment to a secondary Azure region
 In the pattern of redeployment to a secondary region, only the primary region has applications and databases running. The secondary region is not set up for an automatic failover. So when a disaster occurs, you must spin up all the parts of the service in the new region. This includes uploading a cloud service to Azure, deploying the cloud service, restoring the data, and changing DNS to reroute the traffic.
 
 Although this is the most affordable of the multiple-region options, it has the worst RTO characteristics. In this model, the service package and database backups are stored either on-premises or in the Azure Blob storage instance of the secondary region. However, you must deploy a new service and restore the data before it resumes operation. Even if you fully automate the data transfer from backup storage, spinning up the new database environment consumes a lot of time. Moving data from the backup disk storage to the empty database on the secondary region is the most expensive part of the restore process. You must do this, however, to bring the new database to an operational state because it isn't replicated.
@@ -209,21 +195,18 @@ This option is practical only for non-critical applications that can tolerate a 
 
 ![Redeployment to a secondary Azure region](./media/resiliency-disaster-recovery-azure-applications/redeploy-to-a-secondary-azure-region.png)
 
-###Active-passive
-
+### Active-passive
 The active-passive pattern is the choice that many companies favor. This pattern provides improvements to the RTO with a relatively small increase in cost over the redeployment pattern.
 In this scenario, there is again a primary and a secondary Azure region. All of the traffic goes to the active deployment on the primary region. The secondary region is better prepared for disaster recovery because the database is running on both regions. Additionally, a synchronization mechanism is in place between them. This standby approach can involve two variations: a database-only approach or a complete deployment in the secondary region.
 
-####Database only
-
+#### Database only
 In the first variation of the active-passive pattern, only the primary region has a deployed cloud service application. However, unlike the redeployment pattern, both regions are synchronized with the contents of the database. (For more information, see the section on [transactional data pattern for disaster recovery](#transactional-data-pattern-for-disaster-recovery).) When a disaster occurs, there are fewer activation requirements. You start the application in the secondary region, change connection strings to the new database, and change the DNS entries to reroute traffic.
 
 Like the redeployment pattern, you should have already stored the service packages in Azure Blob storage in the secondary region for faster deployment. Unlike the redeployment pattern, you don’t incur the majority of the overhead that database restore operation requires. The database is ready and running. This saves a significant amount of time, making this an affordable DR pattern. It's also the most popular DR pattern.
 
 ![Active-passive, database only](./media/resiliency-disaster-recovery-azure-applications/active-passive-database-only.png)
 
-####Full replica
-
+#### Full replica
 In the second variation of the active-passive pattern, both the primary region and the secondary region have a full deployment. This deployment includes the cloud services and a synchronized database. However, only the primary region is actively handling network requests from the users. The secondary region becomes active only when the primary region experiences a service disruption. In that case, all new network requests route to the secondary region. Azure Traffic Manager can manage this failover automatically.
 
 Failover occurs faster than the database-only variation because the services are already deployed. This pattern provides a very low RTO. The secondary failover region must be ready to go immediately after failure of the primary region.
@@ -236,8 +219,7 @@ The following diagram shows the model where the primary and secondary regions co
 
 ![Active-passive, full replica](./media/resiliency-disaster-recovery-azure-applications/active-passive-full-replica.png)
 
-###Active-active
-
+### Active-active
 By now, you’re probably figuring out the evolution of the patterns: decreasing the RTO increases costs and complexity. The active-active solution actually breaks this tendency with regard to cost.
 
 In an active-active pattern, the cloud services and database are fully deployed in both regions. Unlike the active-passive model, both regions receive user traffic. This option yields the quickest recovery time. The services are already scaled to handle a portion of the load at each region. DNS is already enabled to use the secondary region. There's additional complexity in determining how to route users to the appropriate region. Round-robin scheduling might be possible. It's more likely that certain users would use a specific region where the primary copy of their data resides.
@@ -256,8 +238,7 @@ In the active-active pattern, you might not need as many instances on the primar
 
 Realize that until you restore the primary region, the secondary region might receive a sudden surge of new users. If there are 10,000 users on each server when the primary region experiences a service disruption, the secondary region suddenly has to handle 20,000 users. Monitoring rules on the secondary region must detect this increase and double the instances in the secondary region. For more information on this, see the section on [failure detection](#failure-detection).
 
-##Hybrid on-premises and cloud solution
-
+## Hybrid on-premises and cloud solution
 One additional strategy for disaster recovery is to architect a hybrid application that runs on-premises and in the cloud. Depending on the application, the primary region might be either location. Consider the previous architectures and imagine the primary or secondary region as an on-premises location.
 
 There are some challenges in these hybrid architectures. First, most of this article has addressed PaaS architecture patterns. Typical PaaS applications in Azure rely on Azure-specific constructs such as roles, cloud services, and Traffic Manager. To create an on-premises solution for this type of PaaS application would require a significantly different architecture. This might not be feasible from a management or cost perspective.
@@ -266,8 +247,7 @@ However, a hybrid solution for disaster recovery has fewer challenges for tradit
 
 IaaS solutions also provide an easier path for on-premises applications to use Azure as the failover option. You might have a fully functioning application in an existing on-premises region. However, what if you lack the resources to maintain a geographically separate region for failover? You might decide to use virtual machines and virtual networks to get your application running in Azure. In that case, define processes that synchronize data to the cloud. The Azure deployment then becomes the secondary region to use for failover. The primary region remains the on-premises application. For more information about IaaS architectures and capabilities, see the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-##Alternative cloud
-
+## Alternative cloud
 There are situations where even the robustness of the Microsoft Cloud might not meet internal compliance rules or policies that your organization requires. Even the best preparation and design to implement backup systems during a disaster fall short if there's a global service disruption of a cloud service provider.
 
 You’ll want to compare availability requirements with the cost and complexity of increased availability. Perform a risk analysis, and define the RTO and RPO for your solution. If your application cannot tolerate any downtime, it might make sense for you to consider using another cloud solution. Unless the entire Internet goes down, another cloud solution might still be available if Azure becomes globally inaccessible.
@@ -276,8 +256,7 @@ As with the hybrid scenario, the failover deployments in the previous disaster r
 
 If you decide to split your DR among different platforms, it would make sense to architect abstraction layers in the design of the solution. If you do this, you won’t need to develop and maintain two different versions of the same application for different cloud platforms in case of disaster. As with the hybrid scenario, the use of Azure Virtual Machines or Azure Container Service might be easier in these cases than the use of cloud-specific PaaS designs.
 
-##Automation
-
+## Automation
 Some of the patterns that we just discussed require quick activation of offline deployments as well as restoration of specific parts of a system. Automation, or scripting, supports the ability to activate resources on demand and deploy solutions rapidly. In this article, DR-related automation is equated with [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx), but the [Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) is also an option.
 
 Developing scripts helps to manage the parts of DR that Azure does not transparently handle. This has the benefit of producing consistent results each time, which minimizes the chance of human error. Having predefined DR scripts also reduces the time to rebuild a system and its constituent parts in the midst of a disaster. You don’t want to try to manually figure out how to restore your site while it's down and losing money every minute.
@@ -286,14 +265,12 @@ After you create the scripts, test them repeatedly from start to finish. After y
 
 A best practice with automation is to create a repository of PowerShell scripts or command-line interface (CLI) scripts for Azure disaster recovery. Clearly mark and categorize them for easy lookup. Designate one person to manage the repository and versioning of the scripts. Document them well with explanations of parameters and examples of script use. Also ensure that you keep this documentation in sync with your Azure deployments. This underscores the purpose of having one person in charge of all parts of the repository.
 
-##Failure detection
-
+## Failure detection
 To correctly handle problems with availability and disaster recovery, you must be able to detect and diagnose failures. You should do advanced server and deployment monitoring so you can quickly know when a system or its parts are suddenly down. Monitoring tools that look at the overall health of the cloud service and its dependencies can perform part of this work. One Microsoft tool is [System Center 2016](https://www.microsoft.com/en-us/server-cloud/products/system-center-2016/). Third-party tools can also provide monitoring capabilities. Most monitoring solutions track key performance counters and service availability.
 
 Although these tools are vital, they do not replace the need to plan for fault detection and reporting within a cloud service. You must plan to properly use Azure Diagnostics. Custom performance counters or event-log entries can also be part of the overall strategy. This provides more data during failures to quickly diagnose the problem and restore full capabilities. It also provides additional metrics that the monitoring tools can use to determine application health. For more information, see [Enabling Azure Diagnostics in Azure Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics.md). For a discussion of how to plan for an overall “health model,” see [Failsafe: Guidance for Resilient Cloud Architectures](https://channel9.msdn.com/Series/FailSafe).
 
-##Disaster simulation
-
+## Disaster simulation
 Simulation testing involves creating small real-life situations on the work floor to observe how the team members react. Simulations also show how effective the solutions are in the recovery plan. Carry out simulations in such a way that the created scenarios don't disrupt actual business while still feeling like real situations.
 
 Consider architecting a type of “switchboard” in the application to manually simulate availability issues. For instance, through a soft switch, trigger database access exceptions for an ordering module by causing it to malfunction. You can take similar lightweight approaches for other modules at the network interface level.
@@ -302,6 +279,6 @@ The simulation highlights any issues that were inadequately addressed. The simul
 
 There are several other techniques that you can use to test disaster recovery plans. However, most of them are simply altered versions of these basic techniques. The main motive behind this testing is to evaluate how feasible and how workable the recovery plan is. Disaster recovery testing focuses on the details to discover holes in the basic recovery plan.
 
-##Next steps
+## Next steps
+This article is part of a series of articles focused on [disaster recovery and high availability for applications built on Microsoft Azure](resiliency-disaster-recovery-high-availability-azure-applications.md). The previous article in this series is [High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-This article is part of a series of articles focused on [disaster recovery and high availability for applications built on Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). The previous article in this series is [High availability for applications built on Microsoft Azure](./resiliency-high-availability-azure-applications.md).

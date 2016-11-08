@@ -1,62 +1,53 @@
-<properties
-	pageTitle="Deploy Azure Resources Using C# | Microsoft Azure"
-	description="Learn to use C# and Azure Resource Manager to create Microsoft Azure resources."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager"/>
+---
+title: Deploy Azure Resources Using C# | Microsoft Docs
+description: Learn to use C# and Azure Resource Manager to create Microsoft Azure resources.
+services: virtual-machines-windows
+documentationcenter: ''
+author: davidmu1
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="na"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/06/2016"
-	ms.author="davidmu"/>
+ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 10/06/2016
+ms.author: davidmu
 
-# Deploy Azure Resources using C# 
-
+---
+# Deploy Azure Resources using C
 This article shows you how to create Azure resources using C#.
 
 You first need to make sure you've finished these tasks:
 
-- Install [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- Verify the installation of [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
-- Get an [authentication token](../resource-group-authenticate-service-principal.md)
+* Install [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
+* Verify the installation of [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
+* Get an [authentication token](../resource-group-authenticate-service-principal.md)
 
 It takes about 30 minutes to do these steps.
 
 ## Step 1: Create a Visual Studio project and install the libraries
-
 NuGet packages are the easiest way to install the libraries that you need to finish this tutorial. To get the libraries that you need in Visual Studio, do these steps:
 
 1. Click **File** > **New** > **Project**.
-
 2. In **Templates** > **Visual C#**, select **Console Application**, enter the name and location of the project, and then click **OK**.
-
 3. Right-click the project name in the Solution Explorer, and then click **Manage NuGet Packages**.
-
 4. Type *Active Directory* in the search box, click **Install** for the Active Directory Authentication Library package, and then follow the instructions to install the package.
-
 5. At the top of the page, select **Include Prerelease**. Type *Microsoft.Azure.Management.Compute* in the search box, click **Install** for the Compute .NET Libraries, and then follow the instructions to install the package.
-
 6. Type *Microsoft.Azure.Management.Network* in the search box, click **Install** for the Network .NET Libraries, and then follow the instructions to install the package.
-
 7. Type *Microsoft.Azure.Management.Storage* in the search box, click **Install** for the Storage .NET Libraries, and then follow the instructions to install the package.
-
 8. Type *Microsoft.Azure.Management.ResourceManager* in the search box, click **Install** for the Resource Management Libraries.
 
 Now you're ready to start using the libraries to create your application.
 
 ## Step 2: Create the credentials that are used to authenticate requests
-
 Now you format the application information that you previously created into credentials that are used to authenticate requests to Azure Resource Manager.
 
 1. Open the Program.cs file for the project that you created, and then add these using statements to the top of the file:
-
+   
         using Microsoft.Azure;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Azure.Management.ResourceManager;
@@ -68,9 +59,8 @@ Now you format the application information that you previously created into cred
         using Microsoft.Azure.Management.Compute;
         using Microsoft.Azure.Management.Compute.Models;
         using Microsoft.Rest;
-
 2. To create the token that is needed, add this method to the Program class:
-
+   
         private static async Task<AuthenticationResult> GetAccessTokenAsync()
         {
           var cc = new ClientCredential("{client-id}", "{client-secret}");
@@ -82,24 +72,20 @@ Now you format the application information that you previously created into cred
           }
           return token;
         }
-
-	Replace {client-id} with the identifier of the Azure Active Directory application, {client-secret} with the access key of the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureRmSubscription. You can find the access key by using the Azure portal.
-
+   
+    Replace {client-id} with the identifier of the Azure Active Directory application, {client-secret} with the access key of the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureRmSubscription. You can find the access key by using the Azure portal.
 3. To call the method that you previously added, add this code to the Main method in the Program.cs file:
-
+   
         var token = GetAccessTokenAsync();
         var credential = new TokenCredentials(token.Result.AccessToken);
-
 4. Save the Program.cs file.
 
 ## Step 3: Register the resource providers and create the resources
-
 ### Register the providers and create a resource group
-
 All resources must be contained in a resource group. Before you can add resources to a group, your subscription must be registered with the resource providers.
 
 1. Add variables to the Main method of the Program class to specify the names that you want to use for the resources:
-
+   
         var groupName = "resource group name";
         var subscriptionId = "subsciption id";
         var location = "location name";
@@ -112,11 +98,10 @@ All resources must be contained in a resource group. Before you can add resource
         var vmName = "virtual machine name";  
         var adminName = "administrator account name";
         var adminPassword = "administrator account password";
-        
+   
     Replace all the variable values with the names and identifier that you want to use. You can find the subscription identifier by running Get-AzureRmSubscription.
-
 2. To create the resource group and register the providers, add this method to the Program class:
-
+   
         public static async Task<ResourceGroup> CreateResourceGroupAsync(
           TokenCredentials credential,
           string groupName,
@@ -125,7 +110,7 @@ All resources must be contained in a resource group. Before you can add resource
         {
           var resourceManagementClient = new ResourceManagementClient(credential)
             { SubscriptionId = subscriptionId };
-            
+   
           Console.WriteLine("Registering the providers...");
           var rpResult = resourceManagementClient.Providers.Register("Microsoft.Storage");
           Console.WriteLine(rpResult.RegistrationState);
@@ -133,14 +118,13 @@ All resources must be contained in a resource group. Before you can add resource
           Console.WriteLine(rpResult.RegistrationState);
           rpResult = resourceManagementClient.Providers.Register("Microsoft.Compute");
           Console.WriteLine(rpResult.RegistrationState);
-          
+   
           Console.WriteLine("Creating the resource group...");
           var resourceGroup = new ResourceGroup { Location = location };
           return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(groupName, resourceGroup);
         }
-
 3. To call the method that you previously added, add this code to the Main method:
-
+   
         var rgResult = CreateResourceGroupAsync(
           credential,
           groupName,
@@ -150,11 +134,10 @@ All resources must be contained in a resource group. Before you can add resource
         Console.ReadLine();
 
 ### Create a storage account
-
 A [storage account](../storage/storage-create-storage-account.md) is needed to store the virtual hard disk file that is created for the virtual machine.
 
 1. To create the storage account, add this method to the Program class:
-
+   
         public static async Task<StorageAccount> CreateStorageAccountAsync(
           TokenCredentials credential,       
           string groupName,
@@ -177,9 +160,8 @@ A [storage account](../storage/storage-create-storage-account.md) is needed to s
             }
           );
         }
-
 2. To call the method that you previously added, add this code to the Main method of the Program class:
-
+   
         var stResult = CreateStorageAccountAsync(
           credential,
           groupName,
@@ -190,11 +172,10 @@ A [storage account](../storage/storage-create-storage-account.md) is needed to s
         Console.ReadLine();
 
 ### Create the public IP address
-
 A public IP address is needed to communicate with the virtual machine.
 
 1. To create the public IP address of the virtual machine, add this method to the Program class:
-
+   
         public static async Task<PublicIPAddress> CreatePublicIPAddressAsync(
           TokenCredentials credential,  
           string groupName,
@@ -215,9 +196,8 @@ A public IP address is needed to communicate with the virtual machine.
             }
           );
         }
-
 2. To call the method that you previously added, add this code to the Main method of the Program class:
-
+   
         var ipResult = CreatePublicIPAddressAsync(
           credential,
           groupName,
@@ -228,11 +208,10 @@ A public IP address is needed to communicate with the virtual machine.
         Console.ReadLine();
 
 ### Create the virtual network
-
 A virtual machine that's created with the Resource Manager deployment model must be in a virtual network.
 
 1. To create a subnet and a virtual network, add this method to the Program class:
-
+   
         public static async Task<VirtualNetwork> CreateVirtualNetworkAsync(
           TokenCredentials credential,
           string groupName,
@@ -244,17 +223,17 @@ A virtual machine that's created with the Resource Manager deployment model must
           Console.WriteLine("Creating the virtual network...");
           var networkManagementClient = new NetworkManagementClient(credential)
             { SubscriptionId = subscriptionId };
-          
+   
           var subnet = new Subnet
           {
             Name = subnetName,
             AddressPrefix = "10.0.0.0/24"
           };
-          
+   
           var address = new AddressSpace {
             AddressPrefixes = new List<string> { "10.0.0.0/16" }
           };
-          
+   
           return await networkManagementClient.VirtualNetworks.CreateOrUpdateAsync(
             groupName,
             vnetName,
@@ -266,9 +245,8 @@ A virtual machine that's created with the Resource Manager deployment model must
             }
           );
         }
-        
 2. To call the method that you previously added, add this code to the Main method of the Program class:
-
+   
         var vnResult = CreateVirtualNetworkAsync(
           credential,
           groupName,
@@ -278,13 +256,12 @@ A virtual machine that's created with the Resource Manager deployment model must
           subnetName);
         Console.WriteLine(vnResult.Result.ProvisioningState);  
         Console.ReadLine();
-        
-### Create the network interface
 
+### Create the network interface
 A virtual machine needs a network interface to communicate on the virtual network.
 
 1. To create a network interface, add this method to the Program class:
-
+   
         public static async Task<NetworkInterface> CreateNetworkInterfaceAsync(
           TokenCredentials credential,
           string groupName,
@@ -304,7 +281,7 @@ A virtual machine needs a network interface to communicate on the virtual networ
             subnetName
           );
           var pubipResponse = await networkManagementClient.PublicIPAddresses.GetAsync(groupName, ipName);
-
+   
           return await networkManagementClient.NetworkInterfaces.CreateOrUpdateAsync(
             groupName,
             nicName,
@@ -323,9 +300,8 @@ A virtual machine needs a network interface to communicate on the virtual networ
             }
           );
         }
-
 2. To call the method that you previously added, add this code to the Main method of the Program class:
-
+   
         var ncResult = CreateNetworkInterfaceAsync(
           credential,
           groupName,
@@ -339,11 +315,10 @@ A virtual machine needs a network interface to communicate on the virtual networ
         Console.ReadLine();
 
 ### Create an availability set
-
 Availability sets make it easier for you to manage the maintenance of the virtual machines used by your application.
 
 1. To create the availability set, add this method to the Program class:
-
+   
         public static async Task<AvailabilitySet> CreateAvailabilitySetAsync(
           TokenCredentials credential,
           string groupName,
@@ -363,9 +338,8 @@ Availability sets make it easier for you to manage the maintenance of the virtua
             }
           );
         }
-
 2. To call the method that you previously added, add this code to the Main method of the Program class:
-
+   
         var avResult = CreateAvailabilitySetAsync(
           credential,  
           groupName,
@@ -375,11 +349,10 @@ Availability sets make it easier for you to manage the maintenance of the virtua
         Console.ReadLine();
 
 ### Create a virtual machine
-
 Now that you created all the supporting resources, you can create a virtual machine.
 
 1. To create the virtual machine, add this method to the Program class:
-
+   
         public static async Task<VirtualMachine> CreateVirtualMachineAsync(
           TokenCredentials credential, 
           string groupName,
@@ -395,11 +368,11 @@ Now that you created all the supporting resources, you can create a virtual mach
           var networkManagementClient = new NetworkManagementClient(credential)
             { SubscriptionId = subscriptionId };
           var nic = networkManagementClient.NetworkInterfaces.Get(groupName, nicName);
-
+   
           var computeManagementClient = new ComputeManagementClient(credential);
           computeManagementClient.SubscriptionId = subscriptionId;
           var avSet = computeManagementClient.AvailabilitySets.Get(groupName, avsetName);
-
+   
           Console.WriteLine("Creating the virtual machine...");
           return await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(
             groupName,
@@ -454,11 +427,13 @@ Now that you created all the supporting resources, you can create a virtual mach
             }
           );
         }
-
-	>[AZURE.NOTE] This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md).
-
+   
+   > [!NOTE]
+   > This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md).
+   > 
+   > 
 2. To call the method that you previously added, add this code to the Main method:
-
+   
         var vmResult = CreateVirtualMachineAsync(
           credential,
           groupName,
@@ -473,44 +448,42 @@ Now that you created all the supporting resources, you can create a virtual mach
         Console.WriteLine(vmResult.Result.ProvisioningState);
         Console.ReadLine();
 
-##Step 4: Delete the resources
-
+## Step 4: Delete the resources
 Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. If you want to delete the virtual machines and all the supporting resources, all you have to do is delete the resource group.
 
-1.	To delete the resource group, add this method to the Program class:
-
-        public static async void DeleteResourceGroupAsync(
-          TokenCredentials credential,
-          string groupName,
-          string subscriptionId)
-        {
-          Console.WriteLine("Deleting resource group...");
-          var resourceManagementClient = new ResourceManagementClient(credential)
-            { SubscriptionId = subscriptionId };
-          await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-        }
-
-2.	To call the method that you previously added, add this code to the Main method:
-
-        DeleteResourceGroupAsync(
-          credential,
-          groupName,
-          subscriptionId);
-        Console.ReadLine();
+1. To delete the resource group, add this method to the Program class:
+   
+     public static async void DeleteResourceGroupAsync(
+   
+       TokenCredentials credential,
+       string groupName,
+       string subscriptionId)
+     {
+   
+       Console.WriteLine("Deleting resource group...");
+       var resourceManagementClient = new ResourceManagementClient(credential)
+         { SubscriptionId = subscriptionId };
+       await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+     }
+2. To call the method that you previously added, add this code to the Main method:
+   
+     DeleteResourceGroupAsync(
+   
+       credential,
+       groupName,
+       subscriptionId);
+     Console.ReadLine();
 
 ## Step 5: Run the console application
-
 1. To run the console application, click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
-
 2. Press **Enter** after each status code is returned to create each resource. After the virtual machine is created, do the next step before pressing Enter to delete all the resources.
-
-	It should take about five minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal before you delete them.
-
+   
+    It should take about five minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal before you delete them.
 3. To see the status of the resources, browse to the Audit Logs in the Azure portal:
+   
+    ![Browse audit logs in Azure portal](./media/virtual-machines-windows-csharp/crpportal.png)
 
-	![Browse audit logs in Azure portal](./media/virtual-machines-windows-csharp/crpportal.png)
-    
 ## Next Steps
+* Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](virtual-machines-windows-csharp-template.md).
+* Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-csharp-manage.md).
 
-- Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](virtual-machines-windows-csharp-template.md).
-- Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-csharp-manage.md).

@@ -1,31 +1,32 @@
-<properties
-   pageTitle="Resource Balancer cluster description | Microsoft Azure"
-   description="Describing a Service Fabric cluster by specifying fault domains, upgrade domains, node properties, and node capacities to the Cluster Resource Manager."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+﻿---
+title: Resource Balancer cluster description | Microsoft Docs
+description: Describing a Service Fabric cluster by specifying fault domains, upgrade domains, node properties, and node capacities to the Cluster Resource Manager.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Describing a service fabric cluster
 The Service Fabric Cluster Resource Manager provides several mechanisms for describing a cluster. During runtime, the Cluster Resource Manager uses this information to ensure high availability of the services running in the cluster while also ensuring that the resources in the cluster are being used appropriately.
 
 ## Key concepts
 The Cluster Resource Manager supports several features that describe a cluster:
 
-- Fault Domains
-- Upgrade Domains
-- Node Properties
-- Node Capacities
+* Fault Domains
+* Upgrade Domains
+* Node Properties
+* Node Capacities
 
 ## Fault domains
 A fault domain is any area of coordinated failure. A single machine is a fault domain (since it alone can fail for a variety of reasons, from power supply failures to drive failures to bad NIC firmware). A bunch of machines connected to the same Ethernet switch are in the same fault domain, as would be those connected to a single source of power. Since it's natural for these to overlap, Fault Domains are inherently hierarchal and are represented as URIs in Service Fabric.
@@ -71,51 +72,50 @@ The Cluster Resource manager treats the desire to keep a service balanced across
 
 Let's take a look at one example. Let's say that we have a cluster with 6 nodes, configured with 5 fault domains and 5 upgrade domains.
 
-|       |FD0    |FD1    |FD2    |FD3    |FD4    |
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|
-| UD0   |N1     |       |       |       |       |
-| UD1   |N6     |N2     |       |       |       |
-| UD2   |       |       |N3     |       |       |
-| UD3   |       |       |       |N4     |       |
-| UD4   |       |       |       |       |N5     |
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| UD0 |N1 | | | | |
+| UD1 |N6 |N2 | | | |
+| UD2 | | |N3 | | |
+| UD3 | | | |N4 | |
+| UD4 | | | | |N5 |
 
 Now let's say that we create a service with a TargetReplicaSetSize of 5. The replicas land on N1-N5. In fact, N6 will never get used. But why? Well let's take a look at the difference between the current layout and what would happen if we had chosen N6 instead, and think about how that relates to our definition of the FD and UD constraint.
 
 Here's the layout we got and the total number of replicas per fault and upgrade domain.
 
-
-|       |FD0    |FD1    |FD2    |FD3    |FD4    |UDTotal|
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| UD0   |R1     |       |       |       |       |1      |
-| UD1   |       |R2     |       |       |       |1      |
-| UD2   |       |       |R3     |       |       |1      |
-| UD3   |       |       |       |R4     |       |1      |
-| UD4   |       |       |       |       |R5     |1      |
-|FDTotal|1      |1      |1      |1      |1      |-      |
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| UD0 |R1 | | | | |1 |
+| UD1 | |R2 | | | |1 |
+| UD2 | | |R3 | | |1 |
+| UD3 | | | |R4 | |1 |
+| UD4 | | | | |R5 |1 |
+| FDTotal |1 |1 |1 |1 |1 |- |
 
 Note that this layout is balanced in terms of nodes per fault domain and upgrade domain, and it is also balanced in terms of the number of replicas per fault and upgrade domain. Each domain has the same number of nodes and the same number of replicas.
 
 Now, let's take a look at what would happen if instead of N2, we'd used N6. How would the replicas be distributed then? Well, they'd look something like this:
 
-|       |FD0    |FD1    |FD2    |FD3    |FD4    |UDTotal|
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| UD0   |R1     |       |       |       |       |1      |
-| UD1   |R5     |       |       |       |       |1      |
-| UD2   |       |       |R2     |       |       |1      |
-| UD3   |       |       |       |R3     |       |1      |
-| UD4   |       |       |       |       |R4     |1      |
-|FDTotal|2      |0      |1      |1      |1      |-      |
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| UD0 |R1 | | | | |1 |
+| UD1 |R5 | | | | |1 |
+| UD2 | | |R2 | | |1 |
+| UD3 | | | |R3 | |1 |
+| UD4 | | | | |R4 |1 |
+| FDTotal |2 |0 |1 |1 |1 |- |
 
 This violates our definition for the fault domain constraint, since FD0 has 2 replicas, while FD1 has 0, making the total difference 2 and thus the Cluster Resource Manager will not allow this arrangement. Similarly if we had picked N2-6 we'd get:
 
-|       |FD0    |FD1    |FD2    |FD3    |FD4    |UDTotal|
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| UD0   |       |       |       |       |       |0      |
-| UD1   |R5     |R1     |       |       |       |2      |
-| UD2   |       |       |R2     |       |       |1      |
-| UD3   |       |       |       |R3     |       |1      |
-| UD4   |       |       |       |       |R4     |1      |
-|FDTotal|1      |1      |1      |1      |1      |-      |
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| UD0 | | | | | |0 |
+| UD1 |R5 |R1 | | | |2 |
+| UD2 | | |R2 | | |1 |
+| UD3 | | | |R3 | |1 |
+| UD4 | | | | |R4 |1 |
+| FDTotal |1 |1 |1 |1 |1 |- |
 
 Which while balanced in terms of fault domains is violating the upgrade domain constraint (since UD0 has 0 replicas while UD1 has 2), and hence is invalid as well.
 
@@ -144,14 +144,17 @@ ClusterManifest.xml
     </WindowsServer>
   </Infrastructure>
 ```
-> [AZURE.NOTE] In Azure deployments, fault domains and upgrade domains are assigned by Azure. Therefore, the definition of your nodes and roles within the infrastructure option for Azure does not include fault domain or upgrade domain information.
+> [!NOTE]
+> In Azure deployments, fault domains and upgrade domains are assigned by Azure. Therefore, the definition of your nodes and roles within the infrastructure option for Azure does not include fault domain or upgrade domain information.
+> 
+> 
 
 ## Placement constraints and node properties
 Sometimes (in fact, most of the time) you’re going to want to ensure that certain workloads run only on certain nodes or certain sets of nodes in the cluster. For example, some workload may require GPUs or SSDs while others may not. A great example of this is pretty much every n-tier architecture out there, where certain machines serve as the front end/interface serving side of the application (and hence are probably exposed to the internet) while a different set (often with different hardware resources) handle the work of the compute or storage layers (and usually are not exposed to the internet). Service Fabric expects that even in a microservices world there are cases where particular workloads will need to run on particular hardware configurations, for example:
 
-- an existing n-tier application has been “lifted and shifted” into a Service Fabric environment
-- a workload wants to run on specific hardware for performance, scale, or security isolation reasons
--	A workload needs to be isolated from other workloads for policy or resource consumption reasons
+* an existing n-tier application has been “lifted and shifted” into a Service Fabric environment
+* a workload wants to run on specific hardware for performance, scale, or security isolation reasons
+* A workload needs to be isolated from other workloads for policy or resource consumption reasons
 
 In order to support these sorts of configurations Service Fabric has a first class notion of what we call placement constraints. Placement constraints can be used to indicate where certain services should run. The set of constraints is extensible by users, meaning that people can tag nodes with custom properties and then select for those as well.
 
@@ -159,26 +162,26 @@ In order to support these sorts of configurations Service Fabric has a first cla
 
 The different key/value tags on nodes are known as node placement *properties* (or just node properties), whereas the statement at the service is called a placement *constraint*. The value specified in the node property can be a string, bool, or signed long. The constraint can be any Boolean statement that operates on the different node properties in the cluster. The valid selectors in these boolean statements (which are strings) are:
 
-- conditional checks for creating particular statements
-  - "equal to" ==
-  - "greater than" >
-  - "less than" <
-  - "not equal to" !=
-  - "greater than or equal to" >=
-  - "less than or equal to" <=
-- boolean statements for grouping and negation
-  - "and" &&
-  - "or" ||
-  - "not" !
-- parenthesis for grouping operations
-  - ()
-
+* conditional checks for creating particular statements
+  * "equal to" ==
+  * "greater than" >
+  * "less than" <
+  * "not equal to" !=
+  * "greater than or equal to" >=
+  * "less than or equal to" <=
+* boolean statements for grouping and negation
+  * "and" &&
+  * "or" ||
+  * "not" !
+* parenthesis for grouping operations
+  
+  * ()
+  
   Here are some examples of basic constraint statements that use some of the symbols above. Note that node properties can be strings, bools, or numerical values.   
-
-  - "Foo >= 5"
-  - "NodeColor != green"
-  - "((OneProperty < 100) || ((AnotherProperty == false) && (OneProperty >= 100)))"
-
+  
+  * "Foo >= 5"
+  * "NodeColor != green"
+  * "((OneProperty < 100) || ((AnotherProperty == false) && (OneProperty >= 100)))"
 
 Only nodes where the overall statement evaluates to “True” can have the service placed on it. Nodes without a property defined do not match any placement constraint that contains that property.
 
@@ -336,10 +339,10 @@ LoadMetricInformation     :
 ```
 
 ## Next steps
-- For information on the architecture and information flow within the Cluster Resource manager, check out [this article ](service-fabric-cluster-resource-manager-architecture.md)
-- Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
+* For information on the architecture and information flow within the Cluster Resource manager, check out [this article ](service-fabric-cluster-resource-manager-architecture.md)
+* Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+* Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+* To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png

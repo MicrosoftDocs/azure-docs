@@ -1,28 +1,29 @@
-<properties
-	pageTitle="Automatically enable Diagnostic Settings using a Resource Manager template | Microsoft Azure"
-	description="Learn how to use a Resource Manager template to create diagnostic settings that will enable you to stream your diagnostic logs to Event Hubs or store them in a storage account."
-	authors="johnkemnetz"
-	manager="rboucher"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Automatically enable Diagnostic Settings using a Resource Manager template | Microsoft Docs
+description: Learn how to use a Resource Manager template to create diagnostic settings that will enable you to stream your diagnostic logs to Event Hubs or store them in a storage account.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/26/2016"
-	ms.author="johnkem"/>
+ms.assetid: a8a88a8c-4a48-4df6-8f7e-d90634d39c57
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: johnkem
 
+---
 # Automatically enable Diagnostic Settings at resource creation using a Resource Manager template
 In this article we show how you can use an [Azure Resource Manager template](../resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs, archiving them in a Storage Account, or sending them to Log Analytics when a resource is created.
 
 The method for enabling Diagnostic Logs using a Resource Manager template depends on the resource type.
 
-- **Non-Compute** resources (for example, Network Security Groups, Logic Apps, Automation) use [Diagnostic Settings described in this article](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
-- **Compute** (WAD/LAD-based) resources use the [WAD/LAD configuration file described in this article](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* **Non-Compute** resources (for example, Network Security Groups, Logic Apps, Automation) use [Diagnostic Settings described in this article](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+* **Compute** (WAD/LAD-based) resources use the [WAD/LAD configuration file described in this article](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
 In this article we describe how to configure diagnostics using either method.
 
@@ -37,7 +38,7 @@ Below we give an example of the template JSON file you need to generate for non-
 For non-Compute resources, you will need to do two things:
 
 1. Add parameters to the parameters blob for the storage account name, service bus rule ID, and/or OMS Log Analytics workspace ID (enabling archival of Diagnostic Logs in a storage account, streaming of logs to Event Hubs, and/or sending logs to Log Analytics).
-
+   
     ```json
     "storageAccountName": {
       "type": "string",
@@ -59,7 +60,7 @@ For non-Compute resources, you will need to do two things:
     }
     ```
 2. In the resources array of the resource for which you want to enable Diagnostic Logs, add a resource of type `[resource namespace]/providers/diagnosticSettings`.
-
+   
     ```json
     "resources": [
       {
@@ -180,11 +181,14 @@ To enable diagnostics on a Compute resource, for example a Virtual Machine or Se
 2. Specify a storage account and/or event hub as a parameter.
 3. Add the contents of your WADCfg XML file into the XMLCfg property, escaping all XML characters properly.
 
-> [AZURE.WARNING] This last step can be tricky to get right. [See this article](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables) for an example that splits the Diagnostics Configuration Schema into variables that are escaped and formatted correctly.
+> [!WARNING]
+> This last step can be tricky to get right. [See this article](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables) for an example that splits the Diagnostics Configuration Schema into variables that are escaped and formatted correctly.
+> 
+> 
 
 The entire process, including samples, is described [in this document](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
 
-
 ## Next Steps
-- [Read more about Azure Diagnostic Logs](./monitoring-overview-of-diagnostic-logs.md)
-- [Stream Azure Diagnostic Logs to Event Hubs](./monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)
+* [Stream Azure Diagnostic Logs to Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+

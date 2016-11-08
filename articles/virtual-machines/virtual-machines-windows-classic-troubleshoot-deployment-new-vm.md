@@ -1,41 +1,42 @@
-<properties
-   pageTitle="Troubleshoot Windows VM deployment-Classic | Microsoft Azure"
-   description="Troubleshoot classic deployment issues when you create a new Windows virtual machine in Azure"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="JiangChen79"
-   manager="felixwu"
-   editor=""
-   tags="top-support-issue"/>
+﻿---
+title: Troubleshoot Windows VM deployment-Classic | Microsoft Docs
+description: Troubleshoot classic deployment issues when you create a new Windows virtual machine in Azure
+services: virtual-machines-windows
+documentationcenter: ''
+author: JiangChen79
+manager: felixwu
+editor: ''
+tags: top-support-issue
 
-<tags
-  ms.service="virtual-machines-windows"
-  ms.workload="na"
-  ms.tgt_pltfrm="vm-windows"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="09/06/2016"
-  ms.author="cjiang"/>
+ms.assetid: 9f01d237-ba39-4c32-b72d-18f5f505d43a
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: cjiang
 
+---
 # Troubleshoot classic deployment issues with creating a new Windows virtual machine in Azure
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] For the Resource Manager version of this article, see [here](virtual-machines-windows-troubleshoot-deployment-new-vm.md).
+For the Resource Manager version of this article, see [here](virtual-machines-windows-troubleshoot-deployment-new-vm.md).
 
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Collect audit logs
-
 To start troubleshooting, collect the audit logs to identify the error associated with the issue.
 
 In the Azure portal, click **Browse** > **Virtual machines** > *your Windows virtual machine* > **Settings** > **Audit logs**.
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
+[!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
 **Y:** If the OS is Windows generalized, and it is uploaded and/or captured with the generalized setting, then there won’t be any errors. Similarly, if the OS is Windows specialized, and it is uploaded and/or captured with the specialized setting, then there won’t be any errors.
 
@@ -68,19 +69,23 @@ Depending on the constraints of the cloud service you use to create the new VM, 
 
 **Resolution 1:**
 
-- Create a new cloud service and associate it with either a region or a region-based virtual network.
-- Create a new VM in the new cloud service.
+* Create a new cloud service and associate it with either a region or a region-based virtual network.
+* Create a new VM in the new cloud service.
   If you get an error when trying to create a new cloud service, either retry at a later time or change the region for the cloud service.
 
-> [AZURE.IMPORTANT] If you were trying to create a new VM in an existing cloud service but couldn’t, and had to create a new cloud service for your new VM, you can choose to consolidate all your VMs in the same cloud service. To do so, delete the VMs in the existing cloud service, and recapture them from their disks in the new cloud service. However, it is important to remember that the new cloud service will have a new name and VIP, so you will need to update these for all the dependencies that currently use this information for the existing cloud service.
+> [!IMPORTANT]
+> If you were trying to create a new VM in an existing cloud service but couldn’t, and had to create a new cloud service for your new VM, you can choose to consolidate all your VMs in the same cloud service. To do so, delete the VMs in the existing cloud service, and recapture them from their disks in the new cloud service. However, it is important to remember that the new cloud service will have a new name and VIP, so you will need to update these for all the dependencies that currently use this information for the existing cloud service.
+> 
+> 
 
 **Cause 2:** The cloud service is associated with a virtual network that is linked to an affinity group, so it is pinned to a specific cluster by design. All new compute resource requests in that affinity group are therefore tried in the same cluster where the existing resources are hosted. However, the same cluster may either not support the requested VM size or have insufficient available space, resulting in an allocation error. This is true whether the new resources are created through a new cloud service or through an existing cloud service.
 
 **Resolution 2:**
 
-- Create a new regional virtual network.
-- Create the new VM in the new virtual network.
-- [Connect your existing virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) to the new virtual network. See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Alternatively, you can [migrate your affinity-group-based virtual network to a regional virtual network](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then create the new VM.
+* Create a new regional virtual network.
+* Create the new VM in the new virtual network.
+* [Connect your existing virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) to the new virtual network. See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Alternatively, you can [migrate your affinity-group-based virtual network to a regional virtual network](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then create the new VM.
 
 ## Next steps
 If you encounter issues when you start a stopped Windows VM or resize an existing Windows VM in Azure, see [Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](windows/classic/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md).
+

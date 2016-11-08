@@ -1,112 +1,111 @@
-<properties
-	pageTitle="Azure SQL Database and performance for single databases | Microsoft Azure"
-	description="This article can help you determine which service tier to choose for your application. It also recommends ways to tune your application to get the most from Azure SQL Database."
-	services="sql-database"
-	documentationCenter="na"
-	authors="CarlRabeler"
-	manager="jhubbard"
-	editor="" />
+﻿---
+title: Azure SQL Database and performance for single databases | Microsoft Docs
+description: This article can help you determine which service tier to choose for your application. It also recommends ways to tune your application to get the most from Azure SQL Database.
+services: sql-database
+documentationcenter: na
+author: CarlRabeler
+manager: jhubbard
+editor: ''
 
+ms.assetid: dd8d95fa-24b2-4233-b3f1-8e8952a7a22b
+ms.service: sql-database
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 09/13/2016
+ms.author: carlrab
 
-<tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="09/13/2016"
-	ms.author="carlrab" />
-
+---
 # Azure SQL Database and performance for single databases
-
 Azure SQL Database offers three [service tiers](sql-database-service-tiers.md): Basic, Standard, and Premium. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
 
->[AZURE.NOTE] This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic database pools, see [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic database pool, and get similar performance benefits.
+> [!NOTE]
+> This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic database pools, see [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic database pool, and get similar performance benefits.
+> 
+> 
 
 These are the three Azure SQL Database service tiers that you can choose from (performance is measured in database throughput units, or [DTUs](sql-database-what-is-a-dtu.md):
 
-- **Basic**. The Basic service tier offers good performance predictability for each database, hour over hour. In a Basic database, sufficient resources support good performance in a small database that doesn't have multiple concurrent requests.
-- **Standard**. The Standard service tier offers improved performance predictability and raises the bar for databases that have multiple concurrent requests, like workgroup and web applications. When you choose a Standard service tier database, you can size your database application based on predictable performance, minute over minute.
-- **Premium**. The Premium service tier provides predictable performance, second over second, for each Premium database. When you choose the Premium service tier, you can size your database application based on the peak load for that database. The plan removes cases in which performance variance can cause small queries to take longer than expected in latency-sensitive operations. This model can greatly simplify the development and product validation cycles for applications that need to make strong statements about peak resource needs, performance variance, or query latency.
+* **Basic**. The Basic service tier offers good performance predictability for each database, hour over hour. In a Basic database, sufficient resources support good performance in a small database that doesn't have multiple concurrent requests.
+* **Standard**. The Standard service tier offers improved performance predictability and raises the bar for databases that have multiple concurrent requests, like workgroup and web applications. When you choose a Standard service tier database, you can size your database application based on predictable performance, minute over minute.
+* **Premium**. The Premium service tier provides predictable performance, second over second, for each Premium database. When you choose the Premium service tier, you can size your database application based on the peak load for that database. The plan removes cases in which performance variance can cause small queries to take longer than expected in latency-sensitive operations. This model can greatly simplify the development and product validation cycles for applications that need to make strong statements about peak resource needs, performance variance, or query latency.
 
 At each service tier, you set the performance level, so you have the flexibility to pay only for the capacity you need. You can [adjust capacity](sql-database-scale-up.md), up or down, as workload changes. For example, if your database workload is high during the back-to-school shopping season, you might increase the performance level for the database for a set time, July through September. You can reduce it when your peak season ends. You can minimize what you pay by optimizing your cloud environment to the seasonality of your business. This model also works well for software product release cycles. A test team might allocate capacity while it does test runs, and then release that capacity when they finish testing. In a capacity request model, you pay for capacity as you need it, and avoid spending on dedicated resources that you might rarely use.
 
 ## Why service tiers?
-
 Although each database workload can differ, the purpose of service tiers is to provide performance predictability at various performance levels. Customers with large-scale database resource requirements can work in a more dedicated computing environment.
 
 ### Common service tier use cases
-
 #### Basic
-
-- **You're just getting started with Azure SQL Database**. Applications that are in development often don't need high performance levels. Basic databases are an ideal environment for database development, at a low price point.
-- **You have a database with a single user**. Applications that associate a single user with a database typically don’t have high concurrency and performance requirements. These applications are candidates for the Basic service tier.
+* **You're just getting started with Azure SQL Database**. Applications that are in development often don't need high performance levels. Basic databases are an ideal environment for database development, at a low price point.
+* **You have a database with a single user**. Applications that associate a single user with a database typically don’t have high concurrency and performance requirements. These applications are candidates for the Basic service tier.
 
 #### Standard
-
-- **Your database has multiple concurrent requests**. Applications that service more than one user at a time usually need higher performance levels. For example, websites that get moderate traffic or departmental applications that require more resources are good candidates for the Standard service tier.
+* **Your database has multiple concurrent requests**. Applications that service more than one user at a time usually need higher performance levels. For example, websites that get moderate traffic or departmental applications that require more resources are good candidates for the Standard service tier.
 
 #### Premium
-
 Most Premium service tier use cases have one or more of these characteristics:
 
-- **High peak load**. An application that requires a lot of CPU, memory, or input/output (I/O) to complete its operations requires a dedicated, high performance level. For example, a database operation known to consume several CPU cores for an extended time is a candidate for the Premium service tier.
-- **Many concurrent requests**. Some database applications service many concurrent requests, for example, when serving a website that has a high traffic volume. Basic and Standard service tiers limit the number of concurrent requests per database. Applications that require more connections would need to choose an appropriate reservation size to handle the maximum number of needed requests.
-- **Low latency**. Some applications need to guarantee a response from the database in minimal time. If a specific stored procedure is called as part of a broader customer operation, you might have a requirement to have a return from that call in no more than 20 milliseconds, 99 percent of the time. This type of application benefits from the Premium service tier, to make sure that the required computing power is available.
+* **High peak load**. An application that requires a lot of CPU, memory, or input/output (I/O) to complete its operations requires a dedicated, high performance level. For example, a database operation known to consume several CPU cores for an extended time is a candidate for the Premium service tier.
+* **Many concurrent requests**. Some database applications service many concurrent requests, for example, when serving a website that has a high traffic volume. Basic and Standard service tiers limit the number of concurrent requests per database. Applications that require more connections would need to choose an appropriate reservation size to handle the maximum number of needed requests.
+* **Low latency**. Some applications need to guarantee a response from the database in minimal time. If a specific stored procedure is called as part of a broader customer operation, you might have a requirement to have a return from that call in no more than 20 milliseconds, 99 percent of the time. This type of application benefits from the Premium service tier, to make sure that the required computing power is available.
 
 The service level that you need for your SQL database depends on the peak load requirements for each resource dimension. Some applications use a trivial amount of a single resource, but have significant requirements for other resources.
 
 ## Service tier capabilities and limits
 Each service tier and performance level is associated with different limits and performance characteristics. This table describes these characteristics for a single database.
 
-[AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
+[!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 The next sections have more information about how to view use related to these limits.
 
 ### Maximum In-Memory OLTP storage
-
 You can use the **sys.dm_db_resource_stats** view to monitor your Azure In-Memory storage use. For more information about monitoring, see [Monitor In-Memory OLTP storage](sql-database-in-memory-oltp-monitoring.md).
 
->[AZURE.NOTE] Currently, Azure In-Memory online transaction processing (OLTP) preview is supported only for single databases. You cannot use it in databases in elastic database pools.
+> [!NOTE]
+> Currently, Azure In-Memory online transaction processing (OLTP) preview is supported only for single databases. You cannot use it in databases in elastic database pools.
+> 
+> 
 
 ### Maximum concurrent requests
-
 To see the number of concurrent requests, run this Transact-SQL query on your SQL database:
 
-	SELECT COUNT(*) AS [Concurrent_Requests]
-	FROM sys.dm_exec_requests R
+    SELECT COUNT(*) AS [Concurrent_Requests]
+    FROM sys.dm_exec_requests R
 
 To analyze the workload of an on-premises SQL Server database, modify this query to filter on the specific database you want to analyze. For example, if you have an on-premises database named MyDatabase, this Transact-SQL query returns the count of concurrent requests in that database:
 
-	SELECT COUNT(*) AS [Concurrent_Requests]
-	FROM sys.dm_exec_requests R
-	INNER JOIN sys.databases D ON D.database_id = R.database_id
-	AND D.name = 'MyDatabase'
+    SELECT COUNT(*) AS [Concurrent_Requests]
+    FROM sys.dm_exec_requests R
+    INNER JOIN sys.databases D ON D.database_id = R.database_id
+    AND D.name = 'MyDatabase'
 
 This is just a snapshot at a single point in time. To get a better understanding of your workload and concurrent request requirements, you'll need to collect many samples over time.
 
 ### Maximum concurrent logins
-
 You can analyze your user and application patterns to get an idea of the frequency of logins. You also can run real-world loads in a test environment to make sure that you're not hitting this or other limits we discuss in this article. There isn’t a single query or dynamic management view (DMV) that can show you concurrent login counts or history.
 
 If multiple clients use the same connection string, the service authenticates each login. If 10 users simultaneously connect to a database by using the same username and password, there would be 10 concurrent logins. This limit applies only to the duration of the login and authentication. If the same 10 users connect to the database sequentially, the number of concurrent logins would never be greater than 1.
 
->[AZURE.NOTE] Currently, this limit does not apply to databases in elastic database pools.
+> [!NOTE]
+> Currently, this limit does not apply to databases in elastic database pools.
+> 
+> 
 
 ### Maximum sessions
-
 To see the number of current active sessions, run this Transact-SQL query on your SQL database:
 
-	SELECT COUNT(*) AS [Sessions]
-	FROM sys.dm_exec_connections
+    SELECT COUNT(*) AS [Sessions]
+    FROM sys.dm_exec_connections
 
 If you're analyzing an on-premises SQL Server workload, modify the query to focus on a specific database. This query helps you determine possible session needs for the database if you are considering moving it to Azure SQL Database.
 
-	SELECT COUNT(*)  AS [Sessions]
-	FROM sys.dm_exec_connections C
-	INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
-	INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-	WHERE D.name = 'MyDatabase'
+    SELECT COUNT(*)  AS [Sessions]
+    FROM sys.dm_exec_connections C
+    INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
+    INNER JOIN sys.databases D ON (D.database_id = S.database_id)
+    WHERE D.name = 'MyDatabase'
 
 Again, these queries return a point-in-time count. If you collect multiple samples over time, you’ll have the best understanding of your session use.
 
@@ -115,29 +114,28 @@ For SQL Database analysis, you can get historical statistics on sessions. Query 
 ## Monitor resource use
 Two views can help you monitor resource use for a SQL database relative to its service tier:
 
-- [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
-- [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+* [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
+* [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 ### sys.dm_db_resource_stats
 You can use the [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) view in every SQL database. The **sys.dm_db_resource_stats** view shows recent resource use data relative to the service tier. Average percentages for CPU, data I/O, log writes, and memory are recorded every 15 seconds and are maintained for 1 hour.
 
 Because this view provides a more granular look at resource use, use **sys.dm_db_resource_stats** first for any current-state analysis or troubleshooting. For example, this query shows the average and maximum resource use for the current database over the past hour:
 
-	SELECT  
-	    AVG(avg_cpu_percent) AS 'Average CPU use in percent',
-	    MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
-	    AVG(avg_data_io_percent) AS 'Average data I/O in percent',
-	    MAX(avg_data_io_percent) AS 'Maximum data I/O in percent',
-	    AVG(avg_log_write_percent) AS 'Average log write use in percent',
-	    MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
-	    AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
-	    MAX(avg_memory_usage_percent) AS 'Maximum memory use in percent'
-	FROM sys.dm_db_resource_stats;  
+    SELECT  
+        AVG(avg_cpu_percent) AS 'Average CPU use in percent',
+        MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
+        AVG(avg_data_io_percent) AS 'Average data I/O in percent',
+        MAX(avg_data_io_percent) AS 'Maximum data I/O in percent',
+        AVG(avg_log_write_percent) AS 'Average log write use in percent',
+        MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
+        AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
+        MAX(avg_memory_usage_percent) AS 'Maximum memory use in percent'
+    FROM sys.dm_db_resource_stats;  
 
 For other queries, see the examples in [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
 ### sys.resource_stats
-
 The [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) view in the **master** database has additional information that can help you monitor the performance of your SQL database at its specific service tier and performance level. The data is collected every 5 minutes and is maintained for approximately 35 days. This view is useful for a longer-term historical analysis of how your SQL database uses resources.
 
 The following graph shows the CPU resource use for a Premium database with the P2 performance level for each hour in a week. This graph starts on a Monday, shows 5 work days, and then shows a weekend, when much less happens on the application.
@@ -150,89 +148,87 @@ Note that other application types might interpret the same graph differently. Fo
 
 Azure SQL Database exposes consumed resource information for each active database in the **sys.resource_stats** view of the **master** database in each server. The data in the table is aggregated for 5-minute intervals. With the Basic, Standard, and Premium service tiers, the data can take more than 5 minutes to appear in the table, so this data is more useful for historical analysis rather than near-real-time analysis. Query the **sys.resource_stats** view to see the recent history of a database and to validate whether the reservation you chose delivered the performance you want when needed.
 
->[AZURE.NOTE] You must be connected to the **master** database of your logical SQL database server to query **sys.resource_stats** in the following examples.
+> [!NOTE]
+> You must be connected to the **master** database of your logical SQL database server to query **sys.resource_stats** in the following examples.
+> 
+> 
 
 This example shows you how the data in this view is exposed:
 
-	SELECT TOP 10 *
-	FROM sys.resource_stats
-	WHERE database_name = 'resource1'
-	ORDER BY start_time DESC
+    SELECT TOP 10 *
+    FROM sys.resource_stats
+    WHERE database_name = 'resource1'
+    ORDER BY start_time DESC
 
 ![The sys.resource_stats catalog view](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
 The next example shows you different ways that you can use the **sys.resource_stats** catalog view to get information about how your SQL database uses resources:
 
 1. To look at the past week’s resource use for the database userdb1, you can run this query:
-
-		SELECT *
-		FROM sys.resource_stats
-		WHERE database_name = 'userdb1' AND
-		      start_time > DATEADD(day, -7, GETDATE())
-		ORDER BY start_time DESC;
-
+   
+        SELECT *
+        FROM sys.resource_stats
+        WHERE database_name = 'userdb1' AND
+              start_time > DATEADD(day, -7, GETDATE())
+        ORDER BY start_time DESC;
 2. To evaluate how well your workload fits the performance level, you need to drill down into each aspect of the resource metrics: CPU, reads, writes, number of workers, and number of sessions. Here's a revised query using **sys.resource_stats** to report the average and maximum values of these resource metrics:
-
-		SELECT
-		    avg(avg_cpu_percent) AS 'Average CPU use in percent',
-		    max(avg_cpu_percent) AS 'Maximum CPU use in percent',
-		    avg(avg_data_io_percent) AS 'Average physical data I/O use in percent',
-		    max(avg_data_io_percent) AS 'Maximum physical data I/O use in percent',
-		    avg(avg_log_write_percent) AS 'Average log write use in percent',
-		    max(avg_log_write_percent) AS 'Maximum log write use in percent',
-		    avg(max_session_percent) AS 'Average % of sessions',
-		    max(max_session_percent) AS 'Maximum % of sessions',
-		    avg(max_worker_percent) AS 'Average % of workers',
-		    max(max_worker_percent) AS 'Maximum % of workers'
-		FROM sys.resource_stats
-		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-
+   
+        SELECT
+            avg(avg_cpu_percent) AS 'Average CPU use in percent',
+            max(avg_cpu_percent) AS 'Maximum CPU use in percent',
+            avg(avg_data_io_percent) AS 'Average physical data I/O use in percent',
+            max(avg_data_io_percent) AS 'Maximum physical data I/O use in percent',
+            avg(avg_log_write_percent) AS 'Average log write use in percent',
+            max(avg_log_write_percent) AS 'Maximum log write use in percent',
+            avg(max_session_percent) AS 'Average % of sessions',
+            max(max_session_percent) AS 'Maximum % of sessions',
+            avg(max_worker_percent) AS 'Average % of workers',
+            max(max_worker_percent) AS 'Maximum % of workers'
+        FROM sys.resource_stats
+        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 3. With this information about the average and maximum values of each resource metric, you can assess how well your workload fits into the performance level you chose. Usually, average values from **sys.resource_stats** give you a good baseline to use against the target size. It should be your primary measurement stick. For an example, you might be using the Standard service tier with S2 performance level. The average use percentages for CPU and I/O reads and writes are below 40 percent, the average number of workers is below 50, and the average number of sessions is below 200. Your workload might fit into the S1 performance level. It's easy to see whether your database fits in the worker and session limits. To see whether a database fits into a lower performance level with regards to CPU, reads, and writes, divide the DTU number of the lower performance level by the DTU number of your current performance level, and then multiply the result by 100:
-
-	**S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
-
-	The result is the relative performance difference between the two performance levels in percentage. If your resource use doesn't exceed this amount, your workload might fit into the lower performance level. However, you need to look at all ranges of resource use values, and determine, by percentage, how often your database workload would fit into the lower performance level. The following query outputs the fit percentage per resource dimension, based on the threshold of 40 percent that we calculated in this example:
-
-		SELECT
-		    (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
-		    ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
-		    ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
-		FROM sys.resource_stats
-		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-
-	Based on your database service level objective (SLO), you can decide whether your workload fits into the lower performance level. If your database workload SLO is 99.9 percent and the preceding query returns values greater than 99.9 percent for all three resource dimensions, your workload likely will fit into the lower performance level.
-
-	Looking at the fit percentage also gives you insight into whether you have to move to the next higher performance level to meet your SLO. For example, userdb1 shows the following CPU use for the past week:
-
-	| Average CPU percent | Maximum CPU percent |
-	|---|---|
-	| 24.5 | 100.00 |
-
-	The average CPU is about a quarter of the limit of the performance level, which would fit well into the performance level of the database. But, the maximum value shows that the database reaches the limit of the performance level. Do you need to move to the next higher performance level? You have to look at how many times your workload reaches 100 percent, and then compare it to your database workload SLO.
-
-		SELECT
-		(COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
-		,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent’
-		,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data I/O fit percent'
-		FROM sys.resource_stats
-		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-
-	If this query returns a value less than 99.9 percent for any of the three resource dimensions, consider either moving to the next higher performance level or use application-tuning techniques to reduce the load on the SQL database.
-
+   
+    **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
+   
+    The result is the relative performance difference between the two performance levels in percentage. If your resource use doesn't exceed this amount, your workload might fit into the lower performance level. However, you need to look at all ranges of resource use values, and determine, by percentage, how often your database workload would fit into the lower performance level. The following query outputs the fit percentage per resource dimension, based on the threshold of 40 percent that we calculated in this example:
+   
+        SELECT
+            (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
+            ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
+            ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
+        FROM sys.resource_stats
+        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+   
+    Based on your database service level objective (SLO), you can decide whether your workload fits into the lower performance level. If your database workload SLO is 99.9 percent and the preceding query returns values greater than 99.9 percent for all three resource dimensions, your workload likely will fit into the lower performance level.
+   
+    Looking at the fit percentage also gives you insight into whether you have to move to the next higher performance level to meet your SLO. For example, userdb1 shows the following CPU use for the past week:
+   
+   | Average CPU percent | Maximum CPU percent |
+   | --- | --- |
+   | 24.5 |100.00 |
+   
+    The average CPU is about a quarter of the limit of the performance level, which would fit well into the performance level of the database. But, the maximum value shows that the database reaches the limit of the performance level. Do you need to move to the next higher performance level? You have to look at how many times your workload reaches 100 percent, and then compare it to your database workload SLO.
+   
+        SELECT
+        (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
+        ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent’
+        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data I/O fit percent'
+        FROM sys.resource_stats
+        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+   
+    If this query returns a value less than 99.9 percent for any of the three resource dimensions, consider either moving to the next higher performance level or use application-tuning techniques to reduce the load on the SQL database.
 4. This exercise also considers your projected workload increase in the future.
 
 ## Tune your application
-
 In traditional on-premises SQL Server, the process of initial capacity planning often is separated from the process of running an application in production. Hardware and product licenses are purchased first, and performance tuning is done afterward. When you use Azure SQL Database, it's a good idea to interweave the process of running an application and tuning it. With the model of paying for capacity on demand, you can tune your application to use the minimum resources needed now, instead of overprovisioning on hardware based on guesses of future growth plans for an application, which often are incorrect. Some customers might choose not to tune an application, and instead choose to overprovision hardware resources. This approach might be a good idea if you don't want to change a key application during a busy period. But, tuning an application can minimize resource requirements and lower monthly bills when you use the service tiers in Azure SQL Database.
 
 ### Application characteristics
-
 Although Azure SQL Database service tiers are designed to improve performance stability and predictability for an application, some best practices can help you tune your application to better take advantage of the resources at a performance level. Although many applications have significant performance gains simply by switching to a higher performance level or service tier, some applications need additional tuning to benefit from a higher level of service. For increased performance, consider additional application tuning for applications that have these characteristics:
 
-- **Applications that have slow performance because of "chatty" behavior**. Chatty applications make excessive data access operations that are sensitive to network latency. You might need to modify these kinds of applications to reduce the number of data access operations to the SQL database. For example, you might improve application performance by using techniques like batching ad-hoc queries or moving the queries to stored procedures. For more information, see [Batch queries](#batch-queries).
-- **Databases with an intensive workload that can't be supported by an entire single machine**. Databases that exceed the resources of the highest Premium performance level might benefit from scaling out the workload. For more information, see [Cross-database sharding](#cross-database-sharding) and [Functional partitioning](#functional-partitioning).
-- **Applications that have suboptimal queries**. Applications, especially those in the data access layer, that have poorly tuned queries might not benefit from a higher performance level. This includes queries that lack a WHERE clause, have missing indexes, or have outdated statistics. These applications benefit from standard query performance-tuning techniques. For more information, see [Missing indexes](#missing-indexes) and [Query tuning and hinting](#query-tuning-and-hinting).
-- **Applications that have suboptimal data access design**. Applications that have inherent data access concurrency issues, for example deadlocking, might not benefit from a higher performance level. Consider reducing round trips against the Azure SQL Database by caching data on the client side with the Azure Caching service or another caching technology. See [Application tier caching](#application-tier-caching).
+* **Applications that have slow performance because of "chatty" behavior**. Chatty applications make excessive data access operations that are sensitive to network latency. You might need to modify these kinds of applications to reduce the number of data access operations to the SQL database. For example, you might improve application performance by using techniques like batching ad-hoc queries or moving the queries to stored procedures. For more information, see [Batch queries](#batch-queries).
+* **Databases with an intensive workload that can't be supported by an entire single machine**. Databases that exceed the resources of the highest Premium performance level might benefit from scaling out the workload. For more information, see [Cross-database sharding](#cross-database-sharding) and [Functional partitioning](#functional-partitioning).
+* **Applications that have suboptimal queries**. Applications, especially those in the data access layer, that have poorly tuned queries might not benefit from a higher performance level. This includes queries that lack a WHERE clause, have missing indexes, or have outdated statistics. These applications benefit from standard query performance-tuning techniques. For more information, see [Missing indexes](#missing-indexes) and [Query tuning and hinting](#query-tuning-and-hinting).
+* **Applications that have suboptimal data access design**. Applications that have inherent data access concurrency issues, for example deadlocking, might not benefit from a higher performance level. Consider reducing round trips against the Azure SQL Database by caching data on the client side with the Azure Caching service or another caching technology. See [Application tier caching](#application-tier-caching).
 
 ## Tuning techniques
 In this section, we look at some techniques that you can use to tune Azure SQL Database to gain the best performance for your application and run it at the lowest possible performance level. Some of these techniques match traditional SQL Server tuning best practices, but others are specific to Azure SQL Database. In some cases, you can examine the consumed resources for a database to find areas to further tune and extend traditional SQL Server techniques to work in Azure SQL Database.
@@ -240,8 +236,8 @@ In this section, we look at some techniques that you can use to tune Azure SQL D
 ### Azure portal tools
 You'll find two tools in the Azure portal that can help you analyze and fix performance issues with your SQL database:
 
-- [Query Performance Insight](sql-database-query-performance.md)
-- [SQL Database Advisor](sql-database-advisor.md)
+* [Query Performance Insight](sql-database-query-performance.md)
+* [SQL Database Advisor](sql-database-advisor.md)
 
 The Azure portal has more information about both of these tools and how to use them. To efficiently diagnose and correct problems, we recommend that you first try the tools in the Azure portal. We recommend that you use the manual tuning approaches that we discuss next, for missing indexes and query tuning, in special cases.
 
@@ -250,21 +246,21 @@ A common problem in OLTP database performance relates to the physical database d
 
 In this example, the selected query plan uses a scan when a seek would suffice:
 
-	DROP TABLE dbo.missingindex;
-	CREATE TABLE dbo.missingindex (col1 INT IDENTITY PRIMARY KEY, col2 INT);
-	DECLARE @a int = 0;
-	SET NOCOUNT ON;
-	BEGIN TRANSACTION
-	WHILE @a < 20000
-	BEGIN
-	    INSERT INTO dbo.missingindex(col2) VALUES (@a);
-	    SET @a += 1;
-	END
-	COMMIT TRANSACTION;
-	GO
-	SELECT m1.col1
-	FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1)
-	WHERE m1.col2 = 4;
+    DROP TABLE dbo.missingindex;
+    CREATE TABLE dbo.missingindex (col1 INT IDENTITY PRIMARY KEY, col2 INT);
+    DECLARE @a int = 0;
+    SET NOCOUNT ON;
+    BEGIN TRANSACTION
+    WHILE @a < 20000
+    BEGIN
+        INSERT INTO dbo.missingindex(col2) VALUES (@a);
+        SET @a += 1;
+    END
+    COMMIT TRANSACTION;
+    GO
+    SELECT m1.col1
+    FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1)
+    WHERE m1.col2 = 4;
 
 ![A query plan with missing indexes](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
 
@@ -272,31 +268,31 @@ Azure SQL Database can help you find and fix common missing index conditions. DM
 
 You can use this query to evaluate potential missing indexes:
 
-	SELECT CONVERT (varchar, getdate(), 126) AS runtime,
-	    mig.index_group_handle, mid.index_handle,
-	    CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact *
-	            (migs.user_seeks + migs.user_scans)) AS improvement_measure,
-	    'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' +
-	              CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + '
-	              (' + ISNULL (mid.equality_columns,'')
-	              + CASE WHEN mid.equality_columns IS NOT NULL
-	                          AND mid.inequality_columns IS NOT NULL
-	                     THEN ',' ELSE '' END + ISNULL (mid.inequality_columns, '')
-	              + ')'
-	              + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement,
-	    migs.*,
-	    mid.database_id,
-	    mid.[object_id]
-	FROM sys.dm_db_missing_index_groups AS mig
-	INNER JOIN sys.dm_db_missing_index_group_stats AS migs
-	    ON migs.group_handle = mig.index_group_handle
-	INNER JOIN sys.dm_db_missing_index_details AS mid
-	    ON mig.index_handle = mid.index_handle
-	ORDER BY migs.avg_total_user_cost * migs.avg_user_impact * (migs.user_seeks + migs.user_scans) DESC
+    SELECT CONVERT (varchar, getdate(), 126) AS runtime,
+        mig.index_group_handle, mid.index_handle,
+        CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact *
+                (migs.user_seeks + migs.user_scans)) AS improvement_measure,
+        'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' +
+                  CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + '
+                  (' + ISNULL (mid.equality_columns,'')
+                  + CASE WHEN mid.equality_columns IS NOT NULL
+                              AND mid.inequality_columns IS NOT NULL
+                         THEN ',' ELSE '' END + ISNULL (mid.inequality_columns, '')
+                  + ')'
+                  + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement,
+        migs.*,
+        mid.database_id,
+        mid.[object_id]
+    FROM sys.dm_db_missing_index_groups AS mig
+    INNER JOIN sys.dm_db_missing_index_group_stats AS migs
+        ON migs.group_handle = mig.index_group_handle
+    INNER JOIN sys.dm_db_missing_index_details AS mid
+        ON mig.index_handle = mid.index_handle
+    ORDER BY migs.avg_total_user_cost * migs.avg_user_impact * (migs.user_seeks + migs.user_scans) DESC
 
 In this example, the query resulted in this suggestion:
 
-	CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])  
+    CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])  
 
 After it's created, that same SELECT statement picks a different plan, which uses a seek instead of a scan, and then executes the plan more efficiently:
 
@@ -311,74 +307,74 @@ An example that is common in SQL Server and which also applies to Azure SQL Data
 
 The next example demonstrates how the query processor can generate a plan that is suboptimal both for performance and resource requirements. This example also shows that if you use a query hint, you can reduce query run time and resource requirements for your SQL database:
 
-	DROP TABLE psptest1;
-	CREATE TABLE psptest1(col1 int primary key identity, col2 int, col3 binary(200));
+    DROP TABLE psptest1;
+    CREATE TABLE psptest1(col1 int primary key identity, col2 int, col3 binary(200));
 
-	DECLARE @a int = 0;
-	SET NOCOUNT ON;
-	BEGIN TRANSACTION
-	WHILE @a < 20000
-	BEGIN
-	    INSERT INTO psptest1(col2) values (1);
-	    INSERT INTO psptest1(col2) values (@a);
-	    SET @a += 1;
-	END
-	COMMIT TRANSACTION
-	CREATE INDEX i1 on psptest1(col2);
-	GO
+    DECLARE @a int = 0;
+    SET NOCOUNT ON;
+    BEGIN TRANSACTION
+    WHILE @a < 20000
+    BEGIN
+        INSERT INTO psptest1(col2) values (1);
+        INSERT INTO psptest1(col2) values (@a);
+        SET @a += 1;
+    END
+    COMMIT TRANSACTION
+    CREATE INDEX i1 on psptest1(col2);
+    GO
 
-	CREATE PROCEDURE psp1 (@param1 int)
-	AS
-	BEGIN
-	    INSERT INTO t1 SELECT * FROM psptest1
-	    WHERE col2 = @param1
-	    ORDER BY col2;
-	END
-	GO
+    CREATE PROCEDURE psp1 (@param1 int)
+    AS
+    BEGIN
+        INSERT INTO t1 SELECT * FROM psptest1
+        WHERE col2 = @param1
+        ORDER BY col2;
+    END
+    GO
 
-	CREATE PROCEDURE psp2 (@param2 int)
-	AS
-	BEGIN
-	    INSERT INTO t1 SELECT * FROM psptest1 WHERE col2 = @param2
-	    ORDER BY col2
-	    OPTION (OPTIMIZE FOR (@param2 UNKNOWN))
-	END
-	GO
+    CREATE PROCEDURE psp2 (@param2 int)
+    AS
+    BEGIN
+        INSERT INTO t1 SELECT * FROM psptest1 WHERE col2 = @param2
+        ORDER BY col2
+        OPTION (OPTIMIZE FOR (@param2 UNKNOWN))
+    END
+    GO
 
-	CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
-	GO
+    CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
+    GO
 
 The setup code creates a table that has skewed data distribution. The optimal query plan differs based on which parameter is selected. Unfortunately, the plan caching behavior doesn't always recompile the query based on the most common parameter value. So, it's possible for a suboptimal plan to be cached and used for many values, even when a different plan might be a better plan choice on average. Then the query plan creates two stored procedures that are identical, except that one has a special query hint.
 
 **Example, part 1**
 
-	-- Prime Procedure Cache with scan plan
-	EXEC psp1 @param1=1;
-	TRUNCATE TABLE t1;
+    -- Prime Procedure Cache with scan plan
+    EXEC psp1 @param1=1;
+    TRUNCATE TABLE t1;
 
-	-- Iterate multiple times to show the performance difference
-	DECLARE @i int = 0;
-	WHILE @i < 1000
-	BEGIN
-	    EXEC psp1 @param1=2;
-	    TRUNCATE TABLE t1;
-	    SET @i += 1;
-	END
+    -- Iterate multiple times to show the performance difference
+    DECLARE @i int = 0;
+    WHILE @i < 1000
+    BEGIN
+        EXEC psp1 @param1=2;
+        TRUNCATE TABLE t1;
+        SET @i += 1;
+    END
 
 **Example, part 2**
 
 (We recommend that you wait at least 10 minutes before you begin part 2 of the example, so that the results are distinct in the resulting telemetry data.)
 
-	EXEC psp2 @param2=1;
-	TRUNCATE TABLE t1;
+    EXEC psp2 @param2=1;
+    TRUNCATE TABLE t1;
 
-	DECLARE @i int = 0;
-	WHILE @i < 1000
-	BEGIN
-	    EXEC psp2 @param2=2;
-	    TRUNCATE TABLE t1;
-	    SET @i += 1;
-	END
+    DECLARE @i int = 0;
+    WHILE @i < 1000
+    BEGIN
+        EXEC psp2 @param2=2;
+        TRUNCATE TABLE t1;
+        SET @i += 1;
+    END
 
 Each part of this example attempts to run a parameterized insert statement 1,000 times (to generate a sufficient load to use as a test data set). When it executes stored procedures, the query processor examines the parameter value that is passed to the procedure during its first compilation (parameter "sniffing"). The processor caches the resulting plan and uses it for later invocations, even if the parameter value is different. The optimal plan might not be used in all cases. Sometimes you need to guide the optimizer to pick a plan that is better for the average case rather than the specific case from when the query was first compiled. In this example, the initial plan generates a "scan" plan that reads all rows to find each value that matches the parameter:
 
@@ -396,14 +392,17 @@ The second part of the example uses a query hint to tell the optimizer to use a 
 
 You can see the effect in the **sys.resource_stats** table (there is a delay from the time that you execute the test and when the data populates the table). For this example, part 1 executed during the 22:25:00 time window, and part 2 executed at 22:35:00. Note that the earlier time window used more resources in that time window than the later one (because of plan efficiency improvements).
 
-	SELECT TOP 1000 *
-	FROM sys.resource_stats
-	WHERE database_name = 'resource1'
-	ORDER BY start_time DESC
+    SELECT TOP 1000 *
+    FROM sys.resource_stats
+    WHERE database_name = 'resource1'
+    ORDER BY start_time DESC
 
 ![Query tuning example results](./media/sql-database-performance-guidance/query_tuning_4.png)
 
->[AZURE.NOTE] Although the volume in this example is intentionally small, the effect of suboptimal parameters can be substantial, especially on larger databases. The difference, in extreme cases, can be between seconds for fast cases and hours for slow cases.
+> [!NOTE]
+> Although the volume in this example is intentionally small, the effect of suboptimal parameters can be substantial, especially on larger databases. The difference, in extreme cases, can be between seconds for fast cases and hours for slow cases.
+> 
+> 
 
 You can examine **sys.resource_stats** to determine whether the resource for a test uses more or fewer resources than another test. When you compare data, separate the timing of tests so that they are not in the same 5-minute window in the **sys.resource_stats** view. The goal of the exercise is to minimize the total amount of resources used, and not to minimize the peak resources. Generally, optimizing a piece of code for latency also reduces resource consumption. Make sure that the changes you make to an application are necessary, and that the changes don't negatively affect the customer experience for someone who might be using query hints in the application.
 
@@ -412,7 +411,10 @@ If a workload has a set of repeating queries, often it makes sense to capture an
 ### Cross-database sharding
 Because Azure SQL Database runs on commodity hardware, the capacity limits for a single database are lower than for a traditional on-premises SQL Server installation. Some customers use sharding techniques to spread database operations over multiple databases when the operations don't fit inside the limits of a single database in Azure SQL Database. Most customers who use sharding techniques in Azure SQL Database split their data on a single dimension across multiple databases. For this approach, you need to understand that OLTP applications often perform transactions that apply to only one row or to a small group of rows in the schema.
 
->[AZURE.NOTE] SQL Database now provides a library to assist with sharding. For more information, see [Elastic Database client library overview](sql-database-elastic-database-client-library.md).
+> [!NOTE]
+> SQL Database now provides a library to assist with sharding. For more information, see [Elastic Database client library overview](sql-database-elastic-database-client-library.md).
+> 
+> 
 
 For example, if a database has customer name, order, and order details (like the traditional example Northwind database that ships with SQL Server), you could split this data into multiple databases by grouping a customer with the related order and order detail information. You can guarantee that the customer's data stays in a single database. The application would split different customers across databases, effectively spreading the load across multiple databases. With sharding, customers not only can avoid the maximum database size limit, but Azure SQL Database also can process workloads that are significantly larger than the limits of the different performance levels, as long as each individual database fits into its DTU.
 
@@ -432,7 +434,7 @@ Some applications are write-intensive. Sometimes you can reduce the total I/O lo
 Some database applications have read-heavy workloads. Caching layers might reduce the load on the database and might potentially reduce the performance level required to support a database by using Azure SQL Database. With [Azure Redis Cache](https://azure.microsoft.com/services/cache/), if you have a read-heavy workload, you can read the data once (or perhaps once per application-tier machine, depending on how it is configured), and then store that data outside your SQL database. This is a way to reduce database load (CPU and read I/O), but there is an effect on transactional consistency because the data being read from the cache might be out of sync with the data in the database. Although in many applications some level of inconsistency is acceptable, that's not true for all workloads. You should fully understand any application requirements before you implement an application-tier caching strategy.
 
 ## Next steps
+* For more information about service tiers, see [SQL Database options and performance](sql-database-service-tiers.md)
+* For more information about elastic database pools, see [What is an Azure elastic database pool?](sql-database-elastic-pool.md)
+* For information about performance and elastic database pools, see [When to consider an elastic database pool](sql-database-elastic-pool-guidance.md)
 
-- For more information about service tiers, see [SQL Database options and performance](sql-database-service-tiers.md)
-- For more information about elastic database pools, see [What is an Azure elastic database pool?](sql-database-elastic-pool.md)
-- For information about performance and elastic database pools, see [When to consider an elastic database pool](sql-database-elastic-pool-guidance.md)

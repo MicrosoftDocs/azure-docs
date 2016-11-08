@@ -1,60 +1,59 @@
-<properties
-	pageTitle="Azure Active Directory B2C | Microsoft Azure"
-	description="How to build a web application that has sign-in, sign-up, and profile management by using Azure Active Directory B2C."
-	services="active-directory-b2c"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Azure Active Directory B2C | Microsoft Docs
+description: How to build a web application that has sign-in, sign-up, and profile management by using Azure Active Directory B2C.
+services: active-directory-b2c
+documentationcenter: .net
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="dastrock"/>
+ms.assetid: 0b1c6ede-de0a-4c32-92b3-5c813dc26804
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/22/2016
+ms.author: dastrock
 
+---
 # Azure AD B2C: Build a .NET web app
-
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your web app in a few short steps. This article will discuss how to create a .NET Model-View-Controller (MVC) web app that includes user sign-up, sign-in, and profile management. The app will include support for sign-up and sign-in by using a user name or email, and by using social accounts such as Facebook and Google.
 
 ## Get an Azure AD B2C directory
-
 Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more.  If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
 
 ## Create an application
-
 Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to securely communicate with your app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to:
 
-- Include a **web app/web API** in the application.
-- Enter `https://localhost:44316/` as a **Redirect URI**. It is the default URL for this code sample.
-- Copy down the **Application ID** that is assigned to your app.  You will need it later.
+* Include a **web app/web API** in the application.
+* Enter `https://localhost:44316/` as a **Redirect URI**. It is the default URL for this code sample.
+* Copy down the **Application ID** that is assigned to your app.  You will need it later.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
-
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. You need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).
 
->[AZURE.NOTE] Azure AD B2C also supports a combined sign up or sign in policy which is not featured in this tutorial.  The sign up or sign in policy is shown in [this equivalent tutorial](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+> [!NOTE]
+> Azure AD B2C also supports a combined sign up or sign in policy which is not featured in this tutorial.  The sign up or sign in policy is shown in [this equivalent tutorial](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+> 
+> 
 
 When you create the three policies, be sure to:
 
-- Choose **User ID sign-up** or **Email sign-up** in the identity providers blade.
-- Choose the **Display name** and other sign-up attributes in your sign-up policy.
-- Choose the **Display name** claim as an application claim in every policy. You can choose other claims as well.
-- Copy the **Name** of each policy after you create it. You'll need those policy names later.
+* Choose **User ID sign-up** or **Email sign-up** in the identity providers blade.
+* Choose the **Display name** and other sign-up attributes in your sign-up policy.
+* Choose the **Display name** claim as an application claim in every policy. You can choose other claims as well.
+* Copy the **Name** of each policy after you create it. You'll need those policy names later.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 After you create your three policies, you're ready to build your app.  
 
 ## Download the code and configure authentication
-
 The code for this sample [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). To build the sample as you go, you can [download the skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip). You can also clone the skeleton:
 
 ```
@@ -95,7 +94,7 @@ Next, open the `web.config` file in the root of the project and enter your app's
 ...
 ```
 
-[AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+[!INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Next, add an OWIN startup class to the project called `Startup.cs`. Right-click on the project, select **Add** and **New Item**, and then Search for "OWIN." **Make sure to change the class declaration to `public partial class Startup`**. We implemented part of this class for you in another file. The OWIN middleware will invoke the `Configuration(...)` method when your app starts. In this method, make a call to `ConfigureAuth(...)`, where you set up authentication for your app.
 
@@ -266,8 +265,8 @@ Open the `Controllers\HomeController.cs` file. You can access user claims in you
 [Authorize]
 public ActionResult Claims()
 {
-	Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
-	ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
+    Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
+    ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
     return View();
 }
 ```
@@ -275,19 +274,17 @@ public ActionResult Claims()
 You can access any claim that your application receives in the same way.  A list of all the claims the app receives is available for you on the **Claims** page.
 
 ## Run the sample app
-
 Finally, you can build and run your app. Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit that user's profile. Sign out and sign up as a different user. Note that the information displayed on the **Claims** tab corresponds to the information that you configured on your policies.
 
 ## Add social IDPs
-
 Currently, the app supports only user sign-up and sign-in by using **local accounts**. These are accounts stored in your B2C directory that use a user name and password. By using Azure AD B2C, you can add support for other **identity providers** (IDPs) without changing any of your code.
 
 To add social IDPs to your app, begin by following the detailed instructions in these articles. For each IDP you want to support, you need to register an application in that system and obtain a client ID.
 
-- [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
-- [Set up Google as an IDP](active-directory-b2c-setup-goog-app.md)
-- [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
-- [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
+* [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
+* [Set up Google as an IDP](active-directory-b2c-setup-goog-app.md)
+* [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
+* [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
 
 After you add the identity providers to your B2C directory, you need to edit each of your three policies to include the new IDPs, as described in the [policy reference article](active-directory-b2c-reference-policies.md). After you save your policies, run the app again.  You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
 

@@ -1,23 +1,23 @@
-<properties
-	pageTitle="Stretch Database overview | Microsoft Azure"
-	description="Learn how Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager="jhubbard"
-	editor=""/>
+﻿---
+title: Stretch Database overview | Microsoft Docs
+description: Learn how Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud.
+services: sql-server-stretch-database
+documentationcenter: ''
+author: douglaslMS
+manager: jhubbard
+editor: ''
 
-<tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="06/27/2016"
-	ms.author="douglasl"/>
+ms.assetid: c360dc10-a02b-446f-91a0-278358f7a297
+ms.service: sql-server-stretch-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 06/27/2016
+ms.author: douglasl
 
+---
 # Stretch Database overview
-
 Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud.
 
 If you just want to get started with Stretch Database right away, see [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md).
@@ -40,9 +40,8 @@ Enjoy peace of mind as you stretch your most important applications securely to 
 ## What does Stretch Database do?
 After you enable Stretch Database for a SQL Server instance, a database, and at least one table, Stretch Database silently begins to migrate your cold data to Azure.
 
--   If you store cold data in a separate table, you can migrate the entire table.
-
--   If your table contains both hot and cold data, you can specify a filter function to select the rows to migrate.
+* If you store cold data in a separate table, you can migrate the entire table.
+* If your table contains both hot and cold data, you can specify a filter function to select the rows to migrate.
 
 **You don't have to change existing queries and client apps.** You continue to have seamless access to both local and remote data, even during data migration. There is a small amount of latency for remote queries, but you only encounter this latency when you query the cold data.
 
@@ -55,12 +54,12 @@ After you enable Stretch Database for a SQL Server instance, a database, and at 
 ## Is Stretch Database for you?
 If you can make the following statements, Stretch Database may help to meet your requirements and solve your problems.
 
-|If you're a decision maker|If you're a DBA|
-|------------------------------|-------------------|
-|I have to keep transactional data for a long time.|The size of my tables is getting out of control.|
-|Sometimes I have to query the cold data.|My users say that they want access to cold data, but they only rarely use it.|
-|I have apps, including older apps, that I don’t want to update.|I have to keep buying and adding more storage.|
-|I want to find a way to save money on storage.|I can’t backup or restore such large tables within the SLA.|
+| If you're a decision maker | If you're a DBA |
+| --- | --- |
+| I have to keep transactional data for a long time. |The size of my tables is getting out of control. |
+| Sometimes I have to query the cold data. |My users say that they want access to cold data, but they only rarely use it. |
+| I have apps, including older apps, that I don’t want to update. |I have to keep buying and adding more storage. |
+| I want to find a way to save money on storage. |I can’t backup or restore such large tables within the SLA. |
 
 ## What kind of databases and tables are candidates for Stretch Database?
 Stretch Database targets transactional databases with large amounts of cold data, typically stored in a small number of tables. These tables may contain more than a billion rows.

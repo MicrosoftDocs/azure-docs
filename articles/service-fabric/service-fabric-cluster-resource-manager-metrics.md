@@ -1,21 +1,22 @@
-<properties
-   pageTitle="Managing Metrics with the Azure Service Fabric Cluster Resource Manager | Microsoft Azure"
-   description="Learn about how to configure and use metrics in Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+﻿---
+title: Managing Metrics with the Azure Service Fabric Cluster Resource Manager | Microsoft Docs
+description: Learn about how to configure and use metrics in Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Managing resource consumption and load in Service Fabric with metrics
 Metrics are the generic term within Service Fabric for the resources that your services care about and which are provided by the nodes in the cluster. Generally, a metric is anything that you want to manage in order to deal with the performance of your services.
 
@@ -24,21 +25,22 @@ Things like Memory, Disk, CPU usage – all of these are examples of metrics. Th
 ## Default metrics
 Let’s say that you just want to get started and don’t know what resources you are going to consume or even which ones would be important to you. So you go implement and then create your services without specifying any metrics. That’s fine! We’ll pick some metrics for you. The default metrics that we use for you today if you don’t specify any of your own are called PrimaryCount, ReplicaCount, and (somewhat vaguely, we realize) Count. The table below shows how much load for each of these metrics is associated with each service object:
 
-| Metric | Stateless Instance Load |	Stateful Secondary Load |	Stateful Primary Load |
-|--------|--------------------------|-------------------------|-----------------------|
-| PrimaryCount | 0 |	0 |	1 |
-| ReplicaCount | 0	| 1	| 1 |
-| Count |	1 |	1 |	1 |
+| Metric | Stateless Instance Load | Stateful Secondary Load | Stateful Primary Load |
+| --- | --- | --- | --- |
+| PrimaryCount |0 |0 |1 |
+| ReplicaCount |0 |1 |1 |
+| Count |1 |1 |1 |
 
 Ok, so with these default metrics, what do you get? Well it turns out that for basic workloads you get a pretty good distribution of work. In this example below let’s see what happens when we create one stateful service with three partitions and a target replica set size of three, and also a single stateless service with an instance count of three - you’ll get something like this!
 
 ![Cluster Layout with Default Metrics][Image1]
 
 In this example we see
--	Primary replicas for the stateful service are not stacked up on a single node
--	Replicas for the same partition are not on the same node
--	The total number of primaries and secondaries is well distributed in the cluster
--	The total number of service objects (stateless and stateful) are evenly allocated on each node
+
+* Primary replicas for the stateful service are not stacked up on a single node
+* Replicas for the same partition are not on the same node
+* The total number of primaries and secondaries is well distributed in the cluster
+* The total number of service objects (stateless and stateful) are evenly allocated on each node
 
 Pretty good!  
 
@@ -101,13 +103,13 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 Now that we’ve shown you how to define your own metrics, let’s talk about the different properties that metrics can have. We’ve already shown them to you, but it’s time to talk about what they actually mean! There are four different properties a metric can have today:
 
--	Metric Name: This is the name of the metric. This is a unique identifier for the metric within the cluster from the Resource Manager’s perspective.
-- Default Load: The default load is represented differently depending on whether the service is stateless or stateful.
-  - For stateless services each metric just has a single property named Default Load
-  - For stateful services you define
-    -	PrimaryDefaultLoad: The default amount of load that this service will exert for this metric as a Primary
-    -	SecondaryDefaultLoad: The default amount of load that this service will exert for this metric as a Secondary replica  
--	Weight: This is how important the metric is relative to the other configured metrics for this service.
+* Metric Name: This is the name of the metric. This is a unique identifier for the metric within the cluster from the Resource Manager’s perspective.
+* Default Load: The default load is represented differently depending on whether the service is stateless or stateful.
+  * For stateless services each metric just has a single property named Default Load
+  * For stateful services you define
+    * PrimaryDefaultLoad: The default amount of load that this service will exert for this metric as a Primary
+    * SecondaryDefaultLoad: The default amount of load that this service will exert for this metric as a Secondary replica  
+* Weight: This is how important the metric is relative to the other configured metrics for this service.
 
 ## Load
 Load is the general notion of how much of a given metric is consumed by some service instance or replica on a given node.
@@ -151,15 +153,15 @@ Let's see what one possible cluster layout could look like:
 
 Some things that are worth noting:
 
--	Since replicas or instances use the service’s default load until they report their own load, we know that the replicas inside of partition 1 of the stateful service haven’t reported load on their own
--	Secondary replicas within a partition can have their own load
--	Overall the metrics look pretty good, with the difference between the maximum and minimum load on a node (for memory – the custom metric we said we cared the most about) of only a factor of 1.75 (the node with the most load for the memory is N3, the least is N2, and 28/16 = 1.75) – pretty balanced!
+* Since replicas or instances use the service’s default load until they report their own load, we know that the replicas inside of partition 1 of the stateful service haven’t reported load on their own
+* Secondary replicas within a partition can have their own load
+* Overall the metrics look pretty good, with the difference between the maximum and minimum load on a node (for memory – the custom metric we said we cared the most about) of only a factor of 1.75 (the node with the most load for the memory is N3, the least is N2, and 28/16 = 1.75) – pretty balanced!
 
 There are some things that we still need to explain
 
--	What determined whether a ratio of 1.75 was reasonable or not? How do we know that’s good enough or if there is more work to do?
--	When does balancing happen?
--	What does it mean that Memory was weighted “High”?
+* What determined whether a ratio of 1.75 was reasonable or not? How do we know that’s good enough or if there is more work to do?
+* When does balancing happen?
+* What does it mean that Memory was weighted “High”?
 
 ## Metric weights
 Metric Weights are what allows two different services to report the same metrics but to view the importance of balancing that metric differently. For example, consider an in-memory analytics engine and a persistent database; both probably care about the “Memory” metric, but the in-memory service probably doesn’t care much about the “Disk” metric – it might consume a little of it, but it is not critical to the service’s performance, so it probably doesn't even report it. Being able to track the same metrics across different services is great since that’s what allows the Cluster Resource Manager to track real consumption in the cluster, ensure that nodes don’t go over capacity, etc.
@@ -190,11 +192,11 @@ In the bottom example we have distributed the replicas based on both the global 
 Taking metric weights into account, the global balance is calculated based on the average of the metric weights configured for each of the services. We balance a service with regard to its own defined metric weights.
 
 ## Next steps
-- For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
-- Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
-- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-- Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. To learn more about movement cost, refer to [this article](service-fabric-cluster-resource-manager-movement-cost.md)
+* For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
+* Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+* To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
+* Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+* Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. To learn more about movement cost, refer to [this article](service-fabric-cluster-resource-manager-movement-cost.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]:./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png

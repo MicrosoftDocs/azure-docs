@@ -1,33 +1,33 @@
-<properties
-	pageTitle="Deploy and manage backup for Windows Server/Client using PowerShell | Microsoft Azure"
-	description="Learn how to deploy and manage Azure Backup using PowerShell"
-	services="backup"
-	documentationCenter=""
-	authors="saurabhsensharma"
-	manager="shivamg"
-	editor=""/>
+﻿---
+title: Deploy and manage backup for Windows Server/Client using PowerShell | Microsoft Docs
+description: Learn how to deploy and manage Azure Backup using PowerShell
+services: backup
+documentationcenter: ''
+author: saurabhsensharma
+manager: shivamg
+editor: ''
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>
+ms.assetid: 65218095-2996-44d9-917b-8c84fc9ac415
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/01/2016
+ms.author: saurabhsensharma;markgal;jimpark;nkolli;trinadhk
 
-
+---
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
-
-> [AZURE.SELECTOR]
-- [ARM](backup-client-automation.md)
-- [Classic](backup-client-automation-classic.md)
+> [!div class="op_single_selector"]
+> * [ARM](backup-client-automation.md)
+> * [Classic](backup-client-automation-classic.md)
+> 
+> 
 
 This article shows you how to use PowerShell for setting up Azure Backup on Windows Server or a Windows client, and managing backup and recovery.
 
 ## Install Azure PowerShell
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 This article focuses on the Azure Resource Manager (ARM) PowerShell cmdlets that enable you to use a Recovery Services vault in a resource group.
 
@@ -37,35 +37,33 @@ If you want to use your scripts written for the 0.9.8 environment, in the 1.0 or
 
 [Download the latest PowerShell release](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 1.0.0)
 
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Create a recovery services vault
-
 The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
 1. If you are using Azure Backup for the first time, you must use the **Register-AzureRMResourceProvider** cmdlet to register the Azure Recovery Service provider with your subscription.
-
+   
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-
 2. The Recovery Services vault is an ARM resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.  
-
+   
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
-
 3. Use the **New-AzureRmRecoveryServicesVault** cmdlet to create the new vault. Be sure to specify the same location for the vault as was used for the resource group.
-
+   
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-
 4. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) or [Geo Redundant Storage (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). The following example shows the -BackupStorageRedundancy option for testVault is set to GeoRedundant.
-
-    > [AZURE.TIP] Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
-
+   
+   > [!TIP]
+   > Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
+   > 
+   > 
+   
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
@@ -104,7 +102,6 @@ To see the list of installed programs, go to **Control Panel** > **Programs** > 
 ![Agent installed](./media/backup-client-automation/installed-agent-listing.png)
 
 ### Installation options
-
 To see all the options available via the command-line, use the following command:
 
 ```
@@ -114,21 +111,19 @@ PS C:\> MARSAgentInstaller.exe /?
 The available options include:
 
 | Option | Details | Default |
-| ---- | ----- | ----- |
-| /q | Quiet installation | - |
-| /p:"location" | Path to the installation folder for the Azure Backup agent. | C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Path to the cache folder for the Azure Backup agent. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /m | Opt-in to Microsoft Update | - |
-| /nu | Do not Check for updates after installation is complete | - |
-| /d | Uninstalls Microsoft Azure Recovery Services Agent | - |
-| /ph | Proxy Host Address | - |
-| /po | Proxy Host Port Number | - |
-| /pu | Proxy Host UserName | - |
-| /pw | Proxy Password | - |
-
+| --- | --- | --- |
+| /q |Quiet installation |- |
+| /p:"location" |Path to the installation folder for the Azure Backup agent. |C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"location" |Path to the cache folder for the Azure Backup agent. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m |Opt-in to Microsoft Update |- |
+| /nu |Do not Check for updates after installation is complete |- |
+| /d |Uninstalls Microsoft Azure Recovery Services Agent |- |
+| /ph |Proxy Host Address |- |
+| /po |Proxy Host Port Number |- |
+| /pu |Proxy Host UserName |- |
+| /pw |Proxy Password |- |
 
 ## Registering Windows Server or Windows client machine to a Recovery Services Vault
-
 After you created the Recovery Services vault, download the latest agent and the vault credentials and store it in a convenient location like C:\Downloads.
 
 ```
@@ -149,7 +144,10 @@ Region              :West US
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT] Do not use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
+> [!IMPORTANT]
+> Do not use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
+> 
+> 
 
 ## Networking settings
 When the connectivity of the Windows machine to the internet is through a proxy server, the proxy settings can also be provided to the agent. In this example, there is no proxy server, so we are explicitly clearing any proxy-related information.
@@ -174,7 +172,10 @@ PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT] Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
+> [!IMPORTANT]
+> Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
+> 
+> 
 
 ## Back up files and folders
 All backups from Windows Servers and clients to Azure Backup are governed by a policy. The policy comprises three parts:
@@ -194,8 +195,8 @@ At this time the policy is empty and other cmdlets are needed to define what ite
 ### Configuring the backup schedule
 The first of the 3 parts of a policy is the backup schedule, which is created using the [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule you need to specify 2 input parameters:
 
-- **Days of the week** that the backup should run. You can run the backup job on just one day, or every day of the week, or any combination in between.
-- **Times of the day** when the backup should run. You can define up to 3 different times of the day when the backup will be triggered.
+* **Days of the week** that the backup should run. You can run the backup job on just one day, or every day of the week, or any combination in between.
+* **Times of the day** when the backup should run. You can define up to 3 different times of the day when the backup will be triggered.
 
 For instance, you could configure a backup policy that runs at 4PM every Saturday and Sunday.
 
@@ -243,9 +244,9 @@ PolicyState     : Valid
 ### Including and excluding files to be backed up
 An ```OBFileSpec``` object defines the files to be included and excluded in a backup. This is a set of rules that scope out the protected files and folders on a machine. You can have as many file inclusion or exclusion rules as required, and associate them with a policy. When creating a new OBFileSpec object, you can:
 
-- Specify the files and folders to be included
-- Specify the files and folders to be excluded
-- Specify recursive backup of data in a folder (or) whether only the top-level files in the specified folder should be backed up.
+* Specify the files and folders to be included
+* Specify the files and folders to be excluded
+* Specify recursive backup of data in a folder (or) whether only the top-level files in the specified folder should be backed up.
 
 The latter is achieved by using the -NonRecursive flag in the New-OBFileSpec command.
 
@@ -379,7 +380,7 @@ DsList : {DataSource
          FileSpec:D:\
          IsExclude:False
          IsRecursive:True
-	}
+    }
 PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac
 RetentionPolicy : Retention Days : 7
               WeeklyLTRSchedule :
@@ -579,9 +580,9 @@ PS C:\> .\MARSAgentInstaller.exe /d /q
 
 Uninstalling the agent binaries from the machine has some consequences to consider:
 
-- It removes the file-filter from the machine, and tracking of changes is stopped.
-- All policy information is removed from the machine, but the policy information continues to be stored in the service.
-- All backup schedules are removed, and no further backups are taken.
+* It removes the file-filter from the machine, and tracking of changes is stopped.
+* All policy information is removed from the machine, but the policy information continues to be stored in the service.
+* All backup schedules are removed, and no further backups are taken.
 
 However, the data stored in Azure remains and is retained as per the retention policy setup by you. Older points are automatically aged out.
 
@@ -624,5 +625,6 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Next steps
 For more information about Azure Backup for Windows Server/Client see
 
-- [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
-- [Back up Windows Servers](backup-configure-vault.md)
+* [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
+* [Back up Windows Servers](backup-configure-vault.md)
+

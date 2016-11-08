@@ -1,35 +1,33 @@
-<properties 
-	pageTitle="How to use properties in Azure API Management policies" 
-	description="Learn how to use properties in Azure API Management policies." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+﻿---
+title: How to use properties in Azure API Management policies
+description: Learn how to use properties in Azure API Management policies.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/25/2016" 
-	ms.author="sdanie"/>
+ms.assetid: 6f39b00f-cf6e-4cef-9bf2-1f89202c0bc0
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/25/2016
+ms.author: sdanie
 
-
+---
 # How to use properties in Azure API Management policies
-
 API Management policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policy statements can be constructed using literal text values, policy expressions, and properties. 
 
 Each API Management service instance has a properties collection of key/value pairs that are global to the service instance. These properties can be used to manage constant string values across all API configuration and policies. Each property has the following attributes.
 
-
-| Attribute | Type            | Description                                                                                             |
-|-----------|-----------------|---------------------------------------------------------------------------------------------------------|
-| Name      | string          | The name of the property. It may contain only letters, digits, period, dash, and underscore characters. |
-| Value     | string          | The value of the property. It may not be empty or consist only of whitespace.                           |
-| Secret    | boolean         | Determines whether the value is a secret and should be encrypted or not.                                |
-| Tags      | array of string | Optional tags that when provided can be used to filter the property list.                               |
+| Attribute | Type | Description |
+| --- | --- | --- |
+| Name |string |The name of the property. It may contain only letters, digits, period, dash, and underscore characters. |
+| Value |string |The value of the property. It may not be empty or consist only of whitespace. |
+| Secret |boolean |Determines whether the value is a secret and should be encrypted or not. |
+| Tags |array of string |Optional tags that when provided can be used to filter the property list. |
 
 Properties are configured in the publisher portal on the **Properties** tab. In the following example, three properties are configured.
 
@@ -37,17 +35,16 @@ Properties are configured in the publisher portal on the **Properties** tab. In 
 
 Property values can contain literal strings and [policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx). The following table shows the previous three sample properties and their attributes. The value of `ExpressionProperty` is a policy expression that returns a string containing the current date and time. The property `ContosoHeaderValue` is marked as a secret, so its value is not displayed.
 
-| Name               | Value                      | Secret | Tags    |
-|--------------------|----------------------------|--------|---------|
-| ContosoHeader      | TrackingId                 | False  | Contoso |
-| ContosoHeaderValue | ••••••••••••••••••••••     | True   | Contoso |
-| ExpressionProperty | @(DateTime.Now.ToString()) | False  |         |
+| Name | Value | Secret | Tags |
+| --- | --- | --- | --- |
+| ContosoHeader |TrackingId |False |Contoso |
+| ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
+| ExpressionProperty |@(DateTime.Now.ToString()) |False | |
 
 ## To use a property
-
 To use a property in a policy, place the property name inside a double pair of braces like `{{ContosoHeader}}`, as shown in the following example.
 
-	<set-header name="{{ContosoHeader}}" exists-action="override">
+    <set-header name="{{ContosoHeader}}" exists-action="override">
       <value>{{ContosoHeaderValue}}</value>
     </set-header>
 
@@ -57,9 +54,9 @@ Properties can be used as complete attribute or element values as shown in the p
 
 Properties can also contain policy expressions. In the following example, the `ExpressionProperty` is used.
 
-	<set-header name="CustomHeader" exists-action="override">
-		<value>{{ExpressionProperty}}</value>
-	</set-header>
+    <set-header name="CustomHeader" exists-action="override">
+        <value>{{ExpressionProperty}}</value>
+    </set-header>
 
 When this policy is evaluated, `{{ExpressionProperty}}` is replaced with its value: `@(DateTime.Now.ToString())`. Since the value is a policy expression, the expression is evaluated and the policy proceeds with its execution.
 
@@ -74,7 +71,6 @@ If you look at the [API Inspector trace](api-management-howto-api-inspector.md) 
 Note that while property values can contain policy expressions, property values can't contain other properties. If text containing a property reference is used for a property value, such as `Property value text {{MyProperty}}`, that property reference won't be replaced and will be included as part of the property value.
 
 ## To create a property
-
 To create a property, click **Add property** on the **Properties** tab.
 
 ![Add property][api-management-properties-add-property-menu]
@@ -90,7 +86,6 @@ When a new property is saved, the **Search property** textbox is populated with 
 For information on creating a property using the REST API, see [Create a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put).
 
 ## To edit a property
-
 To edit a property, click **Edit** beside the property to edit.
 
 ![Edit property][api-management-properties-edit]
@@ -102,7 +97,6 @@ Make any desired changes, and click **Save**. If you change the property name, a
 For information on editing a property using the REST API, see [Edit a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
 
 ## To delete a property
-
 To delete a property, click **Delete** beside the property to delete.
 
 ![Delete property][api-management-properties-delete]
@@ -111,12 +105,14 @@ Click **Yes, delete it** to confirm.
 
 ![Confirm delete][api-management-delete-confirm]
 
->[AZURE.IMPORTANT] If the property is referenced by any policies, you will be unable to successfully delete it until you remove the property from all policies that use it.
+> [!IMPORTANT]
+> If the property is referenced by any policies, you will be unable to successfully delete it until you remove the property from all policies that use it.
+> 
+> 
 
 For information on deleting a property using the REST API, see [Delete a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
 
 ## To search and filter properties
-
 The **Properties** tab includes searching and filtering capabilities to help you manage your properties. To filter the property list by property name, enter a search term in the **Search property** textbox. To display all properties, clear the **Search property** textbox and press enter.
 
 ![Search][api-management-properties-search]
@@ -126,15 +122,15 @@ To filter the property list by tag values, enter one or more tags into the **Fil
 ![Filter][api-management-properties-filter]
 
 ## Next steps
-
--	Learn more about working with policies
-	-	[Policies in API Management](api-management-howto-policies.md)
-	-	[Policy reference](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-	-	[Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+* Learn more about working with policies
+  * [Policies in API Management](api-management-howto-policies.md)
+  * [Policy reference](https://msdn.microsoft.com/library/azure/dn894081.aspx)
+  * [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
 ## Watch a video overview
-
-> [AZURE.VIDEO use-properties-in-policies]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Use-Properties-in-Policies/player]
+> 
+> 
 
 [api-management-properties]: ./media/api-management-howto-properties/api-management-properties.png
 [api-management-properties-add-property]: ./media/api-management-howto-properties/api-management-properties-add-property.png

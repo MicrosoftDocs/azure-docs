@@ -1,24 +1,24 @@
-<properties
-   pageTitle="Encrypt disks on a Linux VM | Microsoft Azure"
-   description="How to encrypt disks on a Linux VM using the Azure CLI and the Resource Manager deployment model"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Encrypt disks on a Linux VM | Microsoft Docs
+description: How to encrypt disks on a Linux VM using the Azure CLI and the Resource Manager deployment model
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="10/11/2016"
-   ms.author="iainfou"/>
+ms.assetid: 2a23b6fa-6941-4998-9804-8efe93b647b3
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 10/11/2016
+ms.author: iainfou
 
+---
 # Encrypt disks on a Linux VM using the Azure CLI
 For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted at rest. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI and the Resource Manager deployment model.
-
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to encrypt virtual disks on your VM. More detailed information and context for each step can be found the rest of the document, [starting here](#overview-of-disk-encryption).
@@ -128,32 +128,29 @@ The process for encrypting a VM is as follows:
 5. The Azure Active Directory endpoint requests the required cryptographic key from Azure Key Vault.
 6. The virtual disks are encrypted using the provided cryptographic key.
 
-
 ## Supporting services and encryption process
 Disk encryption relies on the following additional components:
 
-- **Azure Key Vault** - used to safeguard cryptographic keys and secrets used for the disk encryption/decryption process. 
-  - If one exists, you can use an existing Azure Key Vault. You do not have to dedicate a Key Vault to encrypting disks.
-  - To separate administrative boundaries and key visibility, you can create a dedicated Key Vault.
-- **Azure Active Directory** - handles the secure exchanging of required cryptographic keys and authentication for requested actions. 
-  - You can typically use an existing Azure Active Directory instance for housing your application. 
-  - The application is more of an endpoint for the Key Vault and Virtual Machine services to request and get issued the appropriate cryptographic keys. You are not developing an actual application that integrates with Azure Active Directory.
-
+* **Azure Key Vault** - used to safeguard cryptographic keys and secrets used for the disk encryption/decryption process. 
+  * If one exists, you can use an existing Azure Key Vault. You do not have to dedicate a Key Vault to encrypting disks.
+  * To separate administrative boundaries and key visibility, you can create a dedicated Key Vault.
+* **Azure Active Directory** - handles the secure exchanging of required cryptographic keys and authentication for requested actions. 
+  * You can typically use an existing Azure Active Directory instance for housing your application. 
+  * The application is more of an endpoint for the Key Vault and Virtual Machine services to request and get issued the appropriate cryptographic keys. You are not developing an actual application that integrates with Azure Active Directory.
 
 ## Requirements and limitations
 Supported scenarios and requirements for disk encryption:
 
-- The following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES), and Red Hat Enterprise Linux.
-- All resources (such as Key Vault, Storage account, and VM) must be in the same Azure region and subscription.
-- Standard A, D, DS, G, and GS series VMs.
+* The following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES), and Red Hat Enterprise Linux.
+* All resources (such as Key Vault, Storage account, and VM) must be in the same Azure region and subscription.
+* Standard A, D, DS, G, and GS series VMs.
 
 Disk encryption is not currently supported in the following scenarios:
 
-- Basic tier VMs.
-- VMs created using the Classic deployment model.
-- Disabling OS disk encryption on Linux VMs.
-- Updating the cryptographic keys on an already encrypted Linux VM.
-
+* Basic tier VMs.
+* VMs created using the Classic deployment model.
+* Disabling OS disk encryption on Linux VMs.
+* Updating the cryptographic keys on an already encrypted Linux VM.
 
 ## Create the Azure Key Vault and keys
 To complete the remainder of this guide, you need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
@@ -306,6 +303,6 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 
 
 ## Next steps
+* For more information about managing Azure Key Vault, including deleting cryptographic keys and vaults, see [Manage Key Vault using CLI](../key-vault/key-vault-manage-with-cli.md).
+* For more information about disk encryption, such as preparing an encrypted custom VM to upload to Azure, see [Azure Disk Encryption](../security/azure-security-disk-encryption.md).
 
-- For more information about managing Azure Key Vault, including deleting cryptographic keys and vaults, see [Manage Key Vault using CLI](../key-vault/key-vault-manage-with-cli.md).
-- For more information about disk encryption, such as preparing an encrypted custom VM to upload to Azure, see [Azure Disk Encryption](../security/azure-security-disk-encryption.md).

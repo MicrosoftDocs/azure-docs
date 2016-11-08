@@ -1,21 +1,22 @@
-<properties
-   pageTitle="Open ports and endpoints to a Linux VM | Microsoft Azure"
-   description="Learn how to open a port / create an endpoint to your Linux VM using the Azure resource manager deployment model and the Azure CLI"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Open ports and endpoints to a Linux VM | Microsoft Docs
+description: Learn how to open a port / create an endpoint to your Linux VM using the Azure resource manager deployment model and the Azure CLI
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="10/27/2016"
-   ms.author="iainfou"/>
+ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 10/27/2016
+ms.author: iainfou
 
+---
 # Opening ports and endpoints to a Linux VM in Azure
 You open a port, or create an endpoint, to a virtual machine (VM) in Azure by creating a network filter on a subnet or VM network interface. You place these filters, which control both inbound and outbound traffic, on a Network Security Group attached to the resource that receives the traffic. Let's use a common example of web traffic on port 80.
 
@@ -69,6 +70,7 @@ If you need to use port-forwarding to map a unique external port to an internal 
 ## Next steps
 In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
 
-- [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
-- [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
-- [Azure Resource Manager Overview for Load Balancers](../load-balancer2    /load-balancer-arm.md)
+* [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
+* [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
+* [Azure Resource Manager Overview for Load Balancers](../load-balancer/load-balancer-arm.md)
+

@@ -1,9 +1,10 @@
-> [AZURE.SELECTOR]
-- [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
-- [C#](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
+> [!div class="op_single_selector"]
+> * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
+> * [C#](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
+> 
+> 
 
 ## Introduction
-
 Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub.
 
 Use device twins to:
@@ -13,7 +14,10 @@ Use device twins to:
 * Synchronize the state of long-running workflows (such as firmware and configuration updates) between device app and back end.
 * Query your device metadata, configuration, or state.
 
-> [AZURE.NOTE] Device twins are designed for synchronization and for querying device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [direct methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
+> [!NOTE]
+> Device twins are designed for synchronization and for querying device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [direct methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
+> 
+> 
 
 Device twins are stored in an IoT hub and contain:
 
@@ -26,13 +30,15 @@ Device twins are stored in an IoT hub and contain:
 Additionally, the app back end can query device twins based on all the above data.
 Refer to [Understand device twins][lnk-twins] for more information about device twins and to the [IoT Hub query language][lnk-query] reference for querying.
 
-> [AZURE.NOTE] At this time, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
+> [!NOTE]
+> At this time, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
+> 
+> 
 
 This tutorial shows you how to:
 
-- Create a back-end app that adds *tags* to a device twin, and a simulated device that reports its connectivity channel as a *reported property* on the device twin.
-- Query devices from your back end app using filters on the tags and properties previously created.
-
+* Create a back-end app that adds *tags* to a device twin, and a simulated device that reports its connectivity channel as a *reported property* on the device twin.
+* Query devices from your back end app using filters on the tags and properties previously created.
 
 <!-- images -->
 [img-twin]: media/iot-hub-selector-twin-get-started/twin.png

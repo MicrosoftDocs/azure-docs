@@ -1,36 +1,35 @@
-<properties 
-   pageTitle="StorSimple locally pinned volumes FAQ|Microsoft Azure"
-   description="Provides answers to frequently asked questions about StorSimple locally pinned volumes."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="manuaery"
-   manager="syadav"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/16/2016"
-   ms.author="manuaery" />
+﻿---
+title: StorSimple locally pinned volumes FAQ| Microsoft Docs
+description: Provides answers to frequently asked questions about StorSimple locally pinned volumes.
+services: storsimple
+documentationcenter: NA
+author: manuaery
+manager: syadav
+editor: ''
 
+ms.assetid: 7a2f4b1a-4ac9-4ce1-9359-bd40a9cbbb5d
+ms.service: storsimple
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/16/2016
+ms.author: manuaery
+
+---
 # StorSimple locally pinned volumes: frequently asked questions (FAQ)
-
 ## Overview
-
 The following are questions and answers that you might have when you create a StorSimple locally pinned volume, convert a tiered volume to a locally pinned volume (and vice versa), or back up and restore a locally pinned volume.
 
 Questions and answers are arranged into the following categories
 
-- Creating a locally pinned volume
-- Backing up a locally pinned
-- Converting a tiered volume to a locally pinned volume
-- Restoring a locally pinned volume
-- Failing over a locally pinned volume
+* Creating a locally pinned volume
+* Backing up a locally pinned
+* Converting a tiered volume to a locally pinned volume
+* Restoring a locally pinned volume
+* Failing over a locally pinned volume
 
 ## Questions about creating a locally pinned volume
-
 **Q.** What is the maximum size of a locally pinned volume that I can create on the 8000 series devices?
 
 **A** You can provision locally pinned volumes up to 8.5 TB or tiered volumes up to 200 TB on the 8100 device. On the larger 8600 device, you can provision locally pinned volumes up to 22.5 TB or tiered volumes up to 500 TB.
@@ -41,16 +40,15 @@ Questions and answers are arranged into the following categories
 
 Because some local space on the device is used to host the working set of tiered volumes, the available space for creating a locally pinned volume is reduced if the device has tiered volumes. Conversely, creating a locally pinned volume proportionally reduces the available space for tiered volumes. The following table summarizes the available tiered capacity on the 8100 and 8600 devices when locally pinned volumes are created.
 
-|Locally pinned volumes provisioned capacity|Available capacity to be provisioned for tiered volumes - 8100|Available capacity to be provisioned for tiered volumes - 8600|
-|-----|------|------|
-|0 | 200 TB | 500 TB |
-|1 TB | 176.5 TB | 477.8 TB|
-|4 TB | 105.9 TB | 411.1 TB |
-|8.5 TB | 0 TB | 311.1 TB|
-|10 TB | NA | 277.8 TB |
-|15 TB | NA	| 166.7 TB |
-|22.5 TB | NA | 0 TB |
-
+| Locally pinned volumes provisioned capacity | Available capacity to be provisioned for tiered volumes - 8100 | Available capacity to be provisioned for tiered volumes - 8600 |
+| --- | --- | --- |
+| 0 |200 TB |500 TB |
+| 1 TB |176.5 TB |477.8 TB |
+| 4 TB |105.9 TB |411.1 TB |
+| 8.5 TB |0 TB |311.1 TB |
+| 10 TB |NA |277.8 TB |
+| 15 TB |NA |166.7 TB |
+| 22.5 TB |NA |0 TB |
 
 **Q.** Why is locally pinned volume creation a long running operation? 
 
@@ -64,14 +62,11 @@ Because some local space on the device is used to host the working set of tiered
 
 **A.** Locally pinned volumes are suitable for workloads that require local guarantees of data at all times and are sensitive to cloud latencies. While considering usage of local volumes for any of your workloads, please be aware of the following:
 
-- Locally pinned volumes are thickly provisioned, and creating local volumes impacts the available space for tiered volumes. Therefore, we suggest you start with smaller-sized volumes and scale up as your storage requirement increases.
+* Locally pinned volumes are thickly provisioned, and creating local volumes impacts the available space for tiered volumes. Therefore, we suggest you start with smaller-sized volumes and scale up as your storage requirement increases.
+* Provisioning of local volumes is a long running operation that might involve pushing existing data from tiered volumes to the cloud. As a result, you may experience reduced performance on these volumes.
+* Provisioning of local volumes is a time consuming operation. The actual time involved depends on multiple factors: the size of the volume being provisioned, data on your device, and available bandwidth. If you have not backed up your existing volumes to the cloud, then volume creation is slower. We suggest you take cloud snapshots of your existing volumes before you provision a local volume.
+* You can convert existing tiered volumes to locally pinned volumes, and this conversion involves provisioning of space on the device for the resulting locally pinned volume (in addition to bringing down tiered data [if any] from the cloud). Again, this is a long running operation that depends on factors we’ve discussed above. We suggest that you back up your existing volumes prior to conversion as the process will be even slower if existing volumes are not backed up. Your device might also experience reduced performance during this process.
 
-- Provisioning of local volumes is a long running operation that might involve pushing existing data from tiered volumes to the cloud. As a result, you may experience reduced performance on these volumes.
-
-- Provisioning of local volumes is a time consuming operation. The actual time involved depends on multiple factors: the size of the volume being provisioned, data on your device, and available bandwidth. If you have not backed up your existing volumes to the cloud, then volume creation is slower. We suggest you take cloud snapshots of your existing volumes before you provision a local volume.
- 
-- You can convert existing tiered volumes to locally pinned volumes, and this conversion involves provisioning of space on the device for the resulting locally pinned volume (in addition to bringing down tiered data [if any] from the cloud). Again, this is a long running operation that depends on factors we’ve discussed above. We suggest that you back up your existing volumes prior to conversion as the process will be even slower if existing volumes are not backed up. Your device might also experience reduced performance during this process.
-	
 More information on how to [create a locally pinned volume](storsimple-manage-volumes-u2.md#add-a-volume)
 
 **Q.** Can I create multiple locally pinned volumes at the same time?
@@ -97,7 +92,6 @@ You can view these jobs in the **Jobs** page of the Azure StorSimple Manager ser
 **A.** No, you cannot create locally pinned volumes via Azure PowerShell cmdlets (any volume you create via Azure PowerShell is tiered). We also suggest that you do not use the Azure PowerShell cmdlets to modify any properties of a locally pinned volume, as it will have the undesired effect of modifying the volume type to tiered.
 
 ## Questions about backing up a locally pinned volume
-
 **Q.** Are local snapshots of locally pinned volumes supported?
 
 **A.** Yes, you can take local snapshots of your locally pinned volumes. However, we strongly suggest that you regularly back up your locally pinned volumes with cloud snapshots to ensure that your data is protected in the eventuality of a disaster.
@@ -115,21 +109,18 @@ The alert warning is to notify you that such a situation can arise and ensure yo
 If the local snapshots are invalidated, you will receive an information alert notifying you that the local snapshots for the specific backup policy have been invalidated alongside the list of timestamps of the local snapshots that were invalidated. These snapshots will be auto-deleted and you will no longer be able to view them in the **Backup Catalogs** page in the Azure classic portal.
 
 ## Questions about converting a tiered volume to a locally pinned volume
-
 **Q.** I’m observing some slowness on the device while converting a tiered volume to a locally pinned volume. Why is this happening? 
 
 **A.** The conversion process involves two steps: 
 
-  1. Provisioning of space on the device for the soon-to-be-converted locally pinned volume.
-  2. Downloading any tiered data from the cloud to ensure local guarantees.
+1. Provisioning of space on the device for the soon-to-be-converted locally pinned volume.
+2. Downloading any tiered data from the cloud to ensure local guarantees.
 
 Both of these steps are long running operations that are dependent on the size of the volume being converted, data on the device, and available bandwidth. As some data from existing tiered volumes might spill to the cloud as part of the provisioning process, your device might experience reduced performance during this time. In addition, the conversion process can be slower if:
 
-- Existing volumes have not been backed up to the cloud; so we suggest you backup your volumes prior to initiating a conversion.
-
-- Bandwidth throttling policies have been applied, which might constrain the available bandwidth to the cloud; we therefore recommend you have a dedicated 40 Mbps or more connection to the cloud.
-
-- The conversion process can take several hours due to the multiple factors explained above; therefore, we suggest that you perform this operation during non-peaks times or on a weekend to avoid the impact on end consumers.
+* Existing volumes have not been backed up to the cloud; so we suggest you backup your volumes prior to initiating a conversion.
+* Bandwidth throttling policies have been applied, which might constrain the available bandwidth to the cloud; we therefore recommend you have a dedicated 40 Mbps or more connection to the cloud.
+* The conversion process can take several hours due to the multiple factors explained above; therefore, we suggest that you perform this operation during non-peaks times or on a weekend to avoid the impact on end consumers.
 
 More information on how to [convert a tiered volume to a locally pinned volume](storsimple-manage-volumes-u2.md#change-the-volume-type)
 
@@ -141,14 +132,11 @@ More information on how to [convert a tiered volume to a locally pinned volume](
 
 **A.** Volume conversion can fail due to cloud connectivity issues. The device may eventually stop the conversion process after a series of unsuccessful attempts to bring down tiered data from the cloud. In such a scenario, the volume type will continue to be the source volume type prior to conversion, and:
 
-- A critical alert will be raised to notify you of the volume conversion failure. More information on [alerts related to locally pinned volumes](storsimple-manage-alerts.md#locally-pinned-volume-alerts)
-
-- If you are converting a tiered to a locally pinned volume, the volume will continue to exhibit properties of a tiered volume as data might still reside on the cloud. We suggest that you resolve the connectivity issues and then retry the conversion operation.
- 
-- Similarly, when conversion from a locally pinned to a tiered volume fails, although the volume will be marked as a locally pinned volume, it will function as a tiered volume (because data could have spilled to the cloud). However, it will continue to occupy space on the local tiers of the device. This space will not be available for other locally pinned volumes. We suggest that you retry this operation to ensure that the volume conversion is complete and the local space on the device can be reclaimed.
+* A critical alert will be raised to notify you of the volume conversion failure. More information on [alerts related to locally pinned volumes](storsimple-manage-alerts.md#locally-pinned-volume-alerts)
+* If you are converting a tiered to a locally pinned volume, the volume will continue to exhibit properties of a tiered volume as data might still reside on the cloud. We suggest that you resolve the connectivity issues and then retry the conversion operation.
+* Similarly, when conversion from a locally pinned to a tiered volume fails, although the volume will be marked as a locally pinned volume, it will function as a tiered volume (because data could have spilled to the cloud). However, it will continue to occupy space on the local tiers of the device. This space will not be available for other locally pinned volumes. We suggest that you retry this operation to ensure that the volume conversion is complete and the local space on the device can be reclaimed.
 
 ## Questions about restoring a locally pinned volume
-
 **Q.** Are locally pinned volumes restored instantly?
 
 **A.** Yes, locally pinned volumes are restored instantly. As soon as the metadata information for the volume is pulled from the cloud as part of the restore operation, the volume is brought online and can be accessed by the host. However, local guarantees for the volume data will not be present until all the data has been downloaded from the cloud, and you may experience reduced performance on these volumes for the duration of the restore.
@@ -169,10 +157,9 @@ More information on how to [convert a tiered volume to a locally pinned volume](
 
 **A.**No, you cannot change the volume type during restore.
 
-- Volumes that have been deleted are restored as the type stored in the snapshot.
+* Volumes that have been deleted are restored as the type stored in the snapshot.
+* Existing volumes are restored based on their current type, irrespective of the type stored in the snapshot (refer to the previous two questions).
 
-- Existing volumes are restored based on their current type, irrespective of the type stored in the snapshot (refer to the previous two questions).
- 
 **Q.** I need to restore my locally pinned volume, but I picked an incorrect point in time snapshot. Can I cancel the current restore operation?
 
 **A.** Yes, you can cancel an on-going restore operation. The state of the volume will be rolled back to the state at the start of the restore. However, any writes that were made to the volume while the restore was in progress will be lost.
@@ -186,14 +173,13 @@ More information on how to [convert a tiered volume to a locally pinned volume](
 **A.** Yes, you can. However, the locally pinned volume will be cloned as a tiered volume by default. More information on how to [clone a  locally pinned volume](storsimple-clone-volume-u2.md)
 
 ## Questions about failing over a locally pinned volume
-
 **Q.** I need to fail over my device to another physical device. Will my locally pinned volumes be failed over as locally pinned or tiered?
 
 **A.** Depending on the software version of the target device, locally pinned volumes will be failed over as:
 
-- Locally pinned if the target device is running StorSimple 8000 series update 2
-- Tiered if the target device is running StorSimple 8000 series update 1.x
-- Tiered if the target device is the cloud appliance (software version update 2 or update 1.x)
+* Locally pinned if the target device is running StorSimple 8000 series update 2
+* Tiered if the target device is running StorSimple 8000 series update 1.x
+* Tiered if the target device is the cloud appliance (software version update 2 or update 1.x)
 
 More information on [failover and DR of locally pinned volumes across versions](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions)
 
@@ -212,5 +198,4 @@ More information on [failover and DR of locally pinned volumes across versions](
 **Q.** Can I fail over a volume container with locally pinned volumes to the cloud appliance?
 
 **A.** Yes, you can. The locally pinned volumes will be failed over as tiered volumes. More information on [failover and DR of locally pinned volumes across versions](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
-
 

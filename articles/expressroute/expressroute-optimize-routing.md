@@ -1,20 +1,22 @@
-<properties
-   pageTitle="Optimize ExpressRoute routing | Microsoft Azure"
-   description="This page provides details on how to optimize routing when a customer has more than one ExpressRoute circuits that connect between Microsoft and the customer's corp network."
-   documentationCenter="na"
-   services="expressroute"
-   authors="charwen"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="charwen"/>
+---
+title: Optimize ExpressRoute routing | Microsoft Docs
+description: This page provides details on how to optimize routing when a customer has more than one ExpressRoute circuits that connect between Microsoft and the customer's corp network.
+documentationcenter: na
+services: expressroute
+author: charwen
+manager: carmonm
+editor: ''
 
+ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: charwen
+
+---
 # Optimize ExpressRoute Routing
 When you have multiple ExpressRoute circuits, you have more than one path to connect to Microsoft. As a result, suboptimal routing may happen - that is, your traffic may take a longer path to reach Microsoft, and Microsoft to your network. The longer the network path, the higher the latency. Latency has direct impact on application performance and user experience. This article will illustrate this problem and explain how to optimize routing using the standard routing technologies.
 
@@ -38,8 +40,15 @@ There are two solutions to the problem. The first one is that you simply adverti
 
 The second solution is that you continue to advertise both of the prefixes on both ExpressRoute circuits, and in addition you give us a hint of which prefix is close to which one of your offices. Because we support BGP AS Path prepending, you can configure the AS Path for your prefix to influence routing. In this example, you can lengthen the AS PATH for 172.2.0.0/31 in US East so that we will prefer the ExpressRoute circuit in US West for traffic destined for this prefix (as our network will think the path to this prefix is shorter in the west). Similarly you can lengthen the AS PATH for 172.2.0.2/31 in US West so that we'll prefer the ExpressRoute circuit in US East. Routing is optimized for both offices. With this design, if one ExpressRoute circuit is broken, Exchange Online can still reach you via another ExpressRoute circuit and your WAN. 
 
->[AZURE.IMPORTANT] We remove private AS numbers in the AS PATH for the prefixes received on Microsoft Peering. You need to append public AS numbers in the AS PATH to influence routing for Microsoft Peering.
+> [!IMPORTANT]
+> We remove private AS numbers in the AS PATH for the prefixes received on Microsoft Peering. You need to append public AS numbers in the AS PATH to influence routing for Microsoft Peering.
+> 
+> 
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
->[AZURE.IMPORTANT] While the examples given here are for Microsoft and Public peerings, we do support the same capabilities for the Private peering. Also, the AS Path prepending works within one single ExpressRoute circuit, to influence the selection of the primary and secondary paths.
+> [!IMPORTANT]
+> While the examples given here are for Microsoft and Public peerings, we do support the same capabilities for the Private peering. Also, the AS Path prepending works within one single ExpressRoute circuit, to influence the selection of the primary and secondary paths.
+> 
+> 
+

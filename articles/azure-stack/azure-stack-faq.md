@@ -1,27 +1,25 @@
-﻿<properties
-	pageTitle="Frequently asked questions for Azure Stack | Microsoft Azure"
-	description="Azure Stack frequently asked questions."
-	services="azure-stack"
-	documentationCenter=""
-	authors="HeathL17"
-	manager="byronr"
-	editor=""/>
+---
+title: Frequently asked questions for Azure Stack | Microsoft Docs
+description: Azure Stack frequently asked questions.
+services: azure-stack
+documentationcenter: ''
+author: HeathL17
+manager: byronr
+editor: ''
 
-<tags
-	ms.service="azure-stack"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/13/2016"
-	ms.author="helaw"/>
+ms.assetid: 028479e4-a17e-43c7-885c-cb2130f850d2
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/13/2016
+ms.author: helaw
 
+---
 # Frequently asked questions for Azure Stack
-
 ## Deployment
-
 ### Do I need to format my data disks before starting or restarting an installation?
-
 Disks should be in raw format. If you reinstall the operating system, you may need to check if the old storage pool is still present and delete using the following steps:
 
 1. Open Server Manager.
@@ -45,34 +43,26 @@ if ($pools -ne $null) {
 ```
 
 ### Can I use all SSD disks for the storage pool in the POC installation?
-
 This configuration is not supported in this release.  For more information, see the [requirements guide](azure-stack-deploy.md) for more information.
 
 ### Can I use NVMe data disks for the Microsoft Azure Stack POC?
-
 While Storage Spaces Direct supports NVMe disks, Azure Stack only supports a subset of the possible drive types and combinations possible for Storage Spaces Direct. 
 
 ### How can I reinstall Azure Stack?
 You can follow the steps in the [redeployment guide](azure-stack-redeploy.md).  
 
 ## Tenant
-
 ### Can I deploy my own images as a tenant?
-
 Yes, just like in Azure, a tenant can upload images in Azure Stack, in addition to using the images from the service administrator. For an overview, see the [Adding a VM Image](azure-stack-add-vm-image.md). 
 
 ## Testing
-
 ### Can I use Nested Virtualization to test the Microsoft Azure Stack POC?
-
 Nested virtualization is not supported or tested with Azure Stack Technical Preview 2.
 
 ## Virtual machines
-
 ### Does Azure Stack support dynamic disks for virtual machines?
-
 Azure Stack does not support dynamic disks.
 
 ## Next steps
-
 [Troubleshooting](azure-stack-troubleshooting.md)
+

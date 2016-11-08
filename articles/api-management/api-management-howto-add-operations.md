@@ -1,32 +1,33 @@
-<properties 
-	pageTitle="How to add operations to an API in Azure API Management | Microsoft Azure" 
-	description="Learn how to add operations to an API in Azure API Management." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: How to add operations to an API in Azure API Management | Microsoft Docs
+description: Learn how to add operations to an API in Azure API Management.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/25/2016" 
-	ms.author="sdanie"/>
+ms.assetid: 1158a023-1913-4e9c-93de-9164b672f9b3
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/25/2016
+ms.author: sdanie
 
+---
 # How to add operations to an API in Azure API Management
-
 Before an API in API Management can be used, operations must be added. This guide shows how to add and configure different types of operations to an API in API Management.
 
 ## <a name="add-operation"> </a>Add an operation
-
-Operations are added and configured to an API in the publisher portal. To access the publisher portal, click **Manage** in the Azure Classic Portal for your API Management service.
+Operations are added and configured to an API in the publisher portal. To access the publisher portal, click **Publisher portal** in the Azure Portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 
->If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
+> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
+> 
+> 
 
 Select the desired API in the publisher portal and then select the **Operations** tab. 
 
@@ -54,7 +55,6 @@ If desired, specify the **Rewrite URL template**. This allows you to use the sta
 
 Callers to the operation will use the format `/customers?customerid=ALFKI` and this will be mapped to `/Customers('ALFKI')` when the back-end service is invoked.
 
-
 **Display** name and **Description** provide a description of the operation and are used to provide documentation to the developers using this API in the developer portal.
 
 ![Description][api-management-description]
@@ -62,7 +62,6 @@ Callers to the operation will use the format `/customers?customerid=ALFKI` and t
 The operation description can be specified as plain text or HTML in the **Description** text box.
 
 ## <a name="operation-caching"> </a>Operation caching
-
 Response caching reduces latency perceived by the API consumers, lowers bandwidth consumption and decreases the load on the HTTP web service implementing the API. 
 
 To easily and quickly enable caching for the operation, select the **Caching** tab and check the **Enable** checkbox.
@@ -73,28 +72,29 @@ To easily and quickly enable caching for the operation, select the **Caching** t
 
 Cache keys are used to differentiate between responses so that the response corresponding to each different cache key will get its own separate cached value. Optionally, enter specific query string parameters and/or HTTP headers to be used in computing cache key values in the **Vary by query string parameters** and **Vary by headers** text boxes respectively. When none are specified, full request URL and the following HTTP header values are used in cache key generation: **Accept** and **Accept-Charset**.
 
->For more information on caching and caching policies, see [How to cache operation results in Azure API Management][].
-
+> For more information on caching and caching policies, see [How to cache operation results in Azure API Management][How to cache operation results in Azure API Management].
+> 
+> 
 
 ## <a name="request-parameters"> </a>Request parameters
-
 Operation parameters are managed on the Parameters tab. Parameters specified in the **URL Template** on the **Signature** tab are added automatically and can be changed only by editing the URL template. Additional parameters can be entered manually.
 
 To add a new query parameter, click **Add Query Parameter** and enter the following information:
 
--	**Name** - parameter name.
--	**Description** - a brief description of the parameter (optional).
--	**Type** - parameter type, selected in the drop down.
--	**Values** - values that can be assigned to this parameter. One of the values can be marked as default (optional).
--	**Required** - make the parameter mandatory by checking the checkbox. 
+* **Name** - parameter name.
+* **Description** - a brief description of the parameter (optional).
+* **Type** - parameter type, selected in the drop down.
+* **Values** - values that can be assigned to this parameter. One of the values can be marked as default (optional).
+* **Required** - make the parameter mandatory by checking the checkbox. 
 
 ![Request parameters][api-management-request-parameters]
 
 ## <a name="request-body"> </a>Request body
-
 If the operation allows (e.g. PUT, POST) and requires a body you may provide an example of it in all of the supported representation formats (e.g. json, XML). 
 
->The request body is used for documentation purposes only and is not validated.
+> The request body is used for documentation purposes only and is not validated.
+> 
+> 
 
 To enter a request body, switch to the **Body** tab.
 
@@ -105,7 +105,6 @@ Click **Add Representation**, start typing desired content type name (e.g. appli
 In additional to representations, you can also specify an optional text description in the **Description** text box.
 
 ## <a name="responses"> </a>Responses
-
 It is a good practice to provide examples of responses for all status codes that the operation may produce. Each status code may have more than one response body example, one for each of the supported content types. 
 
 To add a response, click **Add** and start typing the desired status code. In this example the status code is **200 OK**. Once the code is displayed in the drop-down, select it, and the response code is created and added to your operation.
@@ -124,12 +123,10 @@ If desired, add an optional description into the **Description** text box.
 
 Once the operation is configured, click **Save**.
 
-
 ## <a name="next-steps"> </a>Next steps
-
 Once the operations are added to an API, the next step is to associate the API with a product and publish it so that developers can call its operations.
 
--	[How to create and publish a product][]
+* [How to create and publish a product][How to create and publish a product]
 
 [api-management-management-console]: ./media/api-management-howto-add-operations/api-management-management-console.png
 [api-management-operations]: ./media/api-management-howto-add-operations/api-management-operations.png

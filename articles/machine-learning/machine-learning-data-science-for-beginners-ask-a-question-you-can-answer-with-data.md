@@ -1,44 +1,43 @@
-<properties
-   pageTitle="Ask a question you can answer with data - formulate questions | Microsoft Azure"
-   description="Learn how to formulate a data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions."
-   keywords="data science questions,formulate questions,regression questions,classification questions,sharp question"
-   services="machine-learning"
-   documentationCenter="na"
-   authors="cjgronlund"
-   manager="jhubbard"
-   editor="cjgronlund"/>
+---
+title: Ask a question you can answer with data - formulate questions | Microsoft Docs
+description: Learn how to formulate a data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions.
+keywords: data science questions,formulate questions,regression questions,classification questions,sharp question
+services: machine-learning
+documentationcenter: na
+author: cjgronlund
+manager: jhubbard
+editor: cjgronlund
 
-<tags
-   ms.service="machine-learning"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="10/20/2016"
-   ms.author="cgronlun;garye"/>
+ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
+ms.service: machine-learning
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/20/2016
+ms.author: cgronlun;garye
 
+---
 # Ask a question you can answer with data
-
 ## Video 3: Data Science for Beginners series
-
 Learn how to formulate a data science question in Data Science for Beginners video 3. This video includes a comparison of questions for classification and regression algorithms.
 
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
-> [AZURE.VIDEO data-science-for-beginners-ask-a-question-you-can-answer-with-data]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
+> 
+> 
 
 ## Other videos in this series
-
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
 
-  * Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
-  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-  * Video 3: Ask a question you can answer with data
-  * Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
-  * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+* Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+* Video 3: Ask a question you can answer with data
+* Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
 ## Transcript: Ask a question you can answer with data
-
 Welcome to the third video in the series "Data Science for Beginners."  
 
 In this one, you'll get some tips for formulating a question you can answer with data.
@@ -46,7 +45,6 @@ In this one, you'll get some tips for formulating a question you can answer with
 You might get more out of this video, if you first watch the two earlier videos in this series: "The 5 questions data science can answer" and "Is your data is ready for data science?"
 
 ## Ask a sharp question
-
 We've talked about how data science is the process of using names (also called categories or labels) and numbers to predict an answer to a question. But it can't be just any question; it has to be a *sharp question.*
 
 A vague question doesn't have to be answered with a name or a number. A sharp question must.
@@ -58,7 +56,6 @@ If you were to ask a vague question, like "What's going to happen with my stock?
 But if you were to ask a sharp question, like "What will my stock's sale price be next week?", the genie can't help but give you a specific answer and predict a sale price.
 
 ## Examples of your answer: Target data
-
 Once you formulate your question, check to see whether you have examples of the answer in your data.
 
 If our question is "What will my stock's sale price be next week?" then we have to make sure our data includes the stock price history.
@@ -72,7 +69,6 @@ These examples of answers are called a target. A target is what we are trying to
 If you don't have any target data, you'll need to get some. You won't be able to answer your question without it.
 
 ## Reformulate your question
-
 Sometimes you can reword your question to get a more useful answer.
 
 The question "Is this data point A or B?" predicts the category (or name or label) of something. To answer it, we use a *classification algorithm*.
@@ -95,8 +91,7 @@ We've talked about some basic principles for asking a question you can answer wi
 
 Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning.
 
-
 ## Next steps
+* [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
+* [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-  * [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
-  * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)

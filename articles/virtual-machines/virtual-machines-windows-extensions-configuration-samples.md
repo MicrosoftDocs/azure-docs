@@ -1,27 +1,29 @@
-<properties
-   pageTitle="Sample configuration for Windows VM extensions | Microsoft Azure"
-   description="Sample configuration for authoring templates with extensions"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Sample configuration for Windows VM extensions | Microsoft Docs
+description: Sample configuration for authoring templates with extensions
+services: virtual-machines-windows
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
-   ms.author="kundanap"/>
+ms.assetid: 0a1cee6c-51ea-4c03-b607-f158586d7175
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 03/29/2016
+ms.author: kundanap
 
+---
 # Azure Windows VM Extension Configuration Samples
-
-> [AZURE.SELECTOR]
-- [PowerShell - Template](virtual-machines-windows-extensions-configuration-samples.md)
-- [CLI - Template](virtual-machines-linux-extensions-configuration-samples.md)
+> [!div class="op_single_selector"]
+> * [PowerShell - Template](virtual-machines-windows-extensions-configuration-samples.md)
+> * [CLI - Template](virtual-machines-linux-extensions-configuration-samples.md)
+> 
+> 
 
 <br>
 
@@ -55,7 +57,6 @@ The template snippet for Deploying extensions looks as following:
       }
 
 ## Sample template snippet for VM Extensions with VM Scale Sets.
-
     {
      "type":"Microsoft.Compute/virtualMachineScaleSets",
     ....
@@ -100,14 +101,12 @@ Before deploying the extension please check the latest extension version and rep
       }
 
 #### Parameter description:
-
-- fileUris : Comma seperated list of urls of the files that will be downloaded on the VM by the Extension. No files are downloaded if nothing is specified. If the files are in Azure Storage, the fileURLs can be marked private and the correspoding storageAccountName and storageAccountKey can be passed as private parameters to access these files.
-- commandToExecute : [Mandatory Parameter] : This is the command that will be executed by the Extension.
-- storageAccountName : [Optional Parameter] : Storage Account Name for accessing the fileURLs, if they are marked as private.
-- storageAccountKey : [Optional Parameter] : Storage Account Key for accessing the fileURLs, if they are marked as private.
+* fileUris : Comma seperated list of urls of the files that will be downloaded on the VM by the Extension. No files are downloaded if nothing is specified. If the files are in Azure Storage, the fileURLs can be marked private and the correspoding storageAccountName and storageAccountKey can be passed as private parameters to access these files.
+* commandToExecute : [Mandatory Parameter] : This is the command that will be executed by the Extension.
+* storageAccountName : [Optional Parameter] : Storage Account Name for accessing the fileURLs, if they are marked as private.
+* storageAccountKey : [Optional Parameter] : Storage Account Key for accessing the fileURLs, if they are marked as private.
 
 ### CustomScript Extension 1.7.
-
 Please refer to CustomScript version 1.4 for parameter description. Version 1.7 introduces support for sending script parameters(commandToExecute) as protectedSettings, in which case they will be encrypted before sending. 'commandToExecute' parameter can be specified either in settings or protectedSettings but not in both.
 
         {
@@ -128,7 +127,6 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
         }
 
 ### VMAccess Extension.
-
       {
           "publisher": "Microsoft.Compute",
           "type": "VMAccessAgent",
@@ -340,14 +338,13 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
           }
 
 ### Azure Diagnostics
-
 For more details about how to configure diagnostics, see [Azure Diagnostics Extension](virtual-machines-windows-extensions-diagnostics-template.md)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
             "type": "IaaSDiagnostics",
             "typeHandlerVersion": "1.5",
-			"autoUpgradeMinorVersion": true,
+            "autoUpgradeMinorVersion": true,
             "settings": {
               "xmlCfg": "[base64(variables('wadcfgx'))]",
               "storageAccount": "[parameters('diagnosticsStorageAccount')]"
@@ -364,3 +361,4 @@ In the examples above, replace the version number with the latest version number
 Here is an example of a full VM template with Custom Script Extension.
 
 [Custom Script Extension on a Windows VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+

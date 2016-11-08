@@ -1,58 +1,51 @@
-<properties 
-	pageTitle="Develop video player applications" 
-	description="The topic provides links to Player Frameworks and plugins that you can use to develop your own client applications that can consume streaming media from Media Services." 
-	authors="Juliako" 
-	manager="erikre" 
-	editor="" 
-	services="media-services" 
-	documentationCenter=""/>
+﻿---
+title: Develop video player applications
+description: The topic provides links to Player Frameworks and plugins that you can use to develop your own client applications that can consume streaming media from Media Services.
+author: Juliako
+manager: erikre
+editor: ''
+services: media-services
+documentationcenter: ''
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/26/2016"
-	ms.author="juliako"/>
+ms.assetid: 55e419fc-4c39-4902-9c62-f41cfcd86c6c
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-#Develop video player applications
-
-##Overview
-
+---
+# Develop video player applications
+## Overview
 Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes. This topic also provides links to SDKs and Player Frameworks that you can use to develop your own client applications that can consume streaming media from Azure Media Services.
 
-##Azure Media Player
-
+## Azure Media Player
 [Azure Media Player](http://aka.ms/ampinfo) is a web video player built to play back media content from Microsoft Azure Media Services on a wide variety of browsers and devices. Azure Media Player utilizes industry standards, such as HTML5, Media Source Extensions (MSE), and Encrypted Media Extensions (EME) to provide an enriched adaptive streaming experience. When these standards are not available on a device or in a browser, Azure Media Player uses Flash and Silverlight as fallback technology. Regardless of the playback technology used, developers will have a unified JavaScript interface to access APIs. This allows for content served by Azure Media Services to be played across a wide-range of devices and browsers without any extra effort.
 
 Microsoft Azure Media Services allows for content to be served up with DASH, Smooth Streaming, and HLS streaming formats to play back content. Azure Media Player takes into account these various formats and automatically plays the best link based on the platform/browser capabilities. Microsoft Azure Media Services also allows for dynamic encryption of assets with PlayReady encryption or AES-128 bit envelope encryption. Azure Media Player allows for decryption of PlayReady and AES-128 bit encrypted content when appropriately configured. 
 
 For more information:
 
-- [Azure Media Player](http://aka.ms/ampinfo)
-- [Azure Media Player Documentation](http://aka.ms/ampdocs) 
-- [Azure Media Player Getting Started Blog](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
-- [Sign up to stay up to date with the latest from Azure Media Player](http://aka.ms/ampsignup)
-- [Add new feature requests, ideas, feedback](http://aka.ms/ampuservoice ) 
+* [Azure Media Player](http://aka.ms/ampinfo)
+* [Azure Media Player Documentation](http://aka.ms/ampdocs) 
+* [Azure Media Player Getting Started Blog](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
+* [Sign up to stay up to date with the latest from Azure Media Player](http://aka.ms/ampsignup)
+* [Add new feature requests, ideas, feedback](http://aka.ms/ampuservoice) 
 
-
-##Other Tools for Creating Player Applications
-
+## Other Tools for Creating Player Applications
 You can also use any of the following SDKs:
 
-- [Smooth Streaming Client SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 
-- [Smooth Streaming Windows Store App](media-services-build-smooth-streaming-apps.md)
-- [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
-- [HTML5 Player Framework Documentation](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
-- [Microsoft Smooth Streaming Plugin for OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Licensing Microsoft® Smooth Streaming Client Porting Kit](http://aka.ms/sspk) 
-- [XBOX Video Application Development](http://xbox.create.msdn.com/) 
- 
+* [Smooth Streaming Client SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 
+* [Smooth Streaming Windows Store App](media-services-build-smooth-streaming-apps.md)
+* [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
+* [HTML5 Player Framework Documentation](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
+* [Microsoft Smooth Streaming Plugin for OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
+* [Licensing Microsoft® Smooth Streaming Client Porting Kit](http://aka.ms/sspk) 
+* [XBOX Video Application Development](http://xbox.create.msdn.com/) 
 
-##Advertising
-
+## Advertising
 Azure Media Services provides support for ad insertion through the Windows Media Platform: Player Frameworks. Player frameworks with ad support are available for Windows 8, Silverlight, Windows Phone 8, and iOS devices. Each player framework contains sample code that shows you how to implement a player application. There are three different kinds of ads you can insert into your media:
 
 Linear – full frame ads that pause the main video
@@ -65,18 +58,14 @@ Ads can be placed at any point in the main video’s time line. You must tell th
 
 For information about closed captioning and ads support in Live streaming videos, see [Supported Closed Captioning and Ad Insertion Standards](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
 
+## Media Services learning paths
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Media Services learning paths
+## Provide feedback
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##Provide feedback
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-##See Also
-
+## See Also
 [Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 [GitHub dash.js repository](https://github.com/Dash-Industry-Forum/dash.js)
- 
+

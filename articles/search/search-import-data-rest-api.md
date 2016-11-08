@@ -1,27 +1,30 @@
-<properties
-    pageTitle="Data upload in Azure Search using the REST API | Microsoft Azure | Hosted cloud search service"
-    description="Learn how to upload data to an index in Azure Search using the REST API."
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-    manager="jhubbard"
-    editor=""
-    tags=""/>
+﻿---
+title: Data upload in Azure Search using the REST API | Microsoft Docs
+description: Learn how to upload data to an index in Azure Search using the REST API.
+services: search
+documentationcenter: ''
+author: ashmaka
+manager: jhubbard
+editor: ''
+tags: ''
 
-<tags
-    ms.service="search"
-    ms.devlang="rest-api"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+ms.assetid: 8d0749fb-6e08-4a17-8cd3-1a215138abc6
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
+---
 # Upload data to Azure Search using the REST API
-> [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
-- [.NET](search-import-data-dotnet.md)
-- [REST](search-import-data-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Overview](search-what-is-data-import.md)
+> * [.NET](search-import-data-dotnet.md)
+> * [REST](search-import-data-rest-api.md)
+> 
+> 
 
 This article will show you how to use the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to import data into an Azure Search index.
 
@@ -38,8 +41,8 @@ When issuing HTTP requests against your service using the REST API, *each* API r
 
 Your service will have *admin keys* and *query keys*.
 
-  - Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
-  - Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
+* Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
+* Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
 
 For the purposes of importing data into an index, you can use either your primary or secondary admin key.
 
@@ -48,12 +51,12 @@ When using the REST API, you will issue HTTP POST requests with JSON request bod
 
 Each JSON object in the "value" array represents a document to be indexed. Each of these objects contains the document's key and specifies the desired indexing action (upload, merge, delete, etc). Depending on which of the below actions you choose, only certain fields must be included for each document:
 
-@search.action | Description | Necessary fields for each document | Notes
---- | --- | --- | ---
-`upload` | An `upload` action is similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. | key, plus any other fields you wish to define | When updating/replacing an existing document, any field that is not specified in the request will have its field set to `null`. This occurs even when the field was previously set to a non-null value.
-`merge` | Updates an existing document with the specified fields. If the document does not exist in the index, the merge will fail. | key, plus any other fields you wish to define | Any field you specify in a merge will replace the existing field in the document. This includes fields of type `Collection(Edm.String)`. For example, if the document contains a field `tags` with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for `tags`, the final value of the `tags` field will be `["economy", "pool"]`. It will not be `["budget", "economy", "pool"]`.
-`mergeOrUpload` | This action behaves like `merge` if a document with the given key already exists in the index. If the document does not exist, it behaves like `upload` with a new document. | key, plus any other fields you wish to define | -
-`delete` | Removes the specified document from the index. | key only | Any fields you specify other than the key field will be ignored. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to null.
+| @search.action | Description | Necessary fields for each document | Notes |
+| --- | --- | --- | --- |
+| `upload` |An `upload` action is similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. |key, plus any other fields you wish to define |When updating/replacing an existing document, any field that is not specified in the request will have its field set to `null`. This occurs even when the field was previously set to a non-null value. |
+| `merge` |Updates an existing document with the specified fields. If the document does not exist in the index, the merge will fail. |key, plus any other fields you wish to define |Any field you specify in a merge will replace the existing field in the document. This includes fields of type `Collection(Edm.String)`. For example, if the document contains a field `tags` with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for `tags`, the final value of the `tags` field will be `["economy", "pool"]`. It will not be `["budget", "economy", "pool"]`. |
+| `mergeOrUpload` |This action behaves like `merge` if a document with the given key already exists in the index. If the document does not exist, it behaves like `upload` with a new document. |key, plus any other fields you wish to define |- |
+| `delete` |Removes the specified document from the index. |key only |Any fields you specify other than the key field will be ignored. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to null. |
 
 ## III. Construct your HTTP request and request body
 Now that you have gathered the necessary field values for your index actions, you are ready to construct the actual HTTP request and JSON request body to import your data.
@@ -66,7 +69,6 @@ In the URL, you will need to provide your service name, index name ("hotels" in 
     api-key: [admin key]
 
 #### Request Body
-
 ```JSON
 {
     "value": [
@@ -153,7 +155,10 @@ A status code of `207` will be returned when at least one item was not successfu
 }
 ```
 
-> [AZURE.NOTE] This often means that the load on your search service is reaching a point where indexing requests will begin to return `503` responses. In this case, we highly recommend that your client code back off and wait before retrying. This will give the system some time to recover, increasing the chances that future requests will succeed. Rapidly retrying your requests will only prolong the situation.
+> [!NOTE]
+> This often means that the load on your search service is reaching a point where indexing requests will begin to return `503` responses. In this case, we highly recommend that your client code back off and wait before retrying. This will give the system some time to recover, increasing the chances that future requests will succeed. Rapidly retrying your requests will only prolong the situation.
+> 
+> 
 
 #### 429
 A status code of `429` will be returned when you have exceeded your quota on the number of documents per index.
@@ -161,9 +166,13 @@ A status code of `429` will be returned when you have exceeded your quota on the
 #### 503
 A status code of `503` will be returned if none of the items in the request were successfully indexed. This error means that the system is under heavy load and your request can't be processed at this time.
 
-> [AZURE.NOTE] In this case, we highly recommend that your client code back off and wait before retrying. This will give the system some time to recover, increasing the chances that future requests will succeed. Rapidly retrying your requests will only prolong the situation.
+> [!NOTE]
+> In this case, we highly recommend that your client code back off and wait before retrying. This will give the system some time to recover, increasing the chances that future requests will succeed. Rapidly retrying your requests will only prolong the situation.
+> 
+> 
 
 For more information on document actions and success/error responses, please see [Add, Update, or Delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
 ## Next
 After populating your Azure Search index, you will be ready to start issuing queries to search for documents. See [Query Your Azure Search Index](search-query-overview.md) for details.
+

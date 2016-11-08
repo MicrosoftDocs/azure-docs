@@ -1,24 +1,24 @@
-<properties
-	pageTitle="Move data by using Copy Activity | Microsoft Azure"
-	description="Learn about data movement in Data Factory pipelines: data migration between cloud stores, and between an on-premises store and a cloud store. Use Copy Activity."
-	keywords="copy data, data movement, data migration, transfer data"
-	services="data-factory"
-	documentationCenter=""
-	authors="linda33wj"
-	manager="jhubbard"
-	editor="monicar"/>
+---
+title: Move data by using Copy Activity | Microsoft Docs
+description: 'Learn about data movement in Data Factory pipelines: data migration between cloud stores, and between an on-premises store and a cloud store. Use Copy Activity.'
+keywords: copy data, data movement, data migration, transfer data
+services: data-factory
+documentationcenter: ''
+author: linda33wj
+manager: jhubbard
+editor: monicar
 
-<tags
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2016"
-	ms.author="jingwang"/>
+ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/22/2016
+ms.author: jingwang
 
+---
 # Move data by using Copy Activity
-
 ## Overview
 In Azure Data Factory, you can use Copy Activity to copy data of different shapes from various on-premises and cloud data sources to Azure. After data is copied, it can be further transformed and analyzed. You can also use Copy Activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
 
@@ -28,19 +28,21 @@ Copy Activity is powered by a secure, reliable, scalable, and [globally availabl
 
 First, let's see how data migration occurs between two cloud data stores, and between an on-premises data store and a cloud data store.
 
-> [AZURE.NOTE] To learn about activities in general, see [Understanding pipelines and activities](data-factory-create-pipelines.md).
+> [!NOTE]
+> To learn about activities in general, see [Understanding pipelines and activities](data-factory-create-pipelines.md).
+> 
+> 
 
 ### Copy data between two cloud data stores
 When both source and sink data stores are in the cloud, Copy Activity goes through the following stages to copy data from the source to the sink. The service that powers Copy Activity:
 
 1. Reads data from the source data store.
 2. Performs serialization/deserialization, compression/decompression, column mapping, and type conversion. It does these operations based on the configurations of the input dataset, output dataset, and Copy Activity.
-3.	Writes data to the destination data store.
+3. Writes data to the destination data store.
 
 The service automatically chooses the optimal region to perform the data movement. This region is usually the one closest to the sink data store.
 
 ![Cloud-to-cloud copy](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
-
 
 ### Copy data between an on-premises data store and a cloud data store
 To securely move data between an on-premises data store and a cloud data store, install Data Management Gateway on your on-premises machine. Data Management Gateway is an agent that enables hybrid data movement and processing. You can install it on the same machine as the data store itself, or on a separate machine that has access to the data store.
@@ -54,7 +56,7 @@ See [Move data between on-premises and cloud data stores](data-factory-move-data
 You can also move data from/to supported data stores that are hosted on Azure IaaS virtual machines (VMs) by using Data Management Gateway. In this case, you can install Data Management Gateway on the same VM as the data store itself, or on a separate VM that has access to the data store.
 
 ## Supported data stores and formats
-[AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
 If you need to move data to/from a data store that Copy Activity doesn't support, use a **custom activity** in Data Factory with your own logic for copying/moving data. For details on creating and using a custom activity, see [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md).
 
@@ -63,11 +65,9 @@ You can use Copy Activity to copy files as-is between two file-based data stores
 
 Copy Activity also reads from and writes to files in specified formats: text, Avro, ORC, Parquet, and JSON. You can do the following copy activities, for example:
 
--	Copy data in text (CSV) format from Azure Blob and write to Azure SQL Database.
--	Copy files in text (CSV) format from File System on-premises and write to Azure Blob in Avro format.
--	Copy data in Azure SQL Database and write to HDFS on-premises in ORC format.
-
-
+* Copy data in text (CSV) format from Azure Blob and write to Azure SQL Database.
+* Copy files in text (CSV) format from File System on-premises and write to Azure Blob in Avro format.
+* Copy data in Azure SQL Database and write to HDFS on-premises in ORC format.
 
 ## <a name="global"></a>Globally available data movement
 Azure Data Factory is available only in the West US, East US, and North Europe regions. However, the service that powers Copy Activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Services by region](https://azure.microsoft.com/regions/#services) for availability of Data Factory and Data Movement in a region.
@@ -75,31 +75,33 @@ Azure Data Factory is available only in the West US, East US, and North Europe r
 ### Copy data between cloud data stores
 When both source and sink data stores are in the cloud, Data Factory uses a service deployment in the region that is closest to the sink in the same geography to move the data. Refer to the following table for mapping:
 
-Region of the destination data store | Region used for data movement
-:----------------------------------- | :----------------------------
-East US | East US
-East US 2 | East US 2
-West US | West US
-West US 2 | West US
-Central US | Central US
-West Central US | Central US
-North Central US | North Central US
-South Central US | South Central US
-North Europe | North Europe
-West Europe | West Europe
-Southeast Asia | Southeast Asia
-East Asia | Southeast Asia
-Japan East | Japan East
-Japan West | Japan East
-Brazil South | Brazil South
-Australia East | Australia East
-Australia Southeast | Australia Southeast
-Central India | Central India
-South India | Central India
-West India | Central India
+| Region of the destination data store | Region used for data movement |
+|:--- |:--- |
+| East US |East US |
+| East US 2 |East US 2 |
+| West US |West US |
+| West US 2 |West US |
+| Central US |Central US |
+| West Central US |Central US |
+| North Central US |North Central US |
+| South Central US |South Central US |
+| North Europe |North Europe |
+| West Europe |West Europe |
+| Southeast Asia |Southeast Asia |
+| East Asia |Southeast Asia |
+| Japan East |Japan East |
+| Japan West |Japan East |
+| Brazil South |Brazil South |
+| Australia East |Australia East |
+| Australia Southeast |Australia Southeast |
+| Central India |Central India |
+| South India |Central India |
+| West India |Central India |
 
-
-> [AZURE.NOTE] If the region of the destination data store is not in the preceding list, Copy Activity fails instead of going through an alternative region.
+> [!NOTE]
+> If the region of the destination data store is not in the preceding list, Copy Activity fails instead of going through an alternative region.
+> 
+> 
 
 ### Copy data between an on-premises data store and a cloud data store
 When data is being copied between on-premises (or Azure virtual machines/IaaS) and cloud stores, [Data Management Gateway](data-factory-data-management-gateway.md) performs data movement on an on-premises machine or virtual machine. The data does not flow through the service in the cloud, unless you use the [staged copy](data-factory-copy-activity-performance.md#staged-copy) capability. In this case, data flows through the staging Azure Blob storage before it is written into the sink data store.
@@ -119,46 +121,46 @@ For Copy Activity, the `typeProperties` section varies depending on the types of
 
 Here's a sample JSON definition:
 
-	{
-	  "name": "ADFTutorialPipeline",
-	  "properties": {
-	    "description": "Copy data from Azure blob to Azure SQL table",
-	    "activities": [
-	      {
-	        "name": "CopyFromBlobToSQL",
-	        "type": "Copy",
-	        "inputs": [
-	          {
-	            "name": "InputBlobTable"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "OutputSQLTable"
-	          }
-	        ],
-	        "typeProperties": {
-	          "source": {
-	            "type": "BlobSource"
-	          },
-	          "sink": {
-	            "type": "SqlSink",
-	            "writeBatchSize": 10000,
-	            "writeBatchTimeout": "60:00:00"
-	          }
-	        },
-	        "Policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "NewestFirst",
-	          "retry": 0,
-	          "timeout": "01:00:00"
-	        }
-	      }
-	    ],
-	    "start": "2016-07-12T00:00:00Z",
-	    "end": "2016-07-13T00:00:00Z"
-	  }
-	}
+    {
+      "name": "ADFTutorialPipeline",
+      "properties": {
+        "description": "Copy data from Azure blob to Azure SQL table",
+        "activities": [
+          {
+            "name": "CopyFromBlobToSQL",
+            "type": "Copy",
+            "inputs": [
+              {
+                "name": "InputBlobTable"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "OutputSQLTable"
+              }
+            ],
+            "typeProperties": {
+              "source": {
+                "type": "BlobSource"
+              },
+              "sink": {
+                "type": "SqlSink",
+                "writeBatchSize": 10000,
+                "writeBatchTimeout": "60:00:00"
+              }
+            },
+            "Policy": {
+              "concurrency": 1,
+              "executionPriorityOrder": "NewestFirst",
+              "retry": 0,
+              "timeout": "01:00:00"
+            }
+          }
+        ],
+        "start": "2016-07-12T00:00:00Z",
+        "end": "2016-07-13T00:00:00Z"
+      }
+    }
 
 The schedule that is defined in the output dataset determines when the activity runs (for example: **daily**, frequency as **day**, and interval as **1**). The activity copies data from an input dataset (**source**) to an output dataset (**sink**).
 
@@ -178,7 +180,7 @@ Different data stores have different native type systems. Copy Activity performs
 
 The mapping from a native type system to a .NET type for a data store is in the respective data store article. (Click the specific link in the [Supported data stores](#supported-data-stores) table). You can use these mappings to determine appropriate types while creating your tables, so that Copy Activity performs the right conversions.
 
-
 ## Next steps
-- To learn about the Copy Activity more, see [Copy data from Azure Blob storage to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-- To learn about moving data from an on-premises data store to a cloud data store, see [Move data from on-premises to cloud data stores](data-factory-move-data-between-onprem-and-cloud.md).
+* To learn about the Copy Activity more, see [Copy data from Azure Blob storage to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* To learn about moving data from an on-premises data store to a cloud data store, see [Move data from on-premises to cloud data stores](data-factory-move-data-between-onprem-and-cloud.md).
+

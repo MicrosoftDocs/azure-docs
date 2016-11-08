@@ -1,56 +1,52 @@
-<properties
-	pageTitle="Endorsed distributions of Linux | Microsoft Azure"
-	description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, Oracle, and SUSE."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="szarkos"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-service-management,azure-resource-manager"
-	/>
+﻿---
+title: Endorsed distributions of Linux | Microsoft Docs
+description: Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, Oracle, and SUSE.
+services: virtual-machines-linux
+documentationcenter: ''
+author: szarkos
+manager: timlt
+editor: tysonn
+tags: azure-service-management,azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/17/2016"
-	ms.author="szark"/>
+ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 10/17/2016
+ms.author: szark
 
-
-
-#Linux on Azure-Endorsed Distributions
-
-> [AZURE.NOTE] If you have a few moments, please help us to improve the Azure Linux VM documentation by taking this [quick survey](https://aka.ms/linuxdocsurvey) of your experiences. Every answer helps us help you get your work done.
+---
+# Linux on Azure-Endorsed Distributions
+> [!NOTE]
+> If you have a few moments, please help us to improve the Azure Linux VM documentation by taking this [quick survey](https://aka.ms/linuxdocsurvey) of your experiences. Every answer helps us help you get your work done.
+> 
+> 
 
 The Linux images in the Azure Gallery or Marketplace are provided by a number of partners, and we are working with various Linux communities to add even more flavors to the Endorsed Distribution list. In the meantime, for distributions not available from the Gallery you can always Bring-Your-Own-Linux by following the guidelines on [this page](virtual-machines-linux-classic-create-upload-vhd.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-
-## Supported Distributions & Versions ##
-
+## Supported Distributions & Versions
 The following table lists the Linux distributions and versions that are supported on Azure. Please also refer to [support for Linux images in Microsoft Azure](https://support.microsoft.com/en-us/kb/2941892) for more detailed information.
 
 The Linux Integration Services (LIS) drivers for Hyper-V and Azure are kernel modules that Microsoft contributes directly to the upstream Linux kernel.  The LIS drivers are either built into the distribution's kernel by default, or for older RHEL/CentOS-based distributions are available as a separate download [here](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409).  Please see [this article](virtual-machines-linux-create-upload-generic.md#linux-kernel-requirements) for more information about the LIS drivers.
 
 The Azure Linux Agent is already pre-installed on the Azure Gallery images and are typically available from the distribution's package repository.  Source code can be found on [GitHub](https://github.com/azure/walinuxagent).
 
-Distribution|Version|Drivers|Agent
----|---|---|---
-CentOS by OpenLogic | CentOS 6.3+, 7.0+ | CentOS 6.3: [LIS Download](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4+: In Kernel | Package: In [OpenLogic repo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under "WALinuxAgent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
-[CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) | 494.4.0+ | In Kernel | Source Code: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
-Debian | Debian 7.9+, 8.2+ | In Kernel | Package: In repo under "waagent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
-Oracle Linux | 6.4+, 7.0+ | In Kernel | Package: In repo under "WALinuxAgent" <br/>Source Code: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-Red Hat Enterprise Linux | RHEL 6.7+, 7.1+ | In Kernel|Package: In repo under "WALinuxAgent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
-SUSE Linux Enterprise | SLES 11 SP4, SLES 12 SP1+ and <p> SLES for SAP 11 SP3+ | In Kernel | Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "python-azure-agent" <br/>Source Code: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-openSUSE | openSUSE 13.2+ | In Kernel | Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "python-azure-agent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
-Ubuntu|Ubuntu 12.04, 14.04, 16.04, 16.10 | In Kernel | Package: In repo under "walinuxagent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
-
+| Distribution | Version | Drivers | Agent |
+| --- | --- | --- | --- |
+| CentOS by OpenLogic |CentOS 6.3+, 7.0+ |CentOS 6.3: [LIS Download](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4+: In Kernel |Package: In [OpenLogic repo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under "WALinuxAgent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |In Kernel |Source Code: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
+| Debian |Debian 7.9+, 8.2+ |In Kernel |Package: In repo under "waagent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Oracle Linux |6.4+, 7.0+ |In Kernel |Package: In repo under "WALinuxAgent" <br/>Source Code: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| Red Hat Enterprise Linux |RHEL 6.7+, 7.1+ |In Kernel |Package: In repo under "WALinuxAgent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| SUSE Linux Enterprise |SLES 11 SP4, SLES 12 SP1+ and <p> SLES for SAP 11 SP3+ |In Kernel |Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "python-azure-agent" <br/>Source Code: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| openSUSE |openSUSE 13.2+ |In Kernel |Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "python-azure-agent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04, 14.04, 16.04, 16.10 |In Kernel |Package: In repo under "walinuxagent" <br/>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## Partners
-
 ### OpenLogic
 [http://www.openlogic.com/azure](http://www.openlogic.com/azure)
 
@@ -62,7 +58,6 @@ OpenLogic is a leading provider of enterprise open source solutions for the clou
 From the CoreOS Website:
 
 *CoreOS is designed for security, consistency, and reliability. Instead of installing packages via yum or apt, CoreOS uses Linux containers to manage your services at a higher level of abstraction. A single service's code and all dependencies are packaged within a container that can be run on one or many CoreOS machines.*
-
 
 ### Credativ
 [http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)

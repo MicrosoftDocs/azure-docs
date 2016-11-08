@@ -1,22 +1,23 @@
-<properties
-   pageTitle="Export Log Analytics data to Power BI | Microsoft Azure"
-   description="Power BI is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  Log Analytics can continuously export data from the OMS repository into Power BI so you can leverage its visualizations and analysis tools.  This article describes how to configure queries in Log Analytics that automatically export to Power BI at regular intervals."
-   services="log-analytics"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags
-   ms.service="log-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/18/2016"
-   ms.author="bwren" />
+﻿---
+title: Export Log Analytics data to Power BI | Microsoft Docs
+description: Power BI is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  Log Analytics can continuously export data from the OMS repository into Power BI so you can leverage its visualizations and analysis tools.  This article describes how to configure queries in Log Analytics that automatically export to Power BI at regular intervals.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.assetid: 83edc411-6886-4de1-aadd-33982147b9c3
+ms.service: log-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/18/2016
+ms.author: bwren
+
+---
 # Export Log Analytics data to Power BI
-
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  Log Analytics can automatically export data from the OMS repository into Power BI so you can leverage its visualizations and analysis tools.
 
 When you configure Power BI with Log Analytics, you create log queries that export their results to corresponding datasets in Power BI.  The query and export continues to automatically run on a schedule that you define to keep the dataset up to date with the latest data collected by Log Analytics.
@@ -24,15 +25,16 @@ When you configure Power BI with Log Analytics, you create log queries that expo
 ![Log Analytics to Power BI](media/log-analytics-powerbi/overview.png)
 
 ## Power BI Schedules
-
 A *Power BI Schedule* includes a log search that exports a set of data from the OMS repository to a corresponding dataset in Power BI and a schedule that defines how often this search is run to keep the dataset current.
 
 The fields in the dataset will match the properties of the records returned by the log search.  If the search returns records of different types then the dataset will include all of the properties from each of the included record types.  
 
-> [AZURE.NOTE] It is a best practice to use a log search query that returns raw data as opposed to performing any consolidation using commands such as [Measure](log-analytics-search-reference.md#measure).  You can perform any aggregation and calculations in Power BI from the raw data.
+> [!NOTE]
+> It is a best practice to use a log search query that returns raw data as opposed to performing any consolidation using commands such as [Measure](log-analytics-search-reference.md#measure).  You can perform any aggregation and calculations in Power BI from the raw data.
+> 
+> 
 
 ## Connecting OMS workspace to Power BI
-
 Before you can export from Log Analytics to Power BI, you must connect your OMS workspace to your Power BI account using the following procedure.  
 
 1. In the OMS console click the **Settings** tile.
@@ -41,7 +43,6 @@ Before you can export from Log Analytics to Power BI, you must connect your OMS 
 4. Enter the credentials for your Power BI account.
 
 ## Create a Power BI Schedule
-
 Create a Power BI Schedule for each dataset using the following procedure.
 
 1. In the OMS console click the **Log Search** tile.
@@ -50,14 +51,13 @@ Create a Power BI Schedule for each dataset using the following procedure.
 4. Provide the information in the following table and click **Save**.
 
 | Property | Description |
-|:--|:--|
-| Name | Name to identify the schedule when you view the list of Power BI schedules. |
-| Saved Search | The log search to run.  You can either select the current query or select an existing saved search from the dropdown box. |
-| Schedule | How often to run the saved search and export to the Power BI dataset.  The value must be between 15 minutes and 24 hours. |
-| Dataset Name | The name of the dataset in Power BI.  It will be created if it doesn’t exist and updated if it does exist. |
+|:--- |:--- |
+| Name |Name to identify the schedule when you view the list of Power BI schedules. |
+| Saved Search |The log search to run.  You can either select the current query or select an existing saved search from the dropdown box. |
+| Schedule |How often to run the saved search and export to the Power BI dataset.  The value must be between 15 minutes and 24 hours. |
+| Dataset Name |The name of the dataset in Power BI.  It will be created if it doesn’t exist and updated if it does exist. |
 
 ## Viewing and Removing Power BI Schedules
-
 View the list of existing Power BI Schedules with the following procedure.
 
 1. In the OMS console click the **Settings** tile.
@@ -112,6 +112,6 @@ We save the report by clicking on the Save button at the top of the screen and v
 ![Power BI reports](media/log-analytics-powerbi/walkthrough-report.png)
 
 ## Next steps
+* Learn about [log searches](log-analytics-log-searches.md) to build queries that can be exported to Power BI.
+* Learn more about [Power BI](http://powerbi.microsoft.com) to build visualizations based on Log Analytics exports.
 
-- Learn about [log searches](log-analytics-log-searches.md) to build queries that can be exported to Power BI.
-- Learn more about [Power BI](http://powerbi.microsoft.com) to build visualizations based on Log Analytics exports.

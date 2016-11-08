@@ -1,26 +1,23 @@
-<properties 
-	pageTitle="Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Microsoft Azure" 
-	description="Learn about the controls and monitor performance on the classic portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Microsoft Docs
+description: 'Learn about the controls and monitor performance on the classic portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS'
+services: biztalk-services
+documentationcenter: ''
+author: MandiOhlinger
+manager: anneta
+editor: ''
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/23/2016" 
-	ms.author="mandia"/>
+ms.assetid: 7a1815db-0de2-4274-8be0-198c1b077324
+ms.service: biztalk-services
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/07/2016
+ms.author: mandia
 
-
-
-
+---
 # Review the Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs
-
 After you create your BizTalk Service and deploy your application, you can change some of the BizTalk Service settings and monitor the application performance. 
 
 When you open the Azure classic portal, you are automatically placed at the **ALL ITEMS** tab. To view your BizTalk Service, select your BizTalk Service in the **ALL ITEMS** tab or select the **BIZTALK SERVICES** tab; and then select your BizTalk Service name.
@@ -29,12 +26,13 @@ This opens a new window with the following tabs. This topic describes these tabs
 
 ## Quick Start (![Quick Start][QuickStart])
 Depending on the BizTalk Services Edition, all options listed may not be available. 
+
 <table border="1">
     <tr>
         <td><strong>Get the tools</strong></td>
         <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
-		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
         </td>
     </tr>
     <tr>
@@ -108,9 +106,7 @@ These metrics provide real-time values regarding the health of the BizTalk Servi
 
 For a description of these performance metrics, go to [Available Metrics](#Metrics) in this topic.
 
-
 ##### Quick Glance: Lists your BizTalk Service properties
-
 <table border="1">
 
 <tr>
@@ -177,9 +173,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 
 [BizTalk Services: Provisioning Using Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280) lists the steps to create a BizTalk Service.
 
-
 ##### Manage, Connection Information, Sync Keys, and Delete in the task bar:
-
 <table border="1">
 
 <tr>
@@ -234,17 +228,16 @@ You can also choose the **Relative** or **Absolute** values and the time range *
 ##### To remove or display metrics in the graph:
 1. Select the **Monitor** tab.
 2. Select **Add Metrics** in the task bar:  
-![Select Add Metrics][AddMetrics]
+   ![Select Add Metrics][AddMetrics]
 3. Check the performance metrics you want to display.
 4. Select the checkmark to return to the **Monitor** tab.
 5. Select the circle next to the metric to display that metric's value in the graph.  
-
-	For example, the **CPU Usage** metric is grayed out; its output is not displayed in the graph:  
-![CPU Usage metric is grayed out][GrayedMetric]  
-
-	Select the grayed out circle to enable the **CPU Usage** metric to display its output in the graph:  
-![CPU Usage metric is enabled][EnabledMetric]
-
+   
+    For example, the **CPU Usage** metric is grayed out; its output is not displayed in the graph:  
+   ![CPU Usage metric is grayed out][GrayedMetric]  
+   
+    Select the grayed out circle to enable the **CPU Usage** metric to display its output in the graph:  
+   ![CPU Usage metric is enabled][EnabledMetric]
 6. To remove a metric from the display graph and the list, select **Delete Metric** in the task bar. To add the metric back to the list, select **Add Metrics** in the task bar, check the metric, and select the checkmark to return to the **Monitor** tab. Select the grayed out circle to enable the metric.
 
 ## <a name="Metrics"></a>Available Metrics
@@ -322,14 +315,12 @@ Increasing the number of units may impact pricing. If you increase the Units, se
 
 [BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md) defines a "Unit".
 
-
 ## Configure
 Does not apply to Hybrid Connections.
 
 Sets the Backup Status to None or Automatic. When set to None, no backups are automatically created. When set to Automatic, you configure the backup location, the frequency of the backup, and how long to keep the backup files. 
 
 [BizTalk Services: Backup and Restore](biztalk-backup-restore.md) provides the details. 
-
 
 ## <a name="HybridConnections"></a>Hybrid Connections
 Hybrid Connections connect an Azure application, like Web Apps or Mobile Apps in Azure App Service, to an on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services. Hybrid Connections are managed in  BizTalk Services in the Azure classic portal.
@@ -338,24 +329,22 @@ To create Hybrid Connections in Azure App Service, see [Access on-premises resou
 
 To create or manage Hybrid Connections in Azure BizTalk Services, see [Hybrid Connections](integration-hybrid-connection-overview.md).
 
-
-
 ## Next
 Now that you're familiar with the different tabs, you can learn more about the Azure BizTalk Services features:
 
-- [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)  
-- [BizTalk Services: Issuer Name and Issuer Key](biztalk-issuer-name-issuer-key.md)  
-- [BizTalk Services: Backup and Restore](biztalk-backup-restore.md)
+* [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)  
+* [BizTalk Services: Issuer Name and Issuer Key](biztalk-issuer-name-issuer-key.md)  
+* [BizTalk Services: Backup and Restore](biztalk-backup-restore.md)
 
 ## See Also
-- [Hybrid Connections](integration-hybrid-connection-overview.md)  
-- [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](biztalk-editions-feature-chart.md)  
-- [BizTalk Services: Provisioning Using Azure classic portal](biztalk-provision-services.md)  
-- [BizTalk Services: BizTalk Service State Chart](biztalk-service-state-chart.md)  
-- [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Hybrid Connections](integration-hybrid-connection-overview.md)  
+* [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](biztalk-editions-feature-chart.md)  
+* [BizTalk Services: Provisioning Using Azure classic portal](biztalk-provision-services.md)  
+* [BizTalk Services: BizTalk Service State Chart](biztalk-service-state-chart.md)  
+* [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
- 
+

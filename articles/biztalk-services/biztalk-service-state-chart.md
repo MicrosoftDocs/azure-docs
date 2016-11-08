@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Tasks allowed in different states or statuses in BizTalk Services | Microsoft Azure" 
-	description="The actions/operations allowed in different MABS status: stop, start, restart, suspend, resume, delete, scale, update configuration, and backing up" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Tasks allowed in different states or statuses in BizTalk Services | Microsoft Docs
+description: 'The actions/operations allowed in different MABS status: stop, start, restart, suspend, resume, delete, scale, update configuration, and backing up'
+services: biztalk-services
+documentationcenter: ''
+author: MandiOhlinger
+manager: anneta
+editor: ''
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/15/2016" 
-	ms.author="mandia"/>
+ms.assetid: aea738f3-ec76-4099-a41b-e17fea9e252f
+ms.service: biztalk-services
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/07/2016
+ms.author: mandia
 
-
-
+---
 # BizTalk Services: Service state chart
 Depending on the current state of the BizTalk service, there are operations that you can or cannot perform on the BizTalk service.
 
@@ -256,13 +255,11 @@ RestoreFailed<br/></b></td>
 </table>
 
 ## See Also
-- [BizTalk Services: Provisioning Using Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-- [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-- [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [BizTalk Services: Provisioning Using Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+* [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
-
- 

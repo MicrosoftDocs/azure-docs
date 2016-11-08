@@ -1,29 +1,28 @@
-<properties
-	pageTitle="How to use Service Bus topics (Ruby) | Microsoft Azure"
-	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications."
-	services="service-bus"
-	documentationCenter="ruby"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+---
+title: How to use Service Bus topics (Ruby) | Microsoft Docs
+description: Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications.
+services: service-bus
+documentationcenter: ruby
+author: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="service-bus"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ruby"
-	ms.topic="article"
-	ms.date="10/04/2016"
-	ms.author="sethm"/>
+ms.assetid: 3ef2295e-7c5f-4c54-a13b-a69c8045d4b6
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: ruby
+ms.topic: article
+ms.date: 10/04/2016
+ms.author: sethm
 
+---
 # How to Use Service Bus Topics/Subscriptions
-
-[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 This article describes how to use Service Bus topics and subscriptions from Ruby applications. The scenarios covered include **creating topics and subscriptions, creating subscription filters, sending messages** to a topic, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information on topics and subscriptions, see the [Next Steps](#next-steps) section.
 
 ## Service Bus topics and subscriptions
-
 Service Bus topics and subscriptions support a *publish/subscribe*
 messaging communication model. When using topics and subscriptions,
 components of a distributed application do not communicate directly with
@@ -50,24 +49,21 @@ large number of messages across a large number of users and
 applications.
 
 ## Create a namespace
-
 To begin using Service Bus queues in Azure, you must first create a namespace. A namespace provides a scoping container for addressing Service Bus resources within
-your application. You must create the namespace through the command-line interface because the [Azure portal][] does not create the namespace with an ACS connection.
+your application. You must create the namespace through the command-line interface because the [Azure portal][Azure portal] does not create the namespace with an ACS connection.
 
 To create a namespace:
 
 1. Open an Azure Powershell console window.
-
 2. Type the following command to create a namespace. Provide your own namespace value and specify the same region as your application.
-
-	```
-	New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
-	```
-
-	![Create Namespace](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
+   
+    ```
+    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
+    ```
+   
+    ![Create Namespace](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
 
 ## Obtain default management credentials for the namespace
-
 In order to perform management operations, such as creating a queue on the new
 namespace, you must obtain the management credentials for the namespace.
 
@@ -77,27 +73,24 @@ will use this value in your code later in this tutorial.
 
 ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You can also find this key if you log on to the
-> [Azure portal][] and navigate to the
+> [Azure portal][Azure portal] and navigate to the
 > connection information for your namespace.
+> 
+> 
 
 ## Create a Ruby application
-
 For instructions, see [Create a Ruby Application on Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configure Your application to Use Service Bus
-
 To use Service Bus, download and use the Ruby Azure package, which includes a set of convenience libraries that communicate with the storage REST services.
 
 ### Use RubyGems to obtain the package
-
 1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix).
-
 2. Type "gem install azure" in the command window to install the gem and dependencies.
 
 ### Import the package
-
 Using your favorite text editor, add the following to the top of the Ruby file in which you intend to use storage:
 
 ```
@@ -105,7 +98,6 @@ require "azure"
 ```
 
 ## Set up a Service Bus connection
-
 The Azure module reads the environment variables **AZURE\_SERVICEBUS\_NAMESPACE** and **AZURE\_SERVICEBUS\_ACCESS\_KEY**
 for information required to connect to your namespace. If these environment variables are not set, you must specify the namespace information before using **Azure::ServiceBusService** with the following code:
 
@@ -117,7 +109,6 @@ Azure.config.sb_access_key = "<your azure service bus access key>"
 Set the namespace value to the value you created rather than the entire URL. For example, use **"yourexamplenamespace"**, not "yourexamplenamespace.servicebus.windows.net".
 
 ## Create a topic
-
 The **Azure::ServiceBusService** object enables you to work with topics. The following code creates an **Azure::ServiceBusService** object. To create a topic, use the **create\_topic()** method. The following example creates a topic or prints out the errors if there are any.
 
 ```
@@ -140,13 +131,11 @@ topic = azure_service_bus_service.create_topic(topic)
 ```
 
 ## Create subscriptions
-
 Topic subscriptions are also created with the **Azure::ServiceBusService** object. Subscriptions are named and can have an optional filter that restricts the set of messages delivered to the subscription's virtual queue.
 
 Subscriptions are persistent and will continue to exist until either they, or the topic they are associated with, are deleted. If your application contains logic to create a subscription, it should first check if the subscription already exists by using the getSubscription method.
 
 ### Create a subscription with the default (MatchAll) filter
-
 The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named "all-messages" and uses the default **MatchAll** filter.
 
 ```
@@ -154,7 +143,6 @@ subscription = azure_service_bus_service.create_subscription("test-topic", "all-
 ```
 
 ### Create subscriptions with filters
-
 You can also define filters that enable you to specify which messages sent to a topic should show up within a specific subscription.
 
 The most flexible type of filter supported by subscriptions is the **Azure::ServiceBus::SqlFilter**, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more details about the expressions that can be used with a SQL filter, review the [SqlFilter.SqlExpression](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx) syntax.
@@ -194,7 +182,6 @@ rule = azure_service_bus_service.create_rule(rule)
 When a message is now sent to "test-topic", it is always be delivered to receivers subscribed to the "all-messages" topic subscription, and selectively delivered to receivers subscribed to the "high-messages" and "low-messages" topic subscriptions (depending upon the message content).
 
 ## Send messages to a topic
-
 To send a message to a Service Bus topic, your application must use the **send\_topic\_message()** method on the **Azure::ServiceBusService** object. Messages sent to Service Bus topics are instances of the **Azure::ServiceBus::BrokeredMessage** objects. **Azure::ServiceBus::BrokeredMessage** objects have a set of standard properties (such as **label** and **time\_to\_live**), a dictionary that is used to hold custom application specific properties, and a body of string data. An application can set the body of the message by passing a string value to the **send\_topic\_message()** method and any required standard properties will be populated by default values.
 
 The following example demonstrates how to send five test messages to "test-topic". Note that the **message_number** custom property value of each message varies on the iteration of the loop (this determines which subscription receives it):
@@ -211,7 +198,6 @@ Service Bus topics support a maximum message size of 256 KB in the [Standard tie
 a maximum size of 64 KB. There is no limit on the number of messages held in a topic but there is a cap on the total size of the messages held by a topic. This topic size is defined at creation time, with an upper limit of 5 GB.
 
 ## Receive messages from a subscription
-
 Messages are received from a subscription using the **receive\_subscription\_message()** method on the **Azure::ServiceBusService** object. By default, messages are read(peak) and locked without deleting it from the subscription. You can read and delete the message from the subscription by setting the **peek\_lock** option to **false**.
 
 The default behavior makes the reading and deleting a two-stage operation, which also makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by calling **delete\_subscription\_message()** method and providing the message to be deleted as a parameter. The **delete\_subscription\_message()** method will mark the message as being consumed and remove it from the subscription.
@@ -229,7 +215,6 @@ azure_service_bus_service.delete_subscription_message(message)
 ```
 
 ## Handle application crashes and unreadable messages
-
 Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process the message for some reason, then it can call the **unlock\_subscription\_message()** method on the **Azure::ServiceBusService** object. This causes Service Bus to unlock the message within the subscription and make it available to be received again, either by the same consuming application or by another consuming application.
 
 There is also a timeout associated with a message locked within the subscription, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus will unlock the message automatically and make it available to be received again.
@@ -237,8 +222,7 @@ There is also a timeout associated with a message locked within the subscription
 In the event that the application crashes after processing the message but before the **delete\_subscription\_message()** method is called, then the message is redelivered to the application when it restarts. This is often called **At Least Once Processing**; that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This logic is often achieved using the **message\_id** property of the message, which will remain constant across delivery attempts.
 
 ## Delete topics and subscriptions
-
-Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure portal][] or programmatically. The example below demonstrates how to delete the topic named "test-topic".
+Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure portal][Azure portal] or programmatically. The example below demonstrates how to delete the topic named "test-topic".
 
 ```
 azure_service_bus_service.delete_topic("test-topic")
@@ -251,11 +235,10 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
 
 ## Next steps
-
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
 
-- See [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
-- API reference for [SqlFilter](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx).
-- Visit the [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) repository on GitHub.
- 
+* See [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
+* API reference for [SqlFilter](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx).
+* Visit the [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) repository on GitHub.
+
 [Azure portal]: https://portal.azure.com
