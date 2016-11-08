@@ -42,8 +42,6 @@
 ## [U-SQL Language Reference](https://msdn.microsoft.com/library/azure/mt591959(Azure.100).aspx)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
-# Related
-## [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/what-is-cortana-intelligence-suite)
 
 # Resources
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataLake)
