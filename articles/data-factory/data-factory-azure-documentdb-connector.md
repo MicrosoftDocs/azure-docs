@@ -20,12 +20,12 @@ ms.author: jingwang
 # Move data to and from DocumentDB using Azure Data Factory
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure DocumentDB from another data store and move data from DocumentDB to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
 
-The following samples show how to copy data to and from Azure DocumentDB and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+The following samples show how to copy data to and from Azure DocumentDB and Azure Blob Storage. However, data can be copied **directly** from any of the sources to any of the supported sinks. For more information, see the section "Supported data stores and formats" in [Move data by using Copy Activity](data-factory-data-movement-activities.md).  
 
 > [!NOTE]
 > Copying data from on-premises/Azure IaaS data stores to Azure DocumentDB and vice versa are supported with Data Management Gateway version 2.1 and above.
-> 
-> 
+>
+>
 
 ## Supported versions
 This DocumentDB connector support copying data from/to DocumentDB single partition collection and partitioned collection. [DocDB for MongoDB](../documentdb/documentdb-protocol-mongodb.md) is not supported.
@@ -34,8 +34,8 @@ This DocumentDB connector support copying data from/to DocumentDB single partiti
 The sample below shows:
 
 1. A linked service of type [DocumentDb](#azure-documentdb-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. An input [dataset](data-factory-create-datasets.md) of type [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md).
+3. An input [dataset](data-factory-create-datasets.md) of type [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
@@ -112,7 +112,7 @@ Data is copied to a new blob every hour with the path for the blob reflecting th
       }
     }
 
-Sample JSON document in the Person collection in a DocumentDB database: 
+Sample JSON document in the Person collection in a DocumentDB database:
 
     {
       "PersonId": 2,
@@ -123,9 +123,9 @@ Sample JSON document in the Person collection in a DocumentDB database:
       }
     }
 
-DocumentDB supports querying documents using a SQL like syntax over hierarchical JSON documents. 
+DocumentDB supports querying documents using a SQL like syntax over hierarchical JSON documents.
 
-Example: 
+Example:
     SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
 
 The following pipeline copies data from the Person collection in the DocumentDB database to an Azure blob. As part of the copy activity the input and output datasets have been specified.  
@@ -174,9 +174,9 @@ The following pipeline copies data from the Person collection in the DocumentDB 
 The sample below shows:
 
 1. A linked service of type [DocumentDb](#azure-documentdb-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md).
 3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. An output [dataset](data-factory-create-datasets.md) of type [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+4. An output [dataset](data-factory-create-datasets.md) of type [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
 5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
 
 The sample copies data from Azure blob to Azure DocumentDB. The JSON properties used in these samples are described in sections following the samples.
@@ -284,7 +284,7 @@ The sample copies data to a collection named “Person”.
       }
     }
 
-The following pipeline copies data from Azure Blob to the Person collection in the DocumentDB. As part of the copy activity the input and output datasets have been specified. 
+The following pipeline copies data from Azure Blob to the Person collection in the DocumentDB. As part of the copy activity the input and output datasets have been specified.
 
     {
       "name": "BlobToDocDbPipeline",
@@ -328,7 +328,7 @@ The following pipeline copies data from Azure Blob to the Person collection in t
       }
     }
 
-If the sample blob input is as 
+If the sample blob input is as
 
     1,John,,Doe
 
@@ -347,7 +347,7 @@ Then the output JSON in DocumentDB will be as:
 DocumentDB is a NoSQL store for JSON documents, where nested structures are allowed. Azure Data Factory enables user to denote hierarchy via **nestingSeparator**, which is “.” in this example. With the separator, the copy activity will generate the “Name” object with three children elements First, Middle and Last, according to “Name.First”, “Name.Middle” and “Name.Last” in the table definition.
 
 ## Azure DocumentDB Linked Service properties
-The following table provides description for JSON elements specific to Azure DocumentDB linked service. 
+The following table provides description for JSON elements specific to Azure DocumentDB linked service.
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
@@ -415,34 +415,33 @@ the following properties are available in **typeProperties** section:
 ## Import/Export JSON documents
 Using this DocumentDB connector, you can easily
 
-* Import JSON documents from various sources into DocumentDB, including Azure Blob, Azure Data Lake, on-prem File System or other file-based stores [supprted](data-factory-data-movement-activities.md#supported-data-stores) by Azure Data Factory
-* Export JSON documents from DocumentDB collecton into various file-based stores 
-* Migrate data between two DocumentDB collections as-is 
+* Import JSON documents from various sources into DocumentDB, including Azure Blob, Azure Data Lake, on-prem File System or other file-based stores supported by Azure Data Factory
+* Export JSON documents from DocumentDB collecton into various file-based stores
+* Migrate data between two DocumentDB collections as-is
 
 To achieve such schema-agnostic copy, do not specify the "structure" section in input dataset or "nestingSeparator" property on DocumentDB source/sink in copy activity. See "Specify format" section in corresponding file-based connector topic on JSON format configuration details.
 
 ## Appendix
-1. **Question:** 
+1. **Question:**
     Does the Copy Activity support update of existing records?
-   
-    **Answer:** 
+
+    **Answer:**
     No.
-2. **Question:** 
+2. **Question:**
     How does a retry of a copy to DocumentDB deal with already copied records?
-   
-    **Answer:** 
+
+    **Answer:**
     If records have an "ID" field and the copy operation tries to insert a record with the same ID, the copy operation throws an error.  
 3. **Question:**
-    Does Data Factory support [range or hash-based data partitioning](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)? 
-   
+    Does Data Factory support [range or hash-based data partitioning](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
+
     **Answer:**
-    No. 
+    No.
 4. **Question:**
     Can I specify more than one DocumentDB collection for a table?
-   
+
     **Answer:**
     No. Only one collection can be specified at this time.
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
-
