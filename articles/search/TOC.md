@@ -52,7 +52,8 @@
 ### [Faceted navigation](search-faceted-navigation.md)
 ### [Language analyzers](https://msdn.microsoft.com/library/azure/dn879793)
 ### [Custom analyzers](https://msdn.microsoft.com/library/azure/mt605304)
-### [Create an index for multi-lingual search](search-language-support.md)
+### [Multi-lingual search](search-language-support.md)
+
 # Reference
 ## [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165)
 ## [Service REST API](https://msdn.microsoft.com/library/azure/dn798935)
