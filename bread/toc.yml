@@ -5,7 +5,17 @@
   - name: Active Directory
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/active-directory-whatis
-  - name: Active Directory B2c
+    items:
+      - name: Connect
+        tocHref: /azure/active-directory/connect/
+        topicHref: /azure/active-directory/connect/
+      - name: Develop
+        tocHref: /azure/active-directory/develop/
+        topicHref: azure/active-directory/develop/
+      - name: Privileged Identity Management
+        tocHref: /azure/active-directory/privileged-identity-management/
+        topicHref: /azure/active-directory/privileged-identity-management/
+  - name: Active Directory B2C
     tocHref: /azure/active-directory-b2c/
     topicHref: /azure/active-directory-b2c/active-directory-b2c-overview
   - name: Active Directory Domain Services
@@ -20,10 +30,10 @@
   - name: App Service
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/app-service-how-works-readme
-  - name: App Service API
+  - name: API Apps
     tocHref: /azure/app-service-api/
     topicHref: /azure/app-service-api/app-service-api-apps-why-best-platform
-  - name: App Service Logic
+  - name: Logic Apps
     tocHref: /azure/app-service-logic/
     topicHref: /azure/app-service-logic/app-service-logic-what-are-logic-apps
   - name: App Service Mobile
@@ -161,6 +171,10 @@
   - name: Multi-Factor Authentication
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/multi-factor-authentication
+    items:
+      - name: User Guide
+        tocHref: /azure/multi-factor-authentication/end-user/
+        topicHref: /azure/multi-factor-authentication/end-user/
   - name: Notification Hubs
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/notification-hubs-push-notification-overview
@@ -209,19 +223,19 @@
   - name: Site Recovery
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/site-recovery-overview
-  - name: Sql Data Warehouse
+  - name: SQL Data Warehouse
     tocHref: /azure/sql-data-warehouse/
     topicHref: /azure/sql-data-warehouse/sql-data-warehouse-overview-what-is
-  - name: Sql Database
+  - name: SQL Database
     tocHref: /azure/sql-database/
     topicHref: /azure/sql-database/sql-database-technical-overview
-  - name: Sql Server Stretch Database
+  - name: SQL Server Stretch Database
     tocHref: /azure/sql-server-stretch-database/
     topicHref: /azure/sql-server-stretch-database/sql-server-stretch-database-overview
   - name: Storage
     tocHref: /azure/storage/
     topicHref: /azure/storage/storage-introduction
-  - name: Storsimple
+  - name: StorSimple
     tocHref: /azure/storsimple/
     topicHref: /azure/storsimple/storsimple-ova-overview
   - name: Stream Analytics
