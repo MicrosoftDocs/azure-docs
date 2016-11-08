@@ -137,7 +137,7 @@ Azure Backup agent relies on NTFS. The [filepath length specification is limited
 Yes.
 
 ## Can I configure the Backup service to send mail if a backup job fails? <br/>
-Yes, the Backup service has several event-based alerts that can be used with a PowerShell script. For a full description, see [Alert notifications](backup-azure-manage-vms.md#alert-notifications)
+Yes, the Backup service has several event-based alerts that can be used with a PowerShell script. For a full description, see [Configure notifications](backup-azure-monitor-vms.md#configure-notifications)
 
 ## Is there a limit on the size of each data source being backed up? <br/>
 While at vault level there is no limit on the amount of data you can backup, Azure Backup does impose a restriction(for all practical purposes, these limits are very high) on maximum size of data source. As of August 2015, the maximum size data source for the supported operating systems is:
@@ -194,7 +194,7 @@ No. We have eliminated limits on recovery points. You can create as many recover
  All the data that is backed up from Azure Backup Agent or SCDPM or Azure Backup Server, is compressed and encrypted before being transferred. Once the compression and encryption is applied, the data in the backup vault is 30-40% smaller.
 
 ## Is there a way to adjust the amount of bandwidth used by the Backup service?<br/>
- Yes, use the **Change Properties** option in the Backup Agent to adjust bandwidth. Adjust the amount of bandwidth and the times when you use that bandwidth. See [Network Throttling](backup-configure-vault.md#enable-network-throttling), for more information.
+ Yes, use the **Change Properties** option in the Backup Agent to adjust bandwidth. Adjust the amount of bandwidth and the times when you use that bandwidth. See **Enable network throttling (optional)** in [Back up a Windows Server or client to Azure using the Resource Manager deployment model](backup-configure-vault.md) for more information.
 
 ## My internet bandwidth is limited for the amount of data I need to back up. Is there a way I can move data to a certain location with a large network pipe and push that data into Azure? <br/>
 You can back up data into Azure via the standard online backup process, or you can use the Azure Import/Export service to transfer data to blob storage in Azure. There are no additional ways of getting backup date into Azure storage. For information on how to use the Azure Import/Export service with Azure Backup, please see the [Offline Backup workflow](backup-azure-backup-import-export.md) article.
@@ -221,7 +221,7 @@ The key used to encrypt the backup data is present only on the customer premises
  Go sequentially through the bullet list below to change the cache location.
 
 * Stop the Backup engine by executing the following command in an elevated command prompt:
-  
+
   ```PS C:\> Net stop obengine```
 * Do not move the files. Instead, copy the cache space folder to a different drive with sufficient space. The original cache space can be removed after confirming the backups are working with the new cache space.
 * Update the following registry entries with the path to the new cache space folder.<br/>
@@ -232,9 +232,9 @@ The key used to encrypt the backup data is present only on the customer premises
 | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*New cache folder location* |
 
 * Restart the Backup engine by executing the following command in an elevated command prompt:
-  
+
   ```PS C:\> Net start obengine```
-  
+
   Once the backup creation is successfully completed in the new cache location, you can remove the original cache folder.
 
 ## Where can I put the cache-folder for the Azure Backup Agent to work as expected?<br/>
@@ -253,4 +253,3 @@ The following locations for the cache-folder are not recommended:
 * Reparse-Point
 
 It is recommended that neither the cache-folder nor the metadata VHD has the attributes above for expected functioning of the Azure Backup agent.
-
