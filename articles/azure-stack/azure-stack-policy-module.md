@@ -42,7 +42,7 @@ The Azure Stack Policy module allows you to configure an Azure subscription with
     ````
 3. In the same PowerShell session, navigate to the **Policy** folder, and import the AzureStack.Policy.psm1 module:
    
-   ```none
+   ```PowerShell
    cd Policy
    import-module .\AzureStack.Policy.psm1
    ```
@@ -50,7 +50,7 @@ The Azure Stack Policy module allows you to configure an Azure subscription with
 ## Apply policy to subscription
 The following command can be used to apply a default Azure Stack policy against your Azure subscription. Before running, replace *Azure Subscription Name* with your Azure subscription.
 
-```none
+```PowerShell
 Login-AzureRmAccount
 $s = Select-AzureRmSubscription -SubscriptionName "Azure Subscription Name"
 $policy = New-AzureRmPolicyDefinition -Name AzureStack -Policy (Get-AzureStackRmPolicy)
@@ -60,7 +60,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 ## Apply policy to a resource group
 You may want to apply policies in a more granular method.  As an example, you may have other resources running in the same subscription.  You can scope the policy application to a specific resource group, which lets you test your apps for Azure Stack using Azure resources. Before running, replace *Azure Subscription Name* with your Azure subscription name.
 
-```none
+```PowerShell
 Login-AzureRmAccount
 $resourceGroupName = ‘myRG01’
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
