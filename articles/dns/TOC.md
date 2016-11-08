@@ -38,9 +38,9 @@
 ## [REST API](https://msdn.microsoft.com/library/azure/mt163862)
 
 # Related
-## [Application Gateway](../application-gateway/)
-## [Virtual Network](../virtual-network/)
-## [Virtual Machine](../virtual-machines/)
-## [Load Balancer](../load-balancer/)
-## [Traffic Manager](../traffic-manager/)
-## [Web apps](../app-services-web/)
+## [Application Gateway](../application-gateway/index.md)
+## [Virtual Network](../virtual-network/index.md)
+## [Virtual Machine](../virtual-machines/index.md)
+## [Load Balancer](../load-balancer/index.md)
+## [Traffic Manager](../traffic-manager/index.md)
+## [Web apps](../app-services-web/index.md)
