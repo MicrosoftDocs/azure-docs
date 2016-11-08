@@ -52,7 +52,9 @@ When establishing the connection, you must use the HDInsight cluster admin name 
 
 From a Java application, you must use the name and password when establishing a connection. For example, the following Java code opens a new connection using the connection string, admin name, and password:
 
-    DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
+```java
+DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
+```
 
 ## Connect with SQuirreL SQL client
 
@@ -60,42 +62,42 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
 1. Copy the Hive JDBC drivers from your HDInsight cluster.
    
-   * For **Linux-based HDInsight**, use the following steps to download the required jar files.
+    * For **Linux-based HDInsight**, use the following steps to download the required jar files.
      
-     1. Create a new directory that will contain the files. For example, `mkdir hivedriver`.
-     2. From a command prompt, Bash, PowerShell or other command-line prompt, change directories to the new directory and use the following commands to copy the files from the HDInsight cluster.
+        1. Create a new directory that will contain the files. For example, `mkdir hivedriver`.
+        2. From a command prompt, Bash, PowerShell or other command-line prompt, change directories to the new directory and use the following commands to copy the files from the HDInsight cluster.
         
-             scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
-             scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-             scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
+                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
+                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
         
-         Replace **USERNAME** with the SSH user account name for the cluster. Replace **CLUSTERNAME** with the HDInsight cluster name.
+            Replace **USERNAME** with the SSH user account name for the cluster. Replace **CLUSTERNAME** with the HDInsight cluster name.
         
         > [!NOTE]
         > On Windows environments, you will need to use the PSCP utility instead of scp. You can download it from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-        > 
-        > 
-   * For **Windows-based HDInsight**, use the following steps to download the jar files.
+
+    * For **Windows-based HDInsight**, use the following steps to download the jar files.
      
-     1. From the Azure portal, select your HDInsight cluster, and then select the **Remote Desktop** icon.
+        1. From the Azure portal, select your HDInsight cluster, and then select the **Remote Desktop** icon.
         
-         ![Remote Desktop icon](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)
-     2. On the Remote Desktop blade, use the **Connect** button to connect to the cluster. If the Remote Desktop is not enabled, use the form to provide a user name and password, then select **Enable** to enable Remote Desktop for the cluster.
+            ![Remote Desktop icon](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)
+
+        2. On the Remote Desktop blade, use the **Connect** button to connect to the cluster. If the Remote Desktop is not enabled, use the form to provide a user name and password, then select **Enable** to enable Remote Desktop for the cluster.
         
-         ![Remote desktop blade](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
+            ![Remote desktop blade](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
         
-         After selecting **Connect**, a .rdp file will be downloaded. Use this file to launch the Remote Desktop client. When prompted, use the user name and password you entered for Remote Desktop access.
-     3. Once connected, copy the following files from the Remote Desktop session to your local machine. Put them in a local directory named `hivedriver`.
+            After selecting **Connect**, a .rdp file will be downloaded. Use this file to launch the Remote Desktop client. When prompted, use the user name and password you entered for Remote Desktop access.
+
+        3. Once connected, copy the following files from the Remote Desktop session to your local machine. Put them in a local directory named `hivedriver`.
         
-        * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-standalone.jar
-        * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-common-2.6.0.2.2.9.1-7.jar
-        * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.jar
+            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-standalone.jar
+            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-common-2.6.0.2.2.9.1-7.jar
+            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.jar
           
-          > [!NOTE]
-          > The version numbers included in the paths and file names may be different for your cluster.
-          > 
-          > 
-     4. Disconnect the Remote Desktop session once you have finished copying the files.
+            > [!NOTE]
+            > The version numbers included in the paths and file names may be different for your cluster.
+
+        4. Disconnect the Remote Desktop session once you have finished copying the files.
 
 2. Start the SQuirreL SQL application. From the left of the window, select **Drivers**.
    
@@ -107,14 +109,14 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
 4. In the Add Driver dialog, add the following information.
    
-   * **Name**: Hive
-   * **Example URL**: jdbc:hive2://localhost:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
-   * **Extra Class Path**: Use the Add button to add the jar files downloaded earlier
-   * **Class Name**: org.apache.hive.jdbc.HiveDriver
+    * **Name**: Hive
+    * **Example URL**: `jdbc:hive2://localhost:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`
+    * **Extra Class Path**: Use the Add button to add the jar files downloaded earlier
+    * **Class Name**: org.apache.hive.jdbc.HiveDriver
+    
+    ![add driver dialog](./media/hdinsight-connect-hive-jdbc-driver/adddriver.png)
      
-     ![add driver dialog](./media/hdinsight-connect-hive-jdbc-driver/adddriver.png)
-     
-     Click **OK** to save these settings.
+    Click **OK** to save these settings.
 
 5. On the left of the SQuirreL SQL window, select **Aliases**. Then click the **+** icon to create a new connection alias.
    
@@ -122,23 +124,23 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
 6. Use the following values for the **Add Alias** dialog.
    
-   * **Name**: Hive on HDInsight
+    * **Name**: Hive on HDInsight
 
-   * **Driver**: Use the dropdown to select the **Hive** driver
+    * **Driver**: Use the dropdown to select the **Hive** driver
 
-   * **URL**: jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
+    * **URL**: jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
      
-       Replace **CLUSTERNAME** with the name of your HDInsight cluster.
+        Replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
-   * **User Name**: The cluster login account name for your HDInsight cluster. The default is `admin`.
+    * **User Name**: The cluster login account name for your HDInsight cluster. The default is `admin`.
 
-   * **Password**: The password for the cluster login account. This is a password you provided when creating the HDInsight cluster.
+    * **Password**: The password for the cluster login account. This is a password you provided when creating the HDInsight cluster.
      
-     ![add alias dialog](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
+    ![add alias dialog](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
      
-     Use the **Test** button to verify that the connection works. When **Connect to: Hive on HDInsight** dialog appears, select **Connect** to perform the test. If the test succeeds, you will see a **Connection successful** dialog.
+    Use the **Test** button to verify that the connection works. When **Connect to: Hive on HDInsight** dialog appears, select **Connect** to perform the test. If the test succeeds, you will see a **Connection successful** dialog.
      
-     Use the **Ok** button at the bottom of the **Add Alias** dialog to save the connection alias.
+    Use the **Ok** button at the bottom of the **Add Alias** dialog to save the connection alias.
 
 7. From the **Connect to** dropdown at the top of SQuirreL SQL, select **Hive on HDInsight**. When prompted, select **Connect**.
    
@@ -160,9 +162,11 @@ An example of using a Java client to query Hive on HDInsight is available at [ht
 
 **Symptoms**: When connecting to an HDInsight cluster that is version 3.3 or 3.4, you may receive an error that an unexpected error occurred. The stack trace for this error will begin with the following lines:
 
-    java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
-    at java.util.concurrent.FutureTas...(FutureTask.java:122)
-    at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+```java
+java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
+at java.util.concurrent.FutureTas...(FutureTask.java:122)
+at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+```
 
 **Cause**: This error is caused by a mismatch in the version of the commons-codec.jar file used by SQuirreL and the one required by the Hive JDBC components downloaded from the HDInsight cluster.
 

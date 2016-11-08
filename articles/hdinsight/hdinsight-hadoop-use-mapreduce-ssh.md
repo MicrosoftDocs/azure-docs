@@ -62,8 +62,8 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
    
     This starts the **wordcount** class, which is contained in the **hadoop-mapreduce-examples.jar** file. As input, it uses the **wasbs://example/data/gutenberg/davinci.txt** document, and output is stored at **wasbs:///example/data/WordCountOutput**.
    
-   > [!NOTE]
-   > For more information about this MapReduce job and the example data, see [Use MapReduce in Hadoop on HDInsight](hdinsight-use-mapreduce.md).
+    > [!NOTE]
+    > For more information about this MapReduce job and the example data, see [Use MapReduce in Hadoop on HDInsight](hdinsight-use-mapreduce.md).
 
 2. The job emits details as it processes, and it returns information similar to the following when the job completes:
    
@@ -78,8 +78,8 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
    
     This should display two files, **_SUCCESS** and **part-r-00000**. The **part-r-00000** file contains the output for this job.
    
-   > [!NOTE]
-   > Some MapReduce jobs may split the results across multiple **part-r-#####** files. If so, use the ##### suffix to indicate the order of the files.
+    > [!NOTE]
+    > Some MapReduce jobs may split the results across multiple **part-r-#####** files. If so, use the ##### suffix to indicate the order of the files.
 
 4. To view the output, use the following command:
    

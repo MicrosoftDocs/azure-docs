@@ -73,14 +73,12 @@ To complete the steps in this article, you will need the following:
     * **execute**: The Pig Latin statements to execute
     * **statusdir**: The directory that the status for this job will be written to
     
-     > [!NOTE]
-     > Notice that the spaces in Pig Latin statements are replaced by the `+` character when used with Curl.
-     > 
-     > 
+    > [!NOTE]
+    > Notice that the spaces in Pig Latin statements are replaced by the `+` character when used with Curl.
+    
+    This command should return a job ID that can be used to check the status of the job, for example:
      
-     This command should return a job ID that can be used to check the status of the job, for example:
-     
-       {"id":"job_1415651640909_0026"}
+        {"id":"job_1415651640909_0026"}
 
 3. To check the status of the job, use the following command. Replace **JOBID** with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then **JOBID** would be `job_1415651640909_0026`.
    
@@ -88,10 +86,8 @@ To complete the steps in this article, you will need the following:
    
     If the job has finished, the state will be **SUCCEEDED**.
    
-   > [!NOTE]
-   > This Curl request returns a JavaScript Object Notation (JSON) document with information about the job, and jq is used to retrieve only the state value.
-   > 
-   > 
+    > [!NOTE]
+    > This Curl request returns a JavaScript Object Notation (JSON) document with information about the job, and jq is used to retrieve only the state value.
 
 ## <a id="results"></a>View results
 
@@ -107,8 +103,6 @@ To download a file, use the following:
 
 > [!NOTE]
 > You must specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables.
-> 
-> 
 
 ## <a id="summary"></a>Summary
 
