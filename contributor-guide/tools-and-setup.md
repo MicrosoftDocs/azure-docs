@@ -39,11 +39,7 @@ Every published Azure technical article has a comment stream provided by the Liv
 
 If you are a Microsoft employee, and if you are the author of or a contributor to an article, you need to sign up for Livefyre so you can participate in the comment stream for the article.
 
-1. Sign up for an account [on the Livefyre site](https://livefyre.zendesk.com/hc/en-us/articles/200329426-How-do-I-create-a-Livefyre-Account-)
-2. During account creation, select option "b" - Creating a Livefyre Account with a username, email, and password, so you can be easily identified when you post responses, and complete your profile as follows:
-
- - **Username:** your Microsoft email alias plus @MSFT, ie: alias@MSFT
- - **Email:** Your Microsoft.com email address.
+**Note:** The original steps provided were incorrect - we're investigating the correct way and will update the wacom-tech-authors alias when the correct steps are available.
 
 ## Modify articles using the GitHub UI
 You might not need to follow all the steps in this article. It depends on the sort of content contribution you want or need to make.
