@@ -1,4 +1,4 @@
-# [Overview]
+# Overview
 ## [What is DevTest Labs?](devtest-lab-overview.md)
 ## [Why DevTest Labs?](devtest-lab-why.md)
 ## [DevTest Labs concepts](devtest-lab-concepts.md)
