@@ -1,4 +1,4 @@
-﻿---
+---
 title: Move data to and from SQL Server | Microsoft Docs
 description: Learn about how to move data to/from SQL Server database that is on-premises or in an Azure VM using Azure Data Factory.
 services: data-factory
@@ -467,7 +467,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 | Property | Description | Required |
 | --- | --- | --- |
-| tableName |Name of the table in the SQL Server Database instance that linked service refers to. |Yes |
+| tableName |Name of the table or view in the SQL Server Database instance that linked service refers to. |Yes |
 
 ## SQL Server copy activity type properties
 If you are moving data from a SQL Server database, you set the source type in the copy activity to **SqlSource**. Similarly, if you are moving data to a SQL Server database, you set the sink type in the copy activity to **SqlSink**. This section provides a list of properties supported by SqlSource and SqlSink. 

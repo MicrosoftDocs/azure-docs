@@ -1,4 +1,4 @@
-﻿---
+---
 title: Move data to/from Azure SQL Database | Microsoft Docs
 description: Learn how to move data to/from Azure SQL Database using Azure Data Factory.
 services: data-factory
@@ -427,7 +427,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 | Property | Description | Required |
 | --- | --- | --- |
-| tableName |Name of the table in the Azure SQL Database instance that linked service refers to. |Yes |
+| tableName |Name of the table or view in the Azure SQL Database instance that linked service refers to. |Yes |
 
 ## Azure SQL copy activity type properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.

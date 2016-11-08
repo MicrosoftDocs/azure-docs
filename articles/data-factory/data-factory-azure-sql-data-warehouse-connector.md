@@ -1,4 +1,4 @@
-﻿---
+---
 title: Move data to/from Azure SQL Data Warehouse | Microsoft Docs
 description: Learn how to move data to/from Azure SQL Data Warehouse using Azure Data Factory
 services: data-factory
@@ -407,7 +407,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 | Property | Description | Required |
 | --- | --- | --- |
-| tableName |Name of the table in the Azure SQL Data Warehouse database that the linked service refers to. |Yes |
+| tableName |Name of the table or view in the Azure SQL Data Warehouse database that the linked service refers to. |Yes |
 
 ## Copy activity type properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
