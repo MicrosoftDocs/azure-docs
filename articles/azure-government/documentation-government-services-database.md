@@ -20,7 +20,7 @@ ms.author: ryansoc
 ---
 # Azure Government Databases
 ## SQL Database
-Refer to the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database Public Documentation](https://azure.microsoft.com/documentation/services/sql-database/) for additional guidance on metadata visibility configuration, and protection best practices.
+Refer to the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database Public Documentation](../sql-database/) for additional guidance on metadata visibility configuration, and protection best practices.
 
 ### Variations
 SQL V12 Database is generally available in Azure Government.
@@ -39,7 +39,7 @@ The following information identifies the Azure Government boundary for Azure SQL
 | All data stored and processed in Microsoft Azure SQL can contain Azure Government-regulated data. You must use database tools for data transfer of Azure Government-regulated data. |Azure SQL metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields: Database name, Subscription name, Resource groups, Server name, Server admin login, Deployment names, Resource names, Resource tags |
 
 ## Azure Redis Cache
-For details on this service and how to use it, see [Azure Redis Cache public documentation](https://azure.microsoft.com/documentation/services/redis-cache/).
+For details on this service and how to use it, see [Azure Redis Cache public documentation](../redis-cache/).
 
 ### Variations
 The URLs for accessing and managing Azure Redis Cache in Azure Government are different:

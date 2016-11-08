@@ -19,16 +19,14 @@ ms.author: spelluru
 ---
 # SQL Server Stored Procedure Activity
 > [!div class="op_single_selector"]
-> [Hive](data-factory-hive-activity.md)  
-> [Pig](data-factory-pig-activity.md)  
-> [MapReduce](data-factory-map-reduce.md)  
-> [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
-> [Stored Procedure](data-factory-stored-proc-activity.md)
-> [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
-> [.NET custom](data-factory-use-custom-activities.md)
-> 
-> 
+> * [Hive](data-factory-hive-activity.md)  
+> * [Pig](data-factory-pig-activity.md)  
+> * [MapReduce](data-factory-map-reduce.md)  
+> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Stored Procedure](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
+> * [.NET custom](data-factory-use-custom-activities.md)
 
 You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline](data-factory-create-pipelines.md) to invoke a stored procedure in one of the following data stores: 
 
@@ -53,12 +51,12 @@ This article builds on the [data transformation activities](data-factory-data-tr
         GO
    
     Id is the unique identified and the datetimestamp column is the date and time when the corresponding ID is generated.
+
     ![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
    
    > [!NOTE]
    > This sample uses Azure SQL Database but works in the same manner for Azure SQL Data Warehouse and SQL Server Database. 
-   > 
-   > 
+
 2. Create the following **stored procedure** that inserts data in to the **sampletable**.
    
         CREATE PROCEDURE sp_sample @DateTime nvarchar(127)

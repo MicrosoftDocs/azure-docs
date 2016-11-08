@@ -19,16 +19,14 @@ ms.author: spelluru
 ---
 # Use custom activities in an Azure Data Factory pipeline
 > [!div class="op_single_selector"]
-> [Hive](data-factory-hive-activity.md)  
-> [Pig](data-factory-pig-activity.md)  
-> [MapReduce](data-factory-map-reduce.md)  
-> [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
-> [Stored Procedure](data-factory-stored-proc-activity.md)
-> [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
-> [.NET custom](data-factory-use-custom-activities.md)
-> 
-> 
+> * [Hive](data-factory-hive-activity.md)  
+> * [Pig](data-factory-pig-activity.md)  
+> * [MapReduce](data-factory-map-reduce.md)  
+> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Stored Procedure](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
+> * [.NET custom](data-factory-use-custom-activities.md)
 
 There are two types of activities that you can use in an Azure Data Factory pipeline.
 
@@ -648,7 +646,10 @@ In this step, you create datasets to represent input and output data.
    ![output from custom activity][image-data-factory-ouput-from-custom-activity]
 5. If you open the output file, you should see the output similar to the following output:
    
+    ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
+    ```
+    
 6. Use the [Azure portal][azure-preview-portal] or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets. You can see messages from the **ActivityLogger** in the code for the custom activity in the logs (specifically user-0.log) that you can download from the portal or using cmdlets.
    
    ![download logs from custom activity][image-data-factory-download-logs-from-custom-activity]

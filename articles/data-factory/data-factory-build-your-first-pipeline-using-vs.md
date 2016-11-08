@@ -269,21 +269,21 @@ When you publish the solution in the next step, the **partitionweblogs.hql** fil
    ![Publish dialog box](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 4. In the Configure data factory page, do the following: 
    
-   1. select **Create New Data Factory** option.
-   2. Enter a unique **name** for the data factory. For example: **FirstDataFactoryUsingVS09152016**. The name must be globally unique.  
+   a. select **Create New Data Factory** option.
+   b. Enter a unique **name** for the data factory. For example: **FirstDataFactoryUsingVS09152016**. The name must be globally unique.  
 
-        > [AZURE.IMPORTANT] If you receive the error **Data factory name “FirstDataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameFirstDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
-    3. Select the right subscription for the **Subscription** field.
+        > [!IMPORTANT] If you receive the error **Data factory name “FirstDataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameFirstDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
 
+    c. Select the right subscription for the **Subscription** field.
 
-        > [AZURE.IMPORTANT] If you do not see any subscription, ensure that you logged in using an account that is an admin or co-admin of the subscription.  
+        > [!IMPORTANT] If you do not see any subscription, ensure that you logged in using an account that is an admin or co-admin of the subscription.  
 
-    4. Select the **resource group** for the data factory to be created. 
-    5. Select the **region** for the data factory. 
-    6. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.) 
-1. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.     
-2. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
-3. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
+    d. Select the **resource group** for the data factory to be created. 
+    e. Select the **region** for the data factory. 
+    f. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.) 
+5. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.     
+6. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
+7. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
 
 Important points to note: 
 

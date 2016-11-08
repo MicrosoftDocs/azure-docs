@@ -255,9 +255,11 @@ In this step, you create input and output datasets that represent input and outp
    
    To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the partitionedBy property. In the following example, folderPath uses Year, Month, and Day from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2014-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2014/10/20 and the fileName is set to 08.csv. 
    
-       "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-     "fileName": "{Hour}.csv",
-     "partitionedBy": 
+
+    ```
+    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    "fileName": "{Hour}.csv",
+    "partitionedBy": 
      [
    
          { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
@@ -265,9 +267,10 @@ In this step, you create input and output datasets that represent input and outp
          { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
          { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
      ],
+     ```
 
     See [Move data to/from Azure Blob Storage](data-factory-azure-blob-connector.md) for details about JSON properties.
-1. Click **Deploy** on the command bar to deploy the dataset. Confirm that you see both the datasets in the tree view.  
+3. Click **Deploy** on the command bar to deploy the dataset. Confirm that you see both the datasets in the tree view.  
 
 ## Create pipeline
 In this step, you create a **pipeline** with one **Copy Activity** that uses **EmpOnPremSQLTable** as input and **OutputBlobTable** as output.

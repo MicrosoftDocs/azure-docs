@@ -19,16 +19,14 @@ ms.author: shlo
 ---
 # Create predictive pipelines using Azure Machine Learning activities
 > [!div class="op_single_selector"]
-> [Hive](data-factory-hive-activity.md)  
-> [Pig](data-factory-pig-activity.md)  
-> [MapReduce](data-factory-map-reduce.md)  
-> [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
-> [Stored Procedure](data-factory-stored-proc-activity.md)
-> [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
-> [.NET custom](data-factory-use-custom-activities.md)
-> 
-> 
+> * [Hive](data-factory-hive-activity.md)  
+> * [Pig](data-factory-pig-activity.md)  
+> * [MapReduce](data-factory-map-reduce.md)  
+> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Stored Procedure](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
+> * [.NET custom](data-factory-use-custom-activities.md)
 
 ## Introduction
 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps: 
@@ -239,9 +237,8 @@ We recommend that you go through the [Build your first pipeline with Data Factor
       
       > [!NOTE]
       > AzureMLBatchExecution activity can have zero or more inputs and one or more outputs.
-      > 
-      > 
       
+      ```
        {
          "name": "PredictivePipeline",
          "properties": {
@@ -282,7 +279,8 @@ We recommend that you go through the [Build your first pipeline with Data Factor
            "end": "2016-02-14T00:00:00Z"
          }
        }
-      
+      ```
+
       Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
       
       > [!NOTE]

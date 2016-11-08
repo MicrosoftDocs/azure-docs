@@ -20,7 +20,7 @@ ms.author: ryansoc
 ---
 # Azure Government Storage
 ## Azure Storage
-For details on this service and how to use it, see [Azure Storage public documentation](https://azure.microsoft.com/documentation/services/storage/).
+For details on this service and how to use it, see [Azure Storage public documentation](../storage/).
 
 ### Variations
 The URLs for storage accounts in Azure Government are different:

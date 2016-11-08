@@ -232,7 +232,7 @@ The below resources should provide more information on deploying from the image 
 
 ### Other Resources:
 * [Deploying a Windows Virtual Machine](virtual-machines/virtual-machines-windows-hero-tutorial.md)
-* [Virtual Machine FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+* [Virtual Machine FAQ](virtual-machines/virtual-machines-windows-faq.md)
 * [Capture Linux VM Image](virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->

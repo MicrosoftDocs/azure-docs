@@ -20,7 +20,7 @@ ms.author: ryansoc
 ---
 # Azure Government Data and Storage
 ## Azure Storage
-For details on this service and how to use it, see [Azure Storage public documentation](https://azure.microsoft.com/documentation/services/storage/).
+For details on this service and how to use it, see [Azure Storage public documentation](../storage/).
 
 ### Variations
 The URLs for storage accounts in Azure Government are different:
@@ -57,7 +57,7 @@ Premium Storage is generally available in the USGov Virginia. This includes DS-s
 The same storage data considerations listed above apply to premium storage accounts.
 
 ## SQL Database
-Refer to the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database Public Documentation](https://azure.microsoft.com/documentation/services/sql-database/) for additional guidance on metadata visibility configuration, and protection best practices.
+Refer to the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database Public Documentation](../sql-database/) for additional guidance on metadata visibility configuration, and protection best practices.
 
 ### Variations
 SQL V12 Database is generally available in Azure Government.

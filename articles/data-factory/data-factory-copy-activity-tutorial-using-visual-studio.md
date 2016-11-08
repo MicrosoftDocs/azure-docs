@@ -77,8 +77,8 @@ In this step, you create two linked services: **AzureStorageLinkedService1** and
     ![Azure Storage Linked Service](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)
 4. Save the **AzureStorageLinkedService1.json** file.
 
+> [!NOTE]
 > See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details about JSON properties.
-> 
 > 
 
 ### Create the Azure SQL linked service
@@ -89,7 +89,6 @@ In this step, you create two linked services: **AzureStorageLinkedService1** and
 
 > [!NOTE]
 > See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) for details about JSON properties.
-> 
 > 
 
 ## Create datasets
