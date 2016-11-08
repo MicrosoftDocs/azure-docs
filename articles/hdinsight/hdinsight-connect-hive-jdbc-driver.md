@@ -14,11 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2016
+ms.date: 11/08/2016
 ms.author: larryfr
 
 ---
 # Connect to Hive on Azure HDInsight using the Hive JDBC driver
+
 [!INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
 In this document, you will learn how to use JDBC from a Java application to remotely submit Hive queries to an HDInsight cluster. You will learn how to connect from the SQuirreL SQL client, and how to connect programmatically from Java.
@@ -26,6 +27,7 @@ In this document, you will learn how to use JDBC from a Java application to remo
 For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
 ## Prerequisites
+
 To complete the steps in this article, you will need the following:
 
 * A Hadoop on HDInsight cluster. Either Linux-based or Windows-based clusters will work.
@@ -37,6 +39,7 @@ To build and run the example Java application linked from this article, you will
 * [Apache Maven](https://maven.apache.org). Maven is a project build system for Java projects that is used by the project associated with this article.
 
 ## Connection string
+
 JDBC connections to an HDInsight cluster on Azure are made over 443, and the traffic is secured using SSL. The public gateway that the clusters sit behind redirects the traffic to the port that HiveServer2 is actually listening on. So a typical connection string would like the following:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
@@ -44,6 +47,7 @@ JDBC connections to an HDInsight cluster on Azure are made over 443, and the tra
 Replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
 ## Authentication
+
 When establishing the connection, you must use the HDInsight cluster admin name and password to authenticate to the cluster gateway. When connecting from JDBC clients such as SQuirreL SQL, you must enter the admin name and password in client settings.
 
 From a Java application, you must use the name and password when establishing a connection. For example, the following Java code opens a new connection using the connection string, admin name, and password:
@@ -51,6 +55,7 @@ From a Java application, you must use the name and password when establishing a 
     DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 ## Connect with SQuirreL SQL client
+
 SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with your HDInsight cluster. The following steps assume that you have already installed SQuirreL SQL, and will walk you through downloading and configuring the drivers for Hive.
 
 1. Copy the Hive JDBC drivers from your HDInsight cluster.
@@ -91,12 +96,15 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
           > 
           > 
      4. Disconnect the Remote Desktop session once you have finished copying the files.
+
 2. Start the SQuirreL SQL application. From the left of the window, select **Drivers**.
    
     ![Drivers tab on the left of the window](./media/hdinsight-connect-hive-jdbc-driver/squirreldrivers.png)
+
 3. From the icons at the top of the **Drivers** dialog, select the **+** icon to create a new driver.
    
     ![Drivers icons](./media/hdinsight-connect-hive-jdbc-driver/driversicons.png)
+
 4. In the Add Driver dialog, add the following information.
    
    * **Name**: Hive
@@ -107,17 +115,23 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
      ![add driver dialog](./media/hdinsight-connect-hive-jdbc-driver/adddriver.png)
      
      Click **OK** to save these settings.
+
 5. On the left of the SQuirreL SQL window, select **Aliases**. Then click the **+** icon to create a new connection alias.
    
     ![add new alias](./media/hdinsight-connect-hive-jdbc-driver/aliases.png)
+
 6. Use the following values for the **Add Alias** dialog.
    
    * **Name**: Hive on HDInsight
+
    * **Driver**: Use the dropdown to select the **Hive** driver
+
    * **URL**: jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
      
        Replace **CLUSTERNAME** with the name of your HDInsight cluster.
+
    * **User Name**: The cluster login account name for your HDInsight cluster. The default is `admin`.
+
    * **Password**: The password for the cluster login account. This is a password you provided when creating the HDInsight cluster.
      
      ![add alias dialog](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
@@ -125,9 +139,11 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
      Use the **Test** button to verify that the connection works. When **Connect to: Hive on HDInsight** dialog appears, select **Connect** to perform the test. If the test succeeds, you will see a **Connection successful** dialog.
      
      Use the **Ok** button at the bottom of the **Add Alias** dialog to save the connection alias.
+
 7. From the **Connect to** dropdown at the top of SQuirreL SQL, select **Hive on HDInsight**. When prompted, select **Connect**.
    
     ![connection dialog](./media/hdinsight-connect-hive-jdbc-driver/connect.png)
+
 8. Once connected, enter the following query into the SQL query dialog, and then select the **Run** icon. The results area should show the results of the query.
    
         select * from hivesampletable limit 10;
@@ -135,10 +151,13 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
     ![sql query dialog, including results](./media/hdinsight-connect-hive-jdbc-driver/sqlquery.png)
 
 ## Connect from an example Java application
+
 An example of using a Java client to query Hive on HDInsight is available at [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Follow the instructions in the repository to build and run the sample.
 
 ## Troubleshooting
-### Unexpected Error occurred attempting to open an SQL connection.
+
+### Unexpected Error occurred attempting to open an SQL connection
+
 **Symptoms**: When connecting to an HDInsight cluster that is version 3.3 or 3.4, you may receive an error that an unexpected error occurred. The stack trace for this error will begin with the following lines:
 
     java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
@@ -152,10 +171,13 @@ An example of using a Java client to query Hive on HDInsight is available at [ht
 1. Download the commons-codec jar file from your HDInsight cluster.
    
         scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-codec*.jar ./commons-codec.jar
+
 2. Exit SQuirreL, and then go to the directory where SQuirreL is installed on your system. In the SquirreL directory, under the `lib` directory, replace the existing commons-codec.jar with the one downloaded from the HDInsight cluster.
+
 3. Restart SQuirreL. The error should no longer occur when connecting to Hive on HDInsight.
 
 ## Next steps
+
 Now that you have learned how to use JDBC to work with Hive, use the following links to explore other ways to work with Azure HDInsight.
 
 * [Upload data to HDInsight](hdinsight-upload-data.md)

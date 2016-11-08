@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2016
+ms.date: 11/08/2016
 ms.author: larryfr
 
 ---
 # Use MapReduce in Hadoop on HDInsight
+
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
 In this article, you will learn how to run MapReduce jobs on Hadoop in HDInsight clusters. We run a basic word count operation implemented as a Java MapReduce job.
 
 ## <a id="whatis"></a>What is MapReduce?
+
 Hadoop MapReduce is a software framework for writing jobs that process vast amounts of data. Input data is split into independent chunks, which are then processed in parallel across the nodes in your cluster. A MapReduce job consist of two functions:
 
 * **Mapper**: Consumes input data, analyzes it (usually with filter and sorting operations), and emits tuples (key-value pairs)
@@ -41,6 +43,7 @@ The output of this job is a count of how many times each word occurred in the te
 MapReduce can be implemented in a variety of languages. Java is the most common implementation, and is used for demonstration purposes in this document.
 
 ### Hadoop Streaming
+
 Languages or frameworks that are based on Java and the Java Virtual Machine (for example, Scalding or Cascading,) can be ran directly as a MapReduce job, similar to a Java application. Others, such as C# or Python, or standalone executables, must use Hadoop streaming.
 
 Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT - the mapper and reducer read data a line at a time from STDIN, and write the output to STDOUT. Each line read or emitted by the mapper and reducer must be in the format of a key/value pair, delimited by a tab charaacter:
@@ -54,6 +57,7 @@ For examples of using Hadoop streaming with HDInsight, see the following:
 * [Develop Python MapReduce jobs](hdinsight-hadoop-streaming-python.md)
 
 ## <a id="data"></a>About the sample data
+
 In this example, for sample data, you will use the notebooks of Leonardo Da Vinci, which are provided as a text document in your HDInsight cluster.
 
 The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system for Hadoop clusters. HDInsight can access files stored in Blob storage by using the **wasb** prefix. For example, to access the sample.log file, you would use the following syntax:
@@ -64,16 +68,14 @@ Because Azure Blob storage is the default storage for HDInsight, you can also ac
 
 > [!NOTE]
 > In the previous syntax, **wasbs:///** is used to access files that are stored in the default storage container for your HDInsight cluster. If you specified additional storage accounts when you provisioned your cluster, and you want to access files stored in these accounts, you can access the data by specifying the container name and storage account address. For example, **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
-> 
-> 
+
 
 ## <a id="job"></a>About the example MapReduce
+
 The MapReduce job that is used in this example is located at **wasbs://example/jars/hadoop-mapreduce-examples.jar**, and it is provided with your HDInsight cluster. This contains a word count example that you will run against **davinci.txt**.
 
 > [!NOTE]
 > On HDInsight 2.1 clusters, the file location is **wasbs:///example/jars/hadoop-examples.jar**.
-> 
-> 
 
 For reference, the following is the Java code for the word count MapReduce job:
 
@@ -150,6 +152,7 @@ For reference, the following is the Java code for the word count MapReduce job:
 For instructions to write your own MapReduce job, see [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md).
 
 ## <a id="run"></a>Run the MapReduce
+
 HDInsight can run HiveQL jobs by using a variety of methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
 
 | **Use this**... | **...to do this** | ...with this **cluster operating system** | ...from this **client operating system** |
@@ -160,6 +163,7 @@ HDInsight can run HiveQL jobs by using a variety of methods. Use the following t
 | [Remote Desktop](hdinsight-hadoop-use-mapreduce-remote-desktop.md) |Use the Hadoop command through **Remote Desktop** |Windows |Windows |
 
 ## <a id="nextsteps"></a>Next steps
+
 Although MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. There are several Java-based frameworks that make it easier to define MapReduce applications, as well as technologies such as Pig and Hive, which provide an easier way to work with data in HDInsight. To learn more, see the following articles:
 
 * [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)

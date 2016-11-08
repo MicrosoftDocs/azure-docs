@@ -13,25 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2016
+ms.date: 11/08/2016
 ms.author: larryfr
 
 ---
 # Use DataFu with pig on HDInsight
+
 DataFu is a collection of Open Source libraries for use with Hadoop. In this document, you will learn how to use DataFu on your HDInsight cluster, and how to use DataFu User Defined Functions (UDF) with Pig.
 
 ## Prerequisites
+
 * An Azure subscription.
 * An Azure HDInsight cluster (Linux or Windows based)
 * A basic familiarity with [using Pig on HDInsight](hdinsight-use-pig.md)
 
 ## Install DataFu on Linux-based HDInsight
+
 > [!NOTE]
 > DataFu is installed on Linux-based clusters version 3.3 and higher, and on Windows-based clusters. It is not installed on Linux-based clusters earlier than 3.3.
 > 
 > If you are using a Linux-based cluster version 3.3 or higher, or a Windows-based cluster, you can skip this section.
-> 
-> 
 
 DataFu can be downloaded and installed from the Maven repository. Use the following steps to add DataFu to your HDInsight cluster:
 
@@ -39,6 +40,7 @@ DataFu can be downloaded and installed from the Maven repository. Use the follow
    
    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, and Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
+
 2. Use the following command to download the DataFu jar file using the wget utility, or copy and paste the link into your browser to begin the download.
    
         wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
@@ -52,6 +54,7 @@ DataFu can be downloaded and installed from the Maven repository. Use the follow
    > 
 
 ## Use DataFu With Pig
+
 The steps in this section assume that you are familiar with using Pig on HDInsight, and only provide the Pig Latin statements, not the steps on how to use them with the cluster. For more information on using Pig with HDInsight, see [Use Pig with HDInsight](hdinsight-use-pig.md).
 
 > [!IMPORTANT]
@@ -60,8 +63,6 @@ The steps in this section assume that you are familiar with using Pig on HDInsig
 > ```register wasbs:///example/jars/datafu-1.2.0.jar```
 > 
 > DataFu is registered by default on Windows-based HDInsight clusters.
-> 
-> 
 
 You will usually define an alias for DataFu functions. For example:
 
@@ -104,6 +105,7 @@ It will generate the following output:
     (bc22db7c238b86c37af79a62c78f61a304b35143f6087eb99c34040325865654,0,2,5)
 
 ## Next steps
+
 For more information on DataFu or Pig, see the following documents:
 
 * [Apache DataFu Pig Guide](http://datafu.incubator.apache.org/docs/datafu/guide.html).
