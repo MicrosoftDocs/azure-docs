@@ -31,9 +31,9 @@
 ## [Import and export a DNS zone file](dns-import-export.md)
 ## [Using Azure DNS with other Azure services](dns-for-azure-services.md)
 ## [Protect DNS zones and records](dns-protect-zones-recordsets.md)
-## [Automate DNS operations with the DNS.NET SDK](dns-sdk.md)
+## [Automate DNS operations with the .NET SDK](dns-sdk.md)
 
-# References
+# Reference
 ## [PowerShell cmdlets](https://msdn.microsoft.com/en-us/library/azure/mt126288(v=azure.300))
 ## [REST API](https://msdn.microsoft.com/library/azure/mt163862)
 
