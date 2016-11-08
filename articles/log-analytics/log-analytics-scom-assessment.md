@@ -19,15 +19,15 @@ ms.author: banders
 
 # Optimize your environment with the System Center Operations Manager Assessment (Preview) solution in Log Analytics
 
-You can use the System Center Operations Manager (SCOM) Assessment solution to assess the risk and health of your System Center Operations Manager server environments on a regular interval. This article will help you install, configure, and use the solution so that you can take corrective actions for potential problems.
+You can use the System Center Operations Manager (SCOM) Assessment solution to assess the risk and health of your System Center Operations Manager server environments on a regular interval. This article helps you install, configure, and use the solution so that you can take corrective actions for potential problems.
 
-This solution provides a prioritized list of recommendations specific to your deployed server infrastructure. The recommendations are categorized across four focus areas which help you quickly understand the risk and take corrective action.
+This solution provides a prioritized list of recommendations specific to your deployed server infrastructure. The recommendations are categorized across four focus areas, which help you quickly understand the risk and take corrective action.
 
 The recommendations made are based on the knowledge and experience gained by Microsoft engineers from thousands of customer visits. Each recommendation provides guidance about why an issue might matter to you and how to implement the suggested changes.
 
 You can choose focus areas that are most important to your organization and track your progress toward running a risk free and healthy environment.
 
-After you've added the solution and an assessment is completed, summary information for focus areas is shown on the **System Center Operations Manager Assessment** dashboard for the infrastructure in your environment. The following sections describe how to use the information on the **System Center Operations Manager Assessment** dashboard, where you can view and then take recommended actions for your SCOM infrastructure.
+After you've added the solution and an assessment is completed, summary information for focus areas is shown on the **System Center Operations Manager Assessment** dashboard for your infrastructure. The following sections describe how to use the information on the **System Center Operations Manager Assessment** dashboard, where you can view and then take recommended actions for your SCOM infrastructure.
 
 ![SCOM solution tile](./media/log-analytics-scom-assessment/scom-tile.png)
 
@@ -42,7 +42,7 @@ Use the following information to install and configure the solution.
 - One Operations Manager management server from a Management group should be configured to connect to OMS. To connect Operations Manager Management Server to OMS, see [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md#connecting-operations-manager-to-oms).
     - If you monitor more than one management server in a management group using the OMS-managed Computers group, ensure that the assessment is configured to run on one management server. For more information, see [Configure the assessment rule](#configure-the-assessment-rule).
 - Before you can use an assessment solution in OMS, you must have the solution installed. To read more about installing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
-- When using the Operations Manager agent with SCOM Assessment, you'll need to use an Operations Manager Run-As account. See Operations Manager run-as accounts for OMS below for more information.
+- When using the Operations Manager agent with SCOM Assessment, you need to use an Operations Manager Run-As account. For more information, see [Operations Manager run-as accounts for OMS](#operations-manager-run-as-accounts-for-oms).
     >[!NOTE]
     After you've added the solution, the AdvisorAssessment.exe file is added to SCOM server. Configuration data is read and then sent to the OMS service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
 
@@ -54,11 +54,11 @@ The following table shows data collection methods for SCOM Assessment, and how o
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |  ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![Yes](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | 7 days |
+| Windows |  ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![Yes](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | seven days |
 
 ## Operations Manager run-as accounts for OMS
 
-OMS builds on management packs for workloads to provide value-add services. Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain account. You need to provide credential information by configuring an Operations Manager Run As account.
+OMS builds on management packs for workloads to provide value-add services. Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain account. Configure an Operations Manager Run As account to provide credential information.
 
 Use the following information to set the Operations Manager run-as account for SCOM Assessment.
 
@@ -79,7 +79,7 @@ Use the following information to set the Operations Manager run-as account for S
 3. Go back to the Run As Configuration and click **Profiles**.
 4. Search for the *SCOM Assessment Profile*.
 5. The profile name should be: *Microsoft System Center Advisor SCOM Assessment Run As Profile*.
-6. Right-click and update its properties and add the recently-created Run As Account you created in step 3.
+6. Right-click and update its properties and add the recently created Run As Account you created in step 3.
 
 ### SQL script granting permissions to the Run As account
 
@@ -134,7 +134,7 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### Configure the assessment rule
 
-The System Center Operations Manager Assessment solution’s management pack includes a rule named *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule*. This rule is responsible for running the assessment. To enable the rule and configure the frequency, use the following procedures.
+The System Center Operations Manager Assessment solution’s management pack includes a rule named *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule*. This rule is responsible for running the assessment. To enable the rule and configure the frequency, use the procedures below.
 
 By default, the Microsoft System Center Advisor SCOM Assessment Run Assessment Rule is disabled. To run the assessment, you must enable the rule on a management server. Use the following steps.
 
@@ -151,19 +151,19 @@ While still in this window, configure the frequency of the run using the next pr
 
 #### Configure the run frequency
 
-The assessment is configured to run every 10080 minutes (or 7 days), the default interval. You can override the value to a minimum value of 1440 minutes (or 1 day). The value represents the minimum time gap required between successive assessment runs. To override the interval, use the following steps:
+The assessment is configured to run every 10,080 minutes (or seven days), the default interval. You can override the value to a minimum value of 1440 minutes (or one day). The value represents the minimum time gap required between successive assessment runs. To override the interval, use the steps below.
 
 1. In the **Authoring** workspace of the Operations Manager console, search for the rule *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* in the **Rules** pane.
 2. In the search results, select the one that includes the text *Type: Management Server*.
 3. Right-click the rule and then click **Override the Rule** > **For all objects of class: Management Server**.
-4. Change the **Interval** parameter value to your desired interval value. In the example below, the value is set to 1440 minutes (1 day).  
+4. Change the **Interval** parameter value to your desired interval value. In the example below, the value is set to 1440 minutes (one day).  
     ![interval parameter](./media/log-analytics-scom-assessment/interval.png)  
-    If the value is set to less than 1440 minutes, then the rule runs at a one day interval. In this example, the rule ignores the interval value and runs at a frequency of 1 day.
+    If the value is set to less than 1440 minutes, then the rule runs at a one day interval. In this example, the rule ignores the interval value and runs at a frequency of one day.
 
 
 ## Understanding how recommendations are prioritized
 
-Every recommendation made is given a weighting value that identifies the relative importance of the recommendation. Only the ten most important recommendations are shown.
+Every recommendation made is given a weighting value that identifies the relative importance of the recommendation. Only the 10 most important recommendations are shown.
 
 ### How weights are calculated
 
@@ -173,7 +173,7 @@ Weightings are aggregate values based on three key factors:
 - The *impact* of the issue on your organization if it does cause a problem. A higher impact equates to a larger overall score for the recommendation.
 - The *effort* required to implement the recommendation. A higher effort equates to a smaller overall score for the recommendation.
 
-The weighting for each recommendation is expressed as a percentage of the total score available for each focus area. For example, if a recommendation in the Availability and Business Continuity focus area has a score of 5%, implementing that recommendation will increase your overall Availability and Business Continuity score by 5%.
+The weighting for each recommendation is expressed as a percentage of the total score available for each focus area. For example, if a recommendation in the Availability and Business Continuity focus area has a score of 5%, implementing that recommendation increases your overall Availability and Business Continuity score by 5%.
 
 ### Focus areas
 
@@ -181,7 +181,7 @@ The weighting for each recommendation is expressed as a percentage of the total 
 
 **Performance and Scalability** - This focus area shows recommendations to help your organization's IT infrastructure grow, ensure that your IT environment meets current performance requirements, and is able to respond to changing infrastructure needs.
 
-**Upgrade, Migration and Deployment** - This focus area shows recommendations to help you upgrade, migrate, and deploy SQL Server to your existing infrastructure.
+**Upgrade, Migration, and Deployment** - This focus area shows recommendations to help you upgrade, migrate, and deploy SQL Server to your existing infrastructure.
 
 **Operations and Monitoring** - This focus area shows recommendations to help streamline your IT operations, implement preventative maintenance, and maximize performance.
 
@@ -189,7 +189,7 @@ The weighting for each recommendation is expressed as a percentage of the total 
 
 Not necessarily. The recommendations are based on the knowledge and experiences gained by Microsoft engineers across thousands of customer visits. However, no two server infrastructures are the same, and specific recommendations may be more or less relevant to you. For example, some security recommendations might be less relevant if your virtual machines are not exposed to the Internet. Some availability recommendations may be less relevant for services that provide low priority ad hoc data collection and reporting. Issues that are important to a mature business may be less important to a start-up. You may want to identify which focus areas are your priorities and then look at how your scores change over time.
 
-Every recommendation includes guidance about why it is important. You should use this guidance to evaluate whether implementing the recommendation is appropriate for you, given the nature of your IT services and the business needs of your organization.
+Every recommendation includes guidance about why it is important. Use this guidance to evaluate whether implementing the recommendation is appropriate for you, given the nature of your IT services and the business needs of your organization.
 
 ## Use assessment focus area recommendations
 
@@ -207,9 +207,9 @@ View the summarized compliance assessments for your infrastructure and then dril
 
 ## Ignore recommendations
 
-If you have recommendations that you want to ignore, you can create a text file that OMS will use to prevent recommendations from appearing in your assessment results.
+If you have recommendations that you want to ignore, you can create a text file that OMS uses to prevent recommendations from appearing in your assessment results.
 
-### To identify recommendations that you will ignore
+### To identify recommendations that you want to ignore
 
 1. Sign in to your workspace and open Log Search. Use the following query to list recommendations that have failed for computers in your environment.
 
@@ -231,7 +231,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 ### To verify that recommendations are ignored
 
-1. After the next scheduled assessment runs, by default every 7 days, the specified recommendations are marked Ignored and will not appear on the assessment dashboard.
+1. After the next scheduled assessment runs, by default every seven days, the specified recommendations are marked Ignored and will not appear on the assessment dashboard.
 2. You can use the following Log Search queries to list all the ignored recommendations.
 
     ```
@@ -244,13 +244,13 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 *Is there a way to configure how often the assessment runs?* Yes. See [Configure the run frequency](#configure-the-run-frequency).
 
-*If another server for is discovered after I’ve added the System Center Operations Manager Assessment solution, will it be assessed?* Yes, after discovery, it is assessed from then on--by default, every 7 days.
+*If another server is discovered after I’ve added the System Center Operations Manager Assessment solution, will it be assessed?* Yes, after discovery, it is assessed from then on--by default, every seven days.
 
 *What is the name of the process that does the data collection?* AdvisorAssessment.exe
 
 *Where does the AdvisorAssessment.exe process run?* AdvisorAssessment.exe runs under the HealthService of the management server where the assessment rule is enabled. Using that process, discovery of your entire environment is achieved through remote data collection.
 
-*How long does it take for data collection?* Data collection on the server takes about 1 hour. It may take longer in environments that have a large number of Operations Manager instances or databases.
+*How long does it take for data collection?* Data collection on the server takes about one hour. It may take longer in environments that have many Operations Manager instances or databases.
 
 *What if I set the interval of the assessment to less than 1440 minutes?* The assessment is pre-configured to run at a maximum of once per day. If you override the interval value to a value less than 1440 minutes, then the assessment uses 1440 minutes as the interval value.
 
@@ -260,7 +260,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 *What type of data is collected?* The following types of data are collected: - WMI data - Registry data - EventLog data - Operations Manager data through Windows PowerShell, SQL Queries and File information collector.
 
-*Why do I have to configure a Run As Account?* For an Operations Manager server, a number of SQL queries are run. In order for them to run, you must use a Run As Account with necessary permissions. In addition, local administrator credentials are required to query WMI.
+*Why do I have to configure a Run As Account?* For an Operations Manager server, various SQL queries are run. In order for them to run, you must use a Run As Account with necessary permissions. In addition, local administrator credentials are required to query WMI.
 
 *Why display only the top 10 recommendations?* Instead of giving you an exhaustive, overwhelming list of tasks, we recommend that you focus on addressing the prioritized recommendations first. After you address them, additional recommendations will become available. If you prefer to see the detailed list, you can view all recommendations using Log Search.
 
