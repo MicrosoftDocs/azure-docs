@@ -257,7 +257,7 @@ Use the following guidelines for when to include “structure” information and
 	As mentioned earlier, the type information is optional in “structure” section. For structured sources, type information is available as part of dataset definition in the data store, so you should not include type information when you do include the “structure” section.
 - **For schema on read data sources (specifically Azure blob)**: you can choose to store data without storing any schema or type information with the data. For these types of data sources, you should include “structure” in the following two cases:
 	- You map source columns to sink columns.
-	- When the dataset is a source in a Copy activity, you can provide type information in “structure.” Data Factory uses this type information for conversion to native types for the sink. For more information, see [Move data to and from Azure Blob](../articles/data-factory/data-factory-azure-blob-connector.md) article.
+	- When the dataset is a source in a Copy activity, you can provide type information in “structure.” Data Factory uses this type information for conversion to native types for the sink. For more information, see [Move data to and from Azure Blob](data-factory-azure-blob-connector.md) article.
 
 ### Supported .NET-based types 
 Data Factory supports the following CLS-compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob.
@@ -276,9 +276,10 @@ Data Factory supports the following CLS-compliant .NET based type values for pro
 
 For Datetime and Datetimeoffset, you can also optionally specify “culture” & “format” string to facilitate parsing of your custom Datetime string. See sample for type conversion in the following section:
 
-[AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
 
-[AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+[!INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
+
+[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 
 ## Performance and tuning  
