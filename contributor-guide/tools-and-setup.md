@@ -6,7 +6,7 @@ If you're unfamiliar with Git, you might want to review some Git terminology: [h
 
 ## Contents
 * [Create a GitHub account and set up your profile](#create-a-github-account-and-set-up-your-profile)
-* [Sign up for LiveFyre](#sign-up-for-disqus)
+* [Sign up for LiveFyre](#sign-up-for-livefyre)
 * [Modify articles using the GitHub UI](#modify-articles-using-the-github-ui)
 * [Private or public repo?](#private-or-public-repo?)
 * [Permissions in GitHub](#permissions-in-github)
