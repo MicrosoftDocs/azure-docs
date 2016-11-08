@@ -24,8 +24,6 @@ Apache Spark can be used to stream data into or out of Apache Kafka. In this doc
 > The steps in this document create a new Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Storm cluster to directly communicate with the Kafka cluster.
 > 
 > When you are done with the steps in this document, please remeber to delete the clusters to avoid excess charges.
-> 
-> 
 
 ## Prerequisites
 
@@ -69,9 +67,9 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
    
     **BASICS** section:
    
-   * **Resource group**: Create a new group or select an existing one. This group will contain the HDInsight cluster.
+    * **Resource group**: Create a new group or select an existing one. This group will contain the HDInsight cluster.
 
-   * **Location_: Select a location geographically close to you. This must match the location in the __SETTINGS** section.
+    * **Location_: Select a location geographically close to you. This must match the location in the __SETTINGS** section.
      
         **SETTINGS** section:
    
@@ -102,22 +100,73 @@ Once the resources have been created, you are redirected to a blade for the reso
 
 The code for the example described in this document is available at [https://github.com/Azure-Samples/hdinsight-spark-java-kafka](https://github.com/Azure-Samples/hdinsight-spark-java-kafka).
 
-## Understanding the code
+## Understand the code
 
 There are two projects contained in the code repository; a Jupyter notebook and a standalone Scala project that can be ran using Livy or `spark-submit`. 
 
+Both projects rely on the following pieces of data:
+
+* __Kafka brokers__: The broker process runs on each workernode on the Kafka cluster. The list of brokers is required by the producer component, which writes data to Kafka.
+
+* __Zookeeper hosts__: The Zookeeper hosts for the Kafka cluster are used when consuming (reading) data from Kafka.
+
+* __Topic name__: The name of the topic that data will be written to and read from. This example expects a topic named `sparktest`.
+
+See [Kafka host information](#kafkahosts) for information on how to obtain the Kafka broker and Zookeeper host information.
+
 ### Jupyter notebook
 
-In the __hdinsight-spark-scala-kafka
+The Jupyter notebook contains Scala code that performs the following tasks:
+
+* Creates a consumer that reads data from a Kafka topic named `sparktest`, counts each word in the data, and stores the word and count into a temporary table named `wordcounts`.
+
+* Creates a producer that writes wrandom sentences to the Kafka topic named `sparktest`.
+
+* Selects data from the `wordcounts` table to display the counts.
+
+Each cell in the project contains comments or a text section that explains what the code does.
 
 ### Scala project
 
 This project contains two pieces that do all the work:
 
 * **KafkaWordProducer**: This emits random sentences to a Kafka topic every second.
+
 * **KafkaWordCount**: This reads data from one or more Kafka topics, and maintains a count of how many times individual words occur.
 
+## Kafka host information
+
+The first thing you should do when working with Kafka on HDInsight is to get the Kafka broker and Zookeeper host information for the Kafka cluster. This is used by client applications in order to communicate with Kafka.
+
+From your development environment, use the following commands to retrieve the broker and Zookeeper information. Replace __PASSWORD__ with the login (admin) password you used when creating the cluster. Replace __BASENAME__ with the base name you used when creating the cluster.
+
+* To get the __Kafka broker__ information:
+
+        curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
+
+    > [!IMPORTANT]
+    > When using this command from Windows PowerShell, you may receive an error about shell quoting issues. If so, use the following command:
+    > `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'
+
+* To get the __Zookeeper host__ information:
+
+        curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'
+    
+    > [!IMPORTANT]
+    > When using this command from Windows PowerShell, you may receive an error about shell quoting issues. If so, use the following command:
+    > `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["""\(.host_components[].HostRoles.host_name):2181"""] | join(""",""")'`
+
+Both commands return information similar to the following:
+
+    * __Kafka brokers__: `wn0-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:9092,wn1-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:9092`
+
+    * __Zookeeper hosts__: `zk0-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk1-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk2-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181`
+
+> [!IMPORTANT]
+> Save this information as it is used in several steps in this document.
+
 ## Create a Kafka topic
+
 1. Connect to the Kafka cluster using SSH. Replace **USERNAME** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
    
         ssh USERNAME@kafka-BASENAME-ssh.azurehdinsight.net
@@ -126,32 +175,35 @@ This project contains two pieces that do all the work:
    
     For more information on using SSH with HDInsight, see the following documents:
    
-   * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-2. From the SSH connection to the Kafka cluster, use the following command to get the zookeeper nodes:
+    * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
+    
+    * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+2. From the SSH connection, use the following command to create a topic in Kafka. Replace __KAFKA_ZKHOSTS__ with the Zookeeper hosts information you obtained earlier.
    
-        ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic sparktest --zookeeper KAFKA_ZKHOSTS
+
+    This command connects to Zookeeper, and then creates a Kafka topic named **stormtest**. You can verify that the topic was created by using the following command to list topics. As previously, replace __KAFKA_ZKHOSTS__ with the Zookeeper host information for the Kafka cluster.
    
-    This reads the values for the Zookeeper hosts from the yarn-site.xml file, and store them into the ZKHOSTS variable. Use the following to see these values:
-   
-        echo $ZKHOSTS
-   
-    The output of this command is similar to the following example:
-   
-        zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk3-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181
-   
-    Save the values returned from this command, as these are used when starting the topology on the Storm cluster.
-3. Use the following command to create a topic in Kafka:
-   
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic sparktest --zookeeper $ZKHOSTS
-   
-    This command connects to Zookeeper using the host information stored in `$ZKHOSTS`, and then creates a Kafka topic named **stormtest**. You can verify that the topic was created by using the following command to list topics:
-   
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $ZKHOSTS
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper KAFKA_ZKHOSTS
    
     The output of this command lists Kafka topics, which should contain the new **sparktest** topic.
 
 Close the SSH connection to the Kafka cluster, as it is not needed for the rest of this document.
+
+## Upload the Jupyter notebook
+
+1. In your web browser, use the following URL to connect to the Jupyter Notebook server on the Spark cluster. Replace __BASENAME__ with the base name used when you created the cluster.
+
+        https://spark-BASENAME.azurehdinsight.net/jupyter
+
+    When prompted, enter the cluster login (admin) and password used when you created the cluster.
+
+2. From the upper right side of the page, use the __Upload__ button to upload the `KafkaStreaming.ipynb` file. Select the file in the file browser dialog and select __Open__. 
+
+3. Find the __KafkaStreaming.ipynb__ entry in the list of notebooks, and select __Upload__ button beside it.
+
+
 
 ## Download and compile the project
 1. On your development environment, download the project from [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka), open a command-line, and change directories to the location that you downloaded the project.
