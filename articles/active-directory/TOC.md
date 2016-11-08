@@ -279,9 +279,9 @@
 
 
 # Reference
-## [Azure AD service limits and restrictions](active-directory-service-limits-restrictions.md)
-## [Active Directory Authentication Library .NET reference](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
-## [Azure Active Directory PowerShell module](https://msdn.microsoft.com/library/azure/mt757189.aspx)
+## [Service limits and restrictions](active-directory-service-limits-restrictions.md)
+## [Authentication Library .NET reference](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+## [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt757189.aspx)
 
 # Related
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
