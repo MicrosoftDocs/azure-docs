@@ -273,66 +273,84 @@ Node.js
         context.done(null, smsText);
     }
 
+## Advanced binding at runtime (imperative binding)
 
-## Advanced binding with Binder
-Using `Binder`/ `IBinder` is an advanced binding technique that allows you to perform bindings imperatively in your code as opposed to declarative via the *function.json* metadata file. You might need to do this in cases where the computation of binding path or other inputs needs to happen at run-time in your function. Note that when using an `Binder` parameter, you **should not** include a corresponding entry in *function.json* for that parameter.
+The standard input and output binding pattern using *function.json* is called [*declarative*](https://en.wikipedia.org/wiki/Declarative_programming) binding,
+where the binding is defined by the JSON declaration. However, you can use [imperative](https://en.wikipedia.org/wiki/Imperative_programming)
+binding. With this patttern, you can bind to any number of supported input and output binding on-the-fly in your function code.
+You might need imperative binding in cases where the computation of binding path or other inputs needs to happen at run time in your function
+instead of design time. 
 
-In the below example, we're dynamically binding to a blob output. As you can see, because you're declaring the binding in code, your path info can be computed in any way you wish. Note that you can bind to any of the other raw binding attributes as well (e.g. QueueAttribute/EventHubAttribute/ServiceBusAttribute/etc.) You can also do so iteratively to bind multiple times.
+To perform imperative binding, Do the following:
 
-Note that the type parameter passed to `BindAsyn`c (in this case TextWriter) must be a type that the target binding supports.
+- **Do not** include an entry in *function.json* for your desired imperative bindings.
+- Pass in an input parameter [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) 
+or [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
+- Use the following C# pattern to perform the data binding.
 
-Bindings in function.json:
+		using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
+		{
+				...
+		}
 
-    {
-      "bindings": [
-        {
-          "name": "req",
-          "type": "httpTrigger",
-          "direction": "in"
-        },
-        {
-          "name": "res",
-          "type": "http",
-          "direction": "out"
-        }
-      ]
-    }
+where `BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's 
+supported by that binding type. `T` also cannot be an `out` parameter type (such as `out JObject`). For example, the 
+Mobile Apps table output binding supports 
+[six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22),
+but you can only use [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 
+or [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T`.
+	
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#storage-blob-output-binding)
+with blob path that's defined at run time, then writes a string to the blob.
 
+		using Microsoft.Azure.WebJobs;
+		using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+		
+		public static async Task Run(string input, Binder binder)
+		{
+				using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
+				{
+						writer.Write("Hello World!!");
+				}
+		}
 
-C# function code:
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)
+defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and 
+[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) is a supported output binding type.
+As is, the code gets the default app setting for the Storage account connection string (which is `AzureWebJobsStorage`). You can specify a 
+custom app setting to use by adding the 
+[StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
+and passing the attribute array into `BindAsync<T>()`. For example,
 
-    using System;
-    using System.Net;
-    using Microsoft.Azure.WebJobs;
-    using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+		using Microsoft.Azure.WebJobs;
+		using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+		
+		public static async Task Run(string input, Binder binder)
+		{
+				var attributes = new Attribute[]
+				{
+						new BlobAttribute("samples-output/path"),
+						new StorageAccountAttribute("MyStorageAccount")
+				};
+				using (var writer = await binder.BindAsync<TextWriter>(attributes))
+				{
+						writer.Write("Hello World!");
+				}
+		}
 
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Binder binder, TraceWriter log)
-    {
-        log.Verbose($"C# HTTP function processed RequestUri={req.RequestUri}");
+The following table shows you the corresponding .NET attribute to use for each binding type and which package to reference.
 
-        // determine the path at runtime in any way you choose
-        string path = "samples-output/path";
-
-        using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute(path)))
-        {
-            writer.Write("Hello World!!");
-        }
-
-        return new HttpResponseMessage(HttpStatusCode.OK); 
-    }
-
-There are bind overloads that take an array of attributes. In cases where you need to control the target storage account, you pass in a collection of attributes, starting with the binding type attribute (e.g. `BlobAttribute`) and inlcuding a `StorageAccountAttribute` instance pointing to the account to use. For example:
-
-    var attributes = new Attribute[]
-    {
-        new BlobAttribute(path),
-        new StorageAccountAttribute("MyStorageAccount")
-    };
-    using (var writer = await binder.BindAsync<TextWriter>(attributes))
-    {
-        writer.Write("Hello World!");
-    }
-
+| Binding | Attribute | Add reference |
+|------|------|------|
+| DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
+| Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
+| Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
+| Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
+| Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
+| Storage queue | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+| Storage blob | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+| Storage table | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions"` |
 
 ## Route support
 By default when you create a function for an HTTP trigger, or WebHook, the function is addressable with a route of the form:
