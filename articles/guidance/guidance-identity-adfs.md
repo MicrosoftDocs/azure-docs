@@ -262,7 +262,7 @@ To run the script that deploys the solution:
 
 <!-- links -->
 
-[vm-recommendations]: ../../includes/guidance-compute-single-vm-windows.md#recommendations
+[vm-recommendations]: ../../includes/guidance-compute-single-vm-windows.md
 [naming-conventions]: ./guidance-naming-conventions.md
 [implementing-active-directory]: ./guidance-identity-adds-extend-domain.md
 [resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md

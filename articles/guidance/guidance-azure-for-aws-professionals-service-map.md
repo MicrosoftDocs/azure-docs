@@ -437,7 +437,7 @@ To help decide which platform is right for your needs, we’ve created a referen
             <td></td>
             <td>Messaging</td>
             <td>Simple Queue Service</td>
-            <td><a href="https://azure.microsoft.com/services/storage/queues/">Queue Storage</a></br><a href="../service-bus/service-bus-dotnet-how-to-use-queues.md">Service Bus queues</a></br><a href="../service-bus/service-bus-dotnet-how-to-use-topics-subscriptions.md">Service Bus topics</a></br><a href="../service-bus/service-bus-relay-overview.md">Service Bus relay</a></td>
+            <td><a href="https://azure.microsoft.com/services/storage/queues/">Queue Storage</a></br><a href="../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md">Service Bus queues</a></br><a href="../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md">Service Bus topics</a></br><a href="../service-bus-relay/service-bus-relay-overview.md">Service Bus relay</a></td>
             <td>Stores large numbers of messages that can be accessed from anywhere through authenticated calls using HTTP or HTTPS. A queue can contain millions of messages, up to the total capacity limit of a storage account, and may also support more complex topologies such as publish/subscribe.</td>
         </tr>
         <tr>
