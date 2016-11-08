@@ -22,7 +22,6 @@ The updates in the pull request must comply with the following criteria to be me
 | Content |The article contains an introductory paragraph, and a procedural or conceptual body of content. The article needs to contain sufficient, complete content to stand on its own as an article. It should not be a small fragment of information. (Exception: A "Limits" topic if it is in the context of a large article that lists all of the limits of a service.) |
 | Content |Elements that should be numbered lists are numbered, elements that should be unordered lists are bulleted. This is basic usability. |
 | Content |Unusual or novel graphics, information architecture or structures, or obviously non-standard designs need to be vetted with the lead PR reviewer. Teams that are experimenting with new things need to have a problem/solution canvas or plan in place for evaluating experiments. |
-
 | Content |If an article is being deleted, all crosslinks to that article must be deleted. Check the build report to ensure there are no articles that contain broken links to the article being deleted |
 | Site/design functionality |Switchers are used only for switching across multiple versions of the same article. |
 | Site/design functionality |The titles of switchered articles contain information that differentiates each article from the other articles in the switchered set. |
