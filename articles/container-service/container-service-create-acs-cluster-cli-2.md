@@ -22,11 +22,11 @@ ms.author: saudas
 # Using the Azure CLI 2.0 Preview to create an Azure Container Service cluster
 You can install the Azure CLI 2.0 Preview using the instructions provided [here](https://github.com/Azure/azure-cli).
 
-## Login to your account
+## Log in to your account
 ```azurecli
 az login 
 ```
-You will need to go to this [link](https://login.microsoftonline.com/common/oauth2/deviceauth) to authenticate with the device code provided in the CLI.
+You need to go to this [link](https://login.microsoftonline.com/common/oauth2/deviceauth) to authenticate with the device code provided in the CLI.
 ![type command](media/container-service-create-acs-cluster-cli-2/login.png)
 ![browser](media/container-service-create-acs-cluster-cli-2/login-browser.png)
 
@@ -49,13 +49,13 @@ az acs -h
 ```azurecli
 az acs create -h
 ```
-The name of the container service, the resource group created in the previous step and a unique DNS name are mandatory. 
-Other inputs are set to default values (please see help below) unless overwritten using their respective switches.
+The name of the container service, the resource group created in the previous step, and a unique DNS name are mandatory. 
+Other inputs are set to default values (see the following help screen) unless overwritten using their respective switches.
 ![Image ACS create help](media/container-service-create-acs-cluster-cli-2/create-help.png)
 
 ### Quick acs create using defaults 
 
-If you do not have an SSH key use the second command. This second create command with the --generate-ssh-keys switch creates one for you.
+If you do not have an SSH key, use the second command. This second create command with the --generate-ssh-keys switch creates one for you.
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 --dns-name-prefix applink
@@ -64,7 +64,7 @@ az acs create -n acs-cluster -g acsrg1 --dns-name-prefix applink
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -dns-name-prefix applink --generate-ssh-keys
 ```
-After you type the above command, wait for about 10 minutes for the cluster to be created.
+After you type the preceding command, wait for about 10 minutes for the cluster to be created.
 
 ## List container service clusters in a resource group
 ```azurecli
@@ -92,5 +92,5 @@ az acs delete -g acsrg1 -n acs-cluster
 ```
 
 > [!NOTE]
-> This delete command does not delete all resources (network and storage) created while creating the container service. To delete all resources, it is recommended that a single container service cluster be created per resource group and then the resource group itself be deleted when the acs cluster is no longer required to ensure that all related resources are deleted and you are not charged for them.
+> This delete command does not delete all resources (network and storage) created while creating the container service. To delete all resources, it is recommended that a single container service cluster be created per resource group and then the resource group itself be deleted when the cluster is no longer required. Deleting the resource group ensures that all related resources are deleted and you are not charged for them.
 
