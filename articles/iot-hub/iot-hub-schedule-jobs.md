@@ -30,7 +30,7 @@ Conceptually, a job wraps one of these actions and tracks the progress of execut
 Learn more about each of these capabilities in these articles:
 
 * Device twin and properties: [Get started with device twins][lnk-get-started-twin] and [Tutorial: How to use device twin properties][lnk-twin-props]
-* direct methods: [Developer guide - direct methods][lnk-dev-methods] and [Tutorial: C2D methods][lnk-c2d-methods]
+* direct methods: [Developer guide - direct methods][lnk-dev-methods] and [Tutorial: direct methods][lnk-c2d-methods]
 
 This tutorial shows you how to:
 

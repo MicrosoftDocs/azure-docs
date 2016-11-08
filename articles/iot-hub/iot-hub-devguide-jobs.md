@@ -19,14 +19,14 @@ ms.author: juanpere
 ---
 # Schedule jobs on multiple devices (preview)
 ## Overview
-As described by previous articles, Azure IoT Hub enables a number of building blocks ([device twin properties and tags][lnk-twin-devguide] and [direct methods][lnk-dev-methods]).  Typically, IoT back end applications enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time.  Jobs encapsulate the execution of device twin updates and C2D methods against a set of devices at a schedule time.  For example, an operator would use a back end application that would initiate and track a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
+As described by previous articles, Azure IoT Hub enables a number of building blocks ([device twin properties and tags][lnk-twin-devguide] and [direct methods][lnk-dev-methods]).  Typically, IoT back end applications enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time.  Jobs encapsulate the execution of device twin updates and direct methods against a set of devices at a schedule time.  For example, an operator would use a back end application that would initiate and track a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
 
 ### When to use
 Consider using jobs when: a solution back end needs to schedule and track progress any of the following activities on a set of device:
 
 * Update device twin desired properties
 * Update device twin tags
-* Invoke C2D methods
+* Invoke direct methods
 
 ## Job lifecycle
 Jobs are initiated by the solution back end and maintained by IoT Hub.  You can initiate a job through a service-facing URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-09-30-preview`) and query for progress on an executing job through a service-facing URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-09-30-preview`).  Once a job is initiated, querying for jobs will enable the back end application to refresh the status of running jobs.
