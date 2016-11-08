@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/27/2016
+ms.date: 11/08/2016
 ms.author: larryfr
 ---
 # Use Apache Spark with Kafka (preview) on HDInsight
@@ -21,7 +21,7 @@ ms.author: larryfr
 Apache Spark can be used to stream data into or out of Apache Kafka. In this document, learn how to create a basic Spark application in Scala that writes to and reads from Kafka on HDInsight.
 
 > [!NOTE]
-> The steps in this document create a new Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Storm cluster to directly communicate with the Kafka cluster.
+> The steps in this document create a new Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
 > 
 > When you are done with the steps in this document, please remeber to delete the clusters to avoid excess charges.
 
@@ -43,6 +43,10 @@ Apache Spark can be used to stream data into or out of Apache Kafka. In this doc
     * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
 
     * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+* [cURL](https://curl.haxx.se/) - A cross platform utility for making HTTP requests.
+
+* [jq](https://stedolan.github.io/jq/) - A cross platform utility for parsing JSON documents.
 
 ## Create the clusters
 
@@ -94,17 +98,15 @@ Once the resources have been created, you are redirected to a blade for the reso
 ![Resource group blade for the vnet and clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
-> Notice that the names of the HDInsight clusters are **storm-BASENAME** and **kafka-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
+> Notice that the names of the HDInsight clusters are **spark-BASENAME** and **kafka-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
 
 ## Get the code
 
-The code for the example described in this document is available at [https://github.com/Azure-Samples/hdinsight-spark-java-kafka](https://github.com/Azure-Samples/hdinsight-spark-java-kafka).
+The code for the example described in this document is available at [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
 
 ## Understand the code
 
-There are two projects contained in the code repository; a Jupyter notebook and a standalone Scala project that can be ran using Livy or `spark-submit`. 
-
-Both projects rely on the following pieces of data:
+This example uses a Scala application in a Jupyter notebook. The code in the notebook relies on the following pieces of data:
 
 * __Kafka brokers__: The broker process runs on each workernode on the Kafka cluster. The list of brokers is required by the producer component, which writes data to Kafka.
 
@@ -112,11 +114,9 @@ Both projects rely on the following pieces of data:
 
 * __Topic name__: The name of the topic that data will be written to and read from. This example expects a topic named `sparktest`.
 
-See [Kafka host information](#kafkahosts) for information on how to obtain the Kafka broker and Zookeeper host information.
+See the [Kafka host information](#kafkahosts) section below for information on how to obtain the Kafka broker and Zookeeper host information.
 
-### Jupyter notebook
-
-The Jupyter notebook contains Scala code that performs the following tasks:
+The code in the notebook performs the following tasks:
 
 * Creates a consumer that reads data from a Kafka topic named `sparktest`, counts each word in the data, and stores the word and count into a temporary table named `wordcounts`.
 
@@ -126,17 +126,12 @@ The Jupyter notebook contains Scala code that performs the following tasks:
 
 Each cell in the project contains comments or a text section that explains what the code does.
 
-### Scala project
+##<a id="kafkahosts"></a>Kafka host information
 
-This project contains two pieces that do all the work:
+The first thing you should do when creating an application that works with Kafka on HDInsight is to get the Kafka broker and Zookeeper host information for the Kafka cluster. This is used by client applications in order to communicate with Kafka.
 
-* **KafkaWordProducer**: This emits random sentences to a Kafka topic every second.
-
-* **KafkaWordCount**: This reads data from one or more Kafka topics, and maintains a count of how many times individual words occur.
-
-## Kafka host information
-
-The first thing you should do when working with Kafka on HDInsight is to get the Kafka broker and Zookeeper host information for the Kafka cluster. This is used by client applications in order to communicate with Kafka.
+> [!NOTE]
+> The Kafka broker and Zookeeper hosts are not directly accessible over the Internet, so any application that uses Kafka must either run on the Kafka cluster or within the same Azure Virtual Network as the Kafka cluster. In this case, the example runs on a Spark on HDInsight cluster in the same virtual network.
 
 From your development environment, use the following commands to retrieve the broker and Zookeeper information. Replace __PASSWORD__ with the login (admin) password you used when creating the cluster. Replace __BASENAME__ with the base name you used when creating the cluster.
 
@@ -183,7 +178,7 @@ Both commands return information similar to the following:
    
         /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic sparktest --zookeeper KAFKA_ZKHOSTS
 
-    This command connects to Zookeeper, and then creates a Kafka topic named **stormtest**. You can verify that the topic was created by using the following command to list topics. As previously, replace __KAFKA_ZKHOSTS__ with the Zookeeper host information for the Kafka cluster.
+    This command connects to Zookeeper, and then creates a Kafka topic named **sparktest**. You can verify that the topic was created by using the following command to list topics. As previously, replace __KAFKA_ZKHOSTS__ with the Zookeeper host information for the Kafka cluster.
    
         /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper KAFKA_ZKHOSTS
    
@@ -191,7 +186,9 @@ Both commands return information similar to the following:
 
 Close the SSH connection to the Kafka cluster, as it is not needed for the rest of this document.
 
-## Upload the Jupyter notebook
+## Use the Jupyter notebook
+
+In order to use the example Jupyter notebook, you must upload it to the Jupyter Notebook server on the Spark cluster. Use the following steps to upload the notebook:
 
 1. In your web browser, use the following URL to connect to the Jupyter Notebook server on the Spark cluster. Replace __BASENAME__ with the base name used when you created the cluster.
 
@@ -201,88 +198,24 @@ Close the SSH connection to the Kafka cluster, as it is not needed for the rest 
 
 2. From the upper right side of the page, use the __Upload__ button to upload the `KafkaStreaming.ipynb` file. Select the file in the file browser dialog and select __Open__. 
 
+    ![Use the upload button to select and upload a notebook](./media/hdinsight-apache-spark-with-kafka/upload-button.png)
+
+    ![Select the KafkaStreaming.ipynb file](./media/hdinsight-apache-spark-with-kafka/select-notebook.png)
+
 3. Find the __KafkaStreaming.ipynb__ entry in the list of notebooks, and select __Upload__ button beside it.
 
+    ![Use the upload button beside the KafkaStreaming.ipynb entry to upload it to the notebook server](./media/hdinsight-apache-spark-with-kafka/upload-notebook.png)
 
-
-## Download and compile the project
-1. On your development environment, download the project from [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka), open a command-line, and change directories to the location that you downloaded the project.
-   
-    Take a few moments to look over the code and understand how the project works.
-2. From the **hdinsight-spark-scala-kafka** directory, use the following command to compile the project and create a package for deployment:
-   
-        mvn clean package
-   
-    The package process creates a file named `KafkaExample-1.0-SNAPSHOT.jar` in the `target` directory.
-3. Use the following commands to copy the package to your Storm on HDInsight cluster. Replace **USERNAME** with the SSH user name for the cluster. Replace **BASENAME** with the base name you used when creating the cluster.
-   
-        cd target
-        scp KafkaExample-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:
-   
-    When prompted, enter the password you used when creating the clusters.
-
-## Start the producer
-1. Use the following to connect to the Storm cluster using SSH. Replace **USERNAME** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
-   
-        ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.net
-   
-    When prompted, enter the password you used when creating the clusters.
-   
-    For more information on using SSH with HDInsight, see the following documents:
-   
-   * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-2. From the SSH connection to the Storm cluster, use the following commands to install the jq utility on the cluster. This utility makes it much easier to parse the JSON documents for the information we need in the next step.
-   
-        wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64
-        chmod +x jq-linux64
-        mv jq-linux64 /usr/bin/jq
-3. Use the following to set the **KAFKATOPIC** and **KAFKABROKERS** environment variables. Replace **BASENAME** and **PASSWORD** with the base name and login password used when creating the clusters.
-   
-        export KAFKABROKERS=`curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/HDFS/components/DATANODE" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
-        export ZKHOSTS=`curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
-   
-    For **KAFKABROKERS** and **ZKHOSTS** cURL is used to retrieve wokernode and Zookeeper host name information from Ambari on the Kafka cluster. This information allows the Storm topology to communicate with Kafka on the remote cluster.
-   
-   > [!NOTE]
-   > `export` is used so that these variables are available to processes launched from this SSH session, such as the Storm topology.
-   > 
-   > 
-4. From the SSH connection to the Storm cluster, use the following command to start writing sentences to the `sparktest` topic created earlier:
-   
-        spark-submit --class com.microsoft.example.KafkaWordProducer KafkaExample-1.0-SNAPSHOT.jar $KAFKABROKERS sparktest 3
-   
-    This will start sending three sentences per second to the `sparktest` topic created earlier.
-5. Let the producer run for a bit, then use **Ctrl + C** to exit it. Use the following command to start the consumer:
-   
-        spark-submit --class com.microsoft.example.KafkaWordCount KafkaExample-1.0-SNAPSHOT.jar $ZKHOSTS mygroup sparktest 3
-   
-    This will start reading from the topic using 3 streams. All streams will be part of the `mygroup` consumer group.
-   
-    As sentences are read from the topic, output similar to the following is displayed:
-   
-        -------------------------------------------
-        Time: 1477595590000 ms
-        -------------------------------------------
-        (score,8)
-        (two,7)
-        (away,4)
-        (am,7)
-        (with,7)
-        (day,4)
-        (keeps,4)
-        (apple,4)
-        (over,5)
-        (four,8)
-        ...
-6. Use **Ctrl + C** to stop the consumer.
+4. Once the file has uploaded, select the __KafkaStreaming.ipynb__ entry to open the notebook. Follow the instructions in the notebook to complete the example.
 
 ## Delete the cluster
+
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Since the steps in this document create both clusters in the same Azure resource group, you can delete the resource group in the Azure portal. This removes all resources created by following this document, as well as the Azure Virtual Network and storage account used by the clusters.
 
 ## Next steps
+
 In this document, you learned how to use Spark to read and write to Kafka. Use the following links to discover other ways to work with Kafka:
 
 * [Get started with Apache Kafka on HDInsight](hdinsight-apache-kafka-get-started.md)
