@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2016
 ms.author: kriscr
----
 Layout: Landing Page
 ---
 
@@ -26,7 +25,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
 
 <ul class="panelContent cardsA">
     <li>
-        <a href="documentdb-introduction">
+        <a href="documentdb-introduction.html">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -50,7 +49,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                          <img src="images/placeholder.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -62,7 +61,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>    
     <li>
-        <a href="documentdb-get-started">
+        <a href="documentdb-get-started.html">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -81,7 +80,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="documentdb-nodejs-get-started">
+        <a href="documentdb-nodejs-get-started.html">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -100,7 +99,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="documentdb-dotnet-application/">
+        <a href="documentdb-dotnet-application.html">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -119,7 +118,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="documentdb-nodejs-application/">
+        <a href="documentdb-nodejs-application.html">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -138,7 +137,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="documentdb-java-application/">
+        <a href="documentdb-java-application.html">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -158,7 +157,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="documentdb-python-application/">
+        <a href="documentdb-python-application.html">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
