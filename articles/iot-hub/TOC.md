@@ -1,5 +1,4 @@
 # Overview
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure and IoT](iot-hub-what-is-azure-iot.md)
 ## [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Overview of device management](iot-hub-device-management-overview.md)
@@ -43,7 +42,7 @@
 ### [Scale your solution](iot-hub-scaling.md)
 ### [High availability and disaster recovery](iot-hub-ha-dr.md)
 ### [Supporting additional protocols](iot-hub-protocol-gateway.md)
-## Developer guide
+## Develop
 ### [Introduction](iot-hub-devguide.md)
 ### [Send and receive messages](iot-hub-devguide-messaging.md)
 ### [Upload files from a device](iot-hub-devguide-file-upload.md)
@@ -69,17 +68,18 @@
 ### [Usage metrics](iot-hub-metrics.md)
 ### [Operations monitoring](iot-hub-operations-monitoring.md)
 
-## Security
+## Secure
 ### [Security from the ground up](iot-hub-security-ground-up.md)
 ### [Security best practices](iot-hub-security-best-practices.md)
 ### [Security architecture](iot-hub-security-architecture.md)
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
+
+
+# Reference
 ## Gateway SDK
 ### [Simulate a device with the Gateway SDK tutorial (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
 ### [Simulate a device with the Gateway SDK tutorial (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
 ### [Send messages from a real device with the Gateway SDK tutorial](iot-hub-gateway-sdk-physical-device.md)
-
-# Reference
 ## [Client and device .NET APIs](https://msdn.microsoft.com/library/mt488521.aspx)
 ## [Resource Provider REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [Device Identities REST API](https://go.microsoft.com/fwlink/p/?linkid=833394)
@@ -97,6 +97,7 @@
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Resources
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)
 ## [Pricing information](https://azure.microsoft.com/pricing/details/iot-hub/)
