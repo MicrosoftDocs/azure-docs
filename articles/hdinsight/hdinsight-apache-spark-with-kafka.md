@@ -17,6 +17,7 @@ ms.date: 10/27/2016
 ms.author: larryfr
 ---
 # Use Apache Spark with Kafka (preview) on HDInsight
+
 Apache Spark can be used to stream data into or out of Apache Kafka. In this document, learn how to create a basic Spark application in Scala that writes to and reads from Kafka on HDInsight.
 
 > [!NOTE]
@@ -27,29 +28,32 @@ Apache Spark can be used to stream data into or out of Apache Kafka. In this doc
 > 
 
 ## Prerequisites
+
 * An Azure subscription
+
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 1.8 or higher. Or an equivalent such as [OpenJDK](http://openjdk.java.net/).
   
-  > [!NOTE]
-  > The steps in this document use an HDInsight 3.5 cluster, which uses Java 8.
-  > 
-  > 
+    > [!NOTE]
+    > The steps in this document use an HDInsight 3.5 cluster, which uses Java 8.
+
 * [Maven 3.x](http://maven.apache.org/) - A build management package for Java applications.
+
 * A text editor or Java IDE
+
 * An SSH client (you need the `ssh` and `scp` commands) - For more information on using SSH with HDInsight, see the following documents:
-  
-  * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+    * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+    * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## Create the clusters
+
 Apache Kafka on HDInsight does not provide access to the Kafka brokers over the public internet. Anything that talks to Kafka must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka and Spark clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
 
 ![Diagram of Spark and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
 > [!NOTE]
 > Though Kafka itself is limited to communication within the virtual network, other services on the cluster such as SSH and Ambari can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
-> 
-> 
 
 While you can create an Azure virtual network, Kafka, and Spark clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network, Kafka, and Spark clusters to your Azure subscription.
 
@@ -58,6 +62,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet.json**.
+
 2. From the **Parameters** blade, enter the following:
    
     ![HDInsight parameters](./media/hdinsight-apache-spark-with-kafka/parameters.png)
@@ -65,16 +70,25 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     **BASICS** section:
    
    * **Resource group**: Create a new group or select an existing one. This group will contain the HDInsight cluster.
+
    * **Location_: Select a location geographically close to you. This must match the location in the __SETTINGS** section.
      
-     **SETTINGS** section:
-   * **Base Cluster Name**: This value is used as the base name for the Spark and Kafka clusters. For example, entering **hdi** creates a Spark cluster named spark-hdi__ and a Kafka cluster named **kafka-hdi**.
-   * **Cluster Login User Name**: The admin user name for the Spark and Kafka clusters.
-   * **Cluster Login Password**: The admin user password for the Spark and Kafka clusters.
-   * **SSH User Name**: The SSH user to create for the Spark and Kafka clusters.
-   * **SSH Password**: The password for the SSH user for the Spark and Kafka clusters.
-   * **Location**: The region that the clusters are created in.
+        **SETTINGS** section:
+   
+        * **Base Cluster Name**: This value is used as the base name for the Spark and Kafka clusters. For example, entering **hdi** creates a Spark cluster named spark-hdi__ and a Kafka cluster named **kafka-hdi**.
+
+        * **Cluster Login User Name**: The admin user name for the Spark and Kafka clusters.
+
+        * **Cluster Login Password**: The admin user password for the Spark and Kafka clusters.
+
+        * **SSH User Name**: The SSH user to create for the Spark and Kafka clusters.
+
+        * **SSH Password**: The password for the SSH user for the Spark and Kafka clusters.
+
+        * **Location**: The region that the clusters are created in.
+
 3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
+
 4. Finally, check **Pin to dashboard** and then select **Create**. It takes about 20 minutes to create the clusters.
 
 Once the resources have been created, you are redirected to a blade for the resource group that contains the clusters and web dashboard.
@@ -83,13 +97,21 @@ Once the resources have been created, you are redirected to a blade for the reso
 
 > [!IMPORTANT]
 > Notice that the names of the HDInsight clusters are **storm-BASENAME** and **kafka-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
-> 
-> 
 
 ## Get the code
+
 The code for the example described in this document is available at [https://github.com/Azure-Samples/hdinsight-spark-java-kafka](https://github.com/Azure-Samples/hdinsight-spark-java-kafka).
 
 ## Understanding the code
+
+There are two projects contained in the code repository; a Jupyter notebook and a standalone Scala project that can be ran using Livy or `spark-submit`. 
+
+### Jupyter notebook
+
+In the __hdinsight-spark-scala-kafka
+
+### Scala project
+
 This project contains two pieces that do all the work:
 
 * **KafkaWordProducer**: This emits random sentences to a Kafka topic every second.
