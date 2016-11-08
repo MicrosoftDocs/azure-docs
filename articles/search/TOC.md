@@ -1,43 +1,49 @@
 # Overview
 ## [What is Azure Search?](search-what-is-azure-search.md)
-## [Choose a SKU](search-sku-tier.md)
 # Get Started
+## [Choose a SKU](search-sku-tier.md)
 ## [Create a service](search-create-service-portal.md)
 ## [Create an index](search-what-is-an-index.md)
+### [Azure portal](search-create-index-portal.md)
+### [.NET](search-create-index-dotnet.md)
+### [REST](search-create-index-rest-api.md)
 ## [Add data](search-what-is-data-import.md)
+### [.NET](search-import-data-dotnet.md)
+### [REST](search-import-data-rest-api.md)
 ## [Search an index](search-query-overview.md)
+### [Azure portal](search-explorer.md)
+### [.NET](search-query-dotnet.md)
+### [REST](search-query-rest-api.md)
 ## [Handle search results](search-pagination-page-layout.md)
-## Demo sites
-### [Job listings app (external)](http://aka.ms/azjobsdemo)
-### [Live demo apps (external)](https://searchsamples.azurewebsites.net/)
 ## Tutorials
 ### [.NET](search-howto-dotnet-sdk.md)
 ### [Portal](search-get-started-portal.md)
 ### [NodeJS](search-get-started-nodejs.md)
 ### [Java](search-get-started-java.md)
 # How to
-## Develop
-### [How to use the .NET SDK](search-howto-dotnet-sdk.md)
-### [Upgrade the SDK](search-dotnet-sdk-migration.md)
-### [Model complex data types](search-howto-complex-data-types.md)
-## Manage
-### [Manage in the portal](search-manage.md)
-### [Manage programmatically](search-get-started-management-api.md)
-### [Manage using PowerShell](search-manage-powershell.md)
-### [Monitor usage and statistics](search-monitor-usage.md)
-### [Search traffic analytics](search-traffic-analytics.md)
-### [Performance and optimization](search-performance-optimization.md)
+## Plan and design
 ### [Service limits](search-limits-quotas-capacity.md)
 ### [Service scalability](search-capacity-planning.md)
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
+## Develop
+### [Upgrade the SDK](search-dotnet-sdk-migration.md)
+### [Model complex data types](search-howto-complex-data-types.md)
+## Manage
+### Administer Azure Search
+#### [Azure portal](search-manage.md)
+#### [REST](search-get-started-management-api.md)
+#### [PowerShell](search-manage-powershell.md)
+### [Monitor usage and statistics](search-monitor-usage.md)
+### [Search traffic analytics](search-traffic-analytics.md)
+### [Performance and optimization](search-performance-optimization.md)
 ## Load data
-### [Indexers overview](search-indexer-overview.md)
-### [Indexer for Blob Storage](search-howto-indexing-azure-blob-storage.md)
-### [Indexer for Azure Tables](search-howto-indexing-azure-tables.md)
-### [Indexer for SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+### [Index data sources](search-indexer-overview.md)
+#### [Blob Storage](search-howto-indexing-azure-blob-storage.md)
+#### [Azure Tables](search-howto-indexing-azure-tables.md)
+#### [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+#### [CSV blobs](search-howto-index-csv-blobs.md)
 ### [SQL Server Azure VM Connection configuration](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Field mappings in indexers](search-indexer-field-mappings.md)
-### [Index CSV blobs with Blob indexer](search-howto-index-csv-blobs.md)
 ##  Design search experience
 ### [Lucene syntax query examples](search-query-lucene-examples.md)
 ### [Scoring profiles](search-get-started-scoring-profiles.md)
@@ -56,6 +62,9 @@
 ## [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323)
 ## [Simple query syntax](https://msdn.microsoft.com/library/azure/dn798920)
 # Resources
+## Demo sites
+### [Job listings app](http://aka.ms/azjobsdemo)
+### [Live demo apps](https://searchsamples.azurewebsites.net/)
 ## Courseware & tutorials
 ### [Virtual academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
 ### [Videos and tutorials](search-video-demo-tutorial-list.md)
