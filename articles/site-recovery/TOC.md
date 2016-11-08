@@ -7,7 +7,7 @@
 ## [Watch an introduction](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
 # Get Started
-### [Prepare for deployment](site-recovery-best-practices.md)
+## [Prepare for deployment](site-recovery-best-practices.md)
 
 # How To
 ## Plan
