@@ -28,16 +28,16 @@ Organizations can enable diagnostic logging for their Azure Data Lake Analytics 
 
 ## Prerequisites
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Enable your Azure subscription** for Data Lake Analytics Public Preview. See [instructions](data-lake-analytics-get-started-portal.md#signup).
+* **Enable your Azure subscription** for Data Lake Analytics Public Preview. See [instructions](data-lake-analytics-get-started-portal.md).
 * **Azure Data Lake Analytics account**. Follow the instructions at [Get started with Azure Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md).
 
 ## Enable logging
 1. Sign on to the new [Azure portal](https://portal.azure.com).
 2. Open your Data Lake Analytics account, and from your Data Lake Analytics account blade, click **Settings**, and then click **Diagnostic Settings**.
 3. In the **Diagnostic** blade, make the following changes to configure diagnostic logging.
-   
+
     ![Enable diagnostic logging](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
-   
+
    * Set **Status** to **On** to enable diagnostic logging.
    * You can choose to store/process the data in two different ways.
      * Select **Export to Event Hub** to stream log data to an Azure Event Hub. Use this option if you have a downstream processing pipeline to analyze incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
@@ -56,23 +56,23 @@ There are two ways to view the log data for your Data Lake Analytics account.
 
 ### Using the Data Lake Analytics Settings view
 1. From your Data Lake Analytics account **Settings** blade, click **Diagnostic Logs**.
-   
-    ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
+
+    ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs")
 2. In the **Diagnostic Logs** blade, you should see the logs categorized by **Audit Logs** and **Request Logs**.
-   
+
    * Request logs capture every API request made on the Data Lake Analytics account.
    * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Analytics account. For example, a single upload API call in request logs might result in multiple "Append" operations in the audit logs.
 3. Click the **Download** link for a log entry to download the logs.
 
 ### From the Azure Storage account that contains log data
 1. Open the Azure Storage account blade associated with Data Lake Analytics for logging, and then click Blobs. The **Blob service** blade lists two containers.
-   
+
     ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
-   
+
    * The container **insights-logs-audit** contains the audit logs.
    * The container **insights-logs-requests** contains the request logs.
 2. Within these containers, the logs are stored under the following structure.
-   
+
         resourceId=/
           SUBSCRIPTIONS/
             <<SUBSCRIPTION_ID>>/
@@ -88,18 +88,18 @@ There are two ways to view the log data for your Data Lake Analytics account.
                                 h=##/
                                   m=00/
                                     PT1H.json
-   
+
    > [!NOTE]
    > The `##` entries in the path contain the year, month, day, and hour in which the log was created. Data Lake Analytics creates one file every hour, so `m=` always contains a value of `00`.
-   > 
-   > 
-   
+   >
+   >
+
     As an example, the complete path to an audit log could be:
-   
+
         https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=04/m=00/PT1H.json
-   
+
     Similarly, the complete path to a request log could be:
-   
+
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
 ## Log structure
@@ -109,7 +109,7 @@ The audit and request logs are in a JSON format. In this section, we look at the
 Here's a sample entry in the JSON-formatted request log. Each blob has one root object called **records** that contains an array of log objects.
 
     {
-    "records": 
+    "records":
       [        
         . . . .
         ,
@@ -163,7 +163,7 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
 Here's a sample entry in the JSON-formatted audit log. Each blob has one root object called **records** that contains an array of log objects
 
     {
-    "records": 
+    "records":
       [        
         . . . .
         ,
@@ -175,7 +175,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
              "identity": "user@somewhere.com",
              "properties": {
                  "JobId":"D74B928F-5194-4E6C-971F-C27026C290E6",
-                 "JobName": "New Job", 
+                 "JobName": "New Job",
                  "JobRuntimeName": "default",
                  "SubmitTime": "7/28/2016 7:14:57 PM"
                  }
@@ -199,8 +199,8 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 
 > [!NOTE]
 > **resultType** and **resultSignature** provide information on the result of an operation, and only contain a value if an operation has completed. For example, they contain a value when **operationName** contains a value of **JobStarted** or **JobEnded**.
-> 
-> 
+>
+>
 
 #### Audit log properties schema
 | Name | Type | Description |
@@ -215,12 +215,11 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime** and **Parallelism** provide information on an operation, and only contain a value if an operation has started or completed. For example, **SubmitTime** contains a value after **operationName** indicates **JobSubmitted**.
-> 
-> 
+>
+>
 
 ## Process the log data
-Azure Data Lake Analytics provides a sample on how to process and analyze the log data. You can find the sample at [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
+Azure Data Lake Analytics provides a sample on how to process and analyze the log data. You can find the sample at [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 ## Next steps
 * [Overview of Azure Data Lake Analytics](data-lake-analytics-overview.md)
-

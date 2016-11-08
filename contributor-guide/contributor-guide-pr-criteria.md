@@ -6,7 +6,7 @@ The updates in the pull request must comply with the following criteria to be me
 
 | Category | Quality review item |
 | --- | --- |
-| Prerequisites |The "ready-to-merge" and the "validation succeeded" labels are assigned to the PR. |
+| Prerequisites |The "ready-to-merge" label is assigned to the PR (use the #sign-off comment) and the validation status is "passed". |
 | Prerequisites |The pull request cannot be blocked by a merge conflict. |
 | Prerequisites |The pull request contains updates only to technical articles and images. PRs that mix updates to TOC files, index files, and articles will be closed without further review. |
 | Repo integrity |Pull request contains no obvious content regressions. |

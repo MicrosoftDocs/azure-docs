@@ -1,5 +1,5 @@
 # Overview
-## [Introduction](../azure-government-overview.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Introduction](../azure-government-overview.md?toc=%@fazure%2fazure-government%2ftoc.json)
 ## [Getting Started with Azure Government](documentation-government-gettingstarted.md)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Justice and Public Safety](documentation-government-overview-jps.md)
@@ -11,7 +11,7 @@
 # Get Started
 ## [Trial](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Pricing](https://azure.microsoft.com/pricing/)
-## [Developer Guide](../azure-government-developer-guide.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Developer Guide](../azure-government-developer-guide.md?toc=%@fazure%2fazure-government%2ftoc.json)
 
 # How To
 
@@ -21,7 +21,7 @@
 ### [Security](documentation-government-plan-security.md)
 ### [Compliance](documentation-government-plan-compliance.md)
 ## Manage
-### [Images](../azure-government-image-gallery.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+### [Images](../azure-government-image-gallery.md?toc=%@fazure%2fazure-government%2ftoc.json)
 ### [Marketplace](documentation-government-manage-marketplace.md)
 ### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
 ### [Using Subscription in Azure Government](documentation-government-manage-subscriptions.md)
