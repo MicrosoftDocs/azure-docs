@@ -1,5 +1,5 @@
 ---
-title: Push data to Search index by using Data Factory | Microsoft Azure | Microsoft Docs
+title: Push data to Search index by using Data Factory | Microsoft Docs
 description: 'Learn about how to push data to Azure Search Index by using Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
@@ -284,3 +284,8 @@ For Datetime and Datetimeoffset, you can also optionally specify “culture” &
 
 ## Performance and tuning  
 See the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) and various ways to optimize it.
+
+## Next steps
+See the following articles: 
+
+* [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions for creating a pipeline with a Copy Activity. 
