@@ -1,5 +1,4 @@
-###<a name="server-auth"></a>How to: Authenticate with a Provider (Server Flow)
-
+### <a name="server-auth"></a>How to: Authenticate with a Provider (Server Flow)
 To have Mobile Apps manage the authentication process in your app, you must register your app with your identity
 provider. Then in your Azure App Service, you need to configure the application ID and secret provided by your provider.
 For more information, see the tutorial [Add authentication to your app](../articles/app-service-mobile/app-service-mobile-ios-get-started-users.md).
@@ -40,6 +39,7 @@ client.login(
 }, function (err) {
      alert("Error: " + err);
 });
+
 ```
 This example assumes that the token provided by the respective provider SDK is stored in the token variable.
 
@@ -59,6 +59,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
             alert("Error: " + err);
       });
 });
+
 ```
 
 This example gets a token from Live Connect, which is supplied to your App Service by calling the login function.
@@ -83,3 +84,4 @@ fetch(url, { headers: headers })
 
 Fetch is available as an npm package or for browser download from CDNJS. You could also use
 jQuery or another AJAX API to fetch the information.  Data will be received as a JSON object.
+

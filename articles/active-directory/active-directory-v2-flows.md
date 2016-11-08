@@ -1,32 +1,36 @@
-<properties
-	pageTitle="App types for the Azure Active Directory v2.0 endpoint | Microsoft Azure"
-	description="The types of apps and scenarios supported by the Azure Active Directory v2.0 endpoint."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: App types for the Azure Active Directory v2.0 endpoint | Microsoft Docs
+description: The types of apps and scenarios supported by the Azure Active Directory v2.0 endpoint.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/30/2016"
-	ms.author="dastrock"/>
+ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/30/2016
+ms.author: dastrock
 
+---
 # App types for the Azure Active Directory v2.0 endpoint
 The Azure Active Directory (Azure AD) v2.0 endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Azure AD v2.0, regardless of your preferred language or platform. The information in this article is designed to help you understand high-level scenarios before you [start working with the code](active-directory-appmodel-v2-overview.md#getting-started).
 
-> [AZURE.NOTE] The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> [!NOTE]
+> The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> 
+> 
 
 ## The basics
 You must register each app that uses the v2.0 endpoint in the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com). The app registration process collects and assigns these values for your app:
 
-- An **Application ID** that uniquely identifies your app
-- A **redirect URI** that you can use to direct responses back to your app
-- A few other scenario-specific values
+* An **Application ID** that uniquely identifies your app
+* A **redirect URI** that you can use to direct responses back to your app
+* A few other scenario-specific values
 
 For details, learn how to [register an app](active-directory-v2-app-registration.md).
 
@@ -47,10 +51,10 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
 // Partial content of a decoded ID token
 {
-	"name": "John Smith",
-	"email": "john.smith@gmail.com",
-	"oid": "d9674823-dffc-4e3f-a6eb-62fe4bd48a58"
-	...
+    "name": "John Smith",
+    "email": "john.smith@gmail.com",
+    "oid": "d9674823-dffc-4e3f-a6eb-62fe4bd48a58"
+    ...
 }
 ```
 
@@ -89,7 +93,6 @@ To learn more about authorization codes, refresh tokens, and the detailed steps 
 
 To learn how to secure a Web API by using OAuth2 access tokens, check out the Web API code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
-
 ## Mobile and native apps
 Device-installed apps, such as mobile and desktop apps, often need to access back-end services or Web APIs that store data and perform functions on behalf of a user. These apps can add sign-in and authorization to back-end services by using the [OAuth 2.0 authorization code flow](active-directory-v2-protocols-oauth-code.md).
 
@@ -122,3 +125,4 @@ Currently, the types of apps in this section are not supported by the v2.0 endpo
 Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 endpoint. This scenario is common in native clients that have a Web API back end, which in turn calls an instance of Microsoft Online Services like Office 365, or the Graph API.
 
 This chained Web API scenario can be supported by using the OAuth 2.0 JSON Web Token (JWT) bearer credentials grant, also known as the [on-behalf-of flow](active-directory-v2-protocols.md). Currently, the on-behalf-of flow is not implemented in the v2.0 endpoint. To see how this flow works in the generally available Azure AD service, check out the [on-behalf-of code sample on GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
+

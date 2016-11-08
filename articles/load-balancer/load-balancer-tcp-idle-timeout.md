@@ -1,22 +1,23 @@
-<properties
-   pageTitle="Configure Load Balancer TCP idle timeout | Microsoft Azure"
-   description="Configure Load Balancer TCP idle timeout"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="" />
-<tags
-   ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/24/2016"
-   ms.author="sewhee" />
+---
+title: Configure Load Balancer TCP idle timeout | Microsoft Docs
+description: Configure Load Balancer TCP idle timeout
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: ''
 
+ms.assetid: 4625c6a8-5725-47ce-81db-4fa3bd055891
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/24/2016
+ms.author: sewhee
+
+---
 # Configure TCP idle timeout settings for Azure Load Balancer
-
 In its default configuration, Azure Load Balancer has an idle timeout setting of 4 minutes. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your cloud service.
 
 When the connection is closed, your client application may receive the following error message: "The underlying connection was closed: A connection that was expected to be kept alive was closed by the server."
@@ -32,13 +33,11 @@ TCP keep-alive works well for scenarios where battery life is not a constraint. 
 The following sections describe how to change idle timeout settings in virtual machines and cloud services.
 
 ## Configure the TCP timeout for your instance-level public IP to 15 minutes
-
     Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
 
 `IdleTimeoutInMinutes` is optional. If it is not set, the default timeout is 4 minutes. The acceptable timeout range is 4 to 30 minutes.
 
 ## Set the idle timeout when creating an Azure endpoint on a virtual machine
-
 To change the timeout setting for an endpoint, use the following:
 
     Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
@@ -64,13 +63,11 @@ To retrieve your idle timeout configuration, use the following command:
     IdleTimeoutInMinutes : 15
 
 ## Set the TCP timeout on a load-balanced endpoint set
-
 If endpoints are part of a load-balanced endpoint set, the TCP timeout must be set on the load-balanced endpoint set. For example:
 
     Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
 
 ## Change timeout settings for cloud services
-
 You can use the Azure SDK to update your cloud service. You make endpoint settings for cloud services in the .csdef file. Updating the TCP timeout for deployment of a cloud service requires a deployment upgrade. An exception is if the TCP timeout is specified only for a public IP. Public IP settings are in the .cscfg file, and you can update them through deployment update and upgrade.
 
 The .csdef changes for endpoint settings are:
@@ -95,15 +92,12 @@ The .cscfg changes for the timeout setting on public IPs are:
     </NetworkConfiguration>
 
 ## REST API example
-
 You can configure the TCP idle timeout by using the service management API. Make sure that the `x-ms-version` header is set to version `2014-06-01` or later. Update the configuration of the specified load-balanced input endpoints on all virtual machines in a deployment.
 
 ### Request
-
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
 
 ### Response
-
     <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
       <InputEndpoint>
         <LoadBalancedEndpointSetName>endpoint-set-name</LoadBalancedEndpointSetName>
@@ -134,9 +128,9 @@ You can configure the TCP idle timeout by using the service management API. Make
     </LoadBalancedEndpointList>
 
 ## Next steps
-
 [Internal load balancer overview](load-balancer-internal-overview.md)
 
 [Get started configuring an Internet-facing load balancer](load-balancer-get-started-internet-arm-ps.md)
 
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+

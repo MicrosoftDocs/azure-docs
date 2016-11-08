@@ -1,30 +1,28 @@
-<properties
- pageTitle="Predictive maintenance walkthrough | Microsoft Azure"
- description="A walkthrough of the Azure IoT predictive maintenance preconfigured solution."
- services=""
- suite="iot-suite"
- documentationCenter=""
- authors="aguilaaj"
- manager="timlt"
- editor=""/>
+﻿---
+title: Predictive maintenance walkthrough | Microsoft Docs
+description: A walkthrough of the Azure IoT predictive maintenance preconfigured solution.
+services: ''
+suite: iot-suite
+documentationcenter: ''
+author: aguilaaj
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-suite"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="10/31/2016"
- ms.author="araguila"/>
+ms.assetid: 3c48a716-b805-4c99-8177-414cc4bec3de
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/31/2016
+ms.author: araguila
 
+---
 # Predictive maintenance preconfigured solution walkthrough
-
 ## Introduction
-
 The IoT Suite predictive maintenance preconfigured solution is an end-to-end solution for a business scenario that predicts the point when failure is likely to occur. You can use this preconfigured solution proactively for activities such as optimizing maintenance. The solution combines key Azure IoT Suite services, including an [Azure Machine Learning][lnk_machine_learning] workspace. This workspace contains experiments, based on a public sample data set, to predict the Remaining Useful Life (RUL) of an aircraft engine. The solution fully implements the IoT business scenario as a starting point for you to plan and implement a solution that meets your own specific business requirements.
 
 ## Logical architecture
-
 The following diagram outlines the logical components of the preconfigured solution:
 
 ![][img-architecture]
@@ -38,7 +36,6 @@ The green item is a simulated device that represents an aircraft engine. You can
 The gray items represent components that implement *device administration* capabilities. The current release of the predictive maintenance preconfigured solution does not provision these resources. To learn more about device administration, refer to the [remote monitoring pre-configured solution][lnk-remote-monitoring].
 
 ## Simulated devices
-
 In the preconfigured solution, a simulated device represents an aircraft engine. The solution is provisioned with two engines that map to a single aircraft. Each engine emits four types of telemetry: Sensor 9, Sensor 11, Sensor 14, and Sensor 15 provide the data necessary for the Machine Learning model to calculate the Remaining Useful Life (RUL) for the engine. Each simulated device sends the following telemetry messages to IoT Hub:
 
 *Cycle count*. A cycle represents a completed flight of variable length between 2-10 hours in which telemetry data is captured every half hour during the flight.
@@ -48,37 +45,31 @@ In the preconfigured solution, a simulated device represents an aircraft engine.
 The simulated devices can handle the following commands sent from an IoT hub:
 
 | Command | Description |
-|---------|-------------|
-| StartTelemetry | Controls the state of the simulation.<br/>Starts the device sending telemetry     |
-| StopTelemetry  | Controls the state of the simulation.<br/>Stops the device sending telemetry |
+| --- | --- |
+| StartTelemetry |Controls the state of the simulation.<br/>Starts the device sending telemetry |
+| StopTelemetry |Controls the state of the simulation.<br/>Stops the device sending telemetry |
 
 IoT Hub provides device command acknowledgment.
 
 ## Azure Stream Analytics job
-
-**Job: Telemetry** operates on the incoming device telemetry stream using two statements. The first selects all telemetry from the devices and sends this data to blob storage from where it is visualized in the web app. The second statement computes average sensor values over a two-minute sliding window and sends this data through the Event hub to an **event processor**.
+**Job: Telemetry** operates on the incoming device telemetry stream using two statements. The first selects all telemetry from the devices and sends this data to blob storage from where it is visualized in the web app. The second statement computes average sensor values over a two-minute sliding window and sends this data through the Event hub to an **event processor**.
 
 ## Event processor
-
-The **event processor** takes the average sensor values for a completed cycle. It the passes those values to an API that exposes the Machine Learning trained model to calculate the RUL for an engine.
+The **event processor** takes the average sensor values for a completed cycle. It the passes those values to an API that exposes the Machine Learning trained model to calculate the RUL for an engine.
 
 ## Azure Machine Learning
-
 For more information on how the model was created from the original data set, see the [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics].
 
 ## Let's start walking
-
 This section walks you through the components of the solution, describes the intended use case, and provides examples.
 
 ### Predictive Maintenance Dashboard
+This page in the web application uses PowerBI JavaScript controls (see the [PowerBI-visuals repository][lnk-powerbi]) to visualize:
 
-This page in the web application uses PowerBI JavaScript controls (see the [PowerBI-visuals repository][lnk-powerbi]) to visualize:
-
-- The output data from the Stream Analytics jobs in blob storage.
-- The RUL and cycle count per aircraft engine.
+* The output data from the Stream Analytics jobs in blob storage.
+* The RUL and cycle count per aircraft engine.
 
 ### Observing the behavior of the cloud solution
-
 In the Azure portal, navigate to the resource group with the solution name you chose to view your provisioned resources.
 
 ![][img-resource-group]
@@ -106,16 +97,14 @@ The simulation runs through the complete dataset for 148 cycles and settles on f
 You can stop the simulation at any point, but clicking **Start Simulation** replays the simulation from the start of the dataset.
 
 ## Next steps
-
 Now you've run the predictive maintenance preconfigured solution you may want to modify it, see [Guidance on customizing preconfigured solutions][lnk-customize].
 
 The [IoT Suite - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) TechNet blog post provides additional detail about the predictive maintenance preconfigured solution.
 
 You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 
-- [Frequently asked questions for IoT Suite][lnk-faq]
-- [IoT security from the ground up][lnk-security-groundup]
-
+* [Frequently asked questions for IoT Suite][lnk-faq]
+* [IoT security from the ground up][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png

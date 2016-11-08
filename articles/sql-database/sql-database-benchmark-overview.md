@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Azure SQL Database benchmark overview"
-	description="This topic describes the Azure SQL Database Benchmark used in measuring the performance of Azure SQL Database."
-	services="sql-database"
-	documentationCenter="na"
-	authors="CarlRabeler"
-	manager="jhubbard"
-	editor="monicar" />
+﻿---
+title: Azure SQL Database benchmark overview
+description: This topic describes the Azure SQL Database Benchmark used in measuring the performance of Azure SQL Database.
+services: sql-database
+documentationcenter: na
+author: CarlRabeler
+manager: jhubbard
+editor: monicar
 
+ms.assetid: e26f8a66-2c12-49d7-8297-45b4d48a5c01
+ms.service: sql-database
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 06/21/2016
+ms.author: carlrab
 
-<tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="06/21/2016"
-	ms.author="carlrab" />
-
+---
 # Azure SQL Database benchmark overview
-
 ## Overview
 Microsoft Azure SQL Database offers three [service tiers](sql-database-service-tiers.md) with multiple performance levels. Each performance level provides an increasing set of resources, or ‘power’, designed to deliver increasingly higher throughput.
 
@@ -49,40 +48,40 @@ The database is sized based on a “scale factor.” The scale factor (abbreviat
 The workload consists of nine transaction types, as shown in the table below. Each transaction is designed to highlight a particular set of system characteristics in the database engine and system hardware, with high contrast from the other transactions. This approach makes it easier to assess the impact of different components to overall performance. For example, the transaction “Read Heavy” produces a significant number of read operations from disk.
 
 | Transaction Type | Description |
-|---|---|
-| Read Lite | SELECT; in-memory; read-only |
-| Read Medium | SELECT; mostly in-memory; read-only |
-| Read Heavy | SELECT; mostly not in-memory; read-only |
-| Update Lite | UPDATE; in-memory; read-write |
-| Update Heavy | UPDATE; mostly not in-memory; read-write |
-| Insert Lite | INSERT; in-memory; read-write |
-| Insert Heavy | INSERT; mostly not in-memory; read-write |
-| Delete | DELETE; mix of in-memory and not in-memory; read-write |
-| CPU Heavy | SELECT; in-memory; relatively heavy CPU load; read-only |
+| --- | --- |
+| Read Lite |SELECT; in-memory; read-only |
+| Read Medium |SELECT; mostly in-memory; read-only |
+| Read Heavy |SELECT; mostly not in-memory; read-only |
+| Update Lite |UPDATE; in-memory; read-write |
+| Update Heavy |UPDATE; mostly not in-memory; read-write |
+| Insert Lite |INSERT; in-memory; read-write |
+| Insert Heavy |INSERT; mostly not in-memory; read-write |
+| Delete |DELETE; mix of in-memory and not in-memory; read-write |
+| CPU Heavy |SELECT; in-memory; relatively heavy CPU load; read-only |
 
 ## Workload mix
 Transactions are selected at random from a weighted distribution with the following overall mix. The overall mix has a read/write ratio of approximately 2:1.
 
 | Transaction Type | % of Mix |
-|---|---|
-| Read Lite | 35 |
-| Read Medium | 20 |
-| Read Heavy | 5 |
-| Update Lite | 20 |
-| Update Heavy | 3 |
-| Insert Lite | 3 |
-| Insert Heavy | 2 |
-| Delete | 2 |
-| CPU Heavy | 10 |
+| --- | --- |
+| Read Lite |35 |
+| Read Medium |20 |
+| Read Heavy |5 |
+| Update Lite |20 |
+| Update Heavy |3 |
+| Insert Lite |3 |
+| Insert Heavy |2 |
+| Delete |2 |
+| CPU Heavy |10 |
 
 ## Users and pacing
 The benchmark workload is driven from a tool that submits transactions across a set of connections to simulate the behavior of a number of concurrent users. Although all of the connections and transactions are machine generated, for simplicity we refer to these connections as “users.” Although each user operates independently of all other users, all users perform the same cycle of steps shown below:
 
 1. Establish a database connection.
 2. Repeat until signaled to exit:
-	- Select a transaction at random (from a weighted distribution).
-	- Perform the selected transaction and measure the response time.
-	- Wait for a pacing delay.
+   * Select a transaction at random (from a weighted distribution).
+   * Perform the selected transaction and measure the response time.
+   * Wait for a pacing delay.
 3. Close the database connection.
 4. Exit.
 
@@ -96,14 +95,14 @@ For example, a scale-factor of 500 (SF=500) database will have 100 users and can
 The table below shows the number of users actually sustained for each service tier and performance level.
 
 | Service Tier (Performance Level) | Users | Database Size |
-|---|---|---|
-| Basic | 5 | 720 MB |
-| Standard (S0) | 10 | 1 GB |
-| Standard (S1) | 20 | 2.1 GB |
-| Standard (S2) | 50 | 7.1 GB |
-| Premium (P1) | 100 | 14 GB |
-| Premium (P2) | 200 | 28 GB |
-| Premium (P6/P3) | 800 | 114 GB |
+| --- | --- | --- |
+| Basic |5 |720 MB |
+| Standard (S0) |10 |1 GB |
+| Standard (S1) |20 |2.1 GB |
+| Standard (S2) |50 |7.1 GB |
+| Premium (P1) |100 |14 GB |
+| Premium (P2) |200 |28 GB |
+| Premium (P6/P3) |800 |114 GB |
 
 ## Measurement duration
 A valid benchmark run requires a steady-state measurement duration of at least one hour.
@@ -111,14 +110,14 @@ A valid benchmark run requires a steady-state measurement duration of at least o
 ## Metrics
 The key metrics in the benchmark are throughput and response time.
 
-- Throughput is the essential performance measure in the benchmark. Throughput is reported in transactions per unit-of-time, counting all transaction types.
-- Response time is a measure of performance predictability. The response time constraint varies with class of service, with higher classes of service having a more stringent response time requirement, as shown below.
+* Throughput is the essential performance measure in the benchmark. Throughput is reported in transactions per unit-of-time, counting all transaction types.
+* Response time is a measure of performance predictability. The response time constraint varies with class of service, with higher classes of service having a more stringent response time requirement, as shown below.
 
-| Class of Service  | Throughput Measure | Response Time Requirement |
-|---|---|---|
-| Premium | Transactions per second | 95th percentile at 0.5 seconds |
-| Standard | Transactions per minute | 90th percentile at 1.0 seconds |
-| Basic | Transactions per hour | 80th percentile at 2.0 seconds |
+| Class of Service | Throughput Measure | Response Time Requirement |
+| --- | --- | --- |
+| Premium |Transactions per second |95th percentile at 0.5 seconds |
+| Standard |Transactions per minute |90th percentile at 1.0 seconds |
+| Basic |Transactions per hour |80th percentile at 2.0 seconds |
 
 ## Conclusion
 The Azure SQL Database Benchmark measures the relative performance of Azure SQL Database running across the range of available service tiers and performance levels. The benchmark exercises a mix of basic database operations which occur most frequently in online transaction processing (OLTP) workloads. By measuring actual performance, the benchmark provides a more meaningful assessment of the impact on throughput of changing the performance level than is possible by just listing the resources provided by each level such as CPU speed, memory size, and IOPS. In the future, we will continue to evolve the benchmark to broaden its scope and expand the data provided.
@@ -129,3 +128,4 @@ The Azure SQL Database Benchmark measures the relative performance of Azure SQL 
 [Service tiers and performance levels](sql-database-service-tiers.md)
 
 [Performance guidance for single databases](sql-database-performance-guidance.md)
+

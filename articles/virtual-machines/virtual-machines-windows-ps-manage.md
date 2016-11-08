@@ -1,39 +1,36 @@
-<properties
-	pageTitle="Manage VMs using Resource Manager and PowerShell | Microsoft Azure"
-	description="Manage virtual machines using Azure Resource Manager and PowerShell."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+﻿---
+title: Manage VMs using Resource Manager and PowerShell | Microsoft Docs
+description: Manage virtual machines using Azure Resource Manager and PowerShell.
+services: virtual-machines-windows
+documentationcenter: ''
+author: davidmu1
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="na"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="davidmu"/>
+ms.assetid: 48930854-7888-4e4c-9efb-7d1971d4cc14
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: davidmu
 
+---
 # Manage Azure Virtual Machines using Resource Manager and PowerShell
-
 ## Install Azure PowerShell
- 
 See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 ## Set variables
-
 All the commands in the article require the name of the resource group where the virtual machine is located and the name of the virtual machine to manage. Replace the value of **$rgName** with the name of the resource group that contains the virtual machine. Replace the value of **$vmName** with the name of the VM. Create the variables.
 
     $rgName = "resource-group-name"
     $vmName = "VM-name"
 
 ## Display information about a virtual machine
-
 Get the virtual machine information.
-  
+
     Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 It returns something like this example:
@@ -105,7 +102,6 @@ It returns something like this example:
                                 rg1/providers/Microsoft.Network/networkInterfaces/nc1}
 
 ## Stop a virtual machine
-
 Stop the running virtual machine.
 
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
@@ -115,7 +111,7 @@ You're asked for confirmation:
     Virtual machine stopping operation
     This cmdlet will stop the specified virtual machine. Do you want to continue?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-        
+
 Enter **Y** to stop the virtual machine.
 
 After a few minutes, it returns something like this example:
@@ -125,7 +121,6 @@ After a few minutes, it returns something like this example:
     EndTime    : 9/13/2016 12:14:40 PM
 
 ## Start a virtual machine
-
 Start the virtual machine if it's stopped.
 
     Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
@@ -139,7 +134,6 @@ After a few minutes, it returns something like this example:
 If you want to restart a virtual machine that is already running, use **Restart-AzureRmVM** described next.
 
 ## Restart a virtual machine
-
 Restart the running virtual machine.
 
     Restart-AzureRmVM -ResourceGroupName $rgName -Name $vmName
@@ -151,12 +145,14 @@ It returns something like this example:
     EndTime    : 9/13/2016 12:55:54 PM
 
 ## Delete a virtual machine
-
 Delete the virtual machine.  
 
     Remove-AzureRmVM -ResourceGroupName $rgName –Name $vmName
 
-> [AZURE.NOTE] You can use the **-Force** parameter to skip the confirmation prompt.
+> [!NOTE]
+> You can use the **-Force** parameter to skip the confirmation prompt.
+> 
+> 
 
 If you didn't use the -Force parameter, you're asked for confirmation:
 
@@ -171,24 +167,22 @@ It returns something like this example:
                               True          OK  OK
 
 ## Update a virtual machine
-
 This example shows how to update the size of the virtual machine.
-        
+
     $vmSize = "Standard_A1"
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     $vm.HardwareProfile.vmSize = $vmSize
     Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
-    
+
 It returns something like this example:
 
     RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
     ---------  -------------------  ----------  ------------
                               True          OK  OK
-                              
+
 See [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md) for a list of available sizes for a virtual machine.
 
 ## Add a data disk to a virtual machine
-
 This example shows how to add a data disk to an existing virtual machine.
 
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
@@ -221,5 +215,5 @@ The script file can contain something like this code to initialize the disks:
     }
 
 ## Next Steps
-
 If there were issues with a deployment, you might look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md)
+

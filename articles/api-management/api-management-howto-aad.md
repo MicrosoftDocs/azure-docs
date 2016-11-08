@@ -1,36 +1,38 @@
-<properties 
-	pageTitle="How to authorize developer accounts using Azure Active Directory in Azure API Management" 
-	description="Learn how to authorize users using Azure Active Directory in API Management." 
-	services="api-management" 
-	documentationCenter="API Management" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: How to authorize developer accounts using Azure Active Directory in Azure API Management
+description: Learn how to authorize users using Azure Active Directory in API Management.
+services: api-management
+documentationcenter: API Management
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/25/2016" 
-	ms.author="sdanie"/>
+ms.assetid: 33a69a83-94f2-4e4e-9cef-f2a5af3c9732
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/25/2016
+ms.author: sdanie
 
+---
 # How to authorize developer accounts using Azure Active Directory in Azure API Management
-
-
 ## Overview
 This guide shows you how to enable access to the developer portal for all users in one or more Azure Active Directories. This guide also shows you how to manage groups of Azure Active Directory users by adding external groups that contain the users of an Azure Active Directory.
 
->To complete the steps in this guide you must first have an Azure Active Directory in which to create an application.
+> To complete the steps in this guide you must first have an Azure Active Directory in which to create an application.
+> 
+> 
 
 ## How to authorize developer accounts using Azure Active Directory
-
 To get started, click **Publisher portal** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![Publisher portal][api-management-management-console]
 
->If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
+> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
+> 
+> 
 
 Click **Security** from the **API Management** menu on the left and click **External Identities**.
 
@@ -74,7 +76,9 @@ Select the **Delegate Permissions** drop-down, and check **Enable sign-on and re
 
 ![Delegated Permissions][api-management-aad-delegated-permissions]
 
->For more information about application and delegated permissions, see [Accessing the Graph API][].
+> For more information about application and delegated permissions, see [Accessing the Graph API][Accessing the Graph API].
+> 
+> 
 
 Copy the **Client Id** to the clipboard.
 
@@ -90,7 +94,9 @@ Switch back to the Azure Active Directory configuration, and click the **Select 
 
 Click **Save** to save the configuration and display the key. Copy the key to the clipboard.
 
->Make a note of this key. Once you close the Azure Active Directory configuration window, the key cannot be displayed again.
+> Make a note of this key. Once you close the Azure Active Directory configuration window, the key cannot be displayed again.
+> 
+> 
 
 ![Key][api-management-aad-key-after-save]
 
@@ -106,19 +112,22 @@ Multiple domains can be specified in the **Allowed Tenants** section. Before any
 
 ![Permissions][api-management-permissions-form]
 
->If a non-global administrator tries to log in before permissions are granted by a global administrator, the login attempt fails and an error screen is displayed.
+> If a non-global administrator tries to log in before permissions are granted by a global administrator, the login attempt fails and an error screen is displayed.
+> 
+> 
 
 Once the desired configuration is specified, click **Save**.
 
 ![Save][api-management-client-allowed-tenants-save]
 
-Once the changes are saved, the users in the specified Azure Active Directory can log into the Developer portal by following the steps in [Log in to the Developer portal using an Azure Active Directory account][].
+Once the changes are saved, the users in the specified Azure Active Directory can log into the Developer portal by following the steps in [Log in to the Developer portal using an Azure Active Directory account][Log in to the Developer portal using an Azure Active Directory account].
 
 ## How to add an external Azure Active Directory Group
-
 After enabling access for users in an Azure Active Directory, you can add Azure Active Directory groups into API Management to more easily manage the association of the developers in the group with the desired products.
 
 > In order to configure an external Azure Active Directory group, the Azure Active Directory must first be configured in the Identities tab by following the procedure in the previous section. 
+> 
+> 
 
 External Azure Active Directory groups are added from the **Visibility** tab of the product for which you wish to grant access to the group. Click **Products**, and then click the name of the desired product.
 
@@ -155,7 +164,6 @@ From here you can edit the **Name** and the **Description** of the group.
 Users from the configured Azure Active Directory can log into the Developer portal and view and subscribe to any groups for which they have visibility by following the instructions in the following section.
 
 ## How to log in to the Developer portal using an Azure Active Directory account
-
 To log into the Developer portal using an Azure Active Directory account configured in the previous sections, open a new browser window using the **Sign-on URL** from the Active Directory application configuration, and click **Azure Active Directory**.
 
 ![Developer Portal][api-management-dev-portal-signin]
@@ -171,8 +179,6 @@ You may be prompted with a registration form if any additional information is re
 Your user is now logged into the developer portal for your API Management service instance.
 
 ![Registration Complete][api-management-registration-complete]
-
-
 
 [api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
 [api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-security-external-identities.png

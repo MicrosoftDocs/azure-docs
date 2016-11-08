@@ -1,9 +1,7 @@
 
 
-#Metadata for Azure technical articles
-
+# Metadata for Azure technical articles
 For metadata information, please see the [cross-product metadata guidelines for C+E product documentation](https://go.microsoft.com/fwlink/?linkid=833529) (Internal link only).
-
 
 <!--
 All Azure technical articles contain two metadata sections - a properties section and a tags section. The properties section enables some website automation and SEO stuff, while the tags section enables a lot of internal content reporting. Both sections are required.
@@ -315,11 +313,9 @@ In articles that specify both a services value and a documentationCenter value, 
 ![](./media/article-metadata/checkmark-small.png) **ms.author**: Required. Specifies the author(s) associated with the topic. Internal reports (such as freshness) use this value to associate the right author(s) with the article. To specify multiple values you should separate them with semicolons. Either Microsoft aliases or complete email addresses are acceptable. The length can be no longer than 200 characters.-->
 
 
-###Contributors' Guide Links
-
-- [Overview article](./../README.md)
-- [Index of guidance articles](./contributor-guide-index.md)
-
+### Contributors' Guide Links
+* [Overview article](../README.md)
+* [Index of guidance articles](contributor-guide-index.md)
 
 <!--Anchors-->
 [Syntax]: #syntax

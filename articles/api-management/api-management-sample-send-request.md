@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Using API Management service to generate HTTP requests"
-	description="Learn to use request and response policies in API Management to call external services from your API"
-	services="api-management"
-	documentationCenter=""
-	authors="darrelmiller"
-	manager="erikre"
-	editor=""/>
+---
+title: Using API Management service to generate HTTP requests
+description: Learn to use request and response policies in API Management to call external services from your API
+services: api-management
+documentationcenter: ''
+author: darrelmiller
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="10/25/2016"
-	ms.author="darrmi"/>
+ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
+ms.service: api-management
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/25/2016
+ms.author: darrmi
 
-
+---
 # Using external services from the Azure API Management service
-
 The policies available in Azure API Management service can do a wide range of useful work based purely on the incoming request, the outgoing response and basic configuration information. However, being able to interact with external services from API Management policies opens up many more opportunities.
 
 We have previously seen how we can interact with the [Azure Event Hub service for logging, monitoring and analytics](api-management-log-to-eventhub-sample.md). In this article we will demonstrate policies that allow you to interact with any external HTTP based service. These policies can be used for triggering remote events or for retrieving information that will be used to manipulate the original request and response in some way.
@@ -130,17 +129,17 @@ Putting all the pieces together, we get the following policy:
       </send-request>
 
       <choose>
-  			<!-- Check active property in response -->
-  			<when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
-  				<!-- Return 401 Unauthorized with http-problem payload -->
-  				<return-response response-variable-name="existing response variable">
-  					<set-status code="401" reason="Unauthorized" />
-  					<set-header name="WWW-Authenticate" exists-action="override">
-  						<value>Bearer error="invalid_token"</value>
-  					</set-header>
-  				</return-response>
-  			</when>
-  		</choose>
+              <!-- Check active property in response -->
+              <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
+                  <!-- Return 401 Unauthorized with http-problem payload -->
+                  <return-response response-variable-name="existing response variable">
+                      <set-status code="401" reason="Unauthorized" />
+                      <set-header name="WWW-Authenticate" exists-action="override">
+                          <value>Bearer error="invalid_token"</value>
+                      </set-header>
+                  </return-response>
+              </when>
+          </choose>
       <base />
     </inbound>
 
@@ -149,7 +148,7 @@ This is only one of many examples of how the `send-request` policy can be used t
 ## Response Composition
 The `send-request` policy can be used for enhancing a primary request to a backend system, as we saw in the previous example, or it can be used as a complete replace for of the backend call. Using this technique we can easily create composite resources that are aggregated from multiple different systems.
 
-### Building a dashboard   
+### Building a dashboard
 Sometimes you want to be able to expose information that exists in multiple backend systems, for example, to drive a dashboard. The KPIs come from all different back-ends, but you would prefer not to provide direct access to them and it would be nice if all the information could be retrieved in a single request. Perhaps some of the backend information needs some slicing and dicing and a little sanitizing first! Being able to cache that composite resource would be a useful to reduce the backend load as you know users have a habit of hammering the F5 key in order to see if their underperforming metrics might change.    
 
 ### Faking the resource
@@ -192,7 +191,6 @@ Once we have this information we can make requests to all the backend systems. E
 These requests will execute in sequence, which is not ideal. In an upcoming release we will be introducing a new policy called `wait` that will enable all of these requests to execute in parallel.
 
 ### Responding
-
 To construct the composite response we can use the [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) policy. The `set-body` element can use an expression to construct a new `JObject` with all the component representations embedded as properties.
 
     <return-response response-variable-name="existing response variable">
@@ -212,7 +210,7 @@ To construct the composite response we can use the [return-response](https://msd
 The complete policy looks as follows:
 
     <policies>
-    	<inbound>
+        <inbound>
 
       <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
       <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
@@ -250,13 +248,13 @@ The complete policy looks as follows:
                           ).ToString())
           </set-body>
         </return-response>
-    	</inbound>
-    	<backend>
-    		<base />
-    	</backend>
-    	<outbound>
-    		<base />
-    	</outbound>
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
     </policies>
 
 In the configuration of the placeholder operation we can configure the dashboard resource to be cached for at least an hour because we understand the nature of the data means that even if it is an hour out of date, it will still be sufficiently effective to convey valuable information to the users.
@@ -267,4 +265,7 @@ Azure API Management service provides flexible policies that can be selectively 
 ## Watch a video overview of these policies
 For more information on the [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), and [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) policies covered in this article, please watch the following video.
 
-> [AZURE.VIDEO send-request-and-return-response-policies]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
+> 
+> 
+

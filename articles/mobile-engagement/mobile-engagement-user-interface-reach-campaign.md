@@ -1,172 +1,180 @@
-<properties 
-   pageTitle="Azure Mobile Engagement User Interface - Reach Campaign" 
-   description="Laern how to create and manage push notification campaigns using Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+﻿---
+title: Azure Mobile Engagement User Interface - Reach Campaign
+description: Laern how to create and manage push notification campaigns using Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.assetid: 2fe124a2-a86f-4136-81ba-a9d298ec798a
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
-
+---
 # How to create and manage push notification campaigns
 You can use the Reach section of the UI to create a new Push campaign with a complex formula by providing all the information you need to send a push notification. The options of a Push campaign vary slightly depending on the four campaign types: Announcements, Polls, Data Pushes, and Tiles (Windows Phone only).
 
 ### Option Applies to:
-- Languages:    All (Announcements, Polls, Data Pushes, Tiles)
-- Campaign:    All (Announcements, Polls, Data Pushes, Tiles)
-- Notification:     Announcements, Polls
-- Content:    Unique for each campaign type
-- Audience:     All (Announcements, Polls, Data Pushes, Tiles)
-- Time frame:     Announcements, Polls, Tiles
-- Test:    All (Announcements, Polls, Data Pushes, Tiles)
- 
+* Languages:    All (Announcements, Polls, Data Pushes, Tiles)
+* Campaign:    All (Announcements, Polls, Data Pushes, Tiles)
+* Notification:     Announcements, Polls
+* Content:    Unique for each campaign type
+* Audience:     All (Announcements, Polls, Data Pushes, Tiles)
+* Time frame:     Announcements, Polls, Tiles
+* Test:    All (Announcements, Polls, Data Pushes, Tiles)
+
 ![Reach-Campaign1][20]
 
 ## Languages
 You can use the Languages drop-down menu to send a different version of your Push to devices that are set to use different languages. By default, all devices will receive the same Push regardless of what language they are set to use. Users with their device set to a different language will receive the Default Language version of the Push. Many of the push campaign options allow you to specify alternate content for each of the additional languages you select. 
- 
+
 ![Reach-Campaign2][21]
 
 ### Language differences apply to:
-- Languages:    Unique languages may be selected in addition to the default language
-- Campaign:    Same for all languages
-- Notification:    Unique for each language in addition to the default language
-- Content:    Unique for each language in addition to the default language
-- Audience:     May be filtered by a separate language criterion
-- Time frame:     Same for all languages
-- Test:    May be sent to each language at a time
- 
+* Languages:    Unique languages may be selected in addition to the default language
+* Campaign:    Same for all languages
+* Notification:    Unique for each language in addition to the default language
+* Content:    Unique for each language in addition to the default language
+* Audience:     May be filtered by a separate language criterion
+* Time frame:     Same for all languages
+* Test:    May be sent to each language at a time
+
 ### Supported Languages:
-- Arabic (ar) 
-- Bulgarian (bg) 
-- Catalan (ca) 
-- Chinese (zh) 
-- Croatian (hr) 
-- Czech (cs) 
-- Danish (da) 
-- Dutch (nl) 
-- English (en) 
-- Finnish (fi) 
-- French (fr) 
-- German (de) 
-- Greek (el) 
-- Hebrew (he) 
-- Hindi (hi) 
-- Hungarian (hu) 
-- Indonesian (id) 
-- Italian (it) 
-- Japanese (ja) 
-- Korean (ko) 
-- Latvian (lv) 
-- Lithuanian (lt) 
-- Malay (macrolanguage) (ms) 
-- Norwegian Bokmål (nb) 
-- Polish (pl) 
-- Portuguese (pt) 
-- Romanian (ro) 
-- Russian (ru) 
-- Serbian (sr) 
-- Slovak (sk) 
-- Slovenian (sl) 
-- Spanish (es) 
-- Swedish (sv) 
-- Tagalog (tl) 
-- Thai (th) 
-- Turkish (tr) 
-- Ukrainian (uk) 
-- Vietnamese (vi) 
- 
+* Arabic (ar) 
+* Bulgarian (bg) 
+* Catalan (ca) 
+* Chinese (zh) 
+* Croatian (hr) 
+* Czech (cs) 
+* Danish (da) 
+* Dutch (nl) 
+* English (en) 
+* Finnish (fi) 
+* French (fr) 
+* German (de) 
+* Greek (el) 
+* Hebrew (he) 
+* Hindi (hi) 
+* Hungarian (hu) 
+* Indonesian (id) 
+* Italian (it) 
+* Japanese (ja) 
+* Korean (ko) 
+* Latvian (lv) 
+* Lithuanian (lt) 
+* Malay (macrolanguage) (ms) 
+* Norwegian Bokmål (nb) 
+* Polish (pl) 
+* Portuguese (pt) 
+* Romanian (ro) 
+* Russian (ru) 
+* Serbian (sr) 
+* Slovak (sk) 
+* Slovenian (sl) 
+* Spanish (es) 
+* Swedish (sv) 
+* Tagalog (tl) 
+* Thai (th) 
+* Turkish (tr) 
+* Ukrainian (uk) 
+* Vietnamese (vi) 
+
 ## Campaign
 You can use the Campaign section to set the name and category of your campaign as well as if you plan to ignore the audience section of a Push campaign and send this campaign via the Reach API (and some elements with the low level Push API) instead. Categories can be used with a custom notification template to control in-app notifications based on predefined settings. You can get a list of your existing “Categories” via the Reach API.
 
 > Warning: If you use the "Ignore Audience, push will be sent to users via the API" option in the "Campaign" section of a Reach campaign, the campaign will NOT automatically send, you will need to send it manually via the Reach API.
- 
+> 
+> 
+
 ![Reach-Campaign3][22]
- 
+
 ### Option Applies to:
-- Name:    All
-- Category:    Announcements, Polls
-- Ignore Audience, push will be sent to users via the API:    All
- 
+* Name:    All
+* Category:    Announcements, Polls
+* Ignore Audience, push will be sent to users via the API:    All
+
 ## Notification
 You can use the Notification section to set basic settings for your push including: The title of the Push, the message, an in-app image, or if it is dismissible. Many notification settings are specific to the platform of your device. You can select whether your push will be sent "in app" or "out of app" or both. (Remember that users can "opt-in" or "opt-out" of "out of app" Pushes at the Operating System level on their devices, and Azure Mobile Engagement will not be able to override this setting. Also remember that the Reach API handles "in app" and "out of app" Pushes. The Push API can be used to handle "out of app" pushes too.) Pushes can be customized with pictures or HTML content, including deep links for linking outside of your App or to another location in your App (Android SDK 2.1.0 or later intent categories required). You can change the icon or iOS badge, and send either text or web content (a popup with html content, URL link to another location either inside or outside of the app). You can also make Android devices ring or vibrate with the Push. (Remember that you will need the correct SDK permissions in your Android manifest file to ring or vibrate a device.) There is currently no industry standard for Android "Big Picture" sizes, since screen sizes are different on every device, but 400x100 pictures work on almost any screen size.
 
 ### Delivery Types:
--    Out of app only: the notification will be delivered when the user does not use the application.
-- The out of app only notification requires a certificate from Apple or Google (APNS or GCM certificate).
-- In-app only: The notification appears only when the application is running.
-- The notification uses the Capptain delivery system to reach the user. You can fully customize the visual layout/display of your push.
-- Anytime: This option ensures that you send a notification either the application is running or not.
+* Out of app only: the notification will be delivered when the user does not use the application.
+* The out of app only notification requires a certificate from Apple or Google (APNS or GCM certificate).
+* In-app only: The notification appears only when the application is running.
+* The notification uses the Capptain delivery system to reach the user. You can fully customize the visual layout/display of your push.
+* Anytime: This option ensures that you send a notification either the application is running or not.
 
- 
 ![Reach-Campaign4][23]
 
 ### Option Applies to:
-- Notification:     Announcements, Polls
- 
+* Notification:     Announcements, Polls
+
 ## Content
 You can use the Content section to modify the content of your Announcements, Polls, Data Pushes, and Tiles (Windows Phone only). The Content setting of Push campaigns is specific to the type of campaign. 
 
 ### See also
-- [UI Documentation - Reach - Push Content][Link 29]
- 
+* [UI Documentation - Reach - Push Content][Link 29]
+
 ![Reach-Campaign5][24]
 
 ## Audience
 You can use the Audience section to define a standard list of items to limit your campaign or limits your campaign based on customized criteria. The standard set of options to Limit your Audience allows you to push to either new or old users or native push users only. You can also set a quota to limit the number of users who receive the push. You can manually Edit the expression for how your campaign is filtered to include one or more criterion to target users. You can manually type an audience expression. Such an expression must explicitly define the relation between criteria. A criterion is described by an identifier that must start with a capital letter and cannot contain spaces. The relation between the criteria can be described using 'and', 'or', 'not' operators as well as '(', ')'. Example: "Criterion1 or (Criterion1 and not Criterion2)".
 
 > Note: With a large audience included in campaigns, the server side targeting scan can be slow, especially if you attempt to start multiple campaigns at the same time.
+> 
+> 
 
-- If possible, only start one campaign at a time.
-- At the most, only start four campaigns at a time.
-- Push only to your active users (checkbox "Engage only users who can be reached using Native Push" and "Engage only active users") so that only your users who still have the app installed and use it will need to be scanned.
-Once your audience is defined, you can use the simulate button to find out how many users will receive this Push. This will compute the number of known users potentially targeted by this audience (this is an estimate based on a random sample of users). Be aware that users who have uninstalled the application are also part of this audience, but cannot be reached.
+* If possible, only start one campaign at a time.
+* At the most, only start four campaigns at a time.
+* Push only to your active users (checkbox "Engage only users who can be reached using Native Push" and "Engage only active users") so that only your users who still have the app installed and use it will need to be scanned.
+  Once your audience is defined, you can use the simulate button to find out how many users will receive this Push. This will compute the number of known users potentially targeted by this audience (this is an estimate based on a random sample of users). Be aware that users who have uninstalled the application are also part of this audience, but cannot be reached.
 
 ### See also
-- [UI Documentation - Reach - New Push Criterion][Link 28]
+* [UI Documentation - Reach - New Push Criterion][Link 28]
 
 ![Reach-Campaign6][25]
 
 ### Edit expression
 ![Reach-Campaign7][26]
- 
+
 ### Limit your audience option applies to:
-- Engage only a subset of users:    All (Announcements, Polls, Data Pushes, Tiles)
-- Engage only old users:    All (Announcements, Polls, Data Pushes, Tiles)
-- Engage only new users:    All (Announcements, Polls, Data Pushes, Tiles)
-- Engage only idle users:    Announcements, Polls, Tiles
-- Engage only active users:    All (Announcements, Polls, Data Pushes, Tiles)
-- Engage only users who can be reached using Native Push:     Announcements, Polls
- 
+* Engage only a subset of users:    All (Announcements, Polls, Data Pushes, Tiles)
+* Engage only old users:    All (Announcements, Polls, Data Pushes, Tiles)
+* Engage only new users:    All (Announcements, Polls, Data Pushes, Tiles)
+* Engage only idle users:    Announcements, Polls, Tiles
+* Engage only active users:    All (Announcements, Polls, Data Pushes, Tiles)
+* Engage only users who can be reached using Native Push:     Announcements, Polls
+
 ## Time Frame
 You can use the Time Frame section to set when the push will be sent or you can leave the time frame blank to start the campaign immediately. Remember that using the end-users' time zone may start the campaign a day earlier than you expect for your end-users in Asia and send small batches of pushes at a time until all time zones in the world match the time frame set for your campaign. Using the end users' time zone can also cause delays in campaigns since it has to request the time from the phone before starting the push.
 
 > Note: Campaigns without an end date can cache pushes locally and still display them after you manually complete campaigns. To avoid this behavior, specific an end time for campaigns.
+> 
+> 
 
 ### See also
-- [Reach - How Tos – Scheduling][Link 3] 
- 
+* [Reach - How Tos – Scheduling][Link 3] 
+
 ![Reach-Campaign8][27]
 
 ### Settings Apply to:
-- Time frame:     Announcements, Polls, Tiles
- 
+* Time frame:     Announcements, Polls, Tiles
+
 ## Test
 You can use the Test section to send this push to your own test device before saving the campaign. If you have configured any custom languages for this campaign, you can test the push in each language. You can setup a test device from “My Account”.
+
 > Note: No server side data is logged when you use the button to "test" pushes, data is only logged for real push campaigns.
+> 
+> 
 
 ### See also
-- [UI Documentation - My Account][Link 14]
- 
+* [UI Documentation - My Account][Link 14]
+
 ![Reach-Campaign9][28]
 
 <!--Image references-->
@@ -259,4 +267,4 @@ You can use the Test section to send this push to your own test device before sa
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
- 
+

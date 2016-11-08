@@ -1,29 +1,29 @@
-<properties
-	pageTitle="Deploy LAMP on a Linux virtual machine | Microsoft Azure"
-	description="Learn how to install the LAMP stack on a Linux VM"
-	services="virtual-machines-linux"
-	documentationCenter="virtual-machines"
-	authors="jluk"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Deploy LAMP on a Linux virtual machine | Microsoft Docs
+description: Learn how to install the LAMP stack on a Linux VM
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: jluk
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="juluk"/>
+ms.assetid: 6c12603a-e391-4d3e-acce-442dd7ebb2fe
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: NA
+ms.topic: article
+ms.date: 06/07/2016
+ms.author: juluk
 
+---
 # Deploy LAMP Stack on Azure
 This article will walk you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You will need an Azure Account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI](../xplat-cli-install.md) that is [connected to your Azure account](../xplat-cli-connect.md).
 
 There are two methods for installing LAMP covered in this article:
 
 ## Quick Command Summary
-
 1) Deploy LAMP on new VM
 
 ```
@@ -40,7 +40,6 @@ user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 ```
 
 ## Deploy LAMP on new VM Walkthrough
-
 You can start by creating a new [resource group](../azure-resource-manager/resource-group-overview.md) that will contain the VM:
 
     $ azure group create uniqueResourceGroup westus
@@ -97,24 +96,22 @@ You should see a response prompting some more inputs:
 You have now created a Linux VM with LAMP already installed on it. If you wish, you can verify the install by jumping down to [Verify LAMP Successfully Installed].
 
 ## Deploy LAMP on existing VM Walkthrough
-
-If you need help creating a Linux VM you can head [here to learn how to create a Linux VM] (./virtual-machines-linux-quick-create-cli.md). 
-Next, you will need to SSH into the Linux VM. If you need help with creating an SSH key you can head [here to learn how to create an SSH key on Linux/Mac] (./virtual-machines-linux-mac-create-ssh-keys.md).
+If you need help creating a Linux VM you can head [here to learn how to create a Linux VM](virtual-machines-linux-quick-create-cli.md). 
+Next, you will need to SSH into the Linux VM. If you need help with creating an SSH key you can head [here to learn how to create an SSH key on Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md).
 If you have an SSH key already, go ahead and SSH into your Linux VM with `ssh username@uniqueDNS`.
 
 Now that you are working within your Linux VM, we will walk through installing the LAMP stack on Debian-based distributions. The exact commands might differ for other Linux distros.
 
 #### Installing on Debian/Ubuntu
-
 You will need the following packages installed: `apache2`, `mysql-server`, `php5`, and `php5-mysql`. You can install these by directly grabbing these packages or using Tasksel. Instructions for both options are listed below.
 Before installing you will need to download and update package lists.
 
     user@ubuntu$ sudo apt-get update
-    
+
 ##### Individual Packages
 Using apt-get:
 
-	user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
+    user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 
 ##### Using Tasksel
 Alternatively you can download Tasksel, a Debian/Ubuntu tool that installs multiple related packages as a coordinated "task" onto your system.
@@ -128,11 +125,10 @@ After running the either of the above options you will be prompted to install th
 
 Run the following command to see other PHP extensions that are available as packages:
 
-	user@ubuntu$ apt-cache search php5
+    user@ubuntu$ apt-cache search php5
 
 
 #### Create info.php document
-
 You should now be able to check what version of Apache, MySQL, and PHP you have through the command line by typing `apache2 -v`, `mysql -v`, or `php -v`.
 
 If you would like to test further, you can create a quick PHP info page to view in a browser. Create a new file with Nano text editor with this command:
@@ -152,7 +148,6 @@ Restart Apache with this command so all new installs will take effect.
     user@ubuntu$ sudo service apache2 restart
 
 ## Verify LAMP Successfully Installed
-
 Now you can check the PHP info page you just created in your browser by going to http://youruniqueDNS/info.php, it should look similar to this.
 
 ![][2]
@@ -164,10 +159,9 @@ You can check your Apache installation by viewing the Apache2 Ubuntu Default Pag
 Congratulations, you have just setup a LAMP stack on your Azure VM!
 
 ## Next Steps
-
 Check out the Ubuntu documentation on the LAMP stack:
 
-- [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
+* [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
 [1]: ./media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword-small.png
 [2]: ./media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png

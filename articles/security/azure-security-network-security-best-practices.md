@@ -1,54 +1,52 @@
-<properties
-   pageTitle="Azure Network Security Best Practices | Microsoft Azure"
-   description="This article provides a set of best practices for network security using built in Azure capabilities."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="swadhwa"
-   editor="TomShinder"/>
+﻿---
+title: Azure Network Security Best Practices | Microsoft Docs
+description: This article provides a set of best practices for network security using built in Azure capabilities.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: swadhwa
+editor: TomShinder
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/25/2016"
-   ms.author="TomSh"/>
+ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/25/2016
+ms.author: TomSh
 
+---
 # Azure Network Security Best Practices
-
 Microsoft Azure enables you to connect virtual machines and appliances to other networked devices by placing them on Azure Virtual Networks. An Azure Virtual Network is a virtual network construct that allows you to connect virtual network interface cards to a virtual network to allow TCP/IP-based communications between network enabled devices. Azure Virtual Machines connected to an Azure Virtual Network are able to connect to devices on the same Azure Virtual Network, different Azure Virtual Networks, on the Internet or even on your own on-premises networks.
 
 In this article we will discuss a collection of Azure network security best practices. These best practices are derived from our experience with Azure networking and the experiences of customers like yourself.
 
 For each best practice, we’ll explain:
 
-- What the best practice is
-- Why you want to enable that best practice
-- What might be the result if you fail to enable the best practice
-- Possible alternatives to the best practice
-- How you can learn to enable the best practice
+* What the best practice is
+* Why you want to enable that best practice
+* What might be the result if you fail to enable the best practice
+* Possible alternatives to the best practice
+* How you can learn to enable the best practice
 
 This Azure Network Security Best Practices article is based on a consensus opinion, and Azure platform capabilities and feature sets, as they exist at the time this article was written. Opinions and technologies change over time and this article will be updated on a regular basis to reflect those changes.
 
 Azure Network security best practices discussed in this article include:
 
-- Logically segment subnets
-- Control routing behavior
-- Enable Forced Tunneling
-- Use Virtual network appliances
-- Deploy DMZs for security zoning
-- Avoid exposure to the Internet with dedicated WAN links
-- Optimize uptime and performance
-- Use global load balancing
-- Disable RDP Access to Azure Virtual Machines
-- Enable Azure Security Center
-- Extend your datacenter into Azure
-
+* Logically segment subnets
+* Control routing behavior
+* Enable Forced Tunneling
+* Use Virtual network appliances
+* Deploy DMZs for security zoning
+* Avoid exposure to the Internet with dedicated WAN links
+* Optimize uptime and performance
+* Use global load balancing
+* Disable RDP Access to Azure Virtual Machines
+* Enable Azure Security Center
+* Extend your datacenter into Azure
 
 ## Logically segment subnets
-
 [Azure Virtual Networks](https://azure.microsoft.com/documentation/services/virtual-network/) are similar to a LAN on your on-premises network. The idea behind an Azure Virtual Network is that you create a single private IP address space-based network on which you can place all your [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/). The private IP address spaces available are in the Class A (10.0.0.0/8), Class B (172.16.0.0/12) and Class C (192.168.0.0/16) ranges.
 
 Similar to what you do on-premises, you’ll want to segment the larger address space into subnets. You can use [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) based subnetting principles to create your subnets.
@@ -59,26 +57,27 @@ One of the things you can use to accomplish this task is a [Network Security Gro
 
 Using NSGs for network access control between subnets enables you to put resources that belong to the same security zone or role in their own subnets. For example, think of a simple 3-tier application that has a web tier, an application logic tier and a database tier. You put virtual machines that belong to each of these tiers into their own subnets. Then you use NSGs to control traffic between the subnets:
 
-- Web tier virtual machines can only initiate connections to the application logic machines and can only accept connections from the Internet
-- Application logic virtual machines can only initiate connections with database tier and can only accept connections from the web tier
-- Database tier virtual machines cannot initiate connection with anything outside of their own subnet and can only accept connections from the application logic tier
+* Web tier virtual machines can only initiate connections to the application logic machines and can only accept connections from the Internet
+* Application logic virtual machines can only initiate connections with database tier and can only accept connections from the web tier
+* Database tier virtual machines cannot initiate connection with anything outside of their own subnet and can only accept connections from the application logic tier
 
 To learn more about Network Security Groups and how you can use them to logically segment your Azure Virtual Networks, please read the article [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md) (NSG).
 
 ## Control routing behavior
-
 When you put a virtual machine on an Azure Virtual Network, you’ll notice that the virtual machine can connect to any other virtual machine on the same Azure Virtual Network, even if the other virtual machines are on different subnets. The reason why this is possible is that there is a collection of system routes that are enabled by default that allow this type of communication. These default routes allow virtual machines on the same Azure Virtual Network to initiate connections with each other, and with the Internet (for outbound communications to the Internet only).
 
 While the default system routes are useful for many deployment scenarios, there are times when you want to customize the routing configuration for your deployments. These customizations will allow you to configure the next hop address to reach specific destinations.
 
 We recommend that you configure User Defined Routes when you deploy a virtual network security appliance, which we’ll talk about in a later best practice.
 
-> [AZURE.NOTE] user Defined Routes are not required and the default system routes will work in most instances.
+> [!NOTE]
+> user Defined Routes are not required and the default system routes will work in most instances.
+> 
+> 
 
 You can learn more about User Defined Routes and how to configure them by reading the article [What are User Defined Routes and IP Forwarding](../virtual-network/virtual-networks-udr-overview.md).
 
 ## Enable Forced Tunneling
-
 To better understand forced tunneling, it’s useful to understand what “split tunneling” is.
 The most common example of split tunneling is seen with VPN connections. Imagine that you establish a VPN connection from your hotel room to your corporate network. This connection allows you to connect to resources on your corporate network and all communications to resources on your corporate network go through the VPN tunnel.
 
@@ -92,25 +91,24 @@ If you do not have a cross premises connection, make sure you take advantage of 
 To learn more about forced tunneling and how to enable it, please read the article [Configure Forced Tunneling using PowerShell and Azure Resource Manager](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md).
 
 ## Use virtual network appliances
-
 While Network Security Groups and User Defined Routing can provide a certain measure of network security at the network and transport layers of the [OSI model](https://en.wikipedia.org/wiki/OSI_model), there are going to be situations where you’ll want or need to enable security at high levels of the stack. In such situations, we recommend that you deploy virtual network security appliances provided by Azure partners.
 
 Azure network security appliances can deliver significantly enhanced levels of security over what is provided by network level controls. Some of the network security capabilities provided by virtual network security appliances include:
 
-- Firewalling
-- Intrusion detection/Intrusion Prevention
-- Vulnerability management
-- Application control
-- Network-based anomaly detection
-- Web filtering
-- Antivirus
-- Botnet protection
+* Firewalling
+* Intrusion detection/Intrusion Prevention
+* Vulnerability management
+* Application control
+* Network-based anomaly detection
+* Web filtering
+* Antivirus
+* Botnet protection
 
 If you require a higher level of network security than you can obtain with network level access controls, then we recommend that you investigate and deploy Azure virtual network security appliances.
 
 To learn about what Azure virtual network security appliances are available, and about their capabilities, please visit the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and search for “security” and “network security”.
 
-##Deploy DMZs for security zoning
+## Deploy DMZs for security zoning
 A DMZ or “perimeter network” is a physical or logical network segment that is designed to provide an additional layer of security between your assets and the Internet. The intent of the DMZ is to place specialized network access control devices on the edge of the DMZ network so that only desired traffic is allowed past the network security device and into your Azure Virtual Network.
 
 DMZs are useful because you can focus your network access control management, monitoring, logging and reporting on the devices at the edge of your Azure Virtual Network. Here you would typically enable DDoS prevention, Intrusion Detection/Intrusion Prevention systems (IDS/IPS), firewall rules and policies, web filtering, network antimalware and more. The network security devices sit between the Internet and your Azure Virtual Network and have an interface on both networks.
@@ -126,8 +124,8 @@ Many organizations have chosen the Hybrid IT route. In hybrid IT, some of the co
 
 In the hybrid IT scenario, there is usually some type of cross-premises connectivity. This cross-premises connectivity allows the company to connect their on-premises networks to Azure Virtual Networks. There are two cross-premises connectivity solutions available:
 
-- Site-to-site VPN
-- ExpressRoute
+* Site-to-site VPN
+* ExpressRoute
 
 [Site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) represents a virtual private connection between your on-premises network and an Azure Virtual Network. This connection takes place over the Internet and allows you to “tunnel” information inside an encrypted link between your network and Azure. Site-to-site VPN is a secure, mature technology that has been deployed by enterprises of all sizes for decades. Tunnel encryption is performed using [IPsec tunnel mode](https://technet.microsoft.com/library/cc786385.aspx).
 
@@ -148,18 +146,18 @@ This distribution of traffic increases availability because if one of the web se
 We recommend that you employ load balancing whenever you can, and as appropriate for your services. We’ll address appropriateness in the following sections.
 At the Azure Virtual Network level, Azure provides you with three primary load balancing options:
 
-- HTTP-based load balancing
-- External load balancing
-- Internal load balancing
+* HTTP-based load balancing
+* External load balancing
+* Internal load balancing
 
 ## HTTP-based Load Balancing
 HTTP-based load balancing bases decisions about what server to send connections using characteristics of the HTTP protocol. Azure has an HTTP load balancer that goes by the name of Application Gateway.
 
 We recommend that you us Azure Application Gateway when:
 
-- Applications that require requests from the same user/client session to reach the same back-end virtual machine. Examples of this would be shopping cart apps and web mail servers.
-- Applications that want to free web server farms from SSL termination overhead by taking advantage of Application Gateway’s [SSL offload](https://f5.com/glossary/ssl-offloading) feature.
-- Applications, such as a content delivery network, that require multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
+* Applications that require requests from the same user/client session to reach the same back-end virtual machine. Examples of this would be shopping cart apps and web mail servers.
+* Applications that want to free web server farms from SSL termination overhead by taking advantage of Application Gateway’s [SSL offload](https://f5.com/glossary/ssl-offloading) feature.
+* Applications, such as a content delivery network, that require multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 
 To learn more about how Azure Application Gateway works and how you can use it in your deployments, please read the article [Application Gateway Overview](../application-gateway/application-gateway-introduction.md).
 
@@ -201,9 +199,9 @@ The potential security problem with using these protocols over the Internet is t
 
 Because of this, we recommend that you disable direct RDP and SSH access to your Azure Virtual Machines from the Internet. After direct RDP and SSH access from the Internet is disabled, you have other options you can use to access these virtual machines for remote management:
 
-- Point-to-site VPN
-- Site-to-site VPN
-- ExpressRoute
+* Point-to-site VPN
+* Site-to-site VPN
+* ExpressRoute
 
 [Point-to-site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) is another term for a remote access VPN client/server connection. A point-to-site VPN enables a single user to connect to an Azure Virtual Network over the Internet. After the point-to-site connection is established, the user will be able to use RDP or SSH to connect to any virtual machines located on the Azure Virtual Network that the user connected to via point-to-site VPN. This assumes that the user is authorized to reach those virtual machines.
 
@@ -218,9 +216,9 @@ Azure Security Center helps you prevent, detect, and respond to threats, and pro
 
 Azure Security Center helps you optimize and monitor network security by:
 
-- Providing network security recommendations
-- Monitoring the state of your network security configuration
-- Alerting you to network based threats both at the endpoint and network levels
+* Providing network security recommendations
+* Monitoring the state of your network security configuration
+* Alerting you to network based threats both at the endpoint and network levels
 
 We highly recommend that you enable Azure Security Center for all of your Azure deployments.
 
@@ -234,3 +232,4 @@ However, there is a lot of planning and design issues that need to be addressed 
 Microsoft has created the [Datacenter Extension Reference Architecture Diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) and supporting collateral to help you understand what such a datacenter extension would look like. This provides an example reference implementation that you can use to plan and design a secure enterprise datacenter extension to the cloud. We recommend that you review this document to get an idea of the key components of a secure solution.
 
 To learn more about how to securely extend your datacenter into Azure, please view the video [Extending Your Datacenter to Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
+

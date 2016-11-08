@@ -1,46 +1,45 @@
-<properties
-	pageTitle="Azure AD Connect sync: Synchronization Service Manager UI | Microsoft Azure"
-	description="Understand the Connectors tab in the Synchronization Service Manager for Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD Connect sync: Synchronization Service Manager UI | Microsoft Docs'
+description: Understand the Connectors tab in the Synchronization Service Manager for Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="billmath"/>
+ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/07/2016
+ms.author: billmath
 
-
+---
 # Azure AD Connect sync: Synchronization Service Manager
-
-[Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
---- | --- | --- | ---
+| [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
+| --- | --- | --- | --- |
+|  | | | |
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
 The Connectors tab is used to manage all systems the sync engine is connected to.
 
 ## Connector actions
-
-Action | Comment
---- | ---
-Create | Do not use. For connecting to additional AD forests, use the installation wizard.
-Properties | Used for domain and OU filtering.
-[Delete](#delete) | Used to either delete the data in the connector space or to delete connection to a forest.
-[Configure Run Profiles](#configure-run-profiles) | Except for domain filtering, nothing to configure here. You can use this action to see already configured run profiles.
-Run | Used to start a one-off run of a profile.
-Stop | Stops a Connector currently running a profile.
-Export Connector | Do not use.
-Import Connector | Do not use.
-Update Connector | Do not use.
-Refresh Schema | Refreshes the cached schema. It is preferred to use the option in the installation wizard instead, since that also updates sync rules.
-[Search Connector Space](#search-connector-space) | Used to find objects and to [Follow an object and its data through the system](#follow-an-object-and-its-data-through-the-system).
+| Action | Comment |
+| --- | --- |
+| Create |Do not use. For connecting to additional AD forests, use the installation wizard. |
+| Properties |Used for domain and OU filtering. |
+| [Delete](#delete) |Used to either delete the data in the connector space or to delete connection to a forest. |
+| [Configure Run Profiles](#configure-run-profiles) |Except for domain filtering, nothing to configure here. You can use this action to see already configured run profiles. |
+| Run |Used to start a one-off run of a profile. |
+| Stop |Stops a Connector currently running a profile. |
+| Export Connector |Do not use. |
+| Import Connector |Do not use. |
+| Update Connector |Do not use. |
+| Refresh Schema |Refreshes the cached schema. It is preferred to use the option in the installation wizard instead, since that also updates sync rules. |
+| [Search Connector Space](#search-connector-space) |Used to find objects and to [Follow an object and its data through the system](#follow-an-object-and-its-data-through-the-system). |
 
 ### Delete
 The delete action is used for two different things.
@@ -98,7 +97,7 @@ You can inspect the object and which rule applied for a particular attribute flo
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview2.png)
 
 **Log**  
-The Log page is used to see the password sync status and history, see [Troubleshoot password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization) for more information.
+The Log page is used to see the password sync status and history.
 
 ### Metaverse Object Properties
 **Attributes**  

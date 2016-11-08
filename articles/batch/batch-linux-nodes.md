@@ -1,29 +1,31 @@
-<properties
-	pageTitle="Linux nodes in Azure Batch pools | Microsoft Azure"
-	description="Learn how to process your parallel compute workloads on pools of Linux virtual machines in Azure Batch."
-	services="batch"
-	documentationCenter="python"
-	authors="mmacy"
-	manager="timlt"
-	editor="" />
+---
+title: Linux nodes in Azure Batch pools | Microsoft Docs
+description: Learn how to process your parallel compute workloads on pools of Linux virtual machines in Azure Batch.
+services: batch
+documentationcenter: python
+author: mmacy
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="batch"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="na"
-	ms.date="09/08/2016"
-	ms.author="marsma" />
+ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: na
+ms.date: 09/08/2016
+ms.author: marsma
 
+---
 # Provision Linux compute nodes in Azure Batch pools
-
 You can use Azure Batch to run parallel compute workloads on both Linux and Windows virtual machines. This article details how to create pools of Linux compute nodes in the Batch service by using both the [Batch Python][py_batch_package] and [Batch .NET][api_net] client libraries.
 
-> [AZURE.NOTE] [Application packages](batch-application-packages.md) are currently unsupported on Linux compute nodes.
+> [!NOTE]
+> [Application packages](batch-application-packages.md) are currently unsupported on Linux compute nodes.
+> 
+> 
 
 ## Virtual machine configuration
-
 When you create a pool of compute nodes in Batch, you have two options from which to select the node size and operating system: Cloud Services Configuration and Virtual Machine Configuration.
 
 **Cloud Services Configuration** provides Windows compute nodes *only*. Available compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md), and available operating systems are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you create a pool that contains Azure Cloud Services nodes, you need to specify only the node size and its "OS family," which are found in the previously mentioned articles. For pools of Windows compute nodes, Cloud Services is most commonly used.
@@ -31,30 +33,33 @@ When you create a pool of compute nodes in Batch, you have two options from whic
 **Virtual Machine Configuration** provides both Linux and Windows images for compute nodes. Available compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). When you create a pool that contains Virtual Machine Configuration nodes, you must specify the size of the nodes, the virtual machine image reference, and the Batch node agent SKU to be installed on the nodes.
 
 ### Virtual machine image reference
-
 The Batch service uses [Virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) to provide Linux compute nodes. The operating system images for these virtual machines are provided by the [Azure Marketplace][vm_marketplace]. When you configure a virtual machine image reference, you specify the properties of a Marketplace virtual machine image. The following properties are required when you create a virtual machine image reference:
 
 | **Image reference properties** | **Example** |
-| ----------------- | ------------------------ |
-| Publisher			| Canonical                |
-| Offer				| UbuntuServer             |
-| SKU				| 14.04.4-LTS              |
-| Version			| latest				   |
+| --- | --- |
+| Publisher |Canonical |
+| Offer |UbuntuServer |
+| SKU |14.04.4-LTS |
+| Version |latest |
 
-> [AZURE.TIP] You can learn more about these properties and how to list Marketplace images in [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md). Note that not all Marketplace images are currently compatible with Batch. For more information, see [Node agent SKU](#node-agent-sku).
+> [!TIP]
+> You can learn more about these properties and how to list Marketplace images in [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md). Note that not all Marketplace images are currently compatible with Batch. For more information, see [Node agent SKU](#node-agent-sku).
+> 
+> 
 
 ### Node agent SKU
-
 The Batch node agent is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. Essentially, when you create a Virtual Machine Configuration, you first specify the virtual machine image reference, and then you specify the node agent to install on the image. Typically, each node agent SKU is compatible with multiple virtual machine images. Here are a few examples of node agent SKUs:
 
 * batch.node.ubuntu 14.04
 * batch.node.centos 7
 * batch.node.windows amd64
 
-> [AZURE.IMPORTANT] Not all virtual machine images that are available in the Marketplace are compatible with the currently available Batch node agents. You must use the Batch SDKs to list the available node agent SKUs and the virtual machine images with which they are compatible. See the [List of Virtual Machine images](#list-of-virtual-machine-images) later in this article for more information.
+> [!IMPORTANT]
+> Not all virtual machine images that are available in the Marketplace are compatible with the currently available Batch node agents. You must use the Batch SDKs to list the available node agent SKUs and the virtual machine images with which they are compatible. See the [List of Virtual Machine images](#list-of-virtual-machine-images) later in this article for more information.
+> 
+> 
 
 ## Create a Linux pool: Batch Python
-
 The following code snippet shows an example of how to use the [Microsoft Azure Batch Client Library for Python][py_batch_package] to create a pool of Ubuntu Server compute nodes. Reference documentation for the Batch Python module can be found at [azure.batch package ][py_batch_docs] on Read the Docs.
 
 This snippet creates an [ImageReference][py_imagereference] explicitly and specifies each of its properties (publisher, offer, SKU, version). In production code, however, we recommend that you use the [list_node_agent_skus][py_list_skus] method to determine and select from the available image and node agent SKU combinations at runtime.
@@ -133,7 +138,6 @@ vmc = batchmodels.VirtualMachineConfiguration(
 ```
 
 ## Create a Linux pool: Batch .NET
-
 The following code snippet shows an example of how to use the [Batch .NET][nuget_batch_net] client library to create a pool of Ubuntu Server compute nodes. You can find the [Batch .NET reference documentation][api_net] on MSDN.
 
 The following code snippet uses the [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] method to select from the list of currently supported Marketplace image and node agent SKU combinations. This technique is desirable because the list of supported combinations may change from time to time. Most commonly, supported combinations are added.
@@ -197,39 +201,40 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## List of virtual machine images
-
 The following table lists the Marketplace virtual machine images that are compatible with the available Batch node agents when this article was last updated. It is important to note that this list is not definitive because images and node agents may be added or removed at any time. We recommend that your Batch applications and services always use [list_node_agent_skus][py_list_skus] (Python) and [ListNodeAgentSkus][net_list_skus] (Batch .NET) to determine and select from the currently available SKUs.
 
-> [AZURE.WARNING] The following list may change at any time. Always use the **list node agent SKU** methods available in the Batch APIs to list and then select from the compatible virtual machine and node agent SKUs when you run your Batch jobs.
+> [!WARNING]
+> The following list may change at any time. Always use the **list node agent SKU** methods available in the Batch APIs to list and then select from the compatible virtual machine and node agent SKUs when you run your Batch jobs.
+> 
+> 
 
 | **Publisher** | **Offer** | **Image SKU** | **Version** | **Node agent SKU ID** |
-| ------- | ------- | ------- | ------- | ------- |
-| Canonical | UbuntuServer | 14.04.0-LTS | latest | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 14.04.1-LTS | latest | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 14.04.2-LTS | latest | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 14.04.3-LTS | latest | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 14.04.4-LTS | latest | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 14.04.5-LTS | latest | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 16.04.0-LTS | latest | batch.node.ubuntu 16.04 |
-| Credativ | Debian | 8 | latest | batch.node.debian 8 |
-| OpenLogic | CentOS | 7.0 | latest | batch.node.centos 7 |
-| OpenLogic | CentOS | 7.1 | latest | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.1 | latest | batch.node.centos 7 |
-| OpenLogic | CentOS | 7.2 | latest | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.0 | latest | batch.node.centos 7 |
-| SUSE | openSUSE | 13.2 | latest | batch.node.opensuse 13.2 |
-| SUSE | openSUSE-Leap | 42.1 | latest | batch.node.opensuse 42.1 |
-| SUSE | SLES-HPC | 12 | latest | batch.node.opensuse 42.1 |
-| SUSE | SLES | 12-SP1 | latest | batch.node.opensuse 42.1 |
-| microsoft-ads | standard-data-science-vm | standard-data-science-vm | latest | batch.node.windows amd64 |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | latest | batch.node.centos 7 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | latest | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | latest | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | latest | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | latest | batch.node.windows amd64 |
+| --- | --- | --- | --- | --- |
+| Canonical |UbuntuServer |14.04.0-LTS |latest |batch.node.ubuntu 14.04 |
+| Canonical |UbuntuServer |14.04.1-LTS |latest |batch.node.ubuntu 14.04 |
+| Canonical |UbuntuServer |14.04.2-LTS |latest |batch.node.ubuntu 14.04 |
+| Canonical |UbuntuServer |14.04.3-LTS |latest |batch.node.ubuntu 14.04 |
+| Canonical |UbuntuServer |14.04.4-LTS |latest |batch.node.ubuntu 14.04 |
+| Canonical |UbuntuServer |14.04.5-LTS |latest |batch.node.ubuntu 14.04 |
+| Canonical |UbuntuServer |16.04.0-LTS |latest |batch.node.ubuntu 16.04 |
+| Credativ |Debian |8 |latest |batch.node.debian 8 |
+| OpenLogic |CentOS |7.0 |latest |batch.node.centos 7 |
+| OpenLogic |CentOS |7.1 |latest |batch.node.centos 7 |
+| OpenLogic |CentOS-HPC |7.1 |latest |batch.node.centos 7 |
+| OpenLogic |CentOS |7.2 |latest |batch.node.centos 7 |
+| Oracle |Oracle-Linux |7.0 |latest |batch.node.centos 7 |
+| SUSE |openSUSE |13.2 |latest |batch.node.opensuse 13.2 |
+| SUSE |openSUSE-Leap |42.1 |latest |batch.node.opensuse 42.1 |
+| SUSE |SLES-HPC |12 |latest |batch.node.opensuse 42.1 |
+| SUSE |SLES |12-SP1 |latest |batch.node.opensuse 42.1 |
+| microsoft-ads |standard-data-science-vm |standard-data-science-vm |latest |batch.node.windows amd64 |
+| microsoft-ads |linux-data-science-vm |linuxdsvm |latest |batch.node.centos 7 |
+| MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |latest |batch.node.windows amd64 |
+| MicrosoftWindowsServer |WindowsServer |2012-Datacenter |latest |batch.node.windows amd64 |
+| MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |latest |batch.node.windows amd64 |
+| MicrosoftWindowsServer |WindowsServer |Windows-Server-Technical-Preview |latest |batch.node.windows amd64 |
 
 ## Connect to Linux nodes
-
 During development or while troubleshooting, you may find it necessary to sign in to the nodes in your pool. Unlike Windows compute nodes, you cannot use Remote Desktop Protocol (RDP) to connect to Linux nodes. Instead, the Batch service enables SSH access on each node for remote connection.
 
 The following Python code snippet creates a user on each node in a pool, which is required for remote connection. It then prints the secure shell (SSH) connection information for each node.
@@ -304,21 +309,16 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 Note that instead of a password, you can specify an SSH public key when you create a user on a node. In the Python SDK, this is done by using the **ssh_public_key** parameter on [ComputeNodeUser][py_computenodeuser]. In .NET, this is done by using the [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key] property.
 
 ## Pricing
-
 Azure Batch is built on Azure Cloud Services and Azure Virtual Machines technology. The Batch service itself is offered at no cost, which means you are charged only for the compute resources that your Batch solutions consume. When you choose **Cloud Services Configuration**, you will be charged based on the [Cloud Services pricing][cloud_services_pricing] structure. When you choose **Virtual Machine Configuration**, you will be charged based on the [Virtual Machines pricing][vm_pricing] structure.
 
 ## Next steps
-
 ### Batch Python tutorial
-
 For a more in-depth tutorial about how to work with Batch by using Python, check out [Get started with the Azure Batch Python client](batch-python-tutorial.md). Its companion [code sample][github_samples_pyclient] includes a helper function, `get_vm_config_for_distro`, that shows another technique to obtain a virtual machine configuration.
 
 ### Batch Python code samples
-
 Check out the other [Python code samples][github_samples_py] in the [azure-batch-samples][github_samples] repository on GitHub for several scripts that show you how to perform common Batch operations such as pool, job, and task creation. The [README][github_py_readme] that accompanies the Python samples has details about how to install the required packages.
 
 ### Batch forum
-
 The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask questions about the service. Read helpful "stickied" posts, and post your questions as they arise while you build your Batch solutions.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx

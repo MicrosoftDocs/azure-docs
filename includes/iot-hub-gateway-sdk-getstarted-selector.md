@@ -1,40 +1,39 @@
-> [AZURE.SELECTOR]
-- [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md)
-- [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md)
+> [!div class="op_single_selector"]
+> * [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md)
+> * [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md)
+> 
+> 
 
 This article provides a detailed walkthrough of the [Hello World sample code][lnk-helloworld-sample] to illustrate the fundamental components of the [Azure IoT Gateway SDK][lnk-gateway-sdk] architecture. The sample uses the IoT Hub Gateway SDK to build a simple gateway that logs a "hello world" message to a file every five seconds.
 
 This walkthrough covers:
 
-- **Concepts**: A conceptual overview of the components that compose any gateway you create with the IoT Gateway SDK.  
-- **Hello World sample architecture**: Describes how the concepts apply to the Hello World sample and how the components fit together.
-- **How to build the sample**: The steps required to build the sample.
-- **How to run the sample**: The steps required to run the sample. 
-- **Typical output**: An example of the output to expect when you run the sample.
-- **Code snippets**: A collection of code snippets to show how the Hello World sample implements key gateway components.
+* **Concepts**: A conceptual overview of the components that compose any gateway you create with the IoT Gateway SDK.  
+* **Hello World sample architecture**: Describes how the concepts apply to the Hello World sample and how the components fit together.
+* **How to build the sample**: The steps required to build the sample.
+* **How to run the sample**: The steps required to run the sample. 
+* **Typical output**: An example of the output to expect when you run the sample.
+* **Code snippets**: A collection of code snippets to show how the Hello World sample implements key gateway components.
 
 ## Azure IoT Gateway SDK concepts
-
 Before you examine the sample code or create your own field gateway using the IoT Gateway SDK, you should understand the key concepts that underpin the architecture of the SDK.
 
 ### Modules
-
 You build a gateway with the Azure IoT Gateway SDK by creating and assembling *modules*. Modules use *messages* to exchange data with each other. A module receives a message, performs some action on it, optionally transforms it into a new message, and then publishes it for other modules to process. Some modules might only produce new messages and never process incoming messages. A chain of modules creates a data processing pipeline with each module performing a transformation on the data at one point in that pipeline.
 
 ![A chain of modules in gateway built with the Azure IoT Gateway SDK][1]
- 
+
 The SDK contains the following:
 
-- Pre-written modules which perform common gateway functions.
-- The interfaces a developer can use to write custom modules.
-- The infrastructure necessary to deploy and run a set of modules.
+* Pre-written modules which perform common gateway functions.
+* The interfaces a developer can use to write custom modules.
+* The infrastructure necessary to deploy and run a set of modules.
 
 The SDK provides an abstraction layer that enables you to build gateways to run on a variety of operating systems and platforms.
 
 ![Azure IoT Gateway SDK abstraction layer][2]
 
 ### Messages
-
 Although thinking about modules passing messages to each other is a convenient way to conceptualize how a gateway functions, it does not accurately reflect what happens. Modules use a broker to communicate with each other, they publish messages to the broker (bus, pubsub, or any other messaging pattern) and then let the broker route the message to the modules connected to it.
 
 A modules uses the **Broker_Publish** function to publish a message to the broker. The broker delivers messages to a module by invoking a callback function. A message consists of a set of key/value properties and content passed as a block of memory.
@@ -42,15 +41,13 @@ A modules uses the **Broker_Publish** function to publish a message to the broke
 ![The role of the Broker in the Azure IoT Gateway SDK][3]
 
 ### Message routing and filtering
-
 There are two ways of directing messages to the correct modules. A set of links can be passed to the broker so the broker knows the source and sink for each module, or the module can filter on the properties of the message. A module should only act upon a message if the message is intended for it. The links and message filtering is what effectively creates a message pipeline.
 
 ## Hello World sample architecture
-
 The Hello World sample illustrates the concepts described in the previous section. The Hello World sample implements a gateway that has a pipeline made up of two modules:
 
--	The *hello world* module creates a message every five seconds and passes it to the logger module.
--	The *logger* module writes the messages it receives to a file.
+* The *hello world* module creates a message every five seconds and passes it to the logger module.
+* The *logger* module writes the messages it receives to a file.
 
 ![Architecture of Hello World sample built with the Azure IoT Gateway SDK][4]
 

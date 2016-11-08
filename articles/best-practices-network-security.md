@@ -1,23 +1,23 @@
-<properties
-   pageTitle="Microsoft cloud services and network security | Microsoft Azure"
-   description="Learn some of the key features available in Azure to help create secure network environments"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="tracsman"
-   manager="rossort"
-   editor=""/>
+﻿---
+title: Microsoft cloud services and network security | Microsoft Docs
+description: Learn some of the key features available in Azure to help create secure network environments
+services: virtual-network
+documentationcenter: na
+author: tracsman
+manager: rossort
+editor: ''
 
-<tags
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/14/2016"
-   ms.author="jonor;sivae"/>
+ms.assetid: d169387a-1243-4867-a602-01d6f2d8a2a1
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/14/2016
+ms.author: jonor;sivae
 
+---
 # Microsoft cloud services and network security
-
 Microsoft cloud services deliver hyperscale services and infrastructure, enterprise-grade capabilities, and many choices for hybrid connectivity. Customers can choose to access these services either via the Internet or with Azure ExpressRoute, which provides private network connectivity. The Microsoft Azure platform allows customers to seamlessly extend their infrastructure into the cloud and build multitier architectures. Additionally, third parties can enable enhanced capabilities by offering security services and virtual appliances. This white paper provides an overview of security and architectural issues that customers should consider when using Microsoft cloud services accessed via ExpressRoute. It also covers creating more secure services in Azure virtual networks.
 
 ## Fast start
@@ -55,12 +55,12 @@ There are many architectures used to implement a perimeter network, from a simpl
 
 As customers move their workloads to public clouds, it is critical to support similar capabilities for perimeter network architecture in Azure to meet compliance and security requirements. This document provides guidelines on how customers can build a secure network environment in Azure. It focuses on the perimeter network, but also includes a comprehensive discussion of many aspects of network security. The following questions inform this discussion:
 
-- How can a perimeter network in Azure be built?
-- What are some of the Azure features available to build the perimeter network?
-- How can back-end workloads be protected?
-- How are Internet communications controlled to the workloads in Azure?
-- How can the on-premises networks be protected from deployments in Azure?
-- When should native Azure security features be used versus third-party appliances or services?
+* How can a perimeter network in Azure be built?
+* What are some of the Azure features available to build the perimeter network?
+* How can back-end workloads be protected?
+* How are Internet communications controlled to the workloads in Azure?
+* How can the on-premises networks be protected from deployments in Azure?
+* When should native Azure security features be used versus third-party appliances or services?
 
 The following diagram shows various layers of security Azure provides to customers. These layers are both native in the Azure platform itself and customer-defined features:
 
@@ -73,17 +73,17 @@ The next section provides an overview of Azure virtual networks. These virtual n
 ## Overview of Azure virtual networks
 Before Internet traffic can get to the Azure virtual networks, there are two layers of security inherent to the Azure platform:
 
-1.	**DDoS protection**: DDoS protection is a layer of the Azure physical network that protects the Azure platform itself from large-scale Internet-based attacks. These attacks use multiple “bot” nodes in an attempt to overwhelm an Internet service. Azure has a robust DDoS protection mesh on all inbound Internet connectivity. This DDoS protection layer has no user configurable attributes and is not accessible to customer. This protects Azure as a platform from large-scale attacks, but will not directly protect individual customer application. Additional layers of resilience can be configured by the customer against a localized attack. For example, if customer A was attacked with a large-scale DDoS attack on a public endpoint, Azure blocks connections to that service. Customer A could fail over to another virtual network or service endpoint not involved with the attack to restore service. It should be noted that although customer A might be affected on that endpoint, no other services outside that endpoint would be affected. In addition, other customers and services would see no impact from that attack.
-2.	**Service endpoints**: Endpoints allow cloud services or resource groups to have public Internet IP addresses and ports exposed. The endpoint will use Network Address Translation (NAT) to route traffic to the internal address and port on the Azure virtual network. This is the primary path for external traffic to pass into the virtual network. The service endpoints are user configurable to determine which traffic is passed in, and how and where it's translated to on the virtual network.
+1. **DDoS protection**: DDoS protection is a layer of the Azure physical network that protects the Azure platform itself from large-scale Internet-based attacks. These attacks use multiple “bot” nodes in an attempt to overwhelm an Internet service. Azure has a robust DDoS protection mesh on all inbound Internet connectivity. This DDoS protection layer has no user configurable attributes and is not accessible to customer. This protects Azure as a platform from large-scale attacks, but will not directly protect individual customer application. Additional layers of resilience can be configured by the customer against a localized attack. For example, if customer A was attacked with a large-scale DDoS attack on a public endpoint, Azure blocks connections to that service. Customer A could fail over to another virtual network or service endpoint not involved with the attack to restore service. It should be noted that although customer A might be affected on that endpoint, no other services outside that endpoint would be affected. In addition, other customers and services would see no impact from that attack.
+2. **Service endpoints**: Endpoints allow cloud services or resource groups to have public Internet IP addresses and ports exposed. The endpoint will use Network Address Translation (NAT) to route traffic to the internal address and port on the Azure virtual network. This is the primary path for external traffic to pass into the virtual network. The service endpoints are user configurable to determine which traffic is passed in, and how and where it's translated to on the virtual network.
 
 Once traffic reaches the virtual network, there are many features that come into play. Azure virtual networks are the foundation for customers to attach their workloads and where basic network-level security applies. It is a private network (a virtual network overlay) in Azure for customers with the following features and characteristics:
- 
-- **Traffic isolation**: A virtual network is the traffic isolation boundary on the Azure platform. Virtual machines (VMs) in one virtual network cannot communicate directly to VMs in a different virtual network, even if both virtual networks are created by the same customer. This is a critical property that ensures customer VMs and communication remains private within a virtual network.
-- **Multitier topology**: Virtual networks allow customers to define multitier topology by allocating subnets and designating separate address spaces for different elements or “tiers” of their workloads. These logical groupings and topologies enable customers to define different access policy based on the workload types, and also control traffic flows between the tiers.
-- **Cross-premises connectivity**: Customers can establish cross-premises connectivity between a virtual network and multiple on-premises sites or other virtual networks in Azure. To do this, customers can use Azure VPN Gateways or third-party network virtual appliances. Azure supports site-to-site (S2S) VPNs using standard IPsec/IKE protocols and ExpressRoute private connectivity.
-- **NSG** allows customers to create rules (ACLs) at the desired level of granularity: network interfaces, individual VMs, or virtual subnets. Customers can control access by permitting or denying communication between the workloads within a virtual network, from systems on customer’s networks via cross-premises connectivity, or direct Internet communication.
-- **UDR** and **IP Forwarding** allow customers to define the communication paths between different tiers within a virtual network. Customers can deploy a firewall, IDS/IPS, and other virtual appliances, and route network traffic through these security appliances for security boundary policy enforcement, auditing, and inspection.
-- **Network virtual appliances** in the Azure Marketplace: Security appliances such as firewalls, load balancers, and IDS/IPS are available in the Azure Marketplace and the VM Image Gallery. Customers can deploy these appliances into their virtual networks, and specifically, at their security boundaries (including the perimeter network subnets) to complete a multitiered secure network environment.
+
+* **Traffic isolation**: A virtual network is the traffic isolation boundary on the Azure platform. Virtual machines (VMs) in one virtual network cannot communicate directly to VMs in a different virtual network, even if both virtual networks are created by the same customer. This is a critical property that ensures customer VMs and communication remains private within a virtual network.
+* **Multitier topology**: Virtual networks allow customers to define multitier topology by allocating subnets and designating separate address spaces for different elements or “tiers” of their workloads. These logical groupings and topologies enable customers to define different access policy based on the workload types, and also control traffic flows between the tiers.
+* **Cross-premises connectivity**: Customers can establish cross-premises connectivity between a virtual network and multiple on-premises sites or other virtual networks in Azure. To do this, customers can use Azure VPN Gateways or third-party network virtual appliances. Azure supports site-to-site (S2S) VPNs using standard IPsec/IKE protocols and ExpressRoute private connectivity.
+* **NSG** allows customers to create rules (ACLs) at the desired level of granularity: network interfaces, individual VMs, or virtual subnets. Customers can control access by permitting or denying communication between the workloads within a virtual network, from systems on customer’s networks via cross-premises connectivity, or direct Internet communication.
+* **UDR** and **IP Forwarding** allow customers to define the communication paths between different tiers within a virtual network. Customers can deploy a firewall, IDS/IPS, and other virtual appliances, and route network traffic through these security appliances for security boundary policy enforcement, auditing, and inspection.
+* **Network virtual appliances** in the Azure Marketplace: Security appliances such as firewalls, load balancers, and IDS/IPS are available in the Azure Marketplace and the VM Image Gallery. Customers can deploy these appliances into their virtual networks, and specifically, at their security boundaries (including the perimeter network subnets) to complete a multitiered secure network environment.
 
 With these features and capabilities, one example of how a perimeter network architecture could be constructed in Azure is the following:
 
@@ -95,38 +95,41 @@ The perimeter network is designed to be the front end of the network, directly i
 ### Perimeter network characteristics
 Referencing the previous figure, some of the characteristics of a good perimeter network are as follows:
 
-- Internet-facing:
-    - The perimeter network subnet itself is Internet-facing, directly communicating with the Internet.
-    - Public IPs, VIPs, and/or service endpoints pass Internet traffic to the front-end network and devices.
-    - Inbound traffic from the Internet passes through security devices before other resources on the front-end network.
-    - If outbound security is enabled, traffic passes through security devices, as the final step, before passing to the Internet.
-- Protected network:
-    - There is no direct path from the Internet to the core infrastructure.
-    - Channels to the core infrastructure must traverse through security devices such as NSGs, firewalls, or VPN devices.
-    - Other devices must not bridge Internet and the core infrastructure.
-    - Security devices on both the Internet-facing and the protected network facing boundaries of the perimeter network (for example, the two firewall icons shown in the previous figure) may actually be a single virtual appliance with differentiated rules or interfaces for each boundary. (That is, one device, logically separated, handling the load for both boundaries of the perimeter network.)
-- Other common practices and constraints:
-    - Workloads must not store business critical information.
-    - Access and updates to perimeter network configurations and deployments are limited to only authorized administrators.
+* Internet-facing:
+  * The perimeter network subnet itself is Internet-facing, directly communicating with the Internet.
+  * Public IPs, VIPs, and/or service endpoints pass Internet traffic to the front-end network and devices.
+  * Inbound traffic from the Internet passes through security devices before other resources on the front-end network.
+  * If outbound security is enabled, traffic passes through security devices, as the final step, before passing to the Internet.
+* Protected network:
+  * There is no direct path from the Internet to the core infrastructure.
+  * Channels to the core infrastructure must traverse through security devices such as NSGs, firewalls, or VPN devices.
+  * Other devices must not bridge Internet and the core infrastructure.
+  * Security devices on both the Internet-facing and the protected network facing boundaries of the perimeter network (for example, the two firewall icons shown in the previous figure) may actually be a single virtual appliance with differentiated rules or interfaces for each boundary. (That is, one device, logically separated, handling the load for both boundaries of the perimeter network.)
+* Other common practices and constraints:
+  * Workloads must not store business critical information.
+  * Access and updates to perimeter network configurations and deployments are limited to only authorized administrators.
 
 ### Perimeter network requirements
 To enable these characteristics, follow these guidelines on virtual network requirements to implement a successful perimeter network:
 
-- **Subnet architecture:** Specify the virtual network such that an entire subnet is dedicated as the perimeter network, separated from other subnets in the same virtual network. This ensures the traffic between the perimeter network and other internal or private subnet tiers flows through a firewall or IDS/IPS virtual appliance on the subnet boundaries with user-defined routes.
-- **NSG:** The perimeter network subnet itself should be open to allow communication with the Internet, but that does not mean customers should be bypassing NSGs. Follow common security practices to minimize the network surfaces exposed to the Internet. Lock down the remote address ranges allowed to access the deployments or the specific application protocols and ports that are open. There may be circumstances, however, in which this is not always possible. For example, if customers have an external website in Azure, the perimeter network should allow the incoming web requests from any public IP addresses, but should only open the web application ports: TCP:80 and TCP:443.
-- **Routing table:** The perimeter network subnet itself should be able to communicate to the Internet directly, but should not allow direct communication to and from the back end or on-premises networks without going through a firewall or security appliance.
-- **Security appliance configuration:** In order to route and inspect packets between the perimeter network and the rest of the protected networks, the security appliances such as firewall, IDS, and IPS devices may be multi-homed. They may have separate NICs for the perimeter network and the back-end subnets. The NICs in the perimeter network communicate directly to and from the Internet, with the corresponding NSGs and the perimeter network routing table. The NICs connecting to the back-end subnets have more restricted NSGs and routing tables of the corresponding back-end subnets.
-- **Security appliance functionality:** The security appliances deployed in the perimeter network typically perform the following functionality:
-    - Firewall: Enforcing firewall rules or access control policies for the incoming requests.
-    - Threat detection and prevention: Detecting and mitigating malicious attacks from the Internet.
-    - Auditing and logging: Maintaining detailed logs for auditing and analysis.
-    - Reverse proxy: Redirecting the incoming requests to the corresponding back-end servers. This involves mapping and translating the destination addresses on the front-end devices, typically firewalls, to the back-end server addresses.
-    - Forward proxy: Providing NAT and performing auditing for communication initiated from within the virtual network to the Internet.
-    - Router: Forwarding incoming and cross-subnet traffic inside the virtual network.
-    - VPN device: Acting as the cross-premises VPN gateways for cross-premises VPN connectivity between customer on-premises networks and Azure virtual networks.
-    - VPN server: Accepting VPN clients connecting to Azure virtual networks.
+* **Subnet architecture:** Specify the virtual network such that an entire subnet is dedicated as the perimeter network, separated from other subnets in the same virtual network. This ensures the traffic between the perimeter network and other internal or private subnet tiers flows through a firewall or IDS/IPS virtual appliance on the subnet boundaries with user-defined routes.
+* **NSG:** The perimeter network subnet itself should be open to allow communication with the Internet, but that does not mean customers should be bypassing NSGs. Follow common security practices to minimize the network surfaces exposed to the Internet. Lock down the remote address ranges allowed to access the deployments or the specific application protocols and ports that are open. There may be circumstances, however, in which this is not always possible. For example, if customers have an external website in Azure, the perimeter network should allow the incoming web requests from any public IP addresses, but should only open the web application ports: TCP:80 and TCP:443.
+* **Routing table:** The perimeter network subnet itself should be able to communicate to the Internet directly, but should not allow direct communication to and from the back end or on-premises networks without going through a firewall or security appliance.
+* **Security appliance configuration:** In order to route and inspect packets between the perimeter network and the rest of the protected networks, the security appliances such as firewall, IDS, and IPS devices may be multi-homed. They may have separate NICs for the perimeter network and the back-end subnets. The NICs in the perimeter network communicate directly to and from the Internet, with the corresponding NSGs and the perimeter network routing table. The NICs connecting to the back-end subnets have more restricted NSGs and routing tables of the corresponding back-end subnets.
+* **Security appliance functionality:** The security appliances deployed in the perimeter network typically perform the following functionality:
+  * Firewall: Enforcing firewall rules or access control policies for the incoming requests.
+  * Threat detection and prevention: Detecting and mitigating malicious attacks from the Internet.
+  * Auditing and logging: Maintaining detailed logs for auditing and analysis.
+  * Reverse proxy: Redirecting the incoming requests to the corresponding back-end servers. This involves mapping and translating the destination addresses on the front-end devices, typically firewalls, to the back-end server addresses.
+  * Forward proxy: Providing NAT and performing auditing for communication initiated from within the virtual network to the Internet.
+  * Router: Forwarding incoming and cross-subnet traffic inside the virtual network.
+  * VPN device: Acting as the cross-premises VPN gateways for cross-premises VPN connectivity between customer on-premises networks and Azure virtual networks.
+  * VPN server: Accepting VPN clients connecting to Azure virtual networks.
 
->[AZURE.TIP] Keep the following two groups separate: the individuals authorized to access the perimeter network security gear and the individuals authorized as application development, deployment, or operations administrators. Keeping these groups separate allows for a segregation of duties and prevents a single person from bypassing both applications security and network security controls.
+> [!TIP]
+> Keep the following two groups separate: the individuals authorized to access the perimeter network security gear and the individuals authorized as application development, deployment, or operations administrators. Keeping these groups separate allows for a segregation of duties and prevents a single person from bypassing both applications security and network security controls.
+> 
+> 
 
 ### Questions to be asked when building network boundaries
 In this section, unless specifically mentioned, the term "networks" refers to private Azure virtual networks created by a subscription administrator. The term doesn't refer to the underlying physical networks within Azure.
@@ -138,14 +141,17 @@ The following three questions are critical to answer when you're building a netw
 #### 1) How many boundaries are needed?
 The first decision point is to decide how many security boundaries are needed in a given scenario:
 
-- A single boundary: One on the front-end perimeter network, between the virtual network and the Internet.
-- Two boundaries: One on the Internet side of the perimeter network, and another between the perimeter network subnet and the back-end subnets in the Azure virtual networks.
-- Three boundaries: One on the Internet side of the perimeter network, one between the perimeter network and back-end subnets, and one between the back-end subnets and the on-premises network.
-- N boundaries: A variable number. Depending on security requirements, there is really any number of security boundaries that can be applied in a given network.
+* A single boundary: One on the front-end perimeter network, between the virtual network and the Internet.
+* Two boundaries: One on the Internet side of the perimeter network, and another between the perimeter network subnet and the back-end subnets in the Azure virtual networks.
+* Three boundaries: One on the Internet side of the perimeter network, one between the perimeter network and back-end subnets, and one between the back-end subnets and the on-premises network.
+* N boundaries: A variable number. Depending on security requirements, there is really any number of security boundaries that can be applied in a given network.
 
 The number and type of boundaries needed will vary based on a company’s risk tolerance and the specific scenario being implemented. This is often a joint decision made by multiple groups within an organization, often including a risk and compliance team, a network and platform team, and an application development team. People with knowledge of security, the data involved, and the technologies being used should have a say in this decision to ensure the appropriate security stance for each implementation.
 
->[AZURE.TIP] Use the smallest number of boundaries that satisfy the security requirements for a given situation. With more boundaries the more difficult operations and troubleshooting can be, as well as the management overhead involved with managing the multiple boundary policies over time. However, insufficient boundaries increase risk. Finding the balance is critical.
+> [!TIP]
+> Use the smallest number of boundaries that satisfy the security requirements for a given situation. With more boundaries the more difficult operations and troubleshooting can be, as well as the management overhead involved with managing the multiple boundary policies over time. However, insufficient boundaries increase risk. Finding the balance is critical.
+> 
+> 
 
 ![Hybrid network with three security boundaries][6]
 
@@ -153,9 +159,10 @@ The preceding figure shows a high-level view of a three security boundary networ
 
 #### 2) Where are the boundaries located?
 Once the number of boundaries are decided, where to implement them is the next decision point. There are generally three choices:
-- Using an Internet-based intermediary service (for example, a cloud-based Web application firewall, which is not discussed in this document)
-- Using native features and/or network virtual appliances in Azure
-- Using physical devices on the on-premises network
+
+* Using an Internet-based intermediary service (for example, a cloud-based Web application firewall, which is not discussed in this document)
+* Using native features and/or network virtual appliances in Azure
+* Using physical devices on the on-premises network
 
 On purely Azure networks, the options are native Azure features (for example, Azure Load Balancers) or network virtual appliances from the rich partner ecosystem of Azure (for example, Check Point firewalls).
 
@@ -183,28 +190,31 @@ Once you know the answers to the previous questions, the [Fast Start](#fast-star
 #### Environment description
 In this example, there is a subscription that contains the following:
 
-- Two cloud services: “FrontEnd001” and “BackEnd001”
-- A virtual network, “CorpNetwork”, with two subnets: “FrontEnd” and “BackEnd”
-- A Network Security Group that is applied to both subnets
-- A Windows server that represents an application web server (“IIS01”)
-- Two Windows servers that represent application back-end servers (“AppVM01”, “AppVM02”)
-- A Windows server that represents a DNS server (“DNS01”)
+* Two cloud services: “FrontEnd001” and “BackEnd001”
+* A virtual network, “CorpNetwork”, with two subnets: “FrontEnd” and “BackEnd”
+* A Network Security Group that is applied to both subnets
+* A Windows server that represents an application web server (“IIS01”)
+* Two Windows servers that represent application back-end servers (“AppVM01”, “AppVM02”)
+* A Windows server that represents a DNS server (“DNS01”)
 
 For scripts and an Azure Resource Manager template, see the [detailed build instructions][Example1].
 
 #### NSG description
 In this example, an NSG group is built and then loaded with six rules.
 
->[AZURE.TIP] Generally speaking, you should create your specific “Allow” rules first, followed by the more generic “Deny” rules. The given priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either the inbound or outbound direction (from the perspective of the subnet).
+> [!TIP]
+> Generally speaking, you should create your specific “Allow” rules first, followed by the more generic “Deny” rules. The given priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either the inbound or outbound direction (from the perspective of the subnet).
+> 
+> 
 
 Declaratively, the following rules are being built for inbound traffic:
 
-1.	Internal DNS traffic (port 53) is allowed.
-2.	RDP traffic (port 3389) from the Internet to any Virtual Machine is allowed.
-3.	HTTP traffic (port 80) from the Internet to web server (IIS01) is allowed.
-4.	Any traffic (all ports) from IIS01 to AppVM1 is allowed.
-5.	Any traffic (all ports) from the Internet to the entire virtual network (both subnets) is denied.
-6.	Any traffic (all ports) from the front-end subnet to the back-end subnet is denied.
+1. Internal DNS traffic (port 53) is allowed.
+2. RDP traffic (port 3389) from the Internet to any Virtual Machine is allowed.
+3. HTTP traffic (port 80) from the Internet to web server (IIS01) is allowed.
+4. Any traffic (all ports) from IIS01 to AppVM1 is allowed.
+5. Any traffic (all ports) from the Internet to the entire virtual network (both subnets) is denied.
+6. Any traffic (all ports) from the front-end subnet to the back-end subnet is denied.
 
 With these rules bound to each subnet, if an HTTP request was inbound from the Internet to the web server, both rules 3 (allow) and 5 (deny) would apply. But because rule 3 has a higher priority, only it would apply, and rule 5 would not come into play. Thus the HTTP request would be allowed to the web server. If that same traffic was trying to reach the DNS01 server, rule 5 (deny) would be the first to apply, and the traffic would not be allowed to pass to the server. Rule 6 (deny) blocks the front-end subnet from talking to the back-end subnet (except for allowed traffic in rules 1 and 4). This protects the back-end network in case an attacker compromises the web application on the front end. The attacker would have limited access to the back-end “protected” network (only to resources exposed on the AppVM01 server).
 
@@ -213,13 +223,12 @@ There is a default outbound rule that allows traffic out to the Internet. For th
 #### Conclusion
 This is a relatively simple and straightforward way of isolating the back-end subnet from inbound traffic. For more information, see the [detailed build instructions][Example1]. These instructions include:
 
-- How to build this perimeter network with PowerShell scripts.
-- How to build this perimeter network with an Azure Resource Manager template.
-- Detailed descriptions of each NSG command.
-- Detailed traffic flow scenarios, showing how traffic is allowed or denied in each layer.
+* How to build this perimeter network with PowerShell scripts.
+* How to build this perimeter network with an Azure Resource Manager template.
+* Detailed descriptions of each NSG command.
+* Detailed traffic flow scenarios, showing how traffic is allowed or denied in each layer.
 
-
- ### Example 2: Build a perimeter network to help protect applications with a firewall and NSGs
+### Example 2: Build a perimeter network to help protect applications with a firewall and NSGs
 [Back to Fast start](#fast-start) | [Detailed build instructions for this example][Example2]
 
 ![Inbound perimeter network with NVA and NSG][8]
@@ -227,29 +236,32 @@ This is a relatively simple and straightforward way of isolating the back-end su
 #### Environment description
 In this example, there is a subscription that contains the following:
 
-- Two cloud services: “FrontEnd001” and “BackEnd001”
-- A virtual network, “CorpNetwork”, with two subnets: “FrontEnd” and “BackEnd”
-- A Network Security Group that is applied to both subnets
-- A network virtual appliance, in this case a firewall, connected to the front-end subnet
-- A Windows server that represents an application web server (“IIS01”)
-- Two Windows servers that represent application back-end servers (“AppVM01”, “AppVM02”)
-- A Windows server that represents a DNS server (“DNS01”)
+* Two cloud services: “FrontEnd001” and “BackEnd001”
+* A virtual network, “CorpNetwork”, with two subnets: “FrontEnd” and “BackEnd”
+* A Network Security Group that is applied to both subnets
+* A network virtual appliance, in this case a firewall, connected to the front-end subnet
+* A Windows server that represents an application web server (“IIS01”)
+* Two Windows servers that represent application back-end servers (“AppVM01”, “AppVM02”)
+* A Windows server that represents a DNS server (“DNS01”)
 
 For scripts and an Azure Resource Manager template, see the [detailed build instructions][Example2].
 
 #### NSG description
 In this example, an NSG group is built and then loaded with six rules.
 
->[AZURE.TIP] Generally speaking, you should create your specific “Allow” rules first, followed by the more generic “Deny” rules. The given priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either the inbound or outbound direction (from the perspective of the subnet).
+> [!TIP]
+> Generally speaking, you should create your specific “Allow” rules first, followed by the more generic “Deny” rules. The given priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either the inbound or outbound direction (from the perspective of the subnet).
+> 
+> 
 
 Declaratively, the following rules are being built for inbound traffic:
 
-1.	Internal DNS traffic (port 53) is allowed.
-2.	RDP traffic (port 3389) from the Internet to any Virtual Machine is allowed.
-3.	Any Internet traffic (all ports) to the network virtual appliance (firewall) is allowed.
-4.	Any traffic (all ports) from IIS01 to AppVM1 is allowed.
-5.	Any traffic (all ports) from the Internet to the entire virtual network (both subnets) is denied.
-6.	Any traffic (all ports) from the front-end subnet to the back-end subnet is denied.
+1. Internal DNS traffic (port 53) is allowed.
+2. RDP traffic (port 3389) from the Internet to any Virtual Machine is allowed.
+3. Any Internet traffic (all ports) to the network virtual appliance (firewall) is allowed.
+4. Any traffic (all ports) from IIS01 to AppVM1 is allowed.
+5. Any traffic (all ports) from the Internet to the entire virtual network (both subnets) is denied.
+6. Any traffic (all ports) from the front-end subnet to the back-end subnet is denied.
 
 With these rules bound to each subnet, if an HTTP request was inbound from the Internet to the firewall, both rules 3 (allow) and 5 (deny) would apply. But because rule 3 has a higher priority, only it would apply, and rule 5 would not come into play. Thus the HTTP request would be allowed to the firewall. If that same traffic was trying to reach the IIS01 server, even though it’s on the front-end subnet, rule 5 (deny) would apply, and the traffic would not be allowed to pass to the server. Rule 6 (deny) blocks the front-end subnet from talking to the back-end subnet (except for allowed traffic in rules 1 and 4). This protects the back-end network in case an attacker compromises the web application on the front end. The attacker would have limited access to the back-end “protected” network (only to resources exposed on the AppVM01 server).
 
@@ -263,10 +275,10 @@ The forwarding rule accepts any inbound source address that hits the firewall tr
 #### Conclusion
 This is a relatively straightforward way of protecting your application with a firewall and isolating the back-end subnet from inbound traffic. For more information, see the [detailed build instructions][Example2]. These instructions include:
 
-- How to build this perimeter network with PowerShell scripts.
-- How to build this example with an Azure Resource Manager template.
-- Detailed descriptions of each NSG command and firewall rule.
-- Detailed traffic flow scenarios, showing how traffic is allowed or denied in each layer.
+* How to build this perimeter network with PowerShell scripts.
+* How to build this example with an Azure Resource Manager template.
+* Detailed descriptions of each NSG command and firewall rule.
+* Detailed traffic flow scenarios, showing how traffic is allowed or denied in each layer.
 
 ### Example 3: Build a perimeter network to help protect networks with a firewall, UDR, and NSG
 [Back to Fast start](#fast-start) | [Detailed build instructions for this example][Example3]
@@ -276,12 +288,12 @@ This is a relatively straightforward way of protecting your application with a f
 #### Environment description
 In this example, there is a subscription that contains the following:
 
-- Three cloud services: “SecSvc001”, “FrontEnd001”, and “BackEnd001”
-- A virtual network, “CorpNetwork”, with three subnets: “SecNet”, “FrontEnd”, and “BackEnd”
-- A network virtual appliance, in this case a firewall, connected to the SecNet subnet
-- A Windows server that represents an application web server (“IIS01”)
-- Two Windows servers that represent application back-end servers (“AppVM01”, “AppVM02”)
-- A Windows server that represents a DNS server (“DNS01”)
+* Three cloud services: “SecSvc001”, “FrontEnd001”, and “BackEnd001”
+* A virtual network, “CorpNetwork”, with three subnets: “SecNet”, “FrontEnd”, and “BackEnd”
+* A network virtual appliance, in this case a firewall, connected to the SecNet subnet
+* A Windows server that represents an application web server (“IIS01”)
+* Two Windows servers that represent application back-end servers (“AppVM01”, “AppVM02”)
+* A Windows server that represents a DNS server (“DNS01”)
 
 For scripts and an Azure Resource Manager template, see the [detailed build instructions][Example3].
 
@@ -306,9 +318,13 @@ In this example, two routing tables are created, one each for the front-end and 
 2. Virtual network traffic with a Next Hop defined as firewall; this overrides the default rule that allows local virtual network traffic to route directly.
 3. All remaining traffic (0/0) with a Next Hop defined as the firewall.
 
->[AZURE.TIP] Not having the local subnet entry in the UDR will break local subnet communications. 
-> - In our example, 10.0.1.0/24 pointing to VNETLocal is critical as otherwise, packet leaving the Web Server (10.0.1.4) destined to another local server (for example) 10.0.1.25 will fail as they will be sent over to the NVA, which will send it to the subnet, and the subnet will re-send it to the NVA and so on.
-> - Chances of a routing loop are typically higher on multi-nic appliances that are directly connected to each subnet they are communicating with, which is often of traditional, on-premises, appliances. 
+> [!TIP]
+> Not having the local subnet entry in the UDR will break local subnet communications. 
+> 
+> * In our example, 10.0.1.0/24 pointing to VNETLocal is critical as otherwise, packet leaving the Web Server (10.0.1.4) destined to another local server (for example) 10.0.1.25 will fail as they will be sent over to the NVA, which will send it to the subnet, and the subnet will re-send it to the NVA and so on.
+> * Chances of a routing loop are typically higher on multi-nic appliances that are directly connected to each subnet they are communicating with, which is often of traditional, on-premises, appliances. 
+> 
+> 
 
 Once the routing tables are created, they are bound to their subnets. The front-end subnet routing table, once created and bound to the subnet, would look like this:
 
@@ -316,13 +332,15 @@ Once the routing tables are created, they are bound to their subnets. The front-
          Address Prefix    Next hop type    Next hop IP address Status   Source     
          --------------    -------------    ------------------- ------   ------     
          {10.0.1.0/24}     VNETLocal                            Active 
-		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
+         {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE] UDR can now be applied to the gateway subnet on which the ExpressRoute circuit is connected.
->
+> [!NOTE]
+> UDR can now be applied to the gateway subnet on which the ExpressRoute circuit is connected.
+> 
 > Examples of how to enable your perimeter network with ExpressRoute or site-to-site networking are shown in examples 3 and 4.
-
+> 
+> 
 
 #### IP Forwarding description
 IP Forwarding is a companion feature to UDR. This is a setting on a virtual appliance that allows it to receive traffic not specifically addressed to the appliance, and then forward that traffic to its ultimate destination.
@@ -332,51 +350,58 @@ For example, if traffic from AppVM01 makes a request to the DNS01 server, UDR wo
 #### NSG description
 In this example, an NSG group is built and then loaded with a single rule. This group is then bound only to the front-end and back-end subnets (not the SecNet). Declaratively the following rule is being built:
 
-- Any traffic (all ports) from the Internet to the entire virtual network (all subnets) is denied.
+* Any traffic (all ports) from the Internet to the entire virtual network (all subnets) is denied.
 
 Although NSGs are used in this example, its main purpose is as a secondary layer of defense against manual misconfiguration. The goal is to block all inbound traffic from the Internet to either the front-end or back-end subnets. Traffic should only flow through the SecNet subnet to the firewall (and then, if appropriate, on to the front-end or back-end subnets). Plus, with the UDR rules in place, any traffic that did make it into the front-end or back-end subnets would be directed out to the firewall (thanks to UDR). The firewall would see this as an asymmetric flow and would drop the outbound traffic. Thus there are three layers of security protecting the subnets:
-- No open endpoints on the FrontEnd001 and BackEnd001 cloud services.
-- NSGs denying traffic from the Internet.
-- The firewall dropping asymmetric traffic.
+
+* No open endpoints on the FrontEnd001 and BackEnd001 cloud services.
+* NSGs denying traffic from the Internet.
+* The firewall dropping asymmetric traffic.
 
 One interesting point regarding the NSG in this example is that it contains only one rule, which is to deny Internet traffic to the entire virtual network, including the Security subnet. However, since the NSG is only bound to the front-end and back-end subnets, the rule isn’t processed on traffic inbound to the Security subnet. As a result, traffic will flow to the Security subnet.
 
 #### Firewall rules
 On the firewall, forwarding rules should be created. Since the firewall is blocking or forwarding all inbound, outbound, and intra-virtual network traffic, many firewall rules are needed. Also, all inbound traffic will hit the Security Service public IP address (on different ports), to be processed by the firewall. A best practice is to diagram the logical flows before setting up the subnets and firewall rules, to avoid rework later. The following figure is a logical view of the firewall rules for this example:
- 
+
 ![Logical view of the firewall rules][10]
 
->[AZURE.NOTE] Based on the Network Virtual Appliance used, the management ports will vary. In this example, a Barracuda NextGen Firewall is referenced, which uses ports 22, 801, and 807. Consult the appliance vendor documentation to find the exact ports used for management of the device being used.
+> [!NOTE]
+> Based on the Network Virtual Appliance used, the management ports will vary. In this example, a Barracuda NextGen Firewall is referenced, which uses ports 22, 801, and 807. Consult the appliance vendor documentation to find the exact ports used for management of the device being used.
+> 
+> 
 
 #### Firewall rules description
 In the preceding logical diagram, the security subnet is not shown. This is because the firewall is the only resource on that subnet, and this diagram is showing the firewall rules and how they logically allow or deny traffic flows, not the actual routed path. Also, the external ports selected for the RDP traffic are higher ranged ports (8014 – 8026) and were selected to somewhat align with the last two octets of the local IP address for easier readability (for example, local server address 10.0.1.4 is associated with external port 8014). Any higher non-conflicting ports, however, could be used.
 
 For this example, we need seven types of rules:
 
-- External rules (for inbound traffic):
-  1.	Firewall management rule: This App Redirect rule allows traffic to pass to the management ports of the network virtual appliance.
-  2.	RDP rules (for each Windows server): These four rules (one for each server) allow management of the individual servers via RDP. This could also be bundled into one rule, depending on the capabilities of the network virtual appliance being used.
-  3.	Application traffic rules: There are two of these rules, the first for the front-end web traffic, and the second for the back-end traffic (for example, web server to data tier). The configuration of these rules depends on the network architecture (where your servers are placed) and traffic flows (which direction the traffic flows, and which ports are used).
-      - The first rule allows the actual application traffic to reach the application server. While the other rules allow for security and management, application traffic rules are what allow external users or services to access the application(s). For this example, there is a single web server on port 80. Thus a single firewall application rule redirects inbound traffic to the external IP, to the web servers internal IP address. The redirected traffic session would be translated via NAT to the internal server.
-      - The second rule is the back-end rule to allow the web server to talk to the AppVM01 server (but not AppVM02) via any port.
-- Internal rules (for intra-virtual network traffic)
-  4.	Outbound to Internet rule: This rule allows traffic from any network to pass to the selected networks. This rule is usually a default rule already on the firewall, but in a disabled state. This rule should be enabled for this example.
-  5.	DNS rule: This rule allows only DNS (port 53) traffic to pass to the DNS server. For this environment most traffic from the front end to the back end is blocked. This rule specifically allows DNS from any local subnet.
-  6.	Subnet to subnet rule: This rule is to allow any server on the back-end subnet to connect to any server on the front-end subnet (but not the reverse).
-- Fail-safe rule (for traffic that doesn’t meet any of the previous):
-  7.	Deny all traffic rule: This should always be the final rule (in terms of priority), and as such if a traffic flow fails to match any of the preceding rules it will be dropped by this rule. This is a default rule and usually activated. No modifications are generally needed.
+* External rules (for inbound traffic):
+  1. Firewall management rule: This App Redirect rule allows traffic to pass to the management ports of the network virtual appliance.
+  2. RDP rules (for each Windows server): These four rules (one for each server) allow management of the individual servers via RDP. This could also be bundled into one rule, depending on the capabilities of the network virtual appliance being used.
+  3. Application traffic rules: There are two of these rules, the first for the front-end web traffic, and the second for the back-end traffic (for example, web server to data tier). The configuration of these rules depends on the network architecture (where your servers are placed) and traffic flows (which direction the traffic flows, and which ports are used).
+     * The first rule allows the actual application traffic to reach the application server. While the other rules allow for security and management, application traffic rules are what allow external users or services to access the application(s). For this example, there is a single web server on port 80. Thus a single firewall application rule redirects inbound traffic to the external IP, to the web servers internal IP address. The redirected traffic session would be translated via NAT to the internal server.
+     * The second rule is the back-end rule to allow the web server to talk to the AppVM01 server (but not AppVM02) via any port.
+* Internal rules (for intra-virtual network traffic)
+  1. Outbound to Internet rule: This rule allows traffic from any network to pass to the selected networks. This rule is usually a default rule already on the firewall, but in a disabled state. This rule should be enabled for this example.
+  2. DNS rule: This rule allows only DNS (port 53) traffic to pass to the DNS server. For this environment most traffic from the front end to the back end is blocked. This rule specifically allows DNS from any local subnet.
+  3. Subnet to subnet rule: This rule is to allow any server on the back-end subnet to connect to any server on the front-end subnet (but not the reverse).
+* Fail-safe rule (for traffic that doesn’t meet any of the previous):
+  1. Deny all traffic rule: This should always be the final rule (in terms of priority), and as such if a traffic flow fails to match any of the preceding rules it will be dropped by this rule. This is a default rule and usually activated. No modifications are generally needed.
 
->[AZURE.TIP] On the second application traffic rule, to simplify this example, any port is allowed. In a real scenario, the most specific port and address ranges should be used to reduce the attack surface of this rule.
+> [!TIP]
+> On the second application traffic rule, to simplify this example, any port is allowed. In a real scenario, the most specific port and address ranges should be used to reduce the attack surface of this rule.
+> 
+> 
 
 Once all of the previous rules are created, it’s important to review the priority of each rule to ensure traffic will be allowed or denied as desired. For this example, the rules are in priority order.
 
 #### Conclusion
 This is a more complex but more complete way of protecting and isolating the network than the previous examples. (Example 2 protects just the application, and Example 1  just isolates subnets). This design allows for monitoring traffic in both directions, and protects not just the inbound application server but enforces network security policy for all servers on this network. Also, depending on the appliance used, full traffic auditing and awareness can be achieved. For more information, see the [detailed build instructions][Example3]. These instructions include:
 
-- How to build this example perimeter network with PowerShell scripts.
-- How to build this example with an Azure Resource Manager template.
-- Detailed descriptions of each UDR, NSG command, and firewall rule.
-- Detailed traffic flow scenarios, showing how traffic is allowed or denied in each layer.
+* How to build this example perimeter network with PowerShell scripts.
+* How to build this example with an Azure Resource Manager template.
+* Detailed descriptions of each UDR, NSG command, and firewall rule.
+* Detailed traffic flow scenarios, showing how traffic is allowed or denied in each layer.
 
 ### Example 4: Add a hybrid connection with a site-to-site, virtual appliance virtual private network (VPN)
 [Back to Fast start](#fast-start) | Detailed build instructions available soon
@@ -388,7 +413,10 @@ Hybrid networking using a network virtual appliance (NVA) can be added to any of
 
 As shown in the previous figure, a VPN connection over the Internet (site-to-site) is used to connect an on-premises network to an Azure virtual network via an NVA.
 
->[AZURE.NOTE] If you use ExpressRoute with the Azure Public Peering option enabled, a static route should be created. This should route to the NVA VPN IP address out your corporate Internet and not via the ExpressRoute WAN. The NAT required on the ExpressRoute Azure Public Peering option can break the VPN session.
+> [!NOTE]
+> If you use ExpressRoute with the Azure Public Peering option enabled, a static route should be created. This should route to the NVA VPN IP address out your corporate Internet and not via the ExpressRoute WAN. The NAT required on the ExpressRoute Azure Public Peering option can break the VPN session.
+> 
+> 
 
 Once the VPN is in place, the NVA becomes the central hub for all networks and subnets. The firewall forwarding rules determine which traffic flows are allowed, are translated via NAT, are redirected, or are dropped (even for traffic flows between the on-premises network and Azure).
 
@@ -407,9 +435,9 @@ Logically to the NVA, the network looks like four separate “security zones” 
 #### Conclusion
 The addition of a site-to-site VPN hybrid network connection to an Azure virtual network can extend the on-premises network into Azure in a secure manner. In using a VPN connection, your traffic is encrypted and routes via the Internet. The NVA in this example provides a central location to enforce and manage the security policy. For more information, see the detailed build instructions (forthcoming). These instructions include:
 
-- How to build this example perimeter network with PowerShell scripts.
-- How to build this example with an Azure Resource Manager template.
-- Detailed traffic flow scenarios, showing how traffic flows through this design.
+* How to build this example perimeter network with PowerShell scripts.
+* How to build this example with an Azure Resource Manager template.
+* Detailed traffic flow scenarios, showing how traffic flows through this design.
 
 ### Example 5: Add a hybrid connection with a site-to-site, Azure gateway VPN
 [Back to Fast start](#fast-start) | Detailed build instructions available soon
@@ -421,7 +449,10 @@ Hybrid networking using an Azure VPN gateway can be added to either perimeter ne
 
 As shown in the preceding figure, a VPN connection over the Internet (site-to-site) is used to connect an on-premises network to an Azure virtual network via an Azure VPN gateway.
 
->[AZURE.NOTE] If you use ExpressRoute with the Azure Public Peering option enabled, a static route should be created. This should route to the NVA VPN IP address out your corporate Internet and not via the ExpressRoute WAN. The NAT required on the ExpressRoute Azure Public Peering option can break the VPN session.
+> [!NOTE]
+> If you use ExpressRoute with the Azure Public Peering option enabled, a static route should be created. This should route to the NVA VPN IP address out your corporate Internet and not via the ExpressRoute WAN. The NAT required on the ExpressRoute Azure Public Peering option can break the VPN session.
+> 
+> 
 
 The following figure shows the two network edges in this option. On the first edge, the NVA and NSGs control traffic flows for intra-Azure networks and between Azure and the Internet. The second edge is the Azure VPN gateway, which is a completely separate and isolated network edge between on-premises and Azure.
 
@@ -434,9 +465,9 @@ Using the environment built in example 1, and then adding a site-to-site VPN hyb
 #### Conclusion
 The addition of a site-to-site VPN hybrid network connection to an Azure virtual network can extend the on-premises network into Azure in a secure manner. Using the native Azure VPN gateway, your traffic is IPSec encrypted and routes via the Internet. Also, using the Azure VPN gateway can provide a lower cost option (no additional licensing cost as with third-party NVAs). This is most economical in example 1, where no NVA is used. For more information, see the detailed build instructions (forthcoming). These instructions include:
 
-- How to build this example perimeter network with PowerShell scripts.
-- How to build this example with an Azure Resource Manager template.
-- Detailed traffic flow scenarios, showing how traffic flows through this design.
+* How to build this example perimeter network with PowerShell scripts.
+* How to build this example with an Azure Resource Manager template.
+* Detailed traffic flow scenarios, showing how traffic flows through this design.
 
 ### Example 6: Add a hybrid connection with ExpressRoute
 [Back to Fast start](#fast-start) | Detailed build instructions available soon
@@ -448,15 +479,18 @@ Hybrid networking using an ExpressRoute private peering connection can be added 
 
 As shown in the preceding figure, ExpressRoute private peering provides a direct connection between your on-premises network and the Azure virtual network. Traffic transits only the service provider network and the Microsoft Azure network, never touching the Internet.
 
->[AZURE.NOTE] There are certain restrictions when using UDR with ExpressRoute, due to the complexity of dynamic routing used in the Azure virtual gateway. These are as follows:
->
->- UDR should not be applied to the gateway subnet on which the ExpressRoute linked Azure virtual gateway is connected.
->- The ExpressRoute linked Azure virtual gateway cannot be the NextHop device for other UDR bound subnets.
->
->
-<br />
-
->[AZURE.TIP] Using ExpressRoute keeps corporate network traffic off of the Internet for better security and significantly increased performance. It also allows for service level agreements from your ExpressRoute provider. The Azure Gateway can pass up to 2 Gb/s with ExpressRoute, whereas with site-to-site VPNs, the Azure Gateway maximum throughput is 200 Mb/s.
+> [!NOTE]
+> There are certain restrictions when using UDR with ExpressRoute, due to the complexity of dynamic routing used in the Azure virtual gateway. These are as follows:
+> 
+> * UDR should not be applied to the gateway subnet on which the ExpressRoute linked Azure virtual gateway is connected.
+> * The ExpressRoute linked Azure virtual gateway cannot be the NextHop device for other UDR bound subnets.
+> 
+> <br />
+> 
+> [!TIP]
+> Using ExpressRoute keeps corporate network traffic off of the Internet for better security and significantly increased performance. It also allows for service level agreements from your ExpressRoute provider. The Azure Gateway can pass up to 2 Gb/s with ExpressRoute, whereas with site-to-site VPNs, the Azure Gateway maximum throughput is 200 Mb/s.
+> 
+> 
 
 As seen in the following diagram, with this option the environment now has two network edges. The NVA and NSG control traffic flows for intra-Azure networks and between Azure and the Internet, while the gateway is a completely separate and isolated network edge between on-premises and Azure.
 
@@ -469,21 +503,21 @@ Using the environment built in example 1, and then adding an ExpressRoute hybrid
 #### Conclusion
 The addition of an ExpressRoute Private Peering network connection can extend the on-premises network into Azure in a secure, lower latency, higher performing manner. Also, using the native Azure Gateway, as in this example, provides a lower cost option (no additional licensing as with third-party NVAs). For more information, see the detailed build instructions (forthcoming). These instructions include:
 
-- How to build this example perimeter network with PowerShell scripts.
-- How to build this example with an Azure Resource Manager template.
-- Detailed traffic flow scenarios, showing how traffic flows through this design.
+* How to build this example perimeter network with PowerShell scripts.
+* How to build this example with an Azure Resource Manager template.
+* Detailed traffic flow scenarios, showing how traffic flows through this design.
 
 ## References
 ### Helpful websites and documentation
-- Access Azure with Azure Resource Manager:
-- Accessing Azure with PowerShell: [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](./powershell-install-configure.md)
-- Virtual networking documentation: [https://azure.microsoft.com/documentation/services/virtual-network/](https://azure.microsoft.com/documentation/services/virtual-network/)
-- Network security group documentation: [https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/](./virtual-network/virtual-networks-nsg.md)
-- User defined routing documentation: [https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/](./virtual-network/virtual-networks-udr-overview.md)
-- Azure virtual gateways: [https://azure.microsoft.com/documentation/services/vpn-gateway/](https://azure.microsoft.com/documentation/services/vpn-gateway/)
-- Site-to-Site VPNs:
-[https://azure.microsoft.com/documentation/articles/vpn-gateway-create-site-to-site-rm-powershell](./vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-- ExpressRoute documentation (be sure to check out the “Getting Started” and “How To” sections): [https://azure.microsoft.com/documentation/services/expressroute/](https://azure.microsoft.com/documentation/services/expressroute/)
+* Access Azure with Azure Resource Manager:
+* Accessing Azure with PowerShell: [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](powershell-install-configure.md)
+* Virtual networking documentation: [https://azure.microsoft.com/documentation/services/virtual-network/](https://azure.microsoft.com/documentation/services/virtual-network/)
+* Network security group documentation: [https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/](virtual-network/virtual-networks-nsg.md)
+* User defined routing documentation: [https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/](virtual-network/virtual-networks-udr-overview.md)
+* Azure virtual gateways: [https://azure.microsoft.com/documentation/services/vpn-gateway/](https://azure.microsoft.com/documentation/services/vpn-gateway/)
+* Site-to-Site VPNs:
+  [https://azure.microsoft.com/documentation/articles/vpn-gateway-create-site-to-site-rm-powershell](vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* ExpressRoute documentation (be sure to check out the “Getting Started” and “How To” sections): [https://azure.microsoft.com/documentation/services/expressroute/](https://azure.microsoft.com/documentation/services/expressroute/)
 
 <!--Image References-->
 [0]: ./media/best-practices-network-security/flowchart.png "Security Options Flowchart"

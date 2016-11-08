@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Release notes for Application Insights" 
-	description="The latest updates." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Release notes for Application Insights
+description: The latest updates.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/28/2016" 
-	ms.author="awills"/>
- 
+ms.assetid: 9cd2ecdb-c2b9-4e4a-b6aa-beb0c2ca4ffc
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 01/28/2016
+ms.author: awills
+
+---
 # SDK Release Notes - Application Insights
-
-
 Here are detailed release notes and update instructions for our SDKs:
 
 * [ASP.NET Web Server SDK](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)

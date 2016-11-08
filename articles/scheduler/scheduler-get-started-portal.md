@@ -1,89 +1,69 @@
-<properties
- pageTitle="Get started with Azure Scheduler in Azure portal | Microsoft Azure"
- description="Get started with Azure Scheduler in Azure portal"
- services="scheduler"
- documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="hero-article"
- ms.date="08/10/2016"
- ms.author="deli"/>
+﻿---
+title: Get started with Azure Scheduler in Azure portal | Microsoft Docs
+description: Get started with Azure Scheduler in Azure portal
+services: scheduler
+documentationcenter: .NET
+author: derek1ee
+manager: kevinlam1
+editor: ''
 
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
+ms.service: scheduler
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 08/10/2016
+ms.author: deli
+
+---
 # Get started with Azure Scheduler in Azure portal
-
 It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll learn how to create a job. You'll also learn Scheduler's monitoring and management capabilities.
 
 ## Create a job
-
-1.  Sign in to [Azure portal](https://portal.azure.com/).  
-
-2.  Click **+New** > type _Scheduler_ in the search box >  select **Scheduler** in results > click **Create**.
-
-     ![][marketplace-create]
-
-3.  Let’s create a job that simply hits http://www.microsoft.com/ with a GET request. In the **Scheduler Job** screen, enter the following information:
-
-    1.  **Name:** `getmicrosoft`  
-
-    2.  **Subscription:** Your Azure subscription   
-
-    3.  **Job Collection:** Select an existing job collection, or click **Create New** > enter a name.
-
-4.  Next, in **Action Settings**, define the following values:
-
-    1.  **Action Type:** ` HTTP`  
-
-    2.  **Method:** `GET`  
-
-    3.  **URL:** ` http://www.microsoft.com`  
-
+1. Sign in to [Azure portal](https://portal.azure.com/).  
+2. Click **+New** > type *Scheduler* in the search box >  select **Scheduler** in results > click **Create**.
+   
+    ![][marketplace-create]
+3. Let’s create a job that simply hits http://www.microsoft.com/ with a GET request. In the **Scheduler Job** screen, enter the following information:
+   
+   1. **Name:** `getmicrosoft`  
+   2. **Subscription:** Your Azure subscription   
+   3. **Job Collection:** Select an existing job collection, or click **Create New** > enter a name.
+4. Next, in **Action Settings**, define the following values:
+   
+   1. **Action Type:** ` HTTP`  
+   2. **Method:** `GET`  
+   3. **URL:** ` http://www.microsoft.com`  
+      
       ![][action-settings]
-
-5.  Finally, let's define a schedule. The job could be defined as a one-time job, but let’s pick a recurrence schedule:
-
-    1. **Recurrence**: `Recurring`
-
-    2. **Start**: Today's date
-
-    3. **Recur every**: `12 Hours`
-
-    4. **End by**: Two days from today's date  
-
+5. Finally, let's define a schedule. The job could be defined as a one-time job, but let’s pick a recurrence schedule:
+   
+   1. **Recurrence**: `Recurring`
+   2. **Start**: Today's date
+   3. **Recur every**: `12 Hours`
+   4. **End by**: Two days from today's date  
+      
       ![][recurrence-schedule]
-
-6.  Click **Create**
+6. Click **Create**
 
 ## Manage and monitor jobs
-
 Once a job is created, it appears in the main Azure dashboard. Click the job and a new window opens with the following tabs:
 
-1.  Properties  
-
-2.  Action Settings  
-
-3.  Schedule  
-
-4.  History
-
-5.  Users
-
-    ![][job-overview]
+1. Properties  
+2. Action Settings  
+3. Schedule  
+4. History
+5. Users
+   
+   ![][job-overview]
 
 ### Properties
-
 These read-only properties describe the management metadata for the Scheduler job.
 
    ![][job-properties]
 
-
 ### Action settings
-
 Clicking on a job in the **Jobs** screen allows you to configure that job. This lets you configure advanced settings, if you didn't configure them in the quick-create wizard.
 
 For all action types, you may change the retry policy and the error action.
@@ -97,7 +77,6 @@ For service bus action types, you may change the namespace, topic/queue path, au
    ![][job-action-settings]
 
 ### Schedule
-
 This lets you reconfigure the schedule, if you'd like to change the schedule you created in the quick-create wizard.
 
 This is an opportunity to build [complex schedules and advanced recurrence in your job](scheduler-advanced-complexity.md)
@@ -106,23 +85,16 @@ You may change the start date and time, recurrence schedule, and the end date an
 
    ![][job-schedule]
 
-
 ### History
-
 The **History** tab displays selected metrics for every job execution in the system for the selected job. These metrics provide real-time values regarding the health of your Scheduler:
 
-1.  Status  
-
-2.  Details  
-
-3.  Retry attempts
-
-4.  Occurrence: 1st, 2nd, 3rd, etc.
-
-5.  Start time of execution  
-
-6.  End time of execution
-
+1. Status  
+2. Details  
+3. Retry attempts
+4. Occurrence: 1st, 2nd, 3rd, etc.
+5. Start time of execution  
+6. End time of execution
+   
    ![][job-history]
 
 You can click on a run to view its **History Details**, including the whole response for every execution. This dialog box also allows you to copy the response to the clipboard.
@@ -130,12 +102,9 @@ You can click on a run to view its **History Details**, including the whole resp
    ![][job-history-details]
 
 ### Users
-
 Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure Scheduler. To learn how to use the Users tab, refer to [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
 
-
 ## See also
-
  [What is Scheduler?](scheduler-intro.md)
 
  [Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
@@ -153,7 +122,6 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
  [Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
  [Scheduler outbound authentication](scheduler-outbound-authentication.md)
-
 
 [marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
 [action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png

@@ -1,29 +1,28 @@
-<properties
-	pageTitle="Add a disk to Linux VM | Microsoft Azure"
-	description="Learn to add a persistent disk to your Linux VM"
-	keywords="linux virtual machine,add resource disk"
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="rickstercdn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager" />
+---
+title: Add a disk to Linux VM | Microsoft Docs
+description: Learn to add a persistent disk to your Linux VM
+keywords: linux virtual machine,add resource disk
+services: virtual-machines-linux
+documentationcenter: ''
+author: rickstercdn
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.topic="article"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.date="09/06/2016"
-	ms.author="rclaus"/>
+ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
+ms.service: virtual-machines-linux
+ms.topic: article
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.date: 09/06/2016
+ms.author: rclaus
 
+---
 # Add a disk to a Linux VM
-
 This article shows how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing. To add a disk, you need [the Azure CLI](../xplat-cli-install.md) configured in Resource Manager mode (`azure config mode arm`).  
 
 ## Quick Commands
-
 In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
 
 ```bash
@@ -31,7 +30,6 @@ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
 ```
 
 ## Attach a disk
-
 Attaching a new disk is quick. Type `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` to create and attach a new GB disk for your VM. If you do not explicitly identify a storage account, any disk you create is placed in the same storage account where your OS disk resides.  It should look something like the following:
 
 ```bash
@@ -49,8 +47,10 @@ info:    vm disk attach-new command OK
 ```
 
 ## Connect to the Linux VM to mount the new disk
-
-> [AZURE.NOTE] This topic connects to a VM using usernames and passwords. To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-mac-create-ssh-keys.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access.
+> [!NOTE]
+> This topic connects to a VM using usernames and passwords. To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-mac-create-ssh-keys.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access.
+> 
+> 
 
 You need to SSH into your Azure VM to partition, format, and mount your new disk so your Linux VM can use it. If you're not familiar with connecting with **ssh**, the command takes the form `ssh <username>@<FQDNofAzureVM> -p <the ssh port>`, and looks like the following:
 
@@ -184,7 +184,7 @@ Maximum filesystem blocks=1342177280
 32768 blocks per group, 32768 fragments per group
 8192 inodes per group
 Superblock backups stored on blocks:
-	32768, 98304, 163840, 229376, 294912, 819200, 884736
+    32768, 98304, 163840, 229376, 294912, 819200, 884736
 Allocating group tables: done
 Writing inode tables: done
 Creating journal (32768 blocks): done
@@ -230,7 +230,10 @@ The output looks similar to the following:
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
->[AZURE.NOTE] Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
+> [!NOTE]
+> Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
+> 
+> 
 
 Next, open the **/etc/fstab** file in a text editor:
 
@@ -244,37 +247,39 @@ In this example, we use the UUID value for the new **/dev/sdc1** device that was
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
->[AZURE.NOTE] Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the `nofail` and/or `nobootwait` fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
-
->[AZURE.NOTE] The **nofail** option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
-
+> [!NOTE]
+> Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the `nofail` and/or `nobootwait` fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
+> 
+> [!NOTE]
+> The **nofail** option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+> 
+> 
 
 ### TRIM/UNMAP support for Linux in Azure
 Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. This is primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded. This can save cost if you create large files and then delete them.
 
 There are two ways to enable TRIM support in your Linux VM. As usual, consult your distribution for the recommended approach:
 
-- Use the `discard` mount option in `/etc/fstab`, for example:
-
-		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
-
-- Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
-
-	**Ubuntu**
-
-		# sudo apt-get install util-linux
-		# sudo fstrim /datadrive
-
-	**RHEL/CentOS**
-
-		# sudo yum install util-linux
-		# sudo fstrim /datadrive
+* Use the `discard` mount option in `/etc/fstab`, for example:
+  
+        UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+* Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
+  
+    **Ubuntu**
+  
+        # sudo apt-get install util-linux
+        # sudo fstrim /datadrive
+  
+    **RHEL/CentOS**
+  
+        # sudo yum install util-linux
+        # sudo fstrim /datadrive
 
 ## Troubleshooting
-[AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
+[!INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
 ## Next Steps
+* Remember, that your new disk is not available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file.
+* To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](virtual-machines-linux-optimization.md) recommendations.
+* Expand your storage capacity by adding additional disks and [configure RAID](virtual-machines-linux-configure-raid.md) for additional performance.
 
-- Remember, that your new disk is not available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file.
-- To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](virtual-machines-linux-optimization.md) recommendations.
-- Expand your storage capacity by adding additional disks and [configure RAID](virtual-machines-linux-configure-raid.md) for additional performance.

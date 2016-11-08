@@ -1,29 +1,31 @@
-<properties
-   pageTitle="Running a Windows VM | Reference Architecture | Microsoft Azure"
-   description="How to run a VM on Azure, paying attention to scalability, resiliency, manageability, and security."
-   services=""
-   documentationCenter="na"
-   authors="MikeWasson"
-   manager="roshar"
-   editor=""
-   tags=""/>
+---
+title: Running a Windows VM | Microsoft Docs
+description: How to run a VM on Azure, paying attention to scalability, resiliency, manageability, and security.
+services: ''
+documentationcenter: na
+author: MikeWasson
+manager: roshar
+editor: ''
+tags: ''
 
-<tags
-   ms.service="guidance"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="10/20/2016"
-   ms.author="mwasson"/>
+ms.assetid: 111649ea-4417-4a8e-8054-5bbe1902da87
+ms.service: guidance
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/20/2016
+ms.author: mwasson
 
+---
 # Running a Windows VM on Azure
+[!INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+> [!div class="op_single_selector"]
+> * [Running a Linux VM on Azure](guidance-compute-single-vm-linux.md)
+> * [Running a Windows VM on Azure](guidance-compute-single-vm.md)
+> 
+> 
 
-> [AZURE.SELECTOR]
-- [Running a Linux VM on Azure](guidance-compute-single-vm-linux.md)
-- [Running a Windows VM on Azure](guidance-compute-single-vm.md)
-
-[AZURE.INCLUDE [gudiance-comput-single-vm-windows](../../includes/guidance-compute-single-vm-windows.md)]
+[!INCLUDE [gudiance-comput-single-vm-windows](../../includes/guidance-compute-single-vm-windows.md)]
 

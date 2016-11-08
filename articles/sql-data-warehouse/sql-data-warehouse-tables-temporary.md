@@ -1,55 +1,56 @@
-<properties
-   pageTitle="Temporary tables in SQL Data Warehouse | Microsoft Azure"
-   description="Getting started with temporary tables in Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Temporary tables in SQL Data Warehouse | Microsoft Docs
+description: Getting started with temporary tables in Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="jrj;barbkess"/>
+ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
 
+---
 # Temporary tables in SQL Data Warehouse
-
-> [AZURE.SELECTOR]
-- [Overview][]
-- [Data Types][]
-- [Distribute][]
-- [Index][]
-- [Partition][]
-- [Statistics][]
-- [Temporary][]
+> [!div class="op_single_selector"]
+> * [Overview][Overview]
+> * [Data Types][Data Types]
+> * [Distribute][Distribute]
+> * [Index][Index]
+> * [Partition][Partition]
+> * [Statistics][Statistics]
+> * [Temporary][Temporary]
+> 
+> 
 
 Temporary tables are very useful when processing data - especially during transformation where the intermediate results are transient. In SQL Data Warehouse temporary tables exist at the session level.  They are only visible to the session in which they were created and are automatically dropped when that session logs off.  Temporary tables offer a performance benefit because their results are written to local rather than remote storage.  Temporary tables are slightly different in Azure SQL Data Warehouse than Azure SQL Database as they can be accessed from anywhere inside the session, including both inside and outside of a stored procedure.
 
 This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables. Using the information in this article can help you modularize your code, improving both reusability and ease of maintenance of your code.
 
 ## Create a temporary table
-
 Temporary tables are created by simply prefixing your table name with a `#`.  For example:
 
 ```sql
 CREATE TABLE #stats_ddl
 (
-	[schema_name]		NVARCHAR(128) NOT NULL
-,	[table_name]            NVARCHAR(128) NOT NULL
-,	[stats_name]            NVARCHAR(128) NOT NULL
-,	[stats_is_filtered]     BIT           NOT NULL
-,	[seq_nmbr]              BIGINT        NOT NULL
-,	[two_part_name]         NVARCHAR(260) NOT NULL
-,	[three_part_name]       NVARCHAR(400) NOT NULL
+    [schema_name]        NVARCHAR(128) NOT NULL
+,    [table_name]            NVARCHAR(128) NOT NULL
+,    [stats_name]            NVARCHAR(128) NOT NULL
+,    [stats_is_filtered]     BIT           NOT NULL
+,    [seq_nmbr]              BIGINT        NOT NULL
+,    [two_part_name]         NVARCHAR(260) NOT NULL
+,    [three_part_name]       NVARCHAR(400) NOT NULL
 )
 WITH
 (
-	DISTRIBUTION = HASH([seq_nmbr])
-,	HEAP
+    DISTRIBUTION = HASH([seq_nmbr])
+,    HEAP
 )
 ```
 
@@ -59,36 +60,36 @@ Temporary tables can also be created with a `CTAS` using exactly the same approa
 CREATE TABLE #stats_ddl
 WITH
 (
-	DISTRIBUTION = HASH([seq_nmbr])
-,	HEAP
+    DISTRIBUTION = HASH([seq_nmbr])
+,    HEAP
 )
 AS
 (
 SELECT
-		sm.[name]				                                                AS [schema_name]
-,		tb.[name]				                                                AS [table_name]
-,		st.[name]				                                                AS [stats_name]
-,		st.[has_filter]			                                                AS [stats_is_filtered]
+        sm.[name]                                                                AS [schema_name]
+,        tb.[name]                                                                AS [table_name]
+,        st.[name]                                                                AS [stats_name]
+,        st.[has_filter]                                                            AS [stats_is_filtered]
 ,       ROW_NUMBER()
         OVER(ORDER BY (SELECT NULL))                                            AS [seq_nmbr]
-,								 QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
-,		QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
-FROM	sys.objects			AS ob
-JOIN	sys.stats			AS st	ON	ob.[object_id]		= st.[object_id]
-JOIN	sys.stats_columns	AS sc	ON	st.[stats_id]		= sc.[stats_id]
-									AND st.[object_id]		= sc.[object_id]
-JOIN	sys.columns			AS co	ON	sc.[column_id]		= co.[column_id]
-									AND	sc.[object_id]		= co.[object_id]
-JOIN	sys.tables			AS tb	ON	co.[object_id]		= tb.[object_id]
-JOIN	sys.schemas			AS sm	ON	tb.[schema_id]		= sm.[schema_id]
-WHERE	1=1
-AND		st.[user_created]   = 1
+,                                 QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
+,        QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
+FROM    sys.objects            AS ob
+JOIN    sys.stats            AS st    ON    ob.[object_id]        = st.[object_id]
+JOIN    sys.stats_columns    AS sc    ON    st.[stats_id]        = sc.[stats_id]
+                                    AND st.[object_id]        = sc.[object_id]
+JOIN    sys.columns            AS co    ON    sc.[column_id]        = co.[column_id]
+                                    AND    sc.[object_id]        = co.[object_id]
+JOIN    sys.tables            AS tb    ON    co.[object_id]        = tb.[object_id]
+JOIN    sys.schemas            AS sm    ON    tb.[schema_id]        = sm.[schema_id]
+WHERE    1=1
+AND        st.[user_created]   = 1
 GROUP BY
-		sm.[name]
-,		tb.[name]
-,		st.[name]
-,		st.[filter_definition]
-,		st.[has_filter]
+        sm.[name]
+,        tb.[name]
+,        st.[name]
+,        st.[filter_definition]
+,        st.[has_filter]
 )
 SELECT
     CASE @update_type
@@ -106,17 +107,18 @@ FROM    t1
 ;
 ``` 
 
->[AZURE.NOTE] `CTAS` is a very powerful command and has the added advantage of being very efficient in its use of transaction log space. 
-
+> [!NOTE]
+> `CTAS` is a very powerful command and has the added advantage of being very efficient in its use of transaction log space. 
+> 
+> 
 
 ## Dropping temporary tables
-
 When a new session is created, no temporary tables should exist.  However, if you are calling the same stored procedure, which creates a temporary with the same name, to ensure that your `CREATE TABLE` statements are successful a simple pre-existence check with a `DROP` can be used as in the below example:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN
-	DROP TABLE #stats_ddl
+    DROP TABLE #stats_ddl
 END
 ```
 
@@ -127,13 +129,12 @@ DROP TABLE #stats_ddl
 ```
 
 ## Modularizing code
-
 Since temporary tables can be seen anywhere in a user session, this can be exploited to help you modularize your application code.  For example, the stored procedure below brings together the recommended practices from above to generate DDL which will update all statistics in the database by statistic name.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
 (   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
-	,@sample_pct     tinyint
+    ,@sample_pct     tinyint
 )
 AS
 
@@ -149,41 +150,41 @@ END;
 
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN
-	DROP TABLE #stats_ddl
+    DROP TABLE #stats_ddl
 END
 
 CREATE TABLE #stats_ddl
 WITH
 (
-	DISTRIBUTION = HASH([seq_nmbr])
+    DISTRIBUTION = HASH([seq_nmbr])
 )
 AS
 (
 SELECT
-		sm.[name]				                                                AS [schema_name]
-,		tb.[name]				                                                AS [table_name]
-,		st.[name]				                                                AS [stats_name]
-,		st.[has_filter]			                                                AS [stats_is_filtered]
+        sm.[name]                                                                AS [schema_name]
+,        tb.[name]                                                                AS [table_name]
+,        st.[name]                                                                AS [stats_name]
+,        st.[has_filter]                                                            AS [stats_is_filtered]
 ,       ROW_NUMBER()
         OVER(ORDER BY (SELECT NULL))                                            AS [seq_nmbr]
-,								 QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
-,		QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
-FROM	sys.objects			AS ob
-JOIN	sys.stats			AS st	ON	ob.[object_id]		= st.[object_id]
-JOIN	sys.stats_columns	AS sc	ON	st.[stats_id]		= sc.[stats_id]
-									AND st.[object_id]		= sc.[object_id]
-JOIN	sys.columns			AS co	ON	sc.[column_id]		= co.[column_id]
-									AND	sc.[object_id]		= co.[object_id]
-JOIN	sys.tables			AS tb	ON	co.[object_id]		= tb.[object_id]
-JOIN	sys.schemas			AS sm	ON	tb.[schema_id]		= sm.[schema_id]
-WHERE	1=1
-AND		st.[user_created]   = 1
+,                                 QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
+,        QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
+FROM    sys.objects            AS ob
+JOIN    sys.stats            AS st    ON    ob.[object_id]        = st.[object_id]
+JOIN    sys.stats_columns    AS sc    ON    st.[stats_id]        = sc.[stats_id]
+                                    AND st.[object_id]        = sc.[object_id]
+JOIN    sys.columns            AS co    ON    sc.[column_id]        = co.[column_id]
+                                    AND    sc.[object_id]        = co.[object_id]
+JOIN    sys.tables            AS tb    ON    co.[object_id]        = tb.[object_id]
+JOIN    sys.schemas            AS sm    ON    tb.[schema_id]        = sm.[schema_id]
+WHERE    1=1
+AND        st.[user_created]   = 1
 GROUP BY
-		sm.[name]
-,		tb.[name]
-,		st.[name]
-,		st.[filter_definition]
-,		st.[has_filter]
+        sm.[name]
+,        tb.[name]
+,        st.[name]
+,        st.[filter_definition]
+,        st.[has_filter]
 )
 SELECT
     CASE @update_type
@@ -224,12 +225,10 @@ DROP TABLE #stats_ddl;
 ```
 
 ## Temporary table limitations
-
 SQL Data Warehouse does impose a couple of limitations when implementing temporary tables.  Currently, only session scoped temporary tables are supported.  Global Temporary Tables are not supported.  In addition, views cannot be created on temporary tables.
 
 ## Next steps
-
-To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Maintaining Table Statistics][Statistics].  For more about best practices, see [SQL Data Warehouse Best Practices][].
+To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Maintaining Table Statistics][Statistics].  For more about best practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 

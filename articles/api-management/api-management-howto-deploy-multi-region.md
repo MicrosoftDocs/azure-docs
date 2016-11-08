@@ -1,32 +1,36 @@
-<properties
-	pageTitle="How to deploy an Azure API Management service instance to multiple Azure regions"
-	description="Learn how to deploy an Azure API Management service instance to multiple Azure regions." 
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="erikre"
-	editor=""/>
+---
+title: How to deploy an Azure API Management service instance to multiple Azure regions
+description: Learn how to deploy an Azure API Management service instance to multiple Azure regions.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/25/2016"
-	ms.author="sdanie"/>
+ms.assetid: 47389ad6-f865-4706-833f-846115e22e4d
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/25/2016
+ms.author: sdanie
 
+---
 # How to deploy an Azure API Management service instance to multiple Azure regions
-
 API Management supports multi-region deployment which enables API publishers to distribute a single API management service across any number of desired Azure regions. This helps reduce request latency perceived by geographically distributed API consumers and also improves service availability if one region goes offline. 
 
-When an API Management service is created initially, it contains only one [unit][] and resides in a single Azure region, which is designated as the Primary Region. Additional regions can be easily added through the Azure Portal. An API Management gateway server is deployed to each region and call traffic will be routed to the closest gateway. If a region goes offline, the traffic is automatically re-directed to the next closest gateway. 
+When an API Management service is created initially, it contains only one [unit][unit] and resides in a single Azure region, which is designated as the Primary Region. Additional regions can be easily added through the Azure Portal. An API Management gateway server is deployed to each region and call traffic will be routed to the closest gateway. If a region goes offline, the traffic is automatically re-directed to the next closest gateway. 
 
-> [AZURE.IMPORTANT] Multi-region deployment is only available in the **[Premium][]** tier.
+> [!IMPORTANT]
+> Multi-region deployment is only available in the **[Premium][Premium]** tier.
+> 
+> 
 
 ## <a name="add-region"> </a>Deploy an API Management service instance to a new region
-
->If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
+> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
+> 
+> 
 
 In the Azure Portal navigate to the **Scale and pricing** page for your API Management service instance. 
 
@@ -45,7 +49,6 @@ Click **Add** to place your selection in the Locations table.
 Repeat this process until you have all locations configured and click **Save** from the toolbar to start the deployment process.
 
 ## <a name="remove-region"> </a>Delete an API Management service instance from a location
-
 In the Azure Portal navigate to the **Scale and pricing** page for your API Management service instance. 
 
 ![Scale tab][api-management-scale-service]
@@ -55,7 +58,6 @@ For the location you would like to remove open the context menu using the **...*
 ![Remove region][api-management-remove-region]
 
 Confirm the deletion and click **Save** to apply the changes.
-
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 

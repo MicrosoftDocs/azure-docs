@@ -1,41 +1,42 @@
-<properties
-   pageTitle="SQL Azure with Azure RemoteApp | Microsoft Azure"
-   description="Learn how to use SQL Azure with Azure RemoteApp."
-   services="remoteapp"
-   documentationCenter=""
-   authors="ericorman"
-   manager="mbaldwin"
-   editor=""/>
+﻿---
+title: SQL Azure with Azure RemoteApp | Microsoft Docs
+description: Learn how to use SQL Azure with Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: ericorman
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="remoteapp"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="compute"
-   ms.date="08/15/2016"
-   ms.author="elizapo"/>
+ms.assetid: 35f81d75-bfd7-4980-807e-00339f2cb2a4
+ms.service: remoteapp
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: compute
+ms.date: 08/15/2016
+ms.author: elizapo
 
+---
 # SQL Azure with Azure RemoteApp
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> 
+> 
 
 Often when customers choose to host their Windows applications in the cloud with Azure RemoteApp they also want to migrate their data such as SQL servers into the cloud for an entire cloud deployment. This allows for entire cloud hosted solution that can be accessed anytime by any device anywhere using Azure RemoteApp. Below are links and references along with guidance to help you with this process.  
 
 ## Migrate your SQL data
-
 Start with [Migrating a SQL Server database to Azure SQL Database](../sql-database/sql-database-cloud-migrate.md). 
 
 ## Configure Azure RemoteApp
 Host your Windows application in Azure RemoteApp. Below is a very high level step-by-step:
 
-1.     Create the [Azure RemoteApp template VM](remoteapp-imageoptions.md). 
-2.     Install the required application on the VM.
-3.     Configure the application so it connects to the SQL DB and confirm that it works.
-4.     Sysprep and shutdown the VM. Capture this as an image for use with Azure. **Note:** You will need to ensure that the application is able to retain the DB connectivity information through the sysprep process. If the application is unable to retain the DB connection information, you might want to engage the vendor of the application to check how we can specify the connection string.
-5.     Import the custom image into your Azure RemoteApp library selecting the proper geographical location that your SQL Azure deployment resides. 
-6.     Deploy a RemoteApp collection in the same data center as your SQL Azure deployment using the above template and publish the application. Deploying Azure RemoteApp in the same data center as your SQL Azure deployment helps ensure the fastest connection speeds and reduce latency. 
+1. Create the [Azure RemoteApp template VM](remoteapp-imageoptions.md). 
+2. Install the required application on the VM.
+3. Configure the application so it connects to the SQL DB and confirm that it works.
+4. Sysprep and shutdown the VM. Capture this as an image for use with Azure. **Note:** You will need to ensure that the application is able to retain the DB connectivity information through the sysprep process. If the application is unable to retain the DB connection information, you might want to engage the vendor of the application to check how we can specify the connection string.
+5. Import the custom image into your Azure RemoteApp library selecting the proper geographical location that your SQL Azure deployment resides. 
+6. Deploy a RemoteApp collection in the same data center as your SQL Azure deployment using the above template and publish the application. Deploying Azure RemoteApp in the same data center as your SQL Azure deployment helps ensure the fastest connection speeds and reduce latency. 
 
 ## App and SQL configuration considerations:
 There are a few points to consider when using Azure SQL with RemoteApp:
@@ -49,7 +50,7 @@ Follow the step by step instructions in [How to: Configure firewall settings on 
 ## Troubleshooting
 If the experience of using a client application hosted in Azure RemoteApp that connects to a SQL database where hosted on Azure or on-premises is slow there could be a few reasons why.  
 
-- Network latency from your device to Azure is high. Move to the best and fastest network connection you can for best performance. Use [azurespeed.com](http://azurespeed.com/) as a general tool to test your devices latency to Azure data center.  
-- Client app hosted in Azure RemoteApp is under stress. Selecting a different billing plan such as Premium billing will improve performance. Another trick is to monitor the resources your application is consuming: during an active session perform a ctrl-alt-end key sequence which will launch the SAS screen, select Task Manager and observe resource utilization for your app.
-- SQL server is under stress or not optimized. Follow SQL guidance for troubleshooting. 
+* Network latency from your device to Azure is high. Move to the best and fastest network connection you can for best performance. Use [azurespeed.com](http://azurespeed.com/) as a general tool to test your devices latency to Azure data center.  
+* Client app hosted in Azure RemoteApp is under stress. Selecting a different billing plan such as Premium billing will improve performance. Another trick is to monitor the resources your application is consuming: during an active session perform a ctrl-alt-end key sequence which will launch the SAS screen, select Task Manager and observe resource utilization for your app.
+* SQL server is under stress or not optimized. Follow SQL guidance for troubleshooting. 
 

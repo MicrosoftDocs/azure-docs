@@ -31,9 +31,9 @@ Now, provide that API version, resource group name, resource name, resource type
 Tags exist directly on resources and resource groups. To see the existing tags, simply get a resource group and its resources with **azure group show**.
 
     azure group show -n tag-demo-group --json
-    
+
 Which returns metadata about the resource group, including any tags applied to it.
-    
+
     {
       "id": "/subscriptions/4705409c-9372-42f0-914c-64a504530837/resourceGroups/tag-demo-group",
       "name": "tag-demo-group",
@@ -51,15 +51,15 @@ Which returns metadata about the resource group, including any tags applied to i
 You view the tags for a particular resource by using **azure resource show**.
 
     azure resource show -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -o 2016-01-01 --json
-    
+
 To retrieve all the resources with a tag value, use:
 
     azure resource list -t Dept=Finance --json
-    
+
 To retrieve all the resource groups with a tag value, use:
 
     azure group list -t Dept=Finance
-        
+
 You can view the existing tags in your subscription with the following command:
 
     azure tag list

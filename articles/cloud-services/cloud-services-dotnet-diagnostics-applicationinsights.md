@@ -1,27 +1,26 @@
-<properties
-   pageTitle="Troubleshoot Cloud Services using Application Insights | Microsoft Azure"
-   description="Learn how to troubleshoot cloud service issues by using Application Insights to process data from Azure Diagnostics."
-   services="cloud-services"
-   documentationCenter=".net"
-   authors="sbtron"
-   manager="timlt"
-   editor="tysonn" />
-<tags
-   ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/15/2015"
-   ms.author="saurabh" />
+---
+title: Troubleshoot Cloud Services using Application Insights | Microsoft Docs
+description: Learn how to troubleshoot cloud service issues by using Application Insights to process data from Azure Diagnostics.
+services: cloud-services
+documentationcenter: .net
+author: sbtron
+manager: timlt
+editor: tysonn
 
+ms.assetid: e93f387b-ef29-4731-ae41-0676722accb6
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 12/15/2015
+ms.author: saurabh
 
+---
 # Troubleshoot Cloud Services using Application Insights
-
 With [Azure SDK 2.8](https://azure.microsoft.com/downloads/) and Azure diagnostics extension 1.5 you can now send your Azure Diagnostics data for your Cloud Service directly to Application Insights. The various types of logs collected by Azure Diagnostics including application logs, windows event logs, ETW logs and performance counters can now be sent to Application Insights and visualized in the Application Insights portal UI. When used along with the Application Insights SDK you can now get insights into metrics and logs coming from your application as well as the system and infrastructure level data coming from Azure Diagnostics.
 
 ## Configure Azure Diagnostics to send data to Application Insights
-
 Follow these steps to setup your cloud service project to send Azure Diagnostics data to Application Insights.
 
 1) In Visual Studio Solution Explorer right-click on a role and select **properties** to open the Role designer
@@ -51,24 +50,22 @@ The Azure diagnostic telemetry will show up in the Application Insights resource
 
 The following is how the various Azure diagnostics log types map to Application Insights concepts:  
 
--  Performance Counters are displayed as Custom Metrics in Application Insights
--  Windows Event Logs are shown as Traces and Custom Events in Application Insights
--  Application Logs, ETW Logs and any Diagnostics Infrastructure logs are shown as Traces in Application Insights.
+* Performance Counters are displayed as Custom Metrics in Application Insights
+* Windows Event Logs are shown as Traces and Custom Events in Application Insights
+* Application Logs, ETW Logs and any Diagnostics Infrastructure logs are shown as Traces in Application Insights.
 
 To view Azure diagnostics data in Application Insights:
 
-- Use [Metrics explorer](../application-insights/app-insights-metrics-explorer.md) to visualize any custom performance counters or counts of different types of windows event log events.
+* Use [Metrics explorer](../application-insights/app-insights-metrics-explorer.md) to visualize any custom performance counters or counts of different types of windows event log events.
 
 ![Custom Metrics in Metrics Explorer][5]
 
-- Use [Search](../application-insights/app-insights-diagnostic-search.md) to search across the various trace logs sent by Azure Diagnostics. For example if you had an unhandled exception in a Role which caused the Role to crash and recycle that information would show up in the *Application* channel of *Windows Event Log*. You can use the Search functionality to look at the Windows Event Log error and get the full stack trace for the exception enabling you to find the root cause of the issue.
+* Use [Search](../application-insights/app-insights-diagnostic-search.md) to search across the various trace logs sent by Azure Diagnostics. For example if you had an unhandled exception in a Role which caused the Role to crash and recycle that information would show up in the *Application* channel of *Windows Event Log*. You can use the Search functionality to look at the Windows Event Log error and get the full stack trace for the exception enabling you to find the root cause of the issue.
 
 ![Search Traces][6]
 
 ## Next Steps
-
-- [Add the Application Insights SDK to your cloud service](../application-insights/app-insights-cloudservices.md) to send data about requests, exceptions, dependencies, and any custom telemetry from your application. Combined with the Azure Diagnostics data you can get a complete view of your application and system all in the same Application Insight resource.  
-
+* [Add the Application Insights SDK to your cloud service](../application-insights/app-insights-cloudservices.md) to send data about requests, exceptions, dependencies, and any custom telemetry from your application. Combined with the Azure Diagnostics data you can get a complete view of your application and system all in the same Application Insight resource.  
 
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/solution-explorer-properties.png

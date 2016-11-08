@@ -1,40 +1,39 @@
-<properties 
-   pageTitle="Azure Mobile Engagement User Interface - Reach Criterion" 
-   description="Learn how to use targeting criteria to send push campaigns to a select subset of your users using Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede"
-   editor=""/>
+﻿---
+title: Azure Mobile Engagement User Interface - Reach Criterion
+description: Learn how to use targeting criteria to send push campaigns to a select subset of your users using Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.assetid: a4ed03a0-55b1-4dd8-b0bd-c475005afb66
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
-
+---
 # How to use targeting criteria to send push campaigns to a select subset of your users
-
 Targeting your audience by specific criteria with the "New Criteria" button is one of the most powerful concepts in Azure Mobile Engagement that helps you send relevant push notifications that the customers will respond to instead of Spamming everyone. You can limit your audience based on standard criteria and simulate pushes to determine how many people will receive the notification.
 
 **See also:**
 
-- [UI Documentation - Reach - New Push Campaign][Link 27]
+* [UI Documentation - Reach - New Push Campaign][Link 27]
 
 ## Audience criteria can include:
-- **Technicals: ** You can target based on the same technical information you can see in the Analytics and Monitor sections. **See also:** [UI Documentation - Analytics][Link 15],  [UI Documentation - Monitor][Link 16]
-- **Location:** Applications that use "Real time location reporting" with Geo-Fencing can use Geo-Location as a criteria to target an audience from the GPS location. "Lazy Area Location Reporting" call also be used to target an audience from the cell phone location ("Real time location reporting" and "Lazy Area Location Reporting" must be activated from the SDK). **See also:** [SDK Documentation - iOS -  Integration][Link 5], [SDK Documentation - Android -  Integration][Link 5]
-- **Reach Feedback:** You can target your audience based on their feedback from previous reach notifications through reach feedback from Announcements, Polls, and Data Pushes. This enables you to better target your audience after two or three reach campaigns than you could the first time. It can also be used to filter out users who already received a notification with similar content, by setting a campaign to NOT be sent to users who already received a specific previous campaign. You can even exclude users who are included a specific campaign that is still active from receiving new Pushes. **See also:** [UI Documentation -  Reach - Push Content][Link 29]
-- **Install Tracking:** You can track information based on where your users installed your App. **See also:** [UI Documentation -  Settings][Link 20]
-- **User Profile:** You can target based on standard user information and you can target based on the custom app info that you have created. This includes users who are currently logged in and users that have answered specific questions you have asked them to set in the app itself instead of just how they have responded to previous campaigns. All of your App Info's defined for your app show up on this list.
-- Segments: You can also target based on segments that you have created based on specific user behavior containing multiple criteria. All of your segments defined for your app show up on this list. **See also:** [UI Documentation -  Segments][Link 18]
-- **App Info:** Custom App Info Tags can be created from “Settings” to track user behavior. **See also:** [UI Documentation -  Settings][Link 20]
+* **Technicals: ** You can target based on the same technical information you can see in the Analytics and Monitor sections. **See also:** [UI Documentation - Analytics][Link 15],  [UI Documentation - Monitor][Link 16]
+* **Location:** Applications that use "Real time location reporting" with Geo-Fencing can use Geo-Location as a criteria to target an audience from the GPS location. "Lazy Area Location Reporting" call also be used to target an audience from the cell phone location ("Real time location reporting" and "Lazy Area Location Reporting" must be activated from the SDK). **See also:** [SDK Documentation - iOS -  Integration][Link 5], [SDK Documentation - Android -  Integration][Link 5]
+* **Reach Feedback:** You can target your audience based on their feedback from previous reach notifications through reach feedback from Announcements, Polls, and Data Pushes. This enables you to better target your audience after two or three reach campaigns than you could the first time. It can also be used to filter out users who already received a notification with similar content, by setting a campaign to NOT be sent to users who already received a specific previous campaign. You can even exclude users who are included a specific campaign that is still active from receiving new Pushes. **See also:** [UI Documentation -  Reach - Push Content][Link 29]
+* **Install Tracking:** You can track information based on where your users installed your App. **See also:** [UI Documentation -  Settings][Link 20]
+* **User Profile:** You can target based on standard user information and you can target based on the custom app info that you have created. This includes users who are currently logged in and users that have answered specific questions you have asked them to set in the app itself instead of just how they have responded to previous campaigns. All of your App Info's defined for your app show up on this list.
+* Segments: You can also target based on segments that you have created based on specific user behavior containing multiple criteria. All of your segments defined for your app show up on this list. **See also:** [UI Documentation -  Segments][Link 18]
+* **App Info:** Custom App Info Tags can be created from “Settings” to track user behavior. **See also:** [UI Documentation -  Settings][Link 20]
 
-## Example: 
+## Example:
 If you want to push an announcement only to the sub-set of your users that have performed an in-app purchase action.
 
 1. Go to your application settings page, select the "App info" menu and select "New app info"
@@ -42,45 +41,47 @@ If you want to push an announcement only to the sub-set of your users that have 
 3. Make your application set this app info to "true" when the user successfully performs an in-app purchase (by using the sendAppInfo("inAppPurchase", ...) function)
 4. If you don't want to do this from your application, you can do it from your backend by using the device API)
 5. Then, you just need to create your announcement, with a criterion limiting your audience to users having "inAppPurchase" set to "true")
- 
+
 > Note: Targeting based on criteria other than app info tags requires Azure Mobile Engagement to gather information from your users' devices before the push is sent and so can cause a delay. Complex push configuration options (like updating badges) can also delay pushes. Using a "one shot" campaign from the Push API is the absolute fastest push method in Azure Mobile Engagement. Using only app info tags as push criteria for a Reach campaign (either from the Reach API or the UI) is the next fastest method since app info tags are stored on the server side. Using other targeting criteria for a push campaign is the most flexible but slowest push method since Azure Mobile Engagement has to query the devices in order to send the campaign.
- 
+> 
+> 
+
 ![Reach-Criterion1][29] 
 
 ## Criterion Options Apply to:
-- **Technicals**     
-- Firmware name:    Firmware name
-- Firmware version:    Firmware version
-- Device model:    Device model
-- Device manufacturer:    Device manufacturer
-- Application version:    Application version
-- Carrier name:    Carrier name, undefined
-- Carrier country:    Carrier country, undefined
-- Network type:    Network type
-- Locale:    Locale
-- Screen size:    Screen size
-- **Location**      
-- Last known area:    Country, Region, Locality
-- Real time geo-fencing:    List of POIs (Name, Actions), Circular POI (Name, Latitude, Longitude, Radius in meters)
-- **Reach feedback**     
-- Announcement feedback:    Announcement, feedback
-- Poll feedback:    Poll, feedback
-- Poll answer feedback:    Poll answer feedback, question, choice
-- Data Push feedback:    Data Push, feedback
-- **Install Tracking**     
-- Store:    Store, Undefined
-- Source:    Source, Undefined
-- **User profile**     
-- Gender:    male or female, undefined
-- Birth date:    operator, date, undefined
-- Opt-in:    true or false, undefined
-- **App Info**      
-- String:    String, undefined
-- Date:    operator, date, undefined
-- Integer:    operator, number, undefined
-- Boolean:    true or false, undefined
-- **Segment**    
-- Name of Segments (from dropdown list), Exclusion (target users that are not a part of this segment).
+* **Technicals**     
+* Firmware name:    Firmware name
+* Firmware version:    Firmware version
+* Device model:    Device model
+* Device manufacturer:    Device manufacturer
+* Application version:    Application version
+* Carrier name:    Carrier name, undefined
+* Carrier country:    Carrier country, undefined
+* Network type:    Network type
+* Locale:    Locale
+* Screen size:    Screen size
+* **Location**      
+* Last known area:    Country, Region, Locality
+* Real time geo-fencing:    List of POIs (Name, Actions), Circular POI (Name, Latitude, Longitude, Radius in meters)
+* **Reach feedback**     
+* Announcement feedback:    Announcement, feedback
+* Poll feedback:    Poll, feedback
+* Poll answer feedback:    Poll answer feedback, question, choice
+* Data Push feedback:    Data Push, feedback
+* **Install Tracking**     
+* Store:    Store, Undefined
+* Source:    Source, Undefined
+* **User profile**     
+* Gender:    male or female, undefined
+* Birth date:    operator, date, undefined
+* Opt-in:    true or false, undefined
+* **App Info**      
+* String:    String, undefined
+* Date:    operator, date, undefined
+* Integer:    operator, number, undefined
+* Boolean:    true or false, undefined
+* **Segment**    
+* Name of Segments (from dropdown list), Exclusion (target users that are not a part of this segment).
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -172,4 +173,4 @@ If you want to push an announcement only to the sub-set of your users that have 
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
- 
+

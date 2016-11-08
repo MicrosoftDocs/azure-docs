@@ -1,30 +1,28 @@
-<properties
-	pageTitle="Troubleshoot: Create and connect to a Machine Learning workspace | Microsoft Azure"
-	description="Solutions for common issues in creating and connecting to an Azure Machine Learning workspace"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+﻿---
+title: 'Troubleshoot: Create and connect to a Machine Learning workspace | Microsoft Docs'
+description: Solutions for common issues in creating and connecting to an Azure Machine Learning workspace
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/09/2016"
-	ms.author="garye"/>
+ms.assetid: 1a8aec4b-35f9-44e8-9570-2575b8979ab1
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/09/2016
+ms.author: garye
 
-
+---
 # Troubleshooting guide: Create and connect to an Machine Learning workspace
-
 This guide provides solutions for some frequently encountered challenges when you are setting up Azure Machine Learning workspaces.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## Workspace owner
-
 When you create a new Machine Learning workspace, the ID you enter in the WORKSPACE OWNER field must be a valid Microsoft account (formerly Windows Live ID), for example, john-contoso@live.com or john-contoso@hotmail.com. It cannot be a non-Microsoft account, such as your corporate email account. To create a free Microsoft account, go to [www.live.com](http://www.live.com).
 
 Note that the account you used to sign in to the Azure portal to create the workspace does not automatically have permission to *open* that workspace, unless you specify that account as the owner. To open a workspace in Machine Learning Studio, you must be signed in to the Microsoft Account that was defined as the owner of the workspace, or you need to receive an invitation from the owner to join the workspace. From the Azure classic portal you can, however, *manage* the workspace, which includes the ability to change the owner and configure access.
@@ -34,7 +32,6 @@ For more information on managing a workspace, see [Manage an Azure Machine Learn
 [Manage an Azure Machine Learning workspace]: machine-learning-manage-workspace.md
 
 ## Allowed regions
-
 Machine Learning is currently available in a limited number of regions. If your subscription does not include one of these regions, you may see the error message, “You have no subscriptions in the allowed regions.”
 
 To request that a region be added to your subscription, select **Contact Microsoft Support** from the Azure Classic Portal, choose **Billing** as the problem type, and follow the prompts to submit your request.
@@ -42,7 +39,6 @@ To request that a region be added to your subscription, select **Contact Microso
 ![Contact Microsoft support][screen1]
 
 ## Storage account
-
 The Machine Learning service needs a storage account to store data. You can use an existing storage account, or you can create a new storage account when you create the new Machine Learning workspace (if you have quota to create a new storage account).
 
 <!-- These instructions no longer work, but I'm not sure what to replace them with

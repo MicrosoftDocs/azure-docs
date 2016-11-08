@@ -1,25 +1,24 @@
-<properties 
-	pageTitle="What are Connectors and BizTalk API Apps" 
-	description="Learn about API Apps, Connectors and BizTalk API Apps" 
-	services="logic-apps" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="erikre" 
-	editor=""/>
+---
+title: What are Connectors and BizTalk API Apps
+description: Learn about API Apps, Connectors and BizTalk API Apps
+services: logic-apps
+documentationcenter: ''
+author: MandiOhlinger
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="09/01/2016" 
-	ms.author="mandia"/>
+ms.assetid: 1295ea9c-30e0-4b5c-931e-51aefae2d4fe
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/01/2016
+ms.author: mandia
 
+---
 # What are Connectors and BizTalk API Apps
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
-
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 A *Connector* is a type of API App that focuses on connectivity. Connectors, like any other API App, are used from Web Apps, Mobile Apps, and Logic Apps. Connectors make it easy to connect to existing services and help manage authentication, provide monitoring, analytics, and more.
 
@@ -33,8 +32,7 @@ There are different Service "Tiers" available. All Tiers include all the connect
 
 [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/) describes these Services Tiers and also lists what is included in these tiers. The following sections describe the various categories of BizTalk API Apps and Connectors.
 
-
-## Hybrid Connectors 
+## Hybrid Connectors
 The hybrid connectors extend the reach further into the enterprise with connectivity to [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md), and WebSphere MQ. 
 
 Additional resources:
@@ -43,10 +41,9 @@ Additional resources:
 [Create a trading partner agreement](app-service-logic-create-a-trading-partner-agreement.md)  
 [Track your B2B messages](app-service-logic-track-b2b-messages.md)  
 
-
 ## Rules
 Business rules encapsulates the policies and decisions that control business processes. Typically, rules are dynamic and change over time for different reasons, including business plans, regulations, and many other reasons. [BizTalk Rules](app-service-logic-use-biztalk-rules.md) lets you to decouple these policies from your application code and make the change process simpler and faster.
 
 ## Connector and API App list
 See [Connectors and API Apps List](app-service-logic-connectors-list.md) for a complete list of connectors and API Apps included in each category, including the Standard Connectors, BizTalk EAI, Premium Connectors, and so on.
- 
+

@@ -1,44 +1,47 @@
-﻿<properties
-	pageTitle="Manage Key Vault using CLI | Microsoft Azure"
-	description="Use this tutorial to automate common tasks in Key Vault by using the CLI"
-	services="key-vault"
-	documentationCenter=""
-	authors="BrucePerlerMS"
-	manager="mbaldwin"
-	tags="azure-resource-manager"/>
+﻿---
+title: Manage Key Vault using CLI | Microsoft Docs
+description: Use this tutorial to automate common tasks in Key Vault by using the CLI
+services: key-vault
+documentationcenter: ''
+author: BrucePerlerMS
+manager: mbaldwin
+tags: azure-resource-manager
 
-<tags
-	ms.service="key-vault"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/26/2016"
-	ms.author="bruceper"/>
+ms.assetid: 66be6e44-684a-411b-802e-884628458ae7
+ms.service: key-vault
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/26/2016
+ms.author: bruceper
 
-# Manage Key Vault using CLI #
+---
+# Manage Key Vault using CLI
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## Introduction  
+## Introduction
 Use this tutorial to help you get started with Azure Key Vault to create a hardened container (a vault) in Azure, to store and manage cryptographic keys and secrets in Azure. It walks you through the process of using Azure Cross-Platform Command-Line Interface to create a vault that contains a key or password that you can then use with an Azure application. It then shows you how an application can then use that key or password.
 
 **Estimated time to complete:** 20 minutes
 
->[AZURE.NOTE]  This tutorial does not include instructions on how to write the Azure application that one of the steps includes, which shows how to authorize an application to use a key or secret in the key vault.
->
->Currently, you cannot configure Azure Key Vault in the Azure portal. Instead, use these Cross-Platform Command-Line Interface  instructions. Or, for Azure PowerShell instructions, see [this equivalent tutorial](key-vault-get-started.md).
+> [!NOTE]
+> This tutorial does not include instructions on how to write the Azure application that one of the steps includes, which shows how to authorize an application to use a key or secret in the key vault.
+> 
+> Currently, you cannot configure Azure Key Vault in the Azure portal. Instead, use these Cross-Platform Command-Line Interface  instructions. Or, for Azure PowerShell instructions, see [this equivalent tutorial](key-vault-get-started.md).
+> 
+> 
 
 For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
 ## Prerequisites
 To complete this tutorial, you must have the following:
 
-- A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-- Command-Line Interface version 0.9.1 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](../xplat-cli-install.md).
-- An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
+* A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
+* Command-Line Interface version 0.9.1 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](../xplat-cli-install.md).
+* An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 
 ## Getting help with Azure Cross-Platform Command-Line Interface
-
 This tutorial assumes that you are familiar with the command-line interface (Bash, Terminal, Command prompt)
 
 The --help or -h parameter can be used to view help for specific commands. Alternately, The azure help [command] [options] format can also be used to return the same information. For example, the following commands all return the same information:
@@ -53,12 +56,10 @@ When in doubt about the parameters needed by a command, refer to help using --he
 
 You can also read the following tutorials to get familiar with Azure Resource Manager in Azure Cross-Platform Command-Line Interface:
 
-- [How to install and configure Azure Cross-Platform Command Line Interface](../xplat-cli-install.md)
-- [Using Azure Cross-Platform Command-Line Interface with Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
-
+* [How to install and configure Azure Cross-Platform Command Line Interface](../xplat-cli-install.md)
+* [Using Azure Cross-Platform Command-Line Interface with Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
 
 ## Connect to your subscriptions
-
 To log in using an organizational account, use the following command:
 
     azure login -u username -p password
@@ -67,16 +68,18 @@ or if you want to log in by typing interactively
 
     azure login
 
->[AZURE.NOTE]  The login method only works with organizational account. An organizational account is a user that is managed by your organization, and defined in your organization's Azure Active Directory tenant.
-
+> [!NOTE]
+> The login method only works with organizational account. An organizational account is a user that is managed by your organization, and defined in your organization's Azure Active Directory tenant.
+> 
+> 
 
 If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 
-1.	Login to the Login to the [Azure Management Portal](https://manage.windowsazure.com/), and click on Active Directory.
-2.	If no directory exists, select Create your directory and provide the requested information.
-3.	Select your directory and add a new user. This new user is an organizational account. During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this information as it is used in another step.
-4.	From the portal, select Settings and then select Administrators. Select Add, and add the new user as a co-administrator. This allows the organizational account to manage your Azure subscription.
-5.	Finally, log out of the Azure portal and then log back in using the new organizational account. If this is the first time logging in with this account, you will be prompted to change the password.
+1. Login to the Login to the [Azure Management Portal](https://manage.windowsazure.com/), and click on Active Directory.
+2. If no directory exists, select Create your directory and provide the requested information.
+3. Select your directory and add a new user. This new user is an organizational account. During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this information as it is used in another step.
+4. From the portal, select Settings and then select Administrators. Select Add, and add the new user as a co-administrator. This allows the organizational account to manage your Azure subscription.
+5. Finally, log out of the Azure portal and then log back in using the new organizational account. If this is the first time logging in with this account, you will be prompted to change the password.
 
 For more information about using an organizational account with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization](../active-directory/sign-up-organization.md).
 
@@ -90,15 +93,12 @@ Then, to specify the subscription to use, type:
 
 For more information about configuring Azure Cross-Platform Command-Line Interface, see [How to Install and Configure Azure Cross-Platform Command-Line Interface](../xplat-cli-install.md).
 
-
 ## Switch to using Azure Resource Manager
-
 The Key Vault requires Azure Resource Manager, so type the following to switch to Azure Resource Manager mode:
 
     azure config mode arm
 
 ## Create a new resource group
-
 When using Azure Resource Manager, all related resources are created inside a resource group. We will create a new resource group 'ContosoResourceGroup' for this tutorial.
 
     azure group create 'ContosoResourceGroup' 'East Asia'
@@ -112,9 +112,7 @@ Make sure that Key Vault resource provider is registered in your subscription:
 
 This only needs to be done once per subscription.
 
-
 ## Create a key vault
-
 Use the `azure keyvault create` command to create a key vault. This script has three mandatory parameters: a resource group name, a key vault name, and the geographic location.
 
 For example, if you use the vault name of ContosoKeyVault, the resource group name of ContosoResourceGroup, and the location of East Asia, type:
@@ -123,14 +121,12 @@ For example, if you use the vault name of ContosoKeyVault, the resource group na
 
 The output of this command shows properties of the key vault that you've just created. The two most important properties are:
 
-- **Name**: In the example this is ContosoKeyVault. You will use this name for other Key Vault cmdlets.
-- **vaultUri**: In the example this is https://contosokeyvault.vault.azure.net. Applications that use your vault through its REST API must use this URI.
+* **Name**: In the example this is ContosoKeyVault. You will use this name for other Key Vault cmdlets.
+* **vaultUri**: In the example this is https://contosokeyvault.vault.azure.net. Applications that use your vault through its REST API must use this URI.
 
 Your Azure account is now authorized to perform any operations on this key vault. As yet, nobody else is.
 
-
 ## Add a key or secret to the key vault
-
 If you want Azure Key Vault to create a software-protected key for you, use the `azure key create` command, and type the following:
 
     azure keyvault key create --vault-name 'ContosoKeyVault' --key-name 'ContosoFirstKey' --destination software
@@ -149,57 +145,51 @@ You can now reference this password that you added to Azure Key Vault, by using 
 
 Let's view the key or secret that you just created:
 
-- To view your key, type: `azure keyvault key list --vault-name 'ContosoKeyVault'`
-- To view your secret, type: `azure keyvault secret list --vault-name 'ContosoKeyVault'`
-
+* To view your key, type: `azure keyvault key list --vault-name 'ContosoKeyVault'`
+* To view your secret, type: `azure keyvault secret list --vault-name 'ContosoKeyVault'`
 
 ## Register an application with Azure Active Directory
-
 This step would usually be done by a developer, on a separate computer. It is not specific to Azure Key Vault but is included here, for completeness.
 
-
->[AZURE.IMPORTANT] To complete the tutorial, your account, the vault, and the application that you will register in this step must all be in the same Azure directory.
+> [!IMPORTANT]
+> To complete the tutorial, your account, the vault, and the application that you will register in this step must all be in the same Azure directory.
+> 
+> 
 
 Applications that use a key vault must authenticate by using a token from Azure Active Directory. To do this, the owner of the application must first register the application in their Azure Active Directory. At the end of registration, the application owner gets the following values:
 
-
-- An **Application ID** (also known as a Client ID) and **authentication key** (also known as the shared secret). The application must present both of these values to Azure Active Directory, to get a token. How the application is configured to do this depends on the application. For the Key Vault sample application, the application owner sets these values in the app.config file.
-
-
+* An **Application ID** (also known as a Client ID) and **authentication key** (also known as the shared secret). The application must present both of these values to Azure Active Directory, to get a token. How the application is configured to do this depends on the application. For the Key Vault sample application, the application owner sets these values in the app.config file.
 
 To register the application in Azure Active Directory:
 
 1. Sign in to the Azure portal.
 2. On the left, click **Active Directory**, and then select the directory in which you will register your application. <br> <br> Note: You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
-
 3. Click **APPLICATIONS**. If no apps have been added to your directory, this page will show only the **Add an App** link. Click the link, or alternatively, you can click the **ADD** on the command bar.
-4.	In the **ADD APPLICATION** wizard, on the **What do you want to do?** page, click **Add an application my organization is developing**.
-5.	On the **Tell us about your application** page, specify a name for your application and select **WEB APPLICATION AND/OR WEB API** (the default). Click the Next icon.
-6.	On the **App properties** page, specify the **SIGN-ON URL** and **APP ID URI** for your web application. If your application does not have these values, you can make them up for this step (for example, you could specify http://test1.contoso.com for both boxes). It does not matter if these sites exist; what is important is that the app ID URI for each application is different for every application in your directory. The directory uses this string to identify your app.
-7.	Click the Complete icon to save your changes in the wizard.
-8.	On the Quick Start page, click **CONFIGURE**.
-9.	Scroll to the **keys** section, select the duration, and then click **SAVE**. The page refreshes and now shows a key value. You must configure your application with this key value and the **CLIENT ID** value. (Instructions for this configuration will be application-specific.)
-10.	Copy the client ID value from this page, which you will use in the next step to set permissions on your vault.
-
-
-
+4. In the **ADD APPLICATION** wizard, on the **What do you want to do?** page, click **Add an application my organization is developing**.
+5. On the **Tell us about your application** page, specify a name for your application and select **WEB APPLICATION AND/OR WEB API** (the default). Click the Next icon.
+6. On the **App properties** page, specify the **SIGN-ON URL** and **APP ID URI** for your web application. If your application does not have these values, you can make them up for this step (for example, you could specify http://test1.contoso.com for both boxes). It does not matter if these sites exist; what is important is that the app ID URI for each application is different for every application in your directory. The directory uses this string to identify your app.
+7. Click the Complete icon to save your changes in the wizard.
+8. On the Quick Start page, click **CONFIGURE**.
+9. Scroll to the **keys** section, select the duration, and then click **SAVE**. The page refreshes and now shows a key value. You must configure your application with this key value and the **CLIENT ID** value. (Instructions for this configuration will be application-specific.)
+10. Copy the client ID value from this page, which you will use in the next step to set permissions on your vault.
 
 ## Authorize the application to use the key or secret
-
 To authorize the application to access the key or secret in the vault, use the `azure keyvault set-policy` command.
 
 For example, if your vault name is ContosoKeyVault and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, then run the following:
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
 
->[AZURE.NOTE] If you are running on Windows command prompt, you should replace single quotes with double quotes, and also escape the internal double quotes. For example: "[\"decrypt\",\"sign\"]".
+> [!NOTE]
+> If you are running on Windows command prompt, you should replace single quotes with double quotes, and also escape the internal double quotes. For example: "[\"decrypt\",\"sign\"]".
+> 
+> 
 
 If you want to authorize that same application to read secrets in your vault, run the following:
 
-	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '["get"]'
+    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '["get"]'
 
-## If you want to use a hardware security module (HSM) ##
-
+## If you want to use a hardware security module (HSM)
 For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete-the-key-vault-and-associated-keys-and-secrets).
 
 To create these HSM-protected keys, you must have a vault subscription that supports HSM-protected keys.
@@ -222,9 +212,7 @@ The next command imports a “bring your own key" (BYOK) package. This lets you 
 
 For more detailed instructions about how to generate this BYOK package, see [How to use HSM-Protected Keys with Azure Key Vault](key-vault-hsm-protected-keys.md).
 
-
 ## Delete the key vault and associated keys and secrets
-
 If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the azure keyvault delete command:
 
     azure keyvault delete --vault-name 'ContosoKeyVault'
@@ -235,7 +223,6 @@ Or, you can delete an entire Azure resource group, which includes the key vault 
 
 
 ## Other Azure Cross-Platform Command-line Interface Commands
-
 Other commands that you might useful for managing Azure Key Vault.
 
 This command lists a tabular display of all keys and selected properties:
@@ -260,5 +247,5 @@ Here's an example of how to remove a specific secret:
 
 
 ## Next steps
-
 For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
+

@@ -1,28 +1,26 @@
-<properties
-	pageTitle="Getting Started with Azure Stack Key Vault | Microsoft Azure"
-	description="Get started using Azure Stack Key Vault"
-	services="azure-stack"
-	documentationCenter=""
-	authors="rlfmendes"
-	manager="natmack"
-	editor=""/>
+﻿---
+title: Getting Started with Azure Stack Key Vault | Microsoft Docs
+description: Get started using Azure Stack Key Vault
+services: azure-stack
+documentationcenter: ''
+author: rlfmendes
+manager: natmack
+editor: ''
 
-<tags
-	ms.service="azure-stack"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="10/18/2016"
-	ms.author="ricardom"/>
+ms.assetid: b973be33-2fc1-4ee6-976a-84ed270e7254
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 10/18/2016
+ms.author: ricardom
 
-
+---
 # Getting started with Key Vault
-
 This section describes the steps to create a vault, manage keys and secrets as well as authorize users or applications to invoke operations in the vault in Azure Stack. The following steps assume a tenant subscription exists and KeyVault service is registered within that subscription. All the example commands are based on the KeyVault cmdlets available as part of the Azure PowerShell SDK.
 
-## Enabling the tenant subscription for Vault operations 
-
+## Enabling the tenant subscription for Vault operations
 Before you can issue operations against any vault, you need to ensure that your subscription is enabled for vault operations. You can confirm that by issuing the following PowerShell command:
 
     Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -AutoSize
@@ -33,7 +31,7 @@ The output of the above command should report “Registered” for the “Regist
     Microsoft.KeyVault Registered {operations} {local}
     Microsoft.KeyVault Registered {vaults} {local}
     Microsoft.KeyVault Registered {vaults/secrets} {local}
-    
+
 
  If that’s not the case, you should
 invoke the following command to register the KeyVault service within
@@ -42,22 +40,22 @@ your subscription:
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 And the folowing is the output of the command:
-    
+
     ProviderNamespace : Microsoft.KeyVault
     RegistrationState : Registered
     ResourceTypes : {operations, vaults, vaults/secrets}
     Locations : {local}
 
 
->[AZURE.NOTE] If you get the error: "*The subscription is not registered with Azure Key Vault*" when invoking KeyVault cmdlets, please confirm you have enabled the KeyVault resource provider per instructions above.
-
+> [!NOTE]
+> If you get the error: "*The subscription is not registered with Azure Key Vault*" when invoking KeyVault cmdlets, please confirm you have enabled the KeyVault resource provider per instructions above.
+> 
+> 
 
 ## Creating a hardened container (a vault) in Azure Stack to store and manage cryptographic keys and secrets
-
 In order to create a Vault, a tenant should first create a resource group. The following PowerShell commands create a resource group and then a Vault in that Resource Group. The example also includes the typical output from that cmdlet.
 
 ### Creating a resource group:
-
     New-AzureRmResourceGroup -Name vaultrg010 -Location local -Verbose -Force
 
 Output:
@@ -69,11 +67,9 @@ Output:
     ProvisioningState : Succeeded
     Tags :
     ResourceId : /subscriptions/fa881715-3802-42cc-a54e-a06adf61584d/resourceGroups/vaultrg010
-    
+
 
 ### Creating a vault:
-
-
     New-AzureRmKeyVault -VaultName vault010 -ResourceGroupName vaultrg010 -Location local -Verbose
 
 Output:
@@ -100,22 +96,18 @@ Output:
     Location : local
     Tags : {}
     TagsTable :
-    
+
 The output of this cmdlet shows properties of the key vault that you’ve just created. The two most important properties are:
 
--   **Vault Name**: In the example, this is **vault010**. You will use this name for other Key Vault cmdlets.
-
--   **Vault URI**: In the example, this is https://vault010.vault.azurestack.local. Applications that use your vault through its REST API must use this URI.
+* **Vault Name**: In the example, this is **vault010**. You will use this name for other Key Vault cmdlets.
+* **Vault URI**: In the example, this is https://vault010.vault.azurestack.local. Applications that use your vault through its REST API must use this URI.
 
 Your Azure account is now authorized to perform any operations on this key vault. As yet, nobody else is.
 
-
 ## Operating on Keys and Secrets
-
 After creating a vault, follow the below steps to create manage keys and secrets:
 
 ### Creating a key
-
 In order to create a key, use the **Add-AzureKeyVaultKey** per the example below. After successful key creation, the cmdlet will output the newly created key details.
 
     Add-AzureKeyVaultKey -VaultName \$vaultName -Name\$keyVaultKeyName -Verbose -Destination Software
@@ -131,12 +123,11 @@ The following is the output of the *Add-AzureKeyVaultKey* cmdlet:
     Name : keyVaultKeyName001
     Version : 86062b02b10342688f3b0b3713e343ff
     Id : https://vault010.vault.azurestack.local:443/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff
-    
+
 You can now reference this key that you created or uploaded to Azure Key Vault, by using its URI. Use **https://vault010.vault.azurestack.local:443/keys/keyVaultKeyName001**
 to always get the current version; and use **https://vault010.vault.azurestack.local:443/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff** to get this specific version.
 
 ### Retrieving a key
-
 Use the **Get-AzureKeyVaultKey** to retrieve a key and its details per the following example:
 
     Get-AzureKeyVaultKey -VaultName vault010 -Name keyVaultKeyName001
@@ -154,10 +145,9 @@ The following is the output of Get-AzureKeyVaultKey
     Id : https://vault010.vault.azurestack.local:443/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff
 
 ### Setting a secret
-
     $secretvalue = ConvertTo-SecureString 'User@123' -AsPlainText -Force
     Set-AzureKeyVaultSecret -Name MySecret-VaultName vault010 -SecretValue $secretvalue
-    
+
 Output
 
     Vault Name : vault010
@@ -173,7 +163,6 @@ Output
     Tags : 
 
 ### Retrieving a secret
-
     Get-AzureKeyVaultSecret -VaultName vault010
 
 Output
@@ -193,8 +182,7 @@ Output
 Now, your key vault and key or secret is ready for applications to use.
 You must authorize applications to use them.
 
-## Authorize the application to use the key or secret 
-
+## Authorize the application to use the key or secret
 To authorize the application to access the key or secret in the vault, use the Set-**AzureRmKeyVaultAccessPolicy** cmdlet.
 
 For example, if your vault name is *ContosoKeyVault* and the application you want to authorize has a *Client ID* of *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*, and you want to authorize the application to decrypt and sign with keys in your vault, run the following:
@@ -210,3 +198,4 @@ If you want to authorize that same application to read secrets in your vault, ru
 [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
+

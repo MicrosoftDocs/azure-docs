@@ -1,27 +1,26 @@
-<properties
-	pageTitle="Customize the developer portal in Azure API Management | Microsoft Azure"
-	description="Learn how to customize the developer portal in Azure API Management."
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="erikre"
-	editor=""/>
+---
+title: Customize the developer portal in Azure API Management | Microsoft Docs
+description: Learn how to customize the developer portal in Azure API Management.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="10/25/2016"
-	ms.author="sdanie"/>
+ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 10/25/2016
+ms.author: sdanie
 
+---
 # Customize the developer portal in Azure API Management
-
 This guide shows you how to modify the look and feel of the developer portal in Azure API Management for consistency with your brand.
 
 ## <a name="change-page-headers"> </a>Change the text or logo in the page header
-
 One of the key aspects of portal customization is replacing the text at the top of all pages with your company name or logo.
 
 Content within the developer portal is modified via the publisher portal which is accessible from the Azure Portal. To reach it, click **Publisher portal** from the service toolbar of your API Management instance.
@@ -37,9 +36,10 @@ The contents of the header is editable from within the **Body** field. Change th
 Now you should be able to see the new header on every page within the developer portal.
 
 > To open the developer portal while in the publisher portal, click **Developer portal** in the top bar.
+> 
+> 
 
 ## <a name="change-headers-styling"> </a>Change the styling of the headers
-
 The colors, fonts, sizes, spacings, and other style-related elements of any page on the portal are defined by style rules. To edit the styles, click **Appearance** from the **Developer portal** menu in the publisher portal, and then click **Begin customization** to enable the styling editor.
 
 Your browser switches to a hidden page within the developer portal that contains samples of content, with examples for all styling rules used anywhere on the site. To open the styling editor, move your cursor over the thin gray vertical line on the left-most part of the page. The editor toolbar should appear.
@@ -52,7 +52,9 @@ In this section, we want to change the styling of only the headers. Click the **
 
 Each rule represents a styling property of the selected element. For example, for the header text selected above, the size of the text is in @font-size-h1 while the name of the font with alternatives is in @headings-font-family.
 
-> If you're familiar with [bootstrap][], these rules are in fact [LESS variables][] within the bootstrap theme used by the developer portal.
+> If you're familiar with [bootstrap][bootstrap], these rules are in fact [LESS variables][LESS variables] within the bootstrap theme used by the developer portal.
+> 
+> 
 
 Let's change the color of the heading text. Select the entry in the **@headings-color** field and type **#000000**. This is the hex code for the color black. As you do this, you see that a square color indicator appears at the end of the text box. If you click this indicator, a color picker lets you to choose a color.
 
@@ -63,9 +65,10 @@ When you are done making changes to the styles of the selected element, click **
 ![Publish menu][api-management-customization-toolbar-publish-form]
 
 > To change the style rules that apply to any other element on the page, follow the same procedure as you did for the header. Click **Pick an element** from the styling editor, select the element you are interested in, and start modifying the values of the style rules displayed on the screen.
+> 
+> 
 
 ## <a name="edit-page-contents"> </a>Edit the contents of a page
-
 The developer portal consists of automatically generated pages like APIs, Products, Applications, Issues, and manually written content. Because it is based on a content management system, you can create such content as necessary.
 
 To see the list of all existing content pages, click **Content** from the **Developer portal** menu in the publisher portal.
@@ -75,10 +78,11 @@ To see the list of all existing content pages, click **Content** from the **Deve
 Click the **Welcome** page to edit what is displayed on the home page of the developer portal. Make the changes you want, preview them if necessary, and then click **Publish Now** to make them visible to everyone.
 
 > The home page uses a special layout that allows it to display a banner at the top. This banner is not editable from the **Content** section. To edit this banner, click **Widgets** from the **Developer portal** menu, select **Home page** from the **Current Layer** drop-down list, and then open the **Banner** item under the **Featured section**. The contents of this widget are editable just like any other page.
+> 
+> 
 
 ## <a name="next-steps"> </a>Next steps
-
--	Learn how to customize the content of developer portal pages using [Developer portal templates](api-management-developer-portal-templates.md).
+* Learn how to customize the content of developer portal pages using [Developer portal templates](api-management-developer-portal-templates.md).
 
 [Change the text/logo in the page headers]: #change-page-headers
 [Change the styling of the headers]: #change-headers-styling

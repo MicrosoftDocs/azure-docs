@@ -1,23 +1,24 @@
-<properties
-   pageTitle="Manage Azure Analysis Services | Microsoft Azure"
-   description="Learn how to manage an Analysis Services server in Azure."
-   services="analysis-services"
-   documentationCenter=""
-   authors="minewiskan"
-   manager="erikre"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="analysis-services"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="na"
-   ms.date="10/31/2016"
-   ms.author="owend"/>
+---
+title: Manage Azure Analysis Services | Microsoft Docs
+description: Learn how to manage an Analysis Services server in Azure.
+services: analysis-services
+documentationcenter: ''
+author: minewiskan
+manager: erikre
+editor: ''
+tags: ''
 
+ms.assetid: 79491d0b-b00d-4e02-9ca7-adc99bc02fdb
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 10/31/2016
+ms.author: owend
+
+---
 # Manage Analysis Services
-
 Once you've created an Analysis Services server in Azure, there may be some administration and management tasks you need to perform right away or sometime down the road. For example, run processing to the refresh data, control who can access the models on your server, or monitor your server's health. Some management tasks can only be performed in Azure portal, others in SQL Server Management Studio (SSMS), and some tasks can be done in either.
 
 ## Azure portal
@@ -36,19 +37,17 @@ Connecting to your server in Azure is just like connecting to a server instance 
 
 ### To connect with SSMS
 1. Before you connect, you need to get the server name. In **Azure portal** > server > **Overview** > **Server name**, copy the server name.
-
+   
     ![Get server name in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-
 2. In SSMS > **Object Explorer**, click **Connect** > **Analysis Services**.
-
 3. In the **Connect to Server** dialog box, paste in the server name, then in in **Authentication**, choose one of the following:
-
+   
     **Active Directory Integrated Authentication** to use single sign-on with Active Directory to Azure Active Directory federation.
-
+   
     **Active Directory Password Authentication** to use an organizational account. For example, when connecting from a non-domain joined computer.
-
+   
     Note: If you don't see Active Directory Authentication, you may need to [enable Azure Active Directory authentication](#enable-azure-active-directory-authentication) in SSMS.
-
+   
     ![Connect in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 Since managing your server in Azure by using SSMS is much the same as managing an on-premises server, we're not going to go into details here. All the help you need can be found in [Analysis Services Instance Management](https://msdn.microsoft.com/library/hh230806.aspx) on MSDN.
@@ -58,9 +57,9 @@ You can use **Analysis Services Admins** in the control blade for your server in
 
 You should also know:
 
--   Windows Live ID is not a supported identity type for Azure Analysis Services.  
--   Analysis Services Admins must be valid Azure Active Directory users.
--   If creating an Azure Analysis Services server via Azure Resource Manager  templates, Analysis Services Admins takes a JSON array of users that should be added as admins.
+* Windows Live ID is not a supported identity type for Azure Analysis Services.  
+* Analysis Services Admins must be valid Azure Active Directory users.
+* If creating an Azure Analysis Services server via Azure Resource Manager  templates, Analysis Services Admins takes a JSON array of users that should be added as admins.
 
 Analysis Services Admins can be different from Azure resource administrators, which can manage resources for Azure subscriptions. This maintains compatibility with existing XMLA and TSML manage behaviors in Analysis Services and to allow you to segregate duties between Azure resource management and Analysis Services database management.
 
@@ -102,7 +101,6 @@ You can add users by using [role assignments in Azure Active Directory](../activ
 ## Enable Azure Active Directory authentication
 To enable the Azure Active Directory authentication feature for SSMS in the registry, create a text file named EnableAAD.reg, then copy and paste the following:
 
-
 ```
 Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Microsoft SQL Server\Microsoft Analysis Services\Settings]
@@ -115,15 +113,12 @@ Save and then run the file.
 When connecting to your server using SSMS, if (in step 3) you attempt to sign in using a non-federated account or an account not in your Azure Active Directory, and are unable to connect, you may need to clear your login cache. Close SSMS before following these steps.
 
 1. In File Explorer, navigate to `C:\Users\<user_name>\AppData\Local\`.
-
 2. Delete the **AADCacheOM** folder.
-
 3. Search the **Local** folder for .dat files beginning with the name **omlibs-tokens-cache.** If you find any, delete them.
-
 4. Open SSMS and repeat the steps in [To connect with SSMS](#to-connect-with-ssms) above.
-
 
 ## Next steps
 If you haven't already deployed a tabular model to your new server, now is a good time. To learn more, see [Deploy to Azure Analysis Services](analysis-services-deploy.md).
 
 If you've deployed a model to your server, you're ready to connect to it using a client or browser. To learn more, see [Get data from Azure Analysis Services server](analysis-services-connect.md).
+

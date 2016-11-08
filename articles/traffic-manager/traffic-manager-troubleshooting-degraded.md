@@ -1,24 +1,23 @@
-<properties
-    pageTitle="Troubleshooting degraded status on Azure Traffic Manager"
-    description="How to troubleshoot Traffic Manager profiles when it shows as degraded status."
-    services="traffic-manager"
-    documentationCenter=""
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-/>
-<tags
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    ms.author="sewhee"
-/>
+---
+title: Troubleshooting degraded status on Azure Traffic Manager
+description: How to troubleshoot Traffic Manager profiles when it shows as degraded status.
+services: traffic-manager
+documentationcenter: ''
+author: sdwheeler
+manager: carmonm
+editor: ''
 
+ms.assetid: 8af0433d-e61b-4761-adcc-7bc9b8142fc6
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/11/2016
+ms.author: sewhee
+
+---
 # Troubleshooting degraded state on Azure Traffic Manager
-
 This article describes how to troubleshoot an Azure Traffic Manager profile that is showing a degraded status. For this scenario, consider that you have configured a Traffic Manager profile pointing to some of your cloudapp.net hosted services. When you check the health of your traffic manager, you see that the Status is Degraded.
 
 ![degraded state](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degraded.png)
@@ -28,16 +27,14 @@ If you go into the Endpoints tab of that profile, you see one or more of the end
 ![offline](./media/traffic-manager-troubleshooting-degraded/traffic-manager-offline.png)
 
 ## Understanding Traffic Manager probes
-
-- Traffic Manager considers an endpoint to be ONLINE only when the probe receives an HTTP 200 response back from the probe path. Any other non-200 response is a failure.
-- A 30x redirect fails, even if the redirected URL returns a 200.
-- For HTTPs probes, certificate errors are ignored.
-- The actual content of the probe path doesn't matter, as long as a 200 is returned. Probing a URL to some static content like "/favicon.ico" is a common technique. Dynamic content, like the ASP pages, may not always return 200, even when the application is healthy.
-- A best practice is to set the Probe path to something that has enough logic to determine that the site is up or down. In the previous example, by setting the path to "/favicon.ico", you are only testing that w3wp.exe is responding. This probe may not indicate that your web application is healthy. A better option would be to set a path to a something such as "/Probe.aspx" that has logic to determine the health of the site. For example, you could use performance counters to CPU utilization or measure the number of failed requests. Or you could attempt to access database resources or session state to make sure that the web application is working.
-- If all endpoints in a profile are degraded, then Traffic Manager treats all endpoints as healthy and routes traffic to all endpoints. This behavior ensures that problems with the probing mechanism do not result in a complete outage of your service.
+* Traffic Manager considers an endpoint to be ONLINE only when the probe receives an HTTP 200 response back from the probe path. Any other non-200 response is a failure.
+* A 30x redirect fails, even if the redirected URL returns a 200.
+* For HTTPs probes, certificate errors are ignored.
+* The actual content of the probe path doesn't matter, as long as a 200 is returned. Probing a URL to some static content like "/favicon.ico" is a common technique. Dynamic content, like the ASP pages, may not always return 200, even when the application is healthy.
+* A best practice is to set the Probe path to something that has enough logic to determine that the site is up or down. In the previous example, by setting the path to "/favicon.ico", you are only testing that w3wp.exe is responding. This probe may not indicate that your web application is healthy. A better option would be to set a path to a something such as "/Probe.aspx" that has logic to determine the health of the site. For example, you could use performance counters to CPU utilization or measure the number of failed requests. Or you could attempt to access database resources or session state to make sure that the web application is working.
+* If all endpoints in a profile are degraded, then Traffic Manager treats all endpoints as healthy and routes traffic to all endpoints. This behavior ensures that problems with the probing mechanism do not result in a complete outage of your service.
 
 ## Troubleshooting
-
 To troubleshoot a probe failure, you need a tool that shows the HTTP status code return from the probe URL. There are many tools available that show you the raw HTTP response.
 
 * [Fiddler](http://www.telerik.com/fiddler)
@@ -80,7 +77,6 @@ If your probe is using the HTTPS protocol, you may need to disable certificate c
 ```
 
 ## Next Steps
-
 [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
 
 [What is Traffic Manager](traffic-manager-overview.md)

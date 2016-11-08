@@ -1,52 +1,52 @@
-<properties
-   pageTitle="Design decisions and coding techniques for SQL Data Warehouse development | Microsoft Azure"
-   description="Development concepts, design decisions, recommendations and coding techniques for SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Design decisions and coding techniques for SQL Data Warehouse development | Microsoft Docs
+description: Development concepts, design decisions, recommendations and coding techniques for SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="jrj;barbkess"/>
+ms.assetid: 996e3afc-c21c-4e21-b9df-997f953f6dfd
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
 
+---
 # Design decisions and coding techniques for SQL Data Warehouse
-
 Take a look through these development articles to better understand key design decisions, recommendations and coding techniques for SQL Data Warehouse.
 
 ## Key design decisions
 The following articles highlight some of the key concepts and design decisions you will need to understand for the development of your distributed data warehouse using SQL Data Warehouse:
 
-- [connections][]
-- [concurrency][]
-- [transactions][]
-- [user-defined schemas][]
-- [table distribution][]
-- [table indexes][]
-- [table partitions][]
-- [CTAS][]
-- [statistics][]
+* [connections][connections]
+* [concurrency][concurrency]
+* [transactions][transactions]
+* [user-defined schemas][user-defined schemas]
+* [table distribution][table distribution]
+* [table indexes][table indexes]
+* [table partitions][table partitions]
+* [CTAS][CTAS]
+* [statistics][statistics]
 
 ## Development recommendations and coding techniques
 These articles highlight specific coding techniques, tips and recommendations for developing your SQL Data Warehouse:
 
-- [stored procedures][]
-- [labels][]
-- [views][]
-- [temporary tables][]
-- [dynamic SQL][]
-- [looping][]
-- [group by options][]
-- [variable assignment][]
+* [stored procedures][stored procedures]
+* [labels][labels]
+* [views][views]
+* [temporary tables][temporary tables]
+* [dynamic SQL][dynamic SQL]
+* [looping][looping]
+* [group by options][group by options]
+* [variable assignment][variable assignment]
 
 ## Next steps
-Once you have been through the development articles take a look through the [Transact-SQL reference][] page for more details on the supported syntax for SQL Data Warehouse.
+Once you have been through the development articles take a look through the [Transact-SQL reference][Transact-SQL reference] page for more details on the supported syntax for SQL Data Warehouse.
 
 <!--Image references-->
 

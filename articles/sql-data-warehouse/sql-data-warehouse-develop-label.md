@@ -1,21 +1,22 @@
-<properties
-   pageTitle="Use labels to instrument queries in SQL Data Warehouse | Microsoft Azure"
-   description="Tips for using labels to instrument queries in Azure SQL Data Warehouse for developing solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Use labels to instrument queries in SQL Data Warehouse | Microsoft Docs
+description: Tips for using labels to instrument queries in Azure SQL Data Warehouse for developing solutions.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="jrj;barbkess"/>
+ms.assetid: 44988de8-04c1-4fed-92be-e1935661a4e8
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
 
+---
 # Use labels to instrument queries in SQL Data Warehouse
 SQL Data Warehouse supports a concept called query labels. Before going into any depth let's look at an example of one:
 
@@ -39,11 +40,13 @@ WHERE   r.[label] = 'My Query Label'
 ;
 ```
 
-> [AZURE.NOTE] It is essential that you wrap square brackets or double quotes around the word label when querying. Label is a reserved word and will caused an error if it has not been delimited.
-
+> [!NOTE]
+> It is essential that you wrap square brackets or double quotes around the word label when querying. Label is a reserved word and will caused an error if it has not been delimited.
+> 
+> 
 
 ## Next steps
-For more development tips, see [development overview][].
+For more development tips, see [development overview][development overview].
 
 <!--Image references-->
 

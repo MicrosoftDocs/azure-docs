@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 03/17/16-->
 
 ## Troubleshooting update failures
-
 **What if you see a notification that the pre-upgrade checks have failed?**
 
 If a pre-check fails, make sure that you have looked at the detailed notification bar at the bottom of the page. This provides guidance as to which pre-check has failed. The following illustration shows an instance in which such a notification appears. In this case, the controller health check and hardware component health check have failed. Under the **Hardware Status** section, you can see that both **Controller 0** and **Controller 1** components need attention.
@@ -19,3 +18,4 @@ One likely cause for this could be that you do not have connectivity to the Micr
 Run the cmdlet on both controllers.
 
 If you have verified the connectivity exists, and you continue to see this issue, please contact Microsoft Support for next steps.
+

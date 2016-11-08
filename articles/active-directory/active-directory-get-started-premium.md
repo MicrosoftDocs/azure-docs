@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Getting started with Azure Active Directory Premium"
-	description="A topic that explains how to sign up for Azure Active Directory Premium edition through the Volume Licensing web site."
-	services="active-directory"
-	documentationCenter=""
-	authors="MarkusVi"
-	manager="femila" 
-	editor=""/>
+﻿---
+title: Getting started with Azure Active Directory Premium
+description: A topic that explains how to sign up for Azure Active Directory Premium edition through the Volume Licensing web site.
+services: active-directory
+documentationcenter: ''
+author: MarkusVi
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="10/31/2016"
-	ms.author="markvi"/>
+ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
+ms.service: active-directory
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 10/31/2016
+ms.author: markvi
 
+---
 # Getting started with Azure Active Directory Premium
-
-
 To sign up for Active Directory Premium, you have several options: 
 
 **Azure or Office 365** - As an Azure or Office 365 subscriber, you can buy Active Directory Premium online. 
@@ -26,42 +25,30 @@ For detailed steps, see [How to Purchase Azure Active Directory Premium - Existi
 
 **Enterprise Mobility + Security** - Enterprise Mobility + Security (formerly Enterprise Mobility Suite) is a cost effective way for organizations to use the following services together under one licensing plan: Active Directory Premium, Azure Rights Management, Microsoft Intune. For more information, see the [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) web site. To get e free 30-day trial, click [here](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
 
-
 **Microsoft Volume Licensing** - Azure Active Directory Premium is available through a [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 or more licenses) or the [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licenses) program.
-
 
 This topic shows you how to get started with an Azure Active Directory Premium you have purchased through the Volume Licensing program. If you are not yet familiar with the different editions of Azure Active Directory, see [Azure Active Directory editions](active-directory-editions.md).  
 
-> [AZURE.NOTE]
-Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
-
-
-
+> [!NOTE]
+> Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> 
+> 
 
 ## Step 1: Sign up for Active Directory Premium
-
 To sign up, see [How to purchase through Volume Licensing](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
 
-
-
 ## Step 2: Activate your license plan
-
 Is this your first license plan purchase through the Enterprise Volume Licensing program from Microsoft?
 In this case, you get a confirmation email when your purchase has been completed.
 You need this email to activate your first license plan.
 
 On any subsequent purchase for this directory, the licenses are automatically activated in the same directory.
 
-
-
 **To activate your license plan, perform one of the following steps:**
 
-
 1. To start the activation, click either **Sign In** or **Sign Up**.
-
+   
     ![Sign in][1]
-
-
 
     - If you have an existing tenant, click **Sign In** to sign in with your existing administrator account. You need to sign in with the global administrator credentials from the directory where the licenses must be activated.
 
@@ -74,7 +61,6 @@ When you are done, the following dialog shows up as confirmation for the activat
 ![Confirmation][3]
 
 ## Step 3: Activate your Azure Active Directory access
-
 If you have used Microsoft Azure before, you can proceed to [Step 4](#step-4-assign-license-to-user-accounts). 
 
 When the licenses are provisioned to your directory, a **Welcome email** is sent to you. 
@@ -88,19 +74,13 @@ If you Please try again in a few minutes once you have received the email.
 
 New administrators in your subscription can also activate their access to the Azure classic portal through this link.
 
-
-
-
-
-
 **To activate your Azure Active Directory access, perform the following steps:**
 
 1. In your **Welcome email**, click **Sign In**. 
-    
+   
     ![Welcome email][4]
-
 2. When you have signed in successfully, you need to complete a second factor authentication in form of a mobile verification:
-
+   
     ![Mobile verification][5]
 
 The activation can take a few minutes. Once your access is active, the brown bar disappears and you are able to click **Portal**.
@@ -115,10 +95,7 @@ You may already have had access to Azure from prior usage; in addition, you can 
 
 ![Azure capabilities][8]
 
-
-
 ## Step 4: Assign license to user accounts
-
 Before you can start using the plan you purchased, you need to manually assign licenses to user accounts within your organization so that they can use the rich features provided with Premium. Use the following steps to assign licenses to users so they can use Azure Active Directory Premium features.
 
 **To assign licenses to users, perform the following steps:**
@@ -126,19 +103,16 @@ Before you can start using the plan you purchased, you need to manually assign l
 1. Sign into the Azure classic portal as the global administrator of the directory you wish to customize.
 2. Click **Active Directory**, and then select the directory where you want to assign licenses.
 3. Select the **Licenses** tab, select **Active Directory Premium** or **Enterprise Mobility Suite**, and then click **Assign**.
-
+   
     ![License plans][10]
-
 4. In the dialog box, select the users you want to assign licenses to, and then click the check mark icon to save the changes.
-
+   
     ![Assign licenses][11]
 
 ### License restrictions
-
 Some license plans are subsets or supersets of other license plans. Typically, a user cannot be assigned a license plan that has already been assigned to them. If it is your intention to assign a license plan that is a superset, you need to first remove the subset license plan.
 
 ### License requirements
-
 When you assign a license to a user, you can specify a primary usage location in the properties of their account. If a usage location is not specified, the tenant’s location is automatically assigned to the user.
 
 ![User location][12]
@@ -146,9 +120,8 @@ When you assign a license to a user, you can specify a primary usage location in
 The availability of services and features for a Microsoft cloud service varies by country or region. A service, such as Voice over Internet Protocol (VoIP), may be available in one country or region, and not available in another. Features within a service can be restricted for legal reasons in certain countries or regions. To see if a service or feature is available with or without restrictions, look for your country or region on license restrictions site of a service.
 
 ## What's next
-
-- [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
-- [View your access and usage reports](active-directory-view-access-usage-reports.md)
+* [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
+* [View your access and usage reports](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-get-started-premium/MOLSEmail.png

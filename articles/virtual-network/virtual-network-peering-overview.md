@@ -1,41 +1,41 @@
+﻿
+---
+title: Azure virtual network peering | Microsoft Docs
+description: Learn about VNet peering in Azure.
+services: virtual-network
+documentationcenter: na
+author: NarayanAnnamalai
+manager: jefco
+editor: tysonn
 
-<properties
-   pageTitle="Azure virtual network peering | Microsoft Azure"
-   description="Learn about VNet peering in Azure."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="NarayanAnnamalai"
-   manager="jefco"
-   editor="tysonn" />
-<tags
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/17/2016"
-   ms.author="narayan" />
+ms.assetid: eb0ba07d-5fee-4db0-b1cb-a569b7060d2a
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/17/2016
+ms.author: narayan
 
+---
 # VNet peering
-
 VNet peering is a mechanism that connects two virtual networks (VNets) in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. They are still managed as separate resources, but virtual machines in these virtual networks can communicate with each other directly by using private IP addresses.
 
 The traffic between virtual machines in the peered virtual networks is routed through the Azure infrastructure much like traffic is routed between VMs in the same virtual network. Some of the benefits of using VNet peering include:
 
-- A low-latency, high-bandwidth connection between resources in different virtual networks.
-- The ability to use resources such as network appliances and VPN gateways as transit points in a peered VNet.
-- The ability to connect a virtual network that uses the Azure Resource Manager model to a virtual network that uses the classic deployment model and enable full connectivity between resources in these virtual networks.
+* A low-latency, high-bandwidth connection between resources in different virtual networks.
+* The ability to use resources such as network appliances and VPN gateways as transit points in a peered VNet.
+* The ability to connect a virtual network that uses the Azure Resource Manager model to a virtual network that uses the classic deployment model and enable full connectivity between resources in these virtual networks.
 
 Requirements and key aspects of VNet peering:
 
-- The two virtual networks that are peered should be in the same Azure region.
-- The virtual networks that are peered should have non-overlapping IP address spaces.
-- VNet peering is between two virtual networks, and there is no derived transitive relationship. For example, if virtual network A is peered with virtual network B, and if virtual network B is peered with virtual network C, it does not translate to virtual network A being peered with virtual network C.
-- Peering can be established between virtual networks in two different subscriptions as long a privileged user of both subscriptions authorizes the peering and the subscriptions are associated to the same Active Directory tenant. 
-- Peering between virtual network in resource manager model and classic deployment model requires that the VNets should be in the same subscription.
-- A virtual network that uses the Resource Manager deployment model can be peered with another virtual network that uses this model, or with a virtual network that uses the classic deployment model. However, virtual networks that use the classic deployment model can't be peered to each other.
-- Though the communication between virtual machines in peered virtual networks has no additional bandwidth restrictions, bandwidth cap based on VM size still applies.
-
+* The two virtual networks that are peered should be in the same Azure region.
+* The virtual networks that are peered should have non-overlapping IP address spaces.
+* VNet peering is between two virtual networks, and there is no derived transitive relationship. For example, if virtual network A is peered with virtual network B, and if virtual network B is peered with virtual network C, it does not translate to virtual network A being peered with virtual network C.
+* Peering can be established between virtual networks in two different subscriptions as long a privileged user of both subscriptions authorizes the peering and the subscriptions are associated to the same Active Directory tenant. 
+* Peering between virtual network in resource manager model and classic deployment model requires that the VNets should be in the same subscription.
+* A virtual network that uses the Resource Manager deployment model can be peered with another virtual network that uses this model, or with a virtual network that uses the classic deployment model. However, virtual networks that use the classic deployment model can't be peered to each other.
+* Though the communication between virtual machines in peered virtual networks has no additional bandwidth restrictions, bandwidth cap based on VM size still applies.
 
 ![Basic VNet peering](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -83,8 +83,8 @@ There are limits on the number of peerings that are allowed for a single virtual
 ## Pricing
 VNet peering will be free of charge during the review period. After it is released, there will be a nominal charge on ingress and egress traffic that utilizes the peering. For more information, refer to the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
 
-
 ## Next steps
-- [Set up peering between virtual networks](virtual-networks-create-vnetpeering-arm-portal.md).
-- Learn about [NSGs](virtual-networks-nsg.md).
-- Learn about [user-defined routes and IP forwarding](virtual-networks-udr-overview.md).
+* [Set up peering between virtual networks](virtual-networks-create-vnetpeering-arm-portal.md).
+* Learn about [NSGs](virtual-networks-nsg.md).
+* Learn about [user-defined routes and IP forwarding](virtual-networks-udr-overview.md).
+

@@ -1,31 +1,31 @@
-<properties
- pageTitle="Azure solutions for Internet of Things | Microsoft Azure"
- description="A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Hub, device SDKs, and preconfigured solutions"
- services="iot-hub"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Azure solutions for Internet of Things | Microsoft Docs
+description: A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Hub, device SDKs, and preconfigured solutions
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="10/05/2016"
- ms.author="dobett"/>
+ms.assetid: a859e379-dca7-42fa-bdf6-1125c86ad140
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/05/2016
+ms.author: dobett
 
-[AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
+---
+[!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Next steps
-
 Azure IoT Hub is an Azure service that enables secure and reliable bi-directional communications between your application back end and millions of devices. It enables the application back end to:
 
-- Receive telemetry at scale from your devices.
-- Route data from your devices to a stream event processor.
-- Receive file uploads from devices.
-- Send cloud-to-device commands to specific devices.
+* Receive telemetry at scale from your devices.
+* Route data from your devices to a stream event processor.
+* Receive file uploads from devices.
+* Send cloud-to-device commands to specific devices.
 
 You can use IoT Hub to implement your own solution back end. In addition, IoT Hub includes a device identity registry used to provision devices, their security credentials, and their rights to connect to the hub. To learn more about IoT Hub, see [What is IoT Hub?][lnk-iot-hub].
 

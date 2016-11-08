@@ -1,31 +1,31 @@
-<properties
-   pageTitle="Creating a performance testing environment for Elasticsearch | Microsoft Azure"
-   description="How to set up an environment for testing the performance of an Elasticsearch cluster."
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="bennage"
-   editor=""
-   tags=""/>
+---
+title: Creating a performance testing environment for Elasticsearch | Microsoft Docs
+description: How to set up an environment for testing the performance of an Elasticsearch cluster.
+services: ''
+documentationcenter: na
+author: dragon119
+manager: bennage
+editor: ''
+tags: ''
 
-<tags
-   ms.service="guidance"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/22/2016"
-   ms.author="masashin"/>
-   
+ms.assetid: fc696fdd-f50f-49b4-8263-f0ef077febd7
+ms.service: guidance
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/22/2016
+ms.author: masashin
+
+---
 # Creating a performance testing environment for Elasticsearch on Azure
-
-[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+[!INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article is [part of a series](guidance-elasticsearch.md). 
 
 This document describes how to set up an environment for testing the performance of an Elasticsearch 
 cluster. This configuration was used to test the performance of data ingestion and query workloads, 
-as described in [Tuning data ingestion performance for Elasticsearch on Azure][].
+as described in [Tuning data ingestion performance for Elasticsearch on Azure][Tuning data ingestion performance for Elasticsearch on Azure].
 
 The performance testing process used [Apache JMeter](http://jmeter.apache.org/), with the 
 [standard set](http://jmeter-plugins.org/wiki/StandardSet/) of plugins installed in a master/subordinate 
@@ -51,27 +51,21 @@ The following image shows the structure of the entire system.
 
 Note the following points:
 
-- The JMeter master VM runs Windows Server to provide the GUI environment for the JMeter console. 
-The JMeter Master VM provides the GUI (the *jmeter* application) to enable a tester to create tests, 
-run tests, and visualize the results. This VM coordinates with the JMeter server VMs that actually 
-send the requests that constitute the tests.
-
-- The JMeter subordinate VMs run Ubuntu Server (Linux), there is no GUI requirement for these VMs. 
-The JMeter server VMs run the JMeter server software (the *jmeter-server* application) to send 
-requests to the Elasticsearch cluster.
-
-- Dedicated client nodes were not used, although dedicated master nodes were.
-
-- The number of data nodes in the cluster can vary, depending on the scenario being tested.
-
-- All nodes in the Elasticsearch cluster run Marvel to observe performance at runtime, and the 
-JMeter Server Agent to collect monitoring data for later analysis.
-
-- When testing Elasticsearch 2.0.0 and later, one of the data nodes also runs Kibana. This is 
-required by the version of Marvel that runs on Elasticsearch 2.0.0 and later.
+* The JMeter master VM runs Windows Server to provide the GUI environment for the JMeter console. 
+  The JMeter Master VM provides the GUI (the *jmeter* application) to enable a tester to create tests, 
+  run tests, and visualize the results. This VM coordinates with the JMeter server VMs that actually 
+  send the requests that constitute the tests.
+* The JMeter subordinate VMs run Ubuntu Server (Linux), there is no GUI requirement for these VMs. 
+  The JMeter server VMs run the JMeter server software (the *jmeter-server* application) to send 
+  requests to the Elasticsearch cluster.
+* Dedicated client nodes were not used, although dedicated master nodes were.
+* The number of data nodes in the cluster can vary, depending on the scenario being tested.
+* All nodes in the Elasticsearch cluster run Marvel to observe performance at runtime, and the 
+  JMeter Server Agent to collect monitoring data for later analysis.
+* When testing Elasticsearch 2.0.0 and later, one of the data nodes also runs Kibana. This is 
+  required by the version of Marvel that runs on Elasticsearch 2.0.0 and later.
 
 ## Creating an Azure resource group for the virtual machines
-
 The JMeter master needs to be able to connect directly to each of the nodes in the Elasticsearch cluster 
 to gather performance data. If the JMeter VNet is distinct from the Elasticsearch cluster VNet, then this
 entails configuring each Elasticsearch node with a public IP address. If this is a problem with your 
@@ -84,7 +78,6 @@ JMeter VMs in the same VNet as the Elasticsearch cluster, use the same resource 
 instead of creating a new one.
 
 ## Creating the JMeter master virtual machine
-
 Next [create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) using the 
 *Windows Server 2008 R2 SP1* image.  We recommend selecting a VM size with sufficient cores and memory 
 to run the performance tests. Ideally this will be a machine with at least 2 cores and 3.5GB of RAM 
@@ -102,7 +95,6 @@ The resources listed should consist of a VM, a network security group, and a pub
 the same name, and network interface and storage account with names based on that of the VM.
 
 ## Creating the JMeter subordinate virtual machines
-
 Now [create a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-portal.md) using the 
 *Ubuntu Server 14.04 LTS* image.  As with the JMeter master VM, select a VM size with sufficient cores 
 and memory to run the performance tests. Ideally this will be a machine with at least 2 cores, and at 
@@ -113,7 +105,6 @@ Again, we recommend that you disable the diagnostics.
 You can create as many subordinate VMs as you wish. 
 
 ## Installing JMeter server on the JMeter subordinate VMs
-
 The JMeter subordinate VMs are running Linux and by default you cannot connect to them by opening a 
 remote desktop connection (RDP). Instead, you can 
 [use PuTTY to open a command line window](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) on each VM.
@@ -197,10 +188,13 @@ receiving commands.  Run the following command in the ~/apache-jmeter-2.13/bin d
 nohup jmeter-server &
 ```
 
-> [AZURE.NOTE] If the VM is shutdown then the JMeter server program is terminated. You will need to 
+> [!NOTE]
+> If the VM is shutdown then the JMeter server program is terminated. You will need to 
 > connect to the VM and restart it again manually. Alternatively, you can configure the system to run 
 > the *jmeter-server* command automatically on startup by adding the following commands to the 
 > `/etc/rc.local` file (before the *exit 0* command):
+> 
+> 
 
 ```bash
 sudo -u <username> bash << eoc
@@ -217,7 +211,6 @@ JMeter server while testing is in progress.
 You will need to repeat these steps for each JMeter subordinate VM.
 
 ## Installing the JMeter Server Agent on the Elasticsearch nodes
-
 This procedure assumes that you have login access to the Elasticsearch nodes. If you have created the
 cluster using the Resource Manager template, you can connect to each node through the jump box VM, as illustrated 
 in the Elasticsearch topology section of [Running Elasticsearch on Azure](guidance-elasticsearch-running-on-azure.md). You can connect to the jump box using PuTTY as well. 
@@ -240,7 +233,7 @@ sudo apt-get install unzip
 wget http://jmeter-plugins.org/downloads/file/ServerAgent-2.2.1.zip
 unzip ServerAgent-2.2.1.zip
 ```
- 
+
 Run the following command to configure the firewall and enable TCP traffic to pass through 
 port 4444 (this is the port used by the JMeter Server Agent):
 
@@ -273,7 +266,10 @@ the following response:
 
 ![](./media/guidance-elasticsearch/performance-telnet-server.png)
 
-> [AZURE.NOTE] The telnet session does not provide any sort of prompt once it has connected.
+> [!NOTE]
+> The telnet session does not provide any sort of prompt once it has connected.
+> 
+> 
 
 In the telnet session, type the following command:
 
@@ -284,10 +280,13 @@ test
 If the JMeter Server Agent is configured and listening correctly, it should indicate that it 
 received the command and respond with the message *Yep*.
 
-> [AZURE.NOTE] You can type in other commands to obtain performance monitoring data. For example, 
+> [!NOTE]
+> You can type in other commands to obtain performance monitoring data. For example, 
 > the command `metric-single:cpu:idle` will give you the current proportion of the time that the CPU 
 > is idle (this is a snapshot). For a complete list of commands, visit the 
 > [PerfMon Server Agent](http://jmeter-plugins.org/wiki/PerfMonAgent/) page. : Back to calling it he Perfmon Server Agent.>>
+> 
+> 
 
 In the telnet session, type the following command to quit the session and return to the Bash 
 command prompt:
@@ -296,11 +295,14 @@ command prompt:
 exit
 ```
 
-> [AZURE.NOTE] As with the JMeter subordinate VMs, if you log out, or if this machine is shutdown 
+> [!NOTE]
+> As with the JMeter subordinate VMs, if you log out, or if this machine is shutdown 
 > and restarted then the JMeter Server Agent will need to be restarted manually by using the 
 > `startAgent.sh` command. If you want the JMeter Server Agent to start automatically, add the 
 > following command to the end of the `/etc/rc.local` file, before the *exit 0* command. 
 > Replace `<username>` with your login name:
+> 
+> 
 
 ```bash
 sudo -u <username> bash << eoc
@@ -322,7 +324,6 @@ ssh <nodename> -n -f 'nohup \~/server-agent/startAgent.sh'
 ```
 
 ## Installing and configuring JMeter on the JMeter master VM
-
 In the Azure portal, click **Resource groups**. In the **Resource groups** blade, click the resource group containing the JMeter master and subordinate VMs.  In the **Resource group** blade, click the **JMeter master VM**. In the virtual machine blade, on the toolbar, click **Connect**. Open the RDP file when prompted by the web 
 browser. Windows creates a remote desktop connection to your VM.  Enter the username and password for the VM when prompted.
 
@@ -392,7 +393,6 @@ machines are listed:
 You are now ready to begin performance testing.
 
 ## Installing and configuring Marvel
-
 The Elasticsearch Quickstart Template for Azure will install and configure the appropriate version of 
 Marvel automatically if you set the MARVEL and KIBANA parameters to true ("yes")  when building the cluster:
 
@@ -401,34 +401,30 @@ Marvel automatically if you set the MARVEL and KIBANA parameters to true ("yes")
 If you are adding Marvel to an existing cluster you need to perform the installation manually, and the process is different depending on whether you are using Elasticsearch version 1.7.x or 2.x, as described in the following procedures.
 
 ### Installing Marvel with Elasticsearch 1.73 or earlier
-
 If you are using Elasticsearch 1.7.3 or earlier, perform the following steps *on every node* in the 
 cluster:
 
-- Log in to the node and move to the Elasticsearch home directory.  On Linux, the typical home directory
-is `/usr/share/elasticsearch`.
-
--  Run the following command to download and install the Marvel plugin for Elasticsearch:
+* Log in to the node and move to the Elasticsearch home directory.  On Linux, the typical home directory
+  is `/usr/share/elasticsearch`.
+* Run the following command to download and install the Marvel plugin for Elasticsearch:
 
 ```bash
 sudo bin/plugin -i elasticsearch/marvel/latest
 ```
 
-- Stop and restart Elasticsearch on the node:
+* Stop and restart Elasticsearch on the node:
 
 ```bash
 sudo service elasticsearch restart
 ```
 
-- To verify that Marvel was installed correctly, open a web browser and go to the 
-URL `http://<server>:9200/_plugin/marvel`. Replace `<server>` with the name or IP address of 
-any Elasticsearch server in the cluster.  Verify that a page similar to that shown below appears:
+* To verify that Marvel was installed correctly, open a web browser and go to the 
+  URL `http://<server>:9200/_plugin/marvel`. Replace `<server>` with the name or IP address of 
+  any Elasticsearch server in the cluster.  Verify that a page similar to that shown below appears:
 
 ![](./media/guidance-elasticsearch/performance-image20.png)
 
-
 ### Installing Marvel with Elasticsearch 2.0.0 or later
-
 If you are using Elasticsearch 2.0.0 or later, perform the following tasks *on every node* in the cluster:
 
 Log in to the node and move to the Elasticsearch home directory (typically `/usr/share/elasticsearch`)  Run 
@@ -500,6 +496,5 @@ Click the link that corresponds to your cluster (elasticsearch210 in the image a
 similar to that shown below should appear:
 
 ![](./media/guidance-elasticsearch/performance-image22.png)
-
 
 [Tuning Data Ingestion Performance for Elasticsearch on Azure]: guidance-elasticsearch-tuning-data-ingestion-performance.md  

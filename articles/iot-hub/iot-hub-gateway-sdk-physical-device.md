@@ -1,54 +1,50 @@
-<properties
-	pageTitle="Use a real device with the IoT Gateway SDK | Microsoft Azure"
-	description="Azure IoT Gateway SDK walkthrough using a Texas Instruments SensorTag device to send data to IoT Hub through a gateway running on A Raspberry Pi 3"
-	services="iot-hub"
-	documentationCenter=""
-	authors="chipalost"
-	manager="timlt"
-	editor=""/>
+﻿---
+title: Use a real device with the IoT Gateway SDK | Microsoft Docs
+description: Azure IoT Gateway SDK walkthrough using a Texas Instruments SensorTag device to send data to IoT Hub through a gateway running on A Raspberry Pi 3
+services: iot-hub
+documentationcenter: ''
+author: chipalost
+manager: timlt
+editor: ''
 
-<tags
-     ms.service="iot-hub"
-     ms.devlang="cpp"
-     ms.topic="article"
-     ms.tgt_pltfrm="na"
-     ms.workload="na"
-     ms.date="11/01/2016"
-     ms.author="andbuc"/>
+ms.assetid: 212dacbf-e5e9-48b2-9c8a-1c14d9e7b913
+ms.service: iot-hub
+ms.devlang: cpp
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/01/2016
+ms.author: andbuc
 
-
+---
 # Azure IoT Gateway SDK (beta) – send device-to-cloud messages with a real device using Linux
-
 This walkthrough of the [Bluetooth low energy sample][lnk-ble-samplecode] shows you how to use the [Azure IoT Gateway SDK][lnk-sdk] to forward device-to-cloud telemetry to IoT Hub from a physical device and how to route commands from IoT Hub to a physical device.
 
 This walkthrough covers:
 
 * **Architecture**: important architectural information about the Bluetooth low energy sample.
-
 * **Build and run**: the steps required to build and run the sample.
 
 ## Architecture
-
 The walkthrough shows you how to build and run an IoT Gateway on a Raspberry Pi 3 that runs Raspbian Linux. The gateway is built using the IoT Gateway SDK. The sample uses a Texas Instruments SensorTag Bluetooth Low Energy (BLE) device to collect temperature data.
 
 When you run the gateway it:
 
-- Connects to a SensorTag device using the Bluetooth Low Energy (BLE) protocol.
-- Connects to IoT Hub using the HTTP protocol.
-- Forwards telemetry from the SensorTag device to IoT Hub.
-- Routes commands from IoT Hub to the SensorTag device.
+* Connects to a SensorTag device using the Bluetooth Low Energy (BLE) protocol.
+* Connects to IoT Hub using the HTTP protocol.
+* Forwards telemetry from the SensorTag device to IoT Hub.
+* Routes commands from IoT Hub to the SensorTag device.
 
 The gateway contains the following modules:
 
-- A *BLE module* that interfaces with a BLE device to receive temperature data from the device and send commands to the device.
-- A *BLE Cloud to Device module* that translates the JSON messages coming from the cloud into BLE instructions for the *BLE module*.
-- A *logger module* that logs all gateway messages.
-- An *identity mapping module* that translates between BLE device MAC addresses and Azure IoT Hub device identities.
-- An *IoT Hub module* that uploads telemetry data to an IoT hub and receives device commands from an IoT hub.
-- A *BLE printer module* that interprets telemetry from the BLE device and prints formatted data to the console to enable troubleshooting and debugging.
+* A *BLE module* that interfaces with a BLE device to receive temperature data from the device and send commands to the device.
+* A *BLE Cloud to Device module* that translates the JSON messages coming from the cloud into BLE instructions for the *BLE module*.
+* A *logger module* that logs all gateway messages.
+* An *identity mapping module* that translates between BLE device MAC addresses and Azure IoT Hub device identities.
+* An *IoT Hub module* that uploads telemetry data to an IoT hub and receives device commands from an IoT hub.
+* A *BLE printer module* that interprets telemetry from the BLE device and prints formatted data to the console to enable troubleshooting and debugging.
 
 ### How data flows through the Gateway
-
 The following block diagram illustrates the telemetry upload data flow pipeline:
 
 ![](media/iot-hub-gateway-sdk-physical-device/gateway_ble_upload_data_flow.png)
@@ -73,73 +69,62 @@ The following block diagram illustrates the device command data flow pipeline:
 6. The logger module logs all messages from the broker to a disk file.
 
 ## Prepare your hardware
-
 This tutorial assumes you are using a [Texas Instruments SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html) device connected to a Raspberry Pi 3 running Raspbian.
 
 ### Install Raspbian
-
 You can use either of the following options to install Raspbian on your Raspberry Pi 3 device. 
 
-- Use [NOOBS][lnk-noobs], a graphical user interface, to install the latest version of Raspbian. 
-- Manually [download][lnk-raspbian] and write the latest image of the Raspbian operating system to a SD card. 
+* Use [NOOBS][lnk-noobs], a graphical user interface, to install the latest version of Raspbian. 
+* Manually [download][lnk-raspbian] and write the latest image of the Raspbian operating system to a SD card. 
 
 ### Install BlueZ 5.37
 The BLE modules talk to the Bluetooth hardware via the BlueZ stack. You need version 5.37 of BlueZ for the modules to work correctly. These instructions make sure the correct version of BlueZ is installed.
 
 1. Stop the current bluetooth daemon:
-    
+   
     ```
     sudo systemctl stop bluetooth
     ```
-
 2. Install dbus, a BlueZ dependency. 
-    
+   
     ```
     sudo apt-get install libdbus-1-dev
     ```
- 
 3. Install ical, a BlueZ dependency. 
-    
+   
     ```
     sudo apt-get install libical-dev
     ```
-
 4. Install readline, a BlueZ dependency. 
-    
+   
     ```
     sudo apt-get install libreadline-dev
     ```
-
 5. Download the BlueZ source code from bluez.org. 
-    
+   
     ```
     wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
     ```
-
 6. Unzip the source code.
-    
+   
     ```
     tar -xvf bluez-5.37.tar.xz
     ```
-
 7. Change directories to the newly created folder.
-    
+   
     ```
     cd bluez-5.37
     ```
-
 8. Build BlueZ.
-    
+   
     ```
     make
     ```
-
 9. Install BlueZ once it is done building.
-    
+   
     ```
     sudo make install
     ```
-
 10. Change systemd service configuration for bluetooth so it points to the new bluetooth daemon in the file `/lib/systemd/system/bluetooth.service`. Replace the 'ExecStart' line with the following text: 
     
     ```
@@ -147,50 +132,43 @@ The BLE modules talk to the Bluetooth hardware via the BlueZ stack. You need ver
     ```
 
 ### Enable connectivity to the SensorTag device from your Raspberry Pi 3 device
-
 Before running the sample, you need to verify that your Raspberry Pi 3 can connect to the SensorTag device.
 
 1. Unblock bluetooth on the Raspberry Pi 3 and check that the version number is **5.37**.
-    
+   
     ```
     sudo rfkill unblock bluetooth
     bluetoothctl --version
     ```
-
 2. Execute the **bluetoothctl** command. You are now in an interactive bluetooth shell. 
-
 3. Enter the command **power on** to power up the bluetooth controller. You should see output similar to:
-    
+   
     ```
     [NEW] Controller 98:4F:EE:04:1F:DF C3 raspberrypi [default]
     ```
-
 4. While still in the interactive bluetooth shell, enter the command **scan on** to scan for bluetooth devices. You should see output similar to:
-    
+   
     ```
     Discovery started
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
     ```
-
 5. Make the SensorTag device discoverable by pressing the small button (the green LED should flash). The Raspberry Pi 3 should discover the SensorTag device:
-    
+   
     ```
     [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
     [CHG] Device A0:E6:F8:B5:F6:00 TxPower: 0
     [CHG] Device A0:E6:F8:B5:F6:00 RSSI: -43
     ```
-    
+   
     In this example, you can see that the MAC address of the SensorTag device is **A0:E6:F8:B5:F6:00**.
-
 6. Turn off scanning by entering the **scan off** command.
-    
+   
     ```
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: no
     Discovery stopped
     ```
-
 7. Connect to your SensorTag device using its MAC address by entering **connect \<MAC address>**. Note that the sample output below is abbreviated:
-    
+   
     ```
     Attempting to connect to A0:E6:F8:B5:F6:00
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: yes
@@ -207,11 +185,10 @@ Before running the sample, you need to verify that your Raspberry Pi 3 can conne
     [CHG] Device A0:E6:F8:B5:F6:00 Alias: SensorTag 2.0
     [CHG] Device A0:E6:F8:B5:F6:00 Modalias: bluetooth:v000Dp0000d0110
     ```
-    
+   
     Note: You can list the GATT characteristics of the device again using the **list-attributes** command.
-
 8. You can now disconnect from the device using the **disconnect** command and then exit from the bluetooth shell using the **quit** command:
-    
+   
     ```
     Attempting to disconnect from A0:E6:F8:B5:F6:00
     Successful disconnected
@@ -221,22 +198,19 @@ Before running the sample, you need to verify that your Raspberry Pi 3 can conne
 You're now ready to run the BLE Gateway sample on your Raspberry Pi 3.
 
 ## Run the BLE Gateway sample
-
 To run the BLE sample, you need to complete three tasks:
 
-- Configure two sample devices in your IoT Hub.
-- Build the IoT Gateway SDK on your Raspberry Pi 3 device.
-- Configure and run the BLE sample on your Raspberry Pi 3 device.
+* Configure two sample devices in your IoT Hub.
+* Build the IoT Gateway SDK on your Raspberry Pi 3 device.
+* Configure and run the BLE sample on your Raspberry Pi 3 device.
 
 At the time of writing, the IoT Gateway SDK only supports gateways that use BLE modules on Linux.
 
 ### Configure two sample devices in your IoT Hub
-
-- [Create an IoT hub][lnk-create-hub] in your Azure subscription, you will need the name of your hub to complete this walkthrough. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-- Add one device called **SensorTag_01** to your IoT hub and make a note of its id and device key. You can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tools to add this device to the IoT hub you created in the previous step and to retrieve its key. You will map this device to the SensorTag device when you configure the gateway.
+* [Create an IoT hub][lnk-create-hub] in your Azure subscription, you will need the name of your hub to complete this walkthrough. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
+* Add one device called **SensorTag_01** to your IoT hub and make a note of its id and device key. You can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tools to add this device to the IoT hub you created in the previous step and to retrieve its key. You will map this device to the SensorTag device when you configure the gateway.
 
 ### Build the IoT Gateway SDK on your Raspberry Pi 3
-
 Use the following **git** commands to clone the IoT Gateway SDK and all its submodules:
 
 ```
@@ -252,13 +226,11 @@ When you have a complete copy of the IoT Gateway SDK repository on your Raspberr
 ```
 
 ### Configure and run the BLE sample on your Raspberry Pi 3
-
 To bootstrap and run the sample, you need to configure each module that participates in the gateway. This configuration is provided in a JSON file and you need to configure all five participating modules. There is a sample JSON file provided in the repository called **gateway_sample.json** which you can use as the starting point for building your own configuration file. This file is in the **samples/ble_gateway_hl/src** folder in local copy of the IoT Gateway SDK repository.
 
 The following sections describe how to edit this configuration file for the BLE sample and assume that the IoT Gateway SDK repository is in the **/home/root/azure-iot-gateway-sdk/** folder on your Raspberry Pi 3. If the repository is elsewhere, you should adjust the paths accordingly:
 
 #### Logger configuration
-
 Assuming the gateway repository is located in the folder **/home/root/azure-iot-gateway-sdk/**, configure the logger module as follows:
 
 ```json
@@ -275,7 +247,6 @@ Assuming the gateway repository is located in the folder **/home/root/azure-iot-
 ```
 
 #### BLE module configuration
-
 The sample configuration for the BLE device assumes a Texas Instruments SensorTag device. Any standard BLE device that can operate as a GATT peripheral should work but you will need to update the GATT characteristic IDs and data (for write instructions). Add the MAC address of your SensorTag device: 
 
 ```json
@@ -333,7 +304,6 @@ The sample configuration for the BLE device assumes a Texas Instruments SensorTa
 ```
 
 #### IoT Hub module
-
 Add the name of your IoT Hub. The suffix value is typically **azure-devices.net**:
 
 ```json
@@ -351,7 +321,6 @@ Add the name of your IoT Hub. The suffix value is typically **azure-devices.net*
 ```
 
 #### Identity mapping module configuration
-
 Add the MAC address of your SensorTag device and the device Id and key of the **SensorTag_01** device you added to your IoT Hub:
 
 ```json
@@ -371,7 +340,6 @@ Add the MAC address of your SensorTag device and the device Id and key of the **
 ```
 
 #### BLE Printer module configuration
-
 ```json
 {
     "module name": "BLE Printer",
@@ -383,13 +351,13 @@ Add the MAC address of your SensorTag device and the device Id and key of the **
 ```
 
 #### Routing configuration
-
 The following configuration ensures the following:
-- The **Logger** module receives and logs all messages.
-- The **SensorTag** module sends messages to both the **mapping** and **BLE Printer** modules.
-- The **mapping** module sends messages to the **IoTHub** module to be sent up to your IoT Hub.
-- The **IoTHub** module sends messages back to the **mapping** module.
-- The **mapping** module sends messages back to the **SensorTag** module.
+
+* The **Logger** module receives and logs all messages.
+* The **SensorTag** module sends messages to both the **mapping** and **BLE Printer** modules.
+* The **mapping** module sends messages to the **IoTHub** module to be sent up to your IoT Hub.
+* The **IoTHub** module sends messages back to the **mapping** module.
+* The **mapping** module sends messages back to the **SensorTag** module.
 
 ```json
 "links" : [
@@ -413,11 +381,10 @@ You may need to press the small button on the SensorTag device to make it discov
 When you run the sample, you can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages the gateway forwards from the SensorTag device.
 
 ## Send cloud-to-device messages
-
 The BLE module also supports sending instructions from the Azure IoT Hub to the device. You can use the [Azure IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) or the [IoT Hub Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) to send JSON messages that the BLE gateway module passes on to the BLE device. For example, if you are using the Texas Instruments SensorTag device then you can send the following JSON messages to the device from IoT Hub.
 
-- Reset all LEDs and the buzzer (turn them off)
-
+* Reset all LEDs and the buzzer (turn them off)
+  
     ```json
     {
       "type": "write_once",
@@ -425,9 +392,8 @@ The BLE module also supports sending instructions from the Azure IoT Hub to the 
       "data": "AA=="
     }
     ```
-
-- Configure I/O as 'remote'
-
+* Configure I/O as 'remote'
+  
     ```json
     {
       "type": "write_once",
@@ -435,9 +401,8 @@ The BLE module also supports sending instructions from the Azure IoT Hub to the 
       "data": "AQ=="
     }
     ```
-
-- Turn on the red LED
-
+* Turn on the red LED
+  
     ```json
     {
       "type": "write_once",
@@ -445,9 +410,8 @@ The BLE module also supports sending instructions from the Azure IoT Hub to the 
       "data": "AQ=="
     }
     ```
-
-- Turn on the green LED
-
+* Turn on the green LED
+  
     ```json
     {
       "type": "write_once",
@@ -455,9 +419,8 @@ The BLE module also supports sending instructions from the Azure IoT Hub to the 
       "data": "Ag=="
     }
     ```
-
-- Turn on the buzzer
-
+* Turn on the buzzer
+  
     ```json
     {
       "type": "write_once",
@@ -468,17 +431,19 @@ The BLE module also supports sending instructions from the Azure IoT Hub to the 
 
 The default behavior for a device using the HTTP protocol to connect to IoT Hub is to check every 25 minutes for a new command. Therefore, if you send several separate commands you need to wait 25 minutes for the device to receive each command.
 
-> [AZURE.NOTE] The gateway also checks for new commands whenever it starts so you can force it to process a command by stopping and starting the gateway.
+> [!NOTE]
+> The gateway also checks for new commands whenever it starts so you can force it to process a command by stopping and starting the gateway.
+> 
+> 
 
 ## Next steps
-
 If you want to gain a more advanced understanding of the IoT Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
 
-- [Azure IoT Gateway SDK][lnk-sdk]
+* [Azure IoT Gateway SDK][lnk-sdk]
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Developer guide][lnk-devguide]
+* [Developer guide][lnk-devguide]
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
