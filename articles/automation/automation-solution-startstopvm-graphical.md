@@ -28,8 +28,8 @@ This Azure Automation scenario includes runbooks to start and stop classic virtu
 > [!div class="op_single_selector"]
 > * [Graphical](automation-solution-startstopvm-graphical.md)
 > * [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
-> 
-> 
+>
+>
 
 This is the graphical runbook version of this scenario. It is also available using [PowerShell Workflow runbooks](automation-solution-startstopvm-psworkflow.md).
 
@@ -101,7 +101,7 @@ Following is a detailed breakdown of the runbooks in this scenario.  You can use
 ### Authentication
 ![Authentication](media/automation-solution-startstopvm/graphical-authentication.png)
 
-The runbook starts with activities to set the [credentials](automation-credentials.md#configuring-authentication-to-azure-resources) and Azure subscription that will be used for the rest of the runbook.
+The runbook starts with activities to set the [credentials](automation-credentials.md) and Azure subscription that will be used for the rest of the runbook.
 
 The first two activities, **Get Subscription Id** and **Get Azure Credential**, retrieve the [assets](#installing-the-runbook) that are used by the next two activities.  Those activities could directly specify the assets, but they need the asset names.  Since we are allowing the user to specify those names in the [input parameters](#using-the-runbooks), we need these activities to retrieve the assets with a name specified by an input parameter.
 
@@ -135,4 +135,3 @@ The final step in the runbook is to send output whether the start or stop reques
 * [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 * [Child runbooks in Azure Automation](automation-child-runbooks.md)
 * [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
-
