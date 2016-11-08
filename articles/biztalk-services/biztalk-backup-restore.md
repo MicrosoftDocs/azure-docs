@@ -4,7 +4,7 @@ description: BizTalk Services includes Backup and Restore. Learn how to create a
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
-manager: erikre
+manager: anneta
 editor: ''
 
 ms.assetid: 59f91173-4683-48df-abd5-41262bfce6df
@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/07/2016
 ms.author: mandia
 
 ---
