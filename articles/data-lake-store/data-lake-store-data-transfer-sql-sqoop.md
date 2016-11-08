@@ -29,7 +29,7 @@ Big data applications are a natural choice for processing unstructured and semi-
 Before you begin this article, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup). 
+* **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md). 
 * **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). This article assumes you have an HDInsight Linux cluster with Data Lake Store access.
 * **Azure SQL Database**. For instructions on how to create one, see [Create an Azure SQL database](../sql-database/sql-database-get-started.md)
 
@@ -38,39 +38,39 @@ Before you begin this article, you must have the following:
 
 ## Create sample tables in the Azure SQL Database
 1. To start with, create two sample tables in the Azure SQL Database. Use [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) or Visual Studio to connect to the Azure SQL Database and then run the following queries.
-   
+
     **Create Table1**
-   
-        CREATE TABLE [dbo].[Table1]( 
-        [ID] [int] NOT NULL, 
-        [FName] [nvarchar](50) NOT NULL, 
-        [LName] [nvarchar](50) NOT NULL, 
-         CONSTRAINT [PK_Table_4] PRIMARY KEY CLUSTERED 
-            ( 
-                   [ID] ASC 
-            ) 
-        ) ON [PRIMARY] 
+
+        CREATE TABLE [dbo].[Table1](
+        [ID] [int] NOT NULL,
+        [FName] [nvarchar](50) NOT NULL,
+        [LName] [nvarchar](50) NOT NULL,
+         CONSTRAINT [PK_Table_4] PRIMARY KEY CLUSTERED
+            (
+                   [ID] ASC
+            )
+        ) ON [PRIMARY]
         GO
-   
+
     **Create Table2**
-   
-        CREATE TABLE [dbo].[Table2]( 
-        [ID] [int] NOT NULL, 
-        [FName] [nvarchar](50) NOT NULL, 
-        [LName] [nvarchar](50) NOT NULL, 
-         CONSTRAINT [PK_Table_4] PRIMARY KEY CLUSTERED 
-            ( 
-                   [ID] ASC 
-            ) 
-        ) ON [PRIMARY] 
+
+        CREATE TABLE [dbo].[Table2](
+        [ID] [int] NOT NULL,
+        [FName] [nvarchar](50) NOT NULL,
+        [LName] [nvarchar](50) NOT NULL,
+         CONSTRAINT [PK_Table_4] PRIMARY KEY CLUSTERED
+            (
+                   [ID] ASC
+            )
+        ) ON [PRIMARY]
         GO
 2. In **Table1**, add some sample data. Leave **Table2** empty. We will import data from **Table1** into Data Lake Store. Then, we will export data from Data Lake Store into **Table2**. Run the following snippet.
 
-        INSERT INTO [dbo].[Table1] VALUES (1,'Neal','Kell'), (2,'Lila','Fulton'), (3, 'Erna','Myers'), (4,'Annette','Simpson'); 
+        INSERT INTO [dbo].[Table1] VALUES (1,'Neal','Kell'), (2,'Lila','Fulton'), (3, 'Erna','Myers'), (4,'Annette','Simpson');
 
 
 ## Use Sqoop from an HDInsight cluster with access to Data Lake Store
-An HDInsight cluster already has the Sqoop packages available. If you have configured the HDInsight cluster to use Data Lake Store as an additional storage, you can use Sqoop (without any configuration changes) to import/export data between a relational database (in this example, Azure SQL Database) and a Data Lake Store account. 
+An HDInsight cluster already has the Sqoop packages available. If you have configured the HDInsight cluster to use Data Lake Store as an additional storage, you can use Sqoop (without any configuration changes) to import/export data between a relational database (in this example, Azure SQL Database) and a Data Lake Store account.
 
 1. For this tutorial, we assume you created a Linux cluster so you should use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
 2. Verify whether you can access the Data Lake Store account from the cluster. Run the following command from the SSH prompt:
@@ -80,7 +80,7 @@ An HDInsight cluster already has the Sqoop packages available. If you have confi
     This should provide a list of files/folders in the Data Lake Store account.
 
 ### Import data from Azure SQL Database into Data Lake Store
-1. Navigate to the directory where Sqoop packages are available. Typically, this will be at `/usr/hdp/<version>/sqoop/bin`. 
+1. Navigate to the directory where Sqoop packages are available. Typically, this will be at `/usr/hdp/<version>/sqoop/bin`.
 2. Import the data from **Table1** into the Data Lake Store account. Use the following syntax:
 
         sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-store-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
@@ -136,4 +136,3 @@ An HDInsight cluster already has the Sqoop packages available. If you have confi
 * [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 * [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-
