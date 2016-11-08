@@ -51,11 +51,11 @@
 ## [Router configuration samples for NAT](expressroute-config-samples-nat.md)
 
 # Related 
-## [Virtual Network](../virtual-network/)
-## [VPN Gateway](../vpn-gateway/)
-## [Virtual Machines](../virtual-machines/)
-## [Load Balancer](../load-balancer/)
-## [Traffic Manager](../traffic-manager/)
+## [Virtual Network](../virtual-network/index.md)
+## [VPN Gateway](../vpn-gateway/index.md)
+## [Virtual Machines](../virtual-machines/index.md)
+## [Load Balancer](../load-balancer/index.md)
+## [Traffic Manager](../traffic-manager/index.md)
 
 # Resources
 ## [Networking Blog](https://azure.microsoft.com/blog/topics/networking/)
