@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2016
+ms.date: 11/08/2016
 ms.author: banders
 
 ---
@@ -23,7 +23,8 @@ This article shows the steps to connect the Windows computers in your on-premise
 
 You can install agents using Setup, command line, or with Desired State Configuration (DSC) in Azure Automation.  
 
->[!NOTE] For virtual machines running in Azure you can simplify installation by using the [virtual machine extension](log-analytics-azure-vm-extension.md).
+>[!NOTE]
+For virtual machines running in Azure you can simplify installation by using the [virtual machine extension](log-analytics-azure-vm-extension.md).
 
 On computers with Internet connectivity, the agent will use the connection to the Internet to send data to OMS. For computers that do not have Internet connectivity, you can use a proxy or the [OMS Gateway](log-analytics-oms-gateway.md).
 
@@ -39,7 +40,7 @@ The following diagram shows the relationship between your Windows computers and 
 
 
 ## System requirements and required configuration
-Before you install or deploy agents, review the following details to ensure you meet necessary requirements. 
+Before you install or deploy agents, review the following details to ensure you meet necessary requirements.
 
 - You can only install the OMS MMA on computers running Windows Server 2008 SP 1 or later or Windows 7 SP1 or later.
 - You'll need an OMS subscription.  For additional information, see [Get started with Log Analytics](log-analytics-get-started.md).
@@ -72,7 +73,8 @@ Before you install or deploy agents, review the following details to ensure you 
 ## Install the agent using the command line
 - Modify and then use the following example to install the agent using the command line.
 
-    >[!NOTE] If you want to upgrade an agent, you need to use the Log Analytics scripting API. See the next section to upgrade an agent.
+    >[!NOTE]
+    If you want to upgrade an agent, you need to use the Log Analytics scripting API. See the next section to upgrade an agent.
 
     ```
     MMASetup-AMD64.exe /Q:A /R:N /C:"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1"
@@ -87,11 +89,13 @@ $mma.AddCloudWorkspace($workspaceId, $workspaceKey)
 $mma.ReloadConfiguration()
 ```
 
->[!NOTE] If you've used the command line or script previously to install or configure the agent, `EnableAzureOperationalInsights` was replaced by `AddCloudWorkspace`.
+>[!NOTE]
+If you've used the command line or script previously to install or configure the agent, `EnableAzureOperationalInsights` was replaced by `AddCloudWorkspace`.
 
 ## Install the agent using DSC in Azure Automation
 
->[!NOTE] This procedure and script example will not upgrade an existing agent.
+>[!NOTE]
+This procedure and script example will not upgrade an existing agent.
 
 1. Import the xPSDesiredStateConfiguration DSC Module from [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) into Azure Automation.  
 2.	Create Azure Automation variable assets for *OPSINSIGHTS_WS_ID* and *OPSINSIGHTS_WS_KEY*. Set *OPSINSIGHTS_WS_ID* to your OMS Log Analytics workspace ID and set *OPSINSIGHTS_WS_KEY* to the primary key of your workspace.
