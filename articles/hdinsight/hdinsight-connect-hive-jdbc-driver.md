@@ -114,6 +114,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
     * **Extra Class Path**: Use the Add button to add the jar files downloaded earlier
     * **Class Name**: org.apache.hive.jdbc.HiveDriver
     
+    
     ![add driver dialog](./media/hdinsight-connect-hive-jdbc-driver/adddriver.png)
      
     Click **OK** to save these settings.
