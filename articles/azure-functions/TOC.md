@@ -38,11 +38,6 @@
 ## Deploy
 ### [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
 
-## Monitor
-
-# Reference
-
-# Related
 
 # Resources
 ## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
