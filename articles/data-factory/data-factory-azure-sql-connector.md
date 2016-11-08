@@ -44,7 +44,7 @@ The following examples provide sample JSON definitions that you can use to creat
 The same defines the following Data Factory entities:
 
 1. A linked service of type [AzureSqlDatabase](#azure-sql-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md##azure-storage-linked-service). 
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service). 
 3. An input [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](#azure-sql-dataset-type-properties). 
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [SqlSource](#azure-sql-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).

@@ -531,7 +531,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 6. **Verify connection**: To connect to the SQL Server using fully qualified name, use SQL Server Management Studio from a different machine. For example: "<machine>.<domain>.corp.<company>.com,1433."
    
    > [!IMPORTANT]
-   > See [Ports and Security Considerations](data-factory-move-data-between-onprem-and-cloud.md#ports-and-firewall) for detailed information.
+   > See [Ports and Security Considerations](data-factory-data-management-gateway.md#ports-and-firewall) for detailed information.
    > 
    > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
    > 
