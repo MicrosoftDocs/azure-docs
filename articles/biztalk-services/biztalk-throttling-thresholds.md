@@ -4,7 +4,7 @@ description: Learn about throttling thresholds and resulting runtime behaviors f
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
-manager: erikre
+manager: anneta
 editor: ''
 
 ms.assetid: f6663cf2-cda4-4bac-855e-27d2ad5c4fa4
@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/07/2016
 ms.author: mandia
 
 ---
