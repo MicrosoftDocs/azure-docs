@@ -17,10 +17,10 @@ ms.date: 11/08/2016
 ms.author: mandia
 
 ---
-# What you can and can't using the BizTalk Service state
+# What you can and can't do using the BizTalk Service state
 Depending on the current state of the BizTalk service, there are operations that you can or cannot perform on the BizTalk service.
 
-For example, you provision a new BizTalk service in the Azure classic portal. When it completes successfully, the BizTalk service is in `active` state. In the active  state, you can stop, suspend, and delete the BizTalk service. If you stop the BizTalk service, and stop fails, then the BizTalk service goes to a `StopFailed state`. In the `StopFailed` state, you can restart the BizTalk service. If you try an operation that is not allowed, like resume, the following error occurs:
+For example, you provision a new BizTalk service in the Azure classic portal. When it completes successfully, the BizTalk service is in `active` state. In the active state, you can stop, suspend, and delete the BizTalk service. If you stop the BizTalk service, and stop fails, then the BizTalk service goes to a `StopFailed state`. In the `StopFailed` state, you can restart the BizTalk service. If you try an operation that is not allowed, like resume, the following error occurs:
 
 `Operation not allowed`
 
@@ -48,8 +48,8 @@ The following tables list the operations or actions that can be done when the Bi
 ## See Also
 * [Create a BizTalk Service using the Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [What you can do in the dashboard, monitor and scale tabs in BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [What you get witht he Developer, Basic, Standard and Premium Editions in BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [How to backup and restore a BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [What you get with the Developer, Basic, Standard, and Premium editions in BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [How to back up and restore a BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 * [Throttling explained in BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 * [Retrieve the Service Bus and Access Control issuer name and issuer key values for your BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 * [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
