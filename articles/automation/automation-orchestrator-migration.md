@@ -63,7 +63,7 @@ Microsoft provides [integration packs](http://technet.microsoft.com/library/hh29
 By the RTM version of this tool, updated versions of the integration packs based on OIT that can be converted with the Integration Pack Converter will be published.  Guidance will also be provided to assist you in converting runbooks using activities from the integration packs not based on OIT.
 
 ## Runbook Converter
-The Runbook Converter converts Orchestrator runbooks into [graphical runbooks](automation-runbook-types.md#graph-runbooks) that can be imported into Azure Automation.  
+The Runbook Converter converts Orchestrator runbooks into [graphical runbooks](automation-runbook-types.md#graphical-runbooks) that can be imported into Azure Automation.  
 
 Runbook Converter is implemented as a PowerShell module with a cmdlet called **ConvertFrom-SCORunbook** that performs the conversion.  When you install the tool, it will create a shortcut to a PowerShell session that loads the cmdlet.   
 
@@ -80,15 +80,15 @@ Following is the basic process to convert an Orchestrator runbook and import it 
 ### Using Runbook Converter
 The syntax for **ConvertFrom-SCORunbook** is as follows:
 
-    ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string> 
+    ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string>
 
 * RunbookPath - Path to the export file containing the runbooks to convert.
 * Module - Comma delimited list of integration modules containing activities in the runbooks.
-* OutputFolder - Path to the folder to create converted graphical runbooks. 
+* OutputFolder - Path to the folder to create converted graphical runbooks.
 
 The following example command converts the runbooks in an export file called **MyRunbooks.ois_export**.  These runbooks use the Active Directory and Data Protection Manager integration packs.
 
-    ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks" 
+    ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
 
 
 ### Log files
@@ -116,7 +116,7 @@ Any activity from a [converted integration pack](#integration-pack-converter) wi
 ### Orchestrator resources
 The Runbook Converter only converts runbooks, not other Orchestrator resources such as counters, variables, or connections.  Counters are not supported in Azure Automation.  Variables and connections are supported, but you must create them manually.  The log files will inform you if the runbook requires such resources and specify corresponding resources that you need to create in Azure Automation for the converted runbook to operate properly.
 
-For example, a runbook may use a variable to populate a particular value in an activity.  The converted runbook will convert the activity and specify a variable asset in Azure Automation with the same name as the Orchestrator variable.  This will be noted in the **Runbook Converter - Summary.log** file that is created after the conversion.  You will need to manually create this variable asset in Azure Automation before using the runbook. 
+For example, a runbook may use a variable to populate a particular value in an activity.  The converted runbook will convert the activity and specify a variable asset in Azure Automation with the same name as the Orchestrator variable.  This will be noted in the **Runbook Converter - Summary.log** file that is created after the conversion.  You will need to manually create this variable asset in Azure Automation before using the runbook.
 
 ### Input parameters
 Runbooks in Orchestrator accept input parameters with the **Initialize Data** activity.  If the runbook being converted includes this activity, then an [input parameter](automation-graphical-authoring-intro.md#runbook-input-and-output) in the Azure Automation runbook is created for each parameter in the activity.  A [Workflow Script control](automation-graphical-authoring-intro.md#activities) activity is created in the converted runbook that retrieves and returns each parameter.  Any activities in the runbook that use an input parameter refer to the output from this activity.
@@ -132,4 +132,3 @@ Runbooks in Orchestrator start other runbooks with the **Invoke Runbook** activi
 * [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 * [Orchestrator Standard Activities](http://technet.microsoft.com/library/hh403832.aspx)
 * [Download System Center Orchestrator Migration Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=47323)
-

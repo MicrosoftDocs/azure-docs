@@ -35,7 +35,7 @@ In order to determine what's wrong, take the following steps:
 
 1. Make sure that you don’t have any special characters, including the **@** character in the Automation credential asset name that you are using to connect to Azure.  
 2. Check that you can use the username and password that are stored in the Azure Automation credential in your local PowerShell ISE editor. You can do this by running the following cmdlets in the PowerShell ISE:  
-   
+
         $Cred = Get-Credential  
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
@@ -55,7 +55,7 @@ In order to determine if you have properly authenticated to Azure and have acces
 
 1. Make sure that you run the **Add-AzureAccount** before running the **Select-AzureSubscription** cmdlet.  
 2. If you still see this error message, modify your code by adding the **Get-AzureSubscription** cmdlet following the **Add-AzureAccount** cmdlet and then execute the code.  Now verify if the output of Get-AzureSubscription contains your subscription details.  
-   
+
    * If you don't see any subscription details in the output, this means that the subscription isn’t initialized yet.  
    * If you do see the subscription details in the output, confirm that you are using the correct subscription name or ID with the **Select-AzureSubscription** cmdlet.   
 
@@ -119,7 +119,7 @@ Any of the following solutions will fix the problem:
 This is by design behavior due to the "Fair Share" monitoring of processes within Azure Automation, which automatically suspends a runbook if it executes longer than 3 hours. However, the error message returned does not provide "what next" options. A runbook can be suspended for a number of reasons. Suspends happen mostly due to errors. For example, an uncaught exception in a runbook, a network failure, or a crash on the Runbook Worker running the runbook, will all cause the runbook to be suspended and start from its last checkpoint when resumed.
 
 **Troubleshooting tips:**
-The documented solution to avoid this issue is to use Checkpoints in a workflow.  To learn more refer to [Learning PowerShell Workflows](automation-powershell-workflow.md#Checkpoints).  A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
+The documented solution to avoid this issue is to use Checkpoints in a workflow.  To learn more refer to [Learning PowerShell Workflows](automation-powershell-workflow.md#checkpoints).  A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
 ## Troubleshoot common errors when importing modules
 ### Scenario: Module fails to import or cmdlets can't be executed after importing
@@ -154,7 +154,7 @@ This error typically occurs when the node is assigned to a configuration name (e
 
 * Make sure that you are assigning the node with "node configuration name" and not the "configuration name".  
 * You can assign a node configuration to a node using Azure portal or with a PowerShell cmdlet.
-  
+
   * In order to assign a node configuration to a node using Azure portal, open the **DSC Nodes** blade, then select a node and click on **Assign node configuration** button.  
   * In order to assign a node configuration to a node using PowerShell cmdlet, use **Set-AzureRmAutomationDscNode** cmdlet
 
@@ -199,4 +199,3 @@ If you have followed the troubleshooting steps above and need additional help at
 * File an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click **Get support** under **Technical and billing support**.
 * Post a Script Request on [Script Center](https://azure.microsoft.com/documentation/scripts/) if you are looking for an Azure Automation runbook solution or an integration module.
 * Post feedback or feature requests for Azure Automation on [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
-

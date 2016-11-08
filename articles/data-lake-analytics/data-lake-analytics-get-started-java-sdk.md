@@ -28,7 +28,7 @@ In this tutorial, you will develop a Java console application which contains sam
 * Java Development Kit (JDK) 8 (using Java version 1.8).
 * IntelliJ or another suitable Java development environment. This is optional but recommended. The instructions below use IntelliJ.
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Enable your Azure subscription** for Data Lake Analytics public preview. See [instructions](data-lake-analytics-get-started-portal.md#signup).
+* **Enable your Azure subscription** for Data Lake Analytics public preview. See [instructions](data-lake-analytics-get-started-portal.md).
 * Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md). The Reply URI and Key will also be available from the portal once you have the application created and key generated.
 
 ## How do I authenticate using Azure Active Directory?
@@ -40,9 +40,9 @@ You will need to give your application permission to create resources in Azure f
 1. Open IntelliJ and create a new Java project using the **Command Line App** template.
 2. Right-click on the project on the left-hand side of your screen and click **Add Framework Support**. Choose **Maven** and click **OK**.
 3. Open the newly created **"pom.xml"** file and add the following snippet of text between the **\</version>** tag and the **\</project>** tag:
-   
+
     NOTE: This step is temporary until the Azure Data Lake Analytics SDK is available in Maven. This article will be updated once the SDK is available in Maven. All future updates to this SDK will be availble through Maven.
-   
+
         <repositories>
             <repository>
                 <id>adx-snapshots</id>
@@ -93,13 +93,13 @@ You will need to give your application permission to create resources in Azure f
         </dependencies>
 4. Go to **File**, then **Settings**, then **Build**, **Execution**, **Deployment**. Select **Build Tools**, **Maven**, **Importing**. Then check **Import Maven projects automatically**.
 5. Open **Main.java** and replace the existing code block with the following code. Also, provide the values for parameters called out in the code snippet, such as **localFolderPath**, **_adlaAccountName**, **_adlsAccountName**, **_resourceGroupName** and replace placeholders for **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, and **SUBSCRIPTION-ID**.
-   
+
     This code goes through the process of creating Data Lake Store and Data Lake Analytics accounts, creating files in the store, running a job, getting job status, downloading job output, and finally deleting the account.
-   
+
    > [!NOTE]
    > There is currently a known issue with the Azure Data Lake Service.  If the sample app is interrupted or encounters an error, you may need to manually delete the Data Lake Store & Data Lake Analytics accounts that the script creates.  If you're not familiar with the Portal, the [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md) guide will get you started.
-   > 
-   > 
+   >
+   >
 
         package com.company;
 
@@ -345,4 +345,3 @@ You will need to give your application permission to create resources in Azure f
 * To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 * For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).
 * To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
-

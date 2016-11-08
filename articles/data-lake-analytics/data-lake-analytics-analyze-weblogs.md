@@ -22,26 +22,26 @@ Learn how to analyze website logs using Data Lake Analytics, especially on findi
 
 > [!NOTE]
 > If you just want to see the application working, it saves time to go through [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md). This tutorial is based on the same scenario and the same code. The purpose of this tutorial is to give developers the experience of creating and running a Data Lake Analytics application from end to end.
-> 
-> 
+>
+>
 
 ## Prerequisites:
 * **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed**.
 * **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**.
-  
+
     Once Data Lake Tools for Visual Studio is installed, you will see a **Data Lake** menu in Visual Studio:
-  
+
     ![U-SQL Visual Studio menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 * **Basic knowledge of Data Lake Analytics and the Data Lake Tools for Visual Studio**. To get started, see:
-  
+
   * [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md).
   * [Develop U-SQL script using Data Lake tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* **A Data Lake Analytics account.**  See [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
-  
+* **A Data Lake Analytics account.**  See [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
+
     The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Portal, Azure PowerShell, .NET SDK or Azure CLI.
-* **Upload the sample data to the Data Lake Analytics account.** See [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
-  
+* **Upload the sample data to the Data Lake Analytics account.** See [To copy sample data files](data-lake-analytics-get-started-portal.md#prepare-source-data).
+
     To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow.
 
 ## Connect to Azure
@@ -68,14 +68,14 @@ You can add addition user-defined operators to the application.  For more inform
 
 1. From the **File** menu, click **New**, and then click **Project**.
 2. Select the U-SQL Project type.
-   
+
     ![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 3. Click **OK**. Visual studio creates a solution with a Script.usql file.
 4. Enter the following script into the Script.usql file:
-   
+
         // Create a database for easy reuse, so you don't need to read from a file every time.
         CREATE DATABASE IF NOT EXISTS SampleDBTutorials;
-   
+
         // Create a Table valued function. TVF ensures that your jobs fetch data from the weblog file with the correct schema.
         DROP FUNCTION IF EXISTS SampleDBTutorials.dbo.WeblogsView;
         CREATE FUNCTION SampleDBTutorials.dbo.WeblogsView()
@@ -103,7 +103,7 @@ You can add addition user-defined operators to the application.  For more inform
         )
         AS
         BEGIN
-   
+
             @result = EXTRACT
                 s_date DateTime,
                 s_time string,
@@ -128,7 +128,7 @@ You can add addition user-defined operators to the application.  For more inform
             USING Extractors.Text(delimiter:' ');
             RETURN;
         END;
-   
+
         // Create a table for storing referrers and status
         DROP TABLE IF EXISTS SampleDBTutorials.dbo.ReferrersPerDay;
         @weblog = SampleDBTutorials.dbo.WeblogsView();
@@ -138,7 +138,7 @@ You can add addition user-defined operators to the application.  For more inform
             CLUSTERED(Year ASC)
             PARTITIONED BY HASH(Year)
         ) AS
-   
+
         SELECT s_date.Year AS Year,
             s_date.Month AS Month,
             s_date.Day AS Day,
@@ -149,16 +149,16 @@ You can add addition user-defined operators to the application.  For more inform
         GROUP BY s_date,
                 cs_referer,
                 sc_status;
-   
+
     To understand the U-SQL, see [Get started with Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).    
 5. Add a new U-SQL script to your project and enter the following:
-   
+
         // Query the referrers that ran into errors
         @content =
             SELECT *
             FROM SampleDBTutorials.dbo.ReferrersPerDay
             WHERE sc_status >=400 AND sc_status < 500;
-   
+
         OUTPUT @content
         TO @"/Samples/Outputs/UnsuccessfulResponses.log"
         USING Outputters.Tsv();
@@ -167,16 +167,16 @@ You can add addition user-defined operators to the application.  For more inform
 8. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
 9. Verify the **Analytics Account** is the one where you want to run the job, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
 10. Wait until the job is completed successfully.  If the job failed, it is most likely missing the source file.  Please see the Prerequisite section of this tutorial. For additional troubleshooting information, see [Monitor and troubleshoot Azure Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-    
+
     When the job is completed, you shall see the following screen:
-    
+
     ![data lake analytics analyze weblogs website logs](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
 11. Now repeat steps 7- 10 for **Script1.usql**.
 
 > [!NOTE]
 > You can't read from or write to a U-SQL table that has been created or modified in the same script.  That's why use use two scripts for this example.
-> 
-> 
+>
+>
 
 **To see the job output**
 
@@ -197,4 +197,3 @@ To see more development topics:
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
 * [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-

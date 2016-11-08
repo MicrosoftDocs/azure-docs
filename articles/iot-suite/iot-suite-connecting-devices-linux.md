@@ -405,6 +405,7 @@ The following steps describe how to use *CMake* to build your client application
         curl
         ssl
         crypto
+        m
     )
     ```
 3. In the **remote_monitoring** folder, create a folder to store the *make* files that CMake generates and then run the **cmake** and **make** commands as follows:
