@@ -167,14 +167,14 @@
 
 # Reference
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
-## [Java SDK](https://azure.microsoft.com/develop/java/)
-## [Node.js SDK](https://azure.microsoft.com/develop/nodejs/)
-## [Python SDK](https://azure.microsoft.com/develop/python/)
+## [Java](https://azure.microsoft.com/develop/java/)
+## [Node.js](https://azure.microsoft.com/develop/nodejs/)
+## [Python](https://azure.microsoft.com/develop/python/)
 ## [Author Resource Manager templates](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Community templates](https://azure.microsoft.com/documentation/templates/)
-## [Compute REST API](https://docs.microsoft.com/rest/api/compute/)
-## [Network REST API](https://msdn.microsoft.com/library/mt163658.aspx)
-## [Storage REST API ](https://docs.microsoft.com/rest/api/storageservices/)
+## [Compute REST](https://docs.microsoft.com/rest/api/compute/)
+## [Network REST](https://msdn.microsoft.com/library/mt163658.aspx)
+## [Storage REST](https://docs.microsoft.com/rest/api/storageservices/)
 
 
 

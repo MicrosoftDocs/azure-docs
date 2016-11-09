@@ -67,14 +67,14 @@
 ### [Restart or resize a VM](../../virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # Reference
-## [Azure CLI](../virtual-machines-command-line-tools?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-## [Java SDK](https://azure.microsoft.com/develop/java/)
-## [Node.js SDK](https://azure.microsoft.com/develop/nodejs/)
-## [Python SDK](https://azure.microsoft.com/develop/python/)
+## [Azure CLI](../virtual-machines-command-line-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+## [Java](https://azure.microsoft.com/develop/java/)
+## [Node.js](https://azure.microsoft.com/develop/nodejs/)
+## [Python](https://azure.microsoft.com/develop/python/)
 ## [Community templates](https://azure.microsoft.com/documentation/templates/)
-## [Compute REST API](https://docs.microsoft.com/rest/api/compute/)
-## [Network REST API](https://msdn.microsoft.com/library/mt163658.aspx)
-## [Storage REST API ](https://docs.microsoft.com/rest/api/storageservices/)
+## [Compute REST](https://docs.microsoft.com/rest/api/compute/)
+## [Network REST](https://msdn.microsoft.com/library/mt163658.aspx)
+## [Storage REST](https://docs.microsoft.com/rest/api/storageservices/)
 
 
 # Resources
