@@ -43,13 +43,14 @@
 ## [Reset an Azure VPN Gateway using PowerShell](vpn-gateway-resetgw-classic.md)
 ## [How to work with self-signed certificates for Point-to-Site connections](vpn-gateway-certificates-point-to-site.md)
 ## [Configure a VPN gateway (Classic)](vpn-gateway-configure-vpn-gateway-mp.md)
+
 # Reference
-## REST APIs
-### [REST API Reference (Resource Manager)](https://msdn.microsoft.com/library/mt163859)
-### [REST API Reference (Classic)](https://msdn.microsoft.com/library/jj154113)
-## PowerShell cmdlets
-### [PowerShell cmdlets (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-### [PowerShell cmdlets (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+### [PowerShell (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
+### [PowerShell (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+### [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163859)
+### [REST (Classic)](https://msdn.microsoft.com/library/jj154113)
+
+
 # Related 
 ## [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines) 
 ## [Application Gateway](https://azure.microsoft.com/documentation/services/application-gateway)
