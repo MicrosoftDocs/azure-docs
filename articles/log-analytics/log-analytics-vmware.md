@@ -1,4 +1,4 @@
-﻿---
+---
 title: VMware Monitoring solution in Log Analytics | Microsoft Docs
 description: Learn about how the VMware Monitoring solution can help manage logs and monitor ESXi hosts.
 services: log-analytics
@@ -6,17 +6,16 @@ documentationcenter: ''
 author: bandersmsft
 manager: jwhit
 editor: ''
-
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 11/09/2016
 ms.author: banders
-
 ---
+
 # VMware Monitoring (Preview) solution in Log Analytics
 The VMware Monitoring solution in Log Analytics is a solution that helps you create a centralized logging and monitoring approach for large VMware logs. This article describes how you can troubleshoot, capture, and manage the ESXi hosts in a single location using the solution. With the solution, you can see detailed data for all your ESXi hosts in a single location. You can see top event counts, status, and trends of VM and ESXi hosts provided through the ESXi host logs. You can troubleshoot by viewing and searching centralized ESXi host logs. And, you can create alerts based on log search queries.
 
@@ -40,29 +39,30 @@ Create a Linux operating system VM to receive all syslog data from the ESXi host
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
 2. In the *Syslog.global.logHost* field, add your Linux server and the port number *1514*. For example, `tcp://hostname:1514` or `tcp://123.456.789.101:1514`
 3. Open the ESXi host firewall for syslog. **ESXi Host Configuration** > **Software** > **Security Profile** > **Firewall** and open **Properties**.  
-   
+
     ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
-   
+
     ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
 4. Check the vSphere Console to verify that that syslog is properly set up. Confirm on the ESXI host that port **1514** is configured.
-5. Test the connectivity between the Linux server and the ESXi host by using the `nc` command on the ESXi Host. For example:
-   
-    ```
-    [root@ESXiHost:~] nc -z 123.456.789.101 1514
-    Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
-    ```
-6. Download and install the OMS Agent for Linux on the Linux server. For more information, see the [Documentation for OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
-7. After the OMS Agent for Linux is installed, go to the  /etc/opt/microsoft/omsagent/sysconf/omsagent.d directory and copy the vmware_esxi.conf file to the /etc/opt/microsoft/omsagent/conf/omsagent.d directory and the change the owner/group and permissions of the file. For example:
-   
+5. Download and install the OMS Agent for Linux on the Linux server. For more information, see the [Documentation for OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
+6. After the OMS Agent for Linux is installed, go to the  /etc/opt/microsoft/omsagent/sysconf/omsagent.d directory and copy the vmware_esxi.conf file to the /etc/opt/microsoft/omsagent/conf/omsagent.d directory and the change the owner/group and permissions of the file. For example:
+
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
-8. Restart the OMS Agent for Linux by running `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+7. Restart the OMS Agent for Linux by running `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+8. Test the connectivity between the Linux server and the ESXi host by using the `nc` command on the ESXi Host. For example:
+
+    ```
+    [root@ESXiHost:~] nc -z 123.456.789.101 1514
+    Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
+    ```
+
 9. In the OMS Portal, perform a log search for `Type=VMware_CL`. When OMS collects the syslog data, it retains the syslog format. In the portal, some specific fields are captured, such as *Hostname* and *ProcessName*.  
-   
+
     ![type](./media/log-analytics-vmware/type.png)  
-   
+
     If your view log search results are similar to the image above, you're set to use the OMS VMware Monitoring solution dashboard.  
 
 ## VMware data collection details
@@ -172,25 +172,24 @@ Yes. You can have multiple ESXi hosts forwarding to a single VM with omsagent.
 There can be multiple reasons:
 
 * The ESXi host is not correctly pushing data to the VM running omsagent. To test, perform the following steps:
-  
+
   1. To confirm, log on to the ESXi host using ssh and run the following command: `nc -z ipaddressofVM 1514`
-     
+
       If this is not successful, vSphere settings in the Advanced Configuration are likely not correct. See [Configure syslog collection](#configure-syslog-collection) for information about how to set up the ESXi host for syslog forwarding.
   2. If syslog port connectivity is successful, but you don't still see any data, then reload the syslog on the ESXi host by using ssh to run the following command: ` esxcli system syslog reload`
 * The VM with OMS Agent is not set correctly. To test this, perform the following steps:
-  
+
   1. OMS listens to the port 1514 and pushes data into OMS. To verify that it is open, run the following command: `netstat -a | grep 1514`
   2. You should see port `1514/tcp` open. If you do not, verify that the omsagent is installed correctly. If you do not see the port information, then the syslog port is not open on the VM.
-     
+
      1. Verify that the OMS Agent is running by using `ps -ef | grep oms`. If it is not running, start the process by running the command ` sudo /opt/microsoft/omsagent/bin/service_control start`
      2. Open the `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` file.
-        
+
          Verify that the proper user and group setting is valid, similar to: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
-        
+
          If the file does not exist or the user and group setting is wrong, take corrective action by [Preparing a Linux server](#prepare-a-linux-server).
 
 ## Next steps
 * Use [Log Searches](log-analytics-log-searches.md) in Log Analytics to view detailed VMware host data.
 * [Create your own dashboards](log-analytics-dashboards.md) showing VMware host data.
 * [Create alerts](log-analytics-alerts.md) when specific VMware host events occur.
-
