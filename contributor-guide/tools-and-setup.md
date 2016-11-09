@@ -138,11 +138,11 @@ If you use Atom, you'll need to set a few things up.
 
 Public repo:
 
-        git clone https://[your GitHub user name]:[token]@github.com/<your GitHub user name>/azure-docs.git
+        git clone https://your_GitHub_user_name:your_token@github.com/your_GitHub_user_name/azure-docs.git
 
 Private repo:
 
-        git clone https://[your GitHub user name]:[token]@github.com/<your GitHub user name>/azure-docs-pr.git
+        git clone https://your_GitHub_user_name:your_token@github.com/your_GitHub_user_name/azure-docs-pr.git
 
 For example, this clone command could look something like this:
 
@@ -154,13 +154,13 @@ Create a reference to the root repository by entering these commands. This sets 
 Public repo:
 
         cd azure-docs
-        git remote add upstream https://[your GitHub user name]:[token]@github.com/Microsoft/azure-docs.git
+        git remote add upstream https://your_GitHub_user_name:your_token@github.com/Microsoft/azure-docs.git
         git fetch upstream
 
 Private repo:
 
         cd azure-docs-pr
-        git remote add upstream https://[your GitHub user name]:[token]@github.com/Microsoft/azure-docs-pr.git
+        git remote add upstream https://your_GitHub_user_name:your_token@github.com/Microsoft/azure-docs-pr.git
         git fetch upstream
 
 This usually takes a while. After you do this, you won't have to fork again or enter your credentials again. You would only have to copy the forks to a local computer again if you set the tools up on another computer.
