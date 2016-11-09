@@ -181,14 +181,13 @@
 
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [CLI](../azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [.NET API](https://docs.microsoft.com/en-us/dotnet/api/)
+## [Azure CLI](../azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [.NET](https://docs.microsoft.com/en-us/dotnet/api/)
 ## [Author Resource Manager templates](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Community templates](https://azure.microsoft.com/documentation/templates/)
-## [Virtual Machine Scale Sets REST API](https://msdn.microsoft.com/library/azure/mt705635)
-## [Compute REST API](https://docs.microsoft.com/rest/api/compute/)
-## [Network REST API](https://msdn.microsoft.com/library/mt163658.aspx)
-## [Storage REST API ](https://docs.microsoft.com/rest/api/storageservices/)
+## [Compute REST](https://docs.microsoft.com/rest/api/compute/)
+## [Network REST](https://msdn.microsoft.com/library/mt163658.aspx)
+## [Storage REST](https://docs.microsoft.com/rest/api/storageservices/)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/#Windows)
