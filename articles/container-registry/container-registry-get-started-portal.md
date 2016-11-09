@@ -33,7 +33,7 @@ For background and concepts, see [What is Azure Container Registry?](container-r
 2. Search the marketplace for **container registry**.
 3. Select **Container Registry (preview)**, with publisher **Microsoft**. 
     ![Container Registry service in Azure Marketplace](./media/container-registry-get-started-portal/container-registry-marketplace.png)
-4. Click **Create**. The **Container Registry** blade appears
+4. Click **Create**. The **Container Registry** blade appears.
     ![Container registry settings](./media/container-registry-get-started-portal/container-registry-settings.png)
 5. In the **Container Registry** blade, enter the following information. Click **Create** when you are done.
    

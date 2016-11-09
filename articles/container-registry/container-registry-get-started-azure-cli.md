@@ -76,7 +76,7 @@ Take special note:
 * `loginServer` - The fully qualified name you specify to [log in to the registry](container-registry-authentication.md). In this example, the name is **myregistry.contoso.exp.azurecr.io** (all lowercase).
 
 ## Assign a service principal
-Use CLI 2.0 Preview commands to assign an Azure Active Directory service principal to a registry, as shown in the following examples. The service principal in these examples is assigned the Owner role, but you can assign [other roles](../active-directory/role-based-access-control-configure/.md) if you want.
+Use CLI 2.0 Preview commands to assign an Azure Active Directory service principal to a registry, as shown in the following examples. The service principal in these examples is assigned the Owner role, but you can assign [other roles](../active-directory/role-based-access-control-configure.md) if you want.
 
 ### Create a service principal and assign access to the registry
 In the following command, a new service principal is assigned Owner role access to the registry identifier passed with the `--scopes` parameter. Specify a strong password with the `--password` parameter.

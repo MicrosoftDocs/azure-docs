@@ -31,7 +31,7 @@ For more background and concepts, see [What is Azure Container Registry?](contai
 
 ## Prerequisites
 * **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI 2.0 Preview](container-registry-get-started-azure-cli.md).
-* **Docker CLI** - To set up your local computer as a Docker host to run the Docker CLI, install [Docker Engine](https://docs.docker.com/engine/installation/).
+* **Docker CLI** - To set up your local computer as a Docker host and access the Docker CLI commands, install [Docker Engine](https://docs.docker.com/engine/installation/).
 
 ## Log in to a registry
 Run `docker login` to log in to your container registry with your [registry credentials](container-registry-authentication.md).
