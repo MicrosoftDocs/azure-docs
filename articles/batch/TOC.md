@@ -26,10 +26,10 @@
 ## [PowerShell cmdlet](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
 ## [Azure CLI](batch-cli-get-started.md)
 ## [Java](https://docs.microsoft.com/java/api)
-## [.NET](https://docs.microsoft.com/dotnet/api)
+## [.NET API](https://docs.microsoft.com/dotnet/api)
 ## [Python  SDK](https://go.microsoft.com/fwlink/p/?linkid=833496)
 ## [Node.js](https://go.microsoft.com/fwlink/p/?linkid=833544)
-## [REST API](https://docs.microsoft.com/rest/api/batchservice/)
+## [REST](https://docs.microsoft.com/rest/api/batchservice/)
 
 # Related
 ## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
