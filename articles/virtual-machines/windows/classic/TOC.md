@@ -109,7 +109,7 @@
 ## [Azure CLI commands](../../../virtual-machines-command-line-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 ## [Service Management .NET API](https://msdn.microsoft.com/library/azure/mt420161.aspx)
-## [Azure Service Management PowerShell cmdlet reference documentation](https://msdn.microsoft.com/library/azure/dn708504.aspx)
+## [Azure Service Management PowerShell cmdlet reference documentation](https://docs.microsoft.com/en-us/powershell/servicemanagement/)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)

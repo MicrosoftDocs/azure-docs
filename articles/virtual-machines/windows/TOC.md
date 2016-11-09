@@ -180,17 +180,15 @@
 ### [Redeploy a VM](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Reference
-## [Author Resource Manager templates](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Compute REST API](https://msdn.microsoft.com/library/azure/mt163647)
-## [Network REST API](https://msdn.microsoft.com/library/azure/mt163658)
-## [Storage REST API](https://msdn.microsoft.com/library/azure/dd179355)
-## [Virtual Machine Scale Sets REST API](https://msdn.microsoft.com/library/azure/mt705635)
-## [Virtual Machines .NET API](https://msdn.microsoft.com/library/azure/mt131911)
-## [Network .NET API](https://msdn.microsoft.com/library/azure/dn973320)
-## [Storage .NET API](https://msdn.microsoft.com/library/azure/mt131037)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
 ## [CLI](../azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [PowerShell](https://msdn.microsoft.com/library/azure/mt125979)
+## [.NET API](https://docs.microsoft.com/en-us/dotnet/api/)
+## [Author Resource Manager templates](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Community templates](https://azure.microsoft.com/documentation/templates/)
+## [Virtual Machine Scale Sets REST API](https://msdn.microsoft.com/library/azure/mt705635)
+## [Compute REST API](https://docs.microsoft.com/rest/api/compute/)
+## [Network REST API](https://msdn.microsoft.com/library/mt163658.aspx)
+## [Storage REST API ](https://docs.microsoft.com/rest/api/storageservices/)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/#Windows)
