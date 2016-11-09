@@ -29,7 +29,7 @@ The Storm Dashboard and the Storm features in the HDInsight Tools rely on the St
 >
 
 ## Prerequisites
-* **Apache Storm on HDInsight** - see <a href="hdinsight-storm-getting-started.md" target="_blank">Get started with Apache Storm on HDInsight</a> for steps on creating a cluster
+* **Apache Storm on HDInsight** - see <a href="hdinsight-apache-storm-tutorial-get-started.md" target="_blank">Get started with Apache Storm on HDInsight</a> for steps on creating a cluster
 * For the **Storm Dashboard**: A modern web browser that supports HTML5
 * For **Visual Studio** - Azure SDK 2.5.1 or newer and the HDInsight Tools for Visual Studio. See <a href="hdinsight-hadoop-visual-studio-tools-get-started.md" target="_blank">Get started using HDInsight Tools for Visual Studio</a> to install and configure the HDInsight tools for Visual Studio.
 
