@@ -19,26 +19,20 @@ ms.date: 11/02/2016
 ms.author: stevelas
 ---
 # Create a container registry using the Azure portal
-Use the Azure portal to create a container registry and manage its settings. You can also work with container registries using the [Azure CLI commands](container-registry-get-started-azure-cli.md) or programmatically with the Container Registry APIs.
+Use the Azure portal to create a container registry and manage its settings. You can also create and manage container registries using the [Azure CLI 2.0 Preview commands](container-registry-get-started-azure-cli.md) or programmatically with the Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376).
 
-* For background and concepts, see [What is Azure Container Registry?](container-registry-intro.md)
-* To get started with Docker images in your registry, see [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md).
+For background and concepts, see [What is Azure Container Registry?](container-registry-intro.md)
+
 
 > [!NOTE]
-> Container Registry is currently in private preview.
+> Container Registry is currently in preview.
 > 
 > 
 
-## Prerequisites
-* **Container Registry private preview** - See the [instructions](container-registry-get-access.md) to register your Azure subscription and request access.
-
-> [!IMPORTANT]
-> While Container Registry is in private preview, use the URL [https://aka.ms/acr/portal](https://aka.ms/acr/portal) to launch the portal, with the ACR preview enabled. 
-> 
-> 
+#
 
 ## Create a container registry
-1. In the [portal](https://aka.ms/acr/portal), click **+ New**.
+1. In the [portal](https://portal.azure.com), click **+ New**.
 2. Search the marketplace for **container registry**.
 3. Select **Container Registry (preview)**, with publisher **Microsoft**. 
    
@@ -81,8 +75,5 @@ After creating the registry, find the registry settings by starting at the **Con
 ## Next steps
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
 
-## Additional docs
-* [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md)
-* [Authenticate with a container registry](container-registry-authentication.md) 
-* [Install the Azure CLI for Container Registry preview](./container-registry-get-started-azure-cli-install.md)
+
 
