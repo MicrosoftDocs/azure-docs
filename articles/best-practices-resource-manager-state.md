@@ -108,8 +108,8 @@ The following example shows how to define variables that contain complex objects
 
 Notice that the **tshirtSize** variable concatenates the t-shirt size you provided through a parameter (**Small**, **Medium**, **Large**) to the text **tshirtSize**. You use this variable to retrieve the associated complex object variable for that t-shirt size.
 
-You can then reference these variables later in the template. The ability to reference named-variables and their properties simplifies the template syntax, 
-and makes it easy to understand context. The following example defines a resource to deploy by using the objects shown previously to set values. For example, the VM size is set by retrieving the value 
+You can then reference these variables later in the template. The ability to reference named-variables and their properties simplifies the template syntax,
+and makes it easy to understand context. The following example defines a resource to deploy by using the objects shown previously to set values. For example, the VM size is set by retrieving the value
 for `variables('tshirtSize').vmSize` while the value for the disk size is retrieved from `variables('tshirtSize').diskSize`. In addition, the URI for a linked template is set with the value for `variables('tshirtSize').vmTemplate`.
 
     "name": "master-node",
@@ -205,10 +205,10 @@ When connecting to linked templates, you often use a mix of static and generated
 ### Static variables
 Static variables are often used to provide base values, such as URLs, that are used throughout a template.
 
-In the following template excerpt, `templateBaseUrl` specifies the root location for the template in GitHub. The next line builds a new variable `sharedTemplateUrl` that concatenates the base URL with the known name of the shared resources template. Below that line, a complex object variable is used to store a t-shirt size, where the base URL is 
+In the following template excerpt, `templateBaseUrl` specifies the root location for the template in GitHub. The next line builds a new variable `sharedTemplateUrl` that concatenates the base URL with the known name of the shared resources template. Below that line, a complex object variable is used to store a t-shirt size, where the base URL is
 concatenated to the known configuration template location and stored in the `vmTemplate` property.
 
-The benefit of this approach is that if the template location changes, you only need to change the static variable 
+The benefit of this approach is that if the template location changes, you only need to change the static variable
 in one place, which passes it throughout the linked templates.
 
     "variables": {
@@ -237,7 +237,7 @@ In addition to static variables, several variables are generated dynamically. Th
 You are familiar with this generated variable from the examples above.
 
 #### networkSettings
-In a capacity, capability, or end-to-end scoped solution template, the linked templates typically create resources that exist on a network. One straightforward approach is to use a complex object to store 
+In a capacity, capability, or end-to-end scoped solution template, the linked templates typically create resources that exist on a network. One straightforward approach is to use a complex object to store
 network settings and pass them to linked templates.
 
 An example of communicating network settings can be seen below.
@@ -268,7 +268,7 @@ Resources created in linked templates are often placed in an availability set. I
       "udCount": 5
     }
 
-If you need multiple availability sets (for example, one for master nodes and another for data nodes), you can use a name as a prefix, specify multiple availability sets, or follow the model shown earlier 
+If you need multiple availability sets (for example, one for master nodes and another for data nodes), you can use a name as a prefix, specify multiple availability sets, or follow the model shown earlier
 for creating a variable for a specific t-shirt size.
 
 #### storageSettings
@@ -281,7 +281,7 @@ Storage details are often shared with linked templates. In the example below, a 
     }
 
 #### osSettings
-With linked templates, you may need to pass operating system settings to various nodes types across different known configuration types. A complex object is an easy way to store and share operating system information and also makes 
+With linked templates, you may need to pass operating system settings to various nodes types across different known configuration types. A complex object is an easy way to store and share operating system information and also makes
 it easier to support multiple operating system choices for deployment.
 
 The following example shows an object for *osSettings*:
@@ -296,7 +296,7 @@ The following example shows an object for *osSettings*:
     }
 
 #### machineSettings
-A generated variable, *machineSettings* is a complex object containing a mix of core variables for creating a VM. The variables include administrator user name and password, a prefix for the VM names, and an operating 
+A generated variable, *machineSettings* is a complex object containing a mix of core variables for creating a VM. The variables include administrator user name and password, a prefix for the VM names, and an operating
 system image reference.
 
     "machineSettings": {
@@ -311,14 +311,14 @@ system image reference.
         }
     },
 
-Note that *osImageReference* retrieves the values from the *osSettings* variable defined in the main template. That means you can easily change the operating system for a VM—entirely or based 
+Note that *osImageReference* retrieves the values from the *osSettings* variable defined in the main template. That means you can easily change the operating system for a VM—entirely or based
 on the preference of a template consumer.
 
 #### vmScripts
-The *vmScripts* object contains details about the scripts to download and execute on a VM instance, including outside and inside references. Outside references include the infrastructure. 
+The *vmScripts* object contains details about the scripts to download and execute on a VM instance, including outside and inside references. Outside references include the infrastructure.
 Inside references include the installed software installed and configuration.
 
-You use the *scriptsToDownload* property to list the scripts to download to the VM. This object also contains references to command-line arguments for different types of actions. These actions include executing the default installation for 
+You use the *scriptsToDownload* property to list the scripts to download to the VM. This object also contains references to command-line arguments for different types of actions. These actions include executing the default installation for
 each individual node, an installation that runs after all nodes are deployed, and any additional scripts that may be specific to a given template.
 
 This example is from a template used to deploy MongoDB, which requires an arbiter to deliver high availability. The *arbiterNodeInstallCommand* has been added to *vmScripts* to install the arbiter.
@@ -337,7 +337,7 @@ The variables section is where you find the variables that define the specific t
 
 
 ## Return state from a template
-Not only can you pass data into a template, you can also share data back to the calling template. In the **outputs** section of a linked template, you can provide key/value pairs that can be consumed 
+Not only can you pass data into a template, you can also share data back to the calling template. In the **outputs** section of a linked template, you can provide key/value pairs that can be consumed
 by the source template.
 
 The following example shows how to pass the private IP address generated in a linked template.
@@ -355,13 +355,13 @@ Within the main template, you can use that data with the following syntax:
 
 You can use this expression in either the outputs section or the resources section of the main template. You cannot use the expression in the variables section because it relies on the runtime state. To return this value from the main template, use:
 
-    "outputs": { 
+    "outputs": {
       "masterIpAddress": {
         "value": "[reference('master-node').outputs.masterip.value]",
         "type": "string"
       }
 
-For an example of using the outputs section of a linked template to return data disks for a virtual machine, see [Creating multiple data disks for a Virtual Machine](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine).
+For an example of using the outputs section of a linked template to return data disks for a virtual machine, see [Creating multiple data disks for a Virtual Machine](resource-group-create-multiple.md).
 
 ## Define authentication settings for virtual machine
 You can use the same pattern shown previously for configuration settings to specify the authentication settings for a virtual machine. You create a parameter for passing in the type of authentication.
@@ -420,4 +420,3 @@ When defining the virtual machine, you set the **osProfile** to the variable you
 ## Next steps
 * To learn about the sections of the template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
 * To see the functions that are available within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md)
-
