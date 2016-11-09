@@ -1,6 +1,6 @@
 ---
-title: Manage pricing and quota for Application Insights | Microsoft Docs
-description: Choose the price plan you need, manage telemetry volumes
+title: Manage pricing and data volume for Application Insights | Microsoft Docs
+description: Manage telemetry volumes and monitor costs in Application Insights.
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
-# Manage pricing and quota for Application Insights
+# Manage pricing and data volume for Application Insights
 
 
-[Pricing][pricing] for [Azure Application Insights][start] is based on data volume per application. There's a substantial Free tier in which you get most of the features with some limitations.
+[Pricing][pricing] for [Azure Application Insights][start] is based on data volume per application. 
 
 Each Application Insights resource is charged as a separate service, and contributes to the bill for your subscription to Azure.
 

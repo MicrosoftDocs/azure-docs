@@ -1,6 +1,6 @@
 ---
-title: Smart Performance Anomaly Detection | Microsoft Docs
-description: Application Insights performs smart proactive analysis of your app telemetry and warns you of potential problems.
+title: Smart Detection of performance anomalies | Microsoft Docs
+description: Application Insights performs proactive analysis of your app telemetry and warns you of potential problems. This feature needs no setup.
 services: application-insights
 documentationcenter: windows
 author: antonfrMSFT
@@ -16,15 +16,15 @@ ms.date: 10/31/2016
 ms.author: awills
 
 ---
-# Smart Performance Anomaly Detection
+# Smart Detection of performance anomalies
 
 
 [Application Insights](app-insights-overview.md) performs deep analysis of your app telemetry, and can warn you about potential performance problems. You're probably reading this because you received one of our smart alerts by email.
 
 This feature requires no setup, and is automatically active when your app generates enough telemetry.
 
-## What is Smart Performance Anomaly Detection?
-Smart Anomaly Detection discovers unusual patterns of performance in your app, by analyzing the telemetry that your app sends to Application Insights.
+## What is Smart Detection of performance anomalies?
+Smart Detection discovers unusual patterns of performance in your app, by analyzing the telemetry that your app sends to Application Insights.
 
 In particular, it finds performance issues that only affect some of your users, or only affect users in some cases.
 
@@ -38,7 +38,7 @@ You don't have to set any thresholds or configure rules. Machine learning and da
 
 ## About the smart alert
 * *Why have I received this email?*
-  * Smart Anomaly Detection analyzed the telemetry your application sent to Application Insights and detected a performance issue in your application.
+  * Smart Detection analyzed the telemetry your application sent to Application Insights and detected a performance issue in your application.
 * *Does the notification mean I definitely have a problem?*
   * No. It's simply a suggestion about something you might want to look at more closely.
 * *What should I do?*

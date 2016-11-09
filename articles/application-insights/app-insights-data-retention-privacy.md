@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
@@ -26,7 +26,7 @@ First, the short answer:
 * The standard telemetry modules that run "out of the box" are unlikely to send sensitive data to the service. The telemetry is concerned with load, performance and usage metrics, exception reports, and other diagnostic data. The main user data visible in the diagnostic reports are URLs; but your app shouldn't in any case put sensitive data in plain text in a URL.
 * You can write code that sends additional custom telemetry to help you with diagnostics and monitoring usage. (This extensibility is a great feature of Application Insights.) It would be possible, by mistake, to write this code so that it includes personal and other sensitive data. If your application works with such data, you should apply strong review processes to all the code you write.
 * While developing and testing your app, it's easy to inspect what's being sent by the SDK. The data appears in the debugging output windows of the IDE and browser. 
-* The data is held in [Microsoft Azure](http://azure.com) servers in the USA. (But your app can run anywhere.) Azure has [strong security processes and meets a broad range of compliance standards](https://azure.microsoft.com/support/trust-center/). Only you and your designated team have access to your data. Microsoft staff can have restricted access to it only under specific limited circumstances with your knowledge. It's encrypted in transit, though not in the servers.
+* The data is held in [Microsoft Azure](http://azure.com) servers in the USA or Europe. (But your app can run anywhere.) Azure has [strong security processes and meets a broad range of compliance standards](https://azure.microsoft.com/support/trust-center/). Only you and your designated team have access to your data. Microsoft staff can have restricted access to it only under specific limited circumstances with your knowledge. It's encrypted in transit, though not in the servers.
 
 The rest of this article elaborates more fully on these answers. It's designed to be self-contained, so that you can show it to colleagues who aren't part of your immediate team.
 
@@ -96,18 +96,16 @@ It can be exported by you and your team members and could be copied to other loc
 Microsoft uses the data only in order to provide the service to you.
 
 ## Where is the data held?
-* In the USA. 
+* In the USA or Europe. You can select the location when you create a new Application Insights resource. 
 
-#### Can it be stored somewhere else, for example in Europe?
-* Not at present. 
 
-#### Does that mean my app has to be hosted in the USA?
+#### Does that mean my app has to be hosted in the USA or Europe?
 * No. Your application can run anywhere, either in your own on-premises hosts or in the Cloud.
 
 ## How secure is my data?
-Application Insights is an Azure Service in Preview. While in Preview we are working towards protecting your data per the policies described in the [Azure Security, Privacy, and Compliance white paper](http://go.microsoft.com/fwlink/?linkid=392408).
+Application Insights is an Azure Service. Security policies are described in the [Azure Security, Privacy, and Compliance white paper](http://go.microsoft.com/fwlink/?linkid=392408).
 
-The data is stored in Microsoft Azure servers. For accounts in the Azure Portal, account restrictions are described in the [Azure Security, Privacy, and Compliance document](http://go.microsoft.com/fwlink/?linkid=392408). For accounts in the Visual Studio Team Services Portal, the [Visual Studio Team Services Data Protection](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf) document applies. 
+The data is stored in Microsoft Azure servers. For accounts in the Azure Portal, account restrictions are described in the [Azure Security, Privacy, and Compliance document](http://go.microsoft.com/fwlink/?linkid=392408).
 
 Access to your data by Microsoft personnel is restricted. We access your data only with your permission and if it is necessary to support your use of Application Insights. 
 
@@ -152,7 +150,7 @@ However, you can implement such a feature in your application. All the SDKs incl
 Application Insights does not filter or delete your data. You should manage the data appropriately and avoid sending such data to Application Insights.
 
 ## Data sent by Application Insights
-The SDKs vary between platforms, and there are are several components that you can install. (Refer to [Application Insights - get started][start].) Each component sends different data.
+The SDKs vary between platforms, and there are are several components that you can install. (Refer to [Application Insights - overview][start].) Each component sends different data.
 
 #### Classes of data sent in different scenarios
 | Your action | Data classes collected (see next table) |
