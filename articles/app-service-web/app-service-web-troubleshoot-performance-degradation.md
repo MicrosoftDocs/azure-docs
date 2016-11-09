@@ -74,7 +74,7 @@ Endpoint monitoring configures web tests from geo-distributed locations that tes
 
 Uptime is monitored using HTTP response codes, and response time is measured in milliseconds. A monitoring test fails if the HTTP response code is greater than or equal to 400 or if the response takes more than 30 seconds. An endpoint is considered available if its monitoring tests succeed from all the specified locations.
 
-To set it up, see [How to: Monitor web endpoint status](web-sites-monitor.md#webendpointstatus).
+To set it up, see [Monitor Apps in Azure App Service](web-sites-monitor.md).
 
 Also, see [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/) for a video on endpoint monitoring.
 
@@ -170,4 +170,3 @@ This is often the simplest way to recover from one-time issues. On the [Azure Po
 
 You can also manage your web app using Azure Powershell. For more information, see
 [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
-
