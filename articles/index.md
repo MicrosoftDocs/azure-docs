@@ -103,7 +103,7 @@ layout: HubPage
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/functions/">
+                                            <a href="/azure/azure-functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
                                                 <p>Functions</p>
                                             </a>
@@ -601,7 +601,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/functions/">
+                                <a href="/azure/azure-functions/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
