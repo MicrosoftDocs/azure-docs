@@ -20,8 +20,8 @@ ms.author: hascipio; avikova
 # Understanding the nodes schema for mapping an existing web service to OData through CSDL
 > [!IMPORTANT]
 > **At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.** If you have a SaaS business application you would like to publish on AppSource you can find more information [here](https://appsource.microsoft.com/partners). If you have an IaaS applications or developer service you would like to publish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).
-> 
-> 
+>
+>
 
 This document will help clarify the node structure for mapping an OData protocol to CSDL. It is important to note that the node structure is well formed XML. So root, parent, and child schema is applicable when designing your OData mapping.
 
@@ -47,7 +47,7 @@ A FunctionImport node represents one URL (entry point) that exposes a service to
 
 Details about this node are found at [here][MSDNFunctionImportLink]
 
-[MSDNFunctionImportLink]:(https://msdn.microsoft.com/library/cc716710(v=vs.100).aspx)
+[MSDNFunctionImportLink]:(https://msdn.microsoft.com/library/cc716710.aspx)
 
 The following are the additional attributes (or additions to attributes) that are exposed by the FunctionImport node:
 
@@ -63,7 +63,7 @@ Parameters are allowed to appear as URI parameters or as part of the URI path. I
 
 * **Collection (<Entity type name>)**: specifies a collection of defined entity types. The name is present in the Name attribute of the EntityType node. An example is Collection(WXC.HourlyResult).
 * **Raw (<mime type>)**: specifies a raw document/blob that is returned to the user. An example is Raw(image/jpeg) Other examples:
-  
+
   * ReturnType="Raw(text/plain)"
   * ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
 
@@ -88,9 +88,9 @@ Additional child nodes (not covered by the CSDL documentation) within the Functi
 
 * **POST:** Used if the request is a HTTP POST
 * **GET:** Used if the request is a HTTP GET
-  
+
     Example:
-  
+
         `<d:RequestBody d:httpMethod="POST">
         <![CDATA[
         <req1:Request xmlns:r1="http://schemas.mysite.com//generic/requests/1" Version="1.0">
@@ -161,7 +161,7 @@ A very helpful details document page about the “Parameter Element” node is f
 | Precision |No |The precision of the parameter. **Example:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
 | Scale |No |The scale of the parameter. **Example:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
 
-[MSDNParameterLink]:(http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
+[MSDNParameterLink]:(http://msdn.microsoft.com/library/bb399548.aspx)
 
 The following are the attributes that have been added to the CSDL specification:
 
@@ -275,4 +275,3 @@ The following are the supported types for parameters and properties. (Case sensi
 * If you are interested in understanding the overall OData mapping process and purpose, read this article [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md) to review definitions, structures, and instructions.
 * If you are interested in reviewing examples, read this article [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md) to see sample code and understand code syntax and context.
 * To return to the prescribed path for publishing a Data Service to the Azure Marketplace, read this article [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
-

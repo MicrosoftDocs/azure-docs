@@ -106,8 +106,8 @@ Example:
 
 > [!NOTE]
 > Make sure not to put a carriage return just after `<![CDATA[`.
-> 
-> 
+>
+>
 
 ### propertyPath value
 In the previous examples, the propertyPath was "/Media File Input/filename" or "/inactiveTimeout" or "clipListXml".
@@ -263,8 +263,8 @@ In the example above, the name of the video file is sent to the Media File Input
 
 > [!NOTE]
 > The video file name is sent to the primarySourceFile property. The reason for this is to use this property in the workflow for building the correct output file name using Expressions, for example.
-> 
-> 
+>
+>
 
 ### Step-by-step workflow creation that overlays a logo on top of the video
 Here are the steps to create a workflow that takes two files as input: a video and an image. It will overlay the image on top of the video.
@@ -355,8 +355,8 @@ This tutorial shows you how to manage assets with AMSE. There are two ways to ad
 
 > [!NOTE]
 > Make sure to set a primary file in the asset (the main video file).
-> 
-> 
+>
+>
 
 ![Asset files in AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture18_assetinamse.png)
 
@@ -400,7 +400,7 @@ You can download the sample workflow from [GitHub](https://github.com/Azure/azur
 ## See also
 * [Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [How to use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-* [Encoding on-demand content with Azure Media Services](media-services-encode-asset.md#media_encoder_premium_workflow)
+* [Encoding on-demand content with Azure Media Services](media-services-encode-asset.md##media-encoder-premium-workflow)
 * [Media Encoder Premium Workflow formats and codecs](media-services-premium-workflow-encoder-formats.md)
 * [Sample workflow files](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
 * [Azure Media Services Explorer tool](http://aka.ms/amse)
@@ -410,4 +410,3 @@ You can download the sample workflow from [GitHub](https://github.com/Azure/azur
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
