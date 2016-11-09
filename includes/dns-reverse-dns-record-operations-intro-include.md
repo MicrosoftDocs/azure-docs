@@ -12,12 +12,11 @@ When an organization is assigned an IP address block, they also acquire the righ
 
 > [!NOTE]
 > Forward DNS lookups and reverse DNS lookups are implemented in separate, parallel DNS hierarchies. The reverse lookup for 'www.contoso.com' is **not** hosted in the zone 'contoso.com', rather it is hosted in the ARPA zone for the corresponding IP address block.
-> 
-> 
 
 For more information on reverse DNS, please see [Reverse DNS Lookup](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 
 ## Azure support for reverse DNS
+
 Azure supports two separate scenarios relating to reverse DNS:
 
 1. Hosting the ARPA zone corresponding to your IP address block.
@@ -26,4 +25,3 @@ Azure supports two separate scenarios relating to reverse DNS:
 To support the former, Azure DNS can be used to host your ARPA zones and manage the PTR records for each reverse DNS lookup.  The process of creating the ARPA zone, setting up the delegation, and configuring PTR records is the same as for regular DNS zones.  The only differences are that the delegation must be configured via your ISP rather than your DNS registrar, and only the PTR record type should be used.
 
 To support the latter, Azure enables you to configure the reverse lookup for the IP addresses allocated to your service.  This reverse lookup is configured by Azure as a PTR record in the corresponding ARPA zone.  These ARPA zones, corresponding to all the IP ranges used by Azure, are hosted by Microsoft. **The remainder of this article describes this scenario in detail.**
-
