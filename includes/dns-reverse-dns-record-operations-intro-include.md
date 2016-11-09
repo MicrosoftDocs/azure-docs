@@ -1,9 +1,11 @@
 ## What is reverse DNS?
+
 Conventional DNS records enable a mapping from a DNS name (such as 'www.contoso.com') to an IP address (such as 64.4.6.100).  Reverse DNS enables the translation of an IP address (64.4.6.100) back to a name ('www.contoso.com').
 
 Reverse DNS records are used in a variety of situations. For example, reverse DNS records are widely used in combating e-mail spam by verifying the sender of an e-mail message.  The receiving mail server will retrieve the reverse DNS record of the sending server's IP address, and verify if that host is authorized to send e-mail from the originating domain. (Please note however that [Azure Compute services do not support sending emails to external domains](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).)
 
 ## How reverse DNS works
+
 Reverse DNS records are hosted in special DNS zones, known as 'ARPA' zones.  These zones form a separate DNS hierarchy in parallel with the normal hierarchy hosting domains such as 'contoso.com'.
 
 For example, the DNS record 'www.contoso.com' is implemented using a DNS 'A' record with the name 'www' in the zone 'contoso.com'.  This A record points to the corresponding IP address, in this case 64.4.6.100.  The reverse lookup is implemented separately, using a 'PTR' record named '100' in the zone '6.4.64.in-addr.arpa' (note that IP addresses are reversed in ARPA zones.)  This PTR record, if it has been configured correctly, points to the name 'www.contoso.com'.
