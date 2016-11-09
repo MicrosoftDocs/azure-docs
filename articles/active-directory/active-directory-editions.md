@@ -1,4 +1,4 @@
-﻿---s
+﻿---
 title: Azure Active Directory editions | Microsoft Docs
 description: This article explains choices for free and paid editions of Azure Active Directory. Azure Active Directory Basic, Azure Active Directory Premium P1, and Azure Active Directory Premium P2 are the paid editions.
 services: active-directory
@@ -268,7 +268,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 * [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
 #### MIM CAL + MIM Server
-Microsoft Identity Manager Server software rights are granted with Windows Server licenses (any edition). Since Microsoft Identity Manager runs on Windows Server OS, as long as the server is running a valid, licensed copy of Windows Server, then Microsoft Identity Manager can be installed and used on that server. No other separate license is required for Microsoft Identity Manager Server.
+Microsoft Identity Manager Server software rights are granted with Windows Server licenses (any edition). Because Microsoft Identity Manager runs on the Windows Server operating system, as long as the server is running a valid, licensed copy of Windows Server, then Microsoft Identity Manager can be installed and used on that server. No other separate license is required for Microsoft Identity Manager Server.
 
 **Type:** Premium Features
 
