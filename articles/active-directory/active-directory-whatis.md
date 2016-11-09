@@ -3,7 +3,7 @@ title: What is Azure Active Directory?
 description: Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: curtand
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
-ms.author: markusvi
+ms.date: 11/09/2016
+ms.author: curtnad
 
 ---
 # What is Azure Active Directory?
@@ -70,4 +70,3 @@ We have a ton of great resources online to help you learn all about Azure AD. He
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 * [What is Microsoft Azure Active Directory licensing?](active-directory-licensing-what-is.md)
 * [How can I discover unsanctioned cloud apps that are used within my organization](active-directory-cloudappdiscovery-whatis.md)
-
