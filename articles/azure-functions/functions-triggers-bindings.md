@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 11/08/2016
 ms.author: chrande
 
 ---
@@ -29,7 +29,7 @@ If you are looking for detailed information around configuring and coding a spec
 These articles assume that you've read the [Azure Functions developer reference](functions-reference.md), and the [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md), or [Node.js](functions-reference-node.md) developer reference articles.
 
 ## Overview
-Triggers are event responses used to trigger your custom code. They allow you to respond to events across the Azure platform or on premise. Bindings represent the necessary meta data used to connect your code to the desired trigger or associated input or output data. The *function.json* file for each function contains all related bindings. There is not limit to the number of input and output bindings a function can have. However, only a single trigger binding is supported for each function.  
+Triggers are event responses used to trigger your custom code. They allow you to respond to events across the Azure platform or on premise. Bindings represent the necessary meta data used to connect your code to the desired trigger or associated input or output data. The *function.json* file for each function contains all related bindings. There is no limit to the number of input and output bindings a function can have. However, only a single trigger binding is supported for each function.  
 
 To get a better idea of the different bindings you can integrate with your Azure Function app, refer to the following table.
 
