@@ -139,7 +139,7 @@
 ##### [Retention policies](sql-database-temporal-tables-retention-policy.md)
 #### [JSON data](sql-database-json-features.md)
 #### [In-memory](sql-database-in-memory.md)
-###Get started
+### Get started
 #### [Connectivity libraries](sql-database-libraries.md)
 #### Connect an application
 ##### [.NET](sql-database-develop-dotnet-simple.md)
@@ -151,6 +151,7 @@
 ##### [Excel](sql-database-connect-excel.md)
 #### [Connect with Visual Studio](sql-database-connect-query.md)
 ### How to
+#### Create
 ##### Create elastic pools
 ###### [PowerShell](sql-database-elastic-pool-create-powershell.md)
 ###### [C#](sql-database-elastic-pool-create-csharp.md)
@@ -314,7 +315,7 @@
 #### [Ring buffer target code](sql-database-xevent-code-ring-buffer.md)
 ### DMVs
 #### [DMVs](sql-database-monitoring-with-dmvs.md)
-#### [DMVs](sql-database-manage-azure-ssms#monitor-sql-database-using-dynamic-management-views
+#### [DMVs](sql-database-manage-azure-ssms#monitor-sql-database-using-dynamic-management-views)
 
 
 ## Move data
