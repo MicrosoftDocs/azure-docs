@@ -48,6 +48,10 @@
 ### [Fail back VMware VMs and physical servers](site-recovery-failback-azure-to-vmware.md)
 ## [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
 
+# Reference
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [PowerShell classic](https://docs.microsoft.com/powershell/servicemanagement/)
+
 # Related
 ## [Azure Automation](/azure/automation/)
 
