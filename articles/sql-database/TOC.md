@@ -69,15 +69,13 @@
 ### [C#](sql-database-get-started-csharp.md)
 ### [PowerShell](sql-database-get-started-powershell.md)
 
-## Query data
-### [SQL Server Management Studio](sql-database-connect-query-ssms.md)
+## [Create and manage access and permissions](sql-database-get-started-security.md)
 
 ## Manage servers, pools, databases and firewalls
 ### [Azure portal](sql-database-manage-portal.md)
 ### [SQL Server Management Studio](sql-database-manage-azure-ssms.md)
 ### [PowerShell](sql-database-manage-powershell.md)
 
-## [Create and manage access and permissions](sql-database-get-started-security.md)
 
 ## Secure and protect data
 ### [Auditing](sql-database-auditing-get-started.md)
@@ -106,7 +104,7 @@
 
 
 # How To
-## [Audit](sql-database-auditing-get-started.md)
+
 ## Create
 ### Elastic database pools
 #### [Azure portal](sql-database-elastic-pool-create-portal.md)
@@ -130,6 +128,7 @@
 #### [Service installation](sql-database-elastic-jobs-service-installation.md)
 #### [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
 #### [PowerShell](sql-database-elastic-jobs-powershell.md)
+
 ## Develop
 ### [Overview](https://msdn.microsoft.com/library/mt763826.aspx)
 ### Scenarios
@@ -150,41 +149,29 @@
 ##### [Ruby](sql-database-develop-ruby-simple.md)
 ##### [Excel](sql-database-connect-excel.md)
 #### [Connect with Visual Studio](sql-database-connect-query.md)
-### How to
-#### Create
-##### Create elastic pools
-###### [PowerShell](sql-database-elastic-pool-create-powershell.md)
-###### [C#](sql-database-elastic-pool-create-csharp.md)
-##### Create firewall rules
-###### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-###### [REST API](sql-database-configure-firewall-settings-rest.md)
-#### Manage servers, pools, databases and firewalls
-##### [PowerShell](sql-database-manage-powershell.md)
-##### Manage elastic pools
-###### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
-###### [C#](sql-database-elastic-pool-manage-csharp.md)
-##### [Change service tiers and performance levels](sql-database-scale-up-powershell.md)
-#### Move data
-##### [Export database to a BACPAC file](sql-database-export-powershell.md)
-##### [Import database from a BACPAC file](sql-database-import-powershell.md)
-##### [Copy a database to another Azure location](sql-database-copy-powershell.md)
-#### [Get required values for authenticating an application](sql-database-client-id-keys.md)
-#### [Elastic jobs](sql-database-elastic-jobs-powershell.md)
-#### Restore and recover and database
-##### Restore deleted database
-###### [PowerShell](sql-database-restore-deleted-database-powershell.md)
-##### Point in time database restore
-###### [PowerShell](sql-database-point-in-time-restore-powershell.md)
-##### Geo-Restore
-###### [PowerShell](sql-database-geo-restore-powershell.md)
-#### Replicate data with Active Geo-Replication
-##### Configure
-###### [PowerShell](sql-database-geo-replication-powershell.md)
-##### Failover
-###### [PowerShell](sql-database-geo-replication-failover-powershell.md)
-#### [Use ports beyond 1433 for ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md)
-#### [Work with error messages](sql-database-develop-error-messages.md)
-#### [Use batching](sql-database-use-batching-to-improve-performance.md)
+
+### Create
+#### Create elastic pools
+##### [PowerShell](sql-database-elastic-pool-create-powershell.md)
+##### [C#](sql-database-elastic-pool-create-csharp.md)
+#### Create firewall rules
+##### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
+##### [REST API](sql-database-configure-firewall-settings-rest.md)
+### Manage
+#### [Manage using PowerShell](sql-database-manage-powershell.md)
+#### Manage elastic pools
+##### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
+##### [C#](sql-database-elastic-pool-manage-csharp.md)
+#### [Change service tiers and performance levels](sql-database-scale-up-powershell.md)
+### Move data
+#### [Export database to a BACPAC file](sql-database-export-powershell.md)
+#### [Import database from a BACPAC file](sql-database-import-powershell.md)
+### [Get required values for authenticating an application](sql-database-client-id-keys.md)
+### [Elastic jobs](sql-database-elastic-jobs-powershell.md)
+### [Use ports beyond 1433 for ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md)
+### [Work with error messages](sql-database-develop-error-messages.md)
+### [Use batching](sql-database-use-batching-to-improve-performance.md)
+
 ### Reference
 #### [Transact-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 #### [.NET Framework Data Provider for SQL Server (concepts)](https://msdn.microsoft.com/library/kb9s9ks0.aspx)
@@ -218,31 +205,29 @@
 #### [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 #### [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 #### [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
+
 ## Detect threats
 ### [Threat detection](sql-database-threat-detection-get-started.md)
 ### [Firewall](sql-database-firewall-configure.md)
+
 ## Encrypt data
-### Always encrypted
-#### [Always encrypted overview](sql-database-always-encrypted.md)
-#### [Always encrypted Azure key vault](sql-database-always-encrypted-azure-key-vault.md)
+### [Always-encrypted overview](sql-database-always-encrypted.md)
+### [Always-encrypted Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 ### [Transparent data encryption](https://msdn.microsoft.com/library/azure/dn948096)
 ### [Column encryption](https://msdn.microsoft.com/library/azure/ms179331)
+
 ## Manage
 ###  Authentication
-#### SQL authentication
-#### [Azure Active Directory authentication](sql-database-aad-authentication.md)
+#### [Azure AD authentication](sql-database-aad-authentication.md)
 #### [Multi-factor authentication](sql-database-ssms-mfa-authentication.md)
-### Servers
 ### Elastic pools
 #### [Azure portal](sql-database-elastic-pool-manage-portal.md)
 #### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 #### [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 #### [C#](sql-database-elastic-pool-manage-csharp.md)
 ### Databases
-#### Single databases
-##### [Azure portal](sql-database-manage-portal.md)
-#### Change service tiers and performance levels
-#### [Azure [portal](sql-database-scale-up.md)
+#### [Single databases](sql-database-manage-portal.md)
+#### [Change service tiers and performance levels](sql-database-scale-up.md)
 #### Sharded databases
 ##### [Migrate existing scaled-out databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md)
 ##### [Manage credentials](sql-database-elastic-scale-manage-credentials.md)
@@ -259,12 +244,10 @@
 #### [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
 #### [PowerShell](sql-database-elastic-jobs-powershell.md)
 #### [Upgrade client library](sql-database-elastic-scale-upgrade-client-library.md)
-### Logins
-#### [Manage logins](sql-database-manage-logins.md)
+### [Manage logins](sql-database-manage-logins.md)
 ## Mask data
-### Dynamic data masking
-#### [Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
-#### [Downlevel clients](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
+### [Dynamic data masking](sql-database-dynamic-data-masking-get-started-portal.md)
+### [Downlevel clients](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
 ## Migrate
 ### Determine compatibility
 #### [SQL Package utility](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
@@ -275,26 +258,11 @@
 #### [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
 ### [Use SQL Server Management Studio Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
 ### [Use transactional replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
-### Export database to a BACPAC file
-#### [SQL Server Management Studio](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-#### [SQL Package utility](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
-#### [PowerShell](sql-database-export-powershell.md)
-### Import database from a BACPAC file
-#### [SQL Server Management Studio](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-#### [SQL Package utility](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-#### [Azure portal](sql-database-import.md)
-#### [PowerShell](sql-database-import-powershell.md)
 
 ## Monitor and tune
 ### [Single databases](sql-database-performance-guidance.md)
-### Elastic pools
-#### [Azure portal](sql-database-elastic-pool-manage-portal.md)
-#### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
-#### [T-SQL](sql-database-elastic-pool-manage-tsql.md)
-#### [C#](sql-database-elastic-pool-manage-csharp.md)
 ### [Query Performance Insight](sql-database-query-performance.md)
-### SQL Database Advisor
-#### [Azure portal](sql-database-advisor-portal.md)
+### [SQL Database Advisor](sql-database-advisor-portal.md)
 ### Change service tiers and performance levels
 #### [Azure portal](sql-database-scale-up.md)
 #### [PowerShell](sql-database-scale-up-powershell.md)
@@ -317,7 +285,6 @@
 #### [DMVs](sql-database-monitoring-with-dmvs.md)
 #### [DMVs](sql-database-manage-azure-ssms#monitor-sql-database-using-dynamic-management-views)
 
-
 ## Move data
 ### Copy a SQL database
 #### [Overview](sql-database-copy.md)
@@ -327,10 +294,13 @@
 ### Export database to a BACPAC file
 #### [Azure portal](sql-database-export.md)
 #### [SQL Server Management Studio](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+#### [SQL Package utility](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
 #### [PowerShell](sql-database-export-powershell.md)
 ### Import database from a BACPAC file
 #### [Azure portal](sql-database-import.md)
 #### [PowerShell](sql-database-import-powershell.md)
+#### [SQL Server Management Studio](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+#### [SQL Package utility](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
 ### [Data sync](sql-database-get-started-sql-data-sync.md)
 ### [Load from CSV file using BCP](sql-database-load-from-csv-with-bcp.md)
 
@@ -342,13 +312,11 @@
 #### [Cross database querying with different schemas](sql-database-elastic-query-vertical-partitioning.md)
 #### [Cross database reporting](sql-database-elastic-query-horizontal-partitioning.md)
 #### [Distributed transactions across cloud databases](sql-database-elastic-transactions-overview.md)
-#### [Upgrade client library](sql-database-elastic-scale-upgrade-client-library.md)
-#### [Muiltishard querying](sql-database-elastic-scale-multishard-querying.md)
 
 ## Restore
 ### Restore deleted database
-### [Azure portal](sql-database-restore-deleted-database-portal.md)
-### [PowerShell](sql-database-restore-deleted-database-powershell.md)
+#### [Azure portal](sql-database-restore-deleted-database-portal.md)
+#### [PowerShell](sql-database-restore-deleted-database-powershell.md)
 ### Point in time restore
 #### [Azure portal](sql-database-point-in-time-restore-portal.md)
 #### [PowerShell](sql-database-point-in-time-restore-powershell.md)
@@ -370,19 +338,16 @@
 #### [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 ## Troubleshoot
-### Connectivity
-#### [Connection issues](sql-database-troubleshoot-common-connection-issues.md)
-#### [Transient connection error](sql-database-troubleshoot-connection.md)
-#### [Diagnose and prevent](sql-database-connectivity-issues.md)
+### [Connection issues](sql-database-troubleshoot-common-connection-issues.md)
+### [Transient connection error](sql-database-troubleshoot-connection.md)
+### [Diagnose and prevent](sql-database-connectivity-issues.md)
 ### [Permissions](sql-database-troubleshoot-permissions.md)
 
 # Reference
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## SQL PowerShell
-### [Azure SQL Database Cmdlets (Resource Management)](https://msdn.microsoft.com/library/azure/mt574084(v=azure.300\).aspx)
-### [SQL Server Cmdlets](https://msdn.microsoft.com/library/mt740629.aspx)
-## SQL Database REST API
-### [REST API (Resource Management)](https://msdn.microsoft.com/library/azure/mt420159)
+## [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084(v=azure.300\).aspx)
+## [SQL Server Cmdlets](https://msdn.microsoft.com/library/mt740629.aspx)
+## [REST API](https://msdn.microsoft.com/library/azure/mt420159)
 ## SQL Database Management Library
 ### [SQL Database Management Library Reference](https://msdn.microsoft.com/library/azure/mt349017.aspx)
 ### [Get the SQL Database Management Library package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
