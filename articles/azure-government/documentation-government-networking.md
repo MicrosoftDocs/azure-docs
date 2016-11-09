@@ -20,7 +20,7 @@ ms.author: ryansoc
 ---
 # Azure Government Networking
 ## ExpressRoute (Private Connectivity)
-ExpressRoute is generally available in Azure Government. For more information (including partners and peering locations), see the [ExpressRoute public documentation](../expressroute).
+ExpressRoute is generally available in Azure Government. For more information (including partners and peering locations), see the [ExpressRoute public documentation](../expressroute/index.md).
 
 ### Variations
 ExpressRoute is generally available (GA) in Azure Government. 
