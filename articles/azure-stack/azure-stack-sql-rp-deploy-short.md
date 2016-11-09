@@ -73,9 +73,9 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
         > All scripts assume that the base operating system image fulfills the prerequisites (.NET 3.5 installed, JavaScript and cookies enabled on the ClientVM, and a compatible version of Azure PowerShell installed). If you get errors when you run the scripts, double-check that you fulfilled the prerequisites.
         >
         >
-4. [Connect the resource provider to a server that's hosting SQL Server](#Provide-capacity-to-your-SQL-Resource-Provider-by-connecting-it-to-a-hosting-SQL-server) in the Azure Stack portal. Click **Browse** &gt; **Resource Providers** &gt; **SQLRP** &gt; **Go to Resource Provider Management** &gt; **Servers** &gt; **Add**.
+4. [Connect the resource provider to a server that's hosting SQL Server](azure-stack-sql-rp-deploy-long.md#provide-capacity-to-your-sql-resource-provider-by-connecting-it-to-a-hosting-sql-server) in the Azure Stack portal. Click **Browse** &gt; **Resource Providers** &gt; **SQLRP** &gt; **Go to Resource Provider Management** &gt; **Servers** &gt; **Add**.
 
     Use “sa” for username and the password that you used when you deployed the resource provider VM.
-5. To [Test your new SQL Server resource provider](/azure-stack-sql-rp-deploy-long.md#create-your-first-sql-database-to-test-your-deployment), deploy a SQL database in the Azure Stack portal. Click **Create** &gt; **Custom** &gt; **SQL Server Database**.
+5. To [Test your new SQL Server resource provider](azure-stack-sql-rp-deploy-long.md#create-your-first-sql-database-to-test-your-deployment), deploy a SQL database in the Azure Stack portal. Click **Create** &gt; **Custom** &gt; **SQL Server Database**.
 
 This should get your SQL Server resource provider up and running in about 45 minutes (depending on your hardware).
