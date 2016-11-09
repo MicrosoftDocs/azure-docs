@@ -29,9 +29,9 @@ The Storm Dashboard and the Storm features in the HDInsight Tools rely on the St
 >
 
 ## Prerequisites
-* **Apache Storm on HDInsight** - see <a href="hdinsight-storm-getting-started/" target="_blank">Get started with Apache Storm on HDInsight</a> for steps on creating a cluster
+* **Apache Storm on HDInsight** - see <a href="hdinsight-storm-getting-started.md" target="_blank">Get started with Apache Storm on HDInsight</a> for steps on creating a cluster
 * For the **Storm Dashboard**: A modern web browser that supports HTML5
-* For **Visual Studio** - Azure SDK 2.5.1 or newer and the HDInsight Tools for Visual Studio. See <a href="hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a> to install and configure the HDInsight tools for Visual Studio.
+* For **Visual Studio** - Azure SDK 2.5.1 or newer and the HDInsight Tools for Visual Studio. See <a href="hdinsight-hadoop-visual-studio-tools-get-started.md" target="_blank">Get started using HDInsight Tools for Visual Studio</a> to install and configure the HDInsight tools for Visual Studio.
 
     One of the following versions of Visual Studio:
 
@@ -101,7 +101,7 @@ The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm 
 
 Use the following steps to deploy a sample to your Storm on HDInsight cluster, then view and manage the topology.
 
-1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see <a href="hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a>.
+1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see <a href="hdinsight-hadoop-visual-studio-tools-get-started.md" target="_blank">Get started using HDInsight Tools for Visual Studio</a>.
 2. Open Visual Studio, select **File** > **New** > **Project**.
 3. In the **New Project** dialog box, expand **Installed** > **Templates**, and then select **HDInsight**. From the list of templates, select **Storm Sample**. At the bottom of the dialog box, type a name for the application.
 
