@@ -3,7 +3,7 @@
 ###[Web Apps](/azure/app-service-web/)
 ###[Mobile Apps](azure/app-service-mobile)
 ###[Logic Apps](azure/app-service-logic)
-###[API Apps](azure/app-service-logic)
+###[API Apps](azure/app-service-api)
 ## [Container Service](/azure/container-service/)
 ## [Batch](/azure/batch/)
 ## [Cloud Services](/azure/cloud-services/)
