@@ -47,4 +47,6 @@
 ## Language Understanding Intelligent Service
 ### [Start with the Language Understanding Intelligent Service](https://www.luis.ai/Help/)
 
-
+# Reference
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [REST](https://docs.microsoft.com/rest/api/cognitiveservices/)

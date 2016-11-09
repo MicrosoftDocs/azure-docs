@@ -128,25 +128,24 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Reference
-
+## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [.NET API](https://docs.microsoft.com/dotnet/api)
+## [JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [Analytics](app-insights-analytics-reference.md)
 ## [Sampling](app-insights-sampling.md)
 ## [IP addresses](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 ## [Export Data Model](app-insights-export-data-model.md)
-## [REST API](https://dev.applicationinsights.io/)
-## [JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Java SDK API](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [Migration from Azure Endpoint Monitoring to Availability tests](app-insights-migrate-azure-endpoint-tests.md)
 ## [Developer analytics: languages, platforms, and integrations](app-insights-platforms.md)
 ### [Samples and walkthroughs](app-insights-code-samples.md)
-
 #### [Walkthrough: Enabling Telemetry for Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 #### [Walkthrough: Export to SQL using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
 #### [Code sample: Parse exported data](app-insights-code-sample-export-telemetry-sql-database.md)
 ## [Release notes for Application Insights SDK for Windows Phone and Store](app-insights-release-notes-windows.md)
 ## [Release notes for Developer Analytics Tools](app-insights-release-notes-vsix.md)
 ## [SDK release notes Application Insights](app-insights-release-notes.md)
+## [REST API](https://dev.applicationinsights.io/)
 
 # Resources
 ## [Support](app-insights-get-dev-support.md)
