@@ -36,7 +36,7 @@
 ###[Configure in the portal](cache-configure.md)
 ###[Import/Export data](cache-how-to-import-export-data.md)
 ###[Reboot](cache-administration.md#reboot)
-###[Schedule updates](cache-administration.md#schedule-updates
+###[Schedule updates](cache-administration.md#schedule-updates)
 ## Monitor and troubleshoot
 ###[Monitor in the portal](cache-how-to-monitor.md)
 ###[Troubleshoot cache issues](cache-how-to-troubleshoot.md)
