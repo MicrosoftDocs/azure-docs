@@ -1,4 +1,4 @@
-
+> * [PowerShell](sql-database-export-powershell.md)
 ---
 title: Export a SQL Server database to a BACPAC file using SqlPackage | Microsoft Docs
 description: Microsoft Azure SQL Database, database migration, export database, export BACPAC file, sqlpackage
@@ -22,7 +22,7 @@ ms.author: carlrab
 > [!div class="op_single_selector"]
 > * [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
 > * [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
-> 
+> * [PowerShell](sql-database-export-powershell.md)
 > 
 
 This article shows how to export a SQL Server database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-line utility. This utility ships with the latest versions of [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), or you can download the latest version of [SqlPackage](https://www.microsoft.com/en-us/download/details.aspx?id=53876) directly from the Microsoft download center.
