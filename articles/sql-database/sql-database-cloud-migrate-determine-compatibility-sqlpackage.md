@@ -1,4 +1,3 @@
-
 ---
 title: Determine SQL Database compatibility using SqlPackage.exe | Microsoft Docs
 description: Microsoft Azure SQL Database, database migration, SQL Database compatibility, SqlPackage
@@ -23,9 +22,7 @@ ms.author: carlrab
 > * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 > * [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 > * [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-> * [Upgrade Advisor](http://www.microsoft.com/download/details.aspx?id=48119)
 > * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-> 
 > 
 
 In this article, you learn to determine if a SQL Server database is compatible to migrate to SQL Database using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility.
