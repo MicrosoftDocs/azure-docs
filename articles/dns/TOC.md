@@ -39,9 +39,9 @@
 
 
 # Related
-## [Application Gateway](../application-gateway/index.md)
-## [Virtual Network](../virtual-network/index.md)
-## [Virtual Machine](../virtual-machines/index.md)
-## [Load Balancer](../load-balancer/index.md)
-## [Traffic Manager](../traffic-manager/index.md)
-## [Web apps](../app-services-web/index.md)
+## [Application Gateway](/azure/application-gateway/)
+## [Virtual Network](/azure/virtual-network/)
+## [Virtual Machine](/azure/virtual-machines/)
+## [Load Balancer](/azure/load-balancer/)
+## [Traffic Manager](/azure/traffic-manager/)
+## [Web apps](/azure/app-services-web/)
