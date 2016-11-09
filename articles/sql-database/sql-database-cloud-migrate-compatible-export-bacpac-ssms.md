@@ -1,4 +1,4 @@
-﻿
+*﻿
 ---
 title: Export a SQL Server database to a BACPAC file using SQL Server Management Studio | Microsoft Docs
 description: Microsoft Azure SQL Database, database migration, export database, export BACPAC file, Export Data Tier Application wizard
@@ -22,7 +22,7 @@ ms.author: carlrab
 > [!div class="op_single_selector"]
 > * [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
 > * [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
-> 
+> * [PowerShell](sql-database-export-powershell.md)
 > 
 
 This article shows how to export a SQL Server database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file using the Export Data Tier Application Wizard in SQL Server Management Studio. 
