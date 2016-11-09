@@ -43,7 +43,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
         </a>
     </li>
 	<li>
-        <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-manager-export-template/">
+        <a href="/azure/resource-manager-export-template/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
         </a>
     </li>
 	<li>
-        <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-manager-export-template/">
+        <a href="/azure/resource-manager-export-template/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-manager-template-walkthrough/">
+        <a href="/azure/resource-manager-template-walkthrough/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -89,7 +89,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Template walkthrough </h3>
+                        <h3>Template walkthrough</h3>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-resource-groups-deployment-projects-create-deploy/">
+        <a href="/azure/vs-azure-tools-resource-groups-deployment-projects-create-deploy/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -115,7 +115,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/articles/resource-manager-vs-code/">
+        <a href="/azure/resource-manager-vs-code/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

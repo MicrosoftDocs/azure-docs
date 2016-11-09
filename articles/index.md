@@ -1733,7 +1733,7 @@ layout: HubPage
                                                                                                                                                                                                 SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/">Get
+                                                    <a href="/azure/app-service-web/web-sites-dotnet-get-started/">Get
                                                                                                                                                                                                 started</a>
                                                 </p>
                                                 <p>
@@ -1763,7 +1763,7 @@ layout: HubPage
                                                     <a href="https://github.com/Azure/azure-sdk-for-python">Get the Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-python-create-deploy-django-app/">Get started</a>
+                                                    <a href="/azure/app-servie-web/web-sites-python-create-deploy-django-app/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
@@ -1790,7 +1790,7 @@ layout: HubPage
                                                     <a href="https://azure.microsoft.com/en-us/develop/nodejs/">Get the Nodejs SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/app-service-web-nodejs-get-started/">Get started</a>
+                                                    <a href="/azure/app-servie-web/app-service-web-nodejs-get-started/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">API reference</a>
@@ -1817,7 +1817,7 @@ layout: HubPage
                                                     <a href="http://go.microsoft.com/fwlink/?LinkId=690320">Get the Java SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-java-get-started/">Get started</a>
+                                                    <a href="/azure/app-servie-web/web-sites-java-get-started/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/">API reference</a>
@@ -1979,7 +1979,7 @@ layout: HubPage
                                                 <h3>Azure CLI
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/">Getting Started - conceptual</a>
+                                                    <a href="/azure/xplat-cli-install/">Getting Started - conceptual</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://aka.ms/linux-azure-cli">Download Azure CLI for Linux</a>
@@ -1991,7 +1991,7 @@ layout: HubPage
                                                     <a href="http://aka.ms/webpi-azure-cli">Download Azure CLI for Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/azure-cli-arm-commands/">API reference</a>
+                                                    <a href="/azure/azure-cli-arm-commands/">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2089,7 +2089,7 @@ layout: HubPage
                                                     <a href="http://storageexplorer.com/">Storage Explorer</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Get Started</a>
+                                                    <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer/">Get Started</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Download for Linux</a>
