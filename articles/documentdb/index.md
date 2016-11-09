@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #DocumentDB Documentation
 
-DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. [DocumentDB Overview](https://azure.microsoft.com/en-us/documentation/articles/documentdb-introduction/)
+DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. [DocumentDB Overview](documentdb-introduction.md)
 
 <ul class="panelContent cardsFTitle">
     <li>
