@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 08/24/2016
+ms.date: 11/08/2016
 ms.author: carlrab
 
 ---
@@ -22,7 +22,6 @@ ms.author: carlrab
 > * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 > * [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 > * [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-> * [Upgrade Advisor](http://www.microsoft.com/download/details.aspx?id=48119)
 > * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
 > 
 > 

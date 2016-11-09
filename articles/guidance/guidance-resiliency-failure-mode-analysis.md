@@ -26,7 +26,7 @@ Here is the general process to conduct an FMA:
 1. Identify all of the components in the system. Include external dependencies, such as as identity providers, third-party services, and so on.   
 2. For each component, identify potential failures that could occur. A single component may have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigations will be different.
 3. Rate each failure mode according to its overall risk. Consider these factors:  
-   
+
    * What is the likelihood of the failure. Is it relatively common? Extrememly rare? You don't need exact numbers; the purpose is to help rank the priority.
    * What is the impact on the application, in terms of availability, data loss, monetary cost, and business disruption?
 4. For each failure mode, determine how the application will respond and recover. Consider tradeoffs in cost and application complexity.   
@@ -38,11 +38,11 @@ As a starting point for your FMA process, this article contains a catalog of pot
 **Detection**. Possible causes:
 
 * Expected shutdown
-  
+
   * An operator shuts down the application; for example, using the Azure portal.
   * The app was unloaded because it was idle. (Only if the `Always On` setting is disabled.)
 * Unexpected shutdown
-  
+
   * The app crashes.
   * An App Service VM instance becomes unavailable.
 
@@ -282,10 +282,10 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 2. If the queue quota is exceeded, the client throws [QuotaExceededException][QuotaExceededException]. The exception message gives more details. Drain some messages from the queue before retrying, and consider using the Circuit Breaker pattern to avoid continued retries while the quota is exceeded. Also, make sure the [BrokeredMessage.TimeToLive] property is not set too high.
 3. Within a region, resiliency can be improved by using [partitioned queues or topics][sb-partition]. A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail. A partitioned queue or topic is partitioned across multiple messaging stores.
 4. For additional resiliency, create two Service Bus namespaces in different regions, and replicate the messages. You can use either active replication or passive replication.
-   
+
    * Active replication: The client sends every message to both queues. The receiver listens on both queues. Tag messages with a unique identifier, so the client can discard duplicate messages.
    * Passive replication: The client sends the message to one queue. If there is an error, the client falls back to the other queue. The receiver listens on both queues. This approach reduces the number of duplicate messages that are sent. However, the receiver must still handle duplicate messages.
-     
+
      For more information, see [GeoReplication sample][sb-georeplication-sample] and [Best practices for insulating applications against Service Bus outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md).
 
 ### Duplicate message.
@@ -295,7 +295,7 @@ For more information, see [Service Bus messaging exceptions][sb-messaging-except
 
 * If possible, design your message processing operations to be idempotent. Otherwise, store message IDs of messages that are already processed, and check the ID before processing a message.
 * Enable duplicate detection, by creating the queue with `RequiresDuplicateDetection` set to true. With this setting, Service Bus automatically deletes any message that is sent with the same `MessageId` as a previous message.  Note the following:
-  
+
   * This setting prevents duplicate messages from being put into the queue. It doesn't prevent a receiver from processing the same message more than once.
   * Duplicate detection has a time window. If a duplicate is sent beyond this window, it won't be detected.
 
@@ -343,7 +343,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 1. Retry the operation, to recover from transient failures. The [retry policy][Storage.RetryPolicies] in the client SDK handles this automatically.
 2. Implement the Circuit Breaker pattern to avoid overwhelming storage.
 3. If N retry attempts fail, perform a graceful fallback. For example:
-   
+
    * Store the data in a local cache, and forward the writes to storage later, when the service becomes available.
    * If the write action was in a transactional scope, compensate the transaction.
 
@@ -408,7 +408,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 * Scale out to handle increased load.
 * Mitigate failures to avoid having cascading failures disrupt the entire application. Mitigation strategies include:
-  
+
   * Implement the [Throttling Pattern][throttling-pattern] to avoid overwhelming backend systems.
   * Use [queue-based load leveling][queue-based-load-leveling] to buffer requests and process them at an appropriate pace.
   * Prioritize certain clients. For example, if the application has free and paid tiers, throttle customers on the free tier, but not paid customers. See [Priority queue pattern][priority-queue-pattern].
@@ -469,7 +469,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [QuotaExceededException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.quotaexceededexception.aspx
 [ra-web-apps-basic]: guidance-web-apps-basic.md
 [redis-monitor]: ../redis-cache/cache-how-to-monitor.md
-[redis-retry]: ../best-practices-retry-service-specific.md#cache-redis-retry-guidelines
+[redis-retry]: ../best-practices-retry-service-specific.md#azure-redis-cache-retry-guidelines
 [resilience-by-design-pdf]: http://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
 [RoleEntryPoint.OnStop]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [RoleEnvironment.Stopping]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx
@@ -486,7 +486,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [scheduler-agent-supervisor]: https://msdn.microsoft.com/library/dn589780.aspx
 [search-analytics]: ../search/search-traffic-analytics.md
 [sql-db-audit]: ../sql-database/sql-database-auditing-get-started.md
-[sql-db-errors]: ../sql-database/sql-database-develop-error-messages.md#resource-governanance-errors
+[sql-db-errors]: ../sql-database/sql-database-develop-error-messages.md#resource-governance-errors
 [sql-db-failover]: ../sql-database/sql-database-geo-replication-failover-portal.md
 [sql-db-limits]: ../sql-database/sql-database-resource-limits.md
 [sql-db-replication]: ../sql-database/sql-database-geo-replication-overview.md

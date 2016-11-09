@@ -269,7 +269,7 @@ The `#load` directive only works with `.fsx` (F# script) files, and not with `.f
 ## Next steps
 For more information, see the following resources:
 
-* [F# Guide](https://docs.microsoft.com/en-us/dotnet/articles/fsharp/index)
+* [F# Guide](/dotnet/articles/fsharp/index)
 * [Azure Functions developer reference](functions-reference.md)
 * [Azure Functions C# developer reference](functions-reference-csharp.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)
