@@ -43,11 +43,10 @@ This article shows how to export a SQL Server database to a [BACPAC](https://msd
 
     ![Export settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC02.png)
 
-***Important*** When exporting a BACPAC to Azure blob storage, use standard storage. Importing a BACPAC from premium storage is not supported.
-
-    
-
-
+   > [!IMPORTANT]
+   > When exporting a BACPAC to Azure blob storage, use standard storage. Importing a BACPAC from premium storage is not supported.
+   >
+   
 ## Next steps
 * [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 * [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
