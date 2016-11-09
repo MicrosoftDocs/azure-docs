@@ -277,9 +277,9 @@
 
 
 # Reference
+## [PowerShell cmdlets](https://docs.microsoft.com/powershell/azure%20ad%20cmdlets/ )
+## [.NET API](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](active-directory-service-limits-restrictions.md)
-## [Authentication Library .NET reference](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
-## [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt757189.aspx)
 
 # Related
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
