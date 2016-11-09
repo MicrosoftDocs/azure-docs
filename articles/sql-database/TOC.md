@@ -37,7 +37,7 @@
 
 ### Access and permissions
 #### [Overview](sql-database-security.md)
-#### [Azure Security Center for Azure SQL Database](,,/security-center/security-center-sql-database.md?toc=%2fazure%2fsql-database%2ftoc.json)
+#### [Azure Security Center for Azure SQL Database](../security-center/security-center-sql-database.md?toc=%2fazure%2fsql-database%2ftoc.json)
 #### [SQL Security Center](https://msdn.microsoft.com/library/azure/bb510589)
 
 ### Business continuity
@@ -281,9 +281,7 @@
 #### [Extended events](sql-database-xevent-db-diff-from-svr.md)
 #### [Event file target code](sql-database-xevent-code-event-file.md)
 #### [Ring buffer target code](sql-database-xevent-code-ring-buffer.md)
-### DMVs
-#### [DMVs](sql-database-monitoring-with-dmvs.md)
-#### [DMVs](sql-database-manage-azure-ssms#monitor-sql-database-using-dynamic-management-views)
+### [DMVs](sql-database-monitoring-with-dmvs.md)
 
 ## Move data
 ### Copy a SQL database
@@ -344,10 +342,15 @@
 ### [Permissions](sql-database-troubleshoot-permissions.md)
 
 # Reference
+## [PowerShell](https://docs.microsoft.com/dotnet/api/)
+## [PowerShell classic](https://docs.microsoft.com/powershell/servicemanagement/)
+## [Java](https://docs.microsoft.com/java/api/)
+## [.NET](https://docs.microsoft.com/dotnet/api/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084(v=azure.300\).aspx)
 ## [SQL Server Cmdlets](https://msdn.microsoft.com/library/mt740629.aspx)
-## [REST API](https://msdn.microsoft.com/library/azure/mt420159)
+## [REST](https://docs.microsoft.com/rest/api/sql/)
+
 ## SQL Database Management Library
 ### [SQL Database Management Library Reference](https://msdn.microsoft.com/library/azure/mt349017.aspx)
 ### [Get the SQL Database Management Library package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
