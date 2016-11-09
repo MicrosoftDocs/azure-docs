@@ -3,6 +3,7 @@
 ##[Pricing](https://azure.microsoft.com/pricing/details/cache/)
 ##[Redis Cache FAQ](cache-faq.md)
 ##[Explore premium tier features](cache-premium-tier-intro.md)
+
 # Get started
 ##[ASP.NET](cache-web-app-howto.md)
 ##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
@@ -10,6 +11,7 @@
 ##[Node](cache-nodejs-get-started.md)
 ##[Java](cache-java-get-started.md)
 ##[Python](cache-python-get-started.md)
+
 # How to
 ## Plan
 ###[Choose a cache tier](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
@@ -42,9 +44,15 @@
 ## Scale
 ###[Update to a different size and tier](cache-how-to-scale.md)
 ###[Use Redis cluster to scale in/out](cache-how-to-premium-clustering.md)
+
 #Reference
-## [PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/mt634513.aspx)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/)
+## [Java](https://docs.microsoft.com/java/api/)
+## [.NET](https://docs.microsoft.com/dotnet/api/)
 ## [Redis clients](http://redis.io/clients)
 ## [Redis commands](http://redis.io/commands#)
+## [REST](https://docs.microsoft.com/rest/api/redis/)
+
 #Resources
 ## [Redis cache samples](cache-redis-samples.md)
