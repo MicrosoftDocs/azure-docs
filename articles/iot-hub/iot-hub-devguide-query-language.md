@@ -1,6 +1,6 @@
 ---
 title: Developer guide - query language | Microsoft Docs
-description: Azure IoT Hub developer guide - description of query language used to retrieve information about twins, methods, and jobs from your IoT hub
+description: Azure IoT Hub developer guide - description of query language used to retrieve information about device twins, methods, and jobs from your IoT hub
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: elioda
 
 ---
-# Reference - query language for twins and jobs
+# Reference - query language for device twins and jobs
 ## Overview
 IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins][lnk-twins] and [jobs][lnk-jobs]. This article presents:
 
@@ -26,7 +26,7 @@ IoT Hub provides a powerful SQL-like language to retrieve information regarding 
 
 ## Getting started with device twin queries
 [Device twins][lnk-twins] can contain arbitrary JSON objects as both tags and properties. IoT Hub allows to query device twins as a single JSON document containing all device twin information.
-Assume, for instance, that your IoT hub twins have the following structure:
+Assume, for instance, that your IoT hub device twins have the following structure:
 
         {                                                                      
             "deviceId": "myDeviceId",                                            
@@ -268,7 +268,7 @@ This is the grammar of the SELECT clause:
 
 where **attribute_name** refers to any property of the JSON document in the FROM collection. Some examples of SELECT clauses can be found in the [Getting started with device twin queries][lnk-query-getstarted] section.
 
-Currently, selection clauses different than **SELECT \*** are only supported in aggregate queries on twins.
+Currently, selection clauses different than **SELECT \*** are only supported in aggregate queries on device twins.
 
 ## GROUP BY clause
 The **GROUP BY <group_specification>** clause is an optional step that is can be executed after the filter specified in the WHERE clause, and before the projection specified in the SELECT. It groups documents based on the value of an attribute. These groups are used to generate aggregated values as specified in the SELECT clause.
@@ -289,7 +289,7 @@ The formal syntax for GROUP BY is:
 
 where **attribute_name** refers to any property of the JSON document in the FROM collection. 
 
-Currently, the GROUP BY clause is only supported when querying twins.
+Currently, the GROUP BY clause is only supported when querying device twins.
 
 ## Expressions and conditions
 At a high level, an *expression*:
@@ -347,7 +347,7 @@ Learn how to execute queries in your apps using [IoT Hub SDKs][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
 [lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: iot-hub-devguide-query-language.md#getting-started-with-twin-queries
+[lnk-query-getstarted]: iot-hub-devguide-query-language.md#getting-started-with-device-twin-queries
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-jobs]: iot-hub-devguide-jobs.md

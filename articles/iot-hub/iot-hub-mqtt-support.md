@@ -44,7 +44,7 @@ If you are using the [device client SDKs][lnk-device-sdks], switching from using
 When doing so, make sure to check the following items:
 
 * AMQP returns errors for many conditions, while MQTT terminates the connection. As a result your exception handling logic might require some changes.
-* MQTT does not support the *reject* operations when receiving [C2D messages][lnk-messaging]. If your back end needs to receive a response from the device app, consider using [direct methods][lnk-methods].
+* MQTT does not support the *reject* operations when receiving [cloud-to-device messages][lnk-messaging]. If your back end needs to receive a response from the device app, consider using [direct methods][lnk-methods].
 
 ## Using the MQTT protocol directly
 If a device cannot use the device client SDKs, it can still connect to the public device endpoints using the MQTT protocol. In the **CONNECT** packet the device should use the following values:
@@ -127,7 +127,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdks/tree/master/python/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
-[lnk-sas-tokens]: iot-hub-devguide-security.md#using-sas-tokens-as-a-device
+[lnk-sas-tokens]: iot-hub-devguide-security.md#use-sas-tokens-in-a-device-client
 [lnk-mqtt-devguide]: iot-hub-devguide-messaging.md#notes-on-mqtt-support
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
