@@ -27,16 +27,17 @@
 ### [Troubleshooting](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 ## [Get started with the Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Get started with the Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
+## Tutorials
+### [Process device-to-cloud messages tutorial (.NET)](iot-hub-csharp-csharp-process-d2c.md)
+### [Process device-to-cloud messages tutorial (Java)](iot-hub-java-java-process-d2c.md)
+### [Upload files from devices tutorial](iot-hub-csharp-csharp-file-upload.md)
+### [Send cloud-to-device messages (.NET)](iot-hub-csharp-csharp-c2d.md)
+### [Send cloud-to-device messages (Java)](iot-hub-java-java-c2d.md)
+### [Send cloud-to-device messages (Node)](iot-hub-node-node-c2d.md)
+### [Get started with device twins](iot-hub-node-node-twin-getstarted.md)
+### [How to use twin properties](iot-hub-node-node-twin-how-to-configure.md)
 
 # How To
-## [Process device-to-cloud messages tutorial (.NET)](iot-hub-csharp-csharp-process-d2c.md)
-## [Process device-to-cloud messages tutorial (Java)](iot-hub-java-java-process-d2c.md)
-## [Upload files from devices tutorial](iot-hub-csharp-csharp-file-upload.md)
-## [Send cloud-to-device messages (.NET)](iot-hub-csharp-csharp-c2d.md)
-## [Send cloud-to-device messages (Java)](iot-hub-java-java-c2d.md)
-## [Send cloud-to-device messages (Node)](iot-hub-node-node-c2d.md)
-## [Get started with device twins](iot-hub-node-node-twin-getstarted.md)
-## [How to use twin properties](iot-hub-node-node-twin-how-to-configure.md)
 ## Plan your deployment
 ### [Comparison of IoT Hub to Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Scale your solution](iot-hub-scaling.md)
