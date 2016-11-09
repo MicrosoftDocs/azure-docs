@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Application Insights: Code Samples and Walkthroughs
-*Application Insights is in preview.*
+
 
 This is a compilation of code samples that show you how to use [Azure Application Insights](app-insights-overview.md).
 

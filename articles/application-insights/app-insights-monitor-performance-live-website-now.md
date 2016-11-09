@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Instrument web apps at runtime with Application Insights
-*Application Insights is in preview.*
+
 
 You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. In your apps are hosted by an on-premises IIS server, you install Status Monitor; or if they're Azure web apps or run in an Azure VM, you can install the Application Insights extension. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
 

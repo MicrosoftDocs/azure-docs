@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Data collection, retention and storage in Application Insights
-*Application Insights is in preview.*
+
 
 When you install [Azure Application Insights][start] SDK in your app, it sends telemetry about your app to the Cloud. Naturally, responsible developers want to know exactly what data is sent, what happens to the data, and how they can keep control of it. In particular, could sensitive data be sent, where is it stored, and how secure is it? 
 

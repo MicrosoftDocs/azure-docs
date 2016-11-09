@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Add Application Insights SDK to monitor your Node.js app
-*Application Insights is in preview.*
+
 
 [Azure Application Insights](app-insights-overview.md) monitors your live application to help you [detect and diagnose performance issues and exceptions](app-insights-detect-triage-diagnose.md), and [discover how your app is used](app-insights-overview-usage.md). It works for apps that are hosted on your own on-premises IIS servers or on Azure VMs, as well as Azure web apps.
 

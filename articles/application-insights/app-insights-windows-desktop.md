@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Monitoring usage and performance in Windows Desktop apps
-*Application Insights is in preview.*
+
 
 [Azure Application Insights](app-insights-overview.md) and [HockeyApp](https://hockeyapp.net) let you monitor your deployed application for usage and performance.
 

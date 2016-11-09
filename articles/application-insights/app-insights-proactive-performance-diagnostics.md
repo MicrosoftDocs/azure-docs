@@ -1,4 +1,4 @@
-﻿---
+---
 title: Smart Performance Anomaly Detection | Microsoft Docs
 description: Application Insights performs smart proactive analysis of your app telemetry and warns you of potential problems.
 services: application-insights
@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Smart Performance Anomaly Detection
-*Application Insights is in preview.*
+
 
 [Application Insights](app-insights-overview.md) performs deep analysis of your app telemetry, and can warn you about potential performance problems. You're probably reading this because you received one of our smart alerts by email.
 

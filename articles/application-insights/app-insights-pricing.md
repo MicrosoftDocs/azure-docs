@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Manage pricing and quota for Application Insights
-*Application Insights is in preview.*
+
 
 [Pricing][pricing] for [Azure Application Insights][start] is based on data volume per application. There's a substantial Free tier in which you get most of the features with some limitations.
 
