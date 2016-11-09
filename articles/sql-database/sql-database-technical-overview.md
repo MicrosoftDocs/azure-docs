@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/16/2016
+ms.date: 11/08/2016
 ms.author: shkurhek
 
 ---
