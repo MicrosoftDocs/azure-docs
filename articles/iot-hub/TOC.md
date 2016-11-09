@@ -77,19 +77,19 @@
 
 
 # Reference
+## [Azure CLI](https://docs.microsoft.com/cli/azure)
+## [Java](https://docs.microsoft.com/java/api)
+## [.NET API](https://docs.microsoft.com/dotnet/api)
 ## Gateway SDK
 ### [Simulate a device with the Gateway SDK tutorial (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
 ### [Simulate a device with the Gateway SDK tutorial (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
 ### [Send messages from a real device with the Gateway SDK tutorial](iot-hub-gateway-sdk-physical-device.md)
-## [Client and device .NET APIs](https://msdn.microsoft.com/library/mt488521.aspx)
-## [Resource Provider REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)
-## [Device Identities REST API](https://go.microsoft.com/fwlink/p/?linkid=833394)
-## [Device Messaging REST API](https://go.microsoft.com/fwlink/p/?linkid=833395)
 ## [Device SDK API](http://azure.github.io/azure-iot-sdks/)
 ## [Gateway SDK API](http://azure.github.io/azure-iot-gateway-sdk)
 ## [Introduction to the Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
 ## [IoT device SDK for C: more about IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ## [IoT device SDK for C: more about serializer](iot-hub-device-sdk-c-serializer.md)
+## [REST](https://docs.microsoft.com/en-us/rest/api/iothub/)
 
 # Related
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
