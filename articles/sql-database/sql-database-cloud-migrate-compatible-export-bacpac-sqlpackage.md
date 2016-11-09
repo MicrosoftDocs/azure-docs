@@ -1,4 +1,3 @@
-> * [PowerShell](sql-database-export-powershell.md)
 ---
 title: Export a SQL Server database to a BACPAC file using SqlPackage | Microsoft Docs
 description: Microsoft Azure SQL Database, database migration, export database, export BACPAC file, sqlpackage
@@ -20,6 +19,7 @@ ms.author: carlrab
 ---
 # Export a SQL Server database to a BACPAC file using SqlPackage
 > [!div class="op_single_selector"]
+> * [Azure portal](sql-database-export.md)
 > * [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
 > * [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
 > * [PowerShell](sql-database-export-powershell.md)
