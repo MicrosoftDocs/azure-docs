@@ -166,15 +166,17 @@
 ### [Redeploy VM to a new Azure node](../virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Reference
-## [Author Resource Manager templates](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Azure CLI](../azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
 ## [Java SDK](https://azure.microsoft.com/develop/java/)
 ## [Node.js SDK](https://azure.microsoft.com/develop/nodejs/)
 ## [Python SDK](https://azure.microsoft.com/develop/python/)
-## [Compute REST API](https://msdn.microsoft.com/library/azure/mt163647)
-## [Network REST API](https://msdn.microsoft.com/library/azure/mt163658)
-## [Storage REST API](https://msdn.microsoft.com/library/azure/dd179355)
+## [Author Resource Manager templates](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Community templates](https://azure.microsoft.com/documentation/templates/)
+## [Compute REST API](https://docs.microsoft.com/rest/api/compute/)
+## [Network REST API](https://msdn.microsoft.com/library/mt163658.aspx)
+## [Storage REST API ](https://docs.microsoft.com/rest/api/storageservices/)
+
+
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/#Linux)
