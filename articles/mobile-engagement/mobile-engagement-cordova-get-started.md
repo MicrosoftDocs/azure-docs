@@ -64,8 +64,10 @@ We will create a basic app with Cordova to demonstrate the integration:
         $ cordova platform add android
         $ cordova run android
 4. Add the Cordova Console plugin. 
-   
-    $ cordova plugin add cordova-plugin-console 
+
+    ```
+    $ cordova plugin add cordova-plugin-console
+    ``` 
 
 ### Connect your app to Mobile Engagement backend
 1. Install the Azure Mobile Engagement Cordova plugin while providing the variable values to configure the plugin:
