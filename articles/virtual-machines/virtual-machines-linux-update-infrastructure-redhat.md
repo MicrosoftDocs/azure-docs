@@ -52,19 +52,19 @@ As of September 2016, Azure has a new set of Red Hat Update Infrastructure (RHUI
 ### Manual update procedure to use the new Azure RHUI servers
 Download (via curl) the public key signature
 
-```
+```bash
 curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
 ```
 
 Verify the downloaded key
 
-```
+```bash
 gpg --list-packets --verbose < RPM-GPG-KEY-microsoft-azure-release
 ```
 
 Check the output, verify `keyid` and `user ID packet`:
 
-```
+```bash
 Version: GnuPG v1.4.7 (GNU/Linux)
 :public key packet:
         version 4, algo 1, created 1446074508, expires 0
@@ -88,7 +88,7 @@ Version: GnuPG v1.4.7 (GNU/Linux)
 
 Install the public key
 
-```
+```bash
 sudo install -o root -g root -m 644 RPM-GPG-KEY-microsoft-azure-release /etc/pki/rpm-gpg
 sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
 ```
@@ -98,25 +98,25 @@ Download, Verify, and Install Client RPM
 Download:
 For RHEL 6
 
-```
+```bash
 curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.0-2.noarch.rpm 
 ```
 
 For RHEL 7
 
-```
+```bash
 curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.0-2.noarch.rpm  
 ```
 
 Verify:
 
-```
+```bash
 rpm -Kv azureclient.rpm
 ```
 
 Check in output that signature of the package is OK
 
-```
+```bash
 azureclient.rpm:
     Header V3 RSA/SHA256 Signature, key ID be1229cf: OK
     Header SHA1 digest: OK (927a3b548146c95a3f6c1a5d5ae52258a8859ab3)
@@ -126,7 +126,7 @@ azureclient.rpm:
 
 Install the RPM
 
-```
+```bash
 sudo rpm -U azureclient.rpm
 ```
 
@@ -135,7 +135,7 @@ Upon completion, verify that you can access Azure RHUI form the VM
 ### All-in-one script for automating the above task
 Use the following script as needed to automate the task of updating affected VMs to the new Azure RHUI servers.
 
-```
+```sh
 # Download key
 curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
 
@@ -190,7 +190,10 @@ To unregister RHUI and reregister to your update infrastructure follow the below
 
 1. Edit /etc/yum.repos.d/rh-cloud.repo and change all `enabled=1` to `enabled=0`. For example:
    
-   # sed -i 's/enabled=1/enabled=0/g' /etc/yum.repos.d/rh-cloud.repo
+   ```bash
+   sed -i 's/enabled=1/enabled=0/g' /etc/yum.repos.d/rh-cloud.repo
+   ```
+   
 2. Edit /etc/yum/pluginconf.d/rhnplugin.conf and change `enabled=0` to `enabled=1`.
 3. Then register with the desired infrastructure, such as Red Hat Customer Portal. Follow Red Hat solution guide on [how to register and subscribe a system to the Red Hat Customer Portal](https://access.redhat.com/solutions/253273).
 

@@ -36,20 +36,20 @@ Let's use an existing quickstart template to create an Ubuntu VM that uses the A
 
 You need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in using the Resource Manager mode as follows:
 
-```
+```azurecli
 azure config mode arm
 ```
 
 Deploy the template using the Azure CLI, specifying the template URI. The following example creates a resource group named `myResourceGroup` in the `WestUS` location. Use your own resource group name and location as follows:
 
-```
+```azurecli
 azure group create --name myResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
 Answer the prompts to name your storage account, provide a username and password, and provide a DNS name. The output is similar to the following example:
 
-```
+```azurecli
 info:    Executing command group create
 + Getting resource group myResourceGroup
 + Updating resource group myResourceGroup
@@ -76,13 +76,13 @@ The Azure CLI returns you to the prompt after only a few seconds, but your Docke
 
 The following example checks the status of the VM named `myDockerVM` (the default name from the template - don't change this name) in the resource group named `myResourceGroup`. Enter the name of the resource group you created in the preceding step:
 
-```bash
+```azurecli
 azure vm show -g myResourceGroup -n myDockerVM
 ```
 
 The output of the `azure vm show` command is similar to the following example:
 
-```
+```azurecli
 info:    Executing command vm show
 + Looking up the VM "myDockerVM"
 + Looking up the NIC "myVMNicD"
@@ -122,13 +122,13 @@ ssh ops@mypublicip.westus.cloudapp.azure.com
 
 Once logged in to the Docker host, let's run an nginx container:
 
-```
+```bash
 sudo docker run -d -p 80:80 nginx
 ```
 
 The output is similar to the following example as the nginx image is downloaded and a container started:
 
-```
+```bash
 Unable to find image 'nginx:latest' locally
 latest: Pulling from library/nginx
 efd26ecc9548: Pull complete
@@ -142,13 +142,13 @@ b6ed109fb743a762ff21a4606dd38d3e5d35aff43fa7f12e8d4ed1d920b0cd74
 
 Check the status of the containers running on your Docker host as follows:
 
-```
+```bash
 sudo docker ps
 ```
 
 The output is similar to the following example, showing that the nginx container is running and TCP ports 80 and 443 and being forwarded:
 
-```
+```bash
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                         NAMES
 b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   adoring_payne
 ```
@@ -160,7 +160,7 @@ To see your container in action, open up a web browser and enter the FQDN name o
 ## Azure Docker VM extension template reference
 The previous example uses an existing quickstart template. You can also deploy the Azure Docker VM extension with your own Resource Manager templates. To do so, add the following to your Resource Manager templates, defining the `vmName` of your VM appropriately:
 
-```
+```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "[concat(variables('vmName'), '/DockerExtension'))]",
