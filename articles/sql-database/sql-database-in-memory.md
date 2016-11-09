@@ -1,23 +1,22 @@
-<properties
-	pageTitle="SQL In-Memory Technologies | Microsoft Azure"
-	description="SQL In-Memory technologies greatly improve the performance of transactional and analytics workloads. Learn how to take advantage of these technologies."
-	services="sql-database"
-	documentationCenter=""
-	authors="jodebrui"
-	manager="jhubbard"
-	editor=""/>
+---
+title: SQL In-Memory Technologies | Microsoft Docs
+description: SQL In-Memory technologies greatly improve the performance of transactional and analytics workloads. Learn how to take advantage of these technologies.
+services: sql-database
+documentationcenter: ''
+author: jodebrui
+manager: jhubbard
+editor: ''
 
+ms.assetid: 57957600-50f1-4eba-a7c7-d2ba4a97858e
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/09/2016
+ms.author: jodebrui
 
-<tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/09/2016"
-	ms.author="jodebrui"/>
-
-
+---
 # Optimize Performance using In-Memory Technologies in SQL Database
 
 In-Memory technologies are available in all database in the Premium tier, including databases in Premium elastic pools. They help to optimize the performance of transactional (OLTP), analytics (OLAP), as well as mixed workloads (HTAP). With these technologies customers have been able to achieve up to 30X performance improvement for transaction processing and up to 100X performance improvement for analytical queries, for some scenarios. Not only do In-Memory technologies allow you to achieve unparalleled performance, you can also reduce cost: you typically do not need to upgrade the pricing tier of the database to achieve performance gains, and in some cases you could even reduce the pricing tier while still seeing performance improvements using In-Memory technologies, compared with traditional tables and indexes.
