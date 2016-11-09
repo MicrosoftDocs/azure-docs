@@ -7,7 +7,7 @@ Microsoft Azure is a growing collection of integrated public cloud services incl
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-azure-overview">
+        <a href="/azure/virtual-machines/virtual-machines-linux-azure-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Microsoft Azure is a growing collection of integrated public cloud services incl
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Microsoft Azure is a growing collection of integrated public cloud services incl
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys">
+        <a href="/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +97,7 @@ Microsoft Azure is a growing collection of integrated public cloud services incl
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/xplat-cli-install">
+        <a href="/azure/xplat-cli-install">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -115,7 +115,7 @@ Microsoft Azure is a growing collection of integrated public cloud services incl
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/virtual-machines-linux-quick-create-cli">
+        <a href="/azure/virtual-machines-linux-quick-create-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -139,22 +139,22 @@ Microsoft Azure is a growing collection of integrated public cloud services incl
 ##Reference
 
 ###.NET
-[Linux Virtual Machine Managed Reference API](https://docs.microsoft.com/dotnet/api/)
+[Linux Virtual Machine Managed Reference API](/dotnet/api/)
 
 ###Azure CLI
-[Linux Virtual Machine using Azure CLI](https://docs.microsoft.com/cli/azure/)
+[Linux Virtual Machine using Azure CLI](/cli/azure/)
 
 ###Java SDK
-[Linux Virtual Machine using Java](https://docs.microsoft.com/java/api/)
+[Linux Virtual Machine using Java](/java/api/)
 
 ###REST (Compute)
-[Compute REST API Reference](https://docs.microsoft.com/rest/api/)
+[Compute REST API Reference](/rest/api/)
 
 ###REST (Network)
-[Network REST API Reference](https://docs.microsoft.com/rest/api/)
+[Network REST API Reference](/rest/api/)
 
 ###REST (Storage)
-[Storage REST API Reference](https://docs.microsoft.com/rest/api/)
+[Storage REST API Reference](/rest/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

@@ -7,7 +7,7 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/storsimple/storsimple-ova-overview">
+        <a href="/azure/storsimple/storsimple-ova-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/storsimple/storsimple-ova-system-requirements">
+        <a href="/azure/storsimple/storsimple-ova-system-requirements">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/storsimple/storsimple-ova-deploy1-portal-prep">
+        <a href="/azure/storsimple/storsimple-ova-deploy1-portal-prep">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -67,11 +67,11 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
 ##Other StorSimple Solutions
 
 ###StorSimple 8000 Series
-[StorSimple Hybrid Cloud Solution](https://docs.microsoft.com/en-us/azure/storsimple/storsimple-overview)
+[StorSimple Hybrid Cloud Solution](/azure/storsimple/storsimple-overview)
 
 [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com/)
 
-###[Release Notes](https://docs.microsoft.com/en-us/azure/storsimple/storsimple-update3-release-notes)
+###[Release Notes](/azure/storsimple/storsimple-update3-release-notes)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

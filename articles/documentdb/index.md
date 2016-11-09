@@ -7,7 +7,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/documentdb/documentdb-get-started">
+        <a href="/azure/documentdb/documentdb-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/documentdb/documentdb-nodejs-get-started/">
+        <a href="/azure/documentdb/documentdb-nodejs-get-started/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/documentdb/documentdb-dotnet-application/">
+        <a href="/azure/documentdb/documentdb-dotnet-application/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/documentdb/documentdb-nodejs-application/">
+        <a href="/azure/documentdb/documentdb-nodejs-application/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/documentdb/documentdb-java-application/">
+        <a href="/azure/documentdb/documentdb-java-application/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +97,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/documentdb/documentdb-python-application/">
+        <a href="/azure/documentdb/documentdb-python-application/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -121,7 +121,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
 ##Reference
 
 ###.NET 
-[DocumentDB Managed Reference API](https://docs.microsoft.com/dotnet/api/)
+[DocumentDB Managed Reference API](/dotnet/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

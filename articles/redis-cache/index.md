@@ -7,7 +7,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache/">
+        <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache/">
+        <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/redis-cache/documentdb-nodejs-get-started/">
+        <a href="/azure/redis-cache/documentdb-nodejs-get-started/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/redis-cache/cache-java-get-started/">
+        <a href="/azure/redis-cache/cache-java-get-started/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/redis-cache/cache-python-get-started/">
+        <a href="/azure/redis-cache/cache-python-get-started/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -103,16 +103,16 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
 ##Reference
 
 ###.NET 
-[Redis Cache Managed Reference API](https://docs.microsoft.com/dotnet/api/) 
+[Redis Cache Managed Reference API](/dotnet/api/) 
 
 ###REST 
-[Redis Cache REST API Reference](https://docs.microsoft.com/rest/api/)  
+[Redis Cache REST API Reference](/rest/api/)  
 
 ###Azure CLI 
-[Redis Cache with Azure CLI](https://docs.microsoft.com/cli/azure/) 
+[Redis Cache with Azure CLI](/cli/azure/) 
 
 ###Java 
-[Redis Cache PowerShell Cmdlet](https://docs.microsoft.com/java/api/)
+[Redis Cache PowerShell Cmdlet](/java/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

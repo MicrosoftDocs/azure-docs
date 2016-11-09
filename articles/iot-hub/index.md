@@ -7,7 +7,7 @@ Azure IoT Hub is a Microsoft Azure service that enables you to receive telemetry
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-getstarted/">
+        <a href="/azure/iot-hub/iot-hub-csharp-csharp-getstarted/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ Azure IoT Hub is a Microsoft Azure service that enables you to receive telemetry
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/iot-hub/iot-hub-java-java-getstarted">
+        <a href="/azure/iot-hub/iot-hub-java-java-getstarted">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Azure IoT Hub is a Microsoft Azure service that enables you to receive telemetry
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/iot-hub/iot-hub-node-node-getstarted">
+        <a href="/azure/iot-hub/iot-hub-node-node-getstarted">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -67,16 +67,16 @@ Azure IoT Hub is a Microsoft Azure service that enables you to receive telemetry
 ##Reference
 
 ###.NET 
-[IoT HUB Managed Reference API](https://docs.microsoft.com/dotnet/api/) 
+[IoT HUB Managed Reference API](/dotnet/api/) 
 
 ###REST 
-[IoT HUB REST API Reference](https://docs.microsoft.com/rest/api/) 
+[IoT HUB REST API Reference](/rest/api/) 
 
 ###Azure CLI 
-[IoT HUB with Azure CLI](https://docs.microsoft.com/cli/azure/)  
+[IoT HUB with Azure CLI](/cli/azure/)  
 
 ###Java 
-[IoT HUB in Java Reference](https://docs.microsoft.com/java/api/) 
+[IoT HUB in Java Reference](/java/api/) 
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

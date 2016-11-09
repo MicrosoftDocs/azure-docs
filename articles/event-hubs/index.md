@@ -7,7 +7,7 @@ Event Hubs is a TBD...
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/Event-Hubs/">
+        <a href="/azure/Event-Hubs/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

@@ -8,7 +8,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-get-started/">
+        <a href="/azure/active-directory-b2c/active-directory-b2c-get-started/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -26,7 +26,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview/">
+        <a href="/azure/active-directory-b2c/active-directory-b2c-overview/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -67,15 +67,15 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
 
 ##Quick Start Guides
 
-###[iOS](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-ios/)
+###[iOS](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-ios/)
 
-###[Android](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-android/) 
+###[Android](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-android/) 
 
-###[Node.js](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-api-node/) 
+###[Node.js](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-api-node/) 
 
-###[.NET Web App](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet/)
+###[.NET Web App](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet/)
 
-###[.NET API](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-api-dotnet/)
+###[.NET API](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-api-dotnet/)
 
 ##Reference
 

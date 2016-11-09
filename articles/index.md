@@ -11,7 +11,7 @@ layout: HubPage
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="images/gear.svg" src="images/gear.png" alt="" />
+                                        <img data-hoverimage="media/index/gear.svg" src="media/index/gear.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -29,7 +29,7 @@ layout: HubPage
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="images/gear.svg" src="images/gear.png" alt="" />
+                                        <img data-hoverimage="media/index/gear.svg" src="media/index/gear.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -47,7 +47,7 @@ layout: HubPage
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="images/i-tv.svg" src="images/i-tv.svg" alt="" />
+                                        <img data-hoverimage="media/index/i-tv.svg" src="media/index/i-tv.svg" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -73,56 +73,56 @@ layout: HubPage
                                     <h3>Compute</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/virtual-machines/linux">
-                                                <img src="images/VirtualMachine.svg" alt="" />
+                                            <a href="/azure/virtual-machines/linux/">
+                                                <img src="media/index/VirtualMachine.svg" alt="" />
                                                 <p>Virtual Machines Linux</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/virtual-machines/windows">
-                                                <img src="images/VirtualMachine.svg" alt="" />
+                                            <a href="/azure/virtual-machines/windows/">
+                                                <img src="media/index/VirtualMachine.svg" alt="" />
                                                 <p>Virtual Machine Windows</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/virtual-machines-scale-sets">
-                                                <img src="images/AvailabilitySetOld.svg" alt="" />
+                                            <a href="/azure/virtual-machines-scale-sets/">
+                                                <img src="media/index/AvailabilitySetOld.svg" alt="" />
                                                 <p>Virtual Machines Scale Sets</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/app-service">
-                                                <img src="images/AppService.svg" alt="" />
+                                            <a href="/azure/app-service/">
+                                                <img src="media/index/AppService.svg" alt="" />
                                                 <p>App Service</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/container-service">
-                                                <img src="images/ContainerService.svg" alt="" />
+                                            <a href="/azure/container-service/">
+                                                <img src="media/index/ContainerService.svg" alt="" />
                                                 <p>Container Service</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/functions">
-                                                <img src="images/AzureFunctions.svg" alt="" />
+                                            <a href="/azure/functions/">
+                                                <img src="media/index/AzureFunctions.svg" alt="" />
                                                 <p>Functions</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/service-fabric">
-                                                <img src="images/Fabric.svg" alt="" />
+                                            <a href="/azure/service-fabric/">
+                                                <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="ttps://docs.microsoft.com/azure/batch">
-                                                <img src="images/Batch.svg" alt="" />
+                                            <a href="/azure/batch/">
+                                                <img src="media/index/Batch.svg" alt="" />
                                                 <p>Batch</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/cloud-services">
-                                                <img src="images/CloudService.svg" alt="" />
+                                            <a href="/azure/cloud-services/">
+                                                <img src="media/index/CloudService.svg" alt="" />
                                                 <p>Cloud Services</p>
                                             </a>
                                         </li>
@@ -132,26 +132,26 @@ layout: HubPage
                                     <h3>Databases</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/sql-database">
-                                                <img src="images/SQLDatabase.svg" alt="" />
+                                            <a href="/azure/sql-database/">
+                                                <img src="media/index/SQLDatabase.svg" alt="" />
                                                 <p>SQL Database</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/sql-data-warehouse">
-                                                <img src="images/SQLDataWarehouse.svg" alt="" />
+                                            <a href="/azure/sql-data-warehouse/">
+                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
                                                 <p>Azure SQL Data Warehouse</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/documentdb">
-                                                <img src="images/DocumentDB.svg" alt="" />
+                                            <a href="/azure/documentdb/">
+                                                <img src="media/index/DocumentDB.svg" alt="" />
                                                 <p>DocumentDB</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/redis-cache">
-                                                <img src="images/RedisCache.svg" alt="" />
+                                            <a href="/azure/redis-cache/">
+                                                <img src="media/index/RedisCache.svg" alt="" />
                                                 <p>Redis Cache</p>
                                             </a>
                                         </li>
@@ -161,26 +161,26 @@ layout: HubPage
                                     <h3>Developer Tools</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/devtest-lab">
-                                                <img src="images/DevTestLabs.svg" alt="" />
+                                            <a href="/azure/devtest-lab/">
+                                                <img src="media/index/DevTestLabs.svg" alt="" />
                                                 <p>DevTest Lab</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="https://www.visualstudio.com/en-us/docs/overview">
-                                                <img src="images/VisualStudioTeamServices.svg" alt="" />
+                                                <img src="media/index/VisualStudioTeamServices.svg" alt="" />
                                                 <p>Visual Studio Team Services</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/application-insights">
-                                                <img src="images/ApplicationInsights.svg" alt="" />
+                                            <a href="/azure/application-insights/">
+                                                <img src="media/index/ApplicationInsights.svg" alt="" />
                                                 <p>Visual Studio Application Insights</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/api-management">
-                                                <img src="images/APIManagement.svg" alt="" />
+                                            <a href="/azure/api-management/">
+                                                <img src="media/index/APIManagement.svg" alt="" />
                                                 <p>API Management</p>
                                             </a>
                                         </li>
@@ -192,50 +192,50 @@ layout: HubPage
                                     <h3>Intelligence &amp; Analytics</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/cognitive-services">
-                                                <img src="images/CognitiveServices.svg" alt="" />
+                                            <a href="/azure/cognitive-services/">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
                                                 <p>Azure Cognitive Service</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/data-catalog">
-                                                <img src="images/DataCatalog.svg" alt="" />
+                                            <a href="/azure/data-catalog/">
+                                                <img src="media/index/DataCatalog.svg" alt="" />
                                                 <p>Data Catalog</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/data-factory">
-                                                <img src="images/DataFactory.svg" alt="" />
+                                            <a href="/azure/data-factory/">
+                                                <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/data-lake-analytics">
-                                                <img src="images/DataLakeStore.svg" alt="" />
+                                            <a href="/azure/data-lake-analytics/">
+                                                <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Analytics</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/hdinsight">
-                                                <img src="images/HDInsight.svg" alt="" />
+                                            <a href="/azure/hdinsight/">
+                                                <img src="media/index/HDInsight.svg" alt="" />
                                                 <p>HDInsights</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/machine-learning">
-                                                <img src="images/MachineLearning.svg" alt="" />
+                                            <a href="/azure/machine-learning/">
+                                                <img src="media/index/MachineLearning.svg" alt="" />
                                                 <p>Machine Learning</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/power-bi-embedded">
-                                                <img src="images/PowerBIEmbedded.svg" alt="" />
+                                            <a href="/azure/power-bi-embedded/">
+                                                <img src="media/index/PowerBIEmbedded.svg" alt="" />
                                                 <p>PowerBI Embedded</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/stream-analytics">
-                                                <img src="images/StreamAnalytics.svg" alt="" />
+                                            <a href="/azure/stream-analytics/">
+                                                <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>Stream Analytics</p>
                                             </a>
                                         </li>
@@ -245,14 +245,14 @@ layout: HubPage
                                     <h3>Enterprise Integration</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/biztalk-services">
-                                                <img src="images/BizTalkServices.svg" alt="" />
+                                            <a href="/azure/biztalk-services/">
+                                                <img src="media/index/BizTalkServices.svg" alt="" />
                                                 <p>Biztalk Services</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/service-bus">
-                                                <img src="images/ServiceBus.svg" alt="" />
+                                            <a href="/azure/service-bus/">
+                                                <img src="media/index/ServiceBus.svg" alt="" />
                                                 <p>Service Bus</p>
                                             </a>
                                         </li>
@@ -262,14 +262,14 @@ layout: HubPage
                                     <h3>Internet of Things</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/event-hubs">
-                                                <img src="images/EventHubs.svg" alt="" />
+                                            <a href="/azure/event-hubs/">
+                                                <img src="media/index/EventHubs.svg" alt="" />
                                                 <p>Event Hubs</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/iot-hub">
-                                                <img src="images/IoTHub.svg" alt="" />
+                                            <a href="/azure/iot-hub/">
+                                                <img src="media/index/IoTHub.svg" alt="" />
                                                 <p>IoT Hub</p>
                                             </a>
                                         </li>
@@ -280,20 +280,20 @@ layout: HubPage
                                     </h3>
                                     <ul>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/billing">
-                                                <img src="images/AzureDefaultBlack.svg" alt="" />
+                                            <a href="/azure/billing/">
+                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                 <p>Billing</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/application-insights">
-                                                <img src="images/ApplicationInsights.svg" alt="" />
+                                            <a href="/azure/application-insights/">
+                                                <img src="media/index/ApplicationInsights.svg" alt="" />
                                                 <p>Application Insights</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/log-analytics">
-                                                <img src="images/OperationsManagementSuite.svg" alt="" />
+                                            <a href="/azure/log-analytics/">
+                                                <img src="media/index/OperationsManagementSuite.svg" alt="" />
                                                 <p>Log Analytics</p>
                                             </a>
                                         </li>
@@ -305,50 +305,50 @@ layout: HubPage
                                     <h3>Networking</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/application-gateway">
-                                                <img src="images/ApplicationGateway.svg" alt="" />
+                                            <a href="/azure/application-gateway/">
+                                                <img src="media/index/ApplicationGateway.svg" alt="" />
                                                 <p>Application gateway</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/CDN">
-                                                <img src="images/ContentDeliveryNetwork.svg" alt="" />
+                                            <a href="/azure/CDN/">
+                                                <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
                                                 <p>CDN</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/DNS">
-                                                <img src="images/DNS.svg" alt="" />
+                                            <a href="/azure/DNS/">
+                                                <img src="media/index/DNS.svg" alt="" />
                                                 <p>DNS</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/ExpressRoute">
-                                                <img src="images/ExpressRoute.svg" alt="" />
+                                            <a href="/azure/expressroute/">
+                                                <img src="media/index/ExpressRoute.svg" alt="" />
                                                 <p>ExpressRoute</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/load-Balancer">
-                                                <img src="images/LoadBalancer.svg" alt="" />
+                                            <a href="/azure/load-balancer/">
+                                                <img src="media/index/LoadBalancer.svg" alt="" />
                                                 <p>Load Balancer</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/traffic-Manager">
-                                                <img src="images/TrafficManager.svg" alt="" />
+                                            <a href="/azure/traffic-manager/">
+                                                <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Traffic Manager</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/virtual-Network">
-                                                <img src="images/VirtualNetwork.svg" alt="" />
+                                            <a href="/azure/virtual-network/">
+                                                <img src="media/index/VirtualNetwork.svg" alt="" />
                                                 <p>Virtual Network</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/vpn-Gateway">
-                                                <img src="images/VPNGateway.svg" alt="" />
+                                            <a href="/azure/vpn-gateway/">
+                                                <img src="media/index/VPNGateway.svg" alt="" />
                                                 <p>VPN Gateway</p>
                                             </a>
                                         </li>
@@ -359,44 +359,44 @@ layout: HubPage
                                     </h3>
                                     <ul>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/active-directory">
-                                                <img src="images/ActiveDirectory.svg" alt="" />
+                                            <a href="/azure/active-directory/">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Active Directory</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/active-directory-b2c">
-                                                <img src="images/ActiveDirectory.svg" alt="" />
+                                            <a href="/azure/active-directory-b2c/">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Active Directory B2C</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/active-directory-domain-services">
-                                                <img src="images/ActiveDirectory.svg" alt="" />
+                                            <a href="/azure/active-directory-domain-services/">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Active Directory Domain Services</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/key-vault">
-                                                <img src="images/KeyVault.svg" alt="" />
+                                            <a href="/azure/key-vault/">
+                                                <img src="media/index/KeyVault.svg" alt="" />
                                                 <p>KeyVault</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/multi-factor-authentication">
-                                                <img src="images/MultiFactorAuthentication.svg" alt="" />
+                                            <a href="/azure/multi-factor-authentication">
+                                                <img src="media/index/MultiFactorAuthentication.svg" alt="" />
                                                 <p>Multi Factor Authentication</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/security">
-                                                <img src="images/SecurityCenter.svg" alt="" />
+                                            <a href="/azure/security/">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Security</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/security-center">
-                                                <img src="images/SecurityCenter.svg" alt="" />
+                                            <a href="/azure/security-center/">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Security Center</p>
                                             </a>
                                         </li>
@@ -409,44 +409,44 @@ layout: HubPage
                                     </h3>
                                     <ul>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/api-management">
-                                                <img src="images/APIManagement.svg" alt="" />
+                                            <a href="/azure/api-management/">
+                                                <img src="media/index/APIManagement.svg" alt="" />
                                                 <p>API Management</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/app-service">
-                                                <img src="images/AppService.svg" alt="" />
+                                            <a href="/azure/app-service/">
+                                                <img src="media/index/AppService.svg" alt="" />
                                                 <p>App Service</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/logic-apps">
-                                                <img src="images/LogicApp.svg" alt="" />
+                                            <a href="/azure/logic-apps/">
+                                                <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/media-services">
-                                                <img src="images/MediaServices.svg" alt="" />
+                                            <a href="/azure/media-services/">
+                                                <img src="media/index/MediaServices.svg" alt="" />
                                                 <p>Media Services</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/mobile-engagement">
-                                                <img src="images/MobileEngagement.svg" alt="" />
+                                            <a href="/azure/mobile-engagement/">
+                                                <img src="media/index/MobileEngagement.svg" alt="" />
                                                 <p>Mobile Engagement</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/notification-hubs">
-                                                <img src="images/NotificationHubs.svg" alt="" />
+                                            <a href="/azure/notification-hubs/">
+                                                <img src="media/index/NotificationHubs.svg" alt="" />
                                                 <p>Notification Hubs</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/search">
-                                                <img src="images/Search.svg" alt="" />
+                                            <a href="/azure/search/">
+                                                <img src="media/index/Search.svg" alt="" />
                                                 <p>Search</p>
                                             </a>
                                         </li>
@@ -456,26 +456,26 @@ layout: HubPage
                                     <h3>Storage</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/backup">
-                                                <img src="images/Backup.svg" alt="" />
+                                            <a href="/azure/backup/">
+                                                <img src="media/index/Backup.svg" alt="" />
                                                 <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/data-lake-store">
-                                                <img src="images/DataLakeStore.svg" alt="" />
+                                            <a href="/azure/data-lake-store/">
+                                                <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/storage">
-                                                <img src="images/Storage.svg" alt="" />
+                                            <a href="/azure/storage/">
+                                                <img src="media/index/Storage.svg" alt="" />
                                                 <p>Storage</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/storsimple">
-                                                <img src="images/StorSimple.svg" alt="" />
+                                            <a href="/azure/storsimple/">
+                                                <img src="media/index/StorSimple.svg" alt="" />
                                                 <p>Storsimple</p>
                                             </a>
                                         </li>
@@ -486,14 +486,14 @@ layout: HubPage
                                     </h3>
                                     <ul>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/azure-stack">
-                                                <img src="images/AzureDefaultBlack.svg" alt="" />
+                                            <a href="/azure/azure-stack/">
+                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                 <p>Azure Stack</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/azure-government">
-                                                <img src="images/AzureDefaultBlack.svg" alt="" />
+                                            <a href="/azure/azure-government/">
+                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                 <p>Azure Government</p>
                                             </a>
                                         </li>
@@ -506,13 +506,13 @@ layout: HubPage
                         <a href="#Compute">Compute</a>
                         <ul id="Compute" class="cardsA">
                             <li>
-                                <a href="https://docs.microsoft.com/azure/virtual-machines/linux">
+                                <a href="/azure/virtual-machines/linux/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/VirtualMachine.svg" alt="" />
+                                                        <img src="media/index/VirtualMachine.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -525,13 +525,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/virtual-machines/windows">
+                                <a href="/azure/virtual-machines/windows/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/VirtualMachine.svg" alt="" />
+                                                        <img src="media/index/VirtualMachine.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -544,13 +544,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/virtual-machines-scale-sets">
+                                <a href="/azure/virtual-machines-scale-sets/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/AvailabilitySetOld.svg" alt="" />
+                                                        <img src="media/index/AvailabilitySetOld.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -563,13 +563,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/app-service">
+                                <a href="/azure/app-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/AppService.svg" alt="" />
+                                                        <img src="media/index/AppService.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -582,13 +582,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/container-service">
+                                <a href="/azure/container-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/ContainerService.svg" alt="" />
+                                                        <img src="media/index/ContainerService.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -601,13 +601,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/functions">
+                                <a href="/azure/functions/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/AzureFunctions.svg" alt="" />
+                                                        <img src="media/index/AzureFunctions.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -620,13 +620,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/service-fabric">
+                                <a href="/azure/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/Fabric.svg" alt="" />
+                                                        <img src="media/index/Fabric.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -639,13 +639,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/batch">
+                                <a href="/azure/batch/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/Batch.svg" alt="" />
+                                                        <img src="media/index/Batch.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -658,13 +658,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/cloud-services">
+                                <a href="/azure/cloud-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/CloudService.svg" alt="" />
+                                                        <img src="media/index/CloudService.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -682,13 +682,13 @@ layout: HubPage
                         <a href="#databases">Databases</a>
                         <ul id="databases" class="cardsA">
                             <li>
-                                <a href="https://docs.microsoft.com/azure/sql-database">
+                                <a href="/azure/sql-database/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/SQLDatabase.svg" alt="" />
+                                                        <img src="media/index/SQLDatabase.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -701,13 +701,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/sql-data-warehouse">
+                                <a href="/azure/sql-data-warehouse/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/SQLDataWarehouse.svg" alt="" />
+                                                        <img src="media/index/SQLDataWarehouse.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -720,13 +720,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/documentdb">
+                                <a href="/azure/documentdb/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/DocumentDB.svg" alt="" />
+                                                        <img src="media/index/DocumentDB.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -739,13 +739,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/redis-cache">
+                                <a href="/azure/redis-cache/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/RedisCache.svg" alt="" />
+                                                        <img src="media/index/RedisCache.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -763,13 +763,13 @@ layout: HubPage
                         <a href="#devtools">Developer Tools</a>
                         <ul id="devtools" class="cardsA">
                             <li>
-                                <a href="https://docs.microsoft.com/azure/devtest-lab">
+                                <a href="/azure/devtest-lab/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/DevTestLabs.svg" alt="" />
+                                                        <img src="media/index/DevTestLabs.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -788,7 +788,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/VisualStudioTeamServices.svg" alt="" />
+                                                        <img src="media/index/VisualStudioTeamServices.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -801,13 +801,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/application-insights">
+                                <a href="/azure/application-insights/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/ApplicationInsights.svg" alt="" />
+                                                        <img src="media/index/ApplicationInsights.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -820,13 +820,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/api-management">
+                                <a href="/azure/api-management/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/APIManagement.svg" alt="" />
+                                                        <img src="media/index/APIManagement.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -844,13 +844,13 @@ layout: HubPage
                         <a href="#integration">Enterprise Integration</a>
                         <ul id="integration" class="cardsA">
                             <li>
-                                <a href="https://docs.microsoft.com/azure/biztalk-services">
+                                <a href="/azure/biztalk-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/BizTalkServices.svg" alt="" />
+                                                        <img src="media/index/BizTalkServices.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -863,13 +863,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/service-bus">
+                                <a href="/azure/service-bus/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/ServiceBus.svg" alt="" />
+                                                        <img src="media/index/ServiceBus.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -887,13 +887,13 @@ layout: HubPage
                         <a href="#analytics">Intelligence &amp; Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
-                                <a href="https://docs.microsoft.com/azure/cognitive-services">
+                                <a href="/azure/cognitive-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/CognitiveServices.svg" alt="" />
+                                                        <img src="media/index/CognitiveServices.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -906,13 +906,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/data-catalog">
+                                <a href="/azure/data-catalog/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/DataCatalog.svg" alt="" />
+                                                        <img src="media/index/DataCatalog.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -926,13 +926,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/data-factory">
+                                <a href="/azure/data-factory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/DataFactory.svg" alt="" />
+                                                        <img src="media/index/DataFactory.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -945,13 +945,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/data-lake-analytics">
+                                <a href="/azure/data-lake-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/DataLakeStore.svg" alt="" />
+                                                        <img src="media/index/DataLakeStore.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -964,13 +964,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/hdinsight">
+                                <a href="/azure/hdinsight/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/HDInsight.svg" alt="" />
+                                                        <img src="media/index/HDInsight.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -983,13 +983,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/machine-learning">
+                                <a href="/azure/machine-learning/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/MachineLearning.svg" alt="" />
+                                                        <img src="media/index/MachineLearning.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1002,13 +1002,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/power-bi-embedded">
+                                <a href="/azure/power-bi-embedded/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/PowerBIEmbedded.svg" alt="" />
+                                                        <img src="media/index/PowerBIEmbedded.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1021,13 +1021,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/stream-analytics">
+                                <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/StreamAnalytics.svg" alt="" />
+                                                        <img src="media/index/StreamAnalytics.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1045,13 +1045,13 @@ layout: HubPage
                         <a href="#iot">Internet of Things</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://docs.microsoft.com/azure/event-hubs">
+                                <a href="/azure/event-hubs">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/EventHubs.svg" alt="" />
+                                                        <img src="media/index/EventHubs.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1064,13 +1064,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/iot-hub">
+                                <a href="/azure/iot-hub/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/IoTHub.svg" alt="" />
+                                                        <img src="media/index/IoTHub.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1088,13 +1088,13 @@ layout: HubPage
                         <a href="#mgmt">Monitoring + Management</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
-                                <a href="https://docs.microsoft.com/azure/billing">
+                                <a href="/azure/billing/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1107,13 +1107,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/application-insights">
+                                <a href="/azure/application-insights/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/ApplicationInsights.svg" alt="" />
+                                                        <img src="media/index/ApplicationInsights.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1126,13 +1126,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/log-analytics">
+                                <a href="/azure/log-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/OperationsManagementSuite.svg" alt="" />
+                                                        <img src="media/index/OperationsManagementSuite.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1150,13 +1150,13 @@ layout: HubPage
                         <a href="#network">Networking</a>
                         <ul id="network" class="cardsA">
                             <li>
-                                <a href="https://docs.microsoft.com/azure/application-gateway">
+                                <a href="/azure/application-gateway/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/ApplicationGateway.svg" alt="" />
+                                                        <img src="media/index/ApplicationGateway.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1170,13 +1170,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/CDN">
+                                <a href="/azure/CDN/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/ContentDeliveryNetwork.svg" alt="" />
+                                                        <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1190,13 +1190,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/DNS">
+                                <a href="/azure/DNS/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/DNS.svg" alt="" />
+                                                        <img src="media/index/DNS.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1209,13 +1209,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/ExpressRoute">
+                                <a href="/azure/expressroute/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/ExpressRoute.svg" alt="" />
+                                                        <img src="media/index/ExpressRoute.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1228,13 +1228,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/load-Balancer">
+                                <a href="/azure/load-balancer/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/LoadBalancer.svg" alt="" />
+                                                        <img src="media/index/LoadBalancer.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1247,13 +1247,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/traffic-Manager">
+                                <a href="/azure/traffic-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/TrafficManager.svg" alt="" />
+                                                        <img src="media/index/TrafficManager.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1266,13 +1266,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/virtual-Network">
+                                <a href="/azure/virtual-network/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/VirtualNetwork.svg" alt="" />
+                                                        <img src="media/index/VirtualNetwork.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1285,13 +1285,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/vpn-Gateway">
+                                <a href="/azure/vpn-gateway/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/VPNGateway.svg" alt="" />
+                                                        <img src="media/index/VPNGateway.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1309,13 +1309,13 @@ layout: HubPage
                         <a href="#security">Security &amp; Identity</a>
                         <ul id="security" class="cardsA">
                             <li>
-                                <a href="https://docs.microsoft.com/azure/active-directory">
+                                <a href="/azure/active-directory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/ActiveDirectory.svg" alt="" />
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1328,13 +1328,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/active-directory-b2c">
+                                <a href="/azure/active-directory-b2c/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/ActiveDirectory.svg" alt="" />
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1347,13 +1347,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/active-directory-domain-services">
+                                <a href="/azure/active-directory-domain-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/ActiveDirectory.svg" alt="" />
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1366,13 +1366,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/key-vault">
+                                <a href="/azure/key-vault/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/KeyVault.svg" alt="" />
+                                                        <img src="media/index/KeyVault.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1385,13 +1385,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/multi-factor-authentication">
+                                <a href="/azure/multi-factor-authentication/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/MultiFactorAuthentication.svg" alt="" />
+                                                        <img src="media/index/MultiFactorAuthentication.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1404,13 +1404,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/security">
+                                <a href="/azure/security/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/SecurityCenter.svg" alt="" />
+                                                        <img src="media/index/SecurityCenter.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1423,13 +1423,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/security-center">
+                                <a href="/azure/security-center/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/SecurityCenter.svg" alt="" />
+                                                        <img src="media/index/SecurityCenter.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1448,13 +1448,13 @@ layout: HubPage
                         <a href="#storage">Storage</a>
                         <ul id="storage" class="cardsA">
                             <li>
-                                <a href="https://docs.microsoft.com/azure/backup">
+                                <a href="/azure/backup/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/Backup.svg" alt="" />
+                                                        <img src="media/index/Backup.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1467,13 +1467,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/data-lake-store">
+                                <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/DataLakeStore.svg" alt="" />
+                                                        <img src="media/index/DataLakeStore.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1486,13 +1486,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/storage">
+                                <a href="/azure/storage/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/Storage.svg" alt="" />
+                                                        <img src="media/index/Storage.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1505,13 +1505,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/storsimple">
+                                <a href="/azure/storsimple/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/StorSimple.svg" alt="" />
+                                                        <img src="media/index/StorSimple.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1530,13 +1530,13 @@ layout: HubPage
                         <a href="#web">Web &amp; Mobile</a>
                         <ul id="web" class="cardsA">
                             <li>
-                                <a href="https://docs.microsoft.com/azure/api-management">
+                                <a href="/azure/api-management/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/APIManagement.svg" alt="" />
+                                                        <img src="media/index/APIManagement.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1549,13 +1549,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/app-service">
+                                <a href="/azure/app-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/AppService.svg" alt="" />
+                                                        <img src="media/index/AppService.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1568,13 +1568,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/logic-apps">
+                                <a href="/azure/logic-apps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/LogicApp.svg" alt="" />
+                                                        <img src="media/index/LogicApp.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1587,13 +1587,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/media-services">
+                                <a href="/azure/media-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/MediaServices.svg" alt="" />
+                                                        <img src="media/index/MediaServices.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1606,13 +1606,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/mobile-engagement">
+                                <a href="/azure/mobile-engagement/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/MobileEngagement.svg" alt="" />
+                                                        <img src="media/index/MobileEngagement.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1625,13 +1625,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/notification-hubs">
+                                <a href="/azure/notification-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/NotificationHubs.svg" alt="" />
+                                                        <img src="media/index/NotificationHubs.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1645,13 +1645,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/search">
+                                <a href="/azure/search/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/Search.svg" alt="" />
+                                                        <img src="media/index/Search.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1669,13 +1669,13 @@ layout: HubPage
                         <a href="#other">Other Cloud Options</a>
                         <ul id="other" class="cardsA">
                             <li>
-                                <a href="https://docs.microsoft.com/azure/azure-stack">
+                                <a href="/azure/azure-stack/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1688,13 +1688,13 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/azure-government">
+                                <a href="/azure/azure-government/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1722,7 +1722,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="images/placeholder.svg" alt="" />
+                                                    <img src="media/index/placeholder.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -1737,7 +1737,7 @@ layout: HubPage
                                                                                                                                                                                                 started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/rest/api">API
+                                                    <a href="/rest/api">API
                                                                                                                                                                                                 reference</a>
                                                 </p>
                                                 <p>
@@ -1755,7 +1755,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="images/placeholder.svg" alt="" />
+                                                    <img src="media/index/placeholder.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -1782,7 +1782,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="images/placeholder.svg" alt="" />
+                                                    <img src="media/index/placeholder.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -1809,7 +1809,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="images/placeholder.svg" alt="" />
+                                                    <img src="media/index/placeholder.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -1820,7 +1820,7 @@ layout: HubPage
                                                     <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-java-get-started/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/java/api/">API reference</a>
+                                                    <a href="/java/api/">API reference</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=java">Get examples</a>
@@ -1836,7 +1836,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="images/placeholder.svg" alt="" />
+                                                    <img src="media/index/placeholder.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -1863,7 +1863,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="images/placeholder.svg" alt="" />
+                                                    <img src="media/index/placeholder.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -1871,7 +1871,7 @@ layout: HubPage
                                                     <a href="">Get started with REST</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/rest/api">API reference</a>
+                                                    <a href="/rest/api/">API reference</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=rest">Get examples</a>
@@ -1892,7 +1892,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="images/placeholder.svg" alt="" />
+                                                    <img src="media/index/placeholder.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -1927,7 +1927,7 @@ layout: HubPage
                                                                                                                                                                                                 Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/cli/azure">API
+                                                    <a href="/cli/azure">API
                                                                                                                                                                                                 reference</a>
                                                 </p>
                                             </div>
@@ -1941,7 +1941,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="images/placeholder.svg" alt="" />
+                                                    <img src="media/index/placeholder.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -1959,7 +1959,7 @@ layout: HubPage
                                                     <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md">Download PowerShell for Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/powershell/">API reference</a>
+                                                    <a href="/powershell/">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1972,7 +1972,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="images/placeholder.svg" alt="" />
+                                                    <img src="media/index/placeholder.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2009,7 +2009,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="images/placeholder.svg" alt="" />
+                                                    <img src="media/index/placeholder.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2030,7 +2030,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="images/placeholder.svg" alt="" />
+                                                    <img src="media/index/placeholder.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2038,7 +2038,7 @@ layout: HubPage
                                                     <a href="https://github.com/Microsoft/DockerToolsDocs">Docker Tools</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker">Get Started</a>
+                                                    <a href="/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680&clcid=0x409">Download for Visual Studio</a>
@@ -2060,7 +2060,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="images/placeholder.svg" alt="" />
+                                                    <img src="media/index/placeholder.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2081,7 +2081,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="images/placeholder.svg" alt="" />
+                                                    <img src="media/index/placeholder.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2111,7 +2111,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="images/placeholder.svg" alt="" />
+                                                    <img src="media/index/placeholder.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2153,7 +2153,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/placeholder.svg" alt="" />
+                                                        <img src="media/index/placeholder.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2173,7 +2173,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/placeholder.svg" alt="" />
+                                                        <img src="media/index/placeholder.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2193,7 +2193,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/placeholder.svg" alt="" />
+                                                        <img src="media/index/placeholder.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2213,7 +2213,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/placeholder.svg" alt="" />
+                                                        <img src="media/index/placeholder.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2233,7 +2233,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="images/placeholder.svg" alt="" />
+                                                        <img src="media/index/placeholder.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">

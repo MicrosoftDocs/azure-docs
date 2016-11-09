@@ -7,7 +7,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview">
+        <a href="/azure/active-directory-domain-services/active-directory-ds-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-vnet">
+        <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-vnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns">
+        <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-dns">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync">
+        <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +97,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant">
+        <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -121,10 +121,10 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
 ##Reference
 
 ###.NET
-[Active Directory Authentication Library .NET Reference](https://docs.microsoft.com/dotnet/api/)
+[Active Directory Authentication Library .NET Reference](/dotnet/api/)
 
 ###PowerShell
-[Azure Active Directory PowerShell module](https://docs.microsoft.com/powershell/)
+[Azure Active Directory PowerShell module](/powershell/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

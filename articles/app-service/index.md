@@ -7,7 +7,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/app-service/app-service-value-prop-what-is">
+        <a href="/azure/app-service/app-service-value-prop-what-is">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-dotnet-get-started">
+        <a href="/azure/app-service-api/app-service-api-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-android-get-started">
+        <a href="/azure/app-service-mobile/app-service-mobile-android-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +97,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-dotnet-get-started">
+        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -119,10 +119,10 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
 ##Reference
 
 ###REST
-[App Service REST API Reference](https://docs.microsoft.com/en-us/rest/api/appservice)
+[App Service REST API Reference](/rest/api/appservice)
 
 ###Java
-[App Service in Java Reference](https://docs.microsoft.com/java/api/)
+[App Service in Java Reference](/java/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

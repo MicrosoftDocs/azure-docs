@@ -7,7 +7,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/automation/automation-intro/">
+        <a href="/azure/automation/automation-intro/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/automation/automation-first-runbook-graphical/">
+        <a href="/azure/automation/automation-first-runbook-graphical/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell">
+        <a href="/azure/automation/automation-first-runbook-textual-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/automation/automation-first-runbook-textual">
+        <a href="/azure/automation/automation-first-runbook-textual">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +97,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/automation/automation-role-based-access-control">
+        <a href="/azure/automation/automation-role-based-access-control">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -121,7 +121,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
 ##Reference
 
 ###.NET
-[Automation Managed Reference API](https://docs.microsoft.com/dotnet/api)
+[Automation Managed Reference API](/dotnet/api)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

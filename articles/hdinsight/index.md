@@ -7,7 +7,7 @@ HDInsight is a TBD...
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/HDInsight/">
+        <a href="/azure/HDInsight/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

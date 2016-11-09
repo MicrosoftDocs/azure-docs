@@ -7,7 +7,7 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/windows">
+        <a href="/azure/virtual-machines/windows">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux">
+        <a href="/azure/virtual-machines/linux">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -49,16 +49,16 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
 ##Reference
 
 ###.NET 
-[Virtual Machines Managed Reference API](https://docs.microsoft.com/dotnet/api/) 
+[Virtual Machines Managed Reference API](/dotnet/api/) 
 
 ###REST 
-[Virtual Machine REST API Reference](https://docs.microsoft.com/rest/api/) 
+[Virtual Machine REST API Reference](/rest/api/) 
 
 ###Azure CLI 
-[Azure CLI for Virtual Machines](https://docs.microsoft.com/cli/azure/)
+[Azure CLI for Virtual Machines](/cli/azure/)
 
 ###Java 
-[Virtual Machines PowerShell Cmdlet](https://docs.microsoft.com/java/api/)
+[Virtual Machines PowerShell Cmdlet](/java/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

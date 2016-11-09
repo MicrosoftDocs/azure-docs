@@ -7,7 +7,7 @@ A VPN (virtual private network) gateway is used to send network traffic between 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/">
+        <a href="/azure/vpn-gateway/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ A VPN (virtual private network) gateway is used to send network traffic between 
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design/">
+        <a href="/azure/vpn-gateway/vpn-gateway-plan-design/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ A VPN (virtual private network) gateway is used to send network traffic between 
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-site-to-site-create/">
+        <a href="/azure/vpn-gateway/vpn-gateway-site-to-site-create/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ A VPN (virtual private network) gateway is used to send network traffic between 
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-point-to-site-create/">
+        <a href="/azure/vpn-gateway/vpn-gateway-point-to-site-create/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

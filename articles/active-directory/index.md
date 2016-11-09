@@ -8,7 +8,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory/active-directory-whatis">
+        <a href="/azure/active-directory/active-directory-whatis">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -62,7 +62,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory/virtual-networks-windows-server-active-directory-virtual-machines">
+        <a href="/azure/active-directory/virtual-networks-windows-server-active-directory-virtual-machines">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,7 +80,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview">
+        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -98,7 +98,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/active-directory/active-directory-aadconnect-azure-adfs">
+        <a href="/azure/active-directory/active-directory-aadconnect-azure-adfs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -122,10 +122,10 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
 ##Reference
 
 ###.NET
-[Active Directory Authentication Library .NET Reference](https://docs.microsoft.com/dotnet/api/)
+[Active Directory Authentication Library .NET Reference](/dotnet/api/)
 
 ###PowerShell
-[Azure Active Directory PowerShell Module](https://docs.microsoft.com/powershell/)
+[Azure Active Directory PowerShell Module](/powershell/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

@@ -7,7 +7,7 @@ Azure CDN is a TBD...
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/CDN/">
+        <a href="/azure/CDN/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

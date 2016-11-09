@@ -7,7 +7,7 @@ Azure SQL Data Warehouse is a cloud-based, scale-out database capable of process
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision/">
+        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ Azure SQL Data Warehouse is a cloud-based, scale-out database capable of process
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-create-database-tsql/">
+        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-create-database-tsql/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Azure SQL Data Warehouse is a cloud-based, scale-out database capable of process
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision-powershell">
+        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -67,7 +67,7 @@ Azure SQL Data Warehouse is a cloud-based, scale-out database capable of process
 ##Reference
 
 ###.NET 
-[SQL Data Warehouse Managed Reference API](https://docs.microsoft.com/dotnet/api/)
+[SQL Data Warehouse Managed Reference API](/dotnet/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">
