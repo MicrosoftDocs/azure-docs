@@ -35,7 +35,7 @@ If you want to set an alert on **Server exceptions**, you might have to do [some
 2. [Set an alert](app-insights-alerts.md) on the Exception count metric
 
 ### Email on an event in my app
-Let's suppose you'd like to get an email when a specific event occurs. Application Insights doesn't provide this facility directly, but it can [send an alert when a metric crosses a threshold](app-insights-alerts.md). 
+Let's suppose you'd like to get an email when a specific event occurs. Application Insights doesn't provide this facility directly, but it can [send an alert when a metric crosses a threshold](app-insights-alerts.md).
 
 Alerts can be set on [custom metrics](app-insights-api-custom-events-metrics.md#track-metric), though not custom events. Write some code to increase a metric when the event occurs:
 
@@ -59,23 +59,23 @@ Now set an alert to fire when the metric goes above a mid value for a short peri
 
 ![](./media/app-insights-how-do-i/020-threshold.png)
 
-Set the averaging period to the minimum. 
+Set the averaging period to the minimum.
 
 You'll get emails both when the metric goes above and below the threshold.
 
 Some points to consider:
 
 * An alert has two states ("alert" and "healthy"). The state is evaluated only when a metric is received.
-* An email is sent only when the state changes. This is why you have to send both high and low-value metrics. 
+* An email is sent only when the state changes. This is why you have to send both high and low-value metrics.
 * To evaluate the alert, the average is taken of the received values over the preceding period. This occurs every time a metric is received, so emails can be sent more frequently than the period you set.
 * Since emails are sent both on "alert" and "healthy", you might want to consider re-thinking your one-shot event as a two-state condition. For example, instead of a "job completed" event, have a "job in progress" condition, where you get emails at the start and end of a job.
 
 ### Set up alerts automatically
-[Use PowerShell to create new alerts](app-insights-alerts.md#set-alerts-by-using-powershell)
+[Use PowerShell to create new alerts](app-insights-alerts.md#automation)
 
 ## Use PowerShell to Manage Application Insights
 * [Create new resources](app-insights-powershell-script-create-resource.md)
-* [Create new alerts](app-insights-alerts.md#set-alerts-by-using-powershell)
+* [Create new alerts](app-insights-alerts.md#automation)
 
 ## Application versions and stamps
 ### Separate the results from dev, test and prod
@@ -87,20 +87,20 @@ Some points to consider:
 ### Filter on build number
 When you publish a new version of your app, you'll want to be able to separate the telemetry from different builds.
 
-You can set the Application Version property so that you can filter [search](app-insights-diagnostic-search.md) and [metric explorer](app-insights-metrics-explorer.md) results. 
+You can set the Application Version property so that you can filter [search](app-insights-diagnostic-search.md) and [metric explorer](app-insights-metrics-explorer.md) results.
 
 ![](./media/app-insights-how-do-i/050-filter.png)
 
 There are several different methods of setting the Application Version property.
 
 * Set directly:
-  
+
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Wrap that line in a [telemetry initializer](app-insights-api-custom-events-metrics.md#telemetry-initializers) to ensure that all TelemetryClient instances are set consistently.
+* Wrap that line in a [telemetry initializer](app-insights-api-custom-events-metrics.md#defaults) to ensure that all TelemetryClient instances are set consistently.
 * [ASP.NET] Set the version in `BuildInfo.config`. The web module will pick up the version from the BuildLabel node. Include this file in your project and remember to set the Copy Always property in Solution Explorer.
-  
+
     ```XML
-  
+
     <?xml version="1.0" encoding="utf-8"?>
     <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
@@ -110,21 +110,21 @@ There are several different methods of setting the Application Version property.
         </MSBuild>
       </Build>
     </DeploymentEvent>
-  
+
     ```
 * [ASP.NET] Generate BuildInfo.config automatically in MSBuild. To do this, add a few lines to your .csproj file:
-  
+
     ```XML
-  
+
     <PropertyGroup>
       <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup> 
+    </PropertyGroup>
     ```
-  
+
     This generates a file called *yourProjectName*.BuildInfo.config. The Publish process renames it to BuildInfo.config.
-  
+
     The build label contains a placeholder (AutoGen_...) when you build with Visual Studio. But when built with MSBuild, it is populated with the correct version number.
-  
+
     To allow MSBuild to generate version numbers, set the version like `1.0.*` in AssemblyReference.cs
 
 ## Monitor backend servers and desktop apps
@@ -135,7 +135,7 @@ There are several different methods of setting the Application Version property.
 * In [Metric Explorer](app-insights-metrics-explorer.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
 
 #### Dashboard with data from other sources and Application Insights
-* [Export telemetry to Power BI](app-insights-export-power-bi.md). 
+* [Export telemetry to Power BI](app-insights-export-power-bi.md).
 
 Or
 
@@ -144,7 +144,7 @@ Or
 <a name="search-specific-users"></a>
 
 ### Filter out anonymous or authenticated users
-If your users sign in, you can set the [authenticated user id](app-insights-api-custom-events-metrics.md#authenticated-users). (It doesn't happen automatically.) 
+If your users sign in, you can set the [authenticated user id](app-insights-api-custom-events-metrics.md#authenticated-users). (It doesn't happen automatically.)
 
 You can then:
 
@@ -195,11 +195,10 @@ Among the metrics you can show in metrics explorer are a set of system performan
 ![Open your Application Insights resource and click Servers](./media/app-insights-how-do-i/121-servers.png)
 
 ### If you see no performance counter data
-* **IIS server** on your own machine or on a VM. [Install Status Monitor](app-insights-monitor-performance-live-website-now.md). 
+* **IIS server** on your own machine or on a VM. [Install Status Monitor](app-insights-monitor-performance-live-website-now.md).
 * **Azure web site** - we don't support performance counters yet. There are several metrics you can get as a standard part of the Azure web site control panel.
 * **Unix server** - [Install collectd](app-insights-java-collectd.md)
 
 ### To display more performance counters
 * First, [add a new chart](app-insights-metrics-explorer.md) and see if the counter is in the basic set that we offer.
 * If not, [add the counter to the set collected by the performance counter module](app-insights-performance-counters.md).
-

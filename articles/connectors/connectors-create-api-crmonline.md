@@ -1,10 +1,10 @@
-﻿---
+---
 title: Add the Dynamics CRM Online connector to your Logic Apps | Microsoft Docs
 description: Create Logic apps with Azure App service. The Dynamics CRM Online Connection Provider provides an API to work with entities on Dynamics CRM Online.
 services: logic-apps
 documentationcenter: ''
 author: MandiOhlinger
-manager: erikre
+manager: anneta
 editor: ''
 tags: connectors
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 08/15/2016
+ms.date: 11/07/2016
 ms.author: mandia
 
 ---

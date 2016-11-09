@@ -18,6 +18,9 @@ ms.date: 10/21/2016
 ms.author: tysonn
 layout: LandingPage
 ---
+layout: LandingPage
+---
+
 # Active Directory Documentation
 
 Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service.  Azure AD offers identity and access capabilities for applications running in Azure as well as on Premises.  
@@ -34,7 +37,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Learn how to use Azure Active Directory?<p>
+                        <p>Learn about Azure Active Directory<p>
                     </div>
                 </div>
             </div>
@@ -52,7 +55,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Active Directory Videos<p>
+                        <p>Active Directory Video Library<p>
                     </div>
                 </div>
             </div>
@@ -60,16 +63,17 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
         </a>
     </li>
     <li>
-        <a href="virtual-networks-windows-server-active-directory-virtual-machines">
+        <a href="active-directory-howto-tenant?branch=pr-en-us-174">
         <div class="cardSize">
             <div class="cardPadding">
-                <div class="card">                    <div class="cardImageOuter">
+                <div class="card">                    
+                <div class="cardImageOuter">
                         <div class="cardImage">
                             <img src="images/placeholder.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Deploy on Azure VMs<p>
+                        <p>Create an Azure Active Directory Tenant<p>
                     </div>
                 </div>
             </div>
@@ -77,25 +81,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
         </a>
     </li>
     <li>
-        <a href="active-directory-hybrid-identity-design-considerations-overview">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <p>Deploy a Hybrid Identity Solution<p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="active-directory-aadconnect-azure-adfs">
+        <a href="active-directory-get-started-premium?branch=pr-en-us-174">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -105,7 +91,25 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Deploy AD FS in Azure<p>
+                        <p>Create an Active Directory Premium Account<p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="active-directory-how-subscriptions-associated-directory?branch=pr-en-us-174">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="images/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <p>Create a relationship between an Azure Subscription and Azure AD<p>
                     </div>
                 </div>
             </div>
@@ -113,6 +117,16 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
         </a>
     </li>
 </ul>
+
+---
+##Reference:
+
+###PowerShell
+[Azure AD PowerShell Cmdlet](powershell/azure%20ad%20cmdlets/)
+
+###.NET
+[Azure AD Authentication Library .NET Reference](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+
 
 ---
 
