@@ -1,4 +1,4 @@
-﻿---
+---
 title: Process large-scale datasets using Data Factory and Batch | Microsoft Docs
 description: Describes how to process huge amounts of data in an Azure Data Factory pipeline by using parallel processing capability of Azure Batch.
 services: data-factory
@@ -340,7 +340,7 @@ The method has a few key components that you need to understand.
                 "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
 
 
-The **Calculate** method calculates the number of instances of keyword **Microsoft** in the input files (blobs in the folder). The search term (“Microsoft”) is hard-coded in the code.
+    The **Calculate** method calculates the number of instances of keyword **Microsoft** in the input files (blobs in the folder). The search term (“Microsoft”) is hard-coded in the code.
 
 1. Compile the project. Click **Build** from the menu and click **Build Solution**.
 2. Launch **Windows Explorer**, and navigate to **bin\\debug** or **bin\\release** folder depending on the type of build.
@@ -354,7 +354,6 @@ This section provides more details and notes about the code in the Execute metho
 
 1. The members for iterating through the input collection are found in the [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) namespace. Iterating through the blob collection requires using the **BlobContinuationToken** class. In essence, you must use a do-while loop with the token as the mechanism for exiting the loop. For more information, see [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md). A basic loop is shown here:
    
-    ```
      // Initialize the continuation token.
      BlobContinuationToken continuationToken = null;
      do
@@ -373,63 +372,41 @@ This section provides more details and notes about the code in the Execute metho
          output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
    
      } while (continuationToken != null);
-
-     ```
    
    See the documentation for the [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) method for details.
 2. The code for working through the set of blobs logically goes within the do-while loop. In the **Execute** method, the do-while loop passes the list of blobs to a method named **Calculate**. The method returns a string variable named **output** that is the result of having iterated through all the blobs in the segment.
    
    It returns the number of occurrences of the search term (**Microsoft**) in the blob passed to the **Calculate** method.
    
-
-```
-output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
-```
-
+     output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
 3. Once the **Calculate** method has done the work, it must be written to a new blob. So for every set of blobs processed, a new blob can be written with the results. To write to a new blob, first find the output dataset.
    
-    ```
-    // Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
-    Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-    ```
-
+     // Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
+     Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
 4. The code also calls a helper method: **GetFolderPath** to retrieve the folder path (the storage container name).
    
-    ```
-    folderPath = GetFolderPath(outputDataset);
-    ```
+     folderPath = GetFolderPath(outputDataset);
    
    The **GetFolderPath** casts the DataSet object to an AzureBlobDataSet, which has a property named FolderPath.
    
-    ```
-    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+     AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
    
-    return blobDataset.FolderPath;
-    ```
-
+     return blobDataset.FolderPath;
 5. The code calls the **GetFileName** method to retrieve the file name (blob name). The code is similar to the above code to get the folder path.
    
-    ```
-    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+     AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
    
-    return blobDataset.FileName;
-    ```
-
+     return blobDataset.FileName;
 6. The name of the file is written by creating a URI object. The URI constructor uses the **BlobEndpoint** property to return the container name. The folder path and file name are added to construct the output blob URI.  
    
-    ```
-    // Write the name of the file.
-    Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
-    ```
-
+     // Write the name of the file.
+     Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 7. The name of the file has been written and now you can write the output string from the **Calculate** method to a new blob:
    
-    ```
-    // Create a blob and upload the output text.
-    CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
-    logger.Write("Writing {0} to the output blob", output);
-    outputBlob.UploadText(output);
-    ```
+     // Create a blob and upload the output text.
+     CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
+     logger.Write("Writing {0} to the output blob", output);
+     outputBlob.UploadText(output);
 
 ### Create the data factory
 In the [Create the custom activity](#create-the-custom-activity) section, you created a custom activity and uploaded the zip file with binaries and the PDB file to an Azure blob container. In this section, you create an Azure **data factory** with a **pipeline** that uses the **custom activity**.
@@ -491,7 +468,7 @@ Linked services link data stores or compute services to an Azure data factory. I
 2. Click **New data store** on the command bar and choose **Azure storage.** You should see the JSON script for creating an Azure Storage linked service in the editor.
    
    ![](./media/data-factory-data-processing-using-batch/image7.png)
-3. Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+3. Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 4. Click **Deploy** on the command bar to deploy the linked service.
    
    ![](./media/data-factory-data-processing-using-batch/image8.png)
@@ -645,15 +622,15 @@ In this step, you create another dataset of type AzureBlob to represent the outp
      An output blob/file is generated for each input slice. Here is how an output file is named for each slice. All the output files are generated in one output folder: **mycontainer\\outputfolder**.
 
 
-| **Slice** | **Start time**          | **Output file**       |
-|-----------|-------------------------|-----------------------|
-| 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
-| 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
-| 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
-| 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
-| 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
+    | **Slice** | **Start time**          | **Output file**       |
+    |-----------|-------------------------|-----------------------|
+    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
+    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
+    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
+    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
+    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
 
-Remember that all the files in an input folder (for example: 2015-11-16-00) are part of a slice with the start time: 2015-11-16-00. When this slice is processed, the custom activity scans through each file and produces a line in the output file with the number of occurrences of search term (“Microsoft”). If there are three files in the folder 2015-11-16-00, there are three lines in the output file: 2015-11-16-00.txt.
+     Remember that all the files in an input folder (for example: 2015-11-16-00) are part of a slice with the start time: 2015-11-16-00. When this slice is processed, the custom activity scans through each file and produces a line in the output file with the number of occurrences of search term (“Microsoft”). If there are three files in the folder 2015-11-16-00, there are three lines in the output file: 2015-11-16-00.txt.
 
 1. Click **Deploy** on the toolbar to create and deploy the **OutputDataset**.
 

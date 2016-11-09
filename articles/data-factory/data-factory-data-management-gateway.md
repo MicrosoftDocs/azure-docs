@@ -1,4 +1,4 @@
-﻿---
+---
 title: Data Management Gateway for Data Factory | Microsoft Docs
 description: Set up a data gateway to move data between on-premises and the cloud. Use Data Management Gateway in Azure Data Factory to move your data.
 services: data-factory
@@ -18,7 +18,7 @@ ms.author: jingwang
 
 ---
 # Data Management Gateway
-The Data Management Gateway is a client agent that you must install in your on-premises environment to copy data between cloud and on-premises data stores. The on-premises data stores supported by Data Factory are listed in the [Supported data sources](data-factory-data-movement-activities.md##supported-data-stores) section. 
+The Data Management Gateway is a client agent that you must install in your on-premises environment to copy data between cloud and on-premises data stores. The on-premises data stores supported by Data Factory are listed in the [Supported data sources](data-factory-data-movement-activities.md#supported-data-stores-and-formats) section. 
 
 > [!NOTE]
 > Currently, gateway supports only the copy activity and stored procedure activity in Data Factory. It is not possible to use the gateway from a custom activity to access on-premises data sources. 
@@ -375,11 +375,8 @@ This section describes how to create and register a gateway using Azure PowerShe
 
 1. Launch **Azure PowerShell** in administrator mode. 
 2. Log in to your Azure account by running the following command and entering your Azure credentials. 
-
-    ```   
+   
     Login-AzureRmAccount
-    ```
-
 3. Use the **New-AzureRmDataFactoryGateway** cmdlet to create a logical gateway as follows:
    
         $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
