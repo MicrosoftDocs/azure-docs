@@ -86,7 +86,10 @@ Perform the following steps on the client to enable remote management.
      `Set-Item wsman:\localhost\Client\TrustedHosts 10.126.173.90 -Concatenate -Force`
 3. Type the following command to save the device credentials in a variable: 
    
-     *$cred = Get-Credential*
+    ```
+    $cred = Get-Credential
+    ```
+    
 4. In the dialog box that appears:
    
    1. Type the user name in this format: *device_ip\SSAdmin*.
