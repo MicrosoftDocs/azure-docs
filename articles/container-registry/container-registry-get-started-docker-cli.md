@@ -45,7 +45,7 @@ docker login myregistry.contoso.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx
 > [!TIP]
 > Make sure to specify the fully qualified registry name (all lowercase). In this example, it is `myregistry.contoso.azurecr.io`.
 
-## Walkthrough to pull and push an image
+## Steps to pull and push an image
 The follow example downloads an Nginx image from the public Docker Hub registry, tags it for your private Azure container registry, pushes it to your registry, then pulls it again.
 
 **1. Pull the Docker official image for Nginx**
@@ -63,15 +63,15 @@ The following command starts the local Nginx container interactively (so you can
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Browse to [http://localhost:8080](http://localhost:8080) to view the running container. You'll see a screen similar to the following one.
+Browse to [http://localhost:8080](http://localhost:8080) to view the running container. You see a screen similar to the following one.
 
 ![Nginx on local computer](./media/container-registry-get-started-docker-cli/nginx.png)
 
-Press [CTRL]+[C] to stop the running container.
+To stop the running container, press [CTRL]+[C].
 
 **3. Create an alias of the image in your registry**
 
-The following command creates an alias of the image, with a fully qualified path to your  registry. This example specifies the `samples` namespace to avoid clutter in the root of the registry.
+The following command creates an alias of the image, with a fully qualified path to your registry. This example specifies the `samples` namespace to avoid clutter in the root of the registry.
 
 ```
 docker tag nginx myregistry-exp.azurecr.io/samples/nginx
@@ -97,7 +97,7 @@ docker run -it --rm -p 8080:80 myregistry-exp.azurecr.io/samples/nginx
 
 Browse to [http://localhost:8080](http://localhost:8080) to view the running container.
 
-Press [CTRL]+[C] to stop the running container.
+To stop the running container, press [CTRL]+[C].
 
 **6. Remove the image**
 

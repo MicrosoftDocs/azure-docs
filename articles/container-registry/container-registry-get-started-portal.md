@@ -48,7 +48,7 @@ For background and concepts, see [What is Azure Container Registry?](container-r
    > [!IMPORTANT]
    > In addition to providing access through an admin user account, container registries support authentication backed by Azure Active Directory service principals. For more information and considerations, see [Authenticate with a container registry](container-registry-authentication.md.md).
    >
-    e. **Storage account** - Use the default setting to create a new [storage account](../storage/storage-introduction.md), or select an existing storage account in the same location.
+    e. **Storage account** - Use the default setting to create a [storage account](../storage/storage-introduction.md), or select an existing storage account in the same location.
 
 ## Manage registry settings
 After creating the registry, find the registry settings by starting at the **Container Registries** blade in the portal. For example, you might need the settings to log in to your registry, or you might want to enable or disable the admin user.
@@ -61,7 +61,7 @@ After creating the registry, find the registry settings by starting at the **Con
     ![Container registry access](./media/container-registry-get-started-portal/container-registry-access.png)
 3. Note the following settings:
    
-   * **Login server** - The fully qualified registry name you use when you login to push and pull Docker images.
+   * **Login server** - The fully qualified name you use to log in to the registry.
    * **Admin user** - Toggle to enable or disable the registry's admin user account.
    * **Username** and **Password** - The credentials of the admin user account (if enabled) you can use to log in to the registry. 
 
