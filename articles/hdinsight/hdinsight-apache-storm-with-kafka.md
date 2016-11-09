@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/18/2016
+ms.date: 11/09/2016
 ms.author: larryfr
 ---
 # Use Apache Kafka (preview) with Storm on HDInsight
@@ -29,10 +29,10 @@ Apache Kafka is a publish-subscribe messaging solution that is available with HD
 
 * An Azure subscription
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 1.7 or higher. Or an equivalent such as [OpenJDK](http://openjdk.java.net/).
+* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 1.8 or higher. Or an equivalent such as [OpenJDK](http://openjdk.java.net/).
   
     > [!NOTE]
-    > The steps in this document use an HDInsight 3.4 cluster, which uses Java 7.
+    > The steps in this document use an HDInsight 3.5 cluster, which uses Java 8.
 
 * [Maven 3.x](http://maven.apache.org/) - A build management package for Java applications.
 
@@ -123,7 +123,7 @@ Both topologies expect the following environment variables:
 
 * **KAFKABROKERS**: The hosts that the Kafka brokers run on. This is used by the KafkaBolt when writing to Kafka.
 
-* **ZKHOSTS**: The hosts that Zookeeper runs on.
+* **KAFKAZKHOSTS**: The hosts that Zookeeper runs on.
 
 The steps in this document demonstrate how to set these environment variables.
 
@@ -146,13 +146,13 @@ The steps in this document demonstrate how to set these environment variables.
         # Install JQ to make working with JSON easier
         sudo apt -y install jq
         # Query Ambari for 
-        ZKHOSTS=`curl -u admin:PASSWORD -G "http://headnodehost:8080/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+        KAFKAZKHOSTS=`curl -u admin:PASSWORD -G "http://headnodehost:8080/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
     
     Replace __PASSWORD__ with the admin password you used when creating the cluster. Replace __BASENAME__ with the base name you used when creating the cluster.
 
-    This reads the values for the Zookeeper hosts from Ambari, and stores them into the ZKHOSTS variable. Use the following to see these values:
+    This reads the values for the Zookeeper hosts from Ambari, and stores them into the KAFKAZKHOSTS variable. Use the following to see these values:
 
-        echo $ZKHOSTS
+        echo $KAFKAZKHOSTS
     
     The output of this command is similar to the following example:
 
@@ -165,11 +165,11 @@ The steps in this document demonstrate how to set these environment variables.
 
 3. Use the following command to create a topic in Kafka:
    
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic stormtest --zookeeper $ZKHOSTS
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic stormtest --zookeeper $KAFKAZKHOSTS
    
-    This command connects to Zookeeper using the host information stored in `$ZKHOSTS`, and then creates a Kafka topic named **stormtest**. You can verify that the topic was created by using the following command to list topics:
+    This command connects to Zookeeper using the host information stored in `$KAFKAZKHOSTS`, and then creates a Kafka topic named **stormtest**. You can verify that the topic was created by using the following command to list topics:
    
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $ZKHOSTS
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
    
     The output of this command lists Kafka topics, which should contain the new **stormtest** topic.
 
@@ -228,7 +228,7 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
         Exporting variables:
         $KAFKATOPIC=stormtest
         $KAFKABROKERS=wn0-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:9092,wn1-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:9092
-        $ZKHOSTS=zk1-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk3-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk5-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181
+        $KAFKAZKHOSTS=zk1-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk3-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk5-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181
 
 3. From the SSH connection to the Storm cluster, use the following command to start the writer topology:
    
@@ -246,7 +246,7 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
 
 5. Once the topology has started, switch to the SSH connection to the Kafka cluster and use the following command to view messages written to the **stormtest** topic:
    
-         /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $ZKHOSTS --from-beginning --topic stormtest
+         /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtest
    
     This command uses a script shipped with Kafka to monitor the topic. After a moment, it should start returning random sentences that have been written to the topic. The output is similar to the following example:
    
@@ -271,17 +271,7 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
 
 1. From the SSH session to the Storm cluster, use the following command to start the reader topology:
    
-        storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /reader.yaml -e
-   
-    The parameters used with this command are:
-   
-    * **org.apache.storm.flux.Flux**: Use Flux to configure and run this topology.
-
-    * **--local**: Submit the topology to in local mode. The topology runs locally on the head node. This parameter is often used for testing. In this example, it is used so that we can easily see the data that the topology logs to stdout.
-   
-    * **-R /reader.yaml**: Use the **writer.yaml** to configure the topology. `-R` indicates that this resource is included in the jar file. It's in the root of the jar, so `/writer.yaml` is the path to it.
-   
-    * **-e**: Use environment variable substitution. Flux picks up the $ZKHOSTS and $KAFKATOPIC values you set previously, and uses them in the writer.yaml file in place of the `${ENV-ZKHOSTS}` and `${ENV-KAFKATOPIC}` entries.
+        storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml -e
 
 2. Once the topology starts, open the Storm UI. This web UI is located at https://storm-BASENAME.azurehdinsight.net/stormui. Replace __BASENAME__ with the base name used when the cluster was created. 
 
