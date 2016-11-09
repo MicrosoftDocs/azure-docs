@@ -39,7 +39,7 @@ This article shows how to export a SQL Server database to a [BACPAC](https://msd
    | < database_name > |source database name |
    | < target_file > |file name and location for BACPAC file |
    
-    ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
+   ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
 ## Next steps
 * [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
