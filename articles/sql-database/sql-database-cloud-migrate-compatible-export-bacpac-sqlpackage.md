@@ -30,7 +30,7 @@ This article shows how to export a SQL Server database to a [BACPAC](https://msd
 1. Open a command prompt and change a directory containing the sqlpackage.exe command-line utility - this utility ships with both Visual Studio and SQL Server. Use search on your computer to find the path in your environment.
 2. Execute the following sqlpackage.exe command with the following arguments for your environment:
    
-```    'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
+```    sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
 ```
    
    | Argument | Description |
