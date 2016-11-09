@@ -57,9 +57,6 @@
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [REST](https://docs.microsoft.com/en-us/rest/api/datalakestore/)
 
-# Related
-## [Cortana Intelligence Suite](https://www.microsoft.com/en-us/cloud-platform/what-is-cortana-intelligence-suite)
-
 # Resources
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Stack Overflow Forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
