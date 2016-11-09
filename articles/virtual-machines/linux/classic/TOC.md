@@ -67,7 +67,7 @@
 ### [Restart or resize a VM](../../virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # Reference
-## [Azure CLI](../virtual-machines-command-line-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+## [Azure CLI](../../../virtual-machines-command-line-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ## [Java](https://azure.microsoft.com/develop/java/)
 ## [Node.js](https://azure.microsoft.com/develop/nodejs/)
 ## [Python](https://azure.microsoft.com/develop/python/)
