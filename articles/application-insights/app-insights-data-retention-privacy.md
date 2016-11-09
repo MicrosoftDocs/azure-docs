@@ -83,7 +83,7 @@ For web pages, open your browser's debugging window.
 This would be possible by writing a [telemetry processor plugin](app-insights-api-filtering-sampling.md).
 
 ## How long is the data kept?
-Raw data points (that is, items that you can inspect in Diagnostic Search) are kept for 7 days. If you need to keep data longer than that, you can use [continuous export](app-insights-export-telemetry.md) to copy it to a storage account.
+Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 90 days. If you need to keep data longer than that, you can use [continuous export](app-insights-export-telemetry.md) to copy it to a storage account.
 
 Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 90 days.
 
