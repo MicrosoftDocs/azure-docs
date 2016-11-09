@@ -13,16 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/25/2016
+ms.date: 11/09/2016
 ms.author: alkohli
 ---
 # Disaster recovery and device failover for your StorSimple Virtual Array
+
 ## Overview
 This article describes the disaster recovery for your Microsoft Azure StorSimple Virtual Array including the detailed steps to fail over to another virtual array. A failover allows you to move your data from a *source* device in the datacenter to a *target* device. The target device may be located in the same or a different geographical location. The device failover is for the entire device. During failover, the cloud data for the source device changes ownership to that of the target device.
 
 This article is applicable to StorSimple Virtual Arrays only. To fail over an 8000 series device, go to [Device failover and disaster recovery of your StorSimple device](storsimple-device-failover-disaster-recovery.md).
 
 ## What is disaster recovery and device failover?
+
 In a disaster recovery (DR) scenario, the primary device stops functioning. In this scenario, you can move the cloud data associated with the failed device to another device. You can use the primary device as the *source* and specify another device as the *target*. This process is referred to as the *failover*. During failover, all the volumes or the shares from the source device change ownership and are transferred to the target device. No filtering of the data is allowed.
 
 DR is modeled as a full device restore using the heat map–based tiering and tracking. A heat map is defined by assigning a heat value to the data based on read and write patterns. This heat map then tiers the lowest heat data chunks to the cloud first while keeping the high heat (most used) data chunks in the local tier. During a DR, StorSimple uses the heat map to restore and rehydrate the data from the cloud. The device fetches all the volumes/shares in the last recent backup (as determined internally) and performs a restore from that backup. The virtual array orchestrates the entire DR process.
@@ -35,7 +37,9 @@ DR is modeled as a full device restore using the heat map–based tiering and tr
 Disaster recovery is orchestrated via the device failover feature and is initiated from the **Devices** blade. This blade tabulates all the StorSimple devices connected to your StorSimple Device Manager service. For each device, you can see the friendly name, status, provisioned and maximum capacity, type, and model.
 
 ## Prerequisites for device failover
+
 ### Prerequisites
+
 For a device failover, ensure that the following prerequisites are satisfied:
 
 * The source device needs to be in a **Deactivated** state.
@@ -51,6 +55,7 @@ For a device failover, ensure that the following prerequisites are satisfied:
 * The available target devices for DR are devices that have the same or larger capacity compared to the source device. The devices that are connected to your service but do not meet the criteria of sufficient space are not available as target devices.
 
 ### Other considerations
+
 * For a planned failover 
   
   * We recommend that you take all the volumes or shares on the source device offline.
@@ -58,6 +63,7 @@ For a device failover, ensure that the following prerequisites are satisfied:
 * For an unplanned failover, the device uses the most recent backup to restore the data.
 
 ### Device failover prechecks
+
 Before the DR begins, the device performs prechecks. These checks help ensure that no errors occur when DR commences. The prechecks include:
 
 * Validating the storage account.
@@ -79,18 +85,19 @@ After the DR is successfully completed, the ownership of the cloud data on the s
 > 
 
 ## Fail over to a virtual array
+
 We recommend that you provision, configure, and register another StorSimple Virtual Array with your StorSimple Device Manager service before you run this procedure.
 
 > [!IMPORTANT]
 > 
 > * You cannot fail over from a StorSimple 8000 series device to a 1200 virtual device.
 > * You can fail over from a Federal Information Processing Standard (FIPS) enabled virtual device to another FIPS enabled device or to a non-FIPS device deployed in the Government portal.
-> 
-> 
+
 
 Perform the following steps to restore the device to a target StorSimple virtual device.
 
-1. Provision and configure a target device that meets the [prerequisites for device failover](#prerequisites). Complete the device configuration via the local web UI and register it to your StorSimple Device Manager service. If creating a file server, go to step 1 of [set up as file server](storsimple-ova-deploy3-fs-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device). If creating an iSCSI server, go to step 1 of [set up as iSCSI server](storsimple-ova-deploy3-iscsi-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device).  
+1. Provision and configure a target device that meets the [prerequisites for device failover](#prerequisites). Complete the device configuration via the local web UI and register it to your StorSimple Device Manager service. If creating a file server, go to step 1 of [set up as file server](storsimple-ova-rm-deploy3-fs-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device). If creating an iSCSI server, go to step 1 of [set up as iSCSI server](storsimple-ova-rm-deploy3-iscsi-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device).
+
 2. Take volumes/shares offline on the host. To take the volumes/shares offline, refer to the operating system–specific instructions for the host. If not already offline, you need to take all the volumes/shares offline on the device by doing the following.
    
     a. Go to **Devices** blade and select your device.
@@ -102,8 +109,11 @@ Perform the following steps to restore the device to a target StorSimple virtual
     d. When prompted for confirmation, check **I understand the impact of taking this share offline.** 
    
     e. Click **Take offline**.
-3. In your StorSimple Device Manager service, go to **Management > Devices**. In the **Devices** blade, select and click your source device.  
+
+3. In your StorSimple Device Manager service, go to **Management > Devices**. In the **Devices** blade, select and click your source device.
+
 4. In your **Device dashboard** blade, click **Deactivate**.
+
 5. In the **Deactivate** blade, you are prompted for confirmation. Device deactivation is a *permanent* process that cannot be undone. You are also reminded to take your shares/volumes offline on the host. Type the device name to confirm and click **Deactivate**.
    
     ![](./media/storsimple-ova-rm-failover-dr/failover1.png)
@@ -145,6 +155,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
 14. You can now rename the device (same as the old source device) so that the application servers can directly connect to this device. If you do not want to rename the device, you will need to [create a DNS alias](https://support.microsoft.com/kb/168322) so that all the applications that are trying to connect can get redirected to the new device.
 
 ## Errors during DR
+
 **Cloud connectivity outage during DR**
 
 If the cloud connectivity is disrupted after DR has started and before the device restore is complete, the DR will fail. You receive a failore notification. The target device for DR is marked as *unusable.* You cannot use the same target device for future DRs.
@@ -161,19 +172,7 @@ A business continuity disaster recovery (BCDR) scenario occurs when the entire A
 
 If there are StorSimple devices that were registered just before a disaster occurred, then these StorSimple devices may need to be deleted. After the disaster, you can recreate and configure those devices.
 
-## Errors during DR
-**Cloud connectivity outage during DR**
-
-If the cloud connectivity is disrupted after DR has started and before the device restore is complete, the DR will fail. You receive a failore notification. The target device for DR is marked as *unusable.* You cannot use the same target device for future DRs.
-
-**No compatible target devices**
-
-If the available target devices do not have sufficient space, you see an error to the effect that there are no compatible target devices.
-
-**Precheck failures**
-
-If one of the prechecks is not satisfied, then you see precheck failures.
-
 ## Next steps
+
 Learn more about how to [administer your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).
 
