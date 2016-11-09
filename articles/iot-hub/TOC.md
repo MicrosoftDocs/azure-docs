@@ -54,6 +54,8 @@
 ## Developer guide
 ### [Introduction](iot-hub-devguide.md)
 ### [Send and receive messages](iot-hub-devguide-messaging.md)
+### [Device-to-cloud feature guide](iot-hub-devguide-d2c-guidance.md)
+### [Cloud-to-device feature guide](iot-hub-devguide-c2d-guidance.md)
 ### [Upload files from a device](iot-hub-devguide-file-upload.md)
 ### [Manage device identities](iot-hub-devguide-identity-registry.md)
 ### [Control access to IoT Hub](iot-hub-devguide-security.md)
