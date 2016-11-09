@@ -151,7 +151,7 @@
 ## [Best practices](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [WebJob resources](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [Rest](https://docs.microsoft.com/rest/api/appservice/)
+## [REST](https://docs.microsoft.com/rest/api/appservice/)
 
 
 
