@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 11/09/2016
 ms.author: banders
 
 ---
 # Network Performance Monitor (Preview) solution in OMS
 > [!NOTE]
 > This is a [preview solution](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
-> 
-> 
+>
+>
 
 This document describes how to set-up and use the Network Performance Monitor solution in OMS, which helps you monitor the performance of your networks-in near real-time-to detect and locate network performance bottlenecks. With the Network Performance Monitor solution, you can monitor the loss and latency between two networks, subnets or servers. Network Performance Monitor detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods are not able to detect. Network Performance Monitor generates alerts and notifies as and when a threshold is breached for a network link. These thresholds can be learned automatically by the system or you can configure them to use custom alert rules. Network Performance Monitor ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device.
 
@@ -49,8 +49,8 @@ Use the basic processes to install agents at [Connect Windows computers to Log A
 
 > [!NOTE]
 > You'll need to install at least 2 agents in order to have enough data to discover and monitor your network resources. Otherwise, the solution will remain in a configuring state until you install and configure additional agents.
-> 
-> 
+>
+>
 
 ### Where to install the agents
 Before you install agents, consider the topology of your network and what parts of the network you want to monitor. We recommend that you install more than one agent for each subnet that you want to monitor. In other words, for every subnet that you want to monitor, choose two or more servers or VMs and install the agent on them.
@@ -68,8 +68,8 @@ The port opened by default is 8084. You can use a custom port by providing the p
 
 > [!NOTE]
 > The EnableRules.ps1 script configures Windows firewall rules only on the computer where the script is run. If you have a network firewall, you should make sure that it allows traffic destined for the TCP port being used by Network Performance Monitor.
-> 
-> 
+>
+>
 
 ## Configuring the solution
 Use the following information to install and configure the solution.
@@ -159,8 +159,8 @@ The solution makes use of synthetic transactions to assess the health of the net
 
 > [!NOTE]
 > Although agents communicate with each other frequently, they do not generate a lot of network traffic while conducting the tests. Agents rely only on TCP SYN-SYNACK-ACK handshake packets to determine the loss and latency -- no data packets are exchanged. During this process, agents communicate with each other only when needed and the agent communication topology is optimized to reduce network traffic.
-> 
-> 
+>
+>
 
 ## Using the solution
 This section explains all the dashboard functions and how to use them.
@@ -234,10 +234,9 @@ Now that you've read about Network Performance Monitor, let's look at a simple i
 5. All the paths between the 2 selected nodes are plotted in the topology map. You can visualize the hop-by-hop topology of routes between two nodes on the topology map. It gives you a clear picture of how many routes exist between the two nodes and what paths the data packets are taking. Network performance bottlenecks are marked in red color. You can locate a faulty network connection or a faulty network device by looking at red colored elements on the topology map.  
    ![unhealthy topology view example](./media/log-analytics-network-performance-monitor/npm-investigation05.png)
 6. The loss, latency, and the number of hops in each path can be reviewed in the **Path Details** pane. In this example, you can see that there are 3 unhealthy paths as mentioned in the pane. Use the scrollbar to view the details of those unhealthy paths.  Use the checkboxes to select one of the paths so that the topology for only one path is plotted. You can use your mouse wheel to zoom in or out of the topology map.
-   
+
    In the below image you can clearly see the root-cause of the problem areas to the specific section of the network by looking at the paths and hops in red color. Clicking on a node in the topology map reveals the properties of the node, including the FQDN, and IP address. Clicking on a hop shows the IP address of the hop.  
    ![unhealthy topology - path details example](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
 
 ## Next steps
 * [Search logs](log-analytics-log-searches.md) to view detailed network performance data records.
-
