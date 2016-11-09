@@ -51,7 +51,7 @@
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
 ## [View access and usage reports](active-directory-view-access-usage-reports.md)
-### [Azure AD Reporting](active-directory-reporting-getting-started.md)
+### [Azure AD reporting](active-directory-reporting-getting-started.md)
 ### [Known networks](active-directory-known-networks.md)
 
 ### [Reporting guide](active-directory-reporting-guide.md)
@@ -100,9 +100,9 @@
 ### [Register your device](active-directory-azureadjoin-personal-device.md)
 ### [Register a Windows 10 device](active-directory-azureadjoin-user-upgrade.md)
 
-### [Conditional Access](active-directory-conditional-access.md)
+### [Conditional access](active-directory-conditional-access.md)
 #### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
-#### [Supported Apps](active-directory-conditional-access-supported-apps.md)
+#### [Supported apps](active-directory-conditional-access-supported-apps.md)
 #### [Register devices](active-directory-conditional-access-device-registration-overview.md)
 #### [Manage automatic registration](active-directory-conditional-access-automatic-device-registration.md)
 ##### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
@@ -179,7 +179,7 @@
 ### [Document library](active-directory-apps-index.md)
 
 
-## Manage your Directory
+## Manage your directory
 ### Custom domain names
 #### [Overview](active-directory-add-domain-concepts.md)
 #### Add your domain name
@@ -272,8 +272,6 @@
 ## [Deploy AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
-
-## [Develop](./develop/active-directory-how-to-integrate.md)
 
 ## [Troubleshoot](active-directory-troubleshooting.md)
 
