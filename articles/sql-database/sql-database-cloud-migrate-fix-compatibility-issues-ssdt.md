@@ -22,7 +22,6 @@ ms.author: carlrab
 > * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 > * [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 > * [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-> * [Upgrade Advisor](http://www.microsoft.com/download/details.aspx?id=48119)
 > * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
 > 
 > 
