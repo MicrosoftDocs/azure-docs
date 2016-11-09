@@ -4,16 +4,12 @@
 ### [Service tiers](sql-database-service-tiers.md)
 ### [What is a DTU?](sql-database-what-is-a-dtu.md)
 ### [DTU benchmark overview](sql-database-benchmark-overview.md)
-### [SQL Database firewall and firewall rules](sql-database-firewall-configure.md)
 ### [Management tools](sql-database-manage-overview.md)
 ## Consideration and limitations
 ### [SQL Database versus SQL on a VM](sql-database-paas-vs-sql-server-iaas.md)
 ### [T-SQL differences](sql-database-transact-sql-information.md)
 ### [Resource limits](sql-database-resource-limits.md)
 ### [General limitations](sql-database-general-limitations.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/sql-database/)
-## [What's new?](https://azure.microsoft.com/updates/?service=sql-database)
-## [SQL Database FAQ](sql-database-faq.md)
 
 ## Benefits
 ### [Learns and adapts](sql-database-learn-and-adapt.md)
@@ -23,57 +19,39 @@
 ### [Works in your environment](sql-database-works-in-your-environment.md)
 
 ## Scenarios
-### Create and manage servers, pools, databases and firewalls
-#### Create and manage elastic database pools
+
+### Servers, pools, databases, and firewalls
 #### [When to use an elastic database pool](sql-database-elastic-pool-guidance.md)
-#### [Security guidelines](sql-database-security-guidelines.md)
 #### [Elastic database pools](sql-database-elastic-pool.md)
 #### [Automation](sql-database-manage-automation.md)
 #### Modify service tiers and performance levels
-##### [Azure [portal](sql-database-scale-up.md)
+##### [Azure portal](sql-database-scale-up.md)
 ##### [PowerShell](sql-database-scale-up-powershell.md)
-### Create and manage scaled-out databases
+
+### Scaled-out databases
 #### [Overview](sql-database-elastic-scale-introduction.md)
-#### [Building scalable cloud databases](sql-database-elastic-database-client-library.md)
-#### [Scale out with shard map manager](sql-database-elastic-scale-shard-map-management.md)
-#### [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md)
-#### [Move data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md)
-#### [Use entity framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-#### [Working with Dapper](sql-database-elastic-scale-working-with-dapper.md)
-#### [Performance counters for shard map manager](sql-database-elastic-database-perf-counters.md)
-#### Cross database jobs and queries
-##### [Cross database querying](sql-database-elastic-query-overview.md)
-##### [Cross database querying with different schemas](sql-database-elastic-query-vertical-partitioning.md)
-##### [Cross database reporting](sql-database-elastic-query-horizontal-partitioning.md)
-##### [Cross database jobs](sql-database-elastic-jobs-overview.md)
-##### [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
-##### [Muiltishard querying](sql-database-elastic-scale-multishard-querying.md)
-##### [Multitenant row level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-##### [Distributed transactions across cloud databases](sql-database-elastic-transactions-overview.md)
-####[Elastic database tools glossary](sql-database-elastic-scale-glossary.md)
+#### [Build scalable cloud databases](sql-database-elastic-database-client-library.md)
+#### [Cross-database jobs](sql-database-elastic-jobs-overview.md)
+#### [Elastic database tools glossary](sql-database-elastic-scale-glossary.md)
 #### [FAQ](sql-database-elastic-scale-faq.md)
-### Create and manage access and permissions
+
+### Access and permissions
 #### [Overview](sql-database-security.md)
-#### [Security guidelines](sql-database-security-guidelines.md)
-#### [Manage logins](sql-database-manage-logins.md)
-#### [Azure Security Center for Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
+#### [Azure Security Center for Azure SQL Database](,,/security-center/security-center-sql-database.md?toc=%2fazure%2fsql-database%2ftoc.json)
 #### [SQL Security Center](https://msdn.microsoft.com/library/azure/bb510589)
-### [Database and application development](sql-database-develop-overview.md)
-### Database migration
-#### [Migrate a SQL Server database](sql-database-cloud-migrate.md)
-### Providing for business continuity
+
+### Business continuity
 #### [Overview](sql-database-business-continuity.md)
-#### [Database backups](sql-database-automated-backups.md) 
+#### [Database backups](sql-database-automated-backups.md)
 #### [Database recovery using backups](sql-database-recovery-using-backups.md)
-#### [Recover from a data center outage](sql-database-disaster-recovery.md)
 #### [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md)
 #### [Business continuity design scenarios](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 #### [Disaster recovery strategies with elastic pools](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 #### [Rolling upgrades](sql-database-manage-application-rolling-upgrade.md)
-### Monitor and tune databases
-#### [Single databases](sql-database-single-database-monitor.md)
-#### [Single database guidance](sql-database-performance-guidance.md)
-#### [Workload insights in the Azure portal](sql-database-performance.md)
+
+### [Database performance](sql-database-single-database-monitor.md)
+### [Database development](sql-database-develop-overview.md)
+### [Migrate SQL Server databases](sql-database-cloud-migrate.md)
 
 ## Customer Implementations
 ### [Daxko/CSI Software](sql-database-implementation-daxko.md)
@@ -81,56 +59,60 @@
 ### [SnelStart](sql-database-implementation-snelstart.md)
 ### [Umbraco](sql-database-implementation-umbraco.md)
 
+## [SQL Database FAQ](sql-database-faq.md)
+## [Security guidelines](sql-database-security-guidelines.md)
+
+
 # Get Started
-## Create servers, pools, databases, and firewalls
+## Create a SQL Database
 ### [Azure portal](sql-database-get-started.md)
-### [PowerShell](sql-database-get-started-powershell.md)
 ### [C#](sql-database-get-started-csharp.md)
+### [PowerShell](sql-database-get-started-powershell.md)
+
 ## Query data
 ### [SQL Server Management Studio](sql-database-connect-query-ssms.md)
+
 ## Manage servers, pools, databases and firewalls
 ### [Azure portal](sql-database-manage-portal.md)
 ### [SQL Server Management Studio](sql-database-manage-azure-ssms.md)
 ### [PowerShell](sql-database-manage-powershell.md)
+
 ## [Create and manage access and permissions](sql-database-get-started-security.md)
+
 ## Secure and protect data
 ### [Auditing](sql-database-auditing-get-started.md)
 ### [Threat detection](sql-database-threat-detection-get-started.md)
 ### Dynamic data masking
 #### [Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
+
 ## Create and manage scaled-out databases
 ### [Elastic scale](sql-database-elastic-scale-get-started.md)
 ### [Elastic jobs](sql-database-elastic-jobs-getting-started.md)
 ### Elastic queries
 ### [Cross database reports](sql-database-elastic-query-getting-started.md)
 ### [Cross database queries](sql-database-elastic-query-getting-started-vertical.md)
+
 ## [In-memory optimization](sql-database-in-memory.md)
+
 ## [Moving databases](sql-database-troubleshoot-moving-data.md)
+
 ## [Data sync](sql-database-get-started-sql-data-sync.md)
+
 ##Monitor and tune databases
 ### [SQL Database Advisor overview](sql-database-advisor.md)
 ### [Workload insights in the Azure portal](sql-database-performance.md)
+
 ## [Solution quick-starts](sql-database-solution-quick-starts.md)
+
+
 # How To
 ## [Audit](sql-database-auditing-get-started.md)
 ## Create
-### Resource group
-#### [PowerShell](sql-database-manage-powershell.md#create-a-resource-group)
-### Servers
-#### [Azure portal](sql-database-get-started.md)
-#### [C#](sql-database-get-started-csharp.md)
-#### [PowerShell](sql-database-manage-powershell.md#create-a-sql-database-server)
 ### Elastic database pools
 #### [Azure portal](sql-database-elastic-pool-create-portal.md)
 #### [C#](sql-database-elastic-pool-create-csharp.md)
 #### [PowerShell](sql-database-elastic-pool-create-powershell.md)
 ### Databases
-#### Single databases
-##### [Azure portal](sql-database-get-started.md)
-##### [C#](sql-database-get-started-csharp.md)
-##### [T-SQL](sql-database-manage-azure-ssms.md#create-and-manage-azure-sql-databases)
-##### [PowerShell](sql-database-get-started-powershell.md)
-#### [SQL Server Management Studio](sql-database-manage-azure-ssms.md#create-and-manage-azure-sql-databases)
 #### Sharded databases
 ##### [Use shard map manager](sql-database-elastic-scale-shard-map-management.md)
 ##### [Split merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
@@ -143,15 +125,11 @@
 ##### [Azure Portal](sql-database-configure-firewall-settings.md)
 ##### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 ##### [REST API](sql-database-configure-firewall-settings-rest.md)
-##### [T-SQL](sql-database-configure-firewall-settings-tsql.md#server-level-firewall-rules)
 #### Database
-##### [T-SQL](sql-database-configure-firewall-settings-tsql.md#database-level-firewall-rules)
 ### Jobs
 #### [Service installation](sql-database-elastic-jobs-service-installation.md)
 #### [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
 #### [PowerShell](sql-database-elastic-jobs-powershell.md)
-### Logins
-#### [T-SQL](sql-database-manage-azure-ssms.md#create-and-manage-logins.md)
 ## Develop
 ### [Overview](https://msdn.microsoft.com/library/mt763826.aspx)
 ### Scenarios
@@ -173,15 +151,9 @@
 ##### [Excel](sql-database-connect-excel.md)
 #### [Connect with Visual Studio](sql-database-connect-query.md)
 ### How to
-#### Create servers
-##### [PowerShell](sql-database-get-started-powershell.md)
-##### [C#](sql-database-get-started-csharp.md)
 ##### Create elastic pools
 ###### [PowerShell](sql-database-elastic-pool-create-powershell.md)
 ###### [C#](sql-database-elastic-pool-create-csharp.md)
-#### Create databases
-##### [PowerShell](sql-database-get-started-powershell.md)
-##### [C#](sql-database-get-started-csharp.md)
 ##### Create firewall rules
 ###### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 ###### [REST API](sql-database-configure-firewall-settings-rest.md)
@@ -245,11 +217,6 @@
 #### [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 #### [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 #### [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-## Delete
-### Database
-#### [PowerShell](sql-database-manage-powershell.md#delete-a-sql-database)
-### Server
-#### [PowerShell](sql-database-manage-powershell.md#delete-a-sql-database-server)
 ## Detect threats
 ### [Threat detection](sql-database-threat-detection-get-started.md)
 ### [Firewall](sql-database-firewall-configure.md)
@@ -273,11 +240,8 @@
 ### Databases
 #### Single databases
 ##### [Azure portal](sql-database-manage-portal.md)
-##### [T-SQL](sql-database-manage-azure-ssms.md#create-and-manage-azure-sql-databases)
-##### [PowerShell](sql-database-manage-powershell.md#create-a-sql-database-blank)
 #### Change service tiers and performance levels
 #### [Azure [portal](sql-database-scale-up.md)
-#### [PowerShell](sql-database-manage-powershell.md#change-the-performance-level-of-a-sql-database)
 #### Sharded databases
 ##### [Migrate existing scaled-out databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md)
 ##### [Manage credentials](sql-database-elastic-scale-manage-credentials.md)
@@ -286,13 +250,9 @@
 ##### [Add a shard](sql-database-elastic-scale-add-a-shard.md)
 ##### [Using the RecoveryManager class to fix shard map problems](sql-database-elastic-database-recovery-manager.md)
 ### Firewall rules
-#### Server
-##### [Azure Portal](sql-database-configure-firewall-settings.md)
-##### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-##### [REST API](sql-database-configure-firewall-settings-rest.md)
-##### [T-SQL](sql-database-configure-firewall-settings-tsql.md#server-level-firewall-rules)
-#### Database
-##### [T-SQL](sql-database-configure-firewall-settings-tsql.md#database-level-firewall-rules)
+#### [Azure Portal](sql-database-configure-firewall-settings.md)
+#### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
+#### [REST API](sql-database-configure-firewall-settings-rest.md)
 ### Jobs
 #### [Service installation](sql-database-elastic-jobs-service-installation.md)
 #### [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
@@ -376,7 +336,8 @@
 ## Query
 ### [SQL Server Management Studio](sql-database-connect-query-ssms.md)
 ### [Muiltishard querying](sql-database-elastic-scale-multishard-querying.md)
-### Cross database queries
+### Cross-database queries
+#### [Overview](sql-database-elastic-query-overview.md)
 #### [Cross database querying with different schemas](sql-database-elastic-query-vertical-partitioning.md)
 #### [Cross database reporting](sql-database-elastic-query-horizontal-partitioning.md)
 #### [Distributed transactions across cloud databases](sql-database-elastic-transactions-overview.md)
@@ -434,6 +395,8 @@
 ### [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
 
 # Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/sql-database/)
+## [Service updates](https://azure.microsoft.com/updates/?service=sql-database)
 ## [SQL Server Tools](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
