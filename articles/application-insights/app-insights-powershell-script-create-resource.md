@@ -19,7 +19,7 @@ ms.author: awills
 # PowerShell script to create an Application Insights resource
 *Application Insights is in preview.*
 
-When you want to monitor a new application - or a new version of an application - with [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/), you set up a new resource in Microsoft Azure. This resource is where the telemetry data from your app is analyzed and displayed. 
+When you want to monitor a new application - or a new version of an application - with [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), you set up a new resource in Microsoft Azure. This resource is where the telemetry data from your app is analyzed and displayed. 
 
 You can automate the creation of a new resource by using PowerShell.
 

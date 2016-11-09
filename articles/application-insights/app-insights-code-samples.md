@@ -19,7 +19,7 @@ ms.author: awills
 # Application Insights: Code Samples and Walkthroughs
 *Application Insights is in preview.*
 
-This is a compilation of code samples that show you how to use [Visual Studio Application Insights](app-insights-overview.md).
+This is a compilation of code samples that show you how to use [Azure Application Insights](app-insights-overview.md).
 
 ## SDK Labs
 [SDK Labs](https://www.myget.org/gallery/applicationinsights-sdk-labs) is a collection of experimental NuGet packages that you can install and uninstall as additions to your Application Insights SDK. Try them out and give us feedback!

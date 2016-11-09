@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor availability and responsiveness of any web site | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 services: application-insights
@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Monitor availability and responsiveness of any web site
-After you've deployed your web app or web site to any server, you can set up web tests to monitor its availability and responsiveness. [Visual Studio Application Insights](app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It alerts you if your application doesn't respond, or responds slowly.
+After you've deployed your web app or web site to any server, you can set up web tests to monitor its availability and responsiveness. [Azure Application Insights](app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It alerts you if your application doesn't respond, or responds slowly.
 
 ![Web test example](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 

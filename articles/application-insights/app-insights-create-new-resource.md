@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Create an Application Insights resource
-Visual Studio Application Insights displays data about your application in a Microsoft Azure *resource*. Creating a new resource is therefore part of [setting up Application Insights to monitor a new application][start]. In many cases, this can be done automatically by the IDE, and that's the recommended way where it's available. But in some cases, you create a resource manually.
+Azure Application Insights displays data about your application in a Microsoft Azure *resource*. Creating a new resource is therefore part of [setting up Application Insights to monitor a new application][start]. In many cases, this can be done automatically by the IDE, and that's the recommended way where it's available. But in some cases, you create a resource manually.
 
 After you have created the resource, you get its instrumentation key and use that to configure the SDK in the application. This sends the telemetry to the resource.
 

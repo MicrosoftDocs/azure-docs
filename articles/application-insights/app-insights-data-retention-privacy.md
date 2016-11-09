@@ -19,7 +19,7 @@ ms.author: awills
 # Data collection, retention and storage in Application Insights
 *Application Insights is in preview.*
 
-When you install [Visual Studio Application Insights][start] SDK in your app, it sends telemetry about your app to the Cloud. Naturally, responsible developers want to know exactly what data is sent, what happens to the data, and how they can keep control of it. In particular, could sensitive data be sent, where is it stored, and how secure is it? 
+When you install [Azure Application Insights][start] SDK in your app, it sends telemetry about your app to the Cloud. Naturally, responsible developers want to know exactly what data is sent, what happens to the data, and how they can keep control of it. In particular, could sensitive data be sent, where is it stored, and how secure is it? 
 
 First, the short answer:
 
@@ -31,7 +31,7 @@ First, the short answer:
 The rest of this article elaborates more fully on these answers. It's designed to be self-contained, so that you can show it to colleagues who aren't part of your immediate team.
 
 ## What is Application Insights?
-[Visual Studio Application Insights][start] is a service provided by Microsoft that helps you improve the performance and usability of your live application. It monitors your application all the time it's running, both during testing and after you've published or deployed it. Application Insights creates charts and tables that show you, for example, what times of day you get most users, how responsive the app is, and how well it is served by any external services that it depends on. If there are crashes, failures or performance issues, you can search through the telemetry data in detail to diagnose the cause. And the service will send you emails if there are any changes in the availability and performance of your app.
+[Azure Application Insights][start] is a service provided by Microsoft that helps you improve the performance and usability of your live application. It monitors your application all the time it's running, both during testing and after you've published or deployed it. Application Insights creates charts and tables that show you, for example, what times of day you get most users, how responsive the app is, and how well it is served by any external services that it depends on. If there are crashes, failures or performance issues, you can search through the telemetry data in detail to diagnose the cause. And the service will send you emails if there are any changes in the availability and performance of your app.
 
 In order to get this functionality, you install an Application Insights SDK in your application, which becomes part of its code. When your app is running, the SDK monitors its operation and sends telemetry to the Application Insights service. This is a cloud service hosted by [Microsoft Azure](http://azure.com). (But Application Insights works for any applications, not just those that are hosted in Azure.)
 

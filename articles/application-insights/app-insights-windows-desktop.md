@@ -19,7 +19,7 @@ ms.author: awills
 # Monitoring usage and performance in Windows Desktop apps
 *Application Insights is in preview.*
 
-[Visual Studio Application Insights](app-insights-overview.md) and [HockeyApp](https://hockeyapp.net) let you monitor your deployed application for usage and performance.
+[Azure Application Insights](app-insights-overview.md) and [HockeyApp](https://hockeyapp.net) let you monitor your deployed application for usage and performance.
 
 > [!IMPORTANT]
 > We recommend [HockeyApp](https://hockeyapp.net) to distribute and monitor desktop and device apps. With HockeyApp, you can manage distribution, live testing, and user feedback, as well as monitor usage and crash reports. You can also [export and query your telemetry with Analytics](app-insights-hockeyapp-bridge-app.md).

@@ -19,7 +19,7 @@ ms.author: awills
 # Manage pricing and quota for Application Insights
 *Application Insights is in preview.*
 
-[Pricing][pricing] for [Visual Studio Application Insights][start] is based on data volume per application. There's a substantial Free tier in which you get most of the features with some limitations.
+[Pricing][pricing] for [Azure Application Insights][start] is based on data volume per application. There's a substantial Free tier in which you get most of the features with some limitations.
 
 Each Application Insights resource is charged as a separate service, and contributes to the bill for your subscription to Azure.
 

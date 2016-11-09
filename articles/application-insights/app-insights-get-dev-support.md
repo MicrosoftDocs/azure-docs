@@ -17,7 +17,7 @@ ms.author: albulank
 
 ---
 # How to get technical support from Application Insights development team
-When you have a technical issue with [Visual Studio Application Insights](app-insights-overview.md), here are your options for getting help:
+When you have a technical issue with [Azure Application Insights](app-insights-overview.md), here are your options for getting help:
 
 ## 1. Check the documents
 * Missing data? Check: [sampling](app-insights-sampling.md), [quotas and throttling](app-insights-pricing.md).
