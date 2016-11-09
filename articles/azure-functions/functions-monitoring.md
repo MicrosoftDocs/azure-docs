@@ -30,14 +30,44 @@ ms.author: wesmc
 Content in progress...
 
 
-## Monitoring log files from the command line
-
-You can use the Log Tailing with the Azure Command Line Interface (CLI)  capabilities which work for Functions: (in ASM)
-
-	azure site log tail -v <site-name>
+## Monitoring functions by streaming log files
 
 
+You can stream log files to a local workstation using PowerShell or the Azure Command Line Interface (CLI).
 
+#### Streaming function app log file with the Azure CLI
+
+To get started, [install the Azure CLI](../../xplat-cli-install.md) and [connect to your Azure subscription](../../xplat-cli-connect.md).
+
+Use the following command to enable Azure CLI Service Management mode commands.
+
+	azure config mode asm
+
+In order to do this,   capabilities which work for Functions: (in ASM)
+
+	azure site log tail -v <function app name>
+
+#### Streaming function app log file with PowerShell
+
+To get started, [install and configure Azure PowerShell](../../powershell-install-configure.md).
+
+Add your Azure account by running the following command:
+
+	PS C:\> Add-AzureAccount
+
+If you have multiple subscriptions, you can list them by name with the following command to see if the correct subscription is the currently selected based on `IsCurrent` property:
+
+	PS C:\> Get-AzureSubscription
+
+If you need to set the active subscription to the one containing your function app, use the following command:
+
+	PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
+
+Stream the logs to your PowerShell session with the following command:
+
+	PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+
+For more information refer to [How to: Stream logs for web apps](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs). 
 
 ## Next steps
 For more information, see the following resources:
