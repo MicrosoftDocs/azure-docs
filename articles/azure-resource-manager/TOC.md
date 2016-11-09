@@ -52,8 +52,10 @@
 ### [View deployment operations with Azure CLI](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [View deployment operations with REST API](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 # Reference
+## [PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
+## [Azure CLI](https://docs.microsoft.com/cli/azure)
+## [Java](https://docs.microsoft.com/java/api)
+## [.NET API](https://docs.microsoft.com/dotnet/api)
 ## [Template schemas](https://github.com/Azure/azure-resource-manager-schemas)
-## [PowerShell cmdlets](https://msdn.microsoft.com/library/dn757692(v=azure.200).aspx)
-## [REST API](https://msdn.microsoft.com/en-us/library/azure/dn790568)
-## [.NET client library](https://msdn.microsoft.com/en-us/library/azure/mt418626)
 ## [Throttling requests](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [REST](https://docs.microsoft.com/rest/api/resources/)

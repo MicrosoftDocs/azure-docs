@@ -53,10 +53,10 @@
 # Reference
 ## [Pricing details](service-bus-pricing-billing.md)
 ## [Samples](service-bus-samples.md)
-## [.NET API reference](https://msdn.microsoft.com/library/azure/jj933424)
-## [REST API reference](https://msdn.microsoft.com/library/azure/hh780717)
 ## [Exceptions](service-bus-messaging-exceptions.md)
 ## [Quotas](service-bus-quotas.md)
+## [.NET](https://docs.microsoft.com/dotnet/api/)
+## [REST](https://docs.microsoft.com/rest/api/servicebus/)
 
 # Resources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
