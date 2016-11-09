@@ -87,13 +87,10 @@
 ### [Guest OS Family 1 retirement notice](cloud-services-guestos-family1-retirement.md)
 
 # Reference
-## [Cloud Services REST API](https://msdn.microsoft.com/library/azure/ee460812)
+## [.NET](https://msdn.microsoft.com/library)
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
 
 # Related
 ## [Service Updates](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment)
-
-
-
