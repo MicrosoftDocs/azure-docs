@@ -142,9 +142,11 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 
 The following commands can be used to list jobs, get job details, and cancel jobs:
 
-      azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job Id>"
-      azure datalake analytics job list "<Data Lake Analytics Account Name>"
+    ```
+    azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job Id>"
+    azure datalake analytics job list "<Data Lake Analytics Account Name>"
     azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>"
+    ```
 
 After the job is completed, you can use the following cmdlets to list the file, and download the file:
 

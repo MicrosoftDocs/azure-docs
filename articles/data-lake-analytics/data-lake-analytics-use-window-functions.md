@@ -46,9 +46,9 @@ This tutorial uses two datasets:
   
     QueryLog represents a list of what people searched for in search engine. Each query log includes:
   
-        - Query - What the user was searching for.
-        - Latency - How fast the query came back to the user in milliseconds.
-        - Vertical - What kind of content the user was interested in (Web links, Images, Videos).
+    - Query - What the user was searching for.
+    - Latency - How fast the query came back to the user in milliseconds.
+    - Vertical - What kind of content the user was interested in (Web links, Images, Videos).
   
     Copy and paste the following scrip into your U-SQL project for constructing the QueryLog rowset:
   
