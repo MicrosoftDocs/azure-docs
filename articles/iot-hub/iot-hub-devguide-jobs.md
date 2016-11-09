@@ -151,8 +151,8 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-jobs-tutorial]: iot-hub-schedule-jobs.md
-[lnk-c2d-methods]: iot-hub-c2d-methods.md
+[lnk-jobs-tutorial]: iot-hub-node-node-schedule-jobs.md
+[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md
