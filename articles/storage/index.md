@@ -7,7 +7,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account/ ">
+        <a href="/azure/storage/storage-create-storage-account/ ">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

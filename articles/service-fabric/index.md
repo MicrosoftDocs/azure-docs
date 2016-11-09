@@ -7,7 +7,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-overview">
+        <a href="/azure/service-fabric/service-fabric-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-create-your-first-application-in-visual-studio">
+        <a href="/azure/service-fabric/service-fabric-create-your-first-application-in-visual-studio">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-create-your-first-linux-application-with-csharp">
+        <a href="/azure/service-fabric/service-fabric-create-your-first-linux-application-with-csharp">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +97,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-create-your-first-linux-application-with-java">
+        <a href="/azure/service-fabric/service-fabric-create-your-first-linux-application-with-java">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

@@ -7,7 +7,7 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/windows">
+        <a href="/azure/virtual-machines/windows">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux">
+        <a href="/azure/virtual-machines/linux">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

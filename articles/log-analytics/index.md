@@ -7,7 +7,7 @@ Log Analytics is a service in Operations Management Suite (OMS) that helps you c
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview">
+        <a href="/azure/log-analytics/log-analytics-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ Log Analytics is a service in Operations Management Suite (OMS) that helps you c
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-get-started">
+        <a href="/azure/log-analytics/log-analytics-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -49,16 +49,16 @@ Log Analytics is a service in Operations Management Suite (OMS) that helps you c
 ##Automation
 
 ###Data Collector API
-[Add Post JSON data to the Log Analytics Repository](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-data-collector-api/) 
+[Add Post JSON data to the Log Analytics Repository](/azure/log-analytics/log-analytics-data-collector-api/) 
 
 ###PowerShell 
-[Manage Log Analytics using PowerShell](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-powershell-workspace-configuration/) 
+[Manage Log Analytics using PowerShell](/azure/log-analytics/log-analytics-powershell-workspace-configuration/) 
 
 ###Log Search API
-[Use the Log Analytics Search REST API in OMS](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-api/) 
+[Use the Log Analytics Search REST API in OMS](/azure/log-analytics/log-analytics-log-search-api/) 
 
 ###Alert API
-[Create and Manage alerts in OMS](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-api-alerts/) 
+[Create and Manage alerts in OMS](/azure/log-analytics/log-analytics-api-alerts/) 
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

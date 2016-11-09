@@ -7,7 +7,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search/">
+        <a href="/azure/search/search-what-is-azure-search/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/search/search-create-service-portal/">
+        <a href="/azure/search/search-create-service-portal/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/search/search-sku-tier/">
+        <a href="/azure/search/search-sku-tier/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

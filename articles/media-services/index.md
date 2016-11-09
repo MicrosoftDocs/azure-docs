@@ -7,7 +7,7 @@ Microsoft Azure Media Services is an extensible cloud-based platform that enable
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/media-services/media-services-overview/">
+        <a href="/azure/media-services/media-services-overview/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Microsoft Azure Media Services is an extensible cloud-based platform that enable
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/media-services/media-services-release-notes/">
+        <a href="/azure/media-services/media-services-release-notes/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

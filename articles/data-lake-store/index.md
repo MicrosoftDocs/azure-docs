@@ -7,7 +7,7 @@ Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal/">
+        <a href="/azure/data-lake-store/data-lake-store-get-started-portal/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -48,14 +48,14 @@ Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data 
 
 ##Develop
 
-###[REST](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-rest-api/)
+###[REST](/azure/data-lake-store/data-lake-store-get-started-rest-api/)
 
-###[Java SDK](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-java-sdk/)
+###[Java SDK](/azure/data-lake-store/data-lake-store-get-started-java-sdk/)
 
-###[PowerShell](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-powershell/)
+###[PowerShell](/azure/data-lake-store/data-lake-store-get-started-powershell/)
 
-###[.NET](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-net-sdk/)
+###[.NET](/azure/data-lake-store/data-lake-store-get-started-net-sdk/)
 
-###[Azure CLI](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-cli/)
+###[Azure CLI](/azure/data-lake-store/data-lake-store-get-started-cli/)
 
-###[Node.js](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-manage-use-nodejs/)
+###[Node.js](/azure/data-lake-store/data-lake-store-manage-use-nodejs/)

@@ -7,7 +7,7 @@ Azure KeyVault helps safeguard cryptographic keys and secrets used by cloud appl
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started/">
+        <a href="/azure/key-vault/key-vault-get-started/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

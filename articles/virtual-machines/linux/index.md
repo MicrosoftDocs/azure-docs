@@ -115,7 +115,7 @@ Microsoft Azure is a growing collection of integrated public cloud services incl
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/virtual-machines-linux-quick-create-cli">
+        <a href="/azure/virtual-machines-linux-quick-create-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

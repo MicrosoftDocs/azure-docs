@@ -79,7 +79,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/documentdb/documentdb-java-application/">
+        <a href="/azure/documentdb/documentdb-java-application/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +97,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/documentdb/documentdb-python-application/">
+        <a href="/azure/documentdb/documentdb-python-application/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

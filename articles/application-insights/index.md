@@ -7,7 +7,7 @@ Visual Studio Application Insights is an extensible analytics service that monit
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview">
+        <a href="/azure/application-insights/app-insights-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

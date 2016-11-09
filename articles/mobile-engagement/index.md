@@ -7,7 +7,7 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/mobile-engagement/mobile-engagement-overview/">
+        <a href="/azure/mobile-engagement/mobile-engagement-overview/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/mobile-engagement/mobile-engagement-key-features/">
+        <a href="/azure/mobile-engagement/mobile-engagement-key-features/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -66,12 +66,12 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
 
 ##Get Started
 
-###[iOS](https://docs.microsoft.com/en-us/azure/mobile-engagement/mobile-engagement-ios-get-started/) 
+###[iOS](/azure/mobile-engagement/mobile-engagement-ios-get-started/) 
 
-###[Windows Universal](https://docs.microsoft.com/en-us/azure/mobile-engagement/mobile-engagement-windows-store-dotnet-get-started/)
+###[Windows Universal](/azure/mobile-engagement/mobile-engagement-windows-store-dotnet-get-started/)
 
-###[Windows Phone Silverlight](https://docs.microsoft.com/en-us/azure/mobile-engagement/mobile-engagement-windows-phone-get-started/)
+###[Windows Phone Silverlight](/azure/mobile-engagement/mobile-engagement-windows-phone-get-started/)
 
-###[Android](https://docs.microsoft.com/en-us/azure/mobile-engagement/mobile-engagement-android-get-started/)
+###[Android](/azure/mobile-engagement/mobile-engagement-android-get-started/)
 
 ##Reference

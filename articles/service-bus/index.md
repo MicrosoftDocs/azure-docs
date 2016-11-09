@@ -25,7 +25,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/SQL-Data-Warehouse/sql-data-warehouse-get-started-provision">
+        <a href="/azure/SQL-Data-Warehouse/sql-data-warehouse-get-started-provision">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/service-bus/service-bus-dotnet-hybrid-app-using-service-bus-relay">
+        <a href="/azure/service-bus/service-bus-dotnet-hybrid-app-using-service-bus-relay">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/en-us/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision-powershell">
+        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
