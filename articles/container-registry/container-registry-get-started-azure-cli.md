@@ -19,7 +19,7 @@ ms.date: 11/02/2016
 ms.author: stevelas
 ---
 # Create a container registry using the Azure CLI
-Use commands in the Azure CLI 2.0 Preview to create a container registry and manage its settings from your Linux, Mac, or Windows computer. You can also create and manage container registries using the [Azure portal](container-registry-get-started-portal.md) or programmatically with the Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376).
+Use commands in the [Azure CLI 2.0 Preview](https://github.com/Azure/azure-cli) to create a container registry and manage its settings from your Linux, Mac, or Windows computer. You can also create and manage container registries using the [Azure portal](container-registry-get-started-portal.md) or programmatically with the Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376).
 
 
 * For background and concepts, see [What is Azure Container Registry?](container-registry-intro.md)
@@ -31,10 +31,10 @@ Use commands in the Azure CLI 2.0 Preview to create a container registry and man
 > 
 
 ## Prerequisites
-* **Azure CLI 2.0 Preview** - To install and get started with the `az acr` commands, see the [installation instructions](container-registry-get-started-azure-cli-install.md). 
-* **Resource group** - Create a new resource group before creating a container registry, or use an existing resource group. Make sure the resource group is in a location where the Container Registry service is available. *For private preview, the service is available in the South Central US region.* To create a resource group using the CLI 2.0 Preview, see [the CLI 2.0 Preview samples](https://github.com/Azure/azure-cli-samples/tree/master/arm). 
-* **Storage account** (optional) - Create a storage account to back the container registry in the same location. If you don't specify a storage account when creating a registry with `az acr create`, the command creates one for you. To create a storage account using the CLI 2.0 Preview, see [the CLI 2.0 Preview samples](https://github.com/Azure/azure-cli-samples/tree/master/storage).
-* **Service principal** (optional) - When you create a registry with the CLI, by default it is not set up for access. Depending on your needs and scenarios, you can assign an existing Azure Active Directory service principal (or create and assign a new one), or enable an admin user account. See the sections later in this article. For more information about registry access, see [Authenticate with the container registry](container-registry-authenticate.md). 
+* **Azure CLI 2.0 Preview** - To install and get started with the CLI 2.0 Preview, see the [installation instructions](https://github.com/Azure/azure-cli/blob/master/README.rst). Log in to your Azure subscription by running `az login`.
+* **Resource group** - Create a new [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) before creating a container registry, or use an existing resource group. Make sure the resource group is in a location where the Container Registry service is [available](https://azure.microsoft.com/regions/services/). To create a resource group using the CLI 2.0 Preview, see [the CLI 2.0 Preview samples](https://github.com/Azure/azure-cli-samples/tree/master/arm). 
+* **Storage account** (optional) - Create a standard Azure [storage account](../storage/storage-introduction.md) to back the container registry in the same location. If you don't specify a storage account when creating a registry with `az acr create`, the command creates one for you. To create a storage account using the CLI 2.0 Preview, see [the CLI 2.0 Preview samples](https://github.com/Azure/azure-cli-samples/tree/master/storage).
+* **Service principal** (optional) - When you create a registry with the CLI, by default it is not set up for access. Depending on your needs and scenarios, you can assign an existing Azure Active Directory service principal to a registry (or create and assign a new one), or enable the registry's admin user account. See the sections later in this article. For more information about registry access, see [Authenticate with the container registry](container-registry-authentication.md). 
 
 ## Create a container registry
 Run the `az acr create` command to create a container registry. 
@@ -76,7 +76,7 @@ Take special note:
 * `loginServer` - The fully qualified name you specify to [log in to the registry](container-registry-authentication.md). In this example, the name is **myregistry.contoso.exp.azurecr.io** (all lowercase).
 
 ## Assign a service principal
-Use CLI 2.0 Preview commands to assign an Azure Active Directory service principal to a registry, as shown in the following examples. 
+Use CLI 2.0 Preview commands to assign an Azure Active Directory service principal to a registry, as shown in the following examples. The service principal in these examples is assigned the Owner role, but you can assign [other roles](../active-directory/role-based-access-control-configure/.md) if you want.
 
 ### Create a service principal and assign access to the registry
 In the following command, a new service principal is assigned Owner role access to the registry identifier passed with the `--scopes` parameter. Specify a strong password with the `--password` parameter.
@@ -116,6 +116,9 @@ az acr update -n myRegistry --disable-admin
 
 ## List images and tags
 Use the **az acr** CLI commands to query the images and tags in a repository. Container Registry doesn't currently support `docker search`, nor is there a list of images and tags in the portal.
+
+> [!NOTE]
+> At this time, Container Registry does not support the `docker search` command to query for images and tags.
 
 
 ### List repositories

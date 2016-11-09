@@ -33,23 +33,22 @@ For background and concepts, see [What is Azure Container Registry?](container-r
 2. Search the marketplace for **container registry**.
 3. Select **Container Registry (preview)**, with publisher **Microsoft**. 
     ![Container Registry service in Azure Marketplace](./media/container-registry-get-started-portal/container-registry-marketplace.png)
-4. Click **Create**.
+4. Click **Create**. The **Container Registry** blade appears
+    ![Container registry settings](./media/container-registry-get-started-portal/container-registry-settings.png)
 5. In the **Container Registry** blade, enter the following information. Click **Create** when you are done.
    
     a. **Registry name** - A globally unique top-level domain name for your specific registry. In this example, the registry name is *myRegistry01*, but substitute a unique name of your own. The name can contain only letters and numbers.
    
-    b. **Resource group** - Select an existing [resource group](../resource-group-overview.md#resource-groups) or type the name for a new one. 
+    b. **Resource group** - Select an existing [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. 
    
-    c. **Location** - Select an Azure datacenter location where the service is available, such as **South Central US**. 
+    c. **Location** - Select an Azure datacenter location where the service is [available](https://azure.microsoft.com/regions/services/), such as **South Central US**. 
    
     d. **Admin user** - If you want, enable an admin user to access the registry. You can change this setting after creating the registry.
    
    > [!IMPORTANT]
-   > In addition to providing access through an admin user account, container registries support authentication backed by Azure Active Directory service principals. For more information and considerations, see [Authenticate with a container registry](container-registry-authenticate.md).
+   > In addition to providing access through an admin user account, container registries support authentication backed by Azure Active Directory service principals. For more information and considerations, see [Authenticate with a container registry](container-registry-authentication.md.md).
    >
-   
-    e. **Storage account** - Use the default setting to create a new storage account, or select an existing storage account in the same location.
-        ![Container registry settings](./media/container-registry-get-started-portal/container-registry-settings.png)
+    e. **Storage account** - Use the default setting to create a new [storage account](../storage/storage-introduction.md), or select an existing storage account in the same location.
 
 ## Manage registry settings
 After creating the registry, find the registry settings by starting at the **Container Registries** blade in the portal. For example, you might need the settings to log in to your registry, or you might want to enable or disable the admin user.
