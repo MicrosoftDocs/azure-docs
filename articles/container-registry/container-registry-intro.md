@@ -33,7 +33,7 @@ For background about Docker and containers, see:
 * [Azure Container Registry preview announcement](https://azure.microsoft.com/blog/azure-container-registry-preview/) 
 
 ## Key concepts
-* **Registry** - You can create one or more container registries in your Azure subscription. Each registry is backed by a standard Azure [storage account](https://azure.microsoft.com/en-us/documentation/articles/storage-introduction/) in the same location. 
+* **Registry** - You can create one or more container registries in your Azure subscription. Each registry is backed by a standard Azure [storage account](../storage/storage-introduction.md) in the same location. 
 
   Configure your development workflows and deployment targets to access container images in your registries. Registries are created in a root domain based on the [Azure Active Directory tenant](active-directory-howto-tenant.md) for your subscription. For example, if you have an organizational account in the Contoso domain, your registry URL is of the form `myregistry.contoso.azurecr.io`.
 * **Repository** - A registry consists of one or more repositories, which are collections of related images. Azure Container Registry supports multilevel repository namespaces. This enables you to group collections of images related to a specific app, or a collection of apps to specific development or operational groups. For example:
