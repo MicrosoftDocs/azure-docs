@@ -72,8 +72,8 @@ So the following query retrieves the whole set of device twins:
 
 > [!NOTE]
 > [IoT Hub SDKs][lnk-hub-sdks] support paging of large results.
-> 
-> 
+>
+>
 
 IoT Hub allows you to retrieve device twins filtering with arbitrary conditions. For instance,
 
@@ -128,7 +128,7 @@ Here is an example of a simple query:
         while (query.HasMoreResults)
         {
             var page = await query.GetNextAsTwinAsync();
-            foreach (var twin in page) 
+            foreach (var twin in page)
             {
                 // do work on twin object
             }
@@ -178,7 +178,7 @@ Logically,
                 ...                                                                 
             },
             "jobs": [
-                { 
+                {
                     "deviceId": "myDeviceId",
                     "jobId": "myJobId",    
                     "jobType": "scheduleTwinUpdate",            
@@ -243,7 +243,7 @@ The **WHERE <filter_condition>** clause is optional. It specifies the condition(
 The allowed conditions are described in section [Expressions and conditions][lnk-query-expressions].
 
 ## SELECT clause
-The SELECT clause (**SELECT <select_list>**) is mandatory and specifies what values will be retrieved from the query. It specifies the JSON values to be used to generate new JSON objects 
+The SELECT clause (**SELECT <select_list>**) is mandatory and specifies what values will be retrieved from the query. It specifies the JSON values to be used to generate new JSON objects
 For each element of the filtered (and optionally grouped) subset of the FROM collection, the projection phase generates a new JSON object, constructed with the values specified in the SELECT clause.
 
 This is the grammar of the SELECT clause:
@@ -287,7 +287,7 @@ The formal syntax for GROUP BY is:
             attribute_name
             | < group_by_element > '.' attribute_name
 
-where **attribute_name** refers to any property of the JSON document in the FROM collection. 
+where **attribute_name** refers to any property of the JSON document in the FROM collection.
 
 Currently, the GROUP BY clause is only supported when querying twins.
 
@@ -311,10 +311,10 @@ The syntax for expressions is:
 
         <constant> ::=
             <undefined_constant>
-            | <null_constant> 
-            | <number_constant> 
-            | <string_constant> 
-            | <array_constant> 
+            | <null_constant>
+            | <number_constant>
+            | <string_constant>
+            | <array_constant>
 
         <undefined_constant> ::= undefined
         <null_constant> ::= null
@@ -347,7 +347,7 @@ Learn how to execute queries in your apps using [IoT Hub SDKs][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
 [lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: iot-hub-devguide-query-language.md#getting-started-with-twin-queries
+[lnk-query-getstarted]: iot-hub-devguide-query-language.md#Getting-started-with-device-twin-queries
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-jobs]: iot-hub-devguide-jobs.md
