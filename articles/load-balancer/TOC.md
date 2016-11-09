@@ -32,15 +32,17 @@
 ## [Configure multiple VIPs for cloud service](load-balancer-multivip.md)
 ## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)
+
 # Reference
 ## [Resource Manager API](https://go.microsoft.com/fwlink/p/?LinkId=536405)
 ## [Resource Manager PowerShell CmdLets](https://go.microsoft.com/fwlink/p/?LinkId=536407)
 ## [Using Network Resources](https://go.microsoft.com/fwlink/p/?LinkId=536403)
+
 # Related
-## [Application Gateway](../application-gateway/index.md)
-## [Express Route](../expressroute/index.md)
-## [Virtual Network](../virtual-network/index.md)
-## [VPN Gateway](../vpn-gateway/index.md)
-## [Virtual Machine](../virtual-machines/index.md)
-## [Traffic Manager](../traffic-manager/index.md)
-## [DNS](../dns/index.md)
+## [Application Gateway](/azure/application-gateway/)
+## [Express Route](/azure/expressroute/)
+## [Virtual Network](/azure/virtual-network/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [Virtual Machine](/azure/virtual-machines/)
+## [Traffic Manager](/azure/traffic-manager/)
+## [DNS](/azure/dns/)
