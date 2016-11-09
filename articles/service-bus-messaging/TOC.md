@@ -64,4 +64,4 @@
 ## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
-### [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
+## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
