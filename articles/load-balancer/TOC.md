@@ -42,5 +42,5 @@
 ## [Virtual Network](../virtual-network/index.md)
 ## [VPN Gateway](../vpn-gateway/index.md)
 ## [Virtual Machine](../virtual-machines/index.md)
-## [Traffic Manager](../traffic-manager/)
-## [DNS](../dns/)
+## [Traffic Manager](../traffic-manager/index.md)
+## [DNS](../dns/index.md)
