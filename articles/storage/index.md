@@ -67,16 +67,16 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 ##Reference
 
 ###.NET 
-[Storage Managed Reference API](https://docs.microsoft.com/dotnet/api/) 
+[Storage Managed Reference API](/dotnet/api/) 
 
 ###REST 
-[Storage REST API Reference](https://docs.microsoft.com/rest/api/)  
+[Storage REST API Reference](/rest/api/)  
 
 ###Java 
-[Storage in Java Reference](https://docs.microsoft.com/java/api/)
+[Storage in Java Reference](/java/api/)
 
 ###Azure CLI 
-[Storage using Azure CLI Reference](https://docs.microsoft.com/cli/azure/)
+[Storage using Azure CLI Reference](/cli/azure/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

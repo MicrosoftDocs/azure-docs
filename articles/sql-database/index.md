@@ -7,7 +7,7 @@ Azure SQL Database is a TBD...
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/sql-database/">
+        <a href="/azure/sql-database/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

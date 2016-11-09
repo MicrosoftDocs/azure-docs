@@ -7,7 +7,7 @@ Load Balancer is a TBD...
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/Load-Balancer/">
+        <a href="/azure/Load-Balancer/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

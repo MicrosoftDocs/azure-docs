@@ -49,16 +49,16 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
 ##Reference
 
 ###.NET 
-[Virtual Machines Managed Reference API](https://docs.microsoft.com/dotnet/api/) 
+[Virtual Machines Managed Reference API](/dotnet/api/) 
 
 ###REST 
-[Virtual Machine REST API Reference](https://docs.microsoft.com/rest/api/) 
+[Virtual Machine REST API Reference](/rest/api/) 
 
 ###Azure CLI 
-[Azure CLI for Virtual Machines](https://docs.microsoft.com/cli/azure/)
+[Azure CLI for Virtual Machines](/cli/azure/)
 
 ###Java 
-[Virtual Machines PowerShell Cmdlet](https://docs.microsoft.com/java/api/)
+[Virtual Machines PowerShell Cmdlet](/java/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

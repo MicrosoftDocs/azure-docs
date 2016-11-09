@@ -7,7 +7,7 @@ Virtual Network is a TBD...
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/Virtual-Network/">
+        <a href="/azure/Virtual-Network/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

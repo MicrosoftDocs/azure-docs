@@ -7,7 +7,7 @@ Azure Batch is a TBD...
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/Batch/">
+        <a href="/azure/Batch/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

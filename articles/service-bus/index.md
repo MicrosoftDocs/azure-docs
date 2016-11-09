@@ -7,7 +7,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/service-bus">
+        <a href="/azure/service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -85,13 +85,13 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
 ##Reference
 
 ###.NET
-[Service Bus Managed Reference API](https://docs.microsoft.com/dotnet/api/) 
+[Service Bus Managed Reference API](/dotnet/api/) 
 
 ###REST 
-[Service Bus REST API Reference](https://docs.microsoft.com/rest/api/)  
+[Service Bus REST API Reference](/rest/api/)  
 
 #Java 
-[Service Bus in Java Reference](https://docs.microsoft.com/java/api/)
+[Service Bus in Java Reference](/java/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

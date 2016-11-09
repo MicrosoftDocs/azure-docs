@@ -7,7 +7,7 @@ API Management helps organizations publish APIs to external, partner and interna
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/api-management/api-management-key-concepts">
+        <a href="/azure/api-management/api-management-key-concepts">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -121,7 +121,7 @@ API Management helps organizations publish APIs to external, partner and interna
 ##Reference
 
 ###REST
-[API Management REST API Reference](https://docs.microsoft.com/rest/api/apimanagement/)
+[API Management REST API Reference](/rest/api/apimanagement/)
 
 ###PowerShell
 [API Management PowerShell cmdlet reference (ARM)](/powershell/resourcemanager)

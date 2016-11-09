@@ -67,13 +67,13 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 ##Reference
 
 ###REST 
-[Search REST API Reference](https://docs.microsoft.com/rest/api/) 
+[Search REST API Reference](/rest/api/) 
 
 ###.NET 
-[Search Managed Reference API](https://docs.microsoft.com/dotnet/api/) 
+[Search Managed Reference API](/dotnet/api/) 
 
 ###Java 
-[KeySearch in Java Reference](https://docs.microsoft.com/java/api/)
+[KeySearch in Java Reference](/java/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

@@ -7,7 +7,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview">
+        <a href="/azure/virtual-machines/virtual-machines-windows-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hero-tutorial">
+        <a href="/azure/virtual-machines/virtual-machines-windows-hero-tutorial">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-create">
+        <a href="/azure/virtual-machines/virtual-machines-windows-ps-create">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +97,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
         </a>
     </li>
     <li>
-        <a href="https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-dotnet-core-1-landing">
+        <a href="/azure/virtual-machines/virtual-machines-windows-dotnet-core-1-landing">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -121,32 +121,32 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
 ##Reference
 
 ###.NET
-[Virtual Machine Managed Reference API](https://docs.microsoft.com/dotnet/api/)
+[Virtual Machine Managed Reference API](/dotnet/api/)
 
-[Network Managed Reference API](https://docs.microsoft.com/dotnet/api/)
+[Network Managed Reference API](/dotnet/api/)
 
-[Storage Managed Reference API](https://docs.microsoft.com/dotnet/api/)
+[Storage Managed Reference API](/dotnet/api/)
 
 ###Azure CLI
-[Windows Virtual Machine using Azure CLI](https://docs.microsoft.com/cli/azure/)
+[Windows Virtual Machine using Azure CLI](/cli/azure/)
 
 ###PowerShell
-[Windows Virtual Machine using PowerShell](https://docs.microsoft.com/powershell/)
+[Windows Virtual Machine using PowerShell](/powershell/)
 
 ###Java SDK
-[Windows Virtual Machine using Java](https://docs.microsoft.com/java/api/)
+[Windows Virtual Machine using Java](/java/api/)
 
 ###Rest (COMPUTE)
-[Compute REST API Reference](  https://docs.microsoft.com/rest/api/ )
+[Compute REST API Reference](  /rest/api/ )
 
 ###REST (Network)
-[Network REST API Reference for Network](  https://docs.microsoft.com/rest/api/)
+[Network REST API Reference for Network](  /rest/api/)
 
 ###REST (Storage)
-[Storage Machine REST API Reference](  https://docs.microsoft.com/rest/api/)
+[Storage Machine REST API Reference](  /rest/api/)
 
 ###REST (VM Scale Sets)
-[Virtual Machine Scale Sets REST API Reference](  https://docs.microsoft.com/rest/api/)
+[Virtual Machine Scale Sets REST API Reference](  /rest/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

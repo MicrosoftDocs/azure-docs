@@ -7,7 +7,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
 
 <ul class="panelContent cardsFTitle">
 	<li>
-        <a href="https://docs.microsoft.com/azure/Azure-Resource-Manager/">
+        <a href="/azure/Azure-Resource-Manager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

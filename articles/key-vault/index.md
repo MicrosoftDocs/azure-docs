@@ -49,16 +49,16 @@ Azure KeyVault helps safeguard cryptographic keys and secrets used by cloud appl
 ##Reference
 
 ###.NET 
-[KeyVault Managed Reference API](https://docs.microsoft.com/dotnet/api/) 
+[KeyVault Managed Reference API](/dotnet/api/) 
 
 ###REST 
-[KeyVault REST API Reference](https://docs.microsoft.com/rest/api/) 
+[KeyVault REST API Reference](/rest/api/) 
 
 ###Azure CLI 
-[KeyVault using Azure CLI](https://docs.microsoft.com/cli/azure/)
+[KeyVault using Azure CLI](/cli/azure/)
 
 ###Java 
-[KeyVault in Java Reference](https://docs.microsoft.com/java/api/)
+[KeyVault in Java Reference](/java/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

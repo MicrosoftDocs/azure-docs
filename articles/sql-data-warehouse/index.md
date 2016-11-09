@@ -67,7 +67,7 @@ Azure SQL Data Warehouse is a cloud-based, scale-out database capable of process
 ##Reference
 
 ###.NET 
-[SQL Data Warehouse Managed Reference API](https://docs.microsoft.com/dotnet/api/)
+[SQL Data Warehouse Managed Reference API](/dotnet/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

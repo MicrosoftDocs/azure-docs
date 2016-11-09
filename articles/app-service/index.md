@@ -122,7 +122,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
 [App Service REST API Reference](/rest/api/appservice)
 
 ###Java
-[App Service in Java Reference](https://docs.microsoft.com/java/api/)
+[App Service in Java Reference](/java/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

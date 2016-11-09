@@ -7,7 +7,7 @@ Web Apps is a TBD...
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/Web-Apps/">
+        <a href="/azure/Web-Apps/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

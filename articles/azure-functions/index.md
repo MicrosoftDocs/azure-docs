@@ -7,7 +7,7 @@ Azure Functions are a TBD...
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/Azure-Functions/">
+        <a href="/azure/Azure-Functions/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

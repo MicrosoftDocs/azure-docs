@@ -31,10 +31,10 @@ Visual Studio Application Insights is an extensible analytics service that monit
 ##Reference
 
 ###.NET 
-[Application Insights Managed Reference API](https://docs.microsoft.com/dotnet/api/)
+[Application Insights Managed Reference API](/dotnet/api/)
 
 ###REST 
-[Application Insights REST API Reference](https://docs.microsoft.com/rest/api/)
+[Application Insights REST API Reference](/rest/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

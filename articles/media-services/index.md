@@ -67,10 +67,10 @@ Microsoft Azure Media Services is an extensible cloud-based platform that enable
 ##Reference
 
 ###REST
-[Media Services REST API Reference](https://docs.microsoft.com/rest/api/)
+[Media Services REST API Reference](/rest/api/)
 
 ###.NET
-[Media Services Managed Reference API](https://docs.microsoft.com/dotnet/api/)
+[Media Services Managed Reference API](/dotnet/api/)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

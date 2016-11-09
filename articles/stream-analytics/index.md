@@ -7,7 +7,7 @@ Stream Analytics is a TBD.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://docs.microsoft.com/azure/Stream-Analytics/">
+        <a href="/azure/Stream-Analytics/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
