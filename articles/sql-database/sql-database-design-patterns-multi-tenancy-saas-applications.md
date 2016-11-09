@@ -60,8 +60,8 @@ Tenant isolation often is a fundamental requirement in SaaS multitenant applicat
 ## Multitenant data models
 Common design practices for placing tenant data follow three distinct models, shown in Figure 1.
 
-  ![Multitenant application data models](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
-    Figure 1: Common design practices for multitenant data models
+![Multitenant application data models](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
+Figure 1: Common design practices for multitenant data models
 
 * **Database-per-tenant**. Each tenant has its own database. All tenant-specific data is confined to the tenant’s database and isolated from other tenants and their data.
 * **Shared database-sharded**. Multiple tenants share one of multiple databases. A distinct set of tenants is assigned to each database by using a partitioning strategy such as hash, range, or list partitioning. This data distribution strategy often is referred to as sharding.
