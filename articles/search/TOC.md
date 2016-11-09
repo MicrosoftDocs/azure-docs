@@ -55,13 +55,15 @@
 ### [Multi-lingual search](search-language-support.md)
 
 # Reference
-## [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165)
-## [Service REST API](https://msdn.microsoft.com/library/azure/dn798935)
-## [Service REST API (Preview version)](search-api-2015-02-28-preview.md)
-## [Management REST API](https://msdn.microsoft.com/library/azure/dn832684)
 ## [API versions](search-api-versions.md)
+## [Java](https://docs.microsoft.com/java/api/)
+## [.NET](https://docs.microsoft.com/dotnet/api/)
 ## [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323)
 ## [Simple query syntax](https://msdn.microsoft.com/library/azure/dn798920)
+## [Service REST](https://docs.microsoft.com/rest/api/searchservice/)
+## [Service REST (Preview)](search-api-2015-02-28-preview.md)
+## [Management REST](https://docs.microsoft.com/rest/api/searchmanagement/)
+
 # Resources
 ## Demo sites
 ### [Job listings app](http://aka.ms/azjobsdemo)

@@ -34,7 +34,8 @@
           "**/*.png",
           "**/*.jpg",
           "**/*.jpeg",
-          "**/*.gif"
+          "**/*.gif",
+          "**/*.svg"
         ],
         "exclude": [
           "**/obj/**",
@@ -61,7 +62,8 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "breadcrumb_path": "/azure/bread/toc.json"
+      "breadcrumb_path": "/azure/bread/toc.json",
+      "brand": "azure"
     },
     "fileMetadata": {},
     "template": [
