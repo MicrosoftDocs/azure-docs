@@ -86,7 +86,7 @@ Azure offers many different resources and resource types, so this reference arch
 ### VM recommendations
 Create VMs with sufficient resources to handle the expected volume of traffic. Use the size of the existing machines hosting AD FS on premises as a starting point. Monitor the resource utilization. You can resize the VMs and scale down if they are too large.
 
-Follow the recommendations listed in [Running a Windows VM on Azure][vm-recommendations].
+Follow the recommendations listed in [Running a Windows VM on Azure](guidance-compute-single-vm.md).
 
 ### Networking recommendations
 Configure the network interface for each of the VMs hosting AD FS and WAP servers with static private IP addresses.
@@ -262,7 +262,6 @@ To run the script that deploys the solution:
 
 <!-- links -->
 
-[vm-recommendations]: ../../includes/guidance-compute-single-vm-windows.md
 [naming-conventions]: ./guidance-naming-conventions.md
 [implementing-active-directory]: ./guidance-identity-adds-extend-domain.md
 [resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
