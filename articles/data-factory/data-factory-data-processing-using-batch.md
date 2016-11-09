@@ -340,7 +340,7 @@ The method has a few key components that you need to understand.
                 "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
 
 
-    The **Calculate** method calculates the number of instances of keyword **Microsoft** in the input files (blobs in the folder). The search term (“Microsoft”) is hard-coded in the code.
+The **Calculate** method calculates the number of instances of keyword **Microsoft** in the input files (blobs in the folder). The search term (“Microsoft”) is hard-coded in the code.
 
 1. Compile the project. Click **Build** from the menu and click **Build Solution**.
 2. Launch **Windows Explorer**, and navigate to **bin\\debug** or **bin\\release** folder depending on the type of build.
@@ -382,9 +382,9 @@ This section provides more details and notes about the code in the Execute metho
    It returns the number of occurrences of the search term (**Microsoft**) in the blob passed to the **Calculate** method.
    
 
-    ```
-    output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
-    ```
+```
+output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
+```
 
 3. Once the **Calculate** method has done the work, it must be written to a new blob. So for every set of blobs processed, a new blob can be written with the results. To write to a new blob, first find the output dataset.
    
@@ -645,15 +645,15 @@ In this step, you create another dataset of type AzureBlob to represent the outp
      An output blob/file is generated for each input slice. Here is how an output file is named for each slice. All the output files are generated in one output folder: **mycontainer\\outputfolder**.
 
 
-    | **Slice** | **Start time**          | **Output file**       |
-    |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
-    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
-    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
-    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
+| **Slice** | **Start time**          | **Output file**       |
+|-----------|-------------------------|-----------------------|
+| 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
+| 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
+| 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
+| 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
+| 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
 
-     Remember that all the files in an input folder (for example: 2015-11-16-00) are part of a slice with the start time: 2015-11-16-00. When this slice is processed, the custom activity scans through each file and produces a line in the output file with the number of occurrences of search term (“Microsoft”). If there are three files in the folder 2015-11-16-00, there are three lines in the output file: 2015-11-16-00.txt.
+Remember that all the files in an input folder (for example: 2015-11-16-00) are part of a slice with the start time: 2015-11-16-00. When this slice is processed, the custom activity scans through each file and produces a line in the output file with the number of occurrences of search term (“Microsoft”). If there are three files in the folder 2015-11-16-00, there are three lines in the output file: 2015-11-16-00.txt.
 
 1. Click **Deploy** on the toolbar to create and deploy the **OutputDataset**.
 
