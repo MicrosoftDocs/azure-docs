@@ -1,6 +1,6 @@
 ---
 title: Change the StorSimple Virtual Array device admin password | Microsoft Docs
-description: Describes how to use either the Azure portal or the StorSimple Virtual Array web UI to change the device administrator password.
+description: Describes how to use either the Azure portal or StorSimple Virtual Array web UI to change the device administrator password.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -19,6 +19,7 @@ ms.author: alkohli
 # Change the StorSimple Virtual Array device administrator password
 
 ## Overview
+
 When you use the Windows PowerShell interface to access the StorSimple Virtual Array, you are required to enter a device administrator password. When the StorSimple device is first provisioned and started, the default password is *Password1*. For the security of your data, the default password expires the first time that you sign in and you are required to change this password.
 
 You can also use either the local web UI or the Azure portal to change the device administrator password at any time after the device is deployed in your production environment. Each of these procedures is described in this article.
@@ -32,8 +33,11 @@ Perform the following steps to change the device administrator password through 
 #### To change the device administrator password via the Azure portal
 
 1. On the service landing page, select your service, double-click the service name, and then within the **Management** section, click **Devices**. This opens the **Devices** blade that lists all your StorSimple Virtual Array devices.
+
 2. In the **Devices** blade, double-click the device that requires a change of password.
+
 3. In the **Settings** blade for your device, click **Security**.
+
 4. In the **Security Settings** blade, do the following:
    
    1. Scroll down to the **Device Administrator Password** section. Provide an administrator password that contains from 8 to 15 characters.

@@ -1,6 +1,6 @@
 ---
 title: Clone from a backup of your StorSimple Virtual Array
-description: Learn more about how to clone a backup of your StorSimple Virtual Array.
+description: Learn how to clone a backup and recover a file from your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -13,17 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
+ms.date: 11/09/2016
 ms.author: alkohli
 ---
 # Clone from a backup of your StorSimple Virtual Array
+
 ## Overview
+
 This article describes step-by-step how to clone a backup set of your shares or volumes on your Microsoft Azure StorSimple Virtual Array. The cloned backup is used to recover a deleted or lost file. The article also includes detailed steps to perform an item-level recovery on your StorSimple Virtual Array configured as a file server.
 
 ## Clone shares from a backup set
+
 **Before you try to clone shares, ensure that you have sufficient space on the device to complete this operation.** To clone from a backup, in the [Azure portal](https://portal.azure.com/), perform the following steps.
 
 #### To clone a share
+
 1. Browse to **Devices** blade. Select and click your device and then click **Shares**. Select the share that you want to clone, right-click the share to invoke the context menu. Select **Clone**.
    
    ![Clone a backup](./media/storsimple-ova-rm-clone/cloneshare1.png)
@@ -51,6 +55,7 @@ This article describes step-by-step how to clone a backup set of your shares or 
    f.    Click **OK**.
    
    ![Clone a backup](./media/storsimple-ova-rm-clone/cloneshare6.png)
+
 4. Click **Clone** to start a clone job. After the job is complete, the clone operation starts and you are notified. To monitor the progress of clone, go to the **Jobs** blade and click the job to view job details.
 5. After the clone is successfully created, navigate back to the **Shares** blade on your device.
 6. You can now view the new cloned share in the list of shares on your device. A tiered share is cloned as tiered and a locally pinned share as a locally pinned share.
@@ -58,9 +63,11 @@ This article describes step-by-step how to clone a backup set of your shares or 
    ![Clone a backup](./media/storsimple-ova-rm-clone/cloneshare10.png)
 
 ## Clone volumes from a backup set
+
 To clone from a backup, in the Azure portal, you have to perform steps similar to the ones when cloning a share. The clone operation clones the backup to a new volume on the same virtual device; you cannot clone to a different device.
 
 #### To clone a volume
+
 1. Browse to **Devices** blade. Select and click your device and then click **Volumes**. Selec the volume that you want to clone, right-click the volume to invoke the context menu. Select **Clone**.
    
    ![Clone a volume](./media/storsimple-ova-rm-clone/clonevolume1.png)
@@ -103,11 +110,12 @@ To clone from a backup, in the Azure portal, you have to perform steps similar t
 > 
 
 ## Item-level recovery (ILR)
+
 This release introduces the item-level recovery (ILR) on a StorSimple Virtual Array configured as a file server. The feature allows you to do granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. You can retrieve deleted files from recent backups using a self-service model.
 
 Every share has a *.backups* folder that contains the most recent backups. You can navigate to the desired backup, copy relevant files and folders from the backup and restore them. This feature eliminates calls to administrators for restoring files from backups.
 
-1. When performing the ILR, you can view the backups through Windows Explorer. Click the specific share that you want to look at the backup for. You will see a *.backups* folder created under the share that stores all the backups. Expand the *.backups* folder to view the backups. The folder shows the exploded view of the entire backup hierarchy. This view is created on-demand and usually takes only a couple of seconds to create.
+1. When performing the ILR, you can view the backups through File Explorer. Click the specific share that you want to look at the backup for. You will see a *.backups* folder created under the share that stores all the backups. Expand the *.backups* folder to view the backups. The folder shows the exploded view of the entire backup hierarchy. This view is created on-demand and usually takes only a couple of seconds to create.
    
    The last five backups are displayed in this way and can be used to perform an item-level recovery. The five recent backups include both the default scheduled and the manual backups.
    
@@ -115,10 +123,14 @@ Every share has a *.backups* folder that contains the most recent backups. You c
    * **Manual backups** named as Ad-hoc-YYYYMMDD-HHMMSS-UTC.
      
      ![](./media/storsimple-ova-rm-clone/image14.png)
+
 2. Identify the backup containing the most recent version of the deleted file. Though the folder name contains a UTC timestamp in each of the preceding cases, the time at which the folder was created is the actual device time when the backup started. Use the folder timestamp to locate and identify the backups.
-3. Locate the folder or the file that you want to restore in the backup that you identified in the previous step. Note you can only view the files or folders that you have permissions for. If you cannot access certain files or folders, contact a share administrator. The administrator can use Windows Explorer to edit the share permissions and give you access to the specific file or folder. It is a recommended best practice that the share administrator is a user group instead of a single user.
+
+3. Locate the folder or the file that you want to restore in the backup that you identified in the previous step. Note you can only view the files or folders that you have permissions for. If you cannot access certain files or folders, contact a share administrator. The administrator can use File Explorer to edit the share permissions and give you access to the specific file or folder. It is a recommended best practice that the share administrator is a user group instead of a single user.
+
 4. Copy the file or the folder to the appropriate share on your StorSimple file server.
 
 ## Next steps
+
 Learn more about how to [administer your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).
 

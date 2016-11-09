@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
+ms.date: 11/09/2016
 ms.author: alkohli
 ---
 # Deploy StorSimple Virtual Array - Set up as file server
@@ -28,8 +28,8 @@ The setup and configuration process can take around 10 minutes to complete. The 
 ## Setup prerequisites
 Before you configure and set up your StorSimple Virtual Array, make sure that:
 
-* You have provisioned a virtual array and connected to it as detailed in the [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Provision a StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
-* You have the service registration key from the StorSimple Device Manager service that you created to manage StorSimple Virtual Arrays. For more information, see [Step 2: Get the service registration key](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) for StorSimple Virtual Array.
+* You have provisioned a virtual array and connected to it as detailed in the [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-rm-deploy2-provision-hyperv.md) or [Provision a StorSimple Virtual Array in VMware](storsimple-ova-rm-deploy2-provision-vmware.md).
+* You have the service registration key from the StorSimple Device Manager service that you created to manage StorSimple Virtual Arrays. For more information, see [Step 2: Get the service registration key](storsimple-ova-rm-deploy1-portal-prep.md#step-2-get-the-service-registration-key) for StorSimple Virtual Array.
 * If this is the second or subsequent virtual array that you are registering with an existing StorSimple Device Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your StorSimple Virtual Array.
 
 ## Step-by-step setup
@@ -44,7 +44,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
    Use the connection URL noted in the previous step. You see an error indicating that there is a problem with the website’s security certificate. Click **Continue to this webpage**.
    
    ![](./media/storsimple-ova-rm-deploy3-fs-setup/image2.png)
-2. Sign in to the web UI of your virtual array as **StorSimpleAdmin**. Enter the device administrator password that you changed in Step 3: Start the virtual array in [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or in [Provision a StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
+2. Sign in to the web UI of your virtual array as **StorSimpleAdmin**. Enter the device administrator password that you changed in Step 3: Start the virtual array in [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-rm-deploy2-provision-hyperv.md) or in [Provision a StorSimple Virtual Array in VMware](storsimple-ova-rm-deploy2-provision-vmware.md).
    
    ![](./media/storsimple-ova-rm-deploy3-fs-setup/image3.png)
 3. You are taken to the **Home** page. This page describes the various settings required to configure and register the virtual array with the StorSimple Device Manager service. The **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Device settings** and **Cloud settings**.
@@ -195,13 +195,13 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
     ![Add a share](./media/storsimple-ova-rm-deploy3-fs-setup/deployfs22m.png)
 
 ## Step 4: Connect to the share
-You will now need to connect to one or more shares that you created in the previous step. Perform these steps on your Windows Server host connected to your StorSimple Virtual Array..
+You will now need to connect to one or more shares that you created in the previous step. Perform these steps on your Windows Server host connected to your StorSimple Virtual Array.
 
 #### To connect to the share
 1. Press ![](./media/storsimple-ova-rm-deploy3-fs-setup/image22.png) + R. In the Run window, specify the *&#92;&#92;&lt;file server name&gt;* as the path, replacing *file server name* with the device name that you assigned to your file server. Click **OK**.
    
    ![](./media/storsimple-ova-rm-deploy3-fs-setup/image23.png)
-2. This opens up Explorer. You should now be able to see the shares that you created as folders. Select and double-click a share (folder) to view the content.
+2. This opens up File Explorer. You should now be able to see the shares that you created as folders. Select and double-click a share (folder) to view the content.
    
    ![](./media/storsimple-ova-rm-deploy3-fs-setup/image24.png)
 3. You can now add files to these shares and take a backup.

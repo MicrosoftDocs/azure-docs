@@ -143,9 +143,7 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
     
     > [!NOTE]
     > **Do not modify the default parameters.**
-    > 
-    > 
-
+   
 ## Next steps
 Learn more about [using the StorSimple Device Manager service to administer your StorSimple Virtual Array](storsimple-ova-rm-manager-service-administration.md).
 

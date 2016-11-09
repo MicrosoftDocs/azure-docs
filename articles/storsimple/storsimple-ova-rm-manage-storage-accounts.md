@@ -60,6 +60,7 @@ Use the following procedures to add Azure storage account credentials:
 * To add an Azure storage account credential that is outside of the Device Manager service subscription
 
 #### To add a storage account credential that has the same Azure subscription as the Device Manager service
+
 1. Navigate to your Device Manager service, select and double-click it. This opens the **Overview** blade.
 2. Select **Storage account credentials** within the **Configuration** section.
 3. Click **Add**.
@@ -76,6 +77,7 @@ Use the following procedures to add Azure storage account credentials:
      ![Add an existing storage account credential](./media/storsimple-ova-rm-manage-storage-accounts/ova-add-storageacct.png)
 
 #### To add an Azure storage account credential that is outside of the Device Manager service subscription
+
 1. Navigate to your Device Manager service, select and double-click it. This opens the **Overview** blade.
 2. Select **Storage account credentials** within the **Configuration** section. This lists any existing storage account credentials associated with the StorSimple Device Manager service.
 3. Click **Add**.
