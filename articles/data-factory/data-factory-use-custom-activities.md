@@ -719,7 +719,7 @@ You can declare extended properties in the activity JSON as shown below:
       }
     },
 
-In the code, there are two extended properties: **SliceStart** and **DataFactoryName**. The value for SliceStart is based on the SliceStart system variable. See [System Variables](data-factory-scheduling-and-execution.md#data-factory-functions-variables.md) for a list of supported system variables. The value for DataFactoryName is hard-coded to "CustomActivityFactory". 
+In the code, there are two extended properties: **SliceStart** and **DataFactoryName**. The value for SliceStart is based on the SliceStart system variable. See [System Variables](data-factory-functions-variables.md) for a list of supported system variables. The value for DataFactoryName is hard-coded to "CustomActivityFactory". 
 
 To access these extended properties in the **Execute** method, use code similar to the following code: 
 
