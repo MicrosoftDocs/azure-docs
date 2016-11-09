@@ -29,17 +29,7 @@ This article provides a collection of best practices for you to consider when im
 
 Large long running functions can cause unexpected timeout issues. A function can be large because of many Node.js dependencies. Importing these dependencies can cause increased load times resulting in unexpected timeouts. Node.js dependencies could be explicit loaded by multiple `require()` statements in your code. They could also be implicit based on a single module loaded by your code that has it's own internal dependencies.  
 
-Whenever possible refactor large functions into small function sets that work together. For example a webhook or HTTP trigger function might receive a fairly large payload and pass off that payload to a function on a queue trigger as follows:  
-
---- Need more explanation for the relevance of this example  ---
-
-	module.exports = function (context, data) {
-	    context.log('Webhook was triggered, queuing data');
-	    if (data != null) {
-	        context.bindings.outQ = data;
-	    }
-	    context.done();
-	};
+Whenever possible refactor large functions into small function sets that work together. For example a webhook or HTTP trigger function might receive a fairly large payload and pass off that payload to a queue trigger function.
 
 
 ## Cross function communication.
