@@ -31,8 +31,7 @@ Before you begin this tutorial, you must have the following:
 * **Azure Data Catalog**. Your organization must already have an Azure Data Catalog created for your organization. Only one catalog is allowed for each organization.
 
 ## Register Data Lake Store as a source for Data Catalog
-> [!VIDEO adcwithadl]
->
+> [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/ADCwithADL]
 
 1. Go to `https://azure.microsoft.com/services/data-catalog`, and click **Get started**.
 2. Log into the Azure Data Catalog portal, and click **Publish data**.
