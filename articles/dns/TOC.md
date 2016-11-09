@@ -33,9 +33,10 @@
 ## [Protect DNS zones and records](dns-protect-zones-recordsets.md)
 ## [Automate DNS operations with the .NET SDK](dns-sdk.md)
 
-# Reference
-## [PowerShell cmdlets](https://msdn.microsoft.com/en-us/library/azure/mt126288(v=azure.300))
-## [REST API](https://msdn.microsoft.com/library/azure/mt163862)
+# References
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [REST APIs](https://docs.microsoft.com/rest/api/dns/)
+
 
 # Related
 ## [Application Gateway](../application-gateway/index.md)

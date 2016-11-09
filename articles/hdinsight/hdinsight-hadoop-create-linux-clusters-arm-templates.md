@@ -30,7 +30,7 @@ Before you begin the instructions in this article, you must have the following:
 
 * [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure PowerShell and/or Azure CLI
-  
+
     [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ### Access control requirements
@@ -51,11 +51,11 @@ To find out the JSON schema for certain elements, you can follow the following p
 1. Open [Azure portal](https://porta.azure.com) to create an HDInsight cluster.  See [Create Linux-based clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 2. Configure the required elements, and the elements you need the JSON schema.
 3. Before clicking **Create**, click **Automation options** as shown in the following screenshot:
-   
+
     ![HDInsight Hadoop create cluster Resource Manager template schema automation options](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-automation-option.png)
-   
+
     The portal creates a Resource Manager template based on your configurations.
-   
+
    ## Deploy with PowerShell
 
 The following procedure creates Linux-based HDInsight cluster.
@@ -65,31 +65,31 @@ The following procedure creates Linux-based HDInsight cluster.
 1. Save the json file in [Appendix A](#appx-a-arm-template) to your workstation. In the PowerShell script, the file name is *C:\HDITutorials-ARM\hdinsight-arm-template.json*.
 2. Set the parameters and variables if needed.
 3. Run the template using the following PowerShell script:
-   
+
         ####################################
         # Set these variables
         ####################################
         #region - used for creating Azure service names
-        $nameToken = "<Enter an Alias>" 
+        $nameToken = "<Enter an Alias>"
         $templateFile = "C:\HDITutorials-ARM\hdinsight-arm-template.json"
         #endregion
-   
+
         ####################################
         # Service names and varialbes
         ####################################
         #region - service names
         $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
-   
+
         $resourceGroupName = $namePrefix + "rg"
         $hdinsightClusterName = $namePrefix + "hdi"
         $defaultStorageAccountName = $namePrefix + "store"
         $defaultBlobContainerName = $hdinsightClusterName
-   
+
         $location = "East US 2"
-   
+
         $armDeploymentName = $namePrefix
         #endregion
-   
+
         ####################################
         # Connect to Azure
         ####################################
@@ -98,22 +98,22 @@ The following procedure creates Linux-based HDInsight cluster.
         try{Get-AzureRmContext}
         catch{Login-AzureRmAccount}
         #endregion
-   
+
         # Create a resource group
         New-AzureRmResourceGroup -Name $resourceGroupName -Location $Location
-   
+
         # Create cluster and the dependent storage accounge
         $parameters = @{clusterName="$hdinsightClusterName"}
-   
+
         New-AzureRmResourceGroupDeployment `
             -Name $armDeploymentName `
             -ResourceGroupName $resourceGroupName `
             -TemplateFile $templateFile `
             -TemplateParameterObject $parameters
-   
+
         # List cluster
-        Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName 
-   
+        Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
+
     The PowerShell script only configures the cluster name. The storage account name is hardcoded in the template. You will be prompted to enter the cluster user password (the default username is *admin*); and the SSH user password (the default SSH username is *sshuser*).  
 
 For more information, see  [Deploy with PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
@@ -131,7 +131,7 @@ You will be prompted to enter the cluster name, cluster user password (the defau
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "c:\Tutorials\HDInsightARM\create-linux-based-hadoop-cluster-in-hdinsight.json" --parameters '{\"clusterName\":{\"value\":\"hdi1229\"},\"clusterLoginPassword\":{\"value\":\"Pass@word1\"},\"sshPassword\":{\"value\":\"Pass@word1\"}}'
 
 ## Deploy with REST API
-See [Deploy with the REST API](../resource-group-template-deploy.md#deploy-with-the-rest-api).
+See [Deploy with the REST API](../resource-group-template-deploy-rest.md).
 
 ## Deploy with Visual Studio
 With Visual Studio, you can create a resource group project and deploy it to Azure through the user interface. You select the type of resources to include in your project and those resources are automatically added to Resource Manager template. The project also provides a PowerShell script to deploy the template.
@@ -148,12 +148,12 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../resource-group-template-functions.md).
 
 ## Appx-A: Resource Manager template
-The following Azure Resource Manger template creates a Linux-based Hadoop cluster with the dependent Azure storage account. 
+The following Azure Resource Manger template creates a Linux-based Hadoop cluster with the dependent Azure storage account.
 
 > [!NOTE]
 > The sample includes configuration information for Hive metastore and Oozie metastore.  Remove the section or configure the section before using the template.
-> 
-> 
+>
+>
 
     {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
