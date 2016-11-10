@@ -71,12 +71,12 @@ Subnets contain the following properties.
 | **name** |Subnet name |String of up to 80 characters. May contain letters, numbers, underscore, periods, or hyphens. Must start with a letter or number. Must end with a letter, number, or underscore. Can contains upper or lower case letters. |
 | **location** |Azure location (also referred to as region). |Must be one of the valid Azure locations. |
 | **addressPrefix** |Single address prefix that make up the subnet in CIDR notation |Must be a single CIDR block that is part of one of the VNet's address spaces. |
-| **networkSecurityGroup** |NSG applied to the subnet |see [NSGs](resource-groups-networking.md#Network-Security-Group) |
-| **routeTable** |Route table applied to the subnet |see [UDR](resource-groups-networking.md#Route-table) |
-| **ipConfigurations** |Collection of IP configuration objects used by NICs connected to the subnet |see [IP configuration](resource-groups-networking.md#IP-configurations) |
+| **networkSecurityGroup** |NSG applied to the subnet | |
+| **routeTable** |Route table applied to the subnet | |
+| **ipConfigurations** |Collection of IP configuration objects used by NICs connected to the subnet |See [Subnet and NSG design patterns](#Subnet and NSG design patterns). |
 
 ### Name resolution
-By default, your VNet uses [Azure-provided name resolution.](virtual-networks-name-resolution-for-vms-and-role-instances.md#Azure-provided-name-resolution) to resolve names inside the VNet, and on the public Internet. However, if you connect your VNets to your on-premises data centers, you need to provide [your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names between your networks.  
+By default, your VNet uses [Azure-provided name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names inside the VNet, and on the public Internet. However, if you connect your VNets to your on-premises data centers, you need to provide [your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names between your networks.  
 
 ### Limits
 Review the networking limits in the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article to ensure that your design doesn't conflict with any of the limits. Some limits can be increased by opening a support ticket.
