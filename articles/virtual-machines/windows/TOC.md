@@ -48,7 +48,7 @@
 ### [Create NSGs using the portal](../../virtual-network/virtual-networks-create-nsg-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Create a load balancer](../../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Create a static public IP](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Connect Classic VNets to Resource Manager VNets](../../virtual-network/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Connect Classic VNets to Resource Manager VNets](../../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Images
 ### [Prepare a VHD to upload](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -83,7 +83,7 @@
 ### [Powershell common tasks](../virtual-machines-windows-ps-common-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [CLI common tasks](../virtual-machines-windows-cli-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## Manage 
+## Manage
 ### [Create a work or school identity in Azure Active Directory](../virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Manage access](../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Set up Key Vault](../virtual-machines-windows-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -180,17 +180,14 @@
 ### [Redeploy a VM](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Reference
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [Azure CLI](../azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [.NET](https://docs.microsoft.com/en-us/dotnet/api/)
 ## [Author Resource Manager templates](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Compute REST API](https://msdn.microsoft.com/library/azure/mt163647)
-## [Network REST API](https://msdn.microsoft.com/library/azure/mt163658)
-## [Storage REST API](https://msdn.microsoft.com/library/azure/dd179355)
-## [Virtual Machine Scale Sets REST API](https://msdn.microsoft.com/library/azure/mt705635)
-## [Virtual Machines .NET API](https://msdn.microsoft.com/library/azure/mt131911)
-## [Network .NET API](https://msdn.microsoft.com/library/azure/dn973320)
-## [Storage .NET API](https://msdn.microsoft.com/library/azure/mt131037)
-## [CLI](../azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [PowerShell](https://msdn.microsoft.com/library/azure/mt125979)
 ## [Community templates](https://azure.microsoft.com/documentation/templates/)
+## [Compute REST](https://docs.microsoft.com/rest/api/compute/)
+## [Network REST](https://msdn.microsoft.com/library/mt163658.aspx)
+## [Storage REST](https://docs.microsoft.com/rest/api/storageservices/)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/#Windows)

@@ -1,4 +1,4 @@
----
+﻿---
 title: How to get an Azure AD tenant | Microsoft Docs
 description: How to get an Azure Active Directory tenant for registering and building applications.
 services: active-directory

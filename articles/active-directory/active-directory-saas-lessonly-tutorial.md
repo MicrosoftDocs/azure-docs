@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Lessonly | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Lessonly.
 services: active-directory

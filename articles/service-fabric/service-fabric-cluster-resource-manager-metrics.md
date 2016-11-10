@@ -1,4 +1,4 @@
----
+﻿---
 title: Managing Metrics with the Azure Service Fabric Cluster Resource Manager | Microsoft Docs
 description: Learn about how to configure and use metrics in Service Fabric.
 services: service-fabric

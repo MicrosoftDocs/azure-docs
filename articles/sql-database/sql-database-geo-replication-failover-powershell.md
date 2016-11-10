@@ -1,4 +1,4 @@
----
+﻿---
 title: Initiate a planned or unplanned failover for Azure SQL Database with PowerShell | Microsoft Docs
 description: Initiate a planned or unplanned failover for Azure SQL Database using PowerShell
 services: sql-database

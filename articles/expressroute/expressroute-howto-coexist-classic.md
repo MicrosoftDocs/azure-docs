@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure Expressroute and Site-to-Site VPN connections that can coexist | Microsoft Docs
 description: This article walks you through configuring ExpressRoute and a Site-to-Site VPN connection that can coexist for the classic deployment model.
 documentationcenter: na

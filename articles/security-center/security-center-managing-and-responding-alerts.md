@@ -1,4 +1,4 @@
----
+﻿---
 title: Managing and responding to security alerts in Azure Security Center | Microsoft Docs
 description: This document helps you to use Azure Security Center capabilities to manage and respond to security alerts.
 services: security-center

@@ -1,4 +1,4 @@
----
+﻿---
 title: StorSimple system requirements | Microsoft Docs
 description: Describes software, networking, and high availability requirements and best practices for a Microsoft Azure StorSimple solution.
 services: storsimple

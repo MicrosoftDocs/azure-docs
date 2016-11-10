@@ -1,4 +1,4 @@
----
+﻿---
 title: Run Cassandra with Linux on Azure | Microsoft Docs
 description: How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app
 services: virtual-machines-linux

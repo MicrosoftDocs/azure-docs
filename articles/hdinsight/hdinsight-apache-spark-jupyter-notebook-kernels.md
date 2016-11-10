@@ -1,4 +1,4 @@
----
+﻿---
 title: Kernels available with Jupyter notebooks on HDInsight Spark clusters on Linux| Microsoft Docs
 description: Learn about the additional Jupyter notebook kernels available with Spark cluster on HDInsight Linux.
 services: hdinsight

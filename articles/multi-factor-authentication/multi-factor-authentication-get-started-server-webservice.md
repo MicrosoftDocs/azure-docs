@@ -1,4 +1,4 @@
----
+﻿---
 title: Getting started the MFA Server Mobile App Web Service
 description: The Azure Multi-Factor Authentication App offers an additional out-of-band authentication option.  It allows the MFA server to use push notifications to users.
 services: multi-factor-authentication

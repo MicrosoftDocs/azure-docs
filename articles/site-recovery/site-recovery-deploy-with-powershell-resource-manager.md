@@ -1,4 +1,4 @@
----
+﻿---
 title: Protect servers to Azure by using Azure PowerShell with Azure Resource Manager | Microsoft Docs
 description: Automate protection of servers to Azure with Azure Site Recovery by using PowerShell and Azure Resource Manager.
 services: site-recovery

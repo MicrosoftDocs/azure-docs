@@ -1,4 +1,4 @@
----
+﻿---
 title: Use a real device with the IoT Gateway SDK | Microsoft Docs
 description: Azure IoT Gateway SDK walkthrough using a Texas Instruments SensorTag device to send data to IoT Hub through a gateway running on A Raspberry Pi 3
 services: iot-hub

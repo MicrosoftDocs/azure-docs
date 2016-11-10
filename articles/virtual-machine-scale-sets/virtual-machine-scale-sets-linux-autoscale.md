@@ -1,4 +1,4 @@
----
+﻿---
 title: Autoscale Linux Virtual Machine Scale Sets | Microsoft Docs
 description: Set up autoscaling for a Linux Virtual Machine Scale Set using Azure CLI
 services: virtual-machine-scale-sets

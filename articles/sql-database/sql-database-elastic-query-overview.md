@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SQL Database elastic database query overview | Microsoft Docs
 description: Overview of the elastic query feature
 services: sql-database

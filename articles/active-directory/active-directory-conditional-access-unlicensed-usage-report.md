@@ -1,4 +1,4 @@
----
+﻿---
 title: Unlicensed Usage Report | Microsoft Docs
 description: The unlicensed usage report helps you identify unlicensed users that are using paid Azure AD features.
 services: active-directory

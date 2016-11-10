@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot Data Management Gateway issues | Microsoft Docs
 description: Provides tips to troubleshoot Data Management Gateway related issues.
 services: data-factory

@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitor operations, events, and counters for NSGs | Microsoft Docs
 description: Learn how to enable counters, events, and operational logging for NSGs
 services: virtual-network

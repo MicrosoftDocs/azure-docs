@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot Network Security Groups - Portal | Microsoft Docs
 description: Learn how to troubleshoot Network Security Groups in the Azure Resource Manager deployment model using the Azure Portal.
 services: virtual-network

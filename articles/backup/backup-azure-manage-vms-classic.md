@@ -1,4 +1,4 @@
-
+﻿
 ---
 title: Manage and monitor Azure virtual machine backups | Microsoft Docs
 description: Learn how to manage and monitor an Azure virtual machine backups

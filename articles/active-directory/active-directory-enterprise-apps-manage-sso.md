@@ -1,4 +1,4 @@
----
+﻿---
 title: Single sign-on management for enterprise apps in the Azure Active Directory preview | Microsoft Docs
 description: Learn how to manage single sign on for enterprise apps using the Azure Active Directory
 services: active-directory

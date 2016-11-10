@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure content key authorization policy using Media Services .NET SDK | Microsoft Docs
 description: Learn how to configure an authorization policy for a content key using Media Services .NET SDK.
 services: media-services

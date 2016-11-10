@@ -107,7 +107,7 @@ To learn more about options for deployment that might be better suited to your s
       
           New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate> -TemplateParameterUri <LinkToParameterFile>
       
-      When you use an external parameter file, you cannot pass other values either inline or from a local file. For more information, see [Parameter precedence](#parameter-precendence).
+      When you use an external parameter file, you cannot pass other values either inline or from a local file. For more information, see [Parameter precedence](#parameter-precedence).
       
       After the resources have been deployed, you will see a summary of the deployment.
       

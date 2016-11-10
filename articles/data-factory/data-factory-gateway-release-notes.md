@@ -1,4 +1,4 @@
----
+﻿---
 title: Release notes for Data Management Gateway | Microsoft Docs
 description: Data Management Gateway tory release notes
 services: data-factory

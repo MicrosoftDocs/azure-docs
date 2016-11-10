@@ -1,4 +1,4 @@
----
+﻿---
 title: New SQL Database setup with PowerShell | Microsoft Docs
 description: Learn now to create a SQL database with PowerShell. Common database setup tasks can be managed through PowerShell cmdlets.
 keywords: create new sql database,database setup

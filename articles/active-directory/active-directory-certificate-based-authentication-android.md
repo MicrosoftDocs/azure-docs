@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started with certificate based authentication on Android  | Microsoft Docs
 description: Learn how to configure certificate based authentication in solutions with Android devices
 services: active-directory

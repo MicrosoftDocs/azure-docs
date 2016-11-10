@@ -1,4 +1,4 @@
----
+﻿---
 title: New schema version 2015-08-01-preview
 description: Learn how to write the JSON definition for the latest version of Logic apps
 author: stepsic-microsoft-com

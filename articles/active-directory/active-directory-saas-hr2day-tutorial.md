@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with HR2day by Merces | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and HR2day by Merces.
 services: active-directory

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Who''s using Azure Search: case studies and customer stories | Microsoft Docs'
 description: Case studies and customer stories about Azure Search, a hosted cloud search service on Microsoft Azure.
 services: search

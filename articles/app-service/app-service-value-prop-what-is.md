@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure App Service for web, mobile, and API apps | Microsoft Docs
 description: Learn how Azure App Service helps you develop, deploy, and manage web and mobile apps.
 keywords: app service, azure app service, app service cost, scale, scalable, app deployment, azure app deployment, paas, platform-as-a-service, website, web site, web, azure mobile

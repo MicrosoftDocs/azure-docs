@@ -1,4 +1,4 @@
----
+﻿---
 title: Automatic scaling and virtual machine scale sets | Microsoft Docs
 description: Learn about using diagnostics and autoscale resources to automatically scale virtual machines in a scale set.
 services: virtual-machine-scale-sets
@@ -203,9 +203,9 @@ To see examples of using Azure CLI to set up autoscaling, look at [Azure Monitor
 To see an example of using the Azure portal to set up autoscaling, look at [Create a Virtual Machine Scale Set using the Azure portal](virtual-machine-scale-sets-portal-create.md).
 
 ## Investigate scaling actions
-* [Azure portal]() - You can currently get a limited amount of information using the portal.
-* [Azure Resource Explorer]() - This tool is the best for exploring the current state of your scale set. Follow this path and you should see the instance view of the scale set that you created:
-  subscriptions > {your subscription} > resourceGroups > {your resource group} > providers > Microsoft.Compute > virtualMachineScaleSets > {your scale set} > virtualMachines
+* Azure portal - You can currently get a limited amount of information using the portal.
+* Azure Resource Explorer - This tool is the best for exploring the current state of your scale set. Follow this path and you should see the instance view of the scale set that you created:
+  Subscriptions > {your subscription} > resourceGroups > {your resource group} > providers > Microsoft.Compute > virtualMachineScaleSets > {your scale set} > virtualMachines
 * Azure PowerShell - Use this command to get some information:
   
         Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15

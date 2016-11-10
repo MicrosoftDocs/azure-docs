@@ -1,21 +1,46 @@
 ---
-title: To be submitted | Microsoft Azure
-description: To be submitted.
-services: ''
-documentationcenter: ''
-author: squillace
-manager: timlt
-editor: ''
-tags: billing
+layout: LandingPage
+---
+#HDInsight Documentation
 
-ms.assetid:b410a66a-7d1b-4dc8-a4f0-a25874766f8a
-ms.service: value
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
+HDInsight is a TBD...
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/azure/HDInsight/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Getting started with HDInsight</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
-# To be submitted.
+
+##Reference
+
+###REST
+[HDInsight REST API Reference](/rest/api/)
+
+###.NET
+[HDInsight Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+
+<div class="downloadHolder">
+    <a href="https://msdn.microsoft.com/">
+        <div class="img"></div>
+        <div class="text">
+            Download HDInsight Documentation
+        </div>
+    </a>
+</div>

@@ -1,4 +1,4 @@
----
+﻿---
 title: How to perform live streaming with on-premise encoders using .NET | Microsoft Docs
 description: This topic shows how to use .NET to perform live encoding with on-premises encoders.
 services: media-services

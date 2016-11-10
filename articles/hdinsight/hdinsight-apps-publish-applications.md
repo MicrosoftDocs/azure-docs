@@ -1,4 +1,4 @@
----
+﻿---
 title: Publish HDInsight applications | Microsoft Docs
 description: Learn how to create and publish HDInsight applications.
 services: hdinsight

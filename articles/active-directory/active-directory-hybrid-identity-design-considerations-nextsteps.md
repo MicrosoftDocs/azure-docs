@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory hybrid identity design considerations- next steps| Microsoft Docs
 description: A synopsis and next steps after you have read the Hybrid Identity design considerations guide
 documentationcenter: ''

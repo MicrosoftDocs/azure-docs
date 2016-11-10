@@ -1,4 +1,4 @@
----
+﻿---
 title: Telemetry sampling in Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 services: application-insights

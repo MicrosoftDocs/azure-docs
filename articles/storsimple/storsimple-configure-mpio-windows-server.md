@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure MPIO for your StorSimple device | Microsoft Docs
 description: Describes how to configure Multipath I/O (MPIO) for your StorSimple device connected to a host running Windows Server 2012 R2.
 services: storsimple
@@ -88,7 +88,9 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
      > 
 4. Repeat steps 2-3 for a second network interface (for example, DATA 1) on your device. Keep in mind that these interfaces should be enabled for iSCSI. To learn more about this, see [Modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces).
 5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. You should see the StorSimple device target IQN under **Discovered Targets**.
+
    ![iSCSI Initiator Properties Targets Tab](./media/storsimple-configure-mpio-windows-server/IC741007.png)
+   
 6. Click **Connect** to establish an iSCSI session with your StorSimple device. A **Connect to Target** dialog box will appear.
 7. In the **Connect to Target** dialog box, select the **Enable multi-path** check box. Click **Advanced**.
 8. In the **Advanced Settings** dialog box, do the following:                                        

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD v2.0 .NET Web API| Microsoft Docs
 description: How to build a .NET MVC Web Api that accepts tokens from both personal Microsoft Account and work or school accounts.
 services: active-directory
@@ -18,12 +18,12 @@ ms.author: dastrock
 
 ---
 # Secure an MVC web API
-With Azure Active Directory the v2.0 endpoint, you can protect a Web API using [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) access tokens, enabling users with both personal Microsoft account and work or school accounts to securely access your Web API.
+With Azure Active Directory the v2.0 endpoint, you can protect a Web API using [OAuth 2.0](active-directory-v2-protocols.md) access tokens, enabling users with both personal Microsoft account and work or school accounts to securely access your Web API.
 
 > [!NOTE]
 > Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
-> 
-> 
+>
+>
 
 In ASP.NET web APIs, you can accomplish this using Microsoft’s OWIN middleware included in .NET Framework 4.5.  Here we’ll use OWIN to build a "To Do List" MVC Web API that allows clients to create and read tasks from a user's To-Do list.  The web API will validate that incoming requests contain a valid access token and reject any requests that do not pass validation on a protected route.  This sample was built using Visual Studio 2015.
 
@@ -163,4 +163,3 @@ For additional resources, check out:
 
 ## Get security updates for our products
 We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
-

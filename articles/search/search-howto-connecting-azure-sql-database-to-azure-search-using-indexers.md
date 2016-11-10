@@ -1,4 +1,4 @@
----
+﻿---
 title: Connecting Azure SQL Database to Azure Search Using Indexers | Microsoft Docs
 description: Learn how to pull data from Azure SQL Database to an Azure Search index using indexers.
 services: search
@@ -164,7 +164,7 @@ Here’s what happens:
 
 You can add, change, or delete a schedule for an existing indexer by using a **PUT indexer** request. 
 
-<a name="CaptureChangedRows">,/a>
+<a name="CaptureChangedRows"></a>
 
 ## Capturing new, changed, and deleted rows
 If your table has many rows, you should use a data change detection policy. Change detection enables an efficient retrieval of only the new or changed rows without having to re-index the entire table.

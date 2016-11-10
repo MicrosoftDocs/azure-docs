@@ -1,4 +1,4 @@
----
+﻿---
 title: SQL syntax and SQL query for DocumentDB | Microsoft Docs
 description: Learn about SQL syntax, database concepts, and SQL queries for DocumentDB, a NoSQL database. SQL can used as a JSON query language in DocumentDB.
 keywords: sql syntax,sql query, sql queries, json query language, database concepts and sql queries, aggregate functions

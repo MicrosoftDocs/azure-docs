@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure for AWS professionals - Service Map | Microsoft Docs
 description: A map of Azure services for AWS professionals.
 services: ''
@@ -43,15 +43,15 @@ To help decide which platform is right for your needs, we’ve created a referen
             <td></td>
             <td>Auto scale</td>
             <td>Auto Scaling</td>
-            <td><a href="virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md">VM Scale Sets</a></br>
-            <a href="app-service-web/web-sites-scale.md">App Service AutoScaling</a></td>
+            <td><a href="../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md">VM Scale Sets</a></br>
+            <a href="../app-service-web/web-sites-scale.md">App Service AutoScaling</a></td>
             <td>Lets you automatically change the number of instances providing a particular compute workload. You set defined metric and thresholds that determine if the platform adds or removes instances.</td>
         </tr>
         <tr>
             <td></td>
             <td>Virtual server disk infrastructure</td>
             <td>Elastic Block Store (EBS)</td>
-            <td><a href="virtual-machines/virtual-machines-linux-about-disks-vhds.md">Page Blobs</a></br>
+            <td><a href="../virtual-machines/virtual-machines-linux-about-disks-vhds.md">Page Blobs</a></br>
             <a href="https://azure.microsoft.com/services/storage/premium-storage/">Premium Storage</a></td>
             <td>Provides persistent, durable storage volumes for use with virtual machines, and offers the option to select different underlying physical storage types and performance characteristics.</td>
         </tr>
@@ -66,7 +66,7 @@ To help decide which platform is right for your needs, we’ve created a referen
             <td></td>
             <td>Backend process logic</td>
             <td>Lambda</td>
-            <td><a href="app-service-web/websites-webjobs-resources.md">Web Jobs</a></br><a href="https://azure.microsoft.com/services/app-service/logic/">Logic Apps</a></td>
+            <td><a href="../app-service-web/websites-webjobs-resources.md">Web Jobs</a></br><a href="https://azure.microsoft.com/services/app-service/logic/">Logic Apps</a></td>
             <td>Used to integrate systems and run backend processes in response to events or schedules without provisioning or managing servers.</td>
         </tr>
         <tr>
@@ -150,7 +150,7 @@ To help decide which platform is right for your needs, we’ve created a referen
             <td></td>
             <td>Data transport</td>
             <td>Import/Export Snowball</td>
-            <td><a href="storage/storage-import-export-service.md">Import/Export</a></br></td>
+            <td><a href="../storage/storage-import-export-service.md">Import/Export</a></br></td>
             <td>A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit.</td>
         </tr>
         <tr>
@@ -227,7 +227,7 @@ To help decide which platform is right for your needs, we’ve created a referen
             <td></td>
             <td>Database migration</td>
             <td>Database Migration Service (Preview)</td>
-            <td><a href="sql-database/sql-database-cloud-migrate.md">SQL Database Migration Wizard</a></br></td>
+            <td><a href="../sql-database/sql-database-cloud-migrate.md">SQL Database Migration Wizard</a></br></td>
             <td>Typically is focused on the migration of database schema and data from one database format to a specific database technology in the cloud.</td>
         </tr>
         <tr>
@@ -297,7 +297,7 @@ To help decide which platform is right for your needs, we’ve created a referen
             <td><b>Management and monitoring</b></td>
             <td>Deployment orchestration</td>
             <td>OpsWorks</br>CloudFormation</td>
-            <td><a href="https://azure.microsoft.com/features/resource-manager/">Resource Manager</a></br><a href="https://azure.microsoft.com/services/automation/">Automation</a></br><a href="virtual-machines/virtual-machines-windows-extensions-features.md">VM extensions</a></td>
+            <td><a href="https://azure.microsoft.com/features/resource-manager/">Resource Manager</a></br><a href="https://azure.microsoft.com/services/automation/">Automation</a></br><a href="../virtual-machines/virtual-machines-windows-extensions-features.md">VM extensions</a></td>
             <td>Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources.</td>
         </tr>
         <tr>
@@ -332,14 +332,14 @@ To help decide which platform is right for your needs, we’ve created a referen
             <td></td>
             <td>Administration</td>
             <td>Config</td>
-            <td><a href="resource-group-audit.md">Azure portal (audit logs)</a></br></td>
+            <td><a href="../resource-group-audit.md">Azure portal (audit logs)</a></br></td>
             <td>Provides resource inventory, configuration history, and configuration change notifications for security and governance.</td>
         </tr>
         <tr>
             <td></td>
             <td>Programmatic access</td>
             <td>Command Line Interface</td>
-            <td><a href="xplat-cli-install.md">Azure Command Line Interface (CLI)</a></br><a href="powershell-install-configure.md">Azure PowerShell</a></td>
+            <td><a href="../xplat-cli-install.md">Azure Command Line Interface (CLI)</a></br><a href="../powershell-install-configure.md">Azure PowerShell</a></td>
             <td>Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions.</td>
         </tr>
         <tr>
@@ -374,7 +374,7 @@ To help decide which platform is right for your needs, we’ve created a referen
             <td><b>Security and identity</b></td>
             <td>Authentication and authorization</td>
             <td>Identity and Access Management</br>Multi-Factor Authentication</td>
-            <td><a href="active-directory/role-based-access-control-configure.md">Azure AD/Role-based access control</a></br><a href="https://azure.microsoft.com/services/multi-factor-authentication/">Multi-Factor Authentication</a></td>
+            <td><a href="../active-directory/role-based-access-control-configure.md">Azure AD/Role-based access control</a></br><a href="https://azure.microsoft.com/services/multi-factor-authentication/">Multi-Factor Authentication</a></td>
             <td>Lets users securely control access to services and resources while offering data security and protection. Create and manage users and groups, and use permissions to allow and deny access to resources.</td>
         </tr>
         <tr>
@@ -437,7 +437,7 @@ To help decide which platform is right for your needs, we’ve created a referen
             <td></td>
             <td>Messaging</td>
             <td>Simple Queue Service</td>
-            <td><a href="https://azure.microsoft.com/services/storage/queues/">Queue Storage</a></br><a href="service-bus/service-bus-dotnet-how-to-use-queues.md">Service Bus queues</a></br><a href="service-bus/service-bus-dotnet-how-to-use-topics-subscriptions.md">Service Bus topics</a></br><a href="service-bus/service-bus-relay-overview.md">Service Bus relay</a></td>
+            <td><a href="https://azure.microsoft.com/services/storage/queues/">Queue Storage</a></br><a href="../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md">Service Bus queues</a></br><a href="../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md">Service Bus topics</a></br><a href="../service-bus-relay/service-bus-relay-overview.md">Service Bus relay</a></td>
             <td>Stores large numbers of messages that can be accessed from anywhere through authenticated calls using HTTP or HTTPS. A queue can contain millions of messages, up to the total capacity limit of a storage account, and may also support more complex topologies such as publish/subscribe.</td>
         </tr>
         <tr>

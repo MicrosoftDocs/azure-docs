@@ -1,4 +1,4 @@
----
+﻿---
 title: Encrypting your Content with Storage Encryption using AMS REST API
 description: Learn how to encrypt your content with storage encryption using AMS REST APIs.
 services: media-services

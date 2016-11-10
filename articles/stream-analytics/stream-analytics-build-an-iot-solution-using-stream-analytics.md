@@ -1,4 +1,4 @@
----
+﻿---
 title: Build an IoT solution by using Stream Analytics | Microsoft Docs
 description: Getting-started tutorial for the Stream Analytics IoT solution of a tollbooth scenario
 keywords: iot solution, window functions

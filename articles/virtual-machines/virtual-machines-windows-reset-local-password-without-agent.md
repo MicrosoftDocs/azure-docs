@@ -1,4 +1,4 @@
----
+﻿---
 title: Reset a local Windows password when Azure guest agent is not installed | Microsoft Docs
 description: How to reset the password of a local Windows user account when the Azure guest agent is not installed or functioning on a VM
 services: virtual-machines-windows

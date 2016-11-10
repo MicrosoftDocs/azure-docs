@@ -1,4 +1,4 @@
----
+﻿---
 title: IoT Hub diagnostic metrics
 description: An overview of Azure IoT Hub metrics, enabling users to assess the overall health of their resource
 services: iot-hub

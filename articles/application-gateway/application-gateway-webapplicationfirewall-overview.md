@@ -1,4 +1,4 @@
----
+﻿---
 title: Introduction to Web Application Firewall (WAF) for Application Gateway | Microsoft Docs
 description: 'This page provides an overview of Web Application Firewall (WAF) for Application Gateway '
 documentationcenter: na

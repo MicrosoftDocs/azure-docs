@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Security Center and Azure SQL Database service | Microsoft Docs
 description: This article shows how Security Center can help you secure your databases in Azure SQL Database.
 services: sql-database

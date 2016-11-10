@@ -1,4 +1,4 @@
----
+﻿---
 title: Configuring Oracle GoldenGate in VMs | Microsoft Docs
 description: Step through a tutorial for setting up and implementing Oracle GoldenGate on Azure Windows Server VMs for high availability and disaster recovery.
 services: virtual-machines-windows

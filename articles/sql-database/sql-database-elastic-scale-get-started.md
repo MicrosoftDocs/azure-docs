@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started with elastic database tools
 description: Basic explanation of elastic database tools feature of Azure SQL Database, including easy to run sample app.
 services: sql-database

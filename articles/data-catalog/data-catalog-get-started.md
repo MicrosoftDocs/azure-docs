@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started with Data Catalog | Microsoft Docs
 description: End-to-end tutorial presenting the scenarios and capabilities of Azure Data Catalog.
 documentationcenter: ''

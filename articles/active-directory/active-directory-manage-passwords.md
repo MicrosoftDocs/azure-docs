@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage passwords in Azure Active Directory | Microsoft Docs
 description: How to manage passwords in Azure Active Directory.
 services: active-directory

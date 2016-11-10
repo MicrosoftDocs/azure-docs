@@ -1,4 +1,4 @@
----
+﻿---
 title: Runbook execution in Azure Automation
 description: Describes the details of how a runbook in Azure Automation is processed.
 services: automation
@@ -37,12 +37,12 @@ The following table describes the different statuses that are possible for a job
 |:--- |:--- |
 | Completed |The job completed successfully. |
 | Failed |For [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md), the runbook failed to compile.  For [PowerShell Script runbooks](automation-runbook-types.md), the runbook failed to start or the job encountered an exception. |
-| Failed, waiting for resources |The job failed because it reached the [fair share](#fairshare) limit three times and started from the same checkpoint or from the start of the runbook each time. |
+| Failed, waiting for resources |The job failed because it reached the [fair share](#fair-share) limit three times and started from the same checkpoint or from the start of the runbook each time. |
 | Queued |The job is waiting for resources on an Automation worker to come available so that it can be started. |
 | Starting |The job has been assigned to a worker, and the system is in the process of starting it. |
 | Resuming |The system is in the process of resuming the job after it was suspended. |
 | Running |The job is running. |
-| Running, waiting for resources |The job has been unloaded because it reached the [fair share](#fairshare) limit. It will resume shortly from its last checkpoint. |
+| Running, waiting for resources |The job has been unloaded because it reached the [fair share](#fair-share) limit. It will resume shortly from its last checkpoint. |
 | Stopped |The job was stopped by the user before it was completed. |
 | Stopping |The system is in the process of stopping the job. |
 | Suspended |The job was suspended by the user, by the system, or by a command in the runbook. A job that is suspended can be started again and will resume from its last checkpoint or from the beginning of the runbook if it has no checkpoints. The runbook will only be suspended by the system in the case of an exception. By default, ErrorActionPreference is set to **Continue** meaning that the job will keep running on an error. If this preference variable is set to **Stop** then the job will suspend on an error.  Applies to [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. |

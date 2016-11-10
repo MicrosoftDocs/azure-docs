@@ -1,4 +1,4 @@
----
+﻿---
 title: Microsoft cloud services and network security | Microsoft Docs
 description: Learn some of the key features available in Azure to help create secure network environments
 services: virtual-network
@@ -24,12 +24,12 @@ Microsoft cloud services deliver hyperscale services and infrastructure, enterpr
 The following logic chart can direct you to a specific example of the many security techniques available with the Azure platform. For quick reference, find the example that best fits your case. For more complete explanations, continue reading through the paper.
 ![Security options flowchart][0]
 
-[Example 1: Build a perimeter network (also known as DMZ, demilitarized zone, and screened subnet) to help protect applications with network security groups (NSGs).](#example-1-build-a-simple-dmz-with-nsgs)</br>
-[Example 2: Build a perimeter network to help protect applications with a firewall and NSGs.](#example-2-build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs)</br>
-[Example 3: Build a perimeter network to help protect networks with a firewall, user-defined route (UDR), and NSG.](#example-3-build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg)</br>
-[Example 4: Add a hybrid connection with a site-to-site, virtual appliance virtual private network (VPN).](#example-4-adding-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br>
-[Example 5: Add a hybrid connection with a site-to-site, Azure gateway VPN.](#example-5-adding-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn)</br>
-[Example 6: Add a hybrid connection with ExpressRoute.](#example-6-adding-a-hybrid-connection-with-expressroute)</br>
+[Example 1: Build a perimeter network (also known as DMZ, demilitarized zone, and screened subnet) to help protect applications with network security groups (NSGs).](#example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs)</br>
+[Example 2: Build a perimeter network to help protect applications with a firewall and NSGs.](#example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs)</br>
+[Example 3: Build a perimeter network to help protect networks with a firewall, user-defined route (UDR), and NSG.](#example-3-build-a-dmz-to-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
+[Example 4: Add a hybrid connection with a site-to-site, virtual appliance virtual private network (VPN).](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-virtual-private-network)</br>
+[Example 5: Add a hybrid connection with a site-to-site, Azure gateway VPN.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn)</br>
+[Example 6: Add a hybrid connection with ExpressRoute.](#example-6-add-a-hybrid-connection-with-expressroute)</br>
 Examples for adding connections between virtual networks, high availability, and service chaining will be added to this document over the next few months.
 
 ## Microsoft compliance and infrastructure protection
@@ -128,8 +128,8 @@ To enable these characteristics, follow these guidelines on virtual network requ
 
 > [!TIP]
 > Keep the following two groups separate: the individuals authorized to access the perimeter network security gear and the individuals authorized as application development, deployment, or operations administrators. Keeping these groups separate allows for a segregation of duties and prevents a single person from bypassing both applications security and network security controls.
-> 
-> 
+>
+>
 
 ### Questions to be asked when building network boundaries
 In this section, unless specifically mentioned, the term "networks" refers to private Azure virtual networks created by a subscription administrator. The term doesn't refer to the underlying physical networks within Azure.
@@ -150,8 +150,8 @@ The number and type of boundaries needed will vary based on a company’s risk t
 
 > [!TIP]
 > Use the smallest number of boundaries that satisfy the security requirements for a given situation. With more boundaries the more difficult operations and troubleshooting can be, as well as the management overhead involved with managing the multiple boundary policies over time. However, insufficient boundaries increase risk. Finding the balance is critical.
-> 
-> 
+>
+>
 
 ![Hybrid network with three security boundaries][6]
 
@@ -182,7 +182,7 @@ Additionally, traffic between virtual networks within Azure may be needed. These
 Once you know the answers to the previous questions, the [Fast Start](#fast-start) section can help identify which examples are most appropriate for a given scenario.
 
 ## Examples: Building security boundaries with Azure virtual networks
-### Example 1: Build a perimeter network to help protect applications with NSGs
+### Example 1 Build a perimeter network to help protect applications with NSGs
 [Back to Fast start](#fast-start) | [Detailed build instructions for this example][Example1]
 
 ![Inbound perimeter network with NSG][7]
@@ -204,8 +204,8 @@ In this example, an NSG group is built and then loaded with six rules.
 
 > [!TIP]
 > Generally speaking, you should create your specific “Allow” rules first, followed by the more generic “Deny” rules. The given priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either the inbound or outbound direction (from the perspective of the subnet).
-> 
-> 
+>
+>
 
 Declaratively, the following rules are being built for inbound traffic:
 
@@ -228,7 +228,7 @@ This is a relatively simple and straightforward way of isolating the back-end su
 * Detailed descriptions of each NSG command.
 * Detailed traffic flow scenarios, showing how traffic is allowed or denied in each layer.
 
-### Example 2: Build a perimeter network to help protect applications with a firewall and NSGs
+### Example 2 Build a perimeter network to help protect applications with a firewall and NSGs
 [Back to Fast start](#fast-start) | [Detailed build instructions for this example][Example2]
 
 ![Inbound perimeter network with NVA and NSG][8]
@@ -251,8 +251,8 @@ In this example, an NSG group is built and then loaded with six rules.
 
 > [!TIP]
 > Generally speaking, you should create your specific “Allow” rules first, followed by the more generic “Deny” rules. The given priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either the inbound or outbound direction (from the perspective of the subnet).
-> 
-> 
+>
+>
 
 Declaratively, the following rules are being built for inbound traffic:
 
@@ -280,7 +280,7 @@ This is a relatively straightforward way of protecting your application with a f
 * Detailed descriptions of each NSG command and firewall rule.
 * Detailed traffic flow scenarios, showing how traffic is allowed or denied in each layer.
 
-### Example 3: Build a perimeter network to help protect networks with a firewall, UDR, and NSG
+### Example 3 Build a perimeter network to help protect networks with a firewall and UDR and NSG
 [Back to Fast start](#fast-start) | [Detailed build instructions for this example][Example3]
 
 ![Bi-directional perimeter network with NVA, NSG, and UDR][9]
@@ -300,7 +300,7 @@ For scripts and an Azure Resource Manager template, see the [detailed build inst
 #### UDR description
 By default, the following system routes are defined as:
 
-        Effective routes : 
+        Effective routes :
          Address Prefix    Next hop type    Next hop IP address Status   Source     
          --------------    -------------    ------------------- ------   ------     
          {10.0.0.0/16}     VNETLocal                            Active   Default    
@@ -319,28 +319,28 @@ In this example, two routing tables are created, one each for the front-end and 
 3. All remaining traffic (0/0) with a Next Hop defined as the firewall.
 
 > [!TIP]
-> Not having the local subnet entry in the UDR will break local subnet communications. 
-> 
+> Not having the local subnet entry in the UDR will break local subnet communications.
+>
 > * In our example, 10.0.1.0/24 pointing to VNETLocal is critical as otherwise, packet leaving the Web Server (10.0.1.4) destined to another local server (for example) 10.0.1.25 will fail as they will be sent over to the NVA, which will send it to the subnet, and the subnet will re-send it to the NVA and so on.
-> * Chances of a routing loop are typically higher on multi-nic appliances that are directly connected to each subnet they are communicating with, which is often of traditional, on-premises, appliances. 
-> 
-> 
+> * Chances of a routing loop are typically higher on multi-nic appliances that are directly connected to each subnet they are communicating with, which is often of traditional, on-premises, appliances.
+>
+>
 
 Once the routing tables are created, they are bound to their subnets. The front-end subnet routing table, once created and bound to the subnet, would look like this:
 
-        Effective routes : 
+        Effective routes :
          Address Prefix    Next hop type    Next hop IP address Status   Source     
          --------------    -------------    ------------------- ------   ------     
-         {10.0.1.0/24}     VNETLocal                            Active 
+         {10.0.1.0/24}     VNETLocal                            Active
          {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
 > [!NOTE]
 > UDR can now be applied to the gateway subnet on which the ExpressRoute circuit is connected.
-> 
+>
 > Examples of how to enable your perimeter network with ExpressRoute or site-to-site networking are shown in examples 3 and 4.
-> 
-> 
+>
+>
 
 #### IP Forwarding description
 IP Forwarding is a companion feature to UDR. This is a setting on a virtual appliance that allows it to receive traffic not specifically addressed to the appliance, and then forward that traffic to its ultimate destination.
@@ -367,8 +367,8 @@ On the firewall, forwarding rules should be created. Since the firewall is block
 
 > [!NOTE]
 > Based on the Network Virtual Appliance used, the management ports will vary. In this example, a Barracuda NextGen Firewall is referenced, which uses ports 22, 801, and 807. Consult the appliance vendor documentation to find the exact ports used for management of the device being used.
-> 
-> 
+>
+>
 
 #### Firewall rules description
 In the preceding logical diagram, the security subnet is not shown. This is because the firewall is the only resource on that subnet, and this diagram is showing the firewall rules and how they logically allow or deny traffic flows, not the actual routed path. Also, the external ports selected for the RDP traffic are higher ranged ports (8014 – 8026) and were selected to somewhat align with the last two octets of the local IP address for easier readability (for example, local server address 10.0.1.4 is associated with external port 8014). Any higher non-conflicting ports, however, could be used.
@@ -390,8 +390,8 @@ For this example, we need seven types of rules:
 
 > [!TIP]
 > On the second application traffic rule, to simplify this example, any port is allowed. In a real scenario, the most specific port and address ranges should be used to reduce the attack surface of this rule.
-> 
-> 
+>
+>
 
 Once all of the previous rules are created, it’s important to review the priority of each rule to ensure traffic will be allowed or denied as desired. For this example, the rules are in priority order.
 
@@ -403,7 +403,7 @@ This is a more complex but more complete way of protecting and isolating the net
 * Detailed descriptions of each UDR, NSG command, and firewall rule.
 * Detailed traffic flow scenarios, showing how traffic is allowed or denied in each layer.
 
-### Example 4: Add a hybrid connection with a site-to-site, virtual appliance virtual private network (VPN)
+### Example 4 Add a hybrid connection with a site-to-site virtual appliance virtual private network
 [Back to Fast start](#fast-start) | Detailed build instructions available soon
 
 ![Perimeter network with NVA connected hybrid network][11]
@@ -415,8 +415,8 @@ As shown in the previous figure, a VPN connection over the Internet (site-to-sit
 
 > [!NOTE]
 > If you use ExpressRoute with the Azure Public Peering option enabled, a static route should be created. This should route to the NVA VPN IP address out your corporate Internet and not via the ExpressRoute WAN. The NAT required on the ExpressRoute Azure Public Peering option can break the VPN session.
-> 
-> 
+>
+>
 
 Once the VPN is in place, the NVA becomes the central hub for all networks and subnets. The firewall forwarding rules determine which traffic flows are allowed, are translated via NAT, are redirected, or are dropped (even for traffic flows between the on-premises network and Azure).
 
@@ -439,7 +439,7 @@ The addition of a site-to-site VPN hybrid network connection to an Azure virtual
 * How to build this example with an Azure Resource Manager template.
 * Detailed traffic flow scenarios, showing how traffic flows through this design.
 
-### Example 5: Add a hybrid connection with a site-to-site, Azure gateway VPN
+### Example 5 Add a hybrid connection with a site-to-site Azure gateway VPN
 [Back to Fast start](#fast-start) | Detailed build instructions available soon
 
 ![Perimeter network with gateway connected hybrid network][14]
@@ -451,8 +451,8 @@ As shown in the preceding figure, a VPN connection over the Internet (site-to-si
 
 > [!NOTE]
 > If you use ExpressRoute with the Azure Public Peering option enabled, a static route should be created. This should route to the NVA VPN IP address out your corporate Internet and not via the ExpressRoute WAN. The NAT required on the ExpressRoute Azure Public Peering option can break the VPN session.
-> 
-> 
+>
+>
 
 The following figure shows the two network edges in this option. On the first edge, the NVA and NSGs control traffic flows for intra-Azure networks and between Azure and the Internet. The second edge is the Azure VPN gateway, which is a completely separate and isolated network edge between on-premises and Azure.
 
@@ -469,7 +469,7 @@ The addition of a site-to-site VPN hybrid network connection to an Azure virtual
 * How to build this example with an Azure Resource Manager template.
 * Detailed traffic flow scenarios, showing how traffic flows through this design.
 
-### Example 6: Add a hybrid connection with ExpressRoute
+### Example 6 Add a hybrid connection with ExpressRoute
 [Back to Fast start](#fast-start) | Detailed build instructions available soon
 
 ![Perimeter network with gateway connected hybrid network][16]
@@ -481,16 +481,16 @@ As shown in the preceding figure, ExpressRoute private peering provides a direct
 
 > [!NOTE]
 > There are certain restrictions when using UDR with ExpressRoute, due to the complexity of dynamic routing used in the Azure virtual gateway. These are as follows:
-> 
+>
 > * UDR should not be applied to the gateway subnet on which the ExpressRoute linked Azure virtual gateway is connected.
 > * The ExpressRoute linked Azure virtual gateway cannot be the NextHop device for other UDR bound subnets.
-> 
+>
 > <br />
-> 
+>
 > [!TIP]
 > Using ExpressRoute keeps corporate network traffic off of the Internet for better security and significantly increased performance. It also allows for service level agreements from your ExpressRoute provider. The Azure Gateway can pass up to 2 Gb/s with ExpressRoute, whereas with site-to-site VPNs, the Azure Gateway maximum throughput is 200 Mb/s.
-> 
-> 
+>
+>
 
 As seen in the following diagram, with this option the environment now has two network edges. The NVA and NSG control traffic flows for intra-Azure networks and between Azure and the Internet, while the gateway is a completely separate and isolated network edge between on-premises and Azure.
 

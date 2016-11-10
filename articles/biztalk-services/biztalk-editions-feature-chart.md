@@ -4,7 +4,7 @@ description: 'Compare the capabilities of the BizTalk Services editions: Free, D
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
-manager: erikre
+manager: anneta
 editor: ''
 
 ms.assetid: c589629f-06b1-44bb-b8ca-1db71826ea59
@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 11/07/2016
 ms.author: mandia
 
 ---

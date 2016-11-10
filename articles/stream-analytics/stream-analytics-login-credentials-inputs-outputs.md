@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Stream Analytics: Rotate log-in credentials for inputs and outputs | Microsoft Docs'
 description: Learn how to update the credentials for Stream Analytics inputs and outputs.
 keywords: login credentials

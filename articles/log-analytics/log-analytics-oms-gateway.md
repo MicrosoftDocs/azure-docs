@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect computers and devices to OMS using the OMS Gateway | Microsoft Docs
 description: Connect your OMS-managed devices and Operations Manager-monitored computers with the OMS Gateway to send data to the OMS service when they do not have Internet access.
 services: log-analytics

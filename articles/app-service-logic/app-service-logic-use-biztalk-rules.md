@@ -1,4 +1,4 @@
----
+﻿---
 title: Learn about and create a BizTalk Rules API app in your Logic App | Microsoft Docs
 description: This topic covers the features of BizTalk Rules connector and provides instructions on its usage
 services: logic-apps

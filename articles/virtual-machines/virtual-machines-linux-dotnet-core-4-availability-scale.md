@@ -1,4 +1,4 @@
----
+﻿---
 title: Availability and Scale in Azure Resource Manager Templates | Microsoft Docs
 description: Azure Virtual Machine DotNet Core Tutorial
 services: virtual-machines-linux

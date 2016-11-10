@@ -1,4 +1,4 @@
----
+﻿---
 title: Restore a deleted Azure SQL Database (PowerShell) | Microsoft Docs
 description: Restore a deleted Azure SQL Database (PowerShell).
 services: sql-database

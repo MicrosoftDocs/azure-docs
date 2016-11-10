@@ -64,10 +64,10 @@ This feature provides a report about synchronization errors that can occur when 
 
 * The report covers errors recorded by the sync client (Azure AD Connect version 1.1.281.0 or higher)
 * It includes the errors that occurred in the last synchronization operation on the sync engine. ("Export" on the Azure AD Connector.)
-* Azure AD Connect Health agent for sync must have outbound connectivity to the required end points for the report to include the latest data. See the [Requirements section](active-directory-aadconnect-health-agent-install.md#Requirements) for details.
+* Azure AD Connect Health agent for sync must have outbound connectivity to the required end points for the report to include the latest data.
 * The report is **updated after every 30 minutes** using the data uploaded by Azure AD Connect Health agent for sync.
   It provides the following key capabilities
-  
+
   * Categorization of errors
   * List of objects with error per category
   * All the data about the errors at one place
@@ -115,4 +115,3 @@ This capability is coming soon. Stay tuned for more updates.
 * [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
-

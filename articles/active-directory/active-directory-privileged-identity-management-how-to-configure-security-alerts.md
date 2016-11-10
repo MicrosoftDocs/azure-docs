@@ -1,4 +1,4 @@
----
+﻿---
 title: How to configure security alerts | Microsoft Docs
 description: Learn how to configure security alerts for Azure Privileged Identity Management extension.
 services: active-directory

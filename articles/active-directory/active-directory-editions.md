@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory editions | Microsoft Docs
 description: A topic that explains choices for free and paid editions of Azure Active Directory. Azure Active Directory Basic, Azure Active Directory Premium P1, and Azure Active Directory Premium P2 are the paid editions.
 services: active-directory

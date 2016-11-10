@@ -1,4 +1,4 @@
----
+﻿---
 title: Operations Management Suite Security and Audit Solution Baseline | Microsoft Docs
 description: This document explains how to use OMS Security and Audit solution to perform a baseline assessment of all monitored computers for compliance and security purpose.
 services: operations-management-suite

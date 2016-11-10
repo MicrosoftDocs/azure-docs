@@ -1,4 +1,4 @@
----
+﻿---
 title: Automatic indexing in DocumentDB | Microsoft Docs
 description: Learn about how automatic indexing works in Azure DocumentDB.
 services: documentdb

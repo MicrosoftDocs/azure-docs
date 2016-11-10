@@ -1,4 +1,4 @@
----
+﻿---
 title: Disaster recovery for Azure applications | Microsoft Docs
 description: Technical overview and in-depth information about designing applications for disaster recovery on Microsoft Azure.
 services: ''

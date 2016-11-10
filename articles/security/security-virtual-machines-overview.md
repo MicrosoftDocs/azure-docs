@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Virtual Machines Security Overview | Microsoft Docs
 description: " Azure Virtual Machines give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine.  This article provides an overview of the core Azure security features that can be used with Azure Virtual Machines. "
 services: security

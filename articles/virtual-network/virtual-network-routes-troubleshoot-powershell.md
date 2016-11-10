@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot routes - PowerShell | Microsoft Docs
 description: Learn how to troubleshoot routes in the Azure Resource Manager deployment model using Azure PowerShell.
 services: virtual-network

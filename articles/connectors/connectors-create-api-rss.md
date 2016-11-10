@@ -1,4 +1,4 @@
----
+﻿---
 title: RSS | Microsoft Docs
 description: Create Logic apps with Azure App service. RSS connector allows the users to publish and retrieve feed items. It also allows the users to trigger operations when a new item is published to the feed.
 services: logic-apps

@@ -2,12 +2,11 @@
 
 # Overview
 ## [What is Scheduler?](scheduler-intro.md)
-## [Concepts and terminology](scheduler-concepts-terms.md)
 
 # Get started
-## [Create and manage jobs in portal](scheduler-get-started-portal.md)
+## [Create and manage jobs](scheduler-get-started-portal.md)
 
-# How to 
+# How to
 ## Plan and design
 ### [Plans and billing](scheduler-plans-billing.md)
 ### [Quotas and limits](scheduler-limits-defaults-errors.md)
@@ -20,10 +19,11 @@
 ### [Outbound authentication](scheduler-outbound-authentication.md)
 
 # Reference
-## [REST API reference](https://msdn.microsoft.com/en-us/library/azure/mt629143)
-## [PowerShell Reference](scheduler-powershell-reference.md)
-
-# Related 
+## [Concepts and terminology](scheduler-concepts-terms.md)
+## [Scheduler PowerShell cmdlets](scheduler-powershell-reference.md)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [REST](https://docs.microsoft.com/rest/api/scheduler/)
 
 # Resources
 ## [Scheduler Videos](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)

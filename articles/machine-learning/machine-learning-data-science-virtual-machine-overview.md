@@ -1,4 +1,4 @@
----
+﻿---
 title: What is a Data Science Virtual Machine? | Microsoft Docs
 description: Learn the key scenarios, features, and how to get started with Data Science Virtual Machines, an environment and toolkit ready for analytics.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science

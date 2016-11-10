@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory Integration with Bonus.ly | Microsoft Docs'
 description: Learn how to use Bonus.ly with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory

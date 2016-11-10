@@ -54,30 +54,29 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 5. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet. The update will first complete on the passive controller. Once the passive controller is updated, there will be a failover and the update will then get applied on the other controller. The update is complete when both the controllers are updated.
    
     The following sample output shows the update in progress. The `RunInprogress` will be `True` when the update is in progress.
-   
-        ````
-        Controller0>Get-HcsUpdateStatus
-        RunInprogress       : True
-        LastHotfixTimestamp :
-        LastUpdateTimestamp : 8/29/2016 2:04:02 AM
-        Controller0Events   :
-        Controller1Events   :
-   
-        ````
+
+    ```
+    Controller0>Get-HcsUpdateStatus
+    RunInprogress       : True
+    LastHotfixTimestamp :
+    LastUpdateTimestamp : 8/29/2016 2:04:02 AM
+    Controller0Events   :
+    Controller1Events   :
+    ```
    
      The following sample output indicates that the update is finished. The `RunInProgress` will be `False` when the update has completed.
    
-        ````
-        Controller0>Get-HcsUpdateStatus
-        RunInprogress       : False
-        LastHotfixTimestamp : 8/30/2016 9:15:55 AM
-        LastUpdateTimestamp : 8/30/2016 9:06:07 AM
-        Controller0Events   :
-        Controller1Events   :
+    ```
+    Controller0>Get-HcsUpdateStatus
+    RunInprogress       : False
+    LastHotfixTimestamp : 8/30/2016 9:15:55 AM
+    LastUpdateTimestamp : 8/30/2016 9:06:07 AM
+    Controller0Events   :
+    Controller1Events   :
+    ```
 
-        ````
-
-    > [AZURE.NOTE] Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
+    > [!NOTE] 
+    > Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
 
 1. After the software update is complete, verify the system software versions. Type:
    

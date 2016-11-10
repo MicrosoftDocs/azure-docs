@@ -1,4 +1,4 @@
----
+﻿---
 title: Configurable Token Lifetimes in Azure Active Directory  | Microsoft Docs
 description: This feature is used by admins and developers to specify the lifetimes of tokens issued by Azure AD.
 services: active-directory

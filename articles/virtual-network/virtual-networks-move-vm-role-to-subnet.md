@@ -1,4 +1,4 @@
----
+﻿---
 title: How to move a VM or role instance to a different subnet
 description: Learn how to move VMs and role instances to a different subnet
 services: virtual-network
