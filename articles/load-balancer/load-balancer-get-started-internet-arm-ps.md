@@ -241,7 +241,6 @@ For guidance on creating a virtual machine and assigning a NIC, see [Create an A
 
     Load the load balancer resource into a variable (if you haven't done that yet). The variable is called **$lb**. Use the same names from the load balancer resource that you created earlier.
 
-    ```powershell
         $lb= get-azurermloadbalancer -name NRP-LB -resourcegroupname NRP-RG
     ```
 
@@ -309,4 +308,3 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
-

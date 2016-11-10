@@ -76,7 +76,7 @@ TCP probes initiate a connection by performing a three-way handshake with the de
 * The TCP server does not respond at all after the timeout period. When the probe is marked as not running depends on the number of failed probe requests that were configured to go unanswered before marking the probe as not running.
 * The probe receives a TCP reset from the role instance.
 
-For more information about configuring an HTTP health probe or a TCP probe, see [Get started creating an Internet-facing load balancer in Resource Manager using PowerShell](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer).
+For more information about configuring an HTTP health probe or a TCP probe, see [Get started creating an Internet-facing load balancer in Resource Manager using PowerShell](load-balancer-get-started-internet-arm-ps.md).
 
 ## Add healthy instances back into load balancer rotation
 
@@ -91,4 +91,3 @@ TCP and HTTP probes are considered healthy and mark the role instance as healthy
 ## Use log analytics for Load Balancer
 
 You can use [log analytics for Load Balancer](load-balancer-monitor-log.md) to check on the probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about Load Balancer health status.
-
