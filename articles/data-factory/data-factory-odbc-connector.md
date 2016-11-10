@@ -23,39 +23,39 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 Data factory currently supports only moving data from an on-premises ODBC data store to other data stores. It does not support moving data from other data stores to an on-premises ODBC data store.
 
 ## Enabling connectivity
-Data Factory service supports connecting to on-premises ODBC sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. Use the gateway to connect to an ODBC data store even if it is hosted in an Azure IaaS VM. 
+Data Factory service supports connecting to on-premises ODBC sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. Use the gateway to connect to an ODBC data store even if it is hosted in an Azure IaaS VM.
 
-You can install the gateway on the same on-premises machine or the Azure VM as the ODBC data store. However, we recommend that you install the gateway on a separate machine/Azure IaaS VM to avoid resource contention and for better performance. When you install the gateway on a separate machine, the machine should be able to access the machine with the ODBC data store. 
+You can install the gateway on the same on-premises machine or the Azure VM as the ODBC data store. However, we recommend that you install the gateway on a separate machine/Azure IaaS VM to avoid resource contention and for better performance. When you install the gateway on a separate machine, the machine should be able to access the machine with the ODBC data store.
 
-Apart from the Data Management Gateway, you also need to install the ODBC driver for the data store on the gateway machine. 
+Apart from the Data Management Gateway, you also need to install the ODBC driver for the data store on the gateway machine.
 
 > [!NOTE]
-> See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
-> 
-> 
+> See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
+>
+>
 
 ## Copy data wizard
-The easiest way to create a pipeline that copies data from an ODBC source is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+The easiest way to create a pipeline that copies data from an ODBC source is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from an ODBC source to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from an ODBC source to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 ## Sample: Copy data from ODBC data store to Azure Blob
-This sample shows how to copy data from an ODBC data store to Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+This sample shows how to copy data from an ODBC data store to Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
 
 The sample has the following data factory entities:
 
 1. A linked service of type [OnPremisesOdbc](#odbc-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](#odbc-dataset-type-properties).
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#odbc-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-The sample copies data from a query result in an ODBC data store to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies data from a query result in an ODBC data store to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
-As a first step, set up the data management gateway. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. 
+As a first step, set up the data management gateway. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
 **ODBC linked service**
-This example uses the Basic authentication. See [ODBC linked service](#odbc-linked-service-properties) section for different types of authentication you can use. 
+This example uses the Basic authentication. See [ODBC linked service](#odbc-linked-service-properties) section for different types of authentication you can use.
 
     {
         "name": "OnPremOdbcLinkedService",
@@ -238,7 +238,7 @@ The following table provides description for JSON elements specific to ODBC link
 | password |Specify password for the user account you specified for the username. |No |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the ODBC data store. |Yes |
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises ODBC data store.
+See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises ODBC data store.
 
 ### Using Basic authentication
     {
@@ -303,7 +303,7 @@ The **typeProperties** section is different for each type of dataset and provide
 | tableName |Name of the table in the ODBC data store. |Yes |
 
 ## ODBC Copy Activity type properties
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities. 
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities.
 
 Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
@@ -328,7 +328,7 @@ When moving data from ODBC data stores, ODBC data types are mapped to .NET types
 [!INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
 ## GE Historian store
-You create an ODBC linked service to link a [GE Proficy Historian (now GE Historian)](http://www.geautomation.com/products/proficy-historian) data store to an Azure data factory as shown in the following example: 
+You create an ODBC linked service to link a [GE Proficy Historian (now GE Historian)](http://www.geautomation.com/products/proficy-historian) data store to an Azure data factory as shown in the following example:
 
     {
         "name": "HistorianLinkedService",
@@ -348,23 +348,22 @@ You create an ODBC linked service to link a [GE Proficy Historian (now GE Histor
 
 Install Data Management Gateway on an on-premises machine and register the gateway with the portal. The gateway installed on your on-premises computer uses the ODBC driver for GE Historian to connect to the GE Historian data store. Therefore, install the driver if it is not already installed on the gateway machine. See [Enabling connectivity](#enabling-connectivity) section for details.
 
-Before you use the GE Historian store in a Data Factory solution, verify whether the gateway can connect to the data store using instructions in the next section. 
+Before you use the GE Historian store in a Data Factory solution, verify whether the gateway can connect to the data store using instructions in the next section.
 
 Read the article from the beginning for a detailed overview of using ODBC data stores as source data stores in a copy operation.  
 
 ## Troubleshoot connectivity issues
-To troubleshoot connection issues, use the **Diagnostics** tab of **Data Management Gateway Configuration Manager**. 
+To troubleshoot connection issues, use the **Diagnostics** tab of **Data Management Gateway Configuration Manager**.
 
-1. Launch **Data Management Gateway Configuration Manager**. You can either run "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" directly (or) search for **Gateway** to find a link to **Microsoft Data Management Gateway** application as shown in the following image. 
-   
+1. Launch **Data Management Gateway Configuration Manager**. You can either run "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" directly (or) search for **Gateway** to find a link to **Microsoft Data Management Gateway** application as shown in the following image.
+
     ![Search gateway](./media/data-factory-odbc-connector/search-gateway.png)
 2. Switch to the **Diagnostics** tab.
-   
-    ![Gateway diagnostics](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png) 
-3. Select the **type** of data store (linked service). 
-4. Specify **authentication** and enter **credentials** (or) enter **connection string** that is used to connect to the data store. 
-5. Click **Test connection** to test the connection to the data store. 
+
+    ![Gateway diagnostics](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
+3. Select the **type** of data store (linked service).
+4. Specify **authentication** and enter **credentials** (or) enter **connection string** that is used to connect to the data store.
+5. Click **Test connection** to test the connection to the data store.
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
-

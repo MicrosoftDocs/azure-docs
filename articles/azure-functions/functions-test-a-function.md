@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/19/2016
+ms.date: 11/10/2016
 ms.author: wesmc
 
 ---
@@ -30,47 +30,48 @@ The default function template is basically a hello world function that echoes ba
 
 Update the function with the following code which we will use for testing:
 
-    module.exports = function(context, req) {
-        context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
-        context.log("Request Headers = " + JSON.stringify(req.headers));    
+```javascript
+module.exports = function(context, req) {
+    context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
+    context.log("Request Headers = " + JSON.stringify(req.headers));    
 
-        if (req.query.name || (req.body && req.body.name)) {
-            if (typeof req.query.name != "undefined") {
-                context.log("Name was provided as a query string param...");
-                ProcessNewUserInformation(context, req.query.name);
-            }
-            else {
-                context.log("Processing user info from request body...");
-                ProcessNewUserInformation(context, req.body.name, req.body.address);
-            }
+    if (req.query.name || (req.body && req.body.name)) {
+        if (typeof req.query.name != "undefined") {
+            context.log("Name was provided as a query string param...");
+            ProcessNewUserInformation(context, req.query.name);
         }
         else {
-            context.res = {
-                status: 400,
-                body: "Please pass a name on the query string or in the request body"
-            };
+            context.log("Processing user info from request body...");
+            ProcessNewUserInformation(context, req.body.name, req.body.address);
         }
-        context.done();
-    };
-
-    function ProcessNewUserInformation(context, name, address)
-    {    
-        context.log("Processing User Information...");            
-        context.log("name = " + name);            
-        echoString = "Hello " + name;
-
-        if (typeof address != "undefined")
-        {
-            echoString += "\n" + "The address you provided is " + address;
-            context.log("address = " + address);            
-        }
-
+    }
+    else {
         context.res = {
-                // status: 200, /* Defaults to 200 */
-                body: echoString
-            };
+            status: 400,
+            body: "Please pass a name on the query string or in the request body"
+        };
+    }
+    context.done();
+};
+
+function ProcessNewUserInformation(context, name, address)
+{    
+    context.log("Processing User Information...");            
+    context.log("name = " + name);            
+    echoString = "Hello " + name;
+
+    if (typeof address != "undefined")
+    {
+        echoString += "\n" + "The address you provided is " + address;
+        context.log("address = " + address);            
     }
 
+    context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: echoString
+        };
+}
+```
 
 ## Test a function with Tools
 ### Test with cURL
@@ -141,11 +142,12 @@ To test the function with a request body in Postman:
 2. Copy your **Function Url** and paste it into Postman. It includes the access code query string parameter.
 3. Change the HTTP method to **POST**.
 4. Click **Body** > **raw** and add JSON request body similar to the following:
-
-        {
-            "name" : "Wes testing with Postman",
-            "address" : "Seattle, W.A. 98101"
-        }
+	```json
+    {
+        "name" : "Wes testing with Postman",
+        "address" : "Seattle, W.A. 98101"
+    }
+	```
 5. Click **Send**.
 
 The following image shows testing the simple echo function example in this tutorial.
@@ -192,10 +194,12 @@ The portal provides a **Run** button which will allow you to do some limited tes
 
 Test the HTTP trigger function we created earlier by adding a JSON string similar to the following in the **Request body** field then click the **Run** button.
 
-    {
-        "name" : "Wes testing Run button",
-        "address" : "USA"
-    }
+```json
+{
+    "name" : "Wes testing Run button",
+    "address" : "USA"
+}
+```
 
 In the portal **Logs** window, output similar to the following is logged while executing the function:
 
@@ -249,18 +253,20 @@ To demonstrate this approach, we will first create a queue trigger function that
 8. Click the **Develop** tab for your timer trigger.
 9. You can use the following code for the C# timer function as long as you used the same queue message object name shown above. Then click **Save**
 
-        using System;
+	```cs
+    using System;
 
-        public static void Run(TimerInfo myTimer, out String myQueue, TraceWriter log)
-        {
-            String newUser =
-            "{\"name\":\"User testing from C# timer function\",\"address\":\"XYZ\"}";
+    public static void Run(TimerInfo myTimer, out String myQueue, TraceWriter log)
+    {
+        String newUser =
+        "{\"name\":\"User testing from C# timer function\",\"address\":\"XYZ\"}";
 
-            log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");   
-            log.Verbose($"{newUser}");   
+        log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");   
+        log.Verbose($"{newUser}");   
 
-            myQueue = newUser;
-        }
+        myQueue = newUser;
+    }
+	```
 
 At this point C# timer function will execute every 30 seconds if you used the example cron expression. The logs for the timer function will report each execution:
 
@@ -289,44 +295,45 @@ Make sure to set:
 
 Code Example:
 
-    var http = require("http");
+```javascript
+var http = require("http");
 
-    var nameQueryString = "name=Wes%20Query%20String%20Test%20From%20Node.js";
+var nameQueryString = "name=Wes%20Query%20String%20Test%20From%20Node.js";
 
-    var nameBodyJSON = {
-        name : "Wes testing with Node.JS code",
-        address : "Dallas, T.X. 75201"
-    };
+var nameBodyJSON = {
+    name : "Wes testing with Node.JS code",
+    address : "Dallas, T.X. 75201"
+};
 
-    var bodyString = JSON.stringify(nameBodyJSON);
+var bodyString = JSON.stringify(nameBodyJSON);
 
-    var options = {
-      host: "functions841def78.azurewebsites.net",
-      //path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9&" + nameQueryString,
-      path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9",
-      method: "POST",
-      headers : {
-          "Content-Type":"application/json",
-          "Content-Length": Buffer.byteLength(bodyString)
-        }    
-    };
+var options = {
+  host: "functions841def78.azurewebsites.net",
+  //path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9&" + nameQueryString,
+  path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9",
+  method: "POST",
+  headers : {
+      "Content-Type":"application/json",
+      "Content-Length": Buffer.byteLength(bodyString)
+    }    
+};
 
-    callback = function(response) {
-      var str = ""
-      response.on("data", function (chunk) {
-        str += chunk;
-      });
+callback = function(response) {
+  var str = ""
+  response.on("data", function (chunk) {
+    str += chunk;
+  });
 
-      response.on("end", function () {
-        console.log(str);
-      });
-    }
+  response.on("end", function () {
+    console.log(str);
+  });
+}
 
-    var req = http.request(options, callback);
-    console.log("*** Sending name and address in body ***");
-    console.log(bodyString);
-    req.end(bodyString);
-
+var req = http.request(options, callback);
+console.log("*** Sending name and address in body ***");
+console.log(bodyString);
+req.end(bodyString);
+```
 
 
 Output:
@@ -360,49 +367,51 @@ To test this code in a console app you must:
 
 Example C# code:
 
-    static void Main(string[] args)
+```cs
+static void Main(string[] args)
+{
+    string name = null;
+    string address = null;
+    string queueName = "queue-newusers";
+    string JSON = null;
+
+    if (args.Length > 0)
     {
-        string name = null;
-        string address = null;
-        string queueName = "queue-newusers";
-        string JSON = null;
-
-        if (args.Length > 0)
-        {
-            name = args[0];
-        }
-        if (args.Length > 1)
-        {
-            address = args[1];
-        }
-
-        // Retrieve storage account from connection string
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
-
-        // Create the queue client
-        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-
-        // Retrieve a reference to a queue
-        CloudQueue queue = queueClient.GetQueueReference(queueName);
-
-        // Create the queue if it doesn't already exist
-        queue.CreateIfNotExists();
-
-        // Create a message and add it to the queue.
-        if (name != null)
-        {
-            if (address != null)
-                JSON = String.Format("{{\"name\":\"{0}\",\"address\":\"{1}\"}}", name, address);
-            else
-                JSON = String.Format("{{\"name\":\"{0}\"}}", name);
-        }
-
-        Console.WriteLine("Adding message to " + queueName + "...");
-        Console.WriteLine(JSON);
-
-        CloudQueueMessage message = new CloudQueueMessage(JSON);
-        queue.AddMessage(message);
+        name = args[0];
     }
+    if (args.Length > 1)
+    {
+        address = args[1];
+    }
+
+    // Retrieve storage account from connection string
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
+
+    // Create the queue client
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+
+    // Retrieve a reference to a queue
+    CloudQueue queue = queueClient.GetQueueReference(queueName);
+
+    // Create the queue if it doesn't already exist
+    queue.CreateIfNotExists();
+
+    // Create a message and add it to the queue.
+    if (name != null)
+    {
+        if (address != null)
+            JSON = String.Format("{{\"name\":\"{0}\",\"address\":\"{1}\"}}", name, address);
+        else
+            JSON = String.Format("{{\"name\":\"{0}\"}}", name);
+    }
+
+    Console.WriteLine("Adding message to " + queueName + "...");
+    Console.WriteLine(JSON);
+
+    CloudQueueMessage message = new CloudQueueMessage(JSON);
+    queue.AddMessage(message);
+}
+```
 
 In the browser window for the queue function, you will see the each message being processed:
 

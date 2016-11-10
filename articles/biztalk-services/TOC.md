@@ -1,39 +1,33 @@
 # Overview
-## [Hybrid Connections overview](integration-hybrid-connection-overview.md)
+## [Editions](biztalk-editions-feature-chart.md)
+## [About Hybrid Connections](integration-hybrid-connection-overview.md)
 
 # Get Started
-## [Create BizTalk Services using the Azure portal](biztalk-provision-services.md)
-# How To
+## [Create BizTalk Services](biztalk-provision-services.md)
 
+# How To
 ## Plan and design
-### [Editions chart](biztalk-editions-feature-chart.md)
 ### [Administration and developer task list](biztalk-services-administration-and-development-task-list.md)
 
-## Backup
-### [Backup and restore](biztalk-backup-restore.md)
+## [Back up and restore](biztalk-backup-restore.md)
 
 ## Configure
-### [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)
-### [Review the Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](biztalk-dashboard-monitor-scale-tabs.md)
+### [Throttling](biztalk-throttling-thresholds.md)
+### [Service settings and monitoring](biztalk-dashboard-monitor-scale-tabs.md)
 
 ## Integrate
-### [Create and Manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
+### [Hybrid Connections](integration-hybrid-connection-create-manage.md)
 
 ## Migrate
-### [Migrating BizTalk Server EDI Solutions to BizTalk Services](biztalk-migrating-to-edi-guide.md)
+### [BizTalk Server EDI solutions to BizTalk Services](biztalk-migrating-to-edi-guide.md)
 
 ## Monitor
-### [BizTalk Services: Service state chart](biztalk-service-state-chart.md)
+### [Tasks that depend on service states](biztalk-service-state-chart.md)
 
 ## Secure
-### [Issuer name and issuer key](biztalk-issuer-name-issuer-key.md)
+### [Access control](biztalk-issuer-name-issuer-key.md)
 
-## Troubleshoot
-### [Troubleshoot using operation logs](biztalk-troubleshoot-using-ops-logs.md)
+## [Troubleshoot](biztalk-troubleshoot-using-ops-logs.md)
 
 # Reference
-
-# Related
-
-# Resources
-## [Release Notes](biztalk-release-notes.md)
+## [Release notes](biztalk-release-notes.md)
