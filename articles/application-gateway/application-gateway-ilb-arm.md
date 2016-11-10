@@ -213,6 +213,7 @@ Use **Stop-AzureRmApplicationGateway** to stop the application gateway. This sam
 
 ```powershell
 Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
+```
 
 ```
 VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway

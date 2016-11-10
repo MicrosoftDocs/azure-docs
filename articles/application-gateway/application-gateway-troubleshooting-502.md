@@ -35,11 +35,13 @@ If the Application Gateway has no VMs or VM Scale Set configured in the back-end
 ### Solution
 Ensure that the back-end address pool is not empty. This can be done either via PowerShell, CLI, or portal.
 
-    Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+```powershell
+Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+```
 
 The output from the preceding cmdlet should contain non-empty back-end address pool. Following is an example where two pools are returned which are configured with FQDN or IP addresses for backend VMs. The provisioning state of the BackendAddressPool must be 'Succeeded'.
 
-    BackendAddressPoolsText:
+BackendAddressPoolsText:
 
 ```json
 [{

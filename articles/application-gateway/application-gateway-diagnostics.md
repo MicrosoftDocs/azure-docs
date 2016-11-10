@@ -50,7 +50,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
    
         Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
 
-> [AZURE.INFORMATION] Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
+> [!TIP] Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
 > 
 > 
 
