@@ -57,7 +57,7 @@ For an in-depth discussion of IoT Hub throttling behavior, see the blog post [Io
 Other reference topics in this IoT Hub developer guide include:
 
 * [IoT Hub endpoints][lnk-devguide-endpoints]
-* [IoT Hub query language for twins, methods, and jobs][lnk-devguide-query]
+* [IoT Hub query language for device twins, methods, and jobs][lnk-devguide-query]
 * [IoT Hub MQTT support][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

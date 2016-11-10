@@ -59,7 +59,7 @@ You can use the [Azure IoT Gateway SDK][lnk-gateway-sdk] to implement a field ga
 ## Next steps
 Other reference topics in this IoT Hub developer guide include:
 
-* [IoT Hub query language for twins, methods, and jobs][lnk-devguide-query]
+* [IoT Hub query language for device twins, methods, and jobs][lnk-devguide-query]
 * [Quotas and throttling][lnk-devguide-quotas]
 * [IoT Hub MQTT support][lnk-devguide-mqtt]
 

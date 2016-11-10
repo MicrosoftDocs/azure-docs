@@ -23,7 +23,7 @@ This article lists some of the common terms associated with IoT Hub.
 ## Advanced Message Queueing Protocol (AMQP)
 [AMQP](https://www.amqp.org/) is one of the messaging protocols that IoT Hub supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
 
-## Cloud-to-device (C2D)
+## Cloud-to-device
 Usually used to refer to messages sent from IoT Hub to a connected device. Often, these messages are commands that instruct the device to take some action. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
 
 ## Condition
@@ -35,7 +35,7 @@ A data-point message is a cloud-to-device message that contains telemetry data s
 ## Desired properties
 In the context of device twins, desired properties are used in conjunction with *reported properties* to synchronize device configuration or condition. Desired properties can only be set by the application back end and are observed by the device app. 
 
-## Device-to-cloud (D2C)
+## Device-to-cloud
 Usually used to refer to messages sent from a connected device to IoT Hub. These messages may be [data point](#data-point-message) or [interactive](#interactive-message) messages. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
 
 ## Device identity registry
