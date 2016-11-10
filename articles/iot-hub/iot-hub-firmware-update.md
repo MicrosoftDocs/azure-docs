@@ -19,7 +19,7 @@ ms.author: juanpere
 ---
 # Tutorial: How to do a firmware update (preview)
 ## Introduction
-In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and provides guidance and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the Intel Edison device sample.
+In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [cloud-to-device (C2D) methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and provides guidance and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the Intel Edison device sample.
 
 This tutorial shows you how to:
 
@@ -38,7 +38,7 @@ Node.js version 0.12.x or later, <br/>  [Prepare your development environment][l
 
 An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-Follow the [Get started with device management](iot-hub-node-node-device-management-get-started.md) article to create your IoT hub and get your connection string.
+Follow the [Get started with device management](iot-hub-device-management-get-started.md) article to create your IoT hub and get your connection string.
 
 [!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
@@ -348,8 +348,8 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
-[lnk-dm-getstarted]: iot-hub-node-node-device-management-get-started.md
-[lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
+[lnk-dm-getstarted]: iot-hub-device-management-get-started.md
+[lnk-tutorial-jobs]: iot-hub-schedule-jobs.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

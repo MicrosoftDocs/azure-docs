@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2016
 ms.author: chkuhtz
-
 ---
+
 # Multiple VIPs for Azure Load Balancer
+
 Azure Load Balancer allows you to load balance services on multiple ports, multiple IP addresses, or both. You can use public and internal load balancer definitions to load balance flows across a set of VMs.
 
 This article describes the fundamentals of this ability, important concepts, and constraints. If you only intend to expose services on one IP address, you can find simplified instructions for [public](load-balancer-get-started-internet-portal.md) or [internal](load-balancer-get-started-ilb-arm-portal.md) load balancer configurations. Adding Multiple VIPs is incremental to a single VIP configuration. Using the concepts in this article, you can expand a simplified configuration at any time.
@@ -45,6 +46,7 @@ Azure Load Balancer allows you to mix both rule types on the same load balancer 
 We explore these scenarios further by starting with the default behavior.
 
 ## Rule type #1: No backend port reuse
+
 ![MultiVIP Illustration](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
 In this scenario, the frontend VIPs are configured as follows:
@@ -75,6 +77,7 @@ Each rule must produce a flow with a unique combination of destination IP addres
 Health probes are always directed to the DIP of a VM. You must ensure you that your probe reflects the health of the VM.
 
 ## Rule type #2: backend port reuse by using Floating IP
+
 Azure Load Balancer provides the flexibility to reuse the frontend port across multiple VIPs regardless of the rule type used. Additionally, some application scenarios prefer or require the same port to be used by multiple application instances on a single VM in the backend pool. Common examples of port reuse include clustering for high availability, network virtual appliances, and exposing multiple TLS endpoints without re-encryption.
 
 If you want to reuse the backend port across multiple rules, you must enable Floating IP in the rule definition.
@@ -95,8 +98,6 @@ For this scenario, every VM in the backend pool has three network interfaces:
 
 > [!IMPORTANT]
 > The configuration of the logical interfaces is performed within the guest OS. This configuration is not performed or managed by Azure. Without this configuration, the rules will not function. Health probe definitions use the DIP of the VM rather than the logical VIP. Therefore, your service must provide probe responses on a DIP port that reflect the status of the service offered on the logical VIP.
-> 
-> 
 
 Let's assume the same frontend configuration as in the previous scenario:
 
@@ -126,8 +127,8 @@ Notice that this example does not change the destination port. Even though this 
 The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) configuration. Over time, we will document more of these scenarios.
 
 ## Limitations
+
 * Multiple VIP configurations are only supported with IaaS VMs.
 * With the Floating IP rule, your application must use the DIP for outbound flows. If your application binds to the VIP address configured on the loopback interface in the guest OS, then SNAT is not available to rewrite the outbound flow and the flow fails.
 * Public IP addresses have an effect on billing. For more information, see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Subscription limits apply. For more information, see [Service limits](../azure-subscription-service-limits.md#networking-limits) for details.
-
