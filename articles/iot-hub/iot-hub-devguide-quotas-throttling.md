@@ -19,7 +19,7 @@ ms.author: dobett
 ---
 # Reference - Quotas and throttling
 ## Quotas and throttling
-Each Azure subscription can have at most 10 IoT hubs.
+Each Azure subscription can have at most 10 IoT hubs, and at most 1 Free hub.
 
 Each IoT hub is provisioned with a certain number of units in a specific SKU (for more information, see [Azure IoT Hub Pricing][lnk-pricing]). The SKU and number of units determine the maximum daily quota of messages that you can send.
 
@@ -57,6 +57,15 @@ For an in-depth discussion of IoT Hub throttling behavior, see the blog post [Io
 > Identity registry operations are intended for run-time use in device management and provisioning scenarios. Reading or updating a large number of device identities is supported through [import and export jobs][lnk-importexport].
 > 
 > 
+
+## Other limits
+
+IoT Hub enforces other limits on its different functionalities.
+
+| Operation | Limit |
+| --------- | ----- |
+| File upload URIs | 10000 SAS URIs can be out for a storage account at one time. <br/> 10 SAS URIs/device can be out at one time. |
+| Jobs | Job history is retained up to 30 days <br/> Max concurrent jobs is 1 (for Free and S1, 5 (for S2), 10 (for S3). |
 
 ## Next steps
 Other reference topics in this IoT Hub developer guide include:

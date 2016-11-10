@@ -1,8 +1,8 @@
 ---
-title: Developer guide - D2C options | Microsoft Docs
-description: Azure IoT Hub developer guide - Information about and links to the various Azure IoT Hub device and service SDKs.
+title: Developer guide - Device to cloud communications guidance | Microsoft Docs
+description: Azure IoT Hub developer guide - guidance on when to use device-to-cloud messages, device twin's reported properties, or file upload. 
 services: iot-hub
-documentationcenter: ''
+documentationcenter: .net
 author: fsautomata
 manager: timlt
 editor: ''
