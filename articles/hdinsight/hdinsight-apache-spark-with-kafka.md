@@ -13,12 +13,12 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 11/10/2016
 ms.author: larryfr
 ---
 # Use Apache Spark with Kafka (preview) on HDInsight
 
-Apache Spark can be used to stream data into or out of Apache Kafka. In this document, learn how to create a basic Spark application in Scala that writes to and reads from Kafka on HDInsight.
+Apache Spark can be used to stream data into or out of Apache Kafka. In this document, learn how to create a basic Spark application in Scala that writes to and reads from Kafka on HDInsight. This application is created using Jupyter Notebooks, which allows you to interactively run the code using a web browser.
 
 > [!NOTE]
 > The steps in this document create a new Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
@@ -28,15 +28,6 @@ Apache Spark can be used to stream data into or out of Apache Kafka. In this doc
 ## Prerequisites
 
 * An Azure subscription
-
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 1.8 or higher. Or an equivalent such as [OpenJDK](http://openjdk.java.net/).
-  
-    > [!NOTE]
-    > The steps in this document use an HDInsight 3.5 cluster, which uses Java 8.
-
-* [Maven 3.x](http://maven.apache.org/) - A build management package for Java applications.
-
-* A text editor or Java IDE
 
 * An SSH client (you need the `ssh` and `scp` commands) - For more information on using SSH with HDInsight, see the following documents:
 
@@ -140,7 +131,7 @@ From your development environment, use the following commands to retrieve the br
         curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
 
     > [!IMPORTANT]
-    > When using this command from Windows PowerShell, you may receive an error about shell quoting issues. If so, use the following command:
+    > When using this command from Windows PowerShell, you may receive an error about shell quoting. If so, use the following command:
     > `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'
 
 * To get the __Zookeeper host__ information:
@@ -148,7 +139,7 @@ From your development environment, use the following commands to retrieve the br
         curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'
     
     > [!IMPORTANT]
-    > When using this command from Windows PowerShell, you may receive an error about shell quoting issues. If so, use the following command:
+    > When using this command from Windows PowerShell, you may receive an error about shell quoting. If so, use the following command:
     > `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["""\(.host_components[].HostRoles.host_name):2181"""] | join(""",""")'`
 
 Both commands return information similar to the following:
@@ -159,32 +150,6 @@ Both commands return information similar to the following:
 
 > [!IMPORTANT]
 > Save this information as it is used in several steps in this document.
-
-## Create a Kafka topic
-
-1. Connect to the Kafka cluster using SSH. Replace **USERNAME** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
-   
-        ssh USERNAME@kafka-BASENAME-ssh.azurehdinsight.net
-   
-    When prompted, enter the password you used when creating the clusters.
-   
-    For more information on using SSH with HDInsight, see the following documents:
-   
-    * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-
-2. From the SSH connection, use the following command to create a topic in Kafka. Replace __KAFKA_ZKHOSTS__ with the Zookeeper hosts information you obtained earlier.
-   
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic sparktest --zookeeper KAFKA_ZKHOSTS
-
-    This command connects to Zookeeper, and then creates a Kafka topic named **sparktest**. You can verify that the topic was created by using the following command to list topics. As previously, replace __KAFKA_ZKHOSTS__ with the Zookeeper host information for the Kafka cluster.
-   
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper KAFKA_ZKHOSTS
-   
-    The output of this command lists Kafka topics, which should contain the new **sparktest** topic.
-
-Close the SSH connection to the Kafka cluster, as it is not needed for the rest of this document.
 
 ## Use the Jupyter notebook
 

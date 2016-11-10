@@ -110,9 +110,9 @@ Use the following steps to create a Kafka on HDInsight cluster:
 
 From your client, use SSH to connect to the cluster. If you are using a Linux, Unix, MacOS, or Bash on Windows 10, you will use the following command:
 
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net
 
-Replace **USERNAME** with the SSH username you provided during cluster creation. Replace **CLUSTERNAME** with the name of the cluster.
+Replace **SSHUSER** with the SSH username you provided during cluster creation. Replace **CLUSTERNAME** with the name of the cluster.
 
 When prompted, enter the password you used for the SSH account.
 
@@ -190,7 +190,7 @@ Use the following steps to store records into the test topic you created earlier
 
 You can also programmatically produce and consume records using the [Kafka APIs](http://kafka.apache.org/documentation#api). Use the following steps to download, build a Java-based producer and consumer:
 
-1. Download the examples from [TBD]. For the producer/consumer example, use the project in the `producer-consumer` directory. Be sure to look through the code to understand how this example works. It contains the following classes:
+1. Download the examples from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started). For the producer/consumer example, use the project in the `Producer-Consumer` directory. Be sure to look through the code to understand how this example works. It contains the following classes:
    
     * **Run** - starts either the consumer or producer based on command-line arguments.
 
@@ -198,31 +198,31 @@ You can also programmatically produce and consume records using the [Kafka APIs]
 
     * **Consumer** - reads records from the topic.
 
-2. From the command-line in your development environment, change directories to the location of the `producer-consumer` directory of the example and then use the following command to create a jar package:
+2. From the command-line in your development environment, change directories to the location of the `Producer-Consumer` directory of the example and then use the following command to create a jar package:
    
         mvn clean package
    
-    This command creates a new directory named `target`, that contains a file named `kafka-example-1.0-SNAPSHOT.jar`.
+    This command creates a new directory named `target`, that contains a file named `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
 
-3. Use the following commands to copy the `kafka-example-1.0-SNAPSHOT.jar` file to your HDInsight cluster:
+3. Use the following commands to copy the `kafka-producer-consumer-1.0-SNAPSHOT.jar` file to your HDInsight cluster:
    
-        scp ./target/kafka-example-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-example.jar
+        scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
    
     Replace **SSHUSER** with the SSH user for your cluster, and replace **CLUSTERNAME** with the name of your cluster. When prompted enter the password for the SSH user.
 
 4. Once the `scp` command finishes copying the file, connect to the cluster using SSH, and then use the following to write records to the test topic you created earlier.
    
-        ./kafka-example.jar producer $KAFKABROKERS
+        ./kafka-producer-consumer.jar producer $KAFKABROKERS
    
     This will start the producer and write records. A counter is displayed so you can see how many records have been written.
 
     > [!NOTE]
     > If you receive a permission denied error, use the following command to make the file executable:
-    > ```chmod +x kafka-example.jar```
+    > ```chmod +x kafka-producer-consumer.jar```
 
 5. Once the process has finished, use the following command to read from the topic:
    
-        ./kafka-example.jar consumer $KAFKABROKERS
+        ./kafka-producer-consumer.jar consumer $KAFKABROKERS
    
     The records read, along with a count of records, is displayed. You may see a few more than 1,000,000 logged as we sent several records to the topic using a script in an earlier step.
 
@@ -234,7 +234,7 @@ An important concept with Kafka is that consumers use a consumer group (defined 
 
 1. Open a new SSH session to the cluster, so that you have two of them. In each session, use the following to start a consumer with the same consumer group id:
    
-        ./kafka-example.jar consumer $KAFKABROKERS mygroup
+        ./kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
 
     > [!NOTE]
     > Since this is a new SSH session, you will need to use the commands in the [Get the Zookeeper and Broker host information](#getkafkainfo) section to set `$KAFKABROKERS`.
@@ -252,31 +252,31 @@ Records stored in Kafka are stored in the order they are received within a parti
 
 The streaming API was added to Kafka in version 0.10.0; earlier versions rely on Apache Spark or Storm for stream processing.
 
-1. If you haven't already done so, download the examples from [TBD]. For the streaming example, use the project in the `streaming` directory. Be sure to look through the code to understand how this example works. 
+1. If you haven't already done so, download the examples from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started). For the streaming example, use the project in the `streaming` directory. Be sure to look through the code to understand how this example works. 
    
     This project contains only one class, `Stream`, which reads records from the `test` topic created previously. It counts the words read, and emits each word and count to a topic named `wordcounts`. The `wordcounts` topic will be created in a later step in this section.
 
-2. From the command-line in your development environment, change directories to the location of the `producer-consumer` directory of the example and then use the following command to create a jar package:
+2. From the command-line in your development environment, change directories to the location of the `Streaming` directory, and then use the following command to create a jar package:
    
         mvn clean package
    
-    This command creates a new directory named `target`, that contains a file named `kafka-example-1.0-SNAPSHOT.jar`.
+    This command creates a new directory named `target`, that contains a file named `kafka-streaming-1.0-SNAPSHOT.jar`.
 
-3. Use the following commands to copy the `kafka-example-1.0-SNAPSHOT.jar` file to your HDInsight cluster:
+3. Use the following commands to copy the `kafka-streaming-1.0-SNAPSHOT.jar` file to your HDInsight cluster:
    
-        scp ./target/streaming-example-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:streaming-example.jar
+        scp ./target/kafka-streaming-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-streaming.jar
    
     Replace **SSHUSER** with the SSH user for your cluster, and replace **CLUSTERNAME** with the name of your cluster. When prompted enter the password for the SSH user.
 
-4. Once the `scp` command finishes copying the file, connect to the cluster using SSH, and then use the following to write records to the test topic you created earlier.
+4. Once the `scp` command finishes copying the file, connect to the cluster using SSH, and then use the following to start the streaming process:
    
-        ./streaming-example.jar $KAFKABROKERS $KAFKAZKHOSTS 2>/dev/null &
+        ./kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS 2>/dev/null &
    
     This will start the streaming process in the background.
 
 5. Use the following to send messages to the `test` topic. These will be processed by the streaming example:
    
-        ./kafka-example.jar producer $KAFKABROKERS &>/dev/null &
+        ./kafka-producer-consumer.jar producer $KAFKABROKERS &>/dev/null &
 
 6. Use the following to view the output that is written to the `wordcounts` topic:
    
