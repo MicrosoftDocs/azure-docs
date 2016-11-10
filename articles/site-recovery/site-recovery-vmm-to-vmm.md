@@ -22,15 +22,15 @@ ms.author: raynew
 > * [Azure portal](site-recovery-vmm-to-vmm.md)
 > * [Classic portal](site-recovery-vmm-to-vmm-classic.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
-> 
-> 
+>
+>
 
 Welcome to Azure Site Recovery! Use this article if you want to replicate on-premises Hyper-V virtual machines managed in System Center Virtual Machine Manager (VMM) clouds to a secondary site. This article describes how to set up replication using Azure Site Recovery in the Azure portal.
 
 > [!NOTE]
 > Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models.
-> 
-> 
+>
+>
 
 Azure Site Recovery in the Azure portal provides several new features:
 
@@ -105,7 +105,7 @@ Network mapping maps between VMM VM networks on the primary and secondary VMM se
 * Connect replica VMs to appropriate VM networks.
 * If you don't configure network mapping replica VMs won't be connected to any network after failover.
 * If you want to set up network mapping during Site Recovery deployment here's what you need:
-  
+
   * Make sure that VMs on the source Hyper-V host server are connected to a VMM VM network. That network should be linked to a logical network that is associated with the cloud.
   * Verify that the secondary cloud that you use for recovery has a corresponding VM network configured. That VM network should be linked to a logical network that's associated with the secondary cloud.
 * [Learn more](site-recovery-network-mapping.md) about how network mapping works.
@@ -120,7 +120,7 @@ If you only have a single VMM server you can replicate VMs in Hyper-V hosts in t
 5. In the Hyper-V Manager console, enable Hyper-V Replica on the Hyper-V host that contains the VMM VM, and enable replication on the VM. Make sure you don't add the VMM virtual machine to clouds that are protected by Site Recovery, to ensure that Hyper-V Replica settings aren't overridden by Site Recovery.
 6. If you create recovery plans for failover you use the same VMM server for source and target.
 7. You fail over and recover as follows:
-   
+
    * Manually fail over the VMM VM to the secondary site using Hyper-V Manager with a planned failover.
    * Fail over the VMs.
    * After the primary VMM VM has been recovered, log in to the Azure portal -> Recovery Services vault and run an unplanned failover of the VMs from the secondary site to the primary site.
@@ -129,12 +129,12 @@ If you only have a single VMM server you can replicate VMs in Hyper-V hosts in t
 ### Create a Recovery Services vault
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **New** > **Management** > **Recovery Services**. Alternatively you can click **Browse** > **Recovery Services** vaults > **Add**.
-   
+
     ![New vault](./media/site-recovery-vmm-to-vmm/new-vault3.png)
 3. In **Name** specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
 4. [Create a new resource group](../resource-group-template-deploy-portal.md) or select an existing one, and specify an Azure region. Machines will be replicated to this region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. If you want to quickly access the vault from the Dashboard click **Pin to dashboard** > **Create vault**.
-   
+
     ![New vault](./media/site-recovery-vmm-to-vmm/new-vault-settings.png)
 
 The new vault will appear on the **Dashboard** > **All resources**, and on the main **Recovery Services vaults** blade.
@@ -153,47 +153,47 @@ Select what you want to replicate and where you want to replicate to.
 2. In **Settings** > **Getting Started** click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 3. In **Protection goal** select **To recovery site**, and select **Yes, with Hyper-V**.
 4. Select **Yes** to indicate you're using VMM to manage the Hyper-V hosts, and select **Yes** if you have a secondary VMM server. If you're deploying replication between clouds on a single VMM server you click **No**. Then click **OK**.
-   
+
     ![Choose goals](./media/site-recovery-vmm-to-vmm/choose-goals.png)
 
 ## Step 2: Set up the source environment
 Install the Azure Site Recovery Provider on VMM servers, and register servers in the vault.
 
 1. Click **Step 2: Prepare Infrastructure** > **Source**.
-   
+
     ![Set up source](./media/site-recovery-vmm-to-vmm/goals-source.png)
 2. In **Prepare source** click **+ VMM** to add a VMM server.
-   
+
     ![Set up source](./media/site-recovery-vmm-to-vmm/set-source1.png)
 3. In the **Add Server** blade check that **System Center VMM server** appears in **Server type** and that the VMM server meets the [prerequisites and URL requirements](#on-premises-prerequisites).
 4. Download the Azure Site Recovery Provider installation file.
 5. Download the registration key. You need this when you run setup. The key is valid for 5 days after you generate it.
-   
+
     ![Set up source](./media/site-recovery-vmm-to-vmm/set-source3.png)
 6. Install the Azure Site Recovery Provider on the VMM server.
 
 > [!NOTE]
 > You don't need to explicitly install anything on Hyper-V host servers.
-> 
-> 
+>
+>
 
 ### Set up the Azure Site Recovery Provider
 1. Run the Provider setup file on each VMM server. If VMM is deployed in a cluster and you're installing the Provider for the first time install it on an active node and finish the installation to register the VMM server in the vault. Then install the Provider on the other nodes. Cluster nodes should all run the same version of the Provider.
 2. Setup runs a few prerequirement checks and requests permission to stop the VMM service. The VMM Service will be restarted automatically when setup finishes. If you're installing on a VMM cluster you'll be prompted to stop the Cluster role.
 3. In **Microsoft Update** you can opt in for updates so that Provider updates are installed in accordance with your Microsoft Update policy.
 4. In **Installation** accept or modify the default Provider installation location and click **Install**.
-   
+
     ![Install location](./media/site-recovery-vmm-to-vmm/provider-location.png)
 5. After installation is complete click **Register** to register the server in the vault.
-   
+
     ![Install location](./media/site-recovery-vmm-to-vmm/provider-register.png)
 6. In **Vault name**, verify the name of the vault in which the server will be registered. Click *Next*.
-   
+
     ![Server registration](./media/site-recovery-vmm-to-vmm-classic/vaultcred.PNG)
 7. In **Internet Connection** specify how the Provider running on the VMM server connects to the Internet. Select **Connect with existing proxy settings** to use the default Internet connection settings configured on the server.
-   
+
     ![Internet Settings](./media/site-recovery-vmm-to-vmm-classic/proxydetails.PNG)
-   
+
    * If you want to use a custom proxy you should set it up before you install the Provider. When you configure custom proxy settings a test will run to check the proxy connection.
    * If you do use a custom proxy, or your default proxy requires authentication you need to enter the proxy details, including the proxy address and port.
    * Following urls should be accessible from the VMM Server and the Hyper-v hosts
@@ -209,7 +209,7 @@ Install the Azure Site Recovery Provider on VMM servers, and register servers in
 10. In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name.
 11. In **Synchronize cloud metadata** select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console.
 12. Click **Next** to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the **VMM Servers** tab on the **Servers** page in the vault.
-    
+
     ![Server](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 13. After the server is available in the Site Recovery console, in **Source** > **Prepare source** select the VMM server, and select the cloud in which the Hyper-V host is located. Then click **OK**.
 
@@ -219,14 +219,14 @@ The Azure Site Recovery Provider can be installed from the command line. This me
 1. Download the Provider installation file and registration key to a folder. For example C:\ASR.
 2. Stop the System Center Virtual Machine Manager Service.
 3. From an elevated command prompt, run these commands to extract the Provider installer:
-   
+
         C:\Windows\System32> CD C:\ASR
         C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
 4. Run this command to install the Provider:
-   
+
         C:\ASR> setupdr.exe /i
 5. Then run these commands to register the server in the vault:
-   
+
         CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
         C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>     
 
@@ -245,20 +245,20 @@ Select the target VMM server and cloud.
 
 1. Click **Prepare infrastructure** > **Target** and select the target VMM server you want to use.
 2. Clouds on the server that are synchronized with Site Recovery will be displayed. Select the target cloud.
-   
+
    ![Target](./media/site-recovery-vmm-to-vmm/target-vmm.png)
 
 ## Step 4: Set up replication settings
 1. To create a new replication policy click **Prepare infrastructure** > **Replication Settings** > **+Create and associate**.
-   
+
     ![Network](./media/site-recovery-vmm-to-vmm/gs-replication.png)
 2. In **Create and associate policy** specify a policy name. The source and target type should be **Hyper-V**.
 3. In **Hyper-V host version** select which operating system is running on the host.
-   
+
    > [!NOTE]
    > The VMM cloud can contain Hyper-V hosts running different (supported) versions of Windows Server, but a replication policy is applied hosts running the same operating system. If you have hosts running more than one operating system version then create separate replication policies.
-   > 
-   > 
+   >
+   >
 4. In **Authentication type** and **Authentication port** specify how traffic is authenticated between the primary and recovery Hyper-V host servers. Select **Certificate** unless you have a working Kerberos environment. Azure Site Recovery will automatically configure certificates for HTTPS authentication. You don't need to do anything manually. By default, port 8083 and 8084 (for certificates) will be opened in the Windows Firewall on the Hyper-V host servers. If you do select **Kerberos**, a Kerberos ticket will be used for mutual authentication of the host servers. Note that this setting is only relevant for Hyper-V host servers running on Windows Server 2012 R2.
 5. In **Copy frequency** specify how often you want to replicate delta data after the initial replication (every 30 seconds, 5 or 15 minutes).
 6. In **Recovery point retention**, specify in hours how long the retention window will be for each recovery point. Protected machines can be recovered to any point within a window.
@@ -266,10 +266,10 @@ Select the target VMM server and cloud.
 8. In **Data transfer compression** specify whether replicated data that is transferred should be compressed.
 9. Select **Delete replica VM** to specify that the replica virtual machine should be deleted if you disable protection for the source VM. If you enable this setting, when you disable protection for the source VM it's removed from the Site Recovery console, Site Recovery settings for the VMM are removed from the VMM console, and the replica is deleted.
 10. In **Initial replication method** If you're replicating over the network specify whether to start the initial replication or schedule it. To save network bandwidth you might want to schedule it outside your busy hours. Then click **OK**.
-    
+
      ![Replication policy](./media/site-recovery-vmm-to-vmm/gs-replication2.png)
 11. When you create a new policy it's automatically associated with the VMM cloud. In **Replication policy** click **OK**. You can associate additional VMM Clouds (and the VMs in them) with this replication policy in **Settings** > **Replication** > policy name > **Associate VMM Cloud**.
-    
+
      ![Replication policy](./media/site-recovery-vmm-to-vmm/policy-associate.png)
 
 ### Prepare for offline initial replication
@@ -297,12 +297,12 @@ Set up network mapping between source and target networks.
 Configure mapping as follows:
 
 1. **Settings** > **Site Recovery Infrastructure** > **Network Mapping** > **Network mappings** click **+Network Mapping**.
-   
+
     ![Network mapping](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. In **Add network mapping** tab select the source and target VMM servers. The VM networks associated with the VMM servers are retrieved.
 3. In **Source network**, select the network you want to use from the list of VM networks associated with the primary VMM server.
 4. In **Target network** select the network you want to use on the secondary VMM server. Then click **OK**.
-   
+
     ![Network mapping](./media/site-recovery-vmm-to-vmm/network-mapping2.png)
 
 Here's what happens when network mapping begins:
@@ -325,7 +325,7 @@ Site Recovery provides an Excel-based capacity planner to help you allocate the 
 
 1. Click **Download** to download the tool and then run it. [Read the article](site-recovery-capacity-planner.md) that accompanies the tool.
 2. When you’re done select **Yes** in **Have you run the Capacity Planner**?
-   
+
    ![Capacity planning](./media/site-recovery-vmm-to-azure/gs-capacity-planning.png)
 
 ### Control bandwidth
@@ -346,22 +346,22 @@ You can use bandwidth weight settings or limit traffic by bits per secondary. If
 Now enable replication as follows:
 
 1. Click **Step 2: Replicate application** > **Source**. After you've enabled replication for the first time, you click **+Replicate** in the vault to enable replication for additional machines.
-   
+
     ![Enable replication](./media/site-recovery-vmm-to-vmm/enable-replication1.png)
 2. In the **Source** blade > select VMM server and the cloud in which the Hyper-V hosts you want to replicate are located. Then click **OK**.
-   
+
     ![Enable replication](./media/site-recovery-vmm-to-vmm/enable-replication2.png)
 3. In the **Target** blade verify the secondary VMM server and cloud.
 4. In **Virtual machines** select the VMs you want to protect from the list.
-   
+
     ![Enable virtual machine protection](./media/site-recovery-vmm-to-vmm/enable-replication5.png)
 
 You can track progress of the **Enable Protection** action in Settings > **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job runs the virtual machine is ready for failover.
 
 > [!NOTE]
 > You can also enable protection for virtual machines in the VMM console. Click **Enable Protection** on the toolbar in the virtual machine properties > **Azure Site Recovery** tab.
-> 
-> 
+>
+>
 
 After you've enabled replication you can view properties for the VM in **Settings** > **Replicated Items** > vm-name. On the **Essentials** dashboard you can see information about the replication policy for the VM and its status. Click **Properties** for more details.
 
@@ -376,34 +376,34 @@ If you have existing virtual machines in VMM that are replicating with Hyper-V R
 To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan that contains one or more virtual machines.
 
 ### Prepare for failover
-* To fully test your deployment you need an infrastructure for the replicated machine to work as expected. If you want to test Active Directory and DNS you can create a virtual machine as a domain controller with DNS and replicate this to Azure using Azure Site Recovery. Read more in [test failover considerations for Active Directory](site-recovery-active-directory.md#considerations-for-test-failover).
+* To fully test your deployment you need an infrastructure for the replicated machine to work as expected. If you want to test Active Directory and DNS you can create a virtual machine as a domain controller with DNS and replicate this to Azure using Azure Site Recovery. Read more in [test failover considerations for Active Directory](site-recovery-active-directory.md#test-failover-considerations).
 * The instructions in this article describe how to run a test failover with no network. This option will test that the VM fails over but won't test network settings for the VM. [Learn more](site-recovery-failover.md#run-a-test-failover) about other options.
 * If you want to run an unplanned failover instead of a test failover note the following:
-  
+
   * If possible you should shut down primary machines before you run an unplanned failover. This ensures that you don't have both the source and replica machines running at the same time.
   * When you run an unplanned failover it stops data replication from primary machines so any data delta won't be transferred after an unplanned failover begins. In addition if you run an unplanned failover on a recovery plan it will run until complete, even if an error occurs.
 
 ### Run a test failover
 1. To fail over a single VM in **Settings** > **Replicated Items**, click the VM > **+Test Failover**.
-   
+
     ![Test failover](./media/site-recovery-vmm-to-vmm/test-failover.png)
 2. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan [follow these instructions](site-recovery-create-recovery-plans.md).
 3. In **Test Failover**, select **None**. With this option you test that the VM fails over as expected but the replicated VM won't be connected to any network.
-   
+
     ![Test failover](./media/site-recovery-vmm-to-vmm/test-failover1.png)
 4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in **Settings** > **Jobs** > **Site Recovery jobs**.
 5. When the failover job reaches the **Complete testing** phase, do the following:
-   
+
    * View the replica VM in the secondary VMM cloud.
    * Click **Complete the test** to finish up the test failover.
    * Click **Notes** to record and save any observations associated with the test failover.
 6. The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It is added to the same cloud in which the replica virtual machine is located.
 7. After verifying that VMs start successfully click **The test failover is complete**. At this stage any elements created automatically by Site Recovery during the test failover are deleted.  
-   
+
    > [!NOTE]
    > If a test failover continues longer than two weeks it’s completed by force.
-   > 
-   > 
+   >
+   >
 
 ### Update DNS with the replica VM IP address
 After failover the replica VM might not have the same IP address as the primary virtual machine.
@@ -433,4 +433,3 @@ Run this sample script to update DNS, specifying the IP address you retrieved us
 
 ## Next steps
 After your deployment is set up and running, [learn more](site-recovery-failover.md) about different types of failovers.
-
