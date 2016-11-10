@@ -35,7 +35,7 @@ For background about Docker and containers, see:
 
   Registries are named in a root domain based on the subscription's [Azure Active Directory tenant](../active-directory/active-directory-howto-tenant.md). For example, if you have an organizational account in the Contoso domain, your fully qualified registry name is of the form `myregistry-contoso.azurecr.io`. 
   
-  You [control access](container-registry-authentication.md) to your registries using Azure Active Directory-backed service principals or a provided admin account. Run the standard `docker login` command to authenticate with your registries. 
+  You [control access](container-registry-authentication.md) to a container registry using an Azure Active Directory-backed [service principal](../active-directory/active-directory-application-objects.md) or a provided admin account. Run the standard `docker login` command to authenticate with a registry. 
 
 * **Repository** - A registry contains one or more repositories, which are groups of container images. Azure Container Registry supports multilevel repository namespaces. This feature enables you to group collections of images related to a specific app, or a collection of apps to specific development or operational teams. For example:
   
