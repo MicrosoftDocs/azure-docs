@@ -127,7 +127,7 @@
 
 # Reference
 ## [PowerShell](/powershell/storage/)
-## [Azure CLI](/cli/azure/storage/)
+## [Azure CLI](/cli/azure/storage)
 ## [Java](/java/api/)
 
 ## .NET
@@ -137,7 +137,7 @@
 
 ## REST
 ### [Blob, queue, table, and file](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
-### [Resource provider](/rest/api/storage/)
+### [Resource provider](/rest/api/storagerp/)
 ### [Import/export](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
 
 
