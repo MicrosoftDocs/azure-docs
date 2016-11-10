@@ -91,8 +91,12 @@
 ### [Troubleshoot Data Factory issues](data-factory-troubleshoot.md)
 ### [Troubleshoot issues with using Data Management Gateway](data-factory-troubleshoot-gateway-issues.md)
 ### [Deploy using Azure Resource Manager templates](data-factory-how-to-use-resource-manager-templates.md)
-# Reference 
+
+# Reference
 ## [Azure Data Factory Developer Reference](data-factory-sdks.md)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
+## [REST](https://docs.microsoft.com/rest/api/datafactory/)
 
 # Resources:
 ## [Case Studies](data-factory-customer-case-studies.md)
@@ -103,10 +107,3 @@
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
 ## [Request a feature](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [Release notes for Data Management Gateway](data-factory-gateway-release-notes.md)
-
-
-
-
-
-
-

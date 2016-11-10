@@ -26,27 +26,27 @@ Data factory currently supports only moving data from Amazon S3 to other data st
 To copy data from Amazon S3, make sure you have been granted below permissions:
 
 * **s3:GetObject** and **s3:GetObjectVersion** for Amazon S3 Object Operations
-* **s3:ListBucket** and **s3:ListAllMyBuckets** (used in copy wizard only) for Amazon S3 Bucket Operations 
+* **s3:ListBucket** and **s3:ListAllMyBuckets** (used in copy wizard only) for Amazon S3 Bucket Operations
 
 You can find the full list of Amazon S3 permisions with detail from [Specifying Permissions in a Policy](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## Copy data wizard
-The easiest way to create a pipeline that copies data from Amazon S3 is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+The easiest way to create a pipeline that copies data from Amazon S3 is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows you how to copy data from Amazon S3 to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores).
+The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows you how to copy data from Amazon S3 to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 
 ## Sample: Copy data from Amazon S3 to Azure Blob
-This sample shows how to copy data from an Amazon S3 to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+This sample shows how to copy data from an Amazon S3 to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
 
 The sample has the following data factory entities:
 
 * A linked service of type [AwsAccessKey](#linked-service-properties).
-* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 * An input [dataset](data-factory-create-datasets.md) of type [AmazonS3](#dataset-type-properties).
 * An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 * A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](#copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-The sample copies data from Amazon S3 to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies data from Amazon S3 to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
 **Amazon S3 linked service**
 
@@ -161,7 +161,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 **Pipeline with Copy activity**
 
-The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**. 
+The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**.
 
     {
         "name": "CopyAmazonS3ToBlob",
@@ -233,8 +233,8 @@ The **typeProperties** section is different for each type of dataset and provide
 
 > [!NOTE]
 > bucketName + key specifies the location of the S3 object where bucket is the root container for S3 objects and key is the full path to S3 object.
-> 
-> 
+>
+>
 
 ### Sample dataset with prefix
     {
@@ -281,7 +281,7 @@ The **typeProperties** section is different for each type of dataset and provide
 
 
 ### Dynamic paths for S3
-In the sample, we use fixed values for key and bucketName properties in the Amazon S3 dataset. 
+In the sample, we use fixed values for key and bucketName properties in the Amazon S3 dataset.
 
     "key": "testFolder/test.orc",
     "bucketName": "testbucket",
@@ -291,14 +291,14 @@ You can have Data Factory calculate the key and bucketName dynamically at runtim
     "key": "$$Text.Format('{0:MM}/{0:dd}/test.orc', SliceStart)"
     "bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
 
-You can do the same for the prefix property of an Amazon S3 dataset. See [Data Factory functions and system variables](data-factory-functions-variables.md) for a list of supported functions and variables. 
+You can do the same for the prefix property of an Amazon S3 dataset. See [Data Factory functions and system variables](data-factory-functions-variables.md) for a list of supported functions and variables.
 
 [!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
 
 [!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## Copy activity type properties
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities. 
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities.
 
 Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
@@ -318,7 +318,6 @@ When source in copy activity is of type **FileSystemSource** (which includes Ama
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
 
 ## Next Steps
-See the following articles: 
+See the following articles:
 
-* [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions for creating a pipeline with a Copy Activity. 
-
+* [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions for creating a pipeline with a Copy Activity.
