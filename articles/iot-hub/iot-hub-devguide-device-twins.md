@@ -45,7 +45,7 @@ Device twins store device-related information that:
 * Device and back ends can use to synchronize device conditions and configuration.
 * The application back end can use to query and target long-running operations.
 
-The lifecycle of a device twin is linked to the corresponding [device identity][lnk-identity]. Twins are implicitly created and deleted when a new device identity is created or deleted in IoT Hub.
+The lifecycle of a device twin is linked to the corresponding [device identity][lnk-identity]. Device twins are implicitly created and deleted when a new device identity is created or deleted in IoT Hub.
 
 A device twin is a JSON document that includes:
 
@@ -126,7 +126,7 @@ In the above example, the `telemetryConfig` desired and reported properties are 
             ...
         }
         ...
-3. The app back end can keep track the results of the configuration operation across many devices, by [querying][lnk-query] twins.
+3. The app back end can keep track the results of the configuration operation across many devices, by [querying][lnk-query] device twins.
 
 > [!NOTE]
 > The above snippets are examples, optimized for readability, of a possible way to encode a device configuration and its status. IoT Hub does not impose a specific schema for the desired and reported properties in the device twins.
@@ -157,7 +157,7 @@ The back end operates on the device twin using the following atomic operations, 
 
 All the above operations support [Optimistic concurrency][lnk-concurrency] and require the **ServiceConnect** permission, as defined in the [Security][lnk-security] article.
 
-In addition to these operations, the back end can query the device twins using a SQL-like [query language][lnk-query], and perform operations on large sets of twins using [jobs][lnk-jobs].
+In addition to these operations, the back end can query the device twins using a SQL-like [query language][lnk-query], and perform operations on large sets of device twins using [jobs][lnk-jobs].
 
 ## Device operations
 The device app operates on the device twin using the following atomic operations:
@@ -266,7 +266,7 @@ Other reference topics in the Developer Guide include:
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 * [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [IoT Hub query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
