@@ -5,7 +5,7 @@
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
-## [Domain-joined HDInsight preview?](hdinsight-domain-joined-introduction.md)
+## [Domain-joined HDInsight preview](hdinsight-domain-joined-introduction.md)
 
 # Get Started
 ## [Start with Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
@@ -38,7 +38,7 @@
 #### [Use SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
 #### [Use cURL](hdinsight-hadoop-use-mapreduce-curl.md)
 #### [Use PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
-### [Build the MapReduce samples](hdinsight-hadoop-run-samples-linux.md)
+### [Run the MapReduce samples](hdinsight-hadoop-run-samples-linux.md)
 ### [Use Pig with Hadoop](hdinsight-use-pig.md)
 #### [Use Remote Desktop](hdinsight-hadoop-use-pig-remote-desktop.md)
 #### [Use SSH and Pig](hdinsight-hadoop-use-pig-ssh.md)
@@ -48,7 +48,7 @@
 ### [Use DataFu with Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [On-demand clusters](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md)
-## User R Server preview
+## Use R Server preview
 ### [Storage options](hdinsight-hadoop-r-server-storage.md)
 ### [Install RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Compute contexts](hdinsight-hadoop-r-server-compute-contexts.md)
@@ -105,7 +105,7 @@
 ### [Serialize data with Avro Library](hdinsight-dotnet-avro-serialization.md)
 ### [Use C# user-defined functions](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 ### [Use Python with Hive and Pig](hdinsight-python.md)
-## Analyze big data solutions
+## Analyze big data
 ### [Analyze using Power Query](hdinsight-connect-excel-power-query.md)
 ### [Connect Excel to Hadoop](hdinsight-connect-excel-hive-odbc-driver.md)
 ### [Connect using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md)
@@ -115,7 +115,7 @@
 ### [Generate recommendations with Mahout](hdinsight-hadoop-mahout-linux-mac.md)
 ### [Analyze website logs with Hive](hdinsight-hive-analyze-website-log.md)
 ### [Analyze Application Insights telemetry logs](hdinsight-spark-analyze-application-insight-logs.md)
-## Build clusters
+## Extend clusters
 ### [Customize clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Customize clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Add Hive libraries](hdinsight-hadoop-add-hive-libraries.md)
