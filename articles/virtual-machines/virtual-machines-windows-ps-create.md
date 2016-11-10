@@ -60,7 +60,8 @@ A [storage account](../storage/storage-introduction.md) is needed to store the v
 2. Now, create the storage account.
    
     ```powershell    
-    $myStorageAccount = New-AzureRmStorageAccount -ResourceGroupName $myResourceGroup -Name $myStorageAccountName -SkuName "Standard_LRS" -Kind "Storage" -Location $location
+    $myStorageAccount = New-AzureRmStorageAccount -ResourceGroupName $myResourceGroup `
+        -Name $myStorageAccountName -SkuName "Standard_LRS" -Kind "Storage" -Location $location
     ```
 
 ## Step 4: Create a virtual network
@@ -74,7 +75,8 @@ All virtual machines are part of a [virtual network](../virtual-network/virtual-
 2. Now, create the virtual network. This command creates a virtual network named **myVnet** using the subnet that you created and an address prefix of **10.0.0.0/16**.
    
     ```powershell
-    $myVnet = New-AzureRmVirtualNetwork -Name "myVnet" -ResourceGroupName $myResourceGroup -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $mySubnet
+    $myVnet = New-AzureRmVirtualNetwork -Name "myVnet" -ResourceGroupName $myResourceGroup `
+        -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $mySubnet
     ```
 
 ## Step 5: Create a public IP address and network interface
@@ -83,12 +85,14 @@ To enable communication with the virtual machine in the virtual network, you nee
 1. Create the public IP address. This command creates a public IP address named **myPublicIp** with an allocation method of **Dynamic**.
    
     ```powershell
-    $myPublicIp = New-AzureRmPublicIpAddress -Name "myPublicIp" -ResourceGroupName $myResourceGroup -Location $location -AllocationMethod Dynamic
+    $myPublicIp = New-AzureRmPublicIpAddress -Name "myPublicIp" -ResourceGroupName $myResourceGroup `
+        -Location $location -AllocationMethod Dynamic
     ```
 2. Create the network interface. This command creates a network interface named **myNIC**.
    
     ```powershell
-    $myNIC = New-AzureRmNetworkInterface -Name "myNIC" -ResourceGroupName $myResourceGroup -Location $location -SubnetId $myVnet.Subnets[0].Id -PublicIpAddressId $myPublicIp.Id
+    $myNIC = New-AzureRmNetworkInterface -Name "myNIC" -ResourceGroupName $myResourceGroup `
+        -Location $location -SubnetId $myVnet.Subnets[0].Id -PublicIpAddressId $myPublicIp.Id
     ```
 
 ## Step 6: Create a virtual machine
@@ -109,12 +113,14 @@ Now that you have all the pieces in place, it's time to create the virtual machi
 3. Configure operating system settings for the VM. This command sets the computer name, operating system type, and account credentials for the VM.
    
     ```powershell
-    $myVM = Set-AzureRmVMOperatingSystem -VM $myVM -Windows -ComputerName "myVM" -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+    $myVM = Set-AzureRmVMOperatingSystem -VM $myVM -Windows -ComputerName "myVM" -Credential $cred `
+        -ProvisionVMAgent -EnableAutoUpdate
     ```
 4. Define the image to use to provision the VM. This command defines the Windows Server image to use for the VM. 
    
     ```powershell
-    $myVM = Set-AzureRmVMSourceImage -VM $myVM -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
+    $myVM = Set-AzureRmVMSourceImage -VM $myVM -PublisherName "MicrosoftWindowsServer" `
+        -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
     ```
    
     For more information about selecting images to use, see [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines-windows-cli-ps-findimage.md).
