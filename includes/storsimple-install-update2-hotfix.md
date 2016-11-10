@@ -36,49 +36,46 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
     A sample output is shown below.
    
-        ````
-        Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
-        \hcsmdssoftwareupdate.exe -Credential contoso\John
-   
-        Confirm
-   
-        This operation starts the hotfix installation and could reboot one or
-        both of the controllers. If the device is serving I/Os, these will not
-        be disrupted. Are you sure you want to continue?
-        [Y] Yes [N] No [?] Help (default is "Y"): Y
-   
-        ````
+    ```
+    Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
+    \hcsmdssoftwareupdate.exe -Credential contoso\John
+
+    Confirm
+
+    This operation starts the hotfix installation and could reboot one or
+    both of the controllers. If the device is serving I/Os, these will not
+    be disrupted. Are you sure you want to continue?
+    [Y] Yes [N] No [?] Help (default is "Y"): Y
+    ```
 4. Type **Y** when prompted to confirm the hotfix installation.
 5. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet.
    
     The following sample output shows the update in progress. The `RunInprogress` will be `True` when the update is in progress.
    
-        ````
-        Controller0>Get-HcsUpdateStatus
-        RunInprogress       : True
-        LastHotfixTimestamp : 12/21/2015 10:36:13 PM
-        LastUpdateTimestamp : 12/21/2015 10:35:25 PM
-        Controller0Events   :
-        Controller1Events   :
-        ````
+    ```
+    Controller0>Get-HcsUpdateStatus
+    RunInprogress       : True
+    LastHotfixTimestamp : 12/21/2015 10:36:13 PM
+    LastUpdateTimestamp : 12/21/2015 10:35:25 PM
+    Controller0Events   :
+    Controller1Events   :
+    ```
    
      The following sample output indicates that the update is finished. The `RunInProgress` will be `False` when the update has completed.
    
-        ````
-        Controller1>Get-HcsUpdateStatus
-   
-        RunInprogress       : False
-        LastHotfixTimestamp : 12/21/2015 10:59:13 PM
-        LastUpdateTimestamp : 12/21/2015 10:35:25 PM
-        Controller0Events   :
-        Controller1Events   :
-   
-        ````
+    ```
+    Controller1>Get-HcsUpdateStatus
+
+    RunInprogress       : False
+    LastHotfixTimestamp : 12/21/2015 10:59:13 PM
+    LastUpdateTimestamp : 12/21/2015 10:35:25 PM
+    Controller0Events   :
+    Controller1Events   :
+    ```
    
    > [!NOTE]
    > Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
-   > 
-   > 
+
 6. After the software update is complete, repeat steps 3-5 to install and monitor the SaaS agent and MDS agent . Ensure that `all-hcsmdssoftwareupdate_0b438ddf0d5b686aada2378b754fac8c7f2160e9.exe` is installed before `all-cismdsagentupdatebundle_f98e62f4d56c79e2a6644d027af7a2393a93827a.exe`.
 7. Verify the system software versions. Type:
    

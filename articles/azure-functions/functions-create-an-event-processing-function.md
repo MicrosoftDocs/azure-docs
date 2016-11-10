@@ -41,17 +41,18 @@ A function app hosts the execution of your functions in Azure. Before you can cr
    
     ![Create a new timer-triggered function](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 6. Back in the **Develop** tab, replace the existing C# script in the **Code** window with the following code:
-   
-        using System;
-   
-        public static void Run(TimerInfo myTimer, out string outputQueueItem, TraceWriter log)
-        {
-            // Add a new scheduled message to the queue.
-            outputQueueItem = $"Ping message added to the queue at: {DateTime.Now}.";
-   
-            // Also write the message to the logs.
-            log.Info(outputQueueItem);
-        }
+	```cs   
+    using System;
+
+    public static void Run(TimerInfo myTimer, out string outputQueueItem, TraceWriter log)
+    {
+        // Add a new scheduled message to the queue.
+        outputQueueItem = $"Ping message added to the queue at: {DateTime.Now}.";
+
+        // Also write the message to the logs.
+        log.Info(outputQueueItem);
+    }
+	```
    
     This code adds a new message to the queue with the current date and time when the function is executed.
 7. Click **Save** and watch the **Logs** windows for the next function execution.

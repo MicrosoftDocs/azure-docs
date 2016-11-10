@@ -96,7 +96,7 @@ When a timer trigger function is invoked, the
 [timer object](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 
 is passed into the function. The following JSON is an example representation of the timer object. 
 
-```
+```json
 {
     "Schedule":{
     },
@@ -130,7 +130,7 @@ See the language-specific sample that reads the timer object to see whether it's
 
 <a name="triggercsharp"></a>
 
-### Trigger sample in C\
+### Trigger sample in C# #
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
@@ -144,7 +144,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 <a name="triggerfsharp"></a>
 
-### Trigger sample in F\
+### Trigger sample in F# #
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter ) =
     if (myTimer.IsPastDue) then
