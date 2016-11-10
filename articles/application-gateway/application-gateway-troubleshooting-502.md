@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/02/2016
+ms.date: 11/10/2016
 ms.author: amitsriva
 
 ---
@@ -39,29 +39,31 @@ Ensure that the back-end address pool is not empty. This can be done either via 
 
 The output from the preceding cmdlet should contain non-empty back-end address pool. Following is an example where two pools are returned which are configured with FQDN or IP addresses for backend VMs. The provisioning state of the BackendAddressPool must be 'Succeeded'.
 
-    BackendAddressPoolsText: 
-            [{
-                "BackendAddresses": [{
-                    "ipAddress": "10.0.0.10",
-                    "ipAddress": "10.0.0.11"
-                }],
-                "BackendIpConfigurations": [],
-                "ProvisioningState": "Succeeded",
-                "Name": "Pool01",
-                "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-                "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
-            }, {
-                "BackendAddresses": [{
-                    "Fqdn": "xyx.cloudapp.net",
-                    "Fqdn": "abc.cloudapp.net"
-                }],
-                "BackendIpConfigurations": [],
-                "ProvisioningState": "Succeeded",
-                "Name": "Pool02",
-                "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-                "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
-            }]
+    BackendAddressPoolsText:
 
+```json
+[{
+    "BackendAddresses": [{
+        "ipAddress": "10.0.0.10",
+        "ipAddress": "10.0.0.11"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool01",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
+}, {
+    "BackendAddresses": [{
+        "Fqdn": "xyx.cloudapp.net",
+        "Fqdn": "abc.cloudapp.net"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool02",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
+}]
+```
 
 ## Unhealthy instances in BackendAddressPool
 ### Cause

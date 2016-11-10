@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 11/10/2016
 ms.author: gwallace
 
 ---
@@ -155,6 +155,7 @@ Configure the front-end IP port for the public IP endpoint. This port is the por
 
 ```powershell
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
+```
 
 ### Step 5
 Configure the certificate for the application gateway. This certificate is used to decrypt and re-encrypt the traffic on the application gateway.
@@ -269,7 +270,9 @@ Once the gateway is created, the next step is to configure the front end for com
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+```
 
+```
 Name                     : publicIP01
 ResourceGroupName        : appgw-RG
 Location                 : westus

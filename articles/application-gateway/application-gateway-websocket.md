@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/16/2016
+ms.date: 11/10/2016
 ms.author: amsriva
 
 ---
@@ -25,70 +25,74 @@ The backend server must respond to application gateway probes, which are describ
 ## Listener configuration element
 Existing HTTPListener can be used to support WebSocket. Following is a snippet of HttpListeners element from a sample template file. You would need both HTTP and HTTPS listeners to support WebSocket and secure WebSocket traffic. Similarly you can use the [portal](application-gateway-create-gateway-portal.md) or [PowerShell](application-gateway-create-gateway-arm.md) to create an application gateway with listeners on port 80/443 to support WebSocket traffic.
 
-    "httpListeners": [
-                {
-                    "name": "appGatewayHttpsListener",
-                    "properties": {
-                        "FrontendIPConfiguration": {
-                            "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/DefaultFrontendPublicIP"
-                        },
-                        "FrontendPort": {
-                            "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort443'"
-                        },
-                        "Protocol": "Https",
-                        "SslCertificate": {
-                            "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/sslCertificates/appGatewaySslCert1'"
-                        },
-                    }
+```json
+"httpListeners": [
+        {
+            "name": "appGatewayHttpsListener",
+            "properties": {
+                "FrontendIPConfiguration": {
+                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/DefaultFrontendPublicIP"
                 },
-                {
-                    "name": "appGatewayHttpListener",
-                    "properties": {
-                        "FrontendIPConfiguration": {
-                            "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/appGatewayFrontendIP'"
-                        },
-                        "FrontendPort": {
-                            "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort80'"
-                        },
-                        "Protocol": "Http",
-                    }
-                }
-            ],
+                "FrontendPort": {
+                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort443'"
+                },
+                "Protocol": "Https",
+                "SslCertificate": {
+                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/sslCertificates/appGatewaySslCert1'"
+                },
+            }
+        },
+        {
+            "name": "appGatewayHttpListener",
+            "properties": {
+                "FrontendIPConfiguration": {
+                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/appGatewayFrontendIP'"
+                },
+                "FrontendPort": {
+                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort80'"
+                },
+                "Protocol": "Http",
+            }
+        }
+    ],
+```
 
 ## BackendAddressPool, BackendHttpSetting, and Routing rule configuration
 BackendAddressPool should be used to define a backend pool with WebSocket enabled servers. BackendHttpSetting should be defined with backend port 80/443 only. Properties for cookie-based affinity and requestTimeouts are not relevant to WebSocket traffic. There is no change required in routing rule. Routing rule 'Basic' should continue to be used to tie the appropriate listener to the corresponding backend address pool. 
 
-    "requestRoutingRules": [{
-        "name": "<ruleName1>",
-        "properties": {
-            "RuleType": "Basic",
-            "httpListener": {
-                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpsListener')]"
-            },
-            "backendAddressPool": {
-                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/ContosoServerPool')]"
-            },
-            "backendHttpSettings": {
-                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
-            }
+```json
+"requestRoutingRules": [{
+    "name": "<ruleName1>",
+    "properties": {
+        "RuleType": "Basic",
+        "httpListener": {
+            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpsListener')]"
+        },
+        "backendAddressPool": {
+            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/ContosoServerPool')]"
+        },
+        "backendHttpSettings": {
+            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
+        }
+    }
+
+}, {
+    "name": "<ruleName2>",
+    "properties": {
+        "RuleType": "Basic",
+        "httpListener": {
+            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpListener')]"
+        },
+        "backendAddressPool": {
+            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/ContosoServerPool')]"
+        },
+        "backendHttpSettings": {
+            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
         }
 
-    }, {
-        "name": "<ruleName2>",
-        "properties": {
-            "RuleType": "Basic",
-            "httpListener": {
-                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpListener')]"
-            },
-            "backendAddressPool": {
-                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/ContosoServerPool')]"
-            },
-            "backendHttpSettings": {
-                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
-            }
-
-        }
-    }]
+    }
+}]
+```
 
 ## WebSocket enabled backend
 Your backend must have a HTTP/HTTPS web server running on the configured port (usually 80/443) for WebSocket to work. This requirement is because WebSocket protocol requires the initial handshake to be HTTP with Upgrade to WebSocket protocol as a header field.

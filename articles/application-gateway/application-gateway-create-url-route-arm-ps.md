@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 11/10/2016
 ms.author: gwallace
 
 ---
@@ -239,7 +239,9 @@ Once the gateway is created, the next step is to configure the front end for com
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+```
 
+```
 Name                     : publicIP01
 ResourceGroupName        : appgw-RG
 Location                 : westus

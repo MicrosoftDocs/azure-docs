@@ -162,20 +162,20 @@ If you have never used Azure CLI, see [Install and configure the Azure CLI](../x
 ### Step 2
 Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
-```
+```azurecli
 azure config mode arm
 ```
 
 Here is the expected output for the command above:
 
-```
+```azurecli
 info:    New mode is arm
 ```
 
 ### Step 3
 If necessary, run the **azure group create** command to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
-```
+```azurecli
 azure group create -n appgatewayRG -l eastus
 ```
 
@@ -186,7 +186,7 @@ azure group create -n appgatewayRG -l eastus
 ### Step 4
 Run the **azure group deployment create** cmdlet to deploy the new virtual network by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
-```
+```azurecli
 azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 ```
 

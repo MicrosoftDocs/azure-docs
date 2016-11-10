@@ -247,7 +247,9 @@ Once the gateway is created, the next step is to configure the front end for com
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+```
 
+```
 Name                     : publicIP01
 ResourceGroupName        : appgw-RG
 Location                 : westus

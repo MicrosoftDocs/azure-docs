@@ -71,20 +71,17 @@ The following example creates an application gateway by using a virtual network 
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
-
-VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
-VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-Name       HTTP Status Code     Operation ID                             Error
-----       ----------------     ------------                             ----
-Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 ```
 
- *Description*, *InstanceCount*, and *GatewaySize* are optional parameters.
+*Description*, *InstanceCount*, and *GatewaySize* are optional parameters.
 
 To validate that the gateway was created, you can use the **Get-AzureApplicationGateway** cmdlet.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
+```
+
+```
 Name          : AppGwTest
 Description   :
 VnetName      : testvnet1
@@ -216,12 +213,6 @@ Next, set the application gateway. Use the **Set-AzureApplicationGatewayConfig**
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
-
-VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
-VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
-Name       HTTP Status Code     Operation ID                             Error
-----       ----------------     ------------                             ----
-Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 ```
 
 ## Configure the application gateway by using a configuration object
@@ -364,12 +355,6 @@ Once the gateway has been configured, use the **Start-AzureApplicationGateway** 
 
 ```powershell
 Start-AzureApplicationGateway AppGwTest
-
-VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
-VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-Name       HTTP Status Code     Operation ID                             Error
-----       ----------------     ------------                             ----
-Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 ```
 
 ## Verify the gateway status
@@ -379,7 +364,9 @@ The following example shows an application gateway that is up, running, and read
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
+```
 
+```
 VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway
 VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
 Name          : AppGwTest
@@ -404,7 +391,9 @@ The following example shows the **Stop-AzureApplicationGateway** cmdlet on the f
 
 ```powershell
 Stop-AzureApplicationGateway AppGwTest
+```
 
+```
 VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway
 VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
 Name       HTTP Status Code     Operation ID                             Error
@@ -416,7 +405,9 @@ Once the application gateway is in a stopped state, use the **Remove-AzureApplic
 
 ```powershell
 Remove-AzureApplicationGateway AppGwTest
+```
 
+```
 VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway
 VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
 Name       HTTP Status Code     Operation ID                             Error
@@ -428,7 +419,9 @@ To verify that the service has been removed, you can use the **Get-AzureApplicat
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
+```
 
+```
 VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
 Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
