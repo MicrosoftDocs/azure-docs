@@ -100,7 +100,7 @@ $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS2_v2"
 Create the rest of your VM config. The following example creates a Windows Server 2012 R2 VM:
 
 ```powershell
-$vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName Te"MyVM" `
+$vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName "myVM" `
     -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName "MicrosoftWindowsServer" `
     -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"

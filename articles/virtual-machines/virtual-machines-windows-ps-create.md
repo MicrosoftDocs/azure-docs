@@ -99,8 +99,10 @@ To enable communication with the virtual machine in the virtual network, you nee
 Now that you have all the pieces in place, it's time to create the virtual machine.
 
 1. Run this command to set the administrator account name and password for the virtual machine.
-   
-        $cred = Get-Credential -Message "Type the name and password of the local administrator account."
+
+    ```powershell
+    $cred = Get-Credential -Message "Type the name and password of the local administrator account."
+    ```
    
     The password must be at 12-123 characters long and have at least one lower case character, one upper case character, one number, and one special character. 
 2. Create the configuration object for the virtual machine. This command creates a configuration object named **myVmConfig** that defines the name of the VM and the size of the VM.
