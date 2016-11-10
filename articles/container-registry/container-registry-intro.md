@@ -43,7 +43,7 @@ For background about Docker and containers, see:
   * `myregistry-contoso.azurecr.io/warrantydept/dotnet-build` represents an image used to build .NET apps, shared across the warranty department
   * `myregistry-contoso.azrecr.io/warrantydept/customersubmissions/web` represents a web image, grouped in the constomersubmissions app, owned by the warranty department
 * **Image** - Stored in a repository, each image is a read-only snapshot of a Docker container. Azure container registries can include both Windows and Linux images. You control image names for all your container deployments. Use standard [Docker commands](https://docs.docker.com/engine/reference/commandline/) to push images into a repository, or pull an image from a repository. 
-* **Container** - A container defines a software application and its dependencies wrapped in a complete filesystem including code, runtime, system tools, and libraries. Run Docker containers based on Windows or Linux images that you pull from a container registry. Containers running on a single machines share the operating system kernel. Docker containers are fully portable to all major Linux distros, Mac, and Windows.
+* **Container** - A container defines a software application and its dependencies wrapped in a complete filesystem including code, runtime, system tools, and libraries. Run Docker containers based on Windows or Linux images that you pull from a container registry. Containers running on a single machine share the operating system kernel. Docker containers are fully portable to all major Linux distros, Mac, and Windows.
 
 ## Use cases
 Pull images from an Azure container registry to various deployment targets:
