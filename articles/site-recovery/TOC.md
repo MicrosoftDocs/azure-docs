@@ -7,7 +7,7 @@
 ## [Watch an introduction](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
 # Get Started
-### [Prepare for deployment](site-recovery-best-practices.md)
+## [Prepare for deployment](site-recovery-best-practices.md)
 
 # How To
 ## Plan
@@ -47,6 +47,10 @@
 ### [Fail over in Site Recovery](site-recovery-failover.md)
 ### [Fail back VMware VMs and physical servers](site-recovery-failback-azure-to-vmware.md)
 ## [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
+
+# Reference
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [PowerShell classic](https://docs.microsoft.com/powershell/servicemanagement/)
 
 # Related
 ## [Azure Automation](/azure/automation/)

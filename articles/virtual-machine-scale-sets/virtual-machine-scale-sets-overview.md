@@ -49,7 +49,7 @@ To walk through the steps that create a scale set that is automatically scaled, 
 ## Monitoring your VM scale set
 The [Azure portal](https://portal.azure.com) lists scale sets and shows basic properties, as well as listing VMs in the set. For more detail you can use the [Azure Resource Explorer](https://resources.azure.com) to view VM scale sets. VM scale sets are a resource under Microsoft.Compute, so from this site you can see them by expanding the following links:
 
-    subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
+**Subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.**
 
 ## VM scale set scenarios
 This section lists some typical VM scale set scenarios. Some higher level Azure services (like Batch, Service Fabric, Azure Container Service) will use these scenarios.
