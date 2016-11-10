@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/19/2016
+ms.date: 11/10/2016
 ms.author: wesmc
 
 ---
@@ -30,6 +30,7 @@ The default function template is basically a hello world function that echoes ba
 
 Update the function with the following code which we will use for testing:
 
+```javascript
     module.exports = function(context, req) {
         context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
         context.log("Request Headers = " + JSON.stringify(req.headers));    
@@ -70,7 +71,7 @@ Update the function with the following code which we will use for testing:
                 body: echoString
             };
     }
-
+```
 
 ## Test a function with Tools
 ### Test with cURL
@@ -249,6 +250,7 @@ To demonstrate this approach, we will first create a queue trigger function that
 8. Click the **Develop** tab for your timer trigger.
 9. You can use the following code for the C# timer function as long as you used the same queue message object name shown above. Then click **Save**
 
+	```cs
         using System;
 
         public static void Run(TimerInfo myTimer, out String myQueue, TraceWriter log)
@@ -261,6 +263,7 @@ To demonstrate this approach, we will first create a queue trigger function that
 
             myQueue = newUser;
         }
+	```
 
 At this point C# timer function will execute every 30 seconds if you used the example cron expression. The logs for the timer function will report each execution:
 
@@ -289,6 +292,7 @@ Make sure to set:
 
 Code Example:
 
+```javascript
     var http = require("http");
 
     var nameQueryString = "name=Wes%20Query%20String%20Test%20From%20Node.js";
@@ -326,7 +330,7 @@ Code Example:
     console.log("*** Sending name and address in body ***");
     console.log(bodyString);
     req.end(bodyString);
-
+```
 
 
 Output:
@@ -360,6 +364,7 @@ To test this code in a console app you must:
 
 Example C# code:
 
+```cs
     static void Main(string[] args)
     {
         string name = null;
@@ -403,6 +408,7 @@ Example C# code:
         CloudQueueMessage message = new CloudQueueMessage(JSON);
         queue.AddMessage(message);
     }
+```
 
 In the browser window for the queue function, you will see the each message being processed:
 
