@@ -1,4 +1,4 @@
-﻿---
+---
 title: Move data to/from Azure SQL Data Warehouse | Microsoft Docs
 description: Learn how to move data to/from Azure SQL Data Warehouse using Azure Data Factory
 services: data-factory
@@ -25,7 +25,9 @@ You can specify whether you want to use PolyBase while loading data into Azure S
 ## Copy data wizard
 The easiest way to create a pipeline that copies data to/from Azure SQL Data Warehouse is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of the sources to any of the supported sinks. For more information, see the section "Supported data stores and formats" in [Move data by using Copy Activity](data-factory-data-movement-activities.md).
+
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
+
 
 > [!NOTE]
 > For an overview of the Azure Data Factory service, see [Introduction to Azure Data Factory](data-factory-introduction.md).
@@ -38,7 +40,7 @@ The following examples provide sample JSON definitions that you can use to creat
 The sample defines the following Data Factory entities:
 
 1. A linked service of type [AzureSqlDW](#linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 3. An input [dataset](data-factory-create-datasets.md) of type [AzureSqlDWTable](#dataset-type-properties).
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [SqlDWSource](#copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
@@ -219,7 +221,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 The sample defines the following Data Factory entities:
 
 1. A linked service of type [AzureSqlDW](#linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureSqlDWTable](#dataset-type-properties).
 5. A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [SqlDWSink](#copy-activity-type-properties).
@@ -407,7 +409,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 | Property | Description | Required |
 | --- | --- | --- |
-| tableName |Name of the table in the Azure SQL Data Warehouse database that the linked service refers to. |Yes |
+| tableName |Name of the table or view in the Azure SQL Data Warehouse database that the linked service refers to. |Yes |
 
 ## Copy activity type properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.

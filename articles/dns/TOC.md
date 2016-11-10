@@ -33,8 +33,8 @@
 ## [Automate DNS operations with the DNS.NET SDK](dns-sdk.md)
 
 # References
-## [PowerShell cmdlets](https://msdn.microsoft.com/en-us/library/azure/mt126288(v=azure.300))
-## [REST APIs](https://msdn.microsoft.com/library/azure/mt163862)
+## [PowerShell](https://msdn.microsoft.com/en-us/library/azure/mt126288(v=azure.300))
+## [REST APIs](https://docs.microsoft.com/en-us/rest/api/dns/)
 
 # Related
 ## [Application Gateway](/azure/application-gateway/)
