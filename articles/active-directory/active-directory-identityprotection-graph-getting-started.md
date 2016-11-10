@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started with Azure Active Directory Identity Protection and Microsoft Graph | Microsoft Docs
 description: Provides an introduction to query Microsoft Graph for a list of risk events and associated information from Azure Active Directory.
 services: active-directory

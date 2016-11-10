@@ -1,4 +1,4 @@
----
+﻿---
 title: Create an Internet-facing load balancer in Resource Manager using the Azure portal | Microsoft Docs
 description: Learn how to create an Internet-facing load balancer in Resource Manager using the Azure portal
 services: load-balancer

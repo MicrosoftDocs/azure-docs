@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy the MySQL resource provider on Azure Stack | Microsoft Docs
 description: Detailed steps to deploy the MySQL Resource Provider to Azure Stack.
 services: azure-stack

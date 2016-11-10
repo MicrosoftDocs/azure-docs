@@ -1,4 +1,4 @@
----
+﻿---
 title: 'The Team Data Science Process in action: using SQL Data Warehouse | Microsoft Docs'
 description: Advanced Analytics Process and Technology in Action
 services: machine-learning

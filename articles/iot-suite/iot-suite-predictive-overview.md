@@ -1,4 +1,4 @@
----
+﻿---
 title: Predictive maintenance preconfigured solution | Microsoft Docs
 description: A description of the Azure IoT predictive maintenance preconfigured solution.
 services: ''

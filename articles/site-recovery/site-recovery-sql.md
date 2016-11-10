@@ -1,4 +1,4 @@
----
+﻿---
 title: Protect SQL Server with SQL Server disaster recovery and Azure Site Recovery | Microsoft Docs
 description: This article describes how to replicate SQL Server using Azure Site Recovery of SQL Server disaster capabilities.
 services: site-recovery

@@ -1,4 +1,4 @@
----
+﻿---
 title: Reset Linux VM password and SSH key from the CLI | Microsoft Docs
 description: How to use the VMAccess extension from the Azure Command-Line Interface (CLI) to reset a Linux VM password or SSH key, fix the SSH configuration, and check disk consistency
 services: virtual-machines-linux

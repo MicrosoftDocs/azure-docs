@@ -1,4 +1,4 @@
----
+﻿---
 title: Secure your app's custom domain with HTTPS | Microsoft Docs
 description: Learn how secure the custom domain name for your app in Azure App Service by configuring an SSL certificate binding. You will also learn how to get an SSL certificate from multiple tools.
 services: app-service

@@ -1,4 +1,4 @@
----
+﻿---
 title: Use dynamic telemetry | Microsoft Docs
 description: Follow this tutorial to learn how to use dynamic telemetry with the remote monitoring preconfigured solution.
 services: ''

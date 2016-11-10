@@ -1,4 +1,4 @@
----
+﻿---
 title: SQL error codes - database connection error | Microsoft Docs
 description: 'Learn about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. '
 keywords: sql error code,access sql,database connection error,sql error codes

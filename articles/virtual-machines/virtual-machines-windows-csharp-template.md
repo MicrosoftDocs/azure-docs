@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy a VM using C# and a Resource Manager template | Microsoft Docs
 description: Learn to how to use C# and a Resource Manager template to deploy an Azure VM.
 services: virtual-machines-windows

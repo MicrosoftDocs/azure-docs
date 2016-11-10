@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure Content Key Authorization Policy using Media Services REST API | Microsoft Docs
 description: Learn how to configure an authorization policy for a content key using Media Services REST API.
 services: media-services

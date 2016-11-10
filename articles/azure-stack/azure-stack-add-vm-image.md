@@ -1,4 +1,4 @@
----
+﻿---
 title: Adding a VM image to Azure Stack | Microsoft Docs
 description: Add your organization's custom Windows or Linux VM image for tenants to use
 services: azure-stack

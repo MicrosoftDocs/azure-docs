@@ -1,4 +1,4 @@
----
+﻿---
 title: Install Update 1.2 on your StorSimple device | Microsoft Docs
 description: Explains how to install StorSimple 8000 Series Update 1.2 on your StorSimple 8000 series device.
 services: storsimple

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Design concepts | Microsoft Docs'
 description: This topic details certain implementation design areas
 services: active-directory

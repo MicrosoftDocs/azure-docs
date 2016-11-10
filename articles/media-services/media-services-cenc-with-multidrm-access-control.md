@@ -1,4 +1,4 @@
----
+﻿---
 title: 'CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services | Microsoft Docs'
 description: Learn about how to licensing the Microsoft® Smooth Streaming Client Porting Kit.
 services: media-services

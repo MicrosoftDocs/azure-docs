@@ -1,4 +1,4 @@
----
+﻿---
 title: Getting started with Operations Management Suite Security and Audit Solution | Microsoft Docs
 description: This document helps you to get started with Operations Management Suite Security and Audit solution capabilities to monitor your hybrid cloud.
 services: operations-management-suite

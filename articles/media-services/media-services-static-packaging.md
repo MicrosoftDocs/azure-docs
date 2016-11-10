@@ -1,4 +1,4 @@
----
+﻿---
 title: Using  Azure Media Packager to accomplish static packaging tasks | Microsoft Docs
 description: This topic shows various tasks that are accomplished with Azure Media Packager.
 services: media-services

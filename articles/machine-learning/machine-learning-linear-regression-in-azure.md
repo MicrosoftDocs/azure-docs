@@ -1,4 +1,4 @@
----
+﻿---
 title: Using Linear Regression in Machine Learning | Microsoft Docs
 description: A comparison of linear regression models in Excel and in Azure Machine Learning Studio
 metakeywords: ''

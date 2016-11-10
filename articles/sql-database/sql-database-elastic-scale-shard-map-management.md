@@ -1,4 +1,4 @@
----
+﻿---
 title: Shard map management | Microsoft Docs
 description: How to use the ShardMapManager, elastic database client library
 services: sql-database

@@ -1,4 +1,4 @@
----
+﻿---
 title: Import a BACPAC file to create an Azure SQL database by using PowerShell | Microsoft Docs
 description: Import a BACPAC file to create an Azure SQL database by using PowerShell
 services: sql-database

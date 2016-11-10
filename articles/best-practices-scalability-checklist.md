@@ -1,4 +1,4 @@
----
+﻿---
 title: Scalability checklist | Microsoft Docs
 description: Scalability checklist guidance for design concerns for Azure Autoscaling.
 services: ''

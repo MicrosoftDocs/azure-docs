@@ -20,7 +20,7 @@ ms.author: ryansoc
 ---
 # Azure Government Storage
 ## Azure Storage
-For details on this service and how to use it, see [Azure Storage public documentation](https://azure.microsoft.com/documentation/services/storage/).
+For details on this service and how to use it, see [Azure Storage public documentation](../storage/index.md).
 
 ### Variations
 The URLs for storage accounts in Azure Government are different:
@@ -32,13 +32,13 @@ The URLs for storage accounts in Azure Government are different:
 | Table Storage |*.table.core.windows.net |*.table.core.usgovcloudapi.net |
 
 > [!NOTE]
-> All of your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/storage-configure-connection-string.md#creating-a-connection-string-to-the-explicit-storage-endpoint). 
-> 
-> 
+> All of your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/storage-configure-connection-string.md). 
+>
+>
 
 For more information on APIs see the <a href="https://msdn.microsoft.com/en-us/library/azure/mt616540.aspx"> Cloud Storage Account Constructor</a>.
 
-The endpoint suffix to use in these overloads is core.usgovcloudapi.net 
+The endpoint suffix to use in these overloads is core.usgovcloudapi.net
 
 ### Considerations
 The following information identifies the Azure Government boundary for Azure Storage:
@@ -51,12 +51,11 @@ The following information identifies the Azure Government boundary for Azure Sto
 For details on this service and how to use it, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
 
 ### Variations
-Premium Storage is generally available in the USGov Virginia. This includes DS-series Virtual Machines. 
+Premium Storage is generally available in the USGov Virginia. This includes DS-series Virtual Machines.
 
 ### Considerations
-The same storage data considerations listed above apply to premium storage accounts. 
+The same storage data considerations listed above apply to premium storage accounts.
 
 ## Next Steps
 For supplemental information and updates subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
-

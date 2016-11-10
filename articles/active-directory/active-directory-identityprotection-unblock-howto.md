@@ -22,8 +22,8 @@ ms.author: markvi
 With Azure Active Directory Identity Protection, you can configure policies to block users if the configured conditions are satisfied. Typically, a blocked user contacts help desk to become unblocked. This topics explains the steps you can perform to unblock a blocked user.
 
 ## Determine the reason for blocking
-As a first step to unblock a user, you need to determine the type of policy that has blocked the user because your next steps are depending on it. 
-With Azure Active Directory Identity Protection, a user can be either blocked by a sign-in risk policy or a user risk policy. 
+As a first step to unblock a user, you need to determine the type of policy that has blocked the user because your next steps are depending on it.
+With Azure Active Directory Identity Protection, a user can be either blocked by a sign-in risk policy or a user risk policy.
 
 You can get the type of policy that has blocked a user from the heading in the dialog that was presented to the user during a sign-in attempt:
 
@@ -41,17 +41,16 @@ A user that is blocked by:
 To unblock a suspicious sign-in, you have the following options:
 
 1. **Sign-in from a familiar location or device** - A common reason for blocked suspicious sign-ins are sign-in attempts from unfamiliar locations or devices. Your users can quickly determine whether this is the blocking reason by trying to sign-in from a familiar location or device.
-2. **Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. See [sign-in risk policy](active-directory-identityprotection.md#sign-in-risk-policy) for more details.
-3. **Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy. See [sign-in risk policy](active-directory-identityprotection.md#sign-in-risk-policy) for more details.
+2. **Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. See [Azure Active Directory Identity Protection](active-directory-identityprotection.md) for more details.
+3. **Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy. See [Azure Active Directory Identity Protection](active-directory-identityprotection.md) for more details.
 
 ## Unblocking accounts at risk
 To unblock an account at risk, you have the following options:
 
 1. **Reset password** - You can reset the user's password. See [manual secure password reset](active-directory-identityprotection.md#manual-secure-password-reset) for more details.
 2. **Dismiss all risk events** - The user risk policy blocks a user if the configured user risk level for blocking access has been reached. You can reduce a user's risk level by manually closing reported risk events. For more details, see [closing risk events manually](active-directory-identityprotection.md#closing-risk-events-manually).
-3. **Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. See [user risk policy](active-directory-identityprotection.md#user-risk-policy) for more details.
-4. **Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy. See [user risk policy](active-directory-identityprotection.md#user-risk-policy) for more details.
+3. **Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. See [Azure Active Directory Identity Protection](active-directory-identityprotection.md) for more details.
+4. **Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy. See [Azure Active Directory Identity Protection](active-directory-identityprotection.md) for more details.
 
 ## Next steps
  Do you want to know more about Azure AD Identity Protection? Check out [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
-

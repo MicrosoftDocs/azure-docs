@@ -1,4 +1,4 @@
----
+﻿---
 title: Load terabytes of data into SQL Data Warehouse | Microsoft Docs
 description: Demonstrates how 1 TB of data can be loaded into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory
 services: data-factory

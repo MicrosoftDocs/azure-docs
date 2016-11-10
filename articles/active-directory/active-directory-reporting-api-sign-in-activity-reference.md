@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory sign-in activity report API reference | Microsoft Docs
 description: Reference for the Azure Active Directory sign-in activity report API
 services: active-directory

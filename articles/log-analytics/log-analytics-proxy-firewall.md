@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure proxy and firewall settings in Log Analytics | Microsoft Docs
 description: Configure proxy and firewall settings when your agents or OMS services need to use specific ports.
 services: log-analytics

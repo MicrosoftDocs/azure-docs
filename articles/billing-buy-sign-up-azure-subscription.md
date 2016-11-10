@@ -1,4 +1,4 @@
----
+﻿---
 title: How to sign up for, purchase, upgrade or activate an Azure subscription | Microsoft Docs
 description: Describes How to buy or sign up for an Azure subscription
 services: ''
@@ -21,8 +21,8 @@ ms.author: genli
 # How to sign up, purchase, upgrade, or activate Azure
 > [!NOTE]
 > If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-> 
-> 
+>
+>
 
 Azure provides various offers to suit your business needs and get started using Azure. Visit [Azure Offers](https://azure.microsoft.com/support/legal/offer-details/) for a complete listing of all active offers with details on each offer about what they cover, benefits, and availability by countries/region.
 
@@ -49,56 +49,56 @@ See [Troubleshoot Azure Sign-up Issues](billing-troubleshoot-azure-sign-up-issue
 
 > [!NOTE]
 > Your phone number and credit card details are used only to verify your identity. Although your credit card won’t be charged, Microsoft will place an authorization hold on it for a minimal amount to verify that the credit card is valid. The hold will be released within 3-5 business days, depending on your financial institution’s policies.
-> 
-> 
+>
+>
 
 1. Open the [Azure free trial page](https://azure.microsoft.com/pricing/free-trial/), and then select **Start now**.
 2. Sign in with your Microsoft account or organizational account.
-3. In the **About you** section, enter your personal information. [Learn more](billing-troubleshoot-azure-sign-up-issues.md#i-am-getting-an-error-when-entering-my-information-to-sign-up) about entering your personal information accurately.
-   
+3. In the **About you** section, enter your personal information. [Learn more](billing-troubleshoot-azure-sign-up-issues.md) about entering your personal information accurately.
+
     ![Enter your personal information here](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
-   
+
    > [!NOTE]
    > The email address and country information that you provide when you sign up for an Azure subscription will always be associated with the subscription, and cannot be changed later.
-   > 
-   > 
+   >
+   >
 4. In the **Verification by phone** section, you must provide a phone number to receive a verification code that you can provide to complete the verification process.
-   
-    You can choose to receive the verification code either as a text message or through a voice call. Make your choice by selecting either **Send text message** or **Call me**. Select the international dialing code for your country in the first box, and enter your phone number in the second box. After you receive the verification code, enter it in the third box, and then select the **Verify code** button. [See this article for more details](billing-troubleshoot-azure-sign-up-issues.md#i-am-not-getting-text-messages-or-calls-during-account-verification-when-i-try-to-sign-up).
-   
+
+    You can choose to receive the verification code either as a text message or through a voice call. Make your choice by selecting either **Send text message** or **Call me**. Select the international dialing code for your country in the first box, and enter your phone number in the second box. After you receive the verification code, enter it in the third box, and then select the **Verify code** button. [See this article for more details](billing-troubleshoot-azure-sign-up-issues.md).
+
    > [!NOTE]
    > You cannot use a VOIP phone number for the phone verification process.
-   > 
-   > 
-   
+   >
+   >
+
     ![Enter a valid phone number to verify your phone](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)
-   
+
     If you don't receive a text message or a call, try using a different phone number or contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help.
 5. In the **Verification by card** section, enter the details of a valid credit card. This information is collected only to verify your identity.
-   
+
     If you receive an error after submitting your credit card information, see the article [My credit card doesn’t go through when I try to sign up for Azure](billing-credit-card-fails-during-azure-sign-up.md).
-   
+
     ![You could also verify by card](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)
 6. In the **Agreement** section, check the box if you agree to the subscription agreement, offer details, and privacy statement. Then select **Sign up**. The agreement form may vary by country.
-   
+
     ![The English version of the agreement. The agreement form may vary by country.](./media/billing-buy-sign-up-azure-subscription/Signup.png)
-   
+
     It can take a few minutes to set up your subscription. If the subscription setup does not complete in 15 minutes, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for assistance.
-   
+
    > [!NOTE]
    > If you get an error message, follow the steps in the message to resolve the issue. A typical error message is:
-   > 
+   >
    > **Sorry, we could not complete the operation. Please try again later or reload the web page**
-   > 
+   >
    > In this case, try using another browser to complete the sign-up process. If the issue still occurs, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help.
-   > 
-   > 
+   >
+   >
 7. When the subscription is ready, select **Start managing my service** to begin.
-   
+
     ![Welcome to your Azure subscription](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 
 ### Additional resources
-* [I can’t activate an Azure Free Trial](billing-troubleshoot-azure-sign-up-issues.md#i-cant-activate-an-azure-free-trial)
+* [I can’t activate an Azure Free Trial](billing-troubleshoot-azure-sign-up-issues.md)
 * [Azure Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 <a name="UpgradeFreeToPYG"></a>
@@ -106,10 +106,10 @@ See [Troubleshoot Azure Sign-up Issues](billing-troubleshoot-azure-sign-up-issue
 ## Upgrade Azure Free Trial to Pay-As-You-Go
 1. Log on to the [Azure Account Portal](https://account.windowsazure.com/subscriptions) by using the Microsoft account or your organizational account that you used to sign up for the free trial.
 2. Select the subscription, and then select **Upgrade**
-   
+
     ![Notice to upgrade from Free Trial to Pay-As-You-Go](./media/billing-buy-sign-up-azure-subscription/billpage.png)
 3. Select **Yes**, and then select **Upgrade now**.
-   
+
     ![Confirmation for upgrading your subscription](./media/billing-buy-sign-up-azure-subscription/Upgrade.png)
 
 When you upgrade from a Free Trial subscription to a Pay-As-You-Go subscription, any benefits left over from your free trial such as the 30-day limit or the $200 credit to use on Azure services will continue until one of them is exhausted. The subscription upgrade will happen afterwards.
@@ -125,6 +125,5 @@ If you bought **Azure in Open** credits from a reseller and got an activation ke
 
 > [!NOTE]
 > If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-> 
-> 
-
+>
+>

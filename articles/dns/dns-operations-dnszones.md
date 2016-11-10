@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage DNS zones using PowerShell | Microsoft Docs
 description: You can manage DNS zones using Azure Powershell. How to update, delete and create DNS zones on Azure DNS
 services: dns
@@ -40,7 +40,7 @@ By omitting the zone name from `Get-AzureRmDnsZone`, you can enumerate all zones
     $zoneList = Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
 
 ## Update a DNS zone
-Changes to a DNS zone resource can be made by using `Set-AzureRmDnsZone`. This does not update any of the DNS record sets within the zone (see [How to Manage DNS records](dns-operations-recordsets.md)). It's only used to update properties of the zone resource itself. This is currently limited to the Azure Resource Manager ‘tags’ for the zone resource. See [Etags and Tags](dns-getstarted-create-dnszone.md#Etags-and-tags) for more information.
+Changes to a DNS zone resource can be made by using `Set-AzureRmDnsZone`. This does not update any of the DNS record sets within the zone (see [How to Manage DNS records](dns-operations-recordsets.md)). It's only used to update properties of the zone resource itself. This is currently limited to the Azure Resource Manager ‘tags’ for the zone resource. See [Etags and Tags](dns-getstarted-create-dnszone.md#tagetag) for more information.
 
 Use one of the following two ways to update DNS zone:
 
@@ -48,7 +48,7 @@ Use one of the following two ways to update DNS zone:
     Set-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
 
 ### Specify the zone using a $zone object
-Specify the zone using a $zone object from `Get-AzureRmDnsZone`. When using `Set-AzureRmDnsZone` with a $zone object, Etag checks will be used to ensure concurrent changes are not overwritten. You can use the optional *-Overwrite* switch to suppress these checks. See [Etags and Tags](dns-getstarted-create-dnszone.md#Etags-and-tags) for more information.
+Specify the zone using a $zone object from `Get-AzureRmDnsZone`. When using `Set-AzureRmDnsZone` with a $zone object, Etag checks will be used to ensure concurrent changes are not overwritten. You can use the optional *-Overwrite* switch to suppress these checks. See [Etags and Tags](dns-getstarted-create-dnszone.md#tagetag) for more information.
 
     $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
     <..modify $zone.Tags here...>
@@ -69,7 +69,7 @@ This operation has an optional *-Force* switch which suppresses the prompt to co
 
 ### Specify the zone using a $zone object
 Specify the zone using a $zone object from `Get-AzureRmDnsZone`. This operation has an optional *-Force* switch which suppresses the prompt to confirm you want to remove the DNS zone. As with `Set-AzureRmDnsZone`, specifying the zone using a $zone object enables Etag checks to ensure concurrent changes are not deleted. <BR>
-The optional *-Overwrite* flag suppresses these checks. See [Etags and Tags](dns-getstarted-create-dnszone.md#Etags-and-tags) for more information.
+The optional *-Overwrite* flag suppresses these checks. See [Etags and Tags](dns-getstarted-create-dnszone.md#tagetag) for more information.
 
     $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
     Remove-AzureRmDnsZone -Zone $zone [-Force] [-Overwrite]

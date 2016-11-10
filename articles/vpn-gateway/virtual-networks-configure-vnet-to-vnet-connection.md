@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure a VNet-to-VNet connection for the classic deployment model| Microsoft Docs
 description: How to connect Azure virtual networks together using PowerShell and the Azure classic portal.
 services: vpn-gateway

@@ -1,5 +1,4 @@
 # Overview
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure and IoT](iot-hub-what-is-azure-iot.md)
 ## [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Overview of device management](iot-hub-device-management-overview.md)
@@ -28,6 +27,15 @@
 ### [Troubleshooting](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 ## [Get started with the Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Get started with the Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
+## Tutorials
+### [Process device-to-cloud messages tutorial (.NET)](iot-hub-csharp-csharp-process-d2c.md)
+### [Process device-to-cloud messages tutorial (Java)](iot-hub-java-java-process-d2c.md)
+### [Upload files from devices tutorial](iot-hub-csharp-csharp-file-upload.md)
+### [Send cloud-to-device messages (.NET)](iot-hub-csharp-csharp-c2d.md)
+### [Send cloud-to-device messages (Java)](iot-hub-java-java-c2d.md)
+### [Send cloud-to-device messages (Node)](iot-hub-node-node-c2d.md)
+### [Get started with device twins](iot-hub-node-node-twin-getstarted.md)
+### [How to use twin properties](iot-hub-node-node-twin-how-to-configure.md)
 
 # How To
 ## [Process device-to-cloud messages tutorial (.NET)](iot-hub-csharp-csharp-process-d2c.md)
@@ -51,7 +59,7 @@
 ### [Scale your solution](iot-hub-scaling.md)
 ### [High availability and disaster recovery](iot-hub-ha-dr.md)
 ### [Supporting additional protocols](iot-hub-protocol-gateway.md)
-## Developer guide
+## Develop
 ### [Introduction](iot-hub-devguide.md)
 ### [Send and receive messages](iot-hub-devguide-messaging.md)
 ### [Device-to-cloud feature guide](iot-hub-devguide-d2c-guidance.md)
@@ -65,7 +73,6 @@
 ### [IoT Hub endpoints](iot-hub-devguide-endpoints.md)
 ### [Query language](iot-hub-devguide-query-language.md)
 ### [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
-### [Pricing](iot-hub-devguide-pricing.md)
 ### [Device and service SDKs](iot-hub-devguide-sdks.md)
 ### [MQTT support](iot-hub-mqtt-support.md)
 ### [Glossary](iot-hub-devguide-glossary.md)
@@ -85,6 +92,12 @@
 ### [Security best practices](iot-hub-security-best-practices.md)
 ### [Security architecture](iot-hub-security-architecture.md)
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
+
+
+# Reference
+## [Azure CLI](https://docs.microsoft.com/cli/azure)
+## [Java](https://docs.microsoft.com/java/api)
+## [.NET API](https://docs.microsoft.com/dotnet/api)
 ## Gateway SDK
 ### [Simulate a device with the Gateway SDK tutorial (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
 ### [Simulate a device with the Gateway SDK tutorial (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
@@ -101,6 +114,7 @@
 ## [Introduction to the Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
 ## [IoT device SDK for C: more about IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ## [IoT device SDK for C: more about serializer](iot-hub-device-sdk-c-serializer.md)
+## [REST](https://docs.microsoft.com/en-us/rest/api/iothub/)
 
 # Related
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -109,6 +123,7 @@
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Resources
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)
 ## [Pricing information](https://azure.microsoft.com/pricing/details/iot-hub/)

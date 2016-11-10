@@ -1,4 +1,4 @@
----
+﻿---
 title: '# Configure automatic device registration for Windows 7 domain joined devices| Microsoft Docs'
 description: Steps to configure your Windows 7 domain joined devices to automatically register with Azure AD. and steps to deploy the device registration software package to your Windows 7 domain joined devices using a software distribution system such as System Center Configuration Manager.
 services: active-directory

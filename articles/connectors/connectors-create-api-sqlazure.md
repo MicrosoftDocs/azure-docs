@@ -1,4 +1,4 @@
----
+﻿---
 title: Add the Azure SQL Database connector in your Logic Apps | Microsoft Docs
 description: Overview of Azure SQL Database connector with REST API parameters
 services: ''

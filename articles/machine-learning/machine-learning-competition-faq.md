@@ -1,4 +1,4 @@
----
+﻿---
 title: Cortana Intelligence Competitions FAQ | Microsoft Docs
 description: Frequently asked questions about Microsoft Cortana Intelligence Competitions.
 services: machine-learning

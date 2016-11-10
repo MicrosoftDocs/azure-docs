@@ -1,4 +1,4 @@
----
+﻿---
 title: Report across scaled-out cloud databases (horizontal partitioning) | Microsoft Docs
 description: how to use cross database database queries
 services: sql-database

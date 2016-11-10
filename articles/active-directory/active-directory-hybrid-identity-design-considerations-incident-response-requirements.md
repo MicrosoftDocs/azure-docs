@@ -1,4 +1,4 @@
-
+﻿
 ---
 title: Azure Active Directory hybrid identity design considerations - determine incident rResponse requirements | Microsoft Docs
 description: Determine monitoring and reporting capabilities for the hybrid identity solution that can be leveraged by IT to take actions to identify and mitigate a potential threats

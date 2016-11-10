@@ -1,21 +1,82 @@
 ---
-title: To be submitted | Microsoft Azure
-description: To be submitted.
-services: ''
-documentationcenter: ''
-author: squillace
-manager: timlt
-editor: ''
-tags: billing
+layout: LandingPage
+---
+#Site Recovery Documentation
 
-ms.assetid:27c0ceb2-daea-420f-a965-46aa5931b978
-ms.service: value
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
+Site Recovery is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Site Recovery represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Site Recovery Getting Started Samples</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure Site Recovery Party Cluster</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Getting started with Site Recovery with .NET Core</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
-# To be submitted.
+
+##Reference
+
+###REST
+[Site Recovery REST API Reference](/rest/api/)
+
+###.NET
+[Site Recovery Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+
+<div class="downloadHolder">
+    <a href="https://msdn.microsoft.com/">
+        <div class="img"></div>
+        <div class="text">
+            Download Site Recovery Documentation
+        </div>
+    </a>
+</div>

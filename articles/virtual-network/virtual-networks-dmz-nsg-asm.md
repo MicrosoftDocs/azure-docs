@@ -1,4 +1,4 @@
----
+﻿---
 title: DMZ Example – Build a Simple DMZ with NSGs | Microsoft Docs
 description: Build a DMZ with Network Security Groups (NSG)
 services: virtual-network

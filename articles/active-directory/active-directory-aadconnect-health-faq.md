@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD Connect Health FAQ
 description: This FAQ answers questions about Azure AD Connect Health. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.
 services: active-directory

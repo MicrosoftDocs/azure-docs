@@ -1,4 +1,4 @@
----
+﻿---
 title: Security health monitoring in Azure Security Center | Microsoft Docs
 description: This article helps you to get started with monitoring capabilities in Azure Security Center.
 services: security-center

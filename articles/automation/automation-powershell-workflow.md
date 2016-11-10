@@ -27,12 +27,12 @@ For complete details on the topics in this article, see [Getting Started with Wi
 ## Types of runbook
 There are three types of runbook in Azure Automation, *PowerShell Workflow*, *PowerShell* and *graphical*.  You define the runbook type when you create the runbook, and you can't convert a runbook to the other type once it's been created.
 
-PowerShell workflow runbooks and PowerShell runbooks are for users who prefer to work directly with the PowerShell code either using the textual editor in Azure Automation or an offline editor such as PowerShell ISE. You should understand the information in this article if you are creating a PowerShell Workflow runbook. 
+PowerShell workflow runbooks and PowerShell runbooks are for users who prefer to work directly with the PowerShell code either using the textual editor in Azure Automation or an offline editor such as PowerShell ISE. You should understand the information in this article if you are creating a PowerShell Workflow runbook.
 
-Graphical runbooks allow you to create a runbook using the same activities and cmdlets but using a graphical interface that hides the complexities of the underlying PowerShell workflow.  Concepts in this article such as checkpoints and parallel execution still apply to graphical runbooks, but you won't have to worry about the detailed syntax. 
+Graphical runbooks allow you to create a runbook using the same activities and cmdlets but using a graphical interface that hides the complexities of the underlying PowerShell workflow.  Concepts in this article such as checkpoints and parallel execution still apply to graphical runbooks, but you won't have to worry about the detailed syntax.
 
 ## Basic structure of a workflow
-The first step to converting a PowerShell script to a PowerShell workflow is enclosing it with the **Workflow** keyword.  A workflow starts with the **Workflow** keyword followed by the body of the script enclosed in braces. The name of the workflow follows the **Workflow** keyword as shown in the following syntax. 
+The first step to converting a PowerShell script to a PowerShell workflow is enclosing it with the **Workflow** keyword.  A workflow starts with the **Workflow** keyword followed by the body of the script enclosed in braces. The name of the workflow follows the **Workflow** keyword as shown in the following syntax.
 
     Workflow Test-Workflow
     {
@@ -41,7 +41,7 @@ The first step to converting a PowerShell script to a PowerShell workflow is enc
 
 The name of the workflow must match the name of the Automation runbook. If the runbook is being imported, then the filename must match the workflow name and must end in .ps1.
 
-To add parameters to the workflow, use the **Param** keyword just as you would to a script. 
+To add parameters to the workflow, use the **Param** keyword just as you would to a script.
 
 ## Code changes
 PowerShell workflow code looks almost identical to PowerShell script code except for a few significant changes.  The following sections describe changes that you will need to make to a PowerShell script for it to run in a workflow.
@@ -73,7 +73,7 @@ Objects in workflows are deserialized.  This means that their properties are sti
 
 If you try to run this in a workflow, you'll get an error saying "Method invocation is not supported in a Windows PowerShell Workflow".  
 
-One option is to wrap these two lines of code in an [InlineScript](#InlineScript) block in which case $Service would be a service object within the block. 
+One option is to wrap these two lines of code in an [InlineScript](#inlinescript) block in which case $Service would be a service object within the block.
 
     Workflow Stop-Service
     {
@@ -81,7 +81,7 @@ One option is to wrap these two lines of code in an [InlineScript](#InlineScript
             $Service = Get-Service -Name MyService
             $Service.Stop()
         }
-    } 
+    }
 
 Another option is to use another cmdlet that performs the same functionality as the method, if one is available.  In the case of our sample, the Stop-Service cmdlet provides the same functionality as the Stop method, and you could use the following for a workflow.
 
@@ -93,7 +93,7 @@ Another option is to use another cmdlet that performs the same functionality as 
 
 
 ## InlineScript
-The **InlineScript** activity is useful when you need to run one or more commands as traditional PowerShell script instead of PowerShell workflow.  While commands in a workflow are sent to Windows Workflow Foundation for processing, commands in an InlineScript block are processed by Windows PowerShell. 
+The **InlineScript** activity is useful when you need to run one or more commands as traditional PowerShell script instead of PowerShell workflow.  While commands in a workflow are sent to Windows Workflow Foundation for processing, commands in an InlineScript block are processed by Windows PowerShell.
 
 InlineScript uses the syntax shown below.
 
@@ -116,7 +116,7 @@ You can return output from an InlineScript by assigning the output to a variable
     }
 
 
-You can pass values into an InlineScript block, but you must use **$Using** scope modifier.  The following example is identical to the previous example except that the service name is provided by a variable. 
+You can pass values into an InlineScript block, but you must use **$Using** scope modifier.  The following example is identical to the previous example except that the service name is provided by a variable.
 
     Workflow Stop-MyService
     {
@@ -134,14 +134,14 @@ You can pass values into an InlineScript block, but you must use **$Using** scop
 
 While InlineScript activities may be critical in certain workflows, they do not support workflow constructs and should only be used when necessary for the following reasons:
 
-* You cannot use [checkpoints](#Checkpoints) inside of an InlineScript block. If a failure occurs within the block, it must be resumed from the beginning of the block.
-* You cannot use [parallel execution](#parallel-execution) inside of an InlineScriptBlock.
+* You cannot use [checkpoints](#checkpoints) inside of an InlineScript block. If a failure occurs within the block, it must be resumed from the beginning of the block.
+* You cannot use [parallel execution](#parallel-processing) inside of an InlineScriptBlock.
 * InlineScript affects scalability of the workflow since it holds the Windows PowerShell session for the entire length of the InlineScript block.
 
 For further details on using InlineScript, see [Running Windows PowerShell Commands in a Workflow](http://technet.microsoft.com/library/jj574197.aspx) and [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
 
 ## Parallel processing
-One advantage of Windows PowerShell Workflows is the ability to perform a set of commands in parallel instead of sequentially as with a typical script. 
+One advantage of Windows PowerShell Workflows is the ability to perform a set of commands in parallel instead of sequentially as with a typical script.
 
 You can use the **Parallel** keyword to create a script block with multiple commands that will run concurrently. This uses the syntax shown below. In this case, Activity1 and Activity2 will start at the same time. Activity3 will start only after both Activity1 and Activity2 have completed.
 
@@ -163,7 +163,7 @@ The following workflow runs these same commands in parallel so that they all sta
 
     Workflow Copy-Files
     {
-        Parallel 
+        Parallel
         {
             $Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
             $Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
@@ -189,7 +189,7 @@ The following example is similar to the previous example copying files in parall
     {
         $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
 
-        ForEach -Parallel ($File in $Files) 
+        ForEach -Parallel ($File in $Files)
         {
             $Copy-Item -Path $File -Destination \\NetworkPath
             Write-Output "$File copied."
@@ -199,9 +199,9 @@ The following example is similar to the previous example copying files in parall
     }
 
 > [!NOTE]
-> We do not recommend running child runbooks in parallel since this has been shown to give unreliable results.  The output from the child runbook sometimes will not show up, and settings in one child runbook can affect the other parallel child runbooks 
-> 
-> 
+> We do not recommend running child runbooks in parallel since this has been shown to give unreliable results.  The output from the child runbook sometimes will not show up, and settings in one child runbook can affect the other parallel child runbooks
+>
+>
 
 ## Checkpoints
 A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. If a workflow ends in error or is suspended, then the next time it is run it will start from its last checkpoint instead of the start of the worfklow.  You can set a checkpoint in a workflow with the **Checkpoint-Workflow** activity.
@@ -222,7 +222,7 @@ The following example copies multiple files to a network location and sets a che
     {
         $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
 
-        ForEach ($File in $Files) 
+        ForEach ($File in $Files)
         {
             $Copy-Item -Path $File -Destination \\NetworkPath
             Write-Output "$File copied."
@@ -256,7 +256,7 @@ The following same code demonstrates how to handle this in your PowerShell Workf
           $Cred = Get-AzureAutomationCredential -Name "MyCredential"
           $null = Add-AzureRmAccount -Credential $Cred
          }
-     } 
+     }
 
 
 This is not required if you are authenticating using a Run As account configured with a service principal.  
@@ -264,5 +264,4 @@ This is not required if you are authenticating using a Run As account configured
 For more information about checkpoints, see [Adding Checkpoints to a Script Workflow](http://technet.microsoft.com/library/jj574114.aspx).
 
 ## Next Steps
-* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md) 
-
+* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)

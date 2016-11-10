@@ -1,4 +1,4 @@
----
+﻿---
 title: What to do in the event of an Azure Storage outage | Microsoft Docs
 description: What to do in the event of an Azure Storage outage
 services: storage

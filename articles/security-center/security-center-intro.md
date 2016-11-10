@@ -1,4 +1,4 @@
----
+﻿---
 title: Introduction to Azure Security Center | Microsoft Docs
 description: Learn about Azure Security Center, its key capabilities, and how it works.
 services: security-center

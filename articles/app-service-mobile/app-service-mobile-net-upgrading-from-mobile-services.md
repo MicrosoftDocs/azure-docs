@@ -1,4 +1,4 @@
----
+﻿---
 title: Upgrade from Mobile Services to Azure App Service
 description: Learn how to easily upgrade your Mobile Services application to an App Service Mobile App
 services: app-service\mobile
@@ -20,7 +20,7 @@ ms.author: adrianha
 # Upgrade your existing .NET Azure Mobile Service to App Service
 App Service Mobile is a new way to build mobile applications using Microsoft Azure. To learn more, see [What are Mobile Apps?].
 
-This topic describes how to upgrade an existing .NET backend application from Azure Mobile Services to a new App Service 
+This topic describes how to upgrade an existing .NET backend application from Azure Mobile Services to a new App Service
 Mobile Apps. While you perform this upgrade, your existing Mobile Services application can continue to operate.   If you
 need to upgrade a Node.js backend application, refer to [Upgrading your Node.js Mobile Services](app-service-mobile-node-backend-upgrading-from-mobile-services.md).
 
@@ -31,14 +31,14 @@ When a mobile backend is upgraded to Azure App Service, it has access to all App
 
 > [!TIP]
 > It is recommended that you [perform a migration](app-service-mobile-migrating-from-mobile-services.md) before going through an upgrade. This way, you can put both versions of your application on the same App Service Plan and incur no additional cost.
-> 
-> 
+>
+>
 
 ### Improvements in Mobile Apps .NET server SDK
 Upgrading to the new [Mobile Apps SDK](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) provides the following benefits:
 
 * More flexibility on NuGet dependencies. The hosting environment no longer provides its own versions of NuGet packages, so you can use alternative compatible versions. However, if there are new critical bugfixes or security updates to the Mobile Server SDK or dependencies, you must update your service manually.
-* More flexibility in the mobile SDK. You can explicitly control which features and routes are set up, such as authentication, table APIs, and the push registration endpoint. To learn more, see [How to use the .NET server SDK for Azure Mobile Apps](app-service-mobile-net-upgrading-from-mobile-services.md#server-project-setup).
+* More flexibility in the mobile SDK. You can explicitly control which features and routes are set up, such as authentication, table APIs, and the push registration endpoint. To learn more, see [How to use the .NET server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 * Support for other ASP.NET project types and routes. You can now host MVC and Web API controllers in the same project as your mobile backend project.
 * Support for new App Service authentication features, which allow you to use a common authentication configuration across your web and mobile apps.
 
@@ -47,8 +47,8 @@ In many cases, upgrading will be as simple as switching to the new Mobile Apps s
 
 > [!TIP]
 > It is advised that you read and understand the rest of this topic completely before starting an upgrade. Make note of any features you use which are called out below.
-> 
-> 
+>
+>
 
 The Mobile Services client SDKs are **not** compatible with the new Mobile Apps server SDK. In order to provide continuity of service for your app, you should not publish changes to a site currently serving published clients. Instead, you should create a new mobile app that serves as a duplicate. You can put this application on the same App Service plan to avoid incurring additional financial cost.
 
@@ -97,8 +97,8 @@ with
 
 > [!NOTE]
 > If you wish to learn more about the new .NET server SDK and how to add/remove features from your app, please see the [How to use the .NET server SDK] topic.
-> 
-> 
+>
+>
 
 If your app makes use of the authentication features, you will also need to register an OWIN middleware. In this case, you should move the above configuration code into a new OWIN Startup class.
 

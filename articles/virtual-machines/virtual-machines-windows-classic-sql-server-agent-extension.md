@@ -1,4 +1,4 @@
----
+﻿---
 title: SQL Server Agent Extension for SQL Server VMs (Classic) | Microsoft Docs
 description: This topic describes how to manage the SQL Server agent extension, which automates specific SQL Server administration tasks. These include Automated Backup, Automated Patching, and Azure Key Vault Integration. This topic uses the classic deployment mode.
 services: virtual-machines-windows

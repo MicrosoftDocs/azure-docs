@@ -1,4 +1,4 @@
----
+﻿---
 title: Rerun a deployment from a failed step | Microsoft Docs
 description: If you experience a failure during deployment, you can attempt the following steps to rerun the deployment from where it failed.
 services: azure-stack

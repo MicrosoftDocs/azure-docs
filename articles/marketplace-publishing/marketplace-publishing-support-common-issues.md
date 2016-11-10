@@ -1,4 +1,4 @@
----
+﻿---
 title: How to troubleshoot common publisher support issues | Microsoft Docs
 description: Understand how to troubleshoot common publisher support issues and how to get support
 services: marketplace-publishing

@@ -1,4 +1,4 @@
----
+﻿---
 title: High availability for Azure applications | Microsoft Docs
 description: Technical overview and in-depth information about designing and building applications for high availability on Microsoft Azure.
 services: ''

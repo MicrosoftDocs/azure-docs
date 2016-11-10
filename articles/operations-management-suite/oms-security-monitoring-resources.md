@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitoring Resources in Operations Management Suite Security and Audit Solution | Microsoft Docs
 description: This document helps you to use OMS Security and Audit capabilities to monitor your resources and identify security issues.
 services: operations-management-suite

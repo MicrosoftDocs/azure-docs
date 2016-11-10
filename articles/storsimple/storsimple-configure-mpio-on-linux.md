@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure MPIO on StorSimple Linux host| Microsoft Docs
 description: Configure MPIO on StorSimple connected to a Linux host running CentOS 6.6
 services: storsimple
@@ -261,64 +261,74 @@ This load-balancing algorithm uses all the available multipaths to the active co
 ### Step 5: Verify multipathing
 1. First make sure that iSCSI connection is established with the StorSimple device as follows:
    
-   1. Discover your StorSimple device. Type:
+   a. Discover your StorSimple device. Type:
       
-       `iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>`
-      
-       The output when IP address for DATA0 is 10.126.162.25 and port 3260 is opened on the StorSimple device for outbound iSCSI traffic is as shown below:
-      
-           10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
-           10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
+    ```
+    iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>
+    ```
+    
+    The output when IP address for DATA0 is 10.126.162.25 and port 3260 is opened on the StorSimple device for outbound iSCSI traffic is as shown below:
+    
+    ```
+    10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
+    10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
+    ```
 
-        Copy the IQN of your StorSimple device, `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`, from the preceding output.
+    Copy the IQN of your StorSimple device, `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`, from the preceding output.
+
+   b. Connect to the device using target IQN. The StorSimple device is the iSCSI target here. Type:
+
+    ```
+    iscsiadm -m node --login -T <IQN of iSCSI target>
+    ```
+
+    The following example shows output with a target IQN of `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`. The output indicates that you have successfully connected to the two iSCSI-enabled network interfaces on your device.
+
+    ```
+    Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
+    Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
+    Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
+    Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
+    Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
+    Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
+    Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
+    Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
+    ```
+
+    If you see only one host interface and two paths here, then you need to enable both the interfaces on host for iSCSI. You can follow the [detailed instructions in Linux documentation](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
 
+   c. A volume is exposed to the CentOS server from the StorSimple device. For more information, see [Step 6: Create a volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via the Azure classic portal on your StorSimple device.
 
-    1. Connect to the device using target IQN. The StorSimple device is the iSCSI target here. Type:
+   d. Verify the available paths. Type:
 
-        `iscsiadm -m node --login -T <IQN of iSCSI target>`
+   ```
+   multipath –l
+   ```
 
-        The following example shows output with a target IQN of `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`. The output indicates that you have successfully connected to the two iSCSI-enabled network interfaces on your device.
+   The following example shows the output for two network interfaces on a StorSimple device connected to a single host network interface with two available paths.
 
-            Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
-            Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
-            Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
-            Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
-            Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
-            Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
-            Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
-                Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
+   ```
+    mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
+    size=100G features='0' hwhandler='0' wp=rw
+    `-+- policy='round-robin 0' prio=0 status=active
+        |- 7:0:0:1 sdc 8:32 active undef running
+        `- 6:0:0:1 sdd 8:48 active undef running
+   ```
 
+   The following example shows the output for two network interfaces on a StorSimple device connected to two host network interfaces with four available paths.
 
-        If you see only one host interface and two paths here, then you need to enable both the interfaces on host for iSCSI. You can follow the [detailed instructions in Linux documentation](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
+   ```
+    mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
+    size=100G features='0' hwhandler='0' wp=rw
+    `-+- policy='round-robin 0' prio=0 status=active
+        |- 17:0:0:0 sdb 8:16 active undef running
+        |- 15:0:0:0 sdd 8:48 active undef running
+        |- 14:0:0:0 sdc 8:32 active undef running
+        `- 16:0:0:0 sde 8:64 active undef running
+   ```
 
-
-    1. A volume is exposed to the CentOS server from the StorSimple device. For more information, see [Step 6: Create a volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via the Azure classic portal on your StorSimple device.
-
-    1. Verify the available paths. Type:
-
-        `multipath –l`
-
-        The following example shows the output for two network interfaces on a StorSimple device connected to a single host network interface with two available paths.
-
-            mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
-            size=100G features='0' hwhandler='0' wp=rw
-            `-+- policy='round-robin 0' prio=0 status=active
-              |- 7:0:0:1 sdc 8:32 active undef running
-              `- 6:0:0:1 sdd 8:48 active undef running
-
-        The following example shows the output for two network interfaces on a StorSimple device connected to two host network interfaces with four available paths.
-
-            mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
-            size=100G features='0' hwhandler='0' wp=rw
-            `-+- policy='round-robin 0' prio=0 status=active
-              |- 17:0:0:0 sdb 8:16 active undef running
-              |- 15:0:0:0 sdd 8:48 active undef running
-              |- 14:0:0:0 sdc 8:32 active undef running
-              `- 16:0:0:0 sde 8:64 active undef running
-
-        After the paths are configured, refer to the specific instructions on your host operating system (Centos 6.6) to mount and format this volume.
-
+   After the paths are configured, refer to the specific instructions on your host operating system (Centos 6.6) to mount and format this volume.
 
 ## Troubleshoot multipathing
 This section provides some helpful tips if you run into any issues during multipathing configuration.

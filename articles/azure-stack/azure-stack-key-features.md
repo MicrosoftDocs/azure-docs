@@ -1,4 +1,4 @@
----
+﻿---
 title: Key features and concepts in Azure Stack | Microsoft Docs
 description: Learn about the key features and concepts in Azure Stack.
 services: azure-stack

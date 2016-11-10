@@ -22,8 +22,8 @@ With the v2.0 endpoint, you can quickly add authentication to your web apps with
 
 > [!NOTE]
 > Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
-> 
-> 
+>
+>
 
  Here we'll build an web app that uses OWIN to sign the user in, display some information about the user, and sign the user out of the app.
 
@@ -45,7 +45,7 @@ Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?ref
 Here, we'll configure the OWIN middleware to use the OpenID Connect authentication protocol.  OWIN will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
 * To begin, open the `web.config` file in the root of the project, and enter your app's configuration values in the `<appSettings>` section.
-  
+
   * The `ida:ClientId` is the **Application Id** assigned to your app in the registration portal.
   * The `ida:RedirectUri` is the **Redirect Uri** you entered in the portal.
 * Next, add the OWIN middleware NuGet packages to the project using the Package Manager Console.
@@ -86,7 +86,7 @@ public void ConfigureAuth(IAppBuilder app)
                      app.UseOpenIdConnectAuthentication(
                              new OpenIdConnectAuthenticationOptions
                              {
-                                     // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0 
+                                     // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
                                      // The `Scope` describes the permissions that your app will need.  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
                                      // In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
 
@@ -169,7 +169,7 @@ else
 ```
 
 ## Display user information
-When authenticating users with OpenID Connect, the v2.0 endpoint returns an id_token to the app that contains [claims](active-directory-v2-tokens.md#id_tokens), or assertions about the user.  You can use these claims to personalize your app:
+When authenticating users with OpenID Connect, the v2.0 endpoint returns an id_token to the app that contains claims, or assertions about the user.  You can use these claims to personalize your app:
 
 * Open the `Controllers\HomeController.cs` file.  You can access the user's claims in your controllers via the `ClaimsPrincipal.Current` security principal object.
 
@@ -212,4 +212,3 @@ For additional resources, check out:
 
 ## Get security updates for our products
 We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
-

@@ -1,4 +1,4 @@
----
+﻿---
 title: Create an elastic database pool with C# | Microsoft Docs
 description: Use C# database development techniques to create a scalable elastic database pool in Azure SQL Database so you can share resources across many databases.
 services: sql-database

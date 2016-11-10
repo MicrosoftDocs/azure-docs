@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect remotely to your StorSimple device | Microsoft Docs
 description: Explains how to configure your device for remote management and how to connect to Windows PowerShell for StorSimple via HTTP or HTTPS.
 services: storsimple
@@ -64,7 +64,7 @@ Perform the following steps in the Azure classic portal to enable remote managem
 Perform the following steps on the device serial console to enable remote management.
 
 #### To enable remote management through the device serial console
-1. On the serial console menu, select option 1. For more information about using the serial console on the device, go to [Connect to Windows PowerShell for StorSimple via device serial console](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console).
+1. On the serial console menu, select option 1. For more information about using the serial console on the device, go to [Connect to Windows PowerShell for StorSimple via device serial console](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
 2. At the prompt, type: `Enable-HcsRemoteManagement –AllowHttp`
 3. You will be notified about the security vulnerabilities of using HTTP to connect to the device. When prompted, confirm by typing **Y**.
 4. Verify that HTTP is enabled by typing: `Get-HcsSystem`
@@ -86,7 +86,10 @@ Perform the following steps on the client to enable remote management.
      `Set-Item wsman:\localhost\Client\TrustedHosts 10.126.173.90 -Concatenate -Force`
 3. Type the following command to save the device credentials in a variable: 
    
-     *$cred = Get-Credential*
+    ```
+    $cred = Get-Credential
+    ```
+    
 4. In the dialog box that appears:
    
    1. Type the user name in this format: *device_ip\SSAdmin*.
@@ -132,7 +135,7 @@ Perform the following steps in the Azure classic portal to enable remote managem
 Perform the following steps on the device serial console to enable remote management.
 
 #### To enable remote management through the device serial console
-1. On the serial console menu, select option 1. For more information about using the serial console on the device, go to [Connect to Windows PowerShell for StorSimple via device serial console](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console).
+1. On the serial console menu, select option 1. For more information about using the serial console on the device, go to [Connect to Windows PowerShell for StorSimple via device serial console](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
 2. At the prompt, type: 
    
      `Enable-HcsRemoteManagement`
@@ -194,7 +197,7 @@ Each of these procedures is described below.
 4. Save the hosts file.
 
 ### Connect to the device from the remote host
-Use Windows PowerShell and SSL to enter an SSAdmin session on your device from a remote host or client. The SSAdmin session maps to option 1 in the [serial console](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console) menu of your device.
+Use Windows PowerShell and SSL to enter an SSAdmin session on your device from a remote host or client. The SSAdmin session maps to option 1 in the [serial console](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) menu of your device.
 
 Perform the following procedure on the computer from which you want to make the remote Windows PowerShell connection.
 

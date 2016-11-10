@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with GaggleAMP | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and GaggleAMP.
 services: active-directory

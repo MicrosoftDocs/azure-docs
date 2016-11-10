@@ -50,7 +50,7 @@ Now, let's use Visual Studio to create an Azure data factory.
     ![Solution Explorer](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
 ## Create linked services
-A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data. See [supported data stores](data-factory-data-movement-activities.md##supported-data-stores-and-formats) for all the sources and sinks supported by the Copy Activity. See [compute linked services](data-factory-compute-linked-services.md) for the list of compute services supported by Data Factory. 
+A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data. See [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) for all the sources and sinks supported by the Copy Activity. See [compute linked services](data-factory-compute-linked-services.md) for the list of compute services supported by Data Factory. 
 
 In this step, you link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory. The Azure Storage account holds the input and output data for the pipeline in this sample. The HDInsight linked service is used to run Hive script specified in the activity of the pipeline in this sample. Identify what data store/compute services are used in your scenario and link those services to the data factory by creating linked services.  
 
@@ -61,7 +61,7 @@ In this step, you link your Azure Storage account to your data factory. For this
 
 1. Right-click **Linked Services** in the solution explorer, point to **Add**, and click **New Item**.      
 2. In the **Add New Item** dialog box, select **Azure Storage Linked Service** from the list, and click **Add**. 
-3. Replace **accountname** and **accountkey** with the name of your Azure storage account and its key. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
+3. Replace **accountname** and **accountkey** with the name of your Azure storage account and its key. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#manage-your-storage-access-keys)
    
     ![Azure Storage Linked Service](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. Save the **AzureStorageLinkedService1.json** file.
@@ -250,7 +250,7 @@ In this step, you create your first pipeline with a **HDInsightHive** activity. 
     In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
    
    > [!NOTE]
-   > See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the example. 
+   > See [Anatomy of a Pipeline](data-factory-create-pipelines.md) for details about JSON properties used in the example. 
    > 
    > 
 4. Save the **HiveActivity1.json** file.

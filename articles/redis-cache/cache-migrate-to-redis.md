@@ -1,4 +1,4 @@
----
+﻿---
 title: Cache Migrate to Redis | Microsoft Docs
 description: Learn how to migrate Managed Cache Service applications to Azure Redis Cache
 services: redis-cache

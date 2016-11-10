@@ -1,4 +1,4 @@
----
+﻿---
 title: Resiliency for recovery from loss of an Azure region technical guidance | Microsoft Docs
 description: Article on understanding and designing resilient, highly available, fault tolerant applications as well as planning for disaster recovery
 services: ''

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Storage Security Overview | Microsoft Docs
 description: " Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. This article provides an overview of the core Azure security features that can be used with Azure Storage. "
 services: security

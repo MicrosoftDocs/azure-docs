@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Icertis Contract Management Platform | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Icertis Contract Management Platform.
 services: active-directory

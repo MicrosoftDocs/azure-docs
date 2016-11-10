@@ -1,4 +1,4 @@
-
+﻿
 ---
 title: Azure Active Directory hybrid identity design considerations - determine access control requirements| Microsoft Docs
 description: Covers the pillars of identity, and identifying access requirements for resources for users in a hybrid environment.

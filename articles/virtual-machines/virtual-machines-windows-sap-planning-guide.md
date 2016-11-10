@@ -1,4 +1,4 @@
----
+﻿---
 title: SAP NetWeaver on Windows virtual machines (VMs) – Planning and Implementation Guide | Microsoft Docs
 description: SAP NetWeaver on Windows virtual machines (VMs) – Planning and Implementation Guide
 services: virtual-machines-windows
@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/18/2016
+ms.date: 11/08/2016
 ms.author: sedusch
 
 ---
@@ -71,7 +71,7 @@ ms.author: sedusch
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../azure-subscription-service-limits.md#subscription
+[azure-subscription-service-limits-subscription]:../azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:virtual-machines-windows-sap-dbms-guide.md (SAP NetWeaver on Windows virtual machines (VMs) – DBMS Deployment Guide)
 [dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Caching for VMs and VHDs)
@@ -259,7 +259,7 @@ ms.author: sedusch
 [virtual-machines-linux-agent-user-guide]:virtual-machines-linux-agent-user-guide.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:virtual-machines-linux-agent-user-guide.md#command-line-options
 [virtual-machines-linux-capture-image]:virtual-machines-linux-capture-image.md
-[virtual-machines-linux-capture-image-capture]:virtual-machines-linux-capture-image.md#capture-the-vm
+[virtual-machines-linux-capture-image-capture]:virtual-machines-linux-capture-image.md#step-2-capture-the-vm
 [virtual-machines-windows-capture-image]:virtual-machines-windows-create-vm-generalized.md
 [virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture]:virtual-machines-windows-create-vm-generalized.md
 [virtual-machines-linux-configure-lvm]:virtual-machines-linux-configure-lvm.md

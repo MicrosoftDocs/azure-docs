@@ -1,4 +1,4 @@
----
+﻿---
 title: How does Site Recovery work? | Microsoft Docs
 description: This article provides an overview of Site Recovery architecture
 services: site-recovery

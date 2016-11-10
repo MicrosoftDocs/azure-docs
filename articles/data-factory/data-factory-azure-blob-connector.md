@@ -1,4 +1,4 @@
----
+﻿---
 title: Copy data to/from Azure Blob Storage | Microsoft Docs
 description: 'Learn how to copy blob data in Azure Data Factory. Use our sample: How to copy data to and from Azure Blob Storage and Azure SQL Database.'
 keywords: blob data, azure blob copy
@@ -24,7 +24,7 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 ## Supported sources and sinks
 See [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table for a list of data stores supported as sources or sinks by the copy activity. You can move data from any supported source data store to Azure Blob Storage or from Azure Blob Storage to any supported sink data store.
 
-The Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. The activity supports reading from block, append, or page blobs, but supports writing to only block blobs. 
+The Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. The activity supports reading from block, append, or page blobs, but supports writing to only block blobs.
 
 ## Create pipeline
 You can create a pipeline with a copy activity that moves data to/from an Azure Blob Storage by using different tools/APIs.  
@@ -39,9 +39,9 @@ You can create a pipeline with a copy activity that moves data to/from an Azure 
 See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity in different ways.
 
 ## Copy data wizard
-The easiest way to create a pipeline that copies data to/from Azure Blob Storage is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+The easiest way to create a pipeline that copies data to/from Azure Blob Storage is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure Blob Storage and Azure SQL Database. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure Blob Storage and Azure SQL Database. However, data can be copied **directly** from any of the sources to any of the supported sinks. For more information, see the section "Supported data stores and formats" in [Move data by using Copy Activity](data-factory-data-movement-activities.md).
 
 ## Sample: Copy data from Azure Blob to Azure SQL
 The following sample shows:
@@ -52,7 +52,7 @@ The following sample shows:
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
 5. A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](#azure-blob-copy-activity-type-properties) and [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
 
-The sample copies time-series data from an Azure blob to an Azure SQL table hourly. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies time-series data from an Azure blob to an Azure SQL table hourly. The JSON properties used in these samples are described in sections following the samples.
 
 **Azure SQL linked service:**
 
@@ -168,7 +168,7 @@ The sample copies data to a table named “MyTable” in an Azure SQL database. 
 
 **Pipeline with a Copy activity:**
 
-The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **SqlSink**. 
+The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **SqlSink**.
 
     {  
         "name":"SamplePipeline",
@@ -223,7 +223,7 @@ The following sample shows:
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](#azure-blob-dataset-type-properties).
 5. A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) and [BlobSink](#azure-blob-copy-activity-type-properties).
 
-The sample copies time-series data from an Azure SQL table to an Azure blob hourly. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies time-series data from an Azure SQL table to an Azure blob hourly. The JSON properties used in these samples are described in sections following the samples.
 
 **Azure SQL linked service:**
 
@@ -253,7 +253,7 @@ Azure Data Factory supports two types of Azure Storage linked services: **AzureS
 
 **Azure SQL input dataset:**
 
-The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data. 
+The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data.
 
 Setting “external”: ”true” informs Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
 
@@ -396,7 +396,7 @@ There are two types of linked services you can use to link an Azure blob storage
 [!INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
 
 ## Azure Blob Dataset type properties
-In the samples, you have used a dataset of type **AzureBlob** to represent a blob container and folder in an Azure blob storage. 
+In the samples, you have used a dataset of type **AzureBlob** to represent a blob container and folder in an Azure blob storage.
 
 For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
@@ -413,13 +413,11 @@ The **typeProperties** section is different for each type of dataset and provide
 ### Using partitionedBy property
 As mentioned in the previous section, you can specify a dynamic folderPath and filename for time series data with the **partitionedBy** section, Data Factory macros, and the system variables: SliceStart and SliceEnd, which indicate start and end times for a given data slice.
 
-See [Data Factory System Variables](data-factory-scheduling-and-execution.md#data-factory-system-variables) and [Data Factory Functions Reference](data-factory-scheduling-and-execution.md#data-factory-functions-reference) to learn about Data Factory system variables and functions that you can use in the partitionedBy section.   
-
 For more information on time series datasets, scheduling, and slices, see [Creating Datasets](data-factory-create-datasets.md) and [Scheduling & Execution](data-factory-scheduling-and-execution.md) articles.
 
 #### Sample 1
     "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-    "partitionedBy": 
+    "partitionedBy":
     [
         { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
     ],
@@ -429,12 +427,12 @@ In this example, {Slice} is replaced with the value of Data Factory system varia
 #### Sample 2
     "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
-    "partitionedBy": 
+    "partitionedBy":
      [
         { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
     ],
 
 In this example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
@@ -448,7 +446,7 @@ For a full list of sections & properties available for defining activities, see 
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks
 
-If you are moving data from an Azure Blob Storage, you set the source type in the copy activity to **BlobSource**. Similarly, if you are moving data to an Azure Blob Storage, you set the sink type in the copy activity to **BlobSink**. This section provides a list of properties supported by BlobSource and BlobSink. 
+If you are moving data from an Azure Blob Storage, you set the source type in the copy activity to **BlobSource**. Similarly, if you are moving data to an Azure Blob Storage, you set the sink type in the copy activity to **BlobSink**. This section provides a list of properties supported by BlobSource and BlobSink.
 
 **BlobSource** supports the following properties in the **typeProperties** section:
 
@@ -462,18 +460,18 @@ If you are moving data from an Azure Blob Storage, you set the source type in th
 | --- | --- | --- | --- |
 | copyBehavior |Defines the copy behavior when the source is BlobSource or FileSystem. |**PreserveHierarchy:** preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder are in the first level of target folder. The target files have auto generated name. <br/><br/>**MergeFiles: (default)** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. |No |
 
-**BlobSource** also supports these two properties for backward compatibility. 
+**BlobSource** also supports these two properties for backward compatibility.
 
 * **treatEmptyAsNull**: Specifies whether to treat null or empty string as null value.
 * **skipHeaderLineCount** - Specifies how many lines need be skipped. It is applicable only when input dataset is using TextFormat.
 
 Similarly, **BlobSink** supports the following property for backward compatibility.
 
-* **blobWriterAddHeader**: Specifies whether to add a header of column definitions while writing to an output dataset. 
+* **blobWriterAddHeader**: Specifies whether to add a header of column definitions while writing to an output dataset.
 
 Datasets now support the following properties that implement the same functionality: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
 
-The following table provides guidance on using the new dataset properties in place of these blob source/sink properties. 
+The following table provides guidance on using the new dataset properties in place of these blob source/sink properties.
 
 | Copy Activity property | Dataset property |
 |:--- |:--- |
@@ -484,7 +482,7 @@ The following table provides guidance on using the new dataset properties in pla
 See [Specifying TextFormat](#specifying-textformat) section for detailed information on these properties.    
 
 ### recursive and copyBehavior examples
-This section describes the resulting behavior of the Copy operation for different combinations of recursive and copyBehavior values. 
+This section describes the resulting behavior of the Copy operation for different combinations of recursive and copyBehavior values.
 
 | recursive | copyBehavior | Resulting behavior |
 | --- | --- | --- |
@@ -503,4 +501,3 @@ This section describes the resulting behavior of the Copy operation for differen
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
-

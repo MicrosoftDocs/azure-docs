@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure portal dashboards | Microsoft Docs
 description: This article explains how to create and edit dashboards in the Azure portal.
 services: azure-portal

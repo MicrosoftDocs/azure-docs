@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure HBase replication between two datacenters | Microsoft Docs
 description: Learn how to configure HBase replication across two data centers, and about the use cases for cluster replication.
 services: hdinsight,virtual-network

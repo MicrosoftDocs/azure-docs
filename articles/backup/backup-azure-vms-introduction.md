@@ -1,4 +1,4 @@
----
+﻿---
 title: Planning your VM backup infrastructure in Azure | Microsoft Docs
 description: Important considerations when planning to back up virtual machines in Azure
 services: backup
@@ -35,8 +35,8 @@ Backing up and restoring business critical data is complicated by the fact that 
 
 > [!NOTE]
 > For Linux virtual machines, only file-consistent backups are possible, since Linux does not have an equivalent platform to VSS.
-> 
-> 
+>
+>
 
 Azure Backup takes VSS full backups on Windows VMs (read more about [VSS full backup](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)). To enable VSS copy backups, the below registry key needs to be set on the VM.
 
@@ -85,7 +85,7 @@ For each disk being backed up, Azure Backup reads the blocks on the disk and sto
 ## Total VM backup time
 While a majority of the backup time is spent in reading and copying data, there are other operations that contribute to the total time needed to back up a VM:
 
-* Time needed to [install or update the backup extension](backup-azure-vms.md#offline-vms).
+* Time needed to [install or update the backup extension](backup-azure-vms.md).
 * Snapshot time, which is the time taken to trigger a snapshot. Snapshots are triggered close to the scheduled backup time.
 * Queue wait time. Since the Backup service is processing backups from multiple customers, copying backup data from snapshot to the backup or Recovery Services vault might not start immediately. In times of peak load, the wait can stretch up to 8 hours due to the number of backups being processed. However, the total VM backup time will be less than 24 hours for daily backup policies.
 
@@ -130,4 +130,3 @@ If you have questions, or if there is any feature that you would like to see inc
 * [Manage virtual machine backup](backup-azure-manage-vms.md)
 * [Restore virtual machines](backup-azure-restore-vms.md)
 * [Troubleshoot VM backup issues](backup-azure-vms-troubleshoot.md)
-

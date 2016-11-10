@@ -1,4 +1,4 @@
----
+﻿---
 title: Detection capabilities in Azure Security Center | Microsoft Docs
 description: This document helps you to understand how Azure Security Center detection capabilities work.
 services: security-center

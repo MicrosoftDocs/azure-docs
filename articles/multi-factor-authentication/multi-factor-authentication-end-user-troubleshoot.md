@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot two-step verification | Microsoft Docs
 description: This document will provide users information on what to do if they run into an issue with Azure Multi-Factor Authentication.
 services: multi-factor-authentication

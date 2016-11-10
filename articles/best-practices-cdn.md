@@ -1,4 +1,4 @@
----
+﻿---
 title: Content Delivery Network (CDN) guidance | Microsoft Docs
 description: Guidance on Content Delivery Network (CDN) to deliver high bandwidth content hosted in Azure.
 services: cdn

@@ -1,4 +1,4 @@
----
+﻿---
 title: Conditional Access for Applications Published with Azure AD Application Proxy
 description: Covers how to set up conditional access for applications you publish to be accessed remotely using Azure AD Application Proxy.
 services: active-directory

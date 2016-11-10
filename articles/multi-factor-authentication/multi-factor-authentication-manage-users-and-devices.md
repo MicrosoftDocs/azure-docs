@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Multi-Factor Authentication Reports
 description: This describes how to change user settings such as forcing the users to do the proof-up process again.
 documentationcenter: ''

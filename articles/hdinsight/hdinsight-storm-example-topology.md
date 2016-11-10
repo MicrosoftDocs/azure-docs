@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2016
+ms.date: 11/08/2016
 ms.author: larryfr
 
 ---
 # Example Storm toplogies and components for Apache Storm on HDInsight
+
 The following is a list of examples created and maintained by Microsoft for use with Apache Storm on HDInsight. These examples cover a variety of topics, from creating basic C# and Java topologies to working with Azure services such as Event Hubs, DocumentDB, Power BI, SQL Database, HBase on HDInsight, and Azure Storage. Some examples also demonstrate how to work with non-Azure, or even non-Microsoft technologies, such as SignalR and Socket.IO
 
 | Description | Demonstrates | Language/Framework |
@@ -41,6 +42,7 @@ The following is a list of examples created and maintained by Microsoft for use 
 | [Use Python with Storm on HDInsight](hdinsight-storm-develop-python-topology.md) |Python components with Java and Clojure based Storm topologies |Python |
 
 ## Next Steps
+
 * [Get started with Apache Storm on HDInsight][2b8c3488]
 * [Learn how to deploy and manage Storm topologies with Storm on HDInsight][6eb0d3b8]
 

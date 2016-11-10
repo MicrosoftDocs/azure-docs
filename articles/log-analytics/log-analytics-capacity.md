@@ -1,4 +1,4 @@
----
+﻿---
 title: Capacity Management solution in Log Analytics | Microsoft Docs
 description: You can use the Capacity Planning solution in Log Analytics to help you understand the capacity of your Hyper-V  servers managed by System Center Virtual Machine Manager
 services: log-analytics

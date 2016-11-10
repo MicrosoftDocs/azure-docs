@@ -1,4 +1,4 @@
----
+﻿---
 title: Mobile Engagement Overview | Microsoft Docs
 description: Overview of Azure Mobile Engagement
 services: mobile-engagement
@@ -44,7 +44,7 @@ Microsoft has a longstanding commitment to privacy, which is an integral part of
 ### Next Steps:
 [Best practices and process to create your Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
-[Getting Started](/documentation/services/mobile-engagement/)
+[Getting Started](/index.md)
 
 [Download demo apps with source code](https://aka.ms/azmedemoapps)
 

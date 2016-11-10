@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Birst Agile Business Analytics | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Birst Agile Business Analytics.
 services: active-directory

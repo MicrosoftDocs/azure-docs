@@ -1,4 +1,4 @@
----
+﻿---
 title: NAT requirements for ExpressRoute circuits | Microsoft Docs
 description: This page provides detailed requirements for configuring and managing NAT for ExpressRoute circuits.
 documentationcenter: na

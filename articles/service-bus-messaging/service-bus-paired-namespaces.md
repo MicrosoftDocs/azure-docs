@@ -1,4 +1,4 @@
----
+﻿---
 title: Service Bus paired namespaces | Microsoft Docs
 description: Paired namespace implementation details and cost
 services: service-bus

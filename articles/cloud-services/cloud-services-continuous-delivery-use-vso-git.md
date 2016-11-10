@@ -1,4 +1,4 @@
----
+﻿---
 title: Continuous delivery with Git and Visual Studio Team Services in Azure | Microsoft Docs
 description: Learn how to configure your Visual Studio Team Services team projects to use Git to automatically build and deploy to the Web App feature in Azure App Service or cloud services.
 services: cloud-services

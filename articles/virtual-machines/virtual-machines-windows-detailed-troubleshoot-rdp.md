@@ -1,4 +1,4 @@
----
+﻿---
 title: Detailed remote desktop troubleshooting | Microsoft Docs
 description: Review detailed troubleshooting steps for remote desktop errors where you cannot to a Windows virtual machines in Azure
 services: virtual-machines-windows

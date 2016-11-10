@@ -1,4 +1,4 @@
----
+﻿---
 title: How to uninstall elastic database jobs tool
 description: How to uninstall the elastic database jobs tool
 services: sql-database

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Media Services overview and common scenarios | Microsoft Docs
 description: This topic gives an overview of Azure Media Services
 services: media-services

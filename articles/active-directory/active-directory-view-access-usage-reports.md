@@ -1,4 +1,4 @@
----
+﻿---
 title: View your access and usage reports | Microsoft Docs
 description: Explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory.
 services: active-directory

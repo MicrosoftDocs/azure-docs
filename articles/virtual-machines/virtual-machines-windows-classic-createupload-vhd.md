@@ -1,4 +1,4 @@
----
+﻿---
 title: Create and upload a VM image using Powershell | Microsoft Docs
 description: Learn to create and upload a generalized Windows Server image (VHD) using the classic deployment model and Azure Powershell.
 services: virtual-machines-windows

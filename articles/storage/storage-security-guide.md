@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Storage security guide | Microsoft Docs
 description: Details the many methods of securing Azure Storage, including but not limited to RBAC, Storage Service Encryption, Client-side Encryption, SMB 3.0, and Azure Disk Encryption.
 services: storage

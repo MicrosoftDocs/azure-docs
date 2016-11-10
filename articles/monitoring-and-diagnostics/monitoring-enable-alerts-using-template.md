@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a metric alert with a Resource Manager template | Microsoft Docs
 description: Learn how to use a Resource Manager template to create a metric alert to receive notifications by email or webhook.
 author: johnkemnetz

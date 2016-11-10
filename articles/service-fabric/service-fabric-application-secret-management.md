@@ -1,4 +1,4 @@
-
+﻿
 ---
 title: Managing secrets in Service Fabric applications | Microsoft Docs
 description: This article describes how to secure secret values in a Service Fabric application.

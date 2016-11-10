@@ -1,4 +1,4 @@
----
+﻿---
 title: About VPN Devices for Site-to-Site VPN Gateway connections for Azure Virtual Networks | Microsoft Docs
 description: This article discusses VPN devices and IPsec parameters for S2S VPN Gateway connections and contains links to configuration instructions and samples.
 services: vpn-gateway

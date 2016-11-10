@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure glossary - Azure dictionary | Microsoft Docs
 description: Use the Azure glossary to understand cloud terminology on the Azure platform. This short Azure dictionary provides definitions for common cloud terms for Azure.
 keywords: Azure dictionary, cloud terminology, Azure glossary, terminology definitions, cloud terms
