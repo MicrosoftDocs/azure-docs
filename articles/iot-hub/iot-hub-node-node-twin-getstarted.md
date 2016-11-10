@@ -215,12 +215,12 @@ Use the following resources to learn how to:
 [lnk-identity]: iot-hub-devguide-identity-registry.md
 
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
+[lnk-device-management]: iot-hub-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 [lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
-[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
+[lnk-methods-tutorial]: iot-hub-c2d-methods.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
