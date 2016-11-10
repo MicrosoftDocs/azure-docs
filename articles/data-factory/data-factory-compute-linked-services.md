@@ -1,4 +1,4 @@
-﻿---
+---
 title: Compute Linked Services | Microsoft Docs
 description: Learn about compute enviornments that you can use in Azure Data Factory pipelines to transform/process data.
 services: data-factory
@@ -334,7 +334,7 @@ See [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/m
 You create an Azure SQL linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) article for details about this linked service.
 
 ## Azure SQL Data Warehouse Linked Service
-You create an Azure SQL Data Warehouse linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Data Warehouse Connector](data-factory-azure-sql-data-warehouse-connector.md#azure-sql-data-warehouse-linked-service-properties) article for details about this linked service.
+You create an Azure SQL Data Warehouse linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Data Warehouse Connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) article for details about this linked service.
 
 ## SQL Server Linked Service
 You create a SQL Server linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [SQL Server connector](data-factory-sqlserver-connector.md#sql-server-linked-service-properties) article for details about this linked service.
