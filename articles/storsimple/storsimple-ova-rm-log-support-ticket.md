@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2016
+ms.date: 11/10/2016
 ms.author: manuaery
 ---
 # Use the StorSimple Device Manager service to log a Support request for the StorSimple Virtual Array
@@ -28,14 +28,25 @@ Depending upon your [support plan](https://azure.microsoft.com/support/plans/), 
 
 #### To log a new request
 
-1. Click **New support ticket** under the **SUPPORT + TROUBLESHOOTING** section of your StorSimple Device Manager service summary blade settings.
+1. Go to your StorSimple Device Manager service. In the service summary blade settings, go to **SUPPORT + TROUBLESHOOTING** section and then click **New support request**.
    
     ![New support request](./media/storsimple-ova-rm-log-support-ticket/log-support-ticket1.png)
-2. The current subscription and the StorSimple Device Manager service are automatically chosen for you. **Choose** an appropriate support plan if you have multiple plans associated with your subscription.
-3. In **Step 2**, choose the **Severity** and specify if the issue is related to the array or the StorSimple Device Manager service. Also, select the **Category** of the issue and provide more **Details** about the issue.
+
+2. In the **Basics** blade, do the following:
+
+    a. From the **Issue type** dropdown list, select **Technical**. 
+    
+    b. The current **Subscription**, **Service** type, and the **Resource** (StorSimple Device Manager service) are automatically chosen. 
+
+    c. Specify one or more devices registered to your service that are experiencing issues.
+
+    d. Choose an appropriate **support plan** if you have multiple plans associated with your subscription. You need a paid support plan to enable Technical Support.
+
+3. In **Step 2**, choose the **Severity** and specify if the issue is related to the array or the StorSimple Device Manager service. Also, choose a **Category** for this issue and provide more **Details** about the issue.
    
     ![New support request](./media/storsimple-ova-rm-log-support-ticket/log-support-ticket2.png)
-4. In **Step 3**, provide your contact information, so Microsoft Support can reach out to you further information, diagnosis and resolution.
+
+4. In **Step 3**, provide your contact information. Microsoft Support will use this information to reach out to you for further information, diagnosis, and resolution.
    
     ![New support request](./media/storsimple-ova-rm-log-support-ticket/log-support-ticket3.png)
 
