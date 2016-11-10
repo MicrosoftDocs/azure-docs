@@ -18,7 +18,7 @@ ms.author: garye;krishnan
 
 ---
 # Perform advanced analytics with Azure Machine Learning using data from an on-premises SQL Server database
-Often enterprises that work with on-premises data would like to take advantage of the scale and agility of the cloud for their machine learning workloads. But they don't want to disrupt their current business processes and workflows by moving their on-premises data to the cloud. Azure Machine Learning now supports reading your data from an on-premises SQL Server database and then training and scoring a model with this data. You no longer have to manually copy and sync the data between the cloud and your on-premises server. Instead, the **Import Data** module in Azure Machine Learning Studio can now read directly from your on-premises SQL Server database for your training and scoring jobs. 
+Often enterprises that work with on-premises data would like to take advantage of the scale and agility of the cloud for their machine learning workloads. But they don't want to disrupt their current business processes and workflows by moving their on-premises data to the cloud. Azure Machine Learning now supports reading your data from an on-premises SQL Server database and then training and scoring a model with this data. You no longer have to manually copy and sync the data between the cloud and your on-premises server. Instead, the **Import Data** module in Azure Machine Learning Studio can now read directly from your on-premises SQL Server database for your training and scoring jobs.
 
 This article provides an overview of how to ingress on-premises SQL
 server data into Azure Machine Learning. It assumes that you're familiar
@@ -30,10 +30,10 @@ experiments, *etc*..
 > information about Machine Learning pricing and tiers, see [Azure Machine
 > Learning
 > Pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
-> 
-> 
+>
+>
 
-<!-- --> 
+<!-- -->
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -43,7 +43,7 @@ to download and install the Microsoft Data Management Gateway. When you configur
 download and install the gateway using the **Download and register data
 gateway** dialog described below.
 
-You also can install the Data Management Gateway ahead of time by downloading and running the MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). 
+You also can install the Data Management Gateway ahead of time by downloading and running the MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717).
 Choose the latest version, selecting either 32-bit or 64-bit as appropriate for your computer. The MSI can also be used to upgrade an existing Data Management Gateway to the latest version, with all settings preserved.
 
 The gateway has the following prerequisites:
@@ -61,18 +61,18 @@ You should consider the following when setting up and using a Data Management Ga
 * You configure a gateway for only one workspace at a time. Gateways can’t be shared across workspaces at this time.
 * You can configure multiple gateways for a single workspace. For example, you may want to use a gateway that's connected to your test data sources during development and a production gateway when you're ready to operationalize.
 * The gateway does not need to be on the same machine as the data source, but staying closer to the data source reduces the time for the gateway to connect to the data source. We recommend that you install the gateway on a machine that's different from the one that hosts the on-premises data source so that the gateway and data source don't compete for resources.
-* If you already have a gateway installed on your computer serving Power BI or Azure Data Factory scenarios, install a separate gateway for Azure Machine Learning on another computer. 
-  
+* If you already have a gateway installed on your computer serving Power BI or Azure Data Factory scenarios, install a separate gateway for Azure Machine Learning on another computer.
+
   > [!NOTE]
   > You can't run Data Management Gateway and Power BI Gateway on the same computer.
-  > 
-  > 
-* You need to use the Data Management Gateway for Azure Machine Learning even if you are using Azure ExpressRoute for other data. You should treat your data source as an on-premises data source (that is behind a firewall) even when you use ExpressRoute, and use the Data Management Gateway to establish connectivity between Machine Learning and the data source. 
+  >
+  >
+* You need to use the Data Management Gateway for Azure Machine Learning even if you are using Azure ExpressRoute for other data. You should treat your data source as an on-premises data source (that is behind a firewall) even when you use ExpressRoute, and use the Data Management Gateway to establish connectivity between Machine Learning and the data source.
 
 You can find detailed information on installation prerequisites,
-installation steps, and troubleshooting tips in the article, [Move data between on-premises sources and cloud with
+installation steps, and troubleshooting tips in the article [Move data between on-premises sources and cloud with
 Data Management
-Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway), beginning with the section, [Considerations for using Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway).
+Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 
 ## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingress data from your on-premises SQL Server database into Azure Machine Learning
 In this walkthrough, you will set up a Data Management Gateway in an Azure
@@ -85,8 +85,8 @@ on-premises SQL Server database.
 > and install one of the several plug-ins available at Google Chrome
 > WebStore [Click Once App
 > Extension](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
-> 
-> 
+>
+>
 
 ### Step 1: Create a gateway
 The first step is to create and set up the gateway to access your
@@ -98,16 +98,16 @@ on-premises SQL database.
 2. Click the **SETTINGS** blade on the left, and then click the **DATA
     GATEWAYS** tab at the top.
 3. Click **NEW DATA GATEWAY** at the bottom of the screen.
-   
+
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
 4. In the **New data gateway** dialog, enter the **Gateway Name** and
     optionally add a **Description**. Click the arrow on the bottom
     right hand corner to go to the next step of the configuration.
-   
+
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
 5. In the Download and register data gateway dialog, copy the GATEWAY
     REGISTRATION KEY to the clipboard.
-   
+
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
 6. <span id="note-1" class="anchor"></span>If you have not yet
     downloaded and installed the Microsoft Data Management Gateway, then
@@ -126,12 +126,12 @@ on-premises SQL database.
     for Microsoft Data Management Gateway Configuration Manager
     is displayed. Paste the GATEWAY REGISTRATION KEY that you copied to
     the clipboard above and click **Register**.
-   
+
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
 10. The gateway configuration is complete when the following values are
     set on the **Home** tab in Microsoft Data Management Gateway
     Configuration Manager:
-    
+
     * **Gateway name** and **Instance name** are set to the name of
         the gateway.
     * **Registration** is set to **Registered**.
@@ -139,17 +139,17 @@ on-premises SQL database.
     * The status bar at the bottom displays **Connected to Data
         Management Gateway Cloud Service** along with a green
         check mark.
-      
+
       ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
-      
+
       Azure Machine Learning Studio also gets updated when the registration is successful.
-    
+
     ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\gateway-registered.png)
 11. In the **Download and register data gateway** dialog, click the
     check mark to complete the setup. The **Settings** page displays the
     gateway status as "Online". In the right hand pane you'll find
     status and other useful information.
-    
+
     ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\gateway-status.png)
 12. In the Microsoft Data Management Gateway Configuration Manager
     switch to the **Certificate** tab. The certificate specified on this
@@ -159,7 +159,7 @@ on-premises SQL database.
     own certificate that you back up in your certificate
     management system. Click **Change** to use your own
     certificate instead.
-    
+
     ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\data-gateway-configuration-manager-certificate.png)
 13. (optional) If you want to enable verbose logging in order to
     troubleshoot issues with the gateway, in the Microsoft Data
@@ -170,7 +170,7 @@ on-premises SQL database.
     Services Logs** -&gt; **Data Management Gateway** node. You can also
     use the **Diagnostics** tab to test the connection to an on-premises
     data source using the gateway.
-    
+
     ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\data-gateway-configuration-manager-verbose-logging.png)
 
 This completes the gateway set up process in Azure Machine Learning.
@@ -182,13 +182,7 @@ to your test data sources during development, and a different gateway
 for your production data sources. Azure Machine Learning gives you the
 flexibility to set up multiple gateways depending upon your corporate
 environment. Currently you can’t share a gateway between workspaces and
-only one gateway can be installed on a single computer. For more
-considerations when installing the gateway, see [Considerations for
-using Data Management
-Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway)
-in the article, [Move data between on-premises sources and cloud with
-Data Management
-Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
+only one gateway can be installed on a single computer. For more information, see the article [Move data between on-premises sources and cloud with Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 
 ### Step 2: Use the gateway to read data from an on-premises data source
 After you set up the gateway, you can add an **Import Data** module to
@@ -201,14 +195,14 @@ an experiment that inputs the data from the on-premises SQL Server database.
 3. Click **Save as** below the canvas. Enter "Azure Machine Learning
    On-Premises SQL Server Tutorial" for the experiment name, select the
    workspace, and click the **OK** check mark.
-   
+
    ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\experiment-save-as.png)
 4. Click the **Import Data** module to select it, then in the
    **Properties** pane to the right of the canvas, select "On-Premises
    SQL Database" in the **Data source** dropdown list.
 5. Select the **Data gateway** you installed and registered. You can
    setup another gateway by selecting "(add new Data Gateway…)".
-   
+
    ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\import-data-select-on-premises-data-source.png)
 6. Enter the SQL **Database server name** and **Database name**, along
    with the SQL **Database query** you want to execute.
@@ -216,11 +210,11 @@ an experiment that inputs the data from the on-premises SQL Server database.
    your database credentials. You can use Windows Integrated
    Authentication or SQL Server Authentication depending upon how your
    on-premises SQL Server is configured.
-   
+
    ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\database-credentials.png)
-   
+
    The message "values required" will change to "values set" with a green check mark. You just need to enter the credentials once unless the database information or password changes. Azure Machine Learning uses the certificate you provided when you installed the gateway to encrypt the credentials in the cloud. Azure will never store on-premises credentials without encryption.
-   
+
    ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\import-data-properties-entered.png)
 8. Click **RUN** to run the experiment.
 
@@ -237,4 +231,3 @@ Service for scoring on-premises data, Microsoft recommends using the
 instead. Currently, writing to an on-premises SQL Server database through
 **Export Data** is not supported either in your experiments or published
 web services.
-
