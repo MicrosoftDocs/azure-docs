@@ -52,9 +52,9 @@ az acr create -n myRegistry -g myResourceGroup -l southcentralus
 
 * `--storage-account-name` or `-s` is optional. If not specified, a storage account is created with a random name in the specified resource group.
 
-The output is similar to the following: 
+The output is similar to the following:
 
-![az acr create output](./media/container-registry-get-started-azurecli/azacr.png)
+![az acr create output](./media/container-registry-get-started-azure-cli/acr_create.png)
 
 
 Take special note:
