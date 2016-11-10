@@ -18,12 +18,11 @@ ms.author: jtuliani
 
 ---
 # Manage DNS records and record sets by using CLI
+
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
 > * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
-> 
-> 
 
 This article shows you how to manage record sets and records for your DNS zone by using the cross-platform Azure command-line interface (CLI).
 

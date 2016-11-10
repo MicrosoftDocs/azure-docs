@@ -19,9 +19,13 @@ ms.author: magoedte;bwren
 
 ---
 # My first PowerShell Workflow runbook
-> [AZURE.SELECTOR] - [Graphical](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-powershell.md) - [PowerShell Workflow](automation-first-runbook-textual.md)
->
->
+
+> [!div class="op_single_selector"]
+> * [Graphical](automation-first-runbook-graphical.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell Workflow](automation-first-runbook-textual.md)
+> 
+> 
 
 This tutorial walks you through the creation of a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) in Azure Automation. We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job. Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. We'll then make the runbook more robust by adding runbook parameters.
 

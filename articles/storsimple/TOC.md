@@ -57,7 +57,7 @@
 #### [Unpack, rack, cable an 8600](storsimple-8600-hardware-installation.md)
 #### [Supported hardware for 10 GbE network interfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### Deploy 
+### Deploy
 #### [StorSimple Manager service](storsimple-manage-service.md)
 #### [Physical device in Azure - current](storsimple-deployment-walkthrough-u2.md)
 ##### [Physical device in Azure - Update 1](storsimple-deployment-walkthrough-u1.md)
@@ -68,7 +68,7 @@
 #### [StorSimple Adapter for SharePoint](storsimple-adapter-for-sharepoint.md)
 
 ## How to
-### Manage 
+### Manage
 #### [Using StorSimple Manager service](storsimple-manager-service-administration.md)
 ##### [Restore from a backup](storsimple-restore-from-backup-set-u2.md)
 ###### [Restore from a backup](storsimple-restore-from-backup-set.md)
@@ -160,10 +160,10 @@
 ### [Release - GA](storsimple-july-2014-release-notes.md)
 
 ## Reference
-### [Azure PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/dn920427)
-### [Windows PowerShell for StorSimple cmdlet reference](https://technet.microsoft.com/library/dn688168.aspx)
+### [PowerShell](https://docs.microsoft.com/powershell/servicemanagement/)
 
-# [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
+# Related
+## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
 
 # Resources
 ## [Azure blog](https://azure.microsoft.com/blog/)

@@ -21,8 +21,8 @@ ms.author: nitinme
 # Machine learning: Predictive analysis on food inspection data using MLlib with Apache Spark cluster on HDInsight Linux
 > [!TIP]
 > This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** under the **Python** folder.
-> 
-> 
+>
+>
 
 This article demonstrates how to use **MLLib**, Spark's built-in machine learning libraries, to perform a simple predictive analysis on an open dataset. MLLib is a core Spark library that provides a number of utilities that are useful for machine learning tasks, including utilities that are suitable for:
 
@@ -45,23 +45,23 @@ In summary, the process of logistic regression produces a *logistic function* th
 ## What are we trying to accomplish in this article?
 You will use Spark to perform some predictive analysis on food inspection data (**Food_Inspections1.csv**) that was acquired through the [City of Chicago data portal](https://data.cityofchicago.org/). This dataset contains information about food inspections that were conducted in Chicago, including information about each food establishment that was inspected, the violations that were found (if any), and the results of the inspection. The CSV data file is already available in the storage account associated with the cluster at **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
 
-In the steps below, you develop a model to see what it takes to pass or fail a food inspection. 
+In the steps below, you develop a model to see what it takes to pass or fail a food inspection.
 
 ## Start building a machine learning application using Spark MLlib
 1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 2. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
-   
+
    > [!NOTE]
    > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-   > 
+   >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
-   > 
+   >
+   >
 3. Create a new notebook. Click **New**, and then click **PySpark**.
-   
+
     ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
 4. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
-   
+
     ![Provide a name for the notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 5. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start building your machine learning application by importing the types required for this scenario. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
 
@@ -73,9 +73,9 @@ In the steps below, you develop a model to see what it takes to pass or fail a f
         from pyspark.sql.types import *
 
 ## Construct an input dataframe
-We can use `sqlContext` to perform transformations on structured data. The first task is to load the sample data ((**Food_Inspections1.csv**)) into a Spark SQL *dataframe*. 
+We can use `sqlContext` to perform transformations on structured data. The first task is to load the sample data ((**Food_Inspections1.csv**)) into a Spark SQL *dataframe*.
 
-1. Because the raw data is in a CSV format, we need to use the Spark context to pull every line of the file into memory as unstructured text; then, you use Python's CSV library to parse each line individually. 
+1. Because the raw data is in a CSV format, we need to use the Spark context to pull every line of the file into memory as unstructured text; then, you use Python's CSV library to parse each line individually.
 
         def csvParse(s):
             import csv
@@ -122,26 +122,26 @@ We can use `sqlContext` to perform transformations on structured data. The first
 1. The above output gives us an idea of the schema of the input file; the file includes the name of every establishment, the type of establishment, the address, the data of the inspections, and the location, among other things. Let's select a few columns that will be useful for our predictive analysis and group the results as a dataframe, which we then use to create a temporary table.
 
         schema = StructType([
-        StructField("id", IntegerType(), False), 
-        StructField("name", StringType(), False), 
-        StructField("results", StringType(), False), 
+        StructField("id", IntegerType(), False),
+        StructField("name", StringType(), False),
+        StructField("results", StringType(), False),
         StructField("violations", StringType(), True)])
 
         df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
         df.registerTempTable('CountResults')
 
-1. We now have a *dataframe*, `df` on which we can perform our analysis. We also have a temporary table call **CountResults**. We've included 4 columns of interest in the dataframe: **id**, **name**, **results**, and **violations**. 
-   
+1. We now have a *dataframe*, `df` on which we can perform our analysis. We also have a temporary table call **CountResults**. We've included 4 columns of interest in the dataframe: **id**, **name**, **results**, and **violations**.
+
     Let's get a small sample of the data:
-   
+
         df.show(5)
-   
+
     You should see an output like the following:
-   
+
         # -----------------
         # THIS IS AN OUTPUT
         # -----------------
-   
+
         +------+--------------------+-------+--------------------+
         |    id|                name|results|          violations|
         +------+--------------------+-------+--------------------+
@@ -175,19 +175,19 @@ We can use `sqlContext` to perform transformations on structured data. The first
         +--------------------+
 
 1. A quick visualization can help us reason about the distribution of these outcomes. We already have the data in a temporary table **CountResults**. You can run the following SQL query against the table to get a better understanding of how the results are distributed.
-   
+
         %%sql -o countResultsdf
         SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
-   
+
     The `%%sql` magic followed by `-o countResultsdf` ensures that the output of the query is persisted locally on the Jupyter server (typically the headnode of the cluster). The output is persisted as a [Pandas](http://pandas.pydata.org/) dataframe with the specified name **countResultsdf**.
-   
+
     You should see an output like the following:
-   
+
     ![SQL query output](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "SQL query output")
-   
-    For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+
+    For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
 2. You can also use Matplotlib, a library used to construct visualization of data, to create a plot. Because the plot must be created from the locally persisted **countResultsdf** dataframe, the code snippet must begin with the `%%local` magic. This ensures that the code is run locally on the Jupyter server.
-   
+
         %%local
         %matplotlib inline
         import matplotlib.pyplot as plt
@@ -204,13 +204,13 @@ We can use `sqlContext` to perform transformations on structured data. The first
 
 
 1. You can see that there are 5 distinct results that an inspection can have:
-   
-   * Business not located 
+
+   * Business not located
    * Fail
    * Pass
    * Pss w/ conditions, and
-   * Out of Business 
-     
+   * Out of Business
+
      Let us develop a model that can guess the outcome of a food inspection, given the violations. Since logistic regression is a binary classification method, it makes sense to group our data into two categories: **Fail** and **Pass**. A "Pass w/ Conditions" is still a Pass, so when we train the model, we will consider the two results equivalent. Data with the other results ("Business Not Located", "Out of Business") are not useful so we will remove them from our training set. This should be okay since these two categories make up a very small percentage of the results anyway.
 2. Let us go ahead and convert our existing dataframe(`df`) into a new dataframe where each inspection is represented as a label-violations pair. In our case, a label of `0.0` represents a failure, a label of `1.0` represents a success, and a label of `-1.0` represents some results besides those two. We will filter those other results out when computing the new data frame.
 
@@ -241,9 +241,9 @@ We can use `sqlContext` to perform transformations on structured data. The first
 
 
 ## Create a logistic regression model from the input dataframe
-Our final task is to convert the labeled data into a format that can be analyzed by logistic regression. The input to a logistic regression algorithm should be a set of *label-feature vector pairs*, where the "feature vector" is a vector of numbers that represents the input point in some way. So, we need a way to convert the "violations" column, which is semi-structured and contains a lot of comments in free-text, to an array of real numbers that a machine could easily understand. 
+Our final task is to convert the labeled data into a format that can be analyzed by logistic regression. The input to a logistic regression algorithm should be a set of *label-feature vector pairs*, where the "feature vector" is a vector of numbers that represents the input point in some way. So, we need a way to convert the "violations" column, which is semi-structured and contains a lot of comments in free-text, to an array of real numbers that a machine could easily understand.
 
-One standard machine learning approach for processing natural language is to assign each distinct word an "index", and then pass a vector to the machine learning algorithm such that each index's value contains the relative frequency of that word in the text string. 
+One standard machine learning approach for processing natural language is to assign each distinct word an "index", and then pass a vector to the machine learning algorithm such that each index's value contains the relative frequency of that word in the text string.
 
 MLLib provides an easy way to perform this operation. First, we'll "tokenize" each violations string to get the individual words in each string, and then we'll use a `HashingTF` to convert each set of tokens into a feature vector which can then be passed to the logistic regression algorithm to construct a model. We'll conduct all of these steps in sequence using a "pipeline".
 
@@ -286,14 +286,14 @@ We can use the model we created earlier to *predict* what the results of new ins
          'prediction']
 
 1. Look at one of the predictions. Run this snippet:
-   
+
         predictionsDf.take(1)
-   
+
     You will see the prediction for the first entry in the test data set.
 2. The `model.transform()` method will apply the same transformation to any new data with the same schema, and arrive at a prediction of how to classify the data. We can do some simple statistics to get a sense of how accurate our predictions were:
 
-        numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR 
-                                              (prediction = 1 AND (results = 'Pass' OR 
+        numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
+                                              (prediction = 1 AND (results = 'Pass' OR
                                                                    results = 'Pass w/ Conditions'))""").count()
         numInspections = predictionsDf.count()
 
@@ -310,38 +310,38 @@ We can use the model we created earlier to *predict* what the results of new ins
         This is a 86.8169618894% success rate
 
 
-    Using logistic regression with Spark gives us an accurate model of the relationship between violations descriptions in English and whether a given business would pass or fail a food inspection. 
+    Using logistic regression with Spark gives us an accurate model of the relationship between violations descriptions in English and whether a given business would pass or fail a food inspection.
 
 ## Create a visual representation of the prediction
-We can now construct a final visualization to help us reason about the results of this test. 
+We can now construct a final visualization to help us reason about the results of this test.
 
-1. We start by extracting the different predictions and results from the **Predictions** temporary table created earlier. The following queries separate the output as *true_positive*, *false_positive*, *true_negative*, and *false_negative*. In the queries below, we turn off visualization by using `-q` and also save the output (by using `-o`) as dataframes that can be then used with the `%%local` magic. 
-   
+1. We start by extracting the different predictions and results from the **Predictions** temporary table created earlier. The following queries separate the output as *true_positive*, *false_positive*, *true_negative*, and *false_negative*. In the queries below, we turn off visualization by using `-q` and also save the output (by using `-o`) as dataframes that can be then used with the `%%local` magic.
+
         %%sql -q -o true_positive
         SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
-   
+
         %%sql -q -o false_positive
         SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
-   
+
         %%sql -q -o true_negative
         SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND results = 'Fail'
-   
+
         %%sql -q -o false_negative
-        SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions') 
+        SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
 2. Finally, use the following snippet to generate the plot using **Matplotlib**.
-   
+
         %%local
         %matplotlib inline
         import matplotlib.pyplot as plt
-   
+
         labels = ['True positive', 'False positive', 'True negative', 'False negative']
         sizes = [true_positive['cnt'], false_positive['cnt'], false_negative['cnt'], true_negative['cnt']]
         colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
         plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
         plt.axis('equal')
-   
+
     You should see the following output.
-   
+
     ![Prediction output](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_26_1.png)
 
     In this chart, a "positive" result refers to the failed food inspection, while a negative result refers to a passed inspection.
@@ -373,4 +373,3 @@ After you have finished running the application, you should shutdown the noteboo
 ### Manage resources
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
-

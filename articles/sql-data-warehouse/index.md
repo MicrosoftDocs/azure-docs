@@ -1,21 +1,79 @@
 ---
-title: To be submitted | Microsoft Azure
-description: To be submitted.
-services: ''
-documentationcenter: ''
-author: squillace
-manager: timlt
-editor: ''
-tags: billing
+layout: LandingPage
+---
+#SQL Data Warehouse Documentation
 
-ms.assetid: 5a9b19e7-474c-4640-a07f-b0b10671aca0
-ms.service: value
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
+Azure SQL Data Warehouse is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational. Built on our massively parallel processing (MPP) architecture, SQL Data Warehouse can handle your enterprise workload.
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Getting started with SQL Data Warehouse</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-create-database-tsql/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Getting started with SQL Data Warehouse using Transact-SQL</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision-powershell">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Getting started with SQL Data Warehouse using PowerShell</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
-# To be submitted.
+
+##Reference
+
+###.NET 
+[SQL Data Warehouse Managed Reference API](/dotnet/api/)
+
+<div class="downloadHolder">
+    <a href="https://msdn.microsoft.com/">
+        <div class="img"></div>
+        <div class="text">
+            Download SQL Data Warehouse Documentation
+        </div>
+    </a>
+</div>

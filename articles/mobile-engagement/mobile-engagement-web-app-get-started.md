@@ -88,7 +88,7 @@ In order to start sending data and ensuring that the users are active, you must 
 ## Connect app with real-time monitoring
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-![][2]
+  ![][2]
 
 ## Extend analytics
 Here are all the methods currently available with Web SDK that you can use for analytics:
