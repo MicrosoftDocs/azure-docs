@@ -23,33 +23,33 @@ ms.author: wesmc
 ## Overview
 
 > [!IMPORTANT]
-> The monitoring tile in the main resource blade will for functions on the [Dynamic Hosting plan](functions-overview.md#pricing)
-> will always be empty.
+> The monitoring tile in the main resource blade will not contain monitoring information for functions on the [Dynamic Hosting plan](functions-overview.md#pricing).
+
 
  
 Content in progress...
 
 
-## Monitoring functions by streaming log files
+## Monitor functions by streaming log files to the command line
 
 
-You can stream log files to a local workstation using PowerShell or the Azure Command Line Interface (CLI).
+You can stream log files to a command line session on a local workstation using the Azure Command Line Interface (CLI) or PowerShell.
 
 #### Streaming function app log file with the Azure CLI
 
-To get started, [install the Azure CLI](../../xplat-cli-install.md) and [connect to your Azure subscription](../../xplat-cli-connect.md).
+To get started, [install the Azure CLI](../xplat-cli-install.md) and [connect to your Azure subscription](../xplat-cli-connect.md).
 
-Use the following command to enable Azure CLI Service Management mode commands.
+Use the following command to enable Azure CLI Service Management (ASM) mode:.
 
 	azure config mode asm
 
-In order to do this,   capabilities which work for Functions: (in ASM)
+The following command will stream the log files of your function app to the command line:
 
 	azure site log tail -v <function app name>
 
 #### Streaming function app log file with PowerShell
 
-To get started, [install and configure Azure PowerShell](../../powershell-install-configure.md).
+To get started, [install and configure Azure PowerShell](../powershell-install-configure.md).
 
 Add your Azure account by running the following command:
 
