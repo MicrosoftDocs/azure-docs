@@ -42,14 +42,14 @@ To simulate the outage you can delete or rename the source database. This will c
 * Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
 
 ## Geo-Replication
-For a database that is protected using Geo-Replication the drill exercise will involve planned failover to the secondary database. The planned failover ensures that the primary and the secondary databases remain in sync when the roles are switched. Unlike the unplanned failover, this operation will not result in data loss, so the drill can be performed in the production environment. 
+For a database that is protected using Geo-Replication the drill exercise will involve planned failover to the secondary database. The planned failover ensures that the primary and the secondary databases remain in sync when the roles are switched. Unlike the unplanned failover, this operation will not result in data loss, so the drill can be performed in the production environment.
 
 #### Outage simulation
 To simulate the outage you can disable the web application or virtual machine connected to the database. This will result in the connectivity failures for the web clients.
 
 #### Recovery
 * Make sure the application configuration in the DR region points to the former secondary which will become fully accessible new primary.
-* Perform [planned failover](sql-database-geo-replication-failover-powershell#initiate-a-planned-failover) to make the secondary database a new primary
+* Perform [planned failover](sql-database-geo-replication-failover-powershell.md#initiate-a-planned-failover) to make the secondary database a new primary
 * Follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
 
 #### Validation
