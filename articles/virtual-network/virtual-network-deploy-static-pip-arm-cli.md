@@ -23,9 +23,7 @@ ms.author: jdial
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-classic deployment model.
+[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
@@ -35,20 +33,20 @@ classic deployment model.
 You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh). Follow the steps below to change the script to work in your environment.
 
 1. Change the values of the variables below based on the values you want to use for your deployment. The values below map to the scenario used in this document.
-   
+
         # Set variables for the new resource group
         rgName="IaaSStory"
         location="westus"
-   
+
         # Set variables for VNet
         vnetName="TestVNet"
         vnetPrefix="192.168.0.0/16"
         subnetName="FrontEnd"
         subnetPrefix="192.168.1.0/24"
-   
+
         # Set variables for storage
         stdStorageAccountName="iaasstorystorage"
-   
+
         # Set variables for VM
         vmSize="Standard_A1"
         diskSize=127
@@ -69,10 +67,10 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 Before creating a VM, you need a resource group, VNet, public IP, and NIC to be used by the VM.
 
 1. Create a new resource group.
-   
+
         azure group create $rgName $location
 2. Create the VNet and subnet.
-   
+
         azure network vnet create --resource-group $rgName \
             --name $vnetName \
             --address-prefixes $vnetPrefix \
@@ -81,43 +79,43 @@ Before creating a VM, you need a resource group, VNet, public IP, and NIC to be 
             --vnet-name $vnetName \
             --name $subnetName \
             --address-prefix $subnetPrefix
-3. Create the public IP resource. 
-   
+3. Create the public IP resource.
+
         azure network public-ip create --resource-group $rgName \
             --name $pipName \
             --location $location \
             --allocation-method Static \
-            --domain-name-label $dnsName 
+            --domain-name-label $dnsName
 4. Create the network interface (NIC) for the VM in the subnet created above, with the public IP. Notice the first set of commands are used to retrieve the **Id** of the subnet created above.
-   
+
         subnetId="$(azure network vnet subnet show --resource-group $rgName \
                         --vnet-name $vnetName \
                         --name $subnetName|grep Id)"
-   
+
         subnetId=${subnetId#*/}
-   
+
         azure network nic create --name $nicName \
             --resource-group $rgName \
             --location $location \
             --private-ip-address $privateIPAddress \
             --subnet-id $subnetId \
             --public-ip-name $pipName
-   
+
    > [!TIP]
-   > The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal). 
-   > 
-   > 
+   > The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal).
+   >
+   >
 5. Create a storage account to host the VM OS drive.
-   
+
         azure storage account create $stdStorageAccountName \
             --resource-group $rgName \
-            --location $location --type LRS 
+            --location $location --type LRS
 
 ## Step 3 - Create the VM
 Now that all necessary resources are in place, you can create a new VM.
 
 1. Create the VM.
-   
+
         azure vm create --resource-group $rgName \
             --name $vmName \
             --location $location \
@@ -134,13 +132,13 @@ Now that all necessary resources are in place, you can create a new VM.
 2. Save the script file.
 
 ## Step 4 - Run the script
-After making any necessary changes, and understanding the script show above, run the script. 
+After making any necessary changes, and understanding the script show above, run the script.
 
 1. From a bash console, run the script above.
-   
+
         sh myscript.sh
 2. The output below should be displayed after a few minutes.
-   
+
         info:    Executing command group create
         info:    Getting resource group IaaSStory
         info:    Creating resource group IaaSStory
@@ -221,4 +219,3 @@ After making any necessary changes, and understanding the script show above, run
         info:    Looking up the NIC "NICWEB1"
         info:    Creating VM "WEB1"
         info:    vm create command OK
-
