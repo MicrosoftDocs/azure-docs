@@ -35,8 +35,8 @@ The probe configuration of all load-balanced instances for an endpoint (that is,
 
 > [!IMPORTANT]
 > A Load Balancer probe uses the IP address 168.63.129.16. This public IP address facilitates communication to internal platform resources for the bring-your-own-IP Azure Virtual Network scenario. The virtual public IP address 168.63.129.16 is used in all regions and will not change. We recommend that you allow this IP address in any local firewall policies. It should not be considered a security risk because only the internal Azure platform can source a message from that address. If you do not do this, there will be unexpected behavior in a variety of scenarios like configuring the same IP address range of 168.63.129.16 and having duplicated IP addresses.
-> 
-> 
+>
+>
 
 ## Learn about the types of probes
 ### Guest agent probe
@@ -56,8 +56,8 @@ This can be useful if you want to implement your own logic to remove instances f
 
 > [!NOTE]
 > The HTTP custom probe supports relative paths and HTTP protocol only. HTTPS is not supported.
-> 
-> 
+>
+>
 
 ### What makes an HTTP custom probe mark an instance as unhealthy?
 * The HTTP application returns an HTTP response code other than 200 (for example, 403, 404, or 500). This is a positive acknowledgment that the application instance should be taken out of service right away.
@@ -71,7 +71,7 @@ TCP probes initiate a connection by performing a three-way handshake with the de
 * The TCP server does not respond at all after the timeout period. When the probe is marked as not running depends on the number of failed probe requests that were configured to go unanswered before marking the probe as not running.
 * The probe receives a TCP reset from the role instance.
 
-For more information about configuring an HTTP health probe or a TCP probe, see [Get started creating an Internet-facing load balancer in Resource Manager using PowerShell](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer).
+For more information about configuring an HTTP health probe or a TCP probe, see [Get started creating an Internet-facing load balancer in Resource Manager using PowerShell](load-balancer-get-started-internet-arm-ps.md).
 
 ## Add healthy instances back into load balancer rotation
 TCP and HTTP probes are considered healthy and mark the role instance as healthy when:
@@ -81,9 +81,8 @@ TCP and HTTP probes are considered healthy and mark the role instance as healthy
 
 > [!NOTE]
 > If the health of a role instance is fluctuating, the load balancer waits longer before putting the role instance back in the healthy state. This is done via policy to protect the user and the infrastructure.
-> 
-> 
+>
+>
 
 ## Use log analytics for Load Balancer
 You can use [log analytics for Load Balancer](load-balancer-monitor-log.md) to check on the probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about Load Balancer health status.
-
