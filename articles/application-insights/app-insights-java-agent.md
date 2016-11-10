@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Monitor dependencies, exceptions and execution times in Java web apps
-*Application Insights is in Preview.*
+
 
 If you have [instrumented your Java web app with Application Insights][java], you can use the Java Agent to get deeper insights, without any code changes:
 

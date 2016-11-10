@@ -19,7 +19,7 @@ ms.author: jgao
 
 ---
 # Create non-interactive authentication .NET HDInsight applications
-You can execute your .NET Azure HDInsight application either under application's own identity (non-interactive) or under the identity of the signed-in user of the application (interactive). For a sample of the interactive application, see [Submit Hive/Pig/Sqoop jobs using HDInsight .NET SDK](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). This article shows you how to create non-interactive authentication .NET application to connect to Azure HDInsight and submit a Hive job.
+You can execute your .NET Azure HDInsight application either under application's own identity (non-interactive) or under the identity of the signed-in user of the application (interactive). For a sample of the interactive application, see [Submit Hive/Pig/Sqoop jobs using HDInsight .NET SDK](hdinsight-submit-hadoop-jobs-programmatically.md). This article shows you how to create non-interactive authentication .NET application to connect to Azure HDInsight and submit a Hive job.
 
 From your .NET application, you will need:
 
@@ -34,7 +34,7 @@ The main process includes the following steps:
 3. Develop your client application.
 
 ## Prerequisites
-* HDInsight cluster. You can create one using the instructions found in the [getting started tutorial](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). 
+* HDInsight cluster. You can create one using the instructions found in the [getting started tutorial](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## Create Azure Directory application
 When you create an Active Directory application, it actually creates both the application and a service principal. You can execute the application under the application’s identity.
@@ -45,17 +45,17 @@ Currently, you must use the Azure classic portal to create a new Active Director
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/).
 2. Select **Active Directory** from the left pane.
-   
+
    ![Azure classic portal active directory](.\\media\\hdinsight-create-non-interactive-authentication-dotnet-application\\active-directory.png)
 3. Select the directory that you want to use for creating the new application. It shall be the existing one.
 4. Click **Applications** from the top to list the existing applications.
 5. Click **Add** from the bottom to add a new application.
 6. Enter **Name**, select **Web application and/or Web API**, and then click **Next**.
-   
+
    ![new azure active directory application](.\\media\\hdinsight-create-non-interactive-authentication-dotnet-application\\hdinsight-add-ad-application.png)
 7. Enter **Sign-on URL** and **App ID URI**. For **SIGN-ON URL**, provide the URI to a web-site that describes your application. The existence of the web-site is not validated. For APP ID URI, provide the URI that identifies your application. And then click **Complete**.
-   It takes a few moments to create the application.  Once the application is created, the portal shows you the Quick Glace page of the new application. Don’t close the portal. 
-   
+   It takes a few moments to create the application.  Once the application is created, the portal shows you the Quick Glace page of the new application. Don’t close the portal.
+
    ![new azure active directory application properties](.\\media\\hdinsight-create-non-interactive-authentication-dotnet-application\\hdinsight-add-ad-application-properties.png)
 
 **To get the application client ID and the secret key**
@@ -66,7 +66,7 @@ Currently, you must use the Azure classic portal to create a new Active Director
 4. Click **Save** on the bottom of the page. When the secret key appears, make a copy of the key. You will need it in your .NET application.
 
 ## Assign AD application to role
-You must assign the application to a [role](../active-directory/role-based-access-built-in-roles.md) to grant it permissions for performing actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope (for example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains). In this tutorial, you will set the scope at the resource group level.  Because the Azure classic portal doesn’t support resource groups, this part has to be performed from the Azure portal. 
+You must assign the application to a [role](../active-directory/role-based-access-built-in-roles.md) to grant it permissions for performing actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope (for example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains). In this tutorial, you will set the scope at the resource group level.  Because the Azure classic portal doesn’t support resource groups, this part has to be performed from the Azure portal.
 
 **To add the Owner role to the AD application**
 
@@ -74,13 +74,13 @@ You must assign the application to a [role](../active-directory/role-based-acces
 2. Click **Resource Group** from the left pane.
 3. Click the resource group that contains the HDInsight cluster where you will run your Hive query later in this tutorial. If there are too many resource groups, you can use the filter.
 4. Click **Access** from the cluster blade.
-   
+
    ![cloud and thunderbolt icon = quickstart](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)
 5. Click **Add** from the **Users** blade.
 6. Follow the instruction to add the **Owner** role to the AD application you created in the last procedure. When you complete it successfully, you shall see the application listed in the Users blade with the Owner role.
 
 ## Develop HDInsight client application
-Create a C# .net console application following the instructions found in [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). Then replace the GetTokenCloudCredentials method with the following:
+Create a C# .net console application following the instructions found in [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md). Then replace the GetTokenCloudCredentials method with the following:
 
     public static TokenCloudCredentials GetTokenCloudCredentials(string tenantId, string clientId, SecureString secretKey)
     {
@@ -111,4 +111,3 @@ Or, Azure CLI:
 * [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md)
 * [Authenticate service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md)
 * [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
-

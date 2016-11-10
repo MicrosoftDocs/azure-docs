@@ -1,4 +1,4 @@
-﻿---
+---
 title: Java web app analytics with Application Insights | Microsoft Docs
 description: 'Monitor performance and usage of your Java website with Application Insights. '
 services: application-insights
@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Get started with Application Insights in a Java web project
-*Application Insights is in Preview.*
+
 
 [Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [detect and diagnose performance issues and exceptions](app-insights-detect-triage-diagnose.md), and [write code][api] to track what users do with your app.
 

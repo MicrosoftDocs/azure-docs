@@ -24,23 +24,23 @@ ms.author: mwasson
 > [!div class="op_single_selector"]
 > * [Running Linux VMs in multiple regions for high availability](guidance-compute-multiple-datacenters-linux.md)
 > * [Running Windows VMs in multiple regions for high availability](guidance-compute-multiple-datacenters.md)
-> 
-> 
+>
+>
 
 In this article, we recommend a set of practices to run Windows virtual machines (VMs) in multiple Azure regions, to achieve availability and a robust disaster recovery infrastructure.
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager][resource groups] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-> 
+>
+>
 
-A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Traffic Manager][traffic-manager] to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails. 
+A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Traffic Manager][traffic-manager] to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
 
 There are several general approaches to achieving high availability across data centers:
 
 * Active/passive with hot standby. Traffic goes to one region, while the other waits on standby. VMs in the secondary region are allocated and running at all times.
 * Active/passive with cold standby. The same, but VMs in the secondary region are not allocated until needed for failover. This approach costs less to run, but will generally have longer down time during a failure.
-* Active/active. Both regions are active, and requests are load balanced between them. If one data center becomes unavailable, it is taken out of rotation. 
+* Active/active. Both regions are active, and requests are load balanced between them. If one data center becomes unavailable, it is taken out of rotation.
 
 This architecture focuses on active/passive with hot standby, using Traffic Manager for failover. Note that you could deploy a small number of VMs for hot standby and then scale out as needed.
 
@@ -48,21 +48,21 @@ This architecture focuses on active/passive with hot standby, using Traffic Mana
 The following diagram builds on the architecture shown in [Adding reliability to an N-tier architecture on Azure](guidance-compute-n-tier-vm.md).
 
 > A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Compute - multi region (Windows) page.
-> 
-> 
+>
+>
 
 [![0]][0]
 
 * **Primary and secondary regions**. This architecture uses two regions to achieve higher availability. One is the primary region. During normal operations, network traffic is routed to the primary region. But if that becomes unavailable, traffic is routed to the secondary region.
 * **[Azure Traffic Manager][traffic-manager]** routes incoming requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region. For more information, see the section [Configuring Traffic Manager](#configuring-traffic-manager).
 * **Resource groups**. Create separate [resource groups][resource groups] for the primary region, the secondary region, and for Traffic Manager. This gives you the flexibility to manage each region as a single collection of resources. For example, you could redeploy one region, without taking down the other one. [Link the resource groups][resource-group-links], so that you can run a query to list all the resources for the application.
-* **VNets**. Create a separate VNet for each region. Make sure the address spaces do not overlap. 
+* **VNets**. Create a separate VNet for each region. Make sure the address spaces do not overlap.
 * **SQL Server Always On Availability Group**. If you are using SQL Server, we recommend [SQL Always On Availabilty Groups][sql-always-on] for high availability. Create a single availability group that includes the SQL Server instances in both regions. For more information, see the section [Configuring the SQL Server Always On availability group](#configuring-the-sql-server-alwayson-availability-group).
 
 > [!NOTE]
 > Also consider [Azure SQL Database][azure-sql-db], which provides a relational database as a cloud service. With SQL Database, you don't need to configure an Availability Group or manage failover.  
-> 
-> 
+>
+>
 
 * **VPN Gateways**: Create a [VPN gateway][vpn-gateway] in each VNet, and configure a [VNet-to-VNet connection][vnet-to-vnet], to enable network traffic between the two VNets. This is required for the SQL Always On availability group.
 
@@ -89,7 +89,7 @@ When Traffic Manager fails over, there is a period of time when clients cannot r
 * The health probe must detect that the primary data center has become unreachable.
 * DNS servers must update the cached DNS records for the IP address, which depends on the DNS time-to-live (TTL). The default TTL is 300 seconds (5 minutes), but you can configure this value when you create the Traffic Manager profile.
 
-For details, see [About Traffic Manager Monitoring][tm-monitoring]. 
+For details, see [About Traffic Manager Monitoring][tm-monitoring].
 
 If Traffic Manager fails over, we recommend performing a manual failback, rather than automatically failing back. Verify that all application subsystems are healthy first. Otherwise, you can create a situation where the application flips back and forth between data centers.
 
@@ -112,13 +112,13 @@ azure network traffic-manager  endpoint set --resource-group <resource-group> --
 Depending on the cause of a failover, you might need to redploy the resources within a region. Before failing back, perform an operational readiness test. The test should verify things like:
 
 * VMs are configured correctly. (All required software is installed, IIS is running, etc.)
-* Application subsystems are healthy. 
+* Application subsystems are healthy.
 * Functional testing. (For example, the database tier is reachable from the web tier.)
 
 ### SQL Server Always On configuration
 SQL Server Always On availability groups require a domain controller. All nodes in the availability group must be in the same AD domain. The following points provide guidance concerning how to configure a SQL Server Always On availability group:
 
-* At a minimum, place two domain controllers in each region. 
+* At a minimum, place two domain controllers in each region.
 * Give each domain controller a static IP address.
 * Create a VNet-to-VNet connection to enable communication between the VNets.
 * For each VNet, add the IP addresses of the domain controllers (from both regions) to the DNS server list. You can use the following CLI command. More more information, see [Manage DNS servers used by a virtual network (VNet)][vnet-dns].
@@ -127,37 +127,37 @@ SQL Server Always On availability groups require a domain controller. All nodes 
 azure network vnet set --resource-group dc01-rg --name dc01-vnet --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
 ```
 
-* Create a [Windows Server Failover Clustering][wsfc] (WSFC) cluster that includes the SQL Server instances in both regions. 
-* Create a SQL Server Always On availability group that includes the SQL Server instances in both the primary and secondary regions. See [Extending Always On Availability Group to Remote Azure Datacenter (PowerShell)](https://blogs.msdn.microsoft.com/sqlcat/2014/09/22/extending-alwayson-availability-group-to-remote-azure-datacenter-powershell/) for the steps. 
+* Create a [Windows Server Failover Clustering][wsfc] (WSFC) cluster that includes the SQL Server instances in both regions.
+* Create a SQL Server Always On availability group that includes the SQL Server instances in both the primary and secondary regions. See [Extending Always On Availability Group to Remote Azure Datacenter (PowerShell)](https://blogs.msdn.microsoft.com/sqlcat/2014/09/22/extending-alwayson-availability-group-to-remote-azure-datacenter-powershell/) for the steps.
 * Put the primary replica in the primary region.
 * Put one or more secondary replicas in the primary region. Configure these to use synchronous commit with automatic failover.
-* Put one or more secondary replicas in the secondary region. Configure these to use *asynchronous* commit, for performance reasons. (Otherwise, all SQL transactions have to wait on a round trip over the network to the secondary region.) 
+* Put one or more secondary replicas in the secondary region. Configure these to use *asynchronous* commit, for performance reasons. (Otherwise, all SQL transactions have to wait on a round trip over the network to the secondary region.)
 
 > [!NOTE]
-> Asynchronous commit replicas do not support automatic failover. 
-> 
-> 
+> Asynchronous commit replicas do not support automatic failover.
+>
+>
 
-For more information, see [Running Windows VMs for an N-tier architecture on Azure](guidance-compute-n-tier-vm.md#SQL-AlwaysOn-Availability-Group).
+For more information, see [Running Windows VMs for an N-tier architecture on Azure](guidance-compute-n-tier-vm.md).
 
 ## Availability considerations
 With a complex N-tier app, you may not need to replicate the entire application in the secondary region. Instead, you might just replicate a critical subsystem that is needed to support business continuity.
 
-Traffic Manager is a possible failure point in the system. If the service fails, clients cannot access your application during the downtime. Review the [Traffic Manager SLA][tm-sla], and determine whether using Traffic Manager alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a failback. If the Azure Traffic Manager service fails, change your CNAME records in DNS to point to the other traffic management service. (This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.) 
+Traffic Manager is a possible failure point in the system. If the service fails, clients cannot access your application during the downtime. Review the [Traffic Manager SLA][tm-sla], and determine whether using Traffic Manager alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a failback. If the Azure Traffic Manager service fails, change your CNAME records in DNS to point to the other traffic management service. (This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.)
 
 For the SQL Server cluster, there are two failover scenarios to consider:
 
-1. All of the SQL replicas in the primary region fail. For example, this could happen during a regional outage. In that case, you must manually fail over the SQL availability group, even though Traffic Manager automatically fails over on the front end. Follow the steps in [Perform a Forced Manual Failover of a SQL Server Availability Group](https://msdn.microsoft.com/library/ff877957.aspx), which describes how to perform a forced failover by using SQL Server Management Studio, Transact-SQL, or PowerShell in SQL Server 2016. 
-   
+1. All of the SQL replicas in the primary region fail. For example, this could happen during a regional outage. In that case, you must manually fail over the SQL availability group, even though Traffic Manager automatically fails over on the front end. Follow the steps in [Perform a Forced Manual Failover of a SQL Server Availability Group](https://msdn.microsoft.com/library/ff877957.aspx), which describes how to perform a forced failover by using SQL Server Management Studio, Transact-SQL, or PowerShell in SQL Server 2016.
+
    > [!WARNING]
    > With forced failover, there is a risk of data loss. Once the primary region is back online, take a snapshot of the database and use [tablediff] to find the differences.
-   > 
-   > 
-2. Traffic Manager fails over to the secondary region, but the primary SQL replica is still available. For example, the front-end tier might fail, without affecting the SQL VMs. In that case, Internet traffic is routed to the secondary region, and that region can still connect to the primary SQL replica. However, there will be increased latency, because the SQL connections are going across regions. In this situation, you should perform a manual failover as follows: 
-   
+   >
+   >
+2. Traffic Manager fails over to the secondary region, but the primary SQL replica is still available. For example, the front-end tier might fail, without affecting the SQL VMs. In that case, Internet traffic is routed to the secondary region, and that region can still connect to the primary SQL replica. However, there will be increased latency, because the SQL connections are going across regions. In this situation, you should perform a manual failover as follows:
+
    * Temporarily switch a SQL replica in the secondary region to *synchronous* commit. This ensures there won't be data loss during the failover.
-   * Fail over to that SQL replica. 
-   * When you fail back to primary region, restore the asynchronous commit setting. 
+   * Fail over to that SQL replica.
+   * When you fail back to primary region, restore the asynchronous commit setting.
 
 ## Manageability considerations
 When you update your deployment, update one region at a time, to reduce the chance of a global failure from an incorrect configuration or an error in the application.

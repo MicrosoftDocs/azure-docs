@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # collectd: Unix performance metrics in Application Insights
-*Application Insights is in Preview.*
+
 
 To explore Unix system performance metrics in [Application Insights](app-insights-overview.md), install [collectd](http://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
 

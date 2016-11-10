@@ -34,9 +34,9 @@ Here’s an example sequence of how to setup a HTTP trigger in the logic app des
 
 1. Add the **HTTP Webhook** trigger as the first step in a logic app
 2. Fill in the parameters for the webhook subscribe and unsubscribe calls
-   
+
    * This follow the same pattern as the [HTTP action](connectors-native-http.md) format
-     
+
      ![HTTP Trigger](./media/connectors-native-webhook/using-trigger.png)
 3. Add at least one action
 4. Click save to publish the logic app - this will call the subscribe endpoint with the callback URL needed to trigger this logic app
@@ -50,12 +50,12 @@ To add a webhook action:
 1. Select the **New Step** button
 2. Choose **Add an action**
 3. In the action search box, type "webhook" to list the **HTTP Webhook** action
-   
+
     ![Select query action](./media/connectors-native-webhook/using-action-1.png)
 4. Fill in the parameters for the webhook subscribe and unsubscribe calls
-   
+
    * This follow the same pattern as the [HTTP action](connectors-native-http.md) format
-     
+
      ![Complete query action](./media/connectors-native-webhook/using-action-2.png)
    * At runtime the logic app will call the subscribe endpoint once it reaches the step
 5. Click save at the top left corner of the toolbar, and your logic app will both save and publish (activate)
@@ -86,10 +86,10 @@ An * means required field.
 | Unsubscribe URI* |uri |HTTP URI to use for unsubscribe request |
 | Subscribe Body |body |HTTP request body for subscribe |
 | Subscribe Headers |headers |HTTP request headers for subscribe |
-| Subscribe Authentication |authencation |HTTP authentication to use for subscribe. [See HTTP connector](connectors-native-http.md#authenication) for details |
+| Subscribe Authentication |authencation |HTTP authentication to use for subscribe. [See HTTP connector](connectors-native-http.md#authentication) for details |
 | Unsubscribe Body |body |HTTP request body for unsubscribe |
 | Unsubscribe Headers |headers |HTTP request headers for unsubscribe |
-| Unsubscribe Authentication |authentication |HTTP authentication to use for unsubscribe. [See HTTP connector](connectors-native-http.md#authenication) for details |
+| Unsubscribe Authentication |authentication |HTTP authentication to use for unsubscribe. [See HTTP connector](connectors-native-http.md#authentication) for details |
 
 <br>
 
@@ -104,7 +104,7 @@ Webhook request
 | Status Code |int |Webhook request status code |
 
 ## Webhook actions
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions.](connectors-overview.md) The connector has 1 possible action. 
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions.](connectors-overview.md) The connector has 1 possible action.
 
 | Action | Description |
 | --- | --- |
@@ -148,4 +148,3 @@ Below are details on how to move forward with logic apps and our community.
 
 ## Create a logic app
 Try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) now. You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
-

@@ -1,5 +1,5 @@
-﻿---
-title: Smart Failure Detection in Application Insights | Microsoft Docs
+---
+title: Smart Detection - failure anomalies, in Application Insights | Microsoft Docs
 description: Alerts you to unusual changes in the rate of failed requests to your web app, and provides diagnostic analysis. No configuration is needed.
 services: application-insights
 documentationcenter: ''
@@ -16,8 +16,8 @@ ms.date: 10/31/2016
 ms.author: awills
 
 ---
-# Smart Failure Anomaly Detection
-[Application Insights](app-insights-overview.md) automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failures. It detects an unusual rise in the rate of HTTP requests reported as failed. These are usually those with response codes in the 400- and 500- ranges. To help you triage and diagnose the problem, an analysis of the characteristics of failed requests and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up or configuration, as it uses machine learning algorithms to predict the normal failure rate.
+# Smart Detection - Failure Anomalies
+[Application Insights](app-insights-overview.md) automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failed requests. It detects an unusual rise in the rate of HTTP requests reported as failed. These are usually those with response codes in the 400- and 500- ranges. To help you triage and diagnose the problem, an analysis of the characteristics of failed requests and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up or configuration, as it uses machine learning algorithms to predict the normal failure rate.
 
 This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request telemetry - for example, if you have a worker role that calls [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request). 
 
@@ -103,16 +103,16 @@ Or click **Smart detection** to get straight to the most recent alert:
 ![Alerts summary](./media/app-insights-proactive-failure-diagnostics/070.png)
 
 ## What's the difference ...
-Smart Failure Detection complements other similar but distinct features of Application Insights. 
+Smart Detection of error anomalies complements other similar but distinct features of Application Insights. 
 
 * [Metric Alerts](app-insights-alerts.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, proactive failure diagnostics cover a small range of critical metrics (currently only failed request rate), designed to notify you in near real time manner once your web app's failed request rate increases significantly compared to web app's normal behavior.
   
-    Smart Failure Detection automatically adjusts its threshold in response to prevailing conditions.
+    Smart Detection for error anomalies automatically adjusts its threshold in response to prevailing conditions.
   
-    Smart Failure Detection starts the diagnostic work for you. 
-* [Smart Performance Detection](app-insights-proactive-performance-diagnostics.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Smart Failure Detection, the purpose of Smart Performance Detection is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for proactive failure diagnostics is performed continuously on incoming telemetry, and you will be notified within minutes if server failure rates are greater than expected.
+    Smart Detection starts the diagnostic work for you. 
+* [Smart Detection of performance anomalies](app-insights-proactive-performance-diagnostics.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Smart Detection of error anomalies, the purpose of Smart  Detection of performance anomalies is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for proactive failure diagnostics is performed continuously on incoming telemetry, and you will be notified within minutes if server failure rates are greater than expected.
 
-## If you receive a Smart Failure Detection alert
+## If you receive a Smart Detection alert
 *Why have I received this alert?*
 
 * We detected an abnormal rise in failed requests rate compared to the normal baseline of the preceding period. After analysis of the failures and associated telemetry, we think that there is a problem that you should look into. 
