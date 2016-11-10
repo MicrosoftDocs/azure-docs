@@ -34,8 +34,9 @@
 ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)
 
 # Reference
+## [PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=536407)
+## [.NET](https://docs.microsoft.com/dotnet/api/)
 ## [Resource Manager API](https://go.microsoft.com/fwlink/p/?LinkId=536405)
-## [Resource Manager PowerShell CmdLets](https://go.microsoft.com/fwlink/p/?LinkId=536407)
 ## [Using Network Resources](https://go.microsoft.com/fwlink/p/?LinkId=536403)
 
 # Related
