@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumudd
 ---
-# Azure Advisor security recommendations
-TBD
-
-
+# Azure Advisor Security Recommendations
+Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with Azure Security Center to provide you with security recommendations. 
+Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It periodically analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations. The recommendations guide you through the process of configuring the needed controls. 
+For more information about security recommendations, see [Managing security recommendations in Azure Security Center](https://azure.microsoft.com/en-us/documentation/articles/security-center-recommendations/)
 ## Related
 
 -  [Introduction to Advisor](advisor-overview.md)
