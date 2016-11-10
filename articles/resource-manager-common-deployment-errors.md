@@ -20,21 +20,21 @@ ms.author: tomfitz
 
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
-This topic describes how you can resolve some common Azure deployment errors you may encounter. 
+This topic describes how you can resolve some common Azure deployment errors you may encounter.
 
 ## Two types of errors
-There are two types of errors you can receive: 
+There are two types of errors you can receive:
 
 * validation errors
 * deployment errors
 
-The following image shows the activity log for a subscription. There are three operations that occurred in two deployments. In the first deployment, the template passed validation but failed when creating the resources (**Write Deployments**). In the second deployment, the template failed validation and did not proceed to the **Write Deployments**. 
+The following image shows the activity log for a subscription. There are three operations that occurred in two deployments. In the first deployment, the template passed validation but failed when creating the resources (**Write Deployments**). In the second deployment, the template failed validation and did not proceed to the **Write Deployments**.
 
 ![show error code](./media/resource-manager-common-deployment-errors/show-activity-log.png)
 
 Validation errors arise from scenarios that can be pre-determined to cause a problem; such as, syntax errors in your template, or trying to deploy resources that would exceed your subscription quotas. Deployment errors arise from conditions that occur during the deployment process; such as, trying to access a resource that is being deployed in parallel.
 
-Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the activity log. However, validation errors do not appear in your deployment history because the deployment never actually started. 
+Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the activity log. However, validation errors do not appear in your deployment history because the deployment never actually started.
 
 ## Enable debug logging
 You can discover valuable information about how your deployment is processed by logging the request, response, or both.
@@ -105,13 +105,13 @@ The following error codes are described in this topic:
 * [Authorization failed](#authorization-failed)
 
 ### InvalidTemplate
-This error can result from several different types of errors. 
+This error can result from several different types of errors.
 
 **Syntax error**
 
-If you receive an error message that indicates the template failed validation, you may have a syntax problem in your template. 
+If you receive an error message that indicates the template failed validation, you may have a syntax problem in your template.
 
-    Code=InvalidTemplate 
+    Code=InvalidTemplate
     Message=Deployment template validation failed
 
 This error is easy to make because template expressions can be intricate. For example, the following name assignment for a storage account contains one set of brackets, three functions, three sets of parentheses, one set of single quotes, and one property:
@@ -120,14 +120,14 @@ This error is easy to make because template expressions can be intricate. For ex
 
 If you do not provide the matching syntax, the template produces a value that is different than your intention.
 
-When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) or [Visual Studio Code](resource-manager-vs-code.md), which can warn you about syntax errors. 
+When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) or [Visual Studio Code](resource-manager-vs-code.md), which can warn you about syntax errors.
 
 **Incorrect segment lengths**
 
 Another invalid template error occurs when the resource name is not in the correct format.
 
     Code=InvalidTemplate
-    Message=Deployment template validation failed: 'The template resource {resource-name}' 
+    Message=Deployment template validation failed: 'The template resource {resource-name}'
     for type {resource-type} has incorrect segment lengths.
 
 A root level resource must have one less segment in the name than in the resource type. Each segment is differentiated by a slash. In the following example, the type has two segments and the name has one segment, so it is a **valid name**.
@@ -146,7 +146,7 @@ But the next example is **not a valid name** because it has the same number of s
       ...
     }
 
-For child resources, the type and name have the same number of segments. This number of segments makes sense because the full name and type for the child includes the parent name and type. Therefore, the full name still has one less segment than the full type. 
+For child resources, the type and name have the same number of segments. This number of segments makes sense because the full name and type for the child includes the parent name and type. Therefore, the full name still has one less segment than the full type.
 
     "resources": [
         {
@@ -179,9 +179,9 @@ You encounter this **InvalidTemplate** error when you have applied the **copy** 
 
 If the template specifies permitted values for a parameter, and you provide a value that is not one of those values, you receive a message similar to the following error:
 
-    Code=InvalidTemplate; 
-    Message=Deployment template validation failed: 'The provided value {parameter vaule} 
-    for the template parameter {parameter name} is not valid. The parameter value is not 
+    Code=InvalidTemplate;
+    Message=Deployment template validation failed: 'The provided value {parameter vaule}
+    for the template parameter {parameter name} is not valid. The parameter value is not
     part of the allowed value(s)
 
 Double check the allowed values in the template, and provide one during deployment.
@@ -209,12 +209,12 @@ You also see this error when the resource exists in a different resource group t
     "properties": {
         "name": "[parameters('siteName')]",
         "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-    } 
+    }
 
-If you attempt to use the [reference](resource-group-template-functions.md#referenc) or [listKeys](resource-group-template-functions.md#listkeys) functions with a resource that cannot be resolved, you receive the following error:
+If you attempt to use the [reference](resource-group-template-functions.md#reference) or [listKeys](resource-group-template-functions.md#listkeys) functions with a resource that cannot be resolved, you receive the following error:
 
     Code=ResourceNotFound;
-    Message=The Resource 'Microsoft.Storage/storageAccounts/{storage name}' under resource 
+    Message=The Resource 'Microsoft.Storage/storageAccounts/{storage name}' under resource
     group {resource group name} was not found.
 
 Look for an expression that includes the **reference** function. Double check that the parameter values are correct.
@@ -222,7 +222,7 @@ Look for an expression that includes the **reference** function. Double check th
 ### StorageAccountAlreadyExists and StorageAccountAlreadyTaken
 For storage accounts, you must provide a name for the resource that is unique across Azure. If you do not provide a unique name, you receive an error like:
 
-    Code=StorageAccountAlreadyTaken 
+    Code=StorageAccountAlreadyTaken
     Message=The storage account named mystorage is already taken.
 
 You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions.md#uniquestring) function.
@@ -239,7 +239,7 @@ You see the **AccountNameInvalid** error when attempting to give a storage accou
 When deploying resource, you may receive the following error code and message:
 
     Code: NoRegisteredProviderFound
-    Message: No registered resource provider found for location {ocation} 
+    Message: No registered resource provider found for location {ocation}
     and API version {api-version} for type {resource-type}.
 
 You receive this error for one of three reasons:
@@ -303,7 +303,7 @@ Which returns:
 If you deploy a template that creates more than four cores in the West US region, you get a deployment error that looks like:
 
     Code=OperationNotAllowed
-    Message=Operation results in exceeding quota limits of Core. 
+    Message=Operation results in exceeding quota limits of Core.
     Maximum allowed: 4, Current in use: 4, Additional requested: 2.
 
 Or in PowerShell, you can use the **Get-AzureRmVMUsage** cmdlet.
@@ -326,8 +326,8 @@ In these cases, you should go to the portal and file a support issue to raise yo
 
 > [!NOTE]
 > Remember that for resource groups, the quota is for each individual region, not for the entire subscription. If you need to deploy 30 cores in West US, you have to ask for 30 Resource Manager cores in West US. If you need to deploy 30 cores in any of the regions to which you have access, you should ask for 30 Resource Manager cores in all regions.
-> 
-> 
+>
+>
 
 ### InvalidContentLink
 When you receive the error message:
@@ -421,4 +421,3 @@ You can prevent Azure from reporting deployment success, however, by creating a 
 ## Next steps
 * To learn about auditing actions, see [Audit operations with Resource Manager](resource-group-audit.md).
 * To learn about actions to determine the errors during deployment, see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md).
-
