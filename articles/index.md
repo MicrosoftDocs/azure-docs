@@ -132,13 +132,13 @@ layout: HubPage
                                     <h3>Networking</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/virtual-Network/">
+                                            <a href="/azure/virtual-network/">
                                                 <img src="media/index/VirtualNetwork.svg" alt="" />
                                                 <p>Virtual Network</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/load-Balancer/">
+                                            <a href="/azure/load-balancer/">
                                                 <img src="media/index/LoadBalancer.svg" alt="" />
                                                 <p>Load Balancer</p>
                                             </a>
@@ -150,31 +150,31 @@ layout: HubPage
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/vpn-Gateway/">
+                                            <a href="/azure/vpn-gateway/">
                                                 <img src="media/index/VPNGateway.svg" alt="" />
                                                 <p>VPN Gateway</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/DNS/">
+                                            <a href="/azure/dns/">
                                                 <img src="media/index/DNS.svg" alt="" />
                                                 <p>Azure DNS</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/CDN/">
+                                            <a href="/azure/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
                                                 <p>CDN</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/traffic-Manager/">
+                                        <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Traffic Manager</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/ExpressRoute/">
+                                            <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
                                                 <p>ExpressRoute</p>
                                             </a>
@@ -229,19 +229,19 @@ layout: HubPage
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service/-web">
+                                            <a href="/azure/app-service-web">
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>Web Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service/-mobile">
+                                            <a href="/azure/app-service-mobile">
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>Mobile Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service/-api">
+                                            <a href="/azure/app-service-api">
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>API Apps</p>
                                             </a>
@@ -253,7 +253,7 @@ layout: HubPage
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/CDN/">
+                                            <a href="/azure/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
                                                 <p>CDN</p>
                                             </a>
@@ -808,7 +808,7 @@ layout: HubPage
                         <a href="#network">Networking</a>
                         <ul id="network" class="cardsA">
                             <li>
-                                <a href="/azure/virtual-Network/">
+                                <a href="/azure/virtual-network/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -827,7 +827,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/load-Balancer/">
+                                <a href="/azure/load-balancer/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -866,7 +866,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/vpn-Gateway/">
+                                <a href="/azure/vpn-gateway/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -885,7 +885,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/DNS/">
+                                <a href="/azure/dns/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -904,7 +904,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/CDN/">
+                                <a href="/azure/cdn/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -924,7 +924,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/traffic-Manager/">
+                                <a href="/azure/traffic-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -943,7 +943,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/ExpressRoute/">
+                                <a href="/azure/expressroute/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1086,7 +1086,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/app-service/-web">
+                                <a href="/azure/app-service-web">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1105,7 +1105,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/app-service/-mobile">
+                                <a href="/azure/app-service-mobile">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1124,7 +1124,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/app-service/-api">
+                                <a href="/azure/app-service-api">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1162,7 +1162,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/CDN/">
+                                <a href="/azure/cdn/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
