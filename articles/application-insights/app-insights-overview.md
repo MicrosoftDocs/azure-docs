@@ -1,4 +1,4 @@
-﻿---
+---
 title: Application Performance Management with Application Insights | Microsoft Docs
 description: Track performance and usage of your live web application.  Detect, triage and diagnose problems.
 services: application-insights
@@ -163,7 +163,7 @@ Queries usually begin with the name of a telemetry stream such as requests, exce
 Results can be [rendered in tables or various types of chart](app-insights-analytics-tour.md#charting-the-results).
 
 ## Custom telemetry
-The built-in telemetry that you get just by installing Application Insights lets you analyze counts, success rates, and response times both for web requests to your app, and dependencies - that is, calls from your app to SQL, REST APIs. You also get exception traces, and (with Status Monitor on your server) system performance  counters. If you add the client snippet to your web pages, you get page view counts and load times, client exceptions, and AJAX call success and response rates.
+The built-in telemetry that you get just by installing Application Insights lets you analyze counts, success rates, and response times both for web requests to your app, and dependencies - that is, calls from your app to SQL, REST APIs. You also get exception traces, and (with Application Insights Agent on your server) system performance  counters. If you add the client snippet to your web pages, you get page view counts and load times, client exceptions, and AJAX call success and response rates.
 
 Analyzing all this telemetry can tell you a lot about your app's performance and usage. But sometimes that isn't enough. You might want to monitor the length of a queue so that you can tune performance; or count sales and segment them by location; or, on the client side, find out how often users click a particular button so that you can tune the user experience.
 
