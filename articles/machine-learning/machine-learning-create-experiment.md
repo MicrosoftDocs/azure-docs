@@ -1,21 +1,23 @@
-<properties
-	pageTitle="A simple experiment in Machine Learning Studio | Microsoft Azure"
-	description="This machine learning tutorial walks you through an easy data science experiment. We'll predict the price of a car using a regression algorithm."
-	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: A simple experiment in Machine Learning Studio | Microsoft Docs
+description: This machine learning tutorial walks you through an easy data science experiment. We'll predict the price of a car using a regression algorithm.
+keywords: experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="10/17/2016"
-	ms.author="garye"/>
+ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 11/10/2016
+ms.author: garye
+
+---
 
 # Machine learning tutorial: Create your first data science experiment in Azure Machine Learning Studio
 
@@ -23,7 +25,8 @@ If you've never used **Azure Machine Learning Studio** before, this tutorial is 
 
 In this tutorial, we'll walk through how to use Studio for the first time to create a machine learning experiment. The experiment will test an analytical model that predicts the price of an automobile based on different variables such as make and technical specifications.
 
-> [!NOTE] This tutorial shows you the basics of how to drag-and-drop modules onto your experiment, connect them together, run the experiment, and look at the results. We're not going to discuss the general topic of machine learning or how to select and use the 100+ built-in algorithms and data manipulation modules included in Studio.
+> [!NOTE]
+> This tutorial shows you the basics of how to drag-and-drop modules onto your experiment, connect them together, run the experiment, and look at the results. We're not going to discuss the general topic of machine learning or how to select and use the 100+ built-in algorithms and data manipulation modules included in Studio.
 >
 >If you're new to machine learning, the video series [Data Science for Beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) might be a good place to start. This video series is a great introduction to machine learning using everyday language and concepts.
 >
@@ -37,7 +40,7 @@ In this tutorial, we'll walk through how to use Studio for the first time to cre
 
 <!-- -->
 
-[!include[machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## How does Machine Learning Studio help?
 
@@ -73,7 +76,8 @@ In this machine learning tutorial, you'll follow five basic steps to build an ex
 [Step 4: Choose and apply a learning algorithm]: #step-4-choose-and-apply-a-learning-algorithm
 [Step 5: Predict new automobile prices]: #step-5-predict-new-automobile-prices
 
-> [!TIP] You can find a working copy of the following experiment in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com). Go to **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
+> [!TIP] 
+> You can find a working copy of the following experiment in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com). Go to **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
 
 
 ## Step 1: Get data
@@ -100,7 +104,8 @@ To see what this data looks like, click the output port at the bottom of the aut
 <br/>
 ***Click the output port and select "Visualize"***
 
-> [!TIP] Datasets and modules have input and output ports represented by small circles - input ports at the top, output ports at the bottom.
+> [!TIP]
+> Datasets and modules have input and output ports represented by small circles - input ports at the top, output ports at the bottom.
 To create a flow of data through your experiment,
 you'll connect these ports together.
 At any time, you can click the output port of a dataset or module to see what the data looks like at that point in the data flow.
@@ -117,7 +122,8 @@ Close the visualization window by clicking the "**x**" in the upper-right corner
 
 A dataset usually requires some preprocessing before it can be analyzed. For example, you might have noticed the missing values present in the columns of various rows. These missing values need to be cleaned so the model can analyze the data correctly. In our case, we'll remove any rows that have missing values. Also, the **normalized-losses** column has a large proportion of missing values, so we'll exclude that column from the model altogether.
 
-> [!TIP] Cleaning the missing values from input data is a prerequisite for using most of the modules.
+> [!TIP]
+> Cleaning the missing values from input data is a prerequisite for using most of the modules.
 
 First we add a module that removes the **normalized-losses** column completely, and then we add another module that removes any row that has missing data.
 
@@ -146,7 +152,8 @@ First we add a module that removes the **normalized-losses** column completely, 
 	<br/>
 	***The properties pane shows that the "normalized-losses" column is excluded***
 
-    > [!TIP] You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Select Columns in Dataset][select-columns] module and type the comment "Exclude normalized losses."
+    > [!TIP]
+	> You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Select Columns in Dataset][select-columns] module and type the comment "Exclude normalized losses."
 
 	![Double-click a module to add a comment][add-comment]
 	<br/>
@@ -166,7 +173,8 @@ First we add a module that removes the **normalized-losses** column completely, 
 <br/>
 ***After running it, the experiment should look something like this***
 
-> [!TIP] Why did we run the experiment now? By running the experiment, the column definitions for our data pass from the dataset, through the [Select Columns in Dataset][select-columns] module, and through the [Clean Missing Data][clean-missing-data] module. This means that any modules we connect to [Clean Missing Data][clean-missing-data] will also have this same information.
+> [!TIP]
+> Why did we run the experiment now? By running the experiment, the column definitions for our data pass from the dataset, through the [Select Columns in Dataset][select-columns] module, and through the [Clean Missing Data][clean-missing-data] module. This means that any modules we connect to [Clean Missing Data][clean-missing-data] will also have this same information.
 
 All we have done in the experiment up to this point is clean the data. If you want to view the cleaned dataset, click the left output port of the [Clean Missing Data][clean-missing-data] module and select **Visualize**. Notice that the **normalized-losses** column is no longer included, and there are no missing values.
 
@@ -214,7 +222,8 @@ For now, don't worry about *why* we need to train and then test a model.
 
 Because we want to predict price, which is a number, we'll use a regression algorithm. For this example, we'll use a simple *linear regression* model.
 
-> [!TIP] If you want to learn more about different types of machine learning algorithms and when to use them, you might view the first video in the Data Science for Beginners series, [The five questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). You might also look at the infographic [Machine learning basics with algorithm examples](machine-learning-basics-infographic-with-algorithm-examples.md), or check out the [Machine learning algorithm cheat sheet](machine-learning-algorithm-cheat-sheet.md).
+> [!TIP]
+> If you want to learn more about different types of machine learning algorithms and when to use them, you might view the first video in the Data Science for Beginners series, [The five questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). You might also look at the infographic [Machine learning basics with algorithm examples](machine-learning-basics-infographic-with-algorithm-examples.md), or check out the [Machine learning algorithm cheat sheet](machine-learning-algorithm-cheat-sheet.md).
 
 We train the model by giving it a set of data that includes the price. The model scans the data and look for correlations between an automobile's features and its price. Then we'll test the model - we'll give it a set of features for automobiles we're familiar with and see how close the model comes to predicting the known price.
 
@@ -228,7 +237,8 @@ We'll use our data for both training the model and testing it by splitting the d
 	<br/>
 	***Set the split fraction of the "Split Data" module to 0.75***
 
-	> [!TIP] By changing the **Random seed** parameter, you can produce different random samples for training and testing. This parameter controls the seeding of the pseudo-random number generator.
+	> [!TIP]
+	> By changing the **Random seed** parameter, you can produce different random samples for training and testing. This parameter controls the seeding of the pseudo-random number generator.
 
 2. Run the experiment. When the experiment is run, the [Select Columns in Dataset][select-columns] and [Split Data][split] modules pass column definitions to the modules we'll be adding next.  
 
@@ -275,7 +285,8 @@ Now that we've trained the model using 75 percent of our data, we can use it to 
 
 3. Finally, we test the quality of the results. Select and drag the [Evaluate Model][evaluate-model] module to the experiment canvas, and connect the output of the [Score Model][score-model] module to the left input of [Evaluate Model][evaluate-model].
 
-	> [!TIP] There are two input ports on the [Evaluate Model][evaluate-model] module because it can be used to compare two models side by side. Later, you can add another algorithm to the experiment and use [Evaluate Model][evaluate-model] to see which one gives better results.
+	> [!TIP]
+	> There are two input ports on the [Evaluate Model][evaluate-model] module because it can be used to compare two models side by side. Later, you can add another algorithm to the experiment and use [Evaluate Model][evaluate-model] to see which one gives better results.
 
 4. Run the experiment.
 
@@ -310,7 +321,8 @@ Now that you've completed the first machine learning tutorial and have your expe
 - **Iterate to try to improve the model** - For example, you can change the features you use in your prediction. Or you can modify the properties of the [Linear Regression][linear-regression] algorithm or try a different algorithm altogether. You can even add multiple machine learning algorithms to your experiment at one time and compare two of them by using the [Evaluate Model][evaluate-model] module.
 For an example of how to compare multiple models in a single experiment, see [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com).
 
-	> [!TIP] To copy any iteration of your experiment, use the **SAVE AS** button under the experiment canvas. You can see all the iterations of your experiment by clicking **VIEW RUN HISTORY** under the canvas. For more details, see [Manage experiment iterations in Azure Machine Learning Studio][runhistory].
+	> [!TIP]
+	> To copy any iteration of your experiment, use the **SAVE AS** button under the experiment canvas. You can see all the iterations of your experiment by clicking **VIEW RUN HISTORY** under the canvas. For more details, see [Manage experiment iterations in Azure Machine Learning Studio][runhistory].
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
