@@ -40,12 +40,12 @@ Use the HTTP trigger to respond to an HTTP request.
 The HTTP trigger to a function uses the following JSON object in the `bindings` array of function.json:
 
 ```json
-    {
-        "name": "<Name of request object/body in function signature>",
-        "type": "httpTrigger",
-        "direction": "in",
-        "authLevel": "<'function', 'anonymous', or 'admin' - see below>"
-    },
+{
+    "name": "<Name of request object/body in function signature>",
+    "type": "httpTrigger",
+    "direction": "in",
+    "authLevel": "<'function', 'anonymous', or 'admin' - see below>"
+},
 ```
 
 `authLevel` defines how the HTTP trigger validates the HTTP requests:
@@ -82,12 +82,12 @@ For Node.js functions, the Functions runtime provides the request body instead o
 Suppose you have the following HTTP trigger in the `bindings` array of function.json:
 
 ```json
-    {
-        "name": "req",
-        "type": "httpTrigger",
-        "direction": "in",
-        "authLevel": "function"
-    },
+{
+    "name": "req",
+    "type": "httpTrigger",
+    "direction": "in",
+    "authLevel": "function"
+},
 ```
 
 See the language-specific sample that looks for a `name` parameter either in the query string or the body of the HTTP request.
@@ -202,12 +202,12 @@ following features designed for webhooks:
 The webhook trigger to a function uses the following JSON object in the `bindings` array of function.json:
 
 ```json
-    {
-        "webHookType": "<github|slack|genericJson>",
-        "name": "<Name of request object/body in function signature>",
-        "type": "httpTrigger",
-        "direction": "in",
-    },
+{
+    "webHookType": "<github|slack|genericJson>",
+    "name": "<Name of request object/body in function signature>",
+    "type": "httpTrigger",
+    "direction": "in",
+},
 ```
 
 ### Configure webhook providers
@@ -230,12 +230,12 @@ See [HTTP trigger usage](#httptriggerusage).
 Suppose you have the following webhook trigger in the `bindings` array of function.json:
 
 ```json
-    {
-        "webHookType": "github",
-        "name": "req",
-        "type": "httpTrigger",
-        "direction": "in",
-    },
+{
+    "webHookType": "github",
+    "name": "req",
+    "type": "httpTrigger",
+    "direction": "in",
+},
 ```
 
 See the language-specific sample that logs GitHub issue comments.
@@ -309,11 +309,11 @@ module.exports = function (context, data) {
 Use the HTTP output binding to respond to the HTTP request sender.
 
 ```json
-    {
-        "name": "res",
-        "type": "http",
-        "direction": "out"
-    }
+{
+    "name": "res",
+    "type": "http",
+    "direction": "out"
+}
 ```
 
 <a name="outputusage"></a>

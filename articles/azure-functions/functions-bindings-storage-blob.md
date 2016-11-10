@@ -40,13 +40,13 @@ The Azure Storage blob trigger enables you to monitor a storage container for ne
 The Storage blob trigger to a function uses the following JSON objects in the `bindings` array of function.json:
 
 ```json
-    {
-        "name": "<Name of input parameter in function signature>",
-        "type": "blobTrigger",
-        "direction": "in",
-        "path": "<container to monitor, and optionally a blob name pattern - see below>",
-        "connection":"<Name of app setting - see below>"
-    }
+{
+    "name": "<Name of input parameter in function signature>",
+    "type": "blobTrigger",
+    "direction": "in",
+    "path": "<container to monitor, and optionally a blob name pattern - see below>",
+    "connection":"<Name of app setting - see below>"
+}
 ```
 
 Note the following:
@@ -171,18 +171,18 @@ deserialize the blob data using that type:
 Suppose you have the following function.json, that defines a Storage blob trigger:
 
 ```json
-    {
-        "disabled": false,
-        "bindings": [
-            {
-                "name": "myBlob",
-                "type": "blobTrigger",
-                "direction": "in",
-                "path": "samples-workitems",
-                "connection":""
-            }
-        ]
-    }
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myBlob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems",
+            "connection":""
+        }
+    ]
+}
 ```
 
 See the language-specific sample that logs the contents of each blob that is added to the monitored container.
@@ -195,10 +195,10 @@ See the language-specific sample that logs the contents of each blob that is add
 ### Trigger usage in C# #
 
 ```cs
-    public static void Run(string myBlob, TraceWriter log)
-    {
-        log.Info($"C# Blob trigger function processed: {myBlob}");
-    }
+public static void Run(string myBlob, TraceWriter log)
+{
+    log.Info($"C# Blob trigger function processed: {myBlob}");
+}
 ```
 
 <!--
@@ -214,10 +214,10 @@ See the language-specific sample that logs the contents of each blob that is add
 ### Trigger usage in Node.js
 
 ```javascript
-    module.exports = function(context) {
-        context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
-        context.done();
-    };
+module.exports = function(context) {
+    context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
+    context.done();
+};
 ```
 
 <a name="input"></a>
@@ -228,13 +228,13 @@ The Azure Storage blob input binding enables you to use a blob from a storage co
 The Storage blob input to a function uses the following JSON objects in the `bindings` array of function.json:
 
 ```json
-    {
-      "name": "<Name of input parameter in function signature>",
-      "type": "blob",
-      "direction": "in"
-      "path": "<Path of input blob - see below>",
-      "connection":"<Name of app setting - see below>"
-    },
+{
+  "name": "<Name of input parameter in function signature>",
+  "type": "blob",
+  "direction": "in"
+  "path": "<Path of input blob - see below>",
+  "connection":"<Name of app setting - see below>"
+},
 ```
 
 Note the following:
@@ -314,11 +314,11 @@ See the language-specific sample that copies the input blob to the output blob.
 ### Input usage in C# #
 
 ```cs
-    public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
-    {
-        log.Info($"C# Queue trigger function processed: {myQueueItem}");
-        myOutputBlob = myInputBlob;
-    }
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    myOutputBlob = myInputBlob;
+}
 ```
 
 <!--
@@ -334,11 +334,11 @@ See the language-specific sample that copies the input blob to the output blob.
 ### Input usage in Node.js
 
 ```javascript
-    module.exports = function(context) {
-        context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-        context.bindings.myOutputBlob = context.bindings.myInputBlob;
-        context.done();
-    };
+module.exports = function(context) {
+    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
+    context.bindings.myOutputBlob = context.bindings.myInputBlob;
+    context.done();
+};
 ```
 
 <a name="output"></a>
@@ -349,13 +349,13 @@ The Azure Storage blob output binding enables you to write blobs to a Storage co
 The Storage blob output for a function uses the following JSON objects in the `bindings` array of function.json:
 
 ```json
-    {
-      "name": "<Name of output parameter in function signature>",
-      "type": "blob",
-      "direction": "out"
-      "path": "<Path of input blob - see below>",
-      "connection":"<Name of app setting - see below>"
-    }
+{
+  "name": "<Name of output parameter in function signature>",
+  "type": "blob",
+  "direction": "out"
+  "path": "<Path of input blob - see below>",
+  "connection":"<Name of app setting - see below>"
+}
 ```
 
 Note the following:

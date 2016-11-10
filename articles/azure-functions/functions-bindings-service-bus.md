@@ -35,27 +35,30 @@ Use the Service Bus trigger to respond to messages from a Service Bus queue or t
 The Notification Hubs queue and topic triggers to a function use the following JSON objects in the `bindings` array of function.json:
 
 * *queue* trigger:
-  ```json
-        {
-            "name" : "<Name of input parameter in function signature>",
-            "queueName" : "<Name of the queue>",
-            "connection" : "<Name of app setting that has your queue's connection string - see below>",
-            "accessRights" : "<Access rights for the connection string - see below>"
-            "type" : "serviceBusTrigger",
-            "direction" : "in"
-        }
+
+	```json
+    {
+        "name" : "<Name of input parameter in function signature>",
+        "queueName" : "<Name of the queue>",
+        "connection" : "<Name of app setting that has your queue's connection string - see below>",
+        "accessRights" : "<Access rights for the connection string - see below>"
+        "type" : "serviceBusTrigger",
+        "direction" : "in"
+    }
 	```
+
 * *topic* trigger:
-  	```json
-        {
-            "name" : "<Name of input parameter in function signature>",
-            "topicName" : "<Name of the topic>",
-            "subscriptionName" : "<Name of the subscription>",
-            "connection" : "<Name of app setting that has your topic's connection string - see below>",
-            "accessRights" : "<Access rights for the connection string - see below>"
-            "type" : "serviceBusTrigger",
-            "direction" : "in"
-        }
+
+	```json
+    {
+        "name" : "<Name of input parameter in function signature>",
+        "topicName" : "<Name of the topic>",
+        "subscriptionName" : "<Name of the subscription>",
+        "connection" : "<Name of app setting that has your topic's connection string - see below>",
+        "accessRights" : "<Access rights for the connection string - see below>"
+        "type" : "serviceBusTrigger",
+        "direction" : "in"
+    }
 	```
 
 Note the following:
@@ -107,18 +110,18 @@ a JavaScript object.
 Suppose you have the following function.json:
 
 ```json
+{
+"bindings": [
     {
-    "bindings": [
-        {
-        "queueName": "testqueue",
-        "connection": "MyServiceBusConnection",
-        "name": "myQueueItem",
-        "type": "serviceBusTrigger",
-        "direction": "in"
-        }
-    ],
-    "disabled": false
+    "queueName": "testqueue",
+    "connection": "MyServiceBusConnection",
+    "name": "myQueueItem",
+    "type": "serviceBusTrigger",
+    "direction": "in"
     }
+],
+"disabled": false
+}
 ```
 
 See the language-specific sample that processes a Service Bus queue message.
@@ -132,10 +135,10 @@ See the language-specific sample that processes a Service Bus queue message.
 ### Trigger sample in C# #
 
 ```cs
-    public static void Run(string myQueueItem, TraceWriter log)
-    {
-        log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-    }
+public static void Run(string myQueueItem, TraceWriter log)
+{
+    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+}
 ```
 
 <a name="triggerfsharp"></a>
@@ -143,8 +146,8 @@ See the language-specific sample that processes a Service Bus queue message.
 ### Trigger sample in F# #
 
 ```fsharp
-    let Run(myQueueItem: string, log: TraceWriter) =
-        log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
+let Run(myQueueItem: string, log: TraceWriter) =
+    log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
 <a name="triggernodejs"></a>
@@ -152,10 +155,10 @@ See the language-specific sample that processes a Service Bus queue message.
 ### Trigger sample in Node.js
 
 ```javascript
-    module.exports = function(context, myQueueItem) {
-        context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
-        context.done();
-    };
+module.exports = function(context, myQueueItem) {
+    context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.done();
+};
 ```
 
 <a name="output"></a>
@@ -164,27 +167,29 @@ See the language-specific sample that processes a Service Bus queue message.
 The Notification Hubs queue and topic output for a function use the following JSON objects in the `bindings` array of function.json:
 
 * *queue* output:
-  	```json
-        {
-            "name" : "<Name of output parameter in function signature>",
-            "queueName" : "<Name of the queue>",
-            "connection" : "<Name of app setting that has your queue's connection string - see below>",
-            "accessRights" : "<Access rights for the connection string - see below>"
-            "type" : "serviceBus",
-            "direction" : "out"
-        }
+
+	```json
+    {
+        "name" : "<Name of output parameter in function signature>",
+        "queueName" : "<Name of the queue>",
+        "connection" : "<Name of app setting that has your queue's connection string - see below>",
+        "accessRights" : "<Access rights for the connection string - see below>"
+        "type" : "serviceBus",
+        "direction" : "out"
+    }
 	```
 * *topic* output:
-  	```json
-        {
-            "name" : "<Name of output parameter in function signature>",
-            "topicName" : "<Name of the topic>",
-            "subscriptionName" : "<Name of the subscription>",
-            "connection" : "<Name of app setting that has your topic's connection string - see below>",
-            "accessRights" : "<Access rights for the connection string - see below>"
-            "type" : "serviceBus",
-            "direction" : "out"
-        }
+
+	```json
+    {
+        "name" : "<Name of output parameter in function signature>",
+        "topicName" : "<Name of the topic>",
+        "subscriptionName" : "<Name of the subscription>",
+        "connection" : "<Name of app setting that has your topic's connection string - see below>",
+        "accessRights" : "<Access rights for the connection string - see below>"
+        "type" : "serviceBus",
+        "direction" : "out"
+    }
 	```
 
 Note the following:
@@ -221,25 +226,25 @@ In Node.js, you can assign a string, a byte array, or a Javascript object (deser
 Suppose you have the following function.json, that defines a Service Bus queue output:
 
 ```json
-    {
-        "bindings": [
-            {
-                "schedule": "0/15 * * * * *",
-                "name": "myTimer",
-                "runsOnStartup": true,
-                "type": "timerTrigger",
-                "direction": "in"
-            },
-            {
-                "name": "outputSbQueue",
-                "type": "serviceBus",
-                "queueName": "testqueue",
-                "connection": "MyServiceBusConnection",
-                "direction": "out"
-            }
-        ],
-        "disabled": false
-    }
+{
+    "bindings": [
+        {
+            "schedule": "0/15 * * * * *",
+            "name": "myTimer",
+            "runsOnStartup": true,
+            "type": "timerTrigger",
+            "direction": "in"
+        },
+        {
+            "name": "outputSbQueue",
+            "type": "serviceBus",
+            "queueName": "testqueue",
+            "connection": "MyServiceBusConnection",
+            "direction": "out"
+        }
+    ],
+    "disabled": false
+}
 ```
 
 See the language-specific sample that sends a message to the service bus queue.
@@ -253,24 +258,24 @@ See the language-specific sample that sends a message to the service bus queue.
 ### Output sample in C# #
 
 ```cs
-    public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
-    {
-        string message = $"Service Bus queue message created at: {DateTime.Now}";
-        log.Info(message); 
-        outputSbQueue = message;
-    }
+public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
+{
+    string message = $"Service Bus queue message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputSbQueue = message;
+}
 ```
 
 Or, to create multiple messages:
 
 ```cs
-    public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
-    {
-        string message = $"Service Bus queue message created at: {DateTime.Now}";
-        log.Info(message); 
-        outputSbQueue.Add("1 " + message);
-        outputSbQueue.Add("2 " + message);
-    }
+public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
+{
+    string message = $"Service Bus queue message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputSbQueue.Add("1 " + message);
+    outputSbQueue.Add("2 " + message);
+}
 ```
 
 <a name="outfsharp"></a>
@@ -278,10 +283,10 @@ Or, to create multiple messages:
 ### Output sample in F# #
 
 ```fsharp
-    let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
-        let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
-        log.Info(message)
-        outputSbQueue = message
+let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
+    let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
+    log.Info(message)
+    outputSbQueue = message
 ```
 
 <a name="outnodejs"></a>
@@ -289,25 +294,25 @@ Or, to create multiple messages:
 ### Output sample in Node.js
 
 ```javascript
-    module.exports = function (context, myTimer) {
-        var message = 'Service Bus queue message created at ' + timeStamp;
-        context.log(message);   
-        context.bindings.outputSbQueueMsg = message;
-        context.done();
-    };
+module.exports = function (context, myTimer) {
+    var message = 'Service Bus queue message created at ' + timeStamp;
+    context.log(message);   
+    context.bindings.outputSbQueueMsg = message;
+    context.done();
+};
 ```
 
 Or, to create multiple messages:
 
 ```javascript
-    module.exports = function (context, myTimer) {
-        var message = 'Service Bus queue message created at ' + timeStamp;
-        context.log(message);   
-        context.bindings.outputSbQueueMsg = [];
-        context.bindings.outputSbQueueMsg.push("1 " + message);
-        context.bindings.outputSbQueueMsg.push("2 " + message);
-        context.done();
-    };
+module.exports = function (context, myTimer) {
+    var message = 'Service Bus queue message created at ' + timeStamp;
+    context.log(message);   
+    context.bindings.outputSbQueueMsg = [];
+    context.bindings.outputSbQueueMsg.push("1 " + message);
+    context.bindings.outputSbQueueMsg.push("2 " + message);
+    context.done();
+};
 ```
 
 ## Next steps

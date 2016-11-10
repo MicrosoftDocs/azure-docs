@@ -37,14 +37,14 @@ Use the Event Hub trigger to respond to an event sent to an event hub event stre
 The Event Hub trigger to a function uses the following JSON object in the `bindings` array of function.json:
 
 ```json
-    {
-        "type": "eventHubTrigger",
-        "name": "<Name of trigger parameter in function signature>",
-        "direction": "in",
-        "path": "<Name of the Event Hub>",
-        "consumerGroup": "Consumer group to use - see below", 
-        "connection": "<Name of app setting with connection string - see below>"
-    }
+{
+    "type": "eventHubTrigger",
+    "name": "<Name of trigger parameter in function signature>",
+    "direction": "in",
+    "path": "<Name of the Event Hub>",
+    "consumerGroup": "Consumer group to use - see below", 
+    "connection": "<Name of app setting with connection string - see below>"
+}
 ```
 
 `consumerGroup` is an optional property used to set the [consumer group](../event-hubs/event-hubs-overview.md#consumer-groups) 
@@ -66,13 +66,13 @@ When an Event Hub trigger function is triggered, the message that triggers it is
 Suppose you have the following Event Hub trigger in the `bindings` array of function.json:
 
 ```json
-    {
-      "type": "eventHubTrigger",
-      "name": "myEventHubMessage",
-      "direction": "in",
-      "path": "MyEventHub",
-      "connection": "myEventHubReadConnectionString"
-    }
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionString"
+}
 ```
 
 See the language-specific sample that logs the message body of the event hub trigger.
@@ -86,12 +86,12 @@ See the language-specific sample that logs the message body of the event hub tri
 ### Trigger sample in C# #
 
 ```cs
-    using System;
+using System;
 
-    public static void Run(string myEventHubMessage, TraceWriter log)
-    {
-        log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
-    }
+public static void Run(string myEventHubMessage, TraceWriter log)
+{
+    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
+}
 ```
 
 <a name="triggerfsharp"></a>
@@ -99,8 +99,8 @@ See the language-specific sample that logs the message body of the event hub tri
 ### Trigger sample in F# #
 
 ```fsharp
-    let Run(myEventHubMessage: string, log: TraceWriter) =
-        log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
+let Run(myEventHubMessage: string, log: TraceWriter) =
+    log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 ```
 
 <a name="triggernodejs"></a>
@@ -108,10 +108,10 @@ See the language-specific sample that logs the message body of the event hub tri
 ### Trigger sample in Node.js
 
 ```javascript
-    module.exports = function (context, myEventHubMessage) {
-        context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);    
-        context.done();
-    };
+module.exports = function (context, myEventHubMessage) {
+    context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);    
+    context.done();
+};
 ```
 
 <a name="output"></a>
@@ -123,13 +123,13 @@ event hub to write events to it.
 The output binding uses the following JSON object in the `bindings` array of function.json: 
 
 ```json
-    {
-        "type": "eventHub",
-        "name": "<Name of output parameter in function signature>",
-        "path": "<Name of event hub>",
-        "connection": "<Name of app setting with connection string - see below>"
-        "direction": "out"
-    }
+{
+    "type": "eventHub",
+    "name": "<Name of output parameter in function signature>",
+    "path": "<Name of event hub>",
+    "connection": "<Name of app setting with connection string - see below>"
+    "direction": "out"
+}
 ```
 
 `connection` must be the name of an app setting that contains the connection string to the event hub's namespace. 
@@ -142,13 +142,13 @@ itself. This connection string must have send permissions to send the message to
 Suppose you have the following Event Hub output binding in the `bindings` array of function.json:
 
 ```json
-    {
-        "type": "eventHub",
-        "name": "outputEventHubMessage",
-        "path": "myeventhub",
-        "connection": "MyEventHubSend",
-        "direction": "out"
-    }
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "path": "myeventhub",
+    "connection": "MyEventHubSend",
+    "direction": "out"
+}
 ```
 
 See the language-specific sample that writes an event to the even stream.
@@ -162,14 +162,14 @@ See the language-specific sample that writes an event to the even stream.
 ### Output sample in C# #
 
 ```cs
-    using System;
+using System;
 
-    public static void Run(TimerInfo myTimer, out string outputEventHubMessage, TraceWriter log)
-    {
-        String msg = $"TimerTriggerCSharp1 executed at: {DateTime.Now}";
-        log.Verbose(msg);   
-        outputEventHubMessage = msg;
-    }
+public static void Run(TimerInfo myTimer, out string outputEventHubMessage, TraceWriter log)
+{
+    String msg = $"TimerTriggerCSharp1 executed at: {DateTime.Now}";
+    log.Verbose(msg);   
+    outputEventHubMessage = msg;
+}
 ```
 
 <a name="outfsharp"></a>
@@ -177,10 +177,10 @@ See the language-specific sample that writes an event to the even stream.
 ### Output sample in F# #
 
 ```fsharp
-    let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
-        let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
-        log.Verbose(msg);
-        outputEventHubMessage <- msg;
+let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
+    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
+    log.Verbose(msg);
+    outputEventHubMessage <- msg;
 ```
 
 <a name="outnodejs"></a>
@@ -188,12 +188,12 @@ See the language-specific sample that writes an event to the even stream.
 ### Output sample for Node.js
 
 ```javascript
-    module.exports = function (context, myTimer) {
-        var timeStamp = new Date().toISOString();
-        context.log('TimerTriggerNodeJS1 function ran!', timeStamp);   
-        context.bindings.outputEventHubMessage = "TimerTriggerNodeJS1 ran at : " + timeStamp;
-        context.done();
-    };
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+    context.log('TimerTriggerNodeJS1 function ran!', timeStamp);   
+    context.bindings.outputEventHubMessage = "TimerTriggerNodeJS1 ran at : " + timeStamp;
+    context.done();
+};
 ```
 
 ## Next steps

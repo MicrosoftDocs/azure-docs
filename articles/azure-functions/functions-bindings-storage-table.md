@@ -42,17 +42,17 @@ The Azure Storage table input binding enables you to use a storage table in your
 The Storage table input to a function uses the following JSON objects in the `bindings` array of function.json:
 
 ```json
-    {
-        "name": "<Name of input parameter in function signature>",
-        "type": "table",
-        "direction": "in"
-        "tableName": "<Name of Storage table>",
-        "partitionKey": "<PartitionKey of table entity to read - see below>",
-        "rowKey": "<RowKey of table entity to read - see below>",
-        "take": "<Maximum number of entities to read in Node.js - optional>",
-        "filter": "<OData filter expression for table input in Node.js - optional>",
-        "connection": "<Name of app setting - see below>",
-    }
+{
+    "name": "<Name of input parameter in function signature>",
+    "type": "table",
+    "direction": "in"
+    "tableName": "<Name of Storage table>",
+    "partitionKey": "<PartitionKey of table entity to read - see below>",
+    "rowKey": "<RowKey of table entity to read - see below>",
+    "take": "<Maximum number of entities to read in Node.js - optional>",
+    "filter": "<OData filter expression for table input in Node.js - optional>",
+    "connection": "<Name of app setting - see below>",
+}
 ```
 
 Note the following: 
@@ -166,15 +166,15 @@ The Azure Storage table output binding enables you to write entities to a Storag
 The Storage table output for a function uses the following JSON objects in the `bindings` array of function.json:
 
 ```json
-    {
-        "name": "<Name of input parameter in function signature>",
-        "type": "table",
-        "direction": "out"
-        "tableName": "<Name of Storage table>",
-        "partitionKey": "<PartitionKey of table entity to write - see below>",
-        "rowKey": "<RowKey of table entity to write - see below>",
-        "connection": "<Name of app setting - see below>",
-    }
+{
+    "name": "<Name of input parameter in function signature>",
+    "type": "table",
+    "direction": "out"
+    "tableName": "<Name of Storage table>",
+    "partitionKey": "<PartitionKey of table entity to write - see below>",
+    "rowKey": "<RowKey of table entity to write - see below>",
+    "connection": "<Name of app setting - see below>",
+}
 ```
 
 Note the following: 
