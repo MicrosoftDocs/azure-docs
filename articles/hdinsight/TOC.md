@@ -14,7 +14,6 @@
 ## [Start with Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Start with HBase & NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Start with Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
-
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -68,7 +67,7 @@
 ### [Manage resources](hdinsight-apache-spark-resource-manager.md)
 ### [Track and debug jobs](hdinsight-apache-spark-job-debugging.md)
 ### [Known issues](hdinsight-apache-spark-known-issues.md)
-## Use HBase 
+## Use HBase
 ### [Use Phoenix and SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analyze real-time tweets](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Create clusters on a virtual network](hdinsight-hbase-provision-vnet.md)
@@ -76,7 +75,7 @@
 ### [Configure DNS servers](hdinsight-hbase-geo-replication-configure-dns.md)
 ### [Configure HBase geo-replication](hdinsight-hbase-geo-replication.md)
 ### [Develop an app with Java](hdinsight-hbase-build-java-maven-linux.md)
-## Use Storm 
+## Use Storm
 ### [Deploy and manage topologies](hdinsight-storm-deploy-monitor-topology-linux.md)
 ### [Develop data processing apps in SCP](hdinsight-storm-scp-programming-guide.md)
 ### [Storm examples](hdinsight-storm-example-topology.md)
@@ -172,6 +171,7 @@
 #### [Hive settings fix Out of Memory error](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [Optimize Hive queries](hdinsight-hadoop-optimize-hive-query.md)
 #### [Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
+
 # Reference
 ## [REST API reference](https://msdn.microsoft.com/library/mt622197.aspx)
 ## [Spark REST API for remote jobs](https://msdn.microsoft.com/library/mt613023.aspx)
