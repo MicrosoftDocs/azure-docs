@@ -196,9 +196,9 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
 
 <!-- Images. -->
-[7]: ./media/iot-hub-c2d-methods/run-simulated-device.png
-[8]: ./media/iot-hub-c2d-methods/run-callmethodondevice.png
-[9]: ./media/iot-hub-c2d-methods/methods-output.png
+[7]: ./media/iot-hub-node-node-direct-methods/run-simulated-device.png
+[8]: ./media/iot-hub-node-node-direct-methods/run-callmethodondevice.png
+[9]: ./media/iot-hub-node-node-direct-methods/methods-output.png
 
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
@@ -210,7 +210,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
-[lnk-tutorial-jobs]: iot-hub-schedule-jobs.md
+[lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-devguide-methods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
