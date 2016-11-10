@@ -23,8 +23,8 @@ Outlook.com connector allows you to manage your mail, calendars, and contacts. Y
 
 > [!NOTE]
 > This version of the article applies to logic apps 2015-08-01-preview schema version.
-> 
-> 
+>
+>
 
 You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -38,26 +38,26 @@ You can take these action(s):
 
 | Action | Description |
 | --- | --- |
-| [GetEmails](connectors-create-api-outlook.md#GetEmails) |Retrieves emails from a folder |
-| [SendEmail](connectors-create-api-outlook.md#SendEmail) |Sends an email |
-| [DeleteEmail](connectors-create-api-outlook.md#DeleteEmail) |Deletes an email by id |
-| [MarkAsRead](connectors-create-api-outlook.md#MarkAsRead) |Marks an email as having been read |
-| [ReplyTo](connectors-create-api-outlook.md#ReplyTo) |Replies to an email |
-| [GetAttachment](connectors-create-api-outlook.md#GetAttachment) |Retrieves email attachment by id |
-| [SendMailWithOptions](connectors-create-api-outlook.md#SendMailWithOptions) |Send an email with multiple options and wait for the recipient to respond back with one of the options |
-| [SendApprovalMail](connectors-create-api-outlook.md#SendApprovalMail) |Send an approval email and wait for a response from the recipient |
-| [CalendarGetTables](connectors-create-api-outlook.md#CalendarGetTables) |Retrieves calendars |
-| [CalendarGetItems](connectors-create-api-outlook.md#CalendarGetItems) |Retrieves items from a calendar |
-| [CalendarPostItem](connectors-create-api-outlook.md#CalendarPostItem) |Creates a new event |
-| [CalendarGetItem](connectors-create-api-outlook.md#CalendarGetItem) |Retrieves a specific item from a calendar |
-| [CalendarDeleteItem](connectors-create-api-outlook.md#CalendarDeleteItem) |Deletes a calendar item |
-| [CalendarPatchItem](connectors-create-api-outlook.md#CalendarPatchItem) |Partially updates a calendar item |
-| [ContactGetTables](connectors-create-api-outlook.md#ContactGetTables) |Retrieves contacts folders |
-| [ContactGetItems](connectors-create-api-outlook.md#ContactGetItems) |Retrieves contacts from a contacts folder |
-| [ContactPostItem](connectors-create-api-outlook.md#ContactPostItem) |Creates a new contact |
-| [ContactGetItem](connectors-create-api-outlook.md#ContactGetItem) |Retrieves a specific contact from a contacts folder |
-| [ContactDeleteItem](connectors-create-api-outlook.md#ContactDeleteItem) |Deletes a contact |
-| [ContactPatchItem](connectors-create-api-outlook.md#ContactPatchItem) |Partially updates a contact |
+| [GetEmails](connectors-create-api-outlook.md#getemails) |Retrieves emails from a folder |
+| [SendEmail](connectors-create-api-outlook.md#sendemail) |Sends an email |
+| [DeleteEmail](connectors-create-api-outlook.md#deleteemail) |Deletes an email by id |
+| [MarkAsRead](connectors-create-api-outlook.md#markasread) |Marks an email as having been read |
+| [ReplyTo](connectors-create-api-outlook.md#replyto) |Replies to an email |
+| [GetAttachment](connectors-create-api-outlook.md#getattachment) |Retrieves email attachment by id |
+| [SendMailWithOptions](connectors-create-api-outlook.md#sendmailwithoptions) |Send an email with multiple options and wait for the recipient to respond back with one of the options |
+| [SendApprovalMail](connectors-create-api-outlook.md#sendapprovalmail) |Send an approval email and wait for a response from the recipient |
+| [CalendarGetTables](connectors-create-api-outlook.md#calendargettables) |Retrieves calendars |
+| [CalendarGetItems](connectors-create-api-outlook.md#calendargetitems) |Retrieves items from a calendar |
+| [CalendarPostItem](connectors-create-api-outlook.md#calendarpostitem) |Creates a new event |
+| [CalendarGetItem](connectors-create-api-outlook.md#calendargetitem) |Retrieves a specific item from a calendar |
+| [CalendarDeleteItem](connectors-create-api-outlook.md#calendardeleteitem) |Deletes a calendar item |
+| [CalendarPatchItem](connectors-create-api-outlook.md#calendarpatchitem) |Partially updates a calendar item |
+| [ContactGetTables](connectors-create-api-outlook.md#contactgettables) |Retrieves contacts folders |
+| [ContactGetItems](connectors-create-api-outlook.md#contactgetitems) |Retrieves contacts from a contacts folder |
+| [ContactPostItem](connectors-create-api-outlook.md#contactpostitem) |Creates a new contact |
+| [ContactGetItem](connectors-create-api-outlook.md#contactgetitem) |Retrieves a specific contact from a contacts folder |
+| [ContactDeleteItem](connectors-create-api-outlook.md#contactdeleteitem) |Deletes a contact |
+| [ContactPatchItem](connectors-create-api-outlook.md#contactpatchitem) |Partially updates a contact |
 
 ### Outlook.com triggers
 You can listen for these event(s):
@@ -79,11 +79,11 @@ To create Logic apps with Outlook.com, you must first create a **connection** th
 After you create the connection, you can use it to execute the actions and listen for the triggers described in this article.
 
 > [!INCLUDE [Steps to create a connection to Outlook.com](../../includes/connectors-create-api-outlook.md)]
-> 
+>
 > [!TIP]
 > You can use this connection in other logic apps.  
-> 
-> 
+>
+>
 
 ## Reference for Outlook.com
 Applies to version: 1.0
@@ -744,4 +744,3 @@ Update contact: Partially updates a contact
 
 ## Next Steps
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
-

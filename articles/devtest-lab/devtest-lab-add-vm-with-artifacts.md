@@ -52,7 +52,7 @@ This article shows you how to create a VM in your lab with artifacts.
 13. Select **Artifacts** and - from the list of artifacts - select and configure the artifacts that you want to add to the base image. 
     **Note:** If you're new to DevTest Labs or configuring artifacts, skip to the [Add an existing artifact to a VM](#add-an-existing-artifact-to-a-vm) section, 
     and then return here when finished.
-14. If you want to view or copy the Azure Resource Manager template, skip to the [Save Azure Resource Manager template](#save-arm-template) section, and return here when finished.
+14. If you want to view or copy the Azure Resource Manager template, skip to the [Save Azure Resource Manager template](#save-azure-resource-manager-template) section, and return here when finished.
 15. Select **Create** to add the specified VM to the lab.
 16. The lab blade displays the status of the VM's creation; first as **Creating**, then as **Running** after the VM has been started.
 17. Go to the [Next Steps](#next-steps) section. 

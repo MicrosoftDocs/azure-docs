@@ -1,7 +1,6 @@
 # Overview
 ## [Cloud Services overview](cloud-services-choose-me.md)
 ## [What is a Cloud Service model and package](cloud-services-model-and-package.md)
-## [Handle Cloud Service lifecycle events](cloud-services-role-lifecycle-dotnet.md)
 ## [Cloud Service virtual machine sizes](cloud-services-sizes-specs.md)
 ## [How Cloud Services updates work](cloud-services-update-azure-service.md)
 ## [List of updates applied to the Azure Guest OS](cloud-services-guestos-msrc-releases.md)
@@ -52,6 +51,7 @@
 ### [Test the performance of a cloud service](../vs-azure-tools-performance-profiling-cloud-services.md)
 ### [Connect a Cloud Service to a custom Domain Controller](cloud-services-connect-to-custom-domain.md)
 ### [Configure traffic rules for a role](cloud-services-enable-communication-role-instances.md)
+### [Handle Cloud Service lifecycle events](cloud-services-role-lifecycle-dotnet.md)
 ### [Debug options for a Cloud Service](../vs-azure-tools-debugging-cloud-services-overview.md)
 ### [Debug a local Cloud Service with Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 ### [Debug a published Cloud Service with Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)
@@ -87,13 +87,10 @@
 ### [Guest OS Family 1 retirement notice](cloud-services-guestos-family1-retirement.md)
 
 # Reference
-## [Cloud Services REST API](https://msdn.microsoft.com/library/azure/ee460812)
+## [.NET](https://msdn.microsoft.com/library)
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
 
 # Related
 ## [Service Updates](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment)
-
-
-

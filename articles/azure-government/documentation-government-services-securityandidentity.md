@@ -20,7 +20,7 @@ ms.author: ryansoc
 ---
 # Azure Government Security and Identity
 ## Key Vault
-For details on this service and how to use it, see the <a href="https://azure.microsoft.com/documentation/services/key-vault">Azure Key Vault public documentation. </a>
+For details on this service and how to use it, see the [Azure Key Vault public documentation](../key-vault/index.md).
 
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Key Vault:

@@ -20,8 +20,8 @@ ms.author: nitinme
 # Install and use Spark on HDInsight Hadoop clusters using Script Action
 > [!IMPORTANT]
 > This article is now deprecated. HDInsight now provides Spark as a first-class cluster type for Windows-based clusters, which means you can now directly create a Spark cluster without modifying a Hadoop cluster using Script action. Using the Spark cluster type, you get an HDInsight version 3.2 cluster with Spark version 1.3.1.  To install different versions of Spark, you can use Script action. HDInsight provides a sample Script Action script.
-> 
-> 
+>
+>
 
 Learn how to install Spark on Windows based HDInsight using Script Action, and how to run Spark queries on HDInsight clusters.
 
@@ -49,17 +49,17 @@ You can modify this script or create your own script to install other versions o
 
 > [!NOTE]
 > The sample script works only with HDInsight 3.1 and 3.2 clusters. For more information on HDInsight cluster versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
-> 
-> 
+>
+>
 
-1. Start creating a cluster by using the **CUSTOM CREATE** option, as described at [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md#portal). Pick the cluster version depending on the following:
-   
+1. Start creating a cluster by using the **CUSTOM CREATE** option, as described at [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md). Pick the cluster version depending on the following:
+
    * If you want to install **Spark 1.2.0**, create an HDInsight 3.2 cluster.
    * If you want to install **Spark 1.0.2**, create an HDInsight 3.1 cluster.
 2. On the **Script Actions** page of the wizard, click **add script action** to provide details about the script action, as shown below:
-   
+
     ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-spark-install/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
-   
+
     <table border='1'>
         <tr><th>Property</th><th>Value</th></tr>
         <tr><td>Name</td>
@@ -71,7 +71,7 @@ You can modify this script or create your own script to install other versions o
         <tr><td>Parameters</td>
             <td>Specify the parameters, if required by the script. The script to install Spark does not require any parameters so you can leave this blank.</td></tr>
     </table>
-   
+
     You can add more than one script action to install multiple components on the cluster. After you have added the scripts, click the checkmark to start creating the cluster.
 
 You can also use the script to install Spark on HDInsight by using Azure PowerShell or the HDInsight .NET SDK. Instructions for these procedures are provided later in this topic.
@@ -86,25 +86,25 @@ Spark provides APIs in Scala, Python, and Java. You can also use the interactive
 ### <a name="sparkshell"></a>Use the Spark shell to run interactive queries
 Perform the following steps to run Spark queries from an interactive Spark shell. In this section, we run a Spark query on a sample data file (/example/data/gutenberg/davinci.txt) that is available on HDInsight clusters by default.
 
-1. From the Azure portal, enable Remote Desktop for the cluster you created with Spark installed, and then remote into the cluster. For instructions, see [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
+1. From the Azure portal, enable Remote Desktop for the cluster you created with Spark installed, and then remote into the cluster. For instructions, see [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 2. In the Remote Desktop Protocol (RDP) session, from the desktop, open the Hadoop command line (from a desktop shortcut), and navigate to the location where Spark is installed; for example, **C:\apps\dist\spark-1.2.0**.
 3. Run the following command to start the Spark shell:
-   
+
          .\bin\spark-shell --master yarn
-   
+
     After the command finishes running, you should get a Scala prompt:
-   
+
          scala>
 4. On the Scala prompt, enter the Spark query shown below. This query counts the occurrence of each word in the davinci.txt file that is available at the /example/data/gutenberg/ location on the Azure Blob storage associated with the cluster.
-   
+
         val file = sc.textFile("/example/data/gutenberg/davinci.txt")
         val counts = file.flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_ + _)
         counts.toArray().foreach(println)
 5. The output should resemble the following:
-   
+
     ![Output from running Scala interactive shell in an HDInsight cluster](./media/hdinsight-hadoop-spark-install/hdi-scala-interactive.png)
 6. Enter :q to exit the Scala prompt.
-   
+
         :q
 
 ### <a name="sparksql"></a>Use the Spark shell to run Spark SQL queries
@@ -112,31 +112,31 @@ Spark SQL allows you to use Spark to run relational queries expressed in Structu
 
 > [!NOTE]
 > The sample below was created against **Spark 1.2.0**, which is installed if you run the script action while creating HDInsight 3.2 cluster.
-> 
-> 
+>
+>
 
-1. From the Azure portal, enable Remote Desktop for the cluster you created with Spark installed, and then remote into the cluster. For instructions, see [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
+1. From the Azure portal, enable Remote Desktop for the cluster you created with Spark installed, and then remote into the cluster. For instructions, see [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 2. In the RDP session, from the desktop, open the Hadoop command line (from a desktop shortcut), and navigate to the location where Spark is installed; for example, **C:\apps\dist\spark-1.2.0**.
 3. Run the following command to start the Spark shell:
-   
+
          .\bin\spark-shell --master yarn
-   
+
     After the command finishes running, you should get a Scala prompt:
-   
+
          scala>
 4. On the Scala prompt, set the Hive context. This is required to work with Hive queries by using Spark.
-   
+
         val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
-   
+
     Note that **sc** is default Spark context that is set when you start the Spark shell.
 5. Run a Hive query by using the Hive context and print the output to the console. The query retrieves data on devices of a specific make and limits the number of records retrieved to 20.
-   
+
         hiveContext.sql("""SELECT * FROM hivesampletable WHERE devicemake LIKE "HTC%" LIMIT 20""").collect().foreach(println)
 6. You should see an output like the following:
-   
+
     ![Output from running Spark SQL on an HDInsight cluster](./media/hdinsight-hadoop-spark-install/hdi-spark-sql.png)
 7. Enter :q to exit the Scala prompt.
-   
+
         :q
 
 ### <a name="standalone"></a>Use a standalone Scala program
@@ -217,7 +217,7 @@ In this section, we use the **<a href = "http://msdn.microsoft.com/library/dn858
 Perform the following steps:
 
 1. Open an Azure PowerShell window and declare the following variables:
-   
+
         # Provide values for these variables
         $subscriptionName = "<SubscriptionName>"        # Name of the Azure subscription
         $clusterName = "<HDInsightClusterName>"            # HDInsight cluster name
@@ -228,7 +228,7 @@ Perform the following steps:
         $clusterNodes = <ClusterSizeInNumbers>            # Number of nodes in the HDInsight cluster
         $version = "<HDInsightClusterVersion>"          # For example, "3.2"
 2. Specify the configuration values such as nodes in the cluster and the default storage to be used.
-   
+
         # Specify the configuration options
         Select-AzureSubscription $subscriptionName
         $config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
@@ -236,12 +236,12 @@ Perform the following steps:
         $config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
         $config.DefaultStorageAccount.StorageContainerName=$containerName
 3. Use the **Add-AzureHDInsightScriptAction** cmdlet to add a script action to cluster configuration. Later, when the cluster is being created, the script action gets executed.
-   
+
         # Add a script action to the cluster configuration
         $config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Spark" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1
-   
+
     **Add-AzureHDInsightScriptAction** cmdlet takes the following parameters:
-   
+
     <table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
     <tr>
     <th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Parameter</th>
@@ -264,17 +264,17 @@ Perform the following steps:
     </td></tr>
     </table>
 4. Finally, start creating a customized cluster with Spark installed.  
-   
+
         # Start creating a cluster with Spark installed
         New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
 
 When prompted, enter the credentials for the cluster. It can take several minutes before the cluster is created.
 
 ## Install Spark using PowerShell
-See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call_scripts_using_powershell).
+See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
 
 ## Install Spark using .NET SDK
-See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell).
+See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
 
 ## See also
 * [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): create HDInsight clusters.

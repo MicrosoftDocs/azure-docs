@@ -210,23 +210,19 @@
 
 
 # Reference
-
-## REST APIs
+## [PowerShell](https://docs.microsoft.com/powershell/storage/)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/storage)
+## [Java](https://docs.microsoft.com/java/api/index)
+## .NET
+### [Blob, Queue, Table, and File](https://docs.microsoft.com/dotnet/api/)
+### [.NET Resource Provider](https://msdn.microsoft.com/library/azure/mt131037.aspx)
+## [.NET client library](https://msdn.microsoft.com/library/azure/mt347887.aspx)
+## [Node.js](http://azure.github.io/azure-storage-node/)
+## [C++](http://azure.github.io/azure-storage-cpp/)
+## REST
 ### [Blob, Queue, Table, and File](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 ### [Resource Provider](https://docs.microsoft.com/rest/api/storage/)
 ### [Import/Export](https://msdn.microsoft.com/library/azure/dn529096.aspx)
-
-## .NET APIs
-### [Blob, Queue, Table, and File](https://docs.microsoft.com/dotnet/api/)
-### [Resource Provider](https://docs.microsoft.com/dotnet/api/)
-### [Data Movement](https://docs.microsoft.com/dotnet/api/)
-
-## [Node.js API](http://azure.github.io/azure-storage-node/)
-## [Java API](https://docs.microsoft.com/java/api/index)
-## [C++ API](http://azure.github.io/azure-storage-cpp/)
-## [PowerShell Reference](https://docs.microsoft.com/powershell/)
-## [Azure CLI Reference](https://docs.microsoft.com/cli/azure/storage)
-
 
 
 # Related
@@ -270,4 +266,3 @@
 ### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [Python](https://github.com/Azure/azure-storage-python)
 ### [iOS](https://github.com/Azure/azure-storage-ios)
-
