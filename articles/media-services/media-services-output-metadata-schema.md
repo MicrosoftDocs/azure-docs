@@ -53,7 +53,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 | --- | --- |
 | **Sources** |Collection of input/source media files, that was processed in order to produce this AssetFile. For more information, see [Source element](media-services-output-metadata-schema.md). |
 | **VideoTracks**<br /><br /> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks. For more information, see [VideoTracks element](media-services-output-metadata-schema.md). |
-| **AudioTracks**<br /><br /> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks. For more information, see [AudioTracks element](media-services-output-metadata-schema.md#audiotracks-element). |
+| **AudioTracks**<br /><br /> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks. For more information, see [AudioTracks element](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a> Sources element
 Collection of input/source media files, that was processed in order to produce this AssetFile.  
