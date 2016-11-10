@@ -38,22 +38,6 @@
 ### [How to use twin properties](iot-hub-node-node-twin-how-to-configure.md)
 
 # How To
-## [Process device-to-cloud messages tutorial (.NET)](iot-hub-csharp-csharp-process-d2c.md)
-## [Process device-to-cloud messages tutorial (Java)](iot-hub-java-java-process-d2c.md)
-## [Upload files from devices tutorial](iot-hub-csharp-csharp-file-upload.md)
-## [Send cloud-to-device messages (.NET)](iot-hub-csharp-csharp-c2d.md)
-## [Send cloud-to-device messages (Java)](iot-hub-java-java-c2d.md)
-## [Send cloud-to-device messages (Node)](iot-hub-node-node-c2d.md)
-## [Get started with device twins](iot-hub-node-node-twin-getstarted.md)
-## [Use direct methods for Node.js](iot-hub-node-node-direct-methods.md)
-## [Use direct methods for .NET](iot-hub-csharp-csharp-direct-methods.md)
-## [Get started with device management for Node.js](iot-hub-node-node-device-management-get-started.md)
-## [Get started with device management for .NET](iot-hub-csharp-csharp-device-management-get-started.md)
-## [How to use twin properties](iot-hub-node-node-twin-how-to-configure.md)
-## [Use device jobs to update device firmware for Node.js](iot-hub-node-node-firmware-update.md)
-## [Use device jobs to update device firmware for .NET](iot-hub-csharp-csharp-firmware-update.md)
-## [Schedule and broadcast jobs for Node.js](iot-hub-node-node-schedule-jobs.md)
-## [Schedule and broadcast jobs for .NET](iot-hub-csharp-csharp-schedule-jobs.md)
 ## Plan your deployment
 ### [Comparison of IoT Hub to Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Scale your solution](iot-hub-scaling.md)
@@ -62,8 +46,6 @@
 ## Develop
 ### [Introduction](iot-hub-devguide.md)
 ### [Send and receive messages](iot-hub-devguide-messaging.md)
-### [Device-to-cloud feature guide](iot-hub-devguide-d2c-guidance.md)
-### [Cloud-to-device feature guide](iot-hub-devguide-c2d-guidance.md)
 ### [Upload files from a device](iot-hub-devguide-file-upload.md)
 ### [Manage device identities](iot-hub-devguide-identity-registry.md)
 ### [Control access to IoT Hub](iot-hub-devguide-security.md)
@@ -86,8 +68,8 @@
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 ### [Usage metrics](iot-hub-metrics.md)
 ### [Operations monitoring](iot-hub-operations-monitoring.md)
-### [Configure IP filtering](iot-hub-ip-filtering.md)
-## Security
+
+## Secure
 ### [Security from the ground up](iot-hub-security-ground-up.md)
 ### [Security best practices](iot-hub-security-best-practices.md)
 ### [Security architecture](iot-hub-security-architecture.md)
@@ -102,13 +84,6 @@
 ### [Simulate a device with the Gateway SDK tutorial (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
 ### [Simulate a device with the Gateway SDK tutorial (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
 ### [Send messages from a real device with the Gateway SDK tutorial](iot-hub-gateway-sdk-physical-device.md)
-
-# Reference
-## [Microsoft.Azure.Devices .NET APIs](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices)
-## [Microsoft.Azure.Devices.Client .NET APIs](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client)
-## [Resource Provider REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [Device Identities REST API](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [Device Messaging REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 ## [Device SDK API](http://azure.github.io/azure-iot-sdks/)
 ## [Gateway SDK API](http://azure.github.io/azure-iot-gateway-sdk)
 ## [Introduction to the Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
