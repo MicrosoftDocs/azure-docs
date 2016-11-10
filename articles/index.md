@@ -85,43 +85,43 @@ layout: HubPage
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines-scale-sets">
+                                            <a href="/azure/virtual-machines-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
                                                 <p>Virtual Machines Scale Sets</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service">
+                                            <a href="/azure/app-service/">
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>App Service</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/container-service">
+                                            <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
                                                 <p>Azure Container Service</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/functions">
+                                            <a href="/azure/functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
                                                 <p>Functions</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/service-fabric">
+                                            <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/batch">
+                                            <a href="/azure/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
                                                 <p>Batch</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cloud-services">
+                                            <a href="/azure/cloud-services/">
                                                 <img src="media/index/CloudService.svg" alt="" />
                                                 <p>Cloud Services</p>
                                             </a>
@@ -132,49 +132,49 @@ layout: HubPage
                                     <h3>Networking</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/virtual-Network">
+                                            <a href="/azure/virtual-Network/">
                                                 <img src="media/index/VirtualNetwork.svg" alt="" />
                                                 <p>Virtual Network</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/load-Balancer">
+                                            <a href="/azure/load-Balancer/">
                                                 <img src="media/index/LoadBalancer.svg" alt="" />
                                                 <p>Load Balancer</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/application-gateway">
+                                            <a href="/azure/application-gateway/">
                                                 <img src="media/index/ApplicationGateway.svg" alt="" />
                                                 <p>Application gateway</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/vpn-Gateway">
+                                            <a href="/azure/vpn-Gateway/">
                                                 <img src="media/index/VPNGateway.svg" alt="" />
                                                 <p>VPN Gateway</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/DNS">
+                                            <a href="/azure/DNS/">
                                                 <img src="media/index/DNS.svg" alt="" />
                                                 <p>Azure DNS</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/CDN">
+                                            <a href="/azure/CDN/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
                                                 <p>CDN</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/traffic-Manager">
+                                            <a href="/azure/traffic-Manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Traffic Manager</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/ExpressRoute">
+                                            <a href="/azure/ExpressRoute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
                                                 <p>ExpressRoute</p>
                                             </a>
@@ -185,31 +185,31 @@ layout: HubPage
                                     <h3>Storage</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/storage">
+                                            <a href="/azure/storage/">
                                                 <img src="media/index/Storage.svg" alt="" />
                                                 <p>Storage</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-lake-store">
+                                            <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storsimple">
+                                            <a href="/azure/storsimple/">
                                                 <img src="media/index/StorSimple.svg" alt="" />
                                                 <p>StorSimple</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/backup">
+                                            <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
                                                 <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/site-recovery">
+                                            <a href="/azure/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>Site Recovery</p>
                                             </a>
@@ -223,55 +223,55 @@ layout: HubPage
                                     </h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/app-service">
+                                            <a href="/azure/app-service/">
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>App Service</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service-web">
+                                            <a href="/azure/app-service/-web">
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>Web Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service-mobile">
+                                            <a href="/azure/app-service/-mobile">
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>Mobile Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service-api">
+                                            <a href="/azure/app-service/-api">
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>API Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/logic-apps">
+                                            <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/CDN">
+                                            <a href="/azure/CDN/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
                                                 <p>CDN</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/media-services">
+                                            <a href="/azure/media-services/">
                                                 <img src="media/index/MediaServices.svg" alt="" />
                                                 <p>Media Services</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/search">
+                                            <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
                                                 <p>Search</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/mobile-engagement">
+                                            <a href="/azure/mobile-engagement/">
                                                 <img src="media/index/MobileEngagement.svg" alt="" />
                                                 <p>Mobile Engagement</p>
                                             </a>
@@ -282,37 +282,37 @@ layout: HubPage
                                     <h3>Databases</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/sql-database">
+                                            <a href="/azure/sql-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
                                                 <p>SQL Database</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/sql-data-warehouse">
+                                            <a href="/azure/sql-data-warehouse/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
                                                 <p>SQL Data Warehouse</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/sql-server-stretch-database">
+                                            <a href="/azure/sql-server-stretch-database/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
                                                 <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/documentdb">
+                                            <a href="/azure/documentdb/">
                                                 <img src="media/index/DocumentDB.svg" alt="" />
                                                 <p>DocumentDB</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache">
+                                            <a href="/azure/redis-cache/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
                                                 <p>Redis Cache</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-factory">
+                                            <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
                                             </a>
@@ -323,55 +323,55 @@ layout: HubPage
                                     <h3>Intelligence + Analytics</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/hdinsight">
+                                            <a href="/azure/hdinsight/">
                                                 <img src="media/index/HDInsight.svg" alt="" />
                                                 <p>HDInsight</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/machine-learning">
+                                            <a href="/azure/machine-learning/">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
                                                 <p>Machine Learning</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/stream-analytics">
+                                            <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>Stream Analytics</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services">
+                                            <a href="/azure/cognitive-services/">
                                                 <img src="media/index/CognitiveServices.svg" alt="" />
                                                 <p>Cognitive Service</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-lake-analytics">
+                                            <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Analytics</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-lake-analytics">
+                                            <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-factory">
+                                            <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/power-bi-embedded">
+                                            <a href="/azure/power-bi-embedded/">
                                                 <img src="media/index/PowerBIEmbedded.svg" alt="" />
                                                 <p>PowerBI Embedded</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/analysis-services">
+                                            <a href="/azure/analysis-services/">
                                                 <img src="media/index/AnalysisServices.svg" alt="" />
                                                 <p>Analysis Services</p>
                                             </a>
@@ -390,31 +390,31 @@ layout: HubPage
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/iot-hub">
+                                            <a href="/azure/iot-hub/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
                                                 <p>Azure IoT Hub</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/event-hubs">
+                                            <a href="/azure/event-hubs/">
                                                 <img src="media/index/EventHubs.svg" alt="" />
                                                 <p>Event Hubs</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/notification-hubs">
+                                            <a href="/azure/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
                                                 <p>Notification Hubs</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/stream-analytics">
+                                            <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>Stream Analytics</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/machine-learning">
+                                            <a href="/azure/machine-learning/">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
                                                 <p>Machine Learning</p>
                                             </a>
@@ -425,43 +425,43 @@ layout: HubPage
                                     <h3>Enterprise Integration</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/logic-apps">
+                                            <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/biztalk-services">
+                                            <a href="/azure/biztalk-services/">
                                                 <img src="media/index/BizTalkServices.svg" alt="" />
                                                 <p>Biztalk Services</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/service-bus">
+                                            <a href="/azure/service-bus/">
                                                 <img src="media/index/ServiceBus.svg" alt="" />
                                                 <p>Service Bus</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/api-management">
+                                            <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
                                                 <p>API Management</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storsimple">
+                                            <a href="/azure/storsimple/">
                                                 <img src="media/index/StorSimple.svg" alt="" />
                                                 <p>StorSimple</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/sql-server-stretch-database">
+                                            <a href="/azure/sql-server-stretch-database/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
                                                 <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-factory">
+                                            <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
                                             </a>
@@ -473,43 +473,43 @@ layout: HubPage
                                     </h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/security-center">
+                                            <a href="/azure/security/-center">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Security Center</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/key-vault">
+                                            <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
                                                 <p>Key Vault</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/active-directory">
+                                            <a href="/azure/active-directory/">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Azure Active Directory</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/active-directory-b2c">
+                                            <a href="/azure/active-directory/-b2c">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Azure Active Directory B2C</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/active-directory-domain-services">
+                                            <a href="/azure/active-directory/-domain-services">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Azure Active Directory Domain Services</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/multi-factor-authentication">
+                                            <a href="/azure/multi-factor-authentication/">
                                                 <img src="media/index/MultiFactorAuthentication.svg" alt="" />
                                                 <p>Multi-Factor Authentication</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/security">
+                                            <a href="/azure/security/">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Security Information</p>
                                             </a>
@@ -528,19 +528,19 @@ layout: HubPage
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/devtest-lab">
+                                            <a href="/azure/devtest-lab/">
                                                 <img src="media/index/DevTestLabs.svg" alt="" />
                                                 <p>Azure DevTest Labs</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/application-insights">
+                                            <a href="/azure/application-insights/">
                                                 <img src="media/index/ApplicationInsights.svg" alt="" />
                                                 <p>Visual Studio Application Insights</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/api-management">
+                                            <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
                                                 <p>API Management</p>
                                             </a>
@@ -558,67 +558,67 @@ layout: HubPage
                                     </h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/application-insights">
+                                            <a href="/azure/application-insights/">
                                                 <img src="media/index/ApplicationInsights.svg" alt="" />
                                                 <p>Visual Studio Application Insights</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/log-analytics">
+                                            <a href="/azure/log-analytics/">
                                                 <img src="media/index/OperationsManagementSuite.svg" alt="" />
                                                 <p>Log Analytics</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/automation">
+                                            <a href="/azure/automation/">
                                                 <img src="media/index/Automation.svg" alt="" />
                                                 <p>Automation</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/backup">
+                                            <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
                                                 <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/site-recovery">
+                                            <a href="/azure/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>Site Recovery</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/scheduler">
+                                            <a href="/azure/scheduler/">
                                                 <img src="media/index/Scheduler.svg" alt="" />
                                                 <p>Scheduler</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/traffic-manager">
+                                            <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Traffic Manager</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-monitor">
+                                            <a href="/azure/azure-monitor/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
                                                 <p>Azure Monitor</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/billing">
+                                            <a href="/azure/billing/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                 <p>Billing</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-advisor">
+                                            <a href="/azure/azure-advisor/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                 <p>Azure Advisor</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-resource-manager">
+                                            <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                 <p>Azure Resource Manager</p>
                                             </a>
@@ -632,7 +632,7 @@ layout: HubPage
                         <a href="#Compute">Compute</a>
                         <ul id="Compute" class="cardsA">
                             <li>
-                                <a href="/azure/virtual-machines/linux">
+                                <a href="/azure/virtual-machines/linux/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -651,7 +651,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines/windows">
+                                <a href="/azure/virtual-machines/windows/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -670,7 +670,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines-scale-sets">
+                                <a href="/azure/virtual-machines-scale-sets/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -689,7 +689,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/app-service">
+                                <a href="/azure/app-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -708,7 +708,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/container-service">
+                                <a href="/azure/container-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -727,7 +727,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/functions">
+                                <a href="/azure/functions/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -746,7 +746,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-fabric">
+                                <a href="/azure/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -765,7 +765,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/batch">
+                                <a href="/azure/batch/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -784,7 +784,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cloud-services">
+                                <a href="/azure/cloud-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -808,7 +808,7 @@ layout: HubPage
                         <a href="#network">Networking</a>
                         <ul id="network" class="cardsA">
                             <li>
-                                <a href="/azure/virtual-Network">
+                                <a href="/azure/virtual-Network/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -827,7 +827,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/load-Balancer">
+                                <a href="/azure/load-Balancer/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -846,7 +846,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/application-gateway">
+                                <a href="/azure/application-gateway/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -866,7 +866,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/vpn-Gateway">
+                                <a href="/azure/vpn-Gateway/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -885,7 +885,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/DNS">
+                                <a href="/azure/DNS/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -904,7 +904,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/CDN">
+                                <a href="/azure/CDN/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -924,7 +924,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/traffic-Manager">
+                                <a href="/azure/traffic-Manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -943,7 +943,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/ExpressRoute">
+                                <a href="/azure/ExpressRoute/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -967,7 +967,7 @@ layout: HubPage
                         <a href="#storage">Storage</a>
                         <ul id="storage" class="cardsA">
                             <li>
-                                <a href="/azure/storage">
+                                <a href="/azure/storage/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -986,7 +986,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-lake-store">
+                                <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1005,7 +1005,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/storsimple">
+                                <a href="/azure/storsimple/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1024,7 +1024,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/backup">
+                                <a href="/azure/backup/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1043,7 +1043,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/site-recovery">
+                                <a href="/azure/site-recovery/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1067,7 +1067,7 @@ layout: HubPage
                         <a href="#web">Web + Mobile</a>
                         <ul id="web" class="cardsA">
                             <li>
-                                <a href="/azure/app-service">
+                                <a href="/azure/app-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1086,7 +1086,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/app-service-web">
+                                <a href="/azure/app-service/-web">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1105,7 +1105,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/app-service-mobile">
+                                <a href="/azure/app-service/-mobile">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1124,7 +1124,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/app-service-api">
+                                <a href="/azure/app-service/-api">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1143,7 +1143,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/logic-apps">
+                                <a href="/azure/logic-apps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1162,7 +1162,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/CDN">
+                                <a href="/azure/CDN/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1182,7 +1182,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/media-services">
+                                <a href="/azure/media-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1201,7 +1201,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/search">
+                                <a href="/azure/search/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1220,7 +1220,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/mobile-engagement">
+                                <a href="/azure/mobile-engagement/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1244,7 +1244,7 @@ layout: HubPage
                         <a href="#databases">Databases</a>
                         <ul id="databases" class="cardsA">
                             <li>
-                                <a href="/azure/sql-database">
+                                <a href="/azure/sql-database/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1263,7 +1263,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/sql-data-warehouse">
+                                <a href="/azure/sql-data-warehouse/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1282,7 +1282,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/sql-server-stretch-database">
+                                <a href="/azure/sql-server-stretch-database/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1301,7 +1301,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/documentdb">
+                                <a href="/azure/documentdb/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1320,7 +1320,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/redis-cache">
+                                <a href="/azure/redis-cache/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1339,7 +1339,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-factory">
+                                <a href="/azure/data-factory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1363,7 +1363,7 @@ layout: HubPage
                         <a href="#analytics">Intelligence + Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
-                                <a href="/azure/hdinsight">
+                                <a href="/azure/hdinsight/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1382,7 +1382,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning">
+                                <a href="/azure/machine-learning/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1401,7 +1401,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/stream-analytics">
+                                <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1420,7 +1420,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services">
+                                <a href="/azure/cognitive-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1439,7 +1439,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-lake-analytics">
+                                <a href="/azure/data-lake-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1458,7 +1458,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-lake-store">
+                                <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1477,7 +1477,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-factory">
+                                <a href="/azure/data-factory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1496,7 +1496,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/power-bi-embedded">
+                                <a href="/azure/power-bi-embedded/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1539,7 +1539,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/iot-hub">
+                                <a href="/azure/iot-hub/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1558,7 +1558,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/event-hubs">
+                                <a href="/azure/event-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1577,7 +1577,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/stream-analytics">
+                                <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1596,7 +1596,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning">
+                                <a href="/azure/machine-learning/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1615,7 +1615,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/notification-hubs">
+                                <a href="/azure/notification-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1639,7 +1639,7 @@ layout: HubPage
                         <a href="#integration">Enterprise Integration</a>
                         <ul id="integration" class="cardsA">
                             <li>
-                                <a href="/azure/logic-apps">
+                                <a href="/azure/logic-apps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1658,7 +1658,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/biztalk-services">
+                                <a href="/azure/biztalk-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1677,7 +1677,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-bus">
+                                <a href="/azure/service-bus/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1696,7 +1696,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/api-management">
+                                <a href="/azure/api-management/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1715,7 +1715,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/storsimple">
+                                <a href="/azure/storsimple/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1734,7 +1734,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/sql-server-stretch-database">
+                                <a href="/azure/sql-server-stretch-database/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1753,7 +1753,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-factory">
+                                <a href="/azure/data-factory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1777,7 +1777,7 @@ layout: HubPage
                         <a href="#security">Security + Identity</a>
                         <ul id="security" class="cardsA">
                             <li>
-                                <a href="/azure/security-center">
+                                <a href="/azure/security/-center">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1796,7 +1796,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/key-vault">
+                                <a href="/azure/key-vault/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1815,7 +1815,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/active-directory">
+                                <a href="/azure/active-directory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1834,7 +1834,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/active-directory-b2c">
+                                <a href="/azure/active-directory/-b2c">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1853,7 +1853,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/active-directory-domain-services">
+                                <a href="/azure/active-directory/-domain-services">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1872,7 +1872,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/multi-factor-authentication">
+                                <a href="/azure/multi-factor-authentication/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1891,7 +1891,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/security">
+                                <a href="/azure/security/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1934,7 +1934,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/devtest-lab">
+                                <a href="/azure/devtest-lab/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1953,7 +1953,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/application-insights">
+                                <a href="/azure/application-insights/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1972,7 +1972,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/api-management">
+                                <a href="/azure/api-management/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2015,7 +2015,7 @@ layout: HubPage
                         <a href="#mgmt">Monitoring + Management</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
-                                <a href="/azure/application-insights">
+                                <a href="/azure/application-insights/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2034,7 +2034,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/log-analytics">
+                                <a href="/azure/log-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2053,7 +2053,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/automation">
+                                <a href="/azure/automation/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2072,7 +2072,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/backup">
+                                <a href="/azure/backup/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2091,7 +2091,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/site-recovery">
+                                <a href="/azure/site-recovery/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2110,7 +2110,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/scheduler">
+                                <a href="/azure/scheduler/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2129,7 +2129,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/traffic-manager">
+                                <a href="/azure/traffic-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2148,7 +2148,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-monitor">
+                                <a href="/azure/azure-monitor/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2167,7 +2167,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/billing">
+                                <a href="/azure/billing/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2186,7 +2186,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-advisor">
+                                <a href="/azure/azure-advisor/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2205,7 +2205,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-resource-manager">
+                                <a href="/azure/azure-resource-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
