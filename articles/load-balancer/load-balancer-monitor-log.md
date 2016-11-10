@@ -51,8 +51,8 @@ Sign-in to the [Azure portal](http://portal.azure.com). If you don't already hav
 
     ![Portal - Diagnostics logs](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
-> [!NOTE] Audit logs do not require a separate storage account. The use of storage for event and health probe logging will incur service charges.
-
+> [!NOTE]
+> Audit logs do not require a separate storage account. The use of storage for event and health probe logging will incur service charges.
 
 ## Audit log
 
