@@ -59,4 +59,4 @@ The **Log Analytics usage** dashboard displays the following information:
 
 
 ## Next steps
-* See [Log searches in Log Analytics](log-analytics-log-search.md) to view detailed information that is gathered and sent to OMS by features and solutions.
+* See [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed information that is gathered and sent to OMS by features and solutions.
