@@ -46,7 +46,7 @@ Let's focus on the feedback part of the cycle:
 ![Detect-Triage-Diagnose](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
 
 ## Detect poor availability
-Marcela Markova is a senior developer on the OBS team, and takes the lead on monitoring online performance. She sets up several [web tests][availability]:
+Marcela Markova is a senior developer on the OBS team, and takes the lead on monitoring online performance. She sets up several [availability tests](app-insights-monitor-web-app-availability.md):
 
 * A single-URL test for the main landing page for the app, http://fabrikambank.com/onlinebanking/. She sets criteria of HTTP code 200 and text 'Welcome!'. If this test fails, there's something seriously wrong with the network or the servers, or maybe a deployment issue. (Or someone has changed the Welcome! message on the page without letting her know.)
 * A deeper multi-step test, which logs in and gets a current account listing, checking a few key details on each page. This test verifies that the link to the accounts database is working. She uses a fictitious customer id: a few of them are maintained for test purposes.
@@ -60,7 +60,7 @@ Failures show up as red dots on the web test chart:
 But more importantly, an alert about any failure will be emailed to the development team. In that way, they know about it before nearly all of the customers.
 
 ## Monitor performance metrics
-On the overview page in Application Insights, there's a chart that shows a variety of [key metrics][perf].
+On the overview page in Application Insights, there's a chart that shows a variety of [key metrics](app-insights-web-monitor-performance.md).
 
 ![Various metrics](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
@@ -77,7 +77,7 @@ There seems to be no sign of resource limitation there, so maybe the bumps in th
 ## Alerts
 Nevertheless, she'd like to keep an eye on the response times. If they go too high, she wants to know about it immediately.
 
-So she sets an [alerts][metrics], for response times greater than a typical threshold. This gives her confidence that she'll know about it if response times are slow.
+So she sets an [alerts](app-insights-metrics-explorer.md), for response times greater than a typical threshold. This gives her confidence that she'll know about it if response times are slow.
 
 ![Add alert blade](./media/app-insights-detect-triage-diagnose/07-alerts.png)
 
@@ -145,7 +145,7 @@ In fact, their strategy is even broader than that: They send telemetry in every 
 
 TrackException is used to report exceptions because it sends a copy of the stack; TrackEvent is used to report other events. You can attach any properties that might be useful in diagnosis.
 
-Exceptions and events show up in the [Diagnostic Search][diagnostic] blade. You can drill into them to see the additional properties and stack trace.
+Exceptions and events show up in the [Diagnostic Search](app-insights-diagnostic-search.md) blade. You can drill into them to see the additional properties and stack trace.
 
 ![In Diagnostic Search, use filters to show particular types of data](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
@@ -154,7 +154,7 @@ When response time is consistently good and there are few exceptions, the dev te
 
 For example, a typical user journey through the web site has a clear 'funnel': Many customers look at the rates of different types of loan; some of them fill in the quotation form; and of those who get a quotation, a few go ahead and take out the loan.
 
-![](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![Page view counts](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
 By considering where the greatest numbers of customers drop out, the business can work out how to get more users through to the bottom of the funnel. In some cases there might be a user experience (UX) failure - for example, the 'next' button is hard to find, or the instructions aren't obvious. More likely, there are more significant business reasons for drop-outs: maybe the loan rates are too high.
 
@@ -163,7 +163,7 @@ Whatever the reasons, the data helps the team work out what users are doing. Mor
 The team is getting used to having information about user activity. Nowadays, whenever they design a new feature, they work out how they will get feedback about its usage. They design tracking calls into the feature from the start. They use the feedback to improve the feature in each development cycle.
 
 ## Proactive monitoring
-Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times][perf] - both the overall figure and the table of slowest requests, as well as exception counts.  
+Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times](app-insights-web-monitor-performance.md) - both the overall figure and the table of slowest requests, as well as exception counts.  
 
 ![Response time graph and grid of server response times.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
 
@@ -212,7 +212,7 @@ Fabrikam Bank's development team take a more structured approach to performance 
 * They design performance measures into the application from the start, such as the metrics that measure user progress through 'funnels.'  
 
 ## Usage
-Application Insights can also be used to learn what users do with an app. Once it's running smoothly, the team would like to know which features are the most popular, what users like or have difficulty with, and how often they come back. That will help them prioritize their upcoming work. And they can plan to measure the success of each feature as part of the development cycle. [Read more][usage].
+Application Insights can also be used to learn what users do with an app. Once it's running smoothly, the team would like to know which features are the most popular, what users like or have difficulty with, and how often they come back. That will help them prioritize their upcoming work. And they can plan to measure the success of each feature as part of the development cycle. [Read more](app-insights-web-track-usage.md).
 
 ## Your applications
 So that's how one team use Application Insights not just to fix individual issues, but to improve their development lifecycle. I hope it has given you some ideas about how Application Insights can help you with application performance management in your own applications.
@@ -227,16 +227,6 @@ You can get started in several ways, depending on the characteristics of your ap
 * [Web pages](app-insights-javascript.md) - Single Page App or ordinary web page - use this on its own or in addition to any of the server options.
 * [Availability tests](app-insights-monitor-web-app-availability.md) to test your app from the public internet.
 
-## Video
-[!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/222/player]
 
 
-<!--Link references-->
-
-[api]: app-insights-api-custom-events-metrics.md
-[availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
-[metrics]: app-insights-metrics-explorer.md
-[perf]: app-insights-web-monitor-performance.md
-[usage]: app-insights-web-track-usage.md
 
