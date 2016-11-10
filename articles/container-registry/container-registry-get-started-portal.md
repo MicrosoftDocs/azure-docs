@@ -46,7 +46,7 @@ For background and concepts, see [What is Azure Container Registry?](container-r
     d. **Admin user** - If you want, enable an admin user to access the registry. You can change this setting after creating the registry.
    
    > [!IMPORTANT]
-   > In addition to providing access through an admin user account, container registries support authentication backed by Azure Active Directory service principals. For more information and considerations, see [Authenticate with a container registry](container-registry-authentication.md.md).
+   > In addition to providing access through an admin user account, container registries support authentication backed by Azure Active Directory service principals. For more information and considerations, see [Authenticate with a container registry](container-registry-authentication.md).
    >
     e. **Storage account** - Use the default setting to create a [storage account](../storage/storage-introduction.md), or select an existing storage account in the same location.
 

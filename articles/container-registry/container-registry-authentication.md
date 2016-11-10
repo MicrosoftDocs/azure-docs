@@ -47,7 +47,7 @@ Once logged in, Docker caches the credentials, so you don't need to remember the
 
 Service principals allow [role-based access](../active-directory/role-based-access-control-configure.md) to a registry for Read-only, Write, and Owner permissions. You can use service principals assign roles to individual users or applications. Service principals also enable "headless" connectivity to a registry in developer or DevOps scenarios such as the following:
 
-  * Container deployments from a registry to orchestration systems including Mesosphere DC/OS, Docker Swarm and Kubernetes. You can also pull container registries to related Azure services such as [Container Service](../container-service/), [App Service](../app-service/), [Batch](../batch/), and [Service Fabric](../service-fabric/).
+  * Container deployments from a registry to orchestration systems including Mesosphere DC/OS, Docker Swarm and Kubernetes. You can also pull container registries to related Azure services such as [Container Service](../container-service/index.md), [App Service](../app-service/index.md), [Batch](../batch/index.md), and [Service Fabric](../service-fabric/index.md).
   
   * Continuous integration and development solutions (such as Visual Studio Team Services or Jenkins) that build container images and push them to a registry.
   
