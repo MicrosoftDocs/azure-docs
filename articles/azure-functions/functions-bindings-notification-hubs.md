@@ -76,8 +76,7 @@ You can also manually add a connection string for an existing hub by adding a co
 3. Scroll down to the **Connection strings** section, and add a named entry for *DefaultFullSharedAccessSignature* value for your notification hub. Change the type to **Custom**.
 4. Reference your connection string name in the output bindings. Similar to **MyHubConnectionString** used in the example above.
 
-## Native notification examples
-#### APNS native notifications with C# queue triggers
+## APNS native notifications with C# queue triggers
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native APNS notification. 
 
 ```cs
@@ -107,7 +106,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 }
 ```
 
-#### GCM native notifications with C# queue triggers
+## GCM native notifications with C# queue triggers
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native GCM notification. 
 
 ```cs
@@ -137,7 +136,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 }
 ```
 
-#### WNS native notifications with C# queue triggers
+## WNS native notifications with C# queue triggers
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native WNS toast notification. 
 
 ```cs
@@ -179,8 +178,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 }
 ```
 
-## Template notification examples
-#### Template example for Node.js timer triggers
+## Template example for Node.js timer triggers
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
 
 ```javascript
@@ -200,7 +198,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-#### Template example for F# timer triggers
+## Template example for F# timer triggers
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
 
 ```fsharp
@@ -208,7 +206,7 @@ let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
     notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
 ```
 
-#### Template example using an out parameter
+## Template example using an out parameter
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains a `message` place holder in the template.
 
 ```cs
@@ -230,7 +228,7 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 }
 ```
 
-#### Template example with asynchronous function
+## Template example with asynchronous function
 If you are using asynchronous code, out parameters are not allowed. In this case use `IAsyncCollector` to return your template notification. The following code is an asynchronous example of the code above. 
 
 ```cs
@@ -254,7 +252,7 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 }
 ```
 
-#### Template example using JSON
+## Template example using JSON
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains a `message` place holder in the template using a valid JSON string.
 
 ```cs
@@ -267,7 +265,7 @@ public static void Run(string myQueueItem,  out string notification, TraceWriter
 }
 ```
 
-#### Template example using Notification Hubs library types
+## Template example using Notification Hubs library types
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). 
 
 ```cs

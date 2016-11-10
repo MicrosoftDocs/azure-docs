@@ -100,7 +100,7 @@ $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS2_v2"
 Create the rest of your VM config. The following example creates a Windows Server 2012 R2 VM:
 
 ```powershell
-$vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName Te"MyVM" `
+$vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName "myVM" `
     -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName "MicrosoftWindowsServer" `
     -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
@@ -132,7 +132,7 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "West
 ## Creating multiple NICs using Resource Manager templates
 Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
 
-```bash
+```json
 "copy": {
     "name": "multiplenics"
     "count": "[parameters('count')]"
@@ -143,7 +143,7 @@ Read more about [creating multiple instances using *copy*](../resource-group-cre
 
 You can also use a `copyIndex()` to then append a number to a resource name, which allows you to create `myNic1`, `MyNic2`, etc. The following shows an example of appending the index value:
 
-```bash
+```json
 "name": "[concat('myNic', copyIndex())]", 
 ```
 

@@ -42,7 +42,7 @@ communicate with the storage REST services.
 ### Use Node Package Manager (NPM) to install the package
 1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix), and navigate to the folder where you created your application.
 2. Type **npm install azure-storage** in the command window. Output from the command is similar to the following example.
-   
+
        azure-storage@0.5.0 node_modules\azure-storage
        +-- extend@1.2.1
        +-- xmlbuilder@0.4.3
@@ -115,8 +115,8 @@ The following is an example of defining an entity. Note that **dueDate** is defi
 
 > [!NOTE]
 > There is also a **Timestamp** field for each record, which is set by Azure when an entity is inserted or updated.
-> 
-> 
+>
+>
 
 You can also use the **entityGenerator** to create entities. The following example creates the same task entity using the **entityGenerator**.
 
@@ -144,10 +144,10 @@ Example response:
 
 > [!NOTE]
 > By default, **insertEntity** does not return the inserted entity as part of the `response` information. If you plan on performing other operations on this entity, or wish to cache the information, it can be useful to have it returned as part of the `result`. You can do this by enabling **echoContent** as follows:
-> 
+>
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
-> 
-> 
+>
+>
 
 ## Update an entity
 There are multiple methods available to update an existing entity:
@@ -167,15 +167,15 @@ The following example demonstrates updating an entity using **replaceEntity**:
 
 > [!NOTE]
 > By default, updating an entity does not check to see if the data being updated has previously been modified by another process. To support concurrent updates:
-> 
+>
 > 1. Get the ETag of the object being updated. This is returned as part of the `response` for any entity related operation and can be retrieved through `response['.metadata'].etag`.
 > 2. When performing an update operation on an entity, add the ETag information previously retrieved to the new entity. For example:
-> 
+>
 > `entity2['.metadata'].etag = currentEtag;`
-> 
+>
 > 1. Perform the update operation. If the entity has been modified since you retrieved the ETag value, such as another instance of your application, an `error` will be returned stating that the update condition specified in the request was not satisfied.
-> 
-> 
+>
+>
 
 With **replaceEntity** and **mergeEntity**, if the entity that is being updated doesn't exist, then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, use **insertOrReplaceEntity** or **insertOrMergeEntity**.
 
@@ -237,7 +237,7 @@ To query a table, use the **TableQuery** object to build up a query expression u
 
 * **select** - the fields to be returned from the query
 * **where** - the where clause
-  
+
   * **and** - an `and` where condition
   * **or** - an `or` where condition
 * **top** - the number of items to fetch
@@ -283,8 +283,8 @@ You can delete an entity using its partition and row keys. In this example, the 
 
 > [!NOTE]
 > Consider using ETags when deleting items, to ensure that the item hasn't been modified by another process. See [Update an entity](#update-an-entity) for information on using ETags.
-> 
-> 
+>
+>
 
 ## Delete a table
 The following code deletes a table from a storage account.
@@ -417,5 +417,5 @@ For more information, see the following resources.
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
 [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-[Node.js web app using the Azure Table Service]: ../storage-nodejs-use-table-storage-web-site.md
+[Node.js web app using the Azure Table Service]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
