@@ -36,7 +36,7 @@ Collection of AssetFile entries for the encoding job.
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **AssetFile**<br /><br /> minOccurs="0" maxOccurs="1" |An [AssetFile element](media-services-output-metadata-schema.md#assetfile-root-element) that is part of the AssetFiles collection. |
+| **AssetFile**<br /><br /> minOccurs="0" maxOccurs="1" |An [AssetFile element](media-services-output-metadata-schema.md) that is part of the AssetFiles collection. |
 
 ## <a name="AssetFile "></a> AssetFile element
 You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
@@ -51,8 +51,8 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **Sources** |Collection of input/source media files, that was processed in order to produce this AssetFile. For more information, see [Source element](media-services-output-metadata-schema.md#source-element). |
-| **VideoTracks**<br /><br /> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks. For more information, see [VideoTracks element](media-services-output-metadata-schema.md#videotracks-element). |
+| **Sources** |Collection of input/source media files, that was processed in order to produce this AssetFile. For more information, see [Source element](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br /><br /> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks. For more information, see [VideoTracks element](media-services-output-metadata-schema.md). |
 | **AudioTracks**<br /><br /> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks. For more information, see [AudioTracks element](media-services-output-metadata-schema.md#audiotracks-element). |
 
 ## <a name="Sources "></a> Sources element
@@ -63,7 +63,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **Source**<br /><br /> minOccurs="1" maxOccurs="unbounded" |An input/source file used when generating this asset. For more information see [Source element](media-services-output-metadata-schema.md#source-element). |
+| **Source**<br /><br /> minOccurs="1" maxOccurs="unbounded" |An input/source file used when generating this asset. For more information see [Source element](media-services-output-metadata-schema.md). |
 
 ## <a name="Source "></a> Source element
 An input/source file used when generating this asset.  
@@ -115,7 +115,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **AudioTrack**<br /><br /> minOccurs="1" maxOccurs="unbounded" |A specific audio track in the parent AssetFile. For more information, see [AudioTrack element](media-services-output-metadata-schema.md#audiotrack-element). |
+| **AudioTrack**<br /><br /> minOccurs="1" maxOccurs="unbounded" |A specific audio track in the parent AssetFile. For more information, see [AudioTrack element](media-services-output-metadata-schema.md). |
 
 ## <a name="AudioTrack "></a> AudioTrack element
 A specific audio track in the parent AssetFile.  
@@ -136,7 +136,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **LoudnessMeteringResultParameters**<br /><br /> minOccurs="0" maxOccurs="1" |Loudness metering result parameters. For more information, see [LoudnessMeteringResultParameters element](media-services-output-metadata-schema.md#loudnessmeteringresultparameters-element). |
+| **LoudnessMeteringResultParameters**<br /><br /> minOccurs="0" maxOccurs="1" |Loudness metering result parameters. For more information, see [LoudnessMeteringResultParameters element](media-services-output-metadata-schema.md). |
 
 ## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters element
 Loudness metering result parameters.  

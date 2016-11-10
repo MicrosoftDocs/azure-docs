@@ -91,7 +91,7 @@ Some steps are shared between the different types of solutions. This article pro
 * [How to update the technical details of an offer or a SKU](marketplace-publishing-vm-image-post-publishing.md#1-how-to-update-the-technical-details-of-a-sku)
 * [How to add a new SKU under a listed offer](marketplace-publishing-vm-image-post-publishing.md#3-how-to-add-a-new-sku-under-a-listed-offer)
 * [How to change the data disk count for a listed SKU](marketplace-publishing-vm-image-post-publishing.md#4-how-to-change-the-data-disk-count-for-a-listed-sku)
-* [How to delete a listed offer from the Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#5.-how-to-delete-a-listed-offer-from-the-azure-marketplace)
+* [How to delete a listed offer from the Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md)
 * [How to delete a listed SKU from the Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#6-how-to-delete-a-listed-sku-from-the-azure-marketplace)
 * [How to delete the current version of a listed SKU from the Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#7-how-to-delete-the-current-version-of-a-listed-sku-from-the-azure-marketplace)
 * [How to revert listing price to production values](marketplace-publishing-vm-image-post-publishing.md#8-how-to-revert-listing-price-to-production-values)
