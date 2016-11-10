@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/15/2016
+ms.date: 11/10/2016
 ms.author: alkohli
 ---
 # Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware
@@ -27,7 +27,7 @@ You need administrator privileges to provision and connect to a virtual device. 
 ## Provisioning prerequisites
 The prerequisites to provision a virtual device on a host system running VMware ESXi 5.5 and above, are as follows.
 
-### For the StorSimple Manager service
+### For the StorSimple Device Manager service
 Before you begin, make sure that:
 
 * You have completed all the steps in [Prepare the portal for StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
