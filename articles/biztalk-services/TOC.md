@@ -9,7 +9,7 @@
 ## Plan and design
 ### [Administration and developer task list](biztalk-services-administration-and-development-task-list.md)
 
-## [Backup and restore](biztalk-backup-restore.md)
+## [Back up and restore](biztalk-backup-restore.md)
 
 ## Configure
 ### [Throttling](biztalk-throttling-thresholds.md)
