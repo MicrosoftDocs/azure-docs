@@ -8,12 +8,12 @@
 
 # How to
 
-## Streaming solutions
-### [Build an IoT solution](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
-### [Social media analysis](stream-analytics-twitter-sentiment-analysis-trends.md)
-### [Analyze sensor data with Power BI]https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
+## Build streaming solutions
+### [Internet of Things](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
+### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md)
+### [Sensor data with Power BI](https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
 ### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
-### [Reference architecture: Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
 
 ## Develop
 ### [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
@@ -49,6 +49,6 @@
 # Resources
 ## [Learning Path](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
 ## [MSDN blog](http://blogs.msdn.com/b/streamanalytics/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics)
