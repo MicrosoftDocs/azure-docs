@@ -2,9 +2,6 @@
 ## [What is Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 # Get Started
 ## [Enable Azure CDN](cdn-create-new-endpoint.md)
-## Develop
-### [.NET](cdn-app-dev-net.md)
-### [Node.js](cdn-app-dev-node.md)
 
 # How To
 ## Integrate
@@ -29,9 +26,6 @@
 ### [Override behavior with rules](cdn-rules-engine.md)
 ### [Get real-time alerts](cdn-real-time-alerts.md)
 
-## Automate
-### [Manage with PowerShell](cdn-manage-powershell.md)
-
 ## Analyze
 ### [Analyze usage patterns](cdn-analyze-usage-patterns.md)
 ### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
@@ -52,5 +46,9 @@
 ## [Azure CDN POP Locations](cdn-pop-locations.md)
 ## [REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
-
+# Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/cdn/)
+## [MSDN forum](https://social.msdn.microsoft.com/forums/home?forum=azurecdn)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+## [Service updates](https://azure.microsoft.com/updates/?product=cdn)
 
