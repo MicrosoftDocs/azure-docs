@@ -23,7 +23,7 @@ ms.author: kumudd
 
 Advisor identifies SQL server instances that can benefit from creating elastic database pools. Elastic database pools provide a simple cost effective solution to manage the performance goals for multiple databases that have varying usage patterns. More information about SQL elastic database pools can be found [here](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool/). These recommendations offer inline actions.
 
-![](./media/advisor-cost-recommendations/image22.png)
+![Advisor cost recommendations](./media/advisor-cost-recommendations/image22.png)
 
 # Related
 

@@ -23,7 +23,7 @@ This article includes frequently asked questions about Advisor.
 
 ## What is Azure Advisor?
 
-Azure Advisor is a personalized recommendation engine that helps you improve the cost effectiveness, performance, high availability and security of your Azure resources. 
+Azure Advisor is a personalized recommendation engine that helps you improve the cost effectiveness, performance, high availability, and security of your Azure resources. 
 
 ## How do I access Advisor?
 You can access Advisor through the Azure portal. Sign into the portal, select **Browse** and then scroll to **Azure Advisor**. You can also view Advisor recommendations through the virtual machine resource blade. Choose a virtual machine, and then scroll to Advisor recommendations in the menu. 
@@ -33,7 +33,7 @@ You can access Advisor through the Azure portal. Sign into the portal, select **
 To view Advisor recommendations, you must have access to at least one subscription. Your role must be either **Owner**, **Contributor**, or **Reader** to that subscription. Subscription owners and contributors can compute/generate recommendations. However, with a **Reader** role, you can only view Advisor recommendations. 
 
 ## What does Advisor check?
-Advisor analyzes your resource configuration and usage telemetry to detect risks and potential issues. It then then draws on Azure best practices to recommend solutions to improve the cost effectiveness, performance, high availability and security of your Azure resources. 
+Advisor analyzes your resource configuration and usage telemetry to detect risks and potential issues. It then draws on Azure best practices to recommend solutions to improve the cost effectiveness, performance, high availability, and security of your Azure resources. 
 Advisor generates recommendations in four categories:
 -	**High Availability:** to ensure and improve the continuity of your business critical applications running on Azure resources
 -	**Security:** to detect threats and vulnerabilities that could lead to potential security breaches

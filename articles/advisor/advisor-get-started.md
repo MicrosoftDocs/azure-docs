@@ -30,21 +30,21 @@ ms.author: kumudd
   2. Select **Browse**, and then type **Advisor** in the menu filter to launch the Advisor dashboard.
 3. On the Advisor dashboard, select the subscription for which you’d like to receive recommendations.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > The Advisor dashboard will display recommendations related to resources where you have been assigned the role of Owner, Contributor, or Reader to the subscription that the resource belongs to.
 
 ## How to access Advisor recommendations using the Azure portal
 
 To access Advisor recommendations, click [here ](https://portal.azure.com/?Microsoft_Azure_Expert=true#blade/Microsoft_Azure_Expert/AdvisorBlade). This launches the Advisor dashboard.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > If your subscription is not enabled to use > Advisor, an “Access denied” message or an HTTP 403 response occurs. Please [contact us](mailto:azexpsupport@microsoft.com) to resolve this issue.
 
 ## How to get recommendation details
 
 You can click on a recommendation to learn more about it. This displays the recommendation blade.
 
-![](./media/azure-advisor-get-started/image9.png)
+![](./media/advisor-get-started/image9.png)
 
 The recommendation blade offers additional information about the business issue or opportunity, including a pointer to documentation describing relevant details. It also contains information about actions you can perform to take advantage of an opportunity or resolve an issue.
 
@@ -70,14 +70,14 @@ By default, Advisor will scan and analyze resources across all your subscription
 
 ![](./media/advisor-get-started/image13.png)
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > **RBAC permissions:** You can refresh recommendations for resources where you have been assigned the role of **Owner or Contributor to the subscription** that the resource belongs to.
 
 Recommendation generation/refresh is a complex, resource intensive operation. It can take more than a few minutes to complete. The time taken varies based on the number of subscriptions you have access to, and the number of resources in each subscription. After you click the Refresh link, the Advisor dashboard displays a banner indicating recommendations are being refreshed. When the refresh operation is complete, the Advisor dashboard display a banner indicating the refresh operation has been completed. Recommendations can be refreshed every 10 minutes.
 
 **Dashboard banner when recommendation generation/refresh is in progress**
 
-![](./media/azure-advisor-get-started/image14.png)
+![](./media/advisor-get-started/image14.png)
 
 **Dashboard banner when recommendation generation/refresh is complete**
 
@@ -93,7 +93,7 @@ To access cached recommendations, submit a **GET** request to the following URL:
 
 where **&lt;SubID&gt;** is the subscription ID
 
-> [AZURE.NOTE]
+> [!NOTE]
 > **RBAC permissions:** You can get recommendations for resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.
 
 ### Get Advisor recommendation details using REST APIs
@@ -104,7 +104,7 @@ To access details of a particular recommendation, submit a **GET** request to th
 
 where **&lt;RecommendationID&gt;** is the full resource id of the recommendation returned from get recommendations call
 
-> [AZURE.NOTE]
+> [!NOTE]
 > **RBAC permissions:** You can get recommendations for resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.
 
 ## Related
