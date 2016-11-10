@@ -1,6 +1,5 @@
 # Overview
 ## [What is Key Vault?](key-vault-whatis.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Service overview](https://azure.microsoft.com/services/key-vault/)
 
 # Get started
@@ -43,5 +42,6 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)

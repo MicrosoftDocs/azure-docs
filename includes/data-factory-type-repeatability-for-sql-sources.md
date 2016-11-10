@@ -53,8 +53,6 @@ Nothing new had to be done. The copy activity ran the cleanup script to delete t
 ### Mechanism 2
 > [!IMPORTANT]
 > sliceIdentifierColumnName is not supported for Azure SQL Data Warehouse at this time. 
-> 
-> 
 
 Another mechanism to achieve repeatability is by having a dedicated column (**sliceIdentifierColumnName**) in the target Table. This column would be used by Azure Data Factory to ensure the source and destination stay synchronized. This approach works when there is flexibility in changing or defining the destination SQL Table schema. 
 
@@ -63,12 +61,14 @@ This column would be used by Azure Data Factory for repeatability purposes and i
 1. Define a column of type binary (32) in the destination SQL Table. There should be no constraints on this column. Let's name this column as ‘ColumnForADFuseOnly’ for this example.
 2. Use it in the copy activity as follows:
    
-     "sink":  
-     { 
+    ```
+    "sink":  
+    { 
    
-       "type": "SqlSink", 
-       "sliceIdentifierColumnName": "ColumnForADFuseOnly"
-     }
+        "type": "SqlSink", 
+        "sliceIdentifierColumnName": "ColumnForADFuseOnly"
+    }
+    ```
 
 Azure Data Factory will populate this column as per its need to ensure the source and destination stay synchronized. The values of this column should not be used outside of this context by the user. 
 

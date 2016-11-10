@@ -31,9 +31,8 @@ The Segments section of the UI allows you to work on segmenting your users based
 You can create a segment based on up to 10 criteria on a specific period up to 60 days in the past from the analytics section. 
 For example, you can create a segment based on the people who have viewed certain pages or searched for specific content within your app within the last 10 days. This information is available in the analytics section. So, you can use it to create a segment, and then set up a push notification to target this subset of users to get them to come back to the application. 
 
-> Note: Once a segment has been calculated, it cannot be edited; it can only be cloned (copied) or destroyed (deleted). A segment can be cloned within the same application (with the same AppID), and it can also be cloned into other applications (with a different AppID). 
-> 
-> 
+> [!NOTE]
+> Once a segment has been calculated, it cannot be edited; it can only be cloned (copied) or destroyed (deleted). A segment can be cloned within the same application (with the same AppID), and it can also be cloned into other applications (with a different AppID). 
 
  ![segments1][35] 
 

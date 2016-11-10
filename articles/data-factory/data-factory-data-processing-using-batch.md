@@ -1,4 +1,4 @@
-﻿---
+---
 title: Process large-scale datasets using Data Factory and Batch | Microsoft Docs
 description: Describes how to process huge amounts of data in an Azure Data Factory pipeline by using parallel processing capability of Azure Batch.
 services: data-factory
@@ -468,7 +468,9 @@ Linked services link data stores or compute services to an Azure data factory. I
 2. Click **New data store** on the command bar and choose **Azure storage.** You should see the JSON script for creating an Azure Storage linked service in the editor.
 
    ![](./media/data-factory-data-processing-using-batch/image7.png)
+
 3. Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#manage-your-storage-account).
+
 4. Click **Deploy** on the command bar to deploy the linked service.
 
    ![](./media/data-factory-data-processing-using-batch/image8.png)

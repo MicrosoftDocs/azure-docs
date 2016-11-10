@@ -1,4 +1,4 @@
-﻿---
+---
 title: Move data to and from SQL Server | Microsoft Docs
 description: Learn about how to move data to/from SQL Server database that is on-premises or in an Azure VM using Azure Data Factory.
 services: data-factory
@@ -456,7 +456,8 @@ If username and password are specified, gateway uses them to impersonate the spe
          }
     }
 
-See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an SQL Server data source.
+
+See [Setting Credentials and Security](data-factory-data-management-gateway.md#encrypting-credentials) for details about setting credentials for an SQL Server data source.
 
 ## SQL Server dataset type properties
 In the samples, you have used a dataset of type **SqlServerTable** to represent a table in a SQL Server database.  
@@ -467,7 +468,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 | Property | Description | Required |
 | --- | --- | --- |
-| tableName |Name of the table in the SQL Server Database instance that linked service refers to. |Yes |
+| tableName |Name of the table or view in the SQL Server Database instance that linked service refers to. |Yes |
 
 ## SQL Server copy activity type properties
 If you are moving data from a SQL Server database, you set the source type in the copy activity to **SqlSource**. Similarly, if you are moving data to a SQL Server database, you set the sink type in the copy activity to **SqlSink**. This section provides a list of properties supported by SqlSource and SqlSink.
@@ -531,11 +532,13 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 6. **Verify connection**: To connect to the SQL Server using fully qualified name, use SQL Server Management Studio from a different machine. For example: "<machine>.<domain>.corp.<company>.com,1433."
 
    > [!IMPORTANT]
+
    > See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for detailed information.
    >
    > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
    >
    >
+
 
 ## Identity columns in the target database
 This section provides an example that copies data from a source table with no identity column to a destination table with an identity column.

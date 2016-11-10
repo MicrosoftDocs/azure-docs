@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use custom activities in an Azure Data Factory pipeline
 description: Learn how to create custom activities and use them in an Azure Data Factory pipeline.
 services: data-factory
@@ -459,7 +459,9 @@ Linked services link data stores or compute services to an Azure data factory. I
 #### Create Azure Storage linked service
 1. Click the **Author and deploy** tile on the **DATA FACTORY** blade for **CustomActivityFactory**. You see the Data Factory Editor.
 2. Click **New data store** on the command bar and choose **Azure storage**. You should see the JSON script for creating an Azure Storage linked service in the editor.
+
 3. Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#manage-your-storage-account).
+
 4. Click **Deploy** on the command bar to deploy the linked service.
 
 #### Create Azure Batch linked service
@@ -698,6 +700,7 @@ Debugging consists of a few basic techniques:
 If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage.
 
 ## Copy/Move data
+
 Copy Activity copies data from a **source** data store to a **sink** data store. See [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) for the list of data stores supported as sources and sinks for the Copy Activity.
 
 If you need to move data to/from a data store that is not supported by the **Copy Activity**, you may use the **custom activity** in Data Factory with your own logic for copying/moving the data. See [HTTP Data Downloader Sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) on GitHub.  
@@ -718,6 +721,7 @@ You can declare extended properties in the activity JSON as shown below:
         "DataFactoryName": "CustomActivityFactory"
       }
     },
+
 
 In the code, there are two extended properties: **SliceStart** and **DataFactoryName**. The value for SliceStart is based on the SliceStart system variable. See [System Variables](data-factory-scheduling-and-execution.md#data-factory-functions-and-system-variables) for a list of supported system variables. The value for DataFactoryName is hard-coded to "CustomActivityFactory".
 

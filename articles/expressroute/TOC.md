@@ -43,12 +43,12 @@
 
 
 # Reference
-## [APIs-Resource Manager](https://msdn.microsoft.com/library/azure/mt586720)
-## [APIs-Service Management](https://msdn.microsoft.com/library/azure/dn606310)
-## [PowerShell Cmdlets-Resource Manager](https://msdn.microsoft.com/library/azure/mt163510(v=azure.300))
-## [PowerShell Cmdlets-Service Management](https://msdn.microsoft.com/library/azure/dn683813)
+
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
 ## [Router configuration setup samples](expressroute-config-samples-routing.md)
 ## [Router configuration samples for NAT](expressroute-config-samples-nat.md)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
+## [Classic REST](https://msdn.microsoft.com/library/azure/dn606310)
 
 # Related 
 ## [Virtual Network](../virtual-network/index.md)
