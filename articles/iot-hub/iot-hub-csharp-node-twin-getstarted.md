@@ -186,7 +186,7 @@ Use the following resources to learn how to:
 [lnk-identity]: iot-hub-devguide-identity-registry.md
 
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
-[lnk-methods-tutorial]: iot-hub-c2d-methods.md
+[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-twin-how-to-configure]: iot-hub-csharp-node-twin-how-to-configure.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
