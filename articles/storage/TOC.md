@@ -49,39 +49,40 @@
 
 ## [Create a storage account](storage-create-storage-account.md)
 
-## Plan and design
-### [Replication](storage-redundancy.md)
-### [Scalability and performance targets](storage-scalability-targets.md)
-### [Performance and scalability checklist](storage-performance-checklist.md)
-### [Concurrency](storage-concurrency.md)
-
-## Store blobs
+## Use blobs
 ### [Service overview](https://msdn.microsoft.com/library/dd179376.aspx)
 ### [Hot and cool tiers](storage-blob-storage-tiers.md)
 ### [Custom domains](storage-custom-domain-name.md)
 ### [Anonymous access to blobs](storage-manage-access-to-resources.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)
 
-## Store queues
+## Use queues
 ### [Concepts](https://msdn.microsoft.com/library/dd179353.aspx)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=queue)
 
-## Store tables
+## Use tables
 ### [Overview](https://msdn.microsoft.com/library/dd179463.aspx)
 ### [Table design guide](storage-table-design-guide.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 
-## Store files
+## Use files
 ### [Overview](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
 ### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 
-## Store Virtual Machine Disks
+## Use Virtual Machine Disks
 ### Premium Storage
 #### [High-performance storage for VM workloads](storage-premium-storage.md)
 #### [Migrate to Premium Storage](storage-migration-to-premium-storage.md)
 #### [Design for high performance](storage-premium-storage-performance.md)
-### [Back up VM disks with incremental snapshots](storage-incremental-snapshots.md)
+### Standard Storage
+#### [Back up VM disks with incremental snapshots](storage-incremental-snapshots.md)
+
+## Plan and design
+### [Replication](storage-redundancy.md)
+### [Scalability and performance targets](storage-scalability-targets.md)
+### [Performance and scalability checklist](storage-performance-checklist.md)
+### [Concurrency](storage-concurrency.md)
 
 ## Develop
 ### [Samples](storage-samples.md)
@@ -152,14 +153,12 @@
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
 ## [Azure Storage client tools](storage-explorers.md)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
+## [MSDN Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 
 ## Azure Storage Explorer
 ### [Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Manage blobs with Storage Explorer (Preview)](../vs-azure-tools-storage-explorer-blobs.md)
-
-## Community support
-### [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
-### [MSDN Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 
 ## Nuget packages
 ### [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
