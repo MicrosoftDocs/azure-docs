@@ -38,51 +38,49 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
     A sample output is shown below.
    
-        ````
-        Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
-        \hcsmdssoftwareupdate.exe -Credential contoso\John
-   
-        Confirm
-   
-        This operation starts the hotfix installation and could reboot one or
-        both of the controllers. If the device is serving I/Os, these will not
-        be disrupted. Are you sure you want to continue?
-        [Y] Yes [N] No [?] Help (default is "Y"): Y
-   
-        ````
+    ```
+    Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
+    \hcsmdssoftwareupdate.exe -Credential contoso\John
+
+    Confirm
+
+    This operation starts the hotfix installation and could reboot one or
+    both of the controllers. If the device is serving I/Os, these will not
+    be disrupted. Are you sure you want to continue?
+    [Y] Yes [N] No [?] Help (default is "Y"): Y
+    ```
+
 4. Type **Y** when prompted to confirm the hotfix installation.
    
    > [!IMPORTANT]
    > If installing Update 2.2, only install the binary file prefaced with 'all-hcsmdssoftwareudpate'. Do not install the Cis and the MDS agent update prefaced with all-cismdsagentupdatebundle. Failure to do so will result in an error. 
-   > 
-   > 
+
 5. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet. The update will first complete on the passive controller. Once the passive controller is updated, there will be a failover and the update will then get applied on the other controller. The update is complete when both the controllers are updated.
    
     The following sample output shows the update in progress. The `RunInprogress` will be `True` when the update is in progress.
    
-        ````
-        Controller0>Get-HcsUpdateStatus
-        RunInprogress       : True
-        LastHotfixTimestamp :
-        LastUpdateTimestamp : 5/5/2016 2:04:02 AM
-        Controller0Events   :
-        Controller1Events   :
-   
-        ````
+    ```
+    Controller0>Get-HcsUpdateStatus
+    RunInprogress       : True
+    LastHotfixTimestamp :
+    LastUpdateTimestamp : 5/5/2016 2:04:02 AM
+    Controller0Events   :
+    Controller1Events   :
+    ```
    
      The following sample output indicates that the update is finished. The `RunInProgress` will be `False` when the update has completed.
    
-        ````
-        Controller0>Get-HcsUpdateStatus
-        RunInprogress       : False
-        LastHotfixTimestamp : 5/17/2016 9:15:55 AM
-        LastUpdateTimestamp : 5/17/2016 9:06:07 AM
-        Controller0Events   :
-        Controller1Events   :
+    ```
+    Controller0>Get-HcsUpdateStatus
+    RunInprogress       : False
+    LastHotfixTimestamp : 5/17/2016 9:15:55 AM
+    LastUpdateTimestamp : 5/17/2016 9:06:07 AM
+    Controller0Events   :
+    Controller1Events   :
+    ```
 
-        ````
-
-    > [AZURE.NOTE] Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
+    > [!NOTE]
+    > Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
 
 1. After the software update is complete, verify the system software versions. Type:
    

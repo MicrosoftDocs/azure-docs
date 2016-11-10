@@ -101,12 +101,14 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 1. Perform this step only if inner rails are not installed on your device. Typically, the inner rails are installed at the factory. If rails are not installed, then install the left-rail and right-rail slides to the sides of the enclosure chassis. They attach using six metric screws on each side. To help with orientation, the rail slides are marked **LH – Front** and **RH – Front**, and the end that is affixed towards the rear of the enclosure has a tapered end.<br/>
    
     ![Attaching rail slides to enclosure chassis](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+
     **Attaching inner rail slides to the sides of the enclosure**
    
-       Label | Description
-       ----- | -----------
-       1     | M 3x4 button-head screws
-       2     | Chassis slides
+    Label | Description
+    ----- | -----------
+    1     | M 3x4 button-head screws
+    2     | Chassis slides
+
 2. Attach the outer left rail and outer right rail assemblies to the rack cabinet vertical members. The brackets are marked **LH**, **RH**, and **This side up** to guide you through the correct orientation.
 3. Locate the rail pins at the front and rear of the rail assembly. Extend the rail to fit between the rack posts and insert the pins into the front and rear rack post vertical member holes. Be sure that the rail assembly is level.
 4. Use two of the provided metric screws to secure the rail assembly to the rack vertical members. Use one screw on the front and one on the rear.
@@ -193,16 +195,15 @@ To support this redundant controller failover, you need to cable your device net
 
     **Network cabling for your device**
 
-
-    |Label | Description |
-    |----- | ----------- |
-    | A    | LAN with Internet access |
-    | B    | Controller 0 |
-    | C    | PCM 0 |
-    | D    | Controller 1 |
-    | E    | PCM 1 |
-    | F, G | Hosts |
-    | 0-5  | Network interfaces |
+   |Label | Description |
+   |----- | ----------- |
+   | A    | LAN with Internet access |
+   | B    | Controller 0 |
+   | C    | PCM 0 |
+   | D    | Controller 1 |
+   | E    | PCM 1 |
+   | F, G | Hosts |
+   | 0-5  | Network interfaces |
 
 
 
