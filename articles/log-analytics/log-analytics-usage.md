@@ -21,9 +21,9 @@ ms.author: banders
 Log Analytics collects data and sends it to the OMS service periodically.  You can use the **Log Analytics Usage** dashboard to view how much data is being sent to the OMS service. The dashboard also shows you how much data is being sent by solutions and how often your servers are sending data.
 
 > [!NOTE]
-> If you have a free account, you're limited to sending 500 MB of data to the OMS service daily. If you reach the daily limit, data analysis will stop and resume at the start of the next day. You'll also need to resend any data that wasn't accepted or processed by OMS.
+> If you have a free account, you're limited to sending 500 MB of data to the OMS service daily. If you reach the daily limit, data analysis stops and resumes at the start of the next day. In that case, you need to resend any data that wasn't accepted or processed by OMS.
 
-If you have exceeded your daily usage limit, or if you are near your limit, you can optionally remove a solution to reduce the amount of data that you send to the OMS service. For more information about removing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+If you have exceeded or are near your daily usage limit, you can optionally remove a solution to reduce the amount of data to send to the OMS service. For more information about removing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
 ![usage dashboard](./media/log-analytics-usage/usage-dashboard01.png)
 
@@ -45,8 +45,8 @@ The **Log Analytics usage** dashboard displays the following information:
 - List of queries
 
 ## To work with usage data
-1. If you haven't already done so, sign in to the [Azure Portal](https://portal.azure.com) using your Azure subscription.
-2. On the **Hub** menu, click **More services** and in the list of resources, type **Log Analytics**. As you begin typing, the list will filter based on your input. Click **Log Analytics**.  
+1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
+2. On the **Hub** menu, click **More services** and in the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
     ![Azure hub](./media/log-analytics-usage/hub.png)
 3. The **Log Analytics** dashboard shows a list of your workspaces. Select a workspace.
 4. In the *workspace* dashboard, click **Log Analytics usage**.
