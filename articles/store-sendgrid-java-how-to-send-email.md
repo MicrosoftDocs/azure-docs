@@ -83,7 +83,7 @@ to send email using SMTP is to do the following:
    class, and in your implementation of the
    *getPasswordAuthentication* method,
    return your SendGrid user name and password.  
-   
+
        private class SMTPAuthenticator extends javax.mail.Authenticator {
        public PasswordAuthentication getPasswordAuthentication() {
           String username = SMTP_AUTH_USER;
@@ -92,11 +92,11 @@ to send email using SMTP is to do the following:
        }
 2. Create an authenticated email session through a
    *javax.mail.Session* object.  
-   
+
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
 3. Create your message and assign **To**, **From**, **Subject** and
-   content values. This is shown in the [How To: Create an Email](#bkmk_HowToCreateEmail) section.
+   content values. This is shown in the [How To: Create an Email](#how-to-create-an-email) section.
 4. Send the message through a
    *javax.mail.Transport* object. This
    is shown in the [How To: Send an Email][How to: Send an Email]
@@ -139,7 +139,7 @@ The following code shows you how to add an attachment.
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles\\"; 
+    String attachmentPath = "c:\\myfiles\\";
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -158,29 +158,29 @@ see [Filter Settings][Filter Settings].
 
 * The following shows how to insert a footer filter that results in
   HTML text appearing at the bottom of the email being sent.
-  
-      message.addHeader("X-SMTPAPI", 
-          "{\"filters\": 
-          {\"footer\": 
-          {\"settings\": 
-          {\"enable\":1,\"text/html\": 
+
+      message.addHeader("X-SMTPAPI",
+          "{\"filters\":
+          {\"footer\":
+          {\"settings\":
+          {\"enable\":1,\"text/html\":
           \"<html><b>Thank you</b> for your business.</html>\"}}}}");
 * Another example of a filter is click tracking. Let’s say that your
   email text contains a hyperlink, such as the following, and you want
   to track the click rate:
-  
+
       messagePart.setContent(
           "Hello,
-          <p>This is the body of the message. Visit 
+          <p>This is the body of the message. Visit
           <a href='http://www.contoso.com'>http://www.contoso.com</a>.</p>
-          Thank you.", 
+          Thank you.",
           "text/html");
 * To enable the click tracking, use the following code:
-  
-      message.addHeader("X-SMTPAPI", 
-          "{\"filters\": 
-          {\"clicktrack\": 
-          {\"settings\": 
+
+      message.addHeader("X-SMTPAPI",
+          "{\"filters\":
+          {\"clicktrack\":
+          {\"settings\":
           {\"enable\":1}}}}");
 
 ## How to: Update email properties
@@ -189,7 +189,7 @@ appended using **add*Property***.
 
 For example, to specify **ReplyTo** addresses, use the following:
 
-    InternetAddress addresses[] = 
+    InternetAddress addresses[] =
         { new InternetAddress("john@contoso.com"),
           new InternetAddress("wendy@contoso.com") };
 
@@ -197,7 +197,7 @@ For example, to specify **ReplyTo** addresses, use the following:
 
 To add a **Cc** recipient, use the following:
 
-    message.addRecipient(Message.RecipientType.CC, new 
+    message.addRecipient(Message.RecipientType.CC, new
     InternetAddress("john@contoso.com"));
 
 ## How to: Use additional SendGrid services
