@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure Advisor
+title: Advisor Security Recommendations
 description: Use Azure Advisor to help improve the security of your Azure deployments.
 services: advisor
 documentationcenter: NA
@@ -17,8 +17,13 @@ ms.date: 11/16/2016
 ms.author: kumudd
 ---
 # Azure Advisor Security Recommendations
-Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with Azure Security Center to provide you with security recommendations. 
+
+Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with Azure Security Center to provide you with security recommendations. You can get security recommendations using Advisor from the **Security** tab of the Advisor dashboard.
+
 Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It periodically analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations. The recommendations guide you through the process of configuring the needed controls. 
+
+![Advisor security recommendations](./media/advisor-security-recommendations/advisor-security-recommendations.png)
+
 For more information about security recommendations, see [Managing security recommendations in Azure Security Center](https://azure.microsoft.com/en-us/documentation/articles/security-center-recommendations/)
 ## Related
 
