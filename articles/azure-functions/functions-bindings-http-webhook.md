@@ -59,11 +59,78 @@ For more information, see [Validate requests with API keys](#validate).
 <a name="url"></a>
 
 ## URL to trigger the function
-To trigger a function, send an HTTP request to the following URL:
+By default when you create a function for an HTTP trigger, or WebHook, the function is addressable with a route of the form:
 
-    https://{function app name}.azurewebsites.net/api/{function name}
+    http://<yourapp>.azurewebsites.net/api/<funcname> 
 
-If you need to validate API keys in HTTP requests, see [Validate requests with API keys](#validate) for information on crafting your web request.
+You can customize this route using the optional `route` property on the HTTP trigger's input binding. As an example, the following *function.json* file defines a `route` property for an HTTP trigger:
+
+    {
+      "bindings": [
+        {
+          "type": "httpTrigger",
+          "name": "req",
+          "direction": "in",
+          "methods": [ "get" ],
+          "route": "products/{category:alpha}/{id:int?}"
+        },
+        {
+          "type": "http",
+          "name": "res",
+          "direction": "out"
+        }
+      ]
+    }
+
+Using this configuration, the function is now addressable with the following route instead of the original route.
+
+    http://<yourapp>.azurewebsites.net/api/products/electronics/357
+
+This allows the function code to support two parameters in the address, `category` and `id`. You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters. The following C# function code makes use of both parameters.
+
+    public static Task<HttpResponseMessage> Run(HttpRequestMessage request, string category, int? id, 
+                                                    TraceWriter log)
+    {
+        if (id == null)
+           return  req.CreateResponse(HttpStatusCode.OK, $"All {category} items were requested.");
+        else
+           return  req.CreateResponse(HttpStatusCode.OK, $"{category} item with id = {id} has been requested.");
+    }
+
+Here is Node.js function code to use the same route parameters.
+
+    module.exports = function (context, req) {
+
+        var category = context.bindingData.category;
+        var id = context.bindingData.id;
+
+        if (!id) {
+            context.res = {
+                // status: 200, /* Defaults to 200 */
+                body: "All " + category + " items were requested."
+            };
+        }
+        else {
+            context.res = {
+                // status: 200, /* Defaults to 200 */
+                body: category + " item with id = " + id + " was requested."
+            };
+        }
+
+        context.done();
+    } 
+
+By default, all function routes are prefixed with *api*. You can also customize or remove the prefix using the `http.routePrefix` property in your *host.json* file. The following example removes the *api* route prefix by using an empty string for the prefix in the *host.json* file.
+
+    {
+      "http": {
+        "routePrefix": ""
+      }
+    }
+
+For detailed information on how to update the *host.json* file for your function, See, [How to update function app files](functions-reference.md#fileupdate). 
+
+For information on other properties you can configure in your *host.json* file, see [host.json reference](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 
 <a name="httptriggerusage"></a>
 
