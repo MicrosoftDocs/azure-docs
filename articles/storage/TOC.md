@@ -125,17 +125,19 @@
 
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/storage/)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/storage)
-## [Java](https://docs.microsoft.com/java/api/index)
+## [PowerShell](/powershell/storage/)
+## [Azure CLI](/cli/azure/storage/)
+## [Java](/java/api/)
+
 ## .NET
-### [Blob, Queue, Table, and File](https://docs.microsoft.com/dotnet/api/)
-### [.NET Resource Provider](https://msdn.microsoft.com/library/azure/mt131037.aspx)
-## [.NET client library](https://msdn.microsoft.com/library/azure/mt347887.aspx)
+### [Blob, queue, table, and file](https://msdn.microsoft.com/library/azure/mt347887.aspx)
+### [Resource provider](/dotnet/api/)
+### [Data movement](/dotnet/api/)
+
 ## REST
-### [Blob, Queue, Table, and File](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-### [Resource Provider](https://docs.microsoft.com/rest/api/storage/)
-### [Import/Export](https://msdn.microsoft.com/library/azure/dn529096.aspx)
+### [Blob, queue, table, and file](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+### [Resource provider](/rest/api/storage/)
+### [Import/export](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
 
 
 # Related
@@ -165,6 +167,10 @@
 ### [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 
 ## Source code
+### .NET
+#### [Blob, queue, table, and file](https://github.com/Azure/azure-storage-net)
+#### [Data movement](https://github.com/Azure/azure-storage-net-data-movement)
+#### [Resource provider](https://github.com/Azure/azure-sdk-for-net)
 ### [Node.js](http://azure.github.io/azure-storage-node/)
 ### [Java](https://github.com/Azure/azure-storage-java)
 ### [C++](https://github.com/Azure/azure-storage-cpp)
