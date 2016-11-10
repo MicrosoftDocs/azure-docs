@@ -81,7 +81,7 @@ When the Hive query is more complicated and has multiple lines, editing queries 
 By default, after Hive query is submitted in Hadoop Command Line, the progress of the Map/Reduce job is printed out on screen. To suppress the screen print of the Map/Reduce job progress, you can use an argument `-S` ("S" in upper case) in the command line as follows:
 
     hive -S -f "<path to the .hql file>"
-    hive -S -e "<Hive queries>"
+.    hive -S -e "<Hive queries>"
 
 #### Submit Hive queries in Hive command console.
 You can also first enter the Hive command console by running command `hive` in Hadoop Command Line, and then submit Hive queries in Hive command console. Here is an example. In this example, the two red boxes highlight the commands used to enter the Hive command console, and the Hive query submitted in Hive command console, respectively. The green box highlights the output from the Hive query.
@@ -91,7 +91,6 @@ You can also first enter the Hive command console by running command `hive` in H
 The previous examples directly output the Hive query results on screen. You can also write the output to a local file on the head node, or to an Azure blob. Then, you can use other tools to further analyze the output of Hive queries.
 
 **Output Hive query results to a local file.**
-
 To output Hive query results to a local directory on the head node, you have to submit the Hive query in the Hadoop Command Line as follows:
 
     hive -e "<hive query>" > <local path in the head node>
@@ -118,7 +117,7 @@ If you open the default container of the Hadoop cluster using Azure Storage Expl
 You can also use the Query Console (Hive Editor) by entering a URL of the form *https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* into a web browser. You must be logged in the see this console and so you need your Hadoop cluster credentials here.
 
 ### <a name="ps"></a> 3. Submit Hive queries with Azure PowerShell Commands
-You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell/).
+You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Create Hive database and tables
 The Hive queries are shared in the [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) and can be downloaded from there.
