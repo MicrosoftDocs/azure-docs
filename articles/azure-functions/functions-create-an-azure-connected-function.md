@@ -25,8 +25,9 @@ ms.author: rachelap@microsoft.com
 In this short video, you learn how to create an Azure Function that listens to messages on an Azure Queue and copies the messages to an Azure Blob.
 
 ## Watch the video
-[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
-
+>[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
+>
+>
 
 ## Create an input queue trigger function
 The goal of this function is to write a message to a queue every 10 seconds. To accomplish this, you must create the function and message queues, and add the code to write messages to the newly created queues.

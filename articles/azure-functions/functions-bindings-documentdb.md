@@ -88,7 +88,7 @@ See the language-specific sample that uses this input binding to update the docu
 * [Node.js](#innodejs)
 
 <a name="incsharp"></a>
-### Input sample in C\
+### Input sample in C# #
     public static void Run(string myQueueItem, dynamic inputDocument)
     {   
       inputDocument.text = "This has changed.";
@@ -96,7 +96,7 @@ See the language-specific sample that uses this input binding to update the docu
 
 <a name="infsharp"></a>
 
-### Input sample in F\
+### Input sample in F# #
     open FSharp.Interop.Dynamic
     let Run(myQueueItem: string, inputDocument: obj) =
       inputDocument?text <- "This has changed."
@@ -198,7 +198,7 @@ See the language-specific sample that uses this output binding to add documents 
 
 <a name="outcsharp"></a>
 
-### Output sample in C\
+### Output sample in C# #
     #r "Newtonsoft.Json"
 
     using System;
@@ -221,7 +221,7 @@ See the language-specific sample that uses this output binding to add documents 
 
 <a name="outfsharp"></a>
 
-### Output sample in F\
+### Output sample in F# #
     open FSharp.Interop.Dynamic
     open Newtonsoft.Json
 

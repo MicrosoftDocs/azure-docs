@@ -125,7 +125,7 @@ See the language-specific sample that processes a Service Bus queue message.
 
 <a name="triggercsharp"></a>
 
-### Trigger sample in C\
+### Trigger sample in C# #
     public static void Run(string myQueueItem, TraceWriter log)
     {
         log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
@@ -133,7 +133,7 @@ See the language-specific sample that processes a Service Bus queue message.
 
 <a name="triggerfsharp"></a>
 
-### Trigger sample in F\
+### Trigger sample in F# #
     let Run(myQueueItem: string, log: TraceWriter) =
         log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 
@@ -233,7 +233,7 @@ See the language-specific sample that sends a message to the service bus queue.
 
 <a name="outcsharp"></a>
 
-### Output sample in C\
+### Output sample in C# #
     public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
     {
         string message = $"Service Bus queue message created at: {DateTime.Now}";
@@ -253,7 +253,7 @@ Or, to create multiple messages:
 
 <a name="outfsharp"></a>
 
-### Output sample in F\
+### Output sample in F# #
     let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
         let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
         log.Info(message)

@@ -117,7 +117,7 @@ See the language-specific sample that uses the input record from the binding. Th
 
 <a name="inputcsharp"></a>
 
-### Input sample in C\
+### Input sample in C# #
     #r "Newtonsoft.Json"    
     using Newtonsoft.Json.Linq;
 
@@ -131,7 +131,7 @@ See the language-specific sample that uses the input record from the binding. Th
 
 <!--
 <a name="inputfsharp"></a>
-### Input sample in F\# 
+### Input sample in F# ## 
 
     #r "Newtonsoft.Json"    
     open Newtonsoft.Json.Linq
@@ -224,7 +224,7 @@ See the language-specific sample that creates a record in the Mobile Apps table 
 
 <a name="outcsharp"></a>
 
-### Output sample in C\
+### Output sample in C# #
     public static void Run(string myQueueItem, out object record)
     {
         record = new {
@@ -234,7 +234,7 @@ See the language-specific sample that creates a record in the Mobile Apps table 
 
 <!--
 <a name="outfsharp"></a>
-### Output sample in F\# 
+### Output sample in F# ## 
 -->
 <a name="outnodejs"></a>
 
