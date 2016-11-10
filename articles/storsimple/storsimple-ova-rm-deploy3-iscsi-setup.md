@@ -13,25 +13,28 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/24/2016
+ms.date: 11/09/2016
 ms.author: alkohli
 ---
 # Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server
 ![iscsi setup process flow](./media/storsimple-ova-rm-deploy3-iscsi-setup/iscsi4.png)
 
 ## Overview
+
 This deployment tutorial applies to the Microsoft Azure StorSimple Virtual Array. This tutorial describes how to perform the initial setup, register your StorSimple iSCSI server, complete the device setup, and then create, mount, initialize, and format volumes on your StorSimple Virtual Array configured as an iSCSI server. 
 
 The procedures described here take approximately 30 minutes to 1 hour to complete. The information published in this article applies to StorSimple Virtual Arrays only.
 
 ## Setup prerequisites
+
 Before you configure and set up your StorSimple Virtual Array, make sure that:
 
-* You have provisioned a virtual array and connected to it as described in [Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Deploy StorSimple Virtual Array  - Provision a virtual array in VMware](storsimple-ova-deploy2-provision-vmware.md).
-* You have the service registration key from the StorSimple Device Manager service that you created to manage your StorSimple Virtual Arrays. For more information, see **Step 2: Get the service registration key** in [Deploy StorSimple Virtual Array - Prepare the portal](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+* You have provisioned a virtual array and connected to it as described in [Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Deploy StorSimple Virtual Array  - Provision a virtual array in VMware](storsimple-ova-rm-deploy2-provision-vmware.md).
+* You have the service registration key from the StorSimple Device Manager service that you created to manage your StorSimple Virtual Arrays. For more information, see **Step 2: Get the service registration key** in [Deploy StorSimple Virtual Array - Prepare the portal](storsimple-ova-rm-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 * If this is the second or subsequent virtual array that you are registering with an existing StorSimple Device Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see **Get the service data encryption key** in [Use the Web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
 ## Step-by-step setup
+
 Use the following step-by-step instructions to set up and configure your StorSimple Virtual Array:
 
 * [Step 1: Complete the local web UI setup and register your device](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
@@ -40,7 +43,9 @@ Use the following step-by-step instructions to set up and configure your StorSim
 * [Step 4: Mount, initialize, and format a volume](#step-4-mount-initialize-and-format-a-volume)
 
 ## Step 1: Complete the local web UI setup and register your device
+
 #### To complete the setup and register the device
+
 1. Open a browser window. To connect to the web UI type:
    
     `https://<ip-address of network interface>`
@@ -103,7 +108,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
    4. Click **Apply**. This will validate and apply the configured time settings.
 9. Configure the cloud settings for your device. In this step, you will complete the local device configuration and then register the device with your StorSimple Device Manager service.
    
-   1. Enter the **Service registration key** that you got in **Step 2: Get the service registration key** in [Deploy StorSimple Virtual Array - Prepare the Portal](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+   1. Enter the **Service registration key** that you got in **Step 2: Get the service registration key** in [Deploy StorSimple Virtual Array - Prepare the Portal](storsimple-ova-rm-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
    2. If this is not the first device that you are registering with this service, you will need to provide the **Service data encryption key**. This key is required with the service registration key to register additional devices with the StorSimple Device Manager service. For more information, refer to [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) on your local web UI.
    3. Click **Register**. This will restart the device. You may need to wait for 2-3 minutes before the device is successfully registered. After the device has restarted, you will be taken to the sign in page.
       
@@ -115,9 +120,11 @@ Use the following step-by-step instructions to set up and configure your StorSim
     ![Register device](./media/storsimple-ova-rm-deploy3-iscsi-setup/deployis1m.png)
 
 ## Step 2: Configure the device as iSCSI server
+
 Perform the following steps in the Azure portal to complete the required device setup.
 
 #### To configure the device as iSCSI server
+
 1. Go to your StorSimple Device Manager service and then go to **Management > Devices**. In the **Devices** blade, select the device you just created. This device would show up as **Ready to set up**.
    
     ![Configure device as iSCSI server](./media/storsimple-ova-rm-deploy3-iscsi-setup/deployis1m.png) 
@@ -140,6 +147,7 @@ Perform the following steps in the Azure portal to complete the required device 
     ![Configure device as iSCSI server](./media/storsimple-ova-rm-deploy3-iscsi-setup/deployis9m.png)
 
 ## Step 3: Add a volume
+
 1. In the **Devices** blade, select the device you just configured as an iSCSI server. Click **...** (alternatively right-click in this row) and from the context menu, select **Add volume**. You can also click **+ Add volume** from the command bar. This opens up the **Add volume** blade.
    
     ![Add a volume](./media/storsimple-ova-rm-deploy3-iscsi-setup/deployis10m.png)
@@ -166,9 +174,11 @@ Perform the following steps in the Azure portal to complete the required device 
    ![Add a volume](./media/storsimple-ova-rm-deploy3-iscsi-setup/deployis20m.png)
 
 ## Step 4: Mount, initialize, and format a volume
+
 Perform the following steps to mount, initialize, and format your StorSimple volumes on a Windows Server host.
 
 #### To mount, initialize, and format a volume
+
 1. Open the **iSCSI initiator** app on the appropriate server.
 2. In the **iSCSI Initiator Properties** window, on the **Discovery** tab, click **Discover Portal**.
    
@@ -211,12 +221,15 @@ Perform the following steps to mount, initialize, and format your StorSimple vol
     ![volumes online](./media/storsimple-ova-rm-deploy3-iscsi-setup/image33.png)
 
 ## Next steps
+
 Learn how to use the local web UI to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
 ## Appendix A: Get the IQN of a Windows Server host
+
 Perform the following steps to get the iSCSI Qualified Name (IQN) of a Windows host that is running Windows Server 2012.
 
 #### To get the IQN of a Windows host
+
 1. Start the Microsoft iSCSI initiator on your Windows host.
 2. In the **iSCSI Initiator Properties** window, on the **Configuration** tab, select and copy the string from the **Initiator Name** field.
    

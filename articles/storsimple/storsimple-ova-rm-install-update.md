@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/27/2016
+ms.date: 11/09/2016
 ms.author: alkohli
 ---
 # Install Updates on your StorSimple Virtual Array
@@ -100,7 +100,6 @@ If running Update 0.2, we recommend that you install updates through the Azure p
 
 After the installation is complete (as indicated by job status at 100 %), go to your StorSimple Device Manager service. Select **Devices** and then select and click the device you want to update from the list of devices connected to this service. In the **Settings** blade, go to **Manage** section and select **Device updates**. The displayed software version should be **10.0.10288.0**.
 
-![update device](./media/storsimple-ova-rm-install-update/azupdate12m.png)
 
 ## Next steps
 
