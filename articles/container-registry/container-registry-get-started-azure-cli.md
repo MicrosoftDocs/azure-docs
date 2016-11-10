@@ -54,22 +54,9 @@ az acr create -n myRegistry -g myResourceGroup -l southcentralus
 
 The output is similar to the following: 
 
-```
-{
-  "adminUserEnabled": false,
-  "creationDate": "2016-11-02T19:02:53.112519+00:00",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry",
-  "location": "southcentralus",
-  "loginServer": "myregistry-contoso.azurecr.io",
-  "name": "myregistry",
-  "storageAccount": {
-    "accessKey": null,
-    "name": "xxxxxxxxxxxxxxxxxxxxxxxxx"
-  },
-  "tags": {},
-  "type": "Microsoft.ContainerRegistry/registries"
-}
-```
+![az acr create output](./media/container-registry-get-started-azurecli/azacr.png)
+
+
 Take special note:
 
 * `id` - Identifier for the registry in your subscription, which you need if you want to assign a service principal. 
