@@ -31,7 +31,7 @@ All events that belong to the Reliable Actors EventSource are associated with on
 | Bit | Description |
 | --- | --- |
 | 0x1 |Set of important events that summarize the operation of the Fabric Actors runtime. |
-| 0x2 |Set of events that describe actor method calls. For more information, see the [introductory topic on actors](service-fabric-reliable-actors-introduction.md#actors). |
+| 0x2 |Set of events that describe actor method calls. For more information, see the [introductory topic on actors](service-fabric-reliable-actors-introduction.md). |
 | 0x4 |Set of events related to actor state. For more information, see the topic on [actor state management](service-fabric-reliable-actors-state-management.md). |
 | 0x8 |Set of events related to turn-based concurrency in the actor. For more information, see the topic on [concurrency](service-fabric-reliable-actors-introduction.md#concurrency). |
 
@@ -86,7 +86,7 @@ In the example above, `ivoicemailboxactor.leavemessageasync` is the method name,
 
 ## List of events and performance counters
 ### Actor method events and performance counters
-The Reliable Actors runtime emits the following events related to [actor methods](service-fabric-reliable-actors-introduction.md#actors).
+The Reliable Actors runtime emits the following events related to [actor methods](service-fabric-reliable-actors-introduction.md).
 
 | Event name | Event ID | Level | Keyword | Description |
 | --- | --- | --- | --- | --- |
@@ -133,7 +133,7 @@ The Reliable Actors runtime publishes the following performance counters related
 | Service Fabric Actor |Average milliseconds per load state operation |Time taken to load actor state in milliseconds |
 
 ### Events related to actor replicas
-The Reliable Actors runtime emits the following events related to [actor replicas](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
+The Reliable Actors runtime emits the following events related to [actor replicas](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
 | Event name | Event ID | Level | Keyword | Description |
 | --- | --- | --- | --- | --- |
@@ -168,4 +168,3 @@ When a client invokes a method via an actor proxy object, it results in a reques
 * [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
 * [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Sample code](https://github.com/Azure/servicefabric-samples)
-

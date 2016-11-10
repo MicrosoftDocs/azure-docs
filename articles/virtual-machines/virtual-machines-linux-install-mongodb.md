@@ -34,7 +34,7 @@ This article requires the following:
 ## Manually install and configure MongoDB on a VM
 MongoDB [provide installation instructions](https://docs.mongodb.com/manual/administration/install-on-linux/) for Linux distros including Red Hat / CentOS, SUSE, Ubuntu, and Debian. The following example creates a `CoreOS` VM using an SSH key stored at `.ssh/azure_id_rsa.pub`. Answer the prompts for storage account name, DNS name, and admin credentials:
 
-```bash
+```azurecli
 azure vm quick-create --ssh-publickey-file .ssh/azure_id_rsa.pub --image-urn CentOS
 ```
 
@@ -52,7 +52,7 @@ sudo touch /etc/yum.repos.d/mongodb-org-3.2.repo
 
 Open the MongoDB repo file for editing. Add the following lines:
 
-```bash
+```sh
 [mongodb-org-3.2]
 name=MongoDB Repository
 baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/
@@ -88,7 +88,7 @@ mongo
 
 Now test the MongoDB instance by adding some data and then searching:
 
-```
+```sh
 > db
 test
 > db.foo.insert( { a : 1 } )  
@@ -111,7 +111,7 @@ You can create a basic MongoDB instance on a single CentOS VM using the followin
 
 The following example creates a resource group with the name `myResourceGroup` in the `WestUS` region. Enter your own values as follows:
 
-```bash
+```azurecli
 azure group create --name myResourceGroup --location WestUS \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
@@ -123,7 +123,7 @@ azure group create --name myResourceGroup --location WestUS \
 
 Once the deployment is complete, SSH to the VM. Obtain the IP address of your VM using the `azure vm show` command as in the following example:
 
-```bash
+```azurecli
 azure vm show --resource-group myResourceGroup --name myVM
 ```
 
@@ -141,7 +141,7 @@ mongo
 
 Now test the instance by adding some data and searching as follows:
 
-```
+```sh
 > db
 test
 > db.foo.insert( { a : 1 } )  
@@ -163,7 +163,7 @@ You can create a complex MongoDB sharded cluster using the following Azure quick
 
 The following example creates a resource group with the name `myResourceGroup` in the `WestUS` region. Enter your own values as follows:
 
-```bash
+```azurecli
 azure group create --name myResourceGroup --location WestUS \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 ```

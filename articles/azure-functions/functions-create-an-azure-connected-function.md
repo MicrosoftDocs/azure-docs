@@ -25,8 +25,9 @@ ms.author: rachelap@microsoft.com
 In this short video, you learn how to create an Azure Function that listens to messages on an Azure Queue and copies the messages to an Azure Blob.
 
 ## Watch the video
-[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
-
+>[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
+>
+>
 
 ## Create an input queue trigger function
 The goal of this function is to write a message to a queue every 10 seconds. To accomplish this, you must create the function and message queues, and add the code to write messages to the newly created queues.
@@ -94,7 +95,7 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
 ### Modify the queue item type from JSON to object
 1. Replace the code in **FunctionsBindingsDemo2** with the following code:    
    
-    ```c#
+    ```cs
    
     using System;
    
@@ -144,7 +145,7 @@ Now that you have the queues working together, it's time to add in an Azure tabl
 7. Go to the **Develop** tab.
 8. Create a **TableItem** class to represent an Azure table, and modify the Run function to accept the newly created TableItem object. Notice that you must use the **PartitionKey** and **RowKey** properties in order for it to work.
    
-    ```c#
+    ```cs
    
     public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
     {    

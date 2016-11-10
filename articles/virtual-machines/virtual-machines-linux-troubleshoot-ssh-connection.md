@@ -69,7 +69,7 @@ You can also create a user with sudo privileges on the VM from this menu. Enter 
 ## Using the Azure CLI
 If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md). Make sure you using Resource Manager mode as follows:
 
-```
+```azurecli
 azure config mode arm
 ```
 
@@ -80,7 +80,7 @@ The SSHD configuration itself may be misconfigured or the service encountered an
 
 The following example resets SSHD on a VM named `myVM` in the resource group named `myResourceGroup`. Use your own VM and resource group names as follows:
 
-```bash
+```azurecli
 azure vm reset-access --resource-group myResourceGroup --name myVM \
     --reset-ssh
 ```
@@ -88,14 +88,14 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 ### Reset SSH credentials for a user
 If SSHD appears to function correctly, you can reset the password for a giver user. The following example resets the credentials for `myUsername` to the value specified in `myPassword`, on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
 
-```bash
+```azurecli
 azure vm reset-access --resource-group myResourceGroup --name myVM \
      --username myUsername --password myPassword
 ```
 
 If using SSH key authentication, you can reset the SSH key for a given user. The following example updates the SSH key stored in `~/.ssh/azure_id_rsa.pub` for the user named `myUsername`, on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
 
-```bash
+```azurecli
 azure vm reset-access --resource-group myResourceGroup --name myVM \
     --username myUsername --ssh-key-file ~/.ssh/azure_id_rsa.pub
 ```
@@ -107,7 +107,7 @@ The VM Access Extension for Linux reads in a json file that defines actions to c
 ### Reset SSHD
 Create a file named `PrivateConf.json` with the following content:
 
-```bash
+```json
 {  
     "reset_ssh":"True"
 }
@@ -115,7 +115,7 @@ Create a file named `PrivateConf.json` with the following content:
 
 Using the Azure CLI, you then call the `VMAccessForLinux` extension to reset your SSHD connection by specifying your json file. The following example resets SSHD on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
 
-```bash
+```azurecli
 azure vm extension set myResourceGroup myVM \
     VMAccessForLinux Microsoft.OSTCExtensions "1.2" \
     --private-config-path PrivateConf.json
@@ -124,7 +124,7 @@ azure vm extension set myResourceGroup myVM \
 ### Reset SSH credentials for a user
 If SSHD appears to function correctly, you can reset the credentials for a giver user. To reset the password for a user, create a file named `PrivateConf.json`. The following example resets the credentials for `myUsername` to the value specified in `myPassword`. Enter the following lines into your `PrivateConf.json` file, using your own values:
 
-```bash
+```json
 {
     "username":"myUsername", "password":"myPassword"
 }
@@ -132,7 +132,7 @@ If SSHD appears to function correctly, you can reset the credentials for a giver
 
 Or to reset the SSH key for a user, first create a file named `PrivateConf.json`. The following example resets the credentials for `myUsername` to the value specified in `myPassword`, on the VM named `myVM` in `myResourceGroup`. Enter the following lines into your `PrivateConf.json` file, using your own values:
 
-```bash
+```json
 {
     "username":"myUsername", "ssh_key":"mySSHKey"
 }
@@ -140,7 +140,7 @@ Or to reset the SSH key for a user, first create a file named `PrivateConf.json`
 
 After creating your json file, use the Azure CLI to call the `VMAccessForLinux` extension to reset your SSH user credentials by specifying your json file. The following example resets credentials on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
 
-```
+```azurecli
 azure vm extension set myResourceGroup myVM \
     VMAccessForLinux Microsoft.OSTCExtensions "1.2" \
     --private-config-path PrivateConf.json
@@ -158,7 +158,7 @@ To restart a VM using the Azure portal, select your VM and click the ***Restart*
 ### Azure CLI
 The following example restarts the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
 
-```bash
+```azurecli
 azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
@@ -179,7 +179,7 @@ To redeploy a VM using the Azure portal, select your VM and scroll down to the *
 ### Azure CLI
 The following example redeploys the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
 
-```bash
+```azurecli
 azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 

@@ -38,7 +38,7 @@ The [GitHub Azure-DataFactory repository](https://github.com/azure/azure-datafac
 | [U-SQL sample input file](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |This file is a sample file used by an U-SQL activity. |
 
 ## Azure Resource Manager templates
-You can find the following Azure Resource Manager templates for Data Factory on Github. 
+You can find the following Azure Resource Manager templates for Data Factory on Github.
 
 | Template | Description |
 | --- | --- |
@@ -47,74 +47,73 @@ You can find the following Azure Resource Manager templates for Data Factory on 
 | [Transform data by running Hive script on an Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) |Deploying this template creates an Azure data factory with a pipeline that transforms data by running the sample Hive script on an Azure HDInsight Hadoop cluster. |
 
 ## Samples in Azure portal
-You can use the **Sample pipelines** tile on the home page of your data factory to deploy sample pipelines and their associated entities (datasets and linked services) in to your data factory. 
+You can use the **Sample pipelines** tile on the home page of your data factory to deploy sample pipelines and their associated entities (datasets and linked services) in to your data factory.
 
-1. Create a data factory or open an existing data factory. See [Getting started with Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#CreateDataFactory) for steps to create a data factory.
+1. Create a data factory or open an existing data factory. See [Copy data from Blob Storage to SQL Database using Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for steps to create a data factory.
 2. In the **DATA FACTORY** blade for the data factory, click the **Sample pipelines** tile.
-   
+
     ![Sample pipelines tile](./media/data-factory-samples/SamplePipelinesTile.png)
-3. In the **Sample pipelines** blade, click the **sample** that you want to deploy. 
-   
+3. In the **Sample pipelines** blade, click the **sample** that you want to deploy.
+
     ![Sample pipelines blade](./media/data-factory-samples/SampleTile.png)
-4. Specify configuration settings for the sample. For example, your Azure storage account name and account key, Azure SQL server name, database, User ID, and password, etc. 
-   
+4. Specify configuration settings for the sample. For example, your Azure storage account name and account key, Azure SQL server name, database, User ID, and password, etc.
+
     ![Sample blade](./media/data-factory-samples/SampleBlade.png)
 5. After you are done with specifying the configuration settings, click **Create** to create/deploy the sample pipelines and linked services/tables used by the pipelines.
 6. You see the status of deployment on the sample tile you clicked earlier on the **Sample pipelines** blade.
-   
+
     ![Deployment status](./media/data-factory-samples/DeploymentStatus.png)
 7. When you see the **Deployment succeeded** message on the tile for the sample, close the **Sample pipelines** blade.  
 8. On **DATA FACTORY** blade, you see that linked services, data sets, and pipelines are added to your data factory.  
-   
+
     ![Data Factory blade](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## Samples in Visual Studio
 ### Prerequisites
-You must have the following installed on your computer: 
+You must have the following installed on your computer:
 
 * Visual Studio 2013 or Visual Studio 2015
 * Download Azure SDK for Visual Studio 2013 or Visual Studio 2015. Navigate to [Azure Download Page](https://azure.microsoft.com/downloads/) and click **VS 2013** or **VS 2015** in the **.NET** section.
 * Download the latest Azure Data Factory plugin for Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) or [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). If you are using Visual Studio 2013, you can also update the plugin by doing the following steps: On the menu, click **Tools** -> **Extensions and Updates** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**.
 
 ### Use Data Factory Templates
-1. Click **File** on the menu, point to **New**, and click **Project**. 
-2. In the **New Project** dialog box, do the following steps: 
-   
-   1. Select **DataFactory** under **Templates**. 
-   2. Select **Data Factory Templates** in the right pane. 
-   3. Enter a **name** for the project. 
-   4. Select a **location** for the project. 
-   5. Click **OK**. 
-      
+1. Click **File** on the menu, point to **New**, and click **Project**.
+2. In the **New Project** dialog box, do the following steps:
+
+   1. Select **DataFactory** under **Templates**.
+   2. Select **Data Factory Templates** in the right pane.
+   3. Enter a **name** for the project.
+   4. Select a **location** for the project.
+   5. Click **OK**.
+
       ![New project dialog box](./media/data-factory-samples/vs-new-project-adf-templates.png)
-3. In the **Data Factory Templates** dialog box, select the sample template from the **Use-Case Templates** section, and click **Next**. The following steps walk you through using the **Customer Profiling** template. Steps are similar for the other samples. 
-   
-    ![Data Factory Templates dialog box](./media/data-factory-samples/vs-data-factory-templates-dialog.png) 
+3. In the **Data Factory Templates** dialog box, select the sample template from the **Use-Case Templates** section, and click **Next**. The following steps walk you through using the **Customer Profiling** template. Steps are similar for the other samples.
+
+    ![Data Factory Templates dialog box](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
 4. In the **Data Factory Configuration** dialog, click **Next** on the **Data Factory Basics** page.
-5. On the **Configure data factory** page, do the following steps: 
+5. On the **Configure data factory** page, do the following steps:
    1. Select **Create New Data Factory**. You can also select **Use existing data factory**.
    2. Enter a **name** for the data factory.
-   3. Select the **Azure subscription** in which you want the data factory to be created. 
+   3. Select the **Azure subscription** in which you want the data factory to be created.
    4. Select the **resource group** for the data factory.
    5. Select the **West US**, **East US**, or **North Europe** for the **region**.
-   6. Click **Next**. 
-6. In the **Configure data stores** page, specify an existing **Azure SQL database** and **Azure storage account** (or) create database/storage, and click Next. 
-7. In the **Configure compute** page, select defaults, and click **Next**. 
-8. In the **Summary** page, review all settings, and click **Next**. 
+   6. Click **Next**.
+6. In the **Configure data stores** page, specify an existing **Azure SQL database** and **Azure storage account** (or) create database/storage, and click Next.
+7. In the **Configure compute** page, select defaults, and click **Next**.
+8. In the **Summary** page, review all settings, and click **Next**.
 9. In the **Deployment Status** page, wait until the deployment is finished, and click **Finish**.
-10. Right-click project in the Solution Explorer, and click **Publish**. 
+10. Right-click project in the Solution Explorer, and click **Publish**.
 11. If you see **Sign in to your Microsoft account** dialog box, enter your credentials for the account that has Azure subscription, and click **sign in**.
 12. You should see the following dialog box:
-    
+
     ![Publish dialog box](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-13. In the **Configure data factory** page, do the following steps: 
-    
+13. In the **Configure data factory** page, do the following steps:
+
     1. Confirm that **Use existing data factory** option.
-    2. Select the **data factory** you had select when using the template. 
-    3. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.) 
+    2. Select the **data factory** you had select when using the template.
+    3. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.)
 14. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.     
 15. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
-16. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
+16. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done.
 
 See [Build your first data factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) for details about using Visual Studio to author Data Factory entities and publishing them to Azure.          
-
