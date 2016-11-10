@@ -102,7 +102,9 @@ Alternatively, you can download the result file and inspect it in Visual Studio.
 ## Multi-step web tests
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
 
-> [!NOTE] There is a charge for multi-step web tests. [Pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
+> [!NOTE] 
+> There is a charge for multi-step web tests. [Pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
+> 
 
 To create a multi-step test, you record the scenario by using Visual Studio, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
 
