@@ -65,7 +65,7 @@ The corresponding typed client-side type in C# is the following class:
 
 The [JsonPropertyAttribute][6] is used to define the *PropertyName* mapping between the client type and the table.
 
-To learn how to create tables in your Mobile Apps backend, see the information in the [.NET Server SDK topic][7]
+To learn how to create tables in your Mobile Apps backend, see the [.NET Server SDK topic][7]
 or the [Node.js Server SDK topic][8]. If you created your Mobile App backend in the Azure portal using the QuickStart,
 you can also use the **Easy tables** setting in the [Azure portal].
 
@@ -139,8 +139,8 @@ This section describes how to issue queries to the Mobile App backend, which inc
 > A server-driven page size is enforced to prevent all rows from being returned.  Paging keeps
 > default requests for large data sets from negatively impacting the service.  To return more than 50 rows,
 > use the `Skip` and `Take` method, as described in [Return data in pages].
-> 
-> 
+>
+>
 
 ### <a name="filtering"></a>How to: Filter returned data
 The following code illustrates how to filter data by including a `Where` clause in a query. It returns all items from
@@ -244,10 +244,10 @@ navigate between pages.
 > To override the 50-row limit in a Mobile App backend, you must also apply the [EnableQueryAttribute]
 > to the public GET method and specify the paging behavior. When applied to the method, the following sets the
 > maximum returned rows to 1000:
-> 
+>
 > [EnableQuery(MaxTop=1000)]
-> 
-> 
+>
+>
 
 ### <a name="selecting"></a>How to: Select specific columns
 You can specify which set of properties to include in the results by adding a [Select] clause to your query. For
@@ -528,7 +528,7 @@ the local SQLite store instead of the remote server store.  To create an offline
 1. In Visual Studio, right-click the solution > **Manage NuGet Packages for Solution...**, then search for and install the
    **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package for all projects in the solution.
 2. (Optional) To support Windows devices, install one of the following SQLite runtime packages:
-   
+
    * **Windows 8.1 Runtime:** Install [SQLite for Windows 8.1][3].
    * **Windows Phone 8.1:** Install [SQLite for Windows Phone 8.1][4].
    * **Universal Windows Platform** Install [SQLite for the Universal Windows Universal][5].
@@ -642,8 +642,8 @@ device-specific SDKs.
 
 > [!NOTE]
 > We recommend using a client-managed flow in your production apps.
-> 
-> 
+>
+>
 
 To set up authentication, you must register your app with one or more identity providers.  The identity provider
 generates a client ID and a client secret for your app.  These values are then set in your backend to enable Azure
@@ -678,7 +678,7 @@ using Azure Active Directory authentication.
    `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet package. When searching, include pre-release versions.
 3. Add the following code to your application, according to the platform you are using. In each, make the following
    replacements:
-   
+
    * Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The
      format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied from the Domain
      tab in your Azure Active Directory in the [Azure classic portal].
@@ -687,15 +687,15 @@ using Azure Active Directory authentication.
    * Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
    * Replace **INSERT-REDIRECT-URI-HERE** with your site's */.auth/login/done* endpoint, using the HTTPS
      scheme. This value should be similar to *https://contoso.azurewebsites.net/.auth/login/done*.
-     
+
      The code needed for each platform follows:
-     
+
      **Windows:**
-     
+
        private MobileServiceUser user;
        private async Task AuthenticateAsync()
        {
-     
+
            string authority = "INSERT-AUTHORITY-HERE";
            string resourceId = "INSERT-RESOURCE-ID-HERE";
            string clientId = "INSERT-CLIENT-ID-HERE";
@@ -723,13 +723,13 @@ using Azure Active Directory authentication.
                await dialog.ShowAsync();
            }
        }
-     
+
      **Xamarin.iOS**
-     
+
        private MobileServiceUser user;
        private async Task AuthenticateAsync(UIViewController view)
        {
-     
+
            string authority = "INSERT-AUTHORITY-HERE";
            string resourceId = "INSERT-RESOURCE-ID-HERE";
            string clientId = "INSERT-CLIENT-ID-HERE";
@@ -749,13 +749,13 @@ using Azure Active Directory authentication.
                Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
            }
        }
-     
+
      **Xamarin.Android**
-     
+
        private MobileServiceUser user;
        private async Task AuthenticateAsync()
        {
-     
+
            string authority = "INSERT-AUTHORITY-HERE";
            string resourceId = "INSERT-RESOURCE-ID-HERE";
            string clientId = "INSERT-CLIENT-ID-HERE";
@@ -780,7 +780,7 @@ using Azure Active Directory authentication.
        }
        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
        {
-     
+
            base.OnActivityResult(requestCode, resultCode, data);
            AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
        }
@@ -1010,7 +1010,7 @@ Xamarin apps require some additional code to be able to register an app running 
 platforms. For more information, see the topic for your platform:
 
 * [Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md#add-push)
-* [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-push.md#add-push)
+* [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-push.md#add-push-notifications-to-your-app)
 
 ### <a name="register-xplat"></a>How to: Register push templates to send cross-platform notifications
 To register templates, use the `RegisterAsync()` method with the templates, as follows:
@@ -1121,7 +1121,7 @@ can use a custom [DelegatingHandler], as in the following example:
 [4]: https://msdn.microsoft.com/en-us/library/azure/mt419521(v=azure.10).aspx
 [5]: https://github.com/Azure-Samples
 [6]: http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm
-[7]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller
+[7]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
 [8]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [9]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/
 [10]: http://www.symbolsource.org/
@@ -1176,5 +1176,5 @@ can use a custom [DelegatingHandler], as in the following example:
 [Fiddler]: http://www.telerik.com/fiddler
 [Json.NET]: http://www.newtonsoft.com/json
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
-[AuthStore.cs]: (https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs)
+[AuthStore.cs]: https://github.com/azure-appservice-samples/ContosoMoments
 [ContosoMoments photo sharing sample]: https://github.com/azure-appservice-samples/ContosoMoments

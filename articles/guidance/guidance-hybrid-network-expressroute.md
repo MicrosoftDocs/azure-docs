@@ -25,8 +25,8 @@ This article describes best practices for connecting an on-premises network to v
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager](../azure-resource-manager/resource-group-overview.md) and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-> 
+>
+>
 
 Typical use cases for this architecture include:
 
@@ -38,15 +38,15 @@ Typical use cases for this architecture include:
 
 > [!NOTE]
 > The [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) provides an introduction to ExpressRoute.
-> 
-> 
+>
+>
 
 ## Architecture diagram
 The following diagram highlights the important components in this architecture:
 
 > A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Hybrid network - ER" page.
-> 
-> 
+>
+>
 
 ![[0]][0]
 
@@ -56,8 +56,8 @@ The following diagram highlights the important components in this architecture:
 
 > [!NOTE]
 > You can also connect directly to Microsoft CRM Online through a Microsoft peering.
-> 
-> 
+>
+>
 
 * **On-premises corporate network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
 * **Local edge routers.** These are routers that connect the on-premises network to the circuit managed by the provider. Depending on how your connection is provisioned, you need to provide the public IP addresses used by the routers.
@@ -91,13 +91,13 @@ If you haven't already done so, add a subnet named `GatewaySubnet` to your Azure
 Create an ExpressRoute circuit as follows:
 
 1. Run the following PowerShell command:
-   
+
     ```powershell
     New-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>> -Location <<location>> -SkuTier <<sku-tier>> -SkuFamily <<sku-family>> -ServiceProviderName <<service-provider-name>> -PeeringLocation <<peering-location>> -BandwidthInMbps <<bandwidth-in-mbps>>
     ```
 2. Send the `ServiceKey` for the new circuit to the service provider.
 3. Wait for the provider to provision the circuit. You can verify the provisioning state of a circuit by using the following PowerShell command:
-   
+
     ```powershell
     Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resource-group>>
     ```
@@ -106,22 +106,22 @@ The `Provisioning state` field in the `Service Provider` section of the output w
 
 > [!NOTE]
 > If you're using a layer 3 connection, the provider should configure and manage routing for you; you provide the information necessary to enable the provider to implement the appropriate routes.
-> 
-> 
+>
+>
 
 If you're using a layer 2 connection, follow the steps below:
 
 1. Reserve two /30 subnets composed of valid public IP addresses for each type of peering you want to implement. These /30 subnets will be used to provide IP addresses for the routers used for the circuit. If you are implementing private, public, and Microsoft peering, you'll need 6 /30 subnets with valid public IP addresses.     
 2. Configure routing for the ExpressRoute circuit. You need to run the command below for each type of peering you want to configure (private, public, and Microsoft).
-   
+
    > [!NOTE]
    > See [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing] for details. Use the following PowerShell commands to add a network peering for routing traffic:
-   > 
-   > 
-   
+   >
+   >
+
     ```powershell
     Set-AzureRmExpressRouteCircuitPeeringConfig -Name <<peering-name>> -Circuit <<circuit-name>> -PeeringType <<peering-type>> -PeerASN <<peer-asn>> -PrimaryPeerAddressPrefix <<primary-peer-address-prefix>> -SecondaryPeerAddressPrefix <<secondary-peer-address-prefix>> -VlanId <<vlan-id>>
-   
+
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit <<circuit-name>>
     ```
 3. Reserve another pool of valid public IP addresses to use for NAT for public, and Microsoft peering. It is recommended to have a different pool for each peering. Specify the pool to your connectivity provider, so they can configure BGP advertisements for those ranges.
@@ -166,15 +166,15 @@ $ckt.Sku.Name = "Premium_MeteredData"
 
 > [!IMPORTANT]
 > Make sure the `Sku.Name` property matches the `Sku.Tier` and `Sku.Family`. If you change the family and tier, but not the name, your connection will be disabled.
-> 
-> 
+>
+>
 
 You can upgrade the SKU without disruption, but you cannot switch from the unlimited pricing plan to metered. When downgrading the SKU, your bandwidth consumption must remain within the default limit of the standard SKU.
 
 > [!NOTE]
 > ExpressRoute offers two pricing plans to customers, based on metering or unlimited data. See [ExpressRoute pricing][expressroute-pricing] for details. Charges vary according to circuit bandwidth. Available bandwidth will likely vary from provider to provider. Use the `Get-AzureRmExpressRouteServiceProvider` cmdlet to see the providers available in your region and the bandwidths that they offer.
-> 
-> 
+>
+>
 
 A single ExpressRoute circuit can support a number of peerings and VNet links. See [ExpressRoute limits](../azure-subscription-service-limits.md) for more information.
 
@@ -262,7 +262,7 @@ If you have an existing on-premises infrastructure already configured with a VPN
 1. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
    [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-er%2Fazuredeploy.json)
 2. Wait for the link to open in the Azure portal, then follow these steps:
-   
+
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-er-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -272,7 +272,7 @@ If you have an existing on-premises infrastructure already configured with a VPN
 4. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
    [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-er%2Fazuredeploy-expressRouteCircuit.json)
 5. Wait for the link to open in the Azure portal, then follow these steps:
-   
+
    * Select **Use existing** in the **Resource group** section and enter `ra-hybrid-er-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -295,7 +295,7 @@ If you have an existing on-premises infrastructure already configured with a VPN
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [expressroute-limits]: ../azure-subscription-service-limits.md#networking-limits
 [sample-script]: #sample-solution-script
-[connectivity-providers]: ../expressroute/expressroute-introduction.md#how-can-i-connect-my-network-to-microsoft-using-expressroute
+[connectivity-providers]: ../expressroute/expressroute-introduction.md#howtoconnect
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [forced-tuneling]: ./guidance-iaas-ra-secure-vnet-hybrid.md
 [highly-available-network-architecture]: ./guidance-hybrid-network-expressroute-vpn-failover.md
