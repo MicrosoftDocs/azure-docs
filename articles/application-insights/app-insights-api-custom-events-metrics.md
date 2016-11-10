@@ -17,9 +17,9 @@ ms.author: awills
 
 ---
 # Application Insights API for custom events and metrics
-*Application Insights is in preview.*
 
-Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. The [Visual Studio Application Insights](app-insights-overview.md) core telemetry API lets you send custom events and metrics, and your own versions of standard telemetry. This API is the same API that is used by the standard Application Insights data collectors.
+
+Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. The [Azure Application Insights](app-insights-overview.md) core telemetry API lets you send custom events and metrics, and your own versions of standard telemetry. This API is the same API that is used by the standard Application Insights data collectors.
 
 ## API summary
 The API is uniform across all platforms, apart from a few small variations.

@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Detect, Triage and Diagnose with Application Insights
-*Application Insights is in preview.*
+
 
 [Application Insights](app-insights-overview.md) is an extensible Application Performance Management (APM) service for web developers. It helps you find out how your app is performing and being used when it's live. And if there's a problem, it lets you know about it, helps you assess the impact, and helps you determine the cause.
 

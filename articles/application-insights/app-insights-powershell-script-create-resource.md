@@ -17,9 +17,9 @@ ms.author: awills
 
 ---
 # PowerShell script to create an Application Insights resource
-*Application Insights is in preview.*
 
-When you want to monitor a new application - or a new version of an application - with [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/), you set up a new resource in Microsoft Azure. This resource is where the telemetry data from your app is analyzed and displayed. 
+
+When you want to monitor a new application - or a new version of an application - with [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), you set up a new resource in Microsoft Azure. This resource is where the telemetry data from your app is analyzed and displayed. 
 
 You can automate the creation of a new resource by using PowerShell.
 
@@ -55,7 +55,7 @@ See the relevant cmdlet specs:
 $appInsightsName = "TestApp"
 
 # Set the application name used for the value of the Tag "AppInsightsApp" 
-# - http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-tags/
+
 $applicationTagName = "MyApp"
 
 # Set the name of the Resource Group to use.  

@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Troubleshooting and Q and A for Application Insights for Java
-Questions or problems with [Visual Studio Application Insights in Java][java]? Here are some tips.
+Questions or problems with [Azure Application Insights in Java][java]? Here are some tips.
 
 ## Build errors
 *In Eclipse, when adding the Application Insights SDK via Maven or Gradle, I get build or checksum validation errors.*
