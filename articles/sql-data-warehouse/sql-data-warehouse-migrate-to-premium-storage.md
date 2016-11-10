@@ -210,7 +210,7 @@ If you encounter any issues with your Data Warehouse, [create a support ticket][
 [Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
-[scale compute power]:  sql-data-warehouse-manage-compute-portal#scale-performance-bk
+[scale compute power]:  sql-data-warehouse-manage-compute-portal#scale-compute-power
 [mediumrc role]: sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
