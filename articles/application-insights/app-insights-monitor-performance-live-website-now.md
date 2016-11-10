@@ -1,6 +1,6 @@
 ---
 title: Diagnose performance issues on a running IIS website | Microsoft Docs
-description: Monitor a website's performance without re-deploying it. Use standalone or with Application Insights SDK to get dependency telemetry.
+description: Monitor a website's performance without re-deploying it. Use Application Insights Agent standalone or with SDK.
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
 # Instrument web apps at runtime with Application Insights
 
 
-You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. In your apps are hosted by an on-premises IIS server, you install Status Monitor; or if they're Azure web apps or run in an Azure VM, you can install the Application Insights extension. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
+You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. If your apps are hosted by an on-premises IIS server, you install Application Insights Agent (previously called Status Monitor); or if they're Azure web apps or run in an Azure VM, you can install the Application Insights extension. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
 
 ![sample charts](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -52,7 +52,7 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 
 ### If your app is hosted on your IIS server
 1. On your IIS web server, sign in with administrator credentials.
-2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
+2. Download and run the [Agent installer](http://go.microsoft.com/fwlink/?LinkId=506648).
 3. In the installation wizard, sign in to Microsoft Azure.
 
     ![Sign into Azure with your Microsoft account credentials](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
@@ -120,24 +120,24 @@ If your application sends a lot of data and you are using the Application Insigh
 
 ## Troubleshooting
 ### Connection errors
-You need to open [some outgoing ports](app-insights-ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
+You need to open [some outgoing ports](app-insights-ip-addresses.md#outgoing-ports) in your server's firewall to allow the Agent to work.
 
 ### No telemetry?
 * Use your site, to generate some data.
 * Wait a few minutes to let the data arrive, then click **Refresh**.
 * Open Diagnostic Search (the Search tile) to see individual events. Events are often visible in Diagnostic Search before aggregate data appears in the charts.
-* Open Status Monitor and select your application on left pane. Check if there are any diagnostics messages for this application in the "Configuration notifications" section:
+* Open Application Insights Agent and select your application on left pane. Check if there are any diagnostics messages for this application in the "Configuration notifications" section:
 
   ![Open the Performance blade to see request, response time, dependency and other data](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 * Make sure your server firewall allows outgoing traffic on the ports listed above.
 * On the server, if you see a message about "insufficient permissions", try the following:
   * In IIS Manager, select your application pool, open **Advanced Settings**, and under **Process Model** note the identity.
   * In Computer management control panel, add this identity to the Performance Monitor Users group.
-* If you have MMA/SCOM installed on your server, some versions can conflict. Uninstall both SCOM and Status Monitor, and re-install the latest versions.
+* If you have MMA/SCOM installed on your server, some versions can conflict. Uninstall both SCOM and Application Insights Agent, and re-install the latest versions.
 * See [Troubleshooting][qna].
 
 ## System Requirements
-OS support for Application Insights Status Monitor on Server:
+OS support for Application Insights Agent on Server:
 
 * Windows Server 2008
 * Windows Server 2008 R2
@@ -166,8 +166,8 @@ Find out which apps are being monitored:
 * Displays the Application Insights monitoring status for each web app (or the named app) in this IIS server.
 * Returns `ApplicationInsightsApplication` for each app:
 
-  * `SdkState==EnabledAfterDeployment`: App is being monitored, and was instrumented at run time, either by the Status Monitor tool, or by `Start-ApplicationInsightsMonitoring`.
-  * `SdkState==Disabled`: The app is not instrumented for Application Insights. Either it was never instrumented, or run-time monitoring was disabled with the Status Monitor tool or with `Stop-ApplicationInsightsMonitoring`.
+  * `SdkState==EnabledAfterDeployment`: App is being monitored, and was instrumented at run time, either by the Agent, or by `Start-ApplicationInsightsMonitoring`.
+  * `SdkState==Disabled`: The app is not instrumented for Application Insights. Either it was never instrumented, or run-time monitoring was disabled with the Agent or with `Stop-ApplicationInsightsMonitoring`.
   * `SdkState==EnabledByCodeInstrumentation`: The app was instrumented by adding the SDK to the source code. Its SDK cannot be updated or stopped.
   * `SdkVersion` shows the version in use for monitoring this app.
   * `LatestAvailableSdkVersion`shows the version currently available on the NuGet gallery. To upgrade the app to this version, use `Update-ApplicationInsightsMonitoring`.
@@ -196,7 +196,7 @@ Find out which apps are being monitored:
 
 * `-Name` The name of an app in IIS
 * `-All` Stops monitoring all apps in this IIS server for which `SdkState==EnabledAfterDeployment`
-* Stops monitoring the specified apps and removes instrumentation. It only works for apps that have been instrumented at run-time using the Status Monitoring tool or Start-ApplicationInsightsApplication. (`SdkState==EnabledAfterDeployment`)
+* Stops monitoring the specified apps and removes instrumentation. It only works for apps that have been instrumented at run-time using the Agent or Start-ApplicationInsightsApplication. (`SdkState==EnabledAfterDeployment`)
 * Returns ApplicationInsightsApplication.
 
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
