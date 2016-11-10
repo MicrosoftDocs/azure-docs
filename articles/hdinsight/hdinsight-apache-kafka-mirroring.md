@@ -18,14 +18,14 @@ ms.author: larryfr
 ---
 ## Use MirrorMaker to create a replica of a Kafka on HDInsight cluster (preview)
 
-Apache Kafka includes a mirroring feature, which allows you to replicate topics from one Kafka cluster to another. For example, replicating records to a Kafka cluster in a different Azure region or replicating records between clusters owned by different groups in an organization.
+Apache Kafka includes a mirroring feature, which allows you to replicate topics from one Kafka cluster to another. For example, replicating records between Kafka cluster in different Azure regions.
 
 Mirroring can be ran as a continuous process, or used intermittently as a method of migrating data from one cluster to another.
 
 > [!WARNING]
-> Mirroring should not be considered as a means to achieve fault-tolerance. The offset to items within a topic will be different between the source and destination clusters, so clients cannot use the two interchangeably.
+> Mirroring should not be considered as a means to achieve fault-tolerance. The offset to items within a topic are different between the source and destination clusters, so clients cannot use the two interchangeably.
 > 
-> If you are concerned about fault tolerance, you should set replication for the topics within your cluster. For more information see [Get started with Kafka on HDInsight](hdinsight-apache-kafka-get-started.md).
+> If you are concerned about fault tolerance, you should set replication for the topics within your cluster. For more information, see [Get started with Kafka on HDInsight](hdinsight-apache-kafka-get-started.md).
 
 ## Prerequisites
 
@@ -35,26 +35,26 @@ Mirroring can be ran as a continuous process, or used intermittently as a method
 
 ## How does mirroring work?
 
-Mirroring works by using the MirrorMaker tool (part of Apache Kafka,) to consume records from topics on the source cluster and then create a local copy on the destination cluster. MirrorMaker uses one (or more) *consumers* that read from the source cluster, and a *producer* that writes to the local (destination) cluster.
+Mirroring works by using the MirrorMaker tool (part of Apache Kafka) to consume records from topics on the source cluster and then create a local copy on the destination cluster. MirrorMaker uses one (or more) *consumers* that read from the source cluster, and a *producer* that writes to the local (destination) cluster.
 
-The following is a diagram of the Mirroring process:
+The following diagram illustrates of the Mirroring process:
 
 ![Diagram of the mirroring process](./media/hdinsight-apache-kafka-mirroring/kafka-mirroring.png)
 
-The source and destination clusters can be completely different in the number of nodes and partitions, and offsets within the topics will be different also. Miroring does maintain the key value that is used for partitioning, so record order is preserved on a per-key basis.
+The source and destination clusters can be different in the number of nodes and partitions, and offsets within the topics are different also. Mirforing maintains the key value that is used for partitioning, so record order is preserved on a per-key basis.
 
 ### Mirroring between networks
 
 If you need to mirror between Kafka clusters in different networks, there are the following additional considerations:
 
-* **Gateways**: The networks must be able to communicate at the IP level. For Azure Virtual Networks, this requires the creation of a VPN gateway.
+* **Gateways**: The networks must be able to communicate at the TCPIP level.
 
-* **Name resolution**: The Kafka clusters in each network must be able to connect to each other by using hostnames. This requires a Domain Name System (DNS) server in each network that is configured to forward requests to the other networks. 
+* **Name resolution**: The Kafka clusters in each network must be able to connect to each other by using hostnames. This may require a Domain Name System (DNS) server in each network that is configured to forward requests to the other networks. 
   
     When creating an Azure Virtual Network, instead of using the automatic DNS provided with the network, you must specify a custom DNS server and the IP address for the server. After the Virtual Network has been created, you must then create an Azure Virtual Machine that uses that IP address, then install and configure DNS software on it.
   
     > [!WARNING]
-    > You must create and configure the custom DNS server before installing HDInsight into the Virtual Network. There is no additional configuration required for HDInsight to use the DNS server configured for the Virtual Network.
+    > Create and configure the custom DNS server before installing HDInsight into the Virtual Network. There is no additional configuration required for HDInsight to use the DNS server configured for the Virtual Network.
 
 For more information on connecting two Azure Virtual Networks, see [Configure a VNet-to-VNet connection](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
@@ -71,31 +71,31 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-in-vnet.json**.
 
-2. From the **Parameters** blade, enter the following:
+2. Use the following information to populate the entries on the **Parameters** blade:
    
     ![HDInsight parameters](./media/hdinsight-apache-kafka-mirroring/parameters.png)
    
     **BASICS** section:
    
-   * **Resource group**: Create a new group or select an existing one. This group will contain the HDInsight cluster.
+   * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
 
-   * **Location_: Select a location geographically close to you. This must match the location in the __SETTINGS** section.
+   * **Location_: Select a location geographically close to you. This location must match the location in the __SETTINGS__ section.
      
         **SETTINGS** section:
 
         * **Base Cluster Name**: This value is used as the base name for the Kafka clusters. For example, entering **hdi** creates clusters named **source-hdi** and **dest-hdi**.
    
-        * **Cluster Login User Name**: The admin user name for the Storm and Kafka clusters.
+        * **Cluster Login User Name**: The admin user name for the source and destination Kafka clusters.
    
-        * **Cluster Login Password**: The admin user password for the Storm and Kafka clusters.
+        * **Cluster Login Password**: The admin user password for the source and destination Kafka clusters.
    
-        * **SSH User Name**: The SSH user to create for the Storm and Kafka clusters.
+        * **SSH User Name**: The SSH user to create for the source and destination Kafka clusters.
    
-        * **SSH Password**: The password for the SSH user for the Storm and Kafka clusters.
+        * **SSH Password**: The password for the SSH user for the source and destination Kafka clusters.
    
         * **Location**: The region that the clusters are created in.
 
@@ -112,7 +112,7 @@ Once the resources have been created, you are redirected to a blade for the reso
 
 ## Create topics
 
-1. Connect to the **source** cluster using SSH. The following is an example of using the `ssh` command:
+1. Connect to the **source** cluster using SSH:
    
         ssh sshuser@source-BASENAME-ssh.azurehdinsight.net
    
@@ -128,7 +128,7 @@ Once the resources have been created, you are redirected to a blade for the reso
    
         # Get a list of zookeeper hosts for the source cluster
         SOURCE_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
-        # Create a new topic on the source cluster
+        # Create a topic on the source cluster
         /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
 
 3. Use the following command to verify that the topic was created:
@@ -141,15 +141,15 @@ Once the resources have been created, you are redirected to a blade for the reso
    
         echo $SOURCE_ZKHOSTS
    
-    This returns information similar to the following:
+    This returns information similar to the following text:
    
         zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181
    
-    Save this information; it is used in the next section.
+    Save this information. It is used in the next section.
 
 ## Configure mirroring
 
-1. Connect to the **destination** cluster using SSH. The following is an example of using the `ssh` command:
+1. Connect to the **destination** cluster using SSH:
    
         ssh sshuser@dest-BASENAME-ssh.azurehdinsight.net
    
@@ -161,11 +161,11 @@ Once the resources have been created, you are redirected to a blade for the reso
     
     * [Use SSH with HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. Use the following to create a `consumer.config` file that describes how to communicate with the **source** cluster:
+2. Use the following command to create a `consumer.config` file that describes how to communicate with the **source** cluster:
    
         nano consumer.config
    
-    Use the following as the contents of the `consumer.config` file:
+    Use the following text as the contents of the `consumer.config` file:
    
         zookeeper.connect=SOURCE_ZKHOSTS
         group.id=mirrorgroup
@@ -210,11 +210,11 @@ Once the resources have been created, you are redirected to a blade for the reso
 
     * **--producer.config**: Specifies the file that contains producer properties. These properties are used to create a producer that writes to the *destination* Kafka cluster.
 
-    * **--whitelist**: A list of topics that MirrorMaker will replicate from the source cluster to the destination.
+    * **--whitelist**: A list of topics that MirrorMaker replicates from the source cluster to the destination.
     
     * **--num.streams**: The number of consumer threads to create.
      
-    On startup, MirrorMaker returns information similar to the following:
+    On startup, MirrorMaker returns information similar to the following text:
      
         {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
         metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-kafka.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-2, security.protocol=PLAINTEXT}
@@ -240,13 +240,13 @@ Once the resources have been created, you are redirected to a blade for the reso
         # Retrieve messages from the `testtopic`
         /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
    
-    The list of topics will now include `testtopic`, which is created when MirrorMaster mirrors the topic from the source cluster to the destination. The messages retrived from the topic are the same as entered on the source cluster.
+    The list of topics will now include `testtopic`, which is created when MirrorMaster mirrors the topic from the source cluster to the destination. The messages retrieved from the topic are the same as entered on the source cluster.
 
 ## Delete the cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Since the steps in this document create both clusters in the same Azure resource group, you can delete the resource group in the Azure portal. This removes all resources created by following this document, as well as the Azure Virtual Network and storage account used by the clusters.
+Since the steps in this document create both clusters in the same Azure resource group, you can delete the resource group in the Azure portal. Deleting the resource group removes all resources created by following this document, the Azure Virtual Network, and storage account used by the clusters.
 
 ## Next Steps
 

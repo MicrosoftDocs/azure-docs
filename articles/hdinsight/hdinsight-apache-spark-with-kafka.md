@@ -21,9 +21,9 @@ ms.author: larryfr
 Apache Spark can be used to stream data into or out of Apache Kafka. In this document, learn how to create a basic Spark application in Scala that writes to and reads from Kafka on HDInsight. This application is created using Jupyter Notebooks, which allows you to interactively run the code using a web browser.
 
 > [!NOTE]
-> The steps in this document create a new Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
+> The steps in this document create an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
 > 
-> When you are done with the steps in this document, please remeber to delete the clusters to avoid excess charges.
+> When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
 
 ## Prerequisites
 
@@ -56,15 +56,15 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
    
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet.json**.
 
-2. From the **Parameters** blade, enter the following:
+2. Use the following information to populate the entries on the **Parameters** blade:
    
     ![HDInsight parameters](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
     **BASICS** section:
    
-    * **Resource group**: Create a new group or select an existing one. This group will contain the HDInsight cluster.
+    * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
 
-    * **Location_: Select a location geographically close to you. This must match the location in the __SETTINGS** section.
+    * **Location_: Select a location geographically close to you. This location must match the location in the __SETTINGS__ section.
      
         **SETTINGS** section:
    
@@ -103,15 +103,15 @@ This example uses a Scala application in a Jupyter notebook. The code in the not
 
 * __Zookeeper hosts__: The Zookeeper hosts for the Kafka cluster are used when consuming (reading) data from Kafka.
 
-* __Topic name__: The name of the topic that data will be written to and read from. This example expects a topic named `sparktest`.
+* __Topic name__: The name of the topic that data is written to and read from. This example expects a topic named `sparktest`.
 
-See the [Kafka host information](#kafkahosts) section below for information on how to obtain the Kafka broker and Zookeeper host information.
+See the [Kafka host information](#kafkahosts) section for information on how to obtain the Kafka broker and Zookeeper host information.
 
 The code in the notebook performs the following tasks:
 
 * Creates a consumer that reads data from a Kafka topic named `sparktest`, counts each word in the data, and stores the word and count into a temporary table named `wordcounts`.
 
-* Creates a producer that writes wrandom sentences to the Kafka topic named `sparktest`.
+* Creates a producer that writes random sentences to the Kafka topic named `sparktest`.
 
 * Selects data from the `wordcounts` table to display the counts.
 
@@ -119,10 +119,10 @@ Each cell in the project contains comments or a text section that explains what 
 
 ##<a id="kafkahosts"></a>Kafka host information
 
-The first thing you should do when creating an application that works with Kafka on HDInsight is to get the Kafka broker and Zookeeper host information for the Kafka cluster. This is used by client applications in order to communicate with Kafka.
+The first thing you should do when creating an application that works with Kafka on HDInsight is to get the Kafka broker and Zookeeper host information for the Kafka cluster. This is used by client applications to communicate with Kafka.
 
 > [!NOTE]
-> The Kafka broker and Zookeeper hosts are not directly accessible over the Internet, so any application that uses Kafka must either run on the Kafka cluster or within the same Azure Virtual Network as the Kafka cluster. In this case, the example runs on a Spark on HDInsight cluster in the same virtual network.
+> The Kafka broker and Zookeeper hosts are not directly accessible over the Internet. Any application that uses Kafka must either run on the Kafka cluster or within the same Azure Virtual Network as the Kafka cluster. In this case, the example runs on a Spark on HDInsight cluster in the same virtual network.
 
 From your development environment, use the following commands to retrieve the broker and Zookeeper information. Replace __PASSWORD__ with the login (admin) password you used when creating the cluster. Replace __BASENAME__ with the base name you used when creating the cluster.
 
@@ -142,18 +142,18 @@ From your development environment, use the following commands to retrieve the br
     > When using this command from Windows PowerShell, you may receive an error about shell quoting. If so, use the following command:
     > `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["""\(.host_components[].HostRoles.host_name):2181"""] | join(""",""")'`
 
-Both commands return information similar to the following:
+Both commands return information similar to the following text:
 
-    * __Kafka brokers__: `wn0-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:9092,wn1-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:9092`
+* __Kafka brokers__: `wn0-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:9092,wn1-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:9092`
 
-    * __Zookeeper hosts__: `zk0-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk1-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk2-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181`
+* __Zookeeper hosts__: `zk0-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk1-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk2-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181`
 
 > [!IMPORTANT]
 > Save this information as it is used in several steps in this document.
 
 ## Use the Jupyter notebook
 
-In order to use the example Jupyter notebook, you must upload it to the Jupyter Notebook server on the Spark cluster. Use the following steps to upload the notebook:
+To use the example Jupyter notebook, you must upload it to the Jupyter Notebook server on the Spark cluster. Use the following steps to upload the notebook:
 
 1. In your web browser, use the following URL to connect to the Jupyter Notebook server on the Spark cluster. Replace __BASENAME__ with the base name used when you created the cluster.
 
@@ -171,13 +171,13 @@ In order to use the example Jupyter notebook, you must upload it to the Jupyter 
 
     ![Use the upload button beside the KafkaStreaming.ipynb entry to upload it to the notebook server](./media/hdinsight-apache-spark-with-kafka/upload-notebook.png)
 
-4. Once the file has uploaded, select the __KafkaStreaming.ipynb__ entry to open the notebook. Follow the instructions in the notebook to complete the example.
+4. Once the file has uploaded, select the __KafkaStreaming.ipynb__ entry to open the notebook. To complete this example, follow the instructions in the notebook.
 
 ## Delete the cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Since the steps in this document create both clusters in the same Azure resource group, you can delete the resource group in the Azure portal. This removes all resources created by following this document, as well as the Azure Virtual Network and storage account used by the clusters.
+Since the steps in this document create both clusters in the same Azure resource group, you can delete the resource group in the Azure portal. Deleting the group removes all resources created by following this document, the Azure Virtual Network, and storage account used by the clusters.
 
 ## Next steps
 

@@ -18,12 +18,12 @@ ms.author: larryfr
 ---
 # Use Apache Kafka (preview) with Storm on HDInsight
 
-Apache Kafka is a publish-subscribe messaging solution that is available with HDInsight. Apache Storm is a distributed system that can be used to analyze data in realtime. This document demonstrates how you can use Storm on HDInsight to read and process data from Kafka on HDInsight. The example in this document uses a Java-based Storm topology that relies on the Kafka spout and bolt components available with Apache Storm.
+Apache Kafka is a publish-subscribe messaging solution that is available with HDInsight. Apache Storm is a distributed system that can be used to analyze data in real-time. This document demonstrates how you can use Storm on HDInsight to read and process data from Kafka on HDInsight. The example in this document uses a Java-based Storm topology that relies on the Kafka spout and bolt components available with Apache Storm.
 
 > [!NOTE]
-> The steps in this document create a new Azure resource group that contains both a Storm on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Storm cluster to directly communicate with the Kafka cluster.
+> The steps in this document create an Azure resource group that contains both a Storm on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Storm cluster to directly communicate with the Kafka cluster.
 > 
-> When you are done with the steps in this document, please remeber to delete the clusters to avoid excess charges.
+> When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
 
 ## Prerequisites
 
@@ -62,15 +62,15 @@ While you can create an Azure virtual network, Kafka, and Storm clusters manuall
    
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet.json**.
 
-2. From the **Parameters** blade, enter the following:
+2. Use the following guidance to populate the entries on the **Parameters** blade:
    
     ![HDInsight parameters](./media/hdinsight-apache-storm-with-kafka/parameters.png)
    
     **BASICS** section:
    
-    * **Resource group**: Create a new group or select an existing one. This group will contain the HDInsight cluster.
+    * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
    
-    * **Location_: Select a location geographically close to you. This must match the location in the __SETTINGS** section.
+    * **Location_: Select a location geographically close to you. This location must match the location in the __SETTINGS__ section.
      
        **SETTINGS** section:
    
@@ -121,7 +121,7 @@ Both topologies expect the following environment variables:
 
 * **KAFKATOPIC**: The name of the Kafka topic that the topologies read/write to.
 
-* **KAFKABROKERS**: The hosts that the Kafka brokers run on. This is used by the KafkaBolt when writing to Kafka.
+* **KAFKABROKERS**: The hosts that the Kafka brokers run on. The broker information is used by the KafkaBolt when writing to Kafka.
 
 * **KAFKAZKHOSTS**: The hosts that Zookeeper runs on.
 
@@ -150,7 +150,7 @@ The steps in this document demonstrate how to set these environment variables.
     
     Replace __PASSWORD__ with the admin password you used when creating the cluster. Replace __BASENAME__ with the base name you used when creating the cluster.
 
-    This reads the values for the Zookeeper hosts from Ambari, and stores them into the KAFKAZKHOSTS variable. Use the following to see these values:
+    This command reads the values for the Zookeeper hosts from Ambari, and stores them into the KAFKAZKHOSTS variable. Use the following to see these values:
 
         echo $KAFKAZKHOSTS
     
@@ -158,10 +158,10 @@ The steps in this document demonstrate how to set these environment variables.
 
         zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk3-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181
 
-    Save the values returned from this command, as these are used when starting the topology on the Storm cluster.
+    Save the values returned from this command, as these values are used when starting the topology on the Storm cluster.
 
     > [!NOTE]
-    > The above commands use __http://headnodehost:8080/__, which connects to Ambari directly. If you need to retrieve this information from outside the cluster, over the internet, you must use __https://kafka-BASENAME/__ instead.
+    > The previous commands use __http://headnodehost:8080/__, which connects to Ambari directly. If you need to retrieve this information from outside the cluster, over the internet, you must use __https://kafka-BASENAME/__ instead.
 
 3. Use the following command to create a topic in Kafka:
    
@@ -197,7 +197,7 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
 
         scp ./scripts/set-env-variables.sh USERNAME@storm-BASENAME-ssh.azurehdinsight.net:set-env-variables.sh
     
-    This script is used to set a the environment variables that the Storm topologies use to communicate with the Kafka cluster.
+    This script is used to set the environment variables that the Storm topologies use to communicate with the Kafka cluster.
 
 ## Start the writer
 
@@ -238,7 +238,7 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
    
     * **org.apache.storm.flux.Flux**: Use Flux to configure and run this topology.
    
-    * **--remote**: Submit the topology to Nimbus. The topology is ran in a distributed fashion using the worker nodes in the cluster.
+    * **--remote**: Submit the topology to Nimbus. The topology is distributed across the worker nodes in the cluster.
    
     * **-R /writer.yaml**: Use the **writer.yaml** to configure the topology. `-R` indicates that this resource is included in the jar file. It's in the root of the jar, so `/writer.yaml` is the path to it.
    
@@ -275,23 +275,23 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
 
 2. Once the topology starts, open the Storm UI. This web UI is located at https://storm-BASENAME.azurehdinsight.net/stormui. Replace __BASENAME__ with the base name used when the cluster was created. 
 
-    When prompted, use the admin login name (default, `admin`) and password used when the cluster was created. You will see a web page similar to the following:
+    When prompted, use the admin login name (default, `admin`) and password used when the cluster was created. You will see a web page similar to the following image:
 
     ![Storm UI](./media/hdinsight-apache-storm-with-kafka/stormui.png)
 
-3. From the Storm UI, select the __kafka-reader__ link in the __Topology Summary__ section. This displays information about the __kafka-reader__ topology.
+3. From the Storm UI, select the __kafka-reader__ link in the __Topology Summary__ section to display information about the __kafka-reader__ topology.
 
     ![Topology summary section of the Storm web UI](./media/hdinsight-apache-storm-with-kafka/topology-summary.png)
 
-4. Select the __logger-bolt__ link in the __Bolts (All time)__ section. This displays information about the instances of the logger-bolt component.
+4. Select the __logger-bolt__ link in the __Bolts (All time)__ section to display information about the instances of the logger-bolt component.
 
     ![Logger-bolt link in the bolts section](./media/hdinsight-apache-storm-with-kafka/bolts.png)
 
-5. In the __Executors__ section, select a link in the __Port__ column. This displays logging information about this instance of the component.
+5. In the __Executors__ section, select a link in the __Port__ column to display logging information about this instance of the component.
 
     ![Executors link](./media/hdinsight-apache-storm-with-kafka/executors.png)
 
-    The log contains a log of the data read from the Kafka topic. The information in the log is similar to the following:
+    The log contains a log of the data read from the Kafka topic. The information in the log is similar to the following text:
 
         2016-11-04 17:47:14.907 c.m.e.LoggerBolt [INFO] Received data: four score and seven years ago
         2016-11-04 17:47:14.907 STDIO [INFO] the cow jumped over the moon
@@ -314,7 +314,7 @@ From an SSH session to the Storm cluster, use the following commands to stop the
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Since the steps in this document create both clusters in the same Azure resource group, you can delete the resource group in the Azure portal. This removes all resources created by following this document, as well as the Azure Virtual Network and storage account used by the clusters.
+Since the steps in this document create both clusters in the same Azure resource group, you can delete the resource group in the Azure portal. This removes all resources created by following this document, the Azure Virtual Network, and storage account used by the clusters.
 
 ## Next steps
 

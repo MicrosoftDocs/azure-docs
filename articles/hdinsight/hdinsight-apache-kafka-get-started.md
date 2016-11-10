@@ -31,7 +31,7 @@ You must have the following to successfully complete this Apache Storm tutorial:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following:
+* **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following documents:
   
    * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
    
@@ -51,7 +51,7 @@ Use the following steps to create a Kafka on HDInsight cluster:
 
 1. From the [Azure portal](https://portal.azure.com), select **+ NEW**, **Intelligence + Analytics**, and then select **HDInsight**.
    
-    ![Create an hdinsight cluster](./media/hdinsight-apache-kafka-get-started/create-hdinsight.png)
+    ![Create a HDInsight cluster](./media/hdinsight-apache-kafka-get-started/create-hdinsight.png)
 
 2. From the **New HDInsight Cluster** blade, enter a **Cluster Name** and select the **Subscription** to use with this cluster.
    
@@ -82,24 +82,24 @@ Use the following steps to create a Kafka on HDInsight cluster:
    
     * [Use SSH with HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-5. Use **Data Source** to configure the primary data store for the cluster. From the **Data Source** blade, use the following information to create a new data store for the cluster:
+5. Use **Data Source** to configure the primary data store for the cluster. From the **Data Source** blade, use the following information to create a data store for the cluster:
    
     * Select **Create new** and then enter a name for the storage account.
     
-    * Select **Location** and then select a location that is geographically close to you. This will be the location used to create both the storage account and the HDInsight cluster.
+    * Select **Location** and then select a location that is geographically close to you. This location is used to create both the storage account and the HDInsight cluster.
      
-    Finally, use the **Select** button to save settings.
+   Finally, use the **Select** button to save settings.
      
     ![Configure storage](./media/hdinsight-apache-kafka-get-started/configure-storage.png)
 
-6. Use **Pricing**, and then set the **Number of Worker Nodes** to 2. This is enough worker nodes for the steps in this document, and helps reduce the cost of the cluster. Use the **Select** button to save settings.
+6. Use **Pricing**, and then set the **Number of Worker Nodes** to 2. Using 2 worker nodes helps reduce the cost of the cluster and is enough for this example. Use the **Select** button to save settings.
    
     ![Pricing](./media/hdinsight-apache-kafka-get-started/pricing.png)
    
     > [!NOTE]
-    > The prices displayed in the portal may be different than those in the screenshot above.
+    > The prices displayed in the portal may be different than the prices in the screenshot.
 
-7. Use **Resource Group** to create a new group, and enter the name in the field. Also select **Pin to dashboard**. When done, select **Create** to create the cluster.
+7. Use **Resource Group** to create a group, and enter the name in the field. Also select **Pin to dashboard**. When done, select **Create** to create the cluster.
    
     ![Resource group field](./media/hdinsight-apache-kafka-get-started/resource-group.png)
    
@@ -108,7 +108,7 @@ Use the following steps to create a Kafka on HDInsight cluster:
 
 ## Connect to the cluster
 
-From your client, use SSH to connect to the cluster. If you are using a Linux, Unix, MacOS, or Bash on Windows 10, you will use the following command:
+From your client, use SSH to connect to the cluster. If you are using a Linux, Unix, MacOS, or Bash on Windows 10, use the following command:
 
     ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net
 
@@ -124,11 +124,11 @@ For information on using SSH with HDInsight, see the following documents:
 
 ##<a id="getkafkainfo"></a>Get the Zookeeper and Broker host information
 
-When working with Kafka, you must know two set of host values; the *Zookeeper* hosts and the *Broker* hosts. These are used with the Kafka API and many of the utilities that ship with Kafka.
+When working with Kafka, you must know two host values; the *Zookeeper* hosts and the *Broker* hosts. These hosts are used with the Kafka API and many of the utilities that ship with Kafka.
 
-Use the following steps to create environment variables that contain the host information. These environment variables will be used in the steps in this document.
+Use the following steps to create environment variables that contain the host information. These environment variables are used in the steps in this document.
 
-1. From an SSH connectin to the cluster, use the following to install the `jq` utility. This is used to parse JSON documents, and is useful in retrieving the broker host information:
+1. From an SSH connection to the cluster, use the following command to install the `jq` utility. This utility is used to parse JSON documents, and is useful in retrieving the broker host information:
    
         sudo apt -y install jq
 
@@ -141,16 +141,16 @@ Use the following steps to create environment variables that contain the host in
         echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
         echo '$KAFKABROKERS='$KAFKABROKERS
 
-    The following is an example of the contents of `$KAFKAZKHOSTS`:
+    The following text is an example of the contents of `$KAFKAZKHOSTS`:
    
         zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk3-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181
    
-    The following is an example of the contents of `$KAFKABROKERS`:
+    The following text is an example of the contents of `$KAFKABROKERS`:
    
         wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092
    
     > [!WARNING]
-    > Do not rely on the information returned from this session to always be accurate. If you scale out the cluster, new brokers are added. Similiarly, scale down operations remove brokers. If a failure occurs and a node is replaced, the host name for the node may change. 
+    > Do not rely on the information returned from this session to always be accurate. If you scale the cluster, new brokers are added or removed. If a failure occurs and a node is replaced, the host name for the node may change. 
     > 
     > You should always retrieve the Zookeeper and broker hosts information shortly before you use it to ensure you have valid information.
 
@@ -160,7 +160,7 @@ Kafka stores streams of data in categories called *topics*. From An SSH connecti
 
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
 
-This command will connect to Zookeeper using the host information stored in `$KAFKAZKHOSTS`, and then create a new Kafka topic named **test**. You can verify that the topic was created by using the following script to list topics:
+This command connects to Zookeeper using the host information stored in `$KAFKAZKHOSTS`, and then create Kafka topic named **test**. You can verify that the topic was created by using the following script to list topics:
 
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
 
@@ -176,7 +176,7 @@ Use the following steps to store records into the test topic you created earlier
    
         /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test
    
-    You will not return to the prompt after this command. Instead, type a few text messages and then use **Ctrl + C** to stop sending to the topic. Each line will be sent as a separate record.
+    You will not return to the prompt after this command. Instead, type a few text messages and then use **Ctrl + C** to stop sending to the topic. Each line is sent as a separate record.
 
 2. Use a script provided with Kafka to read records from the topic:
    
@@ -192,13 +192,13 @@ You can also programmatically produce and consume records using the [Kafka APIs]
 
 1. Download the examples from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started). For the producer/consumer example, use the project in the `Producer-Consumer` directory. Be sure to look through the code to understand how this example works. It contains the following classes:
    
-    * **Run** - starts either the consumer or producer based on command-line arguments.
+    * **Run** - starts either the consumer or producer based on command line arguments.
 
     * **Producer** - stores 1,000,000 records to the topic.
 
     * **Consumer** - reads records from the topic.
 
-2. From the command-line in your development environment, change directories to the location of the `Producer-Consumer` directory of the example and then use the following command to create a jar package:
+2. From the command line in your development environment, change directories to the location of the `Producer-Consumer` directory of the example and then use the following command to create a jar package:
    
         mvn clean package
    
@@ -230,7 +230,7 @@ You can also programmatically produce and consume records using the [Kafka APIs]
 
 ### Multiple consumers
 
-An important concept with Kafka is that consumers use a consumer group (defined by a group id) when reading records. This allows multiple consumers that use the same group to load balance reads from a topic. Each consumer will receive a portion of the records. To see this in action, use the following steps:
+An important concept with Kafka is that consumers use a consumer group (defined by a group id) when reading records. Multiple consumers that use the same group load balance reads from a topic; each consumer will receive a portion of the records. To see this in action, use the following steps:
 
 1. Open a new SSH session to the cluster, so that you have two of them. In each session, use the following to start a consumer with the same consumer group id:
    
@@ -254,7 +254,7 @@ The streaming API was added to Kafka in version 0.10.0; earlier versions rely on
 
 1. If you haven't already done so, download the examples from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started). For the streaming example, use the project in the `streaming` directory. Be sure to look through the code to understand how this example works. 
    
-    This project contains only one class, `Stream`, which reads records from the `test` topic created previously. It counts the words read, and emits each word and count to a topic named `wordcounts`. The `wordcounts` topic will be created in a later step in this section.
+    This project contains only one class, `Stream`, which reads records from the `test` topic created previously. It counts the words read, and emits each word and count to a topic named `wordcounts`. The `wordcounts` topic is created in a later step in this section.
 
 2. From the command-line in your development environment, change directories to the location of the `Streaming` directory, and then use the following command to create a jar package:
    
@@ -272,9 +272,9 @@ The streaming API was added to Kafka in version 0.10.0; earlier versions rely on
    
         ./kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS 2>/dev/null &
    
-    This will start the streaming process in the background.
+    This command starts the streaming process in the background.
 
-5. Use the following to send messages to the `test` topic. These will be processed by the streaming example:
+5. Use the following to send messages to the `test` topic. These are processed by the streaming example:
    
         ./kafka-producer-consumer.jar producer $KAFKABROKERS &>/dev/null &
 
