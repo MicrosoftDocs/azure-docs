@@ -60,7 +60,7 @@ The output is similar to the following:
   "creationDate": "2016-11-02T19:02:53.112519+00:00",
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry",
   "location": "southcentralus",
-  "loginServer": "myregistry.contoso.azurecr.io",
+  "loginServer": "myregistry-contoso.azurecr.io",
   "name": "myregistry",
   "storageAccount": {
     "accessKey": null,
@@ -73,7 +73,7 @@ The output is similar to the following:
 Take special note:
 
 * `id` - Identifier for the registry in your subscription, which you need if you want to assign a service principal. 
-* `loginServer` - The fully qualified name you specify to [log in to the registry](container-registry-authentication.md). In this example, the name is **myregistry.contoso.exp.azurecr.io** (all lowercase).
+* `loginServer` - The fully qualified name you specify to [log in to the registry](container-registry-authentication.md). In this example, the name is **myregistry-contoso.exp.azurecr.io** (all lowercase).
 
 ## Assign a service principal
 Use CLI 2.0 Preview commands to assign an Azure Active Directory service principal to a registry. The service principal in these examples is assigned the Owner role, but you can assign [other roles](../active-directory/role-based-access-control-configure.md) if you want.

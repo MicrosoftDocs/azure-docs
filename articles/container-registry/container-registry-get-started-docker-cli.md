@@ -39,11 +39,11 @@ Run `docker login` to log in to your container registry with your [registry cred
 The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md). For example, you might have assigned a service principal to your registry to use in automation scenarios. 
 
 ```
-docker login myregistry.contoso.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+docker login myregistry-contoso.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
 > [!TIP]
-> Make sure to specify the fully qualified registry name (all lowercase). In this example, it is `myregistry.contoso.azurecr.io`.
+> Make sure to specify the fully qualified registry name (all lowercase). In this example, it is `myregistry-contoso.azurecr.io`.
 
 ## Steps to pull and push an image
 The follow example downloads an Nginx image from the public Docker Hub registry, tags it for your private Azure container registry, pushes it to your registry, then pulls it again.
@@ -80,13 +80,13 @@ docker tag nginx myregistry-exp.azurecr.io/samples/nginx
 **4. Push the image to your registry**
 
 ```
-docker push myregistry.contoso.azurecr.io/samples/nginx
+docker push myregistry-contoso.azurecr.io/samples/nginx
 ``` 
 
 **5. Pull the image from your registry**
 
 ```
-docker pull myregistry.contoso.azurecr.io/samples/nginx
+docker pull myregistry-contoso.azurecr.io/samples/nginx
 ``` 
 
 **6. Start the Nginx container from your registry**
@@ -102,7 +102,7 @@ To stop the running container, press [CTRL]+[C].
 **6. Remove the image**
 
 ```
-docker rmi myregistry.contoso.azurecr.io/samples/nginx
+docker rmi myregistry-contoso.azurecr.io/samples/nginx
 ```
 
 

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 11/09/2016
 ms.author: stevelas
 ---
 # Create a container registry using the Azure portal
@@ -34,6 +34,7 @@ For background and concepts, see [What is Azure Container Registry?](container-r
 3. Select **Container Registry (preview)**, with publisher **Microsoft**. 
     ![Container Registry service in Azure Marketplace](./media/container-registry-get-started-portal/container-registry-marketplace.png)
 4. Click **Create**. The **Container Registry** blade appears.
+
     ![Container registry settings](./media/container-registry-get-started-portal/container-registry-settings.png)
 5. In the **Container Registry** blade, enter the following information. Click **Create** when you are done.
    
@@ -61,9 +62,9 @@ After creating the registry, find the registry settings by starting at the **Con
     ![Container registry access](./media/container-registry-get-started-portal/container-registry-access.png)
 3. Note the following settings:
    
-   * **Login server** - The fully qualified name you use to log in to the registry.
+   * **Login server** - The fully qualified name you use to log in to the registry. In this example, it is `myregistry01-contoso.azurecr.io`.
    * **Admin user** - Toggle to enable or disable the registry's admin user account.
-   * **Username** and **Password** - The credentials of the admin user account (if enabled) you can use to log in to the registry. 
+   * **Username** and **Password** - The credentials of the admin user account (if enabled) you can use to log in to the registry. You can optionally regenerate the password.
 
 ## Next steps
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
