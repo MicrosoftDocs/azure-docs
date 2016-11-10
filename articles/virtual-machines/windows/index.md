@@ -1,9 +1,9 @@
 ---
 layout: LandingPage
 ---
-#Windows Virtual Machine Documentation
+#Windows Virtual Machines Documentation
 
-Azure Virtual Machines (VM) is one of several types of on-demand, scalable computing resources that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
+Azure Virtual Machines (VM) is one of several types of on-demand, scalable computing resources that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it yet gives you the control of configuration, patching, and installing the software that runs on it.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +17,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Windows Virtual Machine</h3>
+                        <h3>Learn about Windows Virtual Machines</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Linux Virtual Machine</h3>
+                        <h3>Get started with Linux Virtual Machines</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Virtual Machine Video Library</h3>
+                        <h3>Virtual Machines Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-dotnet-core-1-landing">
+        <a href="/azure/resource-manager-template-walkthrough">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -107,7 +107,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create and Deploy complex VM templates</h3>
+                        <h3>Create a VM using a Resource Manager Template</h3>
                     </div>
                 </div>
             </div>
@@ -120,33 +120,29 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
 
 ##Reference
 
-###.NET
-[Virtual Machine Managed Reference API](/dotnet/api/)
-
-[Network Managed Reference API](/dotnet/api/)
-
-[Storage Managed Reference API](/dotnet/api/)
+###PowerShell
+[Azure PowerShell](/powershell/)
 
 ###Azure CLI
-[Windows Virtual Machine using Azure CLI](/cli/azure/)
+[Azure CLI](/cli/azure/vm)
 
-###PowerShell
-[Windows Virtual Machine using PowerShell](/powershell/)
+###.NET
+[Managed Reference API](/dotnet/api/)
 
 ###Java SDK
-[Windows Virtual Machine using Java](/java/api/)
+[Java Reference](/java/api/)
 
 ###Rest (COMPUTE)
-[Compute REST API Reference](  /rest/api/ )
+[Compute REST API Reference](/rest/api/compute)
 
 ###REST (Network)
-[Network REST API Reference for Network](  /rest/api/)
+[Network REST API Reference for Network](https://msdn.microsoft.com/library/mt163658.aspx)
 
 ###REST (Storage)
-[Storage Machine REST API Reference](  /rest/api/)
+[Storage Machine REST API Reference](/rest/api/storage)
 
 ###REST (VM Scale Sets)
-[Virtual Machine Scale Sets REST API Reference](  /rest/api/)
+[Virtual Machine Scale Sets REST API Reference](/rest/api/virtualmachinescalesets)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

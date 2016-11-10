@@ -8,16 +8,15 @@
 ### [Compute-intensive sizes](../virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Compute benchmark scores](../virtual-machines-linux-compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Regions and availability](../virtual-machines-linux-regions-and-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [VM Availability](../virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [VM Availability](../virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Security Center](../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Deployment models](../../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Deployment models](../../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [VM Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Containers](../virtual-machines-linux-containers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [FAQ](../virtual-machines-linux-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Get started
-## [Free account](https://azure.microsoft.com/pricing/free-trial/)
 ## [Create a VM using the portal](../virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Create SSH keys on Linux and Mac](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Different ways to create a VM](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -48,7 +47,7 @@
 ### [Use Docker Compose with Azure](../virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Deploy your own private Docker registry on Azure](../virtual-machines-linux-docker-registry-in-blob-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## [Storage](../virtual-machines-linux-azure-vm-storage-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## Store
 ### [Disks and VHDs](../virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Disk encryption](../virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Configure software RAID](../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -67,7 +66,7 @@
 ### [Connect Classic VNets to Resource Manager VNets](../../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [DNS Name Resolution Options](../virtual-machines-linux-azure-dns.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## Images
+## Upload images
 ### [Azure-endorsed images](../virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Custom images](../virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Upload a VM image using the CLI](../virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -123,9 +122,9 @@
 ### [Common migration errors](../virtual-machines-migration-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Best Practices
-### [Running Single VMs](../../guidance/guidance-compute-single-vm-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Plan
+### [Running VMs best practices](../../guidance/guidance-compute-single-vm-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Infrastructure guidelines](../virtual-machines-linux-infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Subscriptions and accounts](../virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Naming](../virtual-machines-linux-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -137,7 +136,7 @@
 ### [Azure Planned maintenance](../virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Schedule](../virtual-machines-linux-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## Workloads
+## Deploy workloads
 ### [Get started with SAP](../virtual-machines-linux-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Planning for SAP](../virtual-machines-linux-sap-planning-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Deploy SAP](../virtual-machines-linux-sap-deployment-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -152,14 +151,14 @@
 ### [High Performance Computing (HPC)](../virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Run NAMD with Microsoft HPC Pack](../virtual-machines-linux-classic-hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## Applications
+## Deploy applications
 ### [Deploy Node.js application](../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Django web app](../virtual-machines-linux-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Jupyter Notebook](../virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Troubleshoot
-### [Troubleshoot Secure Shell (SSH) connections to a Linux-based VM](../virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Detailed Secure Shell (SSH) troubleshootingsteps](../virtual-machines-linux-detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Troubleshoot Secure Shell connections](../virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Detailed troubleshooting steps](../virtual-machines-linux-detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Troubleshoot access to applications](../virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Troubleshoot allocation failures](../virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Troubleshoot deployment issues](../virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

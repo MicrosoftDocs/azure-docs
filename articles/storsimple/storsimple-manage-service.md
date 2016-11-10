@@ -53,7 +53,7 @@ Perform the following steps to create a service.
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
 
 ## Delete a service
-Before you delete a service, make sure that no connected devices are using it. If the service is in use, deactivate the connected devices. The deactivate operation will sever the connection between the device and the service, but preserve the device data in the cloud. 
+Before you delete a service, make sure that no connected devices are using it. If the service is in use, deactivate the connected devices. The deactivate operation will sever the connection between the device and the service, but preserve the device data in the cloud.
 
 [AZURE.IMPORTANT] After a service is deleted, the operation cannot be reversed. Any device that was using the service will need to be factory reset before it can be used with another service. In this scenario, the local data on the device, as well as the configuration, will be lost.
 
@@ -73,7 +73,7 @@ Perform the following steps to get the service registration key.
 
 Keep the service registration key in a safe location. You will need this key, as well as the service data encryption key, to register additional devices with this service. After obtaining the service registration key, you will need to configure your device through the Windows PowerShell for StorSimple interface.
 
-For details on how to use this registration key, see [Step 3: Configure and register the device through Windows PowerShell for StorSimple](storsimple-deployment-walkthrough.md#step-2-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+For details on how to use this registration key, see [Step 3: Configure and register the device through Windows PowerShell for StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 ## Regenerate the service registration key
 You will need to regenerate a service registration key if you are required to perform key rotation or if the list of service administrators has changed. When you regenerate the key, the new key is used only for registering subsequent devices. The devices that were already registered are unaffected by this process.
@@ -92,4 +92,3 @@ Perform the following steps to regenerate a service registration key.
 * Learn more about the [StorSimple deployment process](storsimple-deployment-walkthrough.md).
 * Learn more about [managing your StorSimple storage account](storsimple-manage-storage-accounts.md).
 * Learn more about how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
-

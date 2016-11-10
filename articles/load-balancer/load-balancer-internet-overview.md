@@ -1,4 +1,3 @@
-
 ---
 title: Internet facing load balancer overview | Microsoft Docs
 description: Overview for Internet facing load balancer and its features. How a load balancer works for Azure using virtual machines and cloud services.
@@ -16,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: sewhee
-
 ---
+
 # Internet facing load balancer overview
+
 Azure load balancer maps the public IP address and port number of incoming traffic to the private IP address and port number of the virtual machine and vice versa for the response traffic from the virtual machine. Load balancing rules allow you to distribute specific types of traffic between multiple virtual machines or services. For example, you can spread the load of web request traffic across multiple web servers or web roles.
 
 For a cloud service that contains instances of web roles or worker roles, you can define a public endpoint in the service definition (.csdef) file.
@@ -36,9 +36,9 @@ When Internet clients send web page requests to the public IP address of the clo
 By default, Azure Load Balancer distributes network traffic equally among multiple virtual machine instances. You can also configure session affinity, For more information, see [load balancer distribution mode](load-balancer-distribution-mode.md).
 
 ## Next steps
+
 Learn about [Internal load balancer](load-balancer-internal-overview.md) to better understand which load balancer is a better fit for your cloud deployment.
 
 You can also [get started creating an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md) and configure what type of [distribution mode](load-balancer-distribution-mode.md) for an specific load balancer network traffic behavior.
 
 If your application needs to keep connections alive for servers behind a load balancer, you can understand more about [idle TCP timeout settings for a load balancer](load-balancer-tcp-idle-timeout.md). It will help to learn about idle connection behavior when you are using Azure Load Balancer.
-

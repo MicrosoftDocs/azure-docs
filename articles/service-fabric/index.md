@@ -113,7 +113,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 [Service Fabric Managed Reference API](/dotnet/api/)  
 
 ###REST
-[Service Fabric REST API Reference](msdn.microsoft.com/library/dn707692.aspx)
+[Service Fabric REST API Reference](http://msdn.microsoft.com/library/dn707692.aspx)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">
