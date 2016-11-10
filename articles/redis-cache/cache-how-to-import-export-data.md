@@ -56,7 +56,7 @@ Import can be used to bring Redis compatible RDB file(s) from any Redis server r
 
     ![Import][cache-import-blobs]
 
-    You can monitor the progress of the import operation by following the notifications from the Azure portal or by viewing the events in the [audit log](cache-configure.md#support-&-troubleshooting-settings).
+    You can monitor the progress of the import operation by following the notifications from the Azure portal or by viewing the events in the audit. For more information, see the "Support & troubleshooting settings" section of [How to configure Azure Redis Cache](cache-configure.md).
 
     ![Import progress][cache-import-data-import-complete]
 
@@ -81,7 +81,7 @@ Export allows you to export the data stored in Azure Redis Cache to Redis compat
 
     ![Export][cache-export-data]
 
-    You can monitor the progress of the export operation by following the notifications from the Azure portal or by viewing the events in the [audit log](cache-configure.md#support-&-troubleshooting-settings).
+    You can monitor the progress of the export operation by following the notifications from the Azure portal or by viewing the events in the audit log. For more information, see the "Support & troubleshooting settings" section of [How to configure Azure Redis Cache](cache-configure.md).
 
     ![][cache-export-data-export-complete]
 
