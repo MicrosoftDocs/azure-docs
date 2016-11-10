@@ -110,12 +110,13 @@
 #### [Move a VM to a different subnet](virtual-networks-move-vm-role-to-subnet.md)
 
 # Reference
-## [PowerShell cmdlets (Resource manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell cmdlets (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [APIs (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
-## [APIs (Classic)](https://msdn.microsoft.com/library/jj157182.aspx)
-## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
-## [Frequently asked questions](virtual-networks-faq.md)
+## [PowerShell (Resource manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
+## [PowerShell (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+## [Azure CLI](https://docs.microsoft.com/cli/azure)
+## [Java](https://docs.microsoft.com/java/api)
+## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
+## [REST (Classic)](https://msdn.microsoft.com/library/jj157182.aspx)
+
 
 # Related
 ## [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines)
@@ -125,4 +126,8 @@
 ## [Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer)
 ## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway)
 ## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute)
+
+# Resources
+## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
+## [Frequently asked questions](virtual-networks-faq.md)
 

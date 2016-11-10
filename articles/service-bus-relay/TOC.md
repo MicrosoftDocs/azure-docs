@@ -15,9 +15,10 @@
 
 # Reference
 ## [Samples](service-bus-relay-samples.md)
-## [.NET API reference](https://msdn.microsoft.com/library/azure/jj933424)
 ## [Exceptions](../service-bus-messaging/service-bus-messaging-exceptions.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
 ## [Quotas](../service-bus-messaging/service-bus-quotas.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [.NET](https://docs.microsoft.com/dotnet/api/)
+## [REST](https://docs.microsoft.com/rest/api/servicebus/)
 
 # Resources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)

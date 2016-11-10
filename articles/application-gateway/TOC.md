@@ -41,9 +41,10 @@
 ### [Diagnostics](application-gateway-diagnostics.md)
 ### [Troubleshoot](application-gateway-troubleshooting-502.md)
 # Reference
-## [Resource Manager APIs](https://msdn.microsoft.com/library/azure/mt684941)
-## [Service Management APIs](https://msdn.microsoft.com/library/azure/mt299393)
-## [PowerShell cmdlets](https://go.microsoft.com/fwlink/p/?LinkId=536407)
+## [PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/resourcemanager)
+## [REST](https://docs.microsoft.com/rest/api/appservice/)
+## [Classic REST](https://msdn.microsoft.com/library/azure/mt299393)
+
 # Related
 ## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)
 ## [Virtual network](https://azure.microsoft.com/documentation/services/virtual-network/)
