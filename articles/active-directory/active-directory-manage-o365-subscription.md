@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
 
 ---
@@ -40,8 +40,8 @@ In order for Michael Smith to manage both directories while he is signed in to A
 
 > [!NOTE]
 > These steps can be completed only when a user is signed in with a Microsoft account. If the user is signed in with a work or school account, the option to **Use existing directory** isn't available. A work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and that the business or school owns).
-> 
-> 
+>
+>
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as msmith@hotmail.com.
 2. Click **New** > **App services** > **Active Directory** > **Directory** > **Custom Create**.
@@ -62,4 +62,3 @@ Now let’s suppose that Jane Doe needs administer websites and database resourc
 
 ## Next steps
 For more information about the relationship between subscriptions and directories, see [How a subscription is associated with a directory](active-directory-how-subscriptions-associated-directory.md).
-

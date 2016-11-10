@@ -22,8 +22,8 @@ Service Bus is offered in Basic, Standard, and [Premium](service-bus-premium-mes
 
 > [!NOTE]
 > For detailed information about current Service Bus pricing, see the [Azure Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/), and the [Service Bus FAQ](service-bus-faq.md#service-bus-pricing).
-> 
-> 
+>
+>
 
 Service Bus uses the following two meters for queues and topics/subscriptions:
 
@@ -98,15 +98,15 @@ The Basic tier includes, and is strictly limited to, 100 brokered connections pe
 
 > [!NOTE]
 > 1,000 brokered connections are included with the Standard messaging tier (via the base charge) and can be shared across all queues, topics, and subscriptions within the associated Azure subscription.
-> 
-> 
+>
+>
 
 <br />
 
 > [!NOTE]
 > Billing is based on the peak number of concurrent connections and is prorated hourly based on 744 hours per month.
-> 
-> 
+>
+>
 
 | Premium Tier |
 | --- |
@@ -124,7 +124,7 @@ WCF Relays are available only in Standard tier namespaces. Otherwise, pricing an
 
 ## FAQ
 ### How is the WCF Relay Hours meter calculated?
-See [this topic](service-bus-faq.md#how-is-the-relay-hours-meter-calculated).
+See [this topic](service-bus-faq.md).
 
 ### What are brokered connections and how do I get charged for them?
 A brokered connection is defined as one of the following:
