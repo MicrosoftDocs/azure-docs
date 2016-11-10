@@ -36,7 +36,7 @@ For more background and concepts, see [What is Azure Container Registry?](contai
 ## Log in to a registry
 Run `docker login` to log in to your container registry with your [registry credentials](container-registry-authentication.md).
 
-The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md). For example, you might have assigned a service principal to your registry to use in automation scenarios. 
+The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md). For example, you might have assigned a service principal to your registry for an automation scenarios. 
 
 ```
 docker login myregistry-contoso.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword

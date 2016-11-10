@@ -73,7 +73,7 @@ The output is similar to the following:
 Take special note:
 
 * `id` - Identifier for the registry in your subscription, which you need if you want to assign a service principal. 
-* `loginServer` - The fully qualified name you specify to [log in to the registry](container-registry-authentication.md). In this example, the name is **myregistry-contoso.exp.azurecr.io** (all lowercase).
+* `loginServer` - The fully qualified name you specify to [log in to the registry](container-registry-authentication.md). In this example, the name is `myregistry-contoso.exp.azurecr.io` (all lowercase).
 
 ## Assign a service principal
 Use CLI 2.0 Preview commands to assign an Azure Active Directory service principal to a registry. The service principal in these examples is assigned the Owner role, but you can assign [other roles](../active-directory/role-based-access-control-configure.md) if you want.
@@ -115,7 +115,7 @@ az acr update -n myRegistry --disable-admin
 ```
 
 ## List images and tags
-Use the **az acr** CLI commands to query the images and tags in a repository. Container Registry doesn't currently support `docker search`.
+Use the `az acr` CLI commands to query the images and tags in a repository. Container Registry doesn't currently support `docker search`.
 
 > [!NOTE]
 > Currently, Container Registry does not support the `docker search` command to query for images and tags.
