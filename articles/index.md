@@ -87,7 +87,7 @@ layout: HubPage
                                         <li>
                                             <a href="/azure/virtual-machines-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
-                                                <p>Virtual Machines Scale Sets</p>
+                                                <p>Virtual Machine Scale Sets</p>
                                             </a>
                                         </li>
                                         <li>
@@ -680,7 +680,7 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Virtual Machines Scale Sets</h3>
+                                                    <h3>Virtual Machine Scale Sets</h3>
                                                     <p>Create highly available, auto scalable Linux or Windows virtual machines</p>
                                                 </div>
                                             </div>
