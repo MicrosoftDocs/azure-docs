@@ -38,7 +38,7 @@
 #### [Implementing a secure hybrid network architecture in Azure](guidance-iaas-ra-secure-vnet-hybrid.md)
 #### [Implementing a DMZ between Azure and the Internet](guidance-iaas-ra-secure-vnet-dmz.md)
 
-### [Managing identity in Azure](guidance-identity.md)
+### [Managing identity in Azure](guidance-ra-identity.md)
 #### [Implementing Azure Active Directory](guidance-identity-aad.md)
 #### [Extending Active Directory Directory Services (ADDS) to Azure](guidance-identity-adds-extend-domain.md)
 #### [Creating a Active Directory Directory Services (ADDS) resource forest in Azure](guidance-identity-adds-resource-forest.md)
