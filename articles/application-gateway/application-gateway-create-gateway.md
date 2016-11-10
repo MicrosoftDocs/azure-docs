@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 11/10/2016
 ms.author: gwallace
 
 ---
@@ -70,13 +70,13 @@ To create the gateway, use the **New-AzureApplicationGateway** cmdlet, replacing
 The following example creates an application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1".
 
 ```powershell
-    New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
-    VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
-    VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-    Name       HTTP Status Code     Operation ID                             Error
-    ----       ----------------     ------------                             ----
-    Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
+VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
+VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
+Name       HTTP Status Code     Operation ID                             Error
+----       ----------------     ------------                             ----
+Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 ```
 
  *Description*, *InstanceCount*, and *GatewaySize* are optional parameters.
@@ -84,16 +84,16 @@ The following example creates an application gateway by using a virtual network 
 To validate that the gateway was created, you can use the **Get-AzureApplicationGateway** cmdlet.
 
 ```powershell
-    Get-AzureApplicationGateway AppGwTest
-    Name          : AppGwTest
-    Description   :
-    VnetName      : testvnet1
-    Subnets       : {Subnet-1}
-    InstanceCount : 2
-    GatewaySize   : Medium
-    State         : Stopped
-    VirtualIPs    : {}
-    DnsName       :
+Get-AzureApplicationGateway AppGwTest
+Name          : AppGwTest
+Description   :
+VnetName      : testvnet1
+Subnets       : {Subnet-1}
+InstanceCount : 2
+GatewaySize   : Medium
+State         : Stopped
+VirtualIPs    : {}
+DnsName       :
 ```
 
 > [!NOTE]
@@ -113,48 +113,48 @@ In the following example, you use an XML file to configure all application gatew
 Copy the following text to Notepad.
 
 ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
-        <FrontendPorts>
-            <FrontendPort>
-                <Name>(name-of-your-frontend-port)</Name>
-                <Port>(port number)</Port>
-            </FrontendPort>
-        </FrontendPorts>
-        <BackendAddressPools>
-            <BackendAddressPool>
-                <Name>(name-of-your-backend-pool)</Name>
-                <IPAddresses>
-                    <IPAddress>(your-IP-address-for-backend-pool)</IPAddress>
-                    <IPAddress>(your-second-IP-address-for-backend-pool)</IPAddress>
-                </IPAddresses>
-            </BackendAddressPool>
-        </BackendAddressPools>
-        <BackendHttpSettingsList>
-            <BackendHttpSettings>
-                <Name>(backend-setting-name-to-configure-rule)</Name>
-                <Port>80</Port>
-                <Protocol>[Http|Https]</Protocol>
-                <CookieBasedAffinity>Enabled</CookieBasedAffinity>
-            </BackendHttpSettings>
-        </BackendHttpSettingsList>
-        <HttpListeners>
-            <HttpListener>
-                <Name>(name-of-the-listener)</Name>
-                <FrontendPort>(name-of-your-frontend-port)</FrontendPort>
-                <Protocol>[Http|Https]</Protocol>
-            </HttpListener>
-        </HttpListeners>
-        <HttpLoadBalancingRules>
-            <HttpLoadBalancingRule>
-                <Name>(name-of-load-balancing-rule)</Name>
-                <Type>basic</Type>
-                <BackendHttpSettings>(backend-setting-name-to-configure-rule)</BackendHttpSettings>
-                <Listener>(name-of-the-listener)</Listener>
-                <BackendAddressPool>(name-of-your-backend-pool)</BackendAddressPool>
-            </HttpLoadBalancingRule>
-        </HttpLoadBalancingRules>
-    </ApplicationGatewayConfiguration>
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+    <FrontendPorts>
+        <FrontendPort>
+            <Name>(name-of-your-frontend-port)</Name>
+            <Port>(port number)</Port>
+        </FrontendPort>
+    </FrontendPorts>
+    <BackendAddressPools>
+        <BackendAddressPool>
+            <Name>(name-of-your-backend-pool)</Name>
+            <IPAddresses>
+                <IPAddress>(your-IP-address-for-backend-pool)</IPAddress>
+                <IPAddress>(your-second-IP-address-for-backend-pool)</IPAddress>
+            </IPAddresses>
+        </BackendAddressPool>
+    </BackendAddressPools>
+    <BackendHttpSettingsList>
+        <BackendHttpSettings>
+            <Name>(backend-setting-name-to-configure-rule)</Name>
+            <Port>80</Port>
+            <Protocol>[Http|Https]</Protocol>
+            <CookieBasedAffinity>Enabled</CookieBasedAffinity>
+        </BackendHttpSettings>
+    </BackendHttpSettingsList>
+    <HttpListeners>
+        <HttpListener>
+            <Name>(name-of-the-listener)</Name>
+            <FrontendPort>(name-of-your-frontend-port)</FrontendPort>
+            <Protocol>[Http|Https]</Protocol>
+        </HttpListener>
+    </HttpListeners>
+    <HttpLoadBalancingRules>
+        <HttpLoadBalancingRule>
+            <Name>(name-of-load-balancing-rule)</Name>
+            <Type>basic</Type>
+            <BackendHttpSettings>(backend-setting-name-to-configure-rule)</BackendHttpSettings>
+            <Listener>(name-of-the-listener)</Listener>
+            <BackendAddressPool>(name-of-your-backend-pool)</BackendAddressPool>
+        </HttpLoadBalancingRule>
+    </HttpLoadBalancingRules>
+</ApplicationGatewayConfiguration>
 ```
 
 Edit the values between the parentheses for the configuration items. Save the file with extension .xml.
@@ -167,61 +167,61 @@ Edit the values between the parentheses for the configuration items. Save the fi
 The following example shows how to use a configuration file to set up the application gateway. The example load balances HTTP traffic on public port 80 and sends network traffic to back-end port 80 between two IP addresses.
 
 ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
-        <FrontendPorts>
-            <FrontendPort>
-                <Name>FrontendPort1</Name>
-                <Port>80</Port>
-            </FrontendPort>
-        </FrontendPorts>
-        <BackendAddressPools>
-            <BackendAddressPool>
-                <Name>BackendPool1</Name>
-                <IPAddresses>
-                    <IPAddress>10.0.0.1</IPAddress>
-                    <IPAddress>10.0.0.2</IPAddress>
-                </IPAddresses>
-            </BackendAddressPool>
-        </BackendAddressPools>
-        <BackendHttpSettingsList>
-            <BackendHttpSettings>
-                <Name>BackendSetting1</Name>
-                <Port>80</Port>
-                <Protocol>Http</Protocol>
-                <CookieBasedAffinity>Enabled</CookieBasedAffinity>
-            </BackendHttpSettings>
-        </BackendHttpSettingsList>
-        <HttpListeners>
-            <HttpListener>
-                <Name>HTTPListener1</Name>
-                <FrontendPort>FrontendPort1</FrontendPort>
-                <Protocol>Http</Protocol>
-            </HttpListener>
-        </HttpListeners>
-        <HttpLoadBalancingRules>
-            <HttpLoadBalancingRule>
-                <Name>HttpLBRule1</Name>
-                <Type>basic</Type>
-                <BackendHttpSettings>BackendSetting1</BackendHttpSettings>
-                <Listener>HTTPListener1</Listener>
-                <BackendAddressPool>BackendPool1</BackendAddressPool>
-            </HttpLoadBalancingRule>
-        </HttpLoadBalancingRules>
-    </ApplicationGatewayConfiguration>
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+    <FrontendPorts>
+        <FrontendPort>
+            <Name>FrontendPort1</Name>
+            <Port>80</Port>
+        </FrontendPort>
+    </FrontendPorts>
+    <BackendAddressPools>
+        <BackendAddressPool>
+            <Name>BackendPool1</Name>
+            <IPAddresses>
+                <IPAddress>10.0.0.1</IPAddress>
+                <IPAddress>10.0.0.2</IPAddress>
+            </IPAddresses>
+        </BackendAddressPool>
+    </BackendAddressPools>
+    <BackendHttpSettingsList>
+        <BackendHttpSettings>
+            <Name>BackendSetting1</Name>
+            <Port>80</Port>
+            <Protocol>Http</Protocol>
+            <CookieBasedAffinity>Enabled</CookieBasedAffinity>
+        </BackendHttpSettings>
+    </BackendHttpSettingsList>
+    <HttpListeners>
+        <HttpListener>
+            <Name>HTTPListener1</Name>
+            <FrontendPort>FrontendPort1</FrontendPort>
+            <Protocol>Http</Protocol>
+        </HttpListener>
+    </HttpListeners>
+    <HttpLoadBalancingRules>
+        <HttpLoadBalancingRule>
+            <Name>HttpLBRule1</Name>
+            <Type>basic</Type>
+            <BackendHttpSettings>BackendSetting1</BackendHttpSettings>
+            <Listener>HTTPListener1</Listener>
+            <BackendAddressPool>BackendPool1</BackendAddressPool>
+        </HttpLoadBalancingRule>
+    </HttpLoadBalancingRules>
+</ApplicationGatewayConfiguration>
 ```
 
 ### Step 2
 Next, set the application gateway. Use the **Set-AzureApplicationGatewayConfig** cmdlet with a configuration XML file.
 
 ```powershell
-    Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
+Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 
-    VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
-    VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
-    Name       HTTP Status Code     Operation ID                             Error
-    ----       ----------------     ------------                             ----
-    Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
+VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
+VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
+Name       HTTP Status Code     Operation ID                             Error
+----       ----------------     ------------                             ----
+Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 ```
 
 ## Configure the application gateway by using a configuration object
@@ -238,68 +238,68 @@ Create all individual configuration items.
 Create the front-end IP as shown in the following example.
 
 ```powershell
-    $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
-    $fip.Name = "fip1"
-    $fip.Type = "Private"
-    $fip.StaticIPAddress = "10.0.0.5"
+$fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
+$fip.Name = "fip1"
+$fip.Type = "Private"
+$fip.StaticIPAddress = "10.0.0.5"
 ```
 
 Create the front-end port as shown in the following example.
 
 ```powershell
-    $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
-    $fep.Name = "fep1"
-    $fep.Port = 80
+$fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
+$fep.Name = "fep1"
+$fep.Port = 80
 ```
 
 Create the back-end server pool.
 
- Define the IP addresses that are added to the back-end server pool as shown in the next example.
+Define the IP addresses that are added to the back-end server pool as shown in the next example.
 
 ```powershell
-    $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
-    $servers.Add("10.0.0.1")
-    $servers.Add("10.0.0.2")
+$servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
+$servers.Add("10.0.0.1")
+$servers.Add("10.0.0.2")
 ```
 
- Use the $server object to add the values to the back-end pool object ($pool).
+Use the $server object to add the values to the back-end pool object ($pool).
 
 ```powershell
-    $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
-    $pool.BackendServers = $servers
-    $pool.Name = "pool1"
+$pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
+$pool.BackendServers = $servers
+$pool.Name = "pool1"
 ```
 
 Create the back-end server pool setting.
 
 ```powershell
-    $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
-    $setting.Name = "setting1"
-    $setting.CookieBasedAffinity = "enabled"
-    $setting.Port = 80
-    $setting.Protocol = "http"
+$setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
+$setting.Name = "setting1"
+$setting.CookieBasedAffinity = "enabled"
+$setting.Port = 80
+$setting.Protocol = "http"
 ```
 
 Create the listener.
 
 ```powershell
-    $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
-    $listener.Name = "listener1"
-    $listener.FrontendPort = "fep1"
-    $listener.FrontendIP = "fip1"
-    $listener.Protocol = "http"
-    $listener.SslCert = ""
+$listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
+$listener.Name = "listener1"
+$listener.FrontendPort = "fep1"
+$listener.FrontendIP = "fip1"
+$listener.Protocol = "http"
+$listener.SslCert = ""
 ```
 
 Create the rule.
 
 ```powershell
-    $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
-    $rule.Name = "rule1"
-    $rule.Type = "basic"
-    $rule.BackendHttpSettings = "setting1"
-    $rule.Listener = "listener1"
-    $rule.BackendAddressPool = "pool1"
+$rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
+$rule.Name = "rule1"
+$rule.Type = "basic"
+$rule.BackendHttpSettings = "setting1"
+$rule.Listener = "listener1"
+$rule.BackendAddressPool = "pool1"
 ```
 
 ### Step 2
@@ -308,50 +308,50 @@ Assign all individual configuration items to an application gateway configuratio
 Add the front-end IP to the configuration.
 
 ```powershell
-    $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
-    $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]"
-    $appgwconfig.FrontendIPConfigurations.Add($fip)
+$appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
+$appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]"
+$appgwconfig.FrontendIPConfigurations.Add($fip)
 ```
 
 Add the front-end port to the configuration.
 
 ```powershell
-    $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
-    $appgwconfig.FrontendPorts.Add($fep)
+$appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
+$appgwconfig.FrontendPorts.Add($fep)
 ```
 Add the back-end server pool to the configuration.
 
 ```powershell
-    $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
-    $appgwconfig.BackendAddressPools.Add($pool)
+$appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
+$appgwconfig.BackendAddressPools.Add($pool)
 ```
 
 Add the back-end pool setting to the configuration.
 
 ```powershell
-    $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
-    $appgwconfig.BackendHttpSettingsList.Add($setting)
+$appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
+$appgwconfig.BackendHttpSettingsList.Add($setting)
 ```
 
 Add the listener to the configuration.
 
 ```powershell
-    $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
-    $appgwconfig.HttpListeners.Add($listener)
+$appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
+$appgwconfig.HttpListeners.Add($listener)
 ```
 
 Add the rule to the configuration.
 
 ```powershell
-    $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
-    $appgwconfig.HttpLoadBalancingRules.Add($rule)
+$appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
+$appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
 ### Step 3
 Commit the configuration object to the application gateway resource by using **Set-AzureApplicationGatewayConfig**.
 
 ```powershell
-    Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
+Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 ```
 
 ## Start the gateway
@@ -363,13 +363,13 @@ Once the gateway has been configured, use the **Start-AzureApplicationGateway** 
 > 
 
 ```powershell
-    Start-AzureApplicationGateway AppGwTest
+Start-AzureApplicationGateway AppGwTest
 
-    VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
-    VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-    Name       HTTP Status Code     Operation ID                             Error
-    ----       ----------------     ------------                             ----
-    Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
+VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
+VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
+Name       HTTP Status Code     Operation ID                             Error
+----       ----------------     ------------                             ----
+Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 ```
 
 ## Verify the gateway status
@@ -378,19 +378,19 @@ Use the **Get-AzureApplicationGateway** cmdlet to check the status of the gatewa
 The following example shows an application gateway that is up, running, and ready to take traffic destined for `http://<generated-dns-name>.cloudapp.net`.
 
 ```powershell
-    Get-AzureApplicationGateway AppGwTest
+Get-AzureApplicationGateway AppGwTest
 
-    VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway
-    VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
-    Name          : AppGwTest
-    Description   :
-    VnetName      : testvnet1
-    Subnets       : {Subnet-1}
-    InstanceCount : 2
-    GatewaySize   : Medium
-    State         : Running
-    Vip           : 138.91.170.26
-    DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
+VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway
+VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
+Name          : AppGwTest
+Description   :
+VnetName      : testvnet1
+Subnets       : {Subnet-1}
+InstanceCount : 2
+GatewaySize   : Medium
+State         : Running
+Vip           : 138.91.170.26
+DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
 ## Delete an application gateway
@@ -403,36 +403,36 @@ To delete an application gateway:
 The following example shows the **Stop-AzureApplicationGateway** cmdlet on the first line, followed by the output.
 
 ```powershell
-    Stop-AzureApplicationGateway AppGwTest
+Stop-AzureApplicationGateway AppGwTest
 
-    VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway
-    VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
-    Name       HTTP Status Code     Operation ID                             Error
-    ----       ----------------     ------------                             ----
-    Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
+VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway
+VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
+Name       HTTP Status Code     Operation ID                             Error
+----       ----------------     ------------                             ----
+Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
 Once the application gateway is in a stopped state, use the **Remove-AzureApplicationGateway** cmdlet to remove the service.
 
 ```powershell
-    Remove-AzureApplicationGateway AppGwTest
+Remove-AzureApplicationGateway AppGwTest
 
-    VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway
-    VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
-    Name       HTTP Status Code     Operation ID                             Error
-    ----       ----------------     ------------                             ----
-    Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
+VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway
+VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
+Name       HTTP Status Code     Operation ID                             Error
+----       ----------------     ------------                             ----
+Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
 To verify that the service has been removed, you can use the **Get-AzureApplicationGateway** cmdlet. This step is not required.
 
 ```powershell
-    Get-AzureApplicationGateway AppGwTest
+Get-AzureApplicationGateway AppGwTest
 
-    VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
+VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
-    Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
-    .....
+Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
+.....
 ```
 
 ## Next steps

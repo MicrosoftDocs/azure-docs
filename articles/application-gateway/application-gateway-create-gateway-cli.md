@@ -62,7 +62,9 @@ only additional application gateways are able to be added to the subnet.
 ## Log in to Azure
 Open the **Microsoft Azure Command Prompt**, and log in. 
 
-    azure login
+```azurecli
+azure login
+```
 
 Once you type the preceding example, a code is provided. Navigate to https://aka.ms/devicelogin in a browser to continue the login process.
 
@@ -77,28 +79,39 @@ Once the code has been entered you are signed in, close the browser to continue 
 ![successfully signed in][3]
 
 ## Switch to Resource Manager Mode
-    azure config mode arm
+
+```azurecli
+azure config mode arm
+```
 
 ## Create the resource group
 Before creating the application gateway, a resource group is created to contain the application gateway. The following shows the command.
 
-    azure group create -n AdatumAppGatewayRG -l eastus
+```azurecli
+azure group create -n AdatumAppGatewayRG -l eastus
+```
 
 ## Create a virtual network
 Once the resource group is created, a virtual network is created for the application gateway.  In the following example, the address space was as 10.0.0.0/16 as defined in the preceding scenario notes.
 
-    azure network vnet create -n AdatumAppGatewayVNET -a 10.0.0.0/16 -g AdatumAppGatewayRG -l eastus
+```azurecli
+azure network vnet create -n AdatumAppGatewayVNET -a 10.0.0.0/16 -g AdatumAppGatewayRG -l eastus
+```
 
 ## Create a subnet
 After the virtual network is created, a subnet is added for the application gateway.  If you plan to use application gateway with a web app hosted in the same virtual network as the application gateway, be sure to leave enough room for another subnet.
 
-    azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v AdatumAppGatewayVNET -a 10.0.0.0/28 
+```azurecli
+azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v AdatumAppGatewayVNET -a 10.0.0.0/28 
+```
 
 ## Create the application gateway
 Once the virtual network and subnet are created, the pre-requisites for the application gateway are complete. Additionally a previously exported .pfx certificate and the password for the certificate are required for the following step:
 The IP addresses used for the backend are the IP addresses for your backend server. These values can be either private IPs in the virtual network, public ips, or fully qualified domain names for your backend servers.
 
-    azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
+```azurecli
+azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
+```
 
 > [!NOTE]
 > For a list of parameters that can be provided during creation run the following command: **azure network application-gateway create --help**.

@@ -56,28 +56,37 @@ Make sure that you are using the latest version of Azure PowerShell. More inform
 ### Step 1
 Log in to Azure
 
-    Login-AzureRmAccount
-
+```powershell
+Login-AzureRmAccount
+```
 You are prompted to authenticate with your credentials.
 
 ### Step 2
 Check the subscriptions for the account.
 
-    Get-AzureRmSubscription
+```powershell
+Get-AzureRmSubscription
+```
 
 ### Step 3
 Choose which of your Azure subscriptions to use.
 
-    Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+```powershell
+Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+```
 
 ### Step 4
 Create a resource group (skip this step if you're using an existing resource group).
 
-    New-AzureRmResourceGroup -Name appgw-RG -location "West US"
+```powershell
+New-AzureRmResourceGroup -Name appgw-RG -location "West US"
+```
 
 Alternatively you can also create tags for a resource group for application gateway:
 
-    $resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway multiple site"}
+```powershell
+$resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway multiple site"}
+```
 
 Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway use the same resource group.
 
@@ -94,29 +103,37 @@ The following example shows how to create a virtual network by using Resource Ma
 ### Step 1
 Assign the address range 10.0.0.0/24 to the subnet variable to be used to hold the application gateway.
 
-    $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name appgatewaysubnet -AddressPrefix 10.0.0.0/24
-
+```powershell
+$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name appgatewaysubnet -AddressPrefix 10.0.0.0/24
+```
 ### Step 2
 Assign the address range 10.0.1.0/24 to the subnet2 variable to be used for the backend pools.
 
-    $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name backendsubnet -AddressPrefix 10.0.1.0/24
+```powershell
+$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name backendsubnet -AddressPrefix 10.0.1.0/24
+```
 
 ### Step 3
 Create a virtual network named "appgwvnet" in resource group "appgw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24, and 10.0.1.0/24.
 
-    $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet,$subnet2
-
+```powershell
+$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet,$subnet2
+```
 
 ### Step 4
 Assign a subnet variable for the next steps, which creates an application gateway.
 
-    $appgatewaysubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name appgatewaysubnet -VirtualNetwork $vnet
-    $backendsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name backendsubnet -VirtualNetwork $vnet
+```powershell
+$appgatewaysubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name appgatewaysubnet -VirtualNetwork $vnet
+$backendsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name backendsubnet -VirtualNetwork $vnet
+```
 
 ## Create a public IP address for the front-end configuration
 Create a public IP resource "publicIP01" in resource group "appgw-rg" for the West US region.
 
-    $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
+```powershell
+$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
+```
 
 An IP address is assigned to the application gateway when the service starts.
 
@@ -126,61 +143,79 @@ You must set up all configuration items before creating the application gateway.
 ### Step 1
 Create an application gateway IP configuration named "gatewayIP01". When application gateway starts, it picks up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
 
-    $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $appgatewaysubnet
+```powershell
+$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $appgatewaysubnet
+```
 
 ### Step 2
 Configure the back-end IP address pool named "pool01"and "pool2" with IP addresses "10.0.1.100, 10.0.1.101,10.0.1.102" for "pool1" and "10.0.1.103, 10.0.1.104, 10.0.1.105" for "pool2".
 
-    $pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.1.100, 10.0.1.101, 10.0.1.102
-    $pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 10.0.1.103, 10.0.1.104, 10.0.1.105
+```powershell
+$pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.1.100, 10.0.1.101, 10.0.1.102
+$pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 10.0.1.103, 10.0.1.104, 10.0.1.105
+```
 
 In this example, there are two back-end pools to route network traffic based on the requested site. One pool receives traffic from site "contoso.com" and other pool receives traffic from site "fabrikam.com". You have to replace the preceding IP addresses to add your own application IP address endpoints. In place of internal IP addresses, you could also use public IP addresses, FQDN, or a VM's NIC for backend instances. Use "-BackendFQDNs" parameter in PowerShell to specify FQDNs instead of IPs.
 
 ### Step 3
 Configure application gateway setting "poolsetting01" and "poolsetting02" for the load-balanced network traffic in the back-end pool. In this example, you configure different back-end pool settings for the back-end pools. Each back-end pool can have its own back-end pool setting.
 
-    $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
-    $poolSetting02 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting02" -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 240
+```powershell
+$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
+$poolSetting02 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting02" -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 240
+```
 
 ### Step 4
 Configure the front-end IP with public IP endpoint.
 
-    $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
+```powershell
+$fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
+```
 
 ### Step 5
 Configure the front-end port for an application gateway.
 
-    $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 443
+```powershell
+$fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 443
+```
 
 ### Step 6
 Configure two SSL certificates for the two websites we are going to support in this example. One certificate is for contoso.com traffic and the other is for fabrikam.com traffic. These certificates should be a Certificate Authority issued certificates for your websites. Self-signed certificates are supported but not recommended for production traffic.
 
-    $cert01 = New-AzureRmApplicationGatewaySslCertificate -Name contosocert -CertificateFile <file path> -Password <password>
-    $cert02 = New-AzureRmApplicationGatewaySslCertificate -Name fabrikamcert -CertificateFile <file path> -Password <password>
-
+```powershell
+$cert01 = New-AzureRmApplicationGatewaySslCertificate -Name contosocert -CertificateFile <file path> -Password <password>
+$cert02 = New-AzureRmApplicationGatewaySslCertificate -Name fabrikamcert -CertificateFile <file path> -Password <password>
+```
 
 ### Step 7
 Configure two listeners for the two web sites in this example. This step configures the listeners for public IP address, port, and host used to receive incoming traffic. HostName parameter is required for multiple site support and should be set to the appropriate website for which the traffic is received. RequireServerNameIndication parameter should be set to true for websites that need support for SSL in a multiple host scenario. If SSL support is required, you also need to specify the SSL certificate that is used to secure traffic for that web application. The combination of FrontendIPConfiguration, FrontendPort, and HostName must be unique to a listener. Each listener can support one certificate.
 
-    $listener01 = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Https -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -HostName "contoso11.com" -RequireServerNameIndication true  -SslCertificate $cert01
-    $listener02 = New-AzureRmApplicationGatewayHttpListener -Name "listener02" -Protocol Https -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -HostName "fabrikam11.com" -RequireServerNameIndication true -SslCertificate $cert02
+```powershell
+$listener01 = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Https -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -HostName "contoso11.com" -RequireServerNameIndication true  -SslCertificate $cert01
+$listener02 = New-AzureRmApplicationGatewayHttpListener -Name "listener02" -Protocol Https -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -HostName "fabrikam11.com" -RequireServerNameIndication true -SslCertificate $cert02
+```
 
 ### Step 8
 Create two rule setting for the two web applications in this example. A rule ties together listeners, backend pools and http settings. This step configures the application gateway to use Basic routing rule, one for each website. Traffic to each website is received by its configured listener, and is then directed to its configured backend pool, using the properties specified in the BackendHttpSettings.
 
-    $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule01" -RuleType Basic -HttpListener $listener01 -BackendHttpSettings $poolSetting01 -BackendAddressPool $pool1
-    $rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule02" -RuleType Basic -HttpListener $listener02 -BackendHttpSettings $poolSetting02 -BackendAddressPool $pool2
+```powershell
+$rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule01" -RuleType Basic -HttpListener $listener01 -BackendHttpSettings $poolSetting01 -BackendAddressPool $pool1
+$rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule02" -RuleType Basic -HttpListener $listener02 -BackendHttpSettings $poolSetting02 -BackendAddressPool $pool2
+```
 
 ### Step 9
 Configure the number of instances and size for the application gateway.
 
-    $sku = New-AzureRmApplicationGatewaySku -Name "Standard_Medium" -Tier Standard -Capacity 2
+```powershell
+$sku = New-AzureRmApplicationGatewaySku -Name "Standard_Medium" -Tier Standard -Capacity 2
+```
 
 ## Create application gateway
 Create an application gateway with all configuration objects from the preceding steps.
 
-    $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener01, $listener02 -RequestRoutingRules $rule01, $rule02 -Sku $sku -SslCertificates $cert01, $cert02
-
+```powershell
+$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener01, $listener02 -RequestRoutingRules $rule01, $rule02 -Sku $sku -SslCertificates $cert01, $cert02
+```
 
 > [!IMPORTANT]
 > Application Gateway provisioning is a long running operation and may take some time to complete.
@@ -190,27 +225,29 @@ Create an application gateway with all configuration objects from the preceding 
 ## Get application gateway DNS name
 Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). To do this, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
 
-    Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+```powershell
+Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
 
-    Name                     : publicIP01
-    ResourceGroupName        : appgw-RG
-    Location                 : westus
-    Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
-    Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
-    ResourceGuid             : 00000000-0000-0000-0000-000000000000
-    ProvisioningState        : Succeeded
-    Tags                     : 
-    PublicIpAllocationMethod : Dynamic
-    IpAddress                : xx.xx.xxx.xx
-    PublicIpAddressVersion   : IPv4
-    IdleTimeoutInMinutes     : 4
-    IpConfiguration          : {
-                                 "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
-                               Configurations/frontend1"
-                               }
-    DnsSettings              : {
-                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
-                               }
+Name                     : publicIP01
+ResourceGroupName        : appgw-RG
+Location                 : westus
+Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
+Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
+ResourceGuid             : 00000000-0000-0000-0000-000000000000
+ProvisioningState        : Succeeded
+Tags                     : 
+PublicIpAllocationMethod : Dynamic
+IpAddress                : xx.xx.xxx.xx
+PublicIpAddressVersion   : IPv4
+IdleTimeoutInMinutes     : 4
+IpConfiguration          : {
+                                "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
+                            Configurations/frontend1"
+                            }
+DnsSettings              : {
+                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
+                            }
+```
 
 ## Next steps
 Learn how to protect your websites with [Application Gateway - Web Application Firewall](application-gateway-webapplicationfirewall-overview.md)
