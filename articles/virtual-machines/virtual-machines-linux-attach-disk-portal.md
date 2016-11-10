@@ -30,5 +30,4 @@ This article shows you how to attach both new and existing disks to a Linux virt
 [!INCLUDE [virtual-machines-common-attach-disk-portal](../../includes/virtual-machines-common-attach-disk-portal.md)]
 
 ## Next steps
-After the disk is added, you need to prepare it for use. See in the virtual machine's operating system: "How to: Initialize a new data disk in Linux" in this [article](virtual-machines-linux-classic-attach-disk.md#how-to-initialize-a-new-data-disk-in-linux).
-
+After the disk is added, you need to prepare it for use. See in the virtual machine's operating system: "How to: Initialize a new data disk in Linux" in this [article](virtual-machines-linux-classic-attach-disk.md#initialize-a-new-data-disk-in-linux).
