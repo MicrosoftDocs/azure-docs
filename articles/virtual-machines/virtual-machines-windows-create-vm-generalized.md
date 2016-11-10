@@ -130,7 +130,9 @@ The following PowerShell script shows how to set up the virtual machine configur
     $osDiskName = "myOsDisk"
 
     # Assign a SKU name. This example sets the SKU name as "Standard_LRS"
-    # Valid values for -SkuName are: Standard_LRS - locally redundant storage, Standard_ZRS - zone redundant storage, Standard_GRS - geo redundant storage, Standard_RAGRS - read access geo redundant storage, Premium_LRS - premium locally redundant storage. 
+    # Valid values for -SkuName are: Standard_LRS - locally redundant storage, Standard_ZRS - zone redundant
+    # storage, Standard_GRS - geo redundant storage, Standard_RAGRS - read access geo redundant storage,
+    # Premium_LRS - premium locally redundant storage. 
     $skuName = "Standard_LRS"
 
     # Get the storage account where the uploaded image is stored

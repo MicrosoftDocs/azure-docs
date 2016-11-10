@@ -246,7 +246,8 @@ Replace the value of **$templateFile** with the path and name of the template fi
 ```powershell
 $templateFile = "template file"
 $parameterFile = "parameter file"
-New-AzureRmResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile $templateFile -TemplateParameterFile $parameterFile
+New-AzureRmResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile $templateFile `
+  -TemplateParameterFile $parameterFile
 ```
 
 You will see something like this:

@@ -142,7 +142,7 @@ Now that you have all the pieces in place, it's time to create the virtual machi
     ```
 8. Finally, create the virtual machine.
    
-    ```
+    ```powershell
     New-AzureRmVM -ResourceGroupName $myResourceGroup -Location $location -VM $myVM
     ```
 
