@@ -18,7 +18,7 @@ ms.author: vturecek
 
 ---
 # Notes on Service Fabric Reliable Actors type serialization
-The arguments of all methods, result types of the tasks returned by each method in an actor interface, and objects stored in an actor's State Manager must be [Data Contract serializable](https://msdn.microsoft.com/library/ms731923.aspx).. This also applies to the arguments of the methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md#actor-events). (Actor event interface methods always return void.)
+The arguments of all methods, result types of the tasks returned by each method in an actor interface, and objects stored in an actor's State Manager must be [Data Contract serializable](https://msdn.microsoft.com/library/ms731923.aspx).. This also applies to the arguments of the methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md). (Actor event interface methods always return void.)
 
 ## Custom data types
 In this example, the following actor interface defines a method that returns a custom data type called `VoicemailBox`.
@@ -95,4 +95,3 @@ public class VoicemailBox
 * [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
 * [Actor polymorphism and object-oriented design patterns](service-fabric-reliable-actors-polymorphism.md)
 * [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
-

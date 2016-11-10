@@ -22,8 +22,8 @@ ms.author: vturecek
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 > * [Azure portal](service-fabric-cluster-creation-via-portal.md)
-> 
-> 
+>
+>
 
 This is a step-by-step guide that walks you through the steps of setting up a secure Azure Service Fabric cluster in Azure using Azure Resource Manager. This guide walks you through the following steps:
 
@@ -111,7 +111,7 @@ If you have an existing Key Vault, you can enable it for deployment using Azure 
 ```cli
 > azure login
 > azure account set "your account"
-> azure config mode arm 
+> azure config mode arm
 > azure keyvault list
 > azure keyvault set-policy --vault-name "your vault name" --enabled-for-deployment true
 ```
@@ -137,16 +137,16 @@ To serve these purposes, the certificate must meet the following requirements:
 Any number of additional certificates can be installed on a cluster for application security purposes. Before creating your cluster, consider the application security scenarios that require a certificate to be installed on the nodes, such as:
 
 * Encryption and decryption of application configuration values
-* Encryption of data across nodes during replication 
+* Encryption of data across nodes during replication
 
 ### Formatting certificates for Azure resource provider use
 Private key files (.pfx) can be added and used directly through Key Vault. However, the Azure resource provider requires keys to be stored in a special JSON format that includes the .pfx as a base-64 encoded string and the private key password. To accommodate these requirements, keys must be placed in a JSON string and then stored as *secrets* in Key Vault.
 
 To make this process easier, a PowerShell module is [available on GitHub][service-fabric-rp-helpers]. Follow these steps to use the module:
 
-1. Download the entire contents of the repo into a local directory. 
+1. Download the entire contents of the repo into a local directory.
 2. Import the module in your PowerShell window:
-   
+
    ```powershell
    PS C:\Users\vturecek> Import-Module "C:\users\vturecek\Documents\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
    ```
@@ -191,31 +191,31 @@ To simplify some of the steps involved in configuring AAD with a Service Fabric 
 
 > [!NOTE]
 > You must perform these steps *before* creating the cluster so in cases where the scripts expect cluster names and endpoints, these should be the planned values, not ones that you have already created.
-> 
-> 
+>
+>
 
 1. [Download the scripts][sf-aad-ps-script-download] to your computer.
 2. Right-click the zip file, choose **Properties**, then check the **Unblock** checkbox and apply.
 3. Extract the zip file.
 4. Run `SetupApplications.ps1`, providing the TenantId, ClusterName, and WebApplicationReplyUrl as parameters. For example:
-   
+
     ```powershell
     .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
     ```
-   
+
     You can find your **TenantId** by executing the PowerShell command ``Get-AzureSubscription```. This will display the **TenantId** for every subscription.
-   
+
     The **ClusterName** is used to prefix the AAD applications created by the script. It does not need to match the actual cluster name exactly as it is only intended to make it easier for you to map AAD artifacts to the Service Fabric cluster that they're being used with.
-   
+
     The **WebApplicationReplyUrl** is the default endpoint that AAD returns to your users after completing the sign-in process. You should set this to the Service Fabric Explorer endpoint for your cluster, which by default is:
-   
+
     https://&lt;cluster_domain&gt;:19080/Explorer
-   
+
     You are prompted to sign into an account that has administrative privileges for the AAD tenant. Once you do, the script proceeds to create the web and native applications to represent your Service Fabric cluster. If you look at the tenant's applications in the [Azure classic portal][azure-classic-portal], you should see two new entries:
-   
+
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
-     
+
      The script prints the Json required by the Azure Resource Manager template when you create the cluster in the next section so keep the PowerShell window open.
 
 ```json
@@ -229,7 +229,7 @@ To simplify some of the steps involved in configuring AAD with a Service Fabric 
 ## Create a Service Fabric cluster Resource Manager template
 In this section, the output of the preceding PowerShell commands are used in a Service Fabric cluster Resource Manager template.
 
-Sample Resource Manager templates are available in the [Azure quick-start template gallery on GitHub][azure-quickstart-templates]. These templates can be used as a starting point for your cluster template. 
+Sample Resource Manager templates are available in the [Azure quick-start template gallery on GitHub][azure-quickstart-templates]. These templates can be used as a starting point for your cluster template.
 
 ### Create the Resource Manager template
 This guide uses the [5-node secure cluster][service-fabric-secure-cluster-5-node-1-nodetype-wad] example template and template parameters. Download `azuredeploy.json` and `azuredeploy.parameters.json` to your computer and open both files in your favorite text editor.
@@ -359,7 +359,7 @@ Finally, use the output values from the Key Vault and AAD PowerShell commands to
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": { 
+    "parameters": {
         ...
         "clusterCertificateStoreValue": {
             "value": "My"
@@ -398,13 +398,13 @@ At this point, you should now have the following:
   * Key Vault
   * Cluster server authentication certificate
   * Data encipherment certificate
-* Azure Active Directory tenant 
+* Azure Active Directory tenant
   * AAD Application for web-based management and Service Fabric Explorer
   * AAD Application for native client management
-  * Users with roles assigned 
+  * Users with roles assigned
 * Service Fabric cluster Resource Manager template
   * Certificates configured through Key Vault
-  * Azure Active Directory configured 
+  * Azure Active Directory configured
 
 The following diagram illustrates where Key Vault and AAD configuration fit into your Resource Manager template.
 
@@ -436,18 +436,18 @@ Once you have created the applications to represent your cluster, you need to as
 2. Choose the web application, which has a name like `myTestCluster_Cluster`.
 3. Click the Users tab.
 4. Choose a user to assign and click the **Assign** button at the bottom of the screen.
-   
+
     ![Assign users to roles button][assign-users-to-roles-button]
 5. Select the role to assign to the user.
-   
+
     ![Assign users to roles][assign-users-to-roles-dialog]
 
 > [!NOTE]
 > For more information about roles in Service Fabric, see [Role-based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
-> 
-> 
+>
+>
 
- <a name="secure-linux-cluster"></a> 
+ <a name="secure-linux-cluster"></a>
 
 ## Create secure clusters on Linux
 To make the process easier, a helper script has been provided [here](http://github.com/ChackDan/Service-Fabric/tree/master/Scripts/CertUpload4Linux). For using this helper script, it is assumed that you have already Azure CLI installed, and it is in your path. Make sure that the script has permissions to execute by running `chmod +x cert_helper.py` after downloading it. The first step is to log into your Azure account using the CLI with the `azure login` command. After logging into your Azure account, use the helper with your CA signed certificate, as the following command shows:
@@ -459,9 +459,9 @@ The -ifile parameter can take a .pfx or a .pem file as input, with the certifica
 The parameter -h prints out the help text.
 ```
 
-This command returns the following three strings as the output: 
+This command returns the following three strings as the output:
 
-1. A SourceVaultID, which is the ID for the new KeyVault ResourceGroup it created for you. 
+1. A SourceVaultID, which is the ID for the new KeyVault ResourceGroup it created for you.
 2. A CertificateUrl for accessing the certificate.
 3. A CertificateThumbprint, which is used for authentication.
 
@@ -485,13 +485,13 @@ These are the entries needed for creating a secure service fabric cluster (witho
 If you wish to use a self-signed certificate for testing, you could use the same script to generate a self-signed certificate and upload it to KeyVault, by providing the flag `ss` instead of providing the certificate path and certificate name. For example, see the following command for creating and uploading a self-signed certificate:
 
 ```sh
-./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"   -sname "mycert" -l "East US" -p "selftest" -subj "mytest.eastus.cloudapp.net" 
+./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"   -sname "mycert" -l "East US" -p "selftest" -subj "mytest.eastus.cloudapp.net"
 ```
 
-This command returns the same three strings, SourceVault, CertificateUrl and CertificateThumbprint, which is used to create a secure Linux cluster, along with the location where the self-signed certificate was placed. You will need the self-signed certificate to connect to the cluster.  You can connect to the secure cluster via instructions at [authenticating client access to a cluster](service-fabric-connect-to-secure-cluster.md). 
+This command returns the same three strings, SourceVault, CertificateUrl and CertificateThumbprint, which is used to create a secure Linux cluster, along with the location where the self-signed certificate was placed. You will need the self-signed certificate to connect to the cluster.  You can connect to the secure cluster via instructions at [authenticating client access to a cluster](service-fabric-connect-to-secure-cluster.md).
 The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
 
-The parameters provided by the helper script can be filled in the portal as described in the section [Create a cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md#create-cluster-portal).
+The parameters provided by the helper script can be filled in the portal as described in the section [Create a cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal).
 
 ## Next steps
 At this point, you have a secure cluster with Azure Active Directory providing management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).
@@ -520,7 +520,7 @@ Same as above.
 
 ### Service Fabric Explorer signing in return failure: AADSTS50011
 #### Problem
-After login on AAD sign in page in Service Fabric Explorer, page returns sign in failure - AADSTS50011: The reply address &lt;url&gt; does not match the reply addresses configured for the application: &lt;guid&gt;. 
+After login on AAD sign in page in Service Fabric Explorer, page returns sign in failure - AADSTS50011: The reply address &lt;url&gt; does not match the reply addresses configured for the application: &lt;guid&gt;.
 
 ![SFX reply address not match][sfx-reply-address-not-match]
 
