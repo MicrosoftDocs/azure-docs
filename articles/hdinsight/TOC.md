@@ -144,7 +144,7 @@
 #### [Use the Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
 #### [Use the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md)
 #### [Use Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
-p### [Manage Hadoop clusters](hdinsight-administer-use-portal-linux.md)
+### [Manage Hadoop clusters](hdinsight-administer-use-portal-linux.md)
 #### [Use .NET SDK](hdinsight-administer-use-dotnet-sdk.md)
 #### [Use Azure PowerShell](hdinsight-administer-use-powershell.md)
 #### [Use the Azure CLI](hdinsight-administer-use-command-line.md)
@@ -180,7 +180,7 @@ p### [Manage Hadoop clusters](hdinsight-administer-use-portal-linux.md)
 ## [.NET SDK for HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET library for Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
 
-#Related
+# Related
 ## Windows clusters
 ### [Migrate Windows clusters to Linux clusters](hdinsight-migrate-from-windows-to-linux.md)
 ### [Start with Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
