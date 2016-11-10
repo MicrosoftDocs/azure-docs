@@ -38,6 +38,7 @@ In a C# and F# functions, any changes made to the record are automatically sent 
 
 The Mobile Apps input to a function uses the following JSON object in the `bindings` array of function.json:
 
+```json
     {
         "name": "<Name of input parameter in function signature>",
         "type": "mobileTable",
@@ -47,6 +48,7 @@ The Mobile Apps input to a function uses the following JSON object in the `bindi
         "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
         "direction": "in"
     }
+```
 
 Note the following:
 
@@ -88,6 +90,7 @@ In Node.js functions, use `context.bindings.<name>` to access the input record. 
 ## Input sample
 Suppose you have the following function.json, that retrieves a Mobile App table record with the id of the queue trigger message:
 
+```json
     {
     "bindings": [
         {
@@ -109,6 +112,7 @@ Suppose you have the following function.json, that retrieves a Mobile App table 
     ],
     "disabled": false
     }
+```
 
 See the language-specific sample that uses the input record from the binding. The C# and F# samples also modify the record's `text` property.
 
@@ -118,6 +122,8 @@ See the language-specific sample that uses the input record from the binding. Th
 <a name="inputcsharp"></a>
 
 ### Input sample in C# #
+
+```cs
     #r "Newtonsoft.Json"    
     using Newtonsoft.Json.Linq;
 
@@ -128,24 +134,30 @@ See the language-specific sample that uses the input record from the binding. Th
             record["Text"] = "This has changed.";
         }    
     }
+```
 
 <!--
 <a name="inputfsharp"></a>
 ### Input sample in F# ## 
 
+```fsharp
     #r "Newtonsoft.Json"    
     open Newtonsoft.Json.Linq
     let Run(myQueueItem: string, record: JObject) =
       inputDocument?text <- "This has changed."
+```
 -->
 
 <a name="inputnodejs"></a>
 
 ### Input sample in Node.js
+
+```javascript
     module.exports = function (context, myQueueItem) {    
         context.log(context.bindings.record);
         context.done();
     };
+```
 
 <a name="output"></a>
 
@@ -154,6 +166,7 @@ Use the Mobile Apps output binding to write a new record to a Mobile Apps table 
 
 The Mobile Apps output for a function uses the following JSON object in the `bindings` array of function.json:
 
+```json
     {
         "name": "<Name of output parameter in function signature>",
         "type": "mobileTable",
@@ -162,6 +175,7 @@ The Mobile Apps output for a function uses the following JSON object in the `bin
         "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
         "direction": "out"
     }
+```
 
 Note the following:
 
@@ -196,6 +210,7 @@ In C# functions, use a named output parameter of type `out object` to access the
 ## Output sample
 Suppose you have the following function.json, that defines a queue trigger and a Mobile Apps output:
 
+```json
     {
     "bindings": [
         {
@@ -216,6 +231,7 @@ Suppose you have the following function.json, that defines a queue trigger and a
     ],
     "disabled": false
     }
+```
 
 See the language-specific sample that creates a record in the Mobile Apps table endpoint with the content of the queue message.
 
@@ -225,20 +241,28 @@ See the language-specific sample that creates a record in the Mobile Apps table 
 <a name="outcsharp"></a>
 
 ### Output sample in C# #
+
+```cs
     public static void Run(string myQueueItem, out object record)
     {
         record = new {
             Text = $"I'm running in a C# function! {myQueueItem}"
         };
     }
+```
 
 <!--
 <a name="outfsharp"></a>
 ### Output sample in F# ## 
+```fsharp
+
+```
 -->
 <a name="outnodejs"></a>
 
 ### Output sample in Node.js
+
+```javascript
     module.exports = function (context, myQueueItem) {
 
         context.bindings.record = {
@@ -247,6 +271,7 @@ See the language-specific sample that creates a record in the Mobile Apps table 
 
         context.done();
     };
+```
 
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]

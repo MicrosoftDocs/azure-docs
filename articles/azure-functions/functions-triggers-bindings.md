@@ -43,6 +43,7 @@ To better understand triggers and bindings in general, suppose you want to execu
 
 A queue trigger binding contains this information for an Azure function. Here is an example *function.json* containing a queue trigger binding. 
 
+```json
     {
       "bindings": [
         {
@@ -55,9 +56,11 @@ A queue trigger binding contains this information for an Azure function. Here is
       ],
       "disabled": false
     }
+```
 
 Your code may send different types of output depending on how the new queue item is processed. For example, you might want to write a new record to an Azure Storage table.  To accomplish this, you can setup an output binding to an Azure Storage table. Here is an example *function.json* that includes a storage table output binding that could be used with a queue trigger. 
 
+```json
     {
       "bindings": [
         {
@@ -77,10 +80,11 @@ Your code may send different types of output depending on how the new queue item
       ],
       "disabled": false
     }
-
+```
 
 The following C# function responds to a new item being dropped into the queue and writes a new user entry into an Azure Storage table.
 
+```cs
     #r "Newtonsoft.Json"
 
     using System;
@@ -111,6 +115,7 @@ The following C# function responds to a new item being dropped into the queue an
         public string Address { get; set; }
         public string MobileNumber { get; set; }
     }
+```
 
 For more code examples and more specific information regarding Azure storage types that are supported, see [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md).
 
@@ -119,17 +124,20 @@ To use the more advanced binding features in the Azure portal, click the **Advan
 ## Random GUIDs
 Azure Functions provides a syntax to generate random GUIDs with your bindings. The following binding syntax will write output to a new BLOB with a unique name in an Azure Storage container: 
 
+```json
     {
       "type": "blob",
       "name": "blobOutput",
       "direction": "out",
       "path": "my-output-container/{rand-guid}"
     }
+```
 
 
 ## Returning a single output
 In cases where your function code returns a single output, you can use an output binding named `$return` to retain a more natural function signature in your code. This can only be used with languages that support a return value (C#, Node.js, F#). The binding would be similar to the following blob output binding that is used with a queue trigger.
 
+```json
     {
       "bindings": [
         {
@@ -146,40 +154,49 @@ In cases where your function code returns a single output, you can use an output
         }
       ]
     }
-
+```
 
 The following C# code returns the output more naturally without using an `out` parameter in the function signature.
 
+```cs
     public static string Run(WorkItem input, TraceWriter log)
     {
         string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
         log.Info($"C# script processed queue message. Item={json}");
         return json;
     }
+```
 
-    // Async example
+Async example:
+
+```cs
     public static Task<string> Run(WorkItem input, TraceWriter log)
     {
         string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
         log.Info($"C# script processed queue message. Item={json}");
         return json;
     }
+```
 
 
 This same approach is demonstrated below with Node.js.
 
+```javascript
     module.exports = function (context, input) {
         var json = JSON.stringify(input);
         context.log('Node.js script processed queue message', json);
         context.done(null, json);
     }
+```
 
 F# example provided below.
 
+```fsharp
     let Run(input: WorkItem, log: TraceWriter) =
         let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
         log.Info(sprintf "F# script processed queue message '%s'" json)
         json
+```
 
 This can also be used with multiple output parameters by designating a single output with `$return`.
 
@@ -188,6 +205,7 @@ It is a best practice to store sensitive information as part of the run-time env
 
 The Azure Functions run-time resolves app settings to values when the app setting name is enclosed in percent signs, `%your app setting%`. The following [Twilio binding](functions-bindings-twilio.md) uses an app setting named `TWILIO_ACCT_PHONE` for the `from` field of the binding. 
 
+```json
     {
       "type": "twilioSms",
       "name": "$return",
@@ -198,21 +216,24 @@ The Azure Functions run-time resolves app settings to values when the app settin
       "body": "Thank you {name}, your order was received Node.js",
       "direction": "out"
     },
-
+```
 
 
 
 ## Parameter binding
 Instead of a static configuration setting for your output binding properties, you can configure the settings to be dynamically bound to data that is part of your trigger's input binding. Consider a scenario where new orders are processed using an Azure Storage queue. Each new queue item is a JSON string containing at least the following properties:
 
+```json
     {
-      name : "Customer Name",
-      address : "Customer's Address".
-      mobileNumber : "Customer's mobile number in the format - +1XXXYYYZZZZ."
+      "name" : "Customer Name",
+      "address" : "Customer's Address".
+      "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
     }
+```
 
 You might want to send the customer an SMS text message using your Twilio account as an update that the order was received.  You can configure the `body` and `to` field of your Twilio output binding to be dynamically bound to the `name` and `mobileNumber` that were part of the input as follows.
 
+```json
     {
       "name": "myNewOrderItem",
       "type": "queueTrigger",
@@ -230,11 +251,11 @@ You might want to send the customer an SMS text message using your Twilio accoun
       "body": "Thank you {name}, your order was received",
       "direction": "out"
     },
+```
 
 Now your function code only has to initialize the output parameter as follows. During execution the output properties will be bound to the desired input data.
 
-C#
-
+```cs
     #r "Newtonsoft.Json"
     #r "Twilio.Api"
 
@@ -260,9 +281,11 @@ C#
 
         return smsText;
     }
+```
 
-Node.js
+Node.js:
 
+```javascript
     module.exports = function (context, myNewOrderItem) {    
         context.log('Node.js queue trigger function processed work item', myNewOrderItem);    
 
@@ -272,7 +295,7 @@ Node.js
 
         context.done(null, smsText);
     }
-
+```
 
 ## Advanced binding with Binder
 Using `Binder`/ `IBinder` is an advanced binding technique that allows you to perform bindings imperatively in your code as opposed to declarative via the *function.json* metadata file. You might need to do this in cases where the computation of binding path or other inputs needs to happen at run-time in your function. Note that when using an `Binder` parameter, you **should not** include a corresponding entry in *function.json* for that parameter.
@@ -283,6 +306,7 @@ Note that the type parameter passed to `BindAsyn`c (in this case TextWriter) mus
 
 Bindings in function.json:
 
+```json
     {
       "bindings": [
         {
@@ -297,10 +321,11 @@ Bindings in function.json:
         }
       ]
     }
-
+```
 
 C# function code:
 
+```cs
     using System;
     using System.Net;
     using Microsoft.Azure.WebJobs;
@@ -320,19 +345,22 @@ C# function code:
 
         return new HttpResponseMessage(HttpStatusCode.OK); 
     }
+```
 
 There are bind overloads that take an array of attributes. In cases where you need to control the target storage account, you pass in a collection of attributes, starting with the binding type attribute (e.g. `BlobAttribute`) and inlcuding a `StorageAccountAttribute` instance pointing to the account to use. For example:
 
+```cs
     var attributes = new Attribute[]
     {
         new BlobAttribute(path),
         new StorageAccountAttribute("MyStorageAccount")
     };
+
     using (var writer = await binder.BindAsync<TextWriter>(attributes))
     {
         writer.Write("Hello World!");
     }
-
+```
 
 ## Route support
 By default when you create a function for an HTTP trigger, or WebHook, the function is addressable with a route of the form:
@@ -341,6 +369,7 @@ By default when you create a function for an HTTP trigger, or WebHook, the funct
 
 You can customize this route using the optional `route` property on the HTTP trigger's input binding. As an example, the following *function.json* file defines a `route` property for an HTTP trigger:
 
+```json
     {
       "bindings": [
         {
@@ -357,6 +386,7 @@ You can customize this route using the optional `route` property on the HTTP tri
         }
       ]
     }
+```
 
 Using this configuration, the function is now addressable with the following route instead of the original route.
 
@@ -364,6 +394,7 @@ Using this configuration, the function is now addressable with the following rou
 
 This allows the function code to support two parameters in the address, `category` and `id`. You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters. The following C# function code makes use of both parameters.
 
+```cs
     public static Task<HttpResponseMessage> Run(HttpRequestMessage request, string category, int? id, 
                                                     TraceWriter log)
     {
@@ -372,9 +403,11 @@ This allows the function code to support two parameters in the address, `categor
         else
            return  req.CreateResponse(HttpStatusCode.OK, $"{category} item with id = {id} has been requested.");
     }
+```
 
 Here is Node.js function code to use the same route parameters.
 
+```javascript
     module.exports = function (context, req) {
 
         var category = context.bindingData.category;
@@ -395,14 +428,17 @@ Here is Node.js function code to use the same route parameters.
 
         context.done();
     } 
+```
 
 By default, all function routes are prefixed with *api*. You can also customize or remove the prefix using the `http.routePrefix` property in your *host.json* file. The following example removes the *api* route prefix by using an empty string for the prefix in the *host.json* file.
 
+```json
     {
       "http": {
         "routePrefix": ""
       }
     }
+```
 
 For detailed information on how to update the *host.json* file for your function, See, [How to update function app files](functions-reference.md#fileupdate). 
 

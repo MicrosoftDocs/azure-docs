@@ -42,6 +42,7 @@ The function.json file provides the following properties:
 
 Example function.json:
 
+```json
     {
       "type": "twilioSms",
       "name": "message",
@@ -52,12 +53,14 @@ Example function.json:
       "direction": "out",
       "body": "Azure Functions Testing"
     }
+```
 
 
 ## Example C# queue trigger with Twilio output binding
 #### Synchronous
 This synchronous example code for an Azure Storage queue trigger uses an out parameter to send a text message to a customer who placed an order.
 
+```cs
     #r "Newtonsoft.Json"
     #r "Twilio.Api"
 
@@ -84,10 +87,12 @@ This synchronous example code for an Azure Storage queue trigger uses an out par
         message.Body = msg;
         message.To = order.mobileNumber;
     }
+```
 
 #### Asynchronous
 This asynchronous example code for an Azure Storage queue trigger sends a text message to a customer who placed an order.
 
+```cs
     #r "Newtonsoft.Json"
     #r "Twilio.Api"
 
@@ -116,11 +121,12 @@ This asynchronous example code for an Azure Storage queue trigger sends a text m
 
         await message.AddAsync(smsText);
     }
-
+```
 
 ## Example Node.js queue trigger with Twilio output binding
 This Node.js example sends a text message to a customer who placed an order.
 
+```javascript
     module.exports = function (context, myQueueItem) {
         context.log('Node.js queue trigger function processed work item', myQueueItem);
 
@@ -142,6 +148,7 @@ This Node.js example sends a text message to a customer who placed an order.
 
         context.done();
     };
+```
 
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]

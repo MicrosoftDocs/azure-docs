@@ -41,6 +41,7 @@ The Azure Storage table input binding enables you to use a storage table in your
 
 The Storage table input to a function uses the following JSON objects in the `bindings` array of function.json:
 
+```json
     {
         "name": "<Name of input parameter in function signature>",
         "type": "table",
@@ -52,6 +53,7 @@ The Storage table input to a function uses the following JSON objects in the `bi
         "filter": "<OData filter expression for table input in Node.js - optional>",
         "connection": "<Name of app setting - see below>",
     }
+```
 
 Note the following: 
 
@@ -163,6 +165,7 @@ The Azure Storage table output binding enables you to write entities to a Storag
 
 The Storage table output for a function uses the following JSON objects in the `bindings` array of function.json:
 
+```json
     {
         "name": "<Name of input parameter in function signature>",
         "type": "table",
@@ -172,6 +175,7 @@ The Storage table output for a function uses the following JSON objects in the `
         "rowKey": "<RowKey of table entity to write - see below>",
         "connection": "<Name of app setting - see below>",
     }
+```
 
 Note the following: 
 
