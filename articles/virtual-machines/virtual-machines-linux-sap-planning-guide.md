@@ -378,7 +378,7 @@ The following SAP Notes are related to the topic of SAP on Azure:
 
 Please also read the [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) that contains all SAP Notes for Linux.
 
-General default limitations and maximum limitations of Azure subscriptions can be found in [this article][../azure-subscription-service-limits.md#subscription-limits] 
+General default limitations and maximum limitations of Azure subscriptions can be found in [this article][azure-subscription-service-limits-subscription] 
 
 ## Possible Scenarios
 SAP is often seen as one of the most mission-critical applications within enterprises. The architecture and operations of these applications is mostly very complex and ensuring that you meet requirements on availability and performance is important.
