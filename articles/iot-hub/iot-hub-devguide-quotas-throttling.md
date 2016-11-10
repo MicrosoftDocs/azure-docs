@@ -19,7 +19,7 @@ ms.author: dobett
 ---
 # Reference - Quotas and throttling
 ## Quotas and throttling
-Each Azure subscription can have at most 10 IoT hubs.
+Each Azure subscription can have at most 10 IoT hubs, and at most 1 Free hub.
 
 Each IoT hub is provisioned with a certain number of units in a specific SKU (for more information, see [Azure IoT Hub Pricing][lnk-pricing]). The SKU and number of units determine the maximum daily quota of messages that you can send.
 
@@ -30,14 +30,18 @@ Operation throttles are rate limitations that are applied in the minute ranges, 
 
 The following is the list of enforced throttles. Values refer to an individual hub.
 
-| Throttle | Per-hub value |
-| --- | --- |
-| Identity registry operations (create, retrieve, list, update, delete) |5000/min/unit (for S3) <br/> 100/min/unit (for S1 and S2). |
-| Device connections |6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
-| Device-to-cloud sends |6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
-| Cloud-to-device sends |5000/min/unit (for S3), 100/min/unit (for S1 and S2). |
-| Cloud-to-device receives |50000/min/unit (for S3), 1000/min/unit (for S1 and S2). |
-| File upload operations |5000 file upload notifications/min/unit (for S3), 100 file upload notifications/min/unit (for S1 and S2). <br/> 10000 SAS URIs can be out for an Azure Storage account at one time.<br/> 10 SAS URIs/device can be out at one time. |
+| Throttle | Free and S1 hubs | S2 hubs | S3 hubs | 
+| -------- | ------- | ------- | ------- |
+| Identity registry operations (create, retrieve, list, update, delete) | 100/min/unit | 100/min/unit | 5000/min/unit |
+| Device connections | Max of 100/sec or 12/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. | 120/sec/unit | 6000/sec/unit |
+| Device-to-cloud sends | Max of 100/sec or 12/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. | 120/sec/unit | 6000/sec/unit |
+| Cloud-to-device sends | 100/min/unit | 100/min/unit | 5000/min/unit |
+| Cloud-to-device receives <br/> (only when devices uses HTTP)| 1000/min/unit | 1000/min/unit| 50000/min/unit |
+| File upload | 100 file upload notifications/min/unit | 100 file upload notifications/min/unit | 5000 file upload notifications/min/unit | 
+| Twin reads | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
+| Twin updates | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
+| Jobs operations <br/> (create, update, list, delete) | 100/min/unit | 100/min/unit | 5000/min/unit |
+| Jobs per-device operation throughput | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
 
 It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub, and not the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the hub.
 
@@ -52,6 +56,15 @@ For an in-depth discussion of IoT Hub throttling behavior, see the blog post [Io
 > Identity registry operations are intended for run-time use in device management and provisioning scenarios. Reading or updating a large number of device identities is supported through [import and export jobs][lnk-importexport].
 > 
 > 
+
+## Other limits
+
+IoT Hub enforces other limits on its different functionalities.
+
+| Operation | Limit |
+| --------- | ----- |
+| File upload URIs | 10000 SAS URIs can be out for a storage account at one time. <br/> 10 SAS URIs/device can be out at one time. |
+| Jobs | Job history is retained up to 30 days <br/> Max concurrent jobs is 1 (for Free and S1, 5 (for S2), 10 (for S3). |
 
 ## Next steps
 Other reference topics in this IoT Hub developer guide include:
