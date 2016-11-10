@@ -79,7 +79,7 @@ See the language-specific sample that logs the message body of the event hub tri
 
 <a name="triggercsharp"></a>
 
-### Trigger sample in C# ##
+### Trigger sample in C# #
     using System;
 
     public static void Run(string myEventHubMessage, TraceWriter log)
@@ -89,7 +89,7 @@ See the language-specific sample that logs the message body of the event hub tri
 
 <a name="triggerfsharp"></a>
 
-### Trigger sample in F# ##
+### Trigger sample in F# #
     let Run(myEventHubMessage: string, log: TraceWriter) =
         log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 
