@@ -1,17 +1,15 @@
 # Overview
 ## [What is Azure Security Center?](security-center-intro.md)
-## [Service overview](https://azure.microsoft.com/services/security-center/)
-## [Pricing](security-center-pricing.md)
-## [FAQ](security-center-faq.md)
 ## [Get insights with Power BI](security-center-powerbi.md)
 ## [Data security](security-center-data-security.md)
-## Common scenarios
+## Scenarios
 ### [Incident response](security-center-incident-response.md)
 
 # Get started
 ## [Quick start](security-center-get-started.md)
 ## [Planning and operations](security-center-planning-and-operations-guide.md)
-## [Security Center and SQL Database](security-center-sql-database.md)
+## [Manage and monitor](security-center-sql-database.md)
+## [FAQ](security-center-faq.md)
 
 # How to
 
@@ -59,7 +57,9 @@
 ## [REST API](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # Related
-## [Azure Security Information](../security/azure-security-getting-started.md)
+## [Azure Security](../security/azure-security-getting-started.md)
 
 # Resources
 ## [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
+## [Service overview](https://azure.microsoft.com/services/security-center/)
+## [Pricing](security-center-pricing.md)

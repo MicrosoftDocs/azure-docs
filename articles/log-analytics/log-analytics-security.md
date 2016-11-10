@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 11/09/2016
 ms.author: banders
 
 ---
@@ -152,4 +152,3 @@ Using the OMS portal, you can export data to a CSV file and you can access data 
 
 ## Next steps
 * [Get started with Log Analytics](log-analytics-get-started.md) to learn more about Log Analytics and get up and running in minutes.
-

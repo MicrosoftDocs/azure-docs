@@ -102,16 +102,16 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 
         CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio](../sql-database/sql-database-manage-azure-ssms.md#Step2) article to connect to your Azure SQL server and run the SQL script. This article uses the [classic Azure portal](http://manage.windowsazure.com), not the [new Azure portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
+    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio](../sql-database/sql-database-manage-azure-ssms.md) article to connect to your Azure SQL server and run the SQL script. This article uses the [classic Azure portal](http://manage.windowsazure.com), not the [new Azure portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
 
     If your client is not allowed to access the Azure SQL server, you need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See [this article](../sql-database/sql-database-configure-firewall-settings.md) for steps to configure the firewall for your Azure SQL server.
 
-You have completed the prerequisites. You can create a data factory using one of the following ways. Click one of the tabs at the top or the following links to perform the tutorial.     
+You have completed the prerequisites. You can create a data factory using one of the following ways. Click one of the options in the drop-down list at the top or the following links to perform the tutorial.     
 
+* [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+* [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-* [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
-

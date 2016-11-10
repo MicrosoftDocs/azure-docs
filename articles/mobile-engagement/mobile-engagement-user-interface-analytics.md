@@ -24,8 +24,6 @@ The Analytics section of the UI provides aggregated information about your appli
 
 > [!NOTE]
 > Many sections of the **Mobile Engagement** portal UI contain the **SHOW HELP** button. Press this button to get more contextual information about a section.
-> 
-> 
 
 ## Standard and Custom Analytics
 Azure Mobile Engagement provides a set of basic, standard analytic information about your applications that can be graphed as soon as you integrate your app with the SDK. Azure Mobile Engagement also provides the ability to gather additional custom analytics information that you want about your end-users' behavior. You can do this by creating a tag plan of custom "Tags (app info)", created from **Settings** so that Azure Mobile Engagement can collect this additional data for you.
@@ -34,9 +32,8 @@ Azure Mobile Engagement provides a set of basic, standard analytic information a
 * Dashboard: Shows general information about your new and actives users and their trends.
 * Users: Users are identified by their device identifier: this identifier is unique for each device (one new user is actually one new device). A user is considered as new on a given time interval if he has performed his first session during this time interval. A user is considered as retained if he has performed at least one session during the last 7 days. Active Users are users that made at least one session during a given period. You can sort by, monthly, weekly, daily, or hourly time periods. All of the charts look similar but allow you to filter by different features, such as the version of your application, and then to sort by a period of time. The standard information gathered by integrating the SDK includes the following: Active users, new user, number of sessions, length of each session, technical information about the country, locals, location, language carrier, devices, firmware, network (WIFI), versions of the app and SDK, used by customers. This information can be viewed in real time from the monitor section.
 
-> Note: The time period is based on the date from the users' device settings, so a user whose phone has the date incorrectly set could show up in the wrong time period.
-> 
-> 
+> [!NOTE]
+> The time period is based on the date from the users' device settings, so a user whose phone has the date incorrectly set could show up in the wrong time period.
 
 * Retention: A user is considered as retained on a given time interval if he has performed his first session during this time interval. You can change the time intervals during which retained users (and new users) are counted to hours, days, weeks, or months. The user retention analytics is built on top of cohorts. A cohort is the set of all the new users detected for a given period (i.e., the set of users performing their first session during this period). We use cohorts of 1-day, 2-day, 4-day, 7-day, or 1-month. Given a cohort, every 1-day, 2-day, 4-day, 7-day, or 1-month, Azure Mobile Engagement computes the set of all users who belong to the cohort and are still active (i.e., the set of users who performed at least one session during the period). This set of users is called a cohort version. (Azure Mobile Engagement can show you how many of your users are still using your app, but only the platform specific store can tell you how many of your users uninstalled your app - for example, GooglePlay, iTunes, Windows Store, etc.).
 * Sessions: One use of the application by a user. Sessions are generated from the sequence of activities performed by users (an activity is usually associated to the usage of one screen of the application, but this can vary depending on the way the SDK has been integrated in the application). A user can only perform one activity at a time: a session starts as soon as the user starts his first activity and stops when he finishes his last activity. If a user stays more than a few seconds without performing any activity, then his sequence of activities is split into two distinct sessions.

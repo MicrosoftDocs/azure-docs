@@ -40,7 +40,7 @@ The DocumentDB input to a function uses the following JSON object in the `bindin
 
     {
       "name": "<Name of input parameter in function signature>",
-      "type": "documentdb",
+      "type": "documentDB",
       "databaseName": "<Name of the DocumentDB database>",
       "collectionName": "<Name of the DocumentDB collection>",
       "id": "<Id of the DocumentDB document - see below>",
@@ -73,7 +73,7 @@ Suppose you have the following DocumentDB input binding in the `bindings` array 
 
     {
       "name": "inputDocument",
-      "type": "documentdb",
+      "type": "documentDB",
       "databaseName": "MyDatabase",
       "collectionName": "MyCollection",
       "id" : "{queueTrigger}",
@@ -88,7 +88,6 @@ See the language-specific sample that uses this input binding to update the docu
 * [Node.js](#innodejs)
 
 <a name="incsharp"></a>
-
 ### Input sample in C\
     public static void Run(string myQueueItem, dynamic inputDocument)
     {   
@@ -134,7 +133,7 @@ The output binding uses the following JSON object in the `bindings` array of fun
 
     {
       "name": "<Name of output parameter in function signature>",
-      "type": "documentdb",
+      "type": "documentDB",
       "databaseName": "<Name of the DocumentDB database>",
       "collectionName": "<Name of the DocumentDB collection>",
       "createIfNotExists": <true or false - see below>,
@@ -166,7 +165,7 @@ Suppose you have the following DocumentDB output binding in the `bindings` array
 
     {
       "name": "employeeDocument",
-      "type": "documentdb",
+      "type": "documentDB",
       "databaseName": "MyDatabase",
       "collectionName": "MyCollection",
       "createIfNotExists": true,

@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 08/24/2016
+ms.date: 11/08/2016
 ms.author: carlrab
 
 ---
@@ -22,9 +22,7 @@ ms.author: carlrab
 > * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 > * [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 > * [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-> * [Upgrade Advisor](http://www.microsoft.com/download/details.aspx?id=48119)
 > * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-> 
 > 
 
 In this article, you learn to determine if a SQL Server database is compatible to migrate to SQL Database using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility.
@@ -32,9 +30,10 @@ In this article, you learn to determine if a SQL Server database is compatible t
 ## Using SqlPackage.exe
 1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with the latest versions of [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), or you can download the latest version of [SqlPackage](https://www.microsoft.com/en-us/download/details.aspx?id=53876) directly from the Microsoft download center.
 2. Execute the following SqlPackage command with the following arguments for your environment:
-   
-    'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1'
-   
+
+```   
+    sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1
+```   
    | Argument | Description |
    | --- | --- |
    | < server_name > |source server name |
