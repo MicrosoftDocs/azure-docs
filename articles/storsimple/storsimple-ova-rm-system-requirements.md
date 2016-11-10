@@ -1,5 +1,5 @@
 ---
-title: StorSimple Virtual Array system requirements
+title: StorSimple Virtual Array system requirements| Microsoft Docs
 description: Learn about the software and networking requirements for your StorSimple Virtual Array
 services: storsimple
 documentationcenter: NA

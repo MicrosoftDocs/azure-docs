@@ -1,5 +1,5 @@
 ---
-title: Deploy StorSimple Virtual Array - Provision in Hyper-V
+title: Deploy StorSimple Virtual Array - Provision in Hyper-V| Microsoft Docs
 description: This second tutorial in StorSimple Virtual Array deployment involves provisioning a virtual array in Hyper-V.
 services: storsimple
 documentationcenter: NA

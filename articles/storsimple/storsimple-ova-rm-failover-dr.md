@@ -1,5 +1,5 @@
 ---
-title: Disaster recovery and device failover for your StorSimple Virtual Array
+title: Disaster recovery and device failover for StorSimple Virtual Array| Microsoft Docs
 description: Learn more about how to failover your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
