@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2016
-ms.author: curtnad
+ms.author: curtand
 
 ---
 # What is Azure Active Directory?
