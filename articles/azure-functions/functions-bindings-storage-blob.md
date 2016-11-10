@@ -188,7 +188,7 @@ See the language-specific sample that logs the contents of each blob that is add
 
 <a name="triggercsharp"></a>
 
-### Trigger usage in C\
+### Trigger usage in C# #
     public static void Run(string myBlob, TraceWriter log)
     {
         log.Info($"C# Blob trigger function processed: {myBlob}");
@@ -196,7 +196,7 @@ See the language-specific sample that logs the contents of each blob that is add
 
 <!--
 <a name="triggerfsharp"></a>
-### Trigger usage in F\# 
+### Trigger usage in F# ## 
 -->
 
 <a name="triggernodejs"></a>
@@ -296,7 +296,7 @@ See the language-specific sample that copies the input blob to the output blob.
 
 <a name="incsharp"></a>
 
-### Input usage in C\
+### Input usage in C# #
     public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
     {
         log.Info($"C# Queue trigger function processed: {myQueueItem}");
@@ -305,7 +305,7 @@ See the language-specific sample that copies the input blob to the output blob.
 
 <!--
 <a name="infsharp"></a>
-### Input usage in F\# 
+### Input usage in F# ## 
 -->
 
 <a name="innodejs"></a>

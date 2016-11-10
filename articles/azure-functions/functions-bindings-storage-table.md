@@ -113,7 +113,7 @@ See the language-specific sample that reads a single table entity.
 
 <a name="inputcsharp"></a>
 
-### Input sample in C\
+### Input sample in C# #
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
@@ -131,7 +131,7 @@ public class Person
 
 <a name="inputfsharp"></a>
 
-### Input sample in F\
+### Input sample in F# #
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -227,7 +227,7 @@ See the language-specific sample that creates multiple table entities.
 
 <a name="outcsharp"></a>
 
-### Output sample in C\
+### Output sample in C# #
 ```csharp
 public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
 {
@@ -254,7 +254,7 @@ public class Person
 ```
 <a name="outfsharp"></a>
 
-### Output sample in F\
+### Output sample in F# #
 ```fsharp
 [<CLIMutable>]
 type Person = {

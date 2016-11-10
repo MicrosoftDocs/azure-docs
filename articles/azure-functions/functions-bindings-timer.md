@@ -130,7 +130,7 @@ See the language-specific sample that reads the timer object to see whether it's
 
 <a name="triggercsharp"></a>
 
-### Trigger sample in C\
+### Trigger sample in C# #
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
@@ -144,7 +144,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 <a name="triggerfsharp"></a>
 
-### Trigger sample in F\
+### Trigger sample in F# #
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter ) =
     if (myTimer.IsPastDue) then

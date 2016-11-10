@@ -116,7 +116,7 @@ See the language-specific sample that retrieves and logs queue metadata.
 
 <a name="triggercsharp"></a>
 
-### Trigger sample in C\
+### Trigger sample in C# #
 ```csharp
 public static void Run(string myQueueItem, 
     DateTimeOffset expirationTime, 
@@ -141,7 +141,7 @@ public static void Run(string myQueueItem,
 
 <!--
 <a name="triggerfsharp"></a>
-### Trigger sample in F\# 
+### Trigger sample in F# ## 
 -->
 
 <a name="triggernodejs"></a>
@@ -236,7 +236,7 @@ See the language-specific sample that writes an output queue message for each in
 
 <a name="outcsharp"></a>
 
-### Output sample in C\
+### Output sample in C# #
     public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
     {
         myQueue = myQueueItem + "(next step)";
@@ -252,7 +252,7 @@ Or, to send multiple messages,
 
 <!--
 <a name="outfsharp"></a>
-### Output sample in F\# 
+### Output sample in F# ## 
 -->
 
 <a name="outnodejs"></a>

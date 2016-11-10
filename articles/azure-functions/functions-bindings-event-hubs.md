@@ -79,7 +79,7 @@ See the language-specific sample that logs the message body of the event hub tri
 
 <a name="triggercsharp"></a>
 
-### Trigger sample in C\#
+### Trigger sample in C# ##
     using System;
 
     public static void Run(string myEventHubMessage, TraceWriter log)
@@ -89,7 +89,7 @@ See the language-specific sample that logs the message body of the event hub tri
 
 <a name="triggerfsharp"></a>
 
-### Trigger sample in F\#
+### Trigger sample in F# ##
     let Run(myEventHubMessage: string, log: TraceWriter) =
         log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 
@@ -142,7 +142,7 @@ See the language-specific sample that writes an event to the even stream.
 
 <a name="outcsharp"></a>
 
-### Output sample in C\
+### Output sample in C# #
     using System;
 
     public static void Run(TimerInfo myTimer, out string outputEventHubMessage, TraceWriter log)
@@ -154,7 +154,7 @@ See the language-specific sample that writes an event to the even stream.
 
 <a name="outfsharp"></a>
 
-### Output sample in F\
+### Output sample in F# #
     let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
         let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
         log.Verbose(msg);
