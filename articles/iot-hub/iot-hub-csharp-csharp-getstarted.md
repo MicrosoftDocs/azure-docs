@@ -261,6 +261,6 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
+[lnk-device-management]: iot-hub-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
