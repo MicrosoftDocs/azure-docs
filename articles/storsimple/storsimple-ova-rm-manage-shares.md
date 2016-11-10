@@ -1,6 +1,6 @@
 ---
-title: StorSimple Manager - Manage shares on your Virtual Array | Microsoft Docs
-description: Describes the StorSimple Manager and explains how to use it to manage shares on your StorSimple Virtual Array.
+title: StorSimple Device Manager - Manage shares on your Virtual Array | Microsoft Docs
+description: Describes the StorSimple Device Manager and explains how to use it to manage shares on your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -13,22 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 11/10/2016
 ms.author: manuaery
 ---
-# Use the StorSimple Manager service to manage shares on the StorSimple Virtual Array
-## Overview
-This tutorial explains how to use the StorSimple Manager service to create and manage shares on your StorSimple Virtual Array.
+# Use the StorSimple Device Manager service to manage shares on the StorSimple Virtual Array
 
-The StorSimple Manager service is an extension in the Azure portal that lets you manage your StorSimple solution from a single web interface. In addition to managing shares and volumes, you can use the StorSimple Manager service to view and manage devices, view alerts, and view and manage backup policies and the backup catalog.
+## Overview
+
+This tutorial explains how to use the StorSimple Device Manager service to create and manage shares on your StorSimple Virtual Array.
+
+The StorSimple Device Manager service is an extension in the Azure portal that lets you manage your StorSimple solution from a single web interface. In addition to managing shares and volumes, you can use the StorSimple Device Manager service to view and manage devices, view alerts, manage backup policies, and manage the backup catalog.
 
 ## Share Types
+
 StorSimple shares can be:
 
 * **Locally pinned**: Data in these shares stays on the array at all times and does not spill to the cloud.
-* **Tiered**: Data in these shares can spill to the cloud. When you create a tiered share, approximately 10% of the space is provisioned on the local tier and 90% of the space is provisioned in the cloud. For example, if you provisioned a 1 TB share, 100 GB would reside in the local space and 900 GB would be used in the cloud when the data tiers. This in turn implies that if you run out of all the local space on the device, you cannot provision a tiered share (because the 10% required on the local tier will not be available).
+* **Tiered**: Data in these shares can spill to the cloud. When you create a tiered share, approximately 10 % of the space is provisioned on the local tier and 90 % of the space is provisioned in the cloud. For example, if you provisioned a 1 TB share, 100 GB would reside in the local space and 900 GB would be used in the cloud when the data tiers. This in turn implies that if you run out of all the local space on the device, you cannot provision a tiered share (because the 10 % required on the local tier will not be available).
 
 ### Provisioned capacity
+
 Refer to the following table for maximum provisioned capacity for each share type.
 
 | **Limit identifier** | **Limit** |
@@ -39,6 +43,7 @@ Refer to the following table for maximum provisioned capacity for each share typ
 | Maximum size of a locally pinned share |2 TB |
 
 ## The Shares blade
+
 The **Shares** menu on your StorSimple service summary blade displays the list of storage shares on a given StorSimple array and allows you to manage them.
 
 ![Shares blade](./media/storsimple-ova-rm-manage-shares/shares-blade.png)
@@ -63,7 +68,8 @@ Use the instructions in this tutorial to perform the following tasks:
 * Delete a share
 
 ## Add a share
-1. From the StorSimple service summary blade click **+ Add share** from the command bar. This opens up the **Add share** blade.
+
+1. From the StorSimple service summary blade, click **+ Add share** from the command bar. This opens up the **Add share** blade.
 
 ![Add share](./media/storsimple-ova-rm-manage-shares/add-share.png)
 
@@ -73,16 +79,18 @@ Use the instructions in this tutorial to perform the following tasks:
    * An optional **Description** for the share. The description will help identify the share owners.
    * In the **Type** dropdown list, specify whether to create a **Tiered** or **Locally pinned** share. For workloads that require local guarantees, low latencies, and higher performance, select **Locally pinned share**. For all other data, select **Tiered** share.
    * In the **Capacity** field, specify the size of the share. A tiered share must be between 500 GB and 20 TB and a locally pinned share must be between 50 GB and 2 TB.
-   * In the **Set default full permissions to** field, assign the permissions to the user, or the group that is accessing this share. Specify the name of the user or the user group in john@contoso.com format. We recommend that you use a user group (instead of a single user) to allow admin privileges to access these shares. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
-2. When you've finished configuring your share, click **Create**. A share will be created with the specified settings and you will see a notification. By default backup will be enabled for the share.
+   * In the **Set default full permissions to** field, assign the permissions to the user, or the group that is accessing this share. Specify the name of the user or the user group in _john@contoso.com_ format. We recommend that you use a user group (instead of a single user) to allow admin privileges to access these shares. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
+2. When you've finished configuring your share, click **Create**. A share will be created with the specified settings and you will see a notification. By default, backup will be enabled for the share.
 3. To confirm that the share was successfully created, go to the **Shares** blade. You should see the share listed.
    
     ![Share create success](./media/storsimple-ova-rm-manage-shares/share-success.png)
 
 ## Modify a share
+
 Modify a share when you need to change the description of the share. No other share properties can be modified once the share is created.
 
 #### To modify a share
+
 1. From the **Shares** setting on the StorSimple service summary blade, select the virtual array on which the share you wish you to modify resides.
 2. **Select** the share to view the current description and modify it.
 3. Save your changes by clicking the **Save** command bar. Your specified settings will be applied and you will see a notification.
@@ -90,9 +98,11 @@ Modify a share when you need to change the description of the share. No other sh
     ![ Edit share](./media/storsimple-ova-rm-manage-shares/share-edit.png)
 
 ## Take a share offline
+
 You may need to take a share offline when you are planning to modify it or delete it. When a share is offline, it is not available for read-write access. You will need to take the share offline on the host as well as on the device.
 
 #### To take a share offline
+
 1. Make sure that the share in question is not in use before taking it offline.
 2. Take the share on the array offline by performing the following steps:
    
@@ -104,14 +114,15 @@ You may need to take a share offline when you are planning to modify it or delet
    * To confirm that the share was successfully taken offline, go to the **Shares** blade. You should see the status of the share as offline.
 
 ## Delete a share
+
 > [!IMPORTANT]
 > You can delete a share only if it is offline.
-> 
-> 
+
 
 Complete the following steps to delete a share.
 
 #### To delete a share
+
 1. From the **Shares** setting on the StorSimple service summary blade, select the virtual array on which the share you wish to delete resides.
 2. **Select** the share and Click **...** (alternately right-click in this row) and from the context menu, select **Delete**.
    

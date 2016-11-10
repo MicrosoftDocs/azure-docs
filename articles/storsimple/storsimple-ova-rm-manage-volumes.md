@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 11/10/2016
 ms.author: manuaery
 ---
 # Use StorSimple Device Manager service to manage volumes on the StorSimple Virtual Array
@@ -64,6 +64,7 @@ Use the instructions in this tutorial to perform the following tasks:
 * Delete a volume
 
 ## Add a volume
+
 1. From the StorSimple service summary blade, click **+ Add volume** from the command bar. This opens up the **Add volume** blade.
    
     ![Add volume](./media/storsimple-ova-rm-manage-volumes/add-volume.png)
@@ -82,9 +83,11 @@ Use the instructions in this tutorial to perform the following tasks:
     ![Volume create success](./media/storsimple-ova-rm-manage-volumes/volume-success.png)
 
 ## Modify a volume
+
 Modify a volume when you need to change the hosts that access the volume. The other attributes of a volume cannot be modified once the volume has been created.
 
 #### To modify a volume
+
 1. From the **Volumes** setting on the StorSimple service summary blade, select the virtual array on which the volume you wish you to modify resides.
 2. **Select** the volume and click **Connected hosts** to view the currently connected host and modify it to a different server.
    
@@ -92,9 +95,11 @@ Modify a volume when you need to change the hosts that access the volume. The ot
 3. Save your changes by clicking the **Save** command bar. Your specified settings will be applied and you will see a notification.
 
 ## Take a volume offline
+
 You may need to take a volume offline when you are planning to modify it or delete it. When a volume is offline, it is not available for read-write access. You will need to take the volume offline on the host as well as on the device.
 
 #### To take a volume offline
+
 1. Make sure that the volume in question is not in use before taking it offline.
 2. Take the volume offline on the host first. This eliminates any potential risk of data corruption on the volume. For specific steps, refer to the instructions for your host operating system.
 3. After the volume on the host is offline, take the volume on the array  offline by performing the following steps:
@@ -109,6 +114,7 @@ You may need to take a volume offline when you are planning to modify it or dele
        ![Offline volume confirmation](./media/storsimple-ova-rm-manage-volumes/volume-offline-confirm.png)
 
 ## Delete a volume
+
 > [!IMPORTANT]
 > You can delete a volume only if it is offline.
 > 
@@ -117,6 +123,7 @@ You may need to take a volume offline when you are planning to modify it or dele
 Complete the following steps to delete a volume.
 
 #### To delete a volume
+
 1. From the **Volumes** setting on the StorSimple service summary blade, select the virtual array on which the volume you wish you to delete resides.
 2. **Select** the volume and click **...** (alternately right-click in this row) and from the context menu, select **Delete**.
    
@@ -125,5 +132,6 @@ Complete the following steps to delete a volume.
 4. When prompted for confirmation in the **Delete** blade, accept the confirmation and click **Delete**. The volume will now be deleted and the **Volumes** blade will show the updated list of volumes within the virtual array.
 
 ## Next steps
+
 Learn how to [clone a StorSimple volume](storsimple-ova-rm-clone.md).
 
