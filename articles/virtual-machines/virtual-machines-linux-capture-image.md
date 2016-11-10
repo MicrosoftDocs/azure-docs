@@ -85,79 +85,79 @@ Now use the image with a template to create a Linux VM. These steps show you how
 ### Create network resources
 To use the template, you first need to set up a virtual network and NIC for your new VM. We recommend you create a resource group for these resources in the location where your VM image is stored. Run commands similar to the following, substituting names for your resources and an appropriate Azure location ("centralus" in these commands):
 
-    ```azurecli
-    azure group create myResourceGroup1 -l "centralus"
+```azurecli
+azure group create myResourceGroup1 -l "centralus"
 
-    azure network vnet create myResourceGroup1 myVnet -l "centralus"
+azure network vnet create myResourceGroup1 myVnet -l "centralus"
 
-    azure network vnet subnet create myResourceGroup1 myVnet mySubnet
+azure network vnet subnet create myResourceGroup1 myVnet mySubnet
 
-    azure network public-ip create myResourceGroup1 myPublicIP -l "centralus"
+azure network public-ip create myResourceGroup1 myPublicIP -l "centralus"
 
-    azure network nic create myResourceGroup1 myNIC -k mySubnet -m myVnet -p myPublicIP -l "centralus"
-    ```
+azure network nic create myResourceGroup1 myNIC -k mySubnet -m myVnet -p myPublicIP -l "centralus"
+```
 
 ### Get the Id of the NIC
 To deploy a VM from the image by using the JSON you saved during capture, you need the Id of the NIC. Obtain it by running the following command:
 
-    ```azurecli
-    azure network nic show myResourceGroup1 myNIC
-    ```
+```azurecli
+azure network nic show myResourceGroup1 myNIC
+```
 
 The **Id** in the output is similar to `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic`
 
 ### Create a VM
 Now run the following command to create your VM from the captured VM image. Use the **-f** parameter to specify the path to the template JSON file you saved.
 
-    ```azurecli
-    azure group deployment create myResourceGroup1 MyDeployment -f MyTemplate.json
-    ```
+```azurecli
+azure group deployment create myResourceGroup1 MyDeployment -f MyTemplate.json
+```
 
 In the command output, you are prompted to supply a new VM name, the admin user name and password, and the Id of the NIC you created previously.
 
-    ```bash
-    info:    Executing command group deployment create
-    info:    Supply values for the following parameters
-    vmName: myNewVM
-    adminUserName: myAdminuser
-    adminPassword: ********
-    networkInterfaceId: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resource Groups/myResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic
-    ```
+```bash
+info:    Executing command group deployment create
+info:    Supply values for the following parameters
+vmName: myNewVM
+adminUserName: myAdminuser
+adminPassword: ********
+networkInterfaceId: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resource Groups/myResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic
+```
 
 The following sample shows what you see for a successful deployment:
 
-    ```bash
-    + Initializing template configurations and parameters
-    + Creating a deployment
-    info:    Created template deployment xxxxxxx
-    + Waiting for deployment to complete
-    data:    DeploymentName     : MyDeployment
-    data:    ResourceGroupName  : MyResourceGroup1
-    data:    ProvisioningState  : Succeeded
-    data:    Timestamp          : xxxxxxx
-    data:    Mode               : Incremental
-    data:    Name                Type          Value
+```bash
++ Initializing template configurations and parameters
++ Creating a deployment
+info:    Created template deployment xxxxxxx
++ Waiting for deployment to complete
+data:    DeploymentName     : MyDeployment
+data:    ResourceGroupName  : MyResourceGroup1
+data:    ProvisioningState  : Succeeded
+data:    Timestamp          : xxxxxxx
+data:    Mode               : Incremental
+data:    Name                Type          Value
 
-    data:    ------------------  ------------  -------------------------------------
+data:    ------------------  ------------  -------------------------------------
 
-    data:    vmName              String        myNewVM
+data:    vmName              String        myNewVM
 
-    data:    vmSize              String        Standard_D1
+data:    vmSize              String        Standard_D1
 
-    data:    adminUserName       String        myAdminuser
+data:    adminUserName       String        myAdminuser
 
-    data:    adminPassword       SecureString  undefined
+data:    adminPassword       SecureString  undefined
 
-    data:    networkInterfaceId  String        /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic
-    info:    group deployment create command OK
-    ```
+data:    networkInterfaceId  String        /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic
+info:    group deployment create command OK
+```
 
 ### Verify the deployment
 Now SSH to the virtual machine you created to verify the deployment and start using the new VM. To connect via SSH, find the IP address of the VM you created by running the following command:
 
-    ```azurecli
-    azure network public-ip show myResourceGroup1 myPublicIP
-    ```
+```azurecli
+azure network public-ip show myResourceGroup1 myPublicIP
+```
 
 The public IP address is listed in the command output. By default you connect to the Linux VM by SSH on port 22.
 
@@ -185,12 +185,12 @@ Before running **azure vm create** with the image, complete the following steps:
 
 Then run a command that passes URIs to both the new OS VHD file and the existing image. In this example, a size Standard_A1 VM is created in the East US region.
 
-    ```azurecli
-    azure vm create -g myResourceGroup1 -n myNewVM -l eastus -y Linux \
-    -z Standard_A1 -u myAdminname -p myPassword -f myNIC \
-    -d "https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix.vhd" \
-    -Q "https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.vhd"
-    ```
+```azurecli
+azure vm create -g myResourceGroup1 -n myNewVM -l eastus -y Linux \
+-z Standard_A1 -u myAdminname -p myPassword -f myNIC \
+-d "https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix.vhd" \
+-Q "https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.vhd"
+```
 
 For additional command options, run `azure help vm create`.
 
