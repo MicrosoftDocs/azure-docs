@@ -1,19 +1,21 @@
-<properties
-   pageTitle="Azure Advisor | Microsoft Azure"
-   description="Use Azure advisor to optimize your Azure deployments."
-   services="advisor"
-   documentationCenter=""
-   authors="kumudd"
-   manager="carmonm"
-   editor="" />
-<tags
-   ms.service="advisor"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="11/16/2016"
-   ms.author="kumudd" />
+---
+title: Introduction to Azure Advisor
+description: Use Azure Advisor to optimize the cost of your Azure deployments.
+services: advisor
+documentationcenter: NA
+author: kumudd
+manager: carmonm
+editor: ''
+
+ms.assetid: 
+ms.service: advisor
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 11/16/2016
+ms.author: kumudd
+---
 
 # Introduction to Azure Advisor
 
@@ -69,7 +71,7 @@ The Advisor dashboard displays a summarized list of recommendations. For each re
 
 ## Related
 
--  [Advisor FAQs](advisor-FAQs.md)
+-  [Advisor FAQs](advisor-faqs.md)
 -  [Get Started with Advisor](advisor-get-started.md)
 -  [Advisor High Availability Recommendations](advisor-high-availability-recommendations.md)
 -  [Advisor Security Recommendations](advisor-security-recommendations.md)

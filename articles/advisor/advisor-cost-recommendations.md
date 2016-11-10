@@ -1,21 +1,23 @@
-<properties
-   pageTitle="Azure Advisor | Microsoft Azure"
-   description="Use Azure advisor to optimize the cost of your Azure deployments."
-   services="advisor"
-   documentationCenter=""
-   authors="kumudd"
-   manager="carmonm"
-   editor="" />
-<tags
-   ms.service="advisor"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="11/16/2016"
-   ms.author="kumudd" />
+---
+title: Advisor Cost Recommendations
+description: Use Azure advisor to optimize the cost of your Azure deployments.
+services: advisor
+documentationcenter: NA
+author: kumudd
+manager: carmonm
+editor: ''
 
-# Azure Advisor cost recommendations
+ms.assetid: 
+ms.service: advisor
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 11/16/2016
+ms.author: kumudd
+---
+
+# Azure Advisor Cost Recommendations
 
 ##SQL Elastic Database Pool recommendations
 
@@ -26,7 +28,7 @@ Advisor identifies SQL server instances that can benefit from creating elastic d
 # Related
 
 -  [Introduction to Advisor](advisor-overview.md)
--  [Advisor FAQs](advisor-FAQs.md)
+-  [Advisor FAQs](advisor-faqs.md)
 -  [Advisor High Availability recommendations](advisor-cost-recommendations.md)
 -  [Advisor Security recommendations](advisor-cost-recommendations.md)
 -  [Advisor Performance recommendations](advisor-cost-recommendations.md)

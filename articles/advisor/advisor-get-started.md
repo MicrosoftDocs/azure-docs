@@ -1,19 +1,21 @@
-<properties
-   pageTitle="Azure Advisor | Microsoft Azure"
-   description="Get started with Azure Advisor."
-   services="advisor"
-   documentationCenter=""
-   authors="kumudd"
-   manager="carmonm"
-   editor="" />
-<tags
-   ms.service="advisor"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="11/16/2016"s
-   ms.author="kumudd" />
+---
+title: Get Started with Advisor
+description: Learn how to optimize the cost of your Azure deployments using Azure Advisor.
+services: advisor
+documentationcenter: NA
+author: kumudd
+manager: carmonm
+editor: ''
+
+ms.assetid: 
+ms.service: advisor
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 11/16/2016
+ms.author: kumudd
+---
 
 # Get Started with Azure Advisor
 
@@ -108,7 +110,7 @@ where **&lt;RecommendationID&gt;** is the full resource id of the recommendation
 ## Related
 
 -  [Introduction to Advisor](advisor-overview.md)
--  [Advisor FAQs](advisor-FAQs.md)
+-  [Advisor FAQs](advisor-faqs.md)
 -  [Advisor High Availability Recommendations](advisor-high-availability-recommendations.md)
 -  [Advisor Security Recommendations](advisor-security-recommendations.md)
 -  [Advisor Performance Recommendations](advisor-performance-recommendations.md)

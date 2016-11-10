@@ -1,19 +1,21 @@
-<properties
-   pageTitle="Azure Advisor Performance Recommendations| Microsoft Azure"
-   description="Use Azure advisor to optimize the performances of your Azure deployments."
-   services="advisor"
-   documentationCenter=""
-   authors="kumudd"
-   manager="carmonm"
-   editor="" />
-<tags
-   ms.service="advisor"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="11/16/2016"
-   ms.author="kumudd" />
+---
+title: Advisor Performance Recommendations
+description: Use Advisor to optimize the performances of your Azure deployments.
+services: advisor
+documentationcenter: NA
+author: kumudd
+manager: carmonm
+editor: ''
+
+ms.assetid: 
+ms.service: advisor
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 11/16/2016
+ms.author: kumudd
+---
 
 # Azure Advisor Performance Recommendations
 Azure Advisor helps optimize the performances of SQL Database, Redis Cache, and App services in your Azure deployments.
@@ -53,7 +55,7 @@ Azure Advisor integrates best practices recommendations for improving your App S
 ## Related
 
 -  [Introduction to Advisor](advisor-overview.md)
--  [Advisor FAQs](advisor-FAQs.md)
+-  [Advisor FAQs](advisor-faqs.md)
 -  [Get Started with Advisor](advisor-get-started.md)
 -  [Advisor High Availability Recommendations](advisor-high-availability-recommendations.md)
 -  [Advisor Security Recommendations](advisor-security-recommendations.md)

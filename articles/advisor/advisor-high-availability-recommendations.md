@@ -1,19 +1,21 @@
-<properties
-   pageTitle="Azure Advisor | Microsoft Azure"
-   description="Use Azure Advisor to improve high availability of your Azure deployments."
-   services="advisor"
-   documentationCenter=""
-   authors="kumudd"
-   manager="carmonm"
-   editor="" />
-<tags
-   ms.service="advisor"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="11/16/2016"
-   ms.author="kumudd" />
+---
+title: Advisor High Availability Recommendations
+description: Use Advisor to improve high availability of your Azure deployments.
+services: advisor
+documentationcenter: NA
+author: kumudd
+manager: carmonm
+editor: ''
+
+ms.assetid: 
+ms.service: advisor
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 11/16/2016
+ms.author: kumudd
+---
 
 # Azure Advisor High Availability Recommendations
 Azure Advisor analyzes single instance virtual machines and availibility sets to help optimize your Azure deployments for high availability.
@@ -52,7 +54,7 @@ You can choose to migrate your virtual machine disks to Premium Disks. Premium D
 ## Related
 
 -  [Introduction to Advisor](advisor-overview.md)
--  [Advisor FAQs](advisor-FAQs.md)
+-  [Advisor FAQs](advisor-faqs.md)
 -  [Get Started with Advisor](advisor-get-started.md)
 -  [Advisor Security Recommendations](advisor-security-recommendations.md)
 -  [Advisor Performance Recommendations](advisor-performance-recommendations.md)
