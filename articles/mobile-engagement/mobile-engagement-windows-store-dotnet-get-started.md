@@ -55,9 +55,11 @@ You have now created a Windows Universal App project into which you next integra
    
     ![][3]
 
-    >[AZURE.TIP] If your App targets both Windows and Windows Phone platforms, you should still create two Mobile Engagement Applications - one for each supported platform. Having two apps ensures that you can create correct segmentation of the audience and can send appropriately targeted notifications for each platform.
+    > [!TIP] 
+    > If your App targets both Windows and Windows Phone platforms, you should still create two Mobile Engagement Applications - one for each supported platform. Having two apps ensures that you can create correct segmentation of the audience and can send appropriately targeted notifications for each platform.
 
-    > [AZURE.IMPORTANT] NuGet does not automatically copy the SDK resources in your Windows 10 UWP application. You have to do it manually following the steps which show up (readme.txt) when the Nuget package is installed.  
+    > [!IMPORTANT] 
+    > NuGet does not automatically copy the SDK resources in your Windows 10 UWP application. You have to do it manually following the steps which show up (readme.txt) when the Nuget package is installed.  
 
 1. In the `App.xaml.cs` file:
    
@@ -111,11 +113,8 @@ To start sending data and ensuring that the users are active, you must send at l
 
 > [!IMPORTANT]
 > If your page overrides the `OnNavigatedTo` method, be sure to call `base.OnNavigatedTo(e)`. Otherwise, the activity is not reported `EngagementPage` calls `StartActivity` inside its `OnNavigatedTo` method). This is especially important in a Windows Phone project where the default template has an `OnNavigatedTo` method.
-> 
-> [!IMPORTANT]
-> For **Windows 10 Universal apps**, please use [this recommended method](mobile-engagement-windows-store-advanced-reporting.md#recommended-method-overload-your-codepagecode-classes), than the one mentioned above.
-> 
-> 
+>
+> For **Windows 10 Universal apps**, please use [this recommended method](mobile-engagement-windows-store-advanced-reporting.md#recommended-method-overload-your-page-classes), than the one mentioned above.
 
 ## <a id="monitor"></a>Connect app with real-time monitoring
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
@@ -161,6 +160,7 @@ You're ready to send a toast. Next we verify that you have correctly carried out
    
     ![][6]
 8. Finally make sure that you have associated your Visual Studio app with this created app in the App store. Click **Associate App with Store** in Visual Studio.
+
     ![][7]
 
 ## <a id="send"></a>Send a notification to your app

@@ -1,37 +1,46 @@
 {
-  "build_entry_point": "docs",
-  "need_generate_pdf": false,
-  "need_generate_intellisense": false,
-  "enable_push_aggregation": true,
-  "enable_pull_request_aggregation": false,
-  "docsets_to_publish": [
-    {
-      "docset_name": "azure-documents",
-      "build_source_folder": ".",
-      "build_output_subfolder": "azure",
-      "locale": "en-us",
-      "version": 0,
-      "open_to_public_contributors": false,
-      "type_mapping": {
-        "Conceptual": "Content",
-        "ManagedReference": "Content",
-        "RestApi": "Content"
-      },
-      "build_entry_point": "docs",
-      "template_folder": "_themes"
-    }
-  ],
-  "notification_subscribers": [],
-  "branches_to_filter": [],
-  "skip_source_output_uploading": false,
-  "need_preview_pull_request": true,
-  "enable_incremental_build": true,
-  "dependent_repositories": [
-    {
-      "path_to_root": "_themes",
-      "url": "https://github.com/Microsoft/templates.docs.msft",
-      "branch": "master",
-      "branch_mapping": {}
-    }
-  ]
+    "build_entry_point": "docs",
+    "need_generate_pdf": false,
+    "need_generate_intellisense": false,
+    "branch_target_mapping": {
+        "live": ["Publish", "Pdf"]
+    },
+    "docsets_to_publish": [{
+        "docset_name": "azure-documents",
+        "build_source_folder": ".",
+        "build_output_subfolder": "azure",
+        "locale": "en-us",
+        "version": 0,
+        "open_to_public_contributors": false,
+        "type_mapping": {
+            "Conceptual": "Content",
+            "ManagedReference": "Content",
+            "RestApi": "Content"
+        },
+        "build_entry_point": "docs",
+        "template_folder": "_themes"
+    }],
+    "Targets": {
+        "Pdf": {
+            "template_folder": "_themes.pdf"
+        }
+    },
+
+    "notification_subscribers": [],
+    "branches_to_filter": [],
+    "skip_source_output_uploading": false,
+    "need_preview_pull_request": true,
+    "enable_incremental_build": true,
+    "dependent_repositories": [{
+            "path_to_root": "_themes",
+            "url": "https://github.com/Microsoft/templates.docs.msft",
+            "branch": "master",
+            "branch_mapping": {}
+        }, {
+            "path_to_root": "_themes.pdf",
+            "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
+            "branch": "master"
+        }
+
+    ]
 }
