@@ -182,7 +182,7 @@ to your test data sources during development, and a different gateway
 for your production data sources. Azure Machine Learning gives you the
 flexibility to set up multiple gateways depending upon your corporate
 environment. Currently you can’t share a gateway between workspaces and
-only one gateway can be installed on a single computer. For more information, see the article [Move data between on-premises sources and cloud with Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
+only one gateway can be installed on a single computer. For more information, see [Move data between on-premises sources and cloud with Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 
 ### Step 2: Use the gateway to read data from an on-premises data source
 After you set up the gateway, you can add an **Import Data** module to
