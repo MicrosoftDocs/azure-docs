@@ -83,7 +83,7 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
    
    * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
 
-   * **Location_: Select a location geographically close to you. This location must match the location in the __SETTINGS__ section.
+   * **Location**: Select a location geographically close to you. This location must match the location in the __SETTINGS__ section.
      
         **SETTINGS** section:
 
@@ -215,7 +215,6 @@ Once the resources have been created, you are redirected to a blade for the reso
     * **--num.streams**: The number of consumer threads to create.
      
     On startup, MirrorMaker returns information similar to the following text:
-     
         {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
         metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-kafka.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-2, security.protocol=PLAINTEXT}
         metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-1, security.protocol=PLAINTEXT}
