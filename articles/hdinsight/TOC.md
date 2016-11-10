@@ -5,7 +5,7 @@
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
-## [Domain-joined HDInsight preview?](hdinsight-domain-joined-introduction.md)
+## [Domain-joined HDInsight preview](hdinsight-domain-joined-introduction.md)
 
 # Get Started
 ## [Start with Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
@@ -14,7 +14,6 @@
 ## [Start with Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Start with HBase & NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Start with Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
-
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -38,7 +37,7 @@
 #### [Use SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
 #### [Use cURL](hdinsight-hadoop-use-mapreduce-curl.md)
 #### [Use PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
-### [Build the MapReduce samples](hdinsight-hadoop-run-samples-linux.md)
+### [Run the MapReduce samples](hdinsight-hadoop-run-samples-linux.md)
 ### [Use Pig with Hadoop](hdinsight-use-pig.md)
 #### [Use Remote Desktop](hdinsight-hadoop-use-pig-remote-desktop.md)
 #### [Use SSH and Pig](hdinsight-hadoop-use-pig-ssh.md)
@@ -48,7 +47,7 @@
 ### [Use DataFu with Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [On-demand clusters](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md)
-## User R Server preview
+## Use R Server preview
 ### [Storage options](hdinsight-hadoop-r-server-storage.md)
 ### [Install RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Compute contexts](hdinsight-hadoop-r-server-compute-contexts.md)
@@ -68,7 +67,7 @@
 ### [Manage resources](hdinsight-apache-spark-resource-manager.md)
 ### [Track and debug jobs](hdinsight-apache-spark-job-debugging.md)
 ### [Known issues](hdinsight-apache-spark-known-issues.md)
-## Use HBase 
+## Use HBase
 ### [Use Phoenix and SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analyze real-time tweets](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Create clusters on a virtual network](hdinsight-hbase-provision-vnet.md)
@@ -76,7 +75,7 @@
 ### [Configure DNS servers](hdinsight-hbase-geo-replication-configure-dns.md)
 ### [Configure HBase geo-replication](hdinsight-hbase-geo-replication.md)
 ### [Develop an app with Java](hdinsight-hbase-build-java-maven-linux.md)
-## Use Storm 
+## Use Storm
 ### [Deploy and manage topologies](hdinsight-storm-deploy-monitor-topology-linux.md)
 ### [Develop data processing apps in SCP](hdinsight-storm-scp-programming-guide.md)
 ### [Storm examples](hdinsight-storm-example-topology.md)
@@ -105,7 +104,7 @@
 ### [Serialize data with Avro Library](hdinsight-dotnet-avro-serialization.md)
 ### [Use C# user-defined functions](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 ### [Use Python with Hive and Pig](hdinsight-python.md)
-## Analyze big data solutions
+## Analyze big data
 ### [Analyze using Power Query](hdinsight-connect-excel-power-query.md)
 ### [Connect Excel to Hadoop](hdinsight-connect-excel-hive-odbc-driver.md)
 ### [Connect using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md)
@@ -115,7 +114,7 @@
 ### [Generate recommendations with Mahout](hdinsight-hadoop-mahout-linux-mac.md)
 ### [Analyze website logs with Hive](hdinsight-hive-analyze-website-log.md)
 ### [Analyze Application Insights telemetry logs](hdinsight-spark-analyze-application-insight-logs.md)
-## Build clusters
+## Extend clusters
 ### [Customize clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Customize clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Add Hive libraries](hdinsight-hadoop-add-hive-libraries.md)
@@ -173,6 +172,7 @@
 #### [Hive settings fix Out of Memory error](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [Optimize Hive queries](hdinsight-hadoop-optimize-hive-query.md)
 #### [Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
+
 # Reference
 ## [REST API reference](https://msdn.microsoft.com/library/mt622197.aspx)
 ## [Spark REST API for remote jobs](https://msdn.microsoft.com/library/mt613023.aspx)
@@ -181,7 +181,7 @@
 ## [.NET SDK for HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET library for Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
 
-#Related
+# Related
 ## Windows clusters
 ### [Migrate Windows clusters to Linux clusters](hdinsight-migrate-from-windows-to-linux.md)
 ### [Start with Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
@@ -190,7 +190,7 @@
 ### [HDInsight Sample Gallery](hdinsight-learn-hadoop-use-sample-gallery.md)
 ### [Run Hadoop MapReduce samples](hdinsight-run-samples.md)
 ### [Create Hadoop clusters](hdinsight-provision-clusters.md)
-#### [Use the Azure Portal](hdinsight-hadoop-create-windows-clusters-portal.md)
+#### [Use the Azure portal](hdinsight-hadoop-create-windows-clusters-portal.md)
 #### [Use .NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
 #### [Use Azure CLI](hdinsight-hadoop-create-windows-clusters-cli.md)
 #### [Use Azure PowerShell](hdinsight-hadoop-create-windows-clusters-powershell.md)

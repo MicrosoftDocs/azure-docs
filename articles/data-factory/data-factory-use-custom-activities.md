@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 11/10/2016
 ms.author: spelluru
 
 ---
@@ -134,7 +134,10 @@ The method returns a dictionary that can be used to chain custom activities toge
      Install-Package Microsoft.Azure.Management.DataFactories
 4. Import the **Azure Storage** NuGet package in to the project.
 
-        Install-Package Azure.Storage
+        Install-Package WindowsAzure.Storage -Version 4.3.0
+
+	> [!NOTE]
+	> Data Factory service launcher requires the 4.3 version of WindowsAzure.Storage. If you add a reference to a later version of Azure Storage assembly in your custom activity project, you see an error when the activity executes. To resolve the error, see [Appdomain isolation](#appdomain-isolation) section. 
 5. Add the following **using** statements to the source file in the project.
 
         using System.IO;
@@ -692,6 +695,15 @@ Debugging consists of a few basic techniques:
 5. All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
 6. Ensure that the **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip), and **packageLinkedService** (should point to the Azure blob storage that contains the zip file) are set to correct values.
 7. If you fixed an error and want to reprocess the slice, right-click the slice in the **OutputDataset** blade and click **Run**.
+8. If you see the following error, you are using the Azure Storage package of version > 4.3.0. Data Factory service launcher requires the 4.3 version of WindowsAzure.Storage. See [Appdomain isolation](#appdomain-isolation) section for a work around if you must use the later version of Azure Storage assembly. 
+
+		Error in Activity: Unknown error in module: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeLoadException: Could not load type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from assembly 'Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, 
+
+	If you can use the 4.3.0 version of Azure Storage package, remove the existing  reference to Azure.Storage package of version > 4.3.0 and run the following command from Nuget Package Manager Console. 
+
+	   Install-Package WindowsAzure.Storage -Version 4.3.0
+
+	Build the project. Delete Azure.Storage assembly of version > 4.3.0 from the bin\Debug folder. Create a new zip file with binaries and the PDB file. Replace the old zip file with this one in the blob container (customactivitycontainer). Re-run the slices that failed (right-click slice, and click Run).   
 8. The custom activity does not use the **app.config** file from your package, so if your code reads any connection strings from the configuration file, it does not work at runtime. The best practice when using Azure Batch is to hold any secrets in an **Azure KeyVault**, use a certificate-based service principal to protect the **keyvault**, and distribute the certificate to Azure Batch pool. The .NET custom activity then can access secrets from the KeyVault at runtime. This solution is a generic solution and can scale to any type of secret, not just connection string.
 
    There is an easier workaround (but not a best practice): you can create an **Azure SQL linked service** with connection string settings, create a dataset that uses the linked service, and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code and it should work fine at runtime.  
