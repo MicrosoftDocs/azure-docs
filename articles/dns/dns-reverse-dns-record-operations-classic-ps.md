@@ -24,9 +24,8 @@ ms.author: smalone
 
 [!INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Learn how to [perform these steps using the Resource Manager model](dns-reverse-dns-record-operations-ps.md).
+> [!IMPORTANT]
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../articles/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](dns-reverse-dns-record-operations-ps.md).
 
 ## Validation of reverse DNS records
 
