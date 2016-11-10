@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 11/10/2016
 ms.author: chrande; glenga
 
 ---
@@ -38,15 +38,17 @@ ID can be determined based on the trigger that invokes the function.
 
 The DocumentDB input to a function uses the following JSON object in the `bindings` array of function.json:
 
-    {
-      "name": "<Name of input parameter in function signature>",
-      "type": "documentDB",
-      "databaseName": "<Name of the DocumentDB database>",
-      "collectionName": "<Name of the DocumentDB collection>",
-      "id": "<Id of the DocumentDB document - see below>",
-      "connection": "<Name of app setting with connection string - see below>",
-      "direction": "in"
-    },
+```json
+{
+  "name": "<Name of input parameter in function signature>",
+  "type": "documentDB",
+  "databaseName": "<Name of the DocumentDB database>",
+  "collectionName": "<Name of the DocumentDB collection>",
+  "id": "<Id of the DocumentDB document - see below>",
+  "connection": "<Name of app setting with connection string - see below>",
+  "direction": "in"
+},
+```
 
 Note the following:
 
@@ -71,15 +73,17 @@ make updates to input documents. See how it is done in the [Node.js sample](#inn
 ## Input sample
 Suppose you have the following DocumentDB input binding in the `bindings` array of function.json:
 
-    {
-      "name": "inputDocument",
-      "type": "documentDB",
-      "databaseName": "MyDatabase",
-      "collectionName": "MyCollection",
-      "id" : "{queueTrigger}",
-      "connection": "MyAccount_DOCUMENTDB",     
-      "direction": "in"
-    }
+```json
+{
+  "name": "inputDocument",
+  "type": "documentDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "id" : "{queueTrigger}",
+  "connection": "MyAccount_DOCUMENTDB",     
+  "direction": "in"
+}
+```
 
 See the language-specific sample that uses this input binding to update the document's text value.
 
@@ -89,21 +93,27 @@ See the language-specific sample that uses this input binding to update the docu
 
 <a name="incsharp"></a>
 ### Input sample in C# #
+
+```cs
     public static void Run(string myQueueItem, dynamic inputDocument)
     {   
       inputDocument.text = "This has changed.";
     }
-
+```
 <a name="infsharp"></a>
 
 ### Input sample in F# #
+
+```fsharp
     open FSharp.Interop.Dynamic
     let Run(myQueueItem: string, inputDocument: obj) =
       inputDocument?text <- "This has changed."
+```
 
 You need to add a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
 dependencies:
 
+```json
     {
       "frameworks": {
         "net46": {
@@ -114,23 +124,28 @@ dependencies:
         }
       }
     }
+```
 
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
 <a name="innodejs"></a>
 
 ### Input sample in Node.js
+
+```javascript
     module.exports = function (context) {   
       context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
       context.bindings.inputDocumentOut.text = "This was updated!";
       context.done();
     };
+```
 
 ## <a id="docdboutput"></a>DocumentDB output binding
 The DocumentDB output binding lets you write a new document to an Azure DocumentDB database. 
 
 The output binding uses the following JSON object in the `bindings` array of function.json: 
 
+```json
     {
       "name": "<Name of output parameter in function signature>",
       "type": "documentDB",
@@ -140,6 +155,7 @@ The output binding uses the following JSON object in the `bindings` array of fun
       "connection": "<Value of AccountEndpoint in Application Setting - see below>",
       "direction": "out"
     }
+```
 
 Note the following:
 
@@ -163,6 +179,7 @@ the output parameter. If a document with that ID already exists, the output docu
 ## Output sample
 Suppose you have the following DocumentDB output binding in the `bindings` array of function.json:
 
+```json
     {
       "name": "employeeDocument",
       "type": "documentDB",
@@ -172,23 +189,28 @@ Suppose you have the following DocumentDB output binding in the `bindings` array
       "connection": "MyAccount_DOCUMENTDB",     
       "direction": "out"
     }
+```
 
 And you have a queue input binding for a queue that receives JSON in the following format:
 
+```json
     {
       "name": "John Henry",
       "employeeId": "123456",
       "address": "A town nearby"
     }
+```
 
 And you want to create DocumentDB documents in the following format for each record:
 
+```json
     {
       "id": "John Henry-123456",
       "name": "John Henry",
       "employeeId": "123456",
       "address": "A town nearby"
     }
+```
 
 See the language-specific sample that uses this output binding to add documents to your database.
 
@@ -199,7 +221,9 @@ See the language-specific sample that uses this output binding to add documents 
 <a name="outcsharp"></a>
 
 ### Output sample in C# #
-    #r "Newtonsoft.Json"
+
+```cs
+	#r "Newtonsoft.Json"
 
     using System;
     using Newtonsoft.Json;
@@ -218,10 +242,13 @@ See the language-specific sample that uses this output binding to add documents 
         address = employee.address
       };
     }
+```
 
 <a name="outfsharp"></a>
 
 ### Output sample in F# #
+
+```fsharp
     open FSharp.Interop.Dynamic
     open Newtonsoft.Json
 
@@ -240,10 +267,12 @@ See the language-specific sample that uses this output binding to add documents 
           name = employee?name
           employeeId = employee?employeeId
           address = employee?address }
+```
 
 You need to add a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
 dependencies:
 
+```json
     {
       "frameworks": {
         "net46": {
@@ -254,12 +283,15 @@ dependencies:
         }
       }
     }
+```
 
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
 <a name="outnodejs"></a>
 
 ### Output sample in Node.js
+
+```javascript
     module.exports = function (context) {
 
       context.bindings.employeeDocument = JSON.stringify({ 
@@ -271,3 +303,4 @@ To add a `project.json` file, see [F# package management](functions-reference-fs
 
       context.done();
     };
+```
