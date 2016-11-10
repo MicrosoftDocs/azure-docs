@@ -26,7 +26,7 @@ This document contains walkthroughs that show how to customize workflows with  *
 The following topics are covered:
 
 * [Encoding MXF into a single bitrate MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
-  * [Starting a new workflow](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new) 
+  * [Starting a new workflow](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new)
   * [Using the Media File Input](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_file_input)
   * [Inspecting media streams](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_streams)
   * [Adding a video encoder for .MP4 file generation](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_file_generation)
@@ -41,12 +41,12 @@ The following topics are covered:
   * [Adding a separate Audio Track](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
   * [Adding the .ISM SMIL File](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
 * [Encoding MXF into multibitrate MP4 - enhanced blueprint](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
-  * [Workflow overview to enhance](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_overview)
+  * [Workflow overview to enhance](#workflow-overview-to-enhance)
   * [File Naming Conventions](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
   * [Publishing component properties onto the workflow root](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
   * [Have generated output file names rely on published property values](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
 * [Adding thumbnails to multibitrate MP4 output](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
-  * [Workflow overview to add thumbnails to](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to_multibitrate_MP4_overview)
+  * [Workflow overview to add thumbnails to](#workflow-overview-to-add-thumbnails-to)
   * [Adding JPG Encoding](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
   * [Dealing with Color Space conversion](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
   * [Writing the thumbnails](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)
@@ -65,12 +65,12 @@ The following topics are covered:
   * [Adding a ClippingEnabled convenience property](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clippingenabled_prop)
 
 ## <a id="MXF_to_MP4"></a>Encoding MXF into a single bitrate MP4
-In this walkthrough we'll create a single bitrate .MP4 file with AAC-HE encoded audio from an .MXF input file. 
+In this walkthrough we'll create a single bitrate .MP4 file with AAC-HE encoded audio from an .MXF input file.
 
 ### <a id="MXF_to_MP4_start_new"></a>Starting a new workflow
-Open Workflow Designer and select "File"-"New Workspace"-"Transcode Blueprint" 
+Open Workflow Designer and select "File"-"New Workspace"-"Transcode Blueprint"
 
-The new workflow will show 3 elements: 
+The new workflow will show 3 elements:
 
 * Primary Source File
 * Clip List XML
@@ -190,9 +190,9 @@ The expression editor allows to enter any literal value, mixed with one or more 
 *Filled out Expression Editor*
 
 > [!NOTE]
-> In order to see see an output file of your encoding job in Azure, you must provide a value in the expression editor. 
-> 
-> 
+> In order to see see an output file of your encoding job in Azure, you must provide a value in the expression editor.
+>
+>
 
 When you confirm the expression by hitting ok, the property window will preview to what value the File property resolves at this point in time.
 
@@ -456,10 +456,10 @@ Different from our MP4 video's, the JPG Encoder component will output more than 
 
 *Introducing the Scene Search JPG File Writer*
 
-Configure the Output Folder Path property with the expression: 
-    ${ROOT_outputWriteDirectory} 
+Configure the Output Folder Path property with the expression:
+    ${ROOT_outputWriteDirectory}
 
-and the Filename Prefix property with: 
+and the Filename Prefix property with:
 
     ${ROOT_sourceFileBaseName}_thumb_
 
@@ -598,18 +598,18 @@ The node object we call the log method on, refers to our current "node" or the c
 
 From within our scripting environment, we also have access to properties on other components. Try this:
 
-    //inspect current node: 
-    def nodepath = node.getNodePath(); 
+    //inspect current node:
+    def nodepath = node.getNodePath();
     node.log("this node path: " + nodepath);
 
-    //walking up to other nodes: 
-    def parentnode = node.getParentNode(); 
-    def parentnodepath = parentnode.getNodePath(); 
+    //walking up to other nodes:
+    def parentnode = node.getParentNode();
+    def parentnodepath = parentnode.getNodePath();
     node.log("parent node path: " + parentnodepath);
 
-    //read properties from a node: 
-    def sourceFileExt = parentnode.getPropertyAsString( "sourceFileExtension", null ); 
-    def sourceFileName = parentnode.getPropertyAsString("sourceFileBaseName", null); 
+    //read properties from a node:
+    def sourceFileExt = parentnode.getPropertyAsString( "sourceFileExtension", null );
+    def sourceFileName = parentnode.getPropertyAsString("sourceFileBaseName", null);
     node.log("source file name with extension " + sourceFileExt + " is: " + sourceFileName);
 
 Our log window will show us the following:
@@ -674,7 +674,7 @@ When you inspect the properties of the Scripted Component, the four different sc
 ### <a id="frame_based_trim_modify_clip_list"></a>Modifying the clip list from a Scripted Component
 Before we can re-write the cliplist xml that is generated during workflow startup, we'll need to have access to the cliplist xml property and contents. We can do so like this:
 
-    // get cliplist xml: 
+    // get cliplist xml:
     def clipListXML = node.getProperty("../clipListXml");
     node.log("clip list xml coming in: " + clipListXML);
 
@@ -716,20 +716,20 @@ Now, from within our script, we can access both properties, like this:
 
 Let's parse the timecode strings into a more convenient to use form, using a simple regular expression:
 
-    //parse the start timing: 
-    def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart); 
-    startregresult.matches(); 
-    def starttimecode = startregresult.group(1); 
-    node.log("timecode start is: " + starttimecode); 
-    def startframerate = startregresult.group(2); 
+    //parse the start timing:
+    def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart);
+    startregresult.matches();
+    def starttimecode = startregresult.group(1);
+    node.log("timecode start is: " + starttimecode);
+    def startframerate = startregresult.group(2);
     node.log("framerate start is: " + startframerate);
 
-    //parse the end timing: 
-    def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend); 
-    endregresult.matches(); 
-    def endtimecode = endregresult.group(1); 
-    node.log("timecode end is: " + endtimecode); 
-    def endframerate = endregresult.group(2); 
+    //parse the end timing:
+    def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend);
+    endregresult.matches();
+    def endtimecode = endregresult.group(1);
+    node.log("timecode end is: " + endtimecode);
+    def endframerate = endregresult.group(2);
     node.log("framerate end is: " + endframerate);
 
 ![Log window with output of parsed timecode](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-output-parsed-timecode.png)
@@ -754,13 +754,13 @@ To make our workflow convenient to test locally, we best add some house-keeping 
 
 Before we can add such code though, we'll need to add a number of import statements at the start of our script first:
 
-    import javax.xml.parsers.*; 
-    import org.xml.sax.*; 
+    import javax.xml.parsers.*;
+    import org.xml.sax.*;
     import org.w3c.dom.*;
     import javax.xml.*;
-    import javax.xml.xpath.*; 
-    import javax.xml.transform.*; 
-    import javax.xml.transform.stream.*; 
+    import javax.xml.xpath.*;
+    import javax.xml.transform.*;
+    import javax.xml.transform.stream.*;
     import javax.xml.transform.dom.*;
 
 After this, we can add the required cleaning code:
@@ -768,33 +768,33 @@ After this, we can add the required cleaning code:
     //for local testing: delete any pre-existing trim elements from the clip list xml by parsing the xml into a DOM:
     DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
     DocumentBuilder builder=factory.newDocumentBuilder();
-    InputSource is=new InputSource(new StringReader(clipListXML)); 
+    InputSource is=new InputSource(new StringReader(clipListXML));
     Document dom=builder.parse(is);
 
-    //find the trim element inside videoSource and audioSource and remove it if it exists already: 
+    //find the trim element inside videoSource and audioSource and remove it if it exists already:
     XPath xpath = XPathFactory.newInstance().newXPath();
-    String findAllTrimElements = "//trim"; 
+    String findAllTrimElements = "//trim";
     NodeList trimelems = xpath.evaluate(findAllTrimElements,dom,XPathConstants.NODESET);
 
-    //copy trim nodes into a "to-be-deleted" collection 
-    Set<Element> elementsToDelete = new HashSet<Element>(); 
-    for (int i = 0; i < trimelems.getLength(); i++) { 
-        Element e = (Element)trimelems.item(i); 
-        elementsToDelete.add(e); 
+    //copy trim nodes into a "to-be-deleted" collection
+    Set<Element> elementsToDelete = new HashSet<Element>();
+    for (int i = 0; i < trimelems.getLength(); i++) {
+        Element e = (Element)trimelems.item(i);
+        elementsToDelete.add(e);
     }
 
     node.log("about to delete any existing trim nodes");
-     //delete the trim nodes: 
-    elementsToDelete.each{ 
+     //delete the trim nodes:
+    elementsToDelete.each{
         e -> e.getParentNode().removeChild(e);
-    }; 
+    };
     node.log("deleted any existing trim nodes");
 
-    //serialize the modified clip list xml dom into a string: 
+    //serialize the modified clip list xml dom into a string:
     def transformer = TransformerFactory.newInstance().newTransformer();
     StreamResult result = new StreamResult(new StringWriter());
     DOMSource source = new DOMSource(dom);
-    transformer.transform(source, result); 
+    transformer.transform(source, result);
     clipListXML = result.getWriter().toString();
 
 This code goes just above the point at which we add the trim elements to the cliplist xml.
@@ -812,75 +812,75 @@ Just as before, publish a new property to the root of our workflow called "Clipp
 
 With the below simple guard clause, we can check if trimming is required and decide if our clip list as such needs to be modified or not.
 
-    //check if clipping is required: 
-    def clippingrequired = node.getProperty("../ClippingEnabled"); 
-    node.log("clipping required: " + clippingrequired.toString()); 
-    if(clippingrequired == null || clippingrequired == false) 
+    //check if clipping is required:
+    def clippingrequired = node.getProperty("../ClippingEnabled");
+    node.log("clipping required: " + clippingrequired.toString());
+    if(clippingrequired == null || clippingrequired == false)
     {
-        node.setProperty("../clipListXml",clipListXML); 
-        node.log("no clipping required"); 
-        return; 
+        node.setProperty("../clipListXml",clipListXML);
+        node.log("no clipping required");
+        return;
     }
 
 
 ### <a id="code"></a>Complete code
-    import javax.xml.parsers.*; 
-    import org.xml.sax.*; 
+    import javax.xml.parsers.*;
+    import org.xml.sax.*;
     import org.w3c.dom.*;
     import javax.xml.*;
-    import javax.xml.xpath.*; 
-    import javax.xml.transform.*; 
-    import javax.xml.transform.stream.*; 
+    import javax.xml.xpath.*;
+    import javax.xml.transform.*;
+    import javax.xml.transform.stream.*;
     import javax.xml.transform.dom.*;
 
-    // get cliplist xml: 
+    // get cliplist xml:
     def clipListXML = node.getProperty("../clipListXml");
     node.log("clip list xml coming in: \n" + clipListXML);
-    // get start and end of clipping: 
+    // get start and end of clipping:
     def clipstart = node.getProperty("../ClippingTimeStart").toString();
     def clipend = node.getProperty("../ClippingTimeEnd").toString();
 
     //parse the start timing:
-    def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart); 
-    startregresult.matches(); 
+    def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart);
+    startregresult.matches();
     def starttimecode = startregresult.group(1);
     node.log("timecode start is: " + starttimecode);
     def startframerate = startregresult.group(2);
     node.log("framerate start is: " + startframerate);
 
-    //parse the end timing: 
+    //parse the end timing:
     def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend);
-    endregresult.matches(); 
-    def endtimecode = endregresult.group(1); 
-    node.log("timecode end is: " + endtimecode); 
+    endregresult.matches();
+    def endtimecode = endregresult.group(1);
+    node.log("timecode end is: " + endtimecode);
     def endframerate = endregresult.group(2);
 
     node.log("framerate end is: " + endframerate);
 
-    //for local testing: delete any pre-existing trim elements 
+    //for local testing: delete any pre-existing trim elements
     //from the clip list xml by parsing the xml into a DOM:
 
     DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
-    DocumentBuilder builder=factory.newDocumentBuilder(); 
-    InputSource is=new InputSource(new StringReader(clipListXML)); 
+    DocumentBuilder builder=factory.newDocumentBuilder();
+    InputSource is=new InputSource(new StringReader(clipListXML));
     Document dom=builder.parse(is);
 
     //find the trim element inside videoSource and audioSource and remove it if it exists already:
-    XPath xpath = XPathFactory.newInstance().newXPath(); 
-    String findAllTrimElements = "//trim"; 
+    XPath xpath = XPathFactory.newInstance().newXPath();
+    String findAllTrimElements = "//trim";
     NodeList trimelems = xpath.evaluate(findAllTrimElements, dom, XPathConstants.NODESET);
 
-    //copy trim nodes into a "to-be-deleted" collection 
-    Set<Element> elementsToDelete = new HashSet<Element>(); 
-    for (int i = 0; i < trimelems.getLength(); i++) { 
-        Element e = (Element)trimelems.item(i); 
-        elementsToDelete.add(e); 
+    //copy trim nodes into a "to-be-deleted" collection
+    Set<Element> elementsToDelete = new HashSet<Element>();
+    for (int i = 0; i < trimelems.getLength(); i++) {
+        Element e = (Element)trimelems.item(i);
+        elementsToDelete.add(e);
     }
 
     node.log("about to delete any existing trim nodes");
     //delete the trim nodes:
-    elementsToDelete.each{ e -> 
-        e.getParentNode().removeChild(e); 
+    elementsToDelete.each{ e ->
+        e.getParentNode().removeChild(e);
     };
     node.log("deleted any existing trim nodes");
 
@@ -893,29 +893,29 @@ With the below simple guard clause, we can check if trimming is required and dec
 
     //check if clipping is required:
     def clippingrequired = node.getProperty("../ClippingEnabled");
-    node.log("clipping required: " + clippingrequired.toString()); 
-    if(clippingrequired == null || clippingrequired == false) 
+    node.log("clipping required: " + clippingrequired.toString());
+    if(clippingrequired == null || clippingrequired == false)
     {
         node.setProperty("../clipListXml",clipListXML);
         node.log("no clipping required");
-        return; 
+        return;
     }
 
-    //add trim elements to cliplist xml 
-    if ( clipListXML.indexOf("<trim>") == -1 ) 
+    //add trim elements to cliplist xml
+    if ( clipListXML.indexOf("<trim>") == -1 )
     {
-        //trim video 
-        clipListXML = clipListXML.replace("<videoSource>","<videoSource>\n <trim>\n <inPoint fps=\""+ 
-            startframerate +"\">" + starttimecode + 
-            "</inPoint>\n" + "<outPoint fps=\"" + endframerate +"\"> " + endtimecode + 
-            " </outPoint>\n </trim> \n"); 
-        //trim audio 
-        clipListXML = clipListXML.replace("<audioSource>","<audioSource>\n <trim>\n <inPoint fps=\""+ 
-            startframerate +"\">" + starttimecode + 
-            "</inPoint>\n" + "<outPoint fps=\""+ endframerate +"\">" + 
+        //trim video
+        clipListXML = clipListXML.replace("<videoSource>","<videoSource>\n <trim>\n <inPoint fps=\""+
+            startframerate +"\">" + starttimecode +
+            "</inPoint>\n" + "<outPoint fps=\"" + endframerate +"\"> " + endtimecode +
+            " </outPoint>\n </trim> \n");
+        //trim audio
+        clipListXML = clipListXML.replace("<audioSource>","<audioSource>\n <trim>\n <inPoint fps=\""+
+            startframerate +"\">" + starttimecode +
+            "</inPoint>\n" + "<outPoint fps=\""+ endframerate +"\">" +
             endtimecode + "</outPoint>\n </trim>\n");
-        node.log( "clip list going out: \n" +clipListXML ); 
-        node.setProperty("../clipListXml",clipListXML); 
+        node.log( "clip list going out: \n" +clipListXML );
+        node.setProperty("../clipListXml",clipListXML);
     }
 
 
@@ -924,7 +924,7 @@ With the below simple guard clause, we can check if trimming is required and dec
 
 [How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
-[Encoding On-Demand Content with Azure Media Service](media-services-encode-asset.md#media_encoder_premium_workflow)
+[Encoding On-Demand Content with Azure Media Service](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 [Media Encoder Premium Workflow Formats and Codecs](media-services-premium-workflow-encoder-formats.md)
 
@@ -937,4 +937,3 @@ With the below simple guard clause, we can check if trimming is required and dec
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
