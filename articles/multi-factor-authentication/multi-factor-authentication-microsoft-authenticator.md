@@ -1,4 +1,4 @@
----
+﻿---
 title: Microsoft Authenticator app for mobile phones | Microsoft Docs
 description: Learn how to upgrade to the latest version of Azure Authenticator.
 services: multi-factor-authentication

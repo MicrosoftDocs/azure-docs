@@ -1,4 +1,4 @@
----
+﻿---
 title: Optimizing your Azure code in Visual Studio | Microsoft Docs
 description: Learn about how Azure code optimization tools in Visual Studio help make your code more robust and better-performing.
 services: visual-studio-online

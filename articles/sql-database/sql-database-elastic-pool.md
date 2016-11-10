@@ -1,4 +1,4 @@
----
+﻿---
 title: What is an Azure elastic pool? | Microsoft Docs
 description: Manage hundreds or thousands of databases using a pool. One price for a set of performance units can be distributed over the pool. Move databases in or out at will.
 keywords: elastic database,sql databases

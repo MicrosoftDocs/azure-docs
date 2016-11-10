@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Azure Media Analytics to convert text content in video files into digital text | Microsoft Docs
 description: Azure Media Analytics OCR (optical character recognition) enables you to convert text content in video files into editable, searchable digital text.  This allows you to automate the extraction of meaningful metadata from the video signal of your media.
 services: media-services

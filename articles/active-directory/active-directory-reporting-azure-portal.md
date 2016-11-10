@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory reporting - preview | Microsoft Docs
 description: Lists the various available reports for Azure Active Directory preview
 services: active-directory

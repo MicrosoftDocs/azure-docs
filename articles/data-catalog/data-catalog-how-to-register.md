@@ -1,4 +1,4 @@
----
+﻿---
 title: How to register data sources | Microsoft Docs
 description: How-to article highlighting how to register data sources with Azure Data Catalog, including the metadata fields extracted during registration.
 services: data-catalog

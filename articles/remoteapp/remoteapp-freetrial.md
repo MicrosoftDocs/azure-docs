@@ -1,4 +1,4 @@
-
+﻿
 ---
 title: Free 30 day trial of Azure RemoteApp | Microsoft Docs
 description: Check out the 30 day free trial for Azure RemoteApp.

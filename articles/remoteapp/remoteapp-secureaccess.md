@@ -1,4 +1,4 @@
-
+﻿
 ---
 title: Securing access to Azure RemoteApp, and beyond | Microsoft Docs
 description: Learn how secure access to Azure RemoteApp by using conditional access in Azure Active Directory

@@ -1,4 +1,4 @@
----
+﻿---
 title: How to Set Up Computer for Media Services Development with .NET
 description: Learn about the prerequisites for Media Services using the Media Services SDK for .NET. Also learn how to create a Visual Studio app.
 services: media-services

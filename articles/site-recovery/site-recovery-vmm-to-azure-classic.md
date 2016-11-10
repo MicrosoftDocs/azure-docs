@@ -1,4 +1,4 @@
----
+﻿---
 title: Replicate Hyper-V virtual machines in VMM clouds to Azure | Microsoft Docs
 description: This article describes how to replicate Hyper-V virtual machines on Hyper-V hosts located in System Center VMM clouds to Azure.
 services: site-recovery

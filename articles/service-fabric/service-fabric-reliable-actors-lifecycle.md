@@ -1,4 +1,4 @@
----
+﻿---
 title: Reliable Actors lifecycle | Microsoft Docs
 description: Explains Service Fabric Reliable Actor lifecycle, garbage collection, and manually deleting actors and their state
 services: service-fabric

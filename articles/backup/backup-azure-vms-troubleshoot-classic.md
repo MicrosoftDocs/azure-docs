@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot Azure virtual machine backup | Microsoft Docs
 description: Troubleshoot backup and restore of Azure virtual machines
 services: backup
@@ -21,8 +21,8 @@ ms.author: trinadhk;jimpark;
 > [!div class="op_single_selector"]
 > * [Recovery services vault](backup-azure-vms-troubleshoot.md)
 > * [Backup vault](backup-azure-vms-troubleshoot-classic.md)
-> 
-> 
+>
+>
 
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
 
@@ -36,7 +36,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Backup operation | Error details | Workaround |
 | --- | --- | --- |
 | Register |Number of data disks attached to the virtual machine exceeded the supported limit - Please detach some data disks on this virtual machine and retry the operation. Azure backup supports up to 16 data disks attached to an Azure virtual machine for backup |None |
-| Register |Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. |You can get this error due to one of the following unsupported configuration of VM on  Premium LRS. <br> Premium storage VMs can be backed up using recovery services vault. [Learn More](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms) |
+| Register |Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. |You can get this error due to one of the following unsupported configuration of VM on  Premium LRS. <br> Premium storage VMs can be backed up using recovery services vault. [Learn More](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) |
 | Register |Registration failed with Install Agent operation timeout |Check if the OS version of the virtual machine is supported. |
 | Register |Command execution failed - Another operation is in progress on this item. Please wait until the previous operation is completed |None |
 | Register |Virtual machines having virtual hard disks stored on Premium storage are not supported for backup |None |
@@ -111,4 +111,3 @@ How to check for the VM Agent version on Windows VMs:
 
 1. Log on to the Azure virtual machine and navigate to the folder *C:\WindowsAzure\Packages*. You should find the WaAppAgent.exe file present.
 2. Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher
-

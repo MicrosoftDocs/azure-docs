@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect to a DocumentDB account with protocol support for MongoDB | Microsoft Docs
 description: Learn how to connect to a DocumentDB account with protocol support for MongoDB, now available for preview. Connect by using your MongoDB connection string.
 keywords: mongodb connection string

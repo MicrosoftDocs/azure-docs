@@ -1,12 +1,13 @@
 # Overview
 ## [What is Log Analytics?](log-analytics-overview.md)
 ## [Data security](log-analytics-security.md)
-## [Log Analytics FAQ](log-analytics-faq.md)
+
 # Get Started
 ## [Sign up for Log Analytics](log-analytics-get-started.md)
 ## [Manage access](log-analytics-manage-access.md)
 ## [Proxy and firewall](log-analytics-proxy-firewall.md)
 ## [Usage data](log-analytics-usage.md)
+## [Log Analytics FAQ](log-analytics-faq.md)
 
 # How To
 ## Integrate
@@ -43,12 +44,11 @@
 #### [Malware Assessment](log-analytics-malware.md)
 #### [Networking Analytics](log-analytics-azure-networking-analytics.md)
 #### [Network Performance Monitor](log-analytics-network-performance-monitor.md)
-#### [Security Audit](oms-security-getting-started.md)
+#### [Security Audit](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Service Fabric](log-analytics-service-fabric.md)
 #### [SQL Assessment](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [System Update Assessment](log-analytics-system-update.md)
-#### [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 #### [VMware](log-analytics-vmware.md)
 #### [Wire Data](log-analytics-wire-data.md)
 ## Analyze
@@ -60,9 +60,9 @@
 ### [PowerShell cmdlets](log-analytics-powershell-workspace-configuration.md)
 ### [Log Search API](log-analytics-log-search-api.md)
 ### [Alert API](log-analytics-api-alerts.md)
-# Reference
-# Related
+
 # Resources
+## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 
 
 

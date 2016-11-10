@@ -220,7 +220,7 @@ This section provides instructions on using **AzCopy** tool to copy input.log an
    
         AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storageaccesskey>  /Pattern:partitionweblogs.hql
 
-You have completed the prerequisites. You can create a data factory using one of the following ways. Click one of the tabs at the top or the following links to perform the tutorial. 
+You have completed the prerequisites. You can create a data factory using one of the following ways. Click one of the options in the drop-down list at the top or the following links to perform the tutorial. 
 
 * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)

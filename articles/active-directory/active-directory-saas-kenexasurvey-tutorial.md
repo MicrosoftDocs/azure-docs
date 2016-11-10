@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with IBM Kenexa Survey Enterprise | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and IBM Kenexa Survey Enterprise.
 services: active-directory

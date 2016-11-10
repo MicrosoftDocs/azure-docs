@@ -1,4 +1,4 @@
-
+﻿
 ---
 title: Azure Authenticator for Android | Microsoft Docs
 description: Microsoft Azure Authenticator app can be used to sign-in to access work resources. The Azure Authenticator app notifies you of a pending two-factor verification request by displaying an alert to your mobile device.

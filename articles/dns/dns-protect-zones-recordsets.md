@@ -1,4 +1,4 @@
----
+﻿---
 title: Protecting DNS Zones and Records | Microsoft Docs
 description: How to protect DNS zones and record sets in Microsoft Azure DNS.
 services: dns

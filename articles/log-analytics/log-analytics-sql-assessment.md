@@ -1,4 +1,4 @@
----
+﻿---
 title: Optimize your environment with the SQL Assessment solution in Log Analytics | Microsoft Docs
 description: You can use the SQL Assessment solution to assess the risk and health of your server environments on a regular interval.
 services: log-analytics
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/09/2016
 ms.author: banders
 
 ---
@@ -40,17 +40,17 @@ Use the following information to install and configure the solution.
 * Agents must be installed on servers that have SQL Server installed.
 * The SQL Assessment solution requires .NET Framework 4 installed on each computer that has an OMS agent.
 * When using the Operations Manager agent with SQL Assessment, you'll need to use an Operations Manager Run-As account. See [Operations Manager run-as accounts for OMS](#operations-manager-run-as-accounts-for-oms) below for more information.
-  
+
   > [!NOTE]
   > The MMA agent does not support Operations Manager Run-As accounts.
-  > 
-  > 
+  >
+  >
 * Add the SQL Assessment solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). There is no further configuration required.
 
 > [!NOTE]
 > After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to the OMS service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
-> 
-> 
+>
+>
 
 ## SQL Assessment data collection details
 SQL Assessment collects WMI data, registry data, performance data, and SQL Server dynamic management view results using the agents that you have enabled.
@@ -72,18 +72,18 @@ Use the following information to set the Operations Manager run-as account for S
 #### To configure the SQL Run As account in the Operations console
 > [!NOTE]
 > If you are using the OMS direct agent, rather than the SCOM agent, the management pack always runs in the security context of the Local System account. Skip steps 1-5 below, and run either the T-SQL or Powershell sample, specifying NT AUTHORITY\SYSTEM as the user name.
-> 
-> 
+>
+>
 
 1. In Operations Manager, open the Operations console, and then click **Administration**.
 2. Under **Run As Configuration**, click **Profiles**, and open **OMS SQL Assessment Run As Profile**.
 3. On the **Run As Accounts** page, click **Add**.
 4. Select a Windows Run As account that contains the credentials needed for SQL Server, or click **New** to create one.
-   
+
    > [!NOTE]
    > The Run As account type must be Windows. The Run As account must also be part of Local Administrators group on all Windows Servers hosting SQL Server Instances.
-   > 
-   > 
+   >
+   >
 5. Click **Save**.
 6. Modify and then execute the following T-SQL sample on each SQL Server Instance to grant minimum permissions required to Run As Account to perform SQL Assessment. However, you don’t need to do this if a Run As Account is already part of the sysadmin server role on SQL Server Instances.
 
@@ -165,11 +165,11 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 ### To identify recommendations that you will ignore
 1. Sign in to your workspace and open Log Search. Use the following query to list recommendations that have failed for computers in your environment.
-   
+
    ```
    Type=SQLAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
-   
+
    Here's a screen shot showing the Log Search query:
    ![failed recommendations](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
 2. Choose recommendations that you want to ignore. You’ll use the values for RecommendationId in the next procedure.
@@ -184,7 +184,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 ### To verify that recommendations are ignored
 1. After the next scheduled assessment runs, by default every 7 days, the specified recommendations are marked Ignored and will not appear on the assessment dashboard.
 2. You can use the following Log Search queries to list all the ignored recommendations.
-   
+
    ```
    Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
@@ -241,4 +241,3 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 ## Next steps
 * [Search logs](log-analytics-log-searches.md) to view detailed SQL Assessment data and recommendations.
-

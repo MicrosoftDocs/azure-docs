@@ -1,4 +1,4 @@
----
+﻿---
 title: Reset an Azure VPN Gateway | Microsoft Docs
 description: This article walks you through resetting your Azure VPN Gateway. The article applies to VPN gateways in both the classic, and the Resource Manager deployment models.
 services: vpn-gateway

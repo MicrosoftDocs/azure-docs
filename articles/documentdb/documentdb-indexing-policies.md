@@ -1,4 +1,4 @@
----
+﻿---
 title: DocumentDB Indexing Policies | Microsoft Docs
 description: Understand how indexing works in DocumentDB learn how to configure and change the indexing policy. Configure the indexing policy withing DocumentDB for automatic indexing and greater performance.
 keywords: how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure

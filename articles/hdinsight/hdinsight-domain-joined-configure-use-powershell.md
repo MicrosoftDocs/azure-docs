@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure Domain-joined HDInsight clusters using Azure PowerShell| Microsoft Docs
 description: Learn how to set up and configure Domain-joined HDInsight clusters using Azure PowerShell
 services: hdinsight

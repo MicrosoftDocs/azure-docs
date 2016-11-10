@@ -1,4 +1,4 @@
----
+﻿---
 title: How to Encode an Asset using  Media Encoder Standard | Microsoft Docs
 description: Learn how to use the  Media Encoder Standard to encode media content on Media Services. Code samples use REST API.
 services: media-services

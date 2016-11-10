@@ -1,4 +1,4 @@
----
+﻿---
 title: Install a replica Active Directory domain controller in Azure  | Microsoft Docs
 description: A tutorial that explains how to install a domain controller from an on-premises Active Directory forest on an Azure virtual machine.
 services: virtual-network

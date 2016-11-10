@@ -1,4 +1,4 @@
----
+﻿---
 title: Write applications that use Service Bus queues | Microsoft Docs
 description: How to write a simple queue-based application that uses Service Bus.
 services: service-bus

@@ -1,4 +1,4 @@
----
+﻿---
 title: Application Dependency Monitor (ADM) in Operations Management Suite (OMS) | Microsoft Docs
 description: Application Dependency Monitor (ADM) is an Operations Management Suite (OMS) solution that automatically discovers application components on Windows and Linux systems and maps the communication between services.  This article provides details for deploying ADM in your environment and using it in a variety of scenarios.
 services: operations-management-suite

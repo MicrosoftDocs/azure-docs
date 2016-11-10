@@ -1,4 +1,4 @@
----
+﻿---
 title: How to troubleshoot Azure Redis Cache | Microsoft Docs
 description: Learn how to resolve common issues with Azure Redis Cache.
 services: redis-cache

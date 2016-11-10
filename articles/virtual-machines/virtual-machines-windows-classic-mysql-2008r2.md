@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a VM running MySQL | Microsoft Docs
 description: Create an Azure virtual machine running Windows Server 2012 R2 and the MySQL database using the classic deployment model.
 services: virtual-machines-windows

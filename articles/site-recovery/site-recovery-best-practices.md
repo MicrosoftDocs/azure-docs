@@ -1,4 +1,4 @@
----
+﻿---
 title: Prepare for Site Recovery deployment | Microsoft Docs
 description: This article describes how to get ready to deploy replication with Azure Site Recovery.
 services: site-recovery

@@ -1,4 +1,4 @@
----
+﻿---
 title: Datasource connections | Microsoft Docs
 description: Describes data source connections for data models in Azure Analysis Services.
 services: analysis-services

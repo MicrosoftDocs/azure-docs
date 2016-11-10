@@ -1,4 +1,4 @@
----
+﻿---
 title: Archive an Azure SQL database to a BACPAC file by using PowerShell
 description: Archive an Azure SQL database to a BACPAC file by using PowerShell
 services: sql-database
@@ -20,8 +20,9 @@ ms.tgt_pltfrm: NA
 # Archive an Azure SQL database to a BACPAC file by using PowerShell
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-export.md)
+> * [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+> * [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
 > * [PowerShell](sql-database-export-powershell.md)
-> 
 > 
 
 This article provides directions for archiving your Azure SQL database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file (stored in Azure Blob storage) using PowerShell.

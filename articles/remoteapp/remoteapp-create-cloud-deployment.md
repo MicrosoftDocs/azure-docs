@@ -1,4 +1,4 @@
----
+﻿---
 title: How to create a cloud collection of Azure RemoteApp | Microsoft Docs
 description: Learn how to create a deployment of Azure RemoteApp that saves data in the Azure cloud.
 services: remoteapp

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure RemoteApp best practices | Microsoft Docs
 description: Best practices for configuring and using Azure RemoteApp.
 services: remoteapp

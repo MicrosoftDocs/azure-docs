@@ -1,4 +1,4 @@
----
+﻿---
 title: PowerShell script to deploy Windows HPC cluster | Microsoft Docs
 description: Run a PowerShell script to deploy a Windows HPC Pack cluster in Azure virtual machines
 services: virtual-machines-windows

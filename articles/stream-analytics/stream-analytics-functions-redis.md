@@ -1,4 +1,4 @@
----
+﻿---
 title: Output to an Azure Redis Cache, using Azure Functions, from Azure Stream Analytics | Microsoft Docs
 description: Learn how to use an Azure Function connected a Service Bus Queue, to populate an Azure Redis Cache from the output of a Stream Analytics job.
 keywords: data stream, redis cache, service bus queue

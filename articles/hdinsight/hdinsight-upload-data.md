@@ -1,4 +1,4 @@
----
+﻿---
 title: Upload data for Hadoop jobs in HDInsight | Microsoft Docs
 description: Learn how to upload and access data for Hadoop jobs in HDInsight using the Azure CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop.
 services: hdinsight,storage
@@ -52,8 +52,8 @@ Microsoft provides the following utilities to work with Azure Blob storage:
 
 > [!NOTE]
 > While the Azure CLI, Azure PowerShell, and AzCopy can all be used from outside Azure, the Hadoop command is only available on the HDInsight cluster and only allows loading data from the local file system into Azure Blob storage.
-> 
-> 
+>
+>
 
 ### <a id="xplatcli"></a>Azure CLI
 The Azure CLI is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Blob storage:
@@ -62,37 +62,37 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 
 1. [Install and configure the Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md).
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
-   
+
         azure login
-   
+
     When prompted, enter the user name and password for your subscription.
 3. Enter the following command to list the storage accounts for your subscription:
-   
+
         azure storage account list
 4. Select the storage account that contains the blob you want to work with, then use the following command to retrieve the key for this account:
-   
+
         azure storage account keys list <storage-account-name>
-   
+
     This should return **Primary** and **Secondary** keys. Copy the **Primary** key value because it will be used in the next steps.
 5. Use the following command to retrieve a list of blob containers within the storage account:
-   
+
         azure storage container list -a <storage-account-name> -k <primary-key>
 6. Use the following commands to upload and download files to the blob:
-   
+
    * To upload a file:
-     
+
            azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
    * To download a file:
-     
+
            azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 
 > [!NOTE]
 > If you will always be working with the same storage account, you can set the following environment variables instead of specifying the account and key for every command:
-> 
+>
 > * **AZURE\_STORAGE\_ACCOUNT**: The storage account name
 > * **AZURE\_STORAGE\_ACCESS\_KEY**: The storage account key
-> 
-> 
+>
+>
 
 ### <a id="powershell"></a>Azure PowerShell
 Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For information about configuring your workstation to run Azure PowerShell, see [Install and configure Azure PowerShell](../powershell-install-configure.md).
@@ -103,19 +103,19 @@ Azure PowerShell is a scripting environment that you can use to control and auto
 
 1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](../powershell-install-configure.md).
 2. Set the values of the first five variables in the following script:
-   
+
         $resourceGroupName = "<AzureResourceGroupName>"
         $storageAccountName = "<StorageAccountName>"
         $containerName = "<ContainerName>"
-   
+
         $fileName ="<LocalFileName>"
         $blobName = "<BlobName>"
-   
+
         # Get the storage account key
         $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
         # Create the storage context object
         $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
-   
+
         # Copy the file from local workstation to the Blob container
         Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -context $destContext
 3. Paste the script into the Azure PowerShell console to run it to copy the file.
@@ -136,7 +136,7 @@ The Hadoop command line is only useful for storing data into blob storage when t
 
 In order to use the Hadoop command, you must first connect to the headnode using one of the following methods:
 
-* **Windows-based HDInsight**: [Connect using Remote Desktop](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp)
+* **Windows-based HDInsight**: [Connect using Remote Desktop](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
 * **Linux-based HDInsight**: Connect using SSH ([the SSH command](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster) or [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster))
 
 Once connected, you can use the following syntax to upload a file to storage.
@@ -157,8 +157,8 @@ For a list of other Hadoop commands that work with files, see [http://hadoop.apa
 
 > [!WARNING]
 > On HBase clusters, the default block size used when writing data is 256KB. While this works fine when using HBase APIs or REST APIs, using the `hadoop` or `hdfs dfs` commands to write data larger than ~12GB results in an error. See the [storage exception for write on blob](#storageexception) section below for more information.
-> 
-> 
+>
+>
 
 ## Graphical clients
 There are also several applications that provide a graphical interface for working with Azure Storage. The following is a list of a few of these applications:
@@ -181,18 +181,18 @@ For more information, see [Navigate the linked resources](hdinsight-hadoop-visua
 Before using the tool, you must know your Azure storage account name and account key. For instructions about getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Create, manage, or delete a storage account][azure-create-storage-account].  
 
 1. Run Azure Storage Explorer. If this is the first time you have ran the Storage Explorer, you will be prompted for the **_Storage account name** and **Storage account key**. If you have ran it before, use the **Add** button to add a new storage account name and key.
-   
+
     Enter the name and key for the storage account used by your HDinsight cluster and then select **SAVE & OPEN**.
-   
+
     ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 2. In the list of containers to the left of the interface, click the name of the container that is associated with your HDInsight cluster. By default, this is the name of the HDInsight cluster, but may be different if you entered a specific name when creating the cluster.
 3. From the tool bar, select the upload icon.
-   
+
     ![Tool bar with upload icon highlighted](./media/hdinsight-upload-data/toolbar.png)
 4. Specify a file to upload, and then click **Open**. When prompted, select **Upload** to upload the file to the root of the storage container. If you want to upload the file to a specific path, enter the path in the **Destination** field and then select **Upload**.
-   
+
     ![File upload dialog](./media/hdinsight-upload-data/fileupload.png)
-   
+
     Once the file has finished uploading, you can use it from jobs on the HDInsight cluster.
 
 ## Mount Azure Blob Storage as Local Drive
@@ -225,7 +225,7 @@ For more information on installing the Azure SDKs, see [Azure downloads](https:/
 
 ## Troubleshooting
 ### <a id="storageexception"></a>Storage exception for write on blob
-**Symptoms**: When using the `hadoop` or `hdfs dfs` commands to write files that are ~12GB or larger on an HBase cluster, you may encounter the following error: 
+**Symptoms**: When using the `hadoop` or `hdfs dfs` commands to write files that are ~12GB or larger on an HBase cluster, you may encounter the following error:
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
     copyFromLocal: java.io.IOException
@@ -256,7 +256,7 @@ For more information on installing the Azure SDKs, see [Azure downloads](https:/
 You can also increase the value of `fs.azure.write.request.size` globally by using Ambari. The following steps can be used to change the value in the Ambari Web UI:
 
 1. In your browser, go to the Ambari Web UI for your cluster. This is https://CLUSTERNAME.azurehdinsight.net, where **CLUSTERNAME** is the name of your cluster.
-   
+
     When prompted, enter the admin name and password for the cluster.
 2. From the left side of the screen, select **HDFS**, and then select the **Configs** tab.
 3. In the **Filter...** field, enter `fs.azure.write.request.size`. This will display the field and current value in the middle of the page.

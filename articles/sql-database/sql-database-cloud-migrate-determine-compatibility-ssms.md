@@ -1,4 +1,4 @@
----
+﻿---
 title: Use SQL Server Management Studio to Determine SQL Database compatibility before migration to Azure SQL Database | Microsoft Docs
 description: Microsoft Azure SQL Database, database migration, SQL Database compatibility, Export Data Tier Application Wizard
 services: sql-database
@@ -22,7 +22,6 @@ ms.author: carlrab
 > * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 > * [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 > * [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-> * [Upgrade Advisor](http://www.microsoft.com/download/details.aspx?id=48119)
 > * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
 > 
 > 

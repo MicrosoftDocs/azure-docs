@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitoring and diagnostics guidance | Microsoft Docs
 description: Best practices for monitoring distributed applications in the cloud.
 services: ''

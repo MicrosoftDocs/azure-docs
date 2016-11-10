@@ -1,4 +1,4 @@
----
+﻿---
 title: Fail back VMware virtual machines and physical servers from Azure to VMware (legacy) | Microsoft Docs
 description: This article describes how to fail back a VMware virtual machine that's been replicated to Azure with Azure Site Recovery.
 services: site-recovery

@@ -1,4 +1,4 @@
----
+﻿---
 title: View and manage StorSimple Virtual Array jobs | Microsoft Docs
 description: Describes the StorSimple Manager service Jobs page and how to use it to track recent and current jobs for the StorSimple Virtual Array.
 services: storsimple

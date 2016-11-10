@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure automatic device registration for Windows 8.1 domain joined devices| Microsoft Docs
 description: " Steps to configure group policy for Windows 8.1 domain-joined devices to automatically register with Azure AD. "
 services: active-directory

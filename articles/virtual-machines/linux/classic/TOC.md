@@ -60,21 +60,22 @@
 ### [Windows high-performance computing (HPC) cluster with the HPC Pack IaaS deployment script](../../virtual-machines-linux-classic-hpcpack-cluster-starccm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Manage the number and availability of compute nodes](../../virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Add on-demand nodes to an HPC Pack cluster](../../virtual-machines-linux-classic-hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-### [Automatically grow and shrink the HPC Pack cluster resources](../../virtual-machines-linux-classic-hpcpack-cluster-n.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### [Automatically grow and shrink the HPC Pack cluster resources](../../virtual-machines-linux-classic-hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## Troubleshoot
 ### [VM deployments](../../virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Restart or resize a VM](../../virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # Reference
-## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
-## [Java SDK](https://azure.microsoft.com/develop/java/)
-## [Node.js SDK](https://azure.microsoft.com/develop/nodejs/)
-## [Python SDK](https://azure.microsoft.com/develop/python/)
-## [Compute REST API](https://docs.microsoft.com/rest/azure/api/compute/2016-03-30#Virtual-Machines)
-## [Network REST API](https://docs.microsoft.com/rest/azure/api/network/2016-09-01#)
-## [Storage REST API ](https://docs.microsoft.com/rest/azure/api/storage/2016-01-01)
+## [Azure CLI](../../../virtual-machines-command-line-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+## [Java](https://azure.microsoft.com/develop/java/)
+## [Node.js](https://azure.microsoft.com/develop/nodejs/)
+## [Python](https://azure.microsoft.com/develop/python/)
 ## [Community templates](https://azure.microsoft.com/documentation/templates/)
+## [Compute REST](https://docs.microsoft.com/rest/api/compute/)
+## [Network REST](https://msdn.microsoft.com/library/mt163658.aspx)
+## [Storage REST](https://docs.microsoft.com/rest/api/storageservices/)
+
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)

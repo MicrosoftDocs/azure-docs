@@ -1,4 +1,4 @@
----
+﻿---
 title: Upload a custom Java web app to Azure
 description: This tutorial shows you how to upload a custom Java web app to Azure App Service Web Apps.
 services: app-service\web

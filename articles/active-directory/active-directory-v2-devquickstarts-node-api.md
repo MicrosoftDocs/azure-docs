@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD v2.0 NodeJS Web API | Microsoft Docs
 description: How to build a NodeJS Web API accepts tokens from both personal Microsoft Account and work or school accounts.
 services: active-directory

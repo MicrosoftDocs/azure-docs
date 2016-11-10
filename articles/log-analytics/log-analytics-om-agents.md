@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect Operations Manager to Log Analytics | Microsoft Docs
 description: To maintain your existing investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your OMS workspace.
 services: log-analytics

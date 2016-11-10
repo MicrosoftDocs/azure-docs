@@ -1,4 +1,4 @@
----
+﻿---
 title: Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications | Microsoft Docs
 description: Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a Web service with the interface defined in the SCIM protocol specification
 services: active-directory

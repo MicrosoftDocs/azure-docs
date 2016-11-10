@@ -1,4 +1,4 @@
----
+﻿---
 title: How to connect to data sources | Microsoft Docs
 description: How-to article highlighting how to connect to data sources discovered with Azure Data Catalog.
 services: data-catalog

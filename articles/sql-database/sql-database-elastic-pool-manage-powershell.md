@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage an elastic database pool (PowerShell) | Microsoft Docs
 description: Learn how to use PowerShell to manage an elastic database pool.
 services: sql-database

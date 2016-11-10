@@ -1,4 +1,4 @@
----
+﻿---
 title: How to troubleshoot common issues during VHD creation | Microsoft Docs
 description: Answers to common troubleshooting questions and issues during VHD creation.
 services: Azure Marketplace

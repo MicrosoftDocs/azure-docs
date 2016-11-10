@@ -1,4 +1,4 @@
----
+﻿---
 title: Add language-specific company branding to your sign-in page in the Azure Active Directory preview | Microsoft Docs
 description: Learn how to add a language specific company branding pictures and text to an Azure sign-in page
 services: active-directory

@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitor and manage Azure Data Factory pipelines
 description: Learn how to use Azure Portal and Azure PowerShell to monitor and manage Azure data factories and pipelines you have created.
 services: data-factory

@@ -19,11 +19,15 @@ ms.author: magoedte;bwren
 
 ---
 # My first PowerShell Workflow runbook
-> [AZURE.SELECTOR] - [Graphical](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-powershell.md) - [PowerShell Workflow](automation-first-runbook-textual.md)
+
+> [!div class="op_single_selector"]
+> * [Graphical](automation-first-runbook-graphical.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell Workflow](automation-first-runbook-textual.md)
 > 
 > 
 
-This tutorial walks you through the creation of a [PowerShell Workflow runbook](automation-runbook-types.md#powerShell-workflow-runbooks) in Azure Automation. We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job. Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. We'll then make the runbook more robust by adding runbook parameters.
+This tutorial walks you through the creation of a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) in Azure Automation. We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job. Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. We'll then make the runbook more robust by adding runbook parameters.
 
 ## Prerequisites
 To complete this tutorial, you will need the following.
@@ -40,21 +44,21 @@ We'll start by creating a simple runbook that outputs the text *Hello World*.
 2. Click on the **Runbooks** tile to open the list of runbooks.<br> ![Runbooks control](media/automation-first-runbook-textual/runbooks-control.png)
 3. Create a new runbook by clicking on the **Add a runbook** button and then **Create a new runbook**.
 4. Give the runbook the name *MyFirstRunbook-Workflow*.
-5. In this case, we're going to create a [PowerShell Workflow runbook](automation-runbook-types.md#powerShell-workflow-runbooks) so select **Powershell Workflow** for **Runbook type**.<br> ![New runbook](media/automation-first-runbook-textual/new-runbook.png)
+5. In this case, we're going to create a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) so select **Powershell Workflow** for **Runbook type**.<br> ![New runbook](media/automation-first-runbook-textual/new-runbook.png)
 6. Click **Create** to create the runbook and open the textual editor.
 
 ## Step 2 - Add code to the runbook
 You can either type code directly into the runbook, or you can select cmdlets, runbooks, and assets from the Library control and have them added to the runbook with any related parameters. For this walkthrough, we'll type directly into the runbook.
 
 1. Our runbook is currently empty with only the required *workflow* keyword, the name of our runbook, and the braces that will encase the entire workflow.
-   
+
    ```
    Workflow MyFirstRunbook-Workflow
    {
    }
    ```
 2. Type *Write-Output "Hello World."* between the braces.
-   
+
    ```
    Workflow MyFirstRunbook-Workflow
    {
@@ -97,7 +101,7 @@ We've tested and published our runbook, but so far it doesn't do anything useful
 2. We don't need the **Write-Output** line anymore, so go ahead and delete it.
 3. Position the cursor on a blank line between the braces.
 4. Type or copy and paste the following code that will handle the authentication with your Automation Run As account:
-   
+
    ```
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
@@ -110,7 +114,7 @@ We've tested and published our runbook, but so far it doesn't do anything useful
 Now that our runbook is authenticating to our Azure subscription, we can manage resources. We'll add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and for now we'll be hardcoding that name into the cmdlet.
 
 1. After *Add-AzureRmAccount*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.  
-   
+
    ```
    workflow MyFirstRunbook-Workflow
    {
@@ -126,7 +130,7 @@ Now that our runbook is authenticating to our Azure subscription, we can manage 
 Our runbook currently starts the virtual machine that we hardcoded in the runbook, but it would be more useful if we could specify the virtual machine when the runbook is started. We will now add input parameters to the runbook to provide that functionality.
 
 1. Add parameters for *VMName* and *ResourceGroupName* to the runbook and use these variables with the **Start-AzureRmVM** cmdlet as in the example below.
-   
+
    ```
    workflow MyFirstRunbook-Workflow
    {
@@ -151,4 +155,3 @@ Our runbook currently starts the virtual machine that we hardcoded in the runboo
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
 * To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
 * For more information on PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
-

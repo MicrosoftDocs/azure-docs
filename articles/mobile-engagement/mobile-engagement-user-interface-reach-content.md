@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Mobile Engagement User Interface - Reach Content
 description: Learn how to manage the unique content of the different types of push notification campaigns in Azure Mobile Engagement
 services: mobile-engagement
@@ -112,6 +112,7 @@ You can target an audience of a future campaign based on the reach feedback of h
 
 ## Content of Polls
 ![Reach-Content2][31] 
+
 Fill in the title, description, and button texts of your announcement. 
 Then, add questions and choices for the answers to your questions.
 You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on whether this campaign was just pushed, replied, actioned, or exited. Audience targeting can also be based on Poll answer feedback, where the question and answer choice are used as criteria.

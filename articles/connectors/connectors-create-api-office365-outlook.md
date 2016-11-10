@@ -1,4 +1,4 @@
----
+﻿---
 title: Add the Office 365 Outlook connector in your Logic Apps | Microsoft Docs
 description: 'Create logic apps with Office 365 connector to enable interaction with Office 365. For example: creating, editing, and updating contacts and calendar items.'
 services: ''

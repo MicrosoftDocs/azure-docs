@@ -1,4 +1,4 @@
----
+﻿---
 title: Capture an image of an Azure Windows VM | Microsoft Docs
 description: Capture an image of an Azure Windows virtual machine created with the classic deployment model.
 services: virtual-machines-windows

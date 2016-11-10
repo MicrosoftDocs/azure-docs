@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure Search Developer Case Study: How WhatToPedia built an infomedia portal on Microsoft Azure | Microsoft Docs'
 description: Learn how to build an information portal and meta search engine using Azure Search, a cloud hosted search service for developers.
 services: search, sql-database,  storage, web-sites

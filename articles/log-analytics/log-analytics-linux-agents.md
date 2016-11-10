@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect Linux computers to Log Analytics | Microsoft Docs
 description: Using Log Analytics, you can collect and act on data generated from Linux computers.
 services: log-analytics

@@ -1,4 +1,4 @@
----
+﻿---
 title: DNS Zones and Records | Microsoft Docs
 description: Overview of support for hosting DNS zones and records in Microsoft Azure DNS.
 services: dns

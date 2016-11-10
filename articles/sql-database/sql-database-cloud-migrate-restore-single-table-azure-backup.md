@@ -1,4 +1,4 @@
----
+﻿---
 title: Restore a single table from Azure SQL Database backup | Microsoft Docs
 description: Learn how to restore a single table from Azure SQL Database backup.
 services: sql-database

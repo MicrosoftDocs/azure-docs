@@ -1,4 +1,4 @@
----
+﻿---
 title: Comparing capabilities for managing external identities using Azure Active Directory | Microsoft Docs
 description: Compares Azure Active Directory B2B collaboration, B2C, and Multi-tenant App for supporting authentication and authorization for external identities
 services: active-directory

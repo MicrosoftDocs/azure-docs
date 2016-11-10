@@ -1,4 +1,4 @@
----
+﻿---
 title: Authenticating identities without passwords through Microsoft Passport | Microsoft Docs
 description: Provides an overview of Microsoft Passport and additional information on deploying Microsoft Passport.
 services: active-directory

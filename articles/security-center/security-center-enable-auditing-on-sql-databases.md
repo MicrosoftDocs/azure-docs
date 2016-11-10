@@ -1,4 +1,4 @@
----
+﻿---
 title: Enable auditing on SQL databases in Azure Security Center | Microsoft Docs
 description: This document shows you how to implement the Azure Security Center recommendation **Enable auditing on SQL databases**.
 services: security-center

@@ -1,4 +1,4 @@
----
+﻿---
 title: VM restarting or resizing issues | Microsoft Docs
 description: Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure
 services: virtual-machines-windows, azure-resource-manager

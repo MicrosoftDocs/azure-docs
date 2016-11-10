@@ -1,4 +1,4 @@
----
+﻿---
 title: Create Windows-based Hadoop clusters in HDInsight using Azure CLI
 description: Learn how to create clusters for Azure HDInsight by using Azure CLI.
 services: hdinsight
