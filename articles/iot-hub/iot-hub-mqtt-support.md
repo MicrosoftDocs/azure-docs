@@ -139,3 +139,7 @@ To further explore the capabilities of IoT Hub, see:
 
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-messaging]: iot-hub-devguide-messaging.md
+
+[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
+[lnk-devguide-twin-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
+[lnk-devguide-twin]: iot-hub-devguide-device-twins.md
