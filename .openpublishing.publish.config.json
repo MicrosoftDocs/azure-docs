@@ -1,11 +1,14 @@
 {
 	"build_entry_point": "docs",
 	"need_generate_pdf": false,
+	"need_generate_pdf_url_template": true,
 	"need_generate_intellisense": false,
 	"enable_push_aggregation": true,
-	"enable_pull_request_aggregation": false,	
+	"enable_pull_request_aggregation": false,
 	"branch_target_mapping": {
 		"live": ["Publish",
+		"Pdf"],
+		"master": ["Publish",
 		"Pdf"]
 	},
 	"docsets_to_publish": [{
@@ -38,7 +41,7 @@
 		"url": "https://github.com/Microsoft/templates.docs.msft",
 		"branch": "master",
 		"branch_mapping": {
-			
+
 		}
 	},
 	{
