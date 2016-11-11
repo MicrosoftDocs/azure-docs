@@ -25,11 +25,11 @@ ms.author: nitinme
 >
 >
 
-Learn how to use Azure Portal to create an HDInsight cluster (Hadoop, HBase, Spark, or Storm) with access to Azure Data Lake Store. Some important considerations for this release:
+Learn how to use Azure Portal to create an HDInsight cluster with access to Azure Data Lake Store. Some important considerations for this release:
 
-* **For Spark clusters (Linux) and Hadoop clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
+* **For Spark, R, and Interactive Hive clusters (Linux), and Hadoop clusters (Windows and Linux)**, Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
 * **For Storm clusters (Windows and Linux)**, the Data Lake Store can be used to write data from a Storm topology. Data Lake Store can also be used to store reference data that can then be read by a Storm topology. For more information, see [Use Data Lake Store in a Storm topology](#use-data-lake-store-in-a-storm-topology).
-* **For HBase clusters (Windows and Linux)**, the Data Lake Store is **not supported** as a storage option, for both default storage as well as additional storage.
+* **For HBase clusters (Windows and Linux)**, Data Lake Store is **not supported** as a storage option, for both default storage as well as additional storage.
 
 > [!NOTE]
 > Some important points to note.
@@ -296,19 +296,6 @@ In this section, you use Jupyter notebook available with HDInsight Spark cluster
 
 ## Use Data Lake Store in a Storm topology
 You can use the Data Lake Store to write data from a Storm topology. For instructions on how to achieve this scenario, see [Use Azure Data Lake Store with Apache Storm with HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
-
-## Use Data Lake Store with HBase clusters
-With HBase clusters, you can use Data Lake Store as a default storage as well as additional storage. To do so:
-
-1. In the **Data Source** blade, for **HBase Data Location**, select **Data Lake Store** .
-2. Select the name of the Data Lake Store that you want to use, or create a new one.
-3. Finally, specify the **HBase Root Folder** within the Data Lake Store. If the Data Lake Store account does not have a root folder, create a new one.
-
-   ![HBase with Data Lake Store](./media/data-lake-store-hdinsight-hadoop-use-portal/hbase-data-lake-store.png "Create an Azure Resource Group")
-
-### Considerations when using Data Lake Store as default storage for HBase clusters
-* You can use the same Data Lake Store account for more than one HBase cluster. However, the **HBase Root Folder** that you provide for the cluster (step # 4 in the screen capture above) must be unique. You **must not** use the same root folder across two different HBase clusters.
-* Even though you use Data Lake Store account as default storage, the HBase cluster log files are still stored in the Azure Storage Blobs (WASB) associated with the cluster. This is highlighted in the blue box in the screen capture above.
 
 ## See also
 * [PowerShell: Create an HDInsight cluster to use Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)

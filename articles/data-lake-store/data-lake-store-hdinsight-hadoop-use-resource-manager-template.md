@@ -26,8 +26,8 @@ ms.author: nitinme
 
 Learn how to use an Azure Resource Manager template to configure an HDInsight cluster with access to Azure Data Lake Store. Some important considerations for this release:
 
-* **For Spark clusters (Linux), and Hadoop/Storm clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
-* **For HBase clusters (Windows and Linux)**, the Data Lake Store is **not supported** as a storage option, for both default storage as well as additional storage.
+* **For Spark, R, and Interactive Hive clusters (Linux), and Hadoop/Storm clusters (Windows and Linux)**, Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
+* **For HBase clusters (Windows and Linux)**, Data Lake Store is **not supported** as a storage option, for both default storage as well as additional storage.
 
 > [!NOTE]
 > Some important points to note.
