@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #Data Lake Store Documentation
 
-Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Azure Data Lake enables you to capture data of any size, type, and ingestion speed in one single place for operational and exploratory analytics.  Azure Data Lake Store can be accessed from Hadoop (available with HDInsight cluster) using the WebHDFS-compatible scenarios.  It includes all the enterprise-grade capabilities - security, manageabiilty, scalability, reliabiilty, and availability.
+Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Azure Data Lake enables you to capture data of any size, type, and ingestion speed in one single place for operational and exploratory analytics.  Azure Data Lake Store can be accessed from Hadoop (available with HDInsight cluster) using the WebHDFS-compatible scenarios. It includes all the enterprise-grade capabilities fpr security, manageability, scalability, reliability, and availability.
 
 <ul class="panelContent cardsFTitle">
     <li>
