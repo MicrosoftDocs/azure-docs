@@ -249,7 +249,7 @@ The following example demonstrates HTTP request to the Media Services root URI (
 
 In Media Services, you upload your digital files into an asset. The **Asset** entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
 
-One of the values that you have to provide when creating an asset is asset creation options. The **Options** property is an enumeration value that describes the encryption options that an Asset can be created with. A valid value is one of the values from the list below, not a combination of values from this list ----------:
+One of the values that you have to provide when creating an asset is asset creation options. The **Options** property is an enumeration value that describes the encryption options that an Asset can be created with. A valid value is one of the values from the list below, not a combination of values from this list:
 
 * **None** = **0** - No encryption is used. When using this option your content is not protected in transit or at rest in storage.
     If you plan to deliver an MP4 using progressive download, use this option. 
