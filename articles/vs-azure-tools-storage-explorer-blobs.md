@@ -37,15 +37,15 @@ The following steps illustrate how to create a blob container within Storage Exp
 1. Open Storage Explorer (Preview).
 2. In the left pane, expand the storage account within which you wish to create the blob container.
 3. Right-click **Blob Containers**, and - from the context menu - select **Create Blob Container**.
-   
+
    ![Create blob containers context menu][0]
 4. A text box will appear below the **Blob Containers** folder. Enter the name for your blob container. See
    the [Container naming rules](storage/storage-dotnet-how-to-use-blobs.md#create-a-container) section for a list of
    rules and restrictions on naming blob containers.
-   
+
    ![Create Blob Containers text box][1]
 5. Press **Enter** when done to create the blob container, or **Esc** to cancel. Once the blob container has been successfully created, it will be displayed under the **Blob Containers** folder for the selected storage account.
-   
+
    ![Blob Container created][2]
 
 ## View a blob container's contents
@@ -58,15 +58,15 @@ The following steps illustrate how to view the contents of a blob container with
 3. Expand the storage account's **Blob Containers**.
 4. Right-click the blob container you wish to view, and - from the context menu - select **Open Blob Container Editor**.
    You can also double-click the blob container you wish to view.
-   
+
    ![Open blob container editor context menu][19]
 5. The main pane will display the blob container's contents.
-   
+
    ![Blob container editor][3]
 
 ## Delete a blob container
 Blob containers can be easily created and deleted as needed. (To see how to delete individual blobs,
-refer to the section, [Managing blobs in a blob container](..md#managing-blobs-in-a-blob-container).)
+refer to the section, [Managing blobs in a blob container](#managing-blobs-in-a-blob-container).)
 
 The following steps illustrate how to delete a blob container within Storage Explorer (Preview):
 
@@ -75,15 +75,15 @@ The following steps illustrate how to delete a blob container within Storage Exp
 3. Expand the storage account's **Blob Containers**.
 4. Right-click the blob container you wish to delete, and - from the context menu - select **Delete**.
    You can also press **Delete** to delete the currently selected blob container.
-   
+
    ![Delete blob container context menu][4]
 5. Select **Yes** to the confirmation dialog.
-   
+
    ![Delete blob Container confirmation][5]
 
 ## Copy a blob container
 Storage Explorer (Preview) enables you to copy a blob container to the clipboard, and then paste that blob container into another storage account. (To see how to copy individual blobs,
-refer to the section, [Managing blobs in a blob container](..md#managing-blobs-in-a-blob-container).)
+refer to the section, [Managing blobs in a blob container](#managing-blobs-in-a-blob-container).)
 
 The following steps illustrate how to copy a blob container from one storage account to another.
 
@@ -91,10 +91,10 @@ The following steps illustrate how to copy a blob container from one storage acc
 2. In the left pane, expand the storage account containing the blob container you wish to copy.
 3. Expand the storage account's **Blob Containers**.
 4. Right-click the blob container you wish to copy, and - from the context menu - select **Copy Blob Container**.
-   
+
    ![Copy blob container context menu][6]
 5. Right-click the desired "target" storage account into which you want to paste the blob container, and - from the context menu - select **Paste Blob Container**.
-   
+
    ![Paste blob container context menu][7]
 
 ## Get the SAS for a blob container
@@ -108,15 +108,15 @@ The following steps illustrate how to create a SAS for a blob container:
 2. In the left pane, expand the storage account containing the blob container for which you wish to get a SAS.
 3. Expand the storage account's **Blob Containers**.
 4. Right-click the desired blob container, and - from the context menu - select **Get Shared Access Signature**.
-   
+
    ![Get SAS context menu][8]
 5. In the **Shared Access Signature** dialog, specify the policy, start and expiration dates, time zone, and access levels you want for the resource.
-   
+
    ![Get SAS options][9]
 6. When you're finished specifying the SAS options, select **Create**.
 7. A second **Shared Access Signature** dialog will then display that lists the blob container along with the URL and QueryStrings you can use to access the storage resource.
    Select **Copy** next to the URL you wish to copy to the clipboard.
-   
+
    ![Copy SAS URLs][10]
 8. When done, select **Close**.
 
@@ -127,13 +127,13 @@ The following steps illustrate how to manage (add and remove) access policies fo
 2. In the left pane, expand the storage account containing the blob container whose access policies you wish to manage.
 3. Expand the storage account's **Blob Containers**.
 4. Select the desired blob container, and - from the context menu - select **Manage Access Policies**.
-   
+
    ![Manage access policies context menu][11]
 5. The **Access Policies** dialog will list any access policies already created for the selected blob container.
-   
+
    ![Access Policy options][12]        
 6. Follow these steps depending on the access policy management task:
-   
+
    * **Add a new access policy** - Select **Add**. Once generated, the **Access Policies** dialog will display the newly added access policy (with default settings).
    * **Edit an access policy** -  Make any desired edits, and select **Save**.
    * **Remove an access policy** - Select **Remove** next to the access policy you wish to remove.
@@ -147,10 +147,10 @@ The following steps illustrate how to specify a public access level for a blob c
 2. In the left pane, expand the storage account containing the blob container whose access policies you wish to manage.
 3. Expand the storage account's **Blob Containers**.
 4. Select the desired blob container, and - from the context menu - select **Set Public Access Level**.
-   
+
    ![Set public access level context menu][13]
 5. In the **Set Container Public Access Level** dialog, specify the desired access level.
-   
+
    ![Set public access level options][14]
 6. Select **Apply**.
 
@@ -165,52 +165,52 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
 3. Expand the storage account's **Blob Containers**.
 4. Double-click the blob container you wish to view.
 5. The main pane will display the blob container's contents.
-   
+
    ![View blob container][3]
 6. The main pane will display the blob container's contents.
 7. Follow these steps depending on the task you wish to perform:
-   
+
    * **Upload files to a blob container**
-     
+
      1. On the main pane's toolbar, select **Upload**, and then **Upload Files** from the drop-down menu.
-        
+
         ![Upload files menu][15]
      2. In the **Upload files** dialog, select the ellipsis (**…**) button on the right side of the **Files** text box to select the file(s) you wish to upload.
-        
+
         ![Upload files options][16]
      3. Specify the type of **Blob type**. The article [Get started with Azure Blob storage using .NET](storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explains the differences between the various blob types.
      4. Optionally, specify a target folder into which the selected file(s) will be uploaded. If the target folder doesn’t exist, it will be created.
      5. Select **Upload**.
    * **Upload a folder to a blob container**
-     
+
      1. On the main pane's toolbar, select **Upload**, and then **Upload Folder** from the drop-down menu.
-        
+
         ![Upload folder menu][17]
      2. In the **Upload folder** dialog, select the ellipsis (**…**) button on the right side of the **Folder** text box to select the folder whose contents you wish to upload.
-        
+
         ![Upload folder options][18]
      3. Specify the type of **Blob type**. The article [Get started with Azure Blob storage using .NET](storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explains the differences between the various blob types.
      4. Optionally, specify a target folder into which the selected folder's contents will be uploaded. If the target folder doesn’t exist, it will be created.
      5. Select **Upload**.
    * **Download a blob to your local computer**
-     
+
      1. Select the blob you wish to download.
      2. On the main pane's toolbar, select **Download**.
      3. In the **Specify where to save the downloaded blob** dialog, specify the location where you want the blob downloaded, and the name you wish to give it.  
      4. Select **Save**.
    * **Open a blob on your local computer**
-     
+
      1. Select the blob you wish to open.
      2. On the main pane's toolbar, select **Open**.
      3. The blob will be downloaded and opened using the application associated with the blob's underlying file type.
    * **Copy a blob to the clipboard**
-     
+
      1. Select the blob you wish to copy.
      2. On the main pane's toolbar, select **Copy**.
      3. In the left pane, navigate to another blob container, and double-click it to view it in the main pane.
      4. On the main pane's toolbar, select **Paste** to create a copy of the blob.
    * **Delete a blob**
-     
+
      1. Select the blob you wish to delete.
      2. On the main pane's toolbar, select **Delete**.
      3. Select **Yes** to the confirmation dialog.
