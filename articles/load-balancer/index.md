@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #Load Balancer Documentation
 
-Azure Load Balancer delivers high availability and network performance to your applications.  Load Balancer can be configured to load balance incoming Internet traffic to virtual machines, traffic between cloud resources, traffic in a cross-premises virtual network, or external traffice to a specific virtual machine.
+Azure Load Balancer delivers high availability and network performance to your applications.  Load Balancer can be configured to load balance incoming Internet traffic to virtual machines, traffic between cloud resources, traffic in a cross-premises virtual network, or external traffic to a specific virtual machine.
 
 <ul>
     <li>
@@ -53,7 +53,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Internet facing load balancer</h3>
+                        <h3>Get started with Internet-facing load balancer</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with and internal facing load balancer</h3>
+                        <h3>Get started with an internal facing load balancer</h3>
                     </div>
                 </div>
             </div>
