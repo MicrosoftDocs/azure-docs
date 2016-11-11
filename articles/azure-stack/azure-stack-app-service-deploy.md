@@ -33,8 +33,8 @@ Adding an App Service Resource Provider to Azure Stack has eight steps:
 
 ## Download Required Components
 
-1.	Download the [App Service on Azure Stack preview installer](http://aka.ms/azasinstaller). 
-2.	Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/azashelper). 
+1.	Download the [App Service on Azure Stack preview installer](http://aka.ms/appsvconmastp2installer). 
+2.	Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmastp2helper). 
 3.	Extract the files from the helper scripts zip file, there should be four scripts:
 	- Create-AppServiceCerts.ps1
 	- Create-AppServiceDnsRecords.ps1
@@ -95,7 +95,7 @@ The following steps guide you through the installation stages:
 
 ![App Service on Azure Stack Technical Preview 2 Subscription Selection][4]	
 
-15.	Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **_.apps.appservice.AzureStack.Local** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
+15.	Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **_.appservice.AzureStack.Local** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
 16.	Enter the **certificate password** that you set when you created the certificates.
 17.	Click **Browse** next to the **Resource Provider SSL Certificate File** and navigate to the **api.appservice.AzureStack.Local** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
 18.	Enter the **certificate password** that you set when you created the certificates.
