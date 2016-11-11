@@ -125,7 +125,7 @@ Microsoft Azure StorSimple provides a web-based user interface, the StorSimple D
 
 You use the StorSimple Device Manager service to perform daily administration of your virtual array.
 
-For more information, go to [Use the StorSimple Device Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+For more information, go to [Use the StorSimple Device Manager service to administer your StorSimple device](storsimple-virtual-array-manager-service-administration.md).
 
 ### Local web user interface
 The virtual array includes a web-based UI that is used for one-time configuration and registration of the device with the StorSimple Device Manager service. You can use it to shut down and restart the virtual array, run diagnostic tests, update software, change the device administrator password, view system logs, and contact Microsoft Support to file a service request. 
