@@ -20,20 +20,9 @@ ms.author: kumudd
 # Introduction to Azure Advisor
 
 ## What is Azure Advisor?
-Azure Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry to detect risks and potential issues. It then recommends solutions to help improve the performance, security, and high availability of your resources while looking for opportunities to reduce your overall Azure spend.
+Azure Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry t. It then recommends solutions to help improve the performance, security, and high availability of your resources while looking for opportunities to reduce your overall Azure spend.
 
-![Access Advisor using the Azure portal](./media/advisor-overview/advisor-all-tab.png)
-
-## Introductory walkthrough
-
-You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign into the [portal](https://portal.azure.com), select **Browse**, and then scroll to **Azure Advisor**. 
-
-  ![Access Advisor using the Azure portal](./media/advisor-overview/advisor-azure-portal-menu.png)
-
-
-On the Azure Advisor dashboard, you can select a subscription that you want to receive recommendations for. The Advisor dashboard then displays surface personalized recommendations for your deployment, by scanning and analyzing resources for that subscription.
-
-The recommendations are divided into four categories:
+You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign into the [portal](https://portal.azure.com), select **Browse**, and then scroll to **Azure Advisor**. The Advisor dashboard displays personalized recommendations for a selected subscription. The recommendations are divided into four categories. 
 
 -   **High Availability** – to ensure and improve the continuity of your business-critical applications
 
@@ -45,29 +34,39 @@ The recommendations are divided into four categories:
 
   ![Advisor recommendation types](./media/advisor-overview/advisor-all-tab-examples.png)
 
-You can click on a recommendation to learn additional information about it. You can also learn about actions you can perform to take advantage of an opportunity or resolve an issue. 
-
 > [!NOTE]
-> The Advisor dashboard displays recommendations related to resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.
+> Azure Advisor generates recommendations for subscriptions where you are assigned the role of **Owner**, **Contributor** or **Reader**.
 
+You can click on a recommendation to learn additional information about it. You can also learn about actions you can perform to take advantage of an opportunity or resolve an issue. 
 Advisor offers recommendations with inline actions or documentation links. Clicking an inline action takes you through a “guided user journey” to implement it. Clicking a documentation link points you to the documentation that describes how you can manually implement the action. 
 
-Here's an example of a documentation link in the Advisor recommendation blade:
+Advisor updates recommendations on an hourly basis. If you don’t intend to take an immediate action on a recommendation, you can snooze it for a time period or dismiss it. 
 
-![Advisor recommendation documentation link](./media/advisor-overview/advisor-recommendation-documentation-example.png)
+## Frequently asked questions
 
-Here's an example of inline action in the Advisor recommendation blade:
+### How do I access Advisor?
+You can access Advisor through the Azure portal. Sign into the portal, select **Browse** and then scroll to **Azure Advisor**. You can also view Advisor recommendations through the virtual machine resource blade. Choose a virtual machine, and then scroll to Advisor recommendations in the menu. 
 
-![Advisor recommendation action example](./media/advisor-overview/advisor-recommendation-action-example.png)
+### What permissions do I need to access Advisor?
 
-After you’ve implemented a recommended action, the recommendation remains visible in the dashboard for a while. Advisor updates recommendations on an hourly basis.  If you don’t intend to take an immediate action, you can snooze a recommendation for a period. You can also dismiss a recommendation (choose **snooze** and select **Never**)
+To view Advisor recommendations, you must have access to at least one subscription. Your role must be either **Owner**, **Contributor**, or **Reader** for the subscription. Subscription owners and contributors can compute/generate recommendations. However, with a **Reader** role, you can only view Advisor recommendations. 
 
-![Advisor snooze details pane](./media/advisor-overview/advisor-snooze-details.png)
+### How often are Advisor recommendations updated?
+
+Advisor recommendations are updated on an hourly basis.
+
+### What resources does Advisor provide recommendations for?
+
+Advisor provides recommendations for virtual machines, availability sets, App Services, SQL servers, SQL databases, and Redis cache.
+
+### Can I snooze or dismiss a recommendation?
+
+To snooze or dismiss a recommendation, click the **Snooze** button or link. You can specify a snooze time period or select **Never** to dismiss the recommendation.
 
 ## Next steps
 
 See these resources to learn more about Advisor recommendations:
--  [Advisor FAQs](advisor-faqs.md)
+
 -  [Get Started with Advisor](advisor-get-started.md)
 -  [Advisor High Availability Recommendations](advisor-high-availability-recommendations.md)
 -  [Advisor Security Recommendations](advisor-security-recommendations.md)

@@ -19,61 +19,58 @@ ms.author: kumudd
 
 # Get started with Azure Advisor
 
- This topic provides instructions to access Advisor using the Azure portal, get recommendation details, search for recommendations, and how to refresh recommendations.
+Learn how to access Advisor using the Azure portal, get recommendations, implement recommendations, search for recommendations, and refresh recommendations.
 
-## How to get Azure Advisor recommendations using the Azure portal
+## How to get recommendations
 
 1. Sign in into the [Azure portal](https://portal.azure.com).
-2. In the left-navigation pane, click **More services**, and then in the service menu pane, scroll down to **Monitoring and Management**, and then click **Azure Advisor**. This launches the Advisor dashboard. 
-3. On the Advisor dashboard, select the subscription for which you’d like to receive recommendations.
-   > [!NOTE]
-   > The Advisor dashboard displays recommendations related to resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.  
+2. In the left-navigation pane, click **More services**, and then in the service menu pane, scroll down to **Monitoring and Management**, and then click **Azure Advisor**. This launches the Advisor dashboard.
 
-4. To get Advisor recommendations, on the Advisor dashboard, do one of the following:
-  1. To get recommendations for improvements in all categories of Azure resources, click the **All** tab, and then click **Get Recommendations**.    
-  2. To get security recommendations for your Azure resources, click the **Security** tab, and then click **Get Recommendations**.
-  3. To get high availability recommendations for your Azure resources, click the **High Availability** tab, and then click **Get Recommendations**.
-  4. To get performance recommendations for your Azure resources, click the **Performance** tab, and then click **Get Recommendations**.
-  5. To get recommendations to optimize the cost of your Azure resources, click the **Cost** tab, and then click **Get Recommendations**.
- 
   ![Access Azure Advisor using the Azure portal](./media/advisor-overview/advisor-azure-portal-menu.png) 
+
+3. On the Advisor dashboard, select the subscription for which you’d like to receive recommendations. The Advisor dashboard displays personalized recommendations for a selected subscription. 
+   > [!NOTE]
+   > Azure Advisor will generate recommendations for subscriptions where you are assigned the role of **Owner**, **Contributor**, or **Reader**.
+
+4. To get recommendations for a particular category, click on one of the categories - **High Availability**, **Security**, **Performance** and **Cost**.
+ 
 
   ![Azure Advisor dashboard](./media/advisor-overview/advisor-all-tab.png)
 
-## How to get recommendation details
+## How to get recommendation details and implement a recommendation
 
-The **Recommendation** blade in Azure Advisor offers additional information about the Advisor recommendation. 
+The **Recommendation** blade in Advisor offers additional information about the Advisor recommendation. 
 
-1. Sign into the Azure portal, and then launch Azure Advisor.
-2. On the Advisor recommendations dashboard, click**Get Recommendation**.
-3. From the list of recommendations, click a recommendation that you want to review in detail. This launches the recommendation details blade.
-3. Review the information on the recommendation details blade, and learn about the actions that you can perform to take advantage of an opportunity or resolve an issue.
+1. Sign into the [Azure portal](https://portal.azure.com), and then launch [Azure Advisor](https://aka.ms/azureadvisordashboard).
+2. On the **Advisor recommendations** dashboard, click**Get Recommendation**.
+3. From the list of recommendations, click a recommendation that you want to review in detail. This launches the recommendation blade.
+4. The recommendation blade contains information about actions that you can perform to resolve a potential issue, or take advantage of a cost saving opportunity.
   
   ![Advisor recommendation action example](./media/advisor-overview/advisor-recommendation-action-example.png)
 
-### How to search for recommendations
+## How to search for recommendations
 
-You can search for recommendations for a particular subscription, resource type, or resource status. You can also search for recommendations containing a specific phrase.
+You can search for recommendations for a particular subscription or resource group. You can also search for recommendations by status.
 
 1. Sign into the Azure portal, and then launch Azure Advisor.
 2. Search for recommendations by filtering for subscriptions, resource groups, and recommendation status (**Active** or **Snoozed**).
 3. Click **Get recommendations** to get a list of Advisor recommendations based on your search filters.
-![](./media/advisor-get-started/advisor-search.png)
 
-### How to snooze recommendations
+  ![](./media/advisor-get-started/advisor-search.png)
+
+## How to snooze recommendations
 
 1. Sign into the Azure portal, and then launch Azure Advisor.
-2. Click**Get Recommendation**, and then from the list of recommendations, click a recommendation.
+2. Click **Get Recommendation**, and then from the list of recommendations, click a recommendation.
 3. On the **Recommendation** blade, click **Snooze**.
 
- ![Advisor recommendation action example](./media/advisor-get-started/advisor-snooze.png)
+  ![Advisor recommendation action example](./media/advisor-get-started/advisor-snooze.png)
 
 ## Next Steps
 
-See these resources to learn more about Azure Advisor:
--  [Introduction to Advisor](advisor-overview.md)
--  [Advisor FAQs](advisor-faqs.md)
--  [Advisor High Availability Recommendations](advisor-high-availability-recommendations.md)
--  [Advisor Security Recommendations](advisor-security-recommendations.md)
--  [Advisor Performance Recommendations](advisor-performance-recommendations.md)
--  [Advisor Cost Recommendations](advisor-performance-recommendations.md)
+See these resources to learn more about Advisor:
+-  [Introduction to Azure Advisor](advisor-overview.md)
+-  [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
+-  [Advisor Security recommendations](advisor-security-recommendations.md)
+-  [Advisor Performance recommendations](advisor-performance-recommendations.md)
+-  [Advisor Cost recommendations](advisor-performance-recommendations.md)

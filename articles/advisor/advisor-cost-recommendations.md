@@ -17,9 +17,11 @@ ms.date: 11/16/2016
 ms.author: kumudd
 ---
 
-# Azure Advisor Cost recommendations
+# Advisor Cost recommendations
 
-Advisor helps you optimize and reduce your overall Azure spend by identifying idle resources and resources with varying utilization patterns. You can get cost recommendations using Advisor from the **Cost** tab of the Advisor dashboard.
+Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost recommendations from the **Cost** tab in the Advisor dashboard.
+
+![Advisor cost tab](./media/advisor-cost-recommendations/advisor-cost-tab2.png)
 
 ## Low utilization virtual machines 
 
@@ -31,18 +33,18 @@ Advisor shows you the estimated cost of continuing to run the virtual machine. Y
 
 ## SQL Elastic database pool recommendations
 
-Advisor identifies SQL server instances that can benefit from creating elastic database pools. Elastic database pools provide a simple cost effective solution to manage the performance goals for multiple databases that have varying usage patterns. These recommendations offer inline actions.
-For more information about Azure elastic pools, see [What is an Azure Elastic pool?](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool/)
+Advisor identifies SQL server instances that can benefit from creating elastic database pools. Elastic database pools provide a simple cost effective solution to manage the performance goals for multiple databases that have varying usage patterns. For more information about Azure elastic pools, see [What is an Azure Elastic pool?](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool/)
 
 ![Advisor cost recommendations for elastic database pools](./media/advisor-cost-recommendations/advisor-cost-elasticdbpools.png)
 
-## How to access Cost recommendations in Azure Advisor
+## How to access cost recommendations in Azure Advisor
 
 1. Sign in into the [Azure portal](https://portal.azure.com).
-2. In the left-navigation pane, click **More services**, and then in the service menu pane, scroll down to **Monitoring and Management**, and then click **Azure Advisor**. This launches the Advisor dashboard. 
-3. On the Advisor dashboard, click the **Cost** tab, and select the subscription for which you’d like to receive recommendations.
-   > [!NOTE]
-   > The Advisor dashboard displays recommendations related to resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.
+2. In the left-navigation pane, click **More services**, in the service menu pane, scroll down to **Monitoring and Management**, and then click **Azure Advisor**. This launches the Advisor dashboard. 
+3. On the Advisor dashboard, click the **Cost** tab, select the subscription for which you’d like to receive recommendations and then click **Get recommendations**
+
+    > [!NOTE]
+    > Azure Advisor generates recommendations for subscriptions where you are assigned the role of **Owner**, **Contributor** or **Reader**.
 
 ## Next steps
 
