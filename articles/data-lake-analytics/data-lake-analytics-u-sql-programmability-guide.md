@@ -351,15 +351,15 @@ Code Behind is a C# programmability section of U-SQL project. Conceptually, Code
 
 When a typical U-SQL project is created in Visual Studio, there are two parts of the project. Base script – file with extension **.usql**.
 
-![a](./media/data-lake-analytics-use-u-sql-catalog/base-script-file.png)  
+![a](./media/data-lake-analytics-u-sql-programmability-guide/base-script-file.png)
 
 
 Typical Solution Project   
-![typical-solution-project](./media/data-lake-analytics-use-u-sql-catalog/typical-solution-project.png)  
+![typical-solution-project](./media/data-lake-analytics-u-sql-programmability-guide/typical-solution-project.png)
 
 
 The second part of the project we calls a Code Behind – file Script.usql.cs  
-![code-behind](./media/data-lake-analytics-use-u-sql-catalog/code-behind.png)  
+![code-behind](./media/data-lake-analytics-u-sql-programmability-guide/code-behind.png)
 
 This file contains a default namespace definition for programmability objects.
 
@@ -406,7 +406,7 @@ The easiest way to make use of custom code is to use the ADL Tools for Visual St
 
 As we mentioned earlier, you fill in the custom code for the script (for example, Script.usql) into its code-behind file (for example, Script.usql.cs).
 
-![code-behind-example](./media/data-lake-analytics-use-u-sql-catalog/code-behind-example.jpg)
+![code-behind-example](./media/data-lake-analytics-u-sql-programmability-guide/code-behind-example.jpg)
 **Figure 1**: Code-behind example in ADL Tools in VS (click image to enlarge, sample code is available [here](https://github.com/Azure/usql/tree/master/Examples/TweetAnalysis))
 <br />
 
@@ -420,7 +420,7 @@ The advantage of code-behind is, that the tooling is taking care of the followin
 
 You can see the generated prologue and epilogue when you open the script:
 
-![generated-prologue](./media/data-lake-analytics-use-u-sql-catalog/generated-prologue.png)
+![generated-prologue](./media/data-lake-analytics-u-sql-programmability-guide/generated-prologue.png)
 **Figure 2**: Auto-generated prologue and epilogue for code-behind
 <br />
 
@@ -431,15 +431,15 @@ Some of the drawbacks of code-behind are
 
 Thus, you can add a separate C# Class Library (for U-SQL) to your solution (see Figure 3), develop the code or copy existing code-behind code over (no changes in the C# code required, see Figure 4), and then use the Register Assembly menu option on the project to register the assembly (see Step 1 in Figure 5).
 
-![creating-project](./media/data-lake-analytics-use-u-sql-catalog/creating-project.png)
+![creating-project](./media/data-lake-analytics-u-sql-programmability-guide/creating-project.png)
 **Figure 3**: Creating a U-SQL C# code project.  
 <br />
 
-![class-library](./media/data-lake-analytics-use-u-sql-catalog/class-library.png)
+![class-library](./media/data-lake-analytics-u-sql-programmability-guide/class-library.png)
 **Figure 4**: The U-SQL C# class library next to the code-behind file.  
 <br />
 
-![register-code](./media/data-lake-analytics-use-u-sql-catalog/register-code.png)
+![register-code](./media/data-lake-analytics-u-sql-programmability-guide/register-code.png)
 **Figure 5**: How to register the U-SQL C# code project
 <br />
 
@@ -467,7 +467,7 @@ Our [U-SQL Github site](https://github.com/Azure/usql/) offers a set of shared e
 
 First we download the [Visual Studio project](https://github.com/Azure/usql/tree/master/Examples/DataFormats) to our local development environment (for example, with making a local copy with the GitHub tool for Windows). Then we open the solution in Visual Studio, right-click the project as explained above to register the assembly. While this assembly has two dependencies, we only have to include the Newtonsoft dependency since System.Xml is available in the Azure Data Lake already (it has to be explicitly referenced though). Figure 6 shows how we name the assembly (note that you can choose a different name without dots as well), and add the Newtonsoft dll as well. Each of the two assemblies will now be individually registered in the specified database (for example, JSONBlog).
 
-![register-assembly](./media/data-lake-analytics-use-u-sql-catalog/register-assembly.png)  
+![register-assembly](./media/data-lake-analytics-u-sql-programmability-guide/register-assembly.png)
 **Figure 6**: How to register the Microsoft.Analytics.Samples.Formats assembly from Visual Studio
 <br />
 
