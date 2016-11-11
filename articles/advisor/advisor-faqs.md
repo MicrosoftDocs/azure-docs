@@ -1,6 +1,6 @@
 ---
-title: Advisor Frequently Asked Questions
-description: Get answers to frequently asked questions about Advisor.
+title: Azure Advisor Frequently Asked Questions | Microsoft Docs
+description: Get answers to frequently asked questions about Azure Advisor.
 services: advisor
 documentationcenter: NA
 author: kumudd
@@ -17,9 +17,9 @@ ms.date: 11/09/2016
 ms.author: kumudd
 ---
 
-# Advisor Frequently Asked Questions
+# Azure Advisor Frequently Asked Questions
 
-This article includes frequently asked questions about Advisor.
+This article includes frequently asked questions about Azure Advisor.
 
 ## What is Azure Advisor?
 
@@ -53,10 +53,11 @@ Advisor provides recommendations for virtual machines, availability sets, App Se
 
 ## Can I snooze or dismiss a recommendation?
 
-To snooze or dismiss a recommendation, click the snooze button or link. You can specify a snooze time period or select **Never** to dismiss the recommendation.
+To snooze or dismiss a recommendation, click the **Snooze** button or link. You can specify a snooze time period or select **Never** to dismiss the recommendation.
 
-## Related
+## Next Steps
 
+See these resources to learn more about Azure Advisor:
 -  [Advisor Overview](advisor-overview.md)
 -  [Get Started with Advisor](advisor-get-started.md)
 -  [Advisor High Availability Recommendations](advisor-high-availability-recommendations.md)

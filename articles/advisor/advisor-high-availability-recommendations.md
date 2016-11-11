@@ -1,6 +1,6 @@
 ---
-title: Advisor High Availability Recommendations
-description: Use Advisor to improve high availability of your Azure deployments.
+title: Azure Advisor High Availability Recommendations | Microsoft Docs
+description: Use Azure Advisor to improve high availability of your Azure deployments.
 services: advisor
 documentationcenter: NA
 author: kumudd
@@ -53,8 +53,9 @@ You can choose to migrate your virtual machine disks to Premium Disks. Premium D
 
 ![](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png) 
 
-## Related
+## Next Steps
 
+See these resources to learn more about Advisor recommendations:
 -  [Introduction to Advisor](advisor-overview.md)
 -  [Advisor FAQs](advisor-faqs.md)
 -  [Get Started with Advisor](advisor-get-started.md)

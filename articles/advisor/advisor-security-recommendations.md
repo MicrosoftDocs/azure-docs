@@ -1,5 +1,5 @@
 ---
-title: Advisor Security Recommendations
+title: Azure Advisor Security Recommendations | Microsoft Docs
 description: Use Azure Advisor to help improve the security of your Azure deployments.
 services: advisor
 documentationcenter: NA
@@ -25,11 +25,11 @@ Security Center helps you prevent, detect, and respond to threats with increased
 ![Advisor security recommendations](./media/advisor-security-recommendations/advisor-security-recommendations.png)
 
 For more information about security recommendations, see [Managing security recommendations in Azure Security Center](https://azure.microsoft.com/en-us/documentation/articles/security-center-recommendations/)
-## Related
 
--  [Introduction to Advisor](advisor-overview.md)
--  [Advisor FAQs](advisor-faqs.md)
--  [Get Started with Advisor](advisor-get-started.md)
+## Next Steps
+
+See these resources to learn more about Advisor recommendations:
 -  [Advisor High Availability Recommendations](advisor-high-availability-recommendations.md)
 -  [Advisor Performance Recommendations](advisor-performance-recommendations.md)
 -  [Advisor Cost Recommendations](advisor-performance-recommendations.md)
+ 

@@ -1,5 +1,5 @@
 ---
-title: Advisor Performance Recommendations
+title: Azure Advisor Performance Recommendations | Microsoft Docs
 description: Use Advisor to optimize the performances of your Azure deployments.
 services: advisor
 documentationcenter: NA
@@ -48,7 +48,9 @@ Azure Advisor integrates best practices recommendations for improving your App S
 ![App Services recommendations](./media/advisor-performance-recommendations/advisor-performance-app-service.png)
 
 
-## Related
+## Next Steps
+
+See these resources to learn more about Advisor recommendations:
 
 -  [Introduction to Advisor](advisor-overview.md)
 -  [Advisor FAQs](advisor-faqs.md)

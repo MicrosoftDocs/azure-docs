@@ -1,5 +1,5 @@
 ---
-title: Get Started with Advisor
+title: Get Started with Azure Advisor | Microsoft Docs
 description: Learn how to optimize the cost of your Azure deployments using Azure Advisor.
 services: advisor
 documentationcenter: NA
@@ -107,8 +107,9 @@ where **&lt;RecommendationID&gt;** is the full resource id of the recommendation
 > [!NOTE]
 > **RBAC permissions:** You can get recommendations for resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.
 
-## Related
+## Next Steps
 
+See these resources to learn more about Azure Advisor:
 -  [Introduction to Advisor](advisor-overview.md)
 -  [Advisor FAQs](advisor-faqs.md)
 -  [Advisor High Availability Recommendations](advisor-high-availability-recommendations.md)

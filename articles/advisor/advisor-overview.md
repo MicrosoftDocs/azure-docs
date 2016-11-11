@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure Advisor
+title: Introduction to Azure Advisor | Microsoft Docs
 description: Use Azure Advisor to optimize the cost of your Azure deployments.
 services: advisor
 documentationcenter: NA
@@ -69,8 +69,9 @@ The Advisor dashboard displays a summarized list of recommendations. For each re
 -   **Last updated** – The last time Advisor checked if the recommendation was applicable or the last time Advisor refreshed the recommendation. <Add link about Refresh recommendations).
 
 
-## Related
+## Next Steps
 
+See these resources to learn more about Advisor recommendations:
 -  [Advisor FAQs](advisor-faqs.md)
 -  [Get Started with Advisor](advisor-get-started.md)
 -  [Advisor High Availability Recommendations](advisor-high-availability-recommendations.md)
