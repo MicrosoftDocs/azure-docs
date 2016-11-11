@@ -76,7 +76,7 @@ Subnets contain the following properties.
 | **ipConfigurations** |Collection of IP configuration objects used by NICs connected to the subnet | |
 
 ### Name resolution
-By default, your VNet uses [Azure-provided name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names inside the VNet, and on the public Internet. However, if you connect your VNets to your on-premises data centers, you need to provide [your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#Name-resolution-using-your-own-DNS-server) to resolve names between your networks.  
+By default, your VNet uses [Azure-provided name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names inside the VNet, and on the public Internet. However, if you connect your VNets to your on-premises data centers, you need to provide [your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names between your networks.  
 
 ### Limits
 Review the networking limits in the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article to ensure that your design doesn't conflict with any of the limits. Some limits can be increased by opening a support ticket.
