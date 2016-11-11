@@ -20,7 +20,11 @@ ms.author: sewhee
 
 # <a name="get-started"></a>Creating an Internet-facing load balancer in Resource Manager by using PowerShell
 
-[!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Portal](../articles/load-balancer/load-balancer-get-started-internet-portal.md)
+> * [PowerShell](../articles/load-balancer/load-balancer-get-started-internet-arm-ps.md)
+> * [Azure CLI](../articles/load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Template](../articles/load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
