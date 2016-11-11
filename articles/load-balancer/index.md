@@ -5,7 +5,7 @@ layout: LandingPage
 
 Azure Load Balancer delivers high availability and network performance to your applications.  Load Balancer can be configured to load balance incoming Internet traffic to virtual machines, traffic between cloud resources, traffic in a cross-premises virtual network, or external traffic to a specific virtual machine.
 
-<ul>
+<ul class="panelContent cardsFTitle">
     <li>
         <a href="/azure/load-balancer/load-balancer-overview">
         <div class="cardSize">
