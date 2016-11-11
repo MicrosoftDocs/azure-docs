@@ -23,7 +23,7 @@ This release contains the following update.
 
 | Title | Description |
 | --- | --- |
-| General Availability for Power BI outputs |[Power BI outputs](stream-analytics-power-bi-dashboard.md) are now Generally Available. The 90 day authorization expiration for Power BI has been removed. For more information on scenarios where authorization needs to be renewed see the [Renew authorization](stream-analytics-power-bi-dashboard.md#Renew-authorization) section of Creating a Power BI dashboard. |
+| General Availability for Power BI outputs |[Power BI outputs](stream-analytics-power-bi-dashboard.md) are now Generally Available. The 90 day authorization expiration for Power BI has been removed. For more information on scenarios where authorization needs to be renewed see the [Renew authorization](stream-analytics-power-bi-dashboard.md#renew-authorization) section of Creating a Power BI dashboard. |
 
 ## Notes for 03/03/2016 release of Stream Analytics
 This release contains the following update.
@@ -130,4 +130,3 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

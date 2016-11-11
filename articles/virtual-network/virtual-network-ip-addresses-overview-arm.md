@@ -28,7 +28,7 @@ You can assign IP addresses to Azure resources to communicate with other Azure r
 
 [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
 
-If you are familiar with the classic deployment model, check the [differences in IP addressing between classic and Resource Manager](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
+If you are familiar with the classic deployment model, check the [differences in IP addressing between classic and Resource Manager](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
 
 ## Public IP addresses
 Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md), and [Azure storage](../storage/storage-introduction.md).
@@ -47,8 +47,8 @@ To ensure the IP address for the associated resource remains the same, you can s
 
 > [!NOTE]
 > Even when you set the allocation method to *static*, you cannot specify the actual IP address assigned to the *public IP resource*. Instead, it gets allocated from a pool of available IP addresses in the Azure location the resource is created in.
-> 
-> 
+>
+>
 
 Static public IP addresses are commonly used in the following scenarios:
 
@@ -59,16 +59,16 @@ Static public IP addresses are commonly used in the following scenarios:
 
 > [!NOTE]
 > The list of IP ranges from which public IP addresses (dynamic/static) are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
-> 
-> 
+>
+>
 
 ### DNS hostname resolution
 You can specify a DNS domain name label for a public IP resource, which creates a mapping for *domainnamelabel*.*location*.cloudapp.azure.com to the public IP address in the Azure-managed DNS servers. For instance, if you create a public IP resource with **contoso** as a *domainnamelabel* in the **West US** Azure *location*, the fully-qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** will resolve to the public IP address of the resource. You can use this FQDN to create a custom domain CNAME record pointing to the public IP address in Azure.
 
 > [!IMPORTANT]
 > Each domain name label created must be unique within its Azure location.  
-> 
-> 
+>
+>
 
 ### Virtual machines
 You can associate a public IP address with a [Windows](../virtual-machines/virtual-machines-windows-about.md) or [Linux](../virtual-machines/virtual-machines-linux-about.md) VM by assigning it to its **network interface**. In the case of a multi-network interface VM, you can assign it to the *primary* network interface only. You can assign either a dynamic or a static public IP address to a VM.
@@ -146,4 +146,3 @@ Public IP addresses may have a nominal charge. To learn more about IP address pr
 * [Deploy a VM with a static public IP using the Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 * [Deploy a VM with a static public IP using a template](virtual-network-deploy-static-pip-arm-template.md)
 * [Deploy a VM with a static private IP address using the Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
-

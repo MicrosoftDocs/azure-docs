@@ -18,8 +18,10 @@ ms.author: nitinme
 
 ---
 # Create an HDInsight cluster with Data Lake Store using Azure Resource Manager template
-> [AZURE.SELECTOR] - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md) - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md) - [Using Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
->
+> [!div class="op_single_selector"]
+> * [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Using Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 
 Learn how to use an Azure Resource Manager template to configure an HDInsight cluster with access to Azure Data Lake Store. Some important considerations for this release:
