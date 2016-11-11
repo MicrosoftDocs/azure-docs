@@ -12,20 +12,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
 # Export telemetry from Application Insights
 Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
 
-Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](https://azure.microsoft.com/pricing/details/application-insights/).
+Continuous Export is available in the [Enterprise pricing model](http://azure.microsoft.com/pricing/details/application-insights/).
 
 Before you set up continuous export, there are some alternatives you might want to consider:
 
 * [The Export button](app-insights-metrics-explorer.md#export-to-excel) at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet. 
-* [Analytics](app-insights-analytics.md) provides a powerful query  language for telemetry, and also can export results.
-* If you're looking to [explore your data in Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), you can do that without using Continuous Export.
+* [Analytics](app-insights-analytics.md) provides a powerful query language for telemetry, and also can export results.
+* If you're looking to [explore your data in Power BI](app-insights-export-power-bi.md), you can do that without using Continuous Export.
+* The [Data Access API](https://dev.applicationinsights.io/) lets you write code to query your app's telemetry.
 
 ## Create a storage account
 If you don't already have a "classic" storage account, create one now.

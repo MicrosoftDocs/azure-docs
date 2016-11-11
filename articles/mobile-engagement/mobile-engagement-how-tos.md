@@ -32,7 +32,8 @@ Once the SDK is fully integrated into your app, you can get started using the th
 
 * Create a new campaign and name it
   
-  ![First3][3]
+![First3][3]
+
 * Select how the notification should be delivered, as In-app only
 
 ![First4][4]
@@ -76,9 +77,8 @@ Once the SDK is fully integrated into your app, you can get started using the th
 Personalization works by replacing a marker by from an app info tag so, you'll have to make sure the user has the proper app-info defined first. In this example the targeted users will have an app info tag named rebate_code defined.
 As you see above the push notification content includes the marker ${rebate_code} which will indicate that it is to be replaced by the actual content of the app info tag.
 
-> Warning: If the app info tag is not defined for the user, the user will not receive the push.
-> 
-> 
+> [!WARNING]
+> If the app info tag is not defined for the user, the user will not receive the push.
 
 * Result
 
@@ -151,9 +151,8 @@ You don’t have to stay in front of the interface to push! You can plan in adva
 By default, the "None" check-boxes are selected.
 This means that the campaign will start as soon as you activate it in the reach section and will end when you will stop it on the reach section.
 
-> Note: Campaigns created without an end date store the push locally on the device and show it the next time the app is opened even if the campaign is manually ended.
-> 
-> 
+> [!NOTE]
+> Campaigns created without an end date store the push locally on the device and show it the next time the app is opened even if the campaign is manually ended.
 
 ## Enhance a Push Notification with a Text View
 ### What is a Text View?
@@ -172,9 +171,8 @@ A text view allows you to present more content to your end-user. This is also th
 
 ![TextView3][23]
 
-> Note: when you push a text view, it always comes with a notification first. 
-> 
-> 
+> [!NOTE]
+> When you push a text view, it always comes with a notification first. 
 
 * Define the text (After having selected the text announcement content, the sub-section will appear, allowing you to define the text you want to be displayed.)
 
@@ -223,9 +221,8 @@ This is also the opportunity to present a call to action such as redirection to 
 * Web announcement: It is a notification that engages the user to have a look at a web view.
   Select the "Web announcement" content.
 
-> Note: When you push a web view, it always comes with a notification first.
-> 
-> 
+> [!NOTE]
+> When you push a web view, it always comes with a notification first.
 
 * Define the web content (After having selected the web announcement content, the subsection will appear, allowing you to define the web view content you want to be displayed.)
 

@@ -21,7 +21,7 @@ ms.author: raynew
 The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md)
 
 ## Overview
-This article provides information and instructions for recovering (failing over and failing back) virtual machines and physical servers that are protected with Site Recovery. 
+This article provides information and instructions for recovering (failing over and failing back) virtual machines and physical servers that are protected with Site Recovery.
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -49,7 +49,7 @@ The types of failovers that are supported depend on your deployment scenario.
 | Physical server to Azure |Supported (enhanced scenario)<br/><br/> Unsupported (legacy scenario) |Unsupported |Supported |
 
 ## Failover and failback
-You fail over virtual machines to a secondary on-premises site or to Azure, depending on your deployment. A machine that fails over to Azure is created as an Azure virtual machine. You can fail over a single virtual machine or physical server, or a recovery plan. Recovery plans consists of one or more ordered groups that contain protected virtual machines or physical servers. They're used to orchestrate failover of multiple machines which fail over according to the group they're in. [Read more](site-recovery-create-recovery-plans.md) about recovery plans. 
+You fail over virtual machines to a secondary on-premises site or to Azure, depending on your deployment. A machine that fails over to Azure is created as an Azure virtual machine. You can fail over a single virtual machine or physical server, or a recovery plan. Recovery plans consists of one or more ordered groups that contain protected virtual machines or physical servers. They're used to orchestrate failover of multiple machines which fail over according to the group they're in. [Read more](site-recovery-create-recovery-plans.md) about recovery plans.
 
 After failover completes and your machines are up and running in a secondary location note that:
 
@@ -64,11 +64,11 @@ Failback from a secondary site to a primary uses the same process as failover fr
 If you've failed over to Azure your virtual machines are protected by the Azure resiliency features for virtual machines. To make the original primary site into the active location you run a planned failover. You can fail back to the original location or to an alternate location if your original site isn't available. To start replicating again after failback to the primary location you initiate a reverse replication.
 
 ### Failover considerations
-* **IP address after failover**—By default a failed over machine will have a different IP address than the source machine. If you want to retain the same IP address see: 
+* **IP address after failover**—By default a failed over machine will have a different IP address than the source machine. If you want to retain the same IP address see:
   * **Secondary site**—If you're failing over to a secondary site and you want to retain an IP address [read](http://blogs.technet.com/b/scvmm/archive/2014/04/04/retaining-ip-address-after-failover-using-hyper-v-recovery-manager.aspx) this article. Note that you can retain a public IP address if your ISP supports it.
   * **Azure**—If you're failing over to Azure you can specify the IP address you want to assign in the **Configure** tab of the virtual machine properties. You can't retain a public IP address after failover to Azure. You can retain non-RFC 1918 address spaces that are used as internal addresses.
-* **Partial failover**—If you want to fail over part of a site rather than an entire site note that: 
-  
+* **Partial failover**—If you want to fail over part of a site rather than an entire site note that:
+
   * **Secondary site**—If you fail over part of a primary site to a secondary site and you want to connect back to the primary site, use a site-to-site VPN connection to connect failed over applications on the secondary site to infrastructure components running on the primary site. If an entire subnet fails over you can retain the virtual machine IP address. If you fail over a partial subnet you can't retain the virtual machine IP address because subnets can't be split between sites.
   * **Azure**—If you fail over a partial site to Azure and want to connect back to the primary site, you can use a site-to-site VPN to connect a failed over application in Azure to infrastructure components running on the primary site. Note that if the entire subnet fails over you can retain the virtual machine IP address. If you fail over a partial subnet you can't retain the virtual machine IP address because subnets can't be split between sites.
 * **Drive letter**—If you want to retain the drive letter on virtual machines after failover you can set the SAN policy for the virtual machine to **On**. Virtual machine disks come online automatically. [Read more](https://technet.microsoft.com/library/gg252636.aspx).
@@ -87,15 +87,15 @@ When you run a test failover you'll be asked to select network settings for test
 
 > [!NOTE]
 > The IP address given to a virtual machine during test failover is same as the IP address it would receive when doing a planned or unplanned failover (presuming that the IP address is available in the test failover network. If the same IP address isn't available in the test failover network then virtual machine will receive another IP address available in the test failover network.
-> 
-> 
+>
+>
 
 ### Run a test failover from on-premises to Azure
 This procedure describes how to run a test failover for a recovery plan. Alternatively you can run the failover for a single machine on the **Virtual Machines** tab.
 
 1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Test Failover**.
 2. On the **Confirm Test Failover** page, specify how replica machines will be connected to an Azure network after failover.
-3. If you're failing over to Azure and data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation. 
+3. If you're failing over to Azure and data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation.
 4. Track failover progress on the **Jobs** tab. You should be able to see the test replica machine in the Azure portal.
 5. You can access replica machines in Azure from your on-premises site initiate an RDP connection to the virtual machine. port 3389 will need to be open on the endpoint for the virtual machine.
 6. Once you're done, When the failover reaches the **Complete testing** phase , click **Complete Test** to finish.
@@ -104,8 +104,8 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 
 > [!NOTE]
 > If a test failover continues for more than two weeks it'll be completed by force. Any elements or virtual machines created automatically during the test failover will be deleted.
-> 
-> 
+>
+>
 
 ### Run a test failover from a primary on-premises site to a secondary on-premises site
 You’ll need to do a number of things to run a test failover, including making a copy of domain controller and placing test DHCP and DNS servers in your test environment. You can do this in a couple of ways:
@@ -131,21 +131,21 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 
 > [!NOTE]
 > If a test failover continues for more than two weeks it'll be completed by force. Any elements or virtual machines created automatically during the test failover will be deleted.
-> 
-> 
+>
+>
 
 #### Prepare DHCP
 If the virtual machines involved in test failover use DHCP, a test DHCP server should be created within the isolated network that is created for the purpose of test failover.
 
 ### Prepare Active Directory
-To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Go through [test failover considerations for active directory](site-recovery-active-directory.md#considerations-for-test-failover) section for more details. 
+To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Go through [test failover considerations for active directory](site-recovery-active-directory.md#test-failover-considerations) section for more details. 
 
 ### Prepare DNS
 Prepare a DNS server for the test failover as follows:
 
 * **DHCP**—If virtual machines use DHCP, the IP address of the test DNS should be updated on the test DHCP server. If you’re using a network type of Windows Network Virtualization, the VMM server acts as the DHCP server. Therefore, the IP address of DNS should be updated in the test failover network. In this case, the virtual machines will register themselves to the relevant DNS Server.
-* **Static address**—If virtual machines use a static IP address, the IP address of the test DNS server should be updated in test failover network. You might need to update DNS with the IP address of the test virtual machines. You can use the following sample script for this purpose: 
-  
+* **Static address**—If virtual machines use a static IP address, the IP address of the test DNS server should be updated in test failover network. You might need to update DNS with the IP address of the test virtual machines. You can use the following sample script for this purpose:
+
         Param(
         [string]$Zone,
         [string]$name,
@@ -160,25 +160,25 @@ Prepare a DNS server for the test failover as follows:
  This procedure describes how to run a planned failover for a recovery plan. Alternatively you can run the failover for a single virtual machine on the **Virtual Machines** tab.
 
 1. Before you start make sure all the virtual machines you want to fail over have completed initial replication.
-2. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Planned Failover**. 
+2. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Planned Failover**.
 3. On the **Confirm Planned Failover **page, choose the source and target locations. Note the failover direction.
-   
-   * If previous failovers worked as expected and all of the virtual machine servers are located on either the source or target location, the failover direction details are for information only. 
+
+   * If previous failovers worked as expected and all of the virtual machine servers are located on either the source or target location, the failover direction details are for information only.
    * If virtual machines are active on both the source and target locations, the **Change Direction** button appears. Use this button to change and specify the direction in which the failover should occur.
-4. If you're failing over to Azure and data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server. 
+4. If you're failing over to Azure and data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.
 5. When a planned failover begins the first step is to shut down the virtual machines to ensure no data loss. You can follow the failover progress on the **Jobs** tab. If an error occurs in the failover (either on a virtual machine or in a script that is included in the recovery plan), the planned failover of a recovery plan stops. You can initiate the failover again.
-6. After replica virtual machines are created they're in a commit pending state. Click **Commit** to commit the failover. 
-7. After replication is complete the virtual machines start up at the secondary location. 
+6. After replica virtual machines are created they're in a commit pending state. Click **Commit** to commit the failover.
+7. After replication is complete the virtual machines start up at the secondary location.
 
 ## Run an unplanned failover
 This procedure describes how to run an unplanned failover for a recovery plan. Alternatively you can run the failover for a single virtual machine or physical server on the **Virtual Machines** tab.
 
-1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Unplanned Failover**. 
+1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Unplanned Failover**.
 2. On the **Confirm Unplanned Failover **page, choose the source and target locations. Note the failover direction.
-   
-   * If previous failovers worked as expected and all of the virtual machine servers are located on either the source or target location, the failover direction details are for information only. 
+
+   * If previous failovers worked as expected and all of the virtual machine servers are located on either the source or target location, the failover direction details are for information only.
    * If virtual machines are active on both the source and target locations, the **Change Direction** button appears. Use this button to change and specify the direction in which the failover should occur.
-3. If you're failing over to Azure and data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server. 
+3. If you're failing over to Azure and data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.
 4. Select **Shut down virtual machines and synchronize the latest data** to specify that Site Recovery should try to shut down the protected virtual machines and synchronize the data so that the latest version of the data will be failed over. If you don’t select this option or the attempt doesn’t succeed the failover will be from the latest available recovery point for the virtual machine.
 5. You can follow the failover progress on the **Jobs** tab. Note that even if errors occur during an unplanned failover, the recovery plan runs until it is complete.
 6. After the failover, the virtual machines are in a **commit pending** state. Click **Commit** to commit the failover.
@@ -191,7 +191,7 @@ This procedure describes how to run an unplanned failover for a recovery plan. A
 1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Planned Failover**.
 2. On the **Confirm Planned Failover **page, choose the source and target locations. Note the failover direction. If the failover from primary worked as expect and all virtual machines are in the secondary location this is for information only.
 3. If you're failing back from Azure select settings in **Data Synchronization**:
-   
+
    * **Synchronize data before failover(Synchonize delta changes only)**—This option minimizes downtime for virtual machines as it synchronizes without shutting them down. It does the following:
      * Phase 1: Takes snapshot of the virtual machine in Azure and copies it to the on-premises Hyper-V host. The machine continues running in Azure.
      * Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there. The final set of changes are transferred to the on-premises server and the on-premises virtual machine is started up.
@@ -200,11 +200,11 @@ This procedure describes how to run an unplanned failover for a recovery plan. A
 
     > [AZURE.NOTE] We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem VM has been deleted.This option doesn't perform any checksum calculations.
 
-1. If you're failing over to Azure and data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server. 
-2. By default the last recovery point is used, but in **Change Recovery Point** you can specify a different recovery point. 
-3. Click the checkmark to start the failback.  You can follow the failover progress on the **Jobs** tab. 
+1. If you're failing over to Azure and data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.
+2. By default the last recovery point is used, but in **Change Recovery Point** you can specify a different recovery point.
+3. Click the checkmark to start the failback.  You can follow the failover progress on the **Jobs** tab.
 4. f you selected the option to synchronize the data before the failover, once the initial data synchronization is complete and you're ready to shut down the virtual machines in Azure, click **Jobs** > <planned failover job name> **Complete Failover**. This shuts down the Azure machine, transfers the latest changes to the on-premises virtual machine, and starts it.
-5. You can now log onto the virtual machine to validate it's available as expected. 
+5. You can now log onto the virtual machine to validate it's available as expected.
 6. The virtual machine is in a commit pending state. Click **Commit** to commit the failover.
 7. Now in order to complete the failback click **Reverse Replicate** to start protecting the virtual machine in the primary site.
 
@@ -214,19 +214,18 @@ If you've deployed protection between a [Hyper-V site and Azure](site-recovery-h
 1. If you're setting up new hardware install Windows Server 2012 R2 and the Hyper-V role on the server.
 2. Create a virtual network switch with the same name that you had on the original server.
 3. Select **Protected Items** -> **Protection Group** -> <ProtectionGroupName> -> <VirtualMachineName> you want to fail back, and select **Planned Failover**.
-4. In **Confirm Planned Failover** select **Create on-premises virtual machine if it does not exist**. 
+4. In **Confirm Planned Failover** select **Create on-premises virtual machine if it does not exist**.
 5. In **Host Name** select the new Hyper-V host server on which you want to place the virtual machine.
 6. In Data Synchronization we recommend you select  the option **Synchronize the data before the failover**. This minimizes downtime for virtual machines as it synchronizes without shutting them down. It does the following:
-   
+
    * Phase 1: Takes snapshot of the virtual machine in Azure and copies it to the on-premises Hyper-V host. The machine continues running in Azure.
    * Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there. The final set of changes are transferred to the on-premises server and the on-premises virtual machine is started up.
 7. Click the checkmark to begin the failover (failback).
 8. After the initial synchronization finishes and you're ready to shut down the virtual machine in Azure, click **Jobs** > <planned failover job> > **Complete Failover**. This shuts down the Azure machine, transfers the latest changes to the on-premises virtual machine and starts it.
 9. You can log onto the on-premises virtual machine to verify everything is working as expected. Then click **Commit** to finish the failover.
 10. Click **Reverse Replicate** to start protecting the on-premises virtual machine.
-    
+
     > [!NOTE]
     > If you cancel the failback job while it is in Data Synchronization step, the on-premises VM will be in a currupted state. This is because Data Synchonization copies the latest data from Azure VM disks to the on-prem data disks, and untill the synchronization completes, the disk data may not be in a consistent state. If the On-prem VM is booted after Data Synchonization is cancelled, it may not boot. Re-trigger failover to complete the Data Synchonization.
-    > 
-    > 
-
+    >
+    >

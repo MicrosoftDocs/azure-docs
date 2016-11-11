@@ -25,9 +25,8 @@ To configure notifications, click **Publisher portal** in the Azure Portal for y
 
 ![Publisher portal][api-management-management-console]
 
+> [!NOTE] 
 > If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
-> 
-> 
 
 Click **Notifications** from the **API Management** menu on the left to view the available notifications.
 
@@ -51,15 +50,15 @@ To specify the email addresses to be notified, enter them in the email address t
 
 To specify the users to be notified, click **add recipient**, check the box beside the users to be notified, and click **OK**.
 
-> Note that only administrators are displayed in the list.
-> 
-> 
+> [!NOTE] 
+> Only administrators are displayed in the list.
+
 
 After configuring the notification recipients, click **Save** to apply the updated notification recipients.
 
+> [!NOTE] 
 > If you navigate away from the **Publisher Notifications** tab the publisher portal alerts you if there are unsaved changes.
-> 
-> 
+
 
 ## <a name="email-templates"> </a>Configure email templates
 API Management provides email templates for the email messages that are sent in the course of administering and using the service. The following email templates are provided.
@@ -93,11 +92,11 @@ The **Parameters** list contains a list of parameters, which when inserted into 
 
 Click **Preview** or **Send a test** to see how the email will look or send a test email.
 
-> Note that the parameters are not replaced with actual values when previewing or sending a test.
-> 
-> To save the changes to the email template, click **Save**, or to cancel the changes click **Cancel**.
-> 
-> 
+> [!NOTE] 
+> The parameters are not replaced with actual values when previewing or sending a test.
+
+To save the changes to the email template, click **Save**, or to cancel the changes click **Cancel**.
+ 
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
 [api-management-publisher-notifications]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png

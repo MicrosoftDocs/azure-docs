@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Application Performance Monitoring using Application Insights for SCOM
-If you use System Center Operations Manager (SCOM) to manage your servers, you can monitor performance and diagnose performance issues with the help of [Visual Studio Application Insights](app-insights-asp-net.md). Application Insights monitors your web application's incoming requests, outgoing REST and SQL calls, exceptions, and log traces. It provides dashboards with metric charts and smart alerts, as well as powerful diagnostic search and analytical queries over this telemetry. 
+If you use System Center Operations Manager (SCOM) to manage your servers, you can monitor performance and diagnose performance issues with the help of [Azure Application Insights](app-insights-asp-net.md). Application Insights monitors your web application's incoming requests, outgoing REST and SQL calls, exceptions, and log traces. It provides dashboards with metric charts and smart alerts, as well as powerful diagnostic search and analytical queries over this telemetry. 
 
 You can switch on Application Insights monitoring by using an SCOM management pack.
 
@@ -79,7 +79,7 @@ If you need to change settings later, re-open the properties of the monitor from
 ![In Authoring, select .NET Application Performance Monitoring with Application Insights, select your monitor, and click Properties.](./media/app-insights-scom/080.png)
 
 ## Verify monitoring
-The monitor that you have installed searches for your app on every server. Where it finds the app, it configures Application Insights Status Monitor to monitor the app. If necessary, it first installs Status Monitor on the server.
+The monitor that you have installed searches for your app on every server. Where it finds the app, it configures Application Insights Agent to monitor the app. If necessary, it first installs the Agent on the server.
 
 You can verify which instances of the app it has found:
 

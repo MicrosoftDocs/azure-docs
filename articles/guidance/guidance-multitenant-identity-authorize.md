@@ -64,8 +64,8 @@ public class SurveyCreatorRequirement : AuthorizationHandler<SurveyCreatorRequir
 
 > [!NOTE]
 > See [SurveyCreatorRequirement.cs]
-> 
-> 
+>
+>
 
 This class defines the requirement for a user to create a new survey. The user must be in the SurveyAdmin or SurveyCreator role.
 
@@ -92,8 +92,8 @@ services.AddAuthorization(options =>
 
 > [!NOTE]
 > See [Startup.cs]
-> 
-> 
+>
+>
 
 This code also sets the authentication scheme, which tells ASP.NET which authentication middleware should run if authorization fails. In this case, we specify the cookie authentication middleware, because the cookie authentication middleware can redirect the user to a "Forbidden" page. The location of the Forbidden page is set in the AccessDeniedPath option for the cookie middleware; see [Configuring the authentication middleware].
 
@@ -226,8 +226,8 @@ protected override void Handle(AuthorizationContext context, OperationAuthorizat
 
 > [!NOTE]
 > See [SurveyAuthorizationHandler.cs].
-> 
-> 
+>
+>
 
 In a multi-tenant application, you must ensure that permissions don't "leak" to another tenant's data. In the Surveys app, the Contributor permission is allowed across tenants &mdash; you can assign someone from another tenant as a contriubutor. The other permission types are restricted to resources that belong to that user's tenant. To enforce this requirement, the code checks the tenant ID before granting the permission. (The `TenantId` field as assigned when the survey is created.)
 
@@ -270,7 +270,7 @@ static readonly Dictionary<OperationAuthorizationRequirement, Func<List<UserPerm
 [reference implementation]: guidance-multitenant-identity-tailspin.md
 [SurveyCreatorRequirement.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Security/Policy/SurveyCreatorRequirement.cs
 [Startup.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Startup.cs
-[Configuring the authentication middleware]: guidance-multitenant-identity-authenticate.md#configuring-the-authentication-middleware
+[Configuring the authentication middleware]: guidance-multitenant-identity-authenticate.md#configure-the-auth-middleware
 [SurveyAuthorizationHandler.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Security/Policy/SurveyAuthorizationHandler.cs
 [sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
 [web-api]: guidance-multitenant-identity-web-api.md

@@ -23,10 +23,10 @@ ms.author: heidist
 >
 > * [Overview](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
-> * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+> * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 > * [DocumentDB](../documentdb/documentdb-search-indexer.md)
-> * [Blob Storage](search-howto-indexing-azure-blob-storage.md)
-> * [Table Storage](search-howto-indexing-azure-tables.md)
+> * [Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md)
+> * [Table Storage (preview)](search-howto-indexing-azure-tables.md)
 >
 >
 
@@ -52,7 +52,7 @@ An indexer will automate some tasks related to data ingestion, but creating an i
 ### Step 2: Create a data source
 An indexer pulls data from a **data source** which holds information such as a connection string. Currently the following data sources are supported:
 
-* [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+* [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [DocumentDB](../documentdb/documentdb-search-indexer.md)
 * [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), used to extract text from PDF, Office documents, HTML, or XML
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
@@ -65,9 +65,9 @@ The indexer definition is a construct specifying the index, data source, and a s
 ## Next steps
 Now that you have the basic idea, the next step is to review requirements and tasks specific to each data source type.
 
-* [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+* [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [DocumentDB](../documentdb/documentdb-search-indexer.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), used to extract text from PDF, Office documents, HTML, or XML
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indexing CSV blobs using the Azure Search Blob indexer (Preview)](search-howto-index-csv-blobs.md)
-* [Indexing JSON blobs with Azure Search Blob indexer](search-howto-index-json-blobs.md)
+* [Indexing JSON blobs with Azure Search Blob indexer (Preview)](search-howto-index-json-blobs.md)

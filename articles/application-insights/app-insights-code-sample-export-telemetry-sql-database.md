@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Code sample: Parse data exported from Application Insights
-This article shows how to process JSON data exported from Application Insights. As an example, we'll write code to move your telemetry data from [Visual Studio Application Insights][start] into an Azure SQL database by using [Continuous Export][export]. (You can also achieve this [by using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md), but our aim here is to show you some code.) 
+This article shows how to process JSON data exported from Application Insights. As an example, we'll write code to move your telemetry data from [Azure Application Insights][start] into an Azure SQL database by using [Continuous Export][export]. (You can also achieve this [by using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md), but our aim here is to show you some code.) 
 
 Continuous export moves your telemetry into Azure Storage in JSON format, so we'll write some code to parse the JSON objects and create rows in a database table.
 

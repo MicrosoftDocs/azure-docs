@@ -21,8 +21,7 @@
 ### [Docker Swarm Overview](container-service-docker-swarm.md)
 
 # Reference
-
-## [REST API](https://go.microsoft.com/fwlink/p/?linkid=833499)
+## [REST API](https://docs.microsoft.com/rest/api/compute/containerservices/)
 
 # Resources
 

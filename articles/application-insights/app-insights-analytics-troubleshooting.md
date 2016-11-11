@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshooting Analytics - the powerful search tool of Application Insights | Microsoft Docs
 description: 'Problems with Application Insights analytics? Start here. '
 services: application-insights
@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Troubleshoot Analytics in Application Insights
-Problems with [Application Insights Analytics](app-insights-analytics.md)? Start here. Analytics is the powerful search tool of Visual Studio Application Insights.
+Problems with [Application Insights Analytics](app-insights-analytics.md)? Start here. Analytics is the powerful search tool of Azure Application Insights.
 
 ## Limits
 * At present, query results are limited to just over a week of past data.

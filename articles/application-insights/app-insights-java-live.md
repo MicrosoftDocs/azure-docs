@@ -1,4 +1,4 @@
-﻿---
+---
 title: Application Insights for Java web apps that are already live
 description: Start monitoring a web application that is already running on your server
 services: application-insights
@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Application Insights for Java web apps that are already live
-*Application Insights is in Preview.*
+
 
 If you have a web application that is already running on your J2EE server, you can start monitoring it with [Application Insights](app-insights-overview.md) without the need to make code changes or recompile your project. With this option, you get information about HTTP requests sent to your server, unhandled exceptions, and performance counters.
 

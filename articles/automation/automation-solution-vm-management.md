@@ -140,7 +140,7 @@ To configure the variables highlighted earlier, perform the following steps:
 
 1. From your automation account, click **All Settings** at the top of the window. 
 2. On the **Settings** blade under the section **Automation Resources**, select **Assets**. 
-3. On the **Assets** blade, select the **Variables** tile and from the **Variables** blade, select the variable listed above and then modify its value following the description for it specified in the [variable](##variables) section earlier.  
+3. On the **Assets** blade, select the **Variables** tile and from the **Variables** blade, select the variable listed above and then modify its value following the description for it specified in the [variable](#variables) section earlier.  
 4. Click **Save** to save the changes to the variable.   
 
 ### Modifying the startup and shutdown schedule

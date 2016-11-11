@@ -34,13 +34,15 @@ The Azure Storage queue trigger enables you to monitor a storage queue for new m
 
 The Storage queue trigger to a function use the following JSON objects in the `bindings` array of function.json:
 
-    {
-        "name": "<Name of input parameter in function signature>",
-        "queueName": "<Name of queue to poll>",
-        "connection":"<Name of app setting - see below>",
-        "type": "queueTrigger",
-        "direction": "in"
-    }
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "queueName": "<Name of queue to poll>",
+    "connection":"<Name of app setting - see below>",
+    "type": "queueTrigger",
+    "direction": "in"
+}
+```
 
 `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
 editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
@@ -116,7 +118,7 @@ See the language-specific sample that retrieves and logs queue metadata.
 
 <a name="triggercsharp"></a>
 
-### Trigger sample in C\
+### Trigger sample in C# #
 ```csharp
 public static void Run(string myQueueItem, 
     DateTimeOffset expirationTime, 
@@ -141,24 +143,29 @@ public static void Run(string myQueueItem,
 
 <!--
 <a name="triggerfsharp"></a>
-### Trigger sample in F\# 
+### Trigger sample in F# ## 
+```fsharp
+
+```
 -->
 
 <a name="triggernodejs"></a>
 
 ### Trigger sample in Node.js
-    module.exports = function (context) {
-        context.log('Node.js queue trigger function processed work item' context.bindings.myQueueItem);
-        context.log('queueTrigger =', context.bindingData.queueTrigger);
-        context.log('expirationTime =', context.bindingData.expirationTime);
-        context.log('insertionTime =', context.bindingData.insertionTime);
-        context.log('nextVisibleTime =', context.bindingData.nextVisibleTime);
-        context.log('id=', context.bindingData.id);
-        context.log('popReceipt =', context.bindingData.popReceipt);
-        context.log('dequeueCount =', context.bindingData.dequeueCount);
-        context.done();
-    };
 
+```javascript
+module.exports = function (context) {
+    context.log('Node.js queue trigger function processed work item' context.bindings.myQueueItem);
+    context.log('queueTrigger =', context.bindingData.queueTrigger);
+    context.log('expirationTime =', context.bindingData.expirationTime);
+    context.log('insertionTime =', context.bindingData.insertionTime);
+    context.log('nextVisibleTime =', context.bindingData.nextVisibleTime);
+    context.log('id=', context.bindingData.id);
+    context.log('popReceipt =', context.bindingData.popReceipt);
+    context.log('dequeueCount =', context.bindingData.dequeueCount);
+    context.done();
+};
+```
 
 <a name="output"></a>
 
@@ -167,13 +174,15 @@ The Azure Storage queue output binding enables you to write messages to a Storag
 
 The Storage queue output for a function uses the following JSON objects in the `bindings` array of function.json:
 
-    {
-      "name": "<Name of output parameter in function signature>",
-        "queueName": "<Name of queue to write to>",
-        "connection":"<Name of app setting - see below>",
-      "type": "queue",
-      "direction": "out"
-    }
+```json
+{
+  "name": "<Name of output parameter in function signature>",
+    "queueName": "<Name of queue to write to>",
+    "connection":"<Name of app setting - see below>",
+  "type": "queue",
+  "direction": "out"
+}
+```
 
 `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
 editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
@@ -236,42 +245,55 @@ See the language-specific sample that writes an output queue message for each in
 
 <a name="outcsharp"></a>
 
-### Output sample in C\
-    public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
-    {
-        myQueue = myQueueItem + "(next step)";
-    }
+### Output sample in C# #
+
+```cs
+public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
+{
+    myQueue = myQueueItem + "(next step)";
+}
+```
 
 Or, to send multiple messages,
 
-    public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
-    {
-        myQueue.Add(myQueueItem + "(step 1)");
-        myQueue.Add(myQueueItem + "(step 2)");
-    }
+```cs
+public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
+{
+    myQueue.Add(myQueueItem + "(step 1)");
+    myQueue.Add(myQueueItem + "(step 2)");
+}
+```
 
 <!--
 <a name="outfsharp"></a>
-### Output sample in F\# 
+### Output sample in F# ## 
+```fsharp
+
+```
 -->
 
 <a name="outnodejs"></a>
 
 ### Output sample in Node.js
-    module.exports = function(context) {
-        context.bindings.myQueue = context.bindings.myQueueItem + "(next step)";
-        context.done();
-    };
+
+```javascript
+module.exports = function(context) {
+    context.bindings.myQueue = context.bindings.myQueueItem + "(next step)";
+    context.done();
+};
+```
 
 Or, to send multiple messages,
 
-    module.exports = function(context) {
-        context.bindings.myQueue = [];
+```javascript
+module.exports = function(context) {
+    context.bindings.myQueue = [];
 
-        context.bindings.myQueueItem.push("(step 1)");
-        context.bindings.myQueueItem.push("(step 2)");
-        context.done();
-    };
+    context.bindings.myQueueItem.push("(step 1)");
+    context.bindings.myQueueItem.push("(step 2)");
+    context.done();
+};
+```
 
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]

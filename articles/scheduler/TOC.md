@@ -20,8 +20,9 @@
 
 # Reference
 ## [Concepts and terminology](scheduler-concepts-terms.md)
-## [REST API](https://msdn.microsoft.com/library/azure/mt629143)
-## [PowerShell cmdlets](scheduler-powershell-reference.md)
+## [Scheduler PowerShell cmdlets](scheduler-powershell-reference.md)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [REST](https://docs.microsoft.com/rest/api/scheduler/)
 
 # Resources
 ## [Scheduler Videos](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)

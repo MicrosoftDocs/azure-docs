@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deep diagnostics for web apps and services with Application Insights | Microsoft Docs
 description: How Application Insights fits into the devOps cycle
 services: application-insights
@@ -80,7 +80,7 @@ The web service of [Real Madrid Football Club](http://www.realmadrid.com/) serve
 
 The solution [is a system of services and applications on Microsoft Azure](https://www.microsoft.com/en-us/enterprise/microsoftcloud/realmadrid.aspx). Scalability is a key requirement: traffic is variable and can reach very high volumes during and around matches.
 
-For Real Madrid, it's vital to monitor the system's performance. Visual Studio Application Insights provides a comprehensive view across the system, ensuring a reliable and high level of service. 
+For Real Madrid, it's vital to monitor the system's performance. Azure Application Insights provides a comprehensive view across the system, ensuring a reliable and high level of service. 
 
 The Club also gets in-depth understanding of its fans: where they are (only 3% are in Spain), what interest they have in players, historical results, and upcoming games, and how they respond to match outcomes.
 

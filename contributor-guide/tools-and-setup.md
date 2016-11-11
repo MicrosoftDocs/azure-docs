@@ -6,7 +6,7 @@ If you're unfamiliar with Git, you might want to review some Git terminology: [h
 
 ## Contents
 * [Create a GitHub account and set up your profile](#create-a-github-account-and-set-up-your-profile)
-* [Sign up for LiveFyre](#sign-up-for-disqus)
+* [Sign up for LiveFyre](#sign-up-for-livefyre)
 * [Modify articles using the GitHub UI](#modify-articles-using-the-github-ui)
 * [Private or public repo?](#private-or-public-repo?)
 * [Permissions in GitHub](#permissions-in-github)
@@ -19,9 +19,7 @@ If you're unfamiliar with Git, you might want to review some Git terminology: [h
 * [Next steps](#next-steps)
 
 ## Create a GitHub account and set up your profile
-To contribute to the Azure technical content, you'll need a [GitHub](http://www.github.com) account.
-
-If you are a Microsoft contributor, you need to set up your GitHub account so you're clearly identified as a Microsoft employee. Set up your profile as follows:
+To contribute to the Azure technical content, you'll need a [GitHub](http://www.github.com) account. If you are a Microsoft contributor, you need to set up your GitHub account so you're clearly identified as a Microsoft employee. Set up your profile as follows:
 
 * **Profile picture**: a picture of you (required)
 * **Name**: your first and last name (required)
@@ -39,11 +37,13 @@ Every published Azure technical article has a comment stream provided by the Liv
 
 If you are a Microsoft employee, and if you are the author of or a contributor to an article, you need to sign up for Livefyre so you can participate in the comment stream for the article.
 
-1. Sign up for an account [on the Livefyre site](https://livefyre.zendesk.com/hc/en-us/articles/200329426-How-do-I-create-a-Livefyre-Account-)
-2. During account creation, select option "b" - Creating a Livefyre Account with a username, email, and password, so you can be easily identified when you post responses, and complete your profile as follows:
+1. Visit https://www.livefyre.com/auth/register/.
+2. Create a Livefyre account (do not comment using your social media account - you need to create an actual Livefyre account).
 
- - **Username:** your Microsoft email alias plus @MSFT, ie: alias@MSFT
- - **Email:** Your Microsoft.com email address.
+  - **Username:** type your Microsoft alias plus _MSFT.
+  - **Email:** enter your Microsoft email address.
+
+  ![livefyre signup](./media/tools-and-setup/livefyre.png)
 
 ## Modify articles using the GitHub UI
 You might not need to follow all the steps in this article. It depends on the sort of content contribution you want or need to make.
@@ -138,11 +138,11 @@ If you use Atom, you'll need to set a few things up.
 
 Public repo:
 
-        git clone https://[your GitHub user name]:[token]@github.com/<your GitHub user name>/azure-docs.git
+        git clone https://your_GitHub_user_name:your_token@github.com/your_GitHub_user_name/azure-docs.git
 
 Private repo:
 
-        git clone https://[your GitHub user name]:[token]@github.com/<your GitHub user name>/azure-docs-pr.git
+        git clone https://your_GitHub_user_name:your_token@github.com/your_GitHub_user_name/azure-docs-pr.git
 
 For example, this clone command could look something like this:
 
@@ -154,13 +154,13 @@ Create a reference to the root repository by entering these commands. This sets 
 Public repo:
 
         cd azure-docs
-        git remote add upstream https://[your GitHub user name]:[token]@github.com/Microsoft/azure-docs.git
+        git remote add upstream https://your_GitHub_user_name:your_token@github.com/Microsoft/azure-docs.git
         git fetch upstream
 
 Private repo:
 
-        cd azure-content-pr
-        git remote add upstream https://[your GitHub user name]:[token]@github.com/Microsoft/azure-docs-pr.git
+        cd azure-docs-pr
+        git remote add upstream https://your_GitHub_user_name:your_token@github.com/Microsoft/azure-docs-pr.git
         git fetch upstream
 
 This usually takes a while. After you do this, you won't have to fork again or enter your credentials again. You would only have to copy the forks to a local computer again if you set the tools up on another computer.
