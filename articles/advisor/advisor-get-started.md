@@ -1,6 +1,6 @@
 ---
 title: Get Started with Azure Advisor | Microsoft Docs
-description: Learn how to optimize the cost of your Azure deployments using Azure Advisor.
+description: Get started with Azure Advisor.
 services: advisor
 documentationcenter: NA
 author: kumudd
@@ -21,91 +21,53 @@ ms.author: kumudd
 
  This topic provides instructions to access Advisor using the Azure portal, get recommendation details, search for recommendations, and how to refresh recommendations.
 
-## How to access Azure Advisor
+## How to get Azure Advisor recommendations using the Azure portal
 
-1. Sign in into the Azure portal <TBD:Add link>.
-2. You can launch the advisor using one of the following methods:
-  1. Click the Advisor icon as shown:
-    <TBD: Add screenshot>
-  2. Select **Browse**, and then type **Advisor** in the menu filter to launch the Advisor dashboard.
+1. Sign in into the [Azure portal](https://portal.azure.com).
+2. In the left-navigation pane, click **More services**, and then in the service menu pane, scroll down to **Monitoring and Management**, and then click **Azure Advisor**. This launches the Advisor dashboard. 
 3. On the Advisor dashboard, select the subscription for which you’d like to receive recommendations.
+  
+> [!NOTE]
+  > The Advisor dashboard displays recommendations related to resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.  
 
-> [!IMPORTANT]
-> The Advisor dashboard will display recommendations related to resources where you have been assigned the role of Owner, Contributor, or Reader to the subscription that the resource belongs to.
+4. To get Advisor recommendations, on the Advisor dashboard, do one of the following:
+ > [!NOTE]
+ > You can filter the Advisor recommendations based on **Resource groups** and/or based on the status (**Active** or **Snoozed**).
+  1. To get recommendations for improvements in all categories of Azure resources, click the All tab, and  then click **Get Recommendations**.    
+  2. To get security recommendations for your Azure resources, click the **Security** tab, and then click **Get Recommendations**.
+  3. To get high availability recommendations for your Azure resources, click the **High Availability** tab, and then click **Get Recommendations**.
+  4. To get performance recommendations for your Azure resources, click the **Performance** tab, and then click **Get Recommendations**.
+  5. To get recommendations to optimize the cost of your Azure resources, click the **Cost** tab, and then click **Get Recommendations**.
+ 
+  ![Access Azure Advisor using the Azure portal](./media/advisor-overview/advisor-azure-portal-menu.png) 
 
-## How to access Advisor recommendations using the Azure portal
-
-To access Advisor recommendations, click [here ](https://portal.azure.com/?Microsoft_Azure_Expert=true#blade/Microsoft_Azure_Expert/AdvisorBlade). This launches the Advisor dashboard.
-
-> [!IMPORTANT]
-> If your subscription is not enabled to use > Advisor, an “Access denied” message or an HTTP 403 response occurs. Please [contact us](mailto:azexpsupport@microsoft.com) to resolve this issue.
+  ![Azure Advisor dashboard](./media/advisor-overview/advisor-all-tab.png)
 
 ## How to get recommendation details
 
-You can click on a recommendation to learn more about it. This displays the recommendation blade.
+The **Recommendation** blade in Azure Advisor offers additional information about the Advisor recommendation. 
 
-![](./media/advisor-get-started/image9.png)
+1. Sign into the Azure portal, and then launch Azure Advisor.
+2. Click**Get Recommendation**, and then from the list of recommendations, click a recommendation. This launches the **Recommendation** blade that offers additional information about the business issue or opportunity, including a pointer to documentation describing relevant details. It also contains information about actions you can perform to take advantage of an opportunity or resolve an issue.
 
-The recommendation blade offers additional information about the business issue or opportunity, including a pointer to documentation describing relevant details. It also contains information about actions you can perform to take advantage of an opportunity or resolve an issue.
-
-Advisor offers recommendations with ***inline actions*** or ***documentation links***. Clicking on an inline action will take you through a “guided user journey” to implement it. Clicking on a documentation link will point you to documentation descrbing how you can manually implement the action.
-
-**A recommendation with an inline action**
-
-![](./media/advisor-get-started/image10.png)
-
-**A recommendation with documentation links**
-
-![](./media/advisor-get-started/image11.png)
+  ![Advisor recommendation action example](./media/advisor-overview/advisor-recommendation-action-example.png)
 
 ### How to search for recommendations
 
-You can search for recommendations for a particular subscription, resource type, or resource. You can also search for recommendations containing a specific phrase.
+You can search for recommendations for a particular subscription, resource type, or resource status. You can also search for recommendations containing a specific phrase.
 
-![](./media/advisor-get-started/image12.png)
+1. Sign into the Azure portal, and then launch Azure Advisor.
+2. Search for recommendations by filtering for subscriptions, resource groups, and recommendation status (**Active** or **Snoozed**).
+3. Click **Get recommendations** to get a list of Advisor recommendations based on your search filters.
+![](./media/advisor-get-started/advisor-search.png)
 
-### How to refresh recommendations
+### How to snooze recommendations
 
-By default, Advisor will scan and analyze resources across all your subscriptions every 24 hours and “**generate**” or “**refresh**” recommendations. You can click on the Refresh link in the Advisor dashboard to execute this action sooner if you prefer.
+1. Sign into the Azure portal, and then launch Azure Advisor.
+2. Click**Get Recommendation**, and then from the list of recommendations, click a recommendation. This launches the **Recommendation** blade.
+3. On the Recommendation blade, click **Snooze**.
 
-![](./media/advisor-get-started/image13.png)
-
-> [!IMPORTANT]
-> **RBAC permissions:** You can refresh recommendations for resources where you have been assigned the role of **Owner or Contributor to the subscription** that the resource belongs to.
-
-Recommendation generation/refresh is a complex, resource intensive operation. It can take more than a few minutes to complete. The time taken varies based on the number of subscriptions you have access to, and the number of resources in each subscription. After you click the Refresh link, the Advisor dashboard displays a banner indicating recommendations are being refreshed. When the refresh operation is complete, the Advisor dashboard display a banner indicating the refresh operation has been completed. Recommendations can be refreshed every 10 minutes.
-
-**Dashboard banner when recommendation generation/refresh is in progress**
-
-![](./media/advisor-get-started/image14.png)
-
-**Dashboard banner when recommendation generation/refresh is complete**
-
-![](./media/advisor-get-started/image15.png)
-
-## Get Advisor recommendations using REST APIs
-This sections discusses how to get Advisor recommendations and recommendation details using REST APIs.
-### Get Advisor recommendations using REST APIs
-
-To access cached recommendations, submit a **GET** request to the following URL:
-
-**https://management.azure.com/subscriptions/&lt;SubID&gt;/providers/Microsoft.Advisor/recommendations?api-version=2016-05-09-preview **
-
-where **&lt;SubID&gt;** is the subscription ID
-
-> [!NOTE]
-> **RBAC permissions:** You can get recommendations for resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.
-
-### Get Advisor recommendation details using REST APIs
-
-To access details of a particular recommendation, submit a **GET** request to the following URL:
-
-**https://management.azure.com/&lt;RecommendationID&gt;?api-version=2016-05-09-preview **
-
-where **&lt;RecommendationID&gt;** is the full resource id of the recommendation returned from get recommendations call
-
-> [!NOTE]
-> **RBAC permissions:** You can get recommendations for resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.
+ ![Advisor recommendation action example](./media/advisor-overview/advisor-snooze.png)
 
 ## Next Steps
 

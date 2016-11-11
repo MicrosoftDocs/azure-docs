@@ -60,6 +60,10 @@ Here's an example of inline action in the Advisor recommendation blade:
 
 ![Advisor recommendation action example](./media/advisor-overview/advisor-recommendation-action-example.png)
 
+After you’ve implemented a recommended action, the recommendation continues to be visible in the dashboard for a while. Advisor updates recommendations on an hourly basis.  If you don’t intend to take an immediate action you can snooze a recommendation for a period. You can also dismiss a recommendation (choose **snooze** and select **Never**)
+
+![Advisor snooze details pane](./media/advisor-overview/advisor-snooze-details.png)
+
 ## Next Steps
 
 See these resources to learn more about Advisor recommendations:
