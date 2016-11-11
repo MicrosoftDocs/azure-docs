@@ -3,7 +3,7 @@
 	"need_generate_pdf": false,
 	"need_generate_intellisense": false,
 	"enable_push_aggregation": true,
-	"enable_pull_request_aggregation": false,	
+	"enable_pull_request_aggregation": true,	
 	"branch_target_mapping": {
 		"live": ["Publish",
 		"Pdf"]
