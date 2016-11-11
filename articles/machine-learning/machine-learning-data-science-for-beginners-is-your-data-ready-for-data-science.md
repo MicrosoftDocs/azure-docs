@@ -24,7 +24,7 @@ Learn how to evaluate your data to make sure it meets basic criteria to be ready
 
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9]
+> [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]
 >
 >
 
