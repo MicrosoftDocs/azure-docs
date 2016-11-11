@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 11/11/2016
 ms.author: tomfitz
 
 ---
@@ -25,7 +25,7 @@ Typically, you move resources when you decide that:
 * For billing purposes, a resource needs to live in a different subscription.
 * A resource no longer shares the same lifecycle as the resources it was previously grouped with. You want to move it to a new resource group so you can manage that resource separately from the other resources.
 
-When moving resources, both the source group and the target group are locked during the operation. Write and delete operations are blocked on the groups until the move completes.
+When moving resources, both the source group and the target group are locked during the operation. Write and delete operations are blocked on the resource groups until the move completes. This lock means you cannot add, update, or delete resources in the resource groups, but it does not mean the resources are frozen. For example, if you move a SQL Server and its database to a new resource group,an application that uses the database experiences no downtime. It can still read and write to the database. 
 
 You cannot change the location of the resource. Moving a resource only moves it to a new resource group. The new resource group may have a different location, but that does not change the location of the resource.
 
