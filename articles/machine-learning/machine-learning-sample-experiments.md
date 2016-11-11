@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
-ms.author: cgronlun;chhavib;olgali
+ms.date: 11/11/2016
+ms.author: cgronlun;olgali
 
 ---
 # Copy sample experiments to create new machine learning experiments
