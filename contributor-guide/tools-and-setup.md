@@ -9,7 +9,7 @@ If you're unfamiliar with Git, you might want to review some Git terminology: [h
 * [Sign up for LiveFyre](#sign-up-for-livefyre)
 * [Modify articles using the GitHub UI](#modify-articles-using-the-github-ui)
 * [Private or public repo?](#private-or-public-repo?)
-* [Permissions in GitHub](#permissions-in-github)
+* [Permissions](#permissions)
 * [Install Git for Windows](#install-git-for-windows)
 * [Enable two-factor authentication](#enable-two-factor-authentication)
 * [Install a markdown editor](#install-a-markdown-editor)
@@ -85,10 +85,14 @@ For the following sorts of work, we strongly recommend you install and learn to 
 
  - github.com/Microsoft/azure-docs**-pr**/blob/master/articles/batch/batch-account-create-portal.md
 
-## Permissions in GitHub
+## Permissions
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Microsoft/azure-docs](https://github.com/Microsoft/azure-docs). No special permissions are required.
 
-If you are a Microsoft PM or writer who is working on Azure content as a designated author or reviewer, you must work in our private content repository, azure-docs-pr. Visit [https://repos.opensource.microsoft.com ](https://repos.opensource.microsoft.com) to join the Microsoft GitHub organization. Once you are a member of the Microsoft organization, you can access the private azure-docs-pr repository.
+If you are a Microsoft PM or writer who is working on Azure content as a designated author or reviewer, you must work in our private content repository, azure-docs-pr.
+
+1. Visit [https://repos.opensource.microsoft.com ](https://repos.opensource.microsoft.com) to join the Microsoft GitHub organization. Once you are a member of the Microsoft organization, you can access the private azure-docs-pr repository.
+
+2. Register your GitHub account with the publishing system before you submit your first pull request. To do this, visit https://op-portal-prod.azurewebsites.net/, and click "Sign in with GitHub". The one-time sign-in is all that is needed. 
 
 ## Install Git for Windows
 Install Git for Windows from [http://git-scm.com/download/win](http://git-scm.com/download/win). This download installs the Git version control system, and it installs Git Bash, the command-line app that you will use to interact with your local Git repository.

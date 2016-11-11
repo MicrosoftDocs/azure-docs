@@ -17,7 +17,7 @@ ms.author: SilviaDoomra
 
 ---
 # Report across scaled-out cloud databases (preview)
-You can create reports from multiple Azure SQL databases from a single connection point using an [elastic query](sql-database-elastic-query-overview.md). The databases must be horizontally partitioned (also known as "sharded"). 
+You can create reports from multiple Azure SQL databases from a single connection point using an [elastic query](sql-database-elastic-query-overview.md). The databases must be horizontally partitioned (also known as "sharded").
 
 If you have an existing database, see [Migrating existing databases to scaled-out databases](sql-database-elastic-convert-to-use-elastic-tools.md).
 
@@ -29,24 +29,24 @@ Download and run the [Getting started with Elastic Database tools sample](sql-da
 ## Create a shard map manager using the sample app
 Here you will create a shard map manager along with several shards, followed by insertion of data into the shards. If you happen to already have shards setup with sharded data in them, you can skip the following steps and move to the next section.
 
-1. Build and run the **Getting started with Elastic Database tools** sample application. Follow the steps until step 7 in the section [Download and run the sample app](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). At the end of Step 7, you will see the following command prompt:
-   
+1. Build and run the **Getting started with Elastic Database tools** sample application. Follow the steps until step 7 in the section [Download and run the sample app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). At the end of Step 7, you will see the following command prompt:
+
     ![command prompt][1]
 2. In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat the action four times. This inserts sample data rows in your shards.
 3. The [Azure Portal](https://portal.azure.com) should show three new databases in your v12 server:
-   
+
    ![Visual Studio confirmation][2]
-   
+
    At this point, cross-database queries are supported through the Elastic Database client libraries. For example, use option 4 in the command window. The results from a multi-shard query are always a **UNION ALL** of the results from all shards.
-   
+
    In the next section, we create a sample database endpoint that supports richer querying of the data across shards.
 
 ## Create an elastic query database
 1. Open the [Azure Portal](https://portal.azure.com) and log in.
 2. Create a new Azure SQL database in the same server as your shard setup. Name the database "ElasticDBQuery."
-   
+
     ![Azure portal and pricing tier][3]
-   
+
     Note: you can use an existing database. If you can do so, it must not be one of the shards that you would like to execute your queries on. This database will be used for creating the metadata objects for an elastic database query.
 
 ## Create database objects
@@ -55,14 +55,14 @@ These are used to connect to the shard map manager and the shards:
 
 1. Open SQL Server Management Studio or SQL Server Data Tools in Visual Studio.
 2. Connect to ElasticDBQuery database and execute the following T-SQL commands:
-   
+
         CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
-   
+
         CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
-   
-    "username" and "password" should be the same as login information used in step 6 of [Download and run the sample app](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools) in [Getting started with elastic database tools](sql-database-elastic-scale-get-started.md).
+
+    "username" and "password" should be the same as login information used in step 6 of [Download and run the sample app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) in [Getting started with elastic database tools](sql-database-elastic-scale-get-started.md).
 
 ### External data sources
 To create an external data source, execute the following command on the ElasticDBQuery database:
@@ -106,7 +106,7 @@ You will notice that the query aggregates results from all the shards and gives 
 1. Launch Excel 2013.
 2. Navigate to the **Data** ribbon.
 3. Click **From Other Sources** and click **From SQL Server**.
-   
+
    ![Excel import from other sources][5]
 4. In the **Data Connection Wizard** type the server name and login credentials. Then click **Next**.
 5. In the dialog box **Select the database that contains the data you want**, select the **ElasticDBQuery** database.

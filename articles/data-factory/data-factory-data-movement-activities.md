@@ -97,6 +97,8 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 | Central India |Central India |
 | South India |Central India |
 | West India |Central India |
+| Canada Central | Canada Central |
+| Canada East | Canada Central |
 
 > [!NOTE]
 > If the region of the destination data store is not in the preceding list, Copy Activity fails instead of going through an alternative region.
