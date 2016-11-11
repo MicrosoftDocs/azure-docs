@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #VPN Gateway Documentation
 
-Azure VPN Gateway is virtual private network (VPN) gateway used to send network traffic between Azure virtual networks and on-premises locations and also between virtual networks within Azure (VNet-to-VNet).  
+Azure VPN Gateway is a virtual private network (VPN) gateway used to send network traffic between Azure virtual networks and on-premises locations and also between virtual networks within Azure (VNet-to-VNet).  
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -107,7 +107,7 @@ Azure VPN Gateway is virtual private network (VPN) gateway used to send network 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Vnet-to-VNet connection use the Azure portal</h3>
+                        <h3>Create a VNet-to-VNet connection use the Azure portal</h3>
                     </div>
                 </div>
             </div>
