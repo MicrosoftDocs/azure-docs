@@ -110,7 +110,7 @@
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/cloud-services/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
 ## [Service updates](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
