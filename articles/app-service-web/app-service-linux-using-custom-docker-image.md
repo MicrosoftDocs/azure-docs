@@ -37,12 +37,11 @@ To use a custom Docker image from Docker Hub:
 
 2.  Select **Docker Hub** as the **Image source**, then click either **Public** or **Private** and type the **Image and optional tag name**, such as `node:4.5`. The **Startup command ** is set automatically based on what is defined in the Docker image file, but you can set your own commands.  
 
-	![Configure Docker Hub public repository image][2]
+    ![Configure Docker Hub public repository image][2]
 
+    When your image is from a private repository, you will also need to enter the Docker Hub credentials as (**Login username** and **Password**) for the private Docker Hub repository, as shown below.
 
-	When your image is from a private repository, you will also need to enter the Docker Hub credentials as (**Login username** and **Password**) for the private Docker Hub repository, as shown below.
-
-	![Configure Docker Hub private repository image][3]
+    ![Configure Docker Hub private repository image][3]
 
 3. After you have configured the container, click **Save**.
 
