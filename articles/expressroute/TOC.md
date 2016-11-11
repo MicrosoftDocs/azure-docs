@@ -50,12 +50,12 @@
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [Classic REST](https://msdn.microsoft.com/library/azure/dn606310)
 
-# Related 
-## [Virtual Network](../virtual-network/index.md)
-## [VPN Gateway](../vpn-gateway/index.md)
-## [Virtual Machines](../virtual-machines/index.md)
-## [Load Balancer](../load-balancer/index.md)
-## [Traffic Manager](../traffic-manager/index.md)
+# Related
+## [Virtual Network](/azure/virtual-network/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [Virtual Machines](/azure/virtual-machines/)
+## [Load Balancer](/azure/load-balancer/)
+## [Traffic Manager](/azure/traffic-manager/)
 
 # Resources
 ## [Networking Blog](https://azure.microsoft.com/blog/topics/networking/)
