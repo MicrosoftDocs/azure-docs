@@ -31,7 +31,7 @@ Here you will find the prerequisites to provision a virtual array on a host syst
 Before you begin, make sure that:
 
 * You have completed all the steps in [Prepare the portal for StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
-* You have downloaded the virtual array image for Hyper-V from the Azure portal. For more information, see [Step 3: Download the virtual array image](storsimple-virtual-array-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
+* You have downloaded the virtual array image for Hyper-V from the Azure portal. For more information, see **Step 3: Download the virtual array image** of [Prepare the portal for StorSimple Virtual Array guide](storsimple-virtual-array-deploy1-portal-prep.md).
   
   > [!IMPORTANT]
   > The software running on the StorSimple Virtual Array may only be used with the StorSimple Device Manager service.

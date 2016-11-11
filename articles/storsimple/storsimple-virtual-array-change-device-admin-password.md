@@ -66,7 +66,7 @@ Perform the following steps to change the device administrator password through 
     ![change password2](./media/storsimple-virtual-array-change-device-admin-password/image41.png)
 5. At the bottom of the page, click **Apply**. The new password is now applied. If the password change is not successful, you see the following error:
    
-    ![password error](./media/storsimple-ova-rm-change-device-admin-password/image42.png)
+    ![password error](./media/storsimple-virtual-array-change-device-admin-password/image42.png)
    
     After the password is successfully updated, you are notified. You can then use this modified password to access the device locally.
 

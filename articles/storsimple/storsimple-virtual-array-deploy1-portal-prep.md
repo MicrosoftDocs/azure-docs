@@ -1,6 +1,6 @@
 ---
 title: Deploy StorSimple Virtual Array 1 - Portal Preparation| Microsoft Docs
-description: First tutorial to deploy StorSimple virtual array involves preparing the Resource Manager portal
+description: First tutorial to deploy StorSimple virtual array involves preparing the Azure portal
 services: storsimple
 documentationcenter: NA
 author: alkohli

@@ -31,7 +31,7 @@ The prerequisites to provision a virtual device on a host system running VMware 
 Before you begin, make sure that:
 
 * You have completed all the steps in [Prepare the portal for StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
-* You have downloaded the virtual device image for VMware from the Azure portal. For more information, see [Step 3: Download the virtual device image](storsimple-virtual-array-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
+* You have downloaded the virtual device image for VMware from the Azure portal. For more information, see **Step 3: Download the virtual device image** of [Prepare the portal for StorSimple Virtual Array guide](storsimple-virtual-array-deploy1-portal-prep.md).
 
 ### For the StorSimple virtual device
 Before you deploy a virtual device, make sure that:
