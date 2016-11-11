@@ -85,7 +85,7 @@ DocumentDB returns an error for queries made on collections with None indexing m
 The following table shows the consistency for queries based on the indexing mode (Consistent, Lazy, and None) when EnableScanInQuery is specified.
 
 |Consistency|Indexing Mode: Consistent|Indexing Mode: Lazy|Indexing Mode: None|
-|---|---|---|
+|---|---|---|---|
 |Strong|Strong|Eventual|Strong|
 |Bounded Staleness|Bounded Staleness|Eventual|Bounded Staleness|
 |Session|Session|Eventual|Session|
