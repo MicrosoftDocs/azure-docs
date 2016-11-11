@@ -3,12 +3,12 @@ layout: LandingPage
 ---
 #ExpressRoute Documentation
 
-Azure ExpressRoute lets you extend your on-premises entworks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider.  Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernetnetwork, or a virtual cross-connection through a connectivity provider at a co-location facility.
+Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/expressourte/express-route-introduction">
+        <a href="/azure/expressroute/express-route-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
