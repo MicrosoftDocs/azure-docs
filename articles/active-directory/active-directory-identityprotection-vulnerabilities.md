@@ -24,6 +24,7 @@ Vulnerabilities are weaknesses in your environment that can be exploited by an a
 ![vulnerabilities](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilities")
 <br>
 
+
 The following sections provide you with an overview of the vulnerabilities reported by Identity Protection.
 
 ## Multi-factor authentication registration not configured
