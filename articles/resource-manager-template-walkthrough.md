@@ -127,12 +127,13 @@ There are quite a few ways to deploy a template, as you can see in the [Resource
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West Europe"
 
 # deploy the template to the resource group
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile azuredeploy.json
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile azuredeploy.json
 ```
 
 Or, to deploy the template using Azure CLI, use:
 
-```
+```azurecli
 azure group create -n ExampleResourceGroup -l "West Europe"
 
 azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n ExampleDeployment
@@ -165,7 +166,7 @@ The value you specify for **type** contains both the resource provider and the r
 
 Or, if you are using Azure CLI, you can run the following command:
 
-```
+```azurecli
     azure provider list
 ```
 Given that in this topic you are creating with storage accounts, virtual machines, and virtual networking, you will work with:
@@ -182,7 +183,7 @@ To see the resource types for a particular provider, run the following PowerShel
 
 Or, for Azure CLI, the following command will return the available types in JSON format and save it to a file.
 
-```
+```azurecli
     azure provider show Microsoft.Compute --json > c:\temp.json
 ```
 

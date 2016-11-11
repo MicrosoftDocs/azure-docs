@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sewhee
-
 ---
+
 # Troubleshooting degraded state on Azure Traffic Manager
+
 This article describes how to troubleshoot an Azure Traffic Manager profile that is showing a degraded status. For this scenario, consider that you have configured a Traffic Manager profile pointing to some of your cloudapp.net hosted services. When you check the health of your traffic manager, you see that the Status is Degraded.
 
 ![degraded state](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degraded.png)
@@ -27,6 +28,7 @@ If you go into the Endpoints tab of that profile, you see one or more of the end
 ![offline](./media/traffic-manager-troubleshooting-degraded/traffic-manager-offline.png)
 
 ## Understanding Traffic Manager probes
+
 * Traffic Manager considers an endpoint to be ONLINE only when the probe receives an HTTP 200 response back from the probe path. Any other non-200 response is a failure.
 * A 30x redirect fails, even if the redirected URL returns a 200.
 * For HTTPs probes, certificate errors are ignored.
@@ -35,6 +37,7 @@ If you go into the Endpoints tab of that profile, you see one or more of the end
 * If all endpoints in a profile are degraded, then Traffic Manager treats all endpoints as healthy and routes traffic to all endpoints. This behavior ensures that problems with the probing mechanism do not result in a complete outage of your service.
 
 ## Troubleshooting
+
 To troubleshoot a probe failure, you need a tool that shows the HTTP status code return from the probe URL. There are many tools available that show you the raw HTTP response.
 
 * [Fiddler](http://www.telerik.com/fiddler)
@@ -46,37 +49,36 @@ Also, you can use the Network tab of the F12 Debugging Tools in Internet Explore
 For this example we want to see the response from our probe URL: http://watestsdp2008r2.cloudapp.net:80/Probe. The following PowerShell example illustrates the problem.
 
 ```powershell
-    Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
+Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
 ```
 
 Example output:
 
-```text
     StatusCode StatusDescription
     ---------- -----------------
-            301 Moved Permanently
-```
+           301 Moved Permanently
 
 Notice that we received a redirect response. As stated previously, any StatusCode other than 200 is considered a failure. Traffic Manager changes the endpoint status to Offline. To resolve the problem, check the website configuration to ensure that the proper StatusCode can be returned from the probe path. Reconfigure the Traffic Manager probe to point to a path that returns a 200.
 
 If your probe is using the HTTPS protocol, you may need to disable certificate checking to avoid SSL/TLS errors during your test. The following PowerShell statements disable certificate validation for the current PowerShell session:
 
 ```powershell
-    add-type @"
-    using System.Net;
-    using System.Security.Cryptography.X509Certificates;
-    public class TrustAllCertsPolicy : ICertificatePolicy {
-        public bool CheckValidationResult(
-        ServicePoint srvPoint, X509Certificate certificate,
-        WebRequest request, int certificateProblem) {
-        return true;
-        }
+add-type @"
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+public class TrustAllCertsPolicy : ICertificatePolicy {
+    public bool CheckValidationResult(
+    ServicePoint srvPoint, X509Certificate certificate,
+    WebRequest request, int certificateProblem) {
+    return true;
     }
-    "@
-    [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+}
+"@
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
 ```
 
 ## Next Steps
+
 [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
 
 [What is Traffic Manager](traffic-manager-overview.md)

@@ -40,7 +40,7 @@ For more information about Resource Manager resources, see [Azure Resource Manag
 Before you get started with the steps in this tutorial, [install the Azure CLI](../xplat-cli-install.md).
 
 ## Step 1: Create a resource group and a storage account
-1. **Sign in to Microsoft Azure** - In your command-line interface (Bash, Terminal, Command prompt), switch to Resource Manager mode, and then [log in with your work or school id](../xplat-cli-connect.md#use-the-log-in-method). Follow the prompts for an interactive login experience to your Azure account.
+1. **Sign in to Microsoft Azure** - In your command-line interface (Bash, Terminal, Command prompt), switch to Resource Manager mode, and then [log in with your work or school id](../xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login). Follow the prompts for an interactive login experience to your Azure account.
    
         azure config mode arm
    
