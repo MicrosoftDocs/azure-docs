@@ -123,7 +123,7 @@ Azure VPN Gateway is virtual private network (VPN) gateway used to send network 
 [PowerShell Reference](/powershell)
 
 ###Azure CLI
-[VPN Gateway using Azure CLI](azure/network/vpn-gateway)
+[VPN Gateway using Azure CLI](cli/azure/network/vpn-gateway)
 
 ###.NET
 [.NET Managed Reference](/dotnet/api)
