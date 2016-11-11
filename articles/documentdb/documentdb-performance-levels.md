@@ -37,7 +37,7 @@ DocumentDB supports both **user-defined** performance levels and **pre-defined**
 |User-defined performance|User sets throughput in units of 100 RU/s|Unlimited. <br><br>400 - 250,000 request units/s by default (higher by request)|Unlimited. <br><br>250 GB by default (higher by request)|V2|API 2015-12-16 and newer|
 |Pre-defined performance|10 GB reserved storage.<br><br>S1 = 250 RU/s<br>S2 = 1000 RU/s<br>S3 = 2500 RU/s|2500 RU/s|10 GB|V1|Any|
 
-Throughput that is reserved per collection, and is available for use by that collection exclusively. Throughput is measured in [request units (RUs)](documentdb-request-units.md), which measure for the resources required to perform various DocumentDB database operations.
+Throughput is reserved per collection, and is available for use by that collection exclusively. Throughput is measured in [request units (RUs)](documentdb-request-units.md), which identify the amount of resources required to perform various DocumentDB database operations.
 
 > [!NOTE]
 > The performance level of a collection can be adjusted through the [SDKs](documentdb-sdk-dotnet.md) or the [Azure portal](https://portal.azure.com/). Performance level changes are expected to complete within 3 minutes.
@@ -156,7 +156,7 @@ If you are already using user-defined performance, you can change the throughput
 
 ## Troubleshooting
 
-If you do not see the option to change to between S1, S2, or S3 performance levels on the **Choose your pricing tier** blade, click **View all** to display the Standard, S1, S2, and S3 performance levels.
+If you do not see the option to change between S1, S2, or S3 performance levels on the **Choose your pricing tier** blade, click **View all** to display the Standard, S1, S2, and S3 performance levels. If you are using the Standard pricing tier, you cannot change between S1, S2, and S3.
 
 ![Screen shot of the Choose your pricing tier blade with View all highlighted](./media/documentdb-performance-levels/azure-documentdb-database-view-all-performance-levels.png)
 
