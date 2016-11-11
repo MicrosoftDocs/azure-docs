@@ -25,19 +25,19 @@ ms.author: trinadhk; jimpark; markgal;
 >
 >
 
-This article provides the procedure for backing up Azure VMs (both Resource Manager-deployed and Classic-deployed) to a Recovery Services vault. The majority of work for backing up VMs goes into the preparation. Before you can back up or protect a VM, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs. Once you have completed the prerequisites, then you can initiate the back up operation to take snapshots of your VM.
+This article provides the procedure for backing up Azure VMs (both Resource Manager-deployed and Classic-deployed) to a Recovery Services vault. Most of the work for backing up VMs, is the preparation. Before you can back up or protect a VM, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs. Once you have completed the prerequisites, then you can initiate the backup operation to take snapshots of your VM.
 
 >
-[!INCLUDE [learn about backup deployment modesl](../../includes/backup-deployment-models.md)]
+[!INCLUDE [learn about backup deployment models](../../includes/backup-deployment-models.md)]
 
-For additional information, see the articles on [planning your VM backup infrastructure in Azure](backup-azure-vms-introduction.md) and [Azure virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
+For more information, see the articles on [planning your VM backup infrastructure in Azure](backup-azure-vms-introduction.md) and [Azure virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## Triggering the back up job
-The back up policy associated with the Recovery Services vault, defines how often and when the backup operation runs. By default, the first scheduled backup is the initial backup. Until the initial backup occurs, the Last Backup Status on the **Backup Jobs** blade shows as **Warning(initial backup pending)**.
+## Triggering the backup job
+The backup policy associated with the Recovery Services vault defines how often and when the backup operation runs. By default, the first scheduled backup is the initial backup. Until the initial backup occurs, the Last Backup Status on the **Backup Jobs** blade shows as **Warning(initial backup pending)**.
 
 ![Backup pending](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-Unless your initial backup is due to begin very soon, it is recommended that you run **Back up Now**. The following procedure starts from the vault dashboard. This procedure serves for running the initial backup job after you have completed all prerequisites. If the initial backup job has already been run, this procedure is not available. The associated backup policy determines the next backup job.  
+Unless your initial backup is due to begin soon, it is recommended that you run **Back up Now**. The following procedure starts from the vault dashboard. This procedure serves for running the initial backup job after you have completed all prerequisites. If the initial backup job has already been run, this procedure is not available. The associated backup policy determines the next backup job.  
 
 To run the initial backup job:
 
@@ -62,17 +62,17 @@ To run the initial backup job:
     ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
 
    > [!NOTE]
-   > As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machine to flush all writes and take a consistent snapshot.
+   > During the backup operation, the backup extension in each virtual machine flushes all writes and takes a consistent snapshot.
    >
    >
 
     When the backup job is finished, the status is *Completed*.
 
 ## Troubleshooting errors
-If you run into issues while backing up your virtual machine, please see the [VM troubleshooting article](backup-azure-vms-troubleshoot.md) for help.
+If you run into issues while backing up your virtual machine, see the [VM troubleshooting article](backup-azure-vms-troubleshoot.md) for help.
 
 ## Next steps
-Now that you have protected your VM, check out the following articles for additional management tasks  you can do with your VMs, and how to restore VMs.
+Now that you have protected your VM, see the following articles to learn about VM management tasks, and how to restore VMs.
 
 * [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
 * [Restore virtual machines](backup-azure-arm-restore-vms.md)
