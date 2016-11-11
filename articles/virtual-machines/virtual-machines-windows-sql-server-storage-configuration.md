@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/04/2016
+ms.date: 11/11/2016
 ms.author: ninarn
 
 ---
