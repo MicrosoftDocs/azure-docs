@@ -35,14 +35,14 @@
 # Related
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
-## [Big Compute in Azure: Technical resources](big-compute-resources.md)
+## [Big Compute in Azure: technical resources](big-compute-resources.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
-## [Service Updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
+## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Batch C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Batch Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 
