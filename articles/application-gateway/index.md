@@ -7,7 +7,7 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="azure/application-gateway/application-gateway-introduction">
+        <a href="/azure/application-gateway/application-gateway-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
         </a>
     </li>
         <li>
-        <a href="azure/application-gateway/application-gateway-create-gateway-portal">
+        <a href="/azure/application-gateway/application-gateway-create-gateway-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
         </a>
     </li>
     <li>
-        <a href="azure/application-gateway/application-gateway-create-gateway-arm">
+        <a href="/azure/application-gateway/application-gateway-create-gateway-arm">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
         </a>
     </li>
     <li>
-        <a href="azure/application-gateway/application-gateway-create-gateway-arm-template">
+        <a href="/azure/application-gateway/application-gateway-create-gateway-arm-template">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
