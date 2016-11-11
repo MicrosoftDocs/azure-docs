@@ -1,4 +1,4 @@
-﻿---
+---
 title: Vulnerabilities detected by Azure Active Directory Identity Protection | Microsoft Docs
 description: Overview of the vulnerabilities detected by Azure Active Directory Identity Protection.
 services: active-directory
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 11/11/2016
 ms.author: markvi
 
 ---
