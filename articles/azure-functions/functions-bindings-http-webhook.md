@@ -3,7 +3,7 @@ title: Azure Functions HTTP and webhook bindings | Microsoft Docs
 description: Understand how to use HTTP and webhook triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: mattchenderson
 manager: erikre
 editor: ''
 tags: ''
@@ -15,8 +15,8 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
-ms.author: chrande
+ms.date: 11/11/2016
+ms.author: mahender
 
 ---
 # Azure Functions HTTP and webhook bindings
@@ -52,7 +52,7 @@ The HTTP trigger to a function uses the following JSON object in the `bindings` 
 * `function`: function-specific API key required
 * `admin`: master API key required
 
-For more information, see [Validate requests with API keys](#validate).
+For more information, see [Validate requests with API keys](#keys).
 
 [Additional settings](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) can be provided in a host.json file to further fine tune HTTP triggers.  
 
@@ -272,13 +272,13 @@ The webhook trigger to a function uses the following JSON object in the `binding
     },
 
 ### Configure webhook providers
-The GitHub webhook is simple to configure. You create GitHub webhook trigger in Functions, and copy its [URL](#url) and [API key](#validate)
+The GitHub webhook is simple to configure. You create GitHub webhook trigger in Functions, and copy its [URL](#url) and [API key](#keys)
 into your GitHub repository's **Add webhook** page.
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
 The [Slack webhook](https://api.slack.com/outgoing-webhooks) generates a token for you instead of letting you specify it, so you must configure
-your function-specific `key` API key with the token from Slack (to see where to define the API key, see [Types of API keys](#keytypes)).
+your function-specific `key` API key with the token from Slack (to see where to define the API key, see [Types of API keys](#keys)).
 
 <a name="hooktriggerusage"></a>
 
@@ -380,38 +380,44 @@ You can use the output parameter (e.g. `res`) to respond to the http or webhook 
 standard `Request.CreateResponse()` (C#) or `context.res` pattern to return your response. For examples on how to use
 the latter method, see [HTTP trigger sample](#httptriggersample) and [Webhook trigger sample](#hooktriggersample).
 
-<a name="validate"></a>
+<a name="keys"></a>
+## Working with keys
+HttpTriggers can leverage keys for added security. A standard HttpTrigger can use these as an API key, requiring the key to be present on the request. Webhooks can use keys to authorize requests in a variety of ways, depending on what the provider supports.
 
-## Validate requests with API keys
-By default, an HTTP or webhook triggered function requires an API key in the HTTP request. So your HTTP request normally looks like this:
+Keys are stored as part of your function app in Azure and are encrypted at rest. To view your keys, create new ones, or roll keys to new values, navigate to one of your functions within the portal and select "Manage." 
 
-    https://{functionapp}.azurewebsites.net/api/{function}?code={API key}
+There are two types of keys:
+- **Admin keys**: These keys are shared by all functions within the function app. When used as an API key, these allow access to any function within the function app.
+- **Function keys**: These keys apply only to the specific functions under which they are defined. When used as an API key, these only allow access to that function.
 
-The key can be included in a query string variable named `code`, or it can be included in an `x-functions-key` HTTP header.
-
-### Disable API keys
-For generic HTTP triggers, turn off the API key requirement by using `"authLevel": "anonymous"` in the binding JSON
-(see [HTTP trigger](#httptrigger)).
-
-Webhook triggers require HTTP request validation, so you cannot disable API keys.
-
-<a name="keytypes"></a>
-
-### Types of API keys
-The following list shows you the three types of API keys you can use and where each is defined in the file system of the function app:
-
-* Function-specific `key`: defined in *D:\home\data\Functions\secrets\{function name}.json*. Use it to trigger only the function that matches the filename.
-* `masterKey`: defined in *D:\home\data\Functions\secrets\host.json*. Use it to trigger any function in your function app, even if it's disabled.
-* `functionKey`: defined in *D:\home\data\Functions\secrets\host.json*. Use it to trigger any function in your function app that is not disabled.
-
-If you configure an [HTTP trigger](#httptrigger) with `"authLevel": "admin"` in the binding JSON, then the function accepts only
-the `masterKey` API key.
+Each key is named for reference, and there is a default key (named "default") at the function and admin level. The **master key** is a default admin key named "_master" that is defined for each function app and cannot be revoked. It provides administrative access to the runtime APIs. Using `"authLevel": "admin"` in the binding JSON will require this key to be presented on the request; any other key will result in a authorization failure.
 
 > [!NOTE]
-> To minimize your function app's attach surface, only share the function-specific `key` with your HTTP request sender. Do not
-> share the `masterKey` API key with the webhook provider.
+> Due to the elevated permissions granted by the master key, you should not share this key with third parties or distribute it in native client applications. Exercise caution when choosing the admin authorization level.
 > 
 > 
+
+### API key authorization
+By default, an HttpTrigger requires an API key in the HTTP request. So your HTTP request normally looks like this:
+
+    https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
+
+The key can be included in a query string variable named `code`, as above, or it can be included in an `x-functions-key` HTTP header. The value of the key can be any function key defined for the function, or any admin key.
+
+You can choose to allow requests without keys or specify that the master key must be used by changing the `authLevel` property in the binding JSON
+(see [HTTP trigger](#httptrigger)).
+
+### Keys and webhooks
+Webhook authorization is handled by the webhook reciever component, part of the HttpTrigger, and the mechanism varies based on the webhook type. Each mechanism does, however rely on a key. By default, the function key named "default" will be used. If you wish to use a different key, you will need to configure the webhook provider to send the key name with the request in one of the following ways:
+
+- **Query string**: The provider passes the key name in the `clientid` query string parameter (e.g., `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`).
+- **Request header**: The provider passes the key name in the `x-functions-clientid` header.
+
+> [!NOTE]
+> Function keys take precedence over admin keys. If two keys are defined with the same name, the function key will be used.
+> 
+> 
+
 
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
