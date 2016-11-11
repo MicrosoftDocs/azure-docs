@@ -145,9 +145,6 @@ However, to use the tools, you must first have or install their latest updates t
 > 
 > 
 
-#### Automated Export
-Automated Export continues to be available as preview.  No client tool updates are required when using Automated Export.  If you choose to take the resulting file and import to an on-premise server, the tooling updates listed above are needed to import successfully.
-
 ### Restore to V12 of a deleted V11 database
 The following scenario explains that a deleted V11 Azure SQL database can be restored onto a V12 Azure SQL Database server.
 
