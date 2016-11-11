@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: sewhee
-
 ---
+
 # Get started creating an Internet facing load balancer (classic) in the Azure CLI
+
 [!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
@@ -30,42 +31,48 @@ This article covers the classic deployment model. You can also [Learn how to cre
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## Step by step creating an Internet facing load balancer using CLI
+
 This guide shows how to create an Internet load balancer based on the scenario above.
 
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to classic mode, as shown below.
-   
+
+    ```azurecli
         azure config mode asm
-   
+    ```
+
     Expected output:
-   
+
         info:    New mode is asm
 
 ## Create endpoint and load balancer set
+
 The scenario assumes the virtual machines "web1" and "web2" were created.
 This guide will create a load balancer set using port 80 as public port and port 80 as local port. A probe port is also configured on port 80 and named the load balancer set "lbset".
 
 ### Step 1
+
 Create the first endpoint and load balancer set using `azure network vm endpoint create` for virtual machine "web1".
 
-    azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset
-
-Parameters used:
-
-**-k** - local virtual machine port<br>
-**-o** - protocol<BR>
-**-t** - probe port<BR>
-**-b** - load balancer name<BR>
+```azurecli
+azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
+```
 
 ## Step 2
+
 Add a second virtual machine "web2" to the load balancer set.
 
-    azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
+```azurecli
+azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
+```
 
 ## Step 3
+
 Verify the load balancer configuration using `azure vm show` .
 
-    azure vm show web1
+```azurecli
+azure vm show web1
+```
 
 The output will be:
 
@@ -112,28 +119,30 @@ The output will be:
     info:    vm show command OK
 
 ## Create a remote desktop endpoint for a virtual machine
+
 You can create a remote desktop endpoint to forward network traffic from a public port to a local port for a specific virtual machine using `azure vm endpoint create`.
 
-    azure vm endpoint create web1 54580 -k 3389
-
+```azurecli
+azure vm endpoint create web1 54580 -k 3389
+```
 
 ## Remove virtual machine from load balancer
+
 You have to delete the endpoint associated to the load balancer set from the virtual machine. Once the endpoint is removed, the virtual machine doesn't belong to the load balancer set anymore.
 
- Using the example above, you can remove the endpoint created for virtual machine "web1" from load balancer "lbset" using the command `azure vm endpoint delete`.
+Using the example above, you can remove the endpoint created for virtual machine "web1" from load balancer "lbset" using the command `azure vm endpoint delete`.
 
-    azure vm endpoint delete web1 tcp-80-80
-
+```azurecli
+azure vm endpoint delete web1 tcp-80-80
+```
 
 > [!NOTE]
 > You can explore more options to manage endpoints using the command `azure vm endpoint --help`
-> 
-> 
 
 ## Next steps
+
 [Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
-

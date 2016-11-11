@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 11/10/2016
 ms.author: chrande; glenga
 
 ---
@@ -38,15 +38,17 @@ ID can be determined based on the trigger that invokes the function.
 
 The DocumentDB input to a function uses the following JSON object in the `bindings` array of function.json:
 
-    {
-      "name": "<Name of input parameter in function signature>",
-      "type": "documentDB",
-      "databaseName": "<Name of the DocumentDB database>",
-      "collectionName": "<Name of the DocumentDB collection>",
-      "id": "<Id of the DocumentDB document - see below>",
-      "connection": "<Name of app setting with connection string - see below>",
-      "direction": "in"
-    },
+```json
+{
+  "name": "<Name of input parameter in function signature>",
+  "type": "documentDB",
+  "databaseName": "<Name of the DocumentDB database>",
+  "collectionName": "<Name of the DocumentDB collection>",
+  "id": "<Id of the DocumentDB document - see below>",
+  "connection": "<Name of app setting with connection string - see below>",
+  "direction": "in"
+},
+```
 
 Note the following:
 
@@ -71,15 +73,17 @@ make updates to input documents. See how it is done in the [Node.js sample](#inn
 ## Input sample
 Suppose you have the following DocumentDB input binding in the `bindings` array of function.json:
 
-    {
-      "name": "inputDocument",
-      "type": "documentDB",
-      "databaseName": "MyDatabase",
-      "collectionName": "MyCollection",
-      "id" : "{queueTrigger}",
-      "connection": "MyAccount_DOCUMENTDB",     
-      "direction": "in"
-    }
+```json
+{
+  "name": "inputDocument",
+  "type": "documentDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "id" : "{queueTrigger}",
+  "connection": "MyAccount_DOCUMENTDB",     
+  "direction": "in"
+}
+```
 
 See the language-specific sample that uses this input binding to update the document's text value.
 
@@ -88,58 +92,70 @@ See the language-specific sample that uses this input binding to update the docu
 * [Node.js](#innodejs)
 
 <a name="incsharp"></a>
-### Input sample in C\
-    public static void Run(string myQueueItem, dynamic inputDocument)
-    {   
-      inputDocument.text = "This has changed.";
-    }
+### Input sample in C# #
 
+```cs
+public static void Run(string myQueueItem, dynamic inputDocument)
+{   
+  inputDocument.text = "This has changed.";
+}
+```
 <a name="infsharp"></a>
 
-### Input sample in F\
-    open FSharp.Interop.Dynamic
-    let Run(myQueueItem: string, inputDocument: obj) =
-      inputDocument?text <- "This has changed."
+### Input sample in F# #
+
+```fsharp
+open FSharp.Interop.Dynamic
+let Run(myQueueItem: string, inputDocument: obj) =
+  inputDocument?text <- "This has changed."
+```
 
 You need to add a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
 dependencies:
 
-    {
-      "frameworks": {
-        "net46": {
-          "dependencies": {
-            "Dynamitey": "1.0.2",
-            "FSharp.Interop.Dynamic": "3.0.0"
-          }
-        }
+```json
+{
+  "frameworks": {
+    "net46": {
+      "dependencies": {
+        "Dynamitey": "1.0.2",
+        "FSharp.Interop.Dynamic": "3.0.0"
       }
     }
+  }
+}
+```
 
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
 <a name="innodejs"></a>
 
 ### Input sample in Node.js
-    module.exports = function (context) {   
-      context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
-      context.bindings.inputDocumentOut.text = "This was updated!";
-      context.done();
-    };
+
+```javascript
+module.exports = function (context) {   
+  context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
+  context.bindings.inputDocumentOut.text = "This was updated!";
+  context.done();
+};
+```
 
 ## <a id="docdboutput"></a>DocumentDB output binding
 The DocumentDB output binding lets you write a new document to an Azure DocumentDB database. 
 
 The output binding uses the following JSON object in the `bindings` array of function.json: 
 
-    {
-      "name": "<Name of output parameter in function signature>",
-      "type": "documentDB",
-      "databaseName": "<Name of the DocumentDB database>",
-      "collectionName": "<Name of the DocumentDB collection>",
-      "createIfNotExists": <true or false - see below>,
-      "connection": "<Value of AccountEndpoint in Application Setting - see below>",
-      "direction": "out"
-    }
+```json
+{
+  "name": "<Name of output parameter in function signature>",
+  "type": "documentDB",
+  "databaseName": "<Name of the DocumentDB database>",
+  "collectionName": "<Name of the DocumentDB collection>",
+  "createIfNotExists": <true or false - see below>,
+  "connection": "<Value of AccountEndpoint in Application Setting - see below>",
+  "direction": "out"
+}
+```
 
 Note the following:
 
@@ -163,32 +179,38 @@ the output parameter. If a document with that ID already exists, the output docu
 ## Output sample
 Suppose you have the following DocumentDB output binding in the `bindings` array of function.json:
 
-    {
-      "name": "employeeDocument",
-      "type": "documentDB",
-      "databaseName": "MyDatabase",
-      "collectionName": "MyCollection",
-      "createIfNotExists": true,
-      "connection": "MyAccount_DOCUMENTDB",     
-      "direction": "out"
-    }
+```json
+{
+  "name": "employeeDocument",
+  "type": "documentDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "createIfNotExists": true,
+  "connection": "MyAccount_DOCUMENTDB",     
+  "direction": "out"
+}
+```
 
 And you have a queue input binding for a queue that receives JSON in the following format:
 
-    {
-      "name": "John Henry",
-      "employeeId": "123456",
-      "address": "A town nearby"
-    }
+```json
+{
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
 
 And you want to create DocumentDB documents in the following format for each record:
 
-    {
-      "id": "John Henry-123456",
-      "name": "John Henry",
-      "employeeId": "123456",
-      "address": "A town nearby"
-    }
+```json
+{
+  "id": "John Henry-123456",
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
 
 See the language-specific sample that uses this output binding to add documents to your database.
 
@@ -198,76 +220,87 @@ See the language-specific sample that uses this output binding to add documents 
 
 <a name="outcsharp"></a>
 
-### Output sample in C\
-    #r "Newtonsoft.Json"
+### Output sample in C# #
 
-    using System;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
+```cs
+#r "Newtonsoft.Json"
 
-    public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
-    {
-      log.Info($"C# Queue trigger function processed: {myQueueItem}");
+using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-      dynamic employee = JObject.Parse(myQueueItem);
+public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
+{
+  log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-      employeeDocument = new {
-        id = employee.name + "-" + employee.employeeId,
-        name = employee.name,
-        employeeId = employee.employeeId,
-        address = employee.address
-      };
-    }
+  dynamic employee = JObject.Parse(myQueueItem);
+
+  employeeDocument = new {
+    id = employee.name + "-" + employee.employeeId,
+    name = employee.name,
+    employeeId = employee.employeeId,
+    address = employee.address
+  };
+}
+```
 
 <a name="outfsharp"></a>
 
-### Output sample in F\
-    open FSharp.Interop.Dynamic
-    open Newtonsoft.Json
+### Output sample in F# #
 
-    type Employee = {
-      id: string
-      name: string
-      employeeId: string
-      address: string
-    }
+```fsharp
+open FSharp.Interop.Dynamic
+open Newtonsoft.Json
 
-    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
-      log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
-      let employee = JObject.Parse(myQueueItem)
-      employeeDocument <-
-        { id = sprintf "%s-%s" employee?name employee?employeeId
-          name = employee?name
-          employeeId = employee?employeeId
-          address = employee?address }
+type Employee = {
+  id: string
+  name: string
+  employeeId: string
+  address: string
+}
+
+let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
+  log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+  let employee = JObject.Parse(myQueueItem)
+  employeeDocument <-
+    { id = sprintf "%s-%s" employee?name employee?employeeId
+      name = employee?name
+      employeeId = employee?employeeId
+      address = employee?address }
+```
 
 You need to add a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
 dependencies:
 
-    {
-      "frameworks": {
-        "net46": {
-          "dependencies": {
-            "Dynamitey": "1.0.2",
-            "FSharp.Interop.Dynamic": "3.0.0"
-          }
-        }
+```json
+{
+  "frameworks": {
+    "net46": {
+      "dependencies": {
+        "Dynamitey": "1.0.2",
+        "FSharp.Interop.Dynamic": "3.0.0"
       }
     }
+  }
+}
+```
 
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
 <a name="outnodejs"></a>
 
 ### Output sample in Node.js
-    module.exports = function (context) {
 
-      context.bindings.employeeDocument = JSON.stringify({ 
-        id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
-        name: context.bindings.myQueueItem.name,
-        employeeId: context.bindings.myQueueItem.employeeId,
-        address: context.bindings.myQueueItem.address
-      });
+```javascript
+module.exports = function (context) {
 
-      context.done();
-    };
+  context.bindings.employeeDocument = JSON.stringify({ 
+    id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
+    name: context.bindings.myQueueItem.name,
+    employeeId: context.bindings.myQueueItem.employeeId,
+    address: context.bindings.myQueueItem.address
+  });
+
+  context.done();
+};
+```

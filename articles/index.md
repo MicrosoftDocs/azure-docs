@@ -15,7 +15,7 @@ layout: HubPage
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>Get Started Guide for Azure Developer</h3>
+                                    <h3>Get Started Guide for Azure Developers</h3>
                                 </div>
                             </div>
                         </div>
@@ -33,7 +33,7 @@ layout: HubPage
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>Get Started Guide for Azure IT Operator</h3>
+                                    <h3>Get Started Guide for Azure IT Operators</h3>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@ layout: HubPage
                 </a>
             </li>
             <li>
-                <a href="https://azure.microsoft.com/en-us/get-started/">
+                <a href="https://azure.microsoft.com/get-started/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -75,13 +75,13 @@ layout: HubPage
                                         <li>
                                             <a href="/azure/virtual-machines/linux/">
                                                 <img src="media/index/VirtualMachine.svg" alt="" />
-                                                <p>Virtual Machines Linux</p>
+                                                <p>Linux Virtual Machines</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/virtual-machines/windows/">
                                                 <img src="media/index/VirtualMachine.svg" alt="" />
-                                                <p>Virtual Machine Windows</p>
+                                                <p>Windows Virtual Machines</p>
                                             </a>
                                         </li>
                                         <li>
@@ -146,7 +146,7 @@ layout: HubPage
                                         <li>
                                             <a href="/azure/application-gateway/">
                                                 <img src="media/index/ApplicationGateway.svg" alt="" />
-                                                <p>Application gateway</p>
+                                                <p>Application Gateway</p>
                                             </a>
                                         </li>
                                         <li>
@@ -343,7 +343,7 @@ layout: HubPage
                                         <li>
                                             <a href="/azure/cognitive-services/">
                                                 <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Cognitive Service</p>
+                                                <p>Cognitive Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -384,7 +384,7 @@ layout: HubPage
                                     <h3>Internet of Things</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://azure.microsoft.com/en-us/develop/iot/">
+                                            <a href="https://azure.microsoft.com/develop/iot/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
                                                 <p>IoT Developer Center</p>
                                             </a>
@@ -522,7 +522,7 @@ layout: HubPage
                                     <h3>Developer Tools</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://www.visualstudio.com/en-us/docs/overview">
+                                            <a href="https://www.visualstudio.com/docs/overview">
                                                 <img src="media/index/VisualStudioTeamServices.svg" alt="" />
                                                 <p>Visual Studio Team Services</p>
                                             </a>
@@ -642,7 +642,7 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Virtual Machines Linux</h3>
+                                                    <h3>Linux Virtual Machines</h3>
                                                     <p>Provision virtual machines of Ubuntu, Red Hat, and more</p>
                                                 </div>
                                             </div>
@@ -661,7 +661,7 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Virtual Machine Windows</h3>
+                                                    <h3>Windows Virtual Machines</h3>
                                                     <p>Provision virtual machines for SQL Server, SharePoint and more</p>
                                                 </div>
                                             </div>
@@ -856,7 +856,7 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Application gateway</h3>
+                                                    <h3>Application Gateway</h3>
                                                     <p>Layer 7 Load Balancer with built-in HTTP load balancing and delivery
                                                         control</p>
                                                 </div>
@@ -1430,7 +1430,7 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cognitive Service</h3>
+                                                    <h3>Cognitive Services</h3>
                                                     <p>Add smart API capabilities to enable contextual interactions</p>
                                                 </div>
                                             </div>

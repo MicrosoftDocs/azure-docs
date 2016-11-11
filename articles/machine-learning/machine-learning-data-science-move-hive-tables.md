@@ -27,7 +27,7 @@ This **menu** links to topics that describe how to ingest data into target envir
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [About Azure storage accounts](../storage/storage-create-storage-account.md). 
+* Created an Azure storage account. If you need instructions, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
 * Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Customize Azure HDInsight Hadoop clusters for advanced analytics](machine-learning-data-science-customize-hadoop-cluster.md).
 * Enabled remote access to the cluster, logged in, and opened the Hadoop Command-Line console. If you need instructions, see [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
@@ -81,7 +81,7 @@ When the Hive query is more complicated and has multiple lines, editing queries 
 By default, after Hive query is submitted in Hadoop Command Line, the progress of the Map/Reduce job is printed out on screen. To suppress the screen print of the Map/Reduce job progress, you can use an argument `-S` ("S" in upper case) in the command line as follows:
 
     hive -S -f "<path to the .hql file>"
-    hive -S -e "<Hive queries>"
+.    hive -S -e "<Hive queries>"
 
 #### Submit Hive queries in Hive command console.
 You can also first enter the Hive command console by running command `hive` in Hadoop Command Line, and then submit Hive queries in Hive command console. Here is an example. In this example, the two red boxes highlight the commands used to enter the Hive command console, and the Hive query submitted in Hive command console, respectively. The green box highlights the output from the Hive query.
@@ -91,7 +91,6 @@ You can also first enter the Hive command console by running command `hive` in H
 The previous examples directly output the Hive query results on screen. You can also write the output to a local file on the head node, or to an Azure blob. Then, you can use other tools to further analyze the output of Hive queries.
 
 **Output Hive query results to a local file.**
-
 To output Hive query results to a local directory on the head node, you have to submit the Hive query in the Hadoop Command Line as follows:
 
     hive -e "<hive query>" > <local path in the head node>
@@ -118,7 +117,7 @@ If you open the default container of the Hadoop cluster using Azure Storage Expl
 You can also use the Query Console (Hive Editor) by entering a URL of the form *https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* into a web browser. You must be logged in the see this console and so you need your Hadoop cluster credentials here.
 
 ### <a name="ps"></a> 3. Submit Hive queries with Azure PowerShell Commands
-You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Create Hive database and tables
 The Hive queries are shared in the [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) and can be downloaded from there.
@@ -153,11 +152,11 @@ Here is the Hive query that loads data into a Hive table.
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
 * **&#60;path to blob data>**: If the blob file to be uploaded to the Hive table is in the default container of the HDInsight Hadoop cluster, the *&#60;path to blob data>* should be in the format *'wasb:///&#60;directory in this container>/&#60;blob file name>'*. The blob file can also be in an additional container of the HDInsight Hadoop cluster. In this case, *&#60;path to blob data>* should be in the format *'wasb://&#60;container name>@&#60;storage account name>.blob.core.windows.net/&#60;blob file name>'*.
-  
+
   > [!NOTE]
   > The blob data to be uploaded to Hive table has to be in the default or additional container of the storage account for the Hadoop cluster. Otherwise, the *LOAD DATA* query fails complaining that it cannot access the data.
-  > 
-  > 
+  >
+  >
 
 ## <a name="partition-orc"></a>Advanced topics: partitioned table and store Hive data in ORC format
 If the data is large, partitioning the table is beneficial for queries that only need to scan a few partitions of the table. For instance, it is reasonable to partition the log data of a web site by dates.
@@ -220,8 +219,8 @@ Select data from the external table in step 1 and insert into the ORC table
 
 > [!NOTE]
 > If the TEXTFILE table *&#60;database name>.&#60;external textfile table name>* has partitions, in STEP 3, the `SELECT * FROM <database name>.<external textfile table name>` command selects the partition variable as a field in the returned data set. Inserting it into the *&#60;database name>.&#60;ORC table name>* fails since *&#60;database name>.&#60;ORC table name>* does not have the partition variable as a field in the table schema. In this case, you need to specifically select the fields to be inserted to *&#60;database name>.&#60;ORC table name>* as follows:
-> 
-> 
+>
+>
 
         INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
            SELECT field1, field2, ..., fieldN
@@ -233,4 +232,3 @@ It is safe to drop the *&#60;external textfile table name>* when using the follo
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
 After following this procedure, you should have a table with data in the ORC format ready to use.  
-
