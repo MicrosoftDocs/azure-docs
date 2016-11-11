@@ -159,8 +159,8 @@ To manually remove backups from the vault.
 1. Identify the container in the vault for 'myserver'
    
     ```
-    Set-AzureRMRecoveryServicesVaultContext -Vault 
-    $vault $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName 'myserver'
+    Set-AzureRMRecoveryServicesVaultContext -Vault $vault 
+    $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName 'myserver'
     ```
 2. Identify the backup item to delete.
    
@@ -176,7 +176,7 @@ To manually remove backups from the vault.
 4. Delete the container associated with ‘myserver’
    
     ```
-    Unregister -AzureRmRecoveryServicesBackupContainer –Container $container $container –Vault $vault
+    Unregister -AzureRmRecoveryServicesBackupContainer –Container $container $container
     ```
 
 ## Long-Term Retention FAQ:
