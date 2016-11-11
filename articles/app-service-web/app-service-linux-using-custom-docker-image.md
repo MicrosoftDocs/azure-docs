@@ -57,7 +57,7 @@ To use a custom Docker image from a private image registry:
 
 ## How to: set the port used by your Docker image ##
 
-When you use a custom Docker image for your web app, you can use the `PORT` environment variable in your Dockerfile that we will setup the container to use. The following is an example of a docker file for a Ruby app:
+When you use a custom Docker image for your web app, you can use the `PORT` environment variable in your Dockerfile, which gets added to the generated container. Consider the following example of a docker file for a Ruby application:
 
 	FROM ruby:2.2.0
 	RUN mkdir /app
@@ -66,9 +66,9 @@ When you use a custom Docker image for your web app, you can use the `PORT` envi
 	RUN bundle install
 	CMD bundle exec puma config.ru -p $PORT -e production
 
-You can see that the PORT environment variable, on last line of the command, is passed to your container at runtime. Remember that casing matters in commands.
+On last line of the command, you can see that the PORT environment variable is passed at runtime. Remember that casing matters in commands.
 
-When you use an existing Docker image that you are not building, you may need to specify a port other than port 80 for the application. To do this, you add an app setting named `PORT` with the value expected by the image, as shown below:
+When you use an existing Docker image built by someone else, you may need to specify a port other than port 80 for the application. To do this, you add an application setting named `PORT` with the value expected by the image, as shown below:
 
 
 ![Configure PORT app setting for custom Docker image][6]
