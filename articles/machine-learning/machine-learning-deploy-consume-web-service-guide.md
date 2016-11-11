@@ -38,7 +38,7 @@ The following links provide general Information about how to deploy a new web se
 
 ### With web services resource provider APIs (Azure Resource Manager APIs)
 The Azure Machine Learning resource provider for web services enables deployment and management of web services by using REST API calls. For additional details, see the 
-[Machine Learning Web Service (REST)](~/api-ref/machinelearning/index.md) reference.
+[Machine Learning Web Service (REST)](~/documentation/machinelearning/index.md) reference.
 
 <!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
 
