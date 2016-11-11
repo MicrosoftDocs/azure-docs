@@ -51,7 +51,6 @@ Advisor identifies SQL server instances that can benefit from creating elastic d
 See these resources to learn more about Advisor recommendations:
 -  [Introduction to Advisor](advisor-overview.md)
 -  [Get Started](advisor-get-started.md)
--  [Advisor FAQs](advisor-faqs.md)
 -  [Advisor High Availability recommendations](advisor-cost-recommendations.md)
 -  [Advisor Security recommendations](advisor-cost-recommendations.md)
 -  [Advisor Performance recommendations](advisor-cost-recommendations.md)
