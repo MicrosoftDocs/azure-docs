@@ -143,4 +143,4 @@ Available languages include:
 
 ## Azure CDN features and provider pricing
 
-See the [CDN Overview](cdn-overview.md) topic.
+See the [CDN Overview](cdn-overview.md#azure-cdn-features) topic.
