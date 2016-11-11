@@ -55,12 +55,11 @@ To create the route table and route needed for the front end subnet based on the
         Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
             -AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
 
-> [!WARNING]
-> The output for the command above shows the content for the virtual network configuration object, which only exists on the computer where you are running PowerShell. You need to run the **Set-AzureVirtualNetwork** cmdlet to save these settings to Azure.
-> 
-> 
+	> [!WARNING]
+	> The output for the command above shows the content for the virtual network configuration object, which only exists on the computer where you are running PowerShell. You need to run the **Set-AzureVirtualNetwork** cmdlet to save these settings to Azure.
+	> 
 
-1. Save the new subnet configuration in Azure.
+5. Save the new subnet configuration in Azure.
    
         Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
    
