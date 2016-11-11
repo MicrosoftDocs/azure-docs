@@ -22,52 +22,43 @@ ms.author: kumudd
 ## What is Azure Advisor?
 Azure Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry to detect risks and potential issues. It then recommends solutions to help improve the performance, security, and high availability of your resources while looking for opportunities to reduce your overall Azure spend.
 
-## Key capabilities
-<TBD - Add capability content here.>
+![Access Advisor using the Azure portal](./media/advisor-overview/advisor-all-tab.png)
 
-## Advisor recommendations types
+## Introductory walkthrough
 
-The Advisor dashboard surfaces personalized recommendations for your deployment, by scanning and analyzing resources for that subscription. The recommendations are divided into four categories:
+You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign into the [portal](https://portal.azure.com), select **Browse**, and then scroll to **Azure Advisor**. 
 
--   **High Availability** – to ensure and improve business continuity
+  ![Access Advisor using the Azure portal](./media/advisor-overview/advisor-azure-portal-menu.png)
 
--   **Security** – to detect threats and vulnerabilities that may lead to potential security breaches
 
--   **Performance** – to enhance and boost your system performance
+On the Azure Advisor dashboard, you can select a subscription that you want to receive recommendations for. The Advisor dashboard then displays surface personalized recommendations for your deployment, by scanning and analyzing resources for that subscription.
 
--   **Cost** – to reduce your overall Azure spend
+The recommendations are divided into four categories:
+
+-   **High Availability** – to ensure and improve the continuity of your business-critical applications
+
+-   **Security** – to detect threats and vulnerabilities that could lead to potential security breaches
+
+-   **Performance** – to enhance the speed of your applications
+
+-   **Cost** – to optimize and reduce your overall Azure spend
+
+  ![Advisor recommendation types](./media/advisor-overview/advisor-all-tab-examples.png)
+
+You can click on a recommendation to learn additional information about it. You can also learn about actions you can perform to take advantage of an opportunity or resolve an issue. 
 
 > [!NOTE]
 > The Advisor dashboard displays recommendations related to resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.
 
-<TBD: Add new screenshot>
+Advisor offers recommendations with inline actions or documentation links. Clicking on an inline action takes you through a “guided user journey” to implement it. Clicking on a documentation link points you to the documentation that describes how you can manually implement the action. 
 
-  ![Advisor recommendation types](./media/advisor-overview/image1.png)
+Here's an example of a documentation link in the Advisor recommendation blade:
 
-The Advisor dashboard displays a summarized list of recommendations. For each recommendation, you can view the following information:
+![Advisor recommendation documentation link](./media/advisor-overview/advisor-recommendation-documentation-example.png)
 
--   **Impact** - The business impact and risk addressed by the recommendation. This has one of the following values:
+Here's an example of inline action in the Advisor recommendation blade:
 
-|Impact value| Description  |
-|---------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ![](./media/advisor-overview/image2.png)  | This recommendation addresses a ***high business impact, high risk*** issue. Implement this recommendation to help resolve an existing problem that can significantly impede the health of your business application.      |
-| ![](./media/advisor-overview/image3.png) | This recommendation addresses a ***high business impact*** opportunity. Implement this recommendation to notably improve the performance, high availability, or security of your resource, or help you save money.    |
-| ![](./media/advisor-overview/image4.png) | This recommendation addresses a ***medium business impact, medium risk*** issue. Implement this recommendation to resolve a potential problem that can moderately impede the health of your business application.       |
-| ![](./media/advisor-overview/image5.png) | This recommendation addresses a ***medium business impact*** opportunity. Implement this recommendation to improve the performance, high availability, or security of your resource, or help save money. |
-| ![](./media/advisor-overview/image6.png) | The recommendation addresses a ***low business impact*** opportunity. Implement this recommendation to improve the performance, high availability, or security of your resource, or help save money.                   |
-
--   **Recommendation** – A description of the potential issue or business opportunity, and an action that you can take to address it.
-<TBD: Add new screenshot>
-
-    ![](./media/advisor-overview/image7.png)
-
--   **Resource** – The resource the recommendation applies to. Advisor groups recommendations that apply to multiple resources.
-<TBD: Add new screenshot>
-
-  ![](./media/advisor-overview/image8.png)
-
--   **Last updated** – The last time Advisor checked if the recommendation was applicable or the last time Advisor refreshed the recommendation. <Add link about Refresh recommendations).
-
+![Advisor recommendation action example](./media/advisor-overview/advisor-recommendation-action-example.png)
 
 ## Next Steps
 
