@@ -24,16 +24,18 @@ ms.author: danlep
 >[!NOTE]HPC Pack 2016 is currently in preview.
 >  
 
+Integrating an HPC Pack cluster solution with Azure AD follows standard steps to integrate other applications and services. This article assumes you are familiar with basic user management in Azure AD. For more information, see the [Azure Active Directory documentation](../active-directory/).
+
 Integration of an HPC Pack cluster with Azure AD can help you achieve the following goals:
 
-* Remove the traditional Active Directory domain controller from the HPC Pack cluster. This can help reduce the costs of maintaining the cluster if this is not necessary for your business, as well as speed up the deployment process. (This feature is not available in preview.) 
+* Remove the traditional Active Directory domain controller from the HPC Pack cluster. This can help reduce the costs of maintaining the cluster if this is not necessary for your business, as well as speed up the deployment process.
 * Leverage the following benefits that are brought by Azure AD:
     *   Single sign-on  
     *   Using a local AD identity for the HPC Pack cluster in Azure.  
 
     ![Azure Active Directory environment](./media/virtual-machines-windows-hpcpack-cluster-active-directory/aad.png)
 
-This article covers the following tasks to use Azure AD in your Azure-based HPC Pack cluster:  
+Follow the steps in this article for the following high level tasks:  
 * Manually integrate your HPC Pack cluster with your Azure AD tenant 
 * Manage and schedule jobs in your HPC Pack cluster in Azure  
 ## Prerequisites
@@ -48,10 +50,8 @@ This article covers the following tasks to use Azure AD in your Azure-based HPC 
 * **Client computer** - You need a Windows or Windows Server client computer that can run HPC Pack client utilities (see [system requirements](https://technet.microsoft.com/library/dn535781.aspx)). If you only want to use the HPC Pack web portal or REST API to submit jobs, you can use any client computer of your choice.
 * **HPC Pack installation media** - To install the HPC Pack client utilities, the free installation package for the HPC Pack 2016 is available from the Microsoft Download Center. Make sure that you download the same version of HPC Pack that is installed on the head node VM.
 
-## Connect the HPC Pack cluster with the AD tenant
-Integrating an HPC Pack solution in Azure with Azure AD follows standard steps to integrate other applications and services. This article assumes you are familiar with basic user management in Azure AD. For more information, see the [Azure Active Directory documentation](../active-directory/). 
 
-### Step 1: Register the HPC cluster server with your Azure AD tenant 
+## Step 1: Register the HPC cluster server with your Azure AD tenant 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 2. Click **Active Directory** in the left menu, and then click on the desired directory in your subscription. You must have permission to access resources in the directory.  
 3. Click **Users** and make sure there are user accounts already created or configured.  
@@ -111,30 +111,44 @@ Integrating an HPC Pack solution in Azure with Azure AD follows standard steps t
 
 4. After the app is added, click **Configure**. Copy the **Client ID** value and save it. You need this later when configuring your application. 
 
-5. In **Permissions to other applications**, click "Add Application." Search and add the application of HpcPackClusterServer (created in step 1). Select "Access HpcClusterServer" from the "Delegated Permissions" dropdown, and save the configuration
+5. In **Permissions to other applications**, click **Add Application**. Search and add the  HpcPackClusterServer appllication (created in Step 1). 
+
+6. In the **Delegated Permissions** dropdown, select **Access HpcClusterServer**. Then click **Save**.
 
 
+## Step 3: Configure the HPC cluster
+
+1. Connect to the HPC Pack 2016 head node in Azure.
+
+2. Start HPC PowerShell.
+
+3. Run the following commands:
+
+    ```powershell
+
+    Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.microsoftonline.com/ -AADAppName HpcClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
+    ```
+    where
+
+    * `AADTenant` specifies the Azure AD tenant name, such as `hpclocal.onmicrosoft.com`
+    * `AADClientAppId` specifies the client ID for the app created in Step 2.
+     
+4. Restart the HpcSchedulerStateful service.
+
+    You can use the following PowerShell commands on the head node to switch the primary replica for the HpcSchedulerStateful service:
+
+    ```powershell 
+    Connect-ServiceFabricCluster
+
+    Move-ServiceFabricPrimaryReplica –ServiceName “fabric:/HpcApplication/SchedulerStatefulService” 
+
+    ```
 
 
+## Manage and submit jobs from the client
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-f you want to install the HPC Pack client utilities on your computer, download the
-HPC Pack setup files (full installation) from the [Microsoft Download
+To install the HPC Pack client utilities on your computer, download the
+HPC Pack 2016 setup files (full installation) from the [Microsoft Download
 Center](http://go.microsoft.com/fwlink/?LinkId=328024). When you begin the installation, choose the setup option for the **HPC Pack client utilities**.
 
 To use the HPC Pack client tools to submit jobs to the head node VM, you also need to export a certificate from the head node and install it on the client computer. The certificate must be in .CER format.
