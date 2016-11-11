@@ -106,7 +106,7 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
 [Backup REST API Reference](/rest/api/backup)
 
 ###.NET
-[.NET Managed Reference](dotnet/api)
+[.NET Managed Reference](/dotnet/api)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">
