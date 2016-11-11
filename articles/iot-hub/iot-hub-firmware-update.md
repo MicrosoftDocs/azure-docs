@@ -17,9 +17,9 @@ ms.date: 09/30/2016
 ms.author: juanpere
 
 ---
-# Tutorial: How to do a firmware update (preview)
+# Tutorial: How to do a firmware update
 ## Introduction
-In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [cloud-to-device (C2D) methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and provides guidance and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the Intel Edison device sample.
+In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and provides guidance and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the Intel Edison device sample.
 
 This tutorial shows you how to:
 
@@ -50,10 +50,10 @@ In this section, you create a Node.js console app that responds to a direct meth
     ```
     npm init
     ```
-2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device@dtpreview** Device SDK package and **azure-iot-device-mqtt@dtpreview** package:
+2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **dmpatterns_fwupdate_device.js** file in the **manageddevice** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_fwupdate_device.js** file:
@@ -262,7 +262,7 @@ In this section, you create a Node.js console app that initiates a remote firmwa
 2. At your command-prompt in the **triggerfwupdateondevice** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-hub@dtpreview --save
+    npm install azure-iot-hub --save
     ```
 3. Using a text editor, create a new **dmpatterns_getstarted_service.js** file in the **triggerfwupdateondevice** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_service.js** file:
