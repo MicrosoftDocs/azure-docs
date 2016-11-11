@@ -1,4 +1,4 @@
-﻿---
+---
 title: DocumentDB Indexing Policies | Microsoft Docs
 description: Understand how indexing works in DocumentDB learn how to configure and change the indexing policy. Configure the indexing policy withing DocumentDB for automatic indexing and greater performance.
 keywords: how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/27/2016
+ms.date: 11/11/2016
 ms.author: arramac
 
 ---
@@ -73,212 +73,23 @@ The following sample show how create a DocumentDB collection using the .NET SDK 
 
 The following table shows the consistency for queries based on the indexing mode (Consistent and Lazy) configured for the collection and the consistency level specified for the query request. This applies to queries made using any interface - REST API, SDKs or from within stored procedures and triggers. 
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Consistent</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Lazy</strong>
-                </p>
-            </td>            
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Strong</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Strong
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Eventual
-                </p>
-            </td>            
-        </tr>       
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Bounded Staleness</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Bounded Staleness
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Eventual
-                </p>
-            </td>            
-        </tr>          
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Session</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Session
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Eventual
-                </p>
-            </td>            
-        </tr>      
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Eventual</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Eventual
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Eventual
-                </p>
-            </td>            
-        </tr>         
-    </tbody>
-</table>
+|Consistency|Indexing Mode: Consistent|Indexing Mode: Lazy|
+|---|---|---|
+|Strong|Strong|Eventual|
+|Bounded Staleness|Bounded Staleness|Eventual|
+|Session|Session|Eventual|
+|Eventual|Eventual|Eventual|
 
 DocumentDB returns an error for queries made on collections with None indexing mode. Queries can still be executed as scans via the explicit `x-ms-documentdb-enable-scan` header in the REST API or the `EnableScanInQuery` request option using the .NET SDK. Some query features like ORDER BY are not supported as scans with `EnableScanInQuery`.
 
 The following table shows the consistency for queries based on the indexing mode (Consistent, Lazy, and None) when EnableScanInQuery is specified.
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Consistent</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Lazy</strong>
-                </p>
-            </td>       
-            <td valign="top">
-                <p>
-                    <strong>None</strong>
-                </p>
-            </td>             
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Strong</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Strong
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Eventual
-                </p>
-            </td>    
-            <td valign="top">
-                <p>
-                    Strong
-                </p>
-            </td>                
-        </tr>       
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Bounded Staleness</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Bounded Staleness
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Eventual
-                </p>
-            </td>      
-            <td valign="top">
-                <p>
-                    Bounded Staleness
-                </p>
-            </td> 
-        </tr>          
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Session</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Session
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Eventual
-                </p>
-            </td>   
-            <td valign="top">
-                <p>
-                    Session
-                </p>
-            </td>             
-        </tr>      
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Eventual</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Eventual
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Eventual
-                </p>
-            </td>      
-            <td valign="top">
-                <p>
-                    Eventual
-                </p>
-            </td>              
-        </tr>         
-    </tbody>
-</table>
+|Consistency|Indexing Mode: Consistent|Indexing Mode: Lazy|Indexing Mode: None|
+|---|---|---|
+|Strong|Strong|Eventual|Strong|
+|Bounded Staleness|Bounded Staleness|Eventual|Bounded Staleness|
+|Session|Session|Eventual|Session|
+|Eventual|Eventual|Eventual|Eventual|
 
 The following code sample show how create a DocumentDB collection using the .NET SDK with consistent indexing on all document insertions.
 
@@ -302,136 +113,14 @@ Index paths can also use the * wildcard operator to specify the behavior for pat
 
 Here are the common patterns for specifying index paths:
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Path</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Description/use case</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    /*
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Default path for collection. Recursive and applies to whole document tree.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    /prop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Index path required to serve queries like the following (with Hash or Range types respectively):
-                </p>
-                <p>
-                    SELECT * FROM collection c WHERE c.prop = "value"
-                </p>
-                <p>
-                    SELECT * FROM collection c WHERE c.prop &gt; 5
-                </p>
-                <p>
-                    SELECT * FROM collection c ORDER BY c.prop
-                </p>                
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    /prop/*
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Index path for all paths under the specified label. Works with the following queries
-                </p>
-                <p>
-                    SELECT * FROM collection c WHERE c.prop = "value"
-                </p>
-                <p>
-                    SELECT * FROM collection c WHERE c.prop.subprop &gt; 5
-                </p>
-                <p>
-                    SELECT * FROM collection c WHERE c.prop.subprop.nextprop = "value"
-                </p>
-                <p>
-                    SELECT * FROM collection c ORDER BY c.prop
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    /props/[]/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Index path required to serve iteration and JOIN queries against arrays of scalars like ["a", "b", "c"]:
-                </p>
-                <p>
-                    SELECT tag FROM tag IN collection.props WHERE tag = "value"
-                </p>
-                <p>
-                    SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    /props/[]/subprop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Index path required to serve iteration and JOIN queries against arrays of objects like [{subprop: "a"}, {subprop: "b"}]:
-                </p>
-                <p>
-                    SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"
-                </p>
-                <p>
-                    SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"
-                </p>
-            </td>
-        </tr>        
-        <tr>
-            <td valign="top">
-                <p>
-                    /prop/subprop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Index path required to serve queries (with Hash or Range types respectively):
-                </p>
-                <p>
-                    SELECT * FROM collection c WHERE c.prop.subprop = "value"
-                </p>
-                <p>
-                    SELECT * FROM collection c WHERE c.prop.subprop &gt; 5
-                </p>
-                <p>
-                    SELECT * FROM collection c ORDER BY c.prop.subprop
-                </p>                
-            </td>
-        </tr>
-    </tbody>
-</table>
+| Path                | Description/use case                                                                                                                                                                                                                                                                                         |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| /                   | Default path for collection. Recursive and applies to whole document tree.                                                                                                                                                                                                                                   |
+| /prop/?             | Index path required to serve queries like the following (with Hash or Range types respectively):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
+| /prop/              | Index path for all paths under the specified label. Works with the following queries<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
+| /props/[]/?         | Index path required to serve iteration and JOIN queries against arrays of scalars like ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5                                                                         |
+| /props/[]/subprop/? | Index path required to serve iteration and JOIN queries against arrays of objects like [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"                                  |
+| /prop/subprop/?     | Index path required to serve queries (with Hash or Range types respectively):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
 > While setting custom index paths, you are required to specify the default indexing rule for the entire document tree denoted by the special path "/*". 
@@ -486,68 +175,11 @@ DocumentDB also supports the Spatial index kind for every path, that can be spec
 
 Here are the supported index kinds and examples of queries that they can be used to serve:
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Index kind</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Description/use case</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    Hash
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Hash over /prop/? (or /*) can be used to serve the following queries efficiently:
-                      SELECT * FROM collection c WHERE c.prop = "value"
-                    Hash over /props/[]/? (or /* or /props/*) can be used to serve the following queries efficiently:
-                      SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    Range
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Range over /prop/? (or /*) can be used to serve the following queries efficiently:
-                        SELECT * FROM collection c WHERE c.prop = "value"
-                        SELECT * FROM collection c WHERE c.prop > 5
-                        SELECT * FROM collection c ORDER BY c.prop
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    Spatial
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Range over /prop/? (or /*) can be used to serve the following queries efficiently:
-                        SELECT * FROM collection c 
-                        WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40
-                        SELECT * FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled
-                        SELECT * FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled
-                </p>
-            </td>
-        </tr>        
-    </tbody>
-</table>
+| Index kind | Description/use case                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hash       | Hash over /prop/? (or /) can be used to serve the following queries efficiently:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (or / or /props/) can be used to serve the following queries efficiently:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
+| Range      | Range over /prop/? (or /) can be used to serve the following queries efficiently:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
+| patial     | Range over /prop/? (or /) can be used to serve the following queries efficiently:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled              |
 
 By default, an error is returned for queries with range operators such as >= if there is no range index (of any precision) in order to signal that a scan might be necessary to serve the query. Range queries can be performed without a range index using the x-ms-documentdb-enable-scan header in the REST API or the EnableScanInQuery request option using the .NET SDK. If there are any other filters in the query that DocumentDB can use the index to filter against, then no error will be returned.
 
