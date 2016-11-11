@@ -160,15 +160,17 @@
 ### [Release - GA](storsimple-july-2014-release-notes.md)
 
 ## Reference
-### [PowerShell](https://docs.microsoft.com/powershell/servicemanagement/)
+### [PowerShell](/powershell/servicemanagement/)
 
 # Related
 ## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
 
 # Resources
-## [Azure blog](https://azure.microsoft.com/blog/)
-## [Forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Marketing blog](http://blogs.technet.com/b/cis/)
-## [Marketing](https://www.microsoft.com/en-us/server-cloud/products/storsimple/explore.aspx)
+## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Support blog](http://blogs.msdn.com/b/storsimple/)
 ## [Third party notices](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Service updates](https://azure.microsoft.com/updates/?product=storsimple)
+## [Pricing](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
