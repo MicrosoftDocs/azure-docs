@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #Traffic Manager Documentation
 
-Azure Traffic Manager allows you to control the distribution of user traffic for service endpoints in different datacenters.  Traffice Manager uses the Domain Name System (DNS) to direct client requests to the most appropriate endpoint based on a traffic-routing method and the health of the endpoints, giving your application the availability and responsiveness a large-scale application needs.
+Azure Traffic Manager allows you to control the distribution of user traffic for service endpoints in different datacenters.  Traffic Manager uses the Domain Name System (DNS) to direct client requests to the most appropriate endpoint based on a traffic-routing method and the health of the endpoints, giving your application the availability and responsiveness a large-scale application needs.
 
 <ul class="panelContent cardsFTitle">
     <li>
