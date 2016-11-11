@@ -21,15 +21,15 @@ ms.author: sewhee
 # Get started creating an Internet facing load balancer (classic) in PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure classic portal](../articles/load-balancer/load-balancer-get-started-internet-classic-portal.md)
-> * [PowerShell](../articles/load-balancer/load-balancer-get-started-internet-classic-ps.md)
-> * [Azure CLI](../articles/load-balancer/load-balancer-get-started-internet-classic-cli.md)
-> * [Azure Cloud Services](../articles/load-balancer/load-balancer-get-started-internet-classic-cloud.md)
+> * [Azure classic portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../articles/azure-classic-rm.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../azure-classic-rm.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 

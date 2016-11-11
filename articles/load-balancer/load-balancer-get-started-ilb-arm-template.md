@@ -21,10 +21,10 @@ ms.author: sewhee
 # Create an internal load balancer using a template
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](../articles/load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [PowerShell](../articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [Azure CLI](../articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md)
-> * [Template](../articles/load-balancer/load-balancer-get-started-ilb-arm-template.md)
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 

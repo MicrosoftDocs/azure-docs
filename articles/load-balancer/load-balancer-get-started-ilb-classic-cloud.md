@@ -21,9 +21,9 @@ ms.author: sewhee
 # Get started creating an internal load balancer (classic) for cloud services
 
 > [!div class="op_single_selector"]
-> * [PowerShell](../articles/load-balancer/load-balancer-get-started-ilb-classic-ps.md)
-> * [Azure CLI](../articles/load-balancer/load-balancer-get-started-ilb-classic-cli.md)
-> * [Cloud services](../articles/load-balancer/load-balancer-get-started-ilb-classic-cloud.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-classic-cli.md)
+> * [Cloud services](../load-balancer/load-balancer-get-started-ilb-classic-cloud.md)
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
