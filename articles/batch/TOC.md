@@ -21,22 +21,28 @@
 ### [Visual Studio project templates for Batch](batch-visual-studio-templates.md)
 ## Manage
 ### [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
+### [Azure CLI](batch-cli-get-started.md)
 ### [Batch diagnostic logs](batch-diagnostics.md)
+
 # Reference
-## [PowerShell cmdlet](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
-## [Azure CLI](batch-cli-get-started.md)
+## [PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [.NET API](https://docs.microsoft.com/dotnet/api)
-## [Python  SDK](https://go.microsoft.com/fwlink/p/?linkid=833496)
+## [Python SDK](https://go.microsoft.com/fwlink/p/?linkid=833496)
 ## [Node.js](https://go.microsoft.com/fwlink/p/?linkid=833544)
 ## [REST](https://docs.microsoft.com/rest/api/batchservice/)
 
 # Related
+## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
 ## [Big Compute in Azure: Technical resources](big-compute-resources.md)
+
 # Resources
-## [Service Updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=))
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
+## [Service Updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Batch C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Batch Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
+
