@@ -71,7 +71,7 @@ So the following query retrieves the whole set of device twins:
         SELECT * FROM devices
 
 > [!NOTE]
-> [IoT Hub SDKs][lnk-hub-sdks] support paging of large results.
+> [Azure IoT SDKs][lnk-hub-sdks] support paging of large results.
 >
 >
 
