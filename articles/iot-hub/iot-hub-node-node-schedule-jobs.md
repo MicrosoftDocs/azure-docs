@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: juanpere
 
 ---
-# Tutorial: Schedule and broadcast jobs (preview)
+# Tutorial: Schedule and broadcast jobs
 ## Introduction
 Azure IoT Hub is a fully managed service that enables an application back end to create and track jobs that schedule and update millions of devices.  Jobs can be used for the following actions:
 
@@ -62,7 +62,7 @@ In this section, you create a Node.js console app that responds to a direct meth
 2. At your command-prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **simDevice.js** file in the **simDevice** folder.
 4. Add the following 'require' statements at the start of the **simDevice.js** file:
@@ -126,7 +126,7 @@ In this section, you create a Node.js console app that initiates a remote lockDo
 2. At your command-prompt in the **scheduleJobService** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iothub@dtpreview uuid --save
+    npm install azure-iothub uuid --save
     ```
 3. Using a text editor, create a new **scheduleJobService.js** file in the **scheduleJobService** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_gscheduleJobServiceetstarted_service.js** file:

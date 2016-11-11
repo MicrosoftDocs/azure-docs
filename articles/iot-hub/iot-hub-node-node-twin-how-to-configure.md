@@ -50,7 +50,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 2. At your command-prompt in the **simulatedeviceconfiguration** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **SimulateDeviceConfiguration.js** file in the **simulatedeviceconfiguration** folder.
 4. Add the following code to the **SimulateDeviceConfiguration.js** file, and substitute the **{device connection string}** placeholder with the connection string you copied when you created the **myDeviceId** device identity:
@@ -161,7 +161,7 @@ In this section, you will create a Node.js console app that updates the *desired
 2. At your command-prompt in the **setdesiredandqueryapp** folder, run the following command to install the **azure-iothub** package:
    
     ```
-    npm install azure-iothub@dtpreview node-uuid --save
+    npm install azure-iothub node-uuid --save
     ```
 3. Using a text editor, create a new **SetDesiredAndQuery.js** file in the **addtagsandqueryapp** folder.
 4. Add the following code to the **SetDesiredAndQuery.js** file, and substitute the **{service connection string}** placeholder with the connection string you copied when you created your hub:
