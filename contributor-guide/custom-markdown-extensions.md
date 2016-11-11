@@ -89,20 +89,21 @@ Simple (one-way) selectors render as a set of option buttons right below the tit
 Syntax:
 
     >[!div class="op_single_selector"]
-    >*[Link #1 Label](article-file-name)
-    >*[Link #2 Label](article-file-name)
-    >*[Link #3 Label](article-file-name)
+    >*[platform, language or method](article-file-name)
+    >*[platform, language or method](article-file-name)
+    >*[platform, language or method](article-file-name)
 
 ### <a id="two-way-selectors"></a>Two-way selectors
 Two-way selectors let users select topics from a two way matrix. This is essential when an Azure technology supports multiple backend platforms as well as multiple clients.
 
 Syntax:
 
-    > [AZURE.SELECTOR-LIST (Dropdown1 | Dropdown2 )]
-    - [(Dropdown1Text1 | Dropdown2Text1 )](../articles/dropdown1-text1-dropdown2-text1.md)
-    - [(Dropdown1Text1 | Dropdown2Text2 )](../articles/dropdown1-text1-dropdown2-text1.md)
-    - [(Dropdown1Text2 | Dropdown2Text3 )](../articles/dropdown1-text1-dropdown2-text1.md)
-    - [(Dropdown1Text3 | Dropdown2Text4 )](../articles/dropdown1-text1-dropdown2-text1.md)
+    > [!div class="op_multi_selector" title1="OS" title2="Creation method"]
+    > * [platform | dev language](article-file-name.md)
+    > * [platform | dev language](article-file-name.md)
+    > * [platform | dev language](article-file-name.md)
+    > * [platform | dev language](article-file-name.md)
+
 
 
 <!--Anchors-->
