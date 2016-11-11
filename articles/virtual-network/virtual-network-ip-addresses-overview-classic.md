@@ -1,6 +1,6 @@
 ---
-title: Public and private IP addressing (classic) in Azure | Microsoft Docs
-description: Learn about public and private IP addressing in Azure
+title: IP addresses (Classic) | Microsoft Docs
+description: Learn about public and private IP addresses (Classic) in Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -25,9 +25,8 @@ Public IP addresses are used for communication with the Internet, including Azur
 
 Private IP addresses are used for communication within an Azure virtual network (VNet), a cloud service, and your on-premises network when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure.
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Learn how to [perform these steps using the Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
+> [!IMPORTANT]
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../articles/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Microsoft recommends that most new deployments use Resource Manager. Learn about IP addresses in Resource Manager by reading the [IP addresses](virtual-network-ip-addresses-overview-arm.md) article.
 
 ## Public IP addresses
 Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md), and [Azure storage](../storage/storage-introduction.md).
