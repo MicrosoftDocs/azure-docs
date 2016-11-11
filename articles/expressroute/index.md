@@ -3,11 +3,12 @@ layout: LandingPage
 ---
 #ExpressRoute Documentation
 
-ExpressRoute is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  ExpressRoute represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
+
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="/azure/expressroute/express-route-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -17,7 +18,25 @@ ExpressRoute is a distributed systems platform that makes it easy to package, de
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>ExpressRoute Getting Started Samples</h3>
+                        <h3>Learn About Express Route</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=expressroute">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure Express Route Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -25,7 +44,7 @@ ExpressRoute is a distributed systems platform that makes it easy to package, de
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
+        <a href="/azure/expressroute/expressroute-prerequisites">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -35,25 +54,7 @@ ExpressRoute is a distributed systems platform that makes it easy to package, de
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure ExpressRoute Party Cluster</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Getting started with ExpressRoute with .NET Core</h3>
+                        <h3>Get started with ExpressRoute</h3>
                     </div>
                 </div>
             </div>
@@ -66,11 +67,13 @@ ExpressRoute is a distributed systems platform that makes it easy to package, de
 
 ##Reference
 
-###REST
-[ExpressRoute REST API Reference](/rest/api/)
+###PowerShell
+[Azure PowerShell reference](/powershell/azureps-cmdlets-docs)
 
-###.NET
-[ExpressRoute Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+###REST
+[ExpressRoute REST API Reference](https://msdn.microsoft.com/library/mt586720)
+
+
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">

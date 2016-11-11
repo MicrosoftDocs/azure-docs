@@ -26,8 +26,8 @@ ms.author: jrj;barbkess
 > * [Partition][Partition]
 > * [Statistics][Statistics]
 > * [Temporary][Temporary]
-> 
-> 
+>
+>
 
 SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.  By dividing data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.  Deciding how to distribute your data within your SQL Data Warehouse is one of the most important factors to achieving optimal performance.   The key to optimal performance is minimizing data movement and in turn the key to minimizing data movement is selecting the right distribution strategy.
 
@@ -96,8 +96,8 @@ WITH
 
 > [!NOTE]
 > While round robin is the default table type being explicit in your DDL is considered a best practice so that the intentions of your table layout are clear to others.
-> 
-> 
+>
+>
 
 ### Hash Distributed Tables
 Using a **Hash distributed** algorithm to distribute your tables can improve performance for many scenarios by reducing data movement at query time.  Hash distributed tables are tables which are divided between the distributed databases using a hashing algorithm on a single column which you select.  The distribution column is what determines how the data is divided across your distributed databases.  The hash function uses the distribution column to assign rows to distributions.  The hashing algorithm and resulting distribution is deterministic.  That is the same value with the same data type will always has to the same distribution.    
@@ -140,7 +140,7 @@ Since a distributed system performs only as fast as its slowest distribution, it
 To divide data evenly and avoid data skew, consider the following when selecting your distribution column:
 
 1. Select a column which contains a significant number of distinct values.
-2. Avoid distributing data on columns with a few distinct values. 
+2. Avoid distributing data on columns with a few distinct values.
 3. Avoid distributing data on columns with a high frequency of nulls.
 4. Avoid distributing data on date columns.
 
@@ -148,12 +148,12 @@ Since each value is hashed to 1 of 60 distributions, to achieve even distributio
 
 In MPP system, each query step waits for all distributions to complete their share of the work.  If one distribution is doing more work than the others, then the resource of the other distributions are essentially wasted just waiting on the busy distribution.  When work is not evenly spread across all distributions, we call this **processing skew**.  Processing skew will cause queries to run slower than if the workload can be evenly spread across the distributions.  Data skew will lead to processing skew.
 
-Avoid distributing on highly nullable column as the null values will all land on the same distribution. Distributing on a date column can also cause processing skew because all data for a given date will land on the same distribution. If several users are executing queries all filtering on the same date, then only 1 of the 60 distributions will be doing all of the work since a given date will only be on one distribution. In this scenario, the queries will likely run 60 times slower than if the data were equally spread over all of the distributions. 
+Avoid distributing on highly nullable column as the null values will all land on the same distribution. Distributing on a date column can also cause processing skew because all data for a given date will land on the same distribution. If several users are executing queries all filtering on the same date, then only 1 of the 60 distributions will be doing all of the work since a given date will only be on one distribution. In this scenario, the queries will likely run 60 times slower than if the data were equally spread over all of the distributions.
 
 When no good candidate columns exist, then consider using round robin as the distribution method.
 
 ### Select distribution column which will minimize data movement
-Minimizing data movement by selecting the right distribution column is one of the most important strategies for optimizing performance of your SQL Data Warehouse.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Columns used in `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` and `HAVING` clauses all make for **good** hash distribution candidates. 
+Minimizing data movement by selecting the right distribution column is one of the most important strategies for optimizing performance of your SQL Data Warehouse.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Columns used in `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` and `HAVING` clauses all make for **good** hash distribution candidates.
 
 On the other hand, columns in the `WHERE` clause do **not** make for good hash column candidates because they limit which distributions participate in the query, causing processing skew.  A good example of a column which might be tempting to distribute on, but often can cause this processing skew is a date column.
 
@@ -181,8 +181,8 @@ However, if you query the Azure SQL Data Warehouse dynamic management views (DMV
 
 ```sql
 select *
-from dbo.vTableSizes 
-where two_part_name in 
+from dbo.vTableSizes
+where two_part_name in
     (
     select two_part_name
     from dbo.vTableSizes
@@ -197,15 +197,15 @@ order by two_part_name, row_count
 ### Resolving data skew
 Not all skew is enough to warrant a fix.  In some cases, the performance of a table in some queries can outweigh the harm of data skew.  To decide if you should resolve data skew in a table, you should understand as much as possible about the data volumes and queries in your workload.   One way to look at the impact of skew is to use the steps in the [Query Monitoring][Query Monitoring] article to monitor the impact of skew on query performance and specifically the impact to how long queries take to complete on the individual distributions.
 
-Distributing data is a matter of finding the right balance between minimizing data skew and minimizing data movement. These can be opposing goals, and sometimes you will want to keep data skew in order to reduce data movement. For example, when the distribution column is frequently the shared column in joins and aggregations, you will be minimizing data movement. The benefit of having the minimal data movement might outweigh the impact of having data skew. 
+Distributing data is a matter of finding the right balance between minimizing data skew and minimizing data movement. These can be opposing goals, and sometimes you will want to keep data skew in order to reduce data movement. For example, when the distribution column is frequently the shared column in joins and aggregations, you will be minimizing data movement. The benefit of having the minimal data movement might outweigh the impact of having data skew.
 
 The typical way to resolve data skew is to re-create the table with a different distribution column. Since there is no way to change the distribution column on an existing table, the way to change the distribution of a table it to recreate it with a [CTAS][].  Here are two examples of how resolve data skew:
 
 ### Example 1: Re-create the table with a new distribution column
-This example uses [CTAS][] to re-create a table with a different hash distribution column. 
+This example uses [CTAS][] to re-create a table with a different hash distribution column.
 
 ```sql
-CREATE TABLE [dbo].[FactInternetSales_CustomerKey] 
+CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
 WITH (  CLUSTERED COLUMNSTORE INDEX
      ,  DISTRIBUTION =  HASH([CustomerKey])
      ,  PARTITION       ( [OrderDateKey] RANGE RIGHT FOR VALUES (   20000101, 20010101, 20020101, 20030101
@@ -241,10 +241,10 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 ```
 
 ### Example 2: Re-create the table using round robin distribution
-This example uses [CTAS][] to re-create a table with round robin instead of a hash distribution. This change will produce even data distribution at the cost of increased data movement. 
+This example uses [CTAS][] to re-create a table with round robin instead of a hash distribution. This change will produce even data distribution at the cost of increased data movement.
 
 ```sql
-CREATE TABLE [dbo].[FactInternetSales_ROUND_ROBIN] 
+CREATE TABLE [dbo].[FactInternetSales_ROUND_ROBIN]
 WITH (  CLUSTERED COLUMNSTORE INDEX
      ,  DISTRIBUTION =  ROUND_ROBIN
      ,  PARTITION       ( [OrderDateKey] RANGE RIGHT FOR VALUES (   20000101, 20010101, 20020101, 20030101
@@ -296,7 +296,7 @@ For an overview of best practices, see [SQL Data Warehouse Best Practices][SQL D
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 [Query Monitoring]: ./sql-data-warehouse-manage-monitor.md
-[dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#querying-table-sizes
+[dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 
 <!--MSDN references-->
 [DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx

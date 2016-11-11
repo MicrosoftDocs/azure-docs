@@ -28,36 +28,38 @@ Requests for http://contoso.com/video* are routed to VideoServerPool, and http:/
 ## UrlPathMap configuration element
 UrlPathMap element is used to specify Path patterns to back-end server pool mappings. The following code example is the snippet of urlPathMap element from template file.
 
-    "urlPathMaps": [
-    {
-    "name": "<urlPathMapName>",
-    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>",
-    "properties": {
-        "defaultBackendAddressPool": {
-            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName>"
-        },
-        "defaultBackendHttpSettings": {
-            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpSettingsList/<settingsName>"
-        },
-        "pathRules": [
-            {
-                "paths": [
-                    <pathPattern>
-                ],
-                "backendAddressPool": {
-                    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName2>"
-                },
-                "backendHttpsettings": {
-                    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpsettingsList/<settingsName2>"
-                },
-
+```json
+"urlPathMaps": [
+{
+"name": "<urlPathMapName>",
+"id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>",
+"properties": {
+    "defaultBackendAddressPool": {
+        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName>"
+    },
+    "defaultBackendHttpSettings": {
+        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpSettingsList/<settingsName>"
+    },
+    "pathRules": [
+        {
+            "paths": [
+                <pathPattern>
+            ],
+            "backendAddressPool": {
+                "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName2>"
+            },
+            "backendHttpsettings": {
+                "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpsettingsList/<settingsName2>"
             },
 
-        ],
+        },
 
-    }
-    }
+    ],
 
+}
+}
+]
+```
 
 > [!NOTE]
 > PathPattern: This setting is a list of path patterns to match. Each must start with / and the only place a "*" is allowed is at the end following a "/". The string fed to the path matcher does not include any text after the first? or #, and those chars are not allowed here. 
@@ -70,21 +72,25 @@ You can check out a [Resource Manager template using URL-based routing](https://
 RequestRoutingRule of type PathBasedRouting is used to bind a listener to a urlPathMap. All requests that are received for this listener are routed based on policy specified in urlPathMap.
 Snippet of PathBasedRouting rule:
 
-    "requestRoutingRules": [
-      {
+```json
+"requestRoutingRules": [
+    {
 
-    "name": "<ruleName>",
-    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/requestRoutingRules/<ruleName>",
-    "properties": {
-        "ruleType": "PathBasedRouting",
-        "httpListener": {
-            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/httpListeners/<listenerName>"
-        },
-        "urlPathMap": {
-            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>"
-        },
+"name": "<ruleName>",
+"id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/requestRoutingRules/<ruleName>",
+"properties": {
+    "ruleType": "PathBasedRouting",
+    "httpListener": {
+        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/httpListeners/<listenerName>"
+    },
+    "urlPathMap": {
+        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>"
+    },
 
+}
     }
+]
+```
 
 ## Next steps
 After learning about URL-based content routing, go to [create an application gateway using URL-based routing](application-gateway-create-url-route-portal.md) to create an application gateway with URL routing rules.
