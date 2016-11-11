@@ -39,23 +39,23 @@ As mentioned, Azure Government Backup supports the classic deployment model. The
 
 ### Virtual Machines
 
-- [Prepare your virtual machine environment](backup-azure-vms-prepare.md)
-- [Back up virtual machines](backup-vms-first-look.md)
-- [Restore virtual machines](backup-restore-vms.md)
-- [Manage virtual machines](backup-azure-manage-vms-classic.md)
-- [Using PowerShell to back up virtual machines](backup-vms-classic-automation.md)
+- [Prepare your virtual machine environment](../backup/backup-azure-vms-prepare.md)
+- [Back up virtual machines](../backup/backup-vms-first-look.md)
+- [Restore virtual machines](../backup/backup-restore-vms.md)
+- [Manage virtual machines](../backup/backup-azure-manage-vms-classic.md)
+- [Using PowerShell to back up virtual machines](../backup/backup-vms-classic-automation.md)
 
 ### System Center Data Protection Manager
 
-- [Back up System Center Data Protection Manager](backup/backup-dpm-introduction-classic.md)
+- [Back up System Center Data Protection Manager](../backup/backup-dpm-introduction-classic.md)
 
 ### Azure Backup Server
 
-- [Azure Backup Server](backup-azure-microsoft-azure-backup-classic.md)
+- [Azure Backup Server](../backup/backup-azure-microsoft-azure-backup-classic.md)
 
 ### Windows Server and Windows computers
 
-- [Back up Windows Server and Windows client computers](backup-configure-vault-classic.md)
-- [Restore Windows Server and Windows client computers](backup-azure-restore-windows-server.md)
-- [Manage Windows Server and Windows client computer backups](backup-azure-manage-windows-server.md)
-- [Using Powershell to back up Windows Server](backup-client-automation-classic.md)
+- [Back up Windows Server and Windows client computers](../backup/backup-configure-vault-classic.md)
+- [Restore Windows Server and Windows client computers](../backup/backup-azure-restore-windows-server.md)
+- [Manage Windows Server and Windows client computer backups](../backup/backup-azure-manage-windows-server.md)
+- [Using Powershell to back up Windows Server](../backup/backup-client-automation-classic.md)

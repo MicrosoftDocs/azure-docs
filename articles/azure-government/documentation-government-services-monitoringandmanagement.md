@@ -34,7 +34,7 @@ For more information, see [Automation public documentation](../automation/automa
 ## Backup
 Backup is generally available in Azure Government.
 
-For more information, see [Azure Government Backup](../backup/documentation-government-services-backup.md).
+For more information, see [Azure Government Backup](documentation-government-services-backup.md).
 
 ### Variations
 The following Backup features are not currently available in Azure Government:
