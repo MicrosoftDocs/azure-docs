@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 11/11/2016
 ms.author: markusvi;andkjell
 
 ---
@@ -246,6 +246,7 @@ $c = Add-ADSyncConnector -Connector $c
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $false
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
 ```
+
 
 ## Next steps
 * [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
