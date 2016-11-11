@@ -1,9 +1,9 @@
 # Compute
 ## [App Service]/azure/app-service)
 ###[Web Apps](/azure/app-service-web/)
-###[Mobile Apps](azure/app-service-mobile)
-###[Logic Apps](azure/app-service-logic)
-###[API Apps](azure/app-service-api)
+###[Mobile Apps](azure/app-service-mobile/)
+###[Logic Apps](azure/app-service-logic/)
+###[API Apps](azure/app-service-api/)
 ## [Container Service](/azure/container-service/)
 ## [Batch](/azure/batch/)
 ## [Cloud Services](/azure/cloud-services/)
@@ -67,7 +67,7 @@
 ## [Site Recovery](/azure/site-recovery)
 ## [Scheduler](/azure/scheduler/)
 ## [Traffic Manager](/azure/traffic-manager)
-## [Azure Monitor](/azure/monitor) 
+## [Azure Monitor](/azure/monitor)
 
 # Networking
 ## [Application Gateway](/azure/application-gateway/)
