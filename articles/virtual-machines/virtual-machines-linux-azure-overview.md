@@ -70,7 +70,7 @@ Each Azure Subscription has default quota limits in place that could impact the 
 ## Partners
 Microsoft works closely with our partners to ensure the images available are updated and optimized for an Azure runtime.  For more information on our partners check their marketplace pages below.
 
-* [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md)
+Linux on Azure - [Endorsed Distributions](virtual-machines-linux-endorsed-distros.md)
 
 Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 
@@ -144,4 +144,3 @@ You now have an overview of Linux on Azure.  The next step is to dive in and cre
 
 * [Create a Linux VM on Azure using the Portal](virtual-machines-linux-quick-create-portal.md)
 * [Create a Linux VM on Azure by using the CLI](virtual-machines-linux-quick-create-cli.md)
-

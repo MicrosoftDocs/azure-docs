@@ -154,7 +154,9 @@
 ## [Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
 ## [Azure Storage client tools](storage-explorers.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
-## [MSDN Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+## [Service updates](https://azure.microsoft.com/updates/?product=storage)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=storage)
 
 ## Azure Storage Explorer
 ### [Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
