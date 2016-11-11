@@ -54,4 +54,6 @@
 ## [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
+## [Service updates](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
