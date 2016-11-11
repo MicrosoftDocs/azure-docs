@@ -18,7 +18,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Monitor and manage an elastic database pool with the Azure portal
+# Monitor and manage an elastic pool with the Azure portal
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-manage-portal.md)
@@ -27,7 +27,7 @@
 - [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 
-You can use the Azure portal to monitor and manage an elastic database pool and the databases in the pool. From the portal, you can monitor the utilization of an elastic pool and the databases within that pool. You can also make a set of changes to your elastic pool and submit all changes at the same time. These changes include adding or removing databases, changing your elastic pool settings, or changing your database settings.
+You can use the Azure portal to monitor and manage an elastic pool and the databases in the pool. From the portal, you can monitor the utilization of an elastic pool and the databases within that pool. You can also make a set of changes to your elastic pool and submit all changes at the same time. These changes include adding or removing databases, changing your elastic pool settings, or changing your database settings.
 
 The graphic below shows an example elastic pool. The view includes:
 

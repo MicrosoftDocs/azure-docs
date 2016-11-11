@@ -58,7 +58,7 @@ This article shows how to create a new pool from an existing **server** blade in
 
 The pool's pricing tier determines the features available to the elastic databases in the pool, and the maximum number of eDTUs (eDTU MAX), and storage (GBs) available to each database. For details, see Service Tiers.
 
-To change the pricing tier for the pool, click **Pricing tier**, click the pricing tier your want, and then click **Select**.
+To change the pricing tier for the pool, click **Pricing tier**, click the pricing tier you want, and then click **Select**.
 
 > [AZURE.IMPORTANT] After you choose the pricing tier and commit your changes by clicking **OK** in the last step, you won't be able to change the pricing tier of the pool. To change the pricing tier for an existing elastic pool create a new elastic pool in the desired pricing tier and migrate the elastic databases to this new pool.
 
