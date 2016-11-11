@@ -23,13 +23,15 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 ## Download and extract Microsoft Azure Stack POC TP2
 Before you start, make sure that you at least 85 GB of space.
 
-1. The download of Azure Stack POC TP2 is comprised of a zip file containing the following 12 files, totaling ~20 GB:
+1. [Download the Azure Stack POC deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try).
+
+2. The download of Azure Stack POC TP2 is comprised of a zip file containing the following 12 files, totaling ~20 GB:
    * 1 MicrosoftAzureStackPOC.EXE
-2. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
-3. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
-4. Select the Destination for the files to be extracted, click **Next**.
+3. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
+4. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
+5. Select the Destination for the files to be extracted, click **Next**.
    * The default is: <drive letter>:\<current folder>\Microsoft Azure Stack POC
-5. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~44.5 GB) and ThirdPartyLicenses.rtf files.
+6. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~44.5 GB) and ThirdPartyLicenses.rtf files.
 
 > [!NOTE]
 > After you extract the files, you can delete the zip file to recover space on the machine. Or, you can move the zip file to another location so that if you need to redeploy you don’t need to download the zip files again.
