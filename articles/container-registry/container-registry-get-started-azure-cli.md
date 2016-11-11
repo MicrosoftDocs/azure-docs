@@ -102,7 +102,7 @@ az acr update -n myRegistry --disable-admin
 ```
 
 ## List images and tags
-Use the `az acr` CLI commands to query the images and tags in a repository. Container Registry doesn't currently support `docker search`.
+Use the `az acr` CLI commands to query the images and tags in a repository. 
 
 > [!NOTE]
 > Currently, Container Registry does not support the `docker search` command to query for images and tags.
