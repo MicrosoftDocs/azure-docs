@@ -1,5 +1,5 @@
 # Overview
-## [ACS introduction](container-service-intro.md)
+## [What is the Azure Container Service?](container-service-intro.md)
 # Get Started
 
 ## [Deploy an ACS cluster](container-service-deployment.md)
@@ -24,6 +24,6 @@
 ## [REST API](https://docs.microsoft.com/rest/api/compute/containerservices/)
 
 # Resources
-
 ## [Region availability](https://azure.microsoft.com/regions/services/)
+## [Pricing](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
