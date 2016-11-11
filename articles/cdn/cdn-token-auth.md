@@ -65,7 +65,7 @@ This chart describes how Azure CDN validates client request when token authentic
 
 	![CDN token auth setup key](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
 	
-	2) Set up encryption parameters with encryption tool (allow or deny requests based on expiration time, country, referrer, protocol, client IP. You can use any combination.
+	2) Set up encryption parameters with encryption tool (allow or deny requests based on expiration time, country, referrer, protocol, client IP. You can use any combination.)
 
 	![CDN profile blade manage button](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -89,15 +89,18 @@ This chart describes how Azure CDN validates client request when token authentic
 	- ec-country-allow: only allows requests that originate from one or more specified countries. Requests that originate from all other countries will be denied. Use country code to set up the parameters and separating each country code with a comma. E.g., If you want to allow access from United States and France, input US, FR in the column as below.  
 	
 		![CDN profile blade manage button](./media/cdn-token-auth/cdn-token-auth-country-allow.png)
+
 	- ec-country-deny: denies requests that originated from one or more specified countries. Requests that originate from all other countries will be allowed. Use country code to set up the parameters and separating each country code with a comma. E.g., If you want to deny access from United States and France, input US, FR in the column.
 
 	- ec-ref-allow: only allows requests from specified referrer. A referrer identifies the URL of the web page that linked to the resource being requested. The referrer parameter value shouldn't include the protocol. You can input a hostname and/or a particular path on that hostname. You can also add multiple referrers within a single parameter separating each one with a comma. If you have specified a referrer value, but the referrer information is not sent in the request due to some browser configuration, these requests will be denied by default. You can assign "Missing" or a blank value in the parameter to allow these requests with missing referrer information. You can also use "*.consoto.com" to allow all subdomains of consoto.com. E.g. If you want to allow access for requests from www.consoto.com, all subdomains under consoto2.com and erquests with blank or missing reffers, input value below:
+		
 		![CDN profile blade manage button](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)
 
 	- ec-ref-deny: denies requests from specified referrer. Refer to details and example in "ec-ref-allow" parameter.
 	 
 	- ec-proto-allow: only allows requests from specified protocol. E.g., http or https.
-	![CDN profile blade manage button](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
+	
+		![CDN profile blade manage button](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
 		
 	- ec-proto-deny: denies requests from specified protocol. E.g., http or https.
 
@@ -138,3 +141,6 @@ Available languages include:
 	6. Python	
 
 
+## Azure CDN features and provider pricing
+
+See the [CDN Overview](cdn-overview.md) topic.
