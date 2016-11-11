@@ -113,6 +113,7 @@ Use the following steps to configure long-term retention using PowerShell.
     #list the backup items in the container
     Get-AzureRmRecoveryServicesBackupItem –container $container
     ```
+
 ## Restore from a long-term retention backup
 
 Use the following steps to restore a database from a backup in the Azure Recovery Service vault:
