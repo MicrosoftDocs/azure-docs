@@ -26,13 +26,10 @@ ms.author: kumudd
 1. Sign in into the [Azure portal](https://portal.azure.com).
 2. In the left-navigation pane, click **More services**, and then in the service menu pane, scroll down to **Monitoring and Management**, and then click **Azure Advisor**. This launches the Advisor dashboard. 
 3. On the Advisor dashboard, select the subscription for which you’d like to receive recommendations.
-  
-> [!NOTE]
-  > The Advisor dashboard displays recommendations related to resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.  
+   > [!NOTE]
+   > The Advisor dashboard displays recommendations related to resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.  
 
 4. To get Advisor recommendations, on the Advisor dashboard, do one of the following:
- > [!NOTE]
- > You can filter the Advisor recommendations based on **Resource groups** and/or based on the status (**Active** or **Snoozed**).
   1. To get recommendations for improvements in all categories of Azure resources, click the All tab, and  then click **Get Recommendations**.    
   2. To get security recommendations for your Azure resources, click the **Security** tab, and then click **Get Recommendations**.
   3. To get high availability recommendations for your Azure resources, click the **High Availability** tab, and then click **Get Recommendations**.
@@ -67,7 +64,7 @@ You can search for recommendations for a particular subscription, resource type,
 2. Click**Get Recommendation**, and then from the list of recommendations, click a recommendation. This launches the **Recommendation** blade.
 3. On the Recommendation blade, click **Snooze**.
 
- ![Advisor recommendation action example](./media/advisor-overview/advisor-snooze.png)
+ ![Advisor recommendation action example](./media/advisor-get-started/advisor-snooze.png)
 
 ## Next Steps
 
