@@ -41,7 +41,7 @@ Hybrid Connections and WCF Relays both enable secure connection to assets that e
 | **JavaScript/NodeJS*** | |x |
 | **Java*** | |x |
 | **Standards-Based Open Protocol** | |x |
-| **Multiple RPC Programing Models** | |x |
+| **Multiple RPC Programming Models** | |x |
 
 *By General Availability
 
