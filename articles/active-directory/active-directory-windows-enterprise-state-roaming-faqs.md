@@ -41,7 +41,7 @@ In Windows 8 and Windows 8.1, settings sync always used consumer Microsoft accou
 The primary account is defined as the account used to sign in to Windows. This can be a Microsoft account, an Azure Active Directory (Azure AD) account, an on-premises Active Directory account, or a local account. In addition to the primary account, Windows 10 users can add one or more secondary cloud accounts to their device. A secondary account is generally a Microsoft account, an Azure AD account, or some other account such as Gmail or Facebook. These secondary accounts provide access to additional services such as single sign-on and the Windows Store, but they are not capable of powering settings sync.
 
 In Windows 10, only the primary account for the device can be used for settings sync (see
-[How do I upgrade from Microsoft account settings sync in Windows 8 to Azure AD settings sync in Windows 10?](active-directory-windows-enterprise-state-roaming-faqs.md#how-do-I-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10)).
+[How do I upgrade from Microsoft account settings sync in Windows 8 to Azure AD settings sync in Windows 10?](active-directory-windows-enterprise-state-roaming-faqs.md#how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10)).
 
 Data is never mixed between the different user accounts on the device. There are two rules for settings sync:
 
