@@ -31,7 +31,7 @@ The Data Lake Tools for VSCode supports the following features:
     - Built-in UDTs
     - .Net Collection & Classes
     - C# Expressions
-    - Built-in C# UDFs, UDOs and UDAAGs 
+    - Built-in C# UDFs, UDOs, and UDAAGs 
     - U-SQL Functions
     - U-SQL Windowing Function
  
@@ -122,7 +122,7 @@ You can also open a working folder that contains U-SQL script files by clicking 
 
 A compute Data Lake Analytics account is needed for compiling and running U-SQL jobs.  You must configure the computer account before you can compile and run U-SQL jobs.
 
-**To setup the compute account**
+**To set up the compute account**
 
 1.	Open the command palette by pressing **CTRL+SHIFT+P**.
 2.	Enter **USQL:Set Script Parameters**. By doing so, you create a configuration file called *usqlscript_settings.json* in the working folder.  
@@ -146,7 +146,8 @@ A compute Data Lake Analytics account is needed for compiling and running U-SQL 
 Code-behind file is a CSharp file associate with one U-SQL script. Code-behind file is put in the same folder as its peering U-SQL script file. If the script is named xxx.usql, the code-behind will be named as xxx.usql.cs. Deleting the code-behind file manually disables the code-behind feature for its associated U-SQL script. User can define script dedicated UDO/UDA/UDT/UDF in the code-behind file, the UDO/UDA/UDT/UDF can be directly used in the script without register the assembly first. For more information about writing customer code for U-SQL script, see [Writing and Using Custom Code in U-SQL – User-Defined Functions]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
 To support the code-behind, a working folder must be opened. To generate a code-behind file, use Command Palette (Ctrl+Shift+P) and choose USQL: Generate Code Behind (ctrl+q ctrl+c). Right click on the scripts then select ‘Generate Code Behind’ will perform the same actions.
 Compile and submit a U-SQL script with code-behind is the same as the standalone U-SQL script.
-The following two screenshots shows a code-behind file and its associated U-SQL script file:
+
+The following two screenshots show a code-behind file and its associated U-SQL script file:
  
      ![Data Lake Tools for Visual Studio Code code behind](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind.png)
      ![Data Lake Tools for Visual Studio Code code behind](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind-call.png) 
