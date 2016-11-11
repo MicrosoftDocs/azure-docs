@@ -4,11 +4,11 @@
 
 2.  In the Azure portal, click **New** &gt; **Data + Storage** &gt; **StorSimple Virtual Series**.
 
-    ![Create new service](./media/storsimple-ova-rm-create-new-service/createnewservice2.png) 
+    ![Create new service](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 
 3.  In the **StorSimple Virtual Series** blade, click **Create**.
 
-     ![Create new service](./media/storsimple-ova-rm-create-new-service/createnewservice3.png)
+     ![Create new service](./media/storsimple-virtual-array-create-new-service/createnewservice3.png)
 
 4.  In the **StorSimple Device Manager** blade, do the following:
 
@@ -32,7 +32,7 @@
 
     7.  Click **Create** to create the StorSimple Device Manager.
 
-        ![Create new service](./media/storsimple-ova-rm-create-new-service/createnewservice4.png)  
+        ![Create new service](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
 You are directed to the **Service** landing page. The service creation takes a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
 
