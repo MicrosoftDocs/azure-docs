@@ -37,11 +37,11 @@ Mirroring can be ran as a continuous process, or used intermittently as a method
 
 Mirroring works by using the MirrorMaker tool (part of Apache Kafka) to consume records from topics on the source cluster and then create a local copy on the destination cluster. MirrorMaker uses one (or more) *consumers* that read from the source cluster, and a *producer* that writes to the local (destination) cluster.
 
-The following diagram illustrates of the Mirroring process:
+The following diagram illustrates the Mirroring process:
 
 ![Diagram of the mirroring process](./media/hdinsight-apache-kafka-mirroring/kafka-mirroring.png)
 
-The source and destination clusters can be different in the number of nodes and partitions, and offsets within the topics are different also. Mirforing maintains the key value that is used for partitioning, so record order is preserved on a per-key basis.
+The source and destination clusters can be different in the number of nodes and partitions, and offsets within the topics are different also. Mirroring maintains the key value that is used for partitioning, so record order is preserved on a per-key basis.
 
 ### Mirroring between networks
 
@@ -75,33 +75,33 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
    
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-in-vnet.json**.
 
-2. Use the following information to populate the entries on the **Parameters** blade:
+2. Use the following information to populate the entries on the **Custom deployment** blade:
    
-    ![HDInsight parameters](./media/hdinsight-apache-kafka-mirroring/parameters.png)
+    ![HDInsight custom deployment](./media/hdinsight-apache-kafka-mirroring/parameters.png)
    
     **BASICS** section:
    
-   * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
+    * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
 
-   * **Location**: Select a location geographically close to you. This location must match the location in the __SETTINGS__ section.
+    * **Location**: Select a location geographically close to you. This location must match the location in the __SETTINGS__ section.
      
-        **SETTINGS** section:
+    **SETTINGS** section:
 
-        * **Base Cluster Name**: This value is used as the base name for the Kafka clusters. For example, entering **hdi** creates clusters named **source-hdi** and **dest-hdi**.
-   
-        * **Cluster Login User Name**: The admin user name for the source and destination Kafka clusters.
-   
-        * **Cluster Login Password**: The admin user password for the source and destination Kafka clusters.
-   
-        * **SSH User Name**: The SSH user to create for the source and destination Kafka clusters.
-   
-        * **SSH Password**: The password for the SSH user for the source and destination Kafka clusters.
-   
-        * **Location**: The region that the clusters are created in.
+    * **Base Cluster Name**: This value is used as the base name for the Kafka clusters. For example, entering **hdi** creates clusters named **source-hdi** and **dest-hdi**.
+
+    * **Cluster Login User Name**: The admin user name for the source and destination Kafka clusters.
+
+    * **Cluster Login Password**: The admin user password for the source and destination Kafka clusters.
+
+    * **SSH User Name**: The SSH user to create for the source and destination Kafka clusters.
+
+    * **SSH Password**: The password for the SSH user for the source and destination Kafka clusters.
+
+    * **Location**: The region that the clusters are created in.
 
 3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
-4. Finally, check **Pin to dashboard** and then select **Create**. It takes about 20 minutes to create the clusters.
+4. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
 
 Once the resources have been created, you are redirected to a blade for the resource group that contains the clusters and web dashboard.
 

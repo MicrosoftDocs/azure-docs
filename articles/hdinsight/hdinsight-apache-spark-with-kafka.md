@@ -56,9 +56,9 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
    
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet.json**.
 
-2. Use the following information to populate the entries on the **Parameters** blade:
+2. Use the following information to populate the entries on the **Custom deployment** blade:
    
-    ![HDInsight parameters](./media/hdinsight-apache-spark-with-kafka/parameters.png)
+    ![HDInsight custom deployment](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
     **BASICS** section:
    
@@ -66,23 +66,23 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
     * **Location**: Select a location geographically close to you. This location must match the location in the __SETTINGS__ section.
      
-        **SETTINGS** section:
-   
-        * **Base Cluster Name**: This value is used as the base name for the Spark and Kafka clusters. For example, entering **hdi** creates a Spark cluster named spark-hdi__ and a Kafka cluster named **kafka-hdi**.
+    **SETTINGS** section:
 
-        * **Cluster Login User Name**: The admin user name for the Spark and Kafka clusters.
+    * **Base Cluster Name**: This value is used as the base name for the Spark and Kafka clusters. For example, entering **hdi** creates a Spark cluster named spark-hdi__ and a Kafka cluster named **kafka-hdi**.
 
-        * **Cluster Login Password**: The admin user password for the Spark and Kafka clusters.
+    * **Cluster Login User Name**: The admin user name for the Spark and Kafka clusters.
 
-        * **SSH User Name**: The SSH user to create for the Spark and Kafka clusters.
+    * **Cluster Login Password**: The admin user password for the Spark and Kafka clusters.
 
-        * **SSH Password**: The password for the SSH user for the Spark and Kafka clusters.
+    * **SSH User Name**: The SSH user to create for the Spark and Kafka clusters.
 
-        * **Location**: The region that the clusters are created in.
+    * **SSH Password**: The password for the SSH user for the Spark and Kafka clusters.
+
+    * **Location**: The region that the clusters are created in.
 
 3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
-4. Finally, check **Pin to dashboard** and then select **Create**. It takes about 20 minutes to create the clusters.
+4. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
 
 Once the resources have been created, you are redirected to a blade for the resource group that contains the clusters and web dashboard.
 
