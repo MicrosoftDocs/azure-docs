@@ -17,7 +17,7 @@ ms.date: 11/16/2016
 ms.author: kumudd
 ---
 
-# Get Started with Azure Advisor
+# Get started with Azure Advisor
 
  This topic provides instructions to access Advisor using the Azure portal, get recommendation details, search for recommendations, and how to refresh recommendations.
 

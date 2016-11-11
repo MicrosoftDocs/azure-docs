@@ -1,5 +1,5 @@
 ---
-title: Azure Advisor High Availability Recommendations | Microsoft Docs
+title: Azure Advisor High Availability recommendations | Microsoft Docs
 description: Use Azure Advisor to improve high availability of your Azure deployments.
 services: advisor
 documentationcenter: NA
@@ -17,7 +17,7 @@ ms.date: 11/16/2016
 ms.author: kumudd
 ---
 
-# Azure Advisor High Availability Recommendations
+# Azure Advisor High Availability recommendations
 
 Azure Advisor analyzes single instance virtual machines and availability sets to help optimize your Azure deployments for high availability. You can get high availability recommendations by Advisor from the **High Availability** tab of the Advisor dashboard.
 
@@ -53,12 +53,20 @@ You can choose to migrate your virtual machine disks to Premium Disks. Premium D
 
 ![](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png) 
 
-## Next Steps
+## How to access High Availability recommendations in Azure Advisor
+
+1. Sign in into the [Azure portal](https://portal.azure.com).
+2. In the left-navigation pane, click **More services**, and then in the service menu pane, scroll down to **Monitoring and Management**, and then click **Azure Advisor**. This launches the Advisor dashboard. 
+3. On the Advisor dashboard, click the **High Availability** tab, and select the subscription for which you’d like to receive recommendations.
+   > [!NOTE]
+   > The Advisor dashboard displays recommendations related to resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.
+
+## Next steps
 
 See these resources to learn more about Advisor recommendations:
--  [Introduction to Advisor](advisor-overview.md)
+-  [Introduction to Azure Advisor](advisor-overview.md)
 -  [Advisor FAQs](advisor-faqs.md)
--  [Get Started with Advisor](advisor-get-started.md)
--  [Advisor Security Recommendations](advisor-security-recommendations.md)
--  [Advisor Performance Recommendations](advisor-performance-recommendations.md)
--  [Advisor Cost Recommendations](advisor-performance-recommendations.md)
+-  [Get started with Advisor](advisor-get-started.md)
+-  [Advisor Security recommendations](advisor-security-recommendations.md)
+-  [Advisor Performance recommendations](advisor-performance-recommendations.md)
+-  [Advisor Cost recommendations](advisor-performance-recommendations.md)

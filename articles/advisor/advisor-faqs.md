@@ -1,5 +1,5 @@
 ---
-title: Azure Advisor Frequently Asked Questions | Microsoft Docs
+title: Azure Advisor frequently asked questions | Microsoft Docs
 description: Get answers to frequently asked questions about Azure Advisor.
 services: advisor
 documentationcenter: NA
@@ -17,7 +17,7 @@ ms.date: 11/09/2016
 ms.author: kumudd
 ---
 
-# Azure Advisor Frequently Asked Questions
+# Azure Advisor frequently asked questions
 
 This article includes frequently asked questions about Azure Advisor.
 
@@ -25,14 +25,14 @@ This article includes frequently asked questions about Azure Advisor.
 
 Azure Advisor is a personalized recommendation engine that helps you improve the cost effectiveness, performance, high availability, and security of your Azure resources. 
 
-## How do I access Advisor?
+## How do I access Azure Advisor?
 You can access Advisor through the Azure portal. Sign into the portal, select **Browse** and then scroll to **Azure Advisor**. You can also view Advisor recommendations through the virtual machine resource blade. Choose a virtual machine, and then scroll to Advisor recommendations in the menu. 
 
-## What permissions do I need to access Advisor?
+## What permissions do I need to access Azure Advisor?
 
 To view Advisor recommendations, you must have access to at least one subscription. Your role must be either **Owner**, **Contributor**, or **Reader** to that subscription. Subscription owners and contributors can compute/generate recommendations. However, with a **Reader** role, you can only view Advisor recommendations. 
 
-## What does Advisor check?
+## What does Azure Advisor check?
 Advisor analyzes your resource configuration and usage telemetry to detect risks and potential issues. It then draws on Azure best practices to recommend solutions to improve the cost effectiveness, performance, high availability, and security of your Azure resources. 
 Advisor generates recommendations in four categories:
 -	**High Availability:** to ensure and improve the continuity of your business critical applications running on Azure resources
@@ -40,14 +40,11 @@ Advisor generates recommendations in four categories:
 -	**Performance:** to enhance the speed of your applications
 -	**Cost:** to optimize and reduce your overall Azure spend
 
-## How often are Advisor recommendations updated?
+## How often are Azure Advisor recommendations updated?
 
 Advisor recommendations are updated on an hourly basis.
 
-## Where can I find a list of Advisor recommendations?
-<Add link>
-
-## What resources does Advisor provide recommendations for?
+## What resources does Azure Advisor provide recommendations for?
 
 Advisor provides recommendations for virtual machines, availability sets, App Services, SQL servers, SQL databases, and Redis cache.
 

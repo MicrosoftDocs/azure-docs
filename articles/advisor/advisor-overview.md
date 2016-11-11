@@ -64,7 +64,7 @@ After you’ve implemented a recommended action, the recommendation remains visi
 
 ![Advisor snooze details pane](./media/advisor-overview/advisor-snooze-details.png)
 
-## Next Steps
+## Next steps
 
 See these resources to learn more about Advisor recommendations:
 -  [Advisor FAQs](advisor-faqs.md)
