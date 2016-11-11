@@ -41,7 +41,7 @@
 ### [Diagnostics](application-gateway-diagnostics.md)
 ### [Troubleshoot](application-gateway-troubleshooting-502.md)
 # Reference
-## [PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/resourcemanager)
+## [PowerShell cmdlets](https://docs.microsoft.com/powershell/resourcemanager)
 ## [REST](https://msdn.microsoft.com/library/mt684941)
 ## [Classic REST](https://msdn.microsoft.com/library/azure/mt299393)
 
