@@ -26,7 +26,6 @@ Two or more empty data disks are needed to configure a RAID device.  The primary
 
 ## Install the mdadm utility
 * **Ubuntu**
-
 ```bash
 sudo apt-get update
 sudo apt-get install mdadm
@@ -47,74 +46,74 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
 
 1. Start `fdisk` to begin creating partitions
 
-```bash
-sudo fdisk /dev/sdc
-Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
-Building a new DOS disklabel with disk identifier 0xa34cb70c.
-Changes will remain in memory only, until you decide to write them.
-After that, of course, the previous content won't be recoverable.
+    ```bash
+    sudo fdisk /dev/sdc
+    Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
+    Building a new DOS disklabel with disk identifier 0xa34cb70c.
+    Changes will remain in memory only, until you decide to write them.
+    After that, of course, the previous content won't be recoverable.
 
-WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
-                switch off the mode (command 'c') and change display units to
-                sectors (command 'u').
-```
+    WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
+                    switch off the mode (command 'c') and change display units to
+                    sectors (command 'u').
+    ```
 
 2. Press 'n' at the prompt to create a **n**ew partition:
 
-```bash
-Command (m for help): n
-```
+    ```bash
+    Command (m for help): n
+    ```
 
 3. Next, press 'p' to create a **p**rimary partition:
 
-```bash 
-Command action
-        e   extended
-        p   primary partition (1-4)
-```
+    ```bash 
+    Command action
+            e   extended
+            p   primary partition (1-4)
+    ```
 
 4. Press '1' to select partition number 1:
 
-```bash
-Partition number (1-4): 1
-```
+    ```bash
+    Partition number (1-4): 1
+    ```
 
 5. Select the starting point of the new partition, or press `<enter>` to accept the default to place the partition at the beginning of the free space on the drive:
 
-```bash   
-First cylinder (1-1305, default 1):
-Using default value 1
-```
+    ```bash   
+    First cylinder (1-1305, default 1):
+    Using default value 1
+    ```
 
 6. Select the size of the partition, for example type '+10G' to create a 10 gigabyte partition. Or, press `<enter>` create a single partition that spans the entire drive:
 
-```bash   
-Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
-Using default value 1305
-```
+    ```bash   
+    Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
+    Using default value 1305
+    ```
 
 7. Next, change the ID and **t**ype of the partition from the default ID '83' (Linux) to ID 'fd' (Linux raid auto):
 
-```bash  
-Command (m for help): t
-Selected partition 1
-Hex code (type L to list codes): fd
-```
+    ```bash  
+    Command (m for help): t
+    Selected partition 1
+    Hex code (type L to list codes): fd
+    ```
 
 8. Finally, write the partition table to the drive and exit fdisk:
 
-```bash   
-Command (m for help): w
-The partition table has been altered!
-```
+    ```bash   
+    Command (m for help): w
+    The partition table has been altered!
+    ```
 
 ## Create the RAID array
 1. The following example will "stripe" (RAID level 0) three partitions located on three separate data disks (sdc1, sdd1, sde1).  After running this command a new RAID device called **/dev/md127** is created. Also note that if these data disks we previously part of another defunct RAID array it may be necessary to add the `--force` parameter to the `mdadm` command:
 
-```bash  
-sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
+    ```bash  
+    sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
         /dev/sdc1 /dev/sdd1 /dev/sde1
-```
+    ```
 
 2. Create the file system on the new RAID device
    

@@ -32,33 +32,34 @@ One will usually want to start with two or more empty data disks when using LVM.
 ## Install the LVM utilities
 * **Ubuntu**
 
-```bash  
-sudo apt-get update
-sudo apt-get install lvm2
-```
+    ```bash  
+    sudo apt-get update
+    sudo apt-get install lvm2
+    ```
 
 * **RHEL, CentOS & Oracle Linux**
 
-```bash   
-sudo yum install lvm2
-```
+    ```bash   
+    sudo yum install lvm2
+    ```
 
 * **SLES 12 and openSUSE**
-```bash   
-sudo zypper install lvm2
-```
+
+    ```bash   
+    sudo zypper install lvm2
+    ```
 
 * **SLES 11**
 
-```bash   
-sudo zypper install lvm2
-```
+    ```bash   
+    sudo zypper install lvm2
+    ```
 
-On SLES11 you must also edit `/etc/sysconfig/lvm` and set `LVM_ACTIVATED_ON_DISCOVERED` to "enable":
+    On SLES11 you must also edit `/etc/sysconfig/lvm` and set `LVM_ACTIVATED_ON_DISCOVERED` to "enable":
 
-```sh   
-LVM_ACTIVATED_ON_DISCOVERED="enable" 
-```
+    ```sh   
+    LVM_ACTIVATED_ON_DISCOVERED="enable" 
+    ```
 
 ## Configure LVM
 In this guide we will assume you have attached three data disks, which we'll refer to as `/dev/sdc`, `/dev/sdd` and `/dev/sde`. Note that these may not always be the same path names in your VM. You can run '`sudo fdisk -l`' or similar command to list your available disks.
