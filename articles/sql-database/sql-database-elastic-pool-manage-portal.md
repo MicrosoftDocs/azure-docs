@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/22/2016"
+	ms.date="11/11/2016"
 	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="article"
