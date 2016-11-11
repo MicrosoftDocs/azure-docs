@@ -26,6 +26,9 @@
 ### [Troubleshoot autoscale](virtual-machine-scale-sets-troubleshoot.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [REST](https://docs.microsoft.com/rest/api/compute/)
+## [REST](/rest/api/compute/)
+
+# Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
