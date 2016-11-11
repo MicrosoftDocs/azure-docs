@@ -40,14 +40,14 @@ As mentioned, Azure Government Backup supports the classic deployment model. The
 ### Virtual Machines
 
 - [Prepare your virtual machine environment](../backup/backup-azure-vms-prepare.md)
-- [Back up virtual machines](../backup/backup-vms-first-look.md)
-- [Restore virtual machines](../backup/backup-restore-vms.md)
+- [Back up virtual machines](../backup/backup-azure-vms-first-look.md)
+- [Restore virtual machines](../backup/backup-azure-restore-vms.md)
 - [Manage virtual machines](../backup/backup-azure-manage-vms-classic.md)
-- [Using PowerShell to back up virtual machines](../backup/backup-vms-classic-automation.md)
+- [Using PowerShell to back up virtual machines](../backup/backup-azure-vms-classic-automation.md)
 
 ### System Center Data Protection Manager
 
-- [Back up System Center Data Protection Manager](../backup/backup-dpm-introduction-classic.md)
+- [Back up System Center Data Protection Manager](../backup/backup-azure-dpm-introduction-classic.md)
 
 ### Azure Backup Server
 
