@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/09/2016
+ms.date: 11/11/2016
 ms.author: alkohli
 ---
 # Install Updates on your StorSimple Virtual Array
@@ -51,7 +51,7 @@ Perform the following steps to download the software update from the Microsoft U
    
     The hotfix listing appears, for example, **StorSimple Virtual Array Update 0.3**.
    
-    ![Search catalog](./media/storsimple-ova-rm-install-update/download1.png)
+    ![Search catalog](./media/storsimple-virtual-array-install-update/download1.png)
 
 4. Click **Add**. The update is added to the basket.
 
@@ -71,32 +71,32 @@ Use this method to install updates on a device running GA or Update 0.1 software
 
 1. In the local web UI, go to **Maintenance** > **Software Update**.
    
-    ![update device](./media/storsimple-ova-rm-install-update/update1m.png)
+    ![update device](./media/storsimple-virtual-array-install-update/update1m.png)
 
 2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. Click **Apply**.
    
-    ![update device](./media/storsimple-ova-rm-install-update/update2m.png)
+    ![update device](./media/storsimple-virtual-array-install-update/update2m.png)
 
 3. A warning is displayed. Given this is a single node device, after the update is applied, the device restarts and there is downtime. Click the check icon.
    
-   ![update device](./media/storsimple-ova-rm-install-update/update3m.png)
+   ![update device](./media/storsimple-virtual-array-install-update/update3m.png)
 
 4. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-    ![update device](./media/storsimple-ova-rm-install-update/update5m.png)
+    ![update device](./media/storsimple-virtual-array-install-update/update5m.png)
 
 5. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.0.0.0.10288.0** for Update 0.3.
    
    > [!NOTE]
    > We report the software versions in a slightly different way in the local web UI and the Azure portal. For example, the local web UI reports **10.0.0.0.0.10288** and the Azure portal reports **10.0.10288.0** for the same version.
    
-    ![update device](./media/storsimple-ova-rm-install-update/update6m.png)
+    ![update device](./media/storsimple-virtual-array-install-update/update6m.png)
 
 ## Use the Azure portal
 
 If running Update 0.2, we recommend that you install updates through the Azure portal. The portal procedure requires the user to scan, download, and then install the updates. This procedure takes around 7 minutes to complete. Perform the following steps to install the update or hotfix.
 
-[!INCLUDE [storsimple-ova-rm-install-update-via-portal](../../includes/storsimple-ova-rm-install-update-via-portal.md)]
+[!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal.md)]
 
 After the installation is complete (as indicated by job status at 100 %), go to your StorSimple Device Manager service. Select **Devices** and then select and click the device you want to update from the list of devices connected to this service. In the **Settings** blade, go to **Manage** section and select **Device updates**. The displayed software version should be **10.0.10288.0**.
 

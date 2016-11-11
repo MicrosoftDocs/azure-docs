@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2016
+ms.date: 11/11/2016
 ms.author: manuaery
 ---
 # Use the device summary blade for StorSimple Device Manager connected to StorSimple Virtual Array
@@ -24,7 +24,7 @@ The StorSimple Device Manager device blade provides a summary view of a StorSimp
 
 The device summary blade displays the following information:
 
-![Device dashboard](./media/storsimple-ova-rm-device-summary/device-blade.png)
+![Device dashboard](./media/storsimple-virtual-array-device-summary/device-blade.png)
 
 
 
@@ -34,7 +34,7 @@ In the StorSimple device blade, you see the options for managing your StorSimple
 
 The essentials area captures some of the important properties such as, the status, model, software version as well as a link to the **Web UI** of the array. If you are on an internal network, you can directly launch the [local web UI](storsimple-ova-web-ui-admin.md) to administer your virtual array.
 
-![Device essentials](./media/storsimple-ova-rm-device-summary/device-essentials.png)
+![Device essentials](./media/storsimple-virtual-array-device-summary/device-essentials.png)
 
 ## StorSimple device summary
 
@@ -44,12 +44,12 @@ The essentials area captures some of the important properties such as, the statu
 
 * In the **Usage** chart, you can view the primary storage used across your virtual array, as well as the cloud storage consumed  over the past 7 days, the default time period. Use the **Edit** option in the top-right corner of the chart to choose a different time scale.
 
-* The **Shares** or **Volumes** tile provides a summary of the number of shares or volumes in your device grouped by status. Click the tile to open the **Shares**  or **Volumes** list blade, and then click on an individual share or volume to view or modify its properties. For more information, see how to [manage shares](storsimple-ova-rm-manage-shares.md) or [manage volumes](storsimple-ova-rm-manage-volumes.md).
+* The **Shares** or **Volumes** tile provides a summary of the number of shares or volumes in your device grouped by status. Click the tile to open the **Shares**  or **Volumes** list blade, and then click on an individual share or volume to view or modify its properties. For more information, see how to [manage shares](storsimple-virtual-array-manage-shares.md) or [manage volumes](storsimple-virtual-array-manage-volumes.md).
 
 ## Next steps
 Learn how to:
     
-    - [Manage shares on a StorSimple Virtual Array](storsimple-ova-rm-manage-shares.md)
+    - [Manage shares on a StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
     
-    - [Manage volumes on a StorSimple Virtual Array](storsimple-ova-rm-manage-volumes.md)
+    - [Manage volumes on a StorSimple Virtual Array](storsimple-virtual-array-manage-volumes.md)
 

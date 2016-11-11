@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2016
+ms.date: 11/11/2016
 ms.author: manuaery
 ---
 # Use the StorSimple Device Manager service to log a Support request for the StorSimple Virtual Array
@@ -30,7 +30,7 @@ Depending upon your [support plan](https://azure.microsoft.com/support/plans/), 
 
 1. Go to your StorSimple Device Manager service. In the service summary blade settings, go to **SUPPORT + TROUBLESHOOTING** section and then click **New support request**.
    
-    ![New support request](./media/storsimple-ova-rm-log-support-ticket/log-support-ticket1.png)
+    ![New support request](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
 2. In the **Basics** blade, do the following:
 
@@ -44,11 +44,11 @@ Depending upon your [support plan](https://azure.microsoft.com/support/plans/), 
 
 3. In **Step 2**, choose the **Severity** and specify if the issue is related to the array or the StorSimple Device Manager service. Also, choose a **Category** for this issue and provide more **Details** about the issue.
    
-    ![New support request](./media/storsimple-ova-rm-log-support-ticket/log-support-ticket2.png)
+    ![New support request](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
 4. In **Step 3**, provide your contact information. Microsoft Support will use this information to reach out to you for further information, diagnosis, and resolution.
    
-    ![New support request](./media/storsimple-ova-rm-log-support-ticket/log-support-ticket3.png)
+    ![New support request](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 
 ## Manage a support request
 
@@ -58,9 +58,9 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
 To get to the help and support page, navigate to **Browse > Help + support**.
 
-![Manage support requests](./media/storsimple-ova-rm-log-support-ticket/manage-support-tickets.png)
+![Manage support requests](./media/storsimple-virtual-array-log-support-ticket/manage-support-tickets.png)
 
 ## Next steps
 
-Learn how to [diagnose and solve problems related to your StorSimple Virtual array](storsimple-ova-rm-diagnose-problems.md)
+Learn how to [diagnose and solve problems related to your StorSimple Virtual array](storsimple-virtual-array-diagnose-problems.md)
 

@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/07/2016
+ms.date: 11/11/2016
 ms.author: alkohli
 ---
 # Change the StorSimple Virtual Array device administrator password
@@ -24,7 +24,7 @@ When you use the Windows PowerShell interface to access the StorSimple Virtual A
 
 You can also use either the local web UI or the Azure portal to change the device administrator password at any time after the device is deployed in your production environment. Each of these procedures is described in this article.
 
- ![devices blade](./media/storsimple-ova-rm-change-device-admin-password/ova-devices-blade.png)
+ ![devices blade](./media/storsimple-virtual-array-change-device-admin-password/ova-devices-blade.png)
 
 ## Use the Azure portal to change the password
 
@@ -46,7 +46,7 @@ Perform the following steps to change the device administrator password through 
 
 The device administrator password is now updated. You can use this modified password to access the device locally.
 
-![Security settings blade](./media/storsimple-ova-rm-change-device-admin-password/ova-change-device-pwd.png)
+![Security settings blade](./media/storsimple-virtual-array-change-device-admin-password/ova-change-device-pwd.png)
 
 ## Use the local web UI to change the password
 
@@ -56,14 +56,14 @@ Perform the following steps to change the device administrator password through 
 
 1. In the local web UI, click **Maintenance** > **Password change** for your device.
    
-    ![change password1](./media/storsimple-ova-rm-change-device-admin-password/image40.png)
+    ![change password1](./media/storsimple-virtual-array-change-device-admin-password/image40.png)
 2. Enter the **Current password**.
 3. Provide a **New Password**. The password must be at least 8 characters long. It must contain 3 of 4 of the following: uppercase, lowercase, numeric, and special characters.
    
     Note that your password cannot be the same as the last 24 passwords.
 4. Reenter the password to confirm it.
    
-    ![change password2](./media/storsimple-ova-rm-change-device-admin-password/image41.png)
+    ![change password2](./media/storsimple-virtual-array-change-device-admin-password/image41.png)
 5. At the bottom of the page, click **Apply**. The new password is now applied. If the password change is not successful, you see the following error:
    
     ![password error](./media/storsimple-ova-rm-change-device-admin-password/image42.png)

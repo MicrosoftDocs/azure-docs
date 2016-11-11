@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2016
+ms.date: 11/11/2016
 ms.author: manuaery
 ---
 # Use the StorSimple Device Manager service to troubleshoot the StorSimple Virtual Array
@@ -21,7 +21,7 @@ ms.author: manuaery
 
 The StorSimple Device Manager provides a **Diagnose and solve problems** setting within the service summary blade, which highlights some of the commonly occurring issues that can occur with your virtual array and how to solve them. This tutorial introduces the self-serve troubleshooting capability provided within the StorSimple Device Manager service.
 
-![Diagnose and solve problems](./media/storsimple-ova-rm-diagnose-problems/diagnose-problems-main.png)
+![Diagnose and solve problems](./media/storsimple-virtual-array-diagnose-problems/diagnose-problems-main.png)
 
 ## Diagnose and solve issues
 
@@ -33,10 +33,10 @@ You can view some of the common problems with the StorSimple Virtual Array and r
 
 2. **Expand** on the symptom of the issue you are encountering to review **Recommended steps** to aid you in troubleshooting the problem. If you wish, you can also review the detailed documentation links provided for further reference.
    
-    ![Troubleshoot an issue](./media/storsimple-ova-rm-diagnose-problems/diagnose-problems-offline.png)
+    ![Troubleshoot an issue](./media/storsimple-virtual-array-diagnose-problems/diagnose-problems-offline.png)
 
 3. If you are unable to find a reference to your issue or resolve it, reach out to Microsoft Support for further assistance.
 
 ## Next steps
-Learn how to [log a support ticket](storsimple-ova-rm-log-support-ticket.md)
+Learn how to [log a support ticket](storsimple-virtual-array-log-support-ticket.md)
 

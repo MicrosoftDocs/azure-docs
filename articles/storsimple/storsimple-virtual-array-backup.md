@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/09/2016
+ms.date: 11/11/2016
 ms.author: alkohli
 ---
 # Back up your StorSimple Virtual Array
@@ -42,15 +42,15 @@ Your StorSimple Virtual Array has a default backup policy that starts at a speci
 
 1. Go to **Devices**. The list of devices registered with your StorSimple Device Manager service will be displayed. 
    
-    ![navigate to devices](./media/storsimple-ova-rm-backup/changebuschedule1.png)
+    ![navigate to devices](./media/storsimple-virtual-array-backup/changebuschedule1.png)
 
 2. Select and click your device. The **Settings** blade will be displayed. Go to **Manage > Backup policies**.
    
-    ![select your device](./media/storsimple-ova-rm-backup/changebuschedule2.png)
+    ![select your device](./media/storsimple-virtual-array-backup/changebuschedule2.png)
 
 3. In the **Backup policies** blade, the default start time is 22:30. You can specify the new start time for the daily schedule in device time zone.
    
-    ![navigate to backup policies](./media/storsimple-ova-rm-backup/changebuschedule5.png)
+    ![navigate to backup policies](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
 4. Click **Save**.
 
@@ -62,27 +62,27 @@ In addition to scheduled backups, you can take a manual (on-demand) backup of de
 
 1. Go to **Devices**. Select your device and right-click **...** at the far right in the selected row. From the context menu, select **Take backup**.
    
-    ![navigate to take backup](./media/storsimple-ova-rm-backup/takebackup1m.png)
+    ![navigate to take backup](./media/storsimple-virtual-array-backup/takebackup1m.png)
 
 2. In the **Take backup** blade, click **Take backup**. This will backup all the shares on the file server or all the volumes on your iSCSI server. 
    
-    ![backup starting](./media/storsimple-ova-rm-backup/takebackup2m.png)
+    ![backup starting](./media/storsimple-virtual-array-backup/takebackup2m.png)
    
     An on-demand backup starts and you see that a backup job has started.
    
-    ![backup starting](./media/storsimple-ova-rm-backup/takebackup3m.png) 
+    ![backup starting](./media/storsimple-virtual-array-backup/takebackup3m.png) 
    
     Once the job has successfully completed, you are notified again. The backup process then starts.
    
-    ![backup job created](./media/storsimple-ova-rm-backup/takebackup4m.png)
+    ![backup job created](./media/storsimple-virtual-array-backup/takebackup4m.png)
 
 3. To track the progress of the backups and look at the job details, click the notification. This takes you to  **Job details**.
    
-     ![backup job details](./media/storsimple-ova-rm-backup/takebackup5m.png)
+     ![backup job details](./media/storsimple-virtual-array-backup/takebackup5m.png)
 
 4. After the backup is complete, go to **Management > Backup catalog**. You will see a cloud snapshot of all the shares (or volumes) on your device.
    
-    ![Completed backup](./media/storsimple-ova-rm-backup/takebackup19m.png) 
+    ![Completed backup](./media/storsimple-virtual-array-backup/takebackup19m.png) 
 
 ## View existing backups
 To view the existing backups, perform the following steps in the Azure portal.
@@ -91,7 +91,7 @@ To view the existing backups, perform the following steps in the Azure portal.
 
 1. Go to **Devices** blade. Select and click your device. In the **Settings** blade, go to **Management > Backup Catalog**.
    
-    ![Navigate to backup catalog](./media/storsimple-ova-rm-backup/viewbackups1.png)
+    ![Navigate to backup catalog](./media/storsimple-virtual-array-backup/viewbackups1.png)
 2. Specify the following criteria to be used for filtering:
    
     a.    **Time range** – can be **Past 1 hour**, **Past 24 hours**, **Past 7 days**, **Past 30 days**, **Past year**, and **Custom date**.
@@ -100,11 +100,11 @@ To view the existing backups, perform the following steps in the Azure portal.
    
     c.    **Initiated** – can be automatically **Scheduled** (by a backup policy) or **Manually** initiated (by you).
    
-    ![Filter backups](./media/storsimple-ova-rm-backup/viewbackups2.png)
+    ![Filter backups](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
 3. Click **Apply**. The filtered list of backups is displayed in the **Backup catalog** blade. Note only 100 backup elements can be displayed at a given time.
    
-    ![Updated backup catalog](./media/storsimple-ova-rm-backup/viewbackups3.png)
+    ![Updated backup catalog](./media/storsimple-virtual-array-backup/viewbackups3.png)
 
 ## Next steps
 

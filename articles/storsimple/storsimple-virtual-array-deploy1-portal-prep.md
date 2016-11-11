@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
+ms.date: 11/11/2016
 ms.author: alkohli
 ---
 # Deploy StorSimple Virtual Array - Prepare the portal
 
-![](./media/storsimple-ova-rm-deploy1-portal-prep/getstarted4.png)
+![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 
 ## Overview
 
@@ -38,9 +38,9 @@ To deploy your StorSimple Virtual Array, refer to the following articles in the 
 
 | **#** | **In this step** | **You do this …** | **And use these documents.** |
 | --- | --- | --- | --- |
-| 1. |**Set up the Azure portal** |Create and configure your StorSimple Device Manager service prior to provisioning a StorSimple Virtual Array. |[Prepare the portal](storsimple-ova-rm-deploy1-portal-prep.md) |
-| 2. |**Provision the Virtual Array** |For Hyper-V, provision and connect to a StorSimple Virtual Array on a host system running Hyper-V on Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2. <br></br> <br></br> For VMware, provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.5 and above.<br></br> |[Provision a virtual array in Hyper-V](storsimple-ova-rm-deploy2-provision-hyperv.md) <br></br> <br></br> [Provision a virtual array in VMware](storsimple-ova-rm-deploy2-provision-vmware.md) |
-| 3. |**Set up the Virtual Array** |For your file server, perform initial setup, register your StorSimple file server, and complete the device setup. You can then provision SMB shares. <br></br> <br></br> For your iSCSI server, perform initial setup, register your StorSimple iSCSI server, and complete the device setup. You can then provision iSCSI volumes. |[Set up virtual array as file server](storsimple-ova-rm-deploy3-fs-setup.md)<br></br> <br></br>[Set up virtual array as iSCSI server](storsimple-ova-rm-deploy3-iscsi-setup.md) |
+| 1. |**Set up the Azure portal** |Create and configure your StorSimple Device Manager service prior to provisioning a StorSimple Virtual Array. |[Prepare the portal](storsimple-virtual-array-deploy1-portal-prep.md) |
+| 2. |**Provision the Virtual Array** |For Hyper-V, provision and connect to a StorSimple Virtual Array on a host system running Hyper-V on Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2. <br></br> <br></br> For VMware, provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.5 and above.<br></br> |[Provision a virtual array in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Provision a virtual array in VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 3. |**Set up the Virtual Array** |For your file server, perform initial setup, register your StorSimple file server, and complete the device setup. You can then provision SMB shares. <br></br> <br></br> For your iSCSI server, perform initial setup, register your StorSimple iSCSI server, and complete the device setup. You can then provision iSCSI volumes. |[Set up virtual array as file server](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Set up virtual array as iSCSI server](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 You can now begin to set up the Azure portal.
 
@@ -79,7 +79,7 @@ Before you deploy a virtual array, make sure that:
 
 Before you begin, make sure that:
 
-* The network in your datacenter is configured as per the networking requirements for your StorSimple device. For more information, see the [StorSimple Virtual Array System Requirements](storsimple-ova-rm-system-requirements.md).
+* The network in your datacenter is configured as per the networking requirements for your StorSimple device. For more information, see the [StorSimple Virtual Array System Requirements](storsimple-virtual-array-system-requirements.md).
 * Your StorSimple Virtual Array has a dedicated 5 Mbps Internet bandwidth (or more) available at all times. This bandwidth should not be shared with any other applications.
 
 ## Step-by-step preparation
@@ -90,7 +90,7 @@ Use the following step-by-step instructions to prepare your portal for the StorS
 
 A single instance of the StorSimple Device Manager service can manage multiple StorSimple Virtual Arrays. Perform the following steps to create an instance of the StorSimple Device Manager service. If you have an existing StorSimple Device Manager service to manage your virtual arrays, skip this step and go to [Step 2: Get the service registration key](#step-2-get-the-service-registration-key).
 
-[!INCLUDE [storsimple-ova-rm-create-new-service](../../includes/storsimple-ova-rm-create-new-service.md)]
+[!INCLUDE [storsimple-virtual-array-create-new-service](../../includes/storsimple-virtual-array-create-new-service.md)]
 
 > [!IMPORTANT]
 > If you did not enable the automatic creation of a storage account with your service, you will need to create at least one storage account after you have successfully created a service.
@@ -106,7 +106,7 @@ After the StorSimple Device Manager service is up and running, you will need to 
 
 Perform the following steps in the [Azure portal](https://portal.azure.com/).
 
-[!INCLUDE [storsimple-ova-rm-get-service-registration-key](../../includes/storsimple-ova-rm-get-service-registration-key.md)]
+[!INCLUDE [storsimple-virtual-array-get-service-registration-key](../../includes/storsimple-virtual-array-get-service-registration-key.md)]
 
 > [!NOTE]
 > The service registration key is used to register all the StorSimple Device Manager devices that need to register with your StorSimple Device Manager service.
@@ -159,12 +159,12 @@ Perform the following steps in the [Azure portal](https://ms.portal.azure.com/) 
    
    d. Click **Add**. You are notified after the storage account is successfully created.<br></br>
    
-     ![Add an existing storage account credential](./media/storsimple-ova-rm-manage-storage-accounts/ova-add-storageacct.png)
+     ![Add an existing storage account credential](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
 ## Next step
 
 The next step is to provision a virtual machine for your StorSimple Virtual Array. Depending on your host operating system, see the detailed instructions in:
 
-* [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-rm-deploy2-provision-hyperv.md)
-* [Provision a StorSimple Virtual Array in VMware](storsimple-ova-rm-deploy2-provision-vmware.md)
+* [Provision a StorSimple Virtual Array in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
+* [Provision a StorSimple Virtual Array in VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 

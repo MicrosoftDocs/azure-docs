@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2016
+ms.date: 11/11/2016
 ms.author: manuaery
 ---
 # Use the StorSimple Device Manager service to manage shares on the StorSimple Virtual Array
@@ -46,7 +46,7 @@ Refer to the following table for maximum provisioned capacity for each share typ
 
 The **Shares** menu on your StorSimple service summary blade displays the list of storage shares on a given StorSimple array and allows you to manage them.
 
-![Shares blade](./media/storsimple-ova-rm-manage-shares/shares-blade.png)
+![Shares blade](./media/storsimple-virtual-array-manage-shares/shares-blade.png)
 
 A share consists of a series of attributes:
 
@@ -58,7 +58,7 @@ A share consists of a series of attributes:
 * **Permissions** - The NTFS permissions to the share that can be managed through Windows Explorer.
 * **Backup** – In case of the StorSimple Virtual Array, all shares are automatically enabled for backup.
 
-![Shares details](./media/storsimple-ova-rm-manage-shares/share-details.png)
+![Shares details](./media/storsimple-virtual-array-manage-shares/share-details.png)
 
 Use the instructions in this tutorial to perform the following tasks:
 
@@ -71,7 +71,7 @@ Use the instructions in this tutorial to perform the following tasks:
 
 1. From the StorSimple service summary blade, click **+ Add share** from the command bar. This opens up the **Add share** blade.
 
-![Add share](./media/storsimple-ova-rm-manage-shares/add-share.png)
+![Add share](./media/storsimple-virtual-array-manage-shares/add-share.png)
 
 1. In the **Add share** blade, do the following:
    
@@ -83,7 +83,7 @@ Use the instructions in this tutorial to perform the following tasks:
 2. When you've finished configuring your share, click **Create**. A share will be created with the specified settings and you will see a notification. By default, backup will be enabled for the share.
 3. To confirm that the share was successfully created, go to the **Shares** blade. You should see the share listed.
    
-    ![Share create success](./media/storsimple-ova-rm-manage-shares/share-success.png)
+    ![Share create success](./media/storsimple-virtual-array-manage-shares/share-success.png)
 
 ## Modify a share
 
@@ -95,7 +95,7 @@ Modify a share when you need to change the description of the share. No other sh
 2. **Select** the share to view the current description and modify it.
 3. Save your changes by clicking the **Save** command bar. Your specified settings will be applied and you will see a notification.
    
-    ![ Edit share](./media/storsimple-ova-rm-manage-shares/share-edit.png)
+    ![ Edit share](./media/storsimple-virtual-array-manage-shares/share-edit.png)
 
 ## Take a share offline
 
@@ -109,7 +109,7 @@ You may need to take a share offline when you are planning to modify it or delet
    * From the **Shares** setting on the StorSimple service summary blade, select the virtual array on which the share you wish you to take offline resides.
    * **Select** the share and Click **...** (alternately right-click in this row) and from the context menu, select **Take offline**.
      
-     ![Offline share](./media/storsimple-ova-rm-manage-shares/shares-offline.png)
+     ![Offline share](./media/storsimple-virtual-array-manage-shares/shares-offline.png)
    * Review the information in the **Take offline** blade and confirm your acceptance of the operation. Click **Take offline** to take the share offline. You will see a notification of the operation in progress.
    * To confirm that the share was successfully taken offline, go to the **Shares** blade. You should see the status of the share as offline.
 
@@ -126,10 +126,10 @@ Complete the following steps to delete a share.
 1. From the **Shares** setting on the StorSimple service summary blade, select the virtual array on which the share you wish to delete resides.
 2. **Select** the share and Click **...** (alternately right-click in this row) and from the context menu, select **Delete**.
    
-    ![Delete share](./media/storsimple-ova-rm-manage-shares/share-delete.png)
+    ![Delete share](./media/storsimple-virtual-array-manage-shares/share-delete.png)
 3. Check the status of the share you want to delete. If the share you want to delete is not offline, take it offline first. Follow the steps in [Take a share offline](#take-a-share-offline).
 4. When prompted for confirmation in the **Delete** blade, accept the confirmation and click **Delete**. The share will now be deleted and the **Shares** blade shows the updated list of shares within the virtual array.
 
 ## Next steps
-Learn how to [clone a StorSimple share](storsimple-ova-rm-clone.md).
+Learn how to [clone a StorSimple share](storsimple-virtual-array-clone.md).
 

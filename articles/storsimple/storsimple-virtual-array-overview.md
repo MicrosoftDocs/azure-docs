@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/24/2016
+ms.date: 11/11/2016
 ms.author: alkohli
 ---
 # Introduction to the StorSimple Virtual Array
@@ -163,7 +163,7 @@ You can create appropriate shares and volumes as locally pinned. This capability
 
 You can restore a locally pinned share or volume as tiered or a tiered share or volume as locally pinned. 
 
-For more information about locally pinned volumes, go to [Use the StorSimple Device Manager service to manage volumes](storsimple-ova-rm-manage-volumes.md).
+For more information about locally pinned volumes, go to [Use the StorSimple Device Manager service to manage volumes](storsimple-virtual-array-manage-volumes.md).
 
 ### Deduplication and compression for data tiered or backed up to the cloud
 StorSimple uses deduplication and data compression to further reduce storage requirements in the cloud. Deduplication reduces the overall amount of data stored by eliminating redundancy in the stored data set. As information changes, StorSimple ignores the unchanged data and captures only the changes. In addition, StorSimple reduces the amount of stored data by identifying and removing duplicate information. 
@@ -177,5 +177,5 @@ StorSimple uses deduplication and data compression to further reduce storage req
 StorSimple data protection features enable you to create on-demand backups. Additionally, a default backup schedule ensures that data is backed up daily. Backups are taken in the form of incremental snapshots, which are stored in the cloud. Snapshots, which record only the changes since the last backup, can be created and restored quickly. These snapshots can be critically important in disaster recovery scenarios because they replace secondary storage systems (such as tape backup), and allow you to restore data to your datacenter or to alternate sites if necessary.
 
 ## Next steps
-Learn how to [prepare the virtual array portal](storsimple-ova-rm-deploy1-portal-prep.md).
+Learn how to [prepare the virtual array portal](storsimple-virtual-array-deploy1-portal-prep.md).
 

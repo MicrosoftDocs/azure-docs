@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/09/2016
+ms.date: 11/11/2016
 ms.author: alkohli
 ---
 # Use the StorSimple Device Manager service to view and manage alerts for the StorSimple Virtual Array
@@ -24,7 +24,7 @@ The alerts feature in the StorSimple Device Manager service provides a way for y
 
 This tutorial describes how to configure alert notifications, common alert conditions, alert severity levels, and how to view and track alerts. Additionally, it includes alert quick reference tables, which enable you to quickly locate a specific alert and respond appropriately.
 
-![Alerts page](./media/storsimple-ova-rm-manage-alerts/alerts1.png)
+![Alerts page](./media/storsimple-virtual-array-manage-alerts/alerts1.png)
 
 ## Configure alert settings
 
@@ -40,20 +40,20 @@ After you enable email notification for a virtual array, members of the notifica
 
 1. Go to your StorSimple Device Manager service and in the **Management** section,select and click **Devices**. From the list of devices displayed, select and click your device.
    
-    ![alert settings](./media/storsimple-ova-rm-manage-alerts/alerts2.png)
+    ![alert settings](./media/storsimple-virtual-array-manage-alerts/alerts2.png)
 2. This opens up the **Settings** blade. In the **Device settings** section, select **General**. This opens up the **General Settings** blade.
    
-    ![alerts notification configuration](./media/storsimple-ova-rm-manage-alerts/alerts4.png)
+    ![alerts notification configuration](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
 3. In the **General settings** blade, go to **Alert settings** section and set the following:
    
    1. In the **Enable email notification** field, select **YES**.
    2. In the **Email service administrators** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
    3. In the **Additional email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per virtual device.
       
-       ![alerts notification configuration](./media/storsimple-ova-rm-manage-alerts/alerts6.png)
+       ![alerts notification configuration](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. To send a test email notification, click **Send test email**. The StorSimple Device Manager service will display status messages as it forwards the test notification.
       
-       ![Alerts test notification email sent](./media/storsimple-ova-rm-manage-alerts/alerts7.png)
+       ![Alerts test notification email sent](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
       
       > [!NOTE]
       > If the test notification message can't be sent, the StorSimple Device Manager service will display an appropriate message. Click **OK**, wait a few minutes, and then try to send your test notification message again.
@@ -61,7 +61,7 @@ After you enable email notification for a virtual array, members of the notifica
       > 
    5. At the bottom of the page, click **Save** to save your configuration. When prompted for confirmation, click **Yes**.
       
-      ![Alerts test notification email sent](./media/storsimple-ova-rm-manage-alerts/alerts10.png)
+      ![Alerts test notification email sent](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
 
 ## Common alert conditions
 
@@ -84,21 +84,21 @@ Alerts have different severity levels, depending on the impact that the alert si
 
 The StorSimple Device Manager service summary blade provides you with a quick glance at the number of alerts on your virtual devices, arranged by severity level.
 
-![Alerts dashboard](./media/storsimple-ova-rm-manage-alerts/alerts14.png)
+![Alerts dashboard](./media/storsimple-virtual-array-manage-alerts/alerts14.png)
 
 Click the severity level to open the **Alerts** blade. The results include only the alerts that match that severity level.
 
-![Alerts report scoped to alert type](./media/storsimple-ova-rm-manage-alerts/alerts15.png)
+![Alerts report scoped to alert type](./media/storsimple-virtual-array-manage-alerts/alerts15.png)
 
 Click an alert in the list to get additional details for the alert, including the last time the alert was reported, the number of occurrences of the alert on the device, and the recommended action to resolve the alert.
 
-![Alerts list and details](./media/storsimple-ova-rm-manage-alerts/alerts16.png)
+![Alerts list and details](./media/storsimple-virtual-array-manage-alerts/alerts16.png)
 
 You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from the list. Select the alert from the list and then click **Clear**. To clear multiple alerts, select each alert, click any column except the **Alert** column, and then click **Clear** after you have selected all the alerts to be cleared.
 
 When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. 
 
-![alert comments](./media/storsimple-ova-rm-manage-alerts/alerts17.png)
+![alert comments](./media/storsimple-virtual-array-manage-alerts/alerts17.png)
 
 Some events will be cleared by the system if another event is triggered with new information. In that case, you will see the following message.
 
@@ -155,7 +155,7 @@ The following tables list some of the StorSimple alerts that you might encounter
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| Password for <*device name*> will expire in <*number*> days. |Password warning. |Your password will expire in <number< days. Consider changing your password. For more information, go to [Change the StorSimple Virtual Array device administrator password](storsimple-ova-rm-change-device-admin-password.md). |
+| Password for <*device name*> will expire in <*number*> days. |Password warning. |Your password will expire in <number< days. Consider changing your password. For more information, go to [Change the StorSimple Virtual Array device administrator password](storsimple-virtual-array-change-device-admin-password.md). |
 
 ### Update alerts
 

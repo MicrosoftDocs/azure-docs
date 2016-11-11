@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/09/2016
+ms.date: 11/11/2016
 ms.author: alkohli
 ---
 # Disaster recovery and device failover for your StorSimple Virtual Array
@@ -96,7 +96,7 @@ We recommend that you provision, configure, and register another StorSimple Virt
 
 Perform the following steps to restore the device to a target StorSimple virtual device.
 
-1. Provision and configure a target device that meets the [prerequisites for device failover](#prerequisites). Complete the device configuration via the local web UI and register it to your StorSimple Device Manager service. If creating a file server, go to step 1 of [set up as file server](storsimple-ova-rm-deploy3-fs-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device). If creating an iSCSI server, go to step 1 of [set up as iSCSI server](storsimple-ova-rm-deploy3-iscsi-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device).
+1. Provision and configure a target device that meets the [prerequisites for device failover](#prerequisites). Complete the device configuration via the local web UI and register it to your StorSimple Device Manager service. If creating a file server, go to step 1 of [set up as file server](storsimple-virtual-array-deploy3-fs-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device). If creating an iSCSI server, go to step 1 of [set up as iSCSI server](storsimple-virtual-array-deploy3-iscsi-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device).
 
 2. Take volumes/shares offline on the host. To take the volumes/shares offline, refer to the operating system–specific instructions for the host. If not already offline, you need to take all the volumes/shares offline on the device by doing the following.
    
@@ -116,12 +116,12 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
 5. In the **Deactivate** blade, you are prompted for confirmation. Device deactivation is a *permanent* process that cannot be undone. You are also reminded to take your shares/volumes offline on the host. Type the device name to confirm and click **Deactivate**.
    
-    ![](./media/storsimple-ova-rm-failover-dr/failover1.png)
+    ![](./media/storsimple-virtual-array-failover-dr/failover1.png)
 6. The deactivation starts. You will receive a notification after the deactivation is successfully completed.
    
-    ![](./media/storsimple-ova-rm-failover-dr/failover2.png)
+    ![](./media/storsimple-virtual-array-failover-dr/failover2.png)
 7. On the Devices page, the device state will now change to **Deactivated**.
-    ![](./media/storsimple-ova-rm-failover-dr/failover3.png)
+    ![](./media/storsimple-virtual-array-failover-dr/failover3.png)
 8. In the **Devices** blade, select and click the deactivated source device for failover. 
 9. In the **Device dashboard** blade, click **Fail over**. 
 10. In the **Fail over device** blade, do the following:
@@ -134,24 +134,24 @@ Perform the following steps to restore the device to a target StorSimple virtual
     
      d. Click **Fail over**.
     
-     ![](./media/storsimple-ova-rm-failover-dr/failover4.png)
+     ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
 11. A failover job initiates and you receive a notification. Go to **Devices > Jobs** to monitor the failover.
     
-     ![](./media/storsimple-ova-rm-failover-dr/failover5.png)
+     ![](./media/storsimple-virtual-array-failover-dr/failover5.png)
 12. In the **Jobs** blade, you see a failover job created for the source device. This job performs the DR prechecks.
     
-    ![](./media/storsimple-ova-rm-failover-dr/failover6.png)
+    ![](./media/storsimple-virtual-array-failover-dr/failover6.png)
     
      After the DR prechecks are successful, the failover job will spawn restore jobs for each share/volume that exists on your source device.
     
-    ![](./media/storsimple-ova-rm-failover-dr/failover7.png)
+    ![](./media/storsimple-virtual-array-failover-dr/failover7.png)
 13. After the failover is complete, go to the **Devices** blade.
     
     a. Select and click the StorSimple device that was used as the target device for the failover process.
     
     b. Go to **Settings > Management > Shares** (or **Volumes** if iSCSI server). In the **Shares** blade, you can view all the shares (volumes) from the old device.
     
-    ![](./media/storsimple-ova-rm-failover-dr/failover9.png)
+    ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
 14. You can now rename the device (same as the old source device) so that the application servers can directly connect to this device. If you do not want to rename the device, you will need to [create a DNS alias](https://support.microsoft.com/kb/168322) so that all the applications that are trying to connect can get redirected to the new device.
 
 ## Errors during DR

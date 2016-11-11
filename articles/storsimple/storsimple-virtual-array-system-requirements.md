@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/21/2016
+ms.date: 11/11/2016
 ms.author: alkohli
 ---
 # StorSimple Virtual Array system requirements
