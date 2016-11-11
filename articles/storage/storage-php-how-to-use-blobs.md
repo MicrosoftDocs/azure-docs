@@ -51,10 +51,10 @@ The following example shows how to include the autoloader file and reference the
 > This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually, you need to reference the `WindowsAzure.php` autoloader file.
 > 
 > 
-
+```php
     require_once 'vendor/autoload.php';
     use WindowsAzure\Common\ServicesBuilder;
-
+```
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute are referenced.
 
@@ -62,13 +62,13 @@ In the examples below, the `require_once` statement will be shown always, but on
 To instantiate an Azure blob service client, you must first have a valid connection string. The format for the blob service connection string is:
 
 For accessing a live service:
-
+```php
     DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
-
+```
 For accessing the storage emulator:
-
+```php
     UseDevelopmentStorage=true
-
+```
 
 To create any Azure service client, you need to use the **ServicesBuilder** class. You can:
 
@@ -78,18 +78,18 @@ To create any Azure service client, you need to use the **ServicesBuilder** clas
   * You can add new sources by extending the **ConnectionStringSource** class.
 
 For the examples outlined here, the connection string will be passed directly.
-
+```php
     require_once 'vendor/autoload.php';
 
     use WindowsAzure\Common\ServicesBuilder;
 
     $blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
-
+```
 ## Create a container
 [!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 A **BlobRestProxy** object lets you create a blob container with the **createContainer** method. When creating a container, you can set options on the container, but doing so is not required. (The example below shows how to set the container access control list (ACL) and container metadata.)
-
+```php
     require_once 'vendor\autoload.php';
 
     use WindowsAzure\Common\ServicesBuilder;
@@ -137,14 +137,14 @@ A **BlobRestProxy** object lets you create a blob container with the **createCon
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
-
+```
 Calling **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** makes the container and blob data accessible via anonymous requests. Calling **setPublicAccess(PublicAccessType::BLOBS_ONLY)** makes only blob data accessible via anonymous requests. For more information about container ACLs, see [Set container ACL (REST API)][container-acl].
 
 For more information about Blob service error codes, see [Blob Service Error Codes][error-codes].
 
 ## Upload a blob into a container
 To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. This operation creates the blob if it doesn't exist, or overwrites it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a stream.
-
+```php
     require_once 'vendor/autoload.php';
 
     use WindowsAzure\Common\ServicesBuilder;
@@ -169,12 +169,12 @@ To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. T
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
-
+```
 Note that the previous sample uploads a blob as a stream. However, a blob can also be uploaded as a string using, for example, the [file\_get\_contents][file_get_contents] function. To do this using the previous sample, change `$content = fopen("c:\myfile.txt", "r");` to `$content = file_get_contents("c:\myfile.txt");`.
 
 ## List the blobs in a container
 To list the blobs in a container, use the **BlobRestProxy->listBlobs** method with a **foreach** loop to loop through the result. The following code displays the name of each blob as output in a container and displays its URI to the browser.
-
+```php
     require_once 'vendor/autoload.php';
 
     use WindowsAzure\Common\ServicesBuilder;
@@ -202,11 +202,11 @@ To list the blobs in a container, use the **BlobRestProxy->listBlobs** method wi
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
-
+```
 
 ## Download a blob
 To download a blob, call the **BlobRestProxy->getBlob** method, then call the **getContentStream** method on the resulting **GetBlobResult** object.
-
+```php
     require_once 'vendor/autoload.php';
 
     use WindowsAzure\Common\ServicesBuilder;
@@ -229,12 +229,12 @@ To download a blob, call the **BlobRestProxy->getBlob** method, then call the **
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
-
+```
 Note that the example above gets a blob as a stream resource (the default behavior). However, you can use the [stream\_get\_contents][stream-get-contents] function to convert the returned stream to a string.
 
 ## Delete a blob
 To delete a blob, pass the container name and blob name to **BlobRestProxy->deleteBlob**.
-
+```php
     require_once 'vendor/autoload.php';
 
     use WindowsAzure\Common\ServicesBuilder;
@@ -256,10 +256,10 @@ To delete a blob, pass the container name and blob name to **BlobRestProxy->dele
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
-
+```
 ## Delete a blob container
 Finally, to delete a blob container, pass the container name to **BlobRestProxy->deleteContainer**.
-
+```php
     require_once 'vendor/autoload.php';
 
     use WindowsAzure\Common\ServicesBuilder;
@@ -281,7 +281,7 @@ Finally, to delete a blob container, pass the container name to **BlobRestProxy-
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
-
+```
 ## Next steps
 Now that you've learned the basics of the Azure blob service, follow these links to learn about more complex storage tasks.
 

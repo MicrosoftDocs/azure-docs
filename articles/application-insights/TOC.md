@@ -148,5 +148,10 @@
 ## [REST API](https://dev.applicationinsights.io/)
 
 # Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=application-insights) 
+## [Service updates](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
 ## [Support](app-insights-get-dev-support.md)
 
