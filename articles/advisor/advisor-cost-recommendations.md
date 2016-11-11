@@ -25,7 +25,7 @@ Advisor helps you optimize and reduce your overall Azure spend by identifying id
 
 ## Low utilization virtual machines 
 
-While certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of virtual machines. Advisor monitors your virtual machine usage for 14 days and identifies low utilization virtual machines. Virtual machines whose CPU utilization is 5% or less and network usage is 7 MB or less for 4 or more days, are considered as low utilization virtual machines.
+While certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of virtual machines. Advisor monitors your virtual machine usage for 14 days and identifies low utilization virtual machines. Virtual machines whose CPU utilization is 5% or less and network usage is 7 MB or less for four or more days, are considered as low utilization virtual machines.
 
 Advisor shows you the estimated cost of continuing to run the virtual machine. You can choose to shut down or resize the virtual machine.  
 
@@ -41,7 +41,7 @@ Advisor identifies SQL server instances that can benefit from creating elastic d
 
 1. Sign in into the [Azure portal](https://portal.azure.com).
 2. In the left-navigation pane, click **More services**, in the service menu pane, scroll down to **Monitoring and Management**, and then click **Azure Advisor**. This launches the Advisor dashboard. 
-3. On the Advisor dashboard, click the **Cost** tab, select the subscription for which you’d like to receive recommendations and then click **Get recommendations**
+3. On the Advisor dashboard, click the **Cost** tab, select the subscription for which you’d like to receive recommendations, and then click **Get recommendations**
 
     > [!NOTE]
     > Azure Advisor generates recommendations for subscriptions where you are assigned the role of **Owner**, **Contributor** or **Reader**.

@@ -30,9 +30,9 @@ Learn how to access Advisor using the Azure portal, get recommendations, impleme
 
 3. On the Advisor dashboard, select the subscription for which you’d like to receive recommendations. The Advisor dashboard displays personalized recommendations for a selected subscription. 
    > [!NOTE]
-   > Azure Advisor will generate recommendations for subscriptions where you are assigned the role of **Owner**, **Contributor**, or **Reader**.
+   > Azure Advisor generates recommendations for subscriptions where you are assigned the role of **Owner**, **Contributor**, or **Reader**.
 
-4. To get recommendations for a particular category, click on one of the categories - **High Availability**, **Security**, **Performance** and **Cost**.
+4. To get recommendations for a particular category, click on one of the categories.
  
 
   ![Azure Advisor dashboard](./media/advisor-overview/advisor-all-tab.png)
@@ -44,7 +44,7 @@ The **Recommendation** blade in Advisor offers additional information about the 
 1. Sign into the [Azure portal](https://portal.azure.com), and then launch [Azure Advisor](https://aka.ms/azureadvisordashboard).
 2. On the **Advisor recommendations** dashboard, click**Get Recommendation**.
 3. From the list of recommendations, click a recommendation that you want to review in detail. This launches the recommendation blade.
-4. The recommendation blade contains information about actions that you can perform to resolve a potential issue, or take advantage of a cost saving opportunity.
+4. On the recommendations blade, review information about actions that you can perform to resolve a potential issue, or take advantage of a cost saving opportunity. 
   
   ![Advisor recommendation action example](./media/advisor-overview/advisor-recommendation-action-example.png)
 
