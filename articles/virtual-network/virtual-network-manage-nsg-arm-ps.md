@@ -413,7 +413,7 @@ To dissociate the **NSG-FrontEnd** NSG from the **FrontEnd** subnet, complete th
 	$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName RG-NSG -Name TestVNet
 	```
 
-2. Run the following commandto retrieve the **FrontEnd** subnet and store it in a variable:
+2. Run the following command to retrieve the **FrontEnd** subnet and store it in a variable:
 
 	```powershell
 	$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd
@@ -466,7 +466,7 @@ To associate the **NSG-FrontEnd** NSG to the **FronEnd** subnet again, complete 
 
 	```powershell
 	$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd
-	```powershell
+	```
  
 3. Run the following command to retrieve the existing NSG and store it in a variable:
 

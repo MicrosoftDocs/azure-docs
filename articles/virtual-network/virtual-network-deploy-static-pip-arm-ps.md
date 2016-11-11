@@ -34,36 +34,36 @@ ms.author: jdial
 ## Step 1 - Start your script
 You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Follow the steps below to change the script to work in your environment.
 
-1. Change the values of the variables below based on the values you want to use for your deployment. The values below map to the scenario used in this article.
+Change the values of the variables below based on the values you want to use for your deployment. The following values map to the scenario used in this article:
 
-	```powershell
-	# Set variables resource group
-	$rgName                = "IaaSStory"
-	$location              = "West US"
+```powershell
+# Set variables resource group
+$rgName                = "IaaSStory"
+$location              = "West US"
 
-	# Set variables for VNet
-	$vnetName              = "WTestVNet"
-	$vnetPrefix            = "192.168.0.0/16"
-	$subnetName            = "FrontEnd"
-	$subnetPrefix          = "192.168.1.0/24"
+# Set variables for VNet
+$vnetName              = "WTestVNet"
+$vnetPrefix            = "192.168.0.0/16"
+$subnetName            = "FrontEnd"
+$subnetPrefix          = "192.168.1.0/24"
 
-	# Set variables for storage
-	$stdStorageAccountName = "iaasstorystorage"
+# Set variables for storage
+$stdStorageAccountName = "iaasstorystorage"
 
-	# Set variables for VM
-	$vmSize                = "Standard_A1"
-	$diskSize              = 127
-	$publisher             = "MicrosoftWindowsServer"
-	$offer                 = "WindowsServer"
-	$sku                   = "2012-R2-Datacenter"
-	$version               = "latest"
-	$vmName                = "WEB1"
-	$osDiskName            = "osdisk"
-	$nicName               = "NICWEB1"
-	$privateIPAddress      = "192.168.1.101"
-	$pipName               = "PIPWEB1"
-	$dnsName               = "iaasstoryws1"
-	```
+# Set variables for VM
+$vmSize                = "Standard_A1"
+$diskSize              = 127
+$publisher             = "MicrosoftWindowsServer"
+$offer                 = "WindowsServer"
+$sku                   = "2012-R2-Datacenter"
+$version               = "latest"
+$vmName                = "WEB1"
+$osDiskName            = "osdisk"
+$nicName               = "NICWEB1"
+$privateIPAddress      = "192.168.1.101"
+$pipName               = "PIPWEB1"
+$dnsName               = "iaasstoryws1"
+```
 
 ## Step 2 - Create the necessary resources for your VM
 Before creating a VM, you need a resource group, VNet, public IP, and NIC to be used by the VM.

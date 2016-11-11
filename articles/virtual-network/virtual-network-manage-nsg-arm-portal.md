@@ -42,11 +42,12 @@ You can view your existing NSGs, retrieve rules for an existing NSG, and find ou
 To view all existing NSGs in a subscription, complete the following steps:
 
 1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+
 2. Click **Browse >** > **Network security groups**.
 
 	![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure1.png)
 
-1. Check the list of NSGs in the **Network security groups** blade.
+3. Check the list of NSGs in the **Network security groups** blade.
 
 	![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure2.png)
 
@@ -125,7 +126,7 @@ To delete the rule created above, complete the following steps:
 2. In the **Settings** tab, click the rule created above.
 3. In the **allow-https** blade, click **Delete**, and then click **Yes**.
 
-![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure11.png)
+	![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure11.png)
 
 ## Manage associations
 You can associate an NSG to subnets and NICs. You can also dissociate an NSG from any resource it's associated to.

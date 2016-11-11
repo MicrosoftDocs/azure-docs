@@ -32,60 +32,65 @@ ms.author: jdial
 ## Public IP address resources in a template file
 You can view and download the [sample template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json).
 
-The section below shows the definition of the public IP resource, based on the scenario above.
+The following section shows the definition of the public IP resource, based on the scenario above:
 
-      {
-        "apiVersion": "2015-06-15",
-        "type": "Microsoft.Network/publicIPAddresses",
-        "name": "[variables('webVMSetting').pipName]",
-        "location": "[variables('location')]",
-        "properties": {
-          "publicIPAllocationMethod": "Static"
-        },
-        "tags": {
-          "displayName": "PublicIPAddress - Web"
-        }
-      },
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "[variables('webVMSetting').pipName]",
+  "location": "[variables('location')]",
+  "properties": {
+	"publicIPAllocationMethod": "Static"
+  },
+  "tags": {
+	"displayName": "PublicIPAddress - Web"
+  }
+},
+```
 
 Notice the **publicIPAllocationMethod** property, which is set to *Static*. This property can be either *Dynamic* (default value) or *Static*. Setting it to static guarantees that the public IP address assigned will never change.
 
-The section below shows the association of the public IP address with a network interface.
+The following section shows the association of the public IP address with a network interface:
 
-      {
-        "apiVersion": "2015-06-15",
-        "type": "Microsoft.Network/networkInterfaces",
-        "name": "[variables('webVMSetting').nicName]",
-        "location": "[variables('location')]",
-        "tags": {
-          "displayName": "NetworkInterface - Web"
-        },
-        "dependsOn": [
-          "[concat('Microsoft.Network/publicIPAddresses/', variables('webVMSetting').pipName)]",
-          "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
-        ],
-        "properties": {
-          "ipConfigurations": [
-            {
-              "name": "ipconfig1",
-              "properties": {
-                "privateIPAllocationMethod": "Static",
-                "privateIPAddress": "[variables('webVMSetting').ipAddress]",
-                "publicIPAddress": {
-                  "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('webVMSetting').pipName)]"
-                },
-                "subnet": {
-                  "id": "[variables('frontEndSubnetRef')]"
-                }
-              }
-            }
-          ]
-        }
-      },
+```json
+  {
+	"apiVersion": "2015-06-15",
+	"type": "Microsoft.Network/networkInterfaces",
+	"name": "[variables('webVMSetting').nicName]",
+	"location": "[variables('location')]",
+	"tags": {
+	"displayName": "NetworkInterface - Web"
+	},
+	"dependsOn": [
+	  "[concat('Microsoft.Network/publicIPAddresses/', variables('webVMSetting').pipName)]",
+	  "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
+	],
+	"properties": {
+	  "ipConfigurations": [
+		{
+		  "name": "ipconfig1",
+		  "properties": {
+		  "privateIPAllocationMethod": "Static",
+		  "privateIPAddress": "[variables('webVMSetting').ipAddress]",
+		  "publicIPAddress": {
+		  "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('webVMSetting').pipName)]"
+		  },
+		  "subnet": {
+		    "id": "[variables('frontEndSubnetRef')]"
+		  }
+		}
+	  }
+	]
+  }
+},
+```
 
 Notice the **publicIPAddress** property pointing to the **Id** of a resource named **variables('webVMSetting').pipName**. That is the name of the public IP resource shown above.
 
 Finally, the network interface above is listed in the **networkProfile** property of the VM being created.
 
+```json
       "networkProfile": {
         "networkInterfaces": [
           {
@@ -93,6 +98,7 @@ Finally, the network interface above is listed in the **networkProfile** propert
           }
         ]
       }
+```
 
 ## Deploy the template by using click to deploy
 

@@ -36,8 +36,6 @@ The sample PowerShell commands below expect a simple environment already created
 ## Create the UDR for the front end subnet
 To create the route table and route needed for the front end subnet based on the scenario above, follow the steps below.
 
-[!INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
-
 1. Create a route used to send all traffic destined to the back end subnet (192.168.2.0/24) to be routed to the **FW1** virtual appliance (192.168.0.4).
    
         $route = New-AzureRmRouteConfig -Name RouteToBackEnd `

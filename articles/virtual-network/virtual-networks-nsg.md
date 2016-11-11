@@ -122,12 +122,14 @@ You can implement NSGs in the classic or Resource Manager deployment models usin
 | Azure CLI |[![Yes][green]](virtual-networks-create-nsg-classic-cli.md) |[![Yes][green]](virtual-networks-create-nsg-arm-cli.md) |
 | ARM template |![No](./media/virtual-network-nsg-overview/red.png) |[![Yes][green]](virtual-networks-create-nsg-arm-template.md) |
 
-| **Key** | ![Yes](./media/virtual-network-nsg-overview/green.png) Supported. | ![No](./media/virtual-network-nsg-overview/red.png) Not Supported. |
-| --- | --- | --- |
-|  | | |
+**Key**
+
+![Yes](./media/virtual-network-nsg-overview/green.png) Supported.
+
+![No](./media/virtual-network-nsg-overview/red.png) Not Supported.
 
 ## Planning
-Before implementing NSGs, you need to answer the questions below:    
+Before implementing NSGs, you need to answer the following questions:
 
 1. What types of resources do you want to filter traffic to or from (NICs in the same VM, VMs or other resources such as cloud services or application service environments connected to the same subnet, or between resources connected to different subnets)?
 2. Are the resources you want to filter traffic to/from connected to subnets in existing VNets or will they be connected to new VNets or subnets?

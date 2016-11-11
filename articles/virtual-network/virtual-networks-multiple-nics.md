@@ -120,9 +120,9 @@ To create a VM with multiple NICs, complete the following steps by entering each
 	New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 	```
 
-> [!NOTE]
-> The VNet that you specify here must already exist (as mentioned in the prerequisites). The example below specifies a virtual network named **MultiNIC-VNet**.
-> 
+	> [!NOTE]
+	> The VNet that you specify here must already exist (as mentioned in the prerequisites). The example below specifies a virtual network named **MultiNIC-VNet**.
+	>
 
 ## Limitations
 The following limitations are applicable when using multiple NICs:

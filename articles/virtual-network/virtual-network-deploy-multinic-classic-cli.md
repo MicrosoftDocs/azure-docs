@@ -94,8 +94,8 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 	for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
 	do
 	```
-2. For each VM, specify the name and IP address of each of the two NICs.
 
+2. For each VM, specify the name and IP address of each of the two NICs.
 
 	```azurecli
 	nic1Name=$vmNamePrefix$suffixNumber-DA
@@ -138,7 +138,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 Now that you downloaded and changed the script based on your needs, run the script to create the back end database VMs with multiple NICs.
 
 1. Save your script and run it from your **Bash** terminal. You will see the initial output, as shown below.
-   
+
         info:    Executing command service create
         info:    Creating cloud service
         data:    Cloud service name IaaSStory-Backend
@@ -153,8 +153,9 @@ Now that you downloaded and changed the script based on your needs, run the scri
         info:    Getting cloud service properties
         info:    Looking up deployment
         info:    Creating VM
+
 2. After a few minutes, the execution will end and you will see the rest of the output as shown below.
-   
+
         info:    OK
         info:    vm create command OK
         info:    Executing command vm disk attach-new
@@ -182,4 +183,3 @@ Now that you downloaded and changed the script based on your needs, run the scri
         info:    Getting virtual machines
         info:    Adding Data-Disk
         info:    vm disk attach-new command OK
-

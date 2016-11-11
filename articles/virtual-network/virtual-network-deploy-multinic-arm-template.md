@@ -139,7 +139,7 @@ Before you deploy the template provided with this documentation, make sure you u
 	   ] 
 	 }
 	},
-	```json
+	```
 
 9. Scroll down to the next resource, as listed below. This resource represents the NIC used for management in each database VM. Once again, you need one of these NICs for each database VM. Notice the **networkSecurityGroup** element, linking an NSG that allows access to RDP/SSH to this NIC only.
 
@@ -244,38 +244,36 @@ The figure below shows the contents of the new resource group, after deployment.
 ## Deploy the template by using PowerShell
 To deploy the template you downloaded by using PowerShell, install and configure PowerShell by completing the steps in the [Install and configure PowerShell](../powershell-install-configure.md) article and then complete the following steps:
 
-1. Run the **`New-AzureRmResourceGroup`** cmdlet to create a resource group using the template.
+Run the **`New-AzureRmResourceGroup`** cmdlet to create a resource group using the template.
 
-	```powershell
-	New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
-	TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
-	-TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'
-	```
+```powershell
+New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
+TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
+-TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'
+```
 
-	Expected output:
+Expected output:
 
-		ResourceGroupName : IaaSStory-Backend
-		Location          : westus
-		ProvisioningState : Succeeded
-		Tags              :
-		Permissions       :
-							Actions  NotActions
-							=======  ==========
-							*
-
+	ResourceGroupName : IaaSStory-Backend
+	Location          : westus
+	ProvisioningState : Succeeded
+	Tags              :
+	Permissions       :
+						Actions  NotActions
+						=======  ==========
+						*
 		Resources         :
-							Name                 Type                                 Location
-							===================  ===================================  ========
-							ASDB                 Microsoft.Compute/availabilitySets   westus  
-							DB1                  Microsoft.Compute/virtualMachines    westus  
-							DB2                  Microsoft.Compute/virtualMachines    westus  
-							NICDB-DA-1           Microsoft.Network/networkInterfaces  westus  
-							NICDB-DA-2           Microsoft.Network/networkInterfaces  westus  
-							NICDB-RA-1           Microsoft.Network/networkInterfaces  westus  
-							NICDB-RA-2           Microsoft.Network/networkInterfaces  westus  
-							wtestvnetstorageprm  Microsoft.Storage/storageAccounts    westus  
-
-		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
+						Name                 Type                                 Location
+						===================  ===================================  ========
+						ASDB                 Microsoft.Compute/availabilitySets   westus  
+						DB1                  Microsoft.Compute/virtualMachines    westus  
+						DB2                  Microsoft.Compute/virtualMachines    westus  
+						NICDB-DA-1           Microsoft.Network/networkInterfaces  westus  
+						NICDB-DA-2           Microsoft.Network/networkInterfaces  westus  
+						NICDB-RA-1           Microsoft.Network/networkInterfaces  westus  
+						NICDB-RA-2           Microsoft.Network/networkInterfaces  westus  
+						wtestvnetstorageprm  Microsoft.Storage/storageAccounts    westus  
+	ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
 
 ## Deploy the template by using the Azure CLI
 To deploy the template by using the Azure CLI, follow the steps below.
@@ -283,7 +281,7 @@ To deploy the template by using the Azure CLI, follow the steps below.
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **`azure config mode`** command to switch to Resource Manager mode, as shown below.
 
-	```bash
+	```azurecli
 	azure config mode arm
 	```
 
@@ -294,7 +292,7 @@ To deploy the template by using the Azure CLI, follow the steps below.
 3. Open the [parameter file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), select its contents, and save it to a file in your computer. For this example, we saved the parameters file to *parameters.json*.
 4. Run the **`azure group deployment create`** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
-	```bash
+	```azurecli
 	azure group create -n IaaSStory-Backend -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json -e parameters.json
 	```
 
