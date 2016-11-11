@@ -142,7 +142,8 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
    > 
 
 ## Add the new file system to /etc/fstab
-**Caution:** Improperly editing the /etc/fstab file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
+> [!IMPORTANT]
+> Improperly editing the /etc/fstab file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
 
 1. Create the desired mount point for your new file system, for example:
 

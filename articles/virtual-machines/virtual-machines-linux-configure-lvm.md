@@ -97,7 +97,8 @@ In this guide we will assume you have attached three data disks, which we'll ref
    > With SLES11 use `-t ext3` instead of ext4. SLES11 only supports read-only access to ext4 filesystems.
 
 ## Add the new file system to /etc/fstab
-**Caution:** Improperly editing the `/etc/fstab` file could result in an unbootable system. If unsure, please refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the `/etc/fstab` file is created before editing.
+> [!IMPORTANT]
+> Improperly editing the `/etc/fstab` file could result in an unbootable system. If unsure, please refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the `/etc/fstab` file is created before editing.
 
 1. Create the desired mount point for your new file system, for example:
 
