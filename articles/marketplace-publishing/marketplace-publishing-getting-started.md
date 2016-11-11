@@ -29,31 +29,31 @@ As an Azure publisher, the Azure Marketplace is how you can distribute and sell 
 The first thing you would want to do as a publisher is to define what kind of solution your company is offering. The Azure Marketplace supports three types of offers:
 
 * **Virtual Machine images** are pre-configured images with a fully installed operating system and one or more applications. A virtual machine image provides the information necessary to create and deploy virtual machines in the Azure Virtual Machines service.
-  
+
   > [!NOTE]
   > **For example,** as an Azure publisher, you've created and validated a VM with an innovative database service that's compelling enough such that other Azure subscribers would be willing to procure and deploy this VM into their cloud service environments.
-  > 
-  > 
+  >
+  >
 * **Developer Services** are fully managed services to use in application development or system management. They provide functionality that enable rapid development of cloud scale applications on Azure.
-  
+
   > [!NOTE]
   > **For example,** as an Azure publisher, you developed an API accessible service (hosted on Azure or elsewhere) that provides predictions based on historical data. And this is a service that other Azure subscribers who are building solutions may want to utilize. You can deploy this service to the Azure Marketplace for other find, procure and user in their respective service.
-  > 
-  > 
+  >
+  >
 * **Solution template** is a data structure that can reference one or more distinct Azure services, including services published by other sellers, to enable Azure subscribers to deploy one or more offerings in a single, coordinated manner.
-  
+
   > [!NOTE]
   > **For example,** as an Azure publisher, you've bundles a set of services from across Azure that makes it quick to deploy a secure, high availability cloud service with load balancing in a few clicks. Other Azure subscribers could fine value in saving time by procuring this solution template rather manually identifying and configuring the same or similar Azure services.
-  > 
-  > 
+  >
+  >
 
 Some steps are shared between the different types of solutions. This article provides a short overview of what steps you will need to complete for any type of solution.
 
 ## 1. Pre-requisites
 > [!NOTE]
 > Before you begin any work on the Azure Marketplace, you must be [pre-approved](http://azure.com/certified).
-> 
-> 
+>
+>
 
 1. [Apply for Microsoft Azure Certified Pre-approval](marketplace-publishing-azure-certification.md)
 2. [Create and register a Microsoft Developer account](marketplace-publishing-accounts-creation-registration.md)
@@ -91,7 +91,7 @@ Some steps are shared between the different types of solutions. This article pro
 * [How to update the technical details of an offer or a SKU](marketplace-publishing-vm-image-post-publishing.md#1-how-to-update-the-technical-details-of-a-sku)
 * [How to add a new SKU under a listed offer](marketplace-publishing-vm-image-post-publishing.md#3-how-to-add-a-new-sku-under-a-listed-offer)
 * [How to change the data disk count for a listed SKU](marketplace-publishing-vm-image-post-publishing.md#4-how-to-change-the-data-disk-count-for-a-listed-sku)
-* [How to delete a listed offer from the Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#5-how-to-delete-a-listed-offer-from-the-azure-marketplace)
+* [How to delete a listed offer from the Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md)
 * [How to delete a listed SKU from the Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#6-how-to-delete-a-listed-sku-from-the-azure-marketplace)
 * [How to delete the current version of a listed SKU from the Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#7-how-to-delete-the-current-version-of-a-listed-sku-from-the-azure-marketplace)
 * [How to revert listing price to production values](marketplace-publishing-vm-image-post-publishing.md#8-how-to-revert-listing-price-to-production-values)
@@ -104,4 +104,3 @@ Some steps are shared between the different types of solutions. This article pro
 
 ## Additional Resources
 * [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)
-
