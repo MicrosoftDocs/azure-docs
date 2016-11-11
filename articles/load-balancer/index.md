@@ -53,7 +53,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Internet-facing load balancer</h3>
+                        <h3>Get started with an Internet-facing load balancer</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with an internal facing load balancer</h3>
+                        <h3>Get started with an internal-facing load balancer</h3>
                     </div>
                 </div>
             </div>
