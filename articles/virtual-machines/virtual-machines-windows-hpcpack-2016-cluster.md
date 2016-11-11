@@ -88,17 +88,50 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 
 ### Supported topologies
 
-Choose one of the [Azure Resource Manager templates](https://github.com/MsHpcPack/HPCPack2016) to deploy the HPC Pack 2016 cluster. Following are three supported cluster topologies. High-availability topologies can include multiple cluster head nodes.
+Choose one of the [Azure Resource Manager templates](https://github.com/MsHpcPack/HPCPack2016) to deploy the HPC Pack 2016 cluster. Following are high-level architectures of three supported cluster topologies. High-availability topologies include multiple cluster head nodes.
 
 1. High-availability cluster with Active Directory domain 
 
+    ![HA cluster in AD domain](./media/virtual-machines-windows-hpcpack-2016-cluster/haad.png)
 
 
 
 2. High-availability cluster without Active Directory domain
 
+    ![HA cluster without AD domain](./media/virtual-machines-windows-hpcpack-2016-cluster/hanoad.png)
 
 3. Cluster with a single head node
+
+   ![Cluster with single head node](./media/virtual-machines-windows-hpcpack-2016-cluster/singlehn.png)
+
+
+## Deploy a cluster
+
+To create the cluster, choose a template and click **Deploy to Azure**. In the [Azure portal](https://portal.azure.com), specify parameters for the template as described in the following steps. The template creates all Azure resources required for the HPC cluster infrastructure including virtual network, public IP address, load balancer (only for a high-availability cluster), network interfaces, availability sets, storage accounts, and virtual machines.
+
+### Step 1: Select the subscription, location, and resource group
+
+The **Subscription** and the **Location** must be same that you specified in when you uploaded your PFX certificate (see Prerequisites). It is recommended to create a new **Resource group** for the deployment.
+
+### Step 2: Specify the parameter settings
+
+Enter or modify values for the template parameters. Click the icon next to each parameter for help information. Also see the guidance for [available VM sizes](virtual-machines-windows-sizes.md). 
+
+Specify the values you recorded in the Prerequisites for the following parameters: **Vault name**, **Vault resource group**, **Certificate URL**, and **Certificate thumbprint**.
+
+###Step 3. Review legal terms and create
+Click **Review legal terms** to review the terms. If you agree, click **Purchase**, and then click **Create** to start the deployment. 
+
+## Connect to the cluster
+1. After the HPC Pack cluster is deployed, go to the [Azure portal](https://portal.azure.com). Click **Resource groups**, and find the resource group in which the cluster was deployed. You can find the head node virtual machines.
+
+![Cluster head nodes in the portal](./media/virtual-machines-windows-hpcpack-2016-cluster/clusterhns.png)
+
+2. Click one head node (for high-availability cluster, click any of the head nodes). In **Essentials**, you can find the public IP address or full DNS name of the cluster.
+
+    ![Cluster connection settings](./media/virtual-machines-windows-hpcpack-2016-cluster/clusterconnect.png)
+
+3. Click **Connect** to log on any of the head nodes using Remote Desktop with your specified administrator user name. If the cluster you deployed is in an Active Directory Domain, the user name is of the form <privateDomainName>\<adminUsername> (for example, hpc.local\hpcadmin). 
 
 ## Next steps
 * Submit jobs to your cluster. See [Submit jobs to HPC an HPC Pack cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md) and [Manage an HPC Pack 2016 cluster in Azure using Azure Active Directory](virtual-machines-windows-hpcpack-cluster-active-directory.md).
