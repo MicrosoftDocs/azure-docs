@@ -56,7 +56,7 @@ For an expanded definition of each resource listed in the previous tables, see t
 ## Other SQL Database limits
 | Area | Limit | Description |
 | --- | --- | --- |
-| Databases using Automated export per subscription |10 |Automated export allows you to create a custom schedule for backing up your SQL databases. For more information, see [SQL Databases: Support for Automated SQL Database Exports](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines). |
+| Databases using Automated export per subscription |10 |Automated export allows you to create a custom schedule for backing up your SQL databases. The preview of this feature will end on March 1st, 2017.  |
 | Database per server |Up to 5000 |Up to 5000 databases are allowed per server on V12 servers. |
 | DTUs per server |45000 |45000 DTUs are available per server on V12 servers for provisioning databases, elastic pools and data warehouses. |
 
