@@ -54,8 +54,6 @@ The back-end VMs depend on the creation of the following resources:
 ### Step 1 - Start your script
 You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-ps.ps1). Follow the steps below to change the script to work in your environment.
 
-[!INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
-
 1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
 
 	```powershell
@@ -112,7 +110,7 @@ You need to create a new resource group, a storage account for the data disks, a
 3. Create a new availability set.
 
 	```powershell
-	```$avSet = New-AzureRmAvailabilitySet -Name $avSetName -ResourceGroupName $backendRGName -Location $location
+	$avSet = New-AzureRmAvailabilitySet -Name $avSetName -ResourceGroupName $backendRGName -Location $location
 	```
 4. Get the local administrator account credentials to be used for each VM.
 
@@ -320,8 +318,6 @@ Now that you downloaded and changed the script based on your needs, runt he scri
         NetworkInterfaceIDs          :
         RequestId                    :
         StatusCode                   : 0
-
-
         EndTime             : [Date] [Time]
         Error               :
         Output              :

@@ -47,14 +47,14 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
 
-	```bash
+	```azurecli
 	location="useast2"
 	vnetName="WTestVNet"
 	backendSubnetName="BackEnd"
 	```
 2. Change the values of the variables below based on the values you want to use for your backend deployment.
 
-	```bash
+	```azurecli
 	backendCSName="IaaSStory-Backend"
 	prmStorageAccountName="iaasstoryprmstorage"
 	image="0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1"
@@ -74,14 +74,14 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 ### Step 2 - Create necessary resources for your VMs
 1. Create a new cloud service for all backend VMs. Notice the use of the `$backendCSName` variable for the resource group name, and `$location` for the Azure region.
 
-	```bash
+	```azurecli
 	azure service create --serviceName $backendCSName \
 		--location $location
 	```
 
 2. Create a premium storage account for the OS and data disks to be used by yours VMs.
 
-	```bash
+	```azurecli
 	azure storage account create $prmStorageAccountName \
 		--location $location \
 		--type PLRS
@@ -90,14 +90,14 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 ### Step 3 - Create VMs with multiple NICs
 1. Start a loop to create multiple VMs, based on the `numberOfVMs` variables.
 
-	```bash
+	```azurecli
 	for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
 	do
 	```
 2. For each VM, specify the name and IP address of each of the two NICs.
 
 
-	```bash
+	```azurecli
 	nic1Name=$vmNamePrefix$suffixNumber-DA
 	x=$((suffixNumber+3))
 	ipAddress1=$ipAddressPrefix$x
@@ -109,7 +109,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 3. Create the VM. Notice the usage of the `--nic-config` parameter, containing a list of all NICs with name, subnet, and IP address.
 
-	```bash
+	```azurecli
 	azure vm create $backendCSName $image $username $password \
 		--connect $backendCSName \
 		--vm-name $vmNamePrefix$suffixNumber \
@@ -123,7 +123,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 4. For each VM, create two data disks.
 
-	```bash
+	```azurecli
 	azure vm disk attach-new $vmNamePrefix$suffixNumber \
 		$diskSize \
 		vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd

@@ -56,7 +56,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
 
-	```bash
+	```azurecli
 	existingRGName="IaaSStory"
 	location="westus"
 	vnetName="WTestVNet"
@@ -65,7 +65,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 	```
 2. Change the values of the variables below based on the values you want to use for your backend deployment.
 
-	```bash
+	```azurecli
 	backendRGName="IaaSStory-Backend"
 	prmStorageAccountName="wtestvnetstorageprm"
 	avSetName="ASDB"
@@ -87,7 +87,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 3. Retrieve the ID for the `BackEnd` subnet where the VMs will be created. You need to do this since the NICs to be associated to this subnet are in a different resource group.
 
-	```bash
+	```azurecli
 	subnetId="$(azure network vnet subnet show --resource-group $existingRGName \
 			--vnet-name $vnetName \
 			--name $backendSubnetName|grep Id)"
@@ -100,7 +100,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 4. Retrieve the ID for the `NSG-RemoteAccess` NSG. You need to do this since the NICs to be associated to this NSG are in a different resource group.
 
-	```bash
+	```azurecli
 	nsgId="$(azure network nsg show --resource-group $existingRGName \
 		--name $remoteAccessNSGName|grep Id)"
 		nsgId=${nsgId#*/}
@@ -110,13 +110,13 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 1. Create a new resource group for all backend resources. Notice the use of the `$backendRGName` variable for the resource group name, and `$location` for the Azure region.
 
-	```bash
+	```azurecli
 	azure group create $backendRGName $location
 	```
 
 2. Create a premium storage account for the OS and data disks to be used by yours VMs.
 
-	```bash
+	```azurecli
 	azure storage account create $prmStorageAccountName \
 		--resource-group $backendRGName \
 		--location $location \
@@ -125,7 +125,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 3. Create an availability set for the VMs.
 
-	```bash
+	```azurecli
 	azure availset create --resource-group $backendRGName \
 		--location $location \
 		--name $avSetName
@@ -135,14 +135,14 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 1. Start a loop to create multiple VMs, based on the `numberOfVMs` variables.
 
-	```bash
+	```azurecli
 	for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
 	do
 	```
 
 2. For each VM, create a NIC for database access.
 
-	```bash
+	```azurecli
 	nic1Name=$nicNamePrefix$suffixNumber-DA
 	x=$((suffixNumber+3))
 	ipAddress1=$ipAddressPrefix$x
@@ -155,7 +155,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 3. For each VM, create a NIC for remote access. Notice the `--network-security-group` parameter, used to associate the NIC to an NSG.
 
-	```bash
+	```azurecli
 	nic2Name=$nicNamePrefix$suffixNumber-RA
 	x=$((suffixNumber+53))
 	ipAddress2=$ipAddressPrefix$x
@@ -169,7 +169,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 4. Create the VM.
 
-	```bash
+	```azurecli
 	azure vm create --resource-group $backendRGName \
 		--name $vmNamePrefix$suffixNumber \
 		--location $location \
@@ -188,7 +188,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 5. For each VM, create two data disks, and end the loop with the `done` command.
 
-	```bash
+	```azurecli
 	azure vm disk attach-new --resource-group $backendRGName \
 		--vm-name $vmNamePrefix$suffixNumber \
 		--storage-account-name $prmStorageAccountName \

@@ -24,8 +24,6 @@ ms.author: jdial
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the classic deployment model.
 
@@ -38,7 +36,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 1. Change the values of the variables below based on the values you want to use for your deployment. The following values map to the scenario used in this article:
 
-	```bash
+	```azurecli
 	# Set variables for the new resource group
 	rgName="IaaSStory"
 	location="westus"
@@ -74,13 +72,13 @@ Before creating a VM, you need a resource group, VNet, public IP, and NIC to be 
 
 1. Create a new resource group.
 
-	```bash
+	```azurecli
 	azure group create $rgName $location
 	```
 
 2. Create the VNet and subnet.
 
-	```bash
+	```azurecli
 	azure network vnet create --resource-group $rgName \
 		--name $vnetName \
 		--address-prefixes $vnetPrefix \
@@ -93,7 +91,7 @@ Before creating a VM, you need a resource group, VNet, public IP, and NIC to be 
 
 3. Create the public IP resource.
 
-	```bash
+	```azurecli
 	azure network public-ip create --resource-group $rgName \
 		--name $pipName \
 		--location $location \
@@ -103,7 +101,7 @@ Before creating a VM, you need a resource group, VNet, public IP, and NIC to be 
 
 4. Create the network interface (NIC) for the VM in the subnet created above, with the public IP. Notice the first set of commands are used to retrieve the **Id** of the subnet created above.
 
-	```bash
+	```azurecli
 	subnetId="$(azure network vnet subnet show --resource-group $rgName \
 		--vnet-name $vnetName \
 		--name $subnetName|grep Id)"
@@ -124,7 +122,7 @@ Before creating a VM, you need a resource group, VNet, public IP, and NIC to be 
 
 5. Create a storage account to host the VM OS drive.
 
-	```bash
+	```azurecli
 	azure storage account create $stdStorageAccountName \
 		--resource-group $rgName \
 		--location $location --type LRS
@@ -135,7 +133,7 @@ Now that all necessary resources are in place, you can create a new VM.
 
 1. Create the VM.
 
-	```bash
+	```azurecli
 	azure vm create --resource-group $rgName \
 		--name $vmName \
 		--location $location \
@@ -157,7 +155,7 @@ After making any necessary changes, and understanding the script show above, run
 
 1. From a bash console, run the script above.
 
-	```bash
+	```azurecli
 	sh myscript.sh
 	```
 
