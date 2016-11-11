@@ -53,9 +53,11 @@ You can iterate on your model design, editing the experiment and running it unti
 
 ## Open Machine Learning Studio
 
-To get started with Studio, go to [https://studio.azureml.net](https://studio.azureml.net). If you’ve signed into Machine Learning Studio before, click **Sign in here**. Otherwise, click **Sign Up** and choose between free and paid options.
+To get started with Studio, go to [https://studio.azureml.net](https://studio.azureml.net). If you’ve signed into Machine Learning Studio before, click **Sign In**. Otherwise, click **Sign up here** and choose between free and paid options.
 
 ![Sign in to Machine Learning Studio][sign-in-to-studio]
+<br/>
+***Sign in to Machine Learning Studio***
 
 ## Five steps to create an experiment
 
@@ -195,7 +197,7 @@ Let's build a model that uses a subset of the features in our dataset. You can c
 
 	![Connect the "Select Columns in Dataset" module to the "Clean Missing Data" module][connect-clean-to-select]
 	<br/>
-	***Connect the "Select Columns in Dataset" module to the "Clean Missing Data"*** module
+	***Connect the "Select Columns in Dataset" module to the "Clean Missing Data" module***
 
 2. Double-click the module and type "Select features for prediction."
 
@@ -216,7 +218,7 @@ This produces a filtered dataset containing only the features we want to pass to
 ## Step 4: Choose and apply a learning algorithm
 
 Now that the data is ready, constructing a predictive model consists of training and testing. We'll use our data to train the model, and then we'll test the model to see how closely it's able to predict prices.
-For now, don't worry about *why* we need to train and then test a model.
+<!-- For now, don't worry about *why* we need to train and then test a model.-->
 
 *Classification* and *regression* are two types of supervised machine learning algorithms. Classification predicts an answer from a defined set of categories, such as a color (red, blue, or green). Regression is used to predict a number.
 
