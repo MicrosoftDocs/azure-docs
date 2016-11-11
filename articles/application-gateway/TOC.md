@@ -37,12 +37,12 @@
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (Classic)](application-gateway-create-probe-classic-ps.md)
-### Manage
+## Manage
 ### [Diagnostics](application-gateway-diagnostics.md)
 ### [Troubleshoot](application-gateway-troubleshooting-502.md)
 # Reference
 ## [PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/resourcemanager)
-## [REST](https://docs.microsoft.com/rest/api/appservice/)
+## [REST](https://msdn.microsoft.com/library/mt684941)
 ## [Classic REST](https://msdn.microsoft.com/library/azure/mt299393)
 
 # Related
