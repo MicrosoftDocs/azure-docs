@@ -91,7 +91,7 @@ Before you start, make sure that you at least 85 GB of space.
 2. Open an elevated PowerShell console.
 3. In PowerShell, run this command: `cd C:\CloudDeployment\Configuration`
 4. Run the deploy command: `.\InstallAzureStackPOC.ps1`
-5. At the **Enter the password** prompt, enter a password, and then confirm it. This is the password to all the virtual machines. Be sure to record it.
+5. At the **Enter the password** prompt, enter the same password as the one in Step 8 of te previous section, and then confirm it. This is the password to all the virtual machines. Be sure to record it.
 6. Enter the credentials for your Azure Active Directory account. This user must be the Global Admin in the directory tenant.
 7. The deployment process can take a couple of hours, during which the system automatically reboots once.
    
