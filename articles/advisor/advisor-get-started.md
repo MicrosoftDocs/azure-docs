@@ -30,7 +30,7 @@ ms.author: kumudd
    > The Advisor dashboard displays recommendations related to resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.  
 
 4. To get Advisor recommendations, on the Advisor dashboard, do one of the following:
-  1. To get recommendations for improvements in all categories of Azure resources, click the All tab, and  then click **Get Recommendations**.    
+  1. To get recommendations for improvements in all categories of Azure resources, click the **All** tab, and then click **Get Recommendations**.    
   2. To get security recommendations for your Azure resources, click the **Security** tab, and then click **Get Recommendations**.
   3. To get high availability recommendations for your Azure resources, click the **High Availability** tab, and then click **Get Recommendations**.
   4. To get performance recommendations for your Azure resources, click the **Performance** tab, and then click **Get Recommendations**.
@@ -45,8 +45,10 @@ ms.author: kumudd
 The **Recommendation** blade in Azure Advisor offers additional information about the Advisor recommendation. 
 
 1. Sign into the Azure portal, and then launch Azure Advisor.
-2. Click**Get Recommendation**, and then from the list of recommendations, click a recommendation. This launches the **Recommendation** blade that offers additional information about the business issue or opportunity, including a pointer to documentation describing relevant details. It also contains information about actions you can perform to take advantage of an opportunity or resolve an issue.
-
+2. On the Advisor recommendations dashboard, click**Get Recommendation**.
+3. From the list of recommendations, click a recommendation that you want to review in detail. This launches the recommendation details blade.
+3. Review the information on the recommendation details blade, and learn about the actions that you can perform to take advantage of an opportunity or resolve an issue.
+  
   ![Advisor recommendation action example](./media/advisor-overview/advisor-recommendation-action-example.png)
 
 ### How to search for recommendations
@@ -61,8 +63,8 @@ You can search for recommendations for a particular subscription, resource type,
 ### How to snooze recommendations
 
 1. Sign into the Azure portal, and then launch Azure Advisor.
-2. Click**Get Recommendation**, and then from the list of recommendations, click a recommendation. This launches the **Recommendation** blade.
-3. On the Recommendation blade, click **Snooze**.
+2. Click**Get Recommendation**, and then from the list of recommendations, click a recommendation.
+3. On the **Recommendation** blade, click **Snooze**.
 
  ![Advisor recommendation action example](./media/advisor-get-started/advisor-snooze.png)
 

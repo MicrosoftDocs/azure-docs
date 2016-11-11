@@ -27,10 +27,10 @@ Azure Advisor analyzes single instance virtual machines and availability sets to
 
 Advisor identifies virtual machines that are not part of an availability set and recommends moving them into an availability set.  
  
-**Recommended Actions** You can choose to either create a new availability set for the virtual machine, or, add the virtual machine to an existing availability set.
+**Recommended Actions** You can choose to either create an availability set for the virtual machine, or, add the virtual machine to an existing availability set.
 
 > [!NOTE]
-> If you choose to create a new availability set, you must add at least one more virtual machine into that availability set after creating it. We recommend grouping two or more virtual machines in an availability set to ensure that one of the machines is available during an outage.
+> If you choose to create an availability set, you must add at least one more virtual machine into that availability set after creating it. We recommend grouping two or more virtual machines in an availability set to ensure that one of the machines is available during an outage.
 
 ![](./media/advisor-high-availability-recommendations/advisor-high-availability-create-availability-set.png)
 
@@ -38,7 +38,7 @@ Advisor identifies virtual machines that are not part of an availability set and
 
 Advisor identifies availability sets containing a single virtual machine and recommends adding one or more virtual machines to it.  
 To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meet the Azure virtual machine SLA.  
- You can choose to either create a new virtual machine or use an existing virtual machine, and add it to the availability set.  
+ You can choose to either create a virtual machine or use an existing virtual machine, and add it to the availability set.  
 
 
 ![](./media/advisor-high-availability-recommendations/advisor-high-availability-add-vm-to-availability-set.png)

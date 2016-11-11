@@ -50,7 +50,7 @@ You can click on a recommendation to learn additional information about it. You 
 > [!NOTE]
 > The Advisor dashboard displays recommendations related to resources where you have been assigned the role of **Owner, Contributor, or Reader to the subscription** that the resource belongs to.
 
-Advisor offers recommendations with inline actions or documentation links. Clicking on an inline action takes you through a “guided user journey” to implement it. Clicking on a documentation link points you to the documentation that describes how you can manually implement the action. 
+Advisor offers recommendations with inline actions or documentation links. Clicking an inline action takes you through a “guided user journey” to implement it. Clicking a documentation link points you to the documentation that describes how you can manually implement the action. 
 
 Here's an example of a documentation link in the Advisor recommendation blade:
 
@@ -60,7 +60,7 @@ Here's an example of inline action in the Advisor recommendation blade:
 
 ![Advisor recommendation action example](./media/advisor-overview/advisor-recommendation-action-example.png)
 
-After you’ve implemented a recommended action, the recommendation continues to be visible in the dashboard for a while. Advisor updates recommendations on an hourly basis.  If you don’t intend to take an immediate action you can snooze a recommendation for a period. You can also dismiss a recommendation (choose **snooze** and select **Never**)
+After you’ve implemented a recommended action, the recommendation remains visible in the dashboard for a while. Advisor updates recommendations on an hourly basis.  If you don’t intend to take an immediate action, you can snooze a recommendation for a period. You can also dismiss a recommendation (choose **snooze** and select **Never**)
 
 ![Advisor snooze details pane](./media/advisor-overview/advisor-snooze-details.png)
 

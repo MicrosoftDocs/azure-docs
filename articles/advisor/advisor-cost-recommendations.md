@@ -19,12 +19,13 @@ ms.author: kumudd
 
 # Azure Advisor Cost Recommendations
 
-Advisor will help you optimize and reduce your overall Azure spend by identifying idle resources and resources with varying utilization patterns. You can get cost recommendations using Advisor from the **Cost** tab of the Advisor dashboard.
+Advisor helps you optimize and reduce your overall Azure spend by identifying idle resources and resources with varying utilization patterns. You can get cost recommendations using Advisor from the **Cost** tab of the Advisor dashboard.
 
 ## Low utilization virtual machines 
 
-While certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of virtual machines. Advisor monitors your virtual machine usage for 14 days and identifies low utilization virtual machines, where the CPU utilization was 5% or less and network usage was 7 MB or less for 4 or more days.  
-Advisor will show you the estimated cost of continuing to run the virtual machine. You can choose to shut down or resize the virtual machine.  
+While certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of virtual machines. Advisor monitors your virtual machine usage for 14 days and identifies low utilization virtual machines. Virtual machines whose CPU utilization is 5% or less and network usage is 7 MB or less for 4 or more days, are considered as low utilization virtual machines.
+
+Advisor shows you the estimated cost of continuing to run the virtual machine. You can choose to shut down or resize the virtual machine.  
 
 ![Advisor cost recommendations for resizing virtual machines](./media/advisor-cost-recommendations/advisor-cost-resizevms.png)
 

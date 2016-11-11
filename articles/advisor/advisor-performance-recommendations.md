@@ -26,12 +26,12 @@ Advisor performance recommendations help enhance and improve the speed and respo
 Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with SQL Database Advisor to bring you recommendations for improving the performance of your SQL Azure database.  
 SQL Database Advisor assesses the performance of your SQL Azure databases by analyzing your usage history. It then offers recommendations that are best suited for running your database’s typical workload. SQL database advisor recommendations offer inline actions.
 
-You can either apply each recommendation individally at a time, or, enable Advisor to automatically apply all recommendations at once.
+You can either apply each recommendation individually at a time, or, enable Advisor to automatically apply all recommendations at once.
 
 > [!NOTE]
 > To get recommendations a database must have about a week of usage, and within that week there must be some consistent activity. SQL Database Advisor can more easily optimize for consistent query patterns than it can for random spotty bursts of activity.
 
-For more information about SQL database advisor, see  [SQL Database Advisor](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/).
+For more information about SQL database advisor, see [SQL Database Advisor](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/).
 
 ![Enhance the performance of your SQL database](./media/advisor-performance-recommendations/advisor-performance-sql-db-example.png)
 
@@ -42,7 +42,11 @@ Azure Advisor identifies Redis Cache instances where performance may be adversel
 
 ## App Services recommendations
 
-Azure Advisor integrates best practices recommendations for improving your App Services experience and discovering relevant platform capabilities. Examples include detection of instances where memory or CPU resources are exhausted by app runtimes with mitigation options, and detection of instances where collocating resources like web apps and databases can improve performance and lower cost. For more information about App Services recommendations, see [Best Practices for Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/app-service-best-practices/).
+Azure Advisor integrates best practices recommendations for improving your App Services experience and discovering relevant platform capabilities. Examples of App Services recommendations ar:
+- detection of instances where memory or CPU resources are exhausted by app runtimes with mitigation options
+- detection of instances where collocating resources like web apps and databases can improve performance and lower cost. 
+
+For more information about App Services recommendations, see [Best Practices for Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/app-service-best-practices/).
 
 
 ![App Services recommendations](./media/advisor-performance-recommendations/advisor-performance-app-service.png)
