@@ -53,15 +53,14 @@ In [Machine Learning Studio](machine-learning-what-is-ml-studio.md), you can qui
 
   ![What is predictive analytics: Example of a predictive analytics experiment in Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
-### Operationalize predictive analytics solutions: Purchase web services or publish your own
-* Purchase ready-to-consume web services from [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), such as Recommendations, Text Analytics, and Anomaly Detection.
-* Operationalize your predictive analytics models:
+### Operationalize predictive analytics solutions by publishing your own
+The following tutorials show you how to operationalize your predictive analytics models:
 
-  * [Deploy web services](machine-learning-publish-a-machine-learning-web-service.md)
-  * [Train and retrain models through APIs](machine-learning-retrain-models-programmatically.md)
-  * [Manage web service endpoints](machine-learning-create-endpoint.md)
-  * [Scale a web service](machine-learning-scaling-webservice.md)
-  * [Consume web services](machine-learning-consume-web-services.md)
+ * [Deploy web services](machine-learning-publish-a-machine-learning-web-service.md)
+ * [Train and retrain models through APIs](machine-learning-retrain-models-programmatically.md)
+ * [Manage web service endpoints](machine-learning-create-endpoint.md)
+ * [Scale a web service](machine-learning-scaling-webservice.md)
+ * [Consume web services](machine-learning-consume-web-services.md)
 
 ## Key machine learning terms and concepts
 Machine learning terms can be confusing. Here are definitions of key terms to help you. Use comments following to tell us about any other term you'd like defined.

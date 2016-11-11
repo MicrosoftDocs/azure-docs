@@ -65,4 +65,3 @@ A new experiment is created in your workspace using the sample experiment as a t
 * [Try using R in your experiment](machine-learning-r-quickstart.md)
 * [Review sample R experiments](machine-learning-r-csharp-web-service-examples.md)
 * [Create a web service API](machine-learning-publish-a-machine-learning-web-service.md)
-* [Browse ready-to-use applications](https://datamarket.azure.com/browse?query=machine+learning)
