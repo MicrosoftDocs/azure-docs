@@ -141,8 +141,8 @@ Here's what you'll need:
 
 ![VMM to Azure](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
-* [Learn more](site-recovery-vmm-to-azure.md#azure-requirements) about requirements for Azure portal deployment.
-* [Learn more](site-recovery-vmm-to-azure-classic.md#before-you-start) about requirements for classic portal deployment.
+* [Learn more](site-recovery-vmm-to-azure.md#azure-prerequisites) about requirements for Azure portal deployment.
+* [Learn more](site-recovery-vmm-to-azure-classic.md) about requirements for classic portal deployment.
 
 ## Replicate to a secondary site: VMware virtual machines or physical servers
 To replicate VMware VMs or physical servers to a secondary site as download InMage Scout that's included in the Azure Site Recovery subscription. It can be downloaded from the Azure portal or from the Azure classic portal.
@@ -226,4 +226,3 @@ This workflow shows the process for protecting, replicating, and failing over Hy
 
 ## Next steps
 [Prepare for deployment](site-recovery-best-practices.md)
-

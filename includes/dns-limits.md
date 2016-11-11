@@ -6,4 +6,3 @@
 | Records per record set |20 |
 
 <sup>1</sup> Contact Azure Support in case you need to increase these limits.
-
