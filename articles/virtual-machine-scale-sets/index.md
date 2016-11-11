@@ -43,7 +43,7 @@ Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy a
         </a>
     </li>
    <li>
-        <a href="azure/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-create">
+        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-create">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy a
         </a>
     </li>
     <li>
-        <a href="azure/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-create-cli">
+        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-create-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
