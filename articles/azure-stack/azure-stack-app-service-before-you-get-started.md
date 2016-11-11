@@ -25,7 +25,8 @@ You need a few items to install App Service on Azure Stack:
 - Enough space in your Azure Stack system for a small deployment of App Service on Azure Stack.  The required space is roughly 20 GB of disk space.
 - [A server that's running SQL Server](#SQL-Server).
 
->[AZURE.NOTE] The following steps ALL take place on the Client VM.
+>[!NOTE] 
+> The following steps ALL take place on the Client VM.
 
 ## Before you deploy App Service on Azure Stack
 
@@ -49,7 +50,8 @@ To deploy a resource provider, you must run the PowerShell Integrated Scripting 
 ## Use PSGallery to Install AzureRM PowerShell
 
 The following steps provide guidance on how to install the AzureRM modules to the MAS-CON01 VM.
->[AZURE.NOTE] If you intend on using Visual Studio as well, refer to the Using Visual Studio + Azure Stack TP2 on the MAS-CON01 VM section.
+> [!NOTE]
+> If you intend on using Visual Studio as well, refer to the Using Visual Studio + Azure Stack TP2 on the MAS-CON01 VM section.
 
 Perform the following steps from the MAS-CON01 VM, PowerShell console:
 

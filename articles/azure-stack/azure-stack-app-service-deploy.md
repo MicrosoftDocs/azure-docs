@@ -60,7 +60,8 @@ The appservice.exe installer will:
 
 The following steps guide you through the installation stages:
 
->[AZURE.NOTE] You MUST use an elevated account (local or domain administrator) to execute the installer. If you sign in as azurestack\azurestackuser, you will be prompted for elevated credentials. 
+> [!NOTE] 
+> You MUST use an elevated account (local or domain administrator) to execute the installer. If you sign in as azurestack\azurestackuser, you will be prompted for elevated credentials. 
 
 1.	Run appservice.exe as **azurestack\administrator**. 
 2.	Click **Deploy using Azure Resource Manager**.
