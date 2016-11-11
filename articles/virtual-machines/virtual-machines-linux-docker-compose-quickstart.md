@@ -30,7 +30,7 @@ When you use the Docker VM extension, your VM is automatically set up as a Docke
 
 The basic command from the preceding document creates a resource group named `myResourceGroup` in the `West US` location and deploys a VM with the Azure Docker VM extension installed:
 
-```bash
+```azurecli
 azure group create --name myResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
@@ -68,7 +68,7 @@ vi docker-compose.yml
 
 Paste the following example into your text file. This configuration uses images from the [DockerHub Registry](https://registry.hub.docker.com/_/wordpress/) to install WordPress (the open source blogging and content management system) and a linked backend MariaDB SQL database. Enter your own `MYSQL_ROOT_PASSWORD` as follows:
 
-```bash
+```sh
 wordpress:
   image: wordpress
   links:
