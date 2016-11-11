@@ -86,7 +86,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 **Azure Active Directory Join – Windows 10 only related features**
 
 * [Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery](#join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery)
-* [MDM auto-enrollment,  Self-Service Bitlocker recovery, Additional  local administrators to Windows 10 devices via Azure AD Join](#mdm-auto-enrollment)
+* [MDM auto-enrollment, Self-Service Bitlocker recovery, Additional local administrators to Windows 10 devices via Azure AD Join](#mdm-auto-enrollment)
 
 ## Common Features
 #### Directory Objects
@@ -270,7 +270,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 * [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="mim-cal-mim-server"></a> MIM CAL + MIM Server
+#### <a name="mim-cal-mim-server"></a>MIM CAL + MIM Server
 Microsoft Identity Manager Server software rights are granted with Windows Server licenses (any edition). Because Microsoft Identity Manager runs on the Windows Server operating system, as long as the server is running a valid, licensed copy of Windows Server, then Microsoft Identity Manager can be installed and used on that server. No other separate license is required for Microsoft Identity Manager Server.
 
 **Type:** Premium Features
@@ -341,7 +341,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 | ![Check][12] |![Check][12] |![Check][12] |![Check][12] |
 
 
-#### <a name="mdm-auto-enrollment"></a>MDM auto-enrollment,  Self-Service Bitlocker recovery, Additional local administrators to Windows 10 devices via Azure AD Join
+#### <a name="mdm-auto-enrollment"></a>MDM auto-enrollment, Self-Service Bitlocker recovery, Additional local administrators to Windows 10 devices via Azure AD Join
 **Type:** Azure Active Directory Join – Windows 10 only  related features
 
 **Availability:**
