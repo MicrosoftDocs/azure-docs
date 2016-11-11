@@ -22,8 +22,8 @@ For customers using Windows Server with Software Assurance, you can bring your o
 
 > [!NOTE]
 > You cannot use Azure Marketplace images to deploy Windows Server VMs utilizing the Azure Hybrid Use Benefit. You must deploy your VMs using either PowerShell or Resource Manager templates to correctly register your VMs as eligible for base compute rate discount.
-> 
-> 
+>
+>
 
 ## Pre-requisites
 There are a couple of pre-requisites in order to utilize Azure Hybrid Use Benefit for Windows Server VMs in Azure:
@@ -37,35 +37,36 @@ Make sure you have [installed and configured the latest Azure PowerShell](../pow
 ### Upload a Windows Server VHD
 To deploy a Windows Server VM in Azure, you first need to create a VHD that contains your base Windows Server build. This VHD must be appropriately prepared via Sysprep before you upload it to Azure. You can [read more about the VHD requirements and Sysprep process](virtual-machines-windows-upload-image.md) and [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Back up the VM before running Sysprep. Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzureRmVhd` cmdlet as follows:
 
-```
-Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd" -LocalFilePath 'C:\Path\To\myvhd.vhd'
+```powershell
+Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
+    -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd"
 ```
 
 > [!NOTE]
 > Microsoft SQL Server, SharePoint Server, and Dynamics can also utilize your Software Assurance licensing. You still need to prepare the Windows Server image by installing your application components and providing license keys accordingly, then uploading the disk image to Azure. Review the appropriate documentation for running Sysprep with your application, such as [Considerations for Installing SQL Server using Sysprep](https://msdn.microsoft.com/library/ee210754.aspx) or [Build a SharePoint Server 2016 Reference Image (Sysprep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx).
-> 
-> 
+>
+>
 
-You can also read more about [uploading the VHD to Azure process](virtual-machines-windows-upload-image.md#upload-the-vm-image-to-your-storage-account).
+You can also read more about [uploading the VHD to Azure process](virtual-machines-windows-upload-image.md#upload-the-vhd-to-your-storage-account)
 
 > [!TIP]
 > This article focuses on deploying Windows Server VMs. You can also deploy Windows Client VMs in the same manner. In the following examples, you replace `Server` with `Client` appropriately.
-> 
-> 
+>
+>
 
 ## Deploy a VM via PowerShell Quick-Start
 When deploying your Windows Server VM via PowerShell, you have an additional parameter for `-LicenseType`. Once you have your VHD uploaded to Azure, you create a new VM using `New-AzureRmVM` and specify the licensing type as follows:
 
-```
-New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm -LicenseType Windows_Server
+```powershell
+New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Server"
 ```
 
-You can [read a more detailed walkthrough on deploying a VM in Azure via PowerShell](virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough) below, or read a more descriptive guide on the different steps to [create a Windows VM using Resource Manager and PowerShell](virtual-machines-windows-ps-create.md).
+You can [read a more detailed walkthrough on deploying a VM in Azure via PowerShell](virtual-machines-windows-hybrid-use-benefit-licensing.md#detailed-powershell-walkthrough) below, or read a more descriptive guide on the different steps to [create a Windows VM using Resource Manager and PowerShell](virtual-machines-windows-ps-create.md).
 
 ## Deploy a VM via Resource Manager
 Within your Resource Manager templates, an additional parameter for `licenseType` can be specified. You can read more about [authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). Once you have your VHD uploaded to Azure, edit you Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
 
-```
+```json
 "properties": {  
    "licenseType": "Windows_Server",
    "hardwareProfile": {
@@ -76,13 +77,13 @@ Within your Resource Manager templates, an additional parameter for `licenseType
 ## Verify your VM is utilizing the licensing benefit
 Once you have deployed your VM through either the PowerShell or Resource Manager deployment method, verify the license type with `Get-AzureRmVM` as follows:
 
-```
-Get-AzureRmVM -ResourceGroup MyResourceGroup -Name MyVM
+```powershell
+Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
 The output is similar to the following:
 
-```
+```powershell
 Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus
 LicenseType              : Windows_Server
@@ -90,10 +91,10 @@ LicenseType              : Windows_Server
 
 This contrasts with the following VM deployed without Azure Hybrid Use Benefit licensing, such as a VM deployed straight from the Azure Gallery:
 
-```
+```powershell
 Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus
-LicenseType              : 
+LicenseType              :
 ```
 
 ## Detailed PowerShell Walkthrough
@@ -101,73 +102,77 @@ The following detailed PowerShell steps show a full deployment of a VM. You can 
 
 First, securely obtain credentials, set a location, and resource group name:
 
-```
+```powershell
 $cred = Get-Credential
 $location = "West US"
-$resourceGroupName = "TestLicensing"
+$resourceGroupName = "myResourceGroup"
 ```
 
 Create a public IP:
 
-```
-$publicIPName = "testlicensingpublicip"
-$publicIP = New-AzureRmPublicIpAddress -Name $publicIPName -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
+```powershell
+$publicIPName = "myPublicIP"
+$publicIP = New-AzureRmPublicIpAddress -Name $publicIPName -ResourceGroupName $resourceGroupName `
+    -Location $location -AllocationMethod "Dynamic"
 ```
 
 Define your subnet, NIC, and VNET:
 
-```
-$subnetName = "testlicensingsubnet"
-$nicName = "testlicensingnic"
-$vnetName = "testlicensingvnet"
+```powershell
+$subnetName = "mySubnet"
+$nicName = "myNIC"
+$vnetName = "myVnet"
 $subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/8
-$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupName -Location $location -AddressPrefix 10.0.0.0/8 -Subnet $subnetconfig
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIP.Id
+$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupName -Location $location `
+    -AddressPrefix 10.0.0.0/8 -Subnet $subnetconfig
+$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroupName -Location $location `
+    -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIP.Id
 ```
 
 Name your VM and create a VM config:
 
-```
-$vmName = "testlicensing"
+```powershell
+$vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A1"
 ```
 
 Define your OS:
 
-```
-$computerName = "testlicensing"
-$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+```powershell
+$computerName = "myVM"
+$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred `
+    -ProvisionVMAgent -EnableAutoUpdate
 ```
 
 Add your NIC to the VM:
 
-```
+```powershell
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 ```
 
 Define the storage account to use:
 
-```
-$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -AccountName testlicensing
+```powershell
+$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -AccountName mystorageaccount
 ```
 
 Upload your VHD, suitably prepared, and attach to your VM for use:
 
-```
+```powershell
 $osDiskName = "licensing.vhd"
 $osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
-$urlOfUploadedImageVhd = "https://testlicensing.blob.core.windows.net/vhd/licensing.vhd"
-$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption FromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
+$urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/vhd/myvhd.vhd"
+$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption FromImage `
+    -SourceImageUri $urlOfUploadedImageVhd -Windows
 ```
 
 Finally, create your VM and define the licensing type to utilize Azure Hybrid Use Benefit:
 
-```
-New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType Windows_Server
+```powershell
+New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Server"
 ```
 
 ## Next steps
 Read more about [Azure Hybrid Use Benefit licensing](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 Learn more about [using Resource Manager templates](../azure-resource-manager/resource-group-overview.md).
-

@@ -29,5 +29,3 @@
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](https://docs.microsoft.com/rest/api/compute/)
-
-

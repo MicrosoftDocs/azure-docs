@@ -23,8 +23,8 @@ ms.author: piyushjo;ricksal
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
 > * [Android](mobile-engagement-android-advanced-configuration.md)
-> 
-> 
+>
+>
 
 This procedure describes how to configure various configuration options for Azure Mobile Engagement Android apps.
 
@@ -51,7 +51,7 @@ The permission code needs to look like the following, where you fill in the appr
 | ACCESS_COARSE_LOCATION |Optional. Enables Real-time location reporting |
 | ACCESS_FINE_LOCATION |Optional. Enables GPS-based location reporting |
 
-Starting with Android M, [some permissions are managed at run time](mobile-engagement-android-location-reporting.md#Android-M-Permissions).
+Starting with Android M, [some permissions are managed at run time](mobile-engagement-android-location-reporting.md#android-m-permissions).
 
 If you are already using ``ACCESS_FINE_LOCATION``, then you don't need to also use ``ACCESS_COARSE_LOCATION``.
 
