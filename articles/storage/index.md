@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #Storage Documentation
 
-Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  It is highly scalable, elastic, accessible globally, and automation load-balances your data based on traffic.  Azure storage provides the following four services to meet application needs:  Blob storage, Table storage, Queue storage, and File storage.
+Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  It is highly scalable, elastic, globally accessible, and automatically load-balances your data based on traffic.  Azure Storage provides the following four services to meet application needs:  Blob storage, Table storage, Queue storage, and File storage.
 
 <ul class="panelContent cardsFTitle">
     <li>
