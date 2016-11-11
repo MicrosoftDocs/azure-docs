@@ -1,16 +1,15 @@
 # Overview
 ## [Virtual networks](virtual-networks-overview.md)
-## [Network security groups](virtual-networks-nsg.md)
 ## [User-defined routes and IP forwarding](virtual-networks-udr-overview.md)
+## [Virtual network peering](virtual-network-peering-overview.md)
+## [Business continuity](virtual-network-disaster-recovery-guidance.md)
+## [FAQ](virtual-networks-faq.md)
 ## IP addressing
 ### [Resource Manager](virtual-network-ip-addresses-overview-arm.md)
 ### [Classic](virtual-network-ip-addresses-overview-classic.md)
-## [Virtual network peering](virtual-network-peering-overview.md)
 ## Virtual machines
 ### [Network interfaces](virtual-network-network-interface-overview.md)
 ### [Name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md)
-## [Business continuity](virtual-network-disaster-recovery-guidance.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/virtual-network)
 
 # Get Started
 ## [Create a virtual network](virtual-networks-create-vnet-arm-pportal.md)
@@ -32,7 +31,7 @@
 #### [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
 
 ### Network security groups
-#### [Portal](virtual-networks-create-nsg-arm-portal.md)
+#### [Portal](virtual-networks-create-nsg-arm-pportal.md)
 #### [PowerShell](virtual-networks-create-nsg-arm-ps.md)
 #### [CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [Template](virtual-networks-create-nsg-arm-template.md)
@@ -75,7 +74,9 @@
 ##### [PowerShell (Classic)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [CLI (Classic)](virtual-network-deploy-multinic-classic-cli.md)
 
-#### [Multiple IP addresses](virtual-network-multiple-ip-addresses-powershell.md)
+#### Multiple IP addresses
+##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
+##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 
 ### Connectivity scenarios
 #### [Virtual network (VNet) to VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -92,6 +93,14 @@
 ##### [DMZ with firewall and NSGs](virtual-networks-dmz-nsg-fw-asm.md)
 ##### [DMZ with firewall, UDR, and NSGs](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [Sample application](virtual-networks-sample-app.md)
+
+## Configure
+### Accelerated networking
+#### [Azure portal](virtual-network-accelerated-networking-portal.md)
+#### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### Access control lists
+#### [Classic portal](virtual-networks-acl.md)
+#### [PowerShell](virtual-networks-acl-powershell.md)
 
 ## Manage
 ### Network security groups
@@ -110,19 +119,25 @@
 #### [Move a VM to a different subnet](virtual-networks-move-vm-role-to-subnet.md)
 
 # Reference
-## [PowerShell cmdlets (Resource manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell cmdlets (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [APIs (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
-## [APIs (Classic)](https://msdn.microsoft.com/library/jj157182.aspx)
-## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
-## [Frequently asked questions](virtual-networks-faq.md)
+## [PowerShell (Resource manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
+## [PowerShell (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+## [Azure CLI](/cli/azure/)
+## [Java](/java/api/)
+## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
+## [REST (Classic)](https://msdn.microsoft.com/library/jj157182.aspx)
+
 
 # Related
-## [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines)
-## [Application Gateway](https://azure.microsoft.com/documentation/services/application-gateway)
-## [Azure DNS](https://azure.microsoft.com/documentation/services/dns)
-## [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager)
-## [Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer)
-## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway)
-## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute)
+## [Virtual Machines](/azure/virtual-machines/)
+## [Application Gateway](/azure/application-gateway/)
+## [Azure DNS](/azure/dns/)
+## [Traffic Manager](/azure/traffic-manager/)
+## [Load Balancer](/azure/load-balancer/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [ExpressRoute](/azure/expressroute/)
 
+# Resources
+## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
+## [Networking forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Pricing](https://azure.microsoft.com/pricing/details/virtual-network)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

@@ -1,21 +1,64 @@
 ---
-title: To be submitted | Microsoft Azure
-description: To be submitted.
-services: ''
-documentationcenter: ''
-author: squillace
-manager: timlt
-editor: ''
-tags: billing
+layout: LandingPage
+---
+#Biztalk Services Documentation
 
-ms.assetid: 8e53a626-4e42-4477-87cb-29d863814988
-ms.service: value
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
+Biztalk Services is TBD...
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Biztalk Services Getting Started Samples</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=biztalk-services">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Biztalk Services Video Library</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
-# To be submitted.
+
+##Reference
+
+###REST
+[Biztalk Services REST API Reference](/rest/api/)
+
+###.NET
+[Biztalk Services Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+
+<div class="downloadHolder">
+    <a href="https://msdn.microsoft.com/">
+        <div class="img"></div>
+        <div class="text">
+            Download Biztalk Services Documentation
+        </div>
+    </a>
+</div>

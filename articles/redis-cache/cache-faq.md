@@ -18,7 +18,7 @@ ms.author: sdanie
 
 ---
 # Azure Redis Cache FAQ
-Learn the answers to common questions, patterns, and best practices for Azure Redis Cache. 
+Learn the answers to common questions, patterns, and best practices for Azure Redis Cache.
 
 ## What if my question isn't answered here?
 If your question isn't listed here, please let us know and we'll help you find an answer.
@@ -84,7 +84,7 @@ Azure Redis Cache is based on the popular open-source [Redis cache](http://redis
 ### How can I get started with Azure Redis Cache?
 There are several ways you can get started with Azure Redis Cache.
 
-* You can check out one of our tutorials available for [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), and [Python](cache-python-get-started.md). 
+* You can check out one of our tutorials available for [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), and [Python](cache-python-get-started.md).
 * You can watch [How to Build High Performance Apps Using Microsoft Azure Redis Cache](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
 * You can check out the client documentation for the clients that match the development language of your project to see how to use Redis. There are many Redis clients that can be used with Azure Redis Cache. For a list of Redis clients, see [http://redis.io/clients](http://redis.io/clients).
 
@@ -242,12 +242,12 @@ Yes, to use Azure Redis Cache as a PHP session cache, specify the connection str
 
 > [!IMPORTANT]
 > When using Azure Redis Cache as a PHP session cache, you must URL encode the security key used to connect to the cache, as shown in the following example.
-> 
+>
 > `session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
-> 
+>
 > If the key is not URL encoded, you may receive an exception similar to the following: `Failed to parse session.save_path`
-> 
-> 
+>
+>
 
 For more information about using Redis Cache as a PHP session cache with the PhpRedis client, see [PHP Session handler](https://github.com/phpredis/phpredis#php-session-handler).
 
@@ -284,7 +284,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 * Start by using `redis-benchmark.exe` to get a feel for possible throughput before writing your own perf tests. Note that redis-benchmark does not support SSL, so you will have to [enable the Non-SSL port through the Azure portal](cache-configure.md#access-ports) before you run the test. For examples, see [How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * The client VM used for testing should be in the same region as your Redis cache instance.
 * We recommend using Dv2 VM Series for your client as they have better hardware and will give the best results.
-* Make sure your client VM you choose has at least as much computing and bandwidth capability as the cache you are testing. 
+* Make sure your client VM you choose has at least as much computing and bandwidth capability as the cache you are testing.
 * Enable VRSS on the client machine if you are on Windows. [See here for details](https://technet.microsoft.com/library/dn383582.aspx).
 * Premium tier Redis instances will have better network latency and throughput because they are running on better hardware for both CPU and Network.
 
@@ -309,22 +309,22 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 The following is an example of using redis-benchmark.exe. For accurate results, run this command from a VM in the same region as your cache.
 
 * Test Pipelined SET requests using a 1k payload
-  
+
   redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t SET -n 1000000 -d 1024 -P 50
-* Test Pipelined GET requests using a 1k payload. 
+* Test Pipelined GET requests using a 1k payload.
   NOTE: Run the SET test shown above first to populate cache
-  
+
   redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t GET -n 1000000 -d 1024 -P 50
 
 <a name="threadpool"></a>
 
 ### Important details about ThreadPool growth
-The CLR ThreadPool has two types of threads - "Worker" and "I/O Completion Port" (aka IOCP) threads. 
+The CLR ThreadPool has two types of threads - "Worker" and "I/O Completion Port" (aka IOCP) threads.
 
 * Worker threads are used when for things like processing `Task.Run(…)` or `ThreadPool.QueueUserWorkItem(…)` methods. These threads are also used by various components in the CLR when work needs to happen on a background thread.
-* IOCP threads are used when asynchronous IO happens (e.g. reading from the network). 
+* IOCP threads are used when asynchronous IO happens (e.g. reading from the network).
 
-The thread pool provides new worker threads or I/O completion threads on demand (without any throttling) until it reaches the "Minimum" setting for each type of thread. By default, the minimum number of threads is set to the number of processors on a system. 
+The thread pool provides new worker threads or I/O completion threads on demand (without any throttling) until it reaches the "Minimum" setting for each type of thread. By default, the minimum number of threads is set to the number of processors on a system.
 
 Once the number of existing (busy) threads hits the "minimum" number of threads, the ThreadPool will throttle the rate at which is injects new threads to one thread per 500 milliseconds. This means that if your system gets a burst of work needing an IOCP thread, it will process that work very quickly. However, if the burst of work is more than the configured "Minimum" setting, there will be some delay in processing some of the work as the ThreadPool waits for one of two things to happen.
 
@@ -335,9 +335,9 @@ Basically, it means that when the number of Busy threads is greater than Min thr
 
 If we look at an example error message from StackExchange.Redis (build 1.0.450 or later), you will see that it now prints ThreadPool statistics (see IOCP and WORKER details below).
 
-    System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive, 
-    queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0, 
-    IOCP: (Busy=6,Free=994,Min=4,Max=1000), 
+    System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
+    queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
+    IOCP: (Busy=6,Free=994,Min=4,Max=1000),
     WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 
 In the above example, you can see that for IOCP thread there are 6 busy threads and the system is configured to allow 4 minimum threads. In this case, the client would have likely seen two 500 ms delays because 6 > 4.
@@ -352,8 +352,8 @@ How to configure this setting:
 * In ASP.NET, use the ["minIoThreads" configuration setting]["minIoThreads" configuration setting] under the `<processModel>` configuration element in web.config. If you are running inside of Azure WebSites, this setting is not exposed through the configuration options. However, you should still be able to set this programmatically (see below) from your Application_Start method in global.asax.cs.
 
 > **Important Note:** the value specified in this configuration element is a *per-core* setting. For example, if you have a 4 core machine and want your minIOThreads setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
-> 
-> 
+>
+>
 
 * Outside of ASP.NET, use the [ThreadPool.SetMinThreads(…)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
 
@@ -371,14 +371,14 @@ Enabling server GC can optimize the client and provide better performance and th
 ### How do I monitor the health and performance of my cache?
 Microsoft Azure Redis Cache instances can be monitored in the [Azure portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Redis Cache](cache-how-to-monitor.md).
 
-The **Support + troubleshooting** section of the Redis Cache **Settings** blade also contains several tools for monitoring and troubleshooting your caches. 
+The **Support + troubleshooting** section of the Redis Cache **Settings** blade also contains several tools for monitoring and troubleshooting your caches.
 
 * **Troubleshoot** provides information about common issues and strategies for resolving them.
 * **Audit logs** provides information on actions performed on your cache. You can also use filtering to expand this view to include other resources.
 * **Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](../resource-health/resource-health-overview.md).
 * **New support request** provides options to open a support request for your cache.
 
-These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information, see [Support & troubleshooting settings](cache-configure.md#support-amp-troubleshooting-settings).
+These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information, see the "Support & troubleshooting settings" section of [How to configure Azure Redis Cache](cache-configure.md).
 
 ### My cache diagnostics storage account settings changed, what happened?
 Caches in the same region and subscription share the same diagnostics storage settings, and if the configuration is changed (diagnostics enabled/disabled or changing the storage account) it applies to all caches in the subscription that are in that region. If the diagnostics settings for your cache have changed, check to see if the diagnostic settings for another cache in the same subscription and region have changed. One way to check is to view the audit logs for your cache for a `Write DiagnosticSettings` event. For more information on working with audit logs, see [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
@@ -412,8 +412,8 @@ The following are some common reason for a cache disconnect.
 ### Which Azure Cache offering is right for me?
 > [!IMPORTANT]
 > As per last year's [announcement](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/), Azure Managed Cache Service and Azure In-Role Cache service will be retired on November 30, 2016. Our recommendation is to use [Azure Redis Cache](https://azure.microsoft.com/services/cache/). For information on migrating, see [Migrate from Managed Cache Service to Azure Redis Cache](cache-migrate-to-redis.md).
-> 
-> 
+>
+>
 
 ### Azure Redis Cache
 Azure Redis Cache is Generally Available in sizes up to 53 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier-intro.md) offers sizes up to 530 GB and support for clustering, VNET, and persistence, with a 99.9% SLA.
@@ -422,7 +422,7 @@ Azure Redis Cache gives customers the ability to use a secure, dedicated Redis c
 
 Unlike traditional caches which deal only with key-value pairs, Redis is popular for its highly performant data types. Redis also supports running atomic operations on these types, like appending to a string; incrementing the value in a hash; pushing to a list; computing set intersection, union and difference; or getting the member with highest ranking in a sorted set. Other features include support for transactions, pub/sub, Lua scripting, keys with a limited time-to-live, and configuration settings to make Redis behave more like a traditional cache.
 
-Another key aspect to Redis success is the healthy, vibrant open source ecosystem built around it. This is reflected in the diverse set of Redis clients available across multiple languages. This allows it to be used by nearly any workload you would build inside of Azure. 
+Another key aspect to Redis success is the healthy, vibrant open source ecosystem built around it. This is reflected in the diverse set of Redis clients available across multiple languages. This allows it to be used by nearly any workload you would build inside of Azure.
 
 For more information about getting started with Azure Redis Cache, see [How to Use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/redis-cache/).
 

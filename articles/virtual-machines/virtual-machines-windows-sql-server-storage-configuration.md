@@ -29,7 +29,7 @@ classic deployment model.
 ## Prerequisites
 To use the automated storage configuration settings, your virtual machine requires the following characteristics:
 
-* Provisioned with a [SQL Server gallery image](virtual-machines-windows-sql-server-iaas-overview.md#option-1-deploy-a-sql-vm-per-minute-licensing).
+* Provisioned with a [SQL Server gallery image](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
 * Uses the [Resource Manager deployment model](../resource-manager-deployment-model.md).
 * Uses [Premium Storage](../storage/storage-premium-storage.md).
 
@@ -137,9 +137,8 @@ The following table describes the three workload type options available and thei
 
 > [!NOTE]
 > You can only specify the workload type when you provision a SQL virtual machine by selecting it in the storage configuration step.
-> 
-> 
+>
+>
 
 ## Next steps
 For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
-

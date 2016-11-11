@@ -5,7 +5,7 @@ services: ''
 suite: ''
 documentationcenter: ''
 author: MandiOhlinger
-manager: erikre
+manager: anneta
 editor: ''
 tags: connectors
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2016
+ms.date: 11/07/2016
 ms.author: mandia
 
 ---

@@ -44,7 +44,7 @@ This release provides new features for both tenants and administrators.
 * You can resize virtual machine disks.
 * Virtual machines can have multiple network interfaces.
 
-### Portal Experience
+## Portal Experience
 * Azure Stack Regions are a logical unit of scale and management within Azure Stack. In this preview, you can view information on services like compute, network, and storage by region.
 * You can now preview the [updates](azure-stack-updates.md) interface.
 

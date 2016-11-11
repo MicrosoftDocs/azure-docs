@@ -1,16 +1,13 @@
 # [Overview](cdn-overview.md)
-## [Azure CDN Best practices](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+## [What is Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 # Get Started
-## [Using Azure CDN](cdn-create-new-endpoint.md)
-## Get started with Azure CDN development
-### [.NET](cdn-app-dev-net.md)
-### [Node.js](cdn-app-dev-node.md)
+## [Enable Azure CDN](cdn-create-new-endpoint.md)
 
 # How To
 ## Integrate
-### [Integrate with Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-### [Integrate with Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Integrate with Storage](cdn-create-a-storage-account-with-cdn.md)
+### [Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Cloud Services](cdn-cloud-service-with-cdn.md)
+### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin resource sharing](cdn-cors.md)
 
 ## Manage
@@ -29,9 +26,6 @@
 ### [Override behavior with rules](cdn-rules-engine.md)
 ### [Get real-time alerts](cdn-real-time-alerts.md)
 
-## Automate
-### [Manage with PowerShell](cdn-manage-powershell.md)
-
 ## Analyze
 ### [Analyze usage patterns](cdn-analyze-usage-patterns.md)
 ### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
@@ -39,18 +33,22 @@
 ### [Analyze edge node performance](cdn-edge-performance.md)
 
 ## Develop
-### Get started with Azure CDN development
-#### [.NET](cdn-app-dev-net.md)
-#### [Node.js](cdn-app-dev-node.md)
+### [.NET](cdn-app-dev-net.md)
+### [Node.js](cdn-app-dev-node.md)
 
 ## Troubleshoot
-### [Troubleshoot 404 status](cdn-troubleshoot-endpoint.md)
-### [Troubleshoot file compression](cdn-troubleshoot-compression.md)
+### [404 status](cdn-troubleshoot-endpoint.md)
+### [File compression](cdn-troubleshoot-compression.md)
 
 # Reference
-## [REST API reference](https://msdn.microsoft.com/library/mt634456.aspx)
-
-# Related
+## [PowerShell cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [.NET API](https://docs.microsoft.com/dotnet/api)
+## [Azure CDN POP Locations](cdn-pop-locations.md)
+## [REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
 # Resources
-## [Azure CDN POP Locations](cdn-pop-locations.md)
+## [Pricing](https://azure.microsoft.com/pricing/details/cdn/)
+## [MSDN forum](https://social.msdn.microsoft.com/forums/home?forum=azurecdn)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+## [Service updates](https://azure.microsoft.com/updates/?product=cdn)
+

@@ -25,7 +25,7 @@ Support for AMQP 1.0 in Service Bus means that you can use the queuing and publi
 This article explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET applications using the Service Bus .NET API. There is a [companion article](service-bus-java-how-to-use-jms-api-amqp.md) that explains how to do the same using the standard Java Message Service (JMS) API. You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.
 
 ## Get started with Service Bus
-This article assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure portal][Azure portal]. For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md#1-create-a-namespace-using-the-Azure-portal).
+This article assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure portal][Azure portal]. For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md#1-create-a-namespace-using-the-azure-portal).
 
 ## Download the Service Bus SDK
 AMQP 1.0 support is available in Service Bus SDK version 2.1 or later. You can download the latest bits from NuGet at [http://nuget.org/packages/WindowsAzure.ServiceBus/](http://nuget.org/packages/WindowsAzure.ServiceBus/).
@@ -148,7 +148,7 @@ namespace SimpleSenderReceiver
         {
             BrokeredMessage message = new BrokeredMessage("Test AMQP message from .NET");
             sender.Send(message);
-            Console.WriteLine("Sent message with MessageID = " 
+            Console.WriteLine("Sent message with MessageID = "
                 + message.MessageId);
         }
 
@@ -168,11 +168,11 @@ namespace SimpleSenderReceiver
             {
                 try
                 {
-                    BrokeredMessage message = 
+                    BrokeredMessage message =
                         messageReceiver.Receive(new TimeSpan(0, 0, 10));
                     if (message != null)
                     {
-                        Console.WriteLine("Received message with MessageID = " + 
+                        Console.WriteLine("Received message with MessageID = " +
                             message.MessageId);
                         message.Complete();
                     }
@@ -216,7 +216,7 @@ exit
 ## Cross-platform messaging between JMS and .NET
 This topic showed how to send messages to Service Bus using .NET and also how to receive those messages using .NET. However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components written in different languages, with messages exchanged reliably and at full fidelity.
 
-Using the sample .NET application described above and a similar Java application taken from a companion guide, [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md), it's possible to exchange messages between .NET and Java. 
+Using the sample .NET application described above and a similar Java application taken from a companion guide, [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md), it's possible to exchange messages between .NET and Java.
 
 For more information about the details of cross-platform messaging using Service Bus and AMQP 1.0, see the [Service Bus AMQP 1.0 overview](service-bus-amqp-overview.md).
 
