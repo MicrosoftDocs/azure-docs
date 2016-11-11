@@ -1,17 +1,17 @@
 # Overview
-## [Resource Manager Overview](resource-group-overview.md)
+## [What is Resource Manager?](resource-group-overview.md)
 ## [Supported services, regions, and API versions](../resource-manager-supported-services.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Understand Resource Manager and Classic deployment](../resource-manager-deployment-model.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Prescriptive subscription governance](../resource-manager-subscription-governance.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Governance examples for enterprises](../resource-manager-subscription-examples.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-# Get Started
+# Get started
 ## [Export template](../resource-manager-export-template.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Template walkthrough](../resource-manager-template-walkthrough.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Visual Studio with Resource Manager](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [VS Code with Resource Manager](../resource-manager-vs-code.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
-# How To
-## Templates
+# How to
+## Create templates
 ### [Best practices for templates](../resource-manager-template-best-practices.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Authoring templates](../resource-group-authoring-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Template functions](../resource-group-template-functions.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -52,8 +52,13 @@
 ### [View deployment operations with Azure CLI](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [View deployment operations with REST API](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 # Reference
+## [PowerShell cmdlets](/powershell/azureps-cmdlets-docs/)
+## [Azure CLI](/cli/azure)
+## [Java](/java/api)
+## [.NET API](/dotnet/api)
 ## [Template schemas](https://github.com/Azure/azure-resource-manager-schemas)
-## [PowerShell cmdlets for Resource Manager](https://msdn.microsoft.com/library/dn757692(v=azure.200).aspx)
-## [REST API for Resource Manager](https://msdn.microsoft.com/en-us/library/azure/dn790568)
-## [.NET client library for Resource Manager](https://msdn.microsoft.com/en-us/library/azure/mt418626)
+## [PowerShell cmdlets for Resource Manager](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
+## [REST API for Resource Manager](/rest/api/resources/)
+## [.NET client library for Resource Manager](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Throttling requests](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [REST](/rest/api/resources/)

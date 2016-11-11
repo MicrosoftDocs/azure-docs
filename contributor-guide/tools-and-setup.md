@@ -9,7 +9,7 @@ If you're unfamiliar with Git, you might want to review some Git terminology: [h
 * [Sign up for LiveFyre](#sign-up-for-livefyre)
 * [Modify articles using the GitHub UI](#modify-articles-using-the-github-ui)
 * [Private or public repo?](#private-or-public-repo?)
-* [Permissions in GitHub](#permissions-in-github)
+* [Permissions](#permissions)
 * [Install Git for Windows](#install-git-for-windows)
 * [Enable two-factor authentication](#enable-two-factor-authentication)
 * [Install a markdown editor](#install-a-markdown-editor)
@@ -85,10 +85,14 @@ For the following sorts of work, we strongly recommend you install and learn to 
 
  - github.com/Microsoft/azure-docs**-pr**/blob/master/articles/batch/batch-account-create-portal.md
 
-## Permissions in GitHub
+## Permissions
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Microsoft/azure-docs](https://github.com/Microsoft/azure-docs). No special permissions are required.
 
-If you are a Microsoft PM or writer who is working on Azure content as a designated author or reviewer, you must work in our private content repository, azure-docs-pr. Visit [https://repos.opensource.microsoft.com ](https://repos.opensource.microsoft.com) to join the Microsoft GitHub organization. Once you are a member of the Microsoft organization, you can access the private azure-docs-pr repository.
+If you are a Microsoft PM or writer who is working on Azure content as a designated author or reviewer, you must work in our private content repository, azure-docs-pr.
+
+1. Visit [https://repos.opensource.microsoft.com ](https://repos.opensource.microsoft.com) to join the Microsoft GitHub organization. Once you are a member of the Microsoft organization, you can access the private azure-docs-pr repository.
+
+2. Register your GitHub account with the publishing system before you submit your first pull request. To do this, visit https://op-portal-prod.azurewebsites.net/, and click "Sign in with GitHub". The one-time sign-in is all that is needed. 
 
 ## Install Git for Windows
 Install Git for Windows from [http://git-scm.com/download/win](http://git-scm.com/download/win). This download installs the Git version control system, and it installs Git Bash, the command-line app that you will use to interact with your local Git repository.
@@ -138,11 +142,11 @@ If you use Atom, you'll need to set a few things up.
 
 Public repo:
 
-        git clone https://[your GitHub user name]:[token]@github.com/<your GitHub user name>/azure-docs.git
+        git clone https://your_GitHub_user_name:your_token@github.com/your_GitHub_user_name/azure-docs.git
 
 Private repo:
 
-        git clone https://[your GitHub user name]:[token]@github.com/<your GitHub user name>/azure-docs-pr.git
+        git clone https://your_GitHub_user_name:your_token@github.com/your_GitHub_user_name/azure-docs-pr.git
 
 For example, this clone command could look something like this:
 
@@ -154,13 +158,13 @@ Create a reference to the root repository by entering these commands. This sets 
 Public repo:
 
         cd azure-docs
-        git remote add upstream https://[your GitHub user name]:[token]@github.com/Microsoft/azure-docs.git
+        git remote add upstream https://your_GitHub_user_name:your_token@github.com/Microsoft/azure-docs.git
         git fetch upstream
 
 Private repo:
 
         cd azure-docs-pr
-        git remote add upstream https://[your GitHub user name]:[token]@github.com/Microsoft/azure-docs-pr.git
+        git remote add upstream https://your_GitHub_user_name:your_token@github.com/Microsoft/azure-docs-pr.git
         git fetch upstream
 
 This usually takes a while. After you do this, you won't have to fork again or enter your credentials again. You would only have to copy the forks to a local computer again if you set the tools up on another computer.

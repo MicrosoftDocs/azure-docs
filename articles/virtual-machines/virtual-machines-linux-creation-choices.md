@@ -28,7 +28,7 @@ The Azure CLI is available across platforms via an npm package, distro-provided 
   
   * The following example creates a CoreOS VM using a public key named `azure_id_rsa.pub`:
     
-    ```bash
+    ```azurecli
     azure vm quick-create -ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
       --image-urn CoreOS
     ```
@@ -36,8 +36,8 @@ The Azure CLI is available across platforms via an npm package, distro-provided 
   
   * The following example creates a VM using a template stored on GitHub:
     
-    ```bash
-    azure group create --name TestRG --location WestUS 
+    ```azurecli
+    azure group create --name myResourceGroup --location WestUS 
       --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
     ```
 * [Create a complete Linux environment using the Azure CLI](virtual-machines-linux-create-cli-complete.md)
@@ -47,8 +47,8 @@ The Azure CLI is available across platforms via an npm package, distro-provided 
   
   * The following example adds a 5Gb disk to an existing VM named `TestVM`:
     
-    ```bash
-    azure vm disk attach-new --resource-group TestRG --vm-name TestVM \
+    ```azurecli
+    azure vm disk attach-new --resource-group myResourceGroup  --vm-name myVM \
       --size-in-GB 5
     ```
 
@@ -66,25 +66,25 @@ Use the `azure vm image` CLI commands to see what's available by publisher, dist
 
 List available publishers as follows:
 
-```bash
+```azurecli
 azure vm image list-publishers --location WestUS
 ```
 
 List available products (offers) for a given publisher as follows:
 
-```bash
+```azurecli
 azure vm image list-offers --location WestUS --publisher Canonical
 ```
 
 List available SKUs (distro releases) of a given offer as follows:
 
-```bash
+```azurecli
 azure vm image list-skus --location WestUS --publisher Canonical --offer UbuntuServer
 ```
 
 List all available images for a given release follows:
 
-```bash
+```azurecli
 azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
 ```
 
@@ -111,10 +111,10 @@ If you require specific customizations, you can use an image based on an existin
   
   * Quick-start example commands to capture an existing VM:
     
-    ```bash
-    azure vm deallocate --resource-group TestRG --vm-name TestVM
-    azure vm generalize --resource-group TestRG --vm-name TestVM
-    azure vm capture --resource-group TestRG --vm-name TestVM --vhd-name-prefix CapturedVM
+    ```azurecli
+    azure vm deallocate --resource-group myResourceGroup --vm-name myVM
+    azure vm generalize --resource-group myResourceGroup --vm-name myVM
+    azure vm capture --resource-group myResourceGroup --vm-name myVM --vhd-name-prefix myCapturedVM
     ```
 
 ## Next steps

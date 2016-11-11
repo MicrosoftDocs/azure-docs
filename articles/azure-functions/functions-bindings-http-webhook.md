@@ -39,12 +39,14 @@ Use the HTTP trigger to respond to an HTTP request.
 
 The HTTP trigger to a function uses the following JSON object in the `bindings` array of function.json:
 
-    {
-        "name": "<Name of request object/body in function signature>",
-        "type": "httpTrigger",
-        "direction": "in",
-        "authLevel": "<'function', 'anonymous', or 'admin' - see below>"
-    },
+```json
+{
+    "name": "<Name of request object/body in function signature>",
+    "type": "httpTrigger",
+    "direction": "in",
+    "authLevel": "<'function', 'anonymous', or 'admin' - see below>"
+},
+```
 
 `authLevel` defines how the HTTP trigger validates the HTTP requests:
 
@@ -79,12 +81,14 @@ For Node.js functions, the Functions runtime provides the request body instead o
 ## HTTP trigger sample
 Suppose you have the following HTTP trigger in the `bindings` array of function.json:
 
-    {
-        "name": "req",
-        "type": "httpTrigger",
-        "direction": "in",
-        "authLevel": "function"
-    },
+```json
+{
+    "name": "req",
+    "type": "httpTrigger",
+    "direction": "in",
+    "authLevel": "function"
+},
+```
 
 See the language-specific sample that looks for a `name` parameter either in the query string or the body of the HTTP request.
 
@@ -94,7 +98,7 @@ See the language-specific sample that looks for a `name` parameter either in the
 
 <a name="httptriggercsharp"></a>
 
-### HTTP trigger sample in C\
+### HTTP trigger sample in C# #
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
@@ -122,7 +126,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 
 <a name="httptriggerfsharp"></a>
 
-### HTTP trigger sample in F\
+### HTTP trigger sample in F# #
 ```fsharp
 open System.Net
 open System.Net.Http
@@ -197,12 +201,14 @@ following features designed for webhooks:
 
 The webhook trigger to a function uses the following JSON object in the `bindings` array of function.json:
 
-    {
-        "webHookType": "<github|slack|genericJson>",
-        "name": "<Name of request object/body in function signature>",
-        "type": "httpTrigger",
-        "direction": "in",
-    },
+```json
+{
+    "webHookType": "<github|slack|genericJson>",
+    "name": "<Name of request object/body in function signature>",
+    "type": "httpTrigger",
+    "direction": "in",
+},
+```
 
 ### Configure webhook providers
 The GitHub webhook is simple to configure. You create GitHub webhook trigger in Functions, and copy its [URL](#url) and [API key](#validate)
@@ -223,12 +229,14 @@ See [HTTP trigger usage](#httptriggerusage).
 ## Webhook trigger sample
 Suppose you have the following webhook trigger in the `bindings` array of function.json:
 
-    {
-        "webHookType": "github",
-        "name": "req",
-        "type": "httpTrigger",
-        "direction": "in",
-    },
+```json
+{
+    "webHookType": "github",
+    "name": "req",
+    "type": "httpTrigger",
+    "direction": "in",
+},
+```
 
 See the language-specific sample that logs GitHub issue comments.
 
@@ -238,7 +246,7 @@ See the language-specific sample that logs GitHub issue comments.
 
 <a name="hooktriggercsharp"></a>
 
-### Webhook sample in C\
+### Webhook sample in C# #
 ```csharp
 #r "Newtonsoft.Json"
 
@@ -262,7 +270,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 <a name="hooktriggerfsharp"></a>
 
-### Webhook sample in F\
+### Webhook sample in F# #
 ```fsharp
 open System.Net
 open System.Net.Http
@@ -300,11 +308,13 @@ module.exports = function (context, data) {
 ## HTTP output binding
 Use the HTTP output binding to respond to the HTTP request sender.
 
-    {
-        "name": "res",
-        "type": "http",
-        "direction": "out"
-    }
+```json
+{
+    "name": "res",
+    "type": "http",
+    "direction": "out"
+}
+```
 
 <a name="outputusage"></a>
 
