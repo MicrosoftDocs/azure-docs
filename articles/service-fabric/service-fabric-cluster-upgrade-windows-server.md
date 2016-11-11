@@ -113,11 +113,11 @@ Use these steps to upgrade your cluster to a supported version, if your cluster 
    
         "fabricClusterAutoupgradeEnabled": false,
 
-and kick off a configuration upgrade. refer to [Start-ServiceFabricClusterUpgrade PS cmd ](https://msdn.microsoft.com/library/mt125872.aspx) for usage details. The cluster manifest version is the version that you have in the clusterConfig.JSON. Make sure to update it before you kick off the configuration upgrade.
+and kick off a configuration upgrade. Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.microsoft.com/en-us/library/mt788302.aspx) for usage details. Make sure to update the 'clusterConfigurationVersion' in your JSON before you kick off the configuration upgrade.
 
 ```powershell
 
-    Start-ServiceFabricClusterUpgrade [-Config] [-ClusterConfigVersion] -FailureAction Rollback -Monitored 
+    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File> 
 
 ```
 
