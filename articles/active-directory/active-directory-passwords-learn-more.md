@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 09/09/2016
 ms.author: asteen
 
 ---
 # Learn more about Password Management
 > [!IMPORTANT]
 > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 If you have already deployed Password Management, or are just looking to learn more about the technical nitty gritty of how it works before deploying, this section will give you a good overview of the technical concepts behind the service. We'll cover the following:
 
@@ -109,8 +109,8 @@ The following table outlines where and how this data is used during password res
 
 > [!NOTE]
 > Office Phone does not appear in the registration portal because users are currently not able to edit this property in the directory.
-> 
-> 
+>
+>
 
 <table>
           <tbody><tr>
@@ -278,7 +278,7 @@ The following fields can be synchronized from on-premises:
 * Mobile Phone
 * Office Phone
 
-#### Data settable with Azure AD PowerShell
+#### Data accessible with Azure AD PowerShell
 The following fields are accessible with Azure AD PowerShell & the Graph API:
 
 * Alternate Email

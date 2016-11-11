@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
@@ -38,7 +38,7 @@ In the [portal.azure.com](https://portal.azure.com), add an Application Insights
 * **Application type** affects what you see on the overview blade and the properties available in [metric explorer][metrics]. If you don't see your type of app, choose ASP.NET.
 * **Resource group** is a convenience for managing properties like access control. If you have already created other Azure resources, you can choose to put this new resource in the same group.
 * **Subscription** is your payment account in Azure.
-* **Location** is where we keep your data. Currently it can't be changed.
+* **Location** is where we keep your data.
 * **Add to startboard** puts a quick-access tile for your resource on your Azure Home page. Recommended.
 
 When your app has been created, a new blade opens. This is where you'll see performance and usage data about your app. 

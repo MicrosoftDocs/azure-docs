@@ -27,7 +27,7 @@ some of them.
 
 The configuration file is named `ApplicationInsights.config` or `ApplicationInsights.xml`, depending on the type of your
 application. It is automatically added to your project when you [install most versions of the SDK][start]. It is also added to a web app
-by [Status Monitor on an IIS server][redfield], or when you select the Appplication Insights
+by [Application Insights Agent on an IIS server][redfield], or when you select the Appplication Insights
 [extension for an Azure website or VM](app-insights-azure-web-apps.md).
 
 There isn't an equivalent file to control the [SDK in a web page][client].
@@ -40,7 +40,7 @@ Each telemetry module collects a specific type of data and uses the core API to 
 There's a node in the configuration file for each module. To disable a module, delete the node or comment it out.
 
 ### Dependency Tracking
-[Dependency tracking](app-insights-asp-net-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension](app-insights-azure-web-apps.md).
+[Dependency tracking](app-insights-asp-net-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Application Insights Agent][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension](app-insights-azure-web-apps.md).
 
 You can also write your own dependency tracking code using the [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency).
 

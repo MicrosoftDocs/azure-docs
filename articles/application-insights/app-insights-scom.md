@@ -79,7 +79,7 @@ If you need to change settings later, re-open the properties of the monitor from
 ![In Authoring, select .NET Application Performance Monitoring with Application Insights, select your monitor, and click Properties.](./media/app-insights-scom/080.png)
 
 ## Verify monitoring
-The monitor that you have installed searches for your app on every server. Where it finds the app, it configures Application Insights Status Monitor to monitor the app. If necessary, it first installs Status Monitor on the server.
+The monitor that you have installed searches for your app on every server. Where it finds the app, it configures Application Insights Agent to monitor the app. If necessary, it first installs the Agent on the server.
 
 You can verify which instances of the app it has found:
 

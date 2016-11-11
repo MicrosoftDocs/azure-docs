@@ -121,7 +121,7 @@ INVESTIGATE
 * [**Availability / Web tests**](app-insights-monitor-web-app-availability.md) - Send regular requests to your web app from around the world.*
 * [**Failures, Performance**](app-insights-web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](app-insights-asp-net-dependencies.md).
 * [**Performance**](app-insights-web-monitor-performance.md) - Response time, dependency response times.
-* [Servers](app-insights-web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](app-insights-monitor-performance-live-website-now.md).
+* [Servers](app-insights-web-monitor-performance.md) - Performance counters. Available if you [install Application Insights Agent](app-insights-monitor-performance-live-website-now.md).
 * **Browser** - Page view and AJAX performance. Available if you [instrument your web pages](app-insights-javascript.md).
 * **Usage** - Page view, user, and session counts. Available if you [instrument your web pages](app-insights-javascript.md).
 
