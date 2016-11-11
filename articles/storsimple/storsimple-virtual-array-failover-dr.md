@@ -166,7 +166,9 @@ If the available target devices do not have sufficient space, you see an error t
 
 **Precheck failures**
 
-If one of the prechecks is not satisfied, then you see precheck failures.## Business continuity disaster recovery (BCDR)
+If one of the prechecks is not satisfied, then you see precheck failures.
+
+## Business continuity disaster recovery (BCDR)
 
 A business continuity disaster recovery (BCDR) scenario occurs when the entire Azure datacenter stops functioning. This can affect your StorSimple Device Manager service and the associated StorSimple devices.
 
