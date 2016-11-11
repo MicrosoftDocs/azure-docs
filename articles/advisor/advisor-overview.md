@@ -37,7 +37,7 @@ You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordas
 > [!NOTE]
 > Azure Advisor generates recommendations for subscriptions where you are assigned the role of **Owner**, **Contributor** or **Reader**.
 
-You can click on a recommendation to learn additional information about it. You can also learn about actions you can perform to take advantage of an opportunity or resolve an issue. 
+You can click a recommendation to learn additional information about it. You can also learn about actions you can perform to take advantage of an opportunity or resolve an issue. 
 Advisor offers recommendations with inline actions or documentation links. Clicking an inline action takes you through a “guided user journey” to implement it. Clicking a documentation link points you to the documentation that describes how you can manually implement the action. 
 
 Advisor updates recommendations on an hourly basis. If you don’t intend to take an immediate action on a recommendation, you can snooze it for a time period or dismiss it. 
@@ -45,7 +45,7 @@ Advisor updates recommendations on an hourly basis. If you don’t intend to tak
 ## Frequently asked questions
 
 ### How do I access Advisor?
-You can access Advisor through the Azure portal. Sign into the portal, select **Browse** and then scroll to **Azure Advisor**. You can also view Advisor recommendations through the virtual machine resource blade. Choose a virtual machine, and then scroll to Advisor recommendations in the menu. 
+You can access Advisor through the Azure portal. Sign into the portal, select **Browse**, and then scroll to **Azure Advisor**. You can also view Advisor recommendations through the virtual machine resource blade. Choose a virtual machine, and then scroll to Advisor recommendations in the menu. 
 
 ### What permissions do I need to access Advisor?
 
