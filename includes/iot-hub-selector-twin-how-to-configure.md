@@ -5,7 +5,7 @@
 > 
 
 ## Introduction
-In [Get started with IoT Hub device twins][lnk-twin-tutorial], you learned how to set device metadata from your solution back end using *tags*, report device conditions from a device app using *reported properties*, and query this information using a SQL-like language.
+In [Get started with IoT Hub twins][lnk-twin-tutorial], you learned how to set device metadata from your solution back end using *tags*, report device conditions from a device app using *reported properties*, and query this information using a SQL-like language.
 
 In this tutorial, you will learn how to use the the device twin's *desired properties* in conjunction with *reported properties*, to remotely configure device apps. More specifically, this tutorial shows how a device twin's reported and desired properties enable a multi-step configuration of a device application setting, and provide the visibility to the solution back end of the status of this operation across all devices.
 

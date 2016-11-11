@@ -68,7 +68,7 @@ Sample NSG in JSON format:
     }
 
 ### Default security rules
-Default security rules have the same properties available in security rules. They exist to provide basic connectivity between resources that have NSGs applied to them. Make sure you know which [default security rules](../articles/virtual-network/virtual-networks-nsg.md#Default-Rules) exist. 
+Default security rules have the same properties available in security rules. They exist to provide basic connectivity between resources that have NSGs applied to them. Make sure you know which [default security rules](../articles/virtual-network/virtual-networks-nsg.md#nsg-resource) exist. 
 
 ### Additional resources
 * Get more information about [NSGs](../articles/virtual-network/virtual-networks-nsg.md).

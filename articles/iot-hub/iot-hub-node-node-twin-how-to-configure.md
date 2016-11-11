@@ -256,13 +256,13 @@ Use the following resources to learn how to:
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
-[lnk-schedule-jobs]: iot-hub-node-node-schedule-jobs.md
+[lnk-schedule-jobs]: iot-hub-schedule-jobs.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
+[lnk-device-management]: iot-hub-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
-[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
+[lnk-methods-tutorial]: iot-hub-c2d-methods.md
 
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
