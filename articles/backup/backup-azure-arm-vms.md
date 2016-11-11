@@ -25,7 +25,7 @@ ms.author: trinadhk; jimpark; markgal;
 >
 >
 
-This article provides the procedure for backing up Azure VMs (both Resource Manager-deployed and Classic-deployed) to a Recovery Services vault. Most of the work for backing up VMs, is the preparation. Before you can back up or protect a VM, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs. Once you have completed the prerequisites, then you can initiate the backup operation to take snapshots of your VM.
+This article provides the procedure for backing up Azure VMs (both Resource Manager-deployed and Classic-deployed) to a Recovery Services vault. Most of the work for backing up VMs is the preparation. Before you can back up or protect a VM, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs. Once you have completed the prerequisites, then you can initiate the backup operation to take snapshots of your VM.
 
 
 [!INCLUDE [learn about backup deployment models](../../includes/backup-deployment-models.md)]
