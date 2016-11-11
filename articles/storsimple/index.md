@@ -3,10 +3,10 @@ layout: LandingPage
 ---
 #StorSimple Documentation
 
-StorSimple and Microsoft Azure offer a unique and integrated primary storage archival, and disaster recovery solution with Azure as the extension of on-premises storage. Use this learning path to deploy and manage your StorSimple.
+StorSimple and Microsoft Azure offer a unique and integrated primary storage archival and disaster recovery solution with Azure as the extension of on-premises storage. Use this learning path to deploy and manage your StorSimple solution.
 
 <ul class="panelContent cardsFTitle">
-    <li>
+     <li>
         <a href="/azure/storsimple/storsimple-ova-overview">
         <div class="cardSize">
             <div class="cardPadding">
@@ -17,7 +17,43 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with StorSimple</h3>
+                        <h3>Learn about StorSimple Virtual Array</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/azure/storsimple/storsimple-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Learn about StorSimple 8000 series</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=storsimple">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>StorSimple Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +71,7 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Plan</h3>
+                        <h3>Get started with StorSimple Virtual Array</h3>
                     </div>
                 </div>
             </div>
@@ -43,7 +79,7 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
         </a>
     </li>
     <li>
-        <a href="/azure/storsimple/storsimple-ova-deploy1-portal-prep">
+        <a href="/azure/storsimple/storsimple-system-requirements">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -53,21 +89,18 @@ StorSimple and Microsoft Azure offer a unique and integrated primary storage arc
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Deploy</h3>
+                        <h3>Get started with StorSimple 8000 series</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-</ul>
+   </ul>
 
 ---
 
 ##Other StorSimple Solutions
-
-###StorSimple 8000 Series
-[StorSimple Hybrid Cloud Solution](/azure/storsimple/storsimple-overview)
 
 [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com/)
 
