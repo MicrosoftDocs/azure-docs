@@ -31,8 +31,8 @@
 ### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Configure start up tasks
-#### [Common startup tasks](cloud-services-startup-tasks-common.md)
 #### [Create startup tasks](cloud-services-startup-tasks.md)
+#### [Common startup tasks](cloud-services-startup-tasks-common.md)
 #### [Use a task to Install .NET on a Cloud Service role](cloud-services-dotnet-install-dotnet.md)
 
 ### Configure Remote Desktop
@@ -84,17 +84,17 @@
 ### [Send diagnostic data to App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Troubleshoot
+### Debug 
+#### [Enable remote debugging with cont. delivery](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
+#### [Options for a Cloud Service](../vs-azure-tools-debugging-cloud-services-overview.md)
+#### [Local Cloud Service with Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
+#### [Published Cloud Service with Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)
 ### [Cloud Service allocation failure](cloud-services-allocation-failures.md)
 ### [Common causes of Cloud Service roles recycling](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
 ### [Default TEMP folder size too small for role](cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md)
 ### [Common deployment problems](cloud-services-troubleshoot-deployment-problems.md)
 ### [Role failed to start](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Recovery guidance](cloud-services-disaster-recovery-guidance.md)
-### Debug 
-#### [Enable remote debugging with cont. delivery](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
-#### [Options for a Cloud Service](../vs-azure-tools-debugging-cloud-services-overview.md)
-#### [Local Cloud Service with Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
-#### [Published Cloud Service with Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)
 ### [Cloud Services FAQ](cloud-services-faq.md)
 
 # Reference
