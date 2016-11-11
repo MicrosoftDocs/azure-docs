@@ -30,28 +30,32 @@ This article provides an overview of the Azure Backup service and lists the Back
 - Long-term retention
 
 > [!IMPORTANT]
-> Currently, Azure Government Backup supports Service Manager deployments, also known as the classic deployment model. Resource Manager deployments are not yet supported. See the following article for a primer on the [difference between Azure Resource Manager and classic deployment models](../resource-manager-deployment-model.md).
+> Currently, Azure Government Backup supports Service Manager deployments, also known as the classic deployment model. Resource Manager deployments are not yet supported. See the following article for the [difference between Azure Resource Manager and classic deployment models](../resource-manager-deployment-model.md).
 
 
 ## Azure Backup components available in Azure Government Backup
 
-As mentioned, Azure Government Backup supports the classic deployment model. The following articles how to back up each component. The documentation will explain how to do this in the classic version of the Azure portal.
+As mentioned, Azure Government Backup supports the classic deployment model. The following articles how to protect each component in the classic version of the Azure portal.
 
 ### Virtual Machines
-[Prepare your virtual machine environment](backup-azure-vms-prepare.md)
-[Back up virtual machines](backup-vms-first-look.md)
-[Restore virtual machines](backup-restore-vms.md)
-[Manage virtual machines](backup-azure-manage-vms-classic.md)
-[Using PowerShell to back up virtual machines](backup-vms-classic-automation.md)
+
+- [Prepare your virtual machine environment](backup-azure-vms-prepare.md)
+- [Back up virtual machines](backup-vms-first-look.md)
+- [Restore virtual machines](backup-restore-vms.md)
+- [Manage virtual machines](backup-azure-manage-vms-classic.md)
+- [Using PowerShell to back up virtual machines](backup-vms-classic-automation.md)
 
 ### System Center Data Protection Manager
-[Back up System Center Data Protection Manager](backup/backup-dpm-introduction-classic.md)
+
+- [Back up System Center Data Protection Manager](backup/backup-dpm-introduction-classic.md)
 
 ### Azure Backup Server
-[Azure Backup Server](backup-azure-microsoft-azure-backup-classic.md)
+
+- [Azure Backup Server](backup-azure-microsoft-azure-backup-classic.md)
 
 ### Windows Server and Windows computers
-[Back up Windows Server and Windows client computers](backup-configure-vault-classic.md)
-[Restore Windows Server and Windows client computers](backup-azure-restore-windows-server.md)
-[Manage Windows Server and Windows client computer backups](backup-azure-manage-windows-server.md)
-[Using Powershell to back up Windows Server](backup-client-automation-classic.md)
+
+- [Back up Windows Server and Windows client computers](backup-configure-vault-classic.md)
+- [Restore Windows Server and Windows client computers](backup-azure-restore-windows-server.md)
+- [Manage Windows Server and Windows client computer backups](backup-azure-manage-windows-server.md)
+- [Using Powershell to back up Windows Server](backup-client-automation-classic.md)
