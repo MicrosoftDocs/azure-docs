@@ -32,62 +32,65 @@ This article covers the Resource Manager deployment model. You can also [create 
 ## NSG resources in a template file
 You can view and download the [sample template](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/NSGs.json).
 
-The section below shows the definition of the front end NSG, based on the scenario above.
+The following section shows the definition of the front-end NSG, based on the scenario.
 
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('frontEndNSGName')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "NSG - Front End"
-      },
+```json
+"apiVersion": "2015-06-15",
+"type": "Microsoft.Network/networkSecurityGroups",
+"name": "[parameters('frontEndNSGName')]",
+"location": "[resourceGroup().location]",
+"tags": {
+  "displayName": "NSG - Front End"
+},
+"properties": {
+  "securityRules": [
+    {
+      "name": "rdp-rule",
       "properties": {
-        "securityRules": [
-          {
-            "name": "rdp-rule",
-            "properties": {
-              "description": "Allow RDP",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "sourceAddressPrefix": "Internet",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": 100,
-              "direction": "Inbound"
-            }
-          },
-          {
-            "name": "web-rule",
-            "properties": {
-              "description": "Allow WEB",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "80",
-              "sourceAddressPrefix": "Internet",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": 101,
-              "direction": "Inbound"
-            }
-          }
-        ]
+        "description": "Allow RDP",
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "3389",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "*",
+        "access": "Allow",
+        "priority": 100,
+        "direction": "Inbound"
       }
+    },
+    {
+      "name": "web-rule",
+      "properties": {
+        "description": "Allow WEB",
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "80",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "*",
+        "access": "Allow",
+        "priority": 101,
+        "direction": "Inbound"
+      }
+    }
+  ]
+}
+```
+To associate the NSG to the front-end subnet, you have to change the subnet definition in the template, and use the reference id for the NSG.
 
-To associate the NSG to the front end subnet, you have to change the subnet definition in the template, and use the reference id for the NSG.
+```json
+"subnets": [
+  {
+    "name": "[parameters('frontEndSubnetName')]",
+    "properties": {
+      "addressPrefix": "[parameters('frontEndSubnetPrefix')]",
+      "networkSecurityGroup": {
+      "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('frontEndNSGName'))]"
+      }
+    }
+  }, 
+```
 
-        "subnets": [
-          {
-            "name": "[parameters('frontEndSubnetName')]",
-            "properties": {
-              "addressPrefix": "[parameters('frontEndSubnetPrefix')]",
-              "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('frontEndNSGName'))]"
-              }
-            }
-          }, ...
-
-Notice the same being done for the back end NSG and the back end subnet in the template.
+Notice the same being done for the back-end NSG and the back-end subnet in the template.
 
 ## Deploy the ARM template by using click to deploy
 The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
@@ -95,15 +98,17 @@ The sample template available in the public repository uses a parameter file con
 ## Deploy the ARM template by using PowerShell
 To deploy the ARM template you downloaded by using PowerShell, follow the steps below.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, follow the instructions in the [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) to install and configure it.
 2. Run the **`New-AzureRmResourceGroup`** cmdlet to create a resource group using the template.
-   
-        New-AzureRmResourceGroup -Name TestRG -Location uswest `
-            -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
-            -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
-   
-    Expected output:
-   
+
+	```powershell
+	New-AzureRmResourceGroup -Name TestRG -Location uswest `
+	-TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
+	-TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
+	```
+
+	Expected output:
+
         ResourceGroupName : TestRG
         Location          : westus
         ProvisioningState : Succeeded
@@ -136,24 +141,29 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
                             testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
                             testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
    
-        ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
+        ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG
 
 ## Deploy the ARM template by using the Azure CLI
 To deploy the ARM template by using the Azure CLI, follow the steps below.
 
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **`azure config mode`** command to switch to Resource Manager mode, as shown below.
-   
-        azure config mode arm
-   
-    Here is the expected output for the command above:
-   
+
+	```azurecli
+	azure config mode arm
+	```
+
+	The following is the expected output for the command:
+
         info:    New mode is arm
+
 3. Run the **`azure group deployment create`** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
-   
-        azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
-   
-    Expected output:
+
+	```azurecli
+	azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
+	```
+
+	Expected output:
    
         info:    Executing command group create
         info:    Getting resource group TestRG

@@ -51,6 +51,8 @@ To view all existing NSGs in a subscription, complete the following steps:
 
 	![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure2.png)
 
+### View NSGs in a resource group
+
 To view the list of NSGs in the **RG-NSG** resource group, complete the following steps:
 
 1. Click **Resource groups >** > **RG-NSG** > **...**.

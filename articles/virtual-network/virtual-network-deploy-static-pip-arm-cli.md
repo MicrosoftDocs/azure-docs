@@ -34,38 +34,38 @@ ms.author: jdial
 ## Step 1 - Start your script
 You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh). Complete the following steps to change the script to work in your environment:
 
-1. Change the values of the variables below based on the values you want to use for your deployment. The following values map to the scenario used in this article:
+Change the values of the variables below based on the values you want to use for your deployment. The following values map to the scenario used in this article:
 
-	```azurecli
-	# Set variables for the new resource group
-	rgName="IaaSStory"
-	location="westus"
+```azurecli
+# Set variables for the new resource group
+rgName="IaaSStory"
+location="westus"
 
-	# Set variables for VNet
-	vnetName="TestVNet"
-	vnetPrefix="192.168.0.0/16"
-	subnetName="FrontEnd"
-	subnetPrefix="192.168.1.0/24"
+# Set variables for VNet
+vnetName="TestVNet"
+vnetPrefix="192.168.0.0/16"
+subnetName="FrontEnd"
+subnetPrefix="192.168.1.0/24"
 
-	# Set variables for storage
-	stdStorageAccountName="iaasstorystorage"
+# Set variables for storage
+stdStorageAccountName="iaasstorystorage"
 
-	# Set variables for VM
-	vmSize="Standard_A1"
-	diskSize=127
-	publisher="Canonical"
-	offer="UbuntuServer"
-	sku="14.04.2-LTS"
-	version="latest"
-	vmName="WEB1"
-	osDiskName="osdisk"
-	nicName="NICWEB1"
-	privateIPAddress="192.168.1.101"
-	username='adminuser'
-	password='adminP@ssw0rd'
-	pipName="PIPWEB1"
-	dnsName="iaasstoryws1"
-	```
+# Set variables for VM
+vmSize="Standard_A1"
+diskSize=127
+publisher="Canonical"
+offer="UbuntuServer"
+sku="14.04.2-LTS"
+version="latest"
+vmName="WEB1"
+osDiskName="osdisk"
+nicName="NICWEB1"
+privateIPAddress="192.168.1.101"
+username='adminuser'
+password='adminP@ssw0rd'
+pipName="PIPWEB1"
+dnsName="iaasstoryws1"
+```
 
 ## Step 2 - Create the necessary resources for your VM
 Before creating a VM, you need a resource group, VNet, public IP, and NIC to be used by the VM.
