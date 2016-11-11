@@ -70,7 +70,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 
 **Premium P1 Features**
 
-* [Self-Service Group and app Management/Self-Service application additions/Dynamic Groups](#self-service-groups)
+* [Self-Service Group and app Management/Self-Service application additions/Dynamic Groups](#self-service-group)
 * [Self-Service Password Reset/Change/Unlock  with on-premises write-back](#self-service-password-resetchangeunlock-with-on-premises-write-back)
 * [Multi-Factor Authentication (Cloud and On-premises (MFA Server))](#multi-factor-authentication-cloud-and-on-premises-mfa-server)
 * [MIM CAL + MIM Server](#mim-cal-mim-server)
