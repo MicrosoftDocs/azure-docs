@@ -242,9 +242,9 @@ The following is an example service manifest (specified in the preceding applica
         <ConfigPackage Name="FrontendService.Config" Version="1.0" />
         <DataPackage Name="FrontendService.Data" Version="1.0" />
         <Resources>
-            <Eendpoints>
+            <Endpoints>
                 <Endpoint Name="Endpoint1" Port="80"  UriScheme="http" />
-            </Eendpoints>
+            </Endpoints>
         </Resources>
     </ServiceManifest>
 
