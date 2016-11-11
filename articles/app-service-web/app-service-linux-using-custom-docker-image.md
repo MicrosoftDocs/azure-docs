@@ -25,7 +25,7 @@ App Service provides pre-defined application stacks on Linux with support for sp
 
 
 ## How to: set a custom Docker image for a new web app
-You can set the custom Docker image for both new and existing webs apps. When you create a new web app on Linux in the [Azure portal](https://portal.azure.com), click **Configure container** to set a custom Docker image, as shown below:
+You can set the custom Docker image for both new and existing webs apps. When you create a new web app on Linux in the [Azure portal](https://portal.azure.com), click **Configure container** to set a custom Docker image:
 
 ![Custom Docker Image for a new web app on Linux][1]
 
@@ -39,7 +39,7 @@ To use a custom Docker image from Docker Hub:
 
     ![Configure Docker Hub public repository image][2]
 
-    When your image is from a private repository, you will also need to enter the Docker Hub credentials as (**Login username** and **Password**) for the private Docker Hub repository, as shown below.
+    When your image is from a private repository, you also need to enter the Docker Hub credentials as (**Login username** and **Password**) for the private Docker Hub repository.
 
     ![Configure Docker Hub private repository image][3]
 
@@ -68,8 +68,9 @@ When you use a custom Docker image for your web app, you can use the `PORT` envi
 
 On last line of the command, you can see that the PORT environment variable is passed at runtime. Remember that casing matters in commands.
 
-When you use an existing Docker image built by someone else, you may need to specify a port other than port 80 for the application. To do this, you add an application setting named `PORT` with the value expected by the image, as shown below:
+When you use an existing Docker image built by someone else, you may need to specify a port other than port 80 for the application. 
 
+To do this, add an application setting named `PORT` with the value expected by the image:
 
 ![Configure PORT app setting for custom Docker image][6]
 
@@ -87,7 +88,7 @@ To switch from using a custom image to using a built-in image:
 
 ## Troubleshooting ##
 
-When your application fails to start with your custom Docker image, check the Docker logs in the LogFiles/docker directory. You can access this directory either through your SCM site (shown below) or via FTP. 
+When your application fails to start with your custom Docker image, check the Docker logs in the LogFiles/docker directory. You can access this directory either through your SCM site or via FTP. 
 
 ![Using Kudu to view Docker logs][7]
 
@@ -95,11 +96,14 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 
 ## Next Steps ##
 
-Follow the following links to get started with App Service on Linux. Please post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Follow the following links to get started with App Service on Linux.   
 
 * [Introduction to App Service on Linux](./app-service-linux-intro.md)
 * [Creating Web Apps in App Service on Linux](./app-service-linux-how-to-create-a-web-app.md)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](./app-service-linux-using-nodejs-pm2.md)
+
+Post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-custom-docker-image/new-configure-container.png
