@@ -128,9 +128,9 @@ Vulnerabilities are weaknesses in an Azure AD environment that can be exploited 
 9. Click on **Save**.
 10. You can now test risk-based conditional access by simulating the unfamiliar locations or anonymous IP risk events because they are both **Medium** risk events.
 
-<br>
+
 ![Playbook](./media/active-directory-identityprotection-playbook/200.png "Playbook")
-<br>
+
 
 ## See also
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
