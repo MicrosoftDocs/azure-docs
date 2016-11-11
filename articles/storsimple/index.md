@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #StorSimple Documentation
 
-StorSimple and Microsoft Azure offer a unique and integrated primary storage archival, and disaster recovery solution with Azure as the extension of on-premises storage. Use this learning path to deploy and manage your StorSimple solution.
+StorSimple and Microsoft Azure offer a unique and integrated primary storage archival and disaster recovery solution with Azure as the extension of on-premises storage. Use this learning path to deploy and manage your StorSimple solution.
 
 <ul class="panelContent cardsFTitle">
      <li>
