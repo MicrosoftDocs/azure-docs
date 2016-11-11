@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 11/10/2016
 ms.author: markgal; jimpark
 
 ---
@@ -41,6 +41,14 @@ For more information on protecting Premium storage VMs, see [Back up and Restore
 >
 
 [!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
+
+Based on no of VMs you want to protect, you can start from different start points - if you want to backup multiple virtual machines in one single operation, go to Recovery Services vault and start backup from vault dashboard. If you have a single VM which you want to backup, you can backup directly from VM management blade.
+
+## Configure Backup from VM management blade
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. On the Hub menu, click **More Services** and in the list of resources, type **Virtual machines**.  The list of virtual machines appears.From the list of , select a virtual machine which you want to backup.
+
+
 
 At a high level, here are the steps that you'll complete.  
 
