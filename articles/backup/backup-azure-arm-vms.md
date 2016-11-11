@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 11/10/2016
 ms.author: trinadhk; jimpark; markgal;
 
 ---
@@ -22,15 +22,13 @@ ms.author: trinadhk; jimpark; markgal;
 > [!div class="op_single_selector"]
 > * [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md)
 > * [Back up VMs to Backup vault](backup-azure-vms.md)
-> 
-> 
+>
+>
 
 This article provides the procedure for backing up Azure VMs (both Resource Manager-deployed and Classic-deployed) to a Recovery Services vault. The majority of work for backing up VMs goes into the preparation. Before you can back up or protect a VM, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs. Once you have completed the prerequisites, then you can initiate the back up operation to take snapshots of your VM.
 
-> [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). You can protect Resource Manager-deployed VMs and Classic VMs with Recovery Services vaults. See [Back up Azure virtual machines](backup-azure-vms.md) for details on working with Classic deployment model VMs.
-> 
-> 
+>
+[!INCLUDE [learn about backup deployment modesl](../../includes/backup-deployment-models.md)]
 
 For additional information, see the articles on [planning your VM backup infrastructure in Azure](backup-azure-vms-introduction.md) and [Azure virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
@@ -45,29 +43,29 @@ To run the initial backup job:
 
 1. On the vault dashboard, on the **Backup** tile, click **Azure Virtual Machines**. <br/>
     ![Settings icon](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
-   
+
     The **Backup Items** blade opens.
 2. On the **Backup Items** blade, right-click the vault you want to back up, and click **Backup now**.
-   
+
     ![Settings icon](./media/backup-azure-vms-first-look-arm/back-up-now.png)
-   
+
     The Backup job is triggered. <br/>
-   
+
     ![Backup job triggered](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
 3. To view that your initial backup has completed, on the vault dashboard, on the **Backup Jobs** tile, click **Azure virtual machines**.
-   
+
     ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
-   
+
     The Backup Jobs blade opens.
 4. In the **Backup jobs** blade, you can see the status of all jobs.
-   
+
     ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
-   
+
    > [!NOTE]
    > As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machine to flush all writes and take a consistent snapshot.
-   > 
-   > 
-   
+   >
+   >
+
     When the backup job is finished, the status is *Completed*.
 
 ## Troubleshooting errors
@@ -78,4 +76,3 @@ Now that you have protected your VM, check out the following articles for additi
 
 * [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
 * [Restore virtual machines](backup-azure-arm-restore-vms.md)
-
