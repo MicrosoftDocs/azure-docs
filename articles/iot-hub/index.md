@@ -3,9 +3,45 @@ layout: LandingPage
 ---
 #IoT Hub Documentation
 
-Azure IoT Hub is a Microsoft Azure service that enables you to receive telemetry data at scale from your IoT devices and manage those devices. [IoT Hub Overview](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-what-is-iot-hub/)
+Azure IoT Hub is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end.  It also provides extensive monitoring for device connectivity and includes device libraries for most popular languages and platforms. 
 
 <ul class="panelContent cardsFTitle">
+     <li>
+        <a href="/azure/iot-hub/iot-hub-what-is-iot-hub">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Learn about Azure IoT Hub</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=iot-hub">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure IoT Hub Video Library</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
     <li>
         <a href="/azure/iot-hub/iot-hub-csharp-csharp-getstarted/">
         <div class="cardSize">
@@ -17,7 +53,7 @@ Azure IoT Hub is a Microsoft Azure service that enables you to receive telemetry
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with IoT Hub using .NET</h3>
+                        <h3>Create an IoT Hub using .NET</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +71,7 @@ Azure IoT Hub is a Microsoft Azure service that enables you to receive telemetry
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with IoT Hub using Java</h3>
+                        <h3>Create an IoT Hub using Java</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +89,7 @@ Azure IoT Hub is a Microsoft Azure service that enables you to receive telemetry
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with IoT Hub using Node.js</h3>
+                        <h3>Create an IoT Hub using Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -66,17 +102,18 @@ Azure IoT Hub is a Microsoft Azure service that enables you to receive telemetry
 
 ##Reference
 
+###Azure CLI 
+[IoT HUB with Azure CLI](/cli/azure/iot)  
+
 ###.NET 
 [IoT HUB Managed Reference API](/dotnet/api/) 
 
-###REST 
-[IoT HUB REST API Reference](/rest/api/) 
-
-###Azure CLI 
-[IoT HUB with Azure CLI](/cli/azure/)  
-
 ###Java 
 [IoT HUB in Java Reference](/java/api/) 
+
+###REST 
+[IoT HUB REST API Reference](/rest/api/iothub) 
+
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">
