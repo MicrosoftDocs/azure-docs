@@ -34,6 +34,8 @@ For more information about security recommendations, see [Managing security reco
    > [!NOTE]
    > Advisor generates recommendations for subscriptions where you have been assigned the role of **Owner, Contributor, or Reader**.  
 
+![Advisor security tab](./media/advisor-security-recommendations/advisor-security-recommendations.png)
+
 ## Next steps
 
 See these resources to learn more about Advisor recommendations:

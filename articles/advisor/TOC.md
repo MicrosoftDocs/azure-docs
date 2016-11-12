@@ -7,8 +7,8 @@
 # Recommendations
 ## [Cost](advisor-cost-recommendations.md)
 ## [Performance](advisor-performance-recommendations.md)
-## [High Availability](advisor-performance-recommendations.md)
-## [Security](advisor-performance-recommendations.md)
+## [High Availability](advisor-high-availability-recommendations.md)
+## [Security](advisor-security-recommendations.md)
 
 # Related
 ## [Security Center](https://azure.microsoft.com/services/security-center/)
