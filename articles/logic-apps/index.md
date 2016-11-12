@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 ---
-#Logic Apps Documentation
+# Logic Apps Documentation
 
-Logic Apps is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Logic Apps represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Logic Apps provide a way to simplify and implement scalable integrations and workflows in the cloud. It provides a visual designer to model and automate your process as a series of steps known as a workflow. There are many connectors across the cloud and on-premises to quickly integrate across services and protocols. A logic app begins with a trigger (like 'When an account is added to Dynamics CRM') and after firing can begin many combinations actions, conversions, and condition logic.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="/azure/app-service-logic/app-service-logic-what-are-logic-apps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -17,7 +17,7 @@ Logic Apps is a distributed systems platform that makes it easy to package, depl
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Logic Apps Getting Started Samples</h3>
+                        <h3>Learn about Logic Apps</h3>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@ Logic Apps is a distributed systems platform that makes it easy to package, depl
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
+        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=app-service">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -35,7 +35,7 @@ Logic Apps is a distributed systems platform that makes it easy to package, depl
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Logic Apps Party Cluster</h3>
+                        <h3>App Service Video Librasry</h3>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@ Logic Apps is a distributed systems platform that makes it easy to package, depl
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
+        <a href="/azure/app-service-logic/app-service-logic-create-a-logic-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -53,7 +53,43 @@ Logic Apps is a distributed systems platform that makes it easy to package, depl
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Logic Apps with .NET Core</h3>
+                        <h3>Create a new Logic App connecting SaaS services</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/app-service-logic/app-service-logic-arm-provision">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Create a Logic App using a template</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/app-service-logic/app-service-logic-create-api-app">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Create a custom API to use with Logic Apps</h3>
                     </div>
                 </div>
             </div>
@@ -64,13 +100,16 @@ Logic Apps is a distributed systems platform that makes it easy to package, depl
 
 ---
 
-##Reference
+## Reference
 
-###REST
-[Logic Apps REST API Reference](/rest/api/)
+### PowerShell
+[Logic Apps PowerShell Cmdlets](/powershell/resourcemanager/)
 
-###.NET
+### .NET
 [Logic Apps Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+
+### REST
+[Logic Apps REST API Reference](/rest/api/logic/)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/logic-apps.pdf">
