@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #Azure Data Factory Documentation
 
-Azure Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data.  You can create data integration solution using the Data Factory service that can ingest data from various stores, transform/process the data, and publish the result data back to the data stores.
+Azure Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Using the Data Factory service, you can create data integration solutions that can ingest data from various stores, transform and process the data, and publish the result data back to the data stores.
 
 <ul class="panelContent cardsFTitle">
    <li>
