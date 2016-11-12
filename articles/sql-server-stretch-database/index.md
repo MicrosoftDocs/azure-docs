@@ -31,11 +31,11 @@ SQL Server Stretch Database migrates your cold data transparently and securely t
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure SQL Serever Stretch Database Video Library</h3>
+                        <h3>Azure SQL Server Stretch Database Video Library</h3>
                     </div>
                 </div>
             </div>

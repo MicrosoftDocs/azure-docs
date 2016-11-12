@@ -31,7 +31,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
