@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #DocumentDB Documentation
 
-Azure DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. As a schema-free NoSQL database DocumentDB provides rich and familiar SQL query capabilities with consistent low latencies on JSON data.
+Azure DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. As a schema-free NoSQL database, DocumentDB provides rich and familiar SQL query capabilities with consistent low latencies on JSON data.
 
 <ul class="panelContent cardsFTitle">
      <li>
