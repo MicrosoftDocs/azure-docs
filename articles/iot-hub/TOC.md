@@ -98,7 +98,7 @@
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Resources
-## [Pricing information](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub) 
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub) 
