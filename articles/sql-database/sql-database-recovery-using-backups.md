@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/01/2016
+ms.date: 11/11/2016
 ms.author: sstein
 
 ---
@@ -48,11 +48,6 @@ The recovery time to restore a database using automated database backups is impa
 ## Point-In-Time Restore
 Point-In-Time Restore allows you to restore an existing database as a new database to an earlier point in time on the same logical server using [SQL Database automated backups](sql-database-automated-backups.md). You cannot overwrite the existing database. You can restore to an earlier point in time using the [Azure portal](sql-database-point-in-time-restore-portal.md), [PowerShell](sql-database-point-in-time-restore-powershell.md) or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
-> [!div class="op_single_selector"]
-> * [Point-In-Time Restore: Azure portal](sql-database-point-in-time-restore-portal.md)
-> * [Point-In-Time Restore: PowerShell](sql-database-point-in-time-restore-powershell.md)
-> 
-> 
 
 The database can be restored to any performance level or elastic pool. You need to ensure you have a sufficient DTU quota on the logical server or elastic pool. Keep in mind that the restore creates a new database and that the service tier and performance level of the restored database may be different than the current state of the live database. Once complete, the restored database is a normal fully accessible online database charged at normal rates based on its service tier and performance level. You do not incur charges until the database restore is complete.
 
@@ -73,20 +68,10 @@ Deleted database restore allows you to restore a deleted database to the deletio
 
 You can use the same or a new database name for the restored database. You can use the [Azure portal](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
-> [!div class="op_single_selector"]
-> * [Deleted database restore: Azure portal](sql-database-restore-deleted-database-portal.md)
-> * [Deleted database restore: PowerShell](sql-database-restore-deleted-database-powershell.md)
-> 
-> 
 
 ## Geo-Restore
 Geo-Restore allows you to restore a SQL database on any server in any Azure region from the most recent geo-replicated [automated daily backup](sql-database-automated-backups.md). Geo-Restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage. You can use the [Azure portal](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md), or the [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) 
 
-> [!div class="op_single_selector"]
-> * [Geo-Restore: Azure portal](sql-database-geo-restore-portal.md)
-> * [Geo-Restore: PowerShell](sql-database-geo-restore-powershell.md)
-> 
-> 
 
 Geo-Restore is the default recovery option when your database is unavailable because of an incident in the region where the database is hosted. If a large scale incident in a region results in unavailability of your database application, you can use Geo-Restore to restore a database from the most recent backup to a server in any other region. All backups are geo-replicated and can have a delay between when the backup is taken and geo-replicated to the Azure blob in a different region. This delay can be up to an hour so in the event of a disaster there can be up to 1 hour data loss, i.e., RPO of up to 1 hour. The following shows restore of the database from the last daily backup.
 
