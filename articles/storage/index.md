@@ -105,7 +105,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
         <div class="img"></div>
         <div class="text">
             Download Storage Documentation

@@ -94,7 +94,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
 [Service Bus in Java Reference](/java/api/)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-bus.pdf">
         <div class="img"></div>
         <div class="text">
             Download Service Bus Documentation

@@ -126,7 +126,7 @@ Azure SQL Data Warehouse is a cloud-based, scale-out database capable of process
 [T-SQL Reference](https://msdn.microsoft.com/library/azure/bb510741)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-data-warehouse.pdf">
         <div class="img"></div>
         <div class="text">
             Download SQL Data Warehouse Documentation

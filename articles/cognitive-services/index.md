@@ -76,7 +76,7 @@ Cognitive Services (Preview) is a series of APIs which can be used to enable nat
 [Cognitive Services REST API Reference](/rest/api/cognitiveservices)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cognitive-services.pdf">
         <div class="img"></div>
         <div class="text">
             Download Cognitive Services Documentation

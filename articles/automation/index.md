@@ -131,7 +131,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
 [Automation Classic REST API Reference](https://msdn.microsoft.com/en-us/library/azure/mt163781)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
         <div class="img"></div>
         <div class="text">
             Download Automation Documentation

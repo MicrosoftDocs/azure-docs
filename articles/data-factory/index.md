@@ -94,7 +94,7 @@ Azure Data Factory is a cloud-based data integration service that orchestrates a
 [Data Factory REST API Reference](/rest/api/datafactory)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-factory.pdf">
         <div class="img"></div>
         <div class="text">
             Download Data Factory Documentation

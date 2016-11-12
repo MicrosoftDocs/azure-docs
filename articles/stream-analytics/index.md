@@ -134,7 +134,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
 
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
         <div class="img"></div>
         <div class="text">
             Download Stream Analytics Documentation

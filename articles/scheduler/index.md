@@ -94,7 +94,7 @@ Scheduler is a distributed systems platform that makes it easy to package, deplo
 [Scheduler REST API Reference](/rest/api/scheduler/)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
         <div class="img"></div>
         <div class="text">
             Download Scheduler Documentation
