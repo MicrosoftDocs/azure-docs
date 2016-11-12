@@ -13,7 +13,7 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -48,7 +48,7 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

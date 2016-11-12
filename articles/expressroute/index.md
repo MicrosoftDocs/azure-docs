@@ -14,7 +14,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -32,7 +32,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -50,7 +50,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/expressroute.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
