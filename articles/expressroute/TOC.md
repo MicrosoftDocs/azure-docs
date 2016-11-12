@@ -70,7 +70,7 @@
 ### [Set up Microsoft Peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/)
 ### [Create a virtual network for ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/)
 ### [Create a virtual network gateway for ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/)
-### [Cconnect a virtual network gateway to a circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
+### [Connect a virtual network gateway to a circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Evolve your network infrastructure for connectivity](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Hybrid partnerships: Enabling on-premises scenarios](https://go.microsoft.com/fwlink/p/?LinkId=615125)
 ## [Service updates](https://azure.microsoft.com/updates/?product=expressroute) 
