@@ -176,7 +176,7 @@ API Management helps organizations publish APIs to external, partner and interna
 ## Reference
 
 ### .NET
-[Mobile Apps .NET Reference](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+[Mobile Apps .NET Reference](https://msdn.microsoft.com/library/azure/dn961176)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-mobile.pdf">
