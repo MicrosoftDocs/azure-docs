@@ -61,7 +61,7 @@ Azure Load Balancer delivers high availability and network performance to your a
         </a>
     </li>
        <li>
-        <a href="azure/load-balancer/load-balancer-internal-overview">
+        <a href="/azure/load-balancer/load-balancer-internal-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
