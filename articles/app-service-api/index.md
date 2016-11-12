@@ -8,7 +8,7 @@ Azure App Service is a cloud service that's designed to solve the practical prob
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/en-us/azure/app-service-api/app-service-api-apps-why-best-platform">
+        <a href="/azure/app-service-api/app-service-api-apps-why-best-platform">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
