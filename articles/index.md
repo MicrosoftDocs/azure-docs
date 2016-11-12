@@ -2274,7 +2274,7 @@ layout: HubPage
                                                     <a href="https://azure.microsoft.com/en-us/develop/python/">Get the Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-python-create-deploy-django-app/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/python/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
@@ -2301,7 +2301,7 @@ layout: HubPage
                                                     <a href="https://azure.microsoft.com/en-us/develop/nodejs/">Get the Nodejs SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/app-service-web-nodejs-get-started/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/nodejs">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">API reference</a>
