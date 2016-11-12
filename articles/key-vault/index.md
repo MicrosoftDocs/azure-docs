@@ -1,9 +1,9 @@
 ---
 layout: LandingPage
 ---
-#KeyVault Documentation
+# Key Vault Documentation
 
-Azure KeyVault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs.
+Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -53,7 +53,7 @@ Azure KeyVault helps safeguard cryptographic keys and secrets used by cloud appl
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with KeyVault</h3>
+                        <h3>Get Started with Key Vault</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ Azure KeyVault helps safeguard cryptographic keys and secrets used by cloud appl
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with KeyVault from a Web Application</h3>
+                        <h3>Get Started with Key Vault from a Web Application</h3>
                     </div>
                 </div>
             </div>
@@ -100,23 +100,23 @@ Azure KeyVault helps safeguard cryptographic keys and secrets used by cloud appl
 
 ---
 
-##Reference
+## Reference
 
 ### PowerShell
 [Key Vault Resource Manager PowerShell Cmdlets](/powershell/resourcemanager/)
 [Key Vault Classic PowerShell Cmdlets](/powershell/servicemanagement/)
 
-###Azure CLI 
-[KeyVault using Azure CLI](/cli/azure/)
+### Azure CLI 
+[Key Vault using Azure CLI](/cli/azure/)
 
-###Java 
-[KeyVault in Java Reference](/java/api/)
+### Java 
+[Key Vault in Java Reference](/java/api/)
 
-###.NET 
-[KeyVault Managed Reference API](/dotnet/api/) 
+### .NET 
+[Key Vault Managed Reference API](/dotnet/api/) 
 
 ### REST 
-[KeyVault REST API Reference](/rest/api/keyvault) 
+[Key Vault REST API Reference](/rest/api/keyvault) 
 
 ---
 
@@ -124,7 +124,7 @@ Azure KeyVault helps safeguard cryptographic keys and secrets used by cloud appl
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/key-vault.pdf">
         <div class="img"></div>
         <div class="text">
-            Download KeyVault Documentation
+            Download Key Vault Documentation
         </div>
     </a>
 </div>

@@ -32,10 +32,10 @@
 
 ## [Key Vault Resource Manager PowerShell Cmdlets](/powershell/resourcemanager/)
 ## [Key Vault Classic PowerShell Cmdlets](/powershell/servicemanagement/)
-## [KeyVault using Azure CLI](/cli/azure/)
-## [KeyVault in Java Reference](/java/api/)
-## [KeyVault Managed Reference API](/dotnet/api/) 
-## [KeyVault REST API Reference](/rest/api/keyvault) 
+## [Key Vault using Azure CLI](/cli/azure/)
+## [Key Vault in Java Reference](/java/api/)
+## [Key Vault Managed Reference API](/dotnet/api/) 
+## [Key Vault REST API Reference](/rest/api/keyvault) 
 ## [Node.js for Key Vault](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
 
 # Related
