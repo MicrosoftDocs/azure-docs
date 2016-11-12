@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 11/12/2016
 ms.author: mimig
 
 ---
@@ -47,15 +47,15 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
      The Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
 
-       var serviceEndpoint = new Uri("https://contoso.documents.net");
-       var authKey = new "your authKey from Azure Mngt Portal";
-       DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
-       new ConnectionPolicy
-       {
+         var serviceEndpoint = new Uri("https://contoso.documents.net");
+         var authKey = new "your authKey from Azure Mngt Portal";
+         DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
+         new ConnectionPolicy
+         {
 
-           ConnectionMode = ConnectionMode.Direct,
-           ConnectionProtocol = Protocol.Tcp
-       });
+             ConnectionMode = ConnectionMode.Direct,
+             ConnectionProtocol = Protocol.Tcp
+         });
 
      Because TCP is only supported in Direct Mode, if Gateway Mode is used, then the HTTPS protocol is always used to communicate with the Gateway and the Protocol value in the ConnectionPolicy is ignored.
 
