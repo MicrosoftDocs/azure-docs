@@ -25,9 +25,9 @@ The Microsoft identity platform uses open standards such as OAuth2 and OpenID Co
 If you're new to OAuth2 or OpenID Connect much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](active-directory-b2c-reference-protocols.md).
 
 > [!NOTE]
-> Some features of our platform that do have an expression in these standards, such as Conditional Access and Intune policy management, require you to use our open source Microsoft Azure Identity Libraries. 
-> 
-> 
+> Some features of our platform that do have an expression in these standards, such as Conditional Access and Intune policy management, require you to use our open source Microsoft Azure Identity Libraries.
+>
+>
 
 Not all Azure Active Directory scenarios & features are supported by the B2C platform.  To determine if you should use the B2C platform, read about [B2C limitations](active-directory-b2c-limitations.md).
 
@@ -44,7 +44,7 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 
 ## Create your policies
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains one identity experience: a combined sign in and sign-up. You need to create this policy of each type, as described in the
-[policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). When you create the policy, be sure to:
+[policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). When you create the policy, be sure to:
 
 * Choose the **Display name** and sign-up attributes in your policy.
 * Choose the **Display name** and **Object ID** application claims in every policy. You can choose other claims as well.
@@ -61,7 +61,7 @@ The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Sa
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-Or just download the completed code and get started right away: 
+Or just download the completed code and get started right away:
 
 ```
 git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
@@ -238,7 +238,7 @@ We need to create an AccountStore and then feed it the data we just read in from
 
 There are some things you should be aware of regarding the B2C service at this point that will make this code more understandable:
 
-1. Azure AD B2C uses the *policy* as provided by the query parameters to service your request. This allows Azure Active Directory to act as an independent service just for your application. In order to provide these extra query parameters we need to provide the `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` method with our custom policy parameters. 
+1. Azure AD B2C uses the *policy* as provided by the query parameters to service your request. This allows Azure Active Directory to act as an independent service just for your application. In order to provide these extra query parameters we need to provide the `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` method with our custom policy parameters.
 2. Azure AD B2C uses scopes in much the same way as other OAuth2 servers. However since the use of B2C is as much about authenticating a user as accessing resources some scopes are absolutely required in order for the flow to work correctly. This is the `openid` scope. Our Microsoft identity SDKs automatically provide the `openid` scope for you so you won't see that in our SDK configuration. Since we are using a third party library, however, we need to specify this scope.
 
 ```objc
@@ -272,7 +272,7 @@ There are some things you should be aware of regarding the B2C service at this p
                                         forAccountType:data.accountIdentifier];
 }
 ```
-Next, make sure you call it in the AppDelegate under `didFinishLaunchingWithOptions:` method. 
+Next, make sure you call it in the AppDelegate under `didFinishLaunchingWithOptions:` method.
 
 ```
 [self setupOAuth2AccountStore];
@@ -297,16 +297,16 @@ We will create each of these methods below.
 
 > [!NOTE]
 > Make sure that you bind the `loginView` to the actual webview that is inside your storyboard. Otherwise you won't have a webview that can pop up when it's time to authenticate.
-> 
-> 
+>
+>
 
 * Create a `LoginViewController.m` class
 * Add some variables to carry state as we authenticate
 
 ```objc
-NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory 
+NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory
 NSURL *myLoadedUrl; \\ The URL loaded for Azure Active Directory
-bool loginFlow = FALSE; 
+bool loginFlow = FALSE;
 bool isRequestBusy; \\ A way to give status to the thread that the request is still happening
 NSURL *authcode; \\ A placeholder for our auth code.
 ```
@@ -385,7 +385,7 @@ We need to tell the webview the behavior we want when a user needs to login as d
 
 * Write code to handle the result of the OAuth2 request
 
-We'll need code that will handle the redirectURL that comes back from the WebView. If it wasn't successful, we will try again. Meanwhile the library will provide the error that you can see in the console or handle asyncronously. 
+We'll need code that will handle the redirectURL that comes back from the WebView. If it wasn't successful, we will try again. Meanwhile the library will provide the error that you can see in the console or handle asyncronously.
 
 ```objc
 - (void)handleOAuth2AccessResult:(NSURL *)accessResult {
@@ -485,7 +485,7 @@ Let's create a method that will be called whenever we have a request for authent
 You are now done with creating the main way we'll interact with our application for sign in. After we've signed in, we'll need to use our tokens we've received. For that we'll create some helper code that will call REST APIs for us using this library.
 
 ## Create a `GraphAPICaller` class to handle our requests to a REST API
-We have a configuration loaded every time we load our app. Now we need to do something with it once we have a token. 
+We have a configuration loaded every time we load our app. Now we need to do something with it once we have a token.
 
 * Create a `GraphAPICaller.h`  file
 
@@ -509,7 +509,7 @@ Now that we've set up our interface, let's add the actual implementation:
 ```objc
 @implementation GraphAPICaller
 
-// 
+//
 // Gets the tasks from our REST endpoint we specified in settings
 //
 
@@ -562,7 +562,7 @@ Now that we've set up our interface, let's add the actual implementation:
       }];
 }
 
-// 
+//
 // Adds a task from our REST endpoint we specified in settings
 //
 
@@ -626,4 +626,3 @@ You can now move onto more advanced B2C topics. You might try:
 [Call a Node.js web API from a Node.js web app]()
 
 [Customize the UX for a B2C app]()
-

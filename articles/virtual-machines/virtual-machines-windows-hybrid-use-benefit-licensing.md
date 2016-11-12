@@ -22,8 +22,8 @@ For customers using Windows Server with Software Assurance, you can bring your o
 
 > [!NOTE]
 > You cannot use Azure Marketplace images to deploy Windows Server VMs utilizing the Azure Hybrid Use Benefit. You must deploy your VMs using either PowerShell or Resource Manager templates to correctly register your VMs as eligible for base compute rate discount.
-> 
-> 
+>
+>
 
 ## Pre-requisites
 There are a couple of pre-requisites in order to utilize Azure Hybrid Use Benefit for Windows Server VMs in Azure:
@@ -39,20 +39,20 @@ To deploy a Windows Server VM in Azure, you first need to create a VHD that cont
 
 ```powershell
 Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
-    -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd" 
+    -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd"
 ```
 
 > [!NOTE]
 > Microsoft SQL Server, SharePoint Server, and Dynamics can also utilize your Software Assurance licensing. You still need to prepare the Windows Server image by installing your application components and providing license keys accordingly, then uploading the disk image to Azure. Review the appropriate documentation for running Sysprep with your application, such as [Considerations for Installing SQL Server using Sysprep](https://msdn.microsoft.com/library/ee210754.aspx) or [Build a SharePoint Server 2016 Reference Image (Sysprep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx).
-> 
-> 
+>
+>
 
-You can also read more about [uploading the VHD to Azure process](virtual-machines-windows-upload-image.md#upload-the-vhd-to-your-storage-account).
+You can also read more about [uploading the VHD to Azure process](virtual-machines-windows-upload-image.md#upload-the-vhd-to-your-storage-account)
 
 > [!TIP]
 > This article focuses on deploying Windows Server VMs. You can also deploy Windows Client VMs in the same manner. In the following examples, you replace `Server` with `Client` appropriately.
-> 
-> 
+>
+>
 
 ## Deploy a VM via PowerShell Quick-Start
 When deploying your Windows Server VM via PowerShell, you have an additional parameter for `-LicenseType`. Once you have your VHD uploaded to Azure, you create a new VM using `New-AzureRmVM` and specify the licensing type as follows:
@@ -94,7 +94,7 @@ This contrasts with the following VM deployed without Azure Hybrid Use Benefit l
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus
-LicenseType              : 
+LicenseType              :
 ```
 
 ## Detailed PowerShell Walkthrough
@@ -176,4 +176,3 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 Read more about [Azure Hybrid Use Benefit licensing](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 Learn more about [using Resource Manager templates](../azure-resource-manager/resource-group-overview.md).
-

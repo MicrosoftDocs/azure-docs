@@ -37,7 +37,7 @@ docker-machine create -d azure \
 
 The output should look something like this, depending upon whether you have two-factor authentication configured in your account.
 
-```
+```bash
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
 Creating client certificate: /Users/user/.docker/machine/certs/cert.pem
 Running pre-create checks...
@@ -77,7 +77,7 @@ docker-machine env machine
 
 That prints the environment information, which looks something like this. Note the IP address has been assigned, which you'll need to test the VM.
 
-```
+```bash
 export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://191.237.46.90:2376"
 export DOCKER_CERT_PATH="/Users/rasquill/.docker/machine/machines/machine"
@@ -97,7 +97,7 @@ docker run -d -p 80:80 --restart=always nginx
 
 The output should look something like the following:
 
-```
+```bash
 Unable to find image 'nginx:latest' locally
 latest: Pulling from library/nginx
 efd26ecc9548: Pull complete
