@@ -104,13 +104,13 @@ Azure Functions is a solution for easily running small pieces of code ("function
 ##Reference
 
 ### C&#35;
-[C# Developer Reference](/azure/azure-functions/functions-reference-csharp/)
+[C# Developer Reference](/azure/azure-functions/functions-reference-csharp)
 
 ### F&#35;
-[F# Developer Reference](/azure/azure-functions/functions-reference-fsharp/)
+[F# Developer Reference](/azure/azure-functions/functions-reference-fsharp)
 
 ### Node.js
-[Node.js Developer Reference](/azure/azure-functions/functions-reference-node/)
+[Node.js Developer Reference](/azure/azure-functions/functions-reference-node)
 
 
 <div class="downloadHolder">
