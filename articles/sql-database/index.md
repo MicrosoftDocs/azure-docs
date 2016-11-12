@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #SQL Database Documentation
 
-Azure SQL Database is a relational database service in the cloud with mission-critical capabilities based on the Microsoft SQL Server engine.  It delivers predictable performance, scalability with no downtime, business continuity and data protection - all with minimal administration.  Because it's based on the SQL Server engine SQL Database supports existing SQL Server tools, libraries, and APIs, making it easier to move and extend to the cloud.
+Azure SQL Database is a relational database service in the cloud with mission-critical capabilities based on the Microsoft SQL Server engine.  It delivers predictable performance, scalability with no downtime, business continuity and data protection - all with minimal administration.  Because it's based on the SQL Server engine, SQL Database supports existing SQL Server tools, libraries, and APIs, making it easier to move and extend to the cloud.
 
 <ul class="panelContent cardsFTitle">
      <li>
