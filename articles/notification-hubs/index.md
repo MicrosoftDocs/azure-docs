@@ -5,9 +5,11 @@ layout: LandingPage
 
 Azure Notification Hubs provide an easy-to-use, multiplatform, scaled-out push infrastructure that enables you to send mobile push notifications from any backend (in the cloud or on-premises) to any mobile platform.
 
+With Notification Hubs, you can easily send cross-platform, personalized push notifications, abstracting the details of the different platform notification systems (PNS). With a single API call, you can target individual users or entire audience segments containing millions of users, across all their devices.
+
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/">
+        <a href="/azure/notification-hubs/notification-hubs-push-notification-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -17,7 +19,7 @@ Azure Notification Hubs provide an easy-to-use, multiplatform, scaled-out push i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Notification Hubs</h3>
+                        <h3>Learn about Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -25,7 +27,7 @@ Azure Notification Hubs provide an easy-to-use, multiplatform, scaled-out push i
         </a>
     </li>
     <li>
-        <a href="/azure/log-analytics/log-analytics-get-started">
+        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=notification-hubs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -35,7 +37,115 @@ Azure Notification Hubs provide an easy-to-use, multiplatform, scaled-out push i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Sign Up</h3>
+                        <h3>Notification Hubs Video Library</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started sending push notifications to Android with Azure Notification Hubs</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="notification-hubs-baidu-china-android-notifications-get-started">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with Notification Hubs using Baidu</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="notification-hubs-chrome-push-notifications-get-started">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started sending push notifications to Chrome apps with Azure Notification Hubs</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started sending push notifications to iOS with Azure Notification Hubs</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with Notification Hubs for Kindle apps</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with Notification Hubs for Windows Universal Platform Apps</h3>
                     </div>
                 </div>
             </div>
@@ -46,26 +156,24 @@ Azure Notification Hubs provide an easy-to-use, multiplatform, scaled-out push i
 
 ---
 
-##Get Started and Samples
+## Reference
 
-[iOS](/azure/notification-hubs-ios-apple-push-notification-apns-get-started/) 
+### PowerShell
+[Notification Hubs PowerShell Cmdlets](/powershell/resourcemanager/)
 
-[Windows Universal](/azure/notification-hubs-windows-store-dotnet-get-started-wns-push-notification/) 
+### .NET
+[Notification Hubs .NET API Reference](/dotnet/api/)
 
-[Windows Phone](/azure/notification-hubs-windows-mobile-push-notifications-mpns/) 
+### REST
+[Notification Hubs REST API Reference](/rest/api/notificationhubs/)
 
-[Android](/azure/notification-hubs-android-get-started/) 
+---
 
-[Kindle](/azure/notification-hubs-kindle-amazon-adm-push-notification/) 
-
-[Baidu](/azure/notification-hubs-baidu-china-android-notifications-get-started/) 
-
-[Xamarin.iOS](/azure/xamarin-notification-hubs-ios-push-notification-apns-get-started/) 
-
-[Xamerin.Android](/azure/xamarin-notification-hubs-push-notifications-android-gcm/) 
-
-[Chrome](/azure/notification-hubs-chrome-push-notifications-get-started/)
-
-[Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari) 
-
-##Reference
+<div class="downloadHolder">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/notification-hubs.pdf">
+        <div class="img"></div>
+        <div class="text">
+            Download Notification Hubs Documentation
+        </div>
+    </a>
+</div>
