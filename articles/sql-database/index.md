@@ -119,7 +119,7 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
 
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
         <div class="img"></div>
         <div class="text">
             Download SQL Database Documentation
