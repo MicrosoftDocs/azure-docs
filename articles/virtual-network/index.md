@@ -13,7 +13,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualnetwork.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualnetwork.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -66,7 +66,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualnetwork.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -84,7 +84,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualnetwork.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -102,7 +102,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualnetwork.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -120,7 +120,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualnetwork.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
