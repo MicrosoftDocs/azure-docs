@@ -14,7 +14,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/activedirectory.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/manageportal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -68,7 +68,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualmachine.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -86,7 +86,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/hybridconnectionservice.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -104,7 +104,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/launchportal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -128,7 +128,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
 [Azure Active Directory PowerShell Module](/powershell/)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
         <div class="img"></div>
         <div class="text">
             Download Active Directory Documentation

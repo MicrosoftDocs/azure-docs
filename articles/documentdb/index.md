@@ -3,9 +3,63 @@ layout: LandingPage
 ---
 #DocumentDB Documentation
 
-DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. [DocumentDB Overview](documentdb-introduction.md)
+Azure DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. As a schema-free NoSQL database, DocumentDB provides rich and familiar SQL query capabilities with consistent low latencies on JSON data.
 
 <ul class="panelContent cardsFTitle">
+     <li>
+        <a href="/azure/documentdb/documentdb-introduction">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Learn about Azure DocumentDB</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=documentdb">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure DocumentDB Video Library</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/documentdb/documentdb-resources">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>BGet started with Azure DocumentDB</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
     <li>
         <a href="/azure/documentdb/documentdb-get-started">
         <div class="cardSize">
@@ -120,11 +174,19 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
 
 ##Reference
 
-###.NET 
-[DocumentDB Managed Reference API](/dotnet/api/)
+###.NET
+[DocumentDB Managed Reference](/dotnet/api)
+
+### Java
+[Java SDK Reference](/java/api)
+
+###REST
+[DocumentDB REST API Reference](https://msdn.microsoft.com/library/azure/dn781481)
+
+
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
         <div class="img"></div>
         <div class="text">
             Download DocumentDB Documentation

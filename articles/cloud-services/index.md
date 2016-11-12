@@ -13,7 +13,7 @@ Cloud Services is an example of a Platform-as-Service (PaaS) implementation.  It
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/cloudservice.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Cloud Services is an example of a Platform-as-Service (PaaS) implementation.  It
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ Cloud Services is an example of a Platform-as-Service (PaaS) implementation.  It
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,7 +67,7 @@ Cloud Services is an example of a Platform-as-Service (PaaS) implementation.  It
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -92,7 +92,7 @@ Cloud Services is an example of a Platform-as-Service (PaaS) implementation.  It
 [Cloud Services Configuration Schema](https://msdn.microsoft.com/en-us/library/azure/ee758710.aspx)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cloud-services.pdf">
         <div class="img"></div>
         <div class="text">
             Download Cloud Services Documentation

@@ -49,7 +49,7 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -127,7 +127,7 @@ API Management helps organizations publish APIs to external, partner and interna
 [API Management PowerShell cmdlet reference (ARM)](/powershell/resourcemanager)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/api-management.pdf">
         <div class="img"></div>
         <div class="text">
             Download API Management Documentation

@@ -13,7 +13,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/fabric.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/azuredefaultblack.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,7 +67,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/azuredefaultblack.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -85,7 +85,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/azuredefaultblack.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -116,7 +116,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 [Service Fabric REST API Reference](http://msdn.microsoft.com/library/dn707692.aspx)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-fabric.pdf">
         <div class="img"></div>
         <div class="text">
             Download Service Fabric Documentation

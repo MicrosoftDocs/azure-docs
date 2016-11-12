@@ -31,7 +31,7 @@ Biztalk Services is TBD...
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -55,7 +55,7 @@ Biztalk Services is TBD...
 [Biztalk Services Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/biztalk-services.pdf">
         <div class="img"></div>
         <div class="text">
             Download Biztalk Services Documentation
