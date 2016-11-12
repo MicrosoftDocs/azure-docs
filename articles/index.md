@@ -2247,7 +2247,7 @@ layout: HubPage
                                                     <a href="https://azure.microsoft.com/en-us/downloads/">Get the .NET SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/net/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/rest/api">API reference</a>
@@ -2271,7 +2271,7 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-python">Get the Python SDK</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/python/">Get the Python SDK</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-python-create-deploy-django-app/">Get started</a>
@@ -2328,7 +2328,7 @@ layout: HubPage
                                                     <a href="http://go.microsoft.com/fwlink/?LinkId=690320">Get the Java SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-java-get-started/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/java/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/">API reference</a>
