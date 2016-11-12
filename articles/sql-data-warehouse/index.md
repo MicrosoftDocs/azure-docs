@@ -122,7 +122,7 @@ Azure SQL Data Warehouse is a cloud-based, scale-out database capable of process
 ###PowerShell
 [Azure PowerShell Reference] (/powershell/azureps-cmdlets-docs)
 
-#T-SQL
+###T-SQL
 [T-SQL Reference](https://msdn.microsoft.com/library/azure/bb510741)
 
 <div class="downloadHolder">
