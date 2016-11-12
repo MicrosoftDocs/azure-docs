@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #Azure Machine Learning Documentation
 
-Azure Machine Learning is a cloud-based predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions.  Azure Machine Learning provides tools to model predictive analytics as well as a fully managed service you can use to deploy your predictive models as ready-to-consume web services.
+Azure Machine Learning is a cloud-based predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions. Azure Machine Learning provides tools to model predictive analytics as well as a fully managed service you can use to deploy your predictive models as ready-to-consume web services.
 
 <ul class="panelContent cardsFTitle">
     <li>
