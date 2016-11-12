@@ -7,7 +7,7 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https:/azure/cloud-services/cloud-services-cloud-services-model-and-package">
+        <a href="https:/azure/cloud-services/cloud-services-choose-me">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
