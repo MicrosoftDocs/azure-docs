@@ -164,40 +164,43 @@ Many storage client library constructors and method overloads offer a SAS parame
 
 For example, here a SAS URI is used to create a reference to a block blob. The SAS provides the only credentials needed for the request. The block blob reference is then used for a write operation:
 
-    string sasUri = 
-        "https://storagesample.blob.core.windows.net/sample-container/sampleBlob.txt?sv=2015-07-08&sr=b&sig=39Up9JzHkxhUIhFEjEH9594DJxe7w6cIRCg0V6lCGSo%3D&se=2016-10-18T21%3A51%3A37Z&sp=rcw"
-    CloudBlockBlob blob = new CloudBlockBlob(new Uri(sasUri));
+```csharp
 
-    // Create operation: Upload a blob with the specified name to the container.
-    // If the blob does not exist, it will be created. If it does exist, it will be overwritten.
-    try
+string sasUri = 
+    "https://storagesample.blob.core.windows.net/sample-container/sampleBlob.txt?sv=2015-07-08&sr=b&sig=39Up9JzHkxhUIhFEjEH9594DJxe7w6cIRCg0V6lCGSo%3D&se=2016-10-18T21%3A51%3A37Z&sp=rcw"
+CloudBlockBlob blob = new CloudBlockBlob(new Uri(sasUri));
+
+// Create operation: Upload a blob with the specified name to the container.
+// If the blob does not exist, it will be created. If it does exist, it will be overwritten.
+try
+{
+    MemoryStream msWrite = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
+    msWrite.Position = 0;
+    using (msWrite)
     {
-        MemoryStream msWrite = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
-        msWrite.Position = 0;
-        using (msWrite)
-        {
-            await blob.UploadFromStreamAsync(msWrite);
-        }
+        await blob.UploadFromStreamAsync(msWrite);
+    }
 
-        Console.WriteLine("Create operation succeeded for SAS {0}", sasUri);
+    Console.WriteLine("Create operation succeeded for SAS {0}", sasUri);
+    Console.WriteLine();
+}
+catch (StorageException e)
+{
+    if (e.RequestInformation.HttpStatusCode == 403)
+    {
+        Console.WriteLine("Create operation failed for SAS {0}", sasUri);
+        Console.WriteLine("Additional error information: " + e.Message);
         Console.WriteLine();
     }
-    catch (StorageException e)
+    else
     {
-        if (e.RequestInformation.HttpStatusCode == 403)
-        {
-            Console.WriteLine("Create operation failed for SAS {0}", sasUri);
-            Console.WriteLine("Additional error information: " + e.Message);
-            Console.WriteLine();
-        }
-        else
-        {
-            Console.WriteLine(e.Message);
-            Console.ReadLine();
-            throw;
-        }
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
     }
+}
 
+```
 
 ## Best practices for using SAS
 When you use shared access signatures in your applications, you need to be aware of two potential risks:
