@@ -2232,14 +2232,14 @@ layout: HubPage
                 <ul id="developer">
                     <li>
                         <a href="#languages">Languages &amp; Frameworks</a>
-                        <ul id="languages" class="cardsB">
+                        <ul id="languages" class="cardsF">
                             <li>
                                 <div class="cardSize">
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-1.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2266,7 +2266,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-2.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2293,7 +2293,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-3.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2320,7 +2320,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-4.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2347,7 +2347,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-5.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2374,7 +2374,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-6.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2396,14 +2396,14 @@ layout: HubPage
                     </li>
                     <li>
                         <a href="#cli">Command Line Interface (CLI)</a>
-                        <ul id="cli" class="cardsC">
+                        <ul id="cli" class="cardsF">
                             <li>
                                 <div class="cardSize">
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-7.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2429,7 +2429,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-8.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2454,7 +2454,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-7.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2491,7 +2491,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-9.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2512,7 +2512,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-10.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2542,7 +2542,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-8.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2563,7 +2563,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-11.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2593,7 +2593,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-2.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2635,13 +2635,12 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/placeholder.svg" alt="" />
+                                                        <img src="media/index/azure-arch-1.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Fundamentals</h3>
-                                                    <p>Fundamental knowledge to be successful in the cloud. If you’re new to
-                                                        the cloud or new to Azure, start here.</p>
+                                                    <p>Fundamental knowledge to be successful in the cloud. If you’re new to the cloud or new to Azure, start here.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2655,13 +2654,12 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/placeholder.svg" alt="" />
+                                                        <img src="media/index/azure-arch-2.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Reference Architectures</h3>
-                                                    <p>A set of recommended architectures for the cloud. Each architecture includes
-                                                        best practices, prescriptive steps, and a deployable solution.</p>
+                                                    <p>A set of recommended architectures for the cloud. Each architecture includes best practices, prescriptive steps, and a deployable solution.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2675,13 +2673,12 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/placeholder.svg" alt="" />
+                                                        <img src="media/index/azure-arch-3.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Design Patterns</h3>
-                                                    <p>Design patterns for the cloud. Each pattern describes a problem, a pattern
-                                                        that addresses the problem, and an example based on Azure.</p>
+                                                    <p>Design patterns for the cloud. Each pattern describes a problem, a pattern that addresses the problem, and an example based on Azure.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2695,7 +2692,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/placeholder.svg" alt="" />
+                                                        <img src="media/index/azure-arch-4.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2715,7 +2712,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/placeholder.svg" alt="" />
+                                                        <img src="media/index/azure-arch-5.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
