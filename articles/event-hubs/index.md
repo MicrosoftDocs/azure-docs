@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #Event Hubs Documentation
 
-Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you cna process and analyze the massive amounts of data produced by your connected devices and applications.  Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an Even Hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters.
+Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or any batching or storage adapter.
 
 <ul class="panelContent cardsFTitle">
      <li>
