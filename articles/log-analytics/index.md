@@ -7,7 +7,7 @@ Log Analytics is a service in Operations Management Suite (OMS) that helps you c
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="azure/log-analytics/log-analytics-overview">
+        <a href="/azure/log-analytics/log-analytics-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ Log Analytics is a service in Operations Management Suite (OMS) that helps you c
         </a>
     </li>
     <li>
-        <a href="azure/log-analytics/log-analytics-get-started">
+        <a href="/azure/log-analytics/log-analytics-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Log Analytics is a service in Operations Management Suite (OMS) that helps you c
         </a>
     </li>
     <li>
-        <a href="azure/log-analytics/log-analytics-proxy-firewall">
+        <a href="/azure/log-analytics/log-analytics-proxy-firewall">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
