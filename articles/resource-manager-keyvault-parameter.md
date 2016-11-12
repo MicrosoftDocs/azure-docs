@@ -34,17 +34,17 @@ You reference the secret from within a parameters file that passes values to you
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "sqlsvrAdminLoginPassword": {
-            "reference": {
-                "keyVault": {
-                  "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-                },
-                "secretName": "adminPassword"
-            }
-        },
-        "sqlsvrAdminLogin": {
-            "value": "exampleadmin"
+      "sqlsvrAdminLoginPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+          },
+          "secretName": "adminPassword"
         }
+      },
+      "sqlsvrAdminLogin": {
+        "value": "exampleadmin"
+      }
     }
 }
 ```
@@ -85,7 +85,7 @@ The parameter that accepts the secret should be a **securestring**. The followin
 }
 ```
 
-The user deploying a template that references a secret must have the **Microsoft.KeyVault/vaults/deploy/action** permission for the key vault. The [Owner](active-directory/role-based-access-built-in-roles.md#owner) and [Contributor](active-directory/role-based-access-built-in-roles.md#contributor) roles both grant this access. You can also create a [custom role](active-directoy/role-based-access-control-custom-roles.md) that grants this permission and add the user to that role.
+The user deploying a template that references a secret must have the **Microsoft.KeyVault/vaults/deploy/action** permission for the key vault. The [Owner](active-directory/role-based-access-built-in-roles.md#owner) and [Contributor](active-directory/role-based-access-built-in-roles.md#contributor) roles both grant this access. You can also create a [custom role](active-directory/role-based-access-control-custom-roles.md) that grants this permission and add the user to that role.
 
 ## Reference a secret with dynamic id
 
@@ -98,37 +98,36 @@ To dynamically generate the resource ID for a key vault secret, you must move th
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "vaultName": {
-            "type": "string"
-        },
-        "secretName": {
-            "type": "string"
-        }
+      "vaultName": {
+        "type": "string"
+      },
+      "secretName": {
+        "type": "string"
+      }
     },
     "resources": [
-        {
-          "apiVersion": "2015-01-01",
-          "name": "nestedTemplate",
-          "type": "Microsoft.Resources/deployments",
-          "properties": {
-            "mode": "incremental",
-            "templateLink": {
-              "uri": "https://www.contoso.com/AzureTemplates/newVM.json",
-              "contentVersion": "1.0.0.0"
-            },
-            "parameters": {
-              "adminPassword": {
-                "reference": {
-                  "keyVault": {
-                    "id": "[concat(resourceGroup().id, '/providers/Microsoft.KeyVault/vaults/', parameters('vaultName'))]"
-                  },
-                  "secretName": "[parameters('secretName')]"
-                }
-              }
+    {
+      "apiVersion": "2015-01-01",
+      "name": "nestedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "incremental",
+        "templateLink": {
+          "uri": "https://www.contoso.com/AzureTemplates/newVM.json",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "[concat(resourceGroup().id, '/providers/Microsoft.KeyVault/vaults/', parameters('vaultName'))]"
+              },
+              "secretName": "[parameters('secretName')]"
             }
           }
         }
-    ],
+      }
+    }],
     "outputs": {}
 }
 ```
