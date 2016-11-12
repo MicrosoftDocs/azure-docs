@@ -31,7 +31,7 @@ Azure Data Factory is a cloud-based data integration service that orchestrates a
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

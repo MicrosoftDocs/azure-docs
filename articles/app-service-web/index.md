@@ -49,7 +49,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
