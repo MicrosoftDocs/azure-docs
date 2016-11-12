@@ -145,7 +145,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
 [Virtual Machine Scale Sets REST API Reference](/rest/api/virtualmachinescalesets)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/windows.pdf">
         <div class="img"></div>
         <div class="text">
             Download Windows Virtual Machine Documentation

@@ -79,7 +79,7 @@ Azure IoT Hub is a Microsoft Azure service that enables you to receive telemetry
 [IoT HUB in Java Reference](/java/api/) 
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
         <div class="img"></div>
         <div class="text">
             Download IoT Hub Documentation

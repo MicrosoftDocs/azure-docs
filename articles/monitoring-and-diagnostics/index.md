@@ -116,7 +116,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
 [Monitoring and Diagnostics REST API Reference](../rest/api/monitor)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
         <div class="img"></div>
         <div class="text">
             Download Monitoring and Diagnostics Documentation

@@ -61,7 +61,7 @@ Log Analytics is a service in Operations Management Suite (OMS) that helps you c
 [Create and Manage alerts in OMS](/azure/log-analytics/log-analytics-api-alerts/) 
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/log-analytics.pdf">
         <div class="img"></div>
         <div class="text">
             Download Log Analytics Documentation

@@ -55,7 +55,7 @@ Azure Government is TBD...
 [Azure Government Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-government.pdf">
         <div class="img"></div>
         <div class="text">
             Download Azure Government Documentation

@@ -127,7 +127,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
 [Azure Active Directory PowerShell module](/powershell/)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-domain-services.pdf">
         <div class="img"></div>
         <div class="text">
             Download Active Directory Domain Services Documentation

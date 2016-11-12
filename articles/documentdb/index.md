@@ -124,7 +124,7 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
 [DocumentDB Managed Reference API](/dotnet/api/)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
         <div class="img"></div>
         <div class="text">
             Download DocumentDB Documentation

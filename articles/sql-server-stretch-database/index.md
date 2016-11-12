@@ -73,7 +73,7 @@ SQL Server Stretch Database is a distributed systems platform that makes it easy
 [SQL Server Stretch Database Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-server-stretch-database.pdf">
         <div class="img"></div>
         <div class="text">
             Download SQL Server Stretch Database Documentation

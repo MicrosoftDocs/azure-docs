@@ -157,7 +157,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
 [Storage REST API Reference](/rest/api/storage)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
         <div class="img"></div>
         <div class="text">
             Download Linux Virtual Machine Documentation

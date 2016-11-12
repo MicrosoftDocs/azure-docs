@@ -115,7 +115,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
 [Redis Cache PowerShell Cmdlet](/java/api/)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">
         <div class="img"></div>
         <div class="text">
             Download Redis Cache Documentation

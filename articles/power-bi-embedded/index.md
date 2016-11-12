@@ -73,7 +73,7 @@ Power BI Embedded is a distributed systems platform that makes it easy to packag
 [Power BI Embedded Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/power-bi-embedded.pdf">
         <div class="img"></div>
         <div class="text">
             Download Power BI Embedded Documentation

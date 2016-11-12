@@ -76,7 +76,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 [KeySearch in Java Reference](/java/api/)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
         <div class="img"></div>
         <div class="text">
             Download Azure Search Documentation

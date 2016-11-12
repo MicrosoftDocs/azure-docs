@@ -37,7 +37,7 @@ Visual Studio Application Insights is an extensible analytics service that monit
 [Application Insights REST API Reference](/rest/api/)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">
         <div class="img"></div>
         <div class="text">
             Download Visual Studio Application Insights Documentation
