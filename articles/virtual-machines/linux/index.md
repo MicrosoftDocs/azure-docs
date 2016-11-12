@@ -25,24 +25,6 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
         </a>
     </li>
     <li>
-        <a href="">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Linux Virtual Machines</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
         <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=virtual-machines">
         <div class="cardSize">
             <div class="cardPadding">
@@ -115,7 +97,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines-linux-quick-create-cli">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
