@@ -21,9 +21,12 @@
 # Reference
 ## [Concepts and terminology](scheduler-concepts-terms.md)
 ## [Scheduler PowerShell cmdlets](scheduler-powershell-reference.md)
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [REST](https://docs.microsoft.com/rest/api/scheduler/)
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [REST](/rest/api/scheduler/)
 
 # Resources
-## [Scheduler Videos](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
+## [Service updates](https://azure.microsoft.com/updates/?product=scheduler)
+## [Pricing](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
