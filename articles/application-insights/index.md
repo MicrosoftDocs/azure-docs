@@ -43,7 +43,7 @@ Application Insights is an extensible Application Performance Management (APM) s
         </a>
     </li>
     <li>
-        <a href="../application-insights/app-insights-azure-web-apps">
+        <a href="/azure/application-insights/app-insights-azure-web-apps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Application Insights is an extensible Application Performance Management (APM) s
         </a>
     </li>
     <li>
-        <a href="../application-insights/app-insights-asp-net">
+        <a href="/azure/application-insights/app-insights-asp-net">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Application Insights is an extensible Application Performance Management (APM) s
         </a>
     </li>
     <li>
-        <a href="../application-insights/app-insights-java-get-started">
+        <a href="/azure/application-insights/app-insights-java-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +97,7 @@ Application Insights is an extensible Application Performance Management (APM) s
         </a>
   </li>
   <li>
-        <a href="../application-insights/app-insights-nodejs">
+        <a href="/azure/application-insights/app-insights-nodejs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -121,14 +121,13 @@ Application Insights is an extensible Application Performance Management (APM) s
 ## Reference
 
 ### Java
-[Application Insights Java API Reference](/java/api/)
+[Application Insights Java API Reference](https://docs.microsoft.com/java/api/)
 
 ### .NET 
-[Application Insights Managed Reference API](/dotnet/api/)
+[Application Insights Managed Reference API](https://docs.microsoft.com/dotnet/api/)
 
 ### JavaScript
 [Application Insights JS API Reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-
 
 
 ### REST 
