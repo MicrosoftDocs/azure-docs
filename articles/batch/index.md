@@ -61,7 +61,7 @@ Azure Batch enables you to run large-scale parallel and high-performance computi
         </a>
     </li>
      <li>
-        <a href="/azure/Batch/batch-dotnet-get-started">
+        <a href="/azure/batch/batch-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Azure Batch enables you to run large-scale parallel and high-performance computi
         </a>
     </li>
      <li>
-        <a href="/azure/Batch/batch-python-tutorial">
+        <a href="/azure/batch/batch-python-tutorial">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -106,7 +106,7 @@ Azure Batch enables you to run large-scale parallel and high-performance computi
 [Batch PowerShell Reference](/powershell)
 
 ###Azure CLI
-[Batch using Azure CLI](azure/batch/batch-cli-get-started)
+[Batch using Azure CLI](/azure/batch/batch-cli-get-started)
 
 
 ###.NET
