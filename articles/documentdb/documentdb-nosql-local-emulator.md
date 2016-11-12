@@ -61,7 +61,7 @@ Additionally, just as the Azure DocumentDB service, the DocumentDB Emulator supp
 ## Start and initialize the DocumentDB Emulator
 To start the Azure DocumentDB Emulator, select the Start button or press the Windows key. Begin typing **DocumentDB Emulator**, and select the emulator from the list of applications. When the emulator is running, you'll see an icon in the Windows taskbar notification area.
 
-The DocumentDB Emulator is installed by default to the `C:\Program Files\Microsoft SDKs\Azure\DocumentDB Emulator` directory. You can also start and stop the emulator from the command-line. Please see below for options for running the emulator from the command-line.
+The DocumentDB Emulator is installed by default to the `C:\Program Files\Azure DocumentDB Emulator` directory. You can also start and stop the emulator from the command-line. Please see below for options for running the emulator from the command-line.
 
 ## Developing with the DocumentDB Emulator
 Once you have the DocumentDB Emulator running on your desktop, you can use any supported [DocumentDB SDK](documentdb-sdk-dotnet.md) or the [DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) to interact with the Emulator. The DocumentDB Emulator also includes a built-in Data Explorer that lets you create collections, view and edit documents without writing any code. 
@@ -71,7 +71,7 @@ Once you have the DocumentDB Emulator running on your desktop, you can use any s
         new Uri("https://localhost:443"), 
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
-You can use existing tools like [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) to connect to the DocumentDB Emulator. You can also migrate data between the DocumentDB Emulator and the Azure DocumentDB service using the [DocumentDB data migration tool](https://github.com/azure/azure-documentdb-datamigrationtool).
+You can use existing tools like [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) to connect to the DocumentDB Emulator. You can also migrate data between the DocumentDB Emulator and the Azure DocumentDB service using the [DocumentDB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
 
 ## DocumentDB Emulator command-line tool reference
 From the installation location, you can use the command-line to start and stop the emulator, configure options, and perform other operations.
@@ -105,37 +105,37 @@ To view the list of options, type `DocumentDB.LocalEmulator.exe /?` at the comma
   <td>Help</td>
   <td>Displays the list of command-line arguments</td>
   <td>DocumentDB.LocalEmulator.exe /?</td>
-  <td>&lt;path&rt;: An accessible path</td>
+  <td></td>
 </tr>
 <tr>
   <td>Datapath</td>
   <td>Specifies the path in which to store data files</td>
-  <td>DocumentDB.LocalEmulator.exe /datapath=<path></td>
-  <td>&lt;path&rt;: An accessible path</td>
+  <td>DocumentDB.LocalEmulator.exe /datapath=&lt;datapath&gt;</td>
+  <td>&lt;datapath&gt;: An accessible path</td>
 </tr>
 <tr>
   <td>Port</td>
   <td>Specifies the port number to use for the emulator.  Default is 443</td>
-  <td>DocumentDB.LocalEmulator.exe /port=&lt;port&rt;</td>
-  <td>&lt;port&rt;: Single port number</td>
+  <td>DocumentDB.LocalEmulator.exe /port=&lt;port&gt;</td>
+  <td>&lt;port&gt;: Single port number</td>
 </tr>
 <tr>
   <td>Mongoport</td>
   <td>Specifies the port number to use for MongoDB comptability API. Default is 10250</td>
-  <td>DocumentDB.LocalEmulator.exe /mongoport=&lt;mongoport&rt;</td>
-  <td>&lt;mongoport&rt;: Single port number</td>
+  <td>DocumentDB.LocalEmulator.exe /mongoport=&lt;mongoport&gt;</td>
+  <td>&lt;mongoport&gt;: Single port number</td>
 </tr>
 <tr>
   <td>Directports</td>
   <td>Specifies the ports to use for direct connectivity.  Defaults are 10251,10252,10253,10254</td>
-  <td>DocumentDB.LocalEmulator.exe /directports:&lt;directports&rt;</td>
-  <td>&lt;directports&rt;:Comma delimited list of 4 ports</td>
+  <td>DocumentDB.LocalEmulator.exe /directports:&lt;directports&gt;</td>
+  <td>&lt;directports&gt;:Comma delimited list of 4 ports</td>
 </tr>
 <tr>
   <td>Key</td>
   <td>Authorization key for the emulator. Key must be the base-64 encoding of a 64-byte vector</td>
-  <td>DocumentDB.LocalEmulator.exe /key:&lt;key&rt;</td>
-  <td>&lt;key&rt;: Key must be the base-64 encoding of a 64-byte vector</td>
+  <td>DocumentDB.LocalEmulator.exe /key:&lt;key&gt;</td>
+  <td>&lt;key&gt;: Key must be the base-64 encoding of a 64-byte vector</td>
 </tr>
 <tr>
   <td>EnableThrottling</td>
