@@ -126,7 +126,7 @@ If your environment DOESN'T have DHCP enabled, you must include the following AD
 ### InstallAzureStackPOC.ps1 optional parameters
 | Parameter | Required/Optional | Description |
 | --- | --- | --- |
-| AADAdminCredential |Optional |Sets the Azure Active Directory user name and password. These Azure credentials can be either an Org ID or a Microsoft Account. To use Microsoft Account credentials, omit this parameter in the cmdlet. Omitting this parameter prompts the Azure Authentication popup during deployment. This creates the authentication and refresh tokens used during deployment. |
+| AADAdminCredential |Optional |Sets the Azure Active Directory user name and password. These Azure credentials must be an Org ID.|
 | AADDirectoryTenantName |Required |Sets the tenant directory. Use this parameter to specify a specific directory where the AAD account has permissions to manage multiple directories. Full Name of an AAD Directory Tenant in the format of <directoryName>.onmicrosoft.com. |
 | AdminPassword |Required |Sets the local administrator account and all other user accounts on all the virtual machines created as part of POC deployment. This password must match the current local administrator password on the host. |
 | AzureEnvironment |Optional |Select the Azure Environment with which you want to register this Azure Stack deployment. Options include *Public Azure*, *Azure - China*, *Azure - US Government*. |
