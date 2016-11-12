@@ -68,5 +68,6 @@ Due to the lack of overlapped recycling of the web apps, customers should expect
 See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
 * [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
+* [How to use a custom Docker image for App Service on Linux](./app-service-linux-using-custom-docker-image.md)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](app-service-linux-using-nodejs-pm2.md)
 
