@@ -48,11 +48,11 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 ### Add namespace declarations
 Add the following `using` statements to the top of the `program.cs` file:
 
-    ```csharp
+```csharp
     using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
-    ```
+```
 
 ### Parse the connection string
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
@@ -60,16 +60,16 @@ Add the following `using` statements to the top of the `program.cs` file:
 ### Create the Queue service client
 The **CloudQueueClient** class enables you to retrieve queues stored in Queue storage. Here's one way to create the service client:
 
-    ```csharp
+```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-    ```
+```
     
 Now you are ready to write code that reads data from and writes data to Queue storage.
 
 ## Create a queue
 This example shows how to create a queue if it does not already exist:
 
-    ```csharp
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -82,7 +82,7 @@ This example shows how to create a queue if it does not already exist:
 
     // Create the queue if it doesn't already exist
     queue.CreateIfNotExists();
-    ```
+```
 
 ## Insert a message into a queue
 To insert a message into an existing queue, first create a new
@@ -91,7 +91,7 @@ To insert a message into an existing queue, first create a new
 format) or a **byte** array. Here is code which creates a queue (if it
 doesn't exist) and inserts the message 'Hello, World':
 
-    ```csharp
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -108,13 +108,13 @@ doesn't exist) and inserts the message 'Hello, World':
     // Create a message and add it to the queue.
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     queue.AddMessage(message);
-    ```
+```
 
 ## Peek at the next message
 You can peek at the message in the front of a queue without removing it
 from the queue by calling the **PeekMessage** method.
 
-    ```csharp
+```csharp
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -130,7 +130,7 @@ from the queue by calling the **PeekMessage** method.
 
     // Display message.
     Console.WriteLine(peekedMessage.AsString);
-    ```
+```
 
 ## Change the contents of a queued message
 You can change the contents of a message in-place in the queue. If the
@@ -146,7 +146,7 @@ you would keep a retry count as well, and if the message is retried more
 than *n* times, you would delete it. This protects against a message
 that triggers an application error each time it is processed.
 
-    ```csharp
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -163,7 +163,7 @@ that triggers an application error each time it is processed.
     queue.UpdateMessage(message,
         TimeSpan.FromSeconds(60.0),  // Make it visible for another 60 seconds.
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
-    ```
+```
 
 ## De-queue the next message
 Your code de-queues a message from a queue in two steps. When you call
@@ -177,7 +177,7 @@ software failure, another instance of your code can get the same message
 and try again. Your code calls **DeleteMessage** right after the message
 has been processed.
 
-    ```csharp
+```csharp
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -193,12 +193,12 @@ has been processed.
 
     //Process the message in less than 30 seconds, and then delete the message
     queue.DeleteMessage(retrievedMessage);
-    ```
+```
 
 ## Use Async-Await pattern with common Queue storage APIs
 This example shows how to use the Async-Await pattern with common Queue storage APIs. The sample calls the asynchronous version of each of the given methods, as indicated by the *Async* suffix of each method. When an async method is used, the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work, which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
-    ```csharp
+```csharp
     // Create the queue if it doesn't already exist
     if(await queue.CreateIfNotExistsAsync())
     {
@@ -223,7 +223,7 @@ This example shows how to use the Async-Await pattern with common Queue storage 
     // Async delete the message
     await queue.DeleteMessageAsync(retrievedMessage);
     Console.WriteLine("Deleted message");
-    ```
+```
     
 ## Leverage additional options for de-queuing messages
 There are two ways you can customize message retrieval from a queue.
@@ -237,7 +237,7 @@ for all messages at the same time, so after 5 minutes have passed since
 the call to **GetMessages**, any messages which have not been deleted
 will become visible again.
 
-    ```csharp
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -253,7 +253,7 @@ will become visible again.
         // Process all messages in less than 5 minutes, deleting each message after processing.
         queue.DeleteMessage(message);
     }
-    ```
+```
 
 ## Get the queue length
 You can get an estimate of the number of messages in a queue. The
@@ -262,7 +262,7 @@ retrieve the queue attributes, including the message count. The **ApproximateMes
 property returns the last value retrieved by the
 **FetchAttributes** method, without calling the Queue service.
 
-    ```csharp
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -281,13 +281,13 @@ property returns the last value retrieved by the
 
     // Display number of messages.
     Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
-    ```
+```
 
 ## Delete a queue
 To delete a queue and all the messages contained in it, call the
 **Delete** method on the queue object.
 
-    ```csharp
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -300,7 +300,7 @@ To delete a queue and all the messages contained in it, call the
 
     // Delete the queue.
     queue.Delete();
-    ```
+```
     
 
 ## Next steps
