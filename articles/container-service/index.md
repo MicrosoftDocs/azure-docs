@@ -14,7 +14,7 @@ Azure Container Service makes it simpler for you to create, configure, and manag
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/index/placeholder.svg" alt="" />
+                            <img src="./media/index/containerservice.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -32,7 +32,7 @@ Azure Container Service makes it simpler for you to create, configure, and manag
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/index/placeholder.svg" alt="" />
+                            <img src="./media/index/azuredefaultblack.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

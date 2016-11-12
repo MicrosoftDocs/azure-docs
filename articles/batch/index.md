@@ -13,7 +13,7 @@ Azure Batch enables you to run large-scale parallel and high-performance computi
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/azuredefaultblack.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Azure Batch enables you to run large-scale parallel and high-performance computi
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ Azure Batch enables you to run large-scale parallel and high-performance computi
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,7 +67,7 @@ Azure Batch enables you to run large-scale parallel and high-performance computi
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/devconsole.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -85,7 +85,7 @@ Azure Batch enables you to run large-scale parallel and high-performance computi
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/devconsole.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

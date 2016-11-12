@@ -23,7 +23,7 @@ layout: HubPage
                 </a>
             </li>
             <li>
-                <a href="http://aka.ms/azureitgetstarted/">
+                <a href="http://aka.ms/azuregetstarted/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -85,7 +85,7 @@ layout: HubPage
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines-scale-sets/">
+                                            <a href="/azure/virtual-machine-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
                                                 <p>Virtual Machine Scale Sets</p>
                                             </a>
@@ -670,7 +670,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines-scale-sets/">
+                                <a href="/azure/virtual-machine-scale-sets/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2382,7 +2382,7 @@ layout: HubPage
                                                     <a href="">Get started with REST</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/rest/api">API reference</a>
+                                                    <a href="/rest/api">Reference</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=rest">Get examples</a>
@@ -2410,19 +2410,13 @@ layout: HubPage
                                                 <h3>Azure CLI 2.0 Preview
                                                 </h3>
                                                 <p>
-                                                    <a href="">Getting Started</a>
+                                                    <a href="https://docs.microsoft.com/cli/azure/get-started/">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="">Download Azure CLI 2.0 for Linux</a>
+                                                    <a href="https://github.com/Azure/azure-cli">Download Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
-                                                    <a href="">Download Azure CLI 2.0 for Mac</a>
-                                                </p>
-                                                <p>
-                                                    <a href="">Download Azure CLI 2.0 for Windows</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/cli/azure">API reference</a>
+                                                    <a href="/cli/azure">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2441,19 +2435,13 @@ layout: HubPage
                                             <div class="cardText">
                                                 <h3>PowerShell</h3>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/tree/master/docs/learning-powershell">Getting Started</a>
+                                                    <a href="https://github.com/PowerShell/PowerShell/tree/master/docs/learning-powershell">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md">Download PowerShell for Linux</a>
+                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/">Download PowerShell</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md#os-x-1011">Download PowerShell for Mac</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md">Download PowerShell for Windows</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/powershell/">API reference</a>
+                                                    <a href="/powershell/">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2473,7 +2461,7 @@ layout: HubPage
                                                 <h3>Azure CLI
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/">Getting Started - conceptual</a>
+                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://aka.ms/linux-azure-cli">Download Azure CLI for Linux</a>
@@ -2485,7 +2473,7 @@ layout: HubPage
                                                     <a href="http://aka.ms/webpi-azure-cli">Download Azure CLI for Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/azure-cli-arm-commands/">API reference</a>
+                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/azure-cli-arm-commands/">Reference</a>
                                                 </p>
                                             </div>
                                         </div>

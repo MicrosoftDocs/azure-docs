@@ -13,7 +13,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/fabric.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/media.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/azuredefaultblack.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,7 +67,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/azuredefaultblack.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -85,7 +85,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/azuredefaultblack.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

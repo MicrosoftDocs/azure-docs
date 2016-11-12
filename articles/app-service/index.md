@@ -13,7 +13,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/appservice.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,7 +67,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/apiapps.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -85,7 +85,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/mobileapp.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -103,7 +103,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/webapp.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
