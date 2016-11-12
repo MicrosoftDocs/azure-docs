@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #SQL Server Stretch Database Documentation
 
-SQL Server Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud. SQL Server Stretch Database provides cost-effective availability for data you do not use regularly, doesn't require changes to your queries or applications, and keeps your data secure even during migration.  Stretch Database targets transactional database with large amounts of infrequently used data which are typically stored in a small number of tables.
+SQL Server Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud. SQL Server Stretch Database provides cost-effective availability for data you do not use regularly, doesn't require changes to your queries or applications, and keeps your data secure even during migration. Stretch Database targets transactional databases with large amounts of infrequently used data, which are typically stored in a small number of tables.
 
 <ul class="panelContent cardsFTitle">
     <li>
