@@ -85,7 +85,7 @@ Azure Data Factory is a cloud-based data integration service that orchestrates a
 ##Reference
 
 ###PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs]
+[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
 ###.NET
 [Data Factory Managed Reference](/dotnet/api)
