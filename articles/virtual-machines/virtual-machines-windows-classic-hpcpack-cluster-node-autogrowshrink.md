@@ -6,7 +6,7 @@ documentationcenter: ''
 author: dlepow
 manager: timlt
 editor: ''
-tags: azure-service-management,hpc-pack
+tags: azure-service-management,azure-resource-manager,hpc-pack
 
 ms.assetid: 38762cd1-f917-464c-ae5d-b02b1eb21e3f
 ms.service: virtual-machines-windows
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 07/22/2016
+ms.date: 11/14/2016
 ms.author: danlep
 
 ---
@@ -35,7 +35,37 @@ Also, currently you can only automatically grow and shrink HPC Pack compute node
 ## Set the AutoGrowShrink cluster property
 ### Prerequisites
 * **HPC Pack 2012 R2 Update 2 or later cluster** - The cluster head node can be deployed either on-premises or in an Azure VM. See [Set up a hybrid cluster with HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) to get started with an on-premises head node and Azure "burst" nodes. See the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to quickly deploy a HPC Pack cluster in Azure VMs.
-* **For a cluster with a head node in Azure** - If you use the HPC Pack IaaS deployment script to create the cluster, enable the **AutoGrowShrink** cluster property by setting the AutoGrowShrink option in the cluster configuration file. For details, see the documentation accompanying the [script download](https://www.microsoft.com/download/details.aspx?id=44949). 
+
+* **For a cluster with a head node in Azure (Resource Manager deployment model)** - Starting in HPC Pack 2016, certificate authentication in an Azure Active Directory application is used for automatically growing and shrinking virtual machines. Configure a certificate as follows:
+
+  1. After cluster deployment, connect by Remote Desktop to one head node.
+
+  2. Upload the certificate (PFX format with private key) to the head node and install to Cert:\LocalMachine\My and Cert:\LocalMachine\Trust.
+    
+  3. Start Azure PowerShell as an administrator and run the following commands:
+
+    ```powershell
+        cd $env:CCP_HOME\bin
+        Login-AzureRmAccount
+        .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -CertificateThumbprint "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" -TenantId xxxxxxxx-xxxxx-xxxxx-xxxxx-xxxxxxxxxxxx
+    ``` 
+
+  where
+
+    **DisplayName** - Azure Active Application display name. If the application does not exist, it is created in Azure Active Directory.
+
+    **HomePage** - The home page of the application. You can configure a dummy URL, as in the preceding example.
+    
+    **IdentifierUri** - Identifier of the application. You can configure a dummy URL, as in the preceding example.
+        
+    **CertificateThumbprint** -Thumbprint of the certificate you installed on the head node in Step 1.
+        
+    **TenantId** Tenant ID of your Azure Active Directory.
+
+    For more details about  **ConfigARMAutoGrowShrinkCert.ps1**, run `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`.
+
+
+* **For a cluster with a head node in Azure (classic deployment model)** - If you use the HPC Pack IaaS deployment script to create the cluster, enable the **AutoGrowShrink** cluster property by setting the AutoGrowShrink option in the cluster configuration file. For details, see the documentation accompanying the [script download](https://www.microsoft.com/download/details.aspx?id=44949). 
   
     Alternatively, enable the **AutoGrowShrink** cluster property after you deploy the cluster by using HPC PowerShell commands described in the following section. To prepare for this, first complete the following steps:
   
@@ -49,23 +79,42 @@ To run these commands, start HPC PowerShell on the cluster head node as an admin
 
 **To enable the AutoGrowShrink property**
 
-    Set-HpcClusterProperty –EnableGrowShrink 1
+```powershell
+Set-HpcClusterProperty –EnableGrowShrink 1
+```
 
 **To disable the AutoGrowShrink property**
 
-    Set-HpcClusterProperty –EnableGrowShrink 0
+```powershell
+Set-HpcClusterProperty –EnableGrowShrink 0
+```
 
 **To change the grow interval in minutes**
 
-    Set-HpcClusterProperty –GrowInterval <interval>
+```powershell
+Set-HpcClusterProperty –GrowInterval <interval>
+```
 
 **To change the shrink interval in minutes**
 
-    Set-HpcClusterProperty –ShrinkInterval <interval>
+```powershell
+Set-HpcClusterProperty –ShrinkInterval <interval>
+```
 
 **To view the current configuration of AutoGrowShrink**
 
-    Get-HpcClusterProperty –AutoGrowShrink
+```powershell
+Get-HpcClusterProperty –AutoGrowShrink
+```
+
+**To exclude node groups from AutoGrowShrink**
+
+```powershell
+Set-HpcClusterProperty –ExcludeNodeGroups <group1,group2,group3>
+```
+
+>[!NOTE] `ExcludeNodeGroups is supported starting in HPC Pack 2016
+>
 
 ### AutoGrowShrink parameters
 The following are AutoGrowShrink parameters that you can modify by using the **Set-HpcClusterProperty** command.
@@ -94,7 +143,10 @@ The following are AutoGrowShrink parameters that you can modify by using the **S
   > [!NOTE]
   > This parameter is supported starting in HPC Pack 2012 R2 Update 3.
   > 
-  > 
+* **ExcludeNodeGroups** – Nodes in the specified node groups do not automatically grow and shrink. 
+ > [!NOTE]
+  > This parameter is supported starting in HPC Pack 2016.
+  >   
 
 ### MPI example
 By default HPC Pack grows 1% extra nodes for MPI jobs (**ExtraNodesGrowRatio** is set to 1). The reason is that MPI may require multiple nodes, and the job can only run when all nodes are ready. When Azure starts nodes, occasionally one node might need more time to start than others, causing other nodes to be idle while waiting for that node to get ready. By growing extra nodes, HPC Pack reduces this resource waiting time, and potentially saves costs. To increase the percentage of extra nodes for MPI jobs (for example, to 10%), run a command similar to
@@ -110,9 +162,21 @@ By default, **SoaJobGrowThreshold** is set to 50000 and **SoaRequestsPerCore** i
 * **Azure PowerShell 0.8.12** - The script currently depends on this specific version of Azure PowerShell. If you are running a later version on the head node, you might have to downgrade Azure PowerShell to [version 0.8.12](http://az412849.vo.msecnd.net/downloads03/azure-powershell.0.8.12.msi) to run the script. 
 * **For a cluster with Azure burst nodes** - Run the script on a client computer where HPC Pack is installed, or on the head node. If running on a client computer, ensure that you set the variable $env:CCP_SCHEDULER properly to point to the head node. The Azure “burst” nodes must already be added to the cluster, but they may be in the Not-Deployed state.
 * **For a cluster deployed in Azure VMs** - Run the script on the head node VM, because it depends on the **Start-HpcIaaSNode.ps1** and **Stop-HpcIaaSNode.ps1** scripts that are installed there. Those scripts additionally require an Azure management certificate or publish settings file (see [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md)). Make sure all the compute node VMs you need are already added to the cluster. They may be in the Stopped state.
+* **Service principal** (optional) - For a cluster of Azure VMs deployed in the Resource Manager deployment model, the script supports two methods for Azure authentication: sign in to your Azure account to run the script every time (by running `Login-AzureRmAccount`, or configure a service principal to authenticate with a certificate. HPC Pack provides the script **ConfigARMAutoGrowShrinkCert.ps** to create a service principal with certificate. The script creates an Azure Active Directory (Azure AD) application and a service principal, and assigns the Contributor role to the service principal. To run the script, start Azure PowerShell console as administrator and run the following commands:
+    ```powershell
+    cd $env:CCP_HOME\bin
+    Login-AzureRmAccount
+    .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -PfxFile "d:\yourcertificate.pfx"
+    ```
+    For more details about **ConfigARMAutoGrowShrinkCert.ps1**, run `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`,
+
+### Run AzureAutoGrowShrink.ps1 in Resource Manager model
+
+
+
 
 ### Syntax
-```
+```powershell
 AzureAutoGrowShrink.ps1
 [[-NodeTemplates] <String[]>] [[-JobTemplates] <String[]>] [[-NodeType] <String>]
 [[-NumOfQueuedJobsPerNodeToGrow] <Int32>]
@@ -150,11 +214,11 @@ The following example configures the Azure burst nodes deployed with the
 Default AzureNode Template to grow and shrink automatically. If all the
 nodes are initially in the **Not-Deployed** state, at least 3 nodes are
 started. If the number of queued jobs exceeds 8, the script starts nodes
-until their number exceeds the ratio of queued jobs to
+until their number exceeds the ratio of queued jobs to 
 **NumOfQueuedJobsPerNodeToGrow**. If a node is found to be idle in 3
 consecutive idle times, it is stopped.
 
-```
+```powershell
 .\AzureAutoGrowShrink.ps1 -NodeTemplates @('Default AzureNode
  Template') -NodeType AzureNodes -NumOfQueuedJobsPerNodeToGrow 5
  -NumOfQueuedJobsToGrowThreshold 8 -NumOfInitialNodesToGrow 3
@@ -171,6 +235,6 @@ least 5 nodes are started. If the number of active queued tasks exceeds
 active queued tasks to **NumOfActiveQueuedTasksPerNodeToGrow**. If a
 node is found to be idle in 10 consecutive idle times, it is stopped.
 
-```
+```powershell
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
