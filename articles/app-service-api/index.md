@@ -4,7 +4,7 @@ layout: LandingPage
 ---
 # App Service - API Apps Documentation
 
-Azure App Service is a cloud service that's designed to solve the practical problems that engineers face today. API apps in Azure App Service offer features that make it easier to develop, host, and consume APIs in the cloud and on-premises. With API apps you get enterprise grade security, simple access control, hybrid connectivity, automatic SDK generation, and seamless integration with Logic Apps. Azure App Service is a fully managed platform for web, mobile, and integration scenarios. API Apps is one of four app types offered by Azure App Service.
+Azure App Service is a cloud service that's designed to solve the practical problems that engineers face today. API apps in Azure App Service offer features that make it easier to develop, host, and consume APIs in the cloud and on-premises. With API apps, you get enterprise grade security, simple access control, hybrid connectivity, automatic SDK generation, and seamless integration with Logic Apps. Azure App Service is a fully managed platform for web, mobile, and integration scenarios. API Apps is one of four app types offered by Azure App Service.
 
 <ul class="panelContent cardsFTitle">
     <li>
