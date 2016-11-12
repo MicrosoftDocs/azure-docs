@@ -55,7 +55,7 @@ With Notification Hubs, you can easily send cross-platform, personalized push no
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started sending push notifications to Android with Azure Notification Hubs</h3>
+                        <h3>Get started sending push notifications to Android (FCM) with Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@ With Notification Hubs, you can easily send cross-platform, personalized push no
         </a>
     </li>
     <li>
-        <a href="notification-hubs-baidu-china-android-notifications-get-started">
+        <a href="/azure/notification-hubs/notification-hubs-baidu-china-android-notifications-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -81,7 +81,7 @@ With Notification Hubs, you can easily send cross-platform, personalized push no
         </a>
     </li>
     <li>
-        <a href="notification-hubs-chrome-push-notifications-get-started">
+        <a href="/azure/notification-hubs/notification-hubs-chrome-push-notifications-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
