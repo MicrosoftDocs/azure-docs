@@ -29,6 +29,7 @@ Learn how to access Advisor using the Azure portal, get recommendations, impleme
   ![Access Azure Advisor using the Azure portal](./media/advisor-overview/advisor-azure-portal-menu.png) 
 
 3. On the Advisor dashboard, select the subscription for which you’d like to receive recommendations. The Advisor dashboard displays personalized recommendations for a selected subscription. 
+
 > [!NOTE]
 > Azure Advisor generates recommendations for subscriptions where you are assigned the role of **Owner**, **Contributor**, or **Reader**.
 

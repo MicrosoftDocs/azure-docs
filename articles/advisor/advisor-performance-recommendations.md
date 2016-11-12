@@ -53,6 +53,7 @@ For more information about App Services recommendations, see [Best Practices for
 1. Sign in into the [Azure portal](https://portal.azure.com).
 2. In the left-navigation pane, click **More services**, in the service menu pane, scroll down to **Monitoring and Management**, and then click **Azure Advisor**. This launches the Advisor dashboard. 
 3. On the Advisor dashboard, click the **Performance** tab, and select the subscription for which you’d like to receive recommendations.
+
 > [!NOTE]
 > Advisor generates recommendations for subscriptions where you are assigned the role of **Owner, Contributor, or Reader**.
 

@@ -42,6 +42,7 @@ Advisor identifies SQL server instances that can benefit from creating elastic d
 1. Sign in into the [Azure portal](https://portal.azure.com).
 2. In the left-navigation pane, click **More services**, in the service menu pane, scroll down to **Monitoring and Management**, and then click **Azure Advisor**. This launches the Advisor dashboard. 
 3. On the Advisor dashboard, click the **Cost** tab, select the subscription for which you’d like to receive recommendations, and then click **Get recommendations**
+
 > [!NOTE]
 > Azure Advisor generates recommendations for subscriptions where you are assigned the role of **Owner**, **Contributor** or **Reader**.
 
