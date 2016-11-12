@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #Azure Functions Documentation
 
-Azure Functions is a solution for easily running small pieces of code, or "functions" in the cloud.  You can just write the code you need for the problem at hand, without worrying about a whole application of the infrastructure to run it.  You can also develop in the language of your choice, such as C#, F#, Node.js, Python or PHP.
+Azure Functions is a solution for easily running small pieces of code ("functions") in the cloud. You can write the code you need for the problem at hand, without worrying about a whole application of the infrastructure to run it. You can also develop in the language of your choice, such as C#, F#, Node.js, Python, or PHP.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -103,8 +103,15 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
 
 ##Reference
 
-###.NET
-[Azure Functions Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+### C&#35;
+[C# Developer Reference](/azure/azure-functions/functions-reference-csharp/)
+
+### F&#35;
+[F# Developer Reference](/azure/azure-functions/functions-reference-fsharp/)
+
+### Node.js
+[Node.js Developer Reference](/azure/azure-functions/functions-reference-node/)
+
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-functions.pdf">
