@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
 ---
-#Automation Documentation
+# Automation Documentation
 
 Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud and enterprise environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals.
 
@@ -118,10 +118,17 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
 
 ---
 
-##Reference
+## Reference
 
-###.NET
+### PowerShell
+[Automation PowerShell Cmdlets](https://msdn.microsoft.com/library/azure/dn690262)
+
+### .NET
 [Automation Managed Reference API](/dotnet/api)
+
+### REST
+[Automation Resource Manager REST API Reference](https://msdn.microsoft.com/en-us/library/azure/mt662285)
+[Automation Classic REST API Reference](https://msdn.microsoft.com/en-us/library/azure/mt163781)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">
