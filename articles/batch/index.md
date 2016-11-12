@@ -126,7 +126,7 @@ Azure Batch enables you to run large-scale parallel and high-performance computi
 
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
         <div class="img"></div>
         <div class="text">
             Download Azure Batch Documentation

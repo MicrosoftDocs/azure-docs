@@ -92,7 +92,7 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
 
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
         <div class="img"></div>
         <div class="text">
             Download Service Fabric Documentation

@@ -73,7 +73,7 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
 
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cdn.pdf">
         <div class="img"></div>
         <div class="text">
             Download Azure CDN Documentation

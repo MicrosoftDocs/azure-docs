@@ -118,7 +118,7 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
 [REST API Reference](https://msdn.microsoft.com/library/azure/mt684939.aspx)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-gateway.pdf">
         <div class="img"></div>
         <div class="text">
             Download Application Gateway Documentation

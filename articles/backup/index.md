@@ -109,7 +109,7 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
 [.NET Managed Reference](/dotnet/api)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
         <div class="img"></div>
         <div class="text">
             Download Azure Backup Documentation

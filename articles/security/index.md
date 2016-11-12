@@ -73,7 +73,7 @@ Security is a distributed systems platform that makes it easy to package, deploy
 [Security Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security.pdf">
         <div class="img"></div>
         <div class="text">
             Download Security Documentation
