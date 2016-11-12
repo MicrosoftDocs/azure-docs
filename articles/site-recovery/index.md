@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #Site Recovery Documentation
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication of on-premises virtual machines and physical servers.  You can replicate servers and VMs from your primary on-premises datacenter to Azure or to a secondary datacenter.  If an outage occurs in your primary site you fail over to the secondary site to keep workloads accessible and available.
+Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication of on-premises virtual machines and physical servers. You can replicate servers and VMs from your primary on-premises datacenter to Azure or to a secondary datacenter. If an outage occurs in your primary site, you fail over to the secondary site to keep workloads accessible and available.
 
 <ul class="panelContent cardsFTitle">
     <li>
