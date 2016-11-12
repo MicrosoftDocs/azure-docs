@@ -147,7 +147,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
 [Redis Cache Managed Reference API](/dotnet/api/) 
 
 ###Java 
-[Redis Cache PowerShell Cmdlet](/java/api/)
+[Azure Java SDK](/java/api/)
 
 ###REST 
 [Redis Cache REST API Reference](/rest/api/)  
