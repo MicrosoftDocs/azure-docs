@@ -202,6 +202,11 @@ Logically,
 
 Currently, this collection is queriable as **devices.jobs** in the IoT Hub query language.
 
+> [!IMPORTANT]
+> Currently, the jobs property is never returned when querying device twins (i.e. queries that contains 'FROM devices'). It can only be accessed directly with queries using `FROM devices.jobs`.
+>
+>
+
 For instance, to get all jobs (past and scheduled) that affect a single device, you can use the following query:
 
         SELECT * FROM devices.jobs
