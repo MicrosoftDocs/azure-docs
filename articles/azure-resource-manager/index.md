@@ -3,11 +3,11 @@ layout: LandingPage
 ---
 #Azure Resource Manager Documentation
 
-Azure Resource Manager enables you to repeatedly deploy your app and have confidence your resources are deployed in a consistent state. You define the infrastructure and dependencies for your app in a single declarative template.
+Azure Resource Manager enables you to repeatedly deploy your app and have confidence your resources are deployed in a consistent state. You define the infrastructure and dependencies for your app in a single declarative template. The infrastructure for your application is typically made up of many components – maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment. 
 
 <ul class="panelContent cardsFTitle">
 	<li>
-        <a href="/azure/Azure-Resource-Manager/">
+        <a href="/azure/Azure-Resource-Manager/resource-group-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,42 +43,6 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
         </a>
     </li>
 	<li>
-        <a href="/azure/resource-manager-export-template/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Export template</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-	<li>
-        <a href="/azure/resource-manager-export-template/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Export template</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
         <a href="/azure/resource-manager-template-walkthrough/">
         <div class="cardSize">
             <div class="cardPadding">
@@ -89,15 +53,15 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Template walkthrough</h3>
+                        <h3>Create an Azure Resource Manager Template</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/vs-azure-tools-resource-groups-deployment-projects-create-deploy/">
+	<li>
+        <a href="/azure/resource-group-define-dependencies/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -107,7 +71,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Visual Studio with Resource Manager</h3>
+                        <h3>Create dependencies in Azure Resource Manager templates</h3>
                     </div>
                 </div>
             </div>
@@ -115,7 +79,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
         </a>
     </li>
     <li>
-        <a href="/azure/resource-manager-vs-code/">
+        <a href="/azure/resource-group-create-multiple/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -125,7 +89,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Visual Studio Code with Resource Manager</h3>
+                        <h3>Create multiple instances of resources in Azure Resource Manager</h3>
                     </div>
                 </div>
             </div>
@@ -137,6 +101,12 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
 ---
 
 ##Reference
+
+###PowerShell
+[PowerShell cmdlets](/powershell/azureps-cmdlets-docs/)
+
+###Azure CLI
+[Azure CLI](/cli/azure)
 
 ###.NET
 [Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/)
@@ -153,6 +123,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
 ###Ruby
 [Manage Azure resources and resource groups with Ruby](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
+---
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-resource-manager.pdf">
         <div class="img"></div>

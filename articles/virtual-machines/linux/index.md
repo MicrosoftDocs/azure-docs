@@ -13,7 +13,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualmachine.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualmachine.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualmachine.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,7 +67,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualmachine.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -85,7 +85,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualmachine.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -103,7 +103,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualmachine.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -121,7 +121,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualmachine.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

@@ -8,7 +8,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="azure/monitoring-and-diagnostics/monitoring-overview">
+        <a href="/azure/monitoring-and-diagnostics/monitoring-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -26,7 +26,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
         </a>
     </li>    
     <li>
-        <a href="azure/monitoring-and-diagnostics/insights-alerts-portal">
+        <a href="/azure/monitoring-and-diagnostics/insights-alerts-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -44,7 +44,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
         </a>
     </li>
     <li>
-        <a href="azure/monitoring-and-diagnostics/insights-alerts-command-line-interface">
+        <a href="/azure/monitoring-and-diagnostics/insights-alerts-command-line-interface">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -62,7 +62,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
         </a>
     </li>
      <li>
-        <a href="azure/monitoring-and-diagnostics/insights-alerts-powershell">
+        <a href="/azure/monitoring-and-diagnostics/insights-alerts-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,7 +80,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
         </a>
     </li>
     <li>
-        <a href="azure/monitoring-and-diagnostics/monitoring-enable-alerts-using-template">
+        <a href="/azure/monitoring-and-diagnostics/monitoring-enable-alerts-using-template">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -104,16 +104,16 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
 ##Reference
 
 ###PowerShell
-[Monitoring and Diagnostics PowerShell Cmdlet](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx)
+[Monitoring and Diagnostics PowerShell Cmdlet](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41)
 
 ###Azure CLI
-[Monitoring and Diagnostics Azure CLI](../cli/azure.html)
+[Monitoring and Diagnostics Azure CLI](/cli/azure)
 
 ###.NET
 [Monitoring and Diagnostics Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
 
 ###REST
-[Monitoring and Diagnostics REST API Reference](../rest/api/monitor)
+[Monitoring and Diagnostics REST API Reference](/rest/api/monitor)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">

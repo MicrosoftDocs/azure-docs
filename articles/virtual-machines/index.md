@@ -14,7 +14,7 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualmachine.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -32,7 +32,7 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtualmachine.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
