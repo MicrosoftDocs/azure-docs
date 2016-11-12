@@ -23,7 +23,7 @@ layout: HubPage
                 </a>
             </li>
             <li>
-                <a href="http://aka.ms/azureitgetstarted/">
+                <a href="http://aka.ms/azuregetstarted/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -85,7 +85,7 @@ layout: HubPage
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines-scale-sets/">
+                                            <a href="/azure/virtual-machine-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
                                                 <p>Virtual Machine Scale Sets</p>
                                             </a>
@@ -670,7 +670,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines-scale-sets/">
+                                <a href="/azure/virtual-machine-scale-sets/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2232,14 +2232,14 @@ layout: HubPage
                 <ul id="developer">
                     <li>
                         <a href="#languages">Languages &amp; Frameworks</a>
-                        <ul id="languages" class="cardsB">
+                        <ul id="languages" class="cardsF">
                             <li>
                                 <div class="cardSize">
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-1.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2247,7 +2247,7 @@ layout: HubPage
                                                     <a href="https://azure.microsoft.com/en-us/downloads/">Get the .NET SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/net/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/rest/api">API reference</a>
@@ -2266,15 +2266,15 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-2.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-python">Get the Python SDK</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/python/">Get the Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-python-create-deploy-django-app/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/python/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
@@ -2293,7 +2293,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-3.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2301,7 +2301,7 @@ layout: HubPage
                                                     <a href="https://azure.microsoft.com/en-us/develop/nodejs/">Get the Nodejs SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/app-service-web-nodejs-get-started/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/nodejs">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">API reference</a>
@@ -2320,7 +2320,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-4.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2328,7 +2328,7 @@ layout: HubPage
                                                     <a href="http://go.microsoft.com/fwlink/?LinkId=690320">Get the Java SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-java-get-started/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/java/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/">API reference</a>
@@ -2347,7 +2347,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-5.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2374,7 +2374,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-6.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2382,7 +2382,7 @@ layout: HubPage
                                                     <a href="">Get started with REST</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/rest/api">API reference</a>
+                                                    <a href="/rest/api">Reference</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=rest">Get examples</a>
@@ -2396,33 +2396,27 @@ layout: HubPage
                     </li>
                     <li>
                         <a href="#cli">Command Line Interface (CLI)</a>
-                        <ul id="cli" class="cardsC">
+                        <ul id="cli" class="cardsF">
                             <li>
                                 <div class="cardSize">
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-7.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>Azure CLI 2.0 Preview
                                                 </h3>
                                                 <p>
-                                                    <a href="">Getting Started</a>
+                                                    <a href="https://docs.microsoft.com/cli/azure/get-started/">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="">Download Azure CLI 2.0 for Linux</a>
+                                                    <a href="https://github.com/Azure/azure-cli">Download Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
-                                                    <a href="">Download Azure CLI 2.0 for Mac</a>
-                                                </p>
-                                                <p>
-                                                    <a href="">Download Azure CLI 2.0 for Windows</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/cli/azure">API reference</a>
+                                                    <a href="/cli/azure">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2435,25 +2429,19 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-8.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>PowerShell</h3>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/tree/master/docs/learning-powershell">Getting Started</a>
+                                                    <a href="https://github.com/PowerShell/PowerShell/tree/master/docs/learning-powershell">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md">Download PowerShell for Linux</a>
+                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/">Download PowerShell</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md#os-x-1011">Download PowerShell for Mac</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md">Download PowerShell for Windows</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/powershell/">API reference</a>
+                                                    <a href="/powershell/">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2466,14 +2454,14 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-7.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>Azure CLI
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/">Getting Started - conceptual</a>
+                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://aka.ms/linux-azure-cli">Download Azure CLI for Linux</a>
@@ -2485,7 +2473,7 @@ layout: HubPage
                                                     <a href="http://aka.ms/webpi-azure-cli">Download Azure CLI for Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/azure-cli-arm-commands/">API reference</a>
+                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/azure-cli-arm-commands/">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2503,7 +2491,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-9.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2524,7 +2512,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-10.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2554,7 +2542,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-8.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2575,7 +2563,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-11.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2605,7 +2593,7 @@ layout: HubPage
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/placeholder.svg" alt="" />
+                                                    <img src="media/index/azure_dev-2.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -2647,13 +2635,12 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/placeholder.svg" alt="" />
+                                                        <img src="media/index/azure-arch-1.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Fundamentals</h3>
-                                                    <p>Fundamental knowledge to be successful in the cloud. If you’re new to
-                                                        the cloud or new to Azure, start here.</p>
+                                                    <p>Fundamental knowledge to be successful in the cloud. If you’re new to the cloud or new to Azure, start here.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2667,13 +2654,12 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/placeholder.svg" alt="" />
+                                                        <img src="media/index/azure-arch-2.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Reference Architectures</h3>
-                                                    <p>A set of recommended architectures for the cloud. Each architecture includes
-                                                        best practices, prescriptive steps, and a deployable solution.</p>
+                                                    <p>A set of recommended architectures for the cloud. Each architecture includes best practices, prescriptive steps, and a deployable solution.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2687,13 +2673,12 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/placeholder.svg" alt="" />
+                                                        <img src="media/index/azure-arch-3.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Design Patterns</h3>
-                                                    <p>Design patterns for the cloud. Each pattern describes a problem, a pattern
-                                                        that addresses the problem, and an example based on Azure.</p>
+                                                    <p>Design patterns for the cloud. Each pattern describes a problem, a pattern that addresses the problem, and an example based on Azure.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2707,7 +2692,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/placeholder.svg" alt="" />
+                                                        <img src="media/index/azure-arch-4.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2727,7 +2712,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/placeholder.svg" alt="" />
+                                                        <img src="media/index/azure-arch-5.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
