@@ -52,7 +52,7 @@ App Service on Azure Stack uses the same UI that Azure App Service uses, as is t
 - [Before you get started with App Service on Azure Stack](azure-stack-app-service-before-you-get-started.md)
 - [Install the App Service Resource Provider](azure-stack-app-service-deploy.md)
 
-You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sqlrp-deploy.md) and [MySQL resource provider](azure-stack-mysqlrp-deploy.md).
+You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sql-rp-deploy.md) and [MySQL resource provider](azure-stack-mysql-rp-deploy.md).
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-overview/AppService_Portal.png
