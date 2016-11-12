@@ -1,5 +1,5 @@
 ---
-title: Get Started with Azure Advisor | Microsoft Docs
+title: Get started with Azure Advisor | Microsoft Docs
 description: Get started with Azure Advisor.
 services: advisor
 documentationcenter: NA
@@ -29,8 +29,8 @@ Learn how to access Advisor using the Azure portal, get recommendations, impleme
   ![Access Azure Advisor using the Azure portal](./media/advisor-overview/advisor-azure-portal-menu.png) 
 
 3. On the Advisor dashboard, select the subscription for which you’d like to receive recommendations. The Advisor dashboard displays personalized recommendations for a selected subscription. 
-   > [!NOTE]
-   > Azure Advisor generates recommendations for subscriptions where you are assigned the role of **Owner**, **Contributor**, or **Reader**.
+> [!NOTE]
+> Azure Advisor generates recommendations for subscriptions where you are assigned the role of **Owner**, **Contributor**, or **Reader**.
 
 4. To get recommendations for a particular category, click on one of the categories.
  

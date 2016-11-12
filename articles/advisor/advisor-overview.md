@@ -67,8 +67,8 @@ To snooze or dismiss a recommendation, click the **Snooze** button or link. You 
 
 See these resources to learn more about Advisor recommendations:
 
--  [Get Started with Advisor](advisor-get-started.md)
--  [Advisor High Availability Recommendations](advisor-high-availability-recommendations.md)
--  [Advisor Security Recommendations](advisor-security-recommendations.md)
--  [Advisor Performance Recommendations](advisor-performance-recommendations.md)
--  [Advisor Cost Recommendations](advisor-performance-recommendations.md)
+-  [Get started with Advisor](advisor-get-started.md)
+-  [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
+-  [Advisor Security recommendations](advisor-security-recommendations.md)
+-  [Advisor Performance recommendations](advisor-performance-recommendations.md)
+-  [Advisor Cost recommendations](advisor-performance-recommendations.md)

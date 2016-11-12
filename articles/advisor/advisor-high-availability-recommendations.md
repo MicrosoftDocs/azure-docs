@@ -40,8 +40,6 @@ Advisor identifies availability sets containing a single virtual machine and rec
 
 ![](./media/advisor-high-availability-recommendations/advisor-high-availability-add-vm-to-availability-set.png)
 
-
-
 ## Virtual machines with Standard Disks
 
 Advisor identifies virtual machines with Standard Disks and recommends upgrading to Premium Disks.  
@@ -49,13 +47,13 @@ Azure Premium Storage delivers high-performance, low-latency disk support for vi
 
 ![](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png) 
 
-## How to access High Availability recommendations in Azure Advisor
+## How to access High Availability recommendations in Advisor
 
 1. Sign in into the [Azure portal](https://portal.azure.com).
 2. In the left-navigation pane, click **More services**, in the service menu pane, scroll down to **Monitoring and Management**, and then click **Azure Advisor**. This launches the Advisor dashboard. 
 3. On the Advisor dashboard, click the **High Availability** tab, and select the subscription for which you’d like to receive recommendations.
-   > [!NOTE]
-   > Advisor generates recommendations for subscriptions where you have been assigned the role of **Owner, Contributor, or Reader**.
+> [!NOTE]
+> Advisor generates recommendations for subscriptions where you have been assigned the role of **Owner, Contributor, or Reader**.
 
 ## Next steps
 
