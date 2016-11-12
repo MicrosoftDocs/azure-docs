@@ -5,7 +5,7 @@ layout: LandingPage
 
 Microsoft Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
-You can build end-to-end workflows using entirely Media Services. You can also choose to use third-party components for some parts of your workflow. For example, encode using a third-party encoder. Then, upload, protect, package, deliver using Media Services.
+You can build end-to-end workflows entirely using Media Services. You can also choose to use third-party components for some parts of your workflow. For example, you can encode using a third-party encoder and then upload, protect, package, and deliver using Media Services.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -27,7 +27,7 @@ You can build end-to-end workflows using entirely Media Services. You can also c
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=media-services">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=media-services">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
