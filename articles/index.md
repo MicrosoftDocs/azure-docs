@@ -1622,7 +1622,7 @@ layout: HubPage
                                     </div>
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="/azure/azure-advisor/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1640,7 +1640,7 @@ layout: HubPage
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="/azure/azure-resource-manager/">
                                     <div class="cardSize">
@@ -1967,12 +1967,12 @@ layout: HubPage
                                                 <p>PowerBI Embedded</p>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="/azure/analysis-services/">
                                                 <img src="media/index/AnalysisServices.svg" alt="" />
                                                 <p>Analysis Services</p>
                                             </a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </li>
@@ -2208,12 +2208,12 @@ layout: HubPage
                                                 <p>Billing</p>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="/azure/azure-advisor/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                 <p>Azure Advisor</p>
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />

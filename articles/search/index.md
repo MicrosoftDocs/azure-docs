@@ -13,7 +13,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/search.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,7 +67,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

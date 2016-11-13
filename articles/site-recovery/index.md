@@ -13,7 +13,7 @@ Azure Site Recovery contributes to your business continuity and disaster recover
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/siterecovery.svg" alt="" />
+                            <img src="media/index/site-recovery.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Azure Site Recovery contributes to your business continuity and disaster recover
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/siterecovery.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

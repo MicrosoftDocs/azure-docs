@@ -13,7 +13,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/app-service-web.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,7 +67,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -85,7 +85,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -103,7 +103,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -121,7 +121,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/nodejs.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -139,7 +139,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/python.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -157,7 +157,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/java.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -175,7 +175,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -193,11 +193,11 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create, configure adn deploy a PHP web app to Azure</h3>
+                        <h3>Create, configure and deploy a PHP web app to Azure</h3>
                     </div>
                 </div>
             </div>

@@ -3,17 +3,17 @@ layout: LandingPage
 ---
 #Batch Documentation
 
-Azure Batch enables you to run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud.  With the Batch service you define Azure compute resources to execute your applications in parallel, and at scale.  You can run on-demand or scheduled jobs without worrying about manually creating or managing the infrastructure.
+Azure Batch lets you run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. With the Batch service, you define Azure compute resources to execute your applications in parallel and at scale. You can run on-demand or scheduled jobs without worrying about manually creating or managing the infrastructure.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/batch/batch-technical overview">
+        <a href="/azure/batch/batch-technical-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/azuredefaultblack.svg" alt="" />
+                            <img src="media/index/batch.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Azure Batch enables you to run large-scale parallel and high-performance computi
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/guide.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,7 +67,7 @@ Azure Batch enables you to run large-scale parallel and high-performance computi
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/devconsole.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -85,7 +85,7 @@ Azure Batch enables you to run large-scale parallel and high-performance computi
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/devconsole.svg" alt="" />
+                            <img src="media/index/python.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -110,7 +110,7 @@ Azure Batch enables you to run large-scale parallel and high-performance computi
 
 
 ###.NET
-[Batch Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+[Batch Managed Reference](https://msdn.microsoft.com/library/azure/mt348682)
 
 ###Java
 [Java SDK Reference](/java/api)

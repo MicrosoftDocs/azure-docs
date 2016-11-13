@@ -13,7 +13,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/documentdb.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,11 +49,11 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>BGet started with Azure DocumentDB</h3>
+                        <h3>Get started with Azure DocumentDB</h3>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/article.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -85,7 +85,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/article.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -103,7 +103,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/article.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -121,7 +121,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/article.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -139,7 +139,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/article.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -157,7 +157,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/article.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
