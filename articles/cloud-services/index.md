@@ -3,11 +3,11 @@ layout: LandingPage
 ---
 #Cloud Services Documentation
 
-Cloud Services is an example of a Platform-as-Service (PaaS) implementation.  It is designed to support applications that are scalable, reliable and cost-effective to operate.  With Cloud Services you have the benefit of virtualization but control over the virtual machine to configure, patch, and install software.  
+Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. It is designed to support applications that are scalable, reliable, and cost-effective to operate. With Cloud Services, you have the benefit of virtualization, but you also have control over the virtual machine to configure, patch, and install software.  
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https:/azure/cloud-services-cloud-services-model-and-package">
+        <a href="https:/azure/cloud-services/cloud-services-choose-me">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
