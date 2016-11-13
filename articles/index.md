@@ -11,7 +11,7 @@ layout: HubPage
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted-developer.svg" src="media/index/getstarted-developer.png" alt="" />
+                                        <img data-hoverimage="media/index/getstarted-developer.svg" src="media/index/getstarted-developer.svg" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -29,7 +29,7 @@ layout: HubPage
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.png" alt="" />
+                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.svg" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
