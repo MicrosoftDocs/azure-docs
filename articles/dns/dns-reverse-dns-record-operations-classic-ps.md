@@ -16,17 +16,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2016
 ms.author: smalone
-
 ---
+
 # How to manage reverse DNS records for your Azure services (classic) using Azure PowerShell
 
 [!INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
 
 [!INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Learn how to [perform these steps using the Resource Manager model](dns-reverse-dns-record-operations-ps.md).
+> [!IMPORTANT]
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](dns-reverse-dns-record-operations-ps.md).
 
 ## Validation of reverse DNS records
 
@@ -41,35 +40,34 @@ Validation checks are only performed when the reverse DNS property for a Cloud S
 
 You can add a reverse DNS record to an existing Cloud Service using the "Set-AzureService" cmdlet:
 
-    ```powershell
+```powershell
     Set-AzureService -ServiceName "contosoapp1" -Description "App1 with Reverse DNS" -ReverseDnsFqdn "contosoapp1.cloudapp.net."
-    ```
+```
 
 ## Create a Cloud Service with reverse DNS
 
 You can add a new Cloud Service with the reverse DNS property specified using the "Set-AzureService" cmdlet:
 
-    ```powershell
+```powershell
     New-AzureService -ServiceName "contosoapp1" -Location "West US" -Description "App1 with Reverse DNS" -ReverseDnsFqdn "contosoapp1.cloudapp.net."
-    ```
+```
 
 ## View reverse DNS for existing Cloud Services
 
 You can view the configured value for an existing Cloud Service using the "Get-AzureService" cmdlet:
 
-    ```powershell
+```powershell
     Get-AzureService "contosoapp1"
-    ```
+```
 
 ## Remove reverse DNS from existing Cloud Services
 
 You can remove a reverse DNS property from an existing Cloud Service using the "Set-AzureService" cmdlet. This is done by setting the reverse DNS property value to blank:
 
-    ```powershell
+```powershell
     Set-AzureService -ServiceName "contosoapp1" -Description "App1 with Reverse DNS" -ReverseDnsFqdn ""
-    ```
+```
 
 [!INCLUDE [FAQ1](../../includes/dns-reverse-dns-record-operations-faq-host-own-arpa-zone-include.md)]
 
 [!INCLUDE [FAQ2](../../includes/dns-reverse-dns-record-operations-faq-asm-include.md)]
-
