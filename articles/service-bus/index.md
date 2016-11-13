@@ -53,7 +53,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a namespace</h3>
+                        <h3>Get Started with Service Bus using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Service Bus queues</h3>
+                        <h3>Get started with Service Bus queues using .NET</h3>
                     </div>
                 </div>
             </div>
@@ -193,10 +193,10 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
 ## Reference
 
 ### PowerShell
-[PowerShell Resource Manager Cmdlets](/powershell/resourcemanager)
+[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
 ### .NET
-[Service Bus Managed Reference API](/dotnet/api/) 
+[.NET Managed Reference API](/dotnet/api/) 
 
 ### REST 
 [Service Bus REST API Reference](/rest/api/servicebus)  

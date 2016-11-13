@@ -53,7 +53,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with the Event Hubs programming guide</h3>
+                        <h3>Get Started with the Event Hubs programming guide</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Event Hub</h3>
+                        <h3>Get Started with Event Hubs using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
 ##Reference
 
 ###.NET
-[Event Hubs Managed Reference](/dotnet/api)
+[.NET Managed Reference](/dotnet/api)
 
 ###AMQP 
 [AMQP 1.0 protocol guide](/azure/service-bus-messaging/service-bus-amqp-protocol-guide)
