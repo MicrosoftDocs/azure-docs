@@ -55,7 +55,7 @@ Based on no of VMs you want to protect, you can start from different start point
 4. This will open Enable Backup blade. This blade expects two inputs : Recovery Services vault - an Azure Backup resource which is used to stor backups of the VMs; A backup Policy - Backup policy specifies schedule of the backups and how long to retain backup copies. This blade comes with default options. You can customize them as per backup requirements. 
 ![Enable Backup Wizard](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-5. For Recovery Services vault, you can select an existing vault or create a new Vault. If you are creating a new vault, it will get created in the same Resource Group as virtual machine and location will be same as virtual machine. If you want to create a Recovery Services vault with different values, [create a recovery services vault](create-a-recovery-services-vault-for-a-vm) before clicking on Backup option in Step#3 and select that in this blade. 
+5. For Recovery Services vault, you can select an existing vault or create a new Vault. If you are creating a new vault, it will get created in the same Resource Group as virtual machine and location will be same as virtual machine. If you want to create a Recovery Services vault with different values, [create a recovery services vault](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) before clicking on Backup option in Step#3 and select that in this blade. 
 
 6. On the Backup policy blade, select the backup policy you want to apply to the vault and click **OK**.
     ![Select backup policy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
