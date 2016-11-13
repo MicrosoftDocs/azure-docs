@@ -104,7 +104,8 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
 7. Save the file. Then in the portal, click **Manage Manifest** > **Upload Manifest**. You can then upload the edited manifest.
 8. Click **Users**, select a user, and then click **Assign**. Assign one of the available roles (HpcUsers or HpcAdminMirror) to the user. Repeat this step with additional users in the directory. For background information about cluster users, see [Managing Cluster Users](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
 
-   > [!NOTE] To manage users, we recommend using the Azure Active Directory preview blade in the [Azure portal](https://portal.azure.com).
+   > [!NOTE] 
+   > To manage users, we recommend using the Azure Active Directory preview blade in the [Azure portal](https://portal.azure.com).
    >
 
 
