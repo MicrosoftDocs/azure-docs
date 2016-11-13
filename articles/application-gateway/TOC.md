@@ -46,12 +46,12 @@
 ## [Classic REST](https://msdn.microsoft.com/library/azure/mt299393)
 
 # Related
-## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)
-## [Virtual network](https://azure.microsoft.com/documentation/services/virtual-network/)
-## [VPN gateway](https://azure.microsoft.com/documentation/services/vpn-gateway/)
-## [Virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-## [Load balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-## [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+## [ExpressRoute](/azure/expressroute/)
+## [Virtual network](/azure/virtual-network/)
+## [VPN gateway](/azure/vpn-gateway/)
+## [Virtual machines](/azure/virtual-machines/)
+## [Load balancer](/azure/load-balancer/)
+## [Traffic Manager](/azure/traffic-manager/)
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
