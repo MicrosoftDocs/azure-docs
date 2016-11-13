@@ -114,7 +114,7 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
 ###REST
 [SQL Database REST API Reference](/rest/api/sql)
 
-#T-SQL
+###T-SQL
 [T-SQL Reference](https://msdn.microsoft.com/library/azure/bb510741)
 
 
