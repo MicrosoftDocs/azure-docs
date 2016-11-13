@@ -85,13 +85,16 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
 
 ## Reference
 
-### PowerShell
+###PowerShell
 [Azure PowerShell Reference](/powershell/)
+
+###Azure CLI
+[Azure Active Directory Using Azure CLI](/cli/azure/ad)
 
 ###.NET
 [Azure Active Directory .NET Reference](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
 
-### Java
+###Java
 [Azure Java API Reference](/java/api/)
 
 
