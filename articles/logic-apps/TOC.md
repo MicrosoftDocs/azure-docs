@@ -79,3 +79,10 @@
 ## 2014 schema (before GA)
 ### [Azure Resource connector](../app-service-logic/app-service-logic-connector-azure-resource.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [File connector](../app-service-logic/app-service-logic-connector-file.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+
+# Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)  
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)
+## [Service updates](https://azure.microsoft.com/updates/?product=logic-apps) 
+
