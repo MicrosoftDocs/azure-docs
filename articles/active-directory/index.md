@@ -2,7 +2,7 @@
 layout: LandingPage
 ---
 
-# Active Directory Documentation
+# Azure Active Directory Documentation
 
 Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service.  Azure AD offers identity and access capabilities for applications running in Azure as well as on Premises.  
 
