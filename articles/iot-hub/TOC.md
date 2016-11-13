@@ -98,7 +98,12 @@
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub) 
+## [Service updates](https://azure.microsoft.com/updates/?product=iot-hub) 
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)
-## [Pricing information](https://azure.microsoft.com/pricing/details/iot-hub/)
+

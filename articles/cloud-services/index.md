@@ -3,17 +3,17 @@ layout: LandingPage
 ---
 #Cloud Services Documentation
 
-Cloud Services is an example of a Platform-as-Service (PaaS) implementation.  It is designed to support applications that are scalable, reliable and cost-effective to operate.  With Cloud Services you have the benefit of virtualization but control over the virtual machine to configure, patch, and install software.  
+Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. It is designed to support applications that are scalable, reliable, and cost-effective to operate. With Cloud Services, you have the benefit of virtualization, but you also have control over the virtual machine to configure, patch, and install software.  
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https:/azure/cloud-services-cloud-services-model-and-package">
+        <a href="https:/azure/cloud-services/cloud-services-choose-me">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/cloud-services.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Cloud Services is an example of a Platform-as-Service (PaaS) implementation.  It
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ Cloud Services is an example of a Platform-as-Service (PaaS) implementation.  It
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,7 +67,7 @@ Cloud Services is an example of a Platform-as-Service (PaaS) implementation.  It
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/python.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -92,7 +92,7 @@ Cloud Services is an example of a Platform-as-Service (PaaS) implementation.  It
 [Cloud Services Configuration Schema](https://msdn.microsoft.com/en-us/library/azure/ee758710.aspx)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cloud-services.pdf">
         <div class="img"></div>
         <div class="text">
             Download Cloud Services Documentation

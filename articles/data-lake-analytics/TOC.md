@@ -37,12 +37,13 @@
 ### [Use Vertex Execution View](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [Java](https://docs.microsoft.com/java/api)
+
+## [PowerShell](/powershell/resourcemanager/)
+## [Java](/java/api/)
 ## [.NET](https://docs.microsoft.com/dotnet/api)
-## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959(Azure.100).aspx)
+## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959(Azure.100))
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
-## [REST](https://docs.microsoft.com/rest/api/datalakeanalytics/)
+## [REST](/rest/api/datalakeanalytics/)
 
 # Resources
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataLake)
