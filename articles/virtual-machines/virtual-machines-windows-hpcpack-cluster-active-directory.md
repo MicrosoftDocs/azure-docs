@@ -6,9 +6,9 @@ documentationcenter: ''
 author: dlepow
 manager: timlt
 editor: ''
-tags: azure-resource-manager,azure-service-management,hpc-pack
+tags: azure-resource-manager,hpc-pack
 
-ms.assetid: 78f6833c-4aa6-4b3e-be71-97201abb4721
+ms.assetid: 9edf9559-db02-438b-8268-a6cba7b5c8b7
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -39,7 +39,7 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
 * Remove the traditional Active Directory domain controller from the HPC Pack cluster. This can help reduce the costs of maintaining the cluster if this is not necessary for your business, as well as speed up the deployment process.
 * Leverage the following benefits that are brought by Azure AD:
     *   Single sign-on  
-    *   Using a local AD identity for the HPC Pack cluster in Azure.  
+    *   Using a local AD identity for the HPC Pack cluster in Azure  
 
     ![Azure Active Directory environment](./media/virtual-machines-windows-hpcpack-cluster-active-directory/aad.png)
 
@@ -50,17 +50,19 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
   complete the steps in this article.
 
   > [!NOTE] Azure Active Directory integration is not supported in versions of HPC Pack before HPC Pack 2016.
+  >
 
     
 
 * **Client computer** - You need a Windows or Windows Server client computer to  run HPC Pack client utilities. If you only want to use the HPC Pack web portal or REST API to submit jobs, you can use any client computer of your choice.
-* **HPC Pack installation media** - To install the HPC Pack client utilities, the free installation package for the HPC Pack 2016 is available from the Microsoft Download Center. Make sure that you download the same version of HPC Pack that is installed on the head node VM.
+
+* **HPC Pack client utilities** - Install the HPC Pack client utilities on the client computer, using the free installation package available from the Microsoft Download Center.
 
 
 ## Step 1: Register the HPC cluster server with your Azure AD tenant 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
-2. Click **Active Directory** in the left menu, and then click on the desired directory in your subscription. You must have permission to access resources in the directory.  
-3. Click **Users** and make sure there are user accounts already created or configured.  
+2. Click **Active Directory** in the left menu, and then click the desired directory in your subscription. You must have permission to access resources in the directory.  
+3. Click **Users**, and make sure there are user accounts already created or configured.  
 4. Click **Applications** > **Add**, and then click **Add an application my organization is developing**. Enter the following information in the wizard:
     * **Name** - HPCPackClusterServer
     * **Type** - Select **Web Application and/or Web API**
@@ -100,20 +102,22 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
   ],
 ```
 
-7. Save the file. Then click **Manage Manifest** > **Upload Manifest** in the portal. You can then upload the edited manifest.
+7. Save the file. Then in the portal, click **Manage Manifest** > **Upload Manifest**. You can then upload the edited manifest.
 8. Click **Users**, select a user, and then click **Assign**. Assign one of the available roles (HpcUsers or HpcAdminMirror) to the user. Repeat this step with additional users in the directory. For background information about cluster users, see [Managing Cluster Users](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
-    >[!NOTE]To manage users, we recommend using the Azure Active Directory preview blade in the [Azure portal](https://portal.azure.com).
+    
+   > [!NOTE] To manage users, we recommend using the Azure Active Directory preview blade in the [Azure portal](https://portal.azure.com).
+   >
 
 
 ## Step 2: Register the HPC cluster client with your Azure AD tenant 
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com). 
-2. Click **Active Directory** in the left menu, and then click on the desired directory in your subscription. You must have permission to access resources in the directory.  
+2. Click **Active Directory** in the left menu, and then click the desired directory in your subscription. You must have permission to access resources in the directory.  
 3. Click **Applications** > **Add**, and then click **Add an application my organization is developing**. Enter the following information in the wizard:
 
     * **Name** - HPCPackClusterClient
     * **Type** - Select **Native Client Apllication**
-    * **Redirect URI**- `http://hpcclient`
+    * **Redirect URI** - `http://hpcclient`
 
 4. After the app is added, click **Configure**. Copy the **Client ID** value and save it. You need this later when configuring your application. 
 
@@ -128,7 +132,7 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
 
 2. Start HPC PowerShell.
 
-3. Run the following commands:
+3. Run the following command:
 
     ```powershell
 
@@ -141,7 +145,7 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
      
 4. Restart the HpcSchedulerStateful service.
 
-    You can use the following PowerShell commands on the head node to switch the primary replica for the HpcSchedulerStateful service:
+    In a cluster with multiple head nodes, you can run the following PowerShell commands on the head node to switch the primary replica for the HpcSchedulerStateful service:
 
     ```powershell 
     Connect-ServiceFabricCluster
@@ -156,9 +160,9 @@ To install the HPC Pack client utilities on your computer, download the
 HPC Pack 2016 setup files (full installation) from the Microsoft Download
 Center. When you begin the installation, choose the setup option for the **HPC Pack client utilities**.
 
-You also need to install the certificate used during [HPC cluster setup](virtual-machines-windows-hpcpack-2016-cluster.md) on the client computer. Use standard Windows certificate management procedures to install the public certificate to the **Certificates – Current user** > **Trusted Root Certification Authorities** store.  
+To prepare the client computer, install the certificate used during [HPC cluster setup](virtual-machines-windows-hpcpack-2016-cluster.md) on the client computer. Use standard Windows certificate management procedures to install the public certificate to the **Certificates – Current user** > **Trusted Root Certification Authorities** store.  
 
-You can now run the HPC Pack commands or use the HPC Pack Job manager GUI to submit and manage cluster jobs by using AAD account. For job submission options, see [Submit HPC jobs fto an HPC Pack cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md/#step-3-run-test-jobs-on-the-cluster).
+You can now run the HPC Pack commands or use the HPC Pack Job manager GUI to submit and manage cluster jobs by using the Azure AD account. For job submission options, see [Submit HPC jobs fto an HPC Pack cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md/#step-3-run-test-jobs-on-the-cluster).
 
 > [!NOTE] When you try to connect to the HPC Pack cluster in Azure for the first time, a popup windows appears. Enter your Azure AD credentials to log in. The token is then cached. Later connections to the cluster in Azure use the cached token unless authentication changes or the cached is cleared.
 >
@@ -173,10 +177,11 @@ Get-HpcJob –State All –Scheduler https://<Azure load balancer DNS name> -Own
 
 ### Manage the local token cache
 
-HPC Pack 2016 provides two new HPC PowerShell cmdlets to manage the local token cache. These cmdlets useful for non-interactive submit jobs. See the following example:
+HPC Pack 2016 provides two new HPC PowerShell cmdlets to manage the local token cache. These cmdlets are useful for submitting jobs non-interactively. See the following example:
 
 ```powershell 
-Remove-HpcTokenCache 
+Remove-HpcTokenCache
+
 $SecurePassword = "<password>" | ConvertTo-SecureString -AsPlainText -Force 
 
 Set-HpcTokenCache -UserName <AADUsername> -Password $SecurePassword -scheduler https://<Azure load balancer DNS name>  
@@ -197,7 +202,7 @@ Set-HpcTokenCache -UserName <AADUsername> -Password $SecurePassword -scheduler h
     Set-HpcJobCredential -Credential $mycreds -Scheduler https://<Azure load balancer DNS name> 
     ```
 
-2. Then submit the job as follows. The job/task run under $localUser on the compute nodes.
+2. Then submit the job as follows. The job/task runs under $localUser on the compute nodes.
 
     ```powershell
     $emptycreds = New-Object System.Management.Automation.PSCredential ($localUser, (new-object System.Security.SecureString)) 
@@ -207,5 +212,7 @@ Set-HpcTokenCache -UserName <AADUsername> -Password $SecurePassword -scheduler h
     Add-HpcTask -Job $job -CommandLine "ping localhost" -Scheduler https://<Azure load balancer DNS name> 
 
     Submit-HpcJob -Job $job -Scheduler https://<Azure load balancer DNS name> -Credential $emptycreds 
-If `–Credential` is not specified with `Submit-HpcJob`, the job/task runs under a local mapped user as Azure AD account. (The HPC cluster creates a local user with the same name as the Azure AD account to run the task.) 
+    ```
+
+    If `–Credential` is not specified with `Submit-HpcJob`, the job/task runs under a local mapped user as Azure AD account. (The HPC cluster creates a local user with the same name as the Azure AD account to run the task.) 
 
