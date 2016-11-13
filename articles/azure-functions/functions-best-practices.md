@@ -23,14 +23,14 @@ ms.author: wesmc
 
 ##Overview
 
-This article provides a collection of best practices for you to consider when implementing function apps. 
+This article provides a collection of best practices for you to consider when implementing function apps. Keep in mind that you Azure Function App is an Azure App Service. So those best practices would apply.  
 
 
-## Avoid long running functions
+## Avoid large long running functions
 
 Large long running functions can cause unexpected timeout issues. A function can be large because of many Node.js dependencies. Importing these dependencies can cause increased load times resulting in unexpected timeouts. Node.js dependencies could be explicitly loaded by multiple `require()` statements in your code. They could also be implicit based on a single module loaded by your code that has it's own internal dependencies.  
 
-Whenever possible refactor large functions into small function sets that work together. For example a webhook or HTTP trigger function might receive a large payload and pass that payload to a queue trigger function.
+Whenever possible refactor large functions into smaller function sets that work together and return fast responses. For example a webhook or HTTP trigger function might require an acknowledgment response within a certain time limit. You can pass the HTTP trigger payload into a queue to be processed by a queue trigger function. This allows you to defer the actual work and return an immediate response.
 
 
 ## Cross function communication.
@@ -70,7 +70,9 @@ If a queue item was already processed, allow your function to be a no-op.
 
 ## Don't mix test and production code in the same function app.
 
-Functions within a function app share resources. If you're using a function app in production, don't add test related functions and resources to it. It can cause unexpected overhead during production code execution.
+Functions within a function app share resources. For example, memory is shared. If you're using a function app in production, don't add test related functions and resources to it. It can cause unexpected overhead during production code execution.
+
+Be careful what you load in your production function apps. Memory is averaged across each function in the app.
 
 If you have a shared assembly referenced in multiple .Net functions, put it in a common shared folder. Reference the assembly with a statement similar to the following example: 
 
@@ -82,9 +84,9 @@ Don't use verbose logging in production code. It has a negative performance impa
 
 
 
-## Avoid references to the Task.Result property
+## Use async code but avoid the Task.Result property
 
-If you are using asynchronous C# code, avoid referencing the `Task.Result` property. This approach essentially does a busy-wait on a lock of another thread. Holding a lock creates the potential for deadlocks.
+Asynchronous programming is a recommended best practice. However, always avoid referencing the `Task.Result` property. This approach essentially does a busy-wait on a lock of another thread. Holding a lock creates the potential for deadlocks.
 
 
 
