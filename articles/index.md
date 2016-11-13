@@ -1214,7 +1214,7 @@ layout: HubPage
                         <a href="#security">Security + Identity</a>
                         <ul id="security" class="cardsA">
                             <li>
-                                <a href="/azure/security/-center">
+                                <a href="/azure/security-center">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1271,7 +1271,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/active-directory/-b2c">
+                                <a href="/azure/active-directory-b2c">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1290,7 +1290,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/active-directory/-domain-services">
+                                <a href="/azure/active-directory-domain-services">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1585,7 +1585,7 @@ layout: HubPage
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-monitor/">
+                                <a href="/azure/monitoring-and-diagnostics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1950,7 +1950,7 @@ layout: HubPage
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-lake-analytics/">
+                                            <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Store</p>
                                             </a>
@@ -2070,7 +2070,7 @@ layout: HubPage
                                     </h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/security/-center">
+                                            <a href="/azure/security-center">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Security Center</p>
                                             </a>
@@ -2088,13 +2088,13 @@ layout: HubPage
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/active-directory/-b2c">
+                                            <a href="/azure/active-directory-b2c">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Azure Active Directory B2C</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/active-directory/-domain-services">
+                                            <a href="/azure/active-directory-domain-services">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Azure Active Directory Domain Services</p>
                                             </a>
@@ -2197,7 +2197,7 @@ layout: HubPage
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-monitor/">
+                                            <a href="/azure/monitoring-and-diagnostics/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
                                                 <p>Azure Monitor</p>
                                             </a>
