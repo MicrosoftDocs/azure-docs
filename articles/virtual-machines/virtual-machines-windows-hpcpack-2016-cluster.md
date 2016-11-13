@@ -1,6 +1,6 @@
 ﻿---
 title: HPC Pack 2016 cluster in Azure | Microsoft Docs
-description: Learn how to deploy an HPC Pack 2016 cluster in Azure 
+description: Learn how to deploy an HPC Pack 2016 cluster in Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
@@ -19,7 +19,7 @@ ms.date: 11/14/2016
 ms.author: danlep
 
 ---
-# Deploy an HPC Pack 2016 cluster in Azure 
+# Deploy an HPC Pack 2016 cluster in Azure
 
 Follow the steps in this article to deploy a [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) cluster in Azure virtual machines. HPC Pack is Microsoft's free HPC solution built on Microsoft Azure and Windows Server technologies and supports a wide range of HPC workloads.
 
@@ -29,13 +29,13 @@ Use one of the [Azure Resource Manager templates](https://github.com/MsHpcPack/H
 
 ### PFX certificate
 
-A Microsoft HPC Pack 2016 cluster requires a Personal Information Exchange (PFX) certificate to secure the communication between the HPC nodes. The certificate must meet the following requirements: 
+A Microsoft HPC Pack 2016 cluster requires a Personal Information Exchange (PFX) certificate to secure the communication between the HPC nodes. The certificate must meet the following requirements:
 
 * It must have a private key capable of key exchange
 * Key usage includes Digital Signature and Key Encipherment
-* Enhanced key usage includes Client Authentication and Server Authentication 
+* Enhanced key usage includes Client Authentication and Server Authentication
 
-Before deploying the HPC cluster, upload the certificate to an [Azure key vault](../key-vault/) as a secret, and record the following information for use during the deployment: **Vault name**, **Vault resource group**, **Certificate URL**, and **Certificate thumbprint**. 
+Before deploying the HPC cluster, upload the certificate to an [Azure key vault](../key-vault/) as a secret, and record the following information for use during the deployment: **Vault name**, **Vault resource group**, **Certificate URL**, and **Certificate thumbprint**.
 
 A sample PowerShell script to upload the certificate follows. For more information about uploading a certificate to an Azure key vault, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md).
 
@@ -82,7 +82,7 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 "Vault Name             :   $VaultName"
 "Vault Resource Group   :   $VaultRG"
 "Certificate URL        :   $($hpcSecret.Id)"
-"Certificate Thumbprint :   $thumbprint" 
+"Certificate Thumbprint :   $thumbprint"
 
 ```
 
@@ -91,7 +91,7 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 
 Choose one of the [Azure Resource Manager templates](https://github.com/MsHpcPack/HPCPack2016) to deploy the HPC Pack 2016 cluster. Following are high-level architectures of three supported cluster topologies. High-availability topologies include multiple cluster head nodes.
 
-1. High-availability cluster with Active Directory domain 
+1. High-availability cluster with Active Directory domain
 
     ![HA cluster in AD domain](./media/virtual-machines-windows-hpcpack-2016-cluster/haad.png)
 
@@ -116,12 +116,12 @@ The **Subscription** and the **Location** must be same that you specified when y
 
 ### Step 2: Specify the parameter settings
 
-Enter or modify values for the template parameters. Click the icon next to each parameter for help information. Also see the guidance for [available VM sizes](virtual-machines-windows-sizes.md). 
+Enter or modify values for the template parameters. Click the icon next to each parameter for help information. Also see the guidance for [available VM sizes](virtual-machines-windows-sizes.md).
 
 Specify the values you recorded in the Prerequisites for the following parameters: **Vault name**, **Vault resource group**, **Certificate URL**, and **Certificate thumbprint**.
 
 ###Step 3. Review legal terms and create
-Click **Review legal terms** to review the terms. If you agree, click **Purchase**, and then click **Create** to start the deployment. 
+Click **Review legal terms** to review the terms. If you agree, click **Purchase**, and then click **Create** to start the deployment.
 
 ## Connect to the cluster
 1. After the HPC Pack cluster is deployed, go to the [Azure portal](https://portal.azure.com). Click **Resource groups**, and find the resource group in which the cluster was deployed. You can find the head node virtual machines.
@@ -132,7 +132,7 @@ Click **Review legal terms** to review the terms. If you agree, click **Purchase
 
     ![Cluster connection settings](./media/virtual-machines-windows-hpcpack-2016-cluster/clusterconnect.png)
 
-3. Click **Connect** to log on to any of the head nodes using Remote Desktop with your specified administrator user name. If the cluster you deployed is in an Active Directory Domain, the user name is of the form <privateDomainName>\<adminUsername> (for example, hpc.local\hpcadmin). 
+3. Click **Connect** to log on to any of the head nodes using Remote Desktop with your specified administrator user name. If the cluster you deployed is in an Active Directory Domain, the user name is of the form <privateDomainName>\<adminUsername> (for example, hpc.local\hpcadmin).
 
 ## Next steps
 * Submit jobs to your cluster. See [Submit jobs to HPC an HPC Pack cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md) and [Manage an HPC Pack 2016 cluster in Azure using Azure Active Directory](virtual-machines-windows-hpcpack-cluster-active-directory.md).
