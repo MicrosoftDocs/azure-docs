@@ -3,12 +3,12 @@ layout: LandingPage
 ---
 # Media Services Documentation
 
-Microsoft Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
+Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
 You can build end-to-end workflows entirely using Media Services. You can also choose to use third-party components for some parts of your workflow. For example, you can encode using a third-party encoder and then upload, protect, package, and deliver using Media Services.
 
 <ul class="panelContent cardsFTitle">
-    <li>
+     <li>
         <a href="/azure/media-services/media-services-overview">
         <div class="cardSize">
             <div class="cardPadding">
@@ -19,7 +19,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Media Services</h3>
+                        <h3>Learn about Media Services</h3>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Azure Media Services account using the Azure Portal</h3>
+                        <h3>Get Started with Azure Media Services using the Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,8 @@ You can build end-to-end workflows entirely using Media Services. You can also c
             </div>
         </div>
         </a>
-    </li><li>
+    </li>
+    <li>
         <a href="/azure/media-services/media-services-portal-vod-get-started">
         <div class="cardSize">
             <div class="cardPadding">
@@ -90,7 +91,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with delivering content on demand using the Azure Portal</h3>
+                        <h3>Get started delivering content using the Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +108,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with delivering content on demand using .NET SDK</h3>
+                        <h3>Get started delivering content on demand using .NET</h3>
                     </div>
                 </div>
             </div>
@@ -125,7 +126,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with delivering content on demand using Java</h3>
+                        <h3>Get started delivering content on demand using Java</h3>
                     </div>
                 </div>
             </div>
@@ -143,7 +144,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with delivering content on demand using REST</h3>
+                        <h3>Get started delivering content on demand using REST</h3>
                     </div>
                 </div>
             </div>
@@ -157,10 +158,10 @@ You can build end-to-end workflows entirely using Media Services. You can also c
 ## Reference
 
 ### PowerShell
-[Media Services PowerShell Cmdlets](/powershell/resourcemanager/)
+[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs/)
 
 ### .NET
-[Media Services Managed Reference API](/dotnet/api/)
+[.NET Managed Reference API](/dotnet/api/)
 
 ### REST
 [Media Services REST API Reference](/rest/api/media/)
