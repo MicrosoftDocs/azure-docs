@@ -13,7 +13,7 @@ Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/datalakestore.svg" alt="" />
+                            <img src="media/index/data-lake-store.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
