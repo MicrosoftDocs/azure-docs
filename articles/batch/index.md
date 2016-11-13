@@ -109,7 +109,7 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
 [Batch using Azure CLI](/azure/batch/batch-cli-get-started)
 
 ###.NET
-[Batch Managed Reference](dotnet/api)
+[Batch Managed Reference](/dotnet/api)
 
 ###Java
 [Java SDK Reference](/java/api)
