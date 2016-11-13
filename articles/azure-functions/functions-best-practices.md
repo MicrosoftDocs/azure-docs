@@ -23,14 +23,14 @@ ms.author: wesmc
 
 ##Overview
 
-This article provides a collection of best practices for you to consider when implementing function apps. Keep in mind that you Azure Function App is an Azure App Service. So those best practices would apply.  
+This article provides a collection of best practices for you to consider when implementing function apps. Keep in mind that your Azure Function App is an Azure App Service. So those best practices would apply.  
 
 
 ## Avoid large long running functions
 
-Large long running functions can cause unexpected timeout issues. A function can be large because of many Node.js dependencies. Importing these dependencies can cause increased load times resulting in unexpected timeouts. Node.js dependencies could be explicitly loaded by multiple `require()` statements in your code. They could also be implicit based on a single module loaded by your code that has it's own internal dependencies.  
+Large long running functions can cause unexpected timeout issues. A function can be large because of many Node.js dependencies. Importing these dependencies can cause increased load times resulting in unexpected timeouts. Node.js dependencies could be explicitly loaded by multiple `require()` statements in your code. They could also be implicit based on a single module loaded by your code that has its own internal dependencies.  
 
-Whenever possible refactor large functions into smaller function sets that work together and return fast responses. For example a webhook or HTTP trigger function might require an acknowledgment response within a certain time limit. You can pass the HTTP trigger payload into a queue to be processed by a queue trigger function. This allows you to defer the actual work and return an immediate response.
+Whenever possible refactor large functions into smaller function sets that work together and return fast responses. For example, a webhook or HTTP trigger function might require an acknowledgment response within a certain time limit. You can pass the HTTP trigger payload into a queue to be processed by a queue trigger function. This approach allows you to defer the actual work and return an immediate response. It is common for webhooks to require an immediate response.
 
 
 ## Cross function communication.
@@ -54,14 +54,14 @@ Idempotent functions are especially recommended with timer triggers. For example
 
 ## Write defensive functions.
 
-Assume your function could encounter an exception at any time. You should design your functions with the ability to continue from a previous fail point during the next execution. Consider a scenario that requires the following:
+Assume your function could encounter an exception at any time. Design your functions with the ability to continue from a previous fail point during the next execution. Consider a scenario that requires the following actions:
 
 1. Query for 10,000 rows in a db.
 2. Create a queue message for each of those rows to process further down the line.
  
-Depending on how complex your system is, you may have: involved downstream services behaving badly, networking outages or quota limits reached, etc. All of these can affect your function at any time and you need to design your functions to be prepared for it.
+Depending on how complex your system is, you may have: involved downstream services behaving badly, networking outages, or quota limits reached, etc. All of these can affect your function at any time. You need to design your functions to be prepared for it.
 
-How does your code react if a failure occurs after inserting 5,000 of those items into a queue for processing? You need to track that you’ve completed those items. Otherwise, you might insert them again next time. This can have a serious impact on your work flow. 
+How does your code react if a failure occurs after inserting 5,000 of those items into a queue for processing? Track items in a set that you’ve completed. Otherwise, you might insert them again next time. This can have a serious impact on your work flow. 
 
 If a queue item was already processed, allow your function to be a no-op.
  
@@ -70,7 +70,7 @@ If a queue item was already processed, allow your function to be a no-op.
 
 ## Don't mix test and production code in the same function app.
 
-Functions within a function app share resources. For example, memory is shared. If you're using a function app in production, don't add test related functions and resources to it. It can cause unexpected overhead during production code execution.
+Functions within a function app share resources. For example, memory is shared. If you're using a function app in production, don't add test-related functions and resources to it. It can cause unexpected overhead during production code execution.
 
 Be careful what you load in your production function apps. Memory is averaged across each function in the app.
 
