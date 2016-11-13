@@ -117,7 +117,8 @@ Get-HpcClusterProperty –AutoGrowShrink
 Set-HpcClusterProperty –ExcludeNodeGroups <group1,group2,group3>
 ```
 
->[!NOTE] This parameter is supported starting in HPC Pack 2016
+>[!NOTE] 
+> This parameter is supported starting in HPC Pack 2016
 >
 
 ### AutoGrowShrink parameters

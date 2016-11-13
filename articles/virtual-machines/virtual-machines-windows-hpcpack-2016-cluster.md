@@ -35,7 +35,7 @@ A Microsoft HPC Pack 2016 cluster requires a Personal Information Exchange (PFX)
 * Key usage includes Digital Signature and Key Encipherment
 * Enhanced key usage includes Client Authentication and Server Authentication
 
-Before deploying the HPC cluster, upload the certificate to an [Azure key vault](../key-vault/) as a secret, and record the following information for use during the deployment: **Vault name**, **Vault resource group**, **Certificate URL**, and **Certificate thumbprint**.
+Before deploying the HPC cluster, upload the certificate to an [Azure key vault](../key-vault/index.md) as a secret, and record the following information for use during the deployment: **Vault name**, **Vault resource group**, **Certificate URL**, and **Certificate thumbprint**.
 
 A sample PowerShell script to upload the certificate follows. For more information about uploading a certificate to an Azure key vault, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md).
 
