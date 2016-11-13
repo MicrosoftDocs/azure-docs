@@ -115,7 +115,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
         </a>
     </li>
     <li>
-        <a href="/azure/data-lake-analytics/ddata-lake-analytics-data-lake-tools-get-started">
+        <a href="/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
