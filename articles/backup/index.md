@@ -71,7 +71,7 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started backing up Azure virtual machines with Azure Backup</h3>
+                        <h3>Get Started backing up Azure virtual machines with Azure Backup</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started protecting Azure virtual machines with Azure Backup</h3>
+                        <h3>Get Started protecting Azure virtual machines with Azure Backup</h3>
                     </div>
                 </div>
             </div>
@@ -102,11 +102,11 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
 
 ##Reference
 
-###REST
-[Backup REST API Reference](/rest/api/backup)
-
 ###.NET
 [.NET Managed Reference](/dotnet/api)
+
+###REST
+[Backup REST API Reference](/rest/api/recoveryservices)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">

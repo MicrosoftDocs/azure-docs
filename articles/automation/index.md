@@ -3,11 +3,11 @@ layout: LandingPage
 ---
 # Automation Documentation
 
-Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud and enterprise environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals.
+Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/automation/automation-intro/">
+        <a href="/azure/automation/automation-intro">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
         </a>
     </li>
     <li>
-        <a href="/azure/automation/automation-first-runbook-graphical/">
+        <a href="/azure/automation/automation-first-runbook-graphical">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -53,7 +53,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first graphical Runbook</h3>
+                        <h3>Get Started with Automation using Runbooks</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first PowerShell Runbook</h3>
+                        <h3>Get Started with Automation using PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -107,13 +107,14 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Use RBAC to enable access management for Azure resources</h3>
+                        <h3>Get Started with Automation using PowerShell Workflow</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
+    
 </ul>
 
 ---
@@ -121,14 +122,14 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
 ## Reference
 
 ### PowerShell
-[Automation PowerShell Cmdlets](https://msdn.microsoft.com/library/azure/dn690262)
+[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
 ### .NET
-[Automation Managed Reference API](/dotnet/api)
+[Azure Managed Reference API](/dotnet/api)
 
 ### REST
-[Automation Resource Manager REST API Reference](https://msdn.microsoft.com/en-us/library/azure/mt662285)
-[Automation Classic REST API Reference](https://msdn.microsoft.com/en-us/library/azure/mt163781)
+[Automation REST API Reference](https://msdn.microsoft.com/en-us/library/azure/mt662285)
+
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">

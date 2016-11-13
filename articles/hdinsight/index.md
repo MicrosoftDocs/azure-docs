@@ -53,7 +53,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Linux-based Hadoop cluster in HDInsight</h3>
+                        <h3>Get Started with HDInsight using a Linux-based Hadoop cluster</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Spark cluster with R Server in HDInsight</h3>
+                        <h3>Get Started with HDInsight using a Spark cluster with R Server</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an HBase cluster in HDInsight</h3>
+                        <h3>Get Started with HDInsight using an HBase cluster</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Apache Storm cluster in HDInsight</h3>
+                        <h3>Get Started with HDInsight using an Apache Storm cluster</h3>
                     </div>
                 </div>
             </div>
