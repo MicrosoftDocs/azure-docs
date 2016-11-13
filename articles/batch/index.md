@@ -25,24 +25,6 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
         </a>
     </li>
     <li>
-        <a href="/azure/Batch/batch-account-create-portal">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Batch</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=batch">
         <div class="cardSize">
             <div class="cardPadding">
@@ -60,6 +42,24 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/Batch/batch-account-create-portal">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with Batch</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
      <li>
         <a href="/azure/batch/batch-dotnet-get-started">
         <div class="cardSize">
@@ -71,7 +71,7 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first .NET application</h3>
+                        <h3>Get Started with Batch using .NET</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first Python application</h3>
+                        <h3>Get Started using Batch using Python</h3>
                     </div>
                 </div>
             </div>
@@ -103,14 +103,13 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
 ##Reference
 
 ###PowerShell
-[Batch PowerShell Reference](/powershell)
+[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
 [Batch using Azure CLI](/azure/batch/batch-cli-get-started)
 
-
 ###.NET
-[Batch Managed Reference](https://msdn.microsoft.com/library/azure/mt348682)
+[Batch Managed Reference](dotnet/api)
 
 ###Java
 [Java SDK Reference](/java/api)
