@@ -97,7 +97,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
         </a>
     </li>
      <li>
-        <a href="service-bus-nodejs-how-to-use-queues">
+        <a href="/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -115,7 +115,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
         </a>
     </li>
      <li>
-        <a href="service-bus-php-how-to-use-queues">
+        <a href="/azure/service-bus-messaging/service-bus-php-how-to-use-queues">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
