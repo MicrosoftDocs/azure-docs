@@ -13,7 +13,7 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/cloudservice.svg" alt="" />
+                            <img src="media/index/cloud-services.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/guide.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,7 +67,7 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/guide.svg" alt="" />
+                            <img src="media/index/python.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

@@ -3,17 +3,19 @@ layout: LandingPage
 ---
 #Azure Government Documentation
 
-Azure Government is TBD...
+Microsoft Azure Government delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Public Sector entities receive a physically isolated instance of Microsoft Azure that employs world-class security and compliance services critical to U.S. government for all systems and applications built on its architecture. 
+
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="">
+        <a href="/azure/azure-government/documentation-government-overview/">
+
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/azure-government.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

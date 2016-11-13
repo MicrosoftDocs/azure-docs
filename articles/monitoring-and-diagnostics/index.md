@@ -14,7 +14,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/monitoring-and-diagnostics.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -32,7 +32,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -50,7 +50,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/cli.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -68,7 +68,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/powershell.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -86,7 +86,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

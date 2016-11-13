@@ -13,7 +13,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/rediscache.svg" alt="" />
+                            <img src="media/index/redis-cache.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -48,7 +48,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/rediscache.svg" alt="" />
+                            <img src="media/index/nodejs.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -66,7 +66,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/rediscache.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -84,7 +84,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/rediscache.svg" alt="" />
+                            <img src="media/index/nodejs.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -102,7 +102,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/rediscache.svg" alt="" />
+                            <img src="media/index/java.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -120,7 +120,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/rediscache.svg" alt="" />
+                            <img src="media/index/python.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

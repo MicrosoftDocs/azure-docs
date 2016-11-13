@@ -13,11 +13,11 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/fabric.svg" alt="" />
+                            <img src="media/index/service-fabric.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Overview of Service Fabric</h3>
+                        <h3>Learn about Service Fabric</h3>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/azuredefaultblack.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,7 +67,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/azuredefaultblack.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -85,7 +85,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/azuredefaultblack.svg" alt="" />
+                            <img src="media/index/java.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

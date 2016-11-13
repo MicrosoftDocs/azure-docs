@@ -35,7 +35,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Active Directory Videos</h3>
+                        <h3>Active Directory Video Library</h3>
                     </div>
                 </div>
             </div>

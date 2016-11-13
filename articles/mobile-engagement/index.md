@@ -15,7 +15,7 @@ It is a software-as-a-service (SaaS) user-engagement platform that provides data
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/mobile-engagement.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -33,7 +33,7 @@ It is a software-as-a-service (SaaS) user-engagement platform that provides data
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/article.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -51,7 +51,7 @@ It is a software-as-a-service (SaaS) user-engagement platform that provides data
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -69,7 +69,7 @@ It is a software-as-a-service (SaaS) user-engagement platform that provides data
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -87,7 +87,7 @@ It is a software-as-a-service (SaaS) user-engagement platform that provides data
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -105,7 +105,7 @@ It is a software-as-a-service (SaaS) user-engagement platform that provides data
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -123,7 +123,7 @@ It is a software-as-a-service (SaaS) user-engagement platform that provides data
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -141,7 +141,7 @@ It is a software-as-a-service (SaaS) user-engagement platform that provides data
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -159,7 +159,7 @@ It is a software-as-a-service (SaaS) user-engagement platform that provides data
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

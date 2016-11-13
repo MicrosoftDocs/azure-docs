@@ -15,7 +15,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/media-services.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -33,7 +33,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -51,7 +51,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -69,7 +69,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -86,7 +86,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -103,7 +103,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -121,7 +121,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/java.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -139,7 +139,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/rest.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
