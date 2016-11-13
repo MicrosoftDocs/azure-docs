@@ -7,7 +7,7 @@ Azure’s infrastructure is designed from the facility to applications for hosti
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/security/azure-security-services-technolo">
+        <a href="/azure/security/azure-security-services-technology">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
