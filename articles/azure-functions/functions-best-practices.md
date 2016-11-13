@@ -50,7 +50,21 @@ Functions should be stateless and idempotent if possible. Associate any required
 
 Idempotent functions are especially recommended with timer triggers. For example, if you have something that absolutely must run once a day, write it so it can run any time during the day with the same results. The function can exit when there is no work for a particular day. Also if a previous run failed to complete, the next run should pick up where it left off.
 
-Assume your function could encounter an exception at any time. You should design your functions with the ability to continue from a previous fail point during the next execution.
+
+## Write defensive functions.
+
+Assume your function could encounter an exception at any time. You should design your functions with the ability to continue from a previous fail point during the next execution. Consider a scenario that requires the following:
+
+1. Query for 10,000 rows in a db.
+2. Create a queue message for each of those rows to process further down the line.
+ 
+Depending on how complex your system is, you may have: involved downstream services behaving badly, networking outages or quota limits reached, etc. All of these can affect your function at any time and you need to design your functions to be prepared for it.
+
+How does your code react if a failure occurs after inserting 5,000 of those items into a queue for processing? You need to track that you’ve completed those items. Otherwise, you might insert them again next time. This can have a serious impact on your work flow. 
+
+If a queue item was already processed, allow your function to be a no-op.
+ 
+
 
 
 ## Don't mix test and production code in the same function app.
