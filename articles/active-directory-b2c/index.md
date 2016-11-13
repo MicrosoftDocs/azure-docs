@@ -90,7 +90,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Andriod application</h3>
+                        <h3>Create an Android application</h3>
                     </div>
                 </div>
             </div>
