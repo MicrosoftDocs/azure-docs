@@ -2,7 +2,7 @@
 layout: LandingPage
 ---
 
-# Active Directory Documentation
+# Azure Active Directory Documentation
 
 Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service.  Azure AD offers identity and access capabilities for applications running in Azure as well as on Premises.  
 
@@ -54,7 +54,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Azure Active Directory tenant</h3>
+                        <h3>Get started with Azure Active Directory</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +85,19 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
 
 ## Reference
 
-### PowerShell
-[Azure Active Directory PowerShell Cmdlets](/powershell/)
+###PowerShell
+[Azure PowerShell Reference](/powershell/)
 
-### Java
-[Azure Active Directory Java API reference](/java/api/)
+###Azure CLI
+[Azure Active Directory Using Azure CLI](/cli/azure/ad)
+
+###.NET
+[Azure Active Directory .NET Reference](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+
+###Java
+[Azure Java API Reference](/java/api/)
+
+
 ---
 
 <div class="downloadHolder">

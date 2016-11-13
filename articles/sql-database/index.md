@@ -89,7 +89,7 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create and manage access and permissions</h3>
+                        <h3>Get Started managing access and permissions</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
 [Azure PowerShell Reference] (/powershell/azureps-cmdlets-docs)
 
 ###.NET
-[SQL Database Managed Reference](/dotnet/api)
+[.NET Managed Reference](/dotnet/api)
 
 ### Java
 [Java SDK Reference](/java/api)
@@ -114,7 +114,7 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
 ###REST
 [SQL Database REST API Reference](/rest/api/sql)
 
-#T-SQL
+###T-SQL
 [T-SQL Reference](https://msdn.microsoft.com/library/azure/bb510741)
 
 
