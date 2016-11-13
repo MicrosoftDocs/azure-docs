@@ -8,6 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
+
 ms.assetid: 3dde6a68-e4a6-4054-8b67-d6a90fdc5e3f
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -16,8 +17,8 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 11/14/2016
 ms.author: danlep
----
 
+---
 # Deploy an HPC Pack 2016 cluster in Azure 
 
 Follow the steps in this article to deploy a [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) cluster in Azure virtual machines. HPC Pack is Microsoft's free HPC solution built on Microsoft Azure and Windows Server technologies and supports a wide range of HPC workloads.
