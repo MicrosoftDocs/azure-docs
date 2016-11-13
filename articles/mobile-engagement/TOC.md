@@ -117,8 +117,6 @@
 
 # Reference
 ## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
-## [REST](https://docs.microsoft.com/rest/api/mobile-engagement/)
-## [REST API Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)
 ## SDK content
 ### [Android SDK](mobile-engagement-android-sdk-content.md)
 ### [iOS SDK](mobile-engagement-ios-sdk-content.md)
