@@ -56,7 +56,7 @@ Each database account is configured with write region priority. The region desig
 Finally, since DocumentDB is completely [schema-agnostic][vldb] - you never have to worry about managing/updating schemas or secondary indexes across multiple datacenters. Your [SQL queries][sqlqueries] continue to work while your application and data models continue to evolve. 
 
 ## Enabling global distribution
-You can decide to make your data locally or globally distributed by either associating one or more Azure regions with a DocumentDB database account. You can add or remove regions to your database account at any time. To enable global distribution by using the portal, see [How to perform DocumentDB global database replication using the Azure portal](documentdb-portal-global-replication.md). To enable global distribution programatically, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
+You can decide to make your data locally or globally distributed by either associating one or more Azure regions with a DocumentDB database account. You can add or remove regions to your database account at any time. To enable global distribution by using the portal, see [How to perform DocumentDB global database replication using the Azure portal](documentdb-portal-global-replication.md). To enable global distribution programmatically, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
 
 ## Next steps
 Learn more about the distributing data globally with DocumentDB in the following articles:

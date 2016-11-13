@@ -21,6 +21,7 @@ ms.author: anhoh
 # NoSQL Node.js tutorial: DocumentDB Node.js console application
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 > 

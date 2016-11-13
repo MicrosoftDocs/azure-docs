@@ -15,12 +15,14 @@
 # Get Started
 ## Write your first app
 ### [.NET console app](documentdb-get-started.md)
+### [.NET Core console app](documentdb-dotnetcore-get-started.md)
 ### [Node.js console app](documentdb-nodejs-get-started.md)
 ## Build a web app
 ### [.NET web app](documentdb-dotnet-application.md)
 ### [Node.js web app](documentdb-nodejs-application.md)
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)
+## [Develop Locally](documentdb-nosql-local-emulator.md)
 ## [FAQ](documentdb-faq.md)
 
 
@@ -45,6 +47,7 @@
 ### [Supercharge your account](documentdb-supercharge-your-account.md)
 
 ## Develop
+### [DocumentDB Emulator](documentdb-nosql-local-emulator.md)
 ### [Stored procedures, triggers, and UDFs](documentdb-programming.md)
 ### [Performance testing](documentdb-performance-testing.md)
 ### [Performance tips](documentdb-performance-tips.md)
