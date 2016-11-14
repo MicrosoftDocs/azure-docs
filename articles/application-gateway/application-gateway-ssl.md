@@ -165,7 +165,7 @@ Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 ```
 
 ## Start the gateway
-Once the gateway has been configured, use the`**Start-AzureApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started.
+Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started.
 
 > [!NOTE]
 > The `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes to finish.
