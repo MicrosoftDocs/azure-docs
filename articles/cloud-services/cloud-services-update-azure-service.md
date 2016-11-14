@@ -103,7 +103,7 @@ The Fabric Controller will wait 30 minutes for each role instance to reach a Sta
 When upgrading a service from a single instance to multiple instances your service will be brought down while the upgrade is performed due to the way Azure upgrades services. The service level agreement guaranteeing service availability only applies to services that are deployed with more than one instance. The following list describes how the data on each drive is affected by each Azure service upgrade scenario:
 
 |Scenario|C Drive|D Drive|E Drive|
-|--------------------------------|
+|--------|-------|-------|-------|
 |VM reboot|Preserved|Preserved|Preserved|
 |Portal reboot|Preserved|Preserved|Destroyed|
 |Portal reimage|Preserved|Destroyed|Destroyed|
