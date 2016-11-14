@@ -100,7 +100,7 @@ Wait until the VM has finished deleting before trying to attach the virtual hard
 
 
 ## Attach existing virtual hard disk to another VM
-For the next few steps, you use another VM for troubleshooting purposes. You attach the existing virtual hard disk to this troubleshooting VM to be able to browse and edit the disk's content. This process allows you correct any configuration errors, or review additional application or system log files, for example. Choose or create another VM to use for troubleshooting purposes.
+For the next few steps, you use another VM for troubleshooting purposes. You attach the existing virtual hard disk to this troubleshooting VM to be able to browse and edit the disk's content. This process allows you to correct any configuration errors, or review additional application or system log files, for example. Choose or create another VM to use for troubleshooting purposes.
 
 The following example attaches an existing virtual hard disk to the troubleshooting VM named `myVMRecovery` in the resource group named `myResourceGroup`:
 

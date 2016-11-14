@@ -50,7 +50,7 @@ Select your resource group from the portal, then select your storage account. Cl
 
 ![Select storage blobs](./media/virtual-machines-linux-troubleshoot-recovery-disks/storage-account-overview.png)
 
-Typically you will have a container named **vhds** that lists your virtual hard disks. Select the container to view a list of virtual hard disks. Note the name of your VHD (the prefix is usually the name of your VM):
+Typically you have a container named **vhds** that lists your virtual hard disks. Select the container to view a list of virtual hard disks. Note the name of your VHD (the prefix is usually the name of your VM):
 
 ![Identify VHD in storage container](./media/virtual-machines-linux-troubleshoot-recovery-disks/storage-container.png)
 
@@ -97,7 +97,7 @@ For the next few steps, you use another VM for troubleshooting purposes. You att
 
 ## Mount the attached data disk
 
-1. SSH to your troubleshooting VM using the appropriate credentials. If this is the first data disk attached to your troubleshooting VM, it is likely connected to `/dev/sdc`. Use `dmseg` to list attached disks:
+1. SSH to your troubleshooting VM using the appropriate credentials. If this disk is the first data disk attached to your troubleshooting VM, it is likely connected to `/dev/sdc`. Use `dmseg` to list attached disks:
 
     ```bash
     dmesg | grep SCSI
@@ -149,7 +149,7 @@ To create a VM from your original virtual hard disk, use [this Azure Resource Ma
 
 ![Deploy VM from template from Github](./media/virtual-machines-linux-troubleshoot-recovery-disks/deploy-template-from-github.png)
 
-The template is loaded in to the Azure portal for deployment. Enter the names for your new VM and existing Azure resources, and paste the URL to your existing virtual hard disk. Click **Purchase** to begin the deployment:
+The template is loaded in to the Azure portal for deployment. Enter the names for your new VM and existing Azure resources, and paste the URL to your existing virtual hard disk. To begin the deployment, click **Purchase**:
 
 ![Deploy VM from template](./media/virtual-machines-linux-troubleshoot-recovery-disks/deploy-from-image.png)
 
