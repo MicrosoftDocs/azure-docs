@@ -100,20 +100,21 @@ See [Assigning administrator roles in Azure Active Directory (Azure AD)](https:/
    
    * **$SubscriptionName:** You must update this variable with your own subscription name. Follow one of the following three ways to locate the name of your subscription:
      
-     a. In **Windows PowerShell ISE**, click **File** > **New** to create a new script file. Copy the following script to the new script file and click **Debug** > **Run**. The following script will first ask your Azure account credentials to add your Azure account to the local PowerShell environment and then show all the subscriptions that are connected to the local PowerShell session. Take a note of the name of the subscription that you want to use while following this tutorial:
+	a. In **Windows PowerShell ISE**, click **File** > **New** to create a new script file. Copy the following script to the new script file and click **Debug** > **Run**. The following script will first ask your Azure account credentials to add your Azure account to the local PowerShell environment and then show all the subscriptions that are connected to the local PowerShell session. Take a note of the name of the subscription that you want to use while following this tutorial:
      
 ```powershell   
-         Add-AzureAccount
+         Add-AzureAccount 
              Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
 ```
 
-     b. To locate and copy your subscription name in the [Azure Portal](https://portal.azure.com), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
+	b. To locate and copy your subscription name in the [Azure Portal](https://portal.azure.com), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
      
-     ![Azure Portal][Image2]
+     ![Azure Portal](./media/storage-powershell-guide-full/Subscription_Previewportal.png)
+
+	c. To locate and copy your subscription name in the [Azure Classic Portal](https://manage.windowsazure.com/), scroll down and click **Settings** on the left side of the portal. Click **Subscriptions** to see a list of your subscriptions. Copy the name of subscription that you want to use while running the scripts given in this guide.
      
-     c. To locate and copy your subscription name in the [Azure Classic Portal](https://manage.windowsazure.com/), scroll down and click **Settings** on the left side of the portal. Click **Subscriptions** to see a list of your subscriptions. Copy the name of subscription that you want to use while running the scripts given in this guide.
-     
-     ![Azure Classic Portal][Image1]
+     ![Azure Classic Portal](./media/storage-powershell-guide-full/Subscription_currentportal.png)
+
    * **$StorageAccountName:** Use the given name in the script or enter a new name for your storage account. **Important:** The name of the storage account must be unique in Azure. It must be lowercase, too!
    * **$Location:** Use the given "West US" in the script or choose other Azure locations, such as East US, North Europe, and so on.
    * **$ContainerName:** Use the given name in the script or enter a new name for your container.
@@ -123,7 +124,7 @@ See [Assigning administrator roles in Azure Active Directory (Azure AD)](https:/
 
 After the script runs, you should have a local destination folder that includes the downloaded image file. The following screenshot shows an example output:
 
-![Download Blobs][Image3]
+![Download Blobs](./media/storage-powershell-guide-full/Blobdownload.png)
 
 > [!NOTE]
 > The "Getting started with Azure Storage and PowerShell in 5 minutes" section provided a quick introduction on how to use Azure PowerShell with Azure Storage. For detailed information and instructions, we encourage you to read the following sections.
@@ -795,11 +796,6 @@ In this guide, you've learned how to manage Azure Storage with Azure PowerShell.
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Storage PowerShell Cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 * [Windows PowerShell Reference](https://msdn.microsoft.com/library/ms714469.aspx)
-
-[Image1]: ./media/storage-powershell-guide-full/Subscription_currentportal.png
-[Image2]: ./media/storage-powershell-guide-full/Subscription_Previewportal.png
-[Image3]: ./media/storage-powershell-guide-full/Blobdownload.png
-
 
 [Getting started with Azure Storage and PowerShell in 5 minutes]: #getstart
 [Prerequisites for using Azure PowerShell with Azure Storage]: #pre

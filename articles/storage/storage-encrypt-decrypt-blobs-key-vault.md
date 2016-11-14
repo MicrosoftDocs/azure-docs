@@ -60,7 +60,7 @@ Create both keys in the key vault. We assume for the rest of the tutorial that y
 In Visual Studio, create a new console application.
 
 Add necessary nuget packages in the Package Manager Console.
-
+```
     Install-Package WindowsAzure.Storage
 
     // This is the latest stable release for ADAL.
@@ -68,10 +68,10 @@ Add necessary nuget packages in the Package Manager Console.
 
     Install-Package Microsoft.Azure.KeyVault
     Install-Package Microsoft.Azure.KeyVault.Extensions
-
+```
 
 Add AppSettings to the App.Config.
-
+```xml
     <appSettings>
         <add key="accountName" value="myaccount"/>
         <add key="accountKey" value="theaccountkey"/>
@@ -79,7 +79,7 @@ Add AppSettings to the App.Config.
         <add key="clientSecret" value="theclientsecret"/>
         <add key="container" value="stuff"/>
     </appSettings>
-
+```
 Add the following `using` statements and make sure to add a reference to System.Configuration to the project.
 
 ```csharp
@@ -162,7 +162,7 @@ Add the following code to encrypt a blob and upload it to your Azure storage acc
 
 Following is a screenshot from the [Azure Classic Portal](https://manage.windowsazure.com) for a blob that has been encrypted by using client-side encryption with a key stored in Key Vault. The **KeyId** property is the URI for the key in Key Vault that acts as the KEK. The **EncryptedKey** property contains the encrypted version of the CEK.
 
-![Screenshot showing Blob metadata that includes encryption metadata][1]
+![Screenshot showing Blob metadata that includes encryption metadata](./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png)
 
 > [!NOTE]
 > If you look at the BlobEncryptionPolicy constructor, you will see that it can accept a key and/or a resolver. Be aware that right now you cannot use a resolver for encryption because it does not currently support a default key.
@@ -228,6 +228,3 @@ For more information about using Microsoft Azure Storage with C#, see [Microsoft
 For more information about the Blob REST API, see [Blob Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
-
-<!--Image references-->
-[1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
