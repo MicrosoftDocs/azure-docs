@@ -25,7 +25,7 @@
 
     The output is similar to the following example:
 
-    ```
+    ```azurecli
     info:    Executing command vm create
     + Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB
     + Looking up cloud service
