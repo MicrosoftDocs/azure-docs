@@ -62,7 +62,7 @@ Virtual machines and cloud services in a Virtual network can be exposed to Inter
 * **External load balancer**. You can use an external load balancer to provide high availability for IaaS VMs and PaaS role instances accessed from the public Internet.
 * **Internal load balancer**. You can use an internal load balancer to provide high availability for IaaS VMs and PaaS role instances accessed from other services in your VNet.
 
-To learn more about load balancing in Azure, visit [Load balancer overview](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+To learn more about load balancing in Azure, visit [Load balancer overview](../load-balancer/load-balancer-overview.md).
 
 ## Network Security Groups (NSG)
 You can create NSGs to control inbound and outbound access to network interfaces (NICs), VMs, and subnets. Each NSG contains one or more rules specifying whether or not traffic is approved or denied based on source IP address, source port, destination IP address, and destination port. To learn more about NSGs, visit [What is a Network Security Group](virtual-networks-nsg.md).
@@ -82,7 +82,7 @@ There is no extra cost for using Virtual Networks in Azure. The compute instance
 
 ## Next steps
 * [Create a VNet](virtual-networks-create-vnet-arm-pportal.md) and subnets.
-* [Create a VM in a VNet](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* [Create a VM in a VNet](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 * Learn about [NSGs](virtual-networks-nsg.md).
 * Learn about [user defined routes and IP forwarding](virtual-networks-udr-overview.md).
 

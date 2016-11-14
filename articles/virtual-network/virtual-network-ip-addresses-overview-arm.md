@@ -112,7 +112,7 @@ Static private IP addresses are commonly used for:
 * Resources accessed by other apps/resources through an IP address.
 
 ### Virtual machines
-A private IP address is assigned to the **network interface** of a [Windows](../virtual-machines/virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM. In case of a multi-network interface VM, each interface gets a private IP address assigned. You can specify the allocation method as either dynamic or static for a network interface.
+A private IP address is assigned to the **network interface** of a [Windows](../virtual-machines/virtual-machines-windows-about.md) or [Linux](../virtual-machines/virtual-machines-linux-about.md) VM. In case of a multi-network interface VM, each interface gets a private IP address assigned. You can specify the allocation method as either dynamic or static for a network interface.
 
 #### Internal DNS hostname resolution (for VMs)
 All Azure VMs are configured with [Azure-managed DNS servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default, unless you explicitly configure custom DNS servers. These DNS servers provide internal name resolution for VMs that reside within the same VNet.
