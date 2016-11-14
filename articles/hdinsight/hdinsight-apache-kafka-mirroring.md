@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.date: 11/10/2016
 ms.author: larryfr
 ---
-## Use MirrorMaker to create a replica of a Kafka on HDInsight cluster (preview)
+# Use MirrorMaker to create a replica of a Kafka on HDInsight cluster (preview)
 
 Apache Kafka includes a mirroring feature, which allows you to replicate topics from one Kafka cluster to another. For example, replicating records between Kafka cluster in different Azure regions.
 
@@ -76,16 +76,16 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet.json**.
 
 2. Use the following information to populate the entries on the **Custom deployment** blade:
-   
+    
     ![HDInsight custom deployment](./media/hdinsight-apache-kafka-mirroring/parameters.png)
-   
-    **BASICS** section:
-   
+    
+    __BASICS__ section:
+    
     * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
 
     * **Location**: Select a location geographically close to you. This location must match the location in the __SETTINGS__ section.
      
-    **SETTINGS** section:
+    __SETTINGS__ section:
 
     * **Base Cluster Name**: This value is used as the base name for the Kafka clusters. For example, entering **hdi** creates clusters named **source-hdi** and **dest-hdi**.
 
