@@ -48,7 +48,7 @@ The Data Lake Tools for VSCode supports the following features:
 
 ## Prerequisites
 
-The Data Lake Tools can be installed on the platforms supported by VSCode that includes Windows, Linux, and MacOS. You can find the prerequisites for different platforms
+The Data Lake Tools can be installed on the platforms supported by VSCode that include Windows, Linux, and MacOS. You can find the prerequisites for different platforms
 
 - Windows
 
