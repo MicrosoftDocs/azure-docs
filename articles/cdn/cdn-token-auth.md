@@ -75,7 +75,7 @@ This chart describes how Azure CDN validates client request when token authentic
 	
 		- ec-url-allow: allows you to tailor tokens to a particular asset or path. It restricts access to requests whose URL start with a specific relative path. You can input multiple paths separating each path with a comma. URLs are case-sensitive. Depending on the requirement, you can set up different value to provide different level of access. Below are a couple of scenarios:
 		
-		If you have a URL: http://www.mydomain.com/pictures/city/strasbourg.png. See input value "" and its access level accordingly
+			If you have a URL: http://www.mydomain.com/pictures/city/strasbourg.png. See input value "" and its access level accordingly
 
 			1. Input value "/": all requests will be allowed
 			2. Input value "/pictures": all the following requests will be allow
