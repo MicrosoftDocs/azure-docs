@@ -28,7 +28,7 @@ B2B communication involves message exchanges between two running business proces
 
 ## Prerequisites
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An Integration Account; you can create an [Integration Account](app-service-logic-enterprise-integration-create-integration-account.md) and enable logging; you can find steps [here](app-service-logic-track-b2b-message.md)
+* An Integration Account; you can create an [Integration Account](app-service-logic-enterprise-integration-create-integration-account.md) and enable logging; you can find steps [here](app-service-logic-monitor-b2b-message.md)
 * A Logic App; you can create a [Logic App](app-service-logic-create-a-logic-app.md) and enable logging; you can find steps [here](app-service-logic-monitor-your-logic-apps.md)
 
 ## Adding Logic Apps B2B solution to OMS portal
@@ -39,10 +39,10 @@ B2B communication involves message exchanges between two running business proces
 ![Select log analytics](./media/app-service-logic-track-b2b-messages-omsportal/selectla.png)
 
 3. Select **OMS Portal**, opens OMS portal home page
-![Select oms portal](./media/app-service-logic-track-b2b-messages-omsportal/omsportalpage.png)
+![Browse OMS portal](./media/app-service-logic-track-b2b-messages-omsportal/omsportalpage.png)
 
 4. Select **Solutions Gallery** 
-![Select Solutions Gallary](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage1.png)
+![Select Solutions Gallery](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage1.png)
 
 5. Select **Logic Apps B2B**
 ![Select Logic Apps B2B](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage2.png)
@@ -53,7 +53,7 @@ B2B communication involves message exchanges between two running business proces
 7. Browse home page to view **Logic Apps B2B Messages**
 ![Select home page](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage4.png)
 
-8. Post message process; the home page will update with message count
+8. Post message process; the home page updates with message count
 ![Select home page](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage6.png)
 
 9. Selecting **Logic Apps B2B Messages** on home page leads to AS2 and X12 message status.  The data is based on last one day.

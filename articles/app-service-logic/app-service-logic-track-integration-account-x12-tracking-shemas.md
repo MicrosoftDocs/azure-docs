@@ -74,7 +74,7 @@ Supported X12 tracking schemas are
 | isMessageFailed |Mandatory, boolean.  indicates that whether X12 message either succeeded or failed |
 | isTechnicalAcknowledgmentExpected |Mandatory, boolean.  It indicates whether the technical acknowledgement is either configured or not configured in the X12 agreement |
 | isFunctionalAcknowledgmentExpected |Mandatory, boolean.  It indicates whether the functional acknowledgement is either configured or not configured in the X12 agreement |
-| needAk2LoopForValidMessages |Mandatory, boolean.  - whether the AK2 loop is  required for valid message or not. - type boolean |
+| needAk2LoopForValidMessages |Mandatory, boolean.  - whether the AK2 loop is required for valid message or not. - type boolean |
 | segmentsCount |Optional, int.  It indicates the number of segments in the X12 transaction set |
 
 ## X12 Transaction Set Acknowledgement Tracking Schema
@@ -227,9 +227,9 @@ Supported X12 tracking schemas are
 | receiverIdentifier |Mandatory, string.  It indicates the receive partner identifier |
 | agreementName |Optional, string.  Name of the X12 agreement to which the messages are resolved |
 | direction |Mandatory, enum.  It indicates the direction of the message flow.  The allowed values are receive or send |
-| interchangeControlNumber |Optional, string.  It indicates the interchange control number of the Technical Acknowledgement.  This is populated for technical acknowledgement received from partners |
-| isaSegment |Optional, string.  It indicates the ISA segment for the Technical Acknowledgement.  This is populated for technical acknowledgement received from partners |
-| respondingInterchangeControlNumber |Optional, string.  It indicates the interchange control number for the Technical Acknowledgement.  This is populated for technical acknowledgement received from partners |
+| interchangeControlNumber |Optional, string.  It indicates the interchange control number of the Technical Acknowledgement. Technical acknowledgment received from partners has this value |
+| isaSegment |Optional, string.  It indicates the ISA segment for the Technical Acknowledgement. Technical acknowledgment received from partners has this value |
+| respondingInterchangeControlNumber |Optional, string.  It indicates the interchange control number for the Technical Acknowledgement. Technical acknowledgment received from partners has this value |
 | isMessageFailed |Mandatory, boolean.  indicates whether X12 message either succeeded or failed |
 | statusCode |Mandatory, enum.  It indicates the interchange acknowledgement status code.  The allowed values are Accepted/Rejected/AccpetedWithErrros |
 | processingStatus |Mandatory, enum.  It indicates the acknowledgement status.  The allowed values are Received/Generated/Sent |

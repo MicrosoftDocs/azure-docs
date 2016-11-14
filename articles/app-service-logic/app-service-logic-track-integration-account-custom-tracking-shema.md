@@ -55,13 +55,13 @@ ms.author: padmavc
 
 | Property | Description |
 | --- | --- |
-| sourceType |Mandatory.  It indicates the type of the run source, the allowed values are Microsoft.Logic/workflows or custom |
-| Source |Mandatory - If the source type is Microsoft.Logic/workflows then the source information need to follow this schema. This schema will be a JToken if the source type is 'custom' |
+| sourceType |Mandatory.  It indicates the type of the run source. The allowed values are Microsoft.Logic/workflows or custom |
+| Source |Mandatory - If the source type is Microsoft.Logic/workflows then the source information need to follow this schema. If the source type is 'custom'; the schema is a JToken  |
 | systemId |Mandatory, string.  It indicates the logic app system id |
 | runId |Mandatory, string.  It indicates the logic app run id |
 | operationName |Mandatory, string.  It indicates the name of the operation (for example action or trigger) |
 | repeatItemScopeName |Mandatory, string. It indicates the repeat item name if the action is inside a foreach/until loop |
-| repeatItemIndex |Mandatory, int.  It indicates the repeat item index if the action is inside a foreach/until loop |
+| repeatItemIndex |Mandatory, int.  If the action is inside a foreach/until loop; it indicates the repeated item index  |
 | trackingId |Optional, string. It indicates the tracking id to correlate the messages |
 | correlationId |Optional, string. It indicates the correlation id to correlate the messages |
 | clientRequestId |Optional, string.  Client can populate it to correlate messages |

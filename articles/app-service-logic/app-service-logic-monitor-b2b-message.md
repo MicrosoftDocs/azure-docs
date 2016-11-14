@@ -57,10 +57,10 @@ You can enable logging for an integration account either with **Azure portal** o
 ![Turn diagnostics on](./media/app-service-logic-monitor-integration-account/Pic4.png)
 
 ## Extending your solutions
-In addition to the **Log Analytics**, you can configure your Integration Account and [Logic Apps](./app-service-logic-monitor-your-logic-apps.md)  to an Event Hub or Storage Account         
+In addition to the **Log Analytics**, you can configure your Integration Account and [Logic Apps](./app-service-logic-monitor-your-logic-apps.md) to an Event Hub or Storage Account         
 ![Azure Diagnostics settings](./media/app-service-logic-monitor-your-logic-apps/diagnostics.png)
 
-You can leverage this telemetry from the Event Hub or Storage into other services like [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), and [Power BI](https://powerbi.com) to have real time monitoring of your integration workflows.
+You can use this telemetry from the Event Hub or Storage into other services like [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), and [Power BI](https://powerbi.com) to have real-time monitoring of your integration workflows.
 
 ## Supported Tracking Schema
 We are supporting following tracking schema types.  All of them has fixed schemas except Custom type.
