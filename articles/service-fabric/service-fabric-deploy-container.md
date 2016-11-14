@@ -58,7 +58,7 @@ When you package a container, you can choose to use either a Visual Studio proje
 ## Manually package and deploy a container
 The process of manually packaging a containerized service is based on the following steps:
 
-1. Published the containers to your repository.
+1. Publish the containers to your repository.
 2. Create the package directory structure.
 3. Edit the service manifest file.
 4. Edit the application manifest file.

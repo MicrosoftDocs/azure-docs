@@ -1,28 +1,31 @@
-<properties
-   pageTitle="Locally monitor and diagnose services written with Azure Service Fabric | Microsoft Azure"
-   description="Learn how to monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="mani-ramaswamy"
-   manager="timlt"
-   editor=""/>
+---
+title: Locally monitor and diagnose services written with Azure Service Fabric | Microsoft Docs
+description: Learn how to monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine.
+services: service-fabric
+documentationcenter: .net
+author: mani-ramaswamy
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="11/2/2016"
-   ms.author="subramar"/>
+ms.assetid: 4eebe937-ab42-4429-93db-f35c26424321
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 11/14/2016
+ms.author: subramar
 
+---
 
 # Monitor and diagnose services in a local machine development setup
 
 
-> [AZURE.SELECTOR]
-- [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-- [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+> * [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+>
+>
 
 Monitoring, detecting, diagnosing, and troubleshooting allow for services to continue with minimal disruption to the user experience. Monitoring and diagnostics are critical in an actual deployed production environment. Adopting a similar model during development of services ensures that the diagnostic pipeline works when you move to a production environment. Service Fabric makes it easy for service developers to implement diagnostics that can seamlessly work across both single-machine local development setups and real-world production cluster setups.
 
