@@ -29,7 +29,7 @@ You can also quickly deploy a Linux VM by using the [Azure portal](virtual-machi
 ## Quick commands
 The following example shows how to deploy a CoreOS VM and attach your Secure Shell (SSH) key (your arguments might be different):
 
-```bash
+```azurecli
 azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 ```
 
@@ -60,20 +60,20 @@ The previous `quick-create` example only called out the `-M` flag to identify th
 
 The following example specifies all the values so that no further prompting is required. So long as you have an `~/.ssh/id_rsa.pub` as a ssh-rsa format public key file, it works as is:
 
-```bash
+```azurecli
 azure vm quick-create \
---resource-group myResourceGroup \
---name myVM \
---location westus \
---os-type Linux \
---admin-username myAdminUser \
---ssh-public-file ~/.ssh/id_rsa.pub \
---image-urn UbuntuLTS
+  --resource-group myResourceGroup \
+  --name myVM \
+  --location westus \
+  --os-type Linux \
+  --admin-username myAdminUser \
+  --ssh-public-file ~/.ssh/id_rsa.pub \
+  --image-urn UbuntuLTS
 ```
 
 The output should look like the following output block:
 
-```bash
+```azurecli
 info:    Executing command vm quick-create
 + Listing virtual machine sizes available in the location "westus"
 + Looking up the VM "myVM"

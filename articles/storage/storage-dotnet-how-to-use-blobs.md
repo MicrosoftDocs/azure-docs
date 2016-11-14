@@ -15,8 +15,8 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: tamram
-
 ---
+
 # Get started with Azure Blob storage using .NET
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
@@ -50,17 +50,22 @@ For additional examples using Blob storage, see [Getting Started with Azure Blob
 
 ### Add namespace declarations
 Add the following `using` statements to the top of the `program.cs` file:
+
 ```csharp
+
     using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 ```
+
 ### Parse the connection string
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Create the Blob service client
 The **CloudBlobClient** class enables you to retrieve containers and blobs stored in Blob storage. Here's one way to create the service client:
+
 ```csharp
+
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 Now you are ready to write code that reads data from and writes data to Blob storage.
@@ -69,7 +74,9 @@ Now you are ready to write code that reads data from and writes data to Blob sto
 [!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 This example shows how to create a container if it does not already exist:
+
 ```csharp
+
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -83,11 +90,15 @@ This example shows how to create a container if it does not already exist:
     // Create the container if it doesn't already exist.
     container.CreateIfNotExists();
 ```
+
 By default, the new container is private, meaning that you must specify your storage access key to download blobs from this container. If you want to make the files within the container available to everyone, you can set the container to be public using the following code:
+
 ```csharp
+
     container.SetPermissions(
         new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 ```
+
 Anyone on the Internet can see blobs in a public container, but you can modify or delete them only if you have the appropriate account access key or a shared access signature.
 
 ## Upload a blob into a container
@@ -99,7 +110,9 @@ stream of data to it by calling the **UploadFromStream** method. This operation 
 or overwrite it if it does exist.
 
 The following example shows how to upload a blob into a container and assumes that the container was already created.
+
 ```csharp
+
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -119,6 +132,7 @@ The following example shows how to upload a blob into a container and assumes th
         blockBlob.UploadFromStream(fileStream);
     }
 ```
+
 ## List the blobs in a container
 To list the blobs in a container, first get a container reference. You
 can then use the container's **ListBlobs** method to retrieve the blobs and/or directories
@@ -128,7 +142,9 @@ returned **IListBlobItem**, you must cast it to a **CloudBlockBlob**,
 type check to determine which to cast it to.  The following code
 demonstrates how to retrieve and output the URI of each item in
 the `photos` container:
+
 ```csharp
+
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -186,7 +202,9 @@ When you call **ListBlobs** on the 'photos' container (as in the above sample), 
 
 Optionally, you can set the **UseFlatBlobListing** parameter of of the **ListBlobs** method to
 **true**. In this case, every blob in the container is returned as a **CloudBlockBlob** object. The call to **ListBlobs** to return a flat listing looks like this:
+
 ```csharp
+
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, true))
     {
@@ -209,7 +227,9 @@ and the results look like this:
 To download blobs, first retrieve a blob reference and then call the **DownloadToStream** method. The following
 example uses the **DownloadToStream** method to transfer the blob
 contents to a stream object that you can then persist to a local file.
+
 ```csharp
+
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -231,6 +251,7 @@ contents to a stream object that you can then persist to a local file.
 ```
 You can also use the **DownloadToStream** method to download the contents of a blob as a text string.
 ```csharp
+
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -255,6 +276,7 @@ You can also use the **DownloadToStream** method to download the contents of a b
 To delete a blob, first get a blob reference and then call the
 **Delete** method on it.
 ```csharp
+
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -279,6 +301,7 @@ This example shows a flat blob listing, but you can also perform a hierarchical 
 
 Because the sample method calls an asynchronous method, it must be prefaced with the `async` keyword, and it must return a **Task** object. The await keyword specified for the **ListBlobsSegmentedAsync** method suspends execution of the sample method until the listing task completes.
 ```csharp
+
     async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
     {
         //List blobs to the console window, with paging.
@@ -315,6 +338,7 @@ Each block in an append blob can be a different size, up to a maximum of 4 MB, a
 
 The example below creates a new append blob and appends some data to it, simulating a simple logging operation.
 ```csharp
+
     //Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
