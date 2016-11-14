@@ -65,10 +65,10 @@ Each article explains how to use the Azure Backup component in the classic versi
 
 - [Azure Backup Server](../backup/backup-azure-microsoft-azure-backup-classic.md)
 
-Azure Backup Server is an Azure Backup component that functions similarly to System Center Data Protection Manager (DPM). Azure Backup Server can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange, and Windows clients to the cloud from a single console.
+Azure Backup Server is an Azure Backup component that functions similarly to System Center Data Protection Manager (DPM). Azure Backup Server can protect application workloads such as: Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange, and Windows clients to the cloud from a single console.
 
 ## Next steps
 
-If you aren't sure where to begin, and want to give Azure Backup a try just so see what it is like, start with [Back up a Windows server or client to Azure using the classic deployment model](../backup/backup-configure-vault-classic.md). This tutorial leads you through the steps for setting up a backup project.
+If you aren't sure where to begin, start with the article, [Back up a Windows server or client to Azure using the classic deployment model](../backup/backup-configure-vault-classic.md). This tutorial leads you through the steps for setting up a backup project on a Windows Server or computer.
 
 If you already know that you could use Azure Backup, but want to know the costs, see the [Backup Pricing page](http://azure.microsoft.com/pricing/details/backup/). There is a list of Frequently Asked Questions that may provide useful information. Also note there are two Azure Government regions in the **Region** dropdown menu. 
