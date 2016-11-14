@@ -1,7 +1,7 @@
-When you no longer need a data disk that's attached to a virtual machine (VM), you can easily detach it. This removes the disk from the VM, but doesn't remove it from storage. If you want to use the existing data on the disk again, you can reattach it to the same VM, or another one.  
+When you no longer need a data disk that's attached to a virtual machine (VM), you can easily detach it. When you detach a disk from the VM, the disk is not removed it from storage. If you want to use the existing data on the disk again, you can reattach it to the same VM, or another one.  
 
 > [!NOTE]
-> A VM in Azure uses different types of disks - an operating system disk, a local temporary disk, and optional data disks. For details, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You can not detach an operating system disk unless you also delete the VM.
+> A VM in Azure uses different types of disks - an operating system disk, a local temporary disk, and optional data disks. For details, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You cannot detach an operating system disk unless you also delete the VM.
 
 ## Find the disk
 Before you can detach a disk from a VM you need to find out the LUN number, which is an identifier for the disk to be detached. To do that, follow these steps:
@@ -13,7 +13,7 @@ Before you can detach a disk from a VM you need to find out the LUN number, whic
     azure vm disk list myVM
     ```
 
-    The output is similar to the following:
+    The output is similar to the following example:
 
     ```azurecli
     * Fetching disk images
@@ -60,7 +60,7 @@ Before detaching the disk from the Linux guest, you should make sure that all pa
     sudo umount /dev/sdc1
     ```
 
-4. Use the `blkid` command to discovery the UUIDs for all partitions. The output is similar to the following:
+4. Use the `blkid` command to discovery the UUIDs for all partitions. The output is similar to the following example:
 
     ```bash
     /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -96,7 +96,7 @@ After you find the LUN number of the disk and removed the operating system refer
     azure vm disk list myVM
     ```
 
-    The output is similar to the following, which shows the data disk is no longer attached:
+    The output is similar to the following example, which shows the data disk is no longer attached:
 
     ```azurecli
     info:    Executing command vm disk list

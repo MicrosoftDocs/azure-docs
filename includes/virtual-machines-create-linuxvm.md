@@ -23,7 +23,7 @@
         -g ops -p P@ssw0rd! -z "Small" -e -l "West US"
     ```
 
-    The output is similar to the following:
+    The output is similar to the following example:
 
     ```
     info:    Executing command vm create
