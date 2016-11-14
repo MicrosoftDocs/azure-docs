@@ -2,12 +2,12 @@
 ## [What is DevTest Labs?](devtest-lab-overview.md)
 ## [Why DevTest Labs?](devtest-lab-why.md)
 ## [DevTest Labs concepts](devtest-lab-concepts.md)
+## [FAQ](devtest-lab-faq.md)
 
 # Get Started
 ## [Create a lab](devtest-lab-create-lab.md)
 ## [Create VM artifacts](devtest-lab-add-vm-with-artifacts.md)
 ## [Create a lab for training](devtest-lab-training-lab.md)
-## [FAQ](devtest-lab-faq.md)
 
 # How To
 ## Manage Labs
@@ -28,6 +28,8 @@
 ### [Comparing images versus formulas](devtest-lab-comparing-vm-base-image-types.md)
 
 # Resources
-## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=devtest-lab&updatetype=&platform=)
+## [Service Updates](https://azure.microsoft.com/updates/?product=devtest-lab)
+## [Pricing](https://azure.microsoft.com/pricing/details/devtest-lab/)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
-
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)

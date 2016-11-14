@@ -29,7 +29,7 @@
 ### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
 ## [Import and export a DNS zone file](dns-import-export.md)
-## [Using Azure DNS with other Azure services](dns-for-azure-services.md)
+## [Integrate with other Azure services](dns-for-azure-services.md)
 ## [Protect DNS zones and records](dns-protect-zones-recordsets.md)
 ## [Automate DNS operations with the .NET SDK](dns-sdk.md)
 
@@ -46,6 +46,7 @@
 ## [Web apps](/azure/app-service-web/)
 
 # Resources
-## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
-## [Networking forum](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Service updates](https://azure.microsoft.com/updates/?product=dns)
 ## [Pricing](https://azure.microsoft.com/pricing/details/dns/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
