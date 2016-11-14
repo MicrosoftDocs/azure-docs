@@ -24,17 +24,18 @@
 ### [Use Python to enable Event Hubs Archive](event-hubs-archive-python.md)
 
 # Reference
-## [AMQP1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Event Hubs REST API reference](https://msdn.microsoft.com/library/azure/dn790674)
-## [Event Hubs .NET API reference](https://msdn.microsoft.com/library/azure/jj933424)
-## [Event Processor Host API reference](https://msdn.microsoft.com/library/microsoft.servicebus.messaging(v=azure.95).aspx)
 ## [Quotas and limits](event-hubs-quotas.md)
-## [Event Hubs messaging exceptions](event-hubs-messaging-exceptions.md)
+## [Messaging exceptions](event-hubs-messaging-exceptions.md)
+## [Java](/java/api/)
+## [.NET](/dotnet/api/)
+## [AMQP1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [Event Processor Host API reference](https://msdn.microsoft.com/library/microsoft.servicebus.messaging)
+## [REST](/rest/api/eventhub/)
 
 # Resources
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+## [Service updates](https://azure.microsoft.com/updates/?product=event-hubs)
+## [Pricing](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
-## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [Manage Service Bus and Event Hubs resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
-## [Event Hubs learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
-
-
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
