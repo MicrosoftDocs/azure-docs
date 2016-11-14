@@ -101,7 +101,7 @@ On first run, this command may take a minute or so to complete, so please be pat
 * `containerService`: the target ACS cluster (must be running DC/OS 1.8).
 
 
-Below is an example command you would type if you already have an existing Azure Container Registry named `myregistry`, and if have you an existing VSTS account at `myvstsaccount.visualstudio.com` with an existing VSTS project `myvstsproject` in which you would like to create the build and release defintions:
+Below is an example command you would type if you already have an existing Azure Container Registry named `myregistry`, and if have you an existing VSTS account at `myvstsaccount.visualstudio.com` with an existing VSTS project `myvstsproject` in which you would like to create the build and release definitions:
 		
 		az container release create --target-name myacs --target-resource-group myacs-rg --registry-name myregistry --vsts-account-name myvstsaccount --vsts-project-name myvstsproject --remote-access-token <GitHubPersonalAccessToken>
 
