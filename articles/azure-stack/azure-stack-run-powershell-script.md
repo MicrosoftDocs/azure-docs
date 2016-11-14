@@ -65,17 +65,17 @@ Before you start, make sure that you at least 85 GB of space.
 7. Run the PrepareBootFromVHD.ps1 script. This script and the unattend files are available with the other support scripts provided along with this build.
     There are five parameters for this PowerShell script:
     
-| Parameter | Required/Optional | Description |
-| --- | --- | --- |
-|CloudBuilderDiskPath|Required|The path to the CloudBuilder.vhdx on the HOST.|
-|DriverPath|Optional|Lets you add additional drivers for the host in the VHD.|
-|ApplyUnattend|Optional|Specify this switch parameter to automate the configuration of the operating system. If specified, the user must provide the AdminPassword to configure the OS at boot (requires provided accompanying file unattend_NoKVM.xml). If you do not use this parameter, the generic unattend.xml file is used without further customization. You'll need KVM access to complete customization after it reboots.|
-|AdminPassword|Optional|Only used when the ApplyUnattend parameter is set, requires a minimum of six characters.|
-|VHDLanguage|Optional|Specifies the VHD language, defaulted to “en-US”.|
+    | Parameter | Required/Optional | Description |
+    | --- | --- | --- |
+    |CloudBuilderDiskPath|Required|The path to the CloudBuilder.vhdx on the HOST.|
+    |DriverPath|Optional|Lets you add additional drivers for the host in the VHD.|
+    |ApplyUnattend|Optional|Specify this switch parameter to automate the configuration of the operating system. If specified, the user must provide the AdminPassword to configure the OS at boot (requires provided accompanying file unattend_NoKVM.xml). If you do not use this parameter, the generic unattend.xml file is used without further customization. You'll need KVM access to complete customization after it reboots.|
+    |AdminPassword|Optional|Only used when the ApplyUnattend parameter is set, requires a minimum of six characters.|
+    |VHDLanguage|Optional|Specifies the VHD language, defaulted to “en-US”.|
 
     The script is documented and contains example usage, though the most common usage is:
      
-       `.\PrepareBootFromVHD.ps1 -CloudBuilderDiskPath C:\CloudBuilder.vhdx -ApplyUnattend`
+    `.\PrepareBootFromVHD.ps1 -CloudBuilderDiskPath C:\CloudBuilder.vhdx -ApplyUnattend`
      
     If you run this exact command, you must enter the AdminPassword at the prompt.
 8. When the script is complete, you must confirm the reboot. If there are other users logged in, this command will fail. If the command fails, run the following command: `Restart-Computer -force` 
