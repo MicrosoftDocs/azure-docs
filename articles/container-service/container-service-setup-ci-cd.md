@@ -239,7 +239,7 @@ If you open the build definition in VSTS, you'll see something like this:
 	      com.microsoft.acs.dcos.marathon.vhost: "<FQDN, or custom domain>"
 	```
 
-	* For the label value, you can either specify the URL of your ACS agent's fully qualified domain name (FQDN), or a custom domain (e.g. app.contoso.com). To find your ACS agent's FQDN, run the command `az acs list`, and check the property for `agentPoolProfiles.fqdn`. It will look something like `myacsagents.westus.cloudapp.azure.com`.
+	* For the label value, you can either specify the URL of your ACS agent's fully qualified domain name (FQDN), or a custom domain (for example, app.contoso.com). To find your ACS agent's FQDN, run the command `az acs list`, and check the property for `agentPoolProfiles.fqdn`. It will look something like `myacsagents.westus.cloudapp.azure.com`.
 	* By following the filename convention docker-compose.env.*environment-name*.yml, these settings will only affect the named environment (in this case, the environment named *Production*). No magic here: if you inspect the release definition in VSTS, you'll see each environment's deployment task is set up to read from a docker-compose file named after this convention - you can of course change this to whatever you like. 
 
 1. Commit and push this file to your master source repository to kick off another build.
@@ -252,11 +252,11 @@ If you open the build definition in VSTS, you'll see something like this:
 
 1. Wait until the update has been built and deployed to *Dev*, then promote it to *Test*, and then promote it to *Production*. (For the purposes of this tutorial, you can deploy directly to *Production* but it is good to get in the practice of only deploying to the next downstream environment.)
 
-1. (Optional) **If you specified a custom domain** for vhost (e.g. app.contoso.com), you'll need to add a DNS record in your domain provider's settings. Log in to your domain provider's administrative UI and add a DNS record as follows:
+1. (Optional) **If you specified a custom domain** for vhost (for example, app.contoso.com), you'll need to add a DNS record in your domain provider's settings. Log in to your domain provider's administrative UI and add a DNS record as follows:
 
 	* Type: CNAME
-	* Host: Your custom domain, e.g. app.contoso.com
-	* Answer: ACS agent FQDN, e.g. myacsagents.westus.cloudapp.azure.com
+	* Host: Your custom domain, for example, app.contoso.com
+	* Answer: ACS agent FQDN, for example, myacsagents.westus.cloudapp.azure.com
 	* TTL (Optional): Sometimes, your domain provider will give you the ability to edit the TTL. A lower value will result in a DNS record update to be propagated more quickly.   
 
 1. Once the release has been deployed to *Production*, that version will be accessible to anyone. Open your browser to the URL you specified for the `com.microsoft.acs.dcos.marathon.vhost` label. (Note: releases to pre-production environments will continue to be private).
