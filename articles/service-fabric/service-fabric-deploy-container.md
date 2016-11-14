@@ -27,7 +27,7 @@ ms.author: msfussell
 This article walks you through the process of building containerized services in Windows containers.
 
 > [!NOTE]
-> This feature is in preview for Linux and is not available for Windows Server 2016 (yet). The feature will be released in preview for Windows Server 2016 in the upcoming release of Azure Service Fabric. 
+> This feature is in preview for Linux and is not available for Windows Server 2016 (yet). The feature will be in preview for Windows Server 2016 in the upcoming release of Azure Service Fabric. 
 > 
 > 
 
@@ -103,7 +103,7 @@ Resource governance is a capability of the container that restricts the resource
 
 
 ## Authenticate a repository
-To download a container, you might have to provide sign-in credentials to the container repository. The sign-in credentials, specified in the application manifest, are used to specify the sign-in information, or SSH key, for downloading the container image from the image repository. The following example shows an account called *TestUser* along with the password in clear text. This is *not* recommended.
+To download a container, you might have to provide sign-in credentials to the container repository. The sign-in credentials, specified in the application manifest, are used to specify the sign-in information, or SSH key, for downloading the container image from the image repository. The following example shows an account called *TestUser* along with the password in clear text (*not* recommended):
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -156,7 +156,7 @@ If you specify an endpoint, using the `Endpoint` tag in the service manifest of 
         </Policies>
     </ServiceManifestImport>
 
-By registering with the Naming service, you can easily do container-to-container communication in the code within your container by using the [reverse proxy](service-fabric-reverseproxy.md). Communication is performed by providing the reverse proxy http listening port and the name of the services that you want to communicate with as environment variables. For more details, see the next section. 
+By registering with the Naming service, you can easily do container-to-container communication in the code within your container by using the [reverse proxy](service-fabric-reverseproxy.md). Communication is performed by providing the reverse proxy http listening port and the name of the services that you want to communicate with as environment variables. For more information, see the next section. 
 
 ## Configure and set environment variables
 Environment variables can be specified for each code package in the service manifest, both for services that are deployed in containers or for services that are deployed as processes/guest executables. These environment variable values can be overridden specifically in the application manifest or specified during deployment as application parameters.
@@ -195,7 +195,8 @@ These environment variables can be overridden at the application manifest level:
 In the previous example, we specified an explicit value for the `HttpGateway` environment variable (19000), while we set the value for `BackendServiceName` parameter via the `[BackendSvc]` application parameter. These settings enable you to specify the value for `BackendServiceName`value when you deploy the application and not have a fixed value in the manifest.
 
 ## Complete examples for application and service manifest
-The following is an example application manifest:
+
+An example application manifest follows:
 
     <ApplicationManifest ApplicationTypeName="SimpleContainerApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Description>A simple service container application</Description>
@@ -220,7 +221,7 @@ The following is an example application manifest:
     </ApplicationManifest>
 
 
-The following is an example service manifest (specified in the preceding application manifest):
+An example service manifest (specified in the preceding application manifest) follows:
 
     <ServiceManifest Name="FrontendServicePackage" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Description> A service that implements a stateless front end in a container</Description>
