@@ -35,5 +35,8 @@
 
 # Resources 
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/)
-## [Contact us](active-directory-ds-contact-us.md)
+
+## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Service updates](https://azure.microsoft.com/updates/?product=api-management)
+## [Contact us](active-directory-ds-contact-us.md)
