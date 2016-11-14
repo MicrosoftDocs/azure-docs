@@ -37,7 +37,7 @@ docker-machine create -d azure \
 
 The output should look something like this, depending upon whether you have two-factor authentication configured in your account.
 
-```
+```bash
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
 Creating client certificate: /Users/user/.docker/machine/certs/cert.pem
 Running pre-create checks...
@@ -77,7 +77,7 @@ docker-machine env machine
 
 That prints the environment information, which looks something like this. Note the IP address has been assigned, which you'll need to test the VM.
 
-```
+```bash
 export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://191.237.46.90:2376"
 export DOCKER_CERT_PATH="/Users/rasquill/.docker/machine/machines/machine"
@@ -97,7 +97,7 @@ docker run -d -p 80:80 --restart=always nginx
 
 The output should look something like the following:
 
-```
+```bash
 Unable to find image 'nginx:latest' locally
 latest: Pulling from library/nginx
 efd26ecc9548: Pull complete
@@ -122,7 +122,7 @@ And check to see the running container, type `docker-machine ip <VM name>` to fi
 ![Running ngnix container](./media/virtual-machines-linux-docker-machine/nginxsuccess.png)
 
 ## Next steps
-If you're interested, you can try out the Azure [Docker VM Extension](virtual-machines-linux-dockerextension.md) to do the same operation using the Azure CLI or Azure resource manager templates. 
+If you're interested, you can try out the Azure [Docker VM Extension](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to do the same operation using the Azure CLI or Azure resource manager templates. 
 
 For more examples of working with Docker, see [Working with Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 

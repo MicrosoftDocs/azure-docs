@@ -39,66 +39,66 @@ azure group create myResourceGroup westus
 ```
 
 ## Create a Debian VM
-```bash
+```azurecli
 azure vm quick-create \
--M ~/.ssh/id_rsa.pub \
--u myAdminUser \
--g myResourceGroup \
--l westus \
--y Linux \
--n myVM \
--Q Debian
+  -M ~/.ssh/id_rsa.pub \
+  -u myAdminUser \
+  -g myResourceGroup \
+  -l westus \
+  -y Linux \
+  -n myVM \
+  -Q Debian
 ```
 
 ## Reset root password
 To reset the root password:
 
-```bash
+```azurecli
 azure vm reset-access \
--g myResourceGroup \
--n myVM \
--u root \
--p myNewPassword
+  -g myResourceGroup \
+  -n myVM \
+  -u root \
+  -p myNewPassword
 ```
 
 ## SSH key reset
 To reset the SSH key of a non-root user:
 
-```bash
+```azurecli
 azure vm reset-access \
--g myResourceGroup \
--n myVM \
--u myAdminUser \
--M ~/.ssh/id_rsa.pub
+  -g myResourceGroup \
+  -n myVM \
+  -u myAdminUser \
+  -M ~/.ssh/id_rsa.pub
 ```
 
 ## Create a user
 To create a user:
 
-```bash
+```azurecli
 azure vm reset-access \
--g myResourceGroup \
--n myVM \
--u myAdminUser \
--p myAdminUserPassword
+  -g myResourceGroup \
+  -n myVM \
+  -u myAdminUser \
+  -p myAdminUserPassword
 ```
 
 ## Remove a user
-```bash
+```azurecli
 azure vm reset-access \
--g myResourceGroup \
--n myVM \
--R myRemovedUser
+  -g myResourceGroup \
+  -n myVM \
+  -R myRemovedUser
 ```
 
 ## Reset SSHD
 To reset the SSHD configuration:
 
-```bash
+```azurecli
 azure vm reset-access \
--g myResourceGroup \
--n myVM
--r
+  -g myResourceGroup \
+  -n myVM
+  -r
 ```
 
 
@@ -124,13 +124,13 @@ To check, and then repair the disk use this VMAccess script:
 
 Execute the VMAccess script with:
 
-```bash
+```azurecli
 azure vm extension set \
-myResourceGroup \
-myVM \
-VMAccessForLinux \
-Microsoft.OSTCExtensions * \
---private-config-path disk_check_repair.json
+  myResourceGroup \
+  myVM \
+  VMAccessForLinux \
+  Microsoft.OSTCExtensions * \
+  --private-config-path disk_check_repair.json
 ```
 
 ### Using VMAccess to reset user access to Linux
@@ -149,13 +149,13 @@ To reset the root password, use this VMAccess script:
 
 Execute the VMAccess script with:
 
-```bash
+```azurecli
 azure vm extension set \
-myResourceGroup \
-myVM \
-VMAccessForLinux \
-Microsoft.OSTCExtensions * \
---private-config-path reset_root_password.json
+  myResourceGroup \
+  myVM \
+  VMAccessForLinux \
+  Microsoft.OSTCExtensions * \
+  --private-config-path reset_root_password.json
 ```
 
 To reset the SSH key of a non-root user, use this VMAccess script:
@@ -171,13 +171,13 @@ To reset the SSH key of a non-root user, use this VMAccess script:
 
 Execute the VMAccess script with:
 
-```bash
+```azurecli
 azure vm extension set \
-myResourceGroup \
-myVM \
-VMAccessForLinux \
-Microsoft.OSTCExtensions * \
---private-config-path reset_ssh_key.json
+  myResourceGroup \
+  myVM \
+  VMAccessForLinux \
+  Microsoft.OSTCExtensions * \
+  --private-config-path reset_ssh_key.json
 ```
 
 ### Using VMAccess to manage user accounts on Linux
@@ -197,13 +197,13 @@ To create a user, use this VMAccess script:
 
 Execute the VMAccess script with:
 
-```bash
+```azurecli
 azure vm extension set \
-myResourceGroup \
-myVM \
-VMAccessForLinux \
-Microsoft.OSTCExtensions * \
---private-config-path create_new_user.json
+  myResourceGroup \
+  myVM \
+  VMAccessForLinux \
+  Microsoft.OSTCExtensions * \
+  --private-config-path create_new_user.json
 ```
 
 To delete a user, use this VMAccess script:
@@ -218,13 +218,13 @@ To delete a user, use this VMAccess script:
 
 Execute the VMAccess script with:
 
-```bash
+```azurecli
 azure vm extension set \
-myResourceGroup \
-myVM \
-VMAccessForLinux \
-Microsoft.OSTCExtensions * \
---private-config-path remove_user.json
+  myResourceGroup \
+  myVM \
+  VMAccessForLinux \
+  Microsoft.OSTCExtensions * \
+  --private-config-path remove_user.json
 ```
 
 ### Using VMAccess to reset the SSHD configuration
@@ -242,21 +242,21 @@ To reset the SSHD configuration use this VMAccess script:
 
 Execute the VMAccess script with:
 
-```bash
+```azurecli
 azure vm extension set \
-myResourceGroup \
-myVM \
-VMAccessForLinux \
-Microsoft.OSTCExtensions * \
---private-config-path reset_sshd.json
+  myResourceGroup \
+  myVM \
+  VMAccessForLinux \
+  Microsoft.OSTCExtensions * \
+  --private-config-path reset_sshd.json
 ```
 
 ## Next steps
 Updating Linux using Azure VMAccess Extensions is one method to make changes on a running Linux VM.  You can also use tools like cloud-init and Azure Templates to modify your Linux VM on boot.
 
-[About virtual machine extensions and features](virtual-machines-linux-extensions-features.md)
+[About virtual machine extensions and features](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Authoring Azure Resource Manager templates with Linux VM extensions](virtual-machines-linux-extensions-authoring-templates.md)
+[Authoring Azure Resource Manager templates with Linux VM extensions](virtual-machines-linux-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Using cloud-init to customize a Linux VM during creation](virtual-machines-linux-using-cloud-init.md)
+[Using cloud-init to customize a Linux VM during creation](virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

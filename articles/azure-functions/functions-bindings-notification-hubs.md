@@ -49,20 +49,22 @@ The function.json file provides the following properties:
 
 Example function.json:
 
+```json
+{
+  "bindings": [
     {
-      "bindings": [
-        {
-          "name": "notification",
-          "type": "notificationHub",
-          "tagExpression": "",
-          "hubName": "my-notification-hub",
-          "connection": "MyHubConnectionString",
-          "platform": "gcm",
-          "direction": "out"
-        }
-      ],
-      "disabled": false
+      "name": "notification",
+      "type": "notificationHub",
+      "tagExpression": "",
+      "hubName": "my-notification-hub",
+      "connection": "MyHubConnectionString",
+      "platform": "gcm",
+      "direction": "out"
     }
+  ],
+  "disabled": false
+}
+```
 
 ## Notification hub connection string setup
 To use a Notification hub output binding, you must configure the connection string for the hub. This can be done on the *Integrate* tab by selecting your notification hub or creating a new one. 
@@ -74,205 +76,218 @@ You can also manually add a connection string for an existing hub by adding a co
 3. Scroll down to the **Connection strings** section, and add a named entry for *DefaultFullSharedAccessSignature* value for your notification hub. Change the type to **Custom**.
 4. Reference your connection string name in the output bindings. Similar to **MyHubConnectionString** used in the example above.
 
-## Native notification examples
-#### APNS native notifications with C# queue triggers
+## APNS native notifications with C# queue triggers
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native APNS notification. 
 
-    #r "Microsoft.Azure.NotificationHubs"
-    #r "Newtonsoft.Json"
+```cs
+#r "Microsoft.Azure.NotificationHubs"
+#r "Newtonsoft.Json"
 
-    using System;
-    using Microsoft.Azure.NotificationHubs;
-    using Newtonsoft.Json;
+using System;
+using Microsoft.Azure.NotificationHubs;
+using Newtonsoft.Json;
 
-    public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
-    {
-        log.Info($"C# Queue trigger function processed: {myQueueItem}");
+public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-        // In this example the queue item is a new user to be processed in the form of a JSON string with 
-        // a "name" value.
-        //
-        // The JSON format for a native APNS notification is ...
-        // { "aps": { "alert": "notification message" }}  
+    // In this example the queue item is a new user to be processed in the form of a JSON string with 
+    // a "name" value.
+    //
+    // The JSON format for a native APNS notification is ...
+    // { "aps": { "alert": "notification message" }}  
 
-        log.Info($"Sending APNS notification of a new user");    
-        dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
-        string apnsNotificationPayload = "{\"aps\": {\"alert\": \"A new user wants to be added (" + 
-                                            user.name + ")\" }}";
-        log.Info($"{apnsNotificationPayload}");
-        await notification.AddAsync(new AppleNotification(apnsNotificationPayload));        
-    }
+    log.Info($"Sending APNS notification of a new user");    
+    dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
+    string apnsNotificationPayload = "{\"aps\": {\"alert\": \"A new user wants to be added (" + 
+                                        user.name + ")\" }}";
+    log.Info($"{apnsNotificationPayload}");
+    await notification.AddAsync(new AppleNotification(apnsNotificationPayload));        
+}
+```
 
-#### GCM native notifications with C# queue triggers
+## GCM native notifications with C# queue triggers
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native GCM notification. 
 
-    #r "Microsoft.Azure.NotificationHubs"
-    #r "Newtonsoft.Json"
+```cs
+#r "Microsoft.Azure.NotificationHubs"
+#r "Newtonsoft.Json"
 
-    using System;
-    using Microsoft.Azure.NotificationHubs;
-    using Newtonsoft.Json;
+using System;
+using Microsoft.Azure.NotificationHubs;
+using Newtonsoft.Json;
 
-    public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
-    {
-        log.Info($"C# Queue trigger function processed: {myQueueItem}");
+public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-        // In this example the queue item is a new user to be processed in the form of a JSON string with 
-        // a "name" value.
-        //
-        // The JSON format for a native GCM notification is ...
-        // { "data": { "message": "notification message" }}  
+    // In this example the queue item is a new user to be processed in the form of a JSON string with 
+    // a "name" value.
+    //
+    // The JSON format for a native GCM notification is ...
+    // { "data": { "message": "notification message" }}  
 
-        log.Info($"Sending GCM notification of a new user");    
-        dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
-        string gcmNotificationPayload = "{\"data\": {\"message\": \"A new user wants to be added (" + 
-                                            user.name + ")\" }}";
-        log.Info($"{gcmNotificationPayload}");
-        await notification.AddAsync(new GcmNotification(gcmNotificationPayload));        
-    }
+    log.Info($"Sending GCM notification of a new user");    
+    dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
+    string gcmNotificationPayload = "{\"data\": {\"message\": \"A new user wants to be added (" + 
+                                        user.name + ")\" }}";
+    log.Info($"{gcmNotificationPayload}");
+    await notification.AddAsync(new GcmNotification(gcmNotificationPayload));        
+}
+```
 
-#### WNS native notifications with C# queue triggers
+## WNS native notifications with C# queue triggers
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native WNS toast notification. 
 
-    #r "Microsoft.Azure.NotificationHubs"
-    #r "Newtonsoft.Json"
+```cs
+#r "Microsoft.Azure.NotificationHubs"
+#r "Newtonsoft.Json"
 
-    using System;
-    using Microsoft.Azure.NotificationHubs;
-    using Newtonsoft.Json;
+using System;
+using Microsoft.Azure.NotificationHubs;
+using Newtonsoft.Json;
 
-    public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
+public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+
+    // In this example the queue item is a new user to be processed in the form of a JSON string with 
+    // a "name" value.
+    //
+    // The XML format for a native WNS toast notification is ...
+    // <?xml version="1.0" encoding="utf-8"?>
+    // <toast>
+    //      <visual>
+    //     <binding template="ToastText01">
+    //       <text id="1">notification message</text>
+    //     </binding>
+    //   </visual>
+    // </toast>
+
+    log.Info($"Sending WNS toast notification of a new user");    
+    dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
+    string wnsNotificationPayload = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                                    "<toast><visual><binding template=\"ToastText01\">" +
+                                        "<text id=\"1\">" + 
+                                            "A new user wants to be added (" + user.name + ")" + 
+                                        "</text>" +
+                                    "</binding></visual></toast>";
+
+    log.Info($"{wnsNotificationPayload}");
+    await notification.AddAsync(new WindowsNotification(wnsNotificationPayload));        
+}
+```
+
+## Template example for Node.js timer triggers
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if(myTimer.isPastDue)
     {
-        log.Info($"C# Queue trigger function processed: {myQueueItem}");
-
-        // In this example the queue item is a new user to be processed in the form of a JSON string with 
-        // a "name" value.
-        //
-        // The XML format for a native WNS toast notification is ...
-        // <?xml version="1.0" encoding="utf-8"?>
-        // <toast>
-        //      <visual>
-        //     <binding template="ToastText01">
-        //       <text id="1">notification message</text>
-        //     </binding>
-        //   </visual>
-        // </toast>
-
-        log.Info($"Sending WNS toast notification of a new user");    
-        dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
-        string wnsNotificationPayload = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                                        "<toast><visual><binding template=\"ToastText01\">" +
-                                            "<text id=\"1\">" + 
-                                                "A new user wants to be added (" + user.name + ")" + 
-                                            "</text>" +
-                                        "</binding></visual></toast>";
-
-        log.Info($"{wnsNotificationPayload}");
-        await notification.AddAsync(new WindowsNotification(wnsNotificationPayload));        
+        context.log('Node.js is running late!');
     }
-
-
-## Template notification examples
-#### Template example for Node.js timer triggers
-This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
-
-    module.exports = function (context, myTimer) {
-        var timeStamp = new Date().toISOString();
-
-        if(myTimer.isPastDue)
-        {
-            context.log('Node.js is running late!');
-        }
-        context.log('Node.js timer trigger function ran!', timeStamp);  
-        context.bindings.notification = {
-            location: "Redmond",
-            message: "Hello from Node!"
-        };
-        context.done();
+    context.log('Node.js timer trigger function ran!', timeStamp);  
+    context.bindings.notification = {
+        location: "Redmond",
+        message: "Hello from Node!"
     };
+    context.done();
+};
+```
 
-#### Template example for F# timer triggers
+## Template example for F# timer triggers
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
 
-    let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
-        notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
+```fsharp
+let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
+    notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
+```
 
-
-#### Template example using an out parameter
+## Template example using an out parameter
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains a `message` place holder in the template.
 
-    using System;
-    using System.Threading.Tasks;
-    using System.Collections.Generic;
+```cs
+using System;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
-    public static void Run(string myQueueItem,  out IDictionary<string, string> notification, TraceWriter log)
-    {
-        log.Info($"C# Queue trigger function processed: {myQueueItem}");
-        notification = GetTemplateProperties(myQueueItem);
-    }
+public static void Run(string myQueueItem,  out IDictionary<string, string> notification, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    notification = GetTemplateProperties(myQueueItem);
+}
 
-    private static IDictionary<string, string> GetTemplateProperties(string message)
-    {
-        Dictionary<string, string> templateProperties = new Dictionary<string, string>();
-        templateProperties["message"] = message;
-        return templateProperties;
-    }
+private static IDictionary<string, string> GetTemplateProperties(string message)
+{
+    Dictionary<string, string> templateProperties = new Dictionary<string, string>();
+    templateProperties["message"] = message;
+    return templateProperties;
+}
+```
 
-#### Template example with asynchronous function
+## Template example with asynchronous function
 If you are using asynchronous code, out parameters are not allowed. In this case use `IAsyncCollector` to return your template notification. The following code is an asynchronous example of the code above. 
 
-    using System;
-    using System.Threading.Tasks;
-    using System.Collections.Generic;
+```cs
+using System;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
-    public static async Task Run(string myQueueItem, IAsyncCollector<IDictionary<string,string>> notification, TraceWriter log)
-    {
-        log.Info($"C# Queue trigger function processed: {myQueueItem}");
+public static async Task Run(string myQueueItem, IAsyncCollector<IDictionary<string,string>> notification, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-        log.Info($"Sending Template Notification to Notification Hub");
-        await notification.AddAsync(GetTemplateProperties(myQueueItem));    
-    }
+    log.Info($"Sending Template Notification to Notification Hub");
+    await notification.AddAsync(GetTemplateProperties(myQueueItem));    
+}
 
-    private static IDictionary<string, string> GetTemplateProperties(string message)
-    {
-        Dictionary<string, string> templateProperties = new Dictionary<string, string>();
-        templateProperties["user"] = "A new user wants to be added : " + message;
-        return templateProperties;
-    }
+private static IDictionary<string, string> GetTemplateProperties(string message)
+{
+    Dictionary<string, string> templateProperties = new Dictionary<string, string>();
+    templateProperties["user"] = "A new user wants to be added : " + message;
+    return templateProperties;
+}
+```
 
-#### Template example using JSON
+## Template example using JSON
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains a `message` place holder in the template using a valid JSON string.
 
-    using System;
+```cs
+using System;
 
-    public static void Run(string myQueueItem,  out string notification, TraceWriter log)
-    {
-        log.Info($"C# Queue trigger function processed: {myQueueItem}");
-        notification = "{\"message\":\"Hello from C#. Processed a queue item!\"}";
-    }
+public static void Run(string myQueueItem,  out string notification, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    notification = "{\"message\":\"Hello from C#. Processed a queue item!\"}";
+}
+```
 
-
-#### Template example using Notification Hubs library types
+## Template example using Notification Hubs library types
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). 
 
-    #r "Microsoft.Azure.NotificationHubs"
+```cs
+#r "Microsoft.Azure.NotificationHubs"
 
-    using System;
-    using System.Threading.Tasks;
-    using Microsoft.Azure.NotificationHubs;
+using System;
+using System.Threading.Tasks;
+using Microsoft.Azure.NotificationHubs;
 
-    public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
-    {
-       log.Info($"C# Queue trigger function processed: {myQueueItem}");
-       notification = GetTemplateNotification(myQueueItem);
-    }
+public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
+{
+   log.Info($"C# Queue trigger function processed: {myQueueItem}");
+   notification = GetTemplateNotification(myQueueItem);
+}
 
-    private static TemplateNotification GetTemplateNotification(string message)
-    {
-        Dictionary<string, string> templateProperties = new Dictionary<string, string>();
-        templateProperties["message"] = message;
-        return new TemplateNotification(templateProperties);
-    }
+private static TemplateNotification GetTemplateNotification(string message)
+{
+    Dictionary<string, string> templateProperties = new Dictionary<string, string>();
+    templateProperties["message"] = message;
+    return new TemplateNotification(templateProperties);
+}
+```
 
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]

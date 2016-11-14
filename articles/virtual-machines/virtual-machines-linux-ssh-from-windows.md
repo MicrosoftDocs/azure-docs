@@ -20,8 +20,8 @@ ms.author: rasquill
 ---
 # How to Use SSH keys with Windows on Azure
 > [!div class="op_single_selector"]
-> * [Windows](virtual-machines-linux-ssh-from-windows.md)
-> * [Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md)
+> * [Windows](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> * [Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -100,9 +100,16 @@ The preceding section listed several packages that include the `openssl` tool fo
 3. Your new private key and certificate are created in your current working directory. For security best practices, you should set the permissions on your private key so that only you can access it:
    
     ```bash
-    chmod 0600 myPrivateKey
+    chmod 0600 myPrivateKey.key
     ```
-4. If you also need to manage Classic resources, convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate). Perform this optional step only if you need to specifically manage older Classic resources. 
+
+4. The [next section](#create-a-private-key-for-putty) details using PuTTYgen to both view and use the public key, and create a private key specific for using PuTTY to SSH to Linux VMs. The following command generates a public key file named `myPublicKey.key` that you can use right away:
+
+    ```bash
+    openssl.exe rsa -pubout -in myPrivateKey.key -out myPublicKey.key
+    ```
+
+5. If you also need to manage Classic resources, convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate). Perform this optional step only if you need to specifically manage older Classic resources. 
    
     Convert the certificate using the following command:
    
@@ -167,9 +174,9 @@ Again, PuTTY is a common SSH client for Windows. You are free to use any SSH cli
 4. Click **Open** to connect to your virtual machine
 
 ## Next steps
-You can also generate the public and private keys [using OS X and Linux](virtual-machines-linux-mac-create-ssh-keys.md).
+You can also generate the public and private keys [using OS X and Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 For more information about Bash for Windows and the benefits of having OSS tools readily available on your Windows computer, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
 
-If you have trouble using SSH to connect to your Linux VMs, see [Troubleshoot SSH connections to an Azure Linux VM](virtual-machines-linux-troubleshoot-ssh-connection.md).
+If you have trouble using SSH to connect to your Linux VMs, see [Troubleshoot SSH connections to an Azure Linux VM](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

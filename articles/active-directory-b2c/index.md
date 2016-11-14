@@ -1,40 +1,24 @@
-﻿---
-title: Active Directory B2C Documentation | Microsoft Azure
-description: Active Directory B2C Documentation
-services: active-directory-b2c
-documentationcenter: ''
-author: kriscrider
-manager: carolz
-editor: ''
-tags: 
-
-ms.assetid: b3201b5c-7676-4906-8c0b-36c4aa1f663b
-ms.service: active-directory-b2c
-ms.devlang: na
-ms.topic: landing page
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/06/2016
-ms.author: kriscr
-
 ---
-# Active Directory B2C Documentation
+layout: LandingPage
+---
+
+#Active Directory B2C Documentation
 
 Azure Active Directory B2C is a comprehensive cloud identity management solution for your consumer-facing web and mobile applications. It is a highly available global service that scales to hundreds of millions of consumer identities. Built on an enterprise-grade secure platform, Azure Active Directory B2C keeps your applications, your business, and your consumers protected.
 
-<ul class="panelContent cardsA">
+<ul class="panelContent cardsFTitle">
     <li>
-        <a href="active-directory-b2c-overview.html">
+        <a href="/azure/active-directory-b2c/active-directory-b2c-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/active-directory-b2c.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Learn about Active Directory B2C</p>
+                        <h3>Learn about Active Directory B2C</h3>
                     </div>
                 </div>
             </div>
@@ -43,34 +27,16 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
     </li>
     <li>
         <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=active-directory-b2c">
-        <div class="cardSize">            
-        <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <p>Active Directory B2C Video Library</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>  
-    <li>
-        <a href="active-directory-b2c-devquickstarts-ios.html">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create a web call to an iOS application using a third party library</p>
+                        <h3>Azure Active Directory B2C Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -78,17 +44,17 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
         </a>
     </li>
     <li>
-        <a href="active-directory-b2c-devquickstarts-android.html">
+        <a href="/azure/active-directory-b2c/active-directory-b2c-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create a web call from an Andriod application</p>
+                        <h3>Create an Azure AD B2C tenant</h3>
                     </div>
                 </div>
             </div>
@@ -96,17 +62,17 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
         </a>
     </li>
     <li>
-        <a href="active-directory-b2c-devquickstarts-api-node.html">
+        <a href="/azure/active-directory-b2c/active-directory-b2c-devquickstarts-ios">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create a secure web API by using Node.js application</p>
+                        <h3>Create an iOS app using a third-party libraryC</h3>
                     </div>
                 </div>
             </div>
@@ -114,17 +80,17 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
         </a>
     </li>
     <li>
-        <a href="active-directory-b2c-devquickstarts-web-dotnet.html">
+        <a href="/azure/active-directory-b2c/active-directory-b2c-devquickstarts-android">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Creat a .NET Web app</p>
+                        <h3>Create an Android application</h3>
                     </div>
                 </div>
             </div>
@@ -132,46 +98,83 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
         </a>
     </li>
     <li>
-    <a href="active-directory-b2c-devquickstarts-web-api.html">
+        <a href="/azure/active-directory-b2c/active-directory-b2c-devquickstarts-api-node">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create a .NET Web API</p>
+                        <h3>Create a Node.js Web API</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>
+    </li>
     <li>
-    <a href="active-directory-b2c-devquickstarts-native-dotnet.html">
+        <a href="/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create a Windows desktop application</p>
+                        <h3>Create a .NET web app</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>
+    </li>
+    <li>
+        <a href="/azure/active-directory-b2c/active-directory-b2c-devquickstarts-api-dotnet">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Create a .NET web API</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/active-directory-b2c/active-directory-b2c-devquickstarts-native-dotnet">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Create Windows desktop app</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---
+
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-b2c.pdf">
         <div class="img"></div>
         <div class="text">
             Download Active Directory B2C Documentation
