@@ -1,6 +1,5 @@
 # Overview
 ## [Introduction to Azure Data Factory](data-factory-introduction.md)
-## [FAQ](data-factory-faq.md)
 ## Concepts
 ### [Datasets](data-factory-create-datasets.md)
 ### [Pipelines and activities](data-factory-create-pipelines.md)
@@ -22,6 +21,7 @@
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Azure Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md)
 ### [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+## [FAQ](data-factory-faq.md)
 
 # How To
 ## Move Data
