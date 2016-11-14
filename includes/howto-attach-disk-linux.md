@@ -1,17 +1,17 @@
 
-For more details about disks, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information about disks, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 
 ## Attach an empty disk
 1. Open Azure CLI and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
-2. Enter `azure vm disk attach-new` to create and attach a new disk as shown in the following. Replace *myVM* with the name of your Linux Virtual Machine and specify the size of the disk in GB, which is *100GB* in this example:
+2. Enter `azure vm disk attach-new` to create and attach a new disk as shown in the following example. Replace *myVM* with the name of your Linux Virtual Machine and specify the size of the disk in GB, which is *100GB* in this example:
 
     ```azurecli
     azure vm disk attach-new myVM 100
     ```
 
-3. After the data disk is created and attached, it's listed in the output of `azure vm disk list <virtual-machine-name>` as shown in the following:
+3. After the data disk is created and attached, it's listed in the output of `azure vm disk list <virtual-machine-name>` as shown in the following example:
    
     ```azurecli
     azure vm disk list TestVM
@@ -59,13 +59,13 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
     ```
 
 3. If you don't find the disk that you want to use, you may upload a local VHD to your subscription by using
-   `azure vm disk create` or `azure vm disk upload`. An example of `disk create` would be as in the following:
+   `azure vm disk create` or `azure vm disk upload`. An example of `disk create` would be as in the following example:
    
     ```azurecli
     azure vm disk create myVhd .\TempDisk\test.VHD -l "East US" -o Linux
     ```
 
-    The output is similar to the following:
+    The output is similar to the following example:
 
     ```azurecli
     info:    Executing command vm disk create
@@ -112,7 +112,7 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
     ```
 
 > [!NOTE]
-> After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage (see the steps below for more information on how to do this).
+> After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage (see the following steps for more information on how to do initialize the disk).
 > 
 > 
 
