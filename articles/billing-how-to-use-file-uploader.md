@@ -54,13 +54,13 @@ Follow these guidelines when you use the File Upload utility:
 | .CFG        | .etl  | .mp3        | .pptm | .sqlplan | .vsd       | .z01    |
 | .compressed | .evt  | .mpg        | .pptx | .stp     | .wdb       | .z02    |
 | .Config     | .evtx | .ms_        | .prn  | .svclog  | .wks       | .zi     |
-| .cpk        | .EX   | .msg        | .psf  |          | .wma       | .zi_    |
-| .cpp        | .ex_  | .msi        | .pst  |          | .wmv       | .zip    |
-| .cs         | .ex0  | .mso        | .pub  |          | .wmz       | .zip_   |
-| .CSV        | .FRD  | .msu        |       |          | .wps       | .zipp   |
-| .cvr        | .gif  | .nfo        |       |          | .wpt       | .zipped |
-|             | .guid |             |       |          | .wsdl      | .zippy  |
-|             | .gz   |             |       |          | .wsp       | .zipx   |
-|             |       |             |       |          | .wtl       | .zit    |
-|             |       |             |       |          |            | .zix    |
-|             |       |             |       |          |            | .zzz    |
+| .cpk        | .EX   | .msg        | .psf  |   -       | .wma       | .zi_    |
+| .cpp        | .ex_  | .msi        | .pst  |  -        | .wmv       | .zip    |
+| .cs         | .ex0  | .mso        | .pub  | -         | .wmz       | .zip_   |
+| .CSV        | .FRD  | .msu        | -      |-          | .wps       | .zipp   |
+| .cvr        | .gif  | .nfo        | -      |-          | .wpt       | .zipped |
+| -            | .guid | -            | -      | -         | .wsdl      | .zippy  |
+| -            | .gz   | -            | -      | -         | .wsp       | .zipx   |
+| -            | -      | -            | -      | -         | .wtl       | .zit    |
+| -            | -      | -            | -      | -         |     -       | .zix    |
+| -            | -      | -            | -      | -         |  -          | .zzz    |
