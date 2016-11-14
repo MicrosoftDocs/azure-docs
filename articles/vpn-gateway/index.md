@@ -67,11 +67,11 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg"  alt="" />
+                            <img src="media/index/get-started.svg"  alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a site-to-site connection use the Azure portal</h3>
+                        <h3>Get Started creating a site-to-site connection using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +85,11 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg"  alt="" />
+                            <img src="media/index/get-started.svg"  alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a point-to-site connection use the Azure portal</h3>
+                        <h3>Get Started creating a point-to-site connection using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -103,11 +103,11 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg"  alt="" />
+                            <img src="media/index/get-started.svg"  alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a VNet-to-VNet connection use the Azure portal</h3>
+                        <h3>Get Started creating a VNet-to-VNet connection using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
 ##Reference
 
 ###PowerShell
-[PowerShell Reference](/powershell)
+[PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
 [VPN Gateway using Azure CLI](/cli/azure/network/vpn-gateway)
