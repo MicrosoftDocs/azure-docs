@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/10/2016
+ms.date: 11/14/2016
 ms.author: banders
 
 ---
@@ -52,7 +52,7 @@ The **Log Analytics usage** dashboard displays the following information:
 4. In the *workspace* dashboard, click **Log Analytics usage**.
 5. On the **Log Analytics Usage** dashboard, click **Time: Last 24 hours** to change the time interval.  
     ![time interval](./media/log-analytics-usage/time.png)
-6. View the usage category blades that show areas you’re interested. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).  
+6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).  
     ![example data usage blade](./media/log-analytics-usage/blade.png)
 7. On the Log Search dashboard, review the results that are returned from the search.  
     ![example usage log search](./media/log-analytics-usage/usage-log-search.png)

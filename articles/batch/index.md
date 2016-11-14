@@ -121,7 +121,7 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
 [Python SDK reference](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementbatch.html)
 
 ###REST
-[Batch REST API Reference](/rest/api/batchmanagement)
+[Batch REST API Reference](/rest/api/batchservice)
 
 
 <div class="downloadHolder">
