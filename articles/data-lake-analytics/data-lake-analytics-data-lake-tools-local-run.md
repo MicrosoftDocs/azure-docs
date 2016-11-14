@@ -168,7 +168,7 @@ Here is an example:
 
 Besides of combining "compile" and "run" together, you can compile and execute the compiled executables separately. 
 
-### Compile U-SQL Script
+#### Compile U-SQL Script
 
 The "compile" command is used to compile a U-SQL script to executables. 
 
@@ -177,243 +177,61 @@ The "compile" command is used to compile a U-SQL script to executables.
 Optional arguments for compilation:
 
 |Argument|Description|
+|--------|-----------|
+|-CppSDK parm [default value '']|CppSDK Directory|
+|-DataRoot parm [default value '']|DataRoot for data and metadata, default to 'LOCALRUN_DATAROOT' environment variable|
+|-MessageOut parm [default value '']|Dump messages on console to a file|
+|-Shallow [default value 'False']|Shallow compile, does only a syntax check of the script and return.|
+|-WorkDir parm [default value 'D:\localrun\t\ScopeWorkDir']|Directory for compiler usage and outputs, see more in Appendix – Working Directory.|
 
--CppSDK parm [default value '']
-CppSDK Directory
--DataRoot parm [default value '']
-DataRoot for data and metadata, default to 'LOCALRUN_DATAROOT' environment variable
--MessageOut parm [default value '']
-Dump messages on console to a file
--Shallow [default value 'False']
-Shallow compile, does only a syntax check of the script and return.
--WorkDir parm [default value 'D:\localrun\t\ScopeWorkDir']
-Directory for compiler usage and outputs, see more in Appendix – Working Directory.
-Optional Arguments for Assemblies and Code Behind
--CodeBehind [default value 'False']
-The script has .cs code behind which will be compiled and registered automatically as UDO object
--References parm [default value '']
-List of paths to extra reference assemblies or data files of code behind, separated by ';'
--UseDatabase parm [default value 'master']
-Database to use for code behind temporary assembly registration
--UdoRedirect [default value 'False']
-Generate Udo assembly redirect config that tells the .Net runtime to probe dependent assemblies from the compiled output directory first when UDO is called
-Usage Examples
-	LocalRunHelper compile -Script d:\test\test1.usql
 
-	LocalRunHelper compile -Script d:\test\test1.usql –DataRoot c:\DataRoot
+Optional arguments for assemblies and code-behind:
 
-	LocalRunHelper compile -Script d:\test\test1.usql -WorkDir d:\test\bin -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB
-Execute Compiled Result
+|Argument|Description|
+|--------|-----------|
+|-CodeBehind [default value 'False']|The script has .cs code behind which will be compiled and registered automatically as UDO object|
+|-References parm [default value '']|List of paths to extra reference assemblies or data files of code behind, separated by ';'|
+|-UseDatabase parm [default value 'master']|Database to use for code behind temporary assembly registration|
+|-UdoRedirect [default value 'False']|Generate Udo assembly redirect config that tells the .Net runtime to probe dependent assemblies from the compiled output directory first when UDO is called|
+
+Here are some usage examples:
+
+	LocalRunHelper compile -Script d:\test\test1.usql
+	LocalRunHelper compile -Script d:\test\test1.usql –DataRoot c:\DataRoot
+	LocalRunHelper compile -Script d:\test\test1.usql -WorkDir d:\test\bin -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB
+
+#### Execute Compiled Result
+
 The "execute" command is used to execute compiled results.   
-Command Line
-	LocalRunHelper execute -Algebra path_to_compiled_algebra_file [optional_arguments]
-Optional Arguments
--DataRoot parm [default value '']
-DataRoot for metadata execution, default to 'LOCALRUN_DATAROOT' environment variable
--MessageOut parm [default value '']
-Dump messages on console to a file
--Parallel parm [default value '1']
-Run the generated local run steps with the specified parallelism level
--Verbose [default value 'False']
-Show detailed outputs from runtime
-Usage Examples
-	LocalRunHelper execute -Algebra d:\test\workdir\ C6A101DDCB470506\ Script_66AE4909AA0ED06C\__script__.abr –DataRoot c:\DataRoot –Parallel 5
-Using Local Run SDK with Programming Interface
-The programming interface are all located in the "Microsoft.Analytics.LocalRun" assembly.
-Microsoft.Analytics.LocalRun.Configuration
-Compilation configuration parameter class
-Constructor
-public Configuration(
-	string rootPath
-)
-Parameters
-rootPath 
-Type: System. String
-Path to current directory of working context.  If WorkingDirectory is not set, the default working directory will be rootPath + "ScopeWorkDir"
-Properties
-  	Name	Description
- 	CppSDK
-Where to find Cpp SDK, default to use system default configuration 
- 	DataDirectory
-Where tables and assemblies and input output data are saved, default to ScopeWorkDir\DataDir 
- 	GenerateUdoRedirect
-If we want to generate assembly loading redirection override config 
- 	WorkingDirectory
-Compiler's working directory, default to ScopeWorkDir if not set 
+
+	LocalRunHelper execute -Algebra path_to_compiled_algebra_file [optional_arguments]
+
+Optional arguments:
+|-DataRoot parm [default value '']|DataRoot for metadata execution, default to 'LOCALRUN_DATAROOT' environment variable|
+|-MessageOut parm [default value '']|Dump messages on console to a file|
+|-Parallel parm [default value '1']|Run the generated local run steps with the specified parallelism level|
+|-Verbose [default value 'False']|Show detailed outputs from runtime|
 
 
-Microsoft.Analytics.LocalRun.LocalCompiler
-The U-SQL local compiler class
-Constructor
-public LocalCompiler(
-	Configuration configuration
-)
-Parameters
-configuration 
-Type: Microsoft.Analytics.LocalRun.Configuration
-Method
-public bool Compile(
-	string script,
-	string filePath,
-	bool shallow,
-	out CommonCompileResult result
-)
-Parameters
-script 
-Type: System. String
-string of the input script 
-filePath 
-Type: System. String
-path of the script file, set to null to use default 
-shallow 
-Type: System. Boolean
-shallow compile (syntax verification only) or full compile 
-result 
-Type: Microsoft.Cosmos.ClientTools.Shared.CommonCompileResult 
-Detailed compilation results
-Return Value
-Type: Boolean
-true: no severe error in compilation. false: severe error in compilation
-Microsoft.Analytics.LocalRun.LocalRunner : IDisposable
-The U-SQL local runner class
-Constructors
-public LocalRunner(
-	string algebraFilePath,
-	string dataRoot,
-	Action<string> postMessage = null
-)
-Parameters
-algebraFilePath 
-Type: System. String
-Path to Algebra file
-dataRoot 
-Type: System. String
-Path to DataRoot
-postMessage (Optional) 
-Type: System. Action< String> 
-logging handler for progress 
+Here are a usage example:
 
-public LocalRunner(
-	string algebraFilePath,
-	string dataRoot,
-	string cachePath,
-	string runtimePath,
-	string tempPath,
-	string logPath,
-	Action<Object, ExecutionStatusBase. ExecutionEventArgs> execEventHandler,
-	Object eventContext,
-	Action<string> postMessage = null
-)
-Parameters
-algebraFilePath 
-Type: System. String
-Path to Algebra file
-dataRoot 
-Type: System. String
-Path to DataRoot
-cachePath 
-Type: System. String
-Path to directory of compilation result, set to null to use default where Algebra file is located
-runtimePath 
-Type: System. String
-Path to directory of shadow copied runtime, set to null to use default where parent directory of cachePath
-tempPath 
-Type: System. String
-Temporary storage path, internal use only, set to null
-logPath 
-Type: System. String
-Path where execution logs will be written to, set to null to use default as cachePath
-execEventHandler 
-Type: System. Action< Object, ExecutionStatusBase.ExecutionEventArgs>
-execution status change event notification handler 
-eventContext 
-Type: System. Object
-context to the event handler 
-postMessage (Optional) 
-Type: System. Action< String> 
-logging handler for progress 
-Properties
-  	Name	Description
- 	AlgebraPath
-Path to the algebra file 
- 	CachePath
-The compiler result cache path where generated binaries are located 
- 	CompletedSteps
-Number of completed steps 
- 	DataRoot
-DataRoot for metadata 
- 	LastErrorMessage
-(Inherited from ExecutionStatusBase.)
-
- 	LogPath
-Logging file storage location Setter will create the directory if inexist Previously created log path will not be cleaned 
- 	OutputHeader
-Dump schema header in textual outputs 
- 	Parallelism
-Parallelism, default to logic processors - 1 Changing this after Start will results in an Exception 
- 	Progress
-Execution progress in 0 to 100 percent scale 
- 	RuntimePath
-Where the runtime files are located, must be one directory above CachePath when it is the shadow copy by compiler 
- 	Status
-Execution status 
-enum ExecutionStatusBase.ExecutionStatus
-{
-Initialized, // initialize
-Running,     // it is running,  WaitOne only check the event in this state
-Success,     // it completed successfully
-Error,       // it failed
-}
- 	TotalSteps
-Total number of steps to run, valid value available only after the vertex DAG is built 
- 	Verbose
-Verbose during execution 
-
-Methods
-  	Name	Description
- 	Cancel
-Cancel the running algebra 
-waitForCancel 
-Type: System. Boolean
-Wait for cancellation to complete
-Return Value
-Type: Boolean
-false: failed to cancel due to error, check LastErrorMessage for details
- 	Dispose() 
-
- 	Start
-Start to run the algebra 
-Return Value
-Type: Boolean
-false: failed to start due to error, check LastErrorMessage for details
- 	WaitOne() 
-Wait for completion, refer to WaitHandle.WaitOne 
- 	WaitOne(Int32)
-Wait for completion, refer to WaitHandle.WaitOne 
- 	WaitOne(TimeSpan)
-Wait for completion, refer to WaitHandle.WaitOne 
- 	WaitOne(Int32, Boolean)
-Wait for completion, refer to WaitHandle.WaitOne 
- 	WaitOne(TimeSpan, Boolean)
-Wait for completion, refer to WaitHandle.WaitOne 
+	LocalRunHelper execute -Algebra d:\test\workdir\ C6A101DDCB470506\ Script_66AE4909AA0ED06C\__script__.abr –DataRoot c:\DataRoot –Parallel 5
 
 
+### Using the SDK with programming interface
 
-Appendix
-Working Directory
-When local running the U-SQL script, a working directory is created during compilation.  In addition to the compilation outputs, the needed runtime files for local execution will also be shadow copied to this working directory.   If "-WorkDir" argument is not given on the command line, the default working directory "ScopeWorkDir" will be created under current directory. The files under working directory are shown as below.
-Directory / File	Definition	Description	
-ScopeWorkDir	The working directory	
- C6A101DDCB470506	Hash string of runtime version	Shadow copy of runtime files needed for local execution
-   Script_66AE4909AA0ED06C	Script name + hash string of script path	Compilation outputs and execution step logging
-     __script__.abr	Compiler Output	The Algebra file
-     __ScopeCodeGen__.*	Compiler Output	Generated managed code
-     __ScopeCodeGenEngine__.*	Compiler Output	Generated native code
-     referenced_assemblies	Assembly Reference	REFERENCE ASSEMBLY files
-     deployed_resources	Resource Deployment	RESOURCE DEPLOYMENT files
-     xxxxxxxx.xxx[1..n]_*.*	Execution Log	Log of execution steps
+[jgao: need a sample instead of the MSDN reference content]
 
-See also
+## Next steps
+
+* To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
+* To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+* To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
+* For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
+* To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
+* To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+* To view job details, see [Use Job Browser and Job View for Azure Data lake Analytics jobs](data-lake-analytics-data-lake-tools-view-jobs.md)
+* To view use vertex execution view, see [Use the Vertex Execution View in Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 
 
