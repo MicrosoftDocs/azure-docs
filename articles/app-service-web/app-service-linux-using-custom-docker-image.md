@@ -1,5 +1,5 @@
 ---
-title: How to use a custom Docker image for App Service on Linux | Microsoft Azure
+title: How to use a custom Docker image for Azure App Service on Linux | Microsoft Docs
 description: How to use a custom Docker image for App Service on Linux.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
