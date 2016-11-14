@@ -23,7 +23,7 @@ Learn how to use Azure Data Lake Tools for Visual Studio and Azure Data Lake U-S
 
 Prerequisites: 
 •	A Data Lake Analytics account. See [Get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md). 
-•	Data Lake Tools for Visual Studio.  See [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). 
+•	The Data Lake Tools for Visual Studio.  See [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). 
 •	The U-SQL script development experience. See [Get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md). 
 
 
@@ -44,7 +44,7 @@ The data-root folder is used for:
 - Store metadata including databases, tables, TVFs, assemblies, etc.
 - Look up the input and output paths that are defined as relative paths in U-SQL. Using relative paths makes it easier to deploy your U-SQL projects to Azure.
 
-## Use local-run
+## Use local-run from Visual Studio
 
 The Data Lake Tools for Visual Studio provides U-SQL local-run experience in Visual Studio. Using this feature, you can:
 
@@ -54,10 +54,21 @@ The Data Lake Tools for Visual Studio provides U-SQL local-run experience in Vis
 
     ![Data Lake Tools for Visual Studio local run local catalog](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-local-catalog.png)
 
-### Run U-SQL script locally
+
+Data Lake Tools installer creates a “C:\LocalRunRoot” folder to be use as the default data-root folder. The default local-run parallelism is 1. 
+
+**To configure local-run in Visual Studio**
+
+1. Open Visual Studio.
+2. Open **Server Explorer**.
+3. Expand **Azure**, **Data Lake Analytics**.
+4. Click the **Data Lake** menu, and then click "Options and Settings". 
+5. On the left tree, expand **Azure Data Lake**, and then expand **General**.
+
+    ![Data Lake Tools for Visual Studio local run configure settings](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-configure.png)
+
 
 A Visual Studio U-SQL project is required for performing local run. This part is different from running U-SQL scripts from Azure.
-
 
 **To run a U-SQL script locally**
 1. From Visual Studio, open your U-SQL project.   
@@ -66,14 +77,38 @@ A Visual Studio U-SQL project is required for performing local run. This part is
 
     ![Data Lake Tools for Visual Studio local run submit jobs](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-submit-job.png)
 
-### Configure data root
 
-Data Lake Tools installer creates a Data Root folder located at “C:\LocalRunRoot” by default. You can update the path through Data Lake>Options and Settings>Local Run.
-Configure Local Run Parallelism
-By default, U-SQL jobs are executed with 1 Parallelism locally. The parallelism is configuration via Data Lake>Options and Setting>Local Run. You can also change the Parallelism in the submit dialog when submitting the job. 
+
+
+
+
+## Use local-run from Data Lake U-SQL SDK
  
+In addition to running U-SQL scripts localling using Visual Studio, you can also use Data Lake U-SQL SDK to run U-SQL scripts locally.
 
 
+### Install the SDK
+
+The Data Lake U-SQL SDK requires the following dependencies:
+
+- [Microsoft .Net Framework 4.6 or newer](https://www.microsoft.com/en-us/download/details.aspx?id=17851).
+- Microsoft Visual C++ 14 and Windows SDK 10.0.10240.0 or newer. To get this:
+
+    - Install Visual Studio ([Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou)). You shall have a “\Windows Kits\10” folder under the program files folder, for example, “C:\Program Files (x86)\Windows Kits\10\”; you shall also find the Windows 10 SDK version under “\Windows Kits\10\Lib”. If you don’t see these folders, re-install Visual Studio.
+ 
+    - Install the [Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs). The prepackaged VC++ and Windows SDK files can be found at 
+	C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. You can either copy the files to another location or just use it as is.  n this case, you can choose to either set an environment variable “SCOPE_CPP_SDK” to the directory, or to specify “-CppSDK” argument with this directory on the command line of the localrun helper application. This will also be covered in configure section.
+
+After you have installed the SDK, you must perform the following configuration steps:
+
+- Set the SCOPE_CPP_SDK environment variable
+If you are After installing ADL Tools for VS to get Microsoft Visual C++ and Windows SDKthe SDK, verify that you have the following folder:
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK
+Define a new environment variable called “SCOPE_CPP_SDK” to point to this directory.
+You can also specify the CppSDK path when using command line with “-CppSDK” argument, this argument will overwrite your default CppSDK environment variable. 
+Set the LOCALRUN_DATAROOT environment variable
+Define a new environment variable called “LOCALRUN_DATAROOT” pointing to the data root. 
+You can also specify the Data Root path when using command line with “-DataRoot” argument, this argument will overwrite your default Data Root environment variable. And you need to add this argument to every command line you are executing so that you can use the same new overwrite Data Root for all operations. See more about this in Basic Concepts.
 
 
 
