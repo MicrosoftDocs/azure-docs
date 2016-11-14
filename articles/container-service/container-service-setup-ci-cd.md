@@ -34,15 +34,15 @@ Let's touch on some key aspects of the app and its deployment flow that we are s
 
 1. The app runs in an **ACS cluster configured with DC/OS**. The container orchestrator can manage the health of our cluster and ensure our required number of container instances keep running. 
 
-1. The process of **building and deploying container images fully automate with zero-downtime**. We want developers on the team to 'git push' to a branch, which automatically triggers an integration process. That is, build and tag container images, run tests on each container, and push those images to a Docker private registry. From there, new images will automatically deploy to a shared pre-production environment on an ACS cluster for further testing.
+1. The process of **building and deploying container images fully automate with zero-downtime**. We want developers on the team to 'git push' to a branch, which automatically triggers an integration process. That is, build and tag container images, run tests on each container, and push those images to a Docker private registry. From there, new images are automatically deployed to a shared pre-production environment on an ACS cluster for further testing.
 
-1. **Promote a release from one environment to the next**, for example from Dev -> Test -> Staging -> Production. Each time we promote to a downstream environment, **we will not need to rebuild our container images** to ensure we deploy the exact same images we tested in a prior environment. This process is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
+1. **Promote a release from one environment to the next**, for example from Dev -> Test -> Staging -> Production. Each time we promote to a downstream environment, we will not need to rebuild our container images to ensure we deploy the same images tested in a prior environment. This process is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
 
 1. To most effectively utilize compute resources in our ACS cluster, we utilize the same cluster to run build tasks fully containerizing build and deploy steps. The cluster also hosts our multiple dev/test/production environments.
 
 
 ## Create an Azure Container Service cluster configured with DC/OS
-1. First, type the following in a terminal window to log in to your Azure subscription with the Azure CLI: 
+1. First, type the following command in a terminal window to log in to your Azure subscription with the Azure CLI: 
 
 	`az login`
 
@@ -52,7 +52,7 @@ Let's touch on some key aspects of the app and its deployment flow that we are s
 
 	You may want to specify the [Azure datacenter region](https://azure.microsoft.com/regions) closest to you. 
 
-1. Create a new ACS cluster with default settings: 
+1. Create an ACS cluster with default settings: 
 
 	`az acs create --resource-group myacs-rg --name myacs --dns-prefix myacs`
 
@@ -74,7 +74,7 @@ Let's take a closer look at the code:
 * `/service-b` is a .NET Core service, and is called by `service-a` via REST.
 * Both `service-a` and `service-b` contain a `Dockerfile` in each of their directories that respectively describe Node.js- and .NET Core-based container images. 
 * `docker-compose.yml` declares the set of services that are built and deployed.
-	* In addition to `service-a` and `service-b`, a third service named `cache` runs a Redis cache that `service-a` can use. `cache` differs to the first two services in that we don't have code for it in our source repository - instead, we fetch a pre-made `redis:alpine` image from Docker Hub and deploy it to ACS.
+* In addition to `service-a` and `service-b`, a third service named `cache` runs a Redis cache that `service-a` can use. `cache` differs from the first two services in that we don't have code for it in our source repository. Instead, we fetch a pre-made `redis:alpine` image from Docker Hub and deploy it to ACS.
 * `/service-a/server.js` contains code where `service-a` calls both `service-b` and `cache`. Notice that `service-a` code references `service-b` and `cache` by how they are named in `docker-compose.yml`. If we run these services on our local machine via `docker-compose`, Docker ensures the services are all networked appropriately to find each other by name. Running the services in a cluster environment with load-balanced networking typically makes it much more complex than running locally. The good news is the Azure CLI commands set up a CI/CD flow that ensures this straight-forward service discovery code continues to run as-is in ACS. 
 
 	![Multi-container sample app overview](media/container-service-setup-ci-cd/multi-container-sample-app-overview.png)
@@ -94,19 +94,19 @@ Let's take a closer look at the code:
 
 On first run, this command may take a minute or so to complete. Once completed, important information is returned regarding the build and release pipeline it created:
 * `sourceRepo`: a [webhook](https://help.github.com/articles/about-webhooks/) is configured for the source repository so that the build and release pipeline is automatically triggered whenever source code is pushed to it.  
-* `vstsProject`: [Visual Studio Team Services](https://www.visualstudio.com/team-services/) (VSTS) is configured to *drive* the workflow (the actual build and deployment tasks run within containers in ACS). If you would like to use a specific VSTS account and project, you can specify these via the `--vsts-account-name` and `--vsts-project-name` parameters.
-* `buildDefinition`: this defines the tasks that run for each build. Container images are produced for each service defined in the docker-compose.yml, and then pushed to a Docker container registry. Open the build definition URL in your browser to take a closer look.
+* `vstsProject`: [Visual Studio Team Services](https://www.visualstudio.com/team-services/) (VSTS) is configured to *drive* the workflow (the actual build and deployment tasks run within containers in ACS). If you would like to use a specific VSTS account and project, you can define using the `--vsts-account-name` and `--vsts-project-name` parameters.
+* `buildDefinition`: defines the tasks that run for each build. Container images are produced for each service defined in the docker-compose.yml, and then pushed to a Docker container registry. 
 * `containerRegistry`: The Azure Container Registry is a managed service that runs a Docker container registry. A new Azure Container Registry is created with a default name or you can alternatively specify an Azure Container Registry name via the `--registry-name` parameter.
-* `releaseDefinition`: this defines the tasks that are run for each deployment. Container images for the services defined in docker-compose.yml are pulled from the container registry, and deployed to the ACS cluster. By default, three environments are created: *Dev*, *Test*, and *Production*. The release definition is configured by default to automatically deploy to *Dev* each time a build completes successfully; a release can be promoted to *Test* or *Production* manually without requiring a re-build. Of course, this default flow can be customized in VSTS. Open the release definition URL in your browser to take a closer look. 
+* `releaseDefinition`: efines the tasks that are run for each deployment. Container images for the services defined in docker-compose.yml are pulled from the container registry, and deployed to the ACS cluster. By default, three environments are created: *Dev*, *Test*, and *Production*. The release definition is configured by default to automatically deploy to *Dev* each time a build completes successfully. A release can be promoted to *Test* or *Production* manually without requiring a re-build. The default flow can be customized in VSTS. 
 * `containerService`: the target ACS cluster (must be running DC/OS 1.8).
 
 
-Below is an example command you would type if you already have an existing Azure Container Registry named `myregistry`, and if you have an existing VSTS account at `myvstsaccount.visualstudio.com` with an existing VSTS project `myvstsproject` in which you would like to create the build and release definitions:
+The following snippet is an example command you would type if you already have an existing Azure Container Registry named `myregistry`. Create and build release definitions with a VSTS account at `myvstsaccount.visualstudio.com`, and an existing VSTS project `myvstsproject`:
 		
 		az container release create --target-name myacs --target-resource-group myacs-rg --registry-name myregistry --vsts-account-name myvstsaccount --vsts-project-name myvstsproject --remote-access-token <GitHubPersonalAccessToken>
 
 ## View deployment pipeline progress
-Once the pipeline is created, a first-time build and deployment is kicked off automatically. Subsequent builds will be triggered each time code is pushed to the source repository. You can check progress of a build and/or release by opening your browser to the build definition or release definition URLs.
+Once the pipeline is created, a first-time build and deployment is kicked off automatically. Subsequent builds are triggered each time code is pushed to the source repository. You can check progress of a build and/or release by opening your browser to the build definition or release definition URLs.
 
 You can always find the release definition URL associated with an ACS cluster by running this command:
 
@@ -121,9 +121,9 @@ You can always find the release definition URL associated with an ACS cluster by
 *VSTS docker-compose release with multiple environments*
 
 ## View the application
-At this point, our application is deployed to our shared dev environment and is not publicly exposed - so we can't just open a browser and navigate to it (we'll create a public endpoint later). In the meantime, let's use the DC/OS dashboard to view and manage our services. To do this, we could [create an SSH tunnel to the DC/OS-related endpoints](https://azure.microsoft.com/en-us/documentation/articles/container-service-connect/) - but an easier way is to run a convenience command provided by the Azure CLI.
+At this point, our application is deployed to our shared dev environment and is not publicly exposed. In the meantime, use the DC/OS dashboard to view and manage our services and [create an SSH tunnel to the DC/OS-related endpoints](https://azure.microsoft.com/en-us/documentation/articles/container-service-connect/) or run a convenience command provided by the Azure CLI.
 
-*Important: if this is a first-time deployment, confirm that the VSTS release successfully deployed before proceeding.*
+*Important: on a first-time deployment, confirm the VSTS release successfully deployed before proceeding.*
 
 1. Open the ACS cluster's DC/OS dashboard using the Azure CLI convenience command:
 	
@@ -138,17 +138,22 @@ At this point, our application is deployed to our shared dev environment and is 
 
 ![Marathon UI](media/container-service-setup-ci-cd/marathon-ui.png)
 
-You can perform many useful things in the DC/OS dashboard, such as tracking deployment status for each service, viewing CPU and Memory requirements, viewing logs, and scaling the number of instances for each service.
+You can perform many useful things in the DC/OS dashboard
+
+* tracking deployment status for each service
+* viewing CPU and Memory requirements
+* viewing logs
+* scaling the number of instances for each service
 
 **To view the web application for service-a**: start at the *dev* root folder, then drill down the folder hierarchy until you reach `service-a`. This view lists the running tasks (or container instances) for `service-a`.
 
 ![service a](media/container-service-setup-ci-cd/service-a.png)
 
-Click a task to open its view, then click on one of its available endpoints.
+Click a task to open its view, then click one of its available endpoints.
 
 ![service a task](media/container-service-setup-ci-cd/service-a-task.png)
 
-Our simple web app calls `service-a`, which makes a call to `service-b`, and returns a hello world message. A counter is incremented on Redis each time a request is made.
+Our simple web app calls `service-a`, which calls `service-b`, and returns a hello world message. A counter is incremented on Redis each time a request is made.
 
 ![service a web app](media/container-service-setup-ci-cd/service-a-web-app.png)
 
@@ -162,13 +167,13 @@ If you want to reach a service via curl from the command line:
 
 	For example: `export http_proxy=http://127.0.0.1:55405`
 
-1. Now you can curl against your service endpoint, e.g. `curl http://service-url`, where `service-url` is the address you see when you navigate to your service endpoint from Marathon UI. To unset the http_proxy variable from your command line, type `unset http_proxy`.
+1. Now you can curl against your service endpoint, `curl http://service-url`, where `service-url` is the address you see when you navigate to your service endpoint from Marathon UI. To unset the http_proxy variable from your command line, type `unset http_proxy`.
  
 
 ## Scale services
 While we're in the DC/OS dashboard, let's scale our services.
 1. Navigate to the application in the *dev* subfolder.
-1. Hover over `service-b`, click the gear icon and select **Scale**.
+1. Hover over `service-b`, click the gear icon, and select **Scale**.
 
 	![Action menu](media/container-service-setup-ci-cd/marathon-ui-action-menu.png)
 
@@ -176,22 +181,22 @@ While we're in the DC/OS dashboard, let's scale our services.
 
 	![Scale services](media/container-service-setup-ci-cd/marathon-ui-scale-service.png)
 
-1. Navigate back to the running web app, and repeatedly click the *Say It Again* button. Quickly you'll see that `service-b` invocations begin to round-robin across a collection of hostnames, while the single instance of `service-a` continues to report the same host.   
+1. Navigate back to the running web app, and repeatedly click the *Say It Again* button. Notice that `service-b` invocations begin to round-robin across a collection of hostnames, while the single instance of `service-a` continues to report the same host.   
 
-## Promote a Release to Downstream Environments without Re-building Container Images
-Our VSTS release pipeline set up three environments by default: *Dev*, *Test*, and *Production*. So far we've deployed to *Dev*. Let's look at how we can promote a release to the next downstream environment, *Test*, without rebuilding our container images. This ensures we're deploying the exact same image(s) we tested in the prior environment. This is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
+## Promote a Release to Downstream Environments without Rebuilding Container Images
+Our VSTS release pipeline set up three environments by default: *Dev*, *Test*, and *Production*. So far we've deployed to *Dev*. Let's look at how we can promote a release to the next downstream environment, *Test*, without rebuilding our container images. This workflow ensures we're deploying the exact same images we tested in the prior environment and is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
 
-1. In the VSTS web UI, navigate to **Releases**. You'll see a list of releases (likely only one so far).
+1. In the VSTS web UI, navigate to **Releases**
 
 	![VSTS Releases menu](media/container-service-setup-ci-cd/vsts-releases-menu.png)
 
 1. Open the most recent release.
 
-1. In the release definition's menu bar, click **Deploy**, then select **Test** as the next environment we want to deploy to. This kicks off a new deployment, re-using the same images that were previously deployed to *Dev*. Click **Logs** if you want to follow along the deployment in more detail.
+1. In the release definition's menu bar, click **Deploy**, then select **Test** as the next environment we want to deploy to to start a new deployment, reusing the same images that were previously deployed to *Dev*. Click **Logs** if you want to follow along the deployment in more detail.
 
 	![VSTS promotes release](media/container-service-setup-ci-cd/vsts-promote-release.png)
 
-Once deployment to *Test* has succeeded, you'll notice a new root folder in Marathon UI named *test* that contains the running services for that environment. 
+Once deployment to *Test* has succeeded, a new root folder in Marathon UI named *test* that contains the running services for that environment. 
 
 ![Subfolders for each environment in DC/OS](media/container-service-setup-ci-cd/marathon-ui-dev-test-environments.png)
 
@@ -214,7 +219,7 @@ Let's simulate what would happen if a developer on our team pushed a code change
 	git push
 	```
 
-This automatically kicks off a new build, and will cause a new release to be deployed to *Dev*. Services in downstream environments (e.g. *Test* or *Production*) will remain unchanged until we decide to promote a specific release to that environment.
+The commit automatically kicks off a new build, and a new release to be deployed to *Dev*. Services in downstream environments (*Test* or *Production*) remains unchanged until we decide to promote a specific release to that environment.
 
 If you open the build definition in VSTS, you'll see something like this: 
 
