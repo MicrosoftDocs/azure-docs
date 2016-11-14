@@ -28,6 +28,8 @@ Before you set up continuous export, there are some alternatives you might want 
 * If you're looking to [explore your data in Power BI](app-insights-export-power-bi.md), you can do that without using Continuous Export.
 * The [Data Access API](https://dev.applicationinsights.io/) lets you write code to query your app's telemetry.
 
+After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](app-insights-data-retention-privacy.md). 
+
 ## Create a storage account
 If you don't already have a "classic" storage account, create one now.
 
@@ -37,6 +39,8 @@ If you don't already have a "classic" storage account, create one now.
 2. Create a container.
    
     ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-export-telemetry/040.png)
+
+If you create the storage in a region that is different from your Application Insights resource, there may be [charges for data transfer](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## <a name="setup"></a> Set up Continuous Export
 On your application's Overview blade in the Application Insights portal, open Continuous Export: 
@@ -154,7 +158,7 @@ The continuous export will restart.
 * [Export to SQL using Stream Analytics][exportasa]
 * [Stream Analytics sample 2](app-insights-export-stream-analytics.md)
 
-On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data.
+On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data, and you could use it to process data that has been exported from Application Insights.
 
 ## Q & A
 * *But all I want is a one-time download of a chart.*  

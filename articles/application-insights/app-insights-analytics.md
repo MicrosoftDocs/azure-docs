@@ -1,4 +1,4 @@
-﻿---
+---
 title: Analytics - the powerful search tool of Application Insights | Microsoft Docs
 description: 'Overview of Analytics, the powerful diagnostic search tool of Application Insights. '
 services: application-insights
@@ -57,17 +57,18 @@ The language has many attractive features:
 * Powerful statistical [aggregations](app-insights-analytics-reference.md#aggregations).
 * Just as powerful as SQL, but much easier for complex queries: instead of nesting statements, you pipe the data from one elementary operation to the next.
 * Immediate and powerful visualizations.
+* There's a [REST API](https://dev.applicationinsights.io/) that you can use to run queries programmatically, for example from Powershell.
 
 ## Connect to your Application Insights data
 Open Analytics from your app's [overview blade](app-insights-dashboards.md) in Application Insights: 
 
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics/001.png)
 
-## Limits
-At present, query results are limited to just over a week of past data.
+
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 ## Next steps
 * We recommend you start with the [language tour](app-insights-analytics-tour.md).
+
 
