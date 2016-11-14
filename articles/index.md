@@ -2250,10 +2250,10 @@ layout: HubPage
                                                     <a href="https://azure.microsoft.com/en-us/develop/net/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/rest/api">API reference</a>
+                                                    <a href="/dotnet/api">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=dotnet">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/en-us/documentation/samples/?platform=dotnet">Get examples</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2280,7 +2280,7 @@ layout: HubPage
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=node">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/en-us/documentation/samples/?platform=python">Get examples</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2307,7 +2307,7 @@ layout: HubPage
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=node">Get  examples</a>
+                                                    <a href="https://azure.microsoft.com/en-us/documentation/samples/?platform=nodejs">Get  examples</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2334,7 +2334,7 @@ layout: HubPage
                                                     <a href="/java/api/">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=java">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/en-us/documentation/samples/?platform=java">Get examples</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2361,7 +2361,7 @@ layout: HubPage
                                                     <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=ruby">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/en-us/documentation/samples/?platform=ruby">Get examples</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2383,9 +2383,6 @@ layout: HubPage
                                                 </h3>
                                                 <p>
                                                     <a href="/rest/api">Reference</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=rest">Get examples</a>
                                                 </p>
                                             </div>
                                         </div>
