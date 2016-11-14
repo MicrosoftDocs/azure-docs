@@ -23,7 +23,7 @@ layout: HubPage
                 </a>
             </li>
             <li>
-                <a href="http://aka.ms/azuregetitstarted/">
+                <a href="http://aka.ms/azureitgetstarted/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
