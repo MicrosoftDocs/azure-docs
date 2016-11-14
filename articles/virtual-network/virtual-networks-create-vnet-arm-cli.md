@@ -22,7 +22,7 @@ ms.author: jdial
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-Azure has two deployment models: Azure Resource Manager and classic. Microsoft recommends creating resources through the Resource Manager deployment model. To learn more about the differences between the two models, read the [Understand Azure deployment models](../resource-manager-deployment-model.md) article.
+Azure has two deployment models: Azure Resource Manager and classic. Microsoft recommends creating resources through the Resource Manager deployment model. To learn more about the differences between the two models, read the [Understand Azure deployment models](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
  
 This article explains how to create a VNet through the Resource Manager deployment model using the Azure command-line interface (CLI). You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
 
@@ -41,7 +41,7 @@ This article explains how to create a VNet through the Resource Manager deployme
 
 To create a virtual network using the Azure CLI, complete the following steps:
 
-1. Install and configure the Azure CLI by following the steps in the [Install and Configure the Azure CLI](../articles/xplat-cli-install.md) article.
+1. Install and configure the Azure CLI by following the steps in the [Install and Configure the Azure CLI](../xplat-cli-install.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
 
 2. Run the following command to create a VNet and a subnet:
 
@@ -117,6 +117,6 @@ To create a virtual network using the Azure CLI, complete the following steps:
 
 Learn how to connect:
 
-- A virtual machine (VM) to a virtual network by reading the [Create a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md) article. Instead of creating a VNet and subnet in the steps of the articles, you can select an existing VNet and subnet to connect a VM to.
-- The virtual network to other virtual networks by reading the [Connect VNets](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article.
-- The virtual network to an on-premises network using a site-to-site virtual private network (VPN) or ExpressRoute circuit. Learn how by reading the [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) and [Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md) articles.
+- A virtual machine (VM) to a virtual network by reading the [Create a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Instead of creating a VNet and subnet in the steps of the articles, you can select an existing VNet and subnet to connect a VM to.
+- The virtual network to other virtual networks by reading the [Connect VNets](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
+- The virtual network to an on-premises network using a site-to-site virtual private network (VPN) or ExpressRoute circuit. Learn how by reading the [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) articles.
