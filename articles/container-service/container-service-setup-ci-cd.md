@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
-ms.author: jstallo
+ms.author: johnstallo
 
 ---
 
@@ -80,7 +80,7 @@ Let's take a closer look at the code:
 	* In addition to *service-a* and *service-b*, a third service named *cache* runs a Redis cache that *service-a* can use. *Cache* differs to the first two services in that we don't have code for it in our source repository - instead, we fetch a pre-made `redis:alpine` image from Docker Hub and deploy it to ACS.
 * `/service-a/server.js` contains code where *service-a* calls both *service-b* and *cache*. Notice that *service-a* code references *service-b* and *cache* by how they are named in `docker-compose.yml`. If we run these services on our local machine via `docker-compose`, Docker ensures the services are all networked appropriately to find each other by name. Of course running the services in a cluster environment with load-balanced networking typically makes this much more complex than running locally. The good news is the Auzre CLI commands set up a CI/CD flow that ensures this straight-forward service discovery code will continue to run as-is in ACS. 
 
-	![Multi-container sample app overview](images/multi-container-sample-app-overview.png)
+	![Multi-container sample app overview](media/container-service-setup-ci-cd/multi-container-sample-app-overview.png)
 
 ## Set up continuous integration and deployment
 1. Ensure the ACS cluster is ready: run `az acs list` and confirm that our ACS cluster is listed. (Note: ACS must be running DC/OS 1.8 or greater.)
@@ -115,11 +115,11 @@ You can always find the release definition URL associated with an ACS cluster by
 
 `az container release list --target-name myacs --target-resource-group myacs-rg` 
 
-![VSTS Build](images/vsts-build.png)
+![VSTS Build](media/container-service-setup-ci-cd/vsts-build.png)
 
 *VSTS screenshot showing CI results of our multi-container app*
 
-![VSTS Release](images/vsts-release.png)
+![VSTS Release](media/container-service-setup-ci-cd/vsts-release.png)
 
 *VSTS docker-compose release with multiple environments*
 
@@ -139,21 +139,21 @@ At this point, our application is deployed to our shared dev environment and is 
 
 1. In the DC/OS dashboard, click **Services** on the left navigation menu ([http://localhost/#/services](http://localhost/#/services)). Services deployed via our pipeline are grouped under a root folder named *dev* (named after the environment in the VSTS release definition). 
 
-![Marathon UI](images/marathon-ui.png)
+![Marathon UI](media/container-service-setup-ci-cd/marathon-ui.png)
 
 You can perform many useful things in the DC/OS dashboard, such as tracking deployment status for each service, viewing CPU and Memory requirements, viewing logs, and scaling the number of instances for each service.
 
 **To view the web application for service-a**: start at the *dev* root folder, then drill down the folder hierarchy until you reach *service-a*. This view lists the running tasks (or container instances) for *service-a*.
 
-![service a](images/service-a.png)
+![service a](media/container-service-setup-ci-cd/service-a.png)
 
 Click a task to open its view, then click on one of its available endpoints.
 
-![service a task](images/service-a-task.png)
+![service a task](media/container-service-setup-ci-cd/service-a-task.png)
 
 Our simple web app calls *service-a*, which makes a call to *service-b*, and returns a hello world message. A counter is incremented on Redis each time a request is made.
 
-![service a web app](images/service-a-web-app.png)
+![service a web app](media/container-service-setup-ci-cd/service-a-web-app.png)
 
 ### (Optional) Reaching a service from the command line
 If you want to reach a service via curl from the command line:
@@ -173,11 +173,11 @@ While we're in the DC/OS dashboard, let's scale our services.
 1. Navigate to the application in the *dev* subfolder.
 1. Hover over *service-b*, click the gear icon and select **Scale**.
 
-	![Action menu](images/marathon-ui-action-menu.png)
+	![Action menu](media/container-service-setup-ci-cd/marathon-ui-action-menu.png)
 
 1. Increase the number to, say, 3 and click **Scale Service**.
 
-	![Scale services](images/marathon-ui-scale-service.png)
+	![Scale services](media/container-service-setup-ci-cd/marathon-ui-scale-service.png)
 
 1. Navigate back to the running web app, and repeatedly click the *Say It Again* button. Fairly quickly you'll see that *service-b* invocations begin to round-robin across a collection of hostnames, while the single instance of *service-a* continues to report the same host.   
 
@@ -186,17 +186,17 @@ Our VSTS release pipeline set up three environments by default: *Dev*, *Test*, a
 
 1. In the VSTS web UI, navigate to **Releases**. You'll see a list of releases (likely only one so far).
 
-	![VSTS Releases menu](images/vsts-releases-menu.png)
+	![VSTS Releases menu](media/container-service-setup-ci-cd/vsts-releases-menu.png)
 
 1. Open the most recent release.
 
 1. In the release definition's menu bar, click **Deploy**, then select **Test** as the next environment we want to deploy to. This kicks off a new deployment, re-using the same images that were previously deployed to *Dev*. Click **Logs** if you want to follow along the deployment in more detail.
 
-	![VSTS promote release](images/vsts-promote-release.png)
+	![VSTS promote release](media/container-service-setup-ci-cd/vsts-promote-release.png)
 
 Once deployment to *Test* has succeeded, you'll notice a new root folder in Marathon UI named *test* that contains the running services for that environment. 
 
-![Subfolders for each environment in DC/OS](images/marathon-ui-dev-test-environments.png)
+![Subfolders for each environment in DC/OS](media/container-service-setup-ci-cd/marathon-ui-dev-test-environments.png)
 
 ## Trigger a New Build and Deployment after a Code Change
 Let's simulate what would happen if a developer on our team pushed a code change to the source repository.
@@ -221,7 +221,7 @@ This automatically kicks off a new build, and will cause a new release to be dep
 
 If you open the build definition in VSTS, you'll see something like this: 
 
-![New build triggered by git push](images/new-build.png)
+![New build triggered by git push](media/container-service-setup-ci-cd/new-build.png)
 
 
 
@@ -286,11 +286,11 @@ The [Visual Studio Team Services account offers free Basic Access Level for the 
 	* Open the Build Definition URL in your browser, then click on the **Build Definitions** link (next to the name of the build definition you are currently viewing).
 	* Click the action menu beside the build definition you want to delete, and select **Delete Definition**
 
-	![Delete VSTS Build Definition](images/vsts-delete-build-def.png) 
+	![Delete VSTS Build Definition](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
 
 1. Delete the VSTS Release Definition:
 
 	* Open the Release Definition URL in your browser.
 	* In the Release Definitions list on the left-hand side, click the drop-down beside the release definition you want to delete, and select **Delete**.
 
-	![Delete VSTS Release Definition](images/vsts-delete-release-def.png)
+	![Delete VSTS Release Definition](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
