@@ -21,24 +21,24 @@ ms.author: johnstallo
 ---
 
 # Continuous Integration and Deployment of Multi-Container Docker Applications to Azure Container Service 
-In this tutorial, we'll cover how to fully automate building and deploying a multi-container Docker app to an Azure Container Service cluster running DC/OS. While the benefits of continuous integration and deployment (CI/CD) are well known -- and ultimately help your team to release code faster and more frequently -- there are new considerations when integrating containers into your workflow. We'll take advantage of new features in Azure -- such as the Azure Container Registry and new Azure CLI commands -- to help set up an end-to-end flow which you can continue to customize.
+In this tutorial, we cover how to fully automate building and deploying a multi-container Docker app to an Azure Container Service cluster running DC/OS. While the benefits of continuous integration and deployment (CI/CD) are well known, there are new considerations when integrating containers into your workflow. Using the new Azure Container Registry and CLI commands, we will set up an end-to-end flow which you can customize.
 
 ## Get Started
 You can run this walkthrough on OS X, Windows, or Linux.
-- You'll need an Azure subscription. If you don't have one, you can [sign up for an account](https://azure.microsoft.com/).
+- You need an Azure subscription. If you don't have one, you can [sign up for an account](https://azure.microsoft.com/).
 - Install the [Azure Command-line tools](https://github.com/Azure/azure-cli#microsoft-azure-cli-20---preview).
 
 ## What We'll Create
-Let's touch on some key aspects of the app and its deployment flow that we'll be setting up:
-1. **The application is composed of multiple services**. We'll use standard Docker assets -- Dockerfile and docker-compose.yml -- to define the services in our app, each running in separate containers. This enables parts of the app to scale independently, and each service can be written in a different programming language and framework. The app's code can be hosted across one or more Git source repositories (the tools currently support GitHub or Visual Studio Team Services).
+Let's touch on some key aspects of the app and its deployment flow that we are setting up:
+1. **The application is composed of multiple services**. Docker assets, Dockerfile and docker-compose.yml, to define the services in our app, each running in separate containers. These enable parts of the app to scale independently, and each service can be written in a different programming language and framework. The app's code can be hosted across one or more Git source repositories (the tools currently support GitHub or Visual Studio Team Services).
 
-1. The app will run in an **ACS cluster configured with DC/OS**, so the container orchestrator can manage the health of our cluster and ensure our required number of container instances keep running.
+1. The app runs in an **ACS cluster configured with DC/OS**, the container orchestrator can manage the health of our cluster and ensure our required number of container instances keep running. 
 
-1. The process of **building and deploying container images fully automate with zero-downtime**. We want developers on the team to 'git push' to a branch, which will automatically trigger an integration process; that is, build and tag container images, run tests on each container, and push those images to a Docker private registry. From there, new images will automatically deploy to a shared pre-production environment on an ACS cluster for further testing.
+1. The process of **building and deploying container images fully automate with zero-downtime**. We want developers on the team to 'git push' to a branch, which will automatically trigger an integration process. That is, build and tag container images, run tests on each container, and push those images to a Docker private registry. From there, new images will automatically deploy to a shared pre-production environment on an ACS cluster for further testing.
 
-1. We'll be able to **promote a release from one environment to the next**, for example from Dev -> Test -> Staging -> Production. Each time we promote to a downstream environment, **we won't rebuild our container images** to ensure we deploy the exact same images we tested in a prior environment. This is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
+1. We'll be able to **promote a release from one environment to the next**, for example from Dev -> Test -> Staging -> Production. Each time we promote to a downstream environment, **we won't rebuild our container images** to ensure we deploy the exact same images we tested in a prior environment. This process is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
 
-1. To most effectively utilize compute resources in our ACS cluster, we'll utilize the same cluster to run build tasks (thereby fully containerizing build and deploy steps), as well as host our multiple dev/test/production environments.
+1. To most effectively utilize compute resources in our ACS cluster, we'll utilize the same cluster to run build tasks fully containerizing build and deploy steps. The cluster also hosts our multiple dev/test/production environments.
 
 
 ## Create an Azure Container Service cluster configured with DC/OS
