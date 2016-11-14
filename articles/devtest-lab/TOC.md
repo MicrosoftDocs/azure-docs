@@ -2,12 +2,12 @@
 ## [What is DevTest Labs?](devtest-lab-overview.md)
 ## [Why DevTest Labs?](devtest-lab-why.md)
 ## [DevTest Labs concepts](devtest-lab-concepts.md)
-## [FAQ](devtest-lab-faq.md)
 
 # Get Started
 ## [Create a lab](devtest-lab-create-lab.md)
 ## [Create VM artifacts](devtest-lab-add-vm-with-artifacts.md)
 ## [Create a lab for training](devtest-lab-training-lab.md)
+## [FAQ](devtest-lab-faq.md)
 
 # How To
 ## Manage Labs
