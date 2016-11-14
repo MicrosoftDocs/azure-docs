@@ -28,11 +28,11 @@ The **Monitor** tab for each function allows you to review each execution of a f
 
 ![Azure Functions monitor tab](./media/functions-monitoring/monitor-tab.png) 
 
-Clicking an execution allows you to review errors and log files associated with the execution. This is useful when you want to review a history of errors or the execution duration for your functions.
+Clicking an execution allows you to review the duration, input data, errors, and associated log files. This is useful debugging and performance tuning your functions.
 
 
 > [!IMPORTANT]
-> When using the [Consumption hosting plan](functions-overview.md#pricing) for Azure Functions, the Monitoring tile in the Function App overview blade will not show any data. This is because the platform dynamically scales and manages compute instances for you, so these metrics are not meaningful on a Consumption plan. To monitor the usage of your Function Apps, you should instead use the guidance in this article.
+> When using the [Consumption hosting plan](functions-overview.md#pricing) for Azure Functions, the **Monitoring** tile in the Function App overview blade will not show any data. This is because the platform dynamically scales and manages compute instances for you, so these metrics are not meaningful on a Consumption plan. To monitor the usage of your Function Apps, you should instead use the guidance in this article.
 > 
 > The following screen-shot shows an example:
 > 
@@ -42,9 +42,11 @@ Clicking an execution allows you to review errors and log files associated with 
 
 ## Real-time monitoring
 
-Real-time monitoring is available by clicking **live event stream** as shown below. The live event stream will be graphed in a new browser tab as shown below. 
+Real-time monitoring is available by clicking **live event stream** as shown below. 
 
 ![Live event stream option for the monitor tab](./media/functions-monitoring/monitor-tab-live-event-stream.png)
+
+The live event stream will be graphed in a new browser tab as shown below. 
 
 ![Live event stream example](./media/functions-monitoring/live-event-stream.png)
 
