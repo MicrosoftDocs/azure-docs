@@ -34,7 +34,7 @@ If you're new to Azure Backup and would like an overview of the available featur
 > [!IMPORTANT]
 > Currently, Azure Government Backup supports Service Manager deployments, also known as the classic deployment model. Resource Manager deployments are not yet supported. See the following article for the [difference between Azure Resource Manager and classic deployment models](../resource-manager-deployment-model.md).
 
-[! INCLUDE[learn about backup deployment models](../includes/backup-deployment-models.md)]
+[! INCLUDE[learn about backup deployment models](../../includes/backup-deployment-models.md)]
 
 ## Azure Backup components available in Azure Government Backup
 
@@ -71,4 +71,4 @@ Azure Backup Server is an Azure Backup component that functions similarly to Sys
 
 If you aren't sure where to begin, start with the article, [Back up a Windows server or client to Azure using the classic deployment model](../backup/backup-configure-vault-classic.md). This tutorial leads you through the steps for setting up a backup project on a Windows Server or computer.
 
-If you already know that you could use Azure Backup, but want to know the costs, see the [Backup Pricing page](http://azure.microsoft.com/pricing/details/backup/). There is a list of Frequently Asked Questions that may provide useful information. Also note there are two Azure Government regions in the **Region** dropdown menu. 
+If you already know that you could use Azure Backup, but want to know the costs, see the [Backup Pricing page](http://azure.microsoft.com/pricing/details/backup/). There is a list of Frequently Asked Questions that may provide useful information. Also note there are two Azure Government regions in the **Region** dropdown menu.
