@@ -313,7 +313,7 @@ title: Microsoft Azure Documentation
                                         <li>
                                             <a href="/azure/power-bi-embedded/">
                                                 <img src="media/index/PowerBIEmbedded.svg" alt="" />
-                                                <p>PowerBI Embedded</p>
+                                                <p>Power BI Embedded</p>
                                             </a>
                                         </li>
                                         <!-- <li>
