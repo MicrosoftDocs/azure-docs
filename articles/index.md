@@ -2250,7 +2250,7 @@ layout: HubPage
                                                     <a href="https://azure.microsoft.com/en-us/develop/net/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/rest/api">API reference</a>
+                                                    <a href="/dotnet/api">API reference</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=dotnet">Get examples</a>
