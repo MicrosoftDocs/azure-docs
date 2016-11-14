@@ -31,65 +31,11 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
                         <h3>Virtual Machines Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Create a VM using the Portal</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Create SSH keys on Linux and Mac for Linux VMs in Azure</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/xplat-cli-install">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Install the Azure CLI</h3>
                     </div>
                 </div>
             </div>
@@ -103,11 +49,47 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/virtualmachine.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Linux VM on Azure by using the CLI</h3>
+                        <h3>Get Started with Linux VMs using the CLI</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Linux VMs using the Azure Portal</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Linux VMs using the CLI</h3>
                     </div>
                 </div>
             </div>
@@ -121,13 +103,13 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
 ##Reference
 
 ###Azure CLI
-[Azure CLI](/cli/azure/vm)
+[Linux VMs using the Azure CLI](/cli/azure/vm)
 
 ###.NET
-[Managed Reference API Reference](/dotnet/api/)
+[.NET Managed Reference APIs ](/dotnet/api/)
 
 ###Java SDK
-[Java](/java/api/)
+[Java SDK Reference](/java/api/)
 
 ###REST (Compute)
 [Compute REST API Reference](/rest/api/compute)
@@ -136,7 +118,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
 [Network REST API Reference](https://msdn.microsoft.com/library/mt163658.aspx)
 
 ###REST (Storage)
-[Storage REST API Reference](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+[Storage REST API Reference](/rest/api/storage)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
