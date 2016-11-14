@@ -107,14 +107,14 @@ You can download the existing template for creating a VNet and two subnets from 
 
 Complete the following steps to deploy the template you downloaded by using PowerShell:
 
-1. Install and configure Azure PowerShell by completing the steps in the [How to Install and Configure Azure PowerShell](../articles/powershell-install-configure.md) article.
+1. Install and configure Azure PowerShell by completing the steps in the [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) article.
 2. Run the following command to create a new resource group:
 
 	```powershell
 	New-AzureRmResourceGroup -Name TestRG -Location centralus
 	```
 
-	The command creates a resource group named *TestRG* in the *Central US* azure region. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/azure-resource-manager/resource-group-overview.md).
+	The command creates a resource group named *TestRG* in the *Central US* azure region. For more information about resource groups, visit [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).
 
 	Expected output:
 
