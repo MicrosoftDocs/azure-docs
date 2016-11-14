@@ -32,7 +32,10 @@ Clicking each execution allows you to review errors and log files associated wit
 
 
 > [!IMPORTANT]
-> The monitoring section of the overview for the main resource blade will not contain monitoring information for functions on the [Dynamic Hosting plan](functions-overview.md#pricing). 
+> When using the [Consumption hosting plan](functions-overview.md#pricing) for Azure Functions, the Monitoring tile in the Function App overview blade will not show any data. This is because the platform dynamically scales and manages compute instances for you, so these metrics are not meaningful on a Consumption plan. To monitor the usage of your Function Apps, you should instead use the guidance in this article.
+> 
+> The following screen-shot shows an example:
+> 
 > ![Monitoring on the main resource blade](./media/functions-monitoring/app-service-overview-monitoring.png)
 
 
