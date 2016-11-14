@@ -1,4 +1,4 @@
-# Overview
+ # Overview
 ## [What is API Management?](api-management-key-concepts.md)
 # Get started
 ## [Manage your first API](api-management-get-started.md)
@@ -34,7 +34,7 @@
 ### [Manage groups](api-management-howto-create-groups.md)
 ### [Deploy to multiple Azure regions](api-management-howto-deploy-multi-region.md)
 ### [Log events to Azure Event Hubs](api-management-howto-log-event-hubs.md)
-### [Setup DR using backup/restore](api-management-howto-disaster-recovery-backup-restore.md)
+### [Set up DR using backup/restore](api-management-howto-disaster-recovery-backup-restore.md)
 ### [Trace calls with the API Inspector](api-management-howto-api-inspector.md)
 ### [Manage user accounts](api-management-howto-create-or-invite-developers.md)
 ### [Manage using automation](automation-manage-api-management.md)
@@ -58,6 +58,6 @@
 ## [Connecting Event Hubs to API Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
 ## [API Management - Plays well with other Azure services](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
 ## [Provide RBAC-like access using the REST API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
-## [Setup PostMan to call API Management APIs](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
+## [Set up PostMan to call API Management APIs](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [API Management plugin for SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 
