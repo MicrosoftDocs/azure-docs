@@ -36,7 +36,7 @@ This article describes the steps you must perform to configure an Azure AD User 
 12. Log out of Azure and then log back in with the account you just created. You will be prompted to change the user’s password.
 
 ## Create an Automation account in Azure Classic Portal
-In this section, you will perform the following steps to create a new Azure Automation account in the Azure Portal that will be used with your runbooks managing resources in ASM and ARM mode.  
+In this section, you will perform the following steps to create a new Azure Automation account in the Azure Portal that will be used with your runbooks managing resources in Azure Service Manager and Azure Resource Manager mode.  
 
 > [!NOTE]
 > Automation accounts created with the Azure Classic Portal can be managed by both the Azure Classic and Azure Portal and either set of cmdlets. Once the account is created, it makes no difference how you create and manage resources within the account. If you are planning to continue to use the Azure Classic Portal, then you should use it instead of the Azure Portal to create any Automation accounts.
@@ -57,7 +57,7 @@ In this section, you will perform the following steps to create a new Azure Auto
 12. On the following **Define Credential** page type in the username of the AD user account created earlier in the **User Name** field and the password in the **Password** and **Confirm Password** fields. Click **OK** to save your changes.
 
 ## Create an Automation account in the Azure Portal
-In this section, you will perform the following steps to create a new Azure Automation account in the Azure Portal that will be used with your runbooks managing resources in ARM mode.  
+In this section, you will perform the following steps to create a new Azure Automation account in the Azure Portal that will be used with your runbooks managing resources in Azure Resource Manager mode.  
 
 1. Log in to the Azure portal as a service administrator for the Azure subscription you want to manage.
 2. Select **Automation Accounts**.
@@ -67,7 +67,7 @@ In this section, you will perform the following steps to create a new Azure Auto
 6. Select the value **No** for the **Create Azure Run As account** option, and click the **Create** button.  
    
    > [!NOTE]
-   > If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created and assigned to the **Contributor** role in the subscription, it will not have a corresponding authentication identity within your subscriptions directory service and therefore, no access resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against ARM resources.
+   > If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created and assigned to the **Contributor** role in the subscription, it will not have a corresponding authentication identity within your subscriptions directory service and therefore, no access resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against Azure Resource Manager resources.
    > 
    > 
    
