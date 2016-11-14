@@ -130,7 +130,7 @@ To sign off, use the command **USQL:Logout**
 
 ### Open/create U-SQL scripts
 
-To open a script file, click the **File** menu, and then click **Open File**. In the single-file mode, code-behind is not supported, and no dedicated configuration file will be created.
+To open a script file, click the **File** menu, and then click **Open File**. In the single-file mode, code-behind is not supported, and no dedicated configuration file is created.
 You can also open a working folder that contains U-SQL script files by clicking the **File** menu, and then click **Open Folder**.  In this mode, the scripts in the working folder share one configuration file.
 
 ### Configure computer account
@@ -142,7 +142,7 @@ A compute Data Lake Analytics account is needed for compiling and running U-SQL 
 1.	Open the command palette by pressing **CTRL+SHIFT+P**.
 2.	Enter **USQL:Set Script Parameters**. By doing so, you create a configuration file called *usqlscript_settings.json* in the working folder.  
 3.	From **Explorer**, double-click **vscode for u-sql_settings.json** to open it.
-4.	Configure the following:
+4.	Configure the following properties:
 
     - Account:  A Data Lake Analytics account under your Azure subscription.
     - Optional settings:
@@ -158,7 +158,7 @@ A compute Data Lake Analytics account is needed for compiling and running U-SQL 
 
 ### Use code-behind file
 
-Code-behind file is a CSharp file associate with one U-SQL script. User can define script dedicated UDO/UDA/UDT/UDF in the code-behind file, the UDO/UDA/UDT/UDF can be directly used in the script without register the assembly first. Code-behind file is put in the same folder as its peering U-SQL script file. If the script is named xxx.usql, the code-behind will be named as xxx.usql.cs. Deleting the code-behind file manually disables the code-behind feature for its associated U-SQL script. For more information about writing customer code for U-SQL script, see [Writing and Using Custom Code in U-SQL – User-Defined Functions]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
+Code-behind file is a CSharp file associate with one U-SQL script. You can define script dedicated UDO/UDA/UDT/UDF in the code-behind file. The UDO/UDA/UDT/UDF can be directly used in the script without register the assembly first. Code-behind file is put in the same folder as its peering U-SQL script file. If the script is named xxx.usql, the code-behind is named as xxx.usql.cs. Deleting the code-behind file manually disables the code-behind feature for its associated U-SQL script. For more information about writing customer code for U-SQL script, see [Writing and Using Custom Code in U-SQL – User-Defined Functions]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
 
 To support code-behind, a working folder must be opened. 
 
