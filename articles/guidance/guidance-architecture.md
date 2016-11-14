@@ -1,4 +1,3 @@
-
 ---
 title: Azure Guidance | Microsoft Docs
 description: Azure Reference Architectures
@@ -19,6 +18,7 @@ ms.date: 10/24/2016
 ms.author: christb
 
 ---
+
 # Azure Reference Architectures
 [!INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
