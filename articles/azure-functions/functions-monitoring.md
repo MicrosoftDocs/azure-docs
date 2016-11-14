@@ -24,11 +24,11 @@ ms.author: wesmc
 ## Overview 
 
 
-The *Monitor* tab provided for each function allows you to review each execution along with log files and input data.
+The **Monitor** tab for each function allows you to review each execution of a function.
 
 ![Azure Functions monitor tab](./media/functions-monitoring/monitor-tab.png) 
 
-Clicking each execution allows you to review errors and log files associated with the execution. This is useful when you want to review a history of errors or the execution duration for your functions.
+Clicking an execution allows you to review errors and log files associated with the execution. This is useful when you want to review a history of errors or the execution duration for your functions.
 
 
 > [!IMPORTANT]
@@ -42,23 +42,25 @@ Clicking each execution allows you to review errors and log files associated wit
 
 ## Real-time monitoring
 
-Real-time monitoring is available by clicking *live event stream* as shown below: 
+Real-time monitoring is available by clicking **live event stream** as shown below. The live event stream will be graphed in a new browser tab as shown below. 
 
 ![Live event stream option for the monitor tab](./media/functions-monitoring/monitor-tab-live-event-stream.png)
 
+![Live event stream example](./media/functions-monitoring/live-event-stream.png)
+
+
 > [!NOTE]
-> There is an issue that may cause your data to fail to be populated. If you experience this, you may need to close the browser window for the live event stream and then click *live event stream* again to allow it to properly populate your event stream data. This is a known issue. 
+> There is a known issue that may cause your data to fail to be populated. If you experience this, you may need to close the browser tab containing the live event stream and then click **live event stream** again to allow it to properly populate your event stream data. 
 
 The live event stream will graph the following statistics for your function:
 
 * Executions started per second
 * Executions completed per second
 * Executions failed per second
-* Average execution time.
+* Average execution time in milliseconds.
 
-These statistic are near real-time. The actual graphing of the execution data may have around 10 seconds of latency.
+These statistics are real-time but the actual graphing of the execution data may have around 10 seconds of latency.
 
-![Live event stream example](./media/functions-monitoring/live-event-stream.png)
 
 
 
