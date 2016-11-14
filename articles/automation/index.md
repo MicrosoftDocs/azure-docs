@@ -1,19 +1,19 @@
 ---
 layout: LandingPage
 ---
-#Automation Documentation
+# Automation Documentation
 
-Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud and enterprise environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals.
+Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/automation/automation-intro/">
+        <a href="/azure/automation/automation-intro">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/automation.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -43,17 +43,17 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
         </a>
     </li>
     <li>
-        <a href="/azure/automation/automation-first-runbook-graphical/">
+        <a href="/azure/automation/automation-first-runbook-graphical">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first graphical Runbook</h3>
+                        <h3>Get Started with Automation using Runbooks</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +67,11 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/powershell.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first PowerShell Runbook</h3>
+                        <h3>Get Started with Automation using PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/powershell.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -103,28 +103,36 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Use RBAC to enable access management for Azure resources</h3>
+                        <h3>Get Started with Automation using PowerShell Workflow</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
+    
 </ul>
 
 ---
 
-##Reference
+## Reference
 
-###.NET
-[Automation Managed Reference API](/dotnet/api)
+### PowerShell
+[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
+
+### .NET
+[Azure Managed Reference API](/dotnet/api)
+
+### REST
+[Automation REST API Reference](https://msdn.microsoft.com/en-us/library/azure/mt662285)
+
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
         <div class="img"></div>
         <div class="text">
             Download Automation Documentation
