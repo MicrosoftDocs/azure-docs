@@ -35,7 +35,7 @@ There are a couple of pre-requisites in order to utilize Azure Hybrid Use Benefi
 Make sure you have [installed and configured the latest Azure PowerShell](../powershell-install-configure.md). Even if you are going to deploy your VMs using Resource Manager templates, you still need Azure PowerShell installed to upload your Windows Server VHD (see the following step).
 
 ### Upload a Windows Server VHD
-To deploy a Windows Server VM in Azure, you first need to create a VHD that contains your base Windows Server build. This VHD must be appropriately prepared via Sysprep before you upload it to Azure. You can [read more about the VHD requirements and Sysprep process](virtual-machines-windows-upload-image.md) and [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Back up the VM before running Sysprep. Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzureRmVhd` cmdlet as follows:
+To deploy a Windows Server VM in Azure, you first need to create a VHD that contains your base Windows Server build. This VHD must be appropriately prepared via Sysprep before you upload it to Azure. You can [read more about the VHD requirements and Sysprep process](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Back up the VM before running Sysprep. Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzureRmVhd` cmdlet as follows:
 
 ```powershell
 Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -61,7 +61,7 @@ When deploying your Windows Server VM via PowerShell, you have an additional par
 New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Server"
 ```
 
-You can [read a more detailed walkthrough on deploying a VM in Azure via PowerShell](virtual-machines-windows-hybrid-use-benefit-licensing.md#detailed-powershell-walkthrough) below, or read a more descriptive guide on the different steps to [create a Windows VM using Resource Manager and PowerShell](virtual-machines-windows-ps-create.md).
+You can [read a more detailed walkthrough on deploying a VM in Azure via PowerShell](virtual-machines-windows-hybrid-use-benefit-licensing.md#detailed-powershell-walkthrough) below, or read a more descriptive guide on the different steps to [create a Windows VM using Resource Manager and PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Deploy a VM via Resource Manager
 Within your Resource Manager templates, an additional parameter for `licenseType` can be specified. You can read more about [authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). Once you have your VHD uploaded to Azure, edit you Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
@@ -98,7 +98,7 @@ LicenseType              :
 ```
 
 ## Detailed PowerShell Walkthrough
-The following detailed PowerShell steps show a full deployment of a VM. You can read more context as to the actual cmdlets and different components being created in [Create a Windows VM using Resource Manager and PowerShell](virtual-machines-windows-ps-create.md). You step through creating your resource group, storage account, and virtual networking, then define your VM and finally create your VM.
+The following detailed PowerShell steps show a full deployment of a VM. You can read more context as to the actual cmdlets and different components being created in [Create a Windows VM using Resource Manager and PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You step through creating your resource group, storage account, and virtual networking, then define your VM and finally create your VM.
 
 First, securely obtain credentials, set a location, and resource group name:
 

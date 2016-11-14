@@ -25,7 +25,7 @@ This article shows you how to quickly deploy a Linux Virtual Machine on Azure us
 * the [Azure CLI](../xplat-cli-install.md) logged in with `azure login`.
 * the Azure CLI *must be in* Azure Resource Manager mode `azure config mode arm`.
 
-You can also quickly deploy a Linux VM template by using the [Azure portal](virtual-machines-linux-quick-create-portal.md).
+You can also quickly deploy a Linux VM template by using the [Azure portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Quick Command Summary
 ```azurecli
