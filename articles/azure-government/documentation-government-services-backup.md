@@ -34,7 +34,7 @@ If you're new to Azure Backup and would like an overview of the available featur
 > [!IMPORTANT]
 > Currently, Azure Government Backup supports Service Manager deployments, also known as the classic deployment model. Resource Manager deployments are not yet supported. See the following article for the [difference between Azure Resource Manager and classic deployment models](../resource-manager-deployment-model.md).
 
-[! INCLUDE[learn about backup deployment models](../../includes/backup-deployment-models.md)]
+[!INCLUDE [learn-about-backup-deployment models](../../includes/backup-deployment-models.md)]
 
 ## Azure Backup components available in Azure Government Backup
 
