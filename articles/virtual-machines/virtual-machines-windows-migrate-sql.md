@@ -1,4 +1,4 @@
-﻿---
+---
 title: Migrate a SQL Server database to SQL Server on a VM | Microsoft Docs
 description: Learn about how to migrate an on-premises user database to SQL Server in an Azure virtual machine.
 services: virtual-machines-windows
@@ -75,7 +75,7 @@ Use the latest version of Microsoft SQL Server Management Studio for SQL Server 
 ### Configure the existing Azure virtual machine and SQL Server instance (if applicable)
 If you are migrating to an existing Azure VM, the following configuration steps are required:
 
-* Configure the Azure VM and the SQL Server instance to enable connectivity from another computer by following the steps to [connect to the SQL Server VM instance from SSMS on another computer](virtual-machines-windows-sql-connect.md). Only the SQL Server 2014 and SQL Server 2016 images in the gallery are supported if you are migrating using the wizard.
+* Configure the Azure VM and the SQL Server instance to enable connectivity from another computer by following the steps to [connect to the SQL Server VM instance from SSMS on another computer](virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Only the SQL Server 2014 and SQL Server 2016 images in the gallery are supported if you are migrating using the wizard.
 * Configure an open endpoint for the SQL Server Cloud Adapter service on the Microsoft Azure gateway with private port of 11435. This port is created as part of SQL Server 2014 or SQL Server 2016 provisioning on a Microsoft Azure VM. The Cloud Adapter also creates a Windows Firewall rule to allow its incoming TCP connections at default port 11435. This endpoint enables the wizard to utilize the Cloud Adaptor service to copy the backup files from the on-premises instance to the Azure VM. For more information, see [Cloud Adapter for SQL Server](https://msdn.microsoft.com/library/dn169301.aspx).
   
     ![Create Cloud Adapter Endpoint](./media/virtual-machines-windows-migrate-sql/cloud-adapter-endpoint.png)
@@ -126,14 +126,14 @@ If you are migrating to an existing Azure VM, the following configuration steps 
     
     ![Results](./media/virtual-machines-windows-migrate-sql/results.png)
 13. When the wizard completes, connect to your virtual machine and verify that your database has been migrated.
-14. If you created a new virtual machine, configure the Azure virtual machine and the SQL Server instance by following the steps to [connect to the SQL Server VM instance from SSMS on another computer](virtual-machines-windows-sql-connect.md).
+14. If you created a new virtual machine, configure the Azure virtual machine and the SQL Server instance by following the steps to [connect to the SQL Server VM instance from SSMS on another computer](virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Backup to file and copy to VM and restore
 Use this method when you cannot use the Deploy a SQL Server Database to a Microsoft Azure VM wizard either because you are migrating to a version of SQL Server prior to SQL Server 2014 or your backup file is larger than 1 TB. If your backup file is larger than 1 TB, you must stripe it because the maximum size of a VM disk is 1 TB. Use the following general steps to migrate a user database using this manual method:
 
 1. Perform a full database backup to an on-premises location.
 2. Create or upload a virtual machine with the version of SQL Server desired.
-3. Setup connectivity based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-sql-connect.md).
+3. Setup connectivity based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 4. Copy your backup file(s) to your VM using remote desktop, Windows Explorer or the copy command from a command prompt.
 
 ## Backup to URL and restore
@@ -162,7 +162,7 @@ Use this method to migrate all system and user databases in an on-premises SQL S
 Use the [Windows Import/Export Service method](../storage/storage-import-export-service.md) to transfer large amounts of file data to Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. With this service, you send one or more hard drives containing that data to an Azure data center, where your data will be uploaded to your storage account.
 
 ## Next Steps
-For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
+For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 For instructions on creating an Azure SQL Server Virtual Machine from a captured image, see [Tips & Tricks on ‘cloning’ Azure SQL virtual machines from captured images](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/) on the CSS SQL Server Engineers blog.
 

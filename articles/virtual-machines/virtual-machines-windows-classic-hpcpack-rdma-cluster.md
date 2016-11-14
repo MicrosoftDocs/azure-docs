@@ -19,7 +19,7 @@ ms.author: danlep
 
 ---
 # Set up a Windows RDMA cluster with HPC Pack to run MPI applications
-Set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [H-series or compute-intensive A-series instances](virtual-machines-windows-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you set up RDMA-capable, Windows Server-based nodes in an HPC Pack cluster, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
+Set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [H-series or compute-intensive A-series instances](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to run parallel Message Passing Interface (MPI) applications. When you set up RDMA-capable, Windows Server-based nodes in an HPC Pack cluster, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
 If you want to run MPI workloads on Linux VMs that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md).
 
@@ -31,7 +31,7 @@ This article introduces two scenarios and links to detailed guidance to set up a
 * Scenario 1. Deploy compute-intensive worker role instances (PaaS)
 * Scenario 2. Deploy compute nodes in compute-intensive VMs (IaaS)
 
-For general prerequisites to use compute-intensive instances with Windows, see [About H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md) .
+For general prerequisites to use compute-intensive instances with Windows, see [About H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
 
 ## Scenario 1. Deploy compute-intensive worker role instances (PaaS)
 From an existing HPC Pack cluster, add extra compute resources in Azure worker role instances (Azure nodes) running in a cloud
@@ -114,7 +114,7 @@ automate most of this process.
     Select the nodes and use the **Bring Online** action in HPC Cluster Manager. The nodes are ready to run jobs.
 3. **Submit jobs to the cluster**
    
-    Connect to the head node to submit jobs, or set up an on-premises computer to do this. For information, see [Submit Jobs to an HPC cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md).
+    Connect to the head node to submit jobs, or set up an on-premises computer to do this. For information, see [Submit Jobs to an HPC cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 4. **Take the nodes offline and stop (deallocate) them**
    
     When you are done running jobs, take the nodes offline in HPC Cluster Manager. Then, use Azure management tools to shut them down.

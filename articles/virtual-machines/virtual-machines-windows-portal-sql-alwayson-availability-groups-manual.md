@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Always On availability group in Azure VM manually - Microsoft Azure
 description: Create an Always On Availability Group with Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting.
 services: virtual-machines
@@ -20,8 +20,8 @@ ms.author: MikeRayMSFT
 ---
 # Configure Always On availability group in Azure VM manually - Resource Manager
 > [!div class="op_single_selector"]
-> * [Resource Manager: Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [Resource Manager: Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+> * [Resource Manager: Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [Resource Manager: Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 > * [Classic: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 > * [Classic: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 > 
@@ -46,16 +46,16 @@ The figure below is a graphical representation of the solution.
 
 This is one possible configuration. You can modify it for for your requirements. For example, you can reduce the number of virtual machines by using a domain controller as the quorum file share witness. This would reduce the number of VMs for a two-replica availability group. This method reduces the VM count by one from the solution.
 
-This tutorial creates a single availability group with one IP address for the listener. You can also create multiple availability groups with an IP address and listener for each. Each IP address uses the same load balancer. To configure multiple IP addresses on a load balancer, use PowerShell. For more information see [Configure one or more Always On Availability Group Listeners - Resource Manager](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
+This tutorial creates a single availability group with one IP address for the listener. You can also create multiple availability groups with an IP address and listener for each. Each IP address uses the same load balancer. To configure multiple IP addresses on a load balancer, use PowerShell. For more information see [Configure one or more Always On Availability Group Listeners - Resource Manager](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Completing this tutorial takes a few hours because you must build and configure several Azure virtual machines. You can also automatically build this entire solution. In the Azure Portal, there is a gallery setup for Always On availability groups with a listener. The gallery setup configures everything you need for availability groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). 
+Completing this tutorial takes a few hours because you must build and configure several Azure virtual machines. You can also automatically build this entire solution. In the Azure Portal, there is a gallery setup for Always On availability groups with a listener. The gallery setup configures everything you need for availability groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 [!INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-ag-template.md)]
 
 This tutorial assumes the following:
 
 * You already have an Azure account.
-* You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md)
+* You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * You already have a solid understanding of availability groups. For more information, see [Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 > [!NOTE]
@@ -151,7 +151,7 @@ Here is a summary of the configuration settings for the virtual network and both
 | **Location** |Specify the same location that you chose for the resource group. |
 
 ## Create availability sets
-Before creating virtual machines, you need to create availability sets. Availability sets reduce downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md).
+Before creating virtual machines, you need to create availability sets. Availability sets reduce downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 You need two availability sets. One is for the domain controllers. The second is for the SQL Servers.
 
@@ -334,7 +334,7 @@ Next, create three VMs, including two SQL Server VMs, and a WSFC cluster node. T
 <br/>
 
 > [!NOTE]
-> The previous configuration suggests STANDARD tier virtual machines because BASIC tier machines do not support load-balanced endpoints required by the availability group listener. Also, the machine sizes suggested here are meant for testing availability groups in Azure VMs. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+> The previous configuration suggests STANDARD tier virtual machines because BASIC tier machines do not support load-balanced endpoints required by the availability group listener. Also, the machine sizes suggested here are meant for testing availability groups in Azure VMs. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > 
 > 
 
@@ -602,7 +602,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 In order to connect to the availability group directly, you need to configure a load balancer. The load balancer directs client traffic to the VM that is bound to the listener IP address and on the probe port. This tutorial use an internal load balancer, or ILB. The ILB allows traffic from within the same virtual network to connect to SQL Server. Applications that need to connect to SQL Server over the internet require an internet facing - or external - load balancer. For more information, see [Azure Load Balancer overview](../load-balancer/load-balancer-overview.md).
 
 > [!NOTE]
-> This tutorial shows how to create a single listener - with one ILB  IP address. To create one or more listeners using one or mor eIP addresses, see [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md). 
+> This tutorial shows how to create a single listener - with one ILB  IP address. To create one or more listeners using one or mor eIP addresses, see [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 > 
 > 
 
@@ -647,7 +647,7 @@ Make the following settings on the load balancer:
 | **Load balancing rules Idle Timeout** |4 |
 | **Load balancing rules Floating IP (direct server return)** |Enabled |
 
-> * 1433 is the default SQL Server port. Use for the front end port for the default instance. If you require multiple availability groups you will need to create additional IP addresses for each availability group. Each availability group will need its own front end port. See [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
+> * 1433 is the default SQL Server port. Use for the front end port for the default instance. If you require multiple availability groups you will need to create additional IP addresses for each availability group. Each availability group will need its own front end port. See [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > 
 > [!NOTE]
 > You must enable direct server return in the load balancing rules at creation time.
@@ -701,5 +701,5 @@ To test the connection:
     ```
 
 ## Next Steps
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

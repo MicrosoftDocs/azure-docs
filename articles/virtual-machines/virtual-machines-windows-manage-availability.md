@@ -28,5 +28,5 @@ For instructions on creating and using availability sets when using the classic 
 [!INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
 ## Next steps
-To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](virtual-machines-windows-load-balance.md).
+To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

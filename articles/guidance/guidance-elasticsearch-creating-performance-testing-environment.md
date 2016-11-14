@@ -78,7 +78,7 @@ JMeter VMs in the same VNet as the Elasticsearch cluster, use the same resource 
 instead of creating a new one.
 
 ## Creating the JMeter master virtual machine
-Next [create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) using the 
+Next [create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) using the 
 *Windows Server 2008 R2 SP1* image.  We recommend selecting a VM size with sufficient cores and memory 
 to run the performance tests. Ideally this will be a machine with at least 2 cores and 3.5GB of RAM 
 (A2 Standard or bigger).

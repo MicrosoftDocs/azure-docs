@@ -1,4 +1,4 @@
-﻿---
+---
 title: About images for Windows virtual machines | Microsoft Docs
 description: Learn about how images are used with Windows virtual machines in Azure.
 services: virtual-machines-windows
@@ -21,7 +21,7 @@ ms.author: cynthn
 # About images for Windows virtual machines
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-For information about finding and using images in the Resource Manager model, see [here](virtual-machines-windows-cli-ps-findimage.md).
+For information about finding and using images in the Resource Manager model, see [here](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-about-images](../../includes/virtual-machines-common-classic-about-images.md)]
 

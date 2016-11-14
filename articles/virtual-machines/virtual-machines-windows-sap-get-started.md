@@ -353,7 +353,7 @@ via SAP Cloud Appliance Library 3.0.
 
 Updated: September 2016
 
-[This guide can be found here](virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql.md)
+[This guide can be found here](virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planning and Implementation
 Title: SAP NetWeaver on Windows virtual machines (VMs) – Planning and Implementation Guide

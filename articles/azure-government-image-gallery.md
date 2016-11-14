@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Government Image Gallery | Microsoft Docs
 description: This article provides an overview of the Azure Government Image Gallery and the images included
 services: Azure-Government
@@ -231,8 +231,8 @@ The blades will close and it will go back to your portal dashboard view showing 
 The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the [Azure Government Developer Guide](azure-government-developer-guide.md) to uncover an programmatic differences with endpoints when working with Azure Government.
 
 ### Other Resources:
-* [Deploying a Windows Virtual Machine](virtual-machines/virtual-machines-windows-hero-tutorial.md)
-* [Virtual Machine FAQ](virtual-machines/virtual-machines-windows-faq.md)
+* [Deploying a Windows Virtual Machine](virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Virtual Machine FAQ](virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Capture Linux VM Image](virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->

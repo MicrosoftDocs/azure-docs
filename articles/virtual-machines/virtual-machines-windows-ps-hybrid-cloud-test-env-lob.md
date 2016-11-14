@@ -46,7 +46,7 @@ This workload requires an Azure subscription. If you have an MSDN or Visual Stud
 For an example of a production LOB application hosted in Azure, see the **Line of business applications** architecture blueprint at [Microsoft Software Architecture Diagrams and Blueprints](http://msdn.microsoft.com/dn630664).
 
 ## Phase 1: Set up the simulated hybrid cloud environment
-Create the [simulated hybrid cloud test environment](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md). Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, you can shut it down for now.
+Create the [simulated hybrid cloud test environment](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, you can shut it down for now.
 
 This is your current configuration.
 
@@ -201,5 +201,5 @@ This is your current configuration.
 This environment is now ready for you to deploy your web-based application on LOB1 and test functionality from CLIENT1 on the Corpnet subnet.
 
 ## Next step
-* Add a new virtual machine using the [Azure portal](virtual-machines-windows-hero-tutorial.md).
+* Add a new virtual machine using the [Azure portal](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -21,7 +21,7 @@ ms.author: cynthn
 # How to detach a disk from a Windows virtual machine
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-For information about how to detach a disk using the Resource Manager model, see [here](virtual-machines-windows-detach-disk.md).
+For information about how to detach a disk using the Resource Manager model, see [here](virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 

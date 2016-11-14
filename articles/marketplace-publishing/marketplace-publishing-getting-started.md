@@ -81,7 +81,7 @@ Some steps are shared between the different types of solutions. This article pro
 
 ### Virtual Machine Image specific
 * [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
-* [Create a virtual machine running Windows in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+* [Create a virtual machine running Windows in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Create a virtual machine running Linux in the Azure portal](../virtual-machines/virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Troubleshooting common issues encountered during VHD creation](marketplace-publishing-vm-image-creation-troubleshooting.md)
 

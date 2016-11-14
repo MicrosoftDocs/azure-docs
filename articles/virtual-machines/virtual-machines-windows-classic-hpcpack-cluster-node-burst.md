@@ -1,4 +1,4 @@
-﻿---
+---
 title: Add burst nodes to an HPC Pack cluster | Microsoft Docs
 description: Learn how to expand an HPC Pack cluster in Azure on-demand by adding worker role instances running in a cloud service
 services: virtual-machines-windows
@@ -36,7 +36,7 @@ Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 ## Prerequisites
 * **HPC Pack head node deployed in an Azure VM** - You can use a stand-alone head node VM or one that is part of a larger cluster. To create a stand-alone head node, see [Deploy an HPC
-  Pack Head Node in an Azure VM](virtual-machines-windows-hpcpack-cluster-headnode.md). For automated HPC Pack cluster deployment options, see [Options to create and manage a Windows HPC cluster in Azure with Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
+  Pack Head Node in an Azure VM](virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For automated HPC Pack cluster deployment options, see [Options to create and manage a Windows HPC cluster in Azure with Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
   > [!TIP]
   > If you use the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to create the cluster in Azure,
@@ -100,7 +100,7 @@ Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
 ## Next steps
 * To use a compute-intensive instance size for the burst nodes, see the considerations in 
-  [About H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+  [About H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * If you want to
   automatically grow or shrink the Azure computing resources according to
   the cluster workload, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).

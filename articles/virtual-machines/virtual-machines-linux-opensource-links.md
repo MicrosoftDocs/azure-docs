@@ -84,7 +84,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 
 ## Azure Resources
 * [The Azure Linux Agent](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure VM Extensions and Features](virtual-machines-windows-extensions-features.md)
+* [Azure VM Extensions and Features](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Injecting Custom Data into a VM to use with Cloud-init](virtual-machines-windows-classic-inject-custom-data.md)
 
 ## Storage

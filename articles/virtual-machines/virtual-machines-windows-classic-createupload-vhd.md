@@ -23,7 +23,7 @@ This article shows you how to upload your own generalized VM image as a virtual 
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-. You can also [upload](virtual-machines-windows-upload-image.md) a virtual machine using the Resource Manager model. 
+. You can also [upload](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a virtual machine using the Resource Manager model. 
 
 ## Prerequisites
 This article assumes you have:

@@ -24,13 +24,13 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Overview
-[About virtual machines](virtual-machines-windows-about.md)
+[About virtual machines](virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Frequently asked question about Azure Virtual Machines created with the classic deployment model](virtual-machines-windows-classic-faq.md)
 
 [Compare VMs, websites, and cloud services](../app-service-web/choose-web-site-cloud-service-vm.md)
 
-[Virtual Machines and Containers in Azure](virtual-machines-windows-containers.md)
+[Virtual Machines and Containers in Azure](virtual-machines-windows-containers.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Environment setup
 [Free account](https://azure.microsoft.com/free/)
@@ -49,13 +49,13 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Plan
 [About images for classic virtual machines](virtual-machines-windows-classic-about-images.md)
 
-[Sizes for virtual machines](virtual-machines-windows-sizes.md)
+[Sizes for virtual machines](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[About H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md)
+[About H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Planned maintenance for Azure virtual machines](virtual-machines-windows-planned-maintenance.md)
+[Planned maintenance for Azure virtual machines](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Azure infrastructure services implementation guidelines](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
+[Azure infrastructure services implementation guidelines](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Create an availability set for virtual machines](virtual-machines-windows-classic-configure-availability.md)
 
@@ -66,7 +66,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Create and upload a classic Windows Server VHD using PowerShell](virtual-machines-windows-classic-createupload-vhd.md)
 
-[Automating Azure virtual machine deployment with Chef](virtual-machines-windows-chef-automation.md)
+[Automating Azure virtual machine deployment with Chef](virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Create and configure a classic Windows Virtual Machine in Azure PowerShell](virtual-machines-windows-classic-create-powershell.md)
 
@@ -90,9 +90,9 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [Platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
 ## Configure
-[How to reset a password or the Remote Desktop service for a Windows VM](virtual-machines-windows-reset-rdp.md)
+[How to reset a password or the Remote Desktop service for a Windows VM](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[About virtual machine extensions and features](virtual-machines-windows-extensions-features.md)
+[About virtual machine extensions and features](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [How to install and configure Symantec Endpoint Protection on a Windows VM](virtual-machines-windows-classic-install-symantec.md)
 
@@ -103,7 +103,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [How to set up endpoints on a classic Azure virtual machine](virtual-machines-windows-classic-setup-endpoints.md)
 
 ## Storage
-[About disks and VHDs for Azure virtual machines](virtual-machines-windows-about-disks-vhds.md)
+[About disks and VHDs for Azure virtual machines](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [How to attach a data disk to a classic Windows virtual machine](virtual-machines-windows-classic-attach-disk.md)
 
@@ -130,7 +130,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [Django Hello World web application on a Windows Server VM](virtual-machines-windows-classic-python-django-web-app.md)
 
 ## Workloads
-[HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md)
+[HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [MongoDB](virtual-machines-windows-classic-install-mongodb.md)
 
@@ -140,7 +140,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [SAP](virtual-machines-windows-classic-sap-get-started.md)
 
-[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md)
 
@@ -154,11 +154,11 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [Azure Service Management PowerShell cmdlet reference documentation](https://msdn.microsoft.com/library/azure/dn708504.aspx)
 
 ## Troubleshooting
-[Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
+[Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Troubleshoot Access to an Application Running on an Azure Virtual Machine](virtual-machines-windows-troubleshoot-app-connection.md)
+[Troubleshoot Access to an Application Running on an Azure Virtual Machine](virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Troubleshoot allocation failures when you create, restart, or resize VMs in Azure](virtual-machines-windows-allocation-failure.md)
+[Troubleshoot allocation failures when you create, restart, or resize VMs in Azure](virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Troubleshoot classic deployment issues with creating a new Windows virtual machine in Azure](virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md)
 
