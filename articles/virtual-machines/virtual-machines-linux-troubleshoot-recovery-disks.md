@@ -19,7 +19,7 @@ ms.author: iainfou
 ---
 
 # Troubleshoot a Linux VM by attaching the OS disk to a recovery VM using the Azure portal
-If your Linux virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid entry in `/etc/fstab` that prevents the VM from being able to boot successfully. This article details how to connect your virtual hard disk to another Linux VM in order to fix any errors, then re-create your original VM.
+If your Linux virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid entry in `/etc/fstab` that prevents the VM from being able to boot successfully. This article details how to connect your virtual hard disk to another Linux VM to fix any errors, then re-create your original VM.
 
 
 ## Recovery process overview
@@ -86,7 +86,7 @@ data:          Uri                       :https://mystorageaccount.blob.core.win
 
 
 ## Delete existing VM
-Virtual hard disks and VMs are two distinct resources in Azure. A virtual hard disk is where there OS itself, applications, and configurations are stored. The VM itself is just metadata that defines the VM size or location, and references resources such as the virtual hard disk or virtual network interface card (NIC). Each virtual hard disk has a lease assigned when attached to a VM. Although data disks can be attached and detached even while the VM is running, the OS disk cannot be detached from a VM unless the VM resource is deleted. The lease continues to associate the virtual hard disk with a VM even when that VM is in a stoppped and deallocated state.
+Virtual hard disks and VMs are two distinct resources in Azure. A virtual hard disk is where the OS itself, applications, and configurations are stored. The VM itself is just metadata that defines the VM size or location, and references resources such as the virtual hard disk or virtual network interface card (NIC). Each virtual hard disk has a lease assigned when attached to a VM. Although data disks can be attached and detached even while the VM is running, the OS disk cannot be detached from a VM unless the VM resource is deleted. The lease continues to associate the virtual hard disk with a VM even when that VM is in a stopped and deallocated state.
 
 The first step to recover your VM is to delete the VM resource itself. Again, deleting the VM leaves the virtual hard disks in your storage account. After the VM is deleted, you attach the virtual hard disk to another VM to troubleshoot and resolve the errors.
 
@@ -112,13 +112,13 @@ azure vm disk attach --resource-group myResourceGroup --name myVMRecovery \
 
 ## Mount the attached data disk
 
-1. SSH to your troubleshooting VM using the appropriate credentials. If this is the first data disk attached to your troubleshooting VM, the disk is likely connected to `/dev/sdc`. Use `dmseg` to view attached disks:
+1. SSH to your troubleshooting VM using the appropriate credentials. If this disk is the first data disk attached to your troubleshooting VM, the disk is likely connected to `/dev/sdc`. Use `dmseg` to view attached disks:
 
     ```bash
     dmesg | grep SCSI
     ```
 
-    In the preceding example, the OS disk is at `/dev/sda` and the temporary disk provided for each VM is at `/dev/sdb`. If you had multiple data adisks, they should be at `/dev/sdd`, `/dev/sde`, and so.
+    In the preceding example, the OS disk is at `/dev/sda` and the temporary disk provided for each VM is at `/dev/sdb`. If you had multiple data disks, they should be at `/dev/sdd`, `/dev/sde`, and so.
 
 2. Create a directory to mount your existing virtual hard disk. The following example creates a directory named `troubleshootingdisk`:
 
@@ -184,7 +184,7 @@ To create a VM from your original virtual hard disk, use [this Azure Resource Ma
 
 - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-specialized-vm-in-existing-vnet/azuredeploy.json
 
-This template deploys a VM in to an existing virtual network, using the VHD URL from the earlier command. The following example deploys the template to the resource group named `myResourceGroup`:
+This template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. The following example deploys the template to the resource group named `myResourceGroup`:
 
 ```azurecli
 azure group deployment create --resource-group myResourceGroup --name myDeployment \
