@@ -48,5 +48,5 @@
 # Resources
 ## [Service updates](https://azure.microsoft.com/updates/?product=dns)
 ## [Pricing](https://azure.microsoft.com/pricing/details/dns/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
