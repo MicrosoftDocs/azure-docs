@@ -59,9 +59,9 @@
 ### [Diagnosis guidelines](notification-hubs-push-notification-fixer.md)
 
 # Reference
-## [PowerShell cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
-## [REST](https://docs.microsoft.com/rest/api/notificationhubs/)
+## [PowerShell cmdlets](/powershell/resourcemanager/)
+## [.NET](/dotnet/api/)
+## [REST](/rest/api/notificationhubs/)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/)

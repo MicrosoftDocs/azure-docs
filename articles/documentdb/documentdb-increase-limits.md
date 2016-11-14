@@ -17,7 +17,7 @@ ms.date: 08/25/2016
 ms.author: anhoh
 
 ---
-# Request increased DocumentDB account limits
+# Request increased DocumentDB account quotas
 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) has a set of default quotas that can be adjusted by contacting Azure support.  This article shows how to request a quota increase.
 
 After reading this article, you'll be able to answer the following questions:  
