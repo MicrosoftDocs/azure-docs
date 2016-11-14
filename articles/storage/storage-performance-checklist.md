@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Storage performance and scalability checklist | Microsoft Docs
 description: A checklist of proven practices for use with Azure Storage in developing performant applications.
 services: storage
@@ -172,8 +172,9 @@ If using the .NET Framework, this section lists several quick configuration sett
 #### <a name="subheading9"></a>Increase default connection limit
 In .NET, the following code increases the default connection limit (which is usually 2 in a client environment or 10 in a server environment) to 100. Typically, you should set the value to approximately the number of threads used by your application.  
 
+```csharp
     ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
-
+```
 You must set the connection limit before opening any connections.  
 
 For other programming languages, see that language’s documentation to determine how to set the connection limit.  
@@ -183,8 +184,9 @@ For additional information, see the blog post [Web Services: Concurrent Connecti
 #### <a name="subheading10"></a>Increase ThreadPool Min Threads if using synchronous code with Async Tasks
 This code will increase the thread pool min threads:  
 
+```csharp
     ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
-
+```
 For more information, see [ThreadPool.SetMinThreads Method](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
 
 #### <a name="subheading11"></a>Take advantage of .NET 4.5 Garbage Collection
@@ -369,6 +371,8 @@ Alternatively, your application could store the CPU usage for each hour as a sep
 Sometimes structured data feels like it should go in tables, but ranges of entities are always retrieved together and can be batch inserted.  A good example of this is a log file.  In this case, you can batch several minutes of logs, insert them, and then you are always retrieving several minutes of logs at a time as well.  In this case, for performance, it’s better to use blobs instead of tables, since you can significantly reduce the number of objects written/returned, as well as usually the number of requests that need made.  
 
 ## Queues
+In addition to the proven practices for [All Services](#allservices) described previously, the following proven practices apply specifically to the queue service.  
+
 ### <a name=subheading39"></a>Scalability Limits
 A single queue can process approximately 2,000 messages (1KB each) per second (each AddMessage, GetMessage, and DeleteMessage count as a message here). If this is insufficient for your application, you should use multiple queues and spread the messages across them.  
 
@@ -401,4 +405,3 @@ You should use queues to make your application architecture scalable. The follow
 
 ## Conclusion
 This article discussed some of the most common, proven practices for optimizing performance when using Azure Storage. We encourage every application developer to assess their application against each of the above practices and consider acting on the recommendations to get great performance for their applications that use Azure Storage.
-
