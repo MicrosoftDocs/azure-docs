@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/14/2016
 ms.author: richrund
 
 ---
@@ -40,16 +40,8 @@ This article provides two code samples that illustrate some of the functions tha
 > 
 
 ## Prerequisites
-To use PowerShell with your Log Analytics workspace, you must have:
+These examples work with version 2.3.0 or later of the AzureRm.OperationalInsights module.
 
-* An Azure subscription, and 
-* Your Azure Log Analytics workspace linked to your Azure subscription.
-
-If you have created an OMS workspace, but it is not yet linked it to an Azure subscription you can create the link:
-
-* In the Azure portal
-* In the OMS portal or 
-* Using the Get-AzureRmOperationalInsightsLinkTargets and New-AzureRmOperationalInsightsWorkspace cmdlets.
 
 ## Create and configure a Log Analytics Workspace
 The following script sample illustrates how to:
@@ -162,8 +154,12 @@ foreach ($search in $ExportedSearches) {
 # Export Saved Searches
 (Get-AzureRmOperationalInsightsSavedSearch -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Value.Properties | ConvertTo-Json 
 
-# Create Computer Group
+# Create Computer Group based on a query
 New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Web Servers" -DisplayName "Web Servers" -Category "My Saved Searches" -Query "Computer=""web*"" | distinct Computer" -Version 1
+
+# Create a computer group based on names (up to 5000)
+$computerGroup = """servername1.contoso.com"",""servername2.contoso.com"",""servername3.contoso.com"",""servername4.contoso.com"""
+New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Named Servers" -DisplayName "Named Servers" -Category "My Saved Searches" -Query $computerGroup -Version 1
 
 # Enable IIS Log Collection using agent
 Enable-AzureRmOperationalInsightsIISLogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
@@ -188,15 +184,50 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 ```
 
 ## Configuring Log Analytics to index Azure diagnostics
-For agentless monitoring of Azure resources, the resources need to have Azure diagnostics enabled and configured to write to a storage account. Log Analytics can then be configured to collect the logs from the storage account. Resources that you need to do the preceding configuration for includes:
+For agentless monitoring of Azure resources, the resources need to have Azure diagnostics enabled and configured to write to a Log Analytics workspace. This approach sends data directly to Log Analytics and does not required data be first written to a storage account. Supported resources include:
+
++ Metrics
+  - Application Gateways
+  - Batch accounts
+  - Elastic SQL Pool
+  - Event Hub namespace
+  - IoT Hubs
+  - Logic Apps
+  - Redis Cache
+  - Search services
+  - Service Bus namespace
+  - SQL (v12)
+  - Web Sites
+  - Web Server farms
++ Diagnostic Logs
+  - Application Gateways
+  - Automation accounts
+  - Batch accounts
+  - Data Lake analytics
+  - Data Lake store
+  - Key Vault
+  - Load Balancers
+  - Logic Apps
+  - Network Security Groups
+  - Search services
+
+
+```
+$workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
+
+$resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
+
+Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
+```
+
+You can also use the above cmdlet to collect logs from resources that are in different subscriptions. The cmdlet is able to work across subscriptions since you are providing the id of both the resource creating logs and the workspace the logs are sent to.
+
+
+## Configuring Log Analytics to index Azure diagnostics from storage
+To collect log data from within a running instance of a classic cloud service or a service fabric cluster you need to first write the data to Azure storage. Log Analytics is then configured to collect the logs from the storage account. Supported resources include:
 
 * Classic cloud services (web and worker roles)
 * Service fabric clusters
-* Network security groups
-* Key vaults and 
-* Application gateways
-
-You can also use PowerShell to configure a Log Analytics workspace in one Azure subscription to collect logs from different Azure subscriptions.
 
 The following example shows how to:
 
@@ -220,12 +251,15 @@ Get-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resou
 New-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -StorageAccountResourceId $storageId -StorageAccountKey $key -Tables @("WADWindowsEventLogsTable") -Containers @("wad-iis-logfiles")
 
 # Update existing insight
-Set-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -Tables @("WADWindowsEventLogsTable", "WADETWEventTable") -Containers @("wad-iis-logfiles", "insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO")
+Set-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -Tables @("WADWindowsEventLogsTable", "WADETWEventTable") -Containers @("wad-iis-logfiles")
 
 # Remove the insight
 Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" 
 
 ```
+
+You can also use the above script to collect logs from storage accounts in different subscriptions. The script is able to work across subscriptions since you are providing the storage account resource id and a corresponding access key. When you change the access key you need to update the storage insight to have the new key.
+
 
 ## Next steps
 * [Review Log Analytics PowerShell cmdlets](http://msdn.microsoft.com/library/mt188224.aspx) for additional information on using PowerShell for configuration of Log Analytics.
