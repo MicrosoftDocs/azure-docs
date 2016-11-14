@@ -46,6 +46,9 @@ Real-time monitoring is available by clicking *live event stream* as shown below
 
 ![Live event stream option for the monitor tab](./media/functions-monitoring/monitor-tab-live-event-stream.png)
 
+> [!NOTE]
+> There is an issue that may cause your data to fail to be populated. If you experience this, you may need to close the browser window for the live event stream and then click *live event stream* again to allow it to properly populate your event stream data. This is a known issue. 
+
 The live event stream will graph the following statistics for your function:
 
 * Executions started per second
