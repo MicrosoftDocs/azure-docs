@@ -28,7 +28,7 @@ You can create a virtual machine (VM) in Azure that has multiple virtual network
 ## Quick commands
 Make sure that you have the [Azure CLI](../xplat-cli-install.md) logged in and using Resource Manager mode:
 
-```bash
+```azurecli
 azure config mode arm
 ```
 
@@ -36,27 +36,27 @@ In the following examples, replace example parameter names with your own values.
 
 First, create a resource group. The following example creates a resource group named `myResourceGroup` in the `WestUS` location:
 
-```bash
+```azurecli
 azure group create myResourceGroup -l WestUS
 ```
 
 Create a storage account to hold your VMs. The following example creates a storage account named `mystorageaccount`:
 
-```bash
+```azurecli
 azure storage account create mystorageaccount -g myResourceGroup \
     -l WestUS --kind Storage --sku-name PLRS
 ```
 
 Create a virtual network to connect your VMs to. The following example creates a virtual network named `myVnet` with an address prefix of `192.168.0.0/16`:
 
-```bash
+```azurecli
 azure network vnet create -g myResourceGroup -l WestUS \
     -n myVnet -a 192.168.0.0/16
 ```
 
 Create two virtual network subnets - one for front-end traffic and one for back-end traffic. The following example creates two subnets, named `mySubnetFrontEnd` and `mySubnetBackEnd`:
 
-```bash
+```azurecli
 azure network vnet subnet create -g myResourceGroup -e myVnet \
     -n mySubnetFrontEnd -a 192.168.1.0/24
 azure network vnet subnet create -g myResourceGroup -e myVnet \
@@ -65,7 +65,7 @@ azure network vnet subnet create -g myResourceGroup -e myVnet \
 
 Create two NICs, attaching one NIC to the front-end subnet and one NIC to the back-end subnet. The following example creates two NICs, named `myNic1` and `myNic2`, and attaches them to your subnets:
 
-```bash
+```azurecli
 azure network nic create -g myResourceGroup -l WestUS \
     -n myNic1 -m myVnet -k mySubnetFrontEnd
 azure network nic create -g myResourceGroup -l WestUS \
@@ -74,7 +74,7 @@ azure network nic create -g myResourceGroup -l WestUS \
 
 Finally, create your VM, attaching the two NICs you previously created. The following example creates a VM named `myVM`:
 
-```bash
+```azurecli
 azure vm create \
     --resource-group myResourceGroup \
     --name myVM \
@@ -93,7 +93,7 @@ If you have previously created a VM using the Azure CLI, the quick commands shou
 
 The following example creates two NICs, named `myNic1` and `myNic2`, with one NIC connecting to each subnet:
 
-```bash
+```azurecli
 azure network nic create --resource-group myResourceGroup --location WestUS \
     -n myNic1 --subnet-vnet-name myVnet --subnet-name mySubnetFrontEnd
 azure network nic create --resource-group myResourceGroup --location WestUS \
@@ -102,14 +102,14 @@ azure network nic create --resource-group myResourceGroup --location WestUS \
 
 Typically you also create a [Network Security Group](../virtual-network/virtual-networks-nsg.md) or [load balancer](../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. Again, the commands are the same when working with multiple NICs. The following example creates a Network Security Group named `myNetworkSecurityGroup`:
 
-```bash
+```azurecli
 azure network nsg create --resource-group myResourceGroup --location WestUS \
     --name myNetworkSecurityGroup
 ```
 
 Bind your NICs to the Network Security Group using `azure network nic set`. The following example binds `myNic1` and `myNic2` with `myNetworkSecurityGroup`:
 
-```bashazure 
+```azurecli
 azure network nic set --resource-group myResourceGroup --name myNic1 \
     --network-security-group-name myNetworkSecurityGroup
 azure network nic set --resource-group myResourceGroup --name myNic2 \
@@ -118,7 +118,7 @@ azure network nic set --resource-group myResourceGroup --name myNic2 \
 
 When creating the VM, you now specify multiple NICs. Rather using `--nic-name` to provide a single NIC, instead you use `--nic-names` and provide a comma-separated list of NICs. You also need to take care when you select the VM size. There are limits for the total number of NICs that you can add to a VM. Read more about [Linux VM sizes](virtual-machines-linux-sizes.md). The following example shows how to specify multiple NICs and then a VM size that supports using multiple NICs (`Standard_DS2_v2`):
 
-```bash
+```azurecli
 azure vm create \
     --resource-group myResourceGroup \
     --name myVM \
@@ -135,7 +135,7 @@ azure vm create \
 ## Creating multiple NICs using Resource Manager templates
 Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
 
-```bash
+```json
 "copy": {
     "name": "multiplenics"
     "count": "[parameters('count')]"
@@ -146,7 +146,7 @@ Read more about [creating multiple instances using *copy*](../resource-group-cre
 
 You can also use a `copyIndex()` to then append a number to a resource name, which allows you to create `myNic1`, `myNic2`, etc. The following shows an example of appending the index value:
 
-```bash
+```json
 "name": "[concat('myNic', copyIndex())]", 
 ```
 

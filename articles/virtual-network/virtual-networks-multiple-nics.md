@@ -1,12 +1,12 @@
-﻿---
-title: Create a VM with multiple NICs
-description: Learn how to create and configure vms with multiple nics
+---
+title: Create a VM (Classic) with multiple NICs using PowerShell | Microsoft Docs
+description: Learn how to create and configure VMs with multiple NICs using PowerShell.
 services: virtual-network, virtual-machines
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-tags: azure-service-management,azure-resource-manager
+tags: azure-service-management
 
 ms.assetid: a1a3952c-2dcc-4977-bd7a-52d623c1fb07
 ms.service: virtual-network
@@ -18,14 +18,15 @@ ms.date: 02/02/2016
 ms.author: jdial
 
 ---
-# Create a VM with multiple NICs
-You can create virtual machines (VMs) in Azure and attach multiple network interfaces (NICs) to each of your VMs. Multi NIC is a requirement for many network virtual appliances, such as application delivery and WAN optimization solutions. Multi NIC also provides more network traffic management functionality, including isolation of traffic between a front end NIC and back end NIC(s), or separation of data plane traffic from management plane traffic.
+# Create a VM (Classic) with multiple NICs
+You can create virtual machines (VMs) in Azure and attach multiple network interfaces (NICs) to each of your VMs. Multiple NICs are a requirement for many network virtual appliances, such as application delivery and WAN optimization solutions. Multiple NICs also provide isolation of traffic between NICs.
 
 ![Multi NIC for VM](./media/virtual-networks-multiple-nics/IC757773.png)
 
-The figure above shows a VM with three NICs, each connected to a different subnet.
+The figure shows a VM with three NICs, each connected to a different subnet.
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT]
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use Resource Manager.
 
 * Internet-facing VIP (classic deployments) is only supported on the "default" NIC. There is only one VIP to the IP of the default NIC.
 * At this time, Instance Level Public IP (LPIP) addresses (classic deployments) are not supported for multi NIC VMs.
@@ -74,52 +75,67 @@ You need the following prerequisites before trying to run the PowerShell command
 * A configured virtual network. See [Virtual Network Overview](virtual-networks-overview.md) for more information about VNets.
 * The latest version of Azure PowerShell downloaded and installed. See [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-To create a VM with multiple NICs, follow the steps below:
+To create a VM with multiple NICs, complete the following steps by entering each command within a single PowerShell session:
 
 1. Select a VM image from Azure VM image gallery. Note that images change frequently and are available by region. The image specified in the example below may change or might not be in your region, so be sure to specify the image you need.
-   
-        $image = Get-AzureVMImage `
-            -ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
-2. Create a VM configuration.
-   
-        $vm = New-AzureVMConfig -Name "MultiNicVM" -InstanceSize "ExtraLarge" `
-            -Image $image.ImageName –AvailabilitySetName "MyAVSet"
-3. Create the default administrator login.
-   
-        Add-AzureProvisioningConfig –VM $vm -Windows -AdminUserName "<YourAdminUID>" `
-            -Password "<YourAdminPassword>"
-4. Add additional NICs to the VM configuration.
-   
-        Add-AzureNetworkInterfaceConfig -Name "Ethernet1" `
-            -SubnetName "Midtier" -StaticVNetIPAddress "10.1.1.111" -VM $vm
-        Add-AzureNetworkInterfaceConfig -Name "Ethernet2" `
-            -SubnetName "Backend" -StaticVNetIPAddress "10.1.2.222" -VM $vm
-5. Specify the subnet and IP address for the default NIC.
-   
-        Set-AzureSubnet -SubnetNames "Frontend" -VM $vm
-        Set-AzureStaticVNetIP -IPAddress "10.1.0.100" -VM $vm
-6. Create the VM in your virtual network.
-   
-        New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
-> [!NOTE]
-> The VNet that you specify here must already exist (as mentioned in the prerequisites). The example below specifies a virtual network named **MultiNIC-VNet**.
-> 
-> 
+	```powershell
+	$image = Get-AzureVMImage `
+	-ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
+	```
+
+2. Create a VM configuration.
+
+	```powershell
+	$vm = New-AzureVMConfig -Name "MultiNicVM" -InstanceSize "ExtraLarge" `
+	-Image $image.ImageName –AvailabilitySetName "MyAVSet"
+	```
+
+3. Create the default administrator login.
+
+	```powershell
+	Add-AzureProvisioningConfig –VM $vm -Windows -AdminUserName "<YourAdminUID>" `
+	-Password "<YourAdminPassword>"
+	```
+
+4. Add additional NICs to the VM configuration.
+
+	```powershell
+	Add-AzureNetworkInterfaceConfig -Name "Ethernet1" `
+	-SubnetName "Midtier" -StaticVNetIPAddress "10.1.1.111" -VM $vm
+	Add-AzureNetworkInterfaceConfig -Name "Ethernet2" `
+	-SubnetName "Backend" -StaticVNetIPAddress "10.1.2.222" -VM $vm
+	```
+
+5. Specify the subnet and IP address for the default NIC.
+
+	```powershell
+	Set-AzureSubnet -SubnetNames "Frontend" -VM $vm
+	Set-AzureStaticVNetIP -IPAddress "10.1.0.100" -VM $vm
+	```
+
+6. Create the VM in your virtual network.
+
+	```powershell
+	New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
+	```
+
+	> [!NOTE]
+	> The VNet that you specify here must already exist (as mentioned in the prerequisites). The example below specifies a virtual network named **MultiNIC-VNet**.
+	>
 
 ## Limitations
-The following limitations are applicable when using the multi NIC feature:
+The following limitations are applicable when using multiple NICs:
 
-* Multi NIC VMs must be created in Azure virtual networks (VNets). Non-VNet VMs cannot be configured with Multi NICs.
-* All VMs in an availability set need to use either multi NIC or single NIC. There cannot be a mixture of multi NIC VMs and single NIC VMs within an availability set. Same rules apply for VMs in a cloud service.
-* A VM with single NIC cannot be configured with multi NICs (and vice-versa) once it is deployed, without deleting and re-creating it.
+* VMs with multiple NICs must be created in Azure virtual networks (VNets). Non-VNet VMs cannot be configured with multiple NICs.
+* All VMs in an availability set need to use either multiple NICs or a single NIC. There cannot be a mixture of multiple NIC VMs and single NIC VMs within an availability set. Same rules apply for VMs in a cloud service. For multiple NIC VMs, they aren't required to have the same number of NICs, as long as they each have at least two.
+* A VM with a single NIC cannot be configured with multi NICs (and vice-versa) once it is deployed, without deleting and re-creating it.
 
 ## Secondary NICs access to other subnets
 By default secondary NICs will not be configured with a default gateway, due to which the traffic flow on the secondary NICs will be limited to be within the same subnet. If the users want to enable secondary NICs to talk outside their own subnet, they will need to add an entry in the routing table to configure the gateway as described below.
 
 > [!NOTE]
 > VMs created before July 2015 may have a default gateway configured for all NICs. The default gateway for secondary NICs will not be removed until these VMs are rebooted. In Operating systems that use the weak host routing model, such as Linux, Internet connectivity can break if the ingress and egress traffic use different NICs.
-> 
 > 
 
 ### Configure Windows VMs
