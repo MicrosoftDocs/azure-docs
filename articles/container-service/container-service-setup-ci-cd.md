@@ -229,7 +229,7 @@ If you open the build definition in VSTS, you'll see something like this:
 
 ## Expose Public Endpoint for Production
 
-1. Add the following yaml code to a new file named `docker-compose.env.production.yml` at the root folder of your source repository. This adds a label that will cause a public endpoint to be exposed for `service-a`. 
+1. Add the following yaml code to a new file named `docker-compose.env.production.yml` at the root folder of your source repository. This adds a label that causes a public endpoint to be exposed for `service-a`. 
 	
 	```
 	version: "2"
@@ -239,10 +239,10 @@ If you open the build definition in VSTS, you'll see something like this:
 	      com.microsoft.acs.dcos.marathon.vhost: "<FQDN, or custom domain>"
 	```
 
-	* For the label value, you can either specify the URL of your ACS agent's fully qualified domain name (FQDN), or a custom domain (for example, app.contoso.com). To find your ACS agent's FQDN, run the command `az acs list`, and check the property for `agentPoolProfiles.fqdn`. It will look something like `myacsagents.westus.cloudapp.azure.com`.
-	* By following the filename convention docker-compose.env.*environment-name*.yml, these settings will only affect the named environment (in this case, the environment named *Production*). No magic here: if you inspect the release definition in VSTS, you'll see each environment's deployment task is set up to read from a docker-compose file named after this convention - you can of course change this to whatever you like. 
+	* For the label value, you can either specify the URL of your ACS agent's fully qualified domain name (FQDN), or a custom domain (for example, app.contoso.com). To find your ACS agent's FQDN, run the command `az acs list`, and check the property for `agentPoolProfiles.fqdn`. For example, `myacsagents.westus.cloudapp.azure.com`.
+	* By following the filename convention docker-compose.env.*environment-name*.yml, these settings only affects the named environment (in this case, the environment named *Production*). Inspect the release definition in VSTS, each environment's deployment task is set up to read from a docker-compose file named after this convention.
 
-1. Commit and push this file to your master source repository to kick off another build.
+1. Commit and push the file to your master source repository to start another build.
 
 	```
 	git add .
@@ -252,14 +252,14 @@ If you open the build definition in VSTS, you'll see something like this:
 
 1. Wait until the update has been built and deployed to *Dev*, then promote it to *Test*, and then promote it to *Production*. (For the purposes of this tutorial, you can deploy directly to *Production* but it is good to get in the practice of only deploying to the next downstream environment.)
 
-1. (Optional) **If you specified a custom domain** for vhost (for example, app.contoso.com), you'll need to add a DNS record in your domain provider's settings. Log in to your domain provider's administrative UI and add a DNS record as follows:
+1. (Optional) **If you specified a custom domain** for vhost (for example, app.contoso.com), add a DNS record in your domain provider's settings. Log in to your domain provider's administrative UI and add a DNS record as follows:
 
 	* Type: CNAME
 	* Host: Your custom domain, for example, app.contoso.com
 	* Answer: ACS agent FQDN, for example, myacsagents.westus.cloudapp.azure.com
-	* TTL (Optional): Sometimes, your domain provider will give you the ability to edit the TTL. A lower value will result in a DNS record update to be propagated more quickly.   
+	* TTL (Optional): Sometimes, your domain provider gives you the ability to edit the TTL. A lower value results in a DNS record update to be propagated more quickly.   
 
-1. Once the release has been deployed to *Production*, that version will be accessible to anyone. Open your browser to the URL you specified for the `com.microsoft.acs.dcos.marathon.vhost` label. (Note: releases to pre-production environments will continue to be private).
+1. Once the release has been deployed to *Production*, that version is accessible to anyone. Open your browser to the URL you specified for the `com.microsoft.acs.dcos.marathon.vhost` label. (Note: releases to pre-production environments continue to be private).
 
 ## Summary
 Congratulations! You learned how to create an ACS cluster with DC/OS, and set up a fully automated and containerized build and deployment pipeline for a multi-container app.
@@ -282,7 +282,7 @@ Delete the ACS cluster:
 Delete the Azure Container Registry:
 1. In the Azure portal, search for the Azure Container Registry, and delete it. 
 
-The [Visual Studio Team Services account offers free Basic Access Level for the first 5 users](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/), but you can delete the build and release definitions if you no longer need them.
+The [Visual Studio Team Services account offers free Basic Access Level for the first five users](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/), but you can delete the build and release definitions.
 1. Delete the VSTS Build Definition:
 		
 	* Open the Build Definition URL in your browser, then click on the **Build Definitions** link (next to the name of the build definition you are currently viewing).
