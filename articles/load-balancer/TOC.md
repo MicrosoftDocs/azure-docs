@@ -47,3 +47,7 @@
 ## [Virtual Machine](/azure/virtual-machines/)
 ## [Traffic Manager](/azure/traffic-manager/)
 ## [DNS](/azure/dns/)
+
+# Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/load-balancer/) 
+## [Service updates](https://azure.microsoft.com/updates/?product=load-balancer) 
