@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
 ---
-#API Management Documentation
+# API Management Documentation
 
 API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
 
@@ -13,29 +13,11 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/api-management.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
                         <h3>Learn about API Management</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/adding-developer-portal-functionality-using-templates-in-azure-api-management">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Adding Developer Portal using Templates in Azure API Management Video</h3>
                     </div>
                 </div>
             </div>
@@ -49,7 +31,7 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,11 +49,11 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Manage your first API</h3>
+                        <h3>Get started with API Management</h3>
                     </div>
                 </div>
             </div>
@@ -79,35 +61,17 @@ API Management helps organizations publish APIs to external, partner and interna
         </a>
     </li>
     <li>
-        <a href="/azure/api-management/api-management-howto-product-with-rules">
+        <a href="/azure/api-management/api-management-howto-create-apis">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Protect your API with rate limits</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/api-management/api-management-howto-cache">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Add caching to improve performance</h3>
+                        <h3>Create APIs in Azure API Management</h3>
                     </div>
                 </div>
             </div>
@@ -118,16 +82,19 @@ API Management helps organizations publish APIs to external, partner and interna
 
 ---
 
-##Reference
+## Reference
 
-###REST
+### PowerShell
+[API Management Resource Manager PowerShell cmdlet](/powershell/resourcemanager)
+
+
+### REST
 [API Management REST API Reference](/rest/api/apimanagement/)
 
-###PowerShell
-[API Management PowerShell cmdlet reference (ARM)](/powershell/resourcemanager)
+---
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/api-management.pdf">
         <div class="img"></div>
         <div class="text">
             Download API Management Documentation

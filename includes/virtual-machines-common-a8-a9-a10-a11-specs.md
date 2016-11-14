@@ -2,7 +2,7 @@
 ## Key features
 * **High-performance hardware** – These instances are designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) and batch applications, modeling, and large-scale simulations. 
   
-    For basic specs, storage capacities, and disk details, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-linux-sizes.md). Details about the Intel Xeon E5-2667 v3 processor (used in the H-series) and Intel Xeon E5-2670 processor (in A8 - A11), including supported instruction set extensions, are at the Intel.com website. 
+    For basic specs, storage capacities, and disk details, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Details about the Intel Xeon E5-2667 v3 processor (used in the H-series) and Intel Xeon E5-2670 processor (in A8 - A11), including supported instruction set extensions, are at the Intel.com website. 
 * **Designed for HPC clusters** – Deploy multiple compute-intensive instances in Azure to create a stand-alone HPC cluster or to add capacity to an on-premises cluster. If you want to, deploy cluster management and job scheduling tools. Or, use the instances for compute-intensive work in another Azure service such as Azure Batch.
 * **RDMA network connection for MPI applications** – A subset of the compute-intensive instances (H16r, H16mr, A8, and A9) feature a second network interface for remote direct memory access (RDMA) connectivity. This interface is in addition to the standard Azure network interface available to other VM sizes. 
   
