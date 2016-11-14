@@ -28,7 +28,7 @@ In this tutorial, you develop a job that reads a tab separated values (TSV) file
 
 ##Prerequisites
 
-Before you begin this tutorial, you must have the following:
+Before you begin this tutorial, you must have the following items:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **An Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are end-user authentication or service-to-service authentication. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
@@ -37,14 +37,10 @@ Before you begin this tutorial, you must have the following:
 
 ## Install Azure Python SDK
 
-[jgao: ask Matthew to review this section]
-
 To work with Data Lake Store using Python, you need to install three modules.
 
-The azure module. This includes the Azure Data Lake Store account management operations, in addition to other Azure modules for Active Directory, etc.
-The azure-datalake-store module. This includes the Azure Data Lake Store filesystem operations.
-
-Use the following commands to install the modules.
+The azure module includes the Azure Data Lake Store account management operations, in addition to other Azure modules for Active Directory, etc.
+The azure-datalake-store module includes the Azure Data Lake Store filesystem operations. The azure-datalake-analytics module includes the Azure Data Lake Analytics operations. Use the following commands to install the modules.
 
 	pip install azure
 	pip install azure-datalake-store
@@ -94,7 +90,7 @@ Use one of the following methods to authenticate:
 
 ### End-user authentication for account management
 
-Use this to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). You must provide username and password for an Azure AD user. Note that the user account cannot be configured for multi-factor authentication, and the account cant' be a Microsoft account / Live ID, for example, @outlook.com, and @live.com.
+Use this method to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). You must provide username and password for an Azure AD user. The user account cannot be configured for multi-factor authentication, and the account cant'n be a Microsoft account / Live ID, for example, @outlook.com, and @live.com.
 
 	user = input('Enter the user to authenticate with that has permission to subscription: ')
 	password = getpass.getpass()
@@ -103,7 +99,7 @@ Use this to authenticate with Azure AD for account management operations (create
 
 ### Service-to-service authentication with client secret for account management
 
-Use this to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). The following snippet can be used to authenticate your application non-interactively, using the client secret for an application / service principal. Use this with an existing Azure AD "Web App" application.
+Use this method to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). The following snippet can be used to authenticate your application non-interactively, using the client secret for an application / service principal. Use this with an existing Azure AD "Web App" application.
 
 	credentials = ServicePrincipalCredentials(client_id = 'FILL-IN-HERE', secret = 'FILL-IN-HERE', tenant = 'FILL-IN-HERE')
 
