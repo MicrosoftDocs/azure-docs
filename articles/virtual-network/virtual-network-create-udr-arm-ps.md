@@ -1,6 +1,6 @@
 ---
-title: Control routing and use virtual appliances in Resource Manager by using PowerShell | Microsoft Docs
-description: Learn how to control routing and use virtual appliances in Resource Manager by using PowerShell
+title: Control routing and virtual appliances using PowerShell | Microsoft Docs
+description: Learn how to control routing and virtual appliances using PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -18,12 +18,14 @@ ms.date: 02/23/2016
 ms.author: jdial
 
 ---
-# Create User Defined Routes (UDR) in Resource Manager by using PowerShell
+# Create User-Defined Routes (UDR) using PowerShell
 [!INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
+> [!IMPORTANT]
+> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../resource-manager-deployment-model.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.
+>
 
 This article covers the Resource Manager deployment model. You can also [create UDRs in the classic deployment model](virtual-network-create-udr-classic-ps.md).
 
@@ -34,9 +36,9 @@ The sample PowerShell commands below expect a simple environment already created
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## Create the UDR for the front-end subnet
-To create the route table and route needed for the front end subnet based on the scenario above, follow the steps below.
+To create the route table and route needed for the front-end subnet based on the scenario above, complete the following steps:
 
-1. Create a route used to send all traffic destined to the back end subnet (192.168.2.0/24) to be routed to the **FW1** virtual appliance (192.168.0.4).
+1. Create a route used to send all traffic destined to the back-end subnet (192.168.2.0/24) to be routed to the **FW1** virtual appliance (192.168.0.4).
 
 	```powershell
 	$route = New-AzureRmRouteConfig -Name RouteToBackEnd `
@@ -44,7 +46,7 @@ To create the route table and route needed for the front end subnet based on the
 	-NextHopIpAddress 192.168.0.4
 	```
 
-2. Create a route table named **UDR-FrontEnd** in the **westus** region that contains the route created above.
+2. Create a route table named **UDR-FrontEnd** in the **westus** region that contains the route.
 
 	```powershell
 	$routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
@@ -126,7 +128,7 @@ To create the route table and route needed for the front end subnet based on the
 
 To create the route table and route needed for the back-end subnet based on the scenario above, follow the steps below.
 
-1. Create a route used to send all traffic destined to the front end subnet (192.168.1.0/24) to be routed to the **FW1** virtual appliance (192.168.0.4).
+1. Create a route used to send all traffic destined to the front-end subnet (192.168.1.0/24) to be routed to the **FW1** virtual appliance (192.168.0.4).
 
 	```powershell
 	$route = New-AzureRmRouteConfig -Name RouteToFrontEnd `

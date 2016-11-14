@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Network (VNet) Overview
-description: Learn about virtual networks (VNets) in Azure.
+title: Azure Virtual Networks | Microsoft Docs
+description: Learn about virtual networks in Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,7 +17,7 @@ ms.date: 03/15/2016
 ms.author: jdial
 
 ---
-# Virtual Network Overview
+# Virtual networks
 An Azure virtual network (VNet) is a representation of your own network in the cloud.  It is a logical isolation of the Azure cloud dedicated to your subscription. You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network. You can also further segment your VNet into subnets and launch Azure IaaS virtual machines (VMs) and/or [Cloud services (PaaS role instances)](../cloud-services/cloud-services-choose-me.md). Additionally, you can connect the virtual network to your on-premises network using one of the [connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) available in Azure. In essence, you can expand your network to Azure, with complete control on IP address blocks with the benefit of enterprise scale Azure provides.
 
 To better understand VNets, take a look at the figure below, which shows a simplified on-premises network.
@@ -35,9 +35,8 @@ Notice how the Azure infrastructure takes on the role of the router, allowing ac
 > [!NOTE]
 > There are two deployment modes in Azure: classic (also known as Service Management) and Azure Resource Manager (ARM). Classic VNets could be added to an affinity group, or created as a regional VNet. If you have a VNet in an affinity group, it is recommended to [migrate it to a regional VNet](virtual-networks-migrate-to-regional-vnet.md).
 > 
-> 
 
-## Virtual Network Benefits
+## Benefits
 * **Isolation**. VNets are completely isolated from one another. That allows you to create disjoint networks for development, testing, and production that use the same CIDR address blocks.
 * **Access to the public Internet**. All IaaS VMs and PaaS role instances in a VNet can access the public Internet by default. You can control access by using Network Security Groups (NSGs).
 * **Access to VMs within the VNet**. PaaS role instances and IaaS VMs can be launched in the same virtual network and they can connect to each other using private IP addresses even if they are in different subnets without the need to configure a gateway or use public IP addresses.
@@ -66,7 +65,7 @@ Virtual machines and cloud services in a Virtual network can be exposed to Inter
 
 To learn more about load balancing in Azure, visit [Load balancer overview](../load-balancer/load-balancer-overview.md).
 
-## Network Security Group (NSG)
+## Network Security Groups (NSG)
 You can create NSGs to control inbound and outbound access to network interfaces (NICs), VMs, and subnets. Each NSG contains one or more rules specifying whether or not traffic is approved or denied based on source IP address, source port, destination IP address, and destination port. To learn more about NSGs, visit [What is a Network Security Group](virtual-networks-nsg.md).
 
 ## Virtual appliances
