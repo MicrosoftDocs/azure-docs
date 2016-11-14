@@ -34,7 +34,7 @@ Let's touch on some key aspects of the app and its deployment flow that we'll be
 
 1. The app will run in an **ACS cluster configured with DC/OS**, so the container orchestrator can manage the health of our cluster and ensure our required number of container instances keep running.
 
-1. The process of **building and deploying container images will fully automated with zero-downtime**. We want developers on the team to 'git push' to a branch, which will automatically trigger an integration process; that is, build and tag container images, run tests on each container, and push those images to a Docker private registry. From there, new images will automatically deploy to a shared pre-production environment on an ACS cluster for further testing.
+1. The process of **building and deploying container images fully automate with zero-downtime**. We want developers on the team to 'git push' to a branch, which will automatically trigger an integration process; that is, build and tag container images, run tests on each container, and push those images to a Docker private registry. From there, new images will automatically deploy to a shared pre-production environment on an ACS cluster for further testing.
 
 1. We'll be able to **promote a release from one environment to the next**, for example from Dev -> Test -> Staging -> Production. Each time we promote to a downstream environment, **we won't rebuild our container images** to ensure we deploy the exact same images we tested in a prior environment. This is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
 
@@ -42,7 +42,7 @@ Let's touch on some key aspects of the app and its deployment flow that we'll be
 
 
 ## Create an Azure Container Service cluster configured with DC/OS
-1. First, type the following in a terminal window to login to your Azure subscription with the Azure CLI: 
+1. First, type the following in a terminal window to log in to your Azure subscription with the Azure CLI: 
 
 	`az login`
 
@@ -101,7 +101,7 @@ On first run, this command may take a minute or so to complete, so please be pat
 * `containerService`: the target ACS cluster (must be running DC/OS 1.8).
 
 
-Below is an example command you would type if you already have an existing Azure Container Registry named `myregistry`, and if have you an existing VSTS account at `myvstsaccount.visualstudio.com` with an existing VSTS project `myvstsproject` in which you would like to create the build and release definitions:
+Below is an example command you would type if you already have an existing Azure Container Registry named `myregistry`, and if you have an existing VSTS account at `myvstsaccount.visualstudio.com` with an existing VSTS project `myvstsproject` in which you would like to create the build and release definitions:
 		
 		az container release create --target-name myacs --target-resource-group myacs-rg --registry-name myregistry --vsts-account-name myvstsaccount --vsts-project-name myvstsproject --remote-access-token <GitHubPersonalAccessToken>
 
@@ -179,7 +179,7 @@ While we're in the DC/OS dashboard, let's scale our services.
 1. Navigate back to the running web app, and repeatedly click the *Say It Again* button. Quickly you'll see that `service-b` invocations begin to round-robin across a collection of hostnames, while the single instance of `service-a` continues to report the same host.   
 
 ## Promote a Release to Downstream Environments without Re-building Container Images
-Our VSTS release pipeline set up three environments by default: *Dev*, *Test*, and *Production*. So far we've deployed to *Dev*. Let's look at how we can promote a release to the next downstream environment, *Test*, without rebuilding our container images. This ensures we're deploying the exact same image(s) we tested in the prior environment. This is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
+Our VSTS release pipeline setup three environments by default: *Dev*, *Test*, and *Production*. So far we've deployed to *Dev*. Let's look at how we can promote a release to the next downstream environment, *Test*, without rebuilding our container images. This ensures we're deploying the exact same image(s) we tested in the prior environment. This is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
 
 1. In the VSTS web UI, navigate to **Releases**. You'll see a list of releases (likely only one so far).
 
@@ -189,7 +189,7 @@ Our VSTS release pipeline set up three environments by default: *Dev*, *Test*, a
 
 1. In the release definition's menu bar, click **Deploy**, then select **Test** as the next environment we want to deploy to. This kicks off a new deployment, re-using the same images that were previously deployed to *Dev*. Click **Logs** if you want to follow along the deployment in more detail.
 
-	![VSTS promote release](media/container-service-setup-ci-cd/vsts-promote-release.png)
+	![VSTS promotes release](media/container-service-setup-ci-cd/vsts-promote-release.png)
 
 Once deployment to *Test* has succeeded, you'll notice a new root folder in Marathon UI named *test* that contains the running services for that environment. 
 
@@ -247,7 +247,7 @@ If you open the build definition in VSTS, you'll see something like this:
 
 1. Wait until the update has been built and deployed to *Dev*, then promote it to *Test*, and then promote it to *Production*. (For the purposes of this tutorial, you can deploy directly to *Production* but it is good to get in the practice of only deploying to the next downstream environment.)
 
-1. (Optional) **If you specified a custom domain** for vhost (e.g. app.contoso.com), you'll need to add a DNS record in your domain provider's settings. Log into your domain provider's administrative UI and add a DNS record as follows:
+1. (Optional) **If you specified a custom domain** for vhost (e.g. app.contoso.com), you'll need to add a DNS record in your domain provider's settings. Log in to your domain provider's administrative UI and add a DNS record as follows:
 
 	* Type: CNAME
 	* Host: Your custom domain, e.g. app.contoso.com
