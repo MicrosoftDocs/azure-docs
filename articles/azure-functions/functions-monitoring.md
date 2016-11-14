@@ -21,14 +21,46 @@ ms.author: wesmc
 
 # Monitoring Azure Functions
 
-## Overview
+## Overview 
+
+
+The *Monitor* tab provided for each function allows you to review each execution along with log files and input data.
+
+![Azure Functions monitor tab](./media/functions-monitoring/monitor-tab.png) 
+
+Clicking each execution allows you to review errors and log files associated with the execution. This is useful when you want to review a history of errors or the execution duration for your functions.
+
 
 > [!IMPORTANT]
-> The monitoring tile in the main resource blade will not contain monitoring information for functions on the [Dynamic Hosting plan](functions-overview.md#pricing).
+> The monitoring section of the overview for the main resource blade will not contain monitoring information for functions on the [Dynamic Hosting plan](functions-overview.md#pricing). 
+> ![Monitoring on the main resource blade](./media/functions-monitoring/app-service-overview-monitoring.png)
 
 
- 
-Content in progress...
+
+## Real-time monitoring
+
+Real-time monitoring is available by clicking *live event stream* as shown below: 
+
+![Live event stream option for the monitor tab](./media/functions-monitoring/monitor-tab-live-event-stream.png)
+
+The live event stream will graph the following statistics for your function:
+
+* Executions started per second
+* Executions completed per second
+* Executions failed per second
+* Average execution time.
+
+These statistic are near real-time. The actual graphing of the execution data may have around 10 seconds of latency.
+
+![Live event stream example](./media/functions-monitoring/live-event-stream.png)
+
+
+
+
+
+
+
+
 
 
 ## Monitoring log files from a command line
