@@ -1,11 +1,11 @@
 # Overview
-## [What is Azure Government?](../azure-government-overview.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [What is Azure Government?](../azure-government-overview.md?toc=%@fazure%2fazure-government%2ftoc.json)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Justice and Public Safety](documentation-government-overview-jps.md)
 ## [Department of Defense](documentation-government-overview-dod.md)
 
 # Get Started
-## [Developer guide](../azure-government-developer-guide.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Developer guide](../azure-government-developer-guide.md?toc=%@fazure%2fazure-government%2ftoc.json)
 
 # How To
 ## Plan
