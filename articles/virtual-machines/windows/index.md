@@ -49,7 +49,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,7 +67,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -85,7 +85,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -121,7 +121,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
 [Network REST API Reference for Network](https://msdn.microsoft.com/library/mt163658)
 
 ###REST (Storage)
-[Storage REST API Reference](rest/api/storage)
+[Storage REST API Reference](/rest/api/storage)
 
 
 <div class="downloadHolder">
