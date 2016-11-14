@@ -263,6 +263,9 @@ Scripts used to customize a cluster needs to be stored in one of the following l
 
 * An __Azure Data Lake Store account__ that is associated with the HDInsight cluster. For more information on using Azure Data Lake Store with HDInsight, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). 
 
+    > [!NOTE]
+    > The service principal HDInsight uses to access Data Lake Store must have read access to the script.
+
 If your script accesses resources located elsewhere these also need to be in a publicly accessible (at least public read-only). For instance you might want to download a file to the cluster using `download_file`.
 
 Storing the file in an Azure storage account accessible by the cluster (such as the default storage account,) will provide fast access, as this storage is within the Azure network.

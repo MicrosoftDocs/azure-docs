@@ -58,6 +58,9 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
 
         When using a script stored in Data Lake Store, the URI format is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
+        > [!NOTE]
+        > The service principal HDInsight uses to access Data Lake Store must have read access to the script.
+
     * A **blob storage account** that is either the primary or additional storage account for the HDInsight cluster. Since HDInsight is granted access to both of these types of storage accounts during cluster creation, these provide a way to use a non-public script action.
 
     * A https://review.docs.microsoft.com/en-us/azure/service-bus/?branch=master such as an Azure Blob, GitHub, OneDrive, Dropbox, etc.
