@@ -3,7 +3,7 @@
 # Get Started
 ## [Create a registry in the portal](container-registry-get-started-portal.md)
 ## [Create a registry with the CLI](container-registry-get-started-azure-cli.md)
-## [Push and pull an image](container-registry-get-started-azure-cli.md)
+## [Push and pull an image](container-registry-get-started-docker-cli.md)
 
 # How To
 
@@ -12,9 +12,14 @@
 
 # Reference
 
-## [Azure CLI 2.0 Preview](https://github.com/Azure/azure-cli-samples)
-## [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376)
+## [Azure CLI](/cli/azure/acr)
+## [REST API](/rest/api/containerregistry)
 
 # Related
 
 ## [Container Service](https://azure.microsoft.com/documentation/services/container-service/)
+
+# Resources
+## [Region availability](https://azure.microsoft.com/regions/services/)
+## [Pricing](https://azure.microsoft.com/pricing/details/container-registry/)
+## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
