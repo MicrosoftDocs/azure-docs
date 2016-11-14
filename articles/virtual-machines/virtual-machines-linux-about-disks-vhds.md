@@ -1,4 +1,4 @@
-﻿---
+---
 title: About disks and VHDs for Linux VMs | Microsoft Docs
 description: Learn about the basics of disks and VHDs for Linux virtual machines in Azure.
 services: virtual-machines-linux
@@ -29,7 +29,7 @@ Every virtual machine has one attached operating system disk. It’s registered 
 ## Temporary disk
 The temporary disk is automatically created for you. On Linux virtual machines, the disk is typically /dev/sdb and is formatted and mounted to /mnt/resource by the Azure Linux Agent.
 
-The size of the temporary disk varies, based on the size of the virtual machine. For more information, see [Sizes for Linux virtual machines](virtual-machines-linux-sizes.md).
+The size of the temporary disk varies, based on the size of the virtual machine. For more information, see [Sizes for Linux virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!WARNING]
 > Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files. 
@@ -42,7 +42,7 @@ For more information on how Azure uses the temporary disk, see [Understanding th
 A data disk is a VHD that’s attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose.  Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
 > [!NOTE]
-> For more details about virtual machines capacities, see [Sizes for Linux virtual machines](virtual-machines-linux-sizes.md).
+> For more details about virtual machines capacities, see [Sizes for Linux virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
@@ -70,7 +70,7 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 [!INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
 ## Next steps
-* [Attach a disk](virtual-machines-linux-add-disk.md) to add additional storage for your VM.
-* [Configure software RAID](virtual-machines-linux-configure-raid.md) for redundancy.
+* [Attach a disk](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to add additional storage for your VM.
+* [Configure software RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for redundancy.
 * [Capture a Linux virtual machine](virtual-machines-linux-classic-capture-image.md) so you can quickly deploy additional VMs.
 

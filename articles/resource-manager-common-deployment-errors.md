@@ -388,11 +388,11 @@ Obviously, your troubleshooting template can vary based on your scenario.
 ## Troubleshooting virtual machines
 | Error | Articles |
 | --- | --- |
-| Custom script extension errors |[Windows VM extension failures](virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />or<br />[Linux VM extension failures](virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) |
-| OS image provisioning errors |[New Windows VM errors](virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />or<br />[New Linux VM errors](virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md) |
-| Allocation failures |[Windows VM allocation failures](virtual-machines/virtual-machines-windows-allocation-failure.md)<br />or<br />[Linux VM allocation failures](virtual-machines/virtual-machines-linux-allocation-failure.md) |
-| Secure Shell (SSH) errors when attempting to connect |[Secure Shell connections to Linux VM](virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) |
-| Errors connecting to application running on VM |[Application running on Windows VM](virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />or<br />[Application running on a Linux VM](virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) |
+| Custom script extension errors |[Windows VM extension failures](virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />or<br />[Linux VM extension failures](virtual-machines/virtual-machines-linux-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| OS image provisioning errors |[New Windows VM errors](virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />or<br />[New Linux VM errors](virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Allocation failures |[Windows VM allocation failures](virtual-machines/virtual-machines-windows-allocation-failure.md)<br />or<br />[Linux VM allocation failures](virtual-machines/virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Secure Shell (SSH) errors when attempting to connect |[Secure Shell connections to Linux VM](virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Errors connecting to application running on VM |[Application running on Windows VM](virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />or<br />[Application running on a Linux VM](virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
 | Remote Desktop connection errors |[Remote Desktop connections to Windows VM](virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) |
 | Connection errors resolved by redeploying |[Redeploy Virtual Machine to new Azure node](virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) |
 | Cloud service errors |[Cloud service deployment problems](cloud-services/cloud-services-troubleshoot-deployment-problems.md) |

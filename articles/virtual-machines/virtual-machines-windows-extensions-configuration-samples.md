@@ -21,7 +21,7 @@ ms.author: kundanap
 # Azure Windows VM Extension Configuration Samples
 > [!div class="op_single_selector"]
 > * [PowerShell - Template](virtual-machines-windows-extensions-configuration-samples.md)
-> * [CLI - Template](virtual-machines-linux-extensions-configuration-samples.md)
+> * [CLI - Template](virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 

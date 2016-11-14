@@ -24,8 +24,8 @@ This topic provides an overview of some aspects of using Linux virtual machines 
 ## Authentication: Usernames, Passwords and SSH Keys
 When creating a Linux virtual machine using the Azure classic portal, you are asked to provide a username, password or an SSH public key. The choice of a username for deploying a Linux virtual machine on Azure is subject to the following constraint: names of system accounts (UID <100) already present in the virtual machine are not allowed, 'root' for example.
 
-* See [Create a Virtual Machine Running Linux](virtual-machines-linux-quick-create-cli.md)
-* See [How to Use SSH with Linux on Azure](virtual-machines-linux-mac-create-ssh-keys.md)
+* See [Create a Virtual Machine Running Linux](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* See [How to Use SSH with Linux on Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Obtaining Superuser Privileges Using `sudo`
 The user account that is specified during virtual machine instance deployment on Azure is a privileged account. This account is configured by the Azure Linux Agent to be able to elevate privileges to root (superuser account) using the `sudo` utility. Once logged in using this user account, you will be able to run commands as root using the command syntax
@@ -34,7 +34,7 @@ The user account that is specified during virtual machine instance deployment on
 
 You can optionally obtain a root shell using **sudo -s**.
 
-* See [Using root privileges on Linux virtual machines in Azure](virtual-machines-linux-use-root-privileges.md)
+* See [Using root privileges on Linux virtual machines in Azure](virtual-machines-linux-use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Firewall Configuration
 Azure provides an inbound packet filter that restricts connectivity to ports specified in the Azure classic portal. By default, the only allowed port is SSH. You may open up access to additional ports on your Linux virtual machine by configuring endpoints in the Azure classic portal:
@@ -52,7 +52,7 @@ If hostname changes are desired after a virtual machine has been deployed, pleas
 
 The Azure Linux Agent includes functionality to automatically detect this name change and appropriately configure the virtual machine to persist this change and publish this change to the platform DNS servers.
 
-* [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
+* [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### Cloud-Init
 **Ubuntu** and **CoreOS** images utilize cloud-init on Azure, which provides additional capabilities for bootstrapping a virtual machine.
@@ -83,5 +83,5 @@ On Linux, the resource disk is typically managed by the Azure Linux Agent and au
 
 On Linux the data disk might be named by the kernel as `/dev/sdc`, and users will need to partition, format and mount that resource. This is covered step-by-step in the tutorial: [How to Attach a Data Disk to a Virtual Machine](virtual-machines-linux-classic-attach-disk.md).
 
-* **See also:** [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md) & [Configure LVM on a Linux VM in Azure](virtual-machines-linux-configure-lvm.md)
+* **See also:** [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) & [Configure LVM on a Linux VM in Azure](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

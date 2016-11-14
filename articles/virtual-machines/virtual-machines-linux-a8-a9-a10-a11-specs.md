@@ -1,4 +1,4 @@
-﻿---
+---
 title: About compute-intensive VMs with Linux | Microsoft Docs
 description: Get background information and considerations for using the H-series and A8, A9, A10, and A11 compute-intensive sizes for Linux VMs
 services: virtual-machines-linux
@@ -122,6 +122,6 @@ done
 
 ## Next steps
 * For details about availability and pricing of the compute-intensive sizes, see [Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux).
-* For storage capacities and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
+* For storage capacities and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * To get started deploying and using compute-intensive sizes with RDMA on Linux, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md).
 

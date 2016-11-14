@@ -21,7 +21,7 @@ ms.author: igalf
 # How to Schedule Planned Maintenance on Azure VMs
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-For information about planned maintenance in the Resource Manager model, see [here](virtual-machines-linux-planned-maintenance.md).
+For information about planned maintenance in the Resource Manager model, see [here](virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../includes/virtual-machines-common-planned-maintenance-schedule.md)]
 

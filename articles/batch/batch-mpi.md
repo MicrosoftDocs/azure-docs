@@ -92,7 +92,7 @@ Look for the sizes specified as "RDMA capable" in the following articles:
   * [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (Windows only)
 * **VirtualMachineConfiguration** pools
 
-  * [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux)
+  * [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
   * [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows)
 
 > [!NOTE]

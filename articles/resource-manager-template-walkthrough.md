@@ -393,7 +393,7 @@ You will create 2 virtual machines, using copyIndex() function, as you did in cr
 The VM creation depends on the storage account, network interface and availability set. This VM will be created from a marketplace image, as defined in the `storageProfile` property - `imageReference` is used to define the image publisher, offer, sku and version. 
 Finally, a diagnostic profile is configured to enable diagnostics for the VM. 
 
-To find the relevant properties for a marketplace image, follow the [select Linux virtual machine images](virtual-machines/virtual-machines-linux-cli-ps-findimage.md) or [select Windows virtual machine images](virtual-machines/virtual-machines-windows-cli-ps-findimage.md) articles.
+To find the relevant properties for a marketplace image, follow the [select Linux virtual machine images](virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [select Windows virtual machine images](virtual-machines/virtual-machines-windows-cli-ps-findimage.md) articles.
 
 ```json
 {

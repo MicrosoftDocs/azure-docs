@@ -1,4 +1,4 @@
-﻿---
+---
 title: Quickstart guide for manual installation of SAP HANA on Azure VMs | Microsoft Docs
 description: Quickstart guide for manual installation of SAP HANA on Azure VMs
 services: virtual-machines-linux
@@ -141,7 +141,7 @@ additional disk space to a VM for running SAP. In the case of a SAP app server V
 prototype/demo environment it's fine to use Azure standard storage disks. Whereas for the SAP 
 HANA DB data and log files - Azure Premium storage disks should be used even in a non-production landscape.
 
-See some details about how to attach disks to a Linux VM [here](virtual-machines-linux-add-disk.md)
+See some details about how to attach disks to a Linux VM [here](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 When it comes to Azure disk caching - one must use "None" for disks which will be used to store the
 HANA transaction logs. For HANA data files it's ok to use read caching. As HANA is an in-memory
@@ -154,7 +154,7 @@ See details about Azure Premium Storage [here](../storage/storage-premium-storag
 The "101-vm-simple-linux" shows how a basic template looks like including the storage section which adds
 a 100GB data disk.
 
-[This article](virtual-machines-linux-sap-on-suse-quickstart.md) includes some information about
+[This article](virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) includes some information about
 how to find a SUSE image via Powershell or CLI and the importance to attach a disk via UUID.
 
 Depending on the size of the system and throughput requirements it might be necessary to attach multiple
@@ -166,9 +166,9 @@ aspects why one would create a stripe set across multiple Azure disks :
 
 More information regarding the two main tools to configure striping can be found here :
 
-[Article about using mdadm to configure Linux software raid on an Azure VM](virtual-machines-linux-configure-raid.md)
+[Article about using mdadm to configure Linux software raid on an Azure VM](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Article about configuring Logical Volume Manager on a Linux Azure VM](virtual-machines-linux-configure-lvm.md)
+[Article about configuring Logical Volume Manager on a Linux Azure VM](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image003.jpg)
 
@@ -250,7 +250,7 @@ there is no swap space. To get rid of this message one could e.g. manually add a
 described in this document via dd, mkswap and swapon. Just search for "Adding a Swap File Manually"
 in [this article](https://www.suse.com/documentation/sled-12/book_sle_deployment/data/sec_yast2_i_y2_part_expert.html)
 
-Another option is to configure swap space via the Linux VM agent. More information can be found [here](virtual-machines-linux-agent-user-guide.md)
+Another option is to configure swap space via the Linux VM agent. More information can be found [here](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### /etc/hosts
 ![](./media/virtual-machines-linux-sap-hana-get-started/image011.jpg)
@@ -493,11 +493,11 @@ the HANA DB instance with transaction "dbacockpit".
 * information about existing SAP templates for usage by customers :
   [Azure Quickstart Templates for SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)
 * general SAP Azure docu about running SAP on Azure with Linux OS in Azure Resource Manager model :
-  [Using SAP on Linux virtual machines (VMs)](virtual-machines-linux-sap-get-started.md)
+  [Using SAP on Linux virtual machines (VMs)](virtual-machines-linux-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * certified SAP HANA hardware directory which lists which Azure VM types are supported for production :
   [Certified SAP HANA® Hardware Directory](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html)
 * information about virtual machine sizes especially for Linux workloads :
-  [Sizes for virtual machines in Azure](virtual-machines-linux-sizes.md)
+  [Sizes for virtual machines in Azure](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * SAP Note which lists all supported SAP products on Azure and supported Azure VM types for SAP :
   [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533/E)
 * SAP Note about SAP "enhanced monitoring" with Linux VMs on Azure :
@@ -513,7 +513,7 @@ the HANA DB instance with transaction "dbacockpit".
 * Information about Azure Resource Manager :
   [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 * Information about deploying Linux VMs via templates :
-  [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md)
+  [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Comparison of deployment models between Azure Resource Manager and classic :
   [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md)
 * Download NetWeaver 7.5 for Linux/HANA from the SAP Service Marketplace :

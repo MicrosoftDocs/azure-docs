@@ -95,7 +95,7 @@ The resources listed should consist of a VM, a network security group, and a pub
 the same name, and network interface and storage account with names based on that of the VM.
 
 ## Creating the JMeter subordinate virtual machines
-Now [create a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-portal.md) using the 
+Now [create a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) using the 
 *Ubuntu Server 14.04 LTS* image.  As with the JMeter master VM, select a VM size with sufficient cores 
 and memory to run the performance tests. Ideally this will be a machine with at least 2 cores, and at 
 least 3.5GB of RAM (Standard A2 or bigger).
@@ -107,7 +107,7 @@ You can create as many subordinate VMs as you wish.
 ## Installing JMeter server on the JMeter subordinate VMs
 The JMeter subordinate VMs are running Linux and by default you cannot connect to them by opening a 
 remote desktop connection (RDP). Instead, you can 
-[use PuTTY to open a command line window](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) on each VM.
+[use PuTTY to open a command line window](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) on each VM.
 
 Once you've connected to one of the subordinate VMs, we'll use Bash to setup JMeter.
 

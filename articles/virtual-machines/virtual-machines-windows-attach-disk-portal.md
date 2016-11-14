@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 # How to attach a data disk to a Windows VM in the Azure portal
-This article shows you how to attach both new and existing disks to a Windows virtual machine through the Azure portal. You can also [attach a data disk to a Linux VM in the Azure portal](virtual-machines-linux-attach-disk-portal.md). Before you do this, review these tips:
+This article shows you how to attach both new and existing disks to a Windows virtual machine through the Azure portal. You can also [attach a data disk to a Linux VM in the Azure portal](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Before you do this, review these tips:
 
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md).
 * For a new disk, you don't need to create it first because Azure creates it when you attach it.
@@ -42,7 +42,7 @@ You can also [attach a data disk using Powershell](virtual-machines-windows-ps-m
     ![Volume successfully initialized](./media/virtual-machines-windows-classic-attach-disk/newvolumecreated.png)
 
 > [!NOTE]
-> The size of the VM determines how many disks you can attach to it. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
+> The size of the VM determines how many disks you can attach to it. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 

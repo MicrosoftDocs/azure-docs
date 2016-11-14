@@ -1,4 +1,4 @@
-﻿---
+---
 title: FAQ for Windows VMs | Microsoft Docs
 description: Provides answers to some of the common questions about Windows virtual machines created with the Resource Manager model.
 services: virtual-machines-windows
@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 # Frequently asked question about Windows Virtual Machines
-This article addresses some common questions about Windows virtual machines created in Azure using the Resource Manager deployment model. For the Linux version of this topic, see [Frequently asked question about Linux Virtual Machines](virtual-machines-linux-faq.md)
+This article addresses some common questions about Windows virtual machines created in Azure using the Resource Manager deployment model. For the Linux version of this topic, see [Frequently asked question about Linux Virtual Machines](virtual-machines-linux-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## What can I run on an Azure VM?
 All subscribers can run server software on an Azure virtual machine. For information about the support policy for running Microsoft server software in Azure, see [Microsoft server software support for Azure Virtual Machines](https://support.microsoft.com/kb/2721672)
@@ -62,7 +62,7 @@ Yes. For instructions, see [How to create a copy of a Windows virtual machine in
 The two new regions of Canada Central and Canada East are not automatically registered for virtual machine creation for existing Azure subscriptions. This registration is done automatically when a virtual machine is deployed through the Azure portal to any other region using Azure Resource Manager. After a virtual machine is deployed to any other Azure region, the new regions should be available for subsequent virtual machines.
 
 ## Does Azure support Linux VMs?
-Yes. To quickly create a Linux VM to try out, see [Create a Linux VM on Azure using the Portal](virtual-machines-linux-quick-create-portal.md).
+Yes. To quickly create a Linux VM to try out, see [Create a Linux VM on Azure using the Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Can I add a NIC to my VM after it's created?
 No. Adding a NIC can only be done at creation time.

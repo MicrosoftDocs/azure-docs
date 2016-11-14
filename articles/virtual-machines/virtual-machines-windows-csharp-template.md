@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy a VM using C# and a Resource Manager template | Microsoft Docs
 description: Learn to how to use C# and a Resource Manager template to deploy an Azure VM.
 services: virtual-machines-windows
@@ -195,7 +195,7 @@ To specify values for the resource parameters that were defined in the template,
         }
    
    > [!NOTE]
-   > This article creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md).
+   > This article creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
    > 
    > 
 4. Save the parameters file that you created.

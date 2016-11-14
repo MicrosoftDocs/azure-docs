@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set up a Windows RDMA cluster to run MPI applications | Microsoft Docs
 description: Learn how to create a Windows HPC Pack cluster with size H16r, H16mr, A8, or A9 VMs to use the Azure RDMA network to run MPI apps.
 services: virtual-machines-windows
@@ -87,7 +87,7 @@ in an Azure VM.
    When you are done running jobs, take the nodes offline and use the **Stop** action in HPC Cluster Manager.
 
 ## Scenario 2. Deploy compute nodes in compute-intensive VMs (IaaS)
-In this scenario, you deploy the HPC Pack head node and cluster compute nodes on VMs joined to an Active Directory domain in an Azure virtual network. HPC Pack provides a number of [deployment options in Azure VMs](virtual-machines-linux-hpcpack-cluster-options.md), including automated deployment scripts and Azure quickstart templates. As an example, the considerations and steps below guide you to use
+In this scenario, you deploy the HPC Pack head node and cluster compute nodes on VMs joined to an Active Directory domain in an Azure virtual network. HPC Pack provides a number of [deployment options in Azure VMs](virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), including automated deployment scripts and Azure quickstart templates. As an example, the considerations and steps below guide you to use
 the [HPC Pack IaaS deployment
 script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to
 automate most of this process.

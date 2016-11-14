@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Technical guidance: Recovery from local failures in Azure | Microsoft Docs'
 description: Article on understanding and designing resilient, highly available, fault-tolerant applications, as well as planning for disaster recovery focused on local failures within Azure.
 services: ''
@@ -73,7 +73,7 @@ Azure natively understands the tiers in a PaaS application (web role and worker 
 In the preceding diagram, the Internet Information Services (IIS) tier (which works as a web app tier) and the SQL tier (which works as a data tier) are assigned to different availability sets. This ensures that all instances of each tier have hardware redundancy by distributing virtual machines across fault domains, and that entire tiers are not taken down during an update.
 
 ### Load balancing
-If the VMs should have traffic distributed across them, you must group the VMs in an application and load balance across a specific TCP or UDP endpoint. For more information, see [Load balancing virtual machines](../virtual-machines/virtual-machines-linux-load-balance.md). If the VMs receive input from another source (for example, a queuing mechanism), a load balancer is not required. The load balancer uses a basic health check to determine whether traffic should be sent to the node. It's also possible to create your own probes to implement application-specific health metrics that determine whether the VM should receive traffic.
+If the VMs should have traffic distributed across them, you must group the VMs in an application and load balance across a specific TCP or UDP endpoint. For more information, see [Load balancing virtual machines](../virtual-machines/virtual-machines-linux-load-balance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). If the VMs receive input from another source (for example, a queuing mechanism), a load balancer is not required. The load balancer uses a basic health check to determine whether traffic should be sent to the node. It's also possible to create your own probes to implement application-specific health metrics that determine whether the VM should receive traffic.
 
 ## Storage
 Azure Storage is the baseline durable data service for Azure. It provides blob, table, queue, and VM disk storage. It uses a combination of replication and resource management to provide high availability within a single datacenter. The Azure Storage availability SLA guarantees that at least 99.9 percent of the time:

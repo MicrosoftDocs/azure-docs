@@ -1,4 +1,4 @@
-﻿---
+---
 title: SQL Server Business Intelligence | Microsoft Docs
 description: This topic uses resources created with the classic deployment model, and describes the Business Intelligence (BI) features available for SQL Server running on Azure Virtual Machines (VMs).
 services: virtual-machines-windows
@@ -86,7 +86,7 @@ The following table summarizes the Business Intelligence features installed on t
 ## General Recommendations and Best Practices
 * The minimum recommended size for a virtual machine is **A3** when using SQL Server Enterprise Edition. The **A4** virtual machine size is recommended for SQL Server BI deployments of Analysis Services and Reporting Services.
   
-    For information on the current VM sizes, see [Virtual Machine Sizes for Azure](virtual-machines-linux-sizes.md).
+    For information on the current VM sizes, see [Virtual Machine Sizes for Azure](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * A best practice for disk management is to store data, log, and backup files on drives other than **C**: and **D**:. For example, create data disks **E**: and **F**:.
   
   * The drive caching policy for the default drive **C**: is not optimal for working with data.

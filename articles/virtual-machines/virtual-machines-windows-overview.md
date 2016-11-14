@@ -1,4 +1,4 @@
-﻿---
+---
 title: Windows Virtual Machines Overview | Microsoft Docs
 description: Learn about creating and managing Windows virtual machines in Azure.
 services: virtual-machines-windows
@@ -142,7 +142,7 @@ In order for your deployment to qualify for our 99.95 VM Service Level Agreement
 A [Recovery Services vault](../backup/backup-introduction-to-azure-backup.md) is used to protect data and assets in both Azure Backup and Azure Site Recovery services. You can use a Recovery Services vault to [deploy and manage backups for Resource Manager-deployed VMs using PowerShell](../backup/backup-azure-vms-automation.md). 
 
 ## Next steps
-* If your intent is to work with Linux VMs, look at [Azure and Linux](virtual-machines-linux-azure-overview.md).
+* If your intent is to work with Linux VMs, look at [Azure and Linux](virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Learn more about the guidelines around setting up your infrastructure in the [Example Azure infrastructure walkthrough](virtual-machines-windows-infrastructure-example.md).
 * Make sure you follow the [Best Practices for running a Windows VM on Azure](virtual-machines-windows-guidance-compute-single-vm.md).
 

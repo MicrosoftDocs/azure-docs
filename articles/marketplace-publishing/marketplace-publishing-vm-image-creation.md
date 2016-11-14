@@ -1,4 +1,4 @@
-﻿---
+---
 title: Creating a virtual machine image for the Azure Marketplace | Microsoft Docs
 description: Detailed instructions on how to create a virtual machine image for the Azure Marketplace for others to purchase.
 services: Azure Marketplace
@@ -193,14 +193,14 @@ Please read the links given below for guidance on capturing the VM using API/Pow
 
 * [API](https://msdn.microsoft.com/library/mt163560.aspx)
 * [PowerShell](../virtual-machines/virtual-machines-windows-capture-image.md)
-* [Azure CLI](../virtual-machines/virtual-machines-linux-capture-image.md)
+* [Azure CLI](../virtual-machines/virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### Generalize Image
 Please read the links given below for guidance on capturing the VM using API/PowerShell/Azure CLI.
 
 * [API](https://msdn.microsoft.com/library/mt269439.aspx)
 * [PowerShell](../virtual-machines/virtual-machines-windows-capture-image.md)
-* [Azure CLI](../virtual-machines/virtual-machines-linux-capture-image.md)
+* [Azure CLI](../virtual-machines/virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### 4.2 Deploy a VM from a user VM image
 To deploy a VM from a user VM image, you can use the current [Azure portal](https://manage.windowsazure.com) or PowerShell.

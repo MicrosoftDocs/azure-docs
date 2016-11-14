@@ -21,7 +21,7 @@ ms.author: huvalo
 # Django Hello World web application on a Windows Server VM
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-classic-python-django-web-app.md)
-> * [Mac/Linux](virtual-machines-linux-python-django-web-app.md)
+> * [Mac/Linux](virtual-machines-linux-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 

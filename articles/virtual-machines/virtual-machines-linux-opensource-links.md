@@ -24,17 +24,17 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Get Started
-* [Introduction for Linux on Azure](virtual-machines-linux-intro-on-azure.md)
+* [Introduction for Linux on Azure](virtual-machines-linux-intro-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Frequently asked question about Azure Virtual Machines created with the classic deployment model](virtual-machines-linux-classic-faq.md)
 * [About images for virtual machines](virtual-machines-linux-classic-about-images.md)
-* [Uploading your own Distro Image](virtual-machines-linux-classic-create-upload-vhd.md) (and also instructions using an [Azure-Endorsed Distribution](virtual-machines-linux-endorsed-distros.md))
-* [Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-mac-create-ssh-keys.md)
+* [Uploading your own Distro Image](virtual-machines-linux-classic-create-upload-vhd.md) (and also instructions using an [Azure-Endorsed Distribution](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json))
+* [Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Set up
 * [Install Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md)
 
 ## Tutorials
-* [Install the LAMP Stack on a Linux virtual machine in Azure](virtual-machines-linux-create-lamp-stack.md)
+* [Install the LAMP Stack on a Linux virtual machine in Azure](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ruby on Rails Web application on an Azure VM](linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)
 * [How to: Install Apache Qpid Proton-C for AMQP and Service Bus](../service-bus-messaging/service-bus-amqp-apache.md)
 
@@ -52,7 +52,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 ### Docker
 * [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-linux-classic-cli-use-docker.md)
 * [Using the Docker VM Extension from the Azure portal](virtual-machines-linux-classic-portal-use-docker.md)
-* [How to use docker-machine on Azure](virtual-machines-linux-docker-machine.md)
+* [How to use docker-machine on Azure](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### Ubuntu
 * [How to: MySQL Clusters](virtual-machines-linux-classic-mysql-cluster.md)
@@ -65,38 +65,38 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 * [How to: Use CoreOS on Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 ## Planning
-* [Azure infrastructure services implementation guidelines](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
-* [Selecting Linux Usernames](virtual-machines-linux-usernames.md)
+* [Azure infrastructure services implementation guidelines](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Selecting Linux Usernames](virtual-machines-linux-usernames.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [How to configure an availability set for virtual machines in the classic deployment model](virtual-machines-linux-classic-configure-availability.md)
-* [How to Schedule Planned Maintenance on Azure VMs](virtual-machines-linux-planned-maintenance-schedule.md)
-* [Manage the availability of virtual machines](virtual-machines-linux-manage-availability.md)
-* [Planned maintenance for Linux virtual machines in Azure](virtual-machines-linux-planned-maintenance.md)
+* [How to Schedule Planned Maintenance on Azure VMs](virtual-machines-linux-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Manage the availability of virtual machines](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Planned maintenance for Linux virtual machines in Azure](virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Deployment
 * [Create a custom virtual machine running Linux](virtual-machines-linux-classic-createportal.md)
 * [The basics: Capturing a Linux VM to Make a Template](virtual-machines-linux-classic-capture-image.md)
-* [Information for Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md)
+* [Information for Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Management
-* [SSH](virtual-machines-linux-mac-create-ssh-keys.md)
+* [SSH](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-classic-reset-access.md)
-* [Using Root](virtual-machines-linux-use-root-privileges.md)
+* [Using Root](virtual-machines-linux-use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Azure Resources
-* [The Azure Linux Agent](virtual-machines-linux-agent-user-guide.md)
+* [The Azure Linux Agent](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure VM Extensions and Features](virtual-machines-windows-extensions-features.md)
 * [Injecting Custom Data into a VM to use with Cloud-init](virtual-machines-windows-classic-inject-custom-data.md)
 
 ## Storage
 * [Attaching a Data Disk to a Linux VM](virtual-machines-linux-classic-attach-disk.md)
 * [Detaching a Data Disk from a Linux VM](virtual-machines-linux-classic-detach-disk.md)
-* [RAID](virtual-machines-linux-configure-raid.md)
+* [RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Networking
 * [How to set up endpoints on a classic virtual machine in Azure](virtual-machines-linux-classic-setup-endpoints.md)
 
 ## Troubleshooting
-* [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-linux-troubleshoot-ssh-connection.md)
+* [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Troubleshoot classic deployment issues with creating a new Linux virtual machine in Azure](virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md)  
 * [Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md) 
 

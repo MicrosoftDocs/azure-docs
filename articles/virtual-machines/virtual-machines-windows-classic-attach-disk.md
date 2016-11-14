@@ -42,13 +42,13 @@ For more details about disks, see [About Disks and VHDs for Virtual Machines](vi
    ![Volume successfully initialized](./media/virtual-machines-windows-classic-attach-disk/newvolumecreated.png)
 
 > [!NOTE]
-> The size of the VM determines how many disks you can attach to it. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
+> The size of the VM determines how many disks you can attach to it. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
 ## Additional resources
 [How to detach a disk from a Windows virtual machine](virtual-machines-windows-classic-detach-disk.md)
 
-[About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md)
+[About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [logon]: virtual-machines-windows-classic-connect-logon.md

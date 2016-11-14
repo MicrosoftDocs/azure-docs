@@ -21,7 +21,7 @@ ms.author: iainfou
 # How to Attach a Data Disk to a Linux Virtual Machine
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-See how to [attach a data disk using the Resource Manager deployment model](virtual-machines-linux-add-disk.md).
+See how to [attach a data disk using the Resource Manager deployment model](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 You can attach both empty disks and disks that contain data to your Azure VMs. Both types of disks are .vhd files that reside in an Azure storage account. As with adding any disk to a Linux machine, after you attach the disk you need to initialize and format it so it's ready for use. This article details attaching both empty disks and disks already containing data to your VMs, as well as how to then initialize and format a new disk.
 

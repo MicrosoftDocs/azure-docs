@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect Azure virtual machines to Log Analytics  | Microsoft Docs
 description: For Windows and Linux virtual machines running in Azure, the recommended way of collected logs and metrics is by installing the Log Analytics Azure VM extension. You can use the Azure portal or PowerShell to install the Log Analytics virtual machine extension onto Azure VMs.
 services: log-analytics
@@ -25,7 +25,7 @@ The easiest way to install the Log Analytics agent on Azure virtual machines is 
 For Windows virtual machines, you enable the *Microsoft Monitoring Agent* virtual machine extension.
 For Linux virtual machines, you enable the *OMS Agent For Linux* virtual machine extension.
 
-Learn more about [Azure virtual machine extensions](../virtual-machines/virtual-machines-windows-extensions-features.md) and the [Linux agent](../virtual-machines/virtual-machines-linux-agent-user-guide.md).
+Learn more about [Azure virtual machine extensions](../virtual-machines/virtual-machines-windows-extensions-features.md) and the [Linux agent](../virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 When you use agent-based collection for log data, you must configure [data sources in Log Analytics](log-analytics-data-sources.md) to specify the logs and metrics that you want to collect.
 
@@ -382,11 +382,11 @@ If the *OMS Agent for Linux* VM agent extension is not installing or reporting y
 
 1. If the extension status is *Unknown* check if the Azure VM agent is installed and working correctly by reviewing the VM agent log file `/var/log/waagent.log`
    * If the log does not exist, the VM agent is not installed.
-   * [Install the Azure VM Agent on Linux VMs](../virtual-machines/virtual-machines-linux-agent-user-guide.md)
+   * [Install the Azure VM Agent on Linux VMs](../virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 2. For other unhealthy statuses, review the OMS Agent for Linux VM extension logs files in `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` and `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. If the extension status is healthy, but data is not being uploaded review the OMS Agent for Linux log files in `/var/opt/microsoft/omsagent/log/omsagent.log`
 
-For more information, refer to [troubleshooting Linux extensions](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
+For more information, refer to [troubleshooting Linux extensions](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Next steps
 * Configure [data sources in Log Analytics](log-analytics-data-sources.md) to specify the logs and metrics to collect.
