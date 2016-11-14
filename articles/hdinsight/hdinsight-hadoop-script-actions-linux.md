@@ -150,11 +150,11 @@ Information written to STDOUT and STDERR during script execution is logged, and 
 
 Most utilities and installation packages will already write information to STDOUT and STDERR, however you may want to add additional logging. To send text to STDOUT use `echo`. For example:
 
-        echo "Getting ready to install Foo"
+    echo "Getting ready to install Foo"
 
 By default, `echo` will send the string to STDOUT. To direct it to STDERR, add `>&2` before `echo`. For example:
 
-        >&2 echo "An error occurred installing Foo"
+    >&2 echo "An error occurred installing Foo"
 
 This redirects information sent to STDOUT (1, which is default so not listed here,) to STDERR (2). For more information on IO redirection, see [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 

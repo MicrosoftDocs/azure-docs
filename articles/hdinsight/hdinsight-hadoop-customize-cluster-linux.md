@@ -93,7 +93,7 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
 * Are ran with **root level privileges** on the cluster nodes.
 * Can be used through the **Azure portal**, **Azure PowerShell**, **Azure CLI**, or **HDInsight .NET SDK**
 
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
 To assist in understanding what scripts have been applied to a cluster, and in determining the ID of scripts for promotion or demotion, the cluster keeps a history of all scripts that have been ran.
 
@@ -381,8 +381,7 @@ In this section, we use Azure Resource Manager templates to create an HDInsight 
 
         New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
 
-
-    You will be prompted to provide values for the parameters defined in the template.
+    You are prompted to provide values for the parameters defined in the template.
 
 1. When the resource group has been deployed, you will see a summary of the deployment.
 
@@ -540,7 +539,7 @@ Before proceeding, make sure you have installed and configured Azure PowerShell.
 
 Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI](../xplat-cli-install.md).
 
-    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 1. Open a shell session, terminal, command-prompt or other command-line for your system and use the following command to switch to Azure Resource Manager mode.
 
