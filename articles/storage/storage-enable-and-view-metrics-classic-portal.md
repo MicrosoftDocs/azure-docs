@@ -1,4 +1,4 @@
-﻿---
+---
 title: Enabling storage metrics in the Azure portal | Microsoft Docs
 description: How to enable storage metrics for the Blob, Queue, Table, and File services
 services: storage
@@ -45,17 +45,20 @@ The cmdlets that control Storage Metrics use the following parameters:
 
 For example, the following command switches on minute metrics for the blob service in your default storage account with the retention period set to five days:
 
-`Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
-
+```powershell
+    Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
+```
 The following command retrieves the current hourly metrics level and retention days for the blob service in your default storage account:
 
-`Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob`
-
+```powershell
+    Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob`
+````
 For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 ## How to enable Storage metrics programmatically
 The following C# snippet shows how to enable metrics and logging for the Blob service using the storage client library for .NET:
 
+```csharp
     //Parse the connection string for the storage account.
     const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
@@ -83,7 +86,7 @@ The following C# snippet shows how to enable metrics and logging for the Blob se
 
     // Set the service properties.
     blobClient.SetServiceProperties(properties);
-
+```
 ## Viewing Storage metrics
 When you have configured Storage Metrics to monitor your storage account, it records the metrics in a set of well-known tables in your storage account. You can use the Monitor page for your storage account in the Azure Classic Portal to view the hourly metrics as they become available on a chart. On this page in the Azure Classic Portal, you can:
 
@@ -128,49 +131,47 @@ You should consider setting up alerts in the Azure Classic Portal on the Monitor
 ## Accessing metrics data programmatically
 The following listing shows sample C# code that accesses the minute metrics for a range of minutes and displays the results in a console Window. It uses the Azure Storage Library version 4 that includes the CloudAnalyticsClient class that simplifies accessing the metrics tables in storage.
 
+```csharp
     private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)
     {
-    // Convert the dates to the format used in the PartitionKey
-    var start = startDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
-    var end = endDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
+        // Convert the dates to the format used in the PartitionKey
+        var start = startDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
+        var end = endDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
 
-    var services = Enum.GetValues(typeof(StorageService));
-    foreach (StorageService service in services)
-    {
-    Console.WriteLine("Minute Metrics for Service {0} from {1} to {2} UTC", service, start, end);
-    var metricsQuery = analyticsClient.CreateMinuteMetricsQuery(service, StorageLocation.Primary);
-    var t = analyticsClient.GetMinuteMetricsTable(service);
-    var opContext = new OperationContext();
-    var query =
-    from entity in metricsQuery
-    // Note, you can't filter using the entity properties Time, AccessType, or TransactionType
-    // because they are calculated fields in the MetricsEntity class.
-    // The PartitionKey identifies the DataTime of the metrics.
-    where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0 
-    select entity;
+        var services = Enum.GetValues(typeof(StorageService));
+        foreach (StorageService service in services)
+        {
+            Console.WriteLine("Minute Metrics for Service {0} from {1} to {2} UTC", service, start, end);
+            var metricsQuery = analyticsClient.CreateMinuteMetricsQuery(service, StorageLocation.Primary);
+            var t = analyticsClient.GetMinuteMetricsTable(service);
+            var opContext = new OperationContext();
+            var query =
+              from entity in metricsQuery
+              // Note, you can't filter using the entity properties Time, AccessType, or TransactionType
+              // because they are calculated fields in the MetricsEntity class.
+              // The PartitionKey identifies the DataTime of the metrics.
+              where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0 
+            select entity;
 
-    // Filter on "user" transactions after fetching the metrics from Table Storage.
-    // (StartsWith is not supported using LINQ with Azure table storage)
-    var results = query.ToList().Where(m => m.RowKey.StartsWith("user"));
-    var resultString = results.Aggregate(new StringBuilder(), (builder, metrics) => builder.AppendLine(MetricsString(metrics, opContext))).ToString();
-    Console.WriteLine(resultString);
-    }
+            // Filter on "user" transactions after fetching the metrics from Table Storage.
+            // (StartsWith is not supported using LINQ with Azure table storage)
+            var results = query.ToList().Where(m => m.RowKey.StartsWith("user"));
+            var resultString = results.Aggregate(new StringBuilder(), (builder, metrics) => builder.AppendLine(MetricsString(metrics, opContext))).ToString();
+            Console.WriteLine(resultString);
+        }
     }
 
     private static string MetricsString(MetricsEntity entity, OperationContext opContext)
     {
-    var entityProperties = entity.WriteEntity(opContext);
-    var entityString =
-    string.Format("Time: {0}, ", entity.Time) +
-    string.Format("AccessType: {0}, ", entity.AccessType) +
-    string.Format("TransactionType: {0}, ", entity.TransactionType) +
-    string.Join(",", entityProperties.Select(e => new KeyValuePair<string, string>(e.Key.ToString(), e.Value.PropertyAsObject.ToString())));
-    return entityString;
-
+        var entityProperties = entity.WriteEntity(opContext);
+        var entityString =
+        string.Format("Time: {0}, ", entity.Time) +
+        string.Format("AccessType: {0}, ", entity.AccessType) +
+        string.Format("TransactionType: {0}, ", entity.TransactionType) +
+        string.Join(",", entityProperties.Select(e => new KeyValuePair<string, string>(e.Key.ToString(), e.Value.PropertyAsObject.ToString())));
+        return entityString;
     }
-
-
-
+```
 
 ## What charges do you incur when you enable storage metrics?
 Write requests to create table entities for metrics are charged at the standard rates applicable to all Azure Storage operations.
@@ -185,4 +186,3 @@ The capacity used by the metrics tables is also billable: you can use the follow
 
 ## Next steps:
 [Enabling Storage Analytics Logging and Accessing Log Data](https://msdn.microsoft.com/library/dn782840.aspx)
-

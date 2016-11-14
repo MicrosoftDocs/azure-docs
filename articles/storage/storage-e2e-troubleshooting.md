@@ -1,4 +1,4 @@
-﻿---
+---
 title: End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer | Microsoft Docs
 description: A tutorial demonstrating end-to-end troubleshooting with Azure Storage Analytics, AzCopy, and Microsoft Message Analyzer
 services: storage
@@ -104,27 +104,27 @@ To get started with PowerShell for Azure, see [How to install and configure Azur
 
 1. Use the [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) cmdlet to add your Azure user account to the PowerShell window:
    
-    ```
+```powershell
     Add-AzureAccount
-    ```
+```
 2. In the **Sign in to Microsoft Azure** window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
 3. Set the default storage account to the storage account you are using for the tutorial by executing these commands in the PowerShell window:
    
-    ```
+```powershell
     $SubscriptionName = 'Your subscription name'
     $StorageAccountName = 'yourstorageaccount'
     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-    ```
+```
 4. Enable storage logging for the Blob service:
    
-    ```
+```powershell
     Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
-    ```
+```
 5. Enable storage metrics for the Blob service, making sure to set **-MetricsType** to `Minute`:
    
-    ```
+```powershell
     Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
-    ```
+```
 
 ### Configure .NET client-side logging
 To configure client-side logging for a .NET application, enable .NET diagnostics in the application's configuration file (web.config or app.config). See [Client-side Logging with the .NET Storage Client Library](http://msdn.microsoft.com/library/azure/dn782839.aspx) and [Client-side Logging with the Microsoft Azure Storage SDK for Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) on MSDN for details.
@@ -152,9 +152,10 @@ For the tutorial, collect and save a network trace first in Message Analyzer, th
 5. In the **Advanced Settings** dialog, click the **Provider** tab.
 6. In the **Hostname Filter** field, specify your storage endpoints, separated by spaces. For example, you can specify your endpoints as follows; change `storagesample` to the name of your storage account:
    
-    ```
-    storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net
-    ```
+    storagesample.blob.core.windows.net 
+    storagesample.queue.core.windows.net 
+    storagesample.table.core.windows.net
+
 7. Exit the dialog, and click **Restart** to begin collecting the trace with the hostname filter in place, so that only Azure Storage network traffic is included in the trace.
 
 > [!NOTE]

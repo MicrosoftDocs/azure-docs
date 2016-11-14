@@ -82,6 +82,7 @@ Add AppSettings to the App.Config.
 
 Add the following `using` statements and make sure to add a reference to System.Configuration to the project.
 
+```csharp
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using System.Configuration;
     using Microsoft.WindowsAzure.Storage.Auth;
@@ -90,11 +91,11 @@ Add the following `using` statements and make sure to add a reference to System.
     using Microsoft.Azure.KeyVault;
     using System.Threading;        
     using System.IO;
-
-
+```
 ## Add a method to get a token to your console application
 The following method is used by Key Vault classes that need to authenticate for access to your key vault.
 
+```csharp
     private async static Task<string> GetToken(string authority, string resource, string scope)
     {
         var authContext = new AuthenticationContext(authority);
@@ -108,10 +109,11 @@ The following method is used by Key Vault classes that need to authenticate for 
 
         return result.AccessToken;
     }
-
+```
 ## Access Storage and Key Vault in your program
 In the Main function, add the following code.
 
+```csharp
     // This is standard code to interact with Blob storage.
     StorageCredentials creds = new StorageCredentials(
         ConfigurationManager.AppSettings["accountName"],
@@ -124,7 +126,7 @@ In the Main function, add the following code.
     // The Resolver object is used to interact with Key Vault for Azure Storage.
     // This is where the GetToken method from above is used.
     KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
-
+```
 
 > [!NOTE]
 > Key Vault Object Models
@@ -140,11 +142,11 @@ In the Main function, add the following code.
 ## Encrypt blob and upload
 Add the following code to encrypt a blob and upload it to your Azure storage account. The **ResolveKeyAsync** method that is used returns an IKey.
 
+```csharp
     // Retrieve the key that you created previously.
     // The IKey that is returned here is an RsaKey.
     // Remember that we used the names contosokeyvault and testrsakey1.
     var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
-
 
     // Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
     BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
@@ -156,7 +158,7 @@ Add the following code to encrypt a blob and upload it to your Azure storage acc
     // Upload using the UploadFromStream method.
     using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
         blob.UploadFromStream(stream, stream.Length, null, options, null);
-
+```
 
 Following is a screenshot from the [Azure Classic Portal](https://manage.windowsazure.com) for a blob that has been encrypted by using client-side encryption with a key stored in Key Vault. The **KeyId** property is the URI for the key in Key Vault that acts as the KEK. The **EncryptedKey** property contains the encrypted version of the CEK.
 
@@ -174,6 +176,7 @@ The private key of an RSA Key remains in Key Vault, so for decryption to occur, 
 
 Add the following to decrypt the blob that you just uploaded.
 
+```csharp
     // In this case, we will not pass a key and only pass the resolver because
     // this policy will only be used for downloading / decrypting.
     BlobEncryptionPolicy policy = new BlobEncryptionPolicy(null, cloudResolver);
@@ -181,7 +184,7 @@ Add the following to decrypt the blob that you just uploaded.
 
     using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
         blob.DownloadToStream(np, null, options, null);
-
+```
 
 > [!NOTE]
 > There are a couple of other kinds of resolvers to make key management easier, including: AggregateKeyResolver and CachingKeyResolver.
@@ -198,6 +201,7 @@ The way to use a secret with client-side encryption is via the SymmetricKey clas
 Here is an example in PowerShell of creating a secret in Key Vault that can be used as a SymmetricKey.
 NOTE: The hard coded value, $key, is for demonstration purpose only. In your own code you'll want to generate this key.
 
+```csharp
     // Here we are making a 128-bit key so we have 16 characters.
     //     The characters are in the ASCII range of UTF8 so they are
     //    each 1 byte. 16 x 8 = 128.
@@ -208,13 +212,14 @@ NOTE: The hard coded value, $key, is for demonstration purpose only. In your own
 
     // Substitute the VaultName and Name in this command.
     $secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
-
+```
 In your console application, you can use the same call as before to retrieve this secret as a SymmetricKey.
 
+```csharp
     SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
         "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
         CancellationToken.None).GetAwaiter().GetResult();
-
+```
 That's it. Enjoy!
 
 ## Next steps
