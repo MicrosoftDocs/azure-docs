@@ -32,8 +32,9 @@ This article shows you two ways that HPC Pack provides to autoscale compute reso
 * The **AzureAutoGrowShrink.ps1** HPC PowerShell script
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-> Also, currently you can only automatically grow and shrink HPC Pack compute nodes that are running a Windows Server operating system.
->
+
+Currently you can only automatically grow and shrink HPC Pack compute nodes that are running a Windows Server operating system.
+
 
 ## Set the AutoGrowShrink cluster property
 ### Prerequisites
@@ -151,7 +152,8 @@ The following are AutoGrowShrink parameters that you can modify by using the **S
   > This parameter is supported starting in HPC Pack 2012 R2 Update 3.
   >
 * **ExcludeNodeGroups** – Nodes in the specified node groups do not automatically grow and shrink.
- > [!NOTE]
+  
+  > [!NOTE]
   > This parameter is supported starting in HPC Pack 2016.
   >
 
