@@ -44,9 +44,9 @@ Currently you can only automatically grow and shrink HPC Pack compute nodes that
 
   1. After cluster deployment, connect by Remote Desktop to one head node.
 
-  2. Upload the certificate (PFX format with private key) to the head node and install to Cert:\LocalMachine\My and Cert:\LocalMachine\Trust.
+  2. Upload the certificate (PFX format with private key) to each head node and install to Cert:\LocalMachine\My and Cert:\LocalMachine\Root.
 
-  3. Start Azure PowerShell as an administrator and run the following commands:
+  3. Start Azure PowerShell as an administrator and run the following commands on one head node:
 
     ```powershell
         cd $env:CCP_HOME\bin
