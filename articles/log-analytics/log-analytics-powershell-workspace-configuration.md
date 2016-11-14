@@ -184,7 +184,7 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 ```
 
 ## Configuring Log Analytics to index Azure diagnostics
-For agentless monitoring of Azure resources, the resources need to have Azure diagnostics enabled and configured to write to a Log Analytics workspace. This approach sends data directly to Log Analytics and does not required data be first written to a storage account. Supported resources include:
+For agentless monitoring of Azure resources, the resources need to have Azure diagnostics enabled and configured to write to a Log Analytics workspace. This approach sends data directly to Log Analytics and does not require data to be written to a storage account. Supported resources include:
 
 + Metrics
   - Application Gateways
@@ -220,11 +220,11 @@ $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUP
 Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-You can also use the above cmdlet to collect logs from resources that are in different subscriptions. The cmdlet is able to work across subscriptions since you are providing the id of both the resource creating logs and the workspace the logs are sent to.
+You can also use the preceding cmdlet to collect logs from resources that are in different subscriptions. The cmdlet is able to work across subscriptions since you are providing the id of both the resource creating logs and the workspace the logs are sent to.
 
 
 ## Configuring Log Analytics to index Azure diagnostics from storage
-To collect log data from within a running instance of a classic cloud service or a service fabric cluster you need to first write the data to Azure storage. Log Analytics is then configured to collect the logs from the storage account. Supported resources include:
+To collect log data from within a running instance of a classic cloud service or a service fabric cluster, you need to first write the data to Azure storage. Log Analytics is then configured to collect the logs from the storage account. Supported resources include:
 
 * Classic cloud services (web and worker roles)
 * Service fabric clusters
@@ -258,9 +258,9 @@ Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Re
 
 ```
 
-You can also use the above script to collect logs from storage accounts in different subscriptions. The script is able to work across subscriptions since you are providing the storage account resource id and a corresponding access key. When you change the access key you need to update the storage insight to have the new key.
+You can also use the preceding script to collect logs from storage accounts in different subscriptions. The script is able to work across subscriptions since you are providing the storage account resource id and a corresponding access key. When you change the access key, you need to update the storage insight to have the new key.
 
 
 ## Next steps
-* [Review Log Analytics PowerShell cmdlets](http://msdn.microsoft.com/library/mt188224.aspx) for additional information on using PowerShell for configuration of Log Analytics.
+* [Review Log Analytics PowerShell cmdlets](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) for additional information on using PowerShell for configuration of Log Analytics.
 
