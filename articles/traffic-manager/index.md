@@ -13,7 +13,7 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/traffic-manager.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,11 +67,11 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Traffic Manager endpoint</h3>
+                        <h3>Get Started managing Traffic Manager endpoints using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
 
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
         <div class="img"></div>
         <div class="text">
             Download Service Fabric Documentation

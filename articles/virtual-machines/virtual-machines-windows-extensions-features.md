@@ -27,7 +27,7 @@ This document provides prerequisites for Azure Virtual Machine extension, and gu
 ## Azure VM Agent
 The Azure VM Agent manages interaction between an Azure Virtual Machine and the Azure Fabric Controller. The VM agent is responsible for many functional aspects of deploying and managing Azure Virtual Machines, including running VM Extensions. The Azure VM Agent is pre-installed on Azure Gallery Images, and can be installed on supported operating systems. 
 
-For information on supported operating systems and installation instructions, see [Azure Virtual Machine Agent](virtual-machines-windows-classic-agents-and-extensions.md).
+For information on supported operating systems and installation instructions, see [Azure Virtual Machine Agent](virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## Discover VM Extensions
 Many different VM extensions are available for use with Azure Virtual Machines. To see a complete list, run the following command with the Azure CLI, replacing the location with the location of choice.
@@ -41,7 +41,7 @@ Get-AzureVMAvailableExtension | Select ExtensionName, Version
 ## Common VM Extensions
 | Extension Name | Description | More Information |
 | --- | --- | --- |
-| Custom Script Extension for Windows |Run scripts against an Azure Virtual Machine |[Custom Script Extension for Windows](virtual-machines-windows-extensions-customscript.md) |
-| DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension. |[Docker VM Extension](virtual-machines-windows-extensions-dsc-overview.md) |
+| Custom Script Extension for Windows |Run scripts against an Azure Virtual Machine |[Custom Script Extension for Windows](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension. |[Docker VM Extension](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 

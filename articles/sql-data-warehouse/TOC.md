@@ -136,6 +136,9 @@
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Service updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partners
 ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)
