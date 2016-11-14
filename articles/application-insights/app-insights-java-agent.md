@@ -3,7 +3,7 @@ title: Monitor dependencies, exceptions and execution times in Java web apps
 description: Extended monitoring of your Java website with Application Insights
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
 
 ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
@@ -28,7 +28,7 @@ If you have [instrumented your Java web app with Application Insights][java], yo
 * **Caught exceptions:** Data about exceptions that are handled by your code.
 * **Method execution time:** Data about the time it takes to execute specific methods.
 
-To use the Java agent, you install it on your server. Your web apps must be instrumented with the [Application Insights Java SDK][java].
+To use the Java agent, you install it on your server. Your web apps must be instrumented with the [Application Insights Java SDK][java]. 
 
 ## Install the Application Insights agent for Java
 1. On the machine running your Java server, [download the agent](https://aka.ms/aijavasdk).

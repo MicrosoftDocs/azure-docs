@@ -21,7 +21,7 @@ After you've deployed your web app or web site to any server, you can set up web
 
 ![Web test example](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-You can set up web tests for any HTTP or HTTPS endpoint that is accessible from the public internet.
+You can set up web tests for any HTTP or HTTPS endpoint that is accessible from the public internet. You don't have to add anything to the web site you're testing. It doesn't even have to be your site: you could test a REST API service on which you depend.
 
 There are two types of web test:
 

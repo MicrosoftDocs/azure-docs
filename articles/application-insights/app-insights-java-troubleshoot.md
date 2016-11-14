@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
@@ -52,6 +52,7 @@ Alternatively, if your client is an app in a [phone or other device][platforms],
 
 Use the same instrumentation key to set up both your client and server telemetry. The data will appear in the same Application Insights resource, and you'll be able to correlate events from client and server.
 
+
 ## Disabling telemetry
 *How can I disable telemetry collection?*
 
@@ -75,6 +76,23 @@ Using the XML method, you have to restart the application when you change the va
 * [Get the instrumentation key of the new resource.][java]
 * If you added Application Insights to your project using the Azure Toolkit for Eclipse, right click your web project, select **Azure**, **Configure Application Insights**, and change the key.
 * Otherwise, update the key in ApplicationInsights.xml in the resources folder in your project.
+
+## Debug data from the SDK
+
+To get more information about what's happening in the API, add `<SDKLogger/>` under the root node of the ApplicationInsights.xml configuration file.
+
+You can also instruct the logger to output to a file:
+
+```XML
+
+    <SDKLogger type="File">
+      <enabled>True</enabled>
+      <uniqueprefix>JavaSDKLog</uniqueprefix>
+    </SDKLogger>
+```
+
+The files can be found under `%temp%\javasdklogs`.
+
 
 ## The Azure start screen
 *I'm looking at [the Azure portal](https://portal.azure.com). Does the map tell me something about my app?*
