@@ -1967,12 +1967,12 @@ layout: HubPage
                                                 <p>PowerBI Embedded</p>
                                             </a>
                                         </li>
-                                        <!-- <li>
+                                        <li>
                                             <a href="/azure/analysis-services/">
                                                 <img src="media/index/AnalysisServices.svg" alt="" />
                                                 <p>Analysis Services</p>
                                             </a>
-                                        </li> -->
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
