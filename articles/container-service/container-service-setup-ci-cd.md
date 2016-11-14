@@ -28,9 +28,6 @@ You can run this walkthrough on OS X, Windows, or Linux.
 - You'll need an Azure subscription. If you don't have one, you can [sign up for an account](https://azure.microsoft.com/).
 - Install the [Azure Command-line tools](https://github.com/Azure/azure-cli#microsoft-azure-cli-20---preview).
 
-### If you get stuck...
-Don't hesitate to ask a question or comment on this article. The features in this tutorial are still in preview, so you may hit some rough edges – we appreciate your help to improve the experience. 
-
 ## What We'll Create
 Let's touch on some key aspects of the app and its deployment flow that we'll be setting up:
 1. **The application is composed of multiple services**. We'll use standard Docker assets -- Dockerfile and docker-compose.yml -- to define the services in our app, each running in separate containers. This enables parts of the app to scale independently, and each service can be written in a different programming language and framework if we so desire. The app's code can be hosted across one or more Git source repositories (the tools currently support GitHub or Visual Studio Team Services).
