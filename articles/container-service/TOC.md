@@ -11,7 +11,6 @@
 ## Manage with DC/OS
 ### [Container management - DC/OS web UI](container-service-mesos-marathon-ui.md)
 ### [Container management - DC/OS REST API](container-service-mesos-marathon-rest.md)
-### [Container management DC/OS Continuous Integration](container-service-setup-ci-cd.md)
 ### [DC/OS Agent pools](container-service-dcos-agents.md)
 ### [Enable DC/OS public access](container-service-enable-public-access.md)
 ### [Load balance containers in DC/OS](container-service-load-balancing.md)
