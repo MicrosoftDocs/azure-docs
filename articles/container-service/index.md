@@ -4,7 +4,7 @@ layout: LandingPage
 
 #Azure Container Service Documentation
 
-Azure Container Service makes it simpler for you to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. It uses an optimized configuration of popular open-source scheduling and orchestration tools. This enables you to use your existing skills, or draw upon a large and growing body of community expertise, to deploy and manage container-based applications on Microsoft Azure.
+Azure Container Service makes it simple for you to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. Container Service uses an optimized configuration of popular open-source scheduling and orchestration tools. This lets you use your existing skills or draw upon a large and growing body of community expertise to deploy and manage container-based applications on Microsoft Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -14,7 +14,7 @@ Azure Container Service makes it simpler for you to create, configure, and manag
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/index/containerservice.svg" alt="" />
+                            <img src="./media/index/container-service.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -32,7 +32,7 @@ Azure Container Service makes it simpler for you to create, configure, and manag
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/index/azuredefaultblack.svg" alt="" />
+                            <img src="./media/index/deploy.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -56,7 +56,7 @@ Azure Container Service makes it simpler for you to create, configure, and manag
 [Compute REST API Reference](/rest/api/)  
 
 ###PowerShell
-[Compute Module](https://docs.microsoft.com/powershell/)
+[Compute Module](/powershell/)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/container-service.pdf">

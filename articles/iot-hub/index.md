@@ -13,7 +13,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/iot-hub.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -43,17 +43,17 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-csharp-csharp-getstarted/">
+        <a href="/azure/iot-hub/iot-hub-csharp-csharp-getstarted">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an IoT Hub using .NET</h3>
+                        <h3>Get Started with IoT Hub using .NET</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +67,11 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/java.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an IoT Hub using Java</h3>
+                        <h3>Get Started with IoT Hub using Java</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +85,11 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/nodejs.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an IoT Hub using Node.js</h3>
+                        <h3>Get Started with IoT Hub using Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -106,10 +106,10 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
 [IoT HUB with Azure CLI](/cli/azure/iot)  
 
 ###.NET 
-[IoT HUB Managed Reference API](/dotnet/api/) 
+[.NET Managed Reference API](/dotnet/api/) 
 
 ###Java 
-[IoT HUB in Java Reference](/java/api/) 
+[Java SDK Reference](/java/api/) 
 
 ###REST 
 [IoT HUB REST API Reference](/rest/api/iothub) 

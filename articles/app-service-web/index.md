@@ -13,7 +13,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/app-service-web.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,47 +67,29 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an ASP.NET web app using Visual Studio</h3>
+                        <h3>Get Started with Web Apps using ASP.NET and Visual Studio</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>
-    <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
+    </li> 
+     <li>
+        <a href="/azure/app-service-web/web-sites-java-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/java.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an ASP.NET web app using Visual Studio</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Create an ASP.NET web app using Visual Studio</h3>
+                        <h3>Get Started with Web Apps using Java</h3>
                     </div>
                 </div>
             </div>
@@ -121,11 +103,11 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/nodejs.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Node.js web apps in Azure App Service</h3>
+                        <h3>Get started with Web Apps using Node.js </h3>
                     </div>
                 </div>
             </div>
@@ -139,29 +121,30 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/python.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a web app using Python Tools 2.2</h3>
+                        <h3>Get Started with Web Apps using Python Tools 2.2</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/app-service-web/web-sites-java-get-started">
+   
+     <li>
+        <a href="/azure/app-service-web/app-service-web-php-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Java web app in Azure App Service</h3>
+                        <h3>Get Started with Web Apps using PHP</h3>
                     </div>
                 </div>
             </div>
@@ -175,35 +158,18 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a WordPress web app in Azure App Service</h3>
+                        <h3>Get Started with WordPress in Azure App Service</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/app-service-web/app-service-web-php-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Create, configure adn deploy a PHP web app to Azure</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
+   
 </ul>
 
 ---
@@ -211,13 +177,13 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
 ## Reference
 
 ### Azure CLI
-[Web Apps AzureCLI Reference](/cli/azure/)
+[Web Apps Azure CLI Reference](/cli/azure/appservice/web)
 
 ### Java
-[Web Apps Java API Reference](/java/api/)
+[Java API Reference](/java/api/)
 
 ### .NET
-[Web Apps Managed Reference](/dotnet/api)
+[.NET Managed Reference](/dotnet/api)
 
 ### REST
 [Web Apps REST API Reference](/rest/api/appservice)

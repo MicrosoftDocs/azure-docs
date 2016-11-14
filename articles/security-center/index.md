@@ -1,23 +1,23 @@
 ---
 layout: LandingPage
 ---
-#Security Center Documentation
+# Security Center Documentation
 
-Security Center is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Security Center represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="/azure/security-center/security-center-intro">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/security-center.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Security Center Getting Started Samples</h3>
+                        <h3>Learn about Azure Security Center</h3>
                     </div>
                 </div>
             </div>
@@ -25,17 +25,17 @@ Security Center is a distributed systems platform that makes it easy to package,
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
+        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=security-center">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Security Center Party Cluster</h3>
+                        <h3>Azure Security Center Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -43,17 +43,17 @@ Security Center is a distributed systems platform that makes it easy to package,
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
+        <a href="/azure/security-center/security-center-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Security Center with .NET Core</h3>
+                        <h3>Get started with Azure Security Center</h3>
                     </div>
                 </div>
             </div>
@@ -63,15 +63,12 @@ Security Center is a distributed systems platform that makes it easy to package,
 </ul>
 
 ---
+## Reference
 
-##Reference
+### REST
+[Security Center REST API Reference](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100))
 
-###REST
-[Security Center REST API Reference](/rest/api/)
-
-###.NET
-[Security Center Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
-
+---
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
         <div class="img"></div>

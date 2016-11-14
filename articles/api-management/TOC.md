@@ -40,11 +40,11 @@
 ### [Manage using automation](automation-manage-api-management.md)
 ### [Configure using Git](api-management-configuration-repository-git.md)
 #Reference
-## [Templates](https://msdn.microsoft.com/en-us/library/azure/mt697540)
-## [Service deployment PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/mt619282)
+## [Resource Management PowerShell cmdlet]/powershell/resourcemanager()
+## [Classic deployment PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+## [REST API](/rest/api/apimanagement/)
 ## [Policies](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [REST API](https://msdn.microsoft.com/en-us/library/azure/dn776326)
-## [Service management PowerShell cmdlet](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+## [Templates](https://msdn.microsoft.com/en-us/library/azure/mt697540)
 #Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Whitepaper: Cloud-based API Management](http://j.mp/ms-apim-whitepaper)

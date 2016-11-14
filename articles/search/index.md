@@ -13,7 +13,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/search.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -43,17 +43,17 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
         </a>
     </li>
     <li>
-        <a href="/azure/search/search-create-service-">
+        <a href="/azure/search/search-create-service">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Azure Search service using the Azure Portal</h3>
+                        <h3>Get Started with Azure Search using the Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -80,15 +80,13 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
     </li>
 </ul>
 
+
 ---
 
 ## Reference
 
-### Java 
-[KeySearch in Java Reference](/java/api/)
-
 ### .NET 
-[Search Managed Reference API](/dotnet/api/) 
+[.NET Managed Reference API](/dotnet/api/) 
 
 ### REST 
 [Search REST API Reference](/rest/api/searchmanagement/) 

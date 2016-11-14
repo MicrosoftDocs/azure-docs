@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #Redis Cache Documentation
 
-Azure Redis Cache is based on the popular open-source Redis cache. It gives you access to a secure, dedicated Redis cache, managed by Microsoft and accessible from any application within Azure. Azure Redis Cache provides high throughput, consistent low-latency data access to power fast, scalable Azure applications.
+Azure Redis Cache is based on the popular open-source Redis Cache. It gives you access to a secure dedicated Redis cache managed by Microsoft and accessible from any application within Azure. Azure Redis Cache provides high throughput and consistent low-latency data access to power fast, scalable Azure applications.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -13,7 +13,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/rediscache.svg" alt="" />
+                            <img src="media/index/redis-cache.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -42,17 +42,17 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
         </a>
     </li>   
    <li>
-        <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache/">
+        <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/rediscache.svg" alt="" />
+                            <img src="media/index/nodejs.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Redis Cache using .NET</h3>
+                        <h3>Get Started with Redis Cache using .NET</h3>
                     </div>
                 </div>
             </div>
@@ -60,17 +60,17 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache/">
+        <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/rediscache.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Redis Cache using ASP.NET MVC</h3>
+                        <h3>Get Started with Redis Cache using ASP.NET MVC</h3>
                     </div>
                 </div>
             </div>
@@ -78,17 +78,17 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/documentdb-nodejs-get-started/">
+        <a href="/azure/redis-cache/documentdb-nodejs-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/rediscache.svg" alt="" />
+                            <img src="media/index/nodejs.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Redis Cache using Node.js</h3>
+                        <h3>Get Started with Redis Cache using Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -96,17 +96,17 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-java-get-started/">
+        <a href="/azure/redis-cache/cache-java-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/rediscache.svg" alt="" />
+                            <img src="media/index/java.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Redis Cache using Java</h3>
+                        <h3>Get Started with Redis Cache using Java</h3>
                     </div>
                 </div>
             </div>
@@ -114,17 +114,17 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-python-get-started/">
+        <a href="/azure/redis-cache/cache-python-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/rediscache.svg" alt="" />
+                            <img src="media/index/python.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Redis Cache using Python</h3>
+                        <h3>Get Started with Redis Cache using Python</h3>
                     </div>
                 </div>
             </div>
@@ -141,7 +141,7 @@ Azure Redis Cache is based on the popular open-source Redis cache. It gives you 
 [Azure PowerShell reference](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
-[Redis Cache with Azure CLI](/cli/azure/) 
+[Redis Cache with Azure CLI](/cli/azure/redis) 
 
 ###.NET 
 [Redis Cache Managed Reference API](/dotnet/api/) 

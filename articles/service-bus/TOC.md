@@ -1,6 +1,10 @@
 # Overview
 ## [Messaging](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
 ## [Relay](../service-bus-relay/service-bus-relay-overview.md)
+# Reference
+## [PowerShell Resource Manager Cmdlets](/powershell/resourcemanager)
+## [Service Bus Managed Reference API](/dotnet/api/) 
+## [Service Bus REST API Reference](/rest/api/servicebus) 
 # Resources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)

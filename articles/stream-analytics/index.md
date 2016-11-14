@@ -7,13 +7,13 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
 
 <ul class="panelContent cardsFTitle">
      <li>
-        <a href="/azure/stream-analytics/stream-analytic-introduction">
+        <a href="/azure/stream-analytics/stream-analytics-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/stream-analytics.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,11 +67,11 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an IoT solution using Stream Analytics</h3>
+                        <h3>Get Started with an IoT solution using Stream Analytics</h3>
                     </div>
                 </div>
             </div>
@@ -79,17 +79,17 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
         </a>
     </li>
      <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-sentiment-analysis-trends">
+        <a href="/azure/Stream-Analytics/stream-analytics-twitter-sentiment-analysis-trends">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a sentiment analysis solution using Stream Analytics</h3>
+                        <h3>Get Started with a Twitter sentiment analysis solution using Stream Analytics</h3>
                     </div>
                 </div>
             </div>
@@ -103,11 +103,11 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Stream Analytics job integration with Azure Machine Learning</h3>
+                        <h3>Get Started with a real-time scoring solution leveraging Azure Machine Learning</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
 [Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
 ###.NET
-[Stream Analytics Managed Reference](/dotnet/api)
+[.NET Managed Reference](/dotnet/api)
 
 ###Query Language
 [Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998)

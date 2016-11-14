@@ -13,7 +13,7 @@ Log Analytics is a service in Operations Management Suite (OMS) that helps you c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/log-analytics.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Log Analytics is a service in Operations Management Suite (OMS) that helps you c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ Log Analytics is a service in Operations Management Suite (OMS) that helps you c
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,10 +67,7 @@ Log Analytics is a service in Operations Management Suite (OMS) that helps you c
 ## Automation
 
 ### PowerShell 
-[Log Analytics PowerShell Cmdlets](https://msdn.microsoft.com/library/mt188224(v=azure.300).aspx) 
-
-### REST
-[Azure Network REST API](https://msdn.microsoft.com/library/azure/mt163658.aspx) 
+[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs) 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/log-analytics.pdf">
