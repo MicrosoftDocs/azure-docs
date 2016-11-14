@@ -21,8 +21,8 @@ ms.author: robmcm
 > [!div class="op_single_selector"]
 > * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
 > * [.NET](cloud-services-dotnet-get-started.md)
-> 
-> 
+>
+>
 
 This tutorial shows how to create a simple Node.js application running in an Azure Cloud Service. Cloud Services are the building blocks of scalable cloud applications in Azure. They allow the separation and independent management and scale-out of front-end and back-end components of your application.  Cloud Services provide a robust dedicated virtual machine for hosting each role reliably.
 
@@ -30,8 +30,8 @@ For more information on Cloud Services, and how they compare to Azure Websites a
 
 > [!TIP]
 > Looking to build a simple website? If your scenario involves just a simple website front-end, consider [using a lightweight web app]. You can easily upgrade to a Cloud Service as your web app grows and your requirements change.
-> 
-> 
+>
+>
 
 By following this tutorial, you will build a simple web application hosted inside a web role. You will use the compute emulator to test your application locally, then deploy it using PowerShell command-line tools.
 
@@ -42,8 +42,8 @@ The application is a simple "hello world" application:
 ## Prerequisites
 > [!NOTE]
 > This tutorial uses Azure PowerShell, which requires Windows.
-> 
-> 
+>
+>
 
 * Install and configure [Azure Powershell].
 * Download and install the [Azure SDK for .NET 2.7]. In the install setup, select:
@@ -56,15 +56,15 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
 1. Run **Windows PowerShell** as Administrator; from the **Start Menu** or **Start Screen**, search for **Windows PowerShell**.
 2. [Connect PowerShell] to your subscription.
 3. Enter the following PowerShell cmdlet to create to create the project:
-   
+
         New-AzureServiceProject helloworld
-   
+
     ![The result of the New-AzureService helloworld command][The result of the New-AzureService helloworld command]
-   
+
     The **New-AzureServiceProject** cmdlet generates a basic structure for publishing a Node.js application to a Cloud Service. It contains configuration files necessary for publishing to Azure. The cmdlet also changes your working directory to the directory for the service.
-   
+
     The cmdlet creates the following files:
-   
+
    * **ServiceConfiguration.Cloud.cscfg**,
      **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef**:
      Azure-specific files necessary for publishing your
@@ -73,17 +73,17 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
    * **deploymentSettings.json**: Stores local settings that are used by
      the Azure PowerShell deployment cmdlets.
 4. Enter the following command to add a new web role:
-   
+
        Add-AzureNodeWebRole
-   
+
    ![The output of the Add-AzureNodeWebRole command][The output of the Add-AzureNodeWebRole command]
-   
+
    The **Add-AzureNodeWebRole** cmdlet creates a basic Node.js application. It also modifies the **.csfg** and **.csdef** files to add configuration entries for the new role.
-   
+
    > [!NOTE]
    > If you do not specify a role name, a default name is used. You can provide a name as the first cmdlet parameter: `Add-AzureNodeWebRole MyRole`
-   > 
-   > 
+   >
+   >
 
 The Node.js app is defined in the file **server.js**, located in the directory for the web role (**WebRole1** by default). Here is the code:
 
@@ -103,14 +103,14 @@ This code is essentially the same as the "Hello World" sample on the [nodejs.org
 To deploy your application to Azure, you must first download the publishing settings for your Azure subscription.
 
 1. Run the following Azure PowerShell cmdlet:
-   
+
        Get-AzurePublishSettingsFile
-   
+
    This will use your browser to navigate to the publish settings download page. You may be prompted to log in with a Microsoft Account. If so, use the account associated with your Azure subscription.
-   
+
    Save the downloaded profile to a file location you can easily access.
 2. Run following cmdlet to import the publishing profile you downloaded:
-   
+
        Import-AzurePublishSettingsFile [path to file]
 
     > [AZURE.NOTE] After importing the publish settings, consider deleting the downloaded .publishSettings file, because it contains information that could allow someone to access your account.
@@ -131,8 +131,8 @@ After publishing succeeds, you will see a response similar to the following:
 
 > [!NOTE]
 > It can take several minutes for the application to deploy and become available when first published.
-> 
-> 
+>
+>
 
 Once the deployment has completed, a browser window will open and navigate to the cloud service.
 
@@ -151,26 +151,26 @@ The **Publish-AzureServiceProject** cmdlet performs the following steps:
 After deploying your application, you may want to disable it so you can avoid extra costs. Azure bills web role instances per hour of server time consumed. Server time is consumed once your application is deployed, even if the instances are not running and are in the stopped state.
 
 1. In the Windows PowerShell window, stop the service deployment created in the previous section with the following cmdlet:
-   
+
        Stop-AzureService
-   
+
    Stopping the service may take several minutes. When the service is stopped, you receive a message indicating that it has stopped.
-   
+
    ![The status of the Stop-AzureService command][The status of the Stop-AzureService command]
 2. To delete the service, call the following cmdlet:
-   
+
        Remove-AzureService
-   
+
    When prompted, enter **Y** to delete the service.
-   
+
    Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
-   
+
    ![The status of the Remove-AzureService command][The status of the Remove-AzureService command]
-   
+
    > [!NOTE]
    > Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. If nothing else is using the storage, you may want to delete it.
-   > 
-   > 
+   >
+   >
 
 ## Next steps
 For more information, see the [Node.js Developer Center].
@@ -181,7 +181,7 @@ For more information, see the [Node.js Developer Center].
 [using a lightweight web app]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
 [Azure Powershell]: ../powershell-install-configure.md
 [Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[Connect PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
+[Connect PowerShell]: ../powershell-install-configure.md#step-3-connect
 [nodejs.org]: http://nodejs.org/
 [Overview of Creating a Hosted Service for Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js Developer Center]: https://azure.microsoft.com/develop/nodejs/

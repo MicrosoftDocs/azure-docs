@@ -70,12 +70,12 @@ module.exports = function(context) {
 The `context.bindings` object collects all your input and output data. The data is added onto the `context.bindings` object via the `name` property of the binding. For instance, given the following binding definition in *function.json*, you can access the contents of the queue via `context.bindings.myInput`. 
 
 ```json
-    {
-        "type":"queue",
-        "direction":"in",
-        "name":"myInput"
-        ...
-    }
+{
+    "type":"queue",
+    "direction":"in",
+    "name":"myInput"
+    ...
+}
 ```
 
 ```javascript

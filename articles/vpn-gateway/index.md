@@ -1,21 +1,145 @@
 ---
-title: To be submitted | Microsoft Azure
-description: To be submitted.
-services: ''
-documentationcenter: ''
-author: squillace
-manager: timlt
-editor: ''
-tags: billing
-
-ms.assetid: 7ea2592d-62d3-4b72-8c17-0b029d41df7f
-ms.service: value
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
-
+layout: LandingPage
 ---
-# To be submitted.
+#VPN Gateway Documentation
+
+Azure VPN Gateway is a virtual private network (VPN) gateway used to send network traffic between Azure virtual networks and on-premises locations and also between virtual networks within Azure (VNet-to-VNet).  
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/azure/vpn-gateway/vpn-gateway-about-vpngateways">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg"  alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Learn about VPN Gateway</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>VPN Gateway Video Library</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/vpn-gateway/vpn-gateway-plan-design">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg"  alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with VPN Gateway</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg"  alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Create a site-to-site connection use the Azure portal</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg"  alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Create a point-to-site connection use the Azure portal</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg"  alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Create a VNet-to-VNet connection use the Azure portal</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+ </ul>
+---
+
+##Reference
+
+###PowerShell
+[PowerShell Reference](/powershell)
+
+###Azure CLI
+[VPN Gateway using Azure CLI](/cli/azure/network/vpn-gateway)
+
+###.NET
+[.NET Managed Reference](/dotnet/api)
+
+###Java
+[Java SDK Reference](/java/api)
+
+###REST
+[VPN Gateway REST API Reference](https://msdn.microsoft.com/library/mt163859)
+
+
+<div class="downloadHolder">
+    <a href="https://msdn.microsoft.com/">
+        <div class="img"></div>
+        <div class="text">
+            Download Azure Batch Documentation
+        </div>
+    </a>
+</div>
