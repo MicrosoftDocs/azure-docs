@@ -95,7 +95,7 @@ To attach data disks from an existing .vhd file in blob storage, run this comman
 
 ## Create a Windows-based VM
 To create a new Windows-based virtual machine in Azure, use the instructions in
-[Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-windows-classic-create-powershell.md). This topic steps you through the creation of an Azure PowerShell command set that creates a Windows-based VM that can be preconfigured:
+[Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). This topic steps you through the creation of an Azure PowerShell command set that creates a Windows-based VM that can be preconfigured:
 
 * With Active Directory domain membership.
 * With additional disks.

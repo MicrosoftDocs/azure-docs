@@ -489,7 +489,7 @@ the HANA DB instance with transaction "dbacockpit".
 
 ## General information related to SAP Azure certifications, running SAP HANA on Azure and SAP software download
 * general SAP Azure docu about running SAP on Azure with Windows OS in classic mode :
-  [Using SAP on Windows virtual machines in Azure](virtual-machines-windows-classic-sap-get-started.md)
+  [Using SAP on Windows virtual machines in Azure](virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * information about existing SAP templates for usage by customers :
   [Azure Quickstart Templates for SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)
 * general SAP Azure docu about running SAP on Azure with Linux OS in Azure Resource Manager model :

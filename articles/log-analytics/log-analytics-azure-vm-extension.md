@@ -363,7 +363,7 @@ If the *Microsoft Monitoring Agent* VM agent extension is not installing or repo
 1. Check if the Azure VM agent is installed and working correctly by using the steps in [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
    * You can also review the VM agent log file `C:\WindowsAzure\logs\WaAppAgent.log`
    * If the log does not exist, the VM agent is not installed.
-     * [Install the Azure VM Agent on classic VMs](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md)
+     * [Install the Azure VM Agent on classic VMs](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 2. Confirm the Microsoft Monitoring Agent extension heartbeat task is running using the following steps:
    * Log in to the virtual machine
    * Open task scheduler and find the `update_azureoperationalinsight_agent_heartbeat` task

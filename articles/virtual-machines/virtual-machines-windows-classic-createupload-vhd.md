@@ -87,5 +87,5 @@ Use the [Add-AzureVMImage](https://msdn.microsoft.com/library/mt589167.aspx) cmd
 
 
 ## Next steps
-You can now [create a custom VM](virtual-machines-windows-classic-createportal.md) using the image you uploaded.
+You can now [create a custom VM](virtual-machines-windows-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) using the image you uploaded.
 

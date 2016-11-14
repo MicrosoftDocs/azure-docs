@@ -20,7 +20,7 @@ ms.author: huvalo
 ---
 # Django Hello World web application on a Windows Server VM
 > [!div class="op_single_selector"]
-> * [Windows](virtual-machines-windows-classic-python-django-web-app.md)
+> * [Windows](virtual-machines-windows-classic-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > * [Mac/Linux](virtual-machines-linux-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
@@ -49,7 +49,7 @@ A screenshot of the completed application appears next.
 [!INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
 ## Creating and configuring an Azure virtual machine to host Django
-1. Follow the instructions given [here](virtual-machines-windows-classic-tutorial.md) to create an Azure virtual machine of the Windows Server 2012 R2 Datacenter distribution.
+1. Follow the instructions given [here](virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create an Azure virtual machine of the Windows Server 2012 R2 Datacenter distribution.
 2. Instruct Azure to direct port 80 traffic from the web to port 80 on the virtual machine:
    
    * Navigate to your newly created virtual machine in the Azure classic portal and click the **ENDPOINTS** tab.

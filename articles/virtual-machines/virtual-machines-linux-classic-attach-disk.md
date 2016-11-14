@@ -185,7 +185,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 You can read more about using your Linux VM in the following articles:
 
 * [How to log on to a virtual machine running Linux][Logon]
-* [How to detach a disk from a Linux virtual machine](virtual-machines-linux-classic-detach-disk.md)
+* [How to detach a disk from a Linux virtual machine](virtual-machines-linux-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Using the Azure CLI with the Classic deployment model](../virtual-machines-command-line-tools.md)
 
 <!--Link references-->

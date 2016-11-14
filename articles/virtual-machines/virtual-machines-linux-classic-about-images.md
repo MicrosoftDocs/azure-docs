@@ -31,5 +31,5 @@ You can use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows t
 For examples of using the tools, see [Common Azure CLI commands on Linux and Mac](virtual-machines-linux-cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Next steps
-You can also [upload your own image](virtual-machines-linux-classic-create-upload-vhd.md).
+You can also [upload your own image](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

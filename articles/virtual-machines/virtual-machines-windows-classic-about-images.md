@@ -38,5 +38,5 @@ You can use the Azure PowerShell module to manage the images available to your A
 * **Delete an image**: `Remove-AzureVMImage –ImageName "MyOldVmImage"`
 
 ## Next Steps
-You can also [create a Windows machine using the classic portal](virtual-machines-windows-classic-tutorial.md)
+You can also [create a Windows machine using the classic portal](virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

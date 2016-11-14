@@ -47,7 +47,7 @@ For more details about disks, see [About Disks and VHDs for Virtual Machines](vi
 > 
 
 ## Additional resources
-[How to detach a disk from a Windows virtual machine](virtual-machines-windows-classic-detach-disk.md)
+[How to detach a disk from a Windows virtual machine](virtual-machines-windows-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

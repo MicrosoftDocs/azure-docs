@@ -233,7 +233,7 @@ The below resources should provide more information on deploying from the image 
 ### Other Resources:
 * [Deploying a Windows Virtual Machine](virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Virtual Machine FAQ](virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Capture Linux VM Image](virtual-machines/virtual-machines-linux-classic-capture-image.md)
+* [Capture Linux VM Image](virtual-machines/virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 
