@@ -53,7 +53,7 @@ For example, the following command switches on minute metrics for the Blob servi
 The following command retrieves the current hourly metrics level and retention days for the blob service in your default storage account:
 
 ```powershell
-    Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob`
+    Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 ```
 For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
