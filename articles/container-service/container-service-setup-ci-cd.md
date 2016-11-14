@@ -30,9 +30,9 @@ You can run this walkthrough on OS X, Windows, or Linux.
 
 ## What We'll Create
 Let's touch on some key aspects of the app and its deployment flow that we'll be setting up:
-1. **The application is composed of multiple services**. We'll use standard Docker assets -- Dockerfile and docker-compose.yml -- to define the services in our app, each running in separate containers. This enables parts of the app to scale independently, and each service can be written in a different programming language and framework if we so desire. The app's code can be hosted across one or more Git source repositories (the tools currently support GitHub or Visual Studio Team Services).
+1. **The application is composed of multiple services**. We'll use standard Docker assets -- Dockerfile and docker-compose.yml -- to define the services in our app, each running in separate containers. This enables parts of the app to scale independently, and each service can be written in a different programming language and framework. The app's code can be hosted across one or more Git source repositories (the tools currently support GitHub or Visual Studio Team Services).
 
-1. The app will run in an **ACS cluster configured with DC/OS**, so that the container orchestrator can manage the health of our cluster, and ensure our required number of container instances keep running.
+1. The app will run in an **ACS cluster configured with DC/OS**, so the container orchestrator can manage the health of our cluster and ensure our required number of container instances keep running.
 
 1. The process of **building and deploying container images will fully automated with zero-downtime**. We want developers on the team to 'git push' to a branch, which will automatically trigger an integration process; that is, build and tag container images, run tests on each container, and push those images to a Docker private registry. From there, new images will automatically deploy to a shared pre-production environment on an ACS cluster for further testing.
 
@@ -70,12 +70,12 @@ While the cluster is being created, we can set up sample code that we'll deploy 
 	```
 	
 Let's take a closer look at the code:
-* `/service-a` is an Angular.js-based web app witih a Node.js backend.
+* `/service-a` is an Angular.js-based web app with a Node.js backend.
 * `/service-b` is a .NET Core service, and is called by *service-a* via REST.
 * Both *service-a* and *service-b* contain a `Dockerfile` in each of their directories that respectively describe Node.js- and .NET Core-based container images. 
 * `docker-compose.yml` declares the set of services that will be built and deployed.
 	* In addition to *service-a* and *service-b*, a third service named *cache* runs a Redis cache that *service-a* can use. *Cache* differs to the first two services in that we don't have code for it in our source repository - instead, we fetch a pre-made `redis:alpine` image from Docker Hub and deploy it to ACS.
-* `/service-a/server.js` contains code where *service-a* calls both *service-b* and *cache*. Notice that *service-a* code references *service-b* and *cache* by how they are named in `docker-compose.yml`. If we run these services on our local machine via `docker-compose`, Docker ensures the services are all networked appropriately to find each other by name. Of course running the services in a cluster environment with load-balanced networking typically makes this much more complex than running locally. The good news is the Auzre CLI commands set up a CI/CD flow that ensures this straight-forward service discovery code will continue to run as-is in ACS. 
+* `/service-a/server.js` contains code where *service-a* calls both *service-b* and *cache*. Notice that *service-a* code references *service-b* and *cache* by how they are named in `docker-compose.yml`. If we run these services on our local machine via `docker-compose`, Docker ensures the services are all networked appropriately to find each other by name. Of course, running the services in a cluster environment with load-balanced networking typically makes this much more complex than running locally. The good news is the Azure CLI commands set up a CI/CD flow that ensures this straight-forward service discovery code will continue to run as-is in ACS. 
 
 	![Multi-container sample app overview](media/container-service-setup-ci-cd/multi-container-sample-app-overview.png)
 
@@ -172,11 +172,11 @@ While we're in the DC/OS dashboard, let's scale our services.
 
 	![Action menu](media/container-service-setup-ci-cd/marathon-ui-action-menu.png)
 
-1. Increase the number to, say, 3 and click **Scale Service**.
+1. Increase the number to 3 and click **Scale Service**.
 
 	![Scale services](media/container-service-setup-ci-cd/marathon-ui-scale-service.png)
 
-1. Navigate back to the running web app, and repeatedly click the *Say It Again* button. Fairly quickly you'll see that *service-b* invocations begin to round-robin across a collection of hostnames, while the single instance of *service-a* continues to report the same host.   
+1. Navigate back to the running web app, and repeatedly click the *Say It Again* button. Quickly you'll see that *service-b* invocations begin to round-robin across a collection of hostnames, while the single instance of *service-a* continues to report the same host.   
 
 ## Promote a Release to Downstream Environments without Re-building Container Images
 Our VSTS release pipeline set up three environments by default: *Dev*, *Test*, and *Production*. So far we've deployed to *Dev*. Let's look at how we can promote a release to the next downstream environment, *Test*, without rebuilding our container images. This ensures we're deploying the exact same image(s) we tested in the prior environment. This is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
