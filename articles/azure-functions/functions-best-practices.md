@@ -64,6 +64,8 @@ Depending on how complex your system is, you may have: involved downstream servi
 How does your code react if a failure occurs after inserting 5,000 of those items into a queue for processing? Track items in a set that you’ve completed. Otherwise, you might insert them again next time. This can have a serious impact on your work flow. 
 
 If a queue item was already processed, allow your function to be a no-op.
+
+Take advantage of defensive measures already provided for components you use in the Azure Functions platform. For example, see **Handling poison queue messages** in the documentation for [Azure Storage Queue triggers](functions-bindings-storage.md#storagequeuetrigger).
  
 
 
@@ -84,7 +86,7 @@ Don't use verbose logging in production code. It has a negative performance impa
 
 
 
-## Use async code but avoid the Task.Result property
+## Use async code but avoid Task.Result
 
 Asynchronous programming is a recommended best practice. However, always avoid referencing the `Task.Result` property. This approach essentially does a busy-wait on a lock of another thread. Holding a lock creates the potential for deadlocks.
 
