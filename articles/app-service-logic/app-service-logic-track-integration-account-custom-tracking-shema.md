@@ -67,7 +67,7 @@ ms.author: padmavc
 | clientRequestId |Optional, string.  Client can populate it to correlate messages |
 | eventLevel |Mandatory. It indicates the level of the event |
 | eventTime |Mandatory. It indicates the time of the event in UTC format YYYY-MM-DDTHH:MM:SS.00000Z |
-| recordType |Mandatory, It indicates the type of the track record. The allowed values are AS2Message, AS2MDN, X12Interchange, X12FunctionalGroup, X12TransactionSet, X12InterchangeAcknowledgment, X12FunctionalGroupAcknowledgment, X12TransactionSetAcknowledgment, Custom |
+| recordType |Mandatory, It indicates the type of the track record. The allowed value is Custom |
 | record |Mandatory.  It indicates the custom record type and the allowed format is JToken |
 |  | |
 
@@ -76,6 +76,7 @@ ms.author: padmavc
 * [X12 Tracking Schema](app-service-logic-track-integration-account-x12-tracking-shemas.md) 
 
 ## Next steps
-[Learn more about tracking B2B messages](app-service-logic-track-b2b-message.md "Learn more about tracking B2B messages")   
+[Learn more about monitoring B2B messages](app-service-logic-monitor-b2b-message.md "Learn more about tracking B2B messages")   
+[Tracking B2B messages in OMS Portal](app-service-logic-track-b2b-messages-omsportal.md "Tracking B2B messages")   
 [Learn more about the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")   
 
