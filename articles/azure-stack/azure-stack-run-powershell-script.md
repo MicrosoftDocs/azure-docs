@@ -83,8 +83,10 @@ Before you start, make sure that you at least 85 GB of space.
 
 ## Run the PowerShell deployment script
 1. Log in as the Local Administrator to your POC machine. Use the credentials specified in the previous steps.
+
     > [!IMPORTANT]
     > Azure Stack requires access to the Internet, either directly or through a transparent proxy. The TP2 POC deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.2. Open an elevated PowerShell console.
+
 3. In PowerShell, run this command: `cd C:\CloudDeployment\Configuration`. If you don't supply any parameters (see **InstallAzureStackPOC.ps1 optional parameters** below), you'll be prompted for the required parameters.
 4. Run the deploy command: `.\InstallAzureStackPOC.ps1`
 5. At the **Enter the password** prompt, enter the same password as the one in Step 8 of the previous section, and then confirm it. This is the password to all the virtual machines. Be sure to record it.
