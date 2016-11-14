@@ -5,6 +5,7 @@
 # Get started
 ## [Get started with Power BI Embedded](power-bi-embedded-get-started.md)
 ## [Get started with a sample](power-bi-embedded-get-started-sample.md)
+## [FAQ](power-bi-embedded-faq.md)
 
 # How to
 ## Plan and design
@@ -20,16 +21,14 @@
 ### [Row level security with Power BI Embedded ](power-bi-embedded-rls.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/)
+## [.NET](/dotnet/api/)
 ## [.NET SDK download](https://www.nuget.org/profiles/powerbi)
 ## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [REST](https://docs.microsoft.com/rest/api/powerbiembedded/)
+## [REST](/rest/api/powerbiembedded/)
 
-# Related
 
 # Resources
-## [FAQ](power-bi-embedded-faq.md)
 ## [Samples](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Power BI community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)

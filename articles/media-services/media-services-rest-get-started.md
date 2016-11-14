@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with delivering content on demand using REST | Microsoft Docs
 description: This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using REST API.
 services: media-services
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 11/07/2016
 ms.author: juliako
 
 ---
@@ -32,7 +32,7 @@ The tutorial introduces the basic Media Services workflow and the most common pr
 ## Prerequisites
 The following prerequisites are required to start developing with Media Services with REST APIs.
 
-* Understanding of how to develop with Media Services REST API. For more information, see [media-services-rest-overview](http://msdn.microsoft.com/library/azure/hh973616.aspx).
+* Understanding of how to develop with Media Services REST API. For more information, see [Media Services REST API overview](media-services-rest-how-to-use.md).
 * An application of your choice that can send HTTP requests and responses. This tutorial uses [Fiddler](http://www.telerik.com/download/fiddler). 
 
 The following tasks are shown in this quickstart.
@@ -45,6 +45,8 @@ The following tasks are shown in this quickstart.
 6. Encode the source file into a set of adaptive bitrate MP4 files with REST API.
 7. Publish the asset and get streaming and progressive download URLs with REST API. 
 8. Play your content. 
+
+For details about AMS REST entities used in this topic, see [Azure Media Services REST API Reference](/rest/api/media/services/azure-media-services-rest-api-reference). Also, see [Azure Media Services concepts](media-services-concepts.md).
 
 ## Create an Azure Media Services account using the Azure portal
 The steps in this section show how to create an AMS account.
@@ -244,6 +246,7 @@ The following example demonstrates HTTP request to the Media Services root URI (
 > 
 
 ## <a id="upload"></a>Create a new asset and upload a video file with REST API
+
 In Media Services, you upload your digital files into an asset. The **Asset** entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
 
 One of the values that you have to provide when creating an asset is asset creation options. The **Options** property is an enumeration value that describes the encryption options that an Asset can be created with. A valid value is one of the values from the list below, not a combination of values from this list:
@@ -419,6 +422,7 @@ The following example shows how to create an AccessPolicy:
     }
 
 ### Get the Upload URL
+
 To receive the actual upload URL, create a SAS Locator. Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators uses the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
 A SAS URL has the following format:
@@ -430,6 +434,8 @@ Some considerations apply:
 * You cannot have more than five unique Locators associated with a given Asset at one time. For more information, see Locator.
 * If you need to upload your files immediately, you should set your StartTime value to five minutes before the current time. This is because there may be clock skew between your client machine and Media Services. Also, your StartTime value must be in the following DateTime format: YYYY-MM-DDTHH:mm:ssZ (for example, "2014-05-23T17:53:50Z").    
 * There may be a 30-40 second delay after a Locator is created to when it is available for use. This issue applies to both SAS URL and Origin Locators.
+
+For more information about SAS locators see [this](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
 
 The following example shows how to create a SAS URL Locator, as defined by the Type property in the request body ("1" for a SAS locator and "2" for an On-Demand origin locator). The **Path** property returned contains the URL that you must use to upload your file.
 
@@ -569,7 +575,7 @@ Media Services provides dynamic packaging, which allows you to deliver your adap
 
 To take advantage of dynamic packaging, you need to do the following:
 
-* get at least one streaming unit for the **streaming endpoint **from which you plan to deliver your content (described in this section).
+* get at least one streaming unit for the **streaming endpoint** from which you plan to deliver your content (described in this section).
 * encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  
 
 With dynamic packaging, you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client. 
@@ -680,7 +686,8 @@ The allocation of any new units takes around 20 minutes to complete. To check th
 
 
 ## <a id="encode"></a>Encode the source file into a set of adaptive bitrate MP4 files
-After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each [Job](http://msdn.microsoft.com/library/azure/hh974289.aspx) is composed of atomic Tasks that do the actual work on the Asset file. 
+
+After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each Job is composed of atomic Tasks that do the actual work on the Asset file (for more information, see [Job](/rest/api/media/services/job), [Task](/rest/api/media/services/task) descriptions). 
 
 As was mentioned earlier, when working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only). 
 
@@ -973,7 +980,8 @@ The following code shows how to request the output asset Id.
 
 
 ## <a id="publish_get_urls"></a>Publish the asset and get streaming and progressive download URLs with REST API
-To stream or download an asset, you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.
+
+To stream or download an asset, you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files. For more information about SAS locators see [this](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
 
 Once you create the locators, you can build the URLs that are used to stream or download your files. 
 

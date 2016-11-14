@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create and upload a Linux VHD in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a Linux operating system.
 services: virtual-machines-linux
@@ -21,27 +21,27 @@ ms.author: szark
 # Information for Non-Endorsed Distributions
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](virtual-machines-linux-endorsed-distros.md) is used. All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
+**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) is used. All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
 
-* [Linux on Azure - Endorsed Distributions](virtual-machines-linux-endorsed-distros.md)
+* [Linux on Azure - Endorsed Distributions](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Support for Linux images in Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
 All distributions running on Azure will need to meet a number of prerequisites to have a chance to properly run on the platform.  This article is by no means comprehensive as every distribution is different; and it is quite possible that even if you meet all the criteria below you will still need to significantly tweak your Linux system to ensure that it properly runs on the platform.
 
-It is for this reason that we recommend that you start with one of our [Linux on Azure Endorsed Distributions](virtual-machines-linux-endorsed-distros.md) when possible. The following articles will guide you through how to prepare the various endorsed Linux distributions that are supported on Azure:
+It is for this reason that we recommend that you start with one of our [Linux on Azure Endorsed Distributions](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) when possible. The following articles will guide you through how to prepare the various endorsed Linux distributions that are supported on Azure:
 
-* **[CentOS-based Distributions](virtual-machines-linux-create-upload-centos.md)**
-* **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
-* **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)**
-* **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
-* **[SLES & openSUSE](virtual-machines-linux-suse-create-upload-vhd.md)**
-* **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
+* **[CentOS-based Distributions](virtual-machines-linux-create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES & openSUSE](virtual-machines-linux-suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 The rest of this article will focus on general guidance for running your Linux distribution on Azure.
 
 ## General Linux Installation Notes
 * The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet. If you are using VirtualBox this means selecting **Fixed size** as opposed to the default dynamically allocated when creating the disk.
-* When installing the Linux system it is *recommended* that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another identical VM for troubleshooting. [LVM](virtual-machines-linux-configure-lvm.md) or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks.
+* When installing the Linux system it is *recommended* that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another identical VM for troubleshooting. [LVM](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) may be used on data disks.
 * Kernel support for mounting UDF file systems is required. At first boot on Azure the provisioning configuration is passed to the Linux VM via UDF-formatted media that is attached to the guest. The Azure Linux agent must be able to mount the UDF file system to read its configuration and provision the VM.
 * Linux kernel versions below 2.6.37 do not support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in RHEL 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command-line in grub.conf. For more information see Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about this can be found in the steps below.
@@ -96,7 +96,7 @@ To remedy this you can resize the VM using either the Hyper-V Manager console or
        # qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
 
 ## Linux Kernel Requirements
-The Linux Integration Services (LIS) drivers for Hyper-V and Azure are contributed directly to the upstream Linux kernel. Many distributions that include a recent Linux kernel version (i.e. 3.x) will have these drivers available already, or otherwise provide backported versions of these drivers with their kernels.  These drivers are constantly being updated in the upstream kernel with new fixes and features, so when possible it is recommended to run an [endorsed distribution](virtual-machines-linux-endorsed-distros.md) that will include these fixes and updates.
+The Linux Integration Services (LIS) drivers for Hyper-V and Azure are contributed directly to the upstream Linux kernel. Many distributions that include a recent Linux kernel version (i.e. 3.x) will have these drivers available already, or otherwise provide backported versions of these drivers with their kernels.  These drivers are constantly being updated in the upstream kernel with new fixes and features, so when possible it is recommended to run an [endorsed distribution](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that will include these fixes and updates.
 
 If you are running a variant of Red Hat Enterprise Linux versions **6.0-6.3**, then you will need to install the latest LIS drivers for Hyper-V. The drivers can be found [at this location](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). As of RHEL **6.4+** (and derivatives) the LIS drivers are already included with the kernel and so no additional installation packages are needed to run those systems on Azure.
 
@@ -125,7 +125,7 @@ At a very minimum, the absence of the following patches have been known to cause
 * [scsi_sysfs: protect against double execution of __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 ## The Azure Linux Agent
-The [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) (waagent) is required to properly provision a Linux virtual machine in Azure. You can get the latest version, file issues or submit pull requests at the [Linux Agent GitHub repo](https://github.com/Azure/WALinuxAgent).
+The [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (waagent) is required to properly provision a Linux virtual machine in Azure. You can get the latest version, file issues or submit pull requests at the [Linux Agent GitHub repo](https://github.com/Azure/WALinuxAgent).
 
 * The Linux agent is released under the Apache 2.0 license. Many distributions already provide RPM or deb packages for the agent, and so in some cases this can be installed and updated with little effort.
 * The Azure Linux Agent requires Python v2.6+.
@@ -148,7 +148,7 @@ The [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) (waagent) is
     The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 * Installing the Azure Linux Agent
   
-    The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or Deb package (the package is typically called 'WALinuxAgent' or 'walinuxagent').  The agent can also be installed manually by following the steps in the [Linux Agent Guide](virtual-machines-linux-agent-user-guide.md).
+    The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or Deb package (the package is typically called 'WALinuxAgent' or 'walinuxagent').  The agent can also be installed manually by following the steps in the [Linux Agent Guide](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 * Do not create swap space on the OS disk
   

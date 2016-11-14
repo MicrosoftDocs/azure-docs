@@ -16,20 +16,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: sewhee
-
 ---
+
 # Create an Internal load balancer in the Azure portal
-[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+
+> [!div class="op_single_selector"]
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-[classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+> [!NOTE]
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## Get started creating an Internal load balancer using Azure portal
+
 Use the following steps to create an internal load balancer from the Azure Portal.
 
 1. Open a browser, navigate to the [Azure portal](http://portal.azure.com), and sign in with your Azure account.
@@ -37,32 +42,33 @@ Use the following steps to create an internal load balancer from the Azure Porta
 3. In the **Create load balancer** blade, enter a **Name** for your load balancer.
 4. Under **Scheme**, click **Internal**.
 5. Click **Virtual network**, and then select the virtual network where you want to create the load balancer.
-   
+
    > [!NOTE]
    > If you do not see the virtual network you want to use, check the **Location** you are using for the load balancer, and change it accordingly.
-   > 
-   > 
+
 6. Click **Subnet**, and then select the subnet where you want to create the load balancer.
 7. Under **IP address assignment**, click either **Dynamic** or **Static**, depending on whether you want the IP address for the load balancer to be fixed (static) or not.
-   
+
    > [!NOTE]
    > If you select to use a static IP address, you will have to provide an address for the load balancer.
-   > 
-   > 
+
 8. Under **Resource group** either specify the name of a new resource group for the load balancer, or click **select existing** and select an existing resource group.
 9. Click **Create**.
 
 ## Configure load balancing rules
+
 After the load balancer creation, navigate to the load balancer resource to configure it.
 You need to configure first a back-end address pool and a probe before configuring a load balancing rule.
 
 ### Step 1: Configure a back-end pool
+
 1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
 2. In the **Settings** blade, click **Backend pools**.
 3. In the **Backend address pools** blade, click **Add**.
 4. In the **Add backend pool** blade, enter a **Name** for the backend pool, and then click **OK**.
 
 ### Step 2: Configure a probe
+
 1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
 2. In the **Settings** blade, click **Probes**.
 3. In the **Probes**  blade, click **Add**.
@@ -75,6 +81,7 @@ You need to configure first a back-end address pool and a probe before configuri
 10. Click **OK** to create probe.
 
 ### Step 3: Configure load balancing rules
+
 1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
 2. In the **Settings** blade, click **Load balancing rules**.
 3. In the **Load balancing rules** blade, click **Add**.
@@ -89,6 +96,7 @@ You need to configure first a back-end address pool and a probe before configuri
 12. Click **OK**.
 
 ## Next steps
+
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)

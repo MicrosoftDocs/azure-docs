@@ -1,4 +1,4 @@
-﻿---
+---
 title: Background jobs guidance | Microsoft Docs
 description: Guidance on background tasks that run independently of the user interface.
 services: ''
@@ -176,7 +176,7 @@ Consider the following points when you are deciding whether to deploy background
 
 ### More information
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) on Azure
-* [Azure Virtual Machines FAQ](virtual-machines/virtual-machines-linux-classic-faq.md)
+* [Azure Virtual Machines FAQ](virtual-machines/virtual-machines-linux-classic-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## Design considerations
 There are several fundamental factors to consider when you design background tasks. The following sections discuss partitioning, conflicts, and coordination.

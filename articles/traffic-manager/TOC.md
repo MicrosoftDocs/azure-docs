@@ -20,17 +20,19 @@
 ## [Use network resources](../virtual-network/resource-groups-networking.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [PowerShell (classic)](https://docs.microsoft.com/en-us/powershell/servicemanagement/)
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell (classic)](/powershell/servicemanagement/)
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
 # Related
-## [Application Gateway](https://azure.microsoft.com/documentation/services/application-gateway/)
-## [Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-## [Azure DNS](https://azure.microsoft.com/documentation/services/dns/)
+## [Application Gateway](/azure/application-gateway/)
+## [Load Balancer](/azure/load-balancer/)
+## [Azure DNS](/azure/dns/)
 
 # Resources
 ##[Pricing](https://azure.microsoft.com/pricing/details/traffic-manager/)
 ##[SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
 ##[Service Limits](../azure-subscription-service-limits.md#traffic-manager-limits)
-## [Azure Networking blog](https://azure.microsoft.com/blog/topics/networking/)
+## [Blog](https://azure.microsoft.com/blog/topics/networking/)
+## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Service updates](https://azure.microsoft.com/updates/?product=traffic-manager)

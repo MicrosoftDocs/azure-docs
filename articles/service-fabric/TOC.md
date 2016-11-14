@@ -185,12 +185,14 @@
 ## [Data Interfaces](https://go.microsoft.com/fwlink/p/?linkid=833406)
 ## [System](https://go.microsoft.com/fwlink/p/?linkid=833407)
 ## [Sample code](http://aka.ms/servicefabricsamples)
-## [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/servicefabric)
+## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
 ## [Java API](https://go.microsoft.com/fwlink/p/?linkid=833410)
-## [.NET](https://docs.microsoft.com/dotnet/api)
-## [REST](https://docs.microsoft.com/rest/api/servicefabric/)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/servicefabric/)
 
 # Resources
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric&updatetype=&platform=)
+## [Pricing](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)

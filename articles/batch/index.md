@@ -3,17 +3,53 @@ layout: LandingPage
 ---
 #Batch Documentation
 
-Azure Batch is a TBD...
+Azure Batch lets you run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. With the Batch service, you define Azure compute resources to execute your applications in parallel and at scale. You can run on-demand or scheduled jobs without worrying about manually creating or managing the infrastructure.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/Batch/">
+        <a href="/azure/batch/batch-technical-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/batch.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Learn about Batch</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=batch">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure Batch Video Library</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/Batch/batch-account-create-portal">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -24,18 +60,36 @@ Azure Batch is a TBD...
         </div>
         </a>
     </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=batch">
+     <li>
+        <a href="/azure/batch/batch-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Batch Video Library</h3>
+                        <h3>Get Started with Batch using .NET</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/azure/batch/batch-python-tutorial">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/python.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started using Batch using Python</h3>
                     </div>
                 </div>
             </div>
@@ -48,14 +102,30 @@ Azure Batch is a TBD...
 
 ##Reference
 
-###REST
-[Batch REST API Reference](/rest/api/)
+###PowerShell
+[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
+
+###Azure CLI
+[Batch using Azure CLI](/azure/batch/batch-cli-get-started)
 
 ###.NET
-[Batch Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+[Batch Managed Reference](/dotnet/api)
+
+###Java
+[Java SDK Reference](/java/api)
+
+###Node.js
+[Node.js Reference](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)
+
+###Python
+[Python SDK reference](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementbatch.html)
+
+###REST
+[Batch REST API Reference](/rest/api/batchmanagement)
+
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
         <div class="img"></div>
         <div class="text">
             Download Azure Batch Documentation
