@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Storage performance and scalability checklist | Microsoft Docs
 description: A checklist of proven practices for use with Azure Storage in developing performant applications.
 services: storage
@@ -129,7 +129,7 @@ For bandwidth, the problem is often the capabilities of the client. For example,
 As with any network usage, be aware that network conditions resulting in errors and packet loss will slow effective throughput.  Using WireShark or NetMon may help in diagnosing this issue.  
 
 ##### Useful Resources
-For more information about virtual machine sizes and allocated bandwidth, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md).  
+For more information about virtual machine sizes and allocated bandwidth, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 #### <a name="subheading4"></a>Location
 In any distributed environment, placing the client near to the server delivers in the best performance. For accessing Azure Storage with the lowest latency, the best location for your client is within the same Azure region. For example, if you have an Azure Web Site that uses Azure Storage, you should locate them both within a single region (for example, US West or Asia Southeast). This reduces the latency and the cost — at the time of writing, bandwidth usage within a single region is free.  

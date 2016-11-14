@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
 ---
-#Data Lake Store Documentation
+# Data Lake Store Documentation
 
 Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Azure Data Lake enables you to capture data of any size, type, and ingestion speed in one single place for operational and exploratory analytics.  Azure Data Lake Store can be accessed from Hadoop (available with HDInsight cluster) using the WebHDFS-compatible scenarios. It includes all the enterprise-grade capabilities fpr security, manageability, scalability, reliability, and availability.
 
@@ -13,7 +13,7 @@ Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/data-lake-store.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -46,23 +46,23 @@ Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data 
 
 ---
 
-##Reference
+## Reference
 
-###PowerShell
+### PowerShell
 [PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
-###.NET
+### .NET
 [.NET Managed Reference](/dotnet/api)
 
-###Java
+### Java
 [Java SDK Reference](/java/api)
 
-###REST
+### REST
 [Data Lake Store REST API Reference](/rest/api/datalakestore)
 
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-lake-store.pdf">
         <div class="img"></div>
         <div class="text">
             Download Azure Batch Documentation
