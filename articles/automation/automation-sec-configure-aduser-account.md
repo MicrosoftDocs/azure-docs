@@ -1,6 +1,6 @@
 ---
 title: Configure Azure AD User Account | Microsoft Docs
-description: This article describes how to configure Azure AD User account credential for runbooks in Azure Automation to authenticate against ARM and ASM.
+description: This article describes how to configure Azure AD User account credential for runbooks in Azure Automation to authenticate with.
 services: automation
 documentationcenter: ''
 author: MGoedtel
