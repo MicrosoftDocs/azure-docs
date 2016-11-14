@@ -46,7 +46,7 @@ Let's touch on some key aspects of the app and its deployment flow that we are s
 
 	`az login`
 
-1. Create a resource group in which we'll place our cluster:
+1. Create a resource group in which we place our cluster:
 	
 	`az resource group create --name myacs-rg --location westus`
 
@@ -56,12 +56,12 @@ Let's touch on some key aspects of the app and its deployment flow that we are s
 
 	`az acs create --resource-group myacs-rg --name myacs --dns-prefix myacs`
 
-This step will take several minutes, so feel free to read on.  The `acs create` command will return information about the newly created cluster (or you can list the ACS clusters in your subscription with `az acs list`). For more ACS configuration options, [read more about creating and configuring an ACS cluster](https://azure.microsoft.com/en-us/documentation/articles/container-service-deployment/).
+This step takes several minutes, so feel free to read on.  The `acs create` command returns information about the newly created cluster (or you can list the ACS clusters in your subscription with `az acs list`). For more ACS configuration options, [read more about creating and configuring an ACS cluster](https://azure.microsoft.com/en-us/documentation/articles/container-service-deployment/).
 
 ## Set up Sample Code
-While the cluster is being created, we can set up sample code that we'll deploy to ACS.
+While the cluster is being created, we can set up sample code that we deploy to ACS.
 
-1. [Fork](https://help.github.com/articles/fork-a-repo/) the sample GitHub repository so that you'll have your own copy: [https://github.com/johnstallo/multi-container-ci-cd-to-acs.git](https://github.com/johnstallo/multi-container-ci-cd-to-acs.git). The app is essentially a multi-container version of "hello world". 
+1. [Fork](https://help.github.com/articles/fork-a-repo/) the sample GitHub repository so that you have your own copy: [https://github.com/johnstallo/multi-container-ci-cd-to-acs.git](https://github.com/johnstallo/multi-container-ci-cd-to-acs.git). The app is essentially a multi-container version of "hello world."
 1. Once you have created a fork in your own GitHub account, locally clone the repository on your computer:
 
 	```
@@ -73,9 +73,9 @@ Let's take a closer look at the code:
 * `/service-a` is an Angular.js-based web app with a Node.js backend.
 * `/service-b` is a .NET Core service, and is called by `service-a` via REST.
 * Both `service-a` and `service-b` contain a `Dockerfile` in each of their directories that respectively describe Node.js- and .NET Core-based container images. 
-* `docker-compose.yml` declares the set of services that will be built and deployed.
+* `docker-compose.yml` declares the set of services that are built and deployed.
 	* In addition to `service-a` and `service-b`, a third service named `cache` runs a Redis cache that `service-a` can use. `cache` differs to the first two services in that we don't have code for it in our source repository - instead, we fetch a pre-made `redis:alpine` image from Docker Hub and deploy it to ACS.
-* `/service-a/server.js` contains code where `service-a` calls both `service-b` and `cache`. Notice that `service-a` code references `service-b` and `cache` by how they are named in `docker-compose.yml`. If we run these services on our local machine via `docker-compose`, Docker ensures the services are all networked appropriately to find each other by name. Of course, running the services in a cluster environment with load-balanced networking typically makes this much more complex than running locally. The good news is the Azure CLI commands set up a CI/CD flow that ensures this straight-forward service discovery code will continue to run as-is in ACS. 
+* `/service-a/server.js` contains code where `service-a` calls both `service-b` and `cache`. Notice that `service-a` code references `service-b` and `cache` by how they are named in `docker-compose.yml`. If we run these services on our local machine via `docker-compose`, Docker ensures the services are all networked appropriately to find each other by name. Running the services in a cluster environment with load-balanced networking typically makes this much more complex than running locally. The good news is the Azure CLI commands set up a CI/CD flow that ensures this straight-forward service discovery code will continue to run as-is in ACS. 
 
 	![Multi-container sample app overview](media/container-service-setup-ci-cd/multi-container-sample-app-overview.png)
 
