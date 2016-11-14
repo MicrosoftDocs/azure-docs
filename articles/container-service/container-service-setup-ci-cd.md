@@ -270,12 +270,12 @@ To limit your compute charges related to this tutorial, run the following comman
 	az container release list --resource-name myacs --resource-group myacs-rg
 
 Delete the ACS cluster:
-1. Sign into the [Azure Portal](https://portal.azure.com)
+1. Sign into the [Azure portal](https://portal.azure.com)
 1. Look up the resource group that contains your ACS cluster.
 1. Open the resource group's blade UI, and click **Delete** in the blade's command bar.
 
 Delete the Azure Container Registry:
-1. In the Azure Portal, search for the Azure Container Registry, and delete it. 
+1. In the Azure portal, search for the Azure Container Registry, and delete it. 
 
 The [Visual Studio Team Services account offers free Basic Access Level for the first 5 users](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/), but you can delete the build and release definitions if you no longer need them.
 1. Delete the VSTS Build Definition:
