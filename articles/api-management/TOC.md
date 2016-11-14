@@ -40,9 +40,9 @@
 ### [Manage using automation](automation-manage-api-management.md)
 ### [Configure using Git](api-management-configuration-repository-git.md)
 #Reference
-## [Resource Management PowerShell cmdlet]/powershell/resourcemanager()
-## [Classic deployment PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-## [REST API](/rest/api/apimanagement/)
+## [PowerShell](/powershell/resourcemanager)
+## [Classic PowerShell](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+## [REST](/rest/api/apimanagement/)
 ## [Policies](https://msdn.microsoft.com/en-us/library/azure/dn894081)
 ## [Templates](https://msdn.microsoft.com/en-us/library/azure/mt697540)
 #Resources
