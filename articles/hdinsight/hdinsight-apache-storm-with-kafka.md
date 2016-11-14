@@ -65,15 +65,11 @@ While you can create an Azure virtual network, Kafka, and Storm clusters manuall
 2. Use the following guidance to populate the entries on the **Custom deployment** blade:
    
     ![HDInsight custom deployment](./media/hdinsight-apache-storm-with-kafka/parameters.png)
-   
-    **BASICS** section:
-   
+
     * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
    
     * **Location**: Select a location geographically close to you. This location must match the location in the __SETTINGS__ section.
-     
-    **SETTINGS** section:
-   
+
     * **Base Cluster Name**: This value is used as the base name for the Storm and Kafka clusters. For example, entering **hdi** creates a Storm cluster named **storm-hdi** and a Kafka cluster named **kafka-hdi**.
    
     * **Cluster Login User Name**: The admin user name for the Storm and Kafka clusters.

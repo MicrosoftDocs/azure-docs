@@ -79,14 +79,10 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
     
     ![HDInsight custom deployment](./media/hdinsight-apache-kafka-mirroring/parameters.png)
     
-    __BASICS__ section:
-    
     * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
 
     * **Location**: Select a location geographically close to you. This location must match the location in the __SETTINGS__ section.
      
-    __SETTINGS__ section:
-
     * **Base Cluster Name**: This value is used as the base name for the Kafka clusters. For example, entering **hdi** creates clusters named **source-hdi** and **dest-hdi**.
 
     * **Cluster Login User Name**: The admin user name for the source and destination Kafka clusters.

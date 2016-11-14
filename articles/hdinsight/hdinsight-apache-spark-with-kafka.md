@@ -51,22 +51,18 @@ Apache Kafka on HDInsight does not provide access to the Kafka brokers over the 
 While you can create an Azure virtual network, Kafka, and Spark clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network, Kafka, and Spark clusters to your Azure subscription.
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
-   
+    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
-   
+    
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet.json**.
 
 2. Use the following information to populate the entries on the **Custom deployment** blade:
    
     ![HDInsight custom deployment](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
-    **BASICS** section:
-   
     * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
 
     * **Location**: Select a location geographically close to you. This location must match the location in the __SETTINGS__ section.
-     
-    **SETTINGS** section:
 
     * **Base Cluster Name**: This value is used as the base name for the Spark and Kafka clusters. For example, entering **hdi** creates a Spark cluster named spark-hdi__ and a Kafka cluster named **kafka-hdi**.
 
