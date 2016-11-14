@@ -1967,12 +1967,12 @@ layout: HubPage
                                                 <p>PowerBI Embedded</p>
                                             </a>
                                         </li>
-                                        <!-- <li>
+                                        <li>
                                             <a href="/azure/analysis-services/">
                                                 <img src="media/index/AnalysisServices.svg" alt="" />
                                                 <p>Analysis Services</p>
                                             </a>
-                                        </li> -->
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -2244,16 +2244,16 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/en-us/downloads/">Get the .NET SDK</a>
+                                                    <a href="https://azure.microsoft.com/downloads/">Get the .NET SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/net/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/develop/net/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/rest/api">API reference</a>
+                                                    <a href="/dotnet/api">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=dotnet">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">Get examples</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2271,16 +2271,16 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/python/">Get the Python SDK</a>
+                                                    <a href="https://azure.microsoft.com/develop/python/">Get the Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/python/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/develop/python/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=node">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=python">Get examples</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2298,16 +2298,16 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/nodejs/">Get the Nodejs SDK</a>
+                                                    <a href="https://azure.microsoft.com/develop/nodejs/">Get the Nodejs SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/nodejs">Get started</a>
+                                                    <a href="https://azure.microsoft.com/develop/nodejs">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=node">Get  examples</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Get  examples</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2328,13 +2328,13 @@ layout: HubPage
                                                     <a href="http://go.microsoft.com/fwlink/?LinkId=690320">Get the Java SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/java/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/develop/java/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=java">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=java">Get examples</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2352,16 +2352,16 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/en-us/downloads/">Get the Ruby SDK</a>
+                                                    <a href="https://azure.microsoft.com/downloads/">Get the Ruby SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/ruby/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/develop/ruby/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=ruby">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Get examples</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2385,7 +2385,7 @@ layout: HubPage
                                                     <a href="/rest/api">Reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=rest">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">Get examples</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2473,7 +2473,7 @@ layout: HubPage
                                                     <a href="http://aka.ms/webpi-azure-cli">Download Azure CLI for Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/azure-cli-arm-commands/">Reference</a>
+                                                    <a href="https://azure.microsoft.com/documentation/articles/azure-cli-arm-commands/">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
