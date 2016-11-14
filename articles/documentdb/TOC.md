@@ -2,7 +2,6 @@
 ## [What is DocumentDB?](documentdb-introduction.md)
 ## [Core concepts](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
-## [FAQ](documentdb-faq.md)
 ## Scenarios
 ### [Common use cases](documentdb-use-cases.md)
 ### [Going social with DocumentDB](documentdb-social-media-apps.md)
@@ -19,8 +18,7 @@
 ### [Node.js web app](documentdb-nodejs-application.md)
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)
-
-
+## [FAQ](documentdb-faq.md)
 
 # How To
 
