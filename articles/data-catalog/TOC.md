@@ -2,12 +2,12 @@
 ## [What is Data Catalog?](data-catalog-what-is-data-catalog.md)
 ## [Common scenarios](data-catalog-common-scenarios.md)
 ## [Supported data sources](data-catalog-dsr.md)
-## [FAQ](data-catalog-frequently-asked-questions.md)
 
 # Get Started
 ## [Get started with Azure Data Catalog](data-catalog-get-started.md)
 ## [Adopting Azure Data Catalog](data-catalog-adopting-data-catalog.md)
 ## [Prerequisites](data-catalog-prerequisites.md)
+## [FAQ](data-catalog-frequently-asked-questions.md)
 
 # How To
 ## [Register data sources](data-catalog-how-to-register.md)
