@@ -98,9 +98,9 @@
 ### [Cloud Services FAQ](cloud-services-faq.md)
 
 # Reference
-## [.NET](https://msdn.microsoft.com/library)
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
+## [REST](hhttps://msdn.microsoft.com/library/azure/ee460812.aspx)
 ## [Guest OS patches](cloud-services-guestos-msrc-releases.md)
 ## Guest OS retirement
 ### [Retirement policy](cloud-services-guestos-retirement-policy.md)
