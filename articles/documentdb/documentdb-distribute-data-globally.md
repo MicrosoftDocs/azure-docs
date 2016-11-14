@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2016
+ms.date: 11/12/2016
 ms.author: kipandya
 
 ---
@@ -24,6 +24,12 @@ ms.author: kipandya
 > 
 
 Azure DocumentDB is designed to meet the needs of IoT applications consisting of millions of globally distributed devices and internet scale applications that deliver highly responsive experiences to users across the world. These database systems face the challenge of achieving low latency access to application data from multiple geographic regions with well-defined data consistency and availability guarantees. As a globally distributed database system, DocumentDB simplifies the global distribution of data by offering fully managed, multi-region database accounts that provide clear tradeoffs between consistency, availability and performance, all with corresponding guarantees. DocumentDB database accounts are offered with high availability, single digit ms latencies, multiple [well-defined consistency levels][consistency], transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. 
+
+We recommend getting started by watching the following video, where Karthik Raman explains geo-distribution with Azure DocumentDB.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]
+> 
+> 
 
 ## Configuring multi-region accounts
 Configuring your DocumentDB account to scale across the globe can be done in less than a minute through the [Azure portal](documentdb-portal-global-replication.md). All you need to do is select the right consistency level among several supported well-defined consistency levels, and associate any number of Azure regions with your database account. DocumentDB consistency levels provide clear tradeoffs between specific consistency guarantee and performance. 
@@ -50,7 +56,7 @@ Each database account is configured with write region priority. The region desig
 Finally, since DocumentDB is completely [schema-agnostic][vldb] - you never have to worry about managing/updating schemas or secondary indexes across multiple datacenters. Your [SQL queries][sqlqueries] continue to work while your application and data models continue to evolve. 
 
 ## Enabling global distribution
-You can decide to make your data locally or globally distributed by either associating one or more Azure regions with a DocumentDB database account. You can add or remove regions to your database account at any time. To enable global distribution by using the portal, see [How to perform DocumentDB global database replication using the Azure portal](documentdb-portal-global-replication.md). To enable global distribution programatically, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
+You can decide to make your data locally or globally distributed by either associating one or more Azure regions with a DocumentDB database account. You can add or remove regions to your database account at any time. To enable global distribution by using the portal, see [How to perform DocumentDB global database replication using the Azure portal](documentdb-portal-global-replication.md). To enable global distribution programmatically, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
 
 ## Next steps
 Learn more about the distributing data globally with DocumentDB in the following articles:

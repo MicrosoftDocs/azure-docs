@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 11/12/2016
 ms.author: anhoh
 
 ---
@@ -296,6 +296,11 @@ Here are some command line samples to import from DocumentDB:
 
     #Export a DocumentDB collection to a JSON file
     dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionThroughput:2500
+
+> [!TIP]
+> The DocumentDB Data Import Tool also supports import of data from the [DocumentDB Emulator](documentdb-nosql-local-emulator.md). When importing data from a local emulator, set the endpoint to https://localhost:<port>. 
+> 
+> 
 
 ## <a id="HBaseSource"></a>Import from HBase
 The HBase source importer option allows you to import data from an HBase table and optionally filter the data. Several templates are provided so that setting up an import is as easy as possible.

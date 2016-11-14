@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 11/12/2016
 ms.author: mimig
 
 ---
@@ -26,7 +26,7 @@ Microsoft Azure DocumentDB is a blazing fast, planet-scale NoSQL document databa
 For more database questions, answers, and instructions on deploying and using this service, see the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
 ### What kind of database is DocumentDB?
-DocumentDB is a NoSQL document oriented database that stores data in JSON format.  DocumentDB supports nested, self-contained-data structures that can be queried through a rich DocumentDB [SQL query grammar](documentdb-sql-query.md). DocumentDB provides high performance transactional processing of server side JavaScript through [stored procedures, triggers, and user defined functions](documentdb-programming.md). The database also supports developer tunable consistency levels with associated [performance levels](documentdb-performance-levels.md).
+DocumentDB is a NoSQL document oriented database that stores data in JSON format.  DocumentDB supports nested, self-contained-data structures that can be queried through a rich DocumentDB [SQL query grammar](documentdb-sql-query.md). DocumentDB provides high-performance transactional processing of server-side JavaScript through [stored procedures, triggers, and user defined functions](documentdb-programming.md). The database also supports developer tunable consistency levels with associated [performance levels](documentdb-performance-levels.md).
 
 ### Do DocumentDB databases have tables like a relational database (RDBMS)?
 No, DocumentDB  stores data in collections of JSON documents.  For information on DocumentDB resources, see [DocumentDB resource model and concepts](documentdb-resources.md). For more information about how NoSQL solutions such as DocumentDB differ from relational solutions, see [NoSQL vs SQL](documentdb-nosql-vs-sql.md).
@@ -35,7 +35,7 @@ No, DocumentDB  stores data in collections of JSON documents.  For information o
 Yes, DocumentDB allows applications to store arbitrary JSON documents without schema definition or hints. Data is immediately available for query through the DocumentDB SQL query interface.   
 
 ### Does DocumentDB support ACID transactions?
-Yes, DocumentDB supports cross-document transactions expressed as JavaScript stored procedures and triggers. Transactions are scoped to a single partition within each collection and executed with ACID semantics as all or nothing isolated from other concurrently executing code and user requests.  If exceptions are thrown through the server side execution of JavaScript application code, the entire transaction is rolled back. For more information about transactions, see [Database program transactions](documentdb-programming.md#database-program-transactions).
+Yes, DocumentDB supports cross-document transactions expressed as JavaScript stored procedures and triggers. Transactions are scoped to a single partition within each collection and executed with ACID semantics as all or nothing isolated from other concurrently executing code and user requests.  If exceptions are thrown through the server-side execution of JavaScript application code, the entire transaction is rolled back. For more information about transactions, see [Database program transactions](documentdb-programming.md#database-program-transactions).
 
 ### What are the typical use cases for DocumentDB?
 DocumentDB is a good choice for new web, mobile, gaming and IoT applications where automatic scale, predictable performance, fast order of millisecond response times, and the ability to query over schema-free data is important. DocumentDB lends itself to rapid development and supporting the continuous iteration of application data models. Applications that manage user generated content and data are [common use cases for DocumentDB](documentdb-use-cases.md).  
@@ -46,25 +46,27 @@ A [request unit](documentdb-request-units.md) is the measure of throughput in Do
 Each DocumentDB collection can be reserved with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision collections to handle the sum total of request units across all requests. You can also scale up or scale down your collection’s throughput as the needs of your application evolve. For more information about request units and for help determining your collection needs, please read [Manage Performance and Capacity](documentdb-manage.md) and try the [throughput calculator](https://www.documentdb.com/capacityplanner).
 
 ### Is DocumentDB HIPAA compliant?
-Yes, DocumentDB is HIPAA compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
+Yes, DocumentDB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
 
 ### What are the storage limits of DocumentDB?
-There is no theoretical limit to the total amount of data that a collection can store in DocumentDB. If you would like to store over 250 GB of data within a single collection, please [contact support](documentdb-increase-limits.md) to to have your account quota increased.
+There is no limit to the total amount of data that a collection can store in DocumentDB. If you would like to store over 250 GB of data within a single collection, please [contact support](documentdb-increase-limits.md) to have your account quota increased.
 
 ### What are the throughput limits of DocumentDB?
-There is no theoretical limit to the total amount of throughput that a collection can support in DocumentDB, if your workload can be distributed roughly evenly among a sufficiently large number of partition keys. If you wish to exceed 250,000 request units/second per collection or account, please [contact support](documentdb-increase-limits.md) to to have your account quota increased.
+There is no limit to the total amount of throughput that a collection can support in DocumentDB, if your workload can be distributed roughly evenly among a sufficiently large number of partition keys. If you wish to exceed 250,000 request units/second per collection or account, please [contact support](documentdb-increase-limits.md) to to have your account quota increased.
 
 ### How much does Microsoft Azure DocumentDB cost?
 Please refer to the [DocumentDB pricing details](https://azure.microsoft.com/pricing/details/documentdb/) page for details. DocumentDB usage charges are determined by the number of collections in use, the number of hours the collections were online, and the consumed storage and provisioned throughput for each collection.
 
 ### Is there a free account available?
-If you are new to Azure, you can sign up for an [Azure free account](https://azure.microsoft.com/free/), which gives you 30 days and $200 to try all the Azure services. Or, if you have an Visual Studio subscription, you are eligible for [$150 in free Azure credits per month](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service.  
+If you are new to Azure, you can sign up for an [Azure free account](https://azure.microsoft.com/free/), which gives you 30 days and $200 to try all the Azure services. Or, if you have a Visual Studio subscription, you are eligible for [$150 in free Azure credits per month](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service.  
+
+You can also use the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) to develop and test your application locally for free, without creating an Azure subscription. When you're satisfied with how your application is working in the DocumentDB Emulator, you can switch to using an Azure DocumentDB account in the cloud.
 
 ### How can I get additional help with DocumentDB?
 If you need any help, please reach out to us on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), the [Azure DocumentDB MSDN Developer Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB), or schedule a [1:1 chat with the DocumentDB engineering team](http://www.askdocdb.com/). To stay up to date on the latest DocumentDB news and features, follow us on [Twitter](https://twitter.com/DocumentDB).
 
 ## Set up Microsoft Azure DocumentDB
-### How do I sign-up for Microsoft Azure DocumentDB?
+### How do I sign up for Microsoft Azure DocumentDB?
 Microsoft Azure DocumentDB is available in the [Azure Portal][azure-portal].  First you must sign up for a Microsoft Azure subscription.  Once you sign up for a Microsoft Azure subscription, you can add a DocumentDB account to your Azure subscription. For instructions on adding a DocumentDB account, see [Create a DocumentDB database account](documentdb-create-account.md).   
 
 ### What is a master key?
@@ -88,7 +90,7 @@ You can create users and permissions using one of the [DocumentDB SDKs](document
 Samples for the DocumentDB [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), and [Python](documentdb-python-samples.md) SDKs are available on GitHub.
 
 ### Does DocumentDB support SQL?
-The DocumentDB SQL query language is an enhanced subset of the query functionality supported by SQL. The DocumentDB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript based user defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes, which is used by both the DocumentDB automatic indexing techniques as well as the SQL query dialect of DocumentDB.  For details on how to use the SQL grammar, please see the [Query DocumentDB][query] article.
+The DocumentDB SQL query language is an enhanced subset of the query functionality supported by SQL. The DocumentDB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript based user-defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes, which is used by both the DocumentDB automatic indexing techniques as well as the SQL query dialect of DocumentDB.  For details on how to use the SQL grammar, please see the [Query DocumentDB][query] article.
 
 ### What are the data types supported by DocumentDB?
 The primitive data types supported in DocumentDB are the same as JSON. JSON has a simple type system that consists of Strings, Numbers (IEEE754 double precision), and Booleans - true, false, and Nulls.  More complex data types like DateTime, Guid, Int64, and Geometry can be represented both in JSON and DocumentDB through the creation of nested objects using the { } operator and arrays using the [ ] operator.
@@ -112,7 +114,7 @@ There are three ways to bulk insert documents into DocumentDB:
 Yes, because DocumentDB is a RESTful service, resource links are immutable and can be cached. DocumentDB clients can specify an "If-None-Match" header for reads against any resource like document or collection and update their local copies only when the server version has change.
 
 ### Is a local instance of DocumentDB available?
-At this time a local instance of DocumentDB is not available. You can track the status of a local emulator and vote for it on the [feedback forum](https://feedback.azure.com/forums/263030-documentdb/suggestions/6328798-standalone-local-instance).
+Yes. The [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) provides a high-fidelity emulation of the DocumentDB service. It supports identical functionality as Azure DocumentDB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications using the DocumentDB Emulator, and deploy them to Azure at global scale by just making a single configuration change to the connection endpoint for DocumentDB.
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md
