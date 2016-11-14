@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Annotations on metric charts in Application Insights
-Annotations on [Metrics Explorer](app-insights-metrics-explorer.md) charts show where you deployed a new build, or other significant event. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs). You can also create annotations to flag any event you like by [create them from PowerShell](#create-annotations-from-powershell).
+Annotations on [Metrics Explorer](app-insights-metrics-explorer.md) charts show where you deployed a new build, or other significant event. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs). You can also create annotations to flag any event you like by [creating them from PowerShell](#create-annotations-from-powershell).
 
 ![Example of annotations with visible correlation with server response time](./media/app-insights-annotations/00.png)
 
@@ -86,14 +86,16 @@ You can also create annotations from any process you like (without using VS Team
 
 3. Call the script like this:
 
-    .\CreateReleaseAnnotation.ps1 `
+```PS
+
+     .\CreateReleaseAnnotation.ps1 `
       -applicationId "<applicationId>" `
       -apiKey "<apiKey>" `
       -releaseName "<myReleaseName>" `
       -releaseProperties @{
           "ReleaseDescription"="a description";
           "TriggerBy"="My Name" }
- 
+```
 
 It's easy to modify the script, for example to create annotations for the past.
 
