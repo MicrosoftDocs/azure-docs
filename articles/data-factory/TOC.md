@@ -87,7 +87,7 @@
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/datafactory/)
 
-# Resources:
+# Resources
 ## [Case Studies](data-factory-customer-case-studies.md)
 ### [Product Recommendations](data-factory-product-reco-usecase.md)
 ### [Customer Profiling](data-factory-customer-profiling-usecase.md)
