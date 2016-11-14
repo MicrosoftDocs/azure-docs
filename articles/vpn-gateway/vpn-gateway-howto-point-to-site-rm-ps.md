@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure a Point-to-Site VPN gateway connection to virtual network using the Resource Manager deployment model | Microsoft Docs
 description: Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection.
 services: vpn-gateway
@@ -286,5 +286,5 @@ You can reinstate a client certificate by removing the thumbprint from the list 
         Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
 
 ## Next steps
-You can add a virtual machine to your virtual network. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for steps.
+You can add a virtual machine to your virtual network. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.
 

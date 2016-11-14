@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create and upload a Red Hat Enterprise Linux VHD for use in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a Red Hat Linux operating system.
 services: virtual-machines-linux
@@ -44,7 +44,7 @@ This section assumes that you have already installed a RHEL image (from an ISO f
 * Please see also [General Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
 * The newer VHDX format is not supported in Azure. You can convert the disk to VHD format by using Hyper-V Manager or the **convert-vhd** PowerShell cmdlet.
 * VHDs must be created as "fixed"--dynamic VHDs are not supported.
-* When you're installing the Linux system, we recommend that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. LVM or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
+* When you're installing the Linux system, we recommend that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. LVM or [RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) may be used on data disks if preferred.
 * Do not configure a swap partition on the OS disk. You can configure the Linux agent to create a swap file on the temporary resource disk. More information about this is available in the steps below.
 * All of the VHDs must have sizes that are multiples of 1 MB.
 * When you use **qemu-img** to convert disk images to VHD format, note that there is a known bug in qemu-img versions 2.2.1 or later. This bug results in an improperly formatted VHD. The issue is intended to be fixed in an upcoming release of qemu-img. For now, we recommend that you use qemu-img version 2.2.0 or earlier.
@@ -784,7 +784,7 @@ Rebuild initramfs:
 For more details, see the information about [rebuilding initramfs](https://access.redhat.com/solutions/1958).
 
 ## Next steps
-You're now ready to use your Red Hat Enterprise Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see steps 2 and 3 in [Creating and uploading a virtual hard disk that contains the Linux operating system](virtual-machines-linux-classic-create-upload-vhd.md).
+You're now ready to use your Red Hat Enterprise Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see steps 2 and 3 in [Creating and uploading a virtual hard disk that contains the Linux operating system](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 For more details about the hypervisors that are certified to run Red Hat Enterprise Linux, see [the Red Hat website](https://access.redhat.com/certified-hypervisors).
 

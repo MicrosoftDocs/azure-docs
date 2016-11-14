@@ -96,8 +96,8 @@ You should see a response prompting some more inputs:
 You have now created a Linux VM with LAMP already installed on it. If you wish, you can verify the install by jumping down to [Verify LAMP Successfully Installed].
 
 ## Deploy LAMP on existing VM Walkthrough
-If you need help creating a Linux VM you can head [here to learn how to create a Linux VM](virtual-machines-linux-quick-create-cli.md). 
-Next, you will need to SSH into the Linux VM. If you need help with creating an SSH key you can head [here to learn how to create an SSH key on Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md).
+If you need help creating a Linux VM you can head [here to learn how to create a Linux VM](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Next, you will need to SSH into the Linux VM. If you need help with creating an SSH key you can head [here to learn how to create an SSH key on Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 If you have an SSH key already, go ahead and SSH into your Linux VM with `ssh username@uniqueDNS`.
 
 Now that you are working within your Linux VM, we will walk through installing the LAMP stack on Debian-based distributions. The exact commands might differ for other Linux distros.
