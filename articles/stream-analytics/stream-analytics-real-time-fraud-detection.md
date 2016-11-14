@@ -36,7 +36,7 @@ Canonical Internet of Things (IoT) scenarios have a ton of telemetry or data fro
 * Optional: Source code of the event generator from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)
 
 ## Create Azure Event Hubs input and consumer group
-The sample application will generate events and push them to an Event Hubs instance for real-time processing. Service Bus Event Hubs are the preferred method of event ingestion for Stream Analytics. You can learn more about Event Hubs in [Azure Service Bus documentation](/service-bus/).
+The sample application will generate events and push them to an Event Hubs instance for real-time processing. Service Bus Event Hubs are the preferred method of event ingestion for Stream Analytics. You can learn more about Event Hubs in [Azure Service Bus documentation](/azure/service-bus/).
 
 To create an event hub:
 
