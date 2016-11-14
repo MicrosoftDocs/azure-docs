@@ -7,6 +7,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Category | Quality review item |
 | --- | --- |
 | Prerequisites |The "ready-to-merge" label is assigned to the PR (use the #sign-off comment) and the validation status is "passed". |
+| Prerequisites |Any pull request to the Live branch should be closed. The user should be redirected to the master branch. |
 | Prerequisites |The pull request cannot be blocked by a merge conflict. |
 | Prerequisites |The pull request contains updates only to technical articles and images. PRs that mix updates to TOC files, index files, and articles will be closed without further review. |
 | Repo integrity |Pull request contains no obvious content regressions. |
@@ -15,6 +16,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Repo integrity |If articles are deleted in the pull request, the deletions must be by the listed author. If not by the listed author, the PR must contain a comment indicating the article deletions are intentional |
 | Naming |File names for new files follow the [file naming guidelines](file-names-and-locations.md). |
 | Naming |New folders introduced into the repo follow the [folder naming guidelines](file-names-and-locations.md#folder-names-in-the-repo). |
+| Metadata | Metadata section is in the correct YAML format for OPS. |
 | Metadata | The ms.date value cannot be set more than 5 days into the future. |
 | Content |The article is a technical document, and therefore in the correct content channel. See the [what goes where guidance](content-channel-guidance.md). |
 | Content |The subject matter in the technical document is appropriate for a technical article. See the [what goes where guidance](content-channel-guidance.md). |

@@ -67,7 +67,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/app-service-api.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -85,7 +85,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/app-service-mobile.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -103,7 +103,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/app-service-web.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

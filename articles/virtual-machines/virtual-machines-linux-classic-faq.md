@@ -21,7 +21,7 @@ ms.author: cynthn
 # Frequently asked question about Azure Linux Virtual Machines created with the classic deployment model
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-For the FAQ when using the Resource Manager model, see [here](virtual-machines-linux-faq.md).
+For the FAQ when using the Resource Manager model, see [here](virtual-machines-linux-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
 

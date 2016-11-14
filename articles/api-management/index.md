@@ -61,7 +61,7 @@ API Management helps organizations publish APIs to external, partner and interna
         </a>
     </li>
     <li>
-        <a href="/azure/api-management/api-management-howto-create-a">
+        <a href="/azure/api-management/api-management-howto-create-apis">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,7 +86,7 @@ API Management helps organizations publish APIs to external, partner and interna
 
 ### PowerShell
 [API Management Resource Manager PowerShell cmdlet](/powershell/resourcemanager)
-[API Management Classic PowerShell cmdlet](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+
 
 ### REST
 [API Management REST API Reference](/rest/api/apimanagement/)
