@@ -29,7 +29,7 @@ To update your [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) on a L
 <br>
 
 > [!NOTE]
-> If you will  be performing this task from a Windows computer, you can use PuTTY to SSH into your Linux machine. For more information, see [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-mac-create-ssh-keys.md).
+> If you will  be performing this task from a Windows computer, you can use PuTTY to SSH into your Linux machine. For more information, see [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
@@ -37,42 +37,53 @@ Azure-endorsed Linux distros have put the Azure Linux Agent package in their rep
 
 For Ubuntu, just type:
 
-    #sudo apt-get install walinuxagent
+```bash
+sudo apt-get install walinuxagent
+```
 
 And on CentOS, type:
 
-    #sudo yum install waagent
-
+```bash
+sudo yum install waagent
+```
 
 For Oracle Linux, make sure that the `Addons` repository is enabled. Choose to edit the file `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
 
 Then, to install the latest version of the Azure Linux Agent, type:
 
-    #sudo yum install WALinuxAgent
+```bash
+sudo yum install WALinuxAgent
+```
 
 If you don't find the add-on repository you can simply add these lines at the end of your .repo file according to your Oracle Linux release:
 
 For Oracle Linux 6 virtual machines:
 
-    [ol6_addons]
-    name=Add-Ons for Oracle Linux $releasever ($basearch)
-    baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86_64
-    gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6
-    gpgcheck=1
-    enabled=1
+```sh
+[ol6_addons]
+name=Add-Ons for Oracle Linux $releasever ($basearch)
+baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86_64
+gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6
+gpgcheck=1
+enabled=1
+```
 
 For Oracle Linux 7 virtual machines:
 
-    [ol7_addons]
-    name=Oracle Linux $releasever Add ons ($basearch)
-    baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
-    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-    gpgcheck=1
-    enabled=0
+```sh
+[ol7_addons]
+name=Oracle Linux $releasever Add ons ($basearch)
+baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=0
+```
 
 Then type:
 
-    #sudo yum update WALinuxAgent
+```bash
+sudo yum update WALinuxAgent
+```
 
 Typically this is all you need, but if for some reason you need to install it from https://github.com directly, use the following steps.
 
@@ -85,63 +96,91 @@ Install wget (there are some distros that don't install it by default such as Re
 Open [the release of Azure Linux Agent in GitHub](https://github.com/Azure/WALinuxAgent/releases) in a web page, and find out the latest version number. (You can locate your current version by typing `#waagent --version`.)
 
 ### For version 2.0.x, type:
-    #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent  
 
-   The following line uses version 2.0.14 as an example:
+```bash
+wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent
+```
 
-    #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent  
+The following line uses version 2.0.14 as an example:
+
+```bash
+wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent
+```
 
 ### For version 2.1.x or later, type:
-    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip
-    #unzip WALinuxAgent-[version].zip
-    #cd WALinuxAgent-[version]
+```bash
+wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip
+unzip WALinuxAgent-[version].zip
+cd WALinuxAgent-[version]
+```
 
-   The following line uses version 2.1.0 as an example:
+The following line uses version 2.1.0 as an example:
 
-    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-2.1.0.zip
-    #unzip WALinuxAgent-2.1.0.zip  
-    #cd WALinuxAgent-2.1.0
+```bash
+wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-2.1.0.zip
+unzip WALinuxAgent-2.1.0.zip  
+cd WALinuxAgent-2.1.0
+```
 
 ## Install the Azure Linux Agent
 ### For version 2.0.x, use:
- Make waagent executable:
+Make waagent executable:
 
-    #chmod +x waagent
+```bash
+chmod +x waagent
+```
 
- Copy new the executable to /usr/sbin/.
+Copy new the executable to /usr/sbin/.
 
-  For most of Linux, use:
+For most of Linux, use:
 
-    #sudo cp waagent /usr/sbin
+```bash
+sudo cp waagent /usr/sbin
+```
 
-  For CoreOS, use:
+For CoreOS, use:
 
-    #sudo cp waagent /usr/share/oem/bin/
+```bash
+sudo cp waagent /usr/share/oem/bin/
+```
 
-  If this is a new installation of the Azure Linux Agent, run:
+If this is a new installation of the Azure Linux Agent, run:
 
-    #sudo /usr/sbin/waagent -install -verbose
+```bash
+sudo /usr/sbin/waagent -install -verbose
+```
 
 ### For version 2.1.x, use:
 You may need to install the package `setuptools` first--see [here](https://pypi.python.org/pypi/setuptools). Then run:
 
-    #sudo python setup.py install
+```bash
+sudo python setup.py install
+```
 
 ## Restart the waagent service
 For most of linux Distros:
 
-    #sudo service waagent restart
+```bash
+sudo service waagent restart
+```
 
 For Ubuntu, use:
 
-    #sudo service walinuxagent restart
+```bash
+sudo service walinuxagent restart
+```
 
 For CoreOS, use:
 
-    #sudo systemctl restart waagent
+```bash
+sudo systemctl restart waagent
+```
 
 ## Confirm the Azure Linux Agent version
-    #waagent -version
+    
+```bash
+waagent -version
+```
 
 For CoreOS, the above command may not work.
 

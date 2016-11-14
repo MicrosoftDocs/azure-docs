@@ -1,21 +1,110 @@
 ---
-title: To be submitted | Microsoft Azure
-description: To be submitted.
-services: ''
-documentationcenter: ''
-author: squillace
-manager: timlt
-editor: ''
-tags: billing
+layout: LandingPage
+---
+#Load Balancer Documentation
 
-ms.assetid: a9db9c34-8486-4e72-abfe-11c601dfa79c
-ms.service: value
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
+Azure Load Balancer delivers high availability and network performance to your applications.  Load Balancer can be configured to load balance incoming Internet traffic to virtual machines, traffic between cloud resources, traffic in a cross-premises virtual network, or external traffic to a specific virtual machine.
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/azure/load-balancer/load-balancer-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/load-balancer.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Learn about Load Balancer</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=load-balancer">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Load Balancer Video Library</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/load-balancer/load-balancer-internet-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with an Internet-facing load balancer</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+       <li>
+        <a href="/azure/load-balancer/load-balancer-internal-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with an internal-facing load balancer</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
-# To be submitted.
+
+##Reference
+
+###PowerShell
+[Load Balancer PowerShell Reference](/powershell/azureps-cmdlets-doc)
+
+###Azure CLI
+[Load Balancer Azure CLI] (/cli/azure/network/lb)
+
+###.NET
+[.NET API Reference](/dotnet/api)
+
+###Java
+[Java API Reference](/java/api)
+
+###REST
+[Load Balancer REST API Reference](https://msdn.microsoft.com/library/azure/mt163651.aspx)
+
+
+<div class="downloadHolder">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
+        <div class="img"></div>
+        <div class="text">
+            Download Load Balancer Documentation
+        </div>
+    </a>
+</div>

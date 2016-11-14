@@ -1,21 +1,121 @@
 ---
-title: To be submitted | Microsoft Azure
-description: To be submitted.
-services: ''
-documentationcenter: ''
-author: squillace
-manager: timlt
-editor: ''
-tags: billing
+layout: LandingPage
+---
+# Logic Apps Documentation
 
-ms.assetid: 4503bcbb-acde-4261-92a4-743ed1f0cb7d
-ms.service: value
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
+Logic Apps provide a way to simplify and implement scalable integrations and workflows in the cloud. It provides a visual designer to model and automate your process as a series of steps known as a workflow. There are many connectors across the cloud and on-premises to quickly integrate across services and protocols. A logic app begins with a trigger (like 'When an account is added to Dynamics CRM') and after firing can begin many combinations actions, conversions, and condition logic.
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/azure/app-service-logic/app-service-logic-what-are-logic-apps">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/logic-apps.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Learn about Logic Apps</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=app-service">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>App Service Video Librasry</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/app-service-logic/app-service-logic-create-a-logic-app">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Create a new Logic App connecting SaaS services</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/app-service-logic/app-service-logic-arm-provision">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Create a Logic App using a template</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/app-service-logic/app-service-logic-create-api-app">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Create a custom API to use with Logic Apps</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
-# To be submitted.
+
+## Reference
+
+### PowerShell
+[Logic Apps PowerShell Cmdlets](/powershell/resourcemanager/)
+
+### .NET
+[Logic Apps Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+
+### REST
+[Logic Apps REST API Reference](/rest/api/logic/)
+
+<div class="downloadHolder">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/logic-apps.pdf">
+        <div class="img"></div>
+        <div class="text">
+            Download Logic Apps Documentation
+        </div>
+    </a>
+</div>

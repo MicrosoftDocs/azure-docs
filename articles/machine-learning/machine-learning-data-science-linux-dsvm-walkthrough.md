@@ -18,18 +18,18 @@ ms.author: bradsev;paulsh
 
 ---
 # Data science on the Linux Data Science Virtual Machine
-This walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM. The Linux Data Science Virtual Machine (DSVM) is a virtual machine image available on Azure that is pre-installed with a collection of tools commonly used for data analytics and machine learning. The key software components are itemized in the [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md) topic. The VM image makes it easy to get started doing data science in minutes, without having to install and configure each of the tools individually. You can easily scale up the VM, if needed, and stop it when not in use. So this resource is both elastic and cost-efficient. 
+This walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM. The Linux Data Science Virtual Machine (DSVM) is a virtual machine image available on Azure that is pre-installed with a collection of tools commonly used for data analytics and machine learning. The key software components are itemized in the [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md) topic. The VM image makes it easy to get started doing data science in minutes, without having to install and configure each of the tools individually. You can easily scale up the VM, if needed, and stop it when not in use. So this resource is both elastic and cost-efficient.
 
 The data science tasks demonstrated in this walkthrough follow the steps outlined in the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). This process provides a systematic approach to data science that enables teams of data scientists to effectively collaborate over the lifecycle of building intelligent applications. The data science process also provides an iterative framework for data science that can be followed by an individual.
 
-We analyze the [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset in this walkthrough. This is a set of emails that are marked as either spam or ham (meaning they are not spam), and also contains some statistics on the content of the emails. The statistics included are discussed in the next but one section. 
+We analyze the [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset in this walkthrough. This is a set of emails that are marked as either spam or ham (meaning they are not spam), and also contains some statistics on the content of the emails. The statistics included are discussed in the next but one section.
 
 ## Prerequisites
 Before you can use a Linux Data Science Virtual Machine, you must have the following:
 
 * An **Azure subscription**. If you do not already have one, see [Create your free Azure account today](https://azure.microsoft.com/free/).
-* A [**Linux data science VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information on provisioning this VM, see [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md). 
-* [X2Go](http://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Installing and configuring X2Go client](machine-learning-data-science-linux-dsvm-intro.md#Installing-and-configuring-X2Go-client). 
+* A [**Linux data science VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information on provisioning this VM, see [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md).
+* [X2Go](http://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Installing and configuring X2Go client](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client). 
 * An **AzureML account**. If you don't already have one, sign up for new one at the [AzureML homepage](https://studio.azureml.net/). There is a free usage tier to help you get started.
 
 ## Download the spambase dataset
@@ -37,10 +37,10 @@ The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a re
 
 > [!NOTE]
 > This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine. This size DSVM is capable of handling the procedures in this walkthrough.
-> 
-> 
+>
+>
 
-If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your VM, follow the instructions in [Add a disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md). These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself. Another option to increase storage is to use [Azure files](../storage/storage-how-to-use-files-linux.md).
+If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your VM, follow the instructions in [Add a disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself. Another option to increase storage is to use [Azure files](../storage/storage-how-to-use-files-linux.md).
 
 To download the data, open a terminal window and run this command:
 
@@ -55,13 +55,13 @@ Then concatenate the two files together with the command:
     cat spambase.data >> headers
     mv headers spambaseHeaders.data
 
-The dataset has several types of statistics on each email: 
+The dataset has several types of statistics on each email:
 
-* Columns like ***word\_freq\_WORD*** indicate the percentage of words in the email that match *WORD*. For example, if *word\_freq\_make* is 1, then 1% of all words in the email were *make*. 
-* Columns like ***char\_freq\_CHAR*** indicate the percentage of all characters in the email that were *CHAR*. 
-* ***capital\_run\_length\_longest*** is the longest length of a sequence of capital letters. 
-* ***capital\_run\_length\_average*** is the average length of all sequences of capital letters. 
-* ***capital\_run\_length\_total*** is the total length of all sequences of capital letters. 
+* Columns like ***word\_freq\_WORD*** indicate the percentage of words in the email that match *WORD*. For example, if *word\_freq\_make* is 1, then 1% of all words in the email were *make*.
+* Columns like ***char\_freq\_CHAR*** indicate the percentage of all characters in the email that were *CHAR*.
+* ***capital\_run\_length\_longest*** is the longest length of a sequence of capital letters.
+* ***capital\_run\_length\_average*** is the average length of all sequences of capital letters.
+* ***capital\_run\_length\_total*** is the total length of all sequences of capital letters.
 * ***spam*** indicates whether the email was considered spam or not (1 = spam, 0 = not spam).
 
 ## Explore the dataset with Microsoft R Open
@@ -75,8 +75,8 @@ Open a terminal window and start a new R session with the R interactive console.
 
 > [!NOTE]
 > You can also use RStudio for the following procedures. To install RStudio, execute this command at a terminal: `./Desktop/DSVM\ tools/installRStudio.sh`
-> 
-> 
+>
+>
 
 To import the data and set up the environment, run:
 
@@ -91,7 +91,7 @@ For a different view of the data:
 
     str(data)
 
-This shows you the type of each variable and the first few values in the dataset. 
+This shows you the type of each variable and the first few values in the dataset.
 
 The *spam* column was read as an integer, but it's actually a categorical variable (or factor). To set its type:
 
@@ -123,12 +123,12 @@ Then split it by spam vs ham:
 These examples should enable you to make similar plots of the other columns to explore the data contained in them.
 
 ## Train and test an ML model
-Now let's train a couple of machine learning models to classify the emails in the dataset as containing either span or ham. We train a decision tree model and a random forest model in this section and then test their accuracy of their predictions. 
+Now let's train a couple of machine learning models to classify the emails in the dataset as containing either span or ham. We train a decision tree model and a random forest model in this section and then test their accuracy of their predictions.
 
 > [!NOTE]
 > The rpart (Recursive Partitioning and Regression Trees) package used in the following code is already installed on the Data Science VM.
-> 
-> 
+>
+>
 
 First, let's split the dataset into training and test sets:
 
@@ -161,7 +161,7 @@ To determine how well it performs on the test set:
     accuracy <- sum(diag(t))/sum(t)
     accuracy
 
-Let's also try a random forest model. Random forests train a multitude of decision trees and output a class that is the mode of the classifications from all of the individual decision trees. They provide a more powerful machine learning approach as they correct for the tendency of a decision tree model to overfit a training dataset. 
+Let's also try a random forest model. Random forests train a multitude of decision trees and output a class that is the mode of the classifications from all of the individual decision trees. They provide a more powerful machine learning approach as they correct for the tendency of a decision tree model to overfit a training dataset.
 
     require(randomForest)
     trainVars <- setdiff(colnames(data), 'spam')
@@ -177,7 +177,7 @@ Let's also try a random forest model. Random forests train a multitude of decisi
 
 
 ## Deploy a model to Azure ML
-[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) is a cloud service that makes it easy to build and deploy predictive analytics models. One of the nice features of AzureML is its ability to publish any R function as a web service. The AzureML R package makes deployment easy to do right from our R session on the DSVM. 
+[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) is a cloud service that makes it easy to build and deploy predictive analytics models. One of the nice features of AzureML is its ability to publish any R function as a web service. The AzureML R package makes deployment easy to do right from our R session on the DSVM.
 
 To deploy the decision tree code from the previous section, you need to sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token to sigh in. To find these values and initialize the AzureML variables with them:
 
@@ -207,7 +207,7 @@ We need a prediction function that takes the features as an input and returns th
         return(colnames(predictDF)[apply(predictDF, 1, which.max)])
     }
 
-Publish the predictSpam function to AzureML using the **publishWebService** function: 
+Publish the predictSpam function to AzureML using the **publishWebService** function:
 
     spamWebService <- publishWebService("predictSpam",
         "spamWebService",
@@ -256,12 +256,12 @@ The remaining sections show how to use some of the tools installed on the Linux 
 XGBoost can also call from python or a command line.
 
 ## Python
-For development using Python, the Anaconda Python distributions 2.7 and 3.5 have been installed in the DSVM. 
+For development using Python, the Anaconda Python distributions 2.7 and 3.5 have been installed in the DSVM.
 
 > [!NOTE]
 > The Anaconda distribution includes [Condas](http://conda.pydata.org/docs/index.html), which can be used to create custom environments for Python that have different versions and/or packages installed in them.
-> 
-> 
+>
+>
 
 Let's read in some of the spambase dataset and classify the emails with support vector machines in scikit-learn:
 
@@ -277,7 +277,7 @@ To make predictions:
 
     clf.predict(X.ix[0:20, :])
 
-To show how to publish an AzureML endpoint, let's make a simpler model the three variables as we did when we published the R model previously. 
+To show how to publish an AzureML endpoint, let's make a simpler model the three variables as we did when we published the R model previously.
 
     X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
@@ -306,8 +306,8 @@ To publish the model to AzureML:
 
 > [!NOTE]
 > This is only available for python 2.7 and is not yet supported on 3.5. Run with **/anaconda/bin/python2.7**.
-> 
-> 
+>
+>
 
 ## Jupyterhub
 The Anaconda distribution in the DSVM comes with a Jupyter notebook, a cross-platform environment to share Python, R, or Julia code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in using your local Linux user name and password at ***https://\<VM DNS name or IP Address\>:8000/***. All configuration files for JupyterHub are found in directory **/etc/jupyterhub**.
@@ -320,8 +320,8 @@ Several sample notebooks are already installed on the VM:
 
 > [!NOTE]
 > The Julia language is also available from the command line on the Linux Data Science VM.
-> 
-> 
+>
+>
 
 ## Rattle
 [Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (the R Analytical Tool To Learn Easily) is a graphical R tool for data mining. It has an intuitive interface that makes it easy to load, explore, and transform data and build and evaluate models.  The article [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) provides a walkthrough that demonstrates its features.
@@ -334,22 +334,22 @@ Install and start Rattle with the following commands:
 
 > [!NOTE]
 > Installation is not required on the DSVM. But Rattle may prompt you to install additional packages when it loads.
-> 
-> 
+>
+>
 
-Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), like loading data or exploring it. The data science process flows from left to right through the tabs. But the last tab contains a log of the R commands run by Rattle. 
+Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), like loading data or exploring it. The data science process flows from left to right through the tabs. But the last tab contains a log of the R commands run by Rattle.
 
 To load and configure the dataset:
 
-* To load the file, select the **Data** tab, then 
-* Choose the selector next to **Filename** and choose **spambaseHeaders.data**. 
+* To load the file, select the **Data** tab, then
+* Choose the selector next to **Filename** and choose **spambaseHeaders.data**.
 * To load the file. select **Execute** in the top row of buttons. You should see a summary of each column, including its identified data type, whether it's an input, a target, or other type of variable, and the number of unique values.
 * Rattle has correctly identified the **spam** column as the target. Select the spam column, then set the **Target Data Type** to **Categoric**.
 
-To explore the data: 
+To explore the data:
 
-* Select the **Explore** tab. 
-* Click **Summary**, then **Execute**, to see some information about the variable types and some summary statistics. 
+* Select the **Explore** tab.
+* Click **Summary**, then **Execute**, to see some information about the variable types and some summary statistics.
 * To view other types of statistics about each variable, select other options like **Describe** or **Basics**.
 
 The **Explore** tab also allows you to generate many insightful plots. To plot a histogram of the data:
@@ -360,9 +360,9 @@ The **Explore** tab also allows you to generate many insightful plots. To plot a
 
 The Correlation plots are also interesting. To create one:
 
-* Choose **Correlation** as the **Type**, then 
-* Select **Execute**. 
-* Rattle warns you that it recommends a maximum of 40 variables. Select **Yes** to view the plot. 
+* Choose **Correlation** as the **Type**, then
+* Select **Execute**.
+* Rattle warns you that it recommends a maximum of 40 variables. Select **Yes** to view the plot.
 
 There are some interesting correlations that come up: "technology" is strongly correlated to "HP" and "labs", for example. It is also strongly correlated to "650", because the area code of the dataset donors is 650.
 
@@ -385,27 +385,27 @@ Rattle can also perform cluster analysis. Let's exclude some features to make th
 
 Then go back to the **Cluster** tab, choose **KMeans**, and set the *Number of clusters* to 4. Then **Execute**. The results are displayed in the output window. One cluster has high frequency of "george" and "hp" and is probably a legitimate business email.
 
-To build a simple decision tree machine learning model: 
+To build a simple decision tree machine learning model:
 
-* Select the **Model** tab, 
-* Choose **Tree** as the **Type**. 
-* Select **Execute** to display the tree in text form in the output window. 
+* Select the **Model** tab,
+* Choose **Tree** as the **Type**.
+* Select **Execute** to display the tree in text form in the output window.
 * Select the **Draw** button to view a graphical version. This looks quite similar to the tree we obtained earlier using *rpart*.
 
 One of the nice features of Rattle is its ability to run several machine learning methods and quickly evaluate them. Here is the procedure:
 
-* Choose **All** for the **Type**. 
-* Select **Execute**. 
-* After it finishes you can click any single **Type**, like **SVM**, and view the results. 
-* You can also compare the performance of the models on the validation set using the **Evaluate** tab. For example, the **Error Matrix** selection shows you the confusion matrix, overall error, and averaged class error for each model on the validation set. 
+* Choose **All** for the **Type**.
+* Select **Execute**.
+* After it finishes you can click any single **Type**, like **SVM**, and view the results.
+* You can also compare the performance of the models on the validation set using the **Evaluate** tab. For example, the **Error Matrix** selection shows you the confusion matrix, overall error, and averaged class error for each model on the validation set.
 * You can also plot ROC curves, perform sensitivity analysis, and do other types of model evaluations.
 
-Once you're finished building models, select the **Log** tab to view the R code run by Rattle during your session. You can select the **Export** button to save it. 
+Once you're finished building models, select the **Log** tab to view the R code run by Rattle during your session. You can select the **Export** button to save it.
 
 > [!NOTE]
-> There is a bug in current release of Rattle. To modify the script or use it to repeat your steps later, you must insert a # character in front of *Export this log ... * in the text of the log. 
-> 
-> 
+> There is a bug in current release of Rattle. To modify the script or use it to repeat your steps later, you must insert a # character in front of *Export this log ... * in the text of the log.
+>
+>
 
 ## PostgreSQL & Squirrel SQL
 The DSVM comes with PostgreSQL installed. PostgreSQL is a sophisticated, open-source relational database. This section shows how to load our spam dataset into PostgreSQL and then query it.
@@ -459,29 +459,29 @@ Now, let's explore the data and run some queries using **Squirrel SQL**, a graph
 
 To get started, launch Squirrel SQL from the Applications menu. To set up the driver:
 
-* Select **Windows**, then **View Drivers**. 
-* Right-click on **PostgreSQL** and select **Modify Driver**. 
-* Select **Extra Class Path**, then **Add**. 
-* Enter ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** for the **File Name** and 
+* Select **Windows**, then **View Drivers**.
+* Right-click on **PostgreSQL** and select **Modify Driver**.
+* Select **Extra Class Path**, then **Add**.
+* Enter ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** for the **File Name** and
 * Select **Open**.
 * Choose List Drivers, then select **org.postgresql.Driver** in **Class Name**, and select **OK**.
 
 To set up the connection to the local server:
 
-* Select **Windows**, then **View Aliases.** 
-* Choose the **+** button to make a new alias. 
+* Select **Windows**, then **View Aliases.**
+* Choose the **+** button to make a new alias.
 * Name it *Spam database*, choose **PostgreSQL** in the **Driver** drop-down.
-* Set the URL to *jdbc:postgresql://localhost/spam*. 
-* Enter your *username* and *password*. 
-* Click **OK**. 
-* To open the **Connection** window, double-click the ***Spam database*** alias. 
+* Set the URL to *jdbc:postgresql://localhost/spam*.
+* Enter your *username* and *password*.
+* Click **OK**.
+* To open the **Connection** window, double-click the ***Spam database*** alias.
 * Select **Connect**.
 
 To run some queries:
 
 * Select the **SQL** tab.
-* Enter a simple query such as `SELECT * from data;` in the query textbox at the top of the SQL tab. 
-* Press **Ctrl-Enter** to run it. By default Squirrel SQL returns the first 100 rows from your query. 
+* Enter a simple query such as `SELECT * from data;` in the query textbox at the top of the SQL tab.
+* Press **Ctrl-Enter** to run it. By default Squirrel SQL returns the first 100 rows from your query.
 
 There are many more queries you could run to explore this data. For example, how does the frequency of the word *make* differ between spam and ham?
 
@@ -513,8 +513,8 @@ Copy data with bcp:
 
 > [!NOTE]
 > The line endings in the downloaded file are Windows-style, but bcp expects UNIX-style, so we need to tell bcp that with the -r flag.
-> 
-> 
+>
+>
 
 And query with sqlcmd:
 
@@ -527,4 +527,3 @@ You could also query with Squirrel SQL. Follow similar steps for PostgreSQL, usi
 For an overview of topics that walk you through the tasks that comprise the Data Science process in Azure, see [Team Data Science Process](http://aka.ms/datascienceprocess).
 
 For a description of other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios, see [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md). The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
-

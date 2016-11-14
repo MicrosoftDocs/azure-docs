@@ -1,4 +1,3 @@
-﻿
 ---
 title: Export a SQL Server database to a BACPAC file using SQL Server Management Studio | Microsoft Docs
 description: Microsoft Azure SQL Database, database migration, export database, export BACPAC file, Export Data Tier Application wizard
@@ -14,15 +13,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 08/16/2016
+ms.date: 11/08/2016
 ms.author: carlrab
 
 ---
 # Export a SQL Server database to a BACPAC file using SQL Server Management Studio
 > [!div class="op_single_selector"]
+> * [Azure portal](sql-database-export.md)
 > * [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
 > * [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
-> 
+> * [PowerShell](sql-database-export-powershell.md)
 > 
 
 This article shows how to export a SQL Server database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file using the Export Data Tier Application Wizard in SQL Server Management Studio. 
@@ -41,11 +41,12 @@ This article shows how to export a SQL Server database to a [BACPAC](https://msd
     ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
 4. In the export wizard, configure the export to save the BACPAC file to either a local disk location or to an Azure blob. The exported BACPAC always includes the complete database schema and, by default, data from all the tables. Use the Advanced tab if you want to exclude data from some or all the tables. You might, for example, choose to export only the data for reference tables rather than from all tables.
 
-***Important*** When exporting a BACPAC to Azure blob storage, use standard storage. Importing a BACPAC from premium storage is not supported.
-
     ![Export settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC02.png)
 
-
+   > [!IMPORTANT]
+   > When exporting a BACPAC to Azure blob storage, use standard storage. Importing a BACPAC from premium storage is not supported.
+   >
+   
 ## Next steps
 * [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 * [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
