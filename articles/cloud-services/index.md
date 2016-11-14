@@ -3,11 +3,11 @@ layout: LandingPage
 ---
 #Cloud Services Documentation
 
-Cloud Services is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Cloud Services represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Cloud Services is an example of a Platform-as-Service (PaaS) implementation.  It is designed to support applications that are scalable, reliable and cost-effective to operate.  With Cloud Services you have the benefit of virtualization but control over the virtual machine to configure, patch, and install software.  
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="https:/azure/cloud-services-cloud-services-model-and-package">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -17,7 +17,7 @@ Cloud Services is a distributed systems platform that makes it easy to package, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Cloud Services</h3>
+                        <h3>Learn about Cloud Services</h3>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@ Cloud Services is a distributed systems platform that makes it easy to package, 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=cloud-services">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -35,7 +35,7 @@ Cloud Services is a distributed systems platform that makes it easy to package, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Cloud Services Party Cluster</h3>
+                        <h3>Cloud Services Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@ Cloud Services is a distributed systems platform that makes it easy to package, 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
+        <a href="/azure/cloud-services/cloud-services-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -53,24 +53,43 @@ Cloud Services is a distributed systems platform that makes it easy to package, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Cloud Services with .NET Core</h3>
+                        <h3>Create your first .NET app with Cloud Services</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-</ul>
+    <li>
+        <a href="/azure/cloud-services/cloud-services-python-ptvs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Create a Python app </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+ </ul>
 
 ---
 
 ##Reference
 
 ###REST
-[Cloud Services REST API Reference](/rest/api/)
+[Cloud Services REST API Reference](https://msdn.microsoft.com/library/azure/ee460812.aspx)
 
-###.NET
-[Cloud Services Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+###.Schemas
+[Cloud Services Definition Schema](https://msdn.microsoft.com/en-us/library/azure/ee758711.aspx)
+[Cloud Services Configuration Schema](https://msdn.microsoft.com/en-us/library/azure/ee758710.aspx)
 
 <div class="downloadHolder">
     <a href="https://msdn.microsoft.com/">
