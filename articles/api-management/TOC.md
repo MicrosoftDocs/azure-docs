@@ -39,14 +39,18 @@
 ### [Manage user accounts](api-management-howto-create-or-invite-developers.md)
 ### [Manage using automation](automation-manage-api-management.md)
 ### [Configure using Git](api-management-configuration-repository-git.md)
-#Reference
-## [Resource Management PowerShell cmdlet]/powershell/resourcemanager()
+# Reference
+## [Resource Management PowerShell cmdlet](/powershell/resourcemanager)
 ## [Classic deployment PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/mt613507)
 ## [REST API](/rest/api/apimanagement/)
 ## [Policies](https://msdn.microsoft.com/en-us/library/azure/dn894081)
 ## [Templates](https://msdn.microsoft.com/en-us/library/azure/mt697540)
-#Resources
+# Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/api-management/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [Service updates](https://azure.microsoft.com/updates/?product=api-management)
 ## [Whitepaper: Cloud-based API Management](http://j.mp/ms-apim-whitepaper)
 ## [API design guidance](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [API implementation guidance](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
