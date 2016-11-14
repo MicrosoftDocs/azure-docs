@@ -132,7 +132,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
+                                                        <img src="media/index/app-service.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -510,7 +510,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
+                                                        <img src="media/index/app-service.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -529,7 +529,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
+                                                        <img src="media/index/app-service-web.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -548,7 +548,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
+                                                        <img src="media/index/app-service-mobile.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -567,7 +567,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
+                                                        <img src="media/index/app-service-api.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1689,7 +1689,7 @@ layout: HubPage
                                         </li>
                                         <li>
                                             <a href="/azure/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
+                                                <img src="media/index/app-service.svg" alt="" />
                                                 <p>App Service</p>
                                             </a>
                                         </li>
@@ -1821,25 +1821,25 @@ layout: HubPage
                                     <ul>
                                         <li>
                                             <a href="/azure/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
+                                                <img src="media/index/app-service.svg" alt="" />
                                                 <p>App Service</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/app-service-web">
-                                                <img src="media/index/AppService.svg" alt="" />
+                                                <img src="media/index/app-service-web.svg" alt="" />
                                                 <p>Web Apps</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/app-service-mobile">
-                                                <img src="media/index/AppService.svg" alt="" />
+                                                <img src="media/index/app-service-mobile.svg" alt="" />
                                                 <p>Mobile Apps</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/app-service-api">
-                                                <img src="media/index/AppService.svg" alt="" />
+                                                <img src="media/index/app-service-api.svg" alt="" />
                                                 <p>API Apps</p>
                                             </a>
                                         </li>
