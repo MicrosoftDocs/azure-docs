@@ -1,5 +1,5 @@
-﻿---
-title: What is a Network Security Group (NSG)
+---
+title: Network Security Groups | Microsoft Docs
 description: Learn about the distributed firewall in Azure using Network Security Groups (NSGs), and how to use NSGs to isolate and control traffic flow within your virtual networks (VNets).
 services: virtual-network
 documentationcenter: na
@@ -20,6 +20,9 @@ ms.author: jdial
 # What is a Network Security Group (NSG)?
 Network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
 
+> [!NOTE]
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using both models, but Microsoft recommends that most new deployments use the Resource Manager model.
+
 ## NSG resource
 NSGs contain the following properties.
 
@@ -33,10 +36,9 @@ NSGs contain the following properties.
 > [!NOTE]
 > Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](virtual-networks-acl-powershell.md).
 > 
-> 
 
 ### NSG rules
-NSG rules contain the following properties.
+NSG rules contain the following properties:
 
 | Property | Description | Constraints | Considerations |
 | --- | --- | --- | --- |
@@ -87,37 +89,27 @@ As illustrated by the default rules below, traffic originating and ending in a v
 ## Associating NSGs
 You can associate an NSG to VMs, NICs, and subnets, depending on the deployment model you are using.
 
-[!INCLUDE [learn-about-deployment-models-both-include.md](../../includes/learn-about-deployment-models-both-include.md)]
-
 * **Associating an NSG to a VM (classic deployments only).** When you associate an NSG to a VM, the network access rules in the NSG are applied to all traffic that destined and leaving the VM. 
 * **Associating an NSG to a NIC (Resource Manager deployments only).** When you associate an NSG to a NIC, the network access rules in the NSG are applied only to that NIC. That means that in a multi-NIC VM, if an NSG is applied to a single NIC, it does not affect traffic bound to other NICs. 
 * **Associating an NSG to a subnet (all deployments)**. When you associate an NSG to a subnet, the network access rules in the NSG are applied to all the IaaS and PaaS resources in the subnet. 
 
-You can associate different NSGs to a VM (or NIC, depending on the deployment model) and the subnet that a NIC or VM is bound to. When that happens, all network access rules are applied to the traffic, by priority in each NSG,  in the following order:
+You can associate different NSGs to a VM (or NIC, depending on the deployment model) and the subnet that a NIC or VM is bound to. When that happens, all network access rules are applied to the traffic, by priority in each NSG, in the following order:
 
-* **Inbound traffic**
-  
-  1. NSG applied to subnet. 
-     
-     If subnet NSG has a matching rule to deny traffic, packet will be dropped here.
-  2. NSG applied to NIC (Resource Manager) or VM (classic). 
-     
-     If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped at VM\NIC, although subnet NSG has a matching rule to allow traffic.
-* **Outbound traffic**
-  
-  1. NSG applied to NIC (Resource Manager) or VM (classic). 
-     
-     If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped here.
-  2. NSG applied to subnet.
-     
-     If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
-     
-      ![NSG ACLs](./media/virtual-network-nsg-overview/figure2.png)
+- **Inbound traffic**
+
+  1. **NSG applied to subnet:** If a subnet NSG has a matching rule to deny traffic, the packet will be dropped.
+
+  2. **NSG applied to NIC** (Resource Manager) or VM (classic): If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped at VM\NIC, although subnet NSG has a matching rule to allow traffic.
+
+- **Outbound traffic**
+
+  1. **NSG applied to NIC** (Resource Manager) or VM (classic): If VM\NIC NSG has a matching rule to deny traffic, the packet will be dropped.
+
+  2. **NSG applied to subnet:** If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
 
 > [!NOTE]
 > Although you can only associate a single NSG to a subnet, VM, or NIC; you can associate the same NSG to as many resources as you want.
-> 
-> 
+>
 
 ## Implementation
 You can implement NSGs in the classic or Resource Manager deployment models using the different tools listed below.
@@ -130,12 +122,14 @@ You can implement NSGs in the classic or Resource Manager deployment models usin
 | Azure CLI |[![Yes][green]](virtual-networks-create-nsg-classic-cli.md) |[![Yes][green]](virtual-networks-create-nsg-arm-cli.md) |
 | ARM template |![No](./media/virtual-network-nsg-overview/red.png) |[![Yes][green]](virtual-networks-create-nsg-arm-template.md) |
 
-| **Key** | ![Yes](./media/virtual-network-nsg-overview/green.png) Supported. | ![No](./media/virtual-network-nsg-overview/red.png) Not Supported. |
-| --- | --- | --- |
-|  | | |
+**Key**
+
+![Yes](./media/virtual-network-nsg-overview/green.png) Supported.
+
+![No](./media/virtual-network-nsg-overview/red.png) Not Supported.
 
 ## Planning
-Before implementing NSGs, you need to answer the questions below:    
+Before implementing NSGs, you need to answer the following questions:
 
 1. What types of resources do you want to filter traffic to or from (NICs in the same VM, VMs or other resources such as cloud services or application service environments connected to the same subnet, or between resources connected to different subnets)?
 2. Are the resources you want to filter traffic to/from connected to subnets in existing VNets or will they be connected to new VNets or subnets?

@@ -60,6 +60,7 @@
 
 # Resources
 ## [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
-## [Service overview](https://azure.microsoft.com/services/security-center/)
 ## [Pricing](security-center-pricing.md)
+## [Service overview](https://azure.microsoft.com/services/security-center/)
+## [Service updates](https://azure.microsoft.com/updates/?product=security-center)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)

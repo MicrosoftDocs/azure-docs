@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 11/11/2016
 ms.author: jeffstok
 
 ---
@@ -35,15 +35,15 @@ The first time a Stream Analytics job is created in a region, you will need to c
   ![Azure Portal Configure query Diagnostics](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)  
 
 ## Metrics available for Stream Analytics
-| Metric | Definition |
-| --- | --- |
-| SU % Utilization |The utilization of the Streaming Unit(s) assigned to a job from the Scale tab of the job. Should this indicator reach 80%, or above, there is high probability that event processing may be delayed or stopped making progress. |
-| Input Events |Amount of data received by the Stream Analytics job, in number of events. This can be used to validate that events are being sent to the input source. |
-| Output Events |Amount of data sent by the Stream Analytics job to the output target, in number of events. |
-| Out-of-Order Events |Number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the Out of Order Tolerance Window setting. |
-| Data Conversion Errors |Number of data conversion errors incurred by a Stream Analytics job. |
-| Runtime Errors |Number of errors that happen during execution of a Stream Analytics job. |
-| Late Input Events |Number of events arriving late from the source which have either been dropped or their timestamp has been adjusted, based on the Event Ordering Policy configuration of the Late Arrival Tolerance Window setting. |
+| Metric                 | Definition                               |
+| ---------------------- | ---------------------------------------- |
+| SU % Utilization       | The utilization of the Streaming Unit(s) assigned to a job from the Scale tab of the job. Should this indicator reach 80%, or above, there is high probability that event processing may be delayed or stopped making progress. |
+| Input Events           | Amount of data received by the Stream Analytics job, in number of events. This can be used to validate that events are being sent to the input source. |
+| Output Events          | Amount of data sent by the Stream Analytics job to the output target, in number of events. |
+| Out-of-Order Events    | Number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the Out of Order Tolerance Window setting. |
+| Data Conversion Errors | Number of data conversion errors incurred by a Stream Analytics job. |
+| Runtime Errors         | Number of errors that happen during execution of a Stream Analytics job. |
+| Late Input Events      | Number of events arriving late from the source which have either been dropped or their timestamp has been adjusted, based on the Event Ordering Policy configuration of the Late Arrival Tolerance Window setting. |
 
 ## Customizing Monitoring in the Azure Management portal
 Up to 6 metrics can be displayed on a chart.
@@ -63,21 +63,21 @@ You can set rules that can notify you by email in case the job crosses a defined
 ## Customizing Monitoring in the Azure Portal
 You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-  ![Azure Portal Query Monitor Time Scale](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
+  ![Query Monitor Time graph](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 ## Job status
 The status of Stream Analytics jobs can be viewed in the Azure Classic Portal where you see a list of jobs. You can see the list of jobs by clicking the Stream Analytics icon in the Azure Classic Portal.
 
-| Status | Definition |
-| --- | --- |
-| Created |A job has been created, however has not been started. |
-| Starting |A user clicked on Start the job, and the job is starting |
-| Running |The job is allocated, processing input, or waiting to process input. If the job shows a Running state without producing output, it is likely that the data processing time window is large or the query logic is complicated. Another reason may be that currently there isn't any data being sent to the job. |
-| Stopping |A user clicked on Stop the job, and the job is stopping. |
-| Stopped |The job has been stopped. |
-| Degraded |This state indicates that a Stream Analytics job is encountering transient errors (for ex. Input/output errors, processing errors, conversion errors etc.). The job is still running, however there are a lot of errors being generated. This job needs customer attention, and the customer can see the Operations logs for the errors. |
-| Failed |This indicates that the job has failed due to errors, and the processing has stopped. The customer needs to look into the operations logs in order to debug the errors. |
-| Deleting |This indicates that the job is being deleted. |
+| Status   | Definition                               |
+| -------- | ---------------------------------------- |
+| Created  | A job has been created, however has not been started. |
+| Starting | A user clicked on Start the job, and the job is starting |
+| Running  | The job is allocated, processing input, or waiting to process input. If the job shows a Running state without producing output, it is likely that the data processing time window is large or the query logic is complicated. Another reason may be that currently there isn't any data being sent to the job. |
+| Stopping | A user clicked on Stop the job, and the job is stopping. |
+| Stopped  | The job has been stopped.                |
+| Degraded | This state indicates that a Stream Analytics job is encountering transient errors (for ex. Input/output errors, processing errors, conversion errors etc.). The job is still running, however there are a lot of errors being generated. This job needs customer attention, and the customer can see the Operations logs for the errors. |
+| Failed   | This indicates that the job has failed due to errors, and the processing has stopped. The customer needs to look into the operations logs in order to debug the errors. |
+| Deleting | This indicates that the job is being deleted. |
 
 ## Diagnosis
 In the Azure Management portal, the job dashboard provides information on where you need to look for the diagnosis, i.e. inputs, outputs and/or the operations log. You can click on the link to go the appropriate location to look at the diagnosis.

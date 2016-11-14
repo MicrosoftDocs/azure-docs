@@ -50,26 +50,27 @@
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [Classic REST](https://msdn.microsoft.com/library/azure/dn606310)
 
-# Related 
-## [Virtual Network](../virtual-network/index.md)
-## [VPN Gateway](../vpn-gateway/index.md)
-## [Virtual Machines](../virtual-machines/index.md)
-## [Load Balancer](../load-balancer/index.md)
-## [Traffic Manager](../traffic-manager/index.md)
+# Related
+## [Virtual Network](/azure/virtual-network/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [Virtual Machines](/azure/virtual-machines/)
+## [Load Balancer](/azure/load-balancer/)
+## [Traffic Manager](/azure/traffic-manager/)
 
 # Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [Networking Blog](https://azure.microsoft.com/blog/topics/networking/)
 ## [Case Studies](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
-## [Pricing](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Subscription and Service Limits](../azure-subscription-service-limits.md)
-## Videos
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=expressroute) 
 ### [Create an ExpressRoute circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [How to set up Private Peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
 ### [Set up Public Peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)
 ### [Set up Microsoft Peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/)
 ### [Create a virtual network for ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/)
 ### [Create a virtual network gateway for ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/)
-### [Cconnect a virtual network gateway to a circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
+### [Connect a virtual network gateway to a circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Evolve your network infrastructure for connectivity](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Hybrid partnerships: Enabling on-premises scenarios](https://go.microsoft.com/fwlink/p/?LinkId=615125)
+## [Service updates](https://azure.microsoft.com/updates/?product=expressroute) 
