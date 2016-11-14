@@ -1,5 +1,5 @@
 ﻿---
-title: Azure Government Services | Microsoft Docs
+title: Azure Government Subscriptions | Microsoft Docs
 description: Information on managing your subscription in Azure Government
 services: Azure-Government
 cloud: gov
