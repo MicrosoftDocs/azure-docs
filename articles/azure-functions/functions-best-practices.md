@@ -96,6 +96,8 @@ Asynchronous programming is a recommended best practice. However, always avoid r
 ## Next steps
 For more information, see the following resources:
 
-* [Testing a function](functions-test-a-function.md)
-* [Scale a function](functions-scale.md)
+* [Azure Functions developer reference](functions-reference.md)
+* [Azure Functions C# developer reference](functions-reference-csharp.md)
+* [Azure Functions F# developer reference](functions-reference-fsharp.md)
+* [Azure Functions NodeJS developer reference](functions-reference-node.md)
 
