@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create VNet Peering using Resource Manager templates | Microsoft Docs
 description: Learn how to create a virtual network peering using the templates in Resource Manager.
 services: virtual-network
@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 75f8d10e-23e8-44bd-9972-aab74048cf38
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
