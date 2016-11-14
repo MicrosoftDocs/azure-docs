@@ -115,11 +115,13 @@ To get started with PowerShell for Azure, see [How to install and configure Azur
     $StorageAccountName = 'yourstorageaccount' 
     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName 
 ```
+
 4. Enable storage logging for the Blob service: 
    
 ```powershell
     Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0 
 ```
+
 5. Enable storage metrics for the Blob service, making sure to set **-MetricsType** to `Minute`:
    
 ```powershell
@@ -188,7 +190,9 @@ Azure Storage writes server log data to blobs, while metrics are written to tabl
 
 You can use the AzCopy command-line tool to download these server-side log files to a location of your choice on your local machine. For example, you can use the following command to download the log files for blob operations that took place on January 2, 2015 to the folder `C:\Temp\Logs\Server`; replace `<storageaccountname>` with the name of your storage account, and `<storageaccountkey>` with your account access key:
 
+```azcopy
     AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
+```
 
 AzCopy is available for download on the [Azure Downloads](https://azure.microsoft.com/downloads/) page. For details about using AzCopy, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 

@@ -106,7 +106,6 @@ See [Assigning administrator roles in Azure Active Directory (Azure AD)](https:/
          Add-AzureAccount 
              Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
 ```
-
 	b. To locate and copy your subscription name in the [Azure Portal](https://portal.azure.com), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
      
      ![Azure Portal](./media/storage-powershell-guide-full/Subscription_Previewportal.png)
@@ -152,8 +151,8 @@ To manage Azure Storage using Azure PowerShell, you need to authenticate your cl
 3. Next, run the following command to view the Azure accounts in your local PowerShell environment, and verify that your account is listed:
    
 ```powershell
-    Get-AzureAccount`
-````   
+    Get-AzureAccount
+````
 4. Then, run the following cmdlet to view all the subscriptions that are connected to the local PowerShell session, and verify that your subscription is listed:
 
 ```powershell
