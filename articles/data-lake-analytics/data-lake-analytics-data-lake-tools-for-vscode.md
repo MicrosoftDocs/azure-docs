@@ -74,7 +74,8 @@ The Data Lake Tools can be installed on the platforms supported by VSCode that i
 
                 sudo apt-get install mono-complete
 
-		    >[!NOTE] Mono 4.6 is not supported.  You must uninstall version 4.6 entirely before installing 4.2.x.  
+		    > [!NOTE] 
+            > Mono 4.6 is not supported.  You must uninstall version 4.6 entirely before installing 4.2.x.  
 
         - [Java SE Runtime Environment version 8 update 77 or later](https://java.com/download/manual.jsp). The instruction can be found [here]( https://java.com/en/download/help/linux_x64_install.xml).
         - [.NET Core SDK 1.0.1-preview 2 or .NET Core 1.0.1 runtime]( https://www.microsoft.com/net/download).
@@ -116,7 +117,9 @@ Before you can compile and run U-SQL scripts, you must connect to your Azure.
 
 2.	Follow the instructions to sign in from the web page. Once connected, your account name is shown on the Status bar on the bottom of the window.
 
->[!NOTE] If your account has two factors enabled, it is recommended to use phone authentication instead of Pin.
+> [!NOTE] 
+> If your account has two factors enabled, it is recommended to use phone authentication instead of Pin.
+
 To sign off, use the command **USQL:Logout**
 
 ## List Data Lake Analytics accounts
@@ -150,7 +153,8 @@ A compute Data Lake Analytics account is needed for compiling and running U-SQL 
         - Priority: The priority range is from 1 to 1000 with 1 the highest priority. The default value is 1000.
         - Parallelism: The parallelism range is from 1 to 150. The default value is 150. 
 
-        >[!NOTE] If the settings are invalid, the default values are used.
+        > [!NOTE] 
+        > If the settings are invalid, the default values are used.
 
      ![Data Lake Tools for Visual Studio Code configuration file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
 
