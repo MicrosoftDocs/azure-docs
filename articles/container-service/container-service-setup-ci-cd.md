@@ -179,7 +179,7 @@ While we're in the DC/OS dashboard, let's scale our services.
 1. Navigate back to the running web app, and repeatedly click the *Say It Again* button. Quickly you'll see that `service-b` invocations begin to round-robin across a collection of hostnames, while the single instance of `service-a` continues to report the same host.   
 
 ## Promote a Release to Downstream Environments without Re-building Container Images
-Our VSTS release pipeline setup three environments by default: *Dev*, *Test*, and *Production*. So far we've deployed to *Dev*. Let's look at how we can promote a release to the next downstream environment, *Test*, without rebuilding our container images. This ensures we're deploying the exact same image(s) we tested in the prior environment. This is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
+Our VSTS release pipeline set up three environments by default: *Dev*, *Test*, and *Production*. So far we've deployed to *Dev*. Let's look at how we can promote a release to the next downstream environment, *Test*, without rebuilding our container images. This ensures we're deploying the exact same image(s) we tested in the prior environment. This is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
 
 1. In the VSTS web UI, navigate to **Releases**. You'll see a list of releases (likely only one so far).
 
