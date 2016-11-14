@@ -71,11 +71,11 @@ While the cluster is being created, we can set up sample code that we'll deploy 
 	
 Let's take a closer look at the code:
 * `/service-a` is an Angular.js-based web app with a Node.js backend.
-* `/service-b` is a .NET Core service, and is called by *service-a* via REST.
-* Both *service-a* and *service-b* contain a `Dockerfile` in each of their directories that respectively describe Node.js- and .NET Core-based container images. 
+* `/service-b` is a .NET Core service, and is called by `service-a` via REST.
+* Both `service-a` and `service-b` contain a `Dockerfile` in each of their directories that respectively describe Node.js- and .NET Core-based container images. 
 * `docker-compose.yml` declares the set of services that will be built and deployed.
-	* In addition to *service-a* and *service-b*, a third service named *cache* runs a Redis cache that *service-a* can use. *Cache* differs to the first two services in that we don't have code for it in our source repository - instead, we fetch a pre-made `redis:alpine` image from Docker Hub and deploy it to ACS.
-* `/service-a/server.js` contains code where *service-a* calls both *service-b* and *cache*. Notice that *service-a* code references *service-b* and *cache* by how they are named in `docker-compose.yml`. If we run these services on our local machine via `docker-compose`, Docker ensures the services are all networked appropriately to find each other by name. Of course, running the services in a cluster environment with load-balanced networking typically makes this much more complex than running locally. The good news is the Azure CLI commands set up a CI/CD flow that ensures this straight-forward service discovery code will continue to run as-is in ACS. 
+	* In addition to `service-a` and `service-b`, a third service named `cache` runs a Redis cache that `service-a` can use. `cache` differs to the first two services in that we don't have code for it in our source repository - instead, we fetch a pre-made `redis:alpine` image from Docker Hub and deploy it to ACS.
+* `/service-a/server.js` contains code where `service-a` calls both `service-b` and `cache`. Notice that `service-a` code references `service-b` and `cache` by how they are named in `docker-compose.yml`. If we run these services on our local machine via `docker-compose`, Docker ensures the services are all networked appropriately to find each other by name. Of course, running the services in a cluster environment with load-balanced networking typically makes this much more complex than running locally. The good news is the Azure CLI commands set up a CI/CD flow that ensures this straight-forward service discovery code will continue to run as-is in ACS. 
 
 	![Multi-container sample app overview](media/container-service-setup-ci-cd/multi-container-sample-app-overview.png)
 
@@ -140,7 +140,7 @@ At this point, our application is deployed to our shared dev environment and is 
 
 You can perform many useful things in the DC/OS dashboard, such as tracking deployment status for each service, viewing CPU and Memory requirements, viewing logs, and scaling the number of instances for each service.
 
-**To view the web application for service-a**: start at the *dev* root folder, then drill down the folder hierarchy until you reach *service-a*. This view lists the running tasks (or container instances) for *service-a*.
+**To view the web application for service-a**: start at the *dev* root folder, then drill down the folder hierarchy until you reach `service-a`. This view lists the running tasks (or container instances) for `service-a`.
 
 ![service a](media/container-service-setup-ci-cd/service-a.png)
 
@@ -148,7 +148,7 @@ Click a task to open its view, then click on one of its available endpoints.
 
 ![service a task](media/container-service-setup-ci-cd/service-a-task.png)
 
-Our simple web app calls *service-a*, which makes a call to *service-b*, and returns a hello world message. A counter is incremented on Redis each time a request is made.
+Our simple web app calls `service-a`, which makes a call to `service-b`, and returns a hello world message. A counter is incremented on Redis each time a request is made.
 
 ![service a web app](media/container-service-setup-ci-cd/service-a-web-app.png)
 
@@ -168,7 +168,7 @@ If you want to reach a service via curl from the command line:
 ## Scale services
 While we're in the DC/OS dashboard, let's scale our services.
 1. Navigate to the application in the *dev* subfolder.
-1. Hover over *service-b*, click the gear icon and select **Scale**.
+1. Hover over `service-b`, click the gear icon and select **Scale**.
 
 	![Action menu](media/container-service-setup-ci-cd/marathon-ui-action-menu.png)
 
@@ -176,7 +176,7 @@ While we're in the DC/OS dashboard, let's scale our services.
 
 	![Scale services](media/container-service-setup-ci-cd/marathon-ui-scale-service.png)
 
-1. Navigate back to the running web app, and repeatedly click the *Say It Again* button. Quickly you'll see that *service-b* invocations begin to round-robin across a collection of hostnames, while the single instance of *service-a* continues to report the same host.   
+1. Navigate back to the running web app, and repeatedly click the *Say It Again* button. Quickly you'll see that `service-b` invocations begin to round-robin across a collection of hostnames, while the single instance of `service-a` continues to report the same host.   
 
 ## Promote a Release to Downstream Environments without Re-building Container Images
 Our VSTS release pipeline set up three environments by default: *Dev*, *Test*, and *Production*. So far we've deployed to *Dev*. Let's look at how we can promote a release to the next downstream environment, *Test*, without rebuilding our container images. This ensures we're deploying the exact same image(s) we tested in the prior environment. This is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
@@ -224,7 +224,7 @@ If you open the build definition in VSTS, you'll see something like this:
 
 ## Expose Public Endpoint for Production
 
-1. Add the following yaml code to a new file named `docker-compose.env.production.yml` at the root folder of your source repository. This adds a label that will cause a public endpoint to be exposed for *service-a*. 
+1. Add the following yaml code to a new file named `docker-compose.env.production.yml` at the root folder of your source repository. This adds a label that will cause a public endpoint to be exposed for `service-a`. 
 	
 	```
 	version: "2"
