@@ -49,11 +49,11 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Application Gateway with the Azure portal</h3>
+                        <h3>Get Started with Application Gateway using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +67,11 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Application Gateway with PowerShell</h3>
+                        <h3>Get Started with Application Gateway using PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +85,11 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Application Gateway with an Azure Resource Manager template</h3>
+                        <h3>Get Started with Application Gateway using a Resource Manager template</h3>
                     </div>
                 </div>
             </div>
