@@ -28,7 +28,7 @@ This article shows how to make a cloud-init script to set the hostname, update i
 ## Quick Commands
 Create a cloud-init.txt script that sets the hostname, updates all packages, and adds a sudo user to Linux.
 
-```bash
+```sh
 #cloud-config
 hostname: myVMhostname
 apt_upgrade: true
@@ -42,27 +42,27 @@ users:
 ```
 Create a resource group to launch VMs into.
 
-```bash
+```azurecli
 azure group create myResourceGroup westus
 ```
 
 Create a Linux VM using cloud-init to configure it during boot.
 
-```bash
+```azurecli
 azure vm create \
--g myResourceGroup \
--n myVM \
--l westus \
--y Linux \
--f myVMnic \
--F myVNet \
--P 10.0.0.0/22 \
--j mySubnet \
--k 10.0.0.0/24 \
--Q canonical:ubuntuserver:14.04.2-LTS:latest \
--M ~/.ssh/id_rsa.pub \
--u myAdminUser \
--C cloud-init.txt
+  -g myResourceGroup \
+  -n myVM \
+  -l westus \
+  -y Linux \
+  -f myVMnic \
+  -F myVNet \
+  -P 10.0.0.0/22 \
+  -j mySubnet \
+  -k 10.0.0.0/24 \
+  -Q canonical:ubuntuserver:14.04.2-LTS:latest \
+  -M ~/.ssh/id_rsa.pub \
+  -u myAdminUser \
+  -C cloud-init.txt
 ```
 
 ## Detailed walkthrough
@@ -104,55 +104,55 @@ To launch a cloud-init script when creating a VM in Azure, specify the cloud-ini
 
 Create a resource group to launch VMs into.
 
-```bash
+```azurecli
 azure group create myResourceGroup westus
 ```
 
 Create a Linux VM using cloud-init to configure it during boot.
 
-```bash
+```azurecli
 azure vm create \
---resource-group myResourceGroup \
---name myVM \
---location westus \
---os-type Linux \
---nic-name myVMnic \
---vnet-name myVNet \
---vnet-address-prefix 10.0.0.0/22 \
---vnet-subnet-name mySubnet \
---vnet-subnet-address-prefix 10.0.0.0/24 \
---image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
---ssh-publickey-file ~/.ssh/id_rsa.pub \
---admin-username myAdminUser \
---custom-data cloud-init.txt
+  --resource-group myResourceGroup \
+  --name myVM \
+  --location westus \
+  --os-type Linux \
+  --nic-name myVMnic \
+  --vnet-name myVNet \
+  --vnet-address-prefix 10.0.0.0/22 \
+  --vnet-subnet-name mySubnet \
+  --vnet-subnet-address-prefix 10.0.0.0/24 \
+  --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+  --ssh-publickey-file ~/.ssh/id_rsa.pub \
+  --admin-username myAdminUser \
+  --custom-data cloud-init.txt
 ```
 
 ## Creating a cloud-init script to set the hostname of a Linux VM
 One of the simplest and most important settings for any Linux VM would be the hostname. We can easily set this using cloud-init with this script.  
 
 ### Example cloud-init script named `cloud_config_hostname.txt`.
-``` bash
+```sh
 #cloud-config
 hostname: myservername
 ```
 
 During the initial startup of the VM, this cloud-init script sets the hostname to `myservername`.
 
-```bash
+```azurecli
 azure vm create \
---resource-group myResourceGroup \
---name myVM \
---location westus \
---os-type Linux \
---nic-name myVMnic \
---vnet-name myVNet \
---vnet-address-prefix 10.0.0.0/22 \
---vnet-subnet-name mySubNet \
---vnet-subnet-address-prefix 10.0.0.0/24 \
---image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
---ssh-publickey-file ~/.ssh/id_rsa.pub \
---admin-username myAdminUser \
---custom-data cloud_config_hostname.txt
+  --resource-group myResourceGroup \
+  --name myVM \
+  --location westus \
+  --os-type Linux \
+  --nic-name myVMnic \
+  --vnet-name myVNet \
+  --vnet-address-prefix 10.0.0.0/22 \
+  --vnet-subnet-name mySubNet \
+  --vnet-subnet-address-prefix 10.0.0.0/24 \
+  --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+  --ssh-publickey-file ~/.ssh/id_rsa.pub \
+  --admin-username myAdminUser \
+  --custom-data cloud_config_hostname.txt
 ```
 
 Login and verify the hostname of the new VM.
@@ -167,28 +167,28 @@ myservername
 For security, you want your Ubuntu VM to update on the first boot.  Using cloud-init we can do that with the follow script, depending on the Linux distribution you are using.
 
 ### Example cloud-init script `cloud_config_apt_upgrade.txt` for the Debian Family
-```bash
+```sh
 #cloud-config
 apt_upgrade: true
 ```
 
 After Linux has booted, all the installed packages are updated via `apt-get`.
 
-```bash
+```azurecli
 azure vm create \
---resource-group myResourceGroup \
---name myVM \
---location westus \
---os-type Linux \
---nic-name myVMnic \
---vnet-name myVNet \
---vnet-address-prefix 10.0.0.0/22 \
---vnet-subnet-name mySubNet \
---vnet-subnet-address-prefix 10.0.0.0/24 \
---image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
---ssh-publickey-file ~/.ssh/id_rsa.pub \
---admin-username myAdminUser \
---custom-data cloud_config_apt_upgrade.txt
+  --resource-group myResourceGroup \
+  --name myVM \
+  --location westus \
+  --os-type Linux \
+  --nic-name myVMnic \
+  --vnet-name myVNet \
+  --vnet-address-prefix 10.0.0.0/22 \
+  --vnet-subnet-name mySubNet \
+  --vnet-subnet-address-prefix 10.0.0.0/24 \
+  --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+  --ssh-publickey-file ~/.ssh/id_rsa.pub \
+  --admin-username myAdminUser \
+  --custom-data cloud_config_apt_upgrade.txt
 ```
 
 Login and verify all packages are updated.
@@ -209,7 +209,7 @@ The following packages have been kept back:
 One of the first tasks on any new Linux VM is to add a user for yourself or to avoid using `root`. SSH keys are best practice for security and for usability and they are added to the `~/.ssh/authorized_keys` file with this cloud-init script.
 
 ### Example cloud-init script `cloud_config_add_users.txt` for Debian Family
-```bash
+```sh
 #cloud-config
 users:
   - name: myCloudInitAddedAdminUser
@@ -222,21 +222,21 @@ users:
 
 After Linux has booted, all the listed users are created and added to the sudo group.
 
-```bash
+```azurecli
 azure vm create \
---resource-group myResourceGroup \
---name myVM \
---location westus \
---os-type Linux \
---nic-name myVMnic \
---vnet-name myVNet \
---vnet-address-prefix 10.0.0.0/22 \
---vnet-subnet-name mySubNet \
---vnet-subnet-address-prefix 10.0.0.0/24 \
---image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
---ssh-publickey-file ~/.ssh/id_rsa.pub \
---admin-username myAdminUser \
---custom-data cloud_config_add_users.txt
+  --resource-group myResourceGroup \
+  --name myVM \
+  --location westus \
+  --os-type Linux \
+  --nic-name myVMnic \
+  --vnet-name myVNet \
+  --vnet-address-prefix 10.0.0.0/22 \
+  --vnet-subnet-name mySubNet \
+  --vnet-subnet-address-prefix 10.0.0.0/24 \
+  --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+  --ssh-publickey-file ~/.ssh/id_rsa.pub \
+  --admin-username myAdminUser \
+  --custom-data cloud_config_add_users.txt
 ```
 
 Login and verify the newly created user.
