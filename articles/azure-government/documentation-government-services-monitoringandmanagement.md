@@ -1,5 +1,5 @@
 ---
-title: Azure Government documentation | Microsoft Docs
+title: Azure Government Monitoring + Management | Microsoft Docs
 description: This provides a comparison of features and guidance on developing applications for Azure Government.
 services: Azure-Government
 cloud: gov
@@ -18,7 +18,7 @@ ms.date: 10/31/2016
 ms.author: ryansoc
 
 ---
-# Azure Government monitoring and management
+# Azure Government Monitoring + Management
 This article outlines the monitoring and management services variations and considerations for the Azure Government environment.
 
 ## Automation
