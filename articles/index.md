@@ -132,7 +132,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/app-service.svg" alt="" />
+                                                        <img src="media/index/AppService.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -510,7 +510,7 @@ layout: HubPage
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/app-service.svg" alt="" />
+                                                        <img src="media/index/AppService.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1689,7 +1689,7 @@ layout: HubPage
                                         </li>
                                         <li>
                                             <a href="/azure/app-service/">
-                                                <img src="media/index/app-service.svg" alt="" />
+                                                <img src="media/index/AppService.svg" alt="" />
                                                 <p>App Service</p>
                                             </a>
                                         </li>
@@ -1821,7 +1821,7 @@ layout: HubPage
                                     <ul>
                                         <li>
                                             <a href="/azure/app-service/">
-                                                <img src="media/index/app-service.svg" alt="" />
+                                                <img src="media/index/AppService.svg" alt="" />
                                                 <p>App Service</p>
                                             </a>
                                         </li>
