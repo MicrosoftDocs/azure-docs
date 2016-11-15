@@ -178,11 +178,12 @@
 
 #Reference
 ## [Release notes](machine-learning-whats-new.md)
-## [R quick start](machine-learning-r-quickstart.md)
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
 ## [PowerShell overview](machine-learning-powershell-module.md)
 ## [Use PowerShell to create models](machine-learning-create-models-and-endpoints-with-powershell.md)
-## [Web service REST API](https://msdn.microsoft.com/library/azure/dn950030.aspx)
+## [R quick start](machine-learning-r-quickstart.md)
 ## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
+## [REST](/rest/api/machinelearning/)
 
 # Related
 ## Cortana Intelligence Gallery
@@ -199,8 +200,12 @@
 
 # Resources
 ## [Learning path](http://aka.ms/datascienceprocess)
+## [Pricing](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Service updates](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
-## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
+## [Videos](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Get help from live chat](machine-learning-live-chat.md)
 ## Downloadable diagrams
 ### [Studio capabilities](machine-learning-studio-overview-diagram.md)
