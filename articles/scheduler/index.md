@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 # Scheduler Documentation
 
-Scheduler is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Scheduler represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Azure Scheduler allows you to declaratively describe actions to run in the cloud.  It then schedules and runs those actions automatically.  Scheduler then maintains a history of job execution results that one can review.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -49,29 +49,11 @@ Scheduler is a distributed systems platform that makes it easy to package, deplo
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create and manage jobs with Azure Scheduler</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/scheduler/scheduler-advanced-complexity">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Create complex schedules and Advanced Recurrence with Azure Scheduler</h3>
+                        <h3>Get Started with Azure Scheduler</h3>
                     </div>
                 </div>
             </div>
@@ -85,7 +67,7 @@ Scheduler is a distributed systems platform that makes it easy to package, deplo
 ## Reference
 
 ### PowerShell
-[Azure Scheduler PowerShell Cmdlets](https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx)
+[Azure Scheduler PowerShell Cmdlets](/powershell/azureps-cmdlets-docs)
 
 ### .NET
 [Scheduler Managed Reference](/dotnet/api)
