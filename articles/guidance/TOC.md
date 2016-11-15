@@ -20,7 +20,7 @@
 
 ## Reference Architectures
 
-### Compute reference architecture
+### [Architectures for running VM workloads in Azure](guidance-ra-compute.md)
 #### [Running a Linux VM on Azure](guidance-compute-single-vm-linux.md)
 #### [Running a Windows VM on Azure](guidance-compute-single-vm.md)
 #### [Running multiple VMs on Azure for scalability and availability](guidance-compute-multi-vm.md)
@@ -29,12 +29,12 @@
 #### [Running Linux VMs in multiple regions for high availability](guidance-compute-multiple-datacenters-linux.md)
 #### [Running Windows VMs in multiple regions for high availability](guidance-compute-multiple-datacenters.md)
 
-### [Connecting your on-premises network to Azure](guidance-connecting-your-on-premises-network-to-azure.md)
+### [Connecting your on-premises network to Azure](guidance-ra-hybrid-networking.md)
 #### [Implementing a hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
 #### [Implementing a Hybrid Network Architecture with Azure and On-premises VPN](guidance-hybrid-network-vpn.md)
 #### [Implementing a highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md)
 
-### Protecting the Cloud Boundary in Azure
+### [Protecting the Cloud Boundary in Azure](guidance-ra-network-security.md)
 #### [Implementing a secure hybrid network architecture in Azure](guidance-iaas-ra-secure-vnet-hybrid.md)
 #### [Implementing a DMZ between Azure and the Internet](guidance-iaas-ra-secure-vnet-dmz.md)
 
@@ -44,7 +44,7 @@
 #### [Creating a Active Directory Directory Services (ADDS) resource forest in Azure](guidance-identity-adds-resource-forest.md)
 #### [Implementing Active Directory Federation Services (ADFS) in Azure](guidance-identity-adfs.md)
 
-### PaaS web application reference architecture
+### [Web application architectures for Azure App Service](guidance-ra-app-service.md)
 #### [Azure reference architecture: Basic web application](guidance-web-apps-basic.md)
 #### [Azure reference architecture: Web application with high availability](guidance-web-apps-multi-region.md)
 #### [Improving scalability in a web application](guidance-web-apps-scalability.md)

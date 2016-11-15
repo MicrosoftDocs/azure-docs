@@ -1,11 +1,13 @@
 {
 	"build_entry_point": "docs",
 	"need_generate_pdf": false,
+	"need_generate_pdf_url_template": false,
 	"need_generate_intellisense": false,
 	"enable_push_aggregation": true,
 	"enable_pull_request_aggregation": true,	
 	"branch_target_mapping": {
-		"live": ["Publish"]
+		"live": ["Publish"],
+		"master": ["Publish"]
 	},
 	"docsets_to_publish": [{
 		"docset_name": "azure-documents",

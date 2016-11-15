@@ -74,7 +74,7 @@ When you first create a Recovery Services vault you determine how storage is rep
 
 Now that you've created a vault, you prepare your infrastructure to back up files and folders by downloading and installing the Microsoft Azure Recovery Services agent, downloading vault credentials, and then using those credentials to register the agent with the vault.
 
-## Step 2 - Download files
+## Step 2: Download files
 > [!NOTE]
 > Enabling backup through the Azure portal is coming soon. At this time, you use the Microsoft Azure Recovery Services Agent on-premises to back up your files and folders.
 >
@@ -103,7 +103,7 @@ Now that you've created a vault, you prepare your infrastructure to back up file
 
     ![prepare infrastructure](./media/backup-configure-vault/prepare-infrastructure-download.png)
 
-## Step 3 -Install and register the agent
+## Step 3: Install and register the agent
 1. Locate and double click the **MARSagentinstaller.exe** from the Downloads folder (or other saved location).
 2. Complete the Microsoft Azure Recovery Services Agent Setup Wizard. To complete the wizard, you need to:
 
