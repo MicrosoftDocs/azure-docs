@@ -153,7 +153,6 @@ Each Data Lake Analytics account requires a Data Lake Store account. For instruc
 		resourceGroup,
 		adlaAccountName,
 		DataLakeAnalyticsAccount(
-			name=adlaAccountName,
 			location=location,
 			properties=DataLakeAnalyticsAccountProperties(
 				default_data_lake_store_account=adlsAccountName,
@@ -184,7 +183,6 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 		JobInformation(
 			name='Sample Job',
 			type='USql',
-			job_id=jobId,
 			properties=USqlJobProperties(
 				script='DROP DATABASE IF EXISTS FOO; CREATE DATABASE FOO;'
 			)
