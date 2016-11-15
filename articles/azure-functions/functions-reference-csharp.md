@@ -32,10 +32,10 @@ The C# experience for Azure Functions is based on the Azure WebJobs SDK. Data fl
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
 
 ## How .csx works
-The `.csx` format allows to write less "boilerplate" and focus on writing just a C# function. For Azure Functions, you just include any assembly references and namespaces you need up top, as usual, and instead of wrapping everything in a namespace and class, you can just define your `Run` method. If you need to include any classes, for instance to define POCO objects, you can include a class inside the same file.
+The `.csx` format allows you to write less "boilerplate" and focus on writing just a C# function. For Azure Functions, you just include any assembly references and namespaces you need up top, as usual, and instead of wrapping everything in a namespace and class, you can just define your `Run` method. If you need to include any classes, for instance to define Plain Old CLR Object (POCO) objects, you can include a class inside the same file.   
 
 ## Binding to arguments
-The various bindings are bound to a C# function via the `name` property in the *function.json* configuration. Each binding has its own supported types which is documented per binding; for instance, a blob trigger can support a string, a POCO, or several other types. You can use the type which best suits your need. 
+The various bindings are bound to a C# function via the `name` property in the *function.json* configuration. Each binding has its own supported types which is documented per binding; for instance, a blob trigger can support a string, a POCO, or several other types. You can use the type which best suits your need. A POCO object must have a getter and setter defined for each property. 
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -207,7 +207,7 @@ public static string GetEnvironmentVariable(string name)
 ```
 
 ## Reusing .csx code
-You can use classes and methods defined in other *.csx* files in your *run.csx* file. To do that, use `#load` directives in your *run.csx* file, as shown in the following example.
+You can use classes and methods defined in other *.csx* files in your *run.csx* file. To do that, use `#load` directives in your *run.csx* file. In the following example, a logging routine named `MyLogger` is shared in *myLogger.csx* and loaded into *run.csx* using the `#load` directive: 
 
 Example *run.csx*:
 
@@ -227,6 +227,67 @@ Example *mylogger.csx*:
 public static void MyLogger(TraceWriter log, string logtext)
 {
     log.Verbose(logtext); 
+}
+```
+
+Using a shared *.csx* is a common pattern when you want to strongly type your arguments between functions using a POCO object. In the following simplified example, a HTTP trigger and queue trigger share a POCO object named `Order` to strongly type the order data:
+
+Example *run.csx* for HTTP trigger:
+
+```cs
+#load "..\shared\order.csx"
+
+using System.Net;
+
+public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Order> outputQueueItem, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function received an order.");
+    log.Info(req.ToString());
+    log.Info("Submitting to processing queue.");
+
+    await outputQueueItem.AddAsync(req);
+
+    return req == null
+        ? new HttpResponseMessage(HttpStatusCode.BadRequest)
+        : new HttpResponseMessage(HttpStatusCode.OK);
+}
+```
+
+Example *run.csx* for queue trigger:
+
+```cs
+#load "..\shared\order.csx"
+
+using System;
+
+public static void Run(Order myQueueItem, out Order outputQueueItem,TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed order...");
+    log.Info(myQueueItem.ToString());
+
+    outputQueueItem = myQueueItem;
+}
+```
+
+Example *order.csx*: 
+
+```cs
+public class Order
+{
+    public string orderId {get; set; }
+    public string custName {get; set;}
+    public string custAddress {get; set;}
+    public string custEmail {get; set;}
+    public string cartId {get; set; }
+
+    public override String ToString()
+    {
+        return "\n{\n\torderId : " + orderId + 
+                  "\n\tcustName : " + custName +             
+                  "\n\tcustAddress : " + custAddress +             
+                  "\n\tcustEmail : " + custEmail +             
+                  "\n\tcartId : " + cartId + "\n}";             
+    }
 }
 ```
 
