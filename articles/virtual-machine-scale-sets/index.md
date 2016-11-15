@@ -83,7 +83,7 @@ Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy a
 
 ---
 
-##Reference
+## Reference
 
 <ul class="panelContent cardsW">
 	<li>

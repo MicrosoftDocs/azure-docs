@@ -102,7 +102,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 
 ---
 
-##Reference
+## Reference
 
 <ul class="panelContent cardsW">
     <li>

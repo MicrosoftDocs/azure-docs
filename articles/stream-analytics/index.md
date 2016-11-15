@@ -118,7 +118,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
 
 ---
 
-##Reference
+## Reference
 
 <ul class="panelContent cardsW">
 	<li>

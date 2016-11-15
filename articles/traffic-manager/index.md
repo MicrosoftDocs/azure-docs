@@ -82,7 +82,7 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
 
 ---
 
-##Reference
+## Reference
 
 <ul class="panelContent cardsW">
 	<li>

@@ -100,7 +100,7 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
 
 ---
 
-##Reference
+## Reference
 
 <ul class="panelContent cardsW">
     <li>

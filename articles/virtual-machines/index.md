@@ -47,7 +47,7 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
 
 ---
 
-##Reference
+## Reference
 
 <ul class="panelContent cardsW">
 	<li>

@@ -119,7 +119,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
 
 ---
 
-##Reference
+## Reference
 
 <ul class="panelContent cardsW">
     <li>
