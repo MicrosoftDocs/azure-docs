@@ -96,3 +96,5 @@ plans can use all resources that are available in each plan.
 | Max NICs |100 |The maximum number of network interfaces that a subscription can create in this location. |
 | Max network security groups |50 |The maximum number of network security groups that a subscription can create in this location. |
 
+##View an existing quota
+To view an existing quota, click on Browse>Resource Providers
