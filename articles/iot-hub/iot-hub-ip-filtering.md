@@ -78,11 +78,11 @@ To save your new IP filter rule order, click **Save**.
 
 
 <!-- Images -->
-[img-ip-filter-default]: ./media/iot-hub-ip-filter/ip-filter-default.png
-[img-ip-filter-add-rule]: ./media/iot-hub-ip-filter/ip-filter-add-rule.png
-[img-ip-filter-save-new-rule]: ./media/iot-hub-ip-filter/ip-filter-save-new-rule.png
-[img-ip-filter-delete-rule]: ./media/iot-hub-ip-filter/ip-filter-delete-rule.png
-[img-ip-filter-rule-order]: ./media/iot-hub-ip-filter/ip-filter-rule-order.png 
+[img-ip-filter-default]: ./media/iot-hub-ip-filtering/ip-filter-default.png
+[img-ip-filter-add-rule]: ./media/iot-hub-ip-filtering/ip-filter-add-rule.png
+[img-ip-filter-save-new-rule]: ./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png
+[img-ip-filter-delete-rule]: ./media/iot-hub-ip-filtering/ip-filter-delete-rule.png
+[img-ip-filter-rule-order]: ./media/iot-hub-ip-filtering/ip-filter-rule-order.png
 
 
 <!-- Links -->
