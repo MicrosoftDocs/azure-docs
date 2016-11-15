@@ -82,27 +82,91 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 
 ---
 
-##Reference
+## Reference
 
-###PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs)
-
-###Azure CLI 
-[Install the Azure CLI](/cli/azure/install-az-cli2)
-
-###Java 
-[Storage in Java Reference](/java/api/)
-
-###.NET 
-[Storage Managed Reference API](https://msdn.microsoft.com/library/azure/mt347887) 
-
-###REST 
-[Storage REST API Reference](/rest/api/storageservices) 
-[Storage Resource Provider REST API Reference](/rest/api/storagerp)  
-
-
-
-
+<ul class="panelContent cardsW">
+	<li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="/cli/azure/storage">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Azure CLI</h3>
+                        <p>Storage using Azure CLI Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Storage in Java Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="https://msdn.microsoft.com/library/azure/mt347887">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Storage Managed Reference API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="/rest/api/storageservices">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Storage REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+		<a href="/rest/api/storagerp">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <p>Storage Resource Provider REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>	
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">

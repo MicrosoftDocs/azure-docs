@@ -1,6 +1,6 @@
 ---
-title: Create a Linux VM on Azure using the CLI | Microsoft Azure
-description: Create a Linux VM on Azure using the CLI.
+title: Create a Linux VM using the Azure CLI 2.0 (Preview) | Microsoft Azure
+description: Create a Linux VM using the Azure CLI 2.0 (Preview).
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -17,16 +17,21 @@ ms.author: rasquill
 
 ---
 
-# Create a Linux VM on Azure by using the CLI
-This article shows how to quickly deploy a Linux virtual machine (VM) on Azure by using the [az vm create](/cli/azure/vm?branch=master#create) command in the Azure command-line interface (CLI). To create a VM, you'll need: 
+# Create a Linux VM using the Azure CLI 2.0 (Preview)
+This article shows how to quickly deploy a Linux virtual machine (VM) on Azure by using the [az vm create](/cli/azure/vm?branch=master#create) command using the Azure CLI 2.0 (Preview). 
+
+> [!NOTE] 
+To create a VM using the Azure CLI and not the CLI 2.0 Preview, see [Create a VM with the Azure CLI](virtual-machines-linux-quick-create-cli-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+To create a VM, you'll need: 
 
 * an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
-* the [Azure CLI v. 2.0](https://github.com/Azure/azure-cli#installation) installed
+* the [Azure CLI v. 2.0 (Preview)](https://github.com/Azure/azure-cli#installation) installed
 * to be logged in to your Azure account (type [az login](/cli/azure/#login))
 
-(You can also quickly deploy a Linux VM by using the [Azure portal](virtual-machines-linux-quick-create-portal.md).)
+(You can also quickly deploy a Linux VM by using the [Azure portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
-The following example shows how to deploy a Debian VM and attach your Secure Shell (SSH) key (your arguments might be different; if you want a different image, you [can search for one](virtual-machines-linux-cli-ps-findimage.md)).
+The following example shows how to deploy a Debian VM and attach your Secure Shell (SSH) key (your arguments might be different; if you want a different image, you [can search for one](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
 
 ## Create a resource group
 
@@ -107,9 +112,9 @@ bin  boot  dev  etc  home  initrd.img  lib  lib64  lost+found  media  mnt  opt  
 ## Next steps
 The `az vm create` command is the way to quickly deploy a VM so you can log in to a bash shell and get working. However, using `az vm create` does not give you extensive control nor does it enable you to create a more complex environment.  To deploy a Linux VM that's customized for your infrastructure, you can follow any of these articles:
 
-* [Use an Azure Resource Manager template to create a specific deployment](virtual-machines-linux-cli-deploy-templates.md)
-* [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-create-cli-complete.md)
-* [Create an SSH Secured Linux VM on Azure using templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+* [Use an Azure Resource Manager template to create a specific deployment](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create an SSH Secured Linux VM on Azure using templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-You can also [use the `docker-machine` Azure driver with various commands to quickly create a Linux VM as a docker host](virtual-machines-linux-docker-machine.md) as well, and if you're using Java, try the [create()](/java/api/com.microsoft.azure.management.compute._virtual_machine) method.
+You can also [use the `docker-machine` Azure driver with various commands to quickly create a Linux VM as a docker host](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) as well, and if you're using Java, try the [create()](/java/api/com.microsoft.azure.management.compute._virtual_machine) method.
 
