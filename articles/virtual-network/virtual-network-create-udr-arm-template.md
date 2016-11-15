@@ -19,7 +19,6 @@ ms.author: jdial
 
 ---
 # Create User-Defined Routes (UDR) using a template
-[!INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
 > [!div class="op_single_selector"]
 - [PowerShell](virtual-network-create-udr-arm-ps.md)
@@ -29,10 +28,7 @@ ms.author: jdial
 - [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
 
 > [!IMPORTANT]
-> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../resource-manager-deployment-model.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.
->
-
-This article covers the Resource Manager deployment model. 
+> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../resource-manager-deployment-model.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This article covers the Resource Manager deployment model. 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -78,7 +74,7 @@ To associate the UDR to the front-end subnet, you have to change the subnet defi
         },
 ```
 
-Notice the same being done for the back-end NSG and the back end subnet in the template.
+Notice the same being done for the back-end NSG and the back-end subnet in the template.
 
 You also need to ensure that the **FW1** VM has the IP forwarding property enabled on the NIC that will be used to receive and forward packets. The section below shows the definition of the NIC for FW1 in the azuredeploy-nsg-udr.json file, based on the scenario above.
 
@@ -118,11 +114,11 @@ You also need to ensure that the **FW1** VM has the IP forwarding property enabl
     }
 ```
 
-## Deploy the ARM template by using click to deploy
+## Deploy the template by using click to deploy
 The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
 
-## Deploy the ARM template by using PowerShell
-To deploy the ARM template you downloaded by using PowerShell, follow the steps below.
+## Deploy the template by using PowerShell
+To deploy the template you downloaded by using PowerShell, complete the following steps:
 
 [!INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
@@ -183,7 +179,7 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 
         ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG
 
-## Deploy the ARM template by using the Azure CLI
+## Deploy the template by using the Azure CLI
 
 To deploy the ARM template by using the Azure CLI, complete the following steps:
 
@@ -218,7 +214,7 @@ To deploy the ARM template by using the Azure CLI, complete the following steps:
         }
 	```
 
-4. Run the following command to deploy the new VNet by using the template and parameter files you downloaded and modified above.
+4. Run the following command to deploy the new VNet by using the template and parameter files you downloaded and modified above:
 
 	```azurecli
 	azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
