@@ -184,6 +184,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
      
      The output from this command is similar to the following text:
      
+     ```
        Reading Movies Descriptions
        Reading Rated Movies
        Reading Recommendations
@@ -226,6 +227,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
        Time to Kill, A (1996), score=5.0
      
      ##   Rock, The (1996), score=5.0
+     ```
 
 ## Delete temporary data
 

@@ -46,7 +46,7 @@ Historically, Windows has not provided an SSH client until Windows 10 Anniversar
 If you use Windows and do not have access to Bash on Windows 10, we recommend the following SSH clients:
 
 * [Git For Windows](https://git-for-windows.github.io/): Provides the `ssh` and `scp` command line utilities.
-* [puTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/): Provides a graphical SSH client.
+* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/): Provides a graphical SSH client.
 * [MobaXterm](http://mobaxterm.mobatek.net/): Provides a graphical SSH client.
 * [Cygwin](https://cygwin.com/): Provides the `ssh` and `scp` command line utilities.
 
