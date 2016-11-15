@@ -134,8 +134,8 @@ At this point, our application is deployed to our shared dev environment and is 
 	* `-n` is the name of the target ACS cluster.
 	* You may be prompted for your local account password, since this command requires administrator privilege. The command creates an SSH tunnel to a DC/OS endpoint, opens your default browser to that endpoint, and temporarily configures the browser's web proxy. 
 
-> [!TIP]
-> If you need to look up the name of your ACS cluster, you can list all ACS clusters in your subscription by running `az acs list`. 
+	> [!TIP]
+	> If you need to look up the name of your ACS cluster, you can list all ACS clusters in your subscription by running `az acs list`. 
 
 1. In the DC/OS dashboard, click **Services** on the left navigation menu ([http://localhost/#/services](http://localhost/#/services)). Services deployed via our pipeline are grouped under a root folder named *dev* (named after the environment in the VSTS release definition). 
 
