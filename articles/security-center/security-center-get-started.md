@@ -41,8 +41,8 @@ The following steps describe how to access and use the components of Security Ce
 In the portal, follow these steps to access Security Center:
 
 1. On the **Microsoft Azure** menu, select **Security Center**.
+
    ![Azure menu][1]
-   
 2. If you are accessing Security Center for the first time, the **Welcome** blade opens. Select **Yes! I want to Launch Azure Security Center** to open the **Security Center** blade and to enable data collection.
    ![Welcome screen][10]
 3. After you launch Security Center from the Welcome blade or select Security Center from the Microsoft Azure menu, the **Security Center** blade opens. For easy access to the **Security Center** blade in the future, select the **Pin blade to dashboard** option (upper right).
