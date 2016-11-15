@@ -103,14 +103,50 @@ Azure Functions is a solution for easily running small pieces of code ("function
 
 ##Reference
 
-### C&#35;
-[C# Developer Reference](/azure/azure-functions/functions-reference-csharp)
-
-### F&#35;
-[F# Developer Reference](/azure/azure-functions/functions-reference-fsharp)
-
-### Node.js
-[Node.js Developer Reference](/azure/azure-functions/functions-reference-node)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/azure/azure-functions/functions-reference-csharp">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>C&#35</h3>
+                        <p>C# Developer Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	 <li>
+        <a href="/azure/azure-functions/functions-reference-fsharp">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>F&#35</h3>
+                        <p>F# Developer Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	 <li>
+        <a href="/azure/azure-functions/functions-reference-node">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Node.js</h3>
+                        <p>Node.js Developer Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	</ul>
 
 
 <div class="downloadHolder">

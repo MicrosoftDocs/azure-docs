@@ -84,12 +84,48 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
 
 ##Reference
 
-###REST
-[Cloud Services REST API Reference](https://msdn.microsoft.com/library/azure/ee460812)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/ee460812">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Cloud Services REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###.Schemas
-[Cloud Services Definition Schema](https://msdn.microsoft.com/en-us/library/azure/ee758711)
-[Cloud Services Configuration Schema](https://msdn.microsoft.com/en-us/library/azure/ee758710)
+    <li>
+        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758711">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.Schemas</h3>
+                        <p>Cloud Services Definition Schema</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758710">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <p>Cloud Services Configuration Schema</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cloud-services.pdf">

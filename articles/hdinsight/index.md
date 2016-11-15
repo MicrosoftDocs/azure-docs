@@ -121,15 +121,63 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
 
 ##Reference
 
-###PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###REST
-[HDInsight REST API Reference](/rest/api/hdinsight)
-[Spark for HDInsight REST API Reference](/rest/api/hdinsightspark)
+ <li>
+        <a href="/rest/api/hdinsight">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>HDInsight REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+		 <a href="/rest/api/hdinsightspark">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <p>Spark for HDInsight REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###.NET
-[HDInsight Managed Reference](https://msdn.microsoft.com/library/azure/mt271028)
+	<li>
+        <a href="https://msdn.microsoft.com/library/azure/mt271028">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>HDInsight Managed Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/hdinsight.pdf">
