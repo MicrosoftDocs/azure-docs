@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with HPE SaaS | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and HPE SaaS.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 11/15/2016
 ms.author: jeedes
 
 ---

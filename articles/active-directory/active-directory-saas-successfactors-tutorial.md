@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with SuccessFactors | Microsoft Docs'
 description: Learn how to use SuccessFactors with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/16/2016
+ms.date: 11/15/2016
 ms.author: jeedes
 
 ---
