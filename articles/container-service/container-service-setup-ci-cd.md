@@ -23,22 +23,22 @@ ms.author: johnstallo
 # Continuous Integration and Deployment of Multi-Container Docker Applications to Azure Container Service 
 In this tutorial, we cover how to fully automate building and deploying a multi-container Docker app to an Azure Container Service cluster running DC/OS. While the benefits of continuous integration and deployment (CI/CD) are known, there are new considerations when integrating containers into your workflow. Using the new Azure Container Registry and CLI commands, we set up an end-to-end flow, which you can customize.
 
-## Get Started
+## Get started
 You can run this walkthrough on OS X, Windows, or Linux.
 - You need an Azure subscription. If you don't have one, you can [sign up for an account](https://azure.microsoft.com/).
 - Install the [Azure Command-line tools](https://github.com/Azure/azure-cli#microsoft-azure-cli-20---preview).
 
-## What We'll Create
+## What we'll create
 Let's touch on some key aspects of the app and its deployment flow that we are setting up:
-1. **The application is composed of multiple services**. Docker assets, Dockerfile, and docker-compose.yml, to define the services in our app, each running in separate containers. These enable parts of the app to scale independently, and each service can be written in a different programming language and framework. The app's code can be hosted across one or more Git source repositories (the tools currently support GitHub or Visual Studio Team Services).
+* **The application is composed of multiple services**. Docker assets, Dockerfile, and docker-compose.yml, to define the services in our app, each running in separate containers. These enable parts of the app to scale independently, and each service can be written in a different programming language and framework. The app's code can be hosted across one or more Git source repositories (the tools currently support GitHub or Visual Studio Team Services).
 
-1. The app runs in an **ACS cluster configured with DC/OS**. The container orchestrator can manage the health of our cluster and ensure our required number of container instances keep running. 
+* The app runs in an **ACS cluster configured with DC/OS**. The container orchestrator can manage the health of our cluster and ensure our required number of container instances keep running. 
 
-1. The process of **building and deploying container images fully automate with zero-downtime**. We want developers on the team to 'git push' to a branch, which automatically triggers an integration process. That is, build and tag container images, run tests on each container, and push those images to a Docker private registry. From there, new images are automatically deployed to a shared pre-production environment on an ACS cluster for further testing.
+* The process of **building and deploying container images fully automate with zero-downtime**. We want developers on the team to 'git push' to a branch, which automatically triggers an integration process. That is, build and tag container images, run tests on each container, and push those images to a Docker private registry. From there, new images are automatically deployed to a shared pre-production environment on an ACS cluster for further testing.
 
-1. **Promote a release from one environment to the next**, for example from Dev -> Test -> Staging -> Production. Each time we promote to a downstream environment, we will not need to rebuild our container images to ensure we deploy the same images tested in a prior environment. This process is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
+* **Promote a release from one environment to the next**, for example from Dev -> Test -> Staging -> Production. Each time we promote to a downstream environment, we will not need to rebuild our container images to ensure we deploy the same images tested in a prior environment. This process is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
 
-1. To most effectively utilize compute resources in our ACS cluster, we utilize the same cluster to run build tasks fully containerizing build and deploy steps. The cluster also hosts our multiple dev/test/production environments.
+* To most effectively utilize compute resources in our ACS cluster, we utilize the same cluster to run build tasks fully containerizing build and deploy steps. The cluster also hosts our multiple dev/test/production environments.
 
 
 ## Create an Azure Container Service cluster configured with DC/OS
@@ -56,9 +56,9 @@ Let's touch on some key aspects of the app and its deployment flow that we are s
 
 	`az acs create --resource-group myacs-rg --name myacs --dns-prefix myacs`
 
-This step takes several minutes, so feel free to read on.  The `acs create` command returns information about the newly created cluster (or you can list the ACS clusters in your subscription with `az acs list`). For more ACS configuration options, [read more about creating and configuring an ACS cluster](https://azure.microsoft.com/en-us/documentation/articles/container-service-deployment/).
+This step takes several minutes, so feel free to read on.  The `acs create` command returns information about the newly created cluster (or you can list the ACS clusters in your subscription with `az acs list`). For more ACS configuration options, [read more about creating and configuring an ACS cluster](https://azure.microsoft.com/documentation/articles/container-service-deployment/).
 
-## Set up Sample Code
+## Set up sample code
 While the cluster is being created, we can set up sample code that we deploy to ACS.
 
 1. [Fork](https://help.github.com/articles/fork-a-repo/) the sample GitHub repository so that you have your own copy: [https://github.com/azuresamples/multi-container-ci-cd-to-acs.git](https://github.com/azuresamples/multi-container-ci-cd-to-acs.git). The app is essentially a multi-container version of "hello world."
@@ -121,9 +121,10 @@ You can always find the release definition URL associated with an ACS cluster by
 *VSTS docker-compose release with multiple environments*
 
 ## View the application
-At this point, our application is deployed to our shared dev environment and is not publicly exposed. In the meantime, use the DC/OS dashboard to view and manage our services and [create an SSH tunnel to the DC/OS-related endpoints](https://azure.microsoft.com/en-us/documentation/articles/container-service-connect/) or run a convenience command provided by the Azure CLI.
+At this point, our application is deployed to our shared dev environment and is not publicly exposed. In the meantime, use the DC/OS dashboard to view and manage our services and [create an SSH tunnel to the DC/OS-related endpoints](https://azure.microsoft.com/documentation/articles/container-service-connect/) or run a convenience command provided by the Azure CLI.
 
-*Important: on a first-time deployment, confirm the VSTS release successfully deployed before proceeding.*
+> [!IMPORTANT]
+> On a first-time deployment, confirm the VSTS release successfully deployed before proceeding.*
 
 1. Open the ACS cluster's DC/OS dashboard using the Azure CLI convenience command:
 	
@@ -132,7 +133,9 @@ At this point, our application is deployed to our shared dev environment and is 
 	* `-g` is the resource group name of the target ACS cluster
 	* `-n` is the name of the target ACS cluster.
 	* You may be prompted for your local account password, since this command requires administrator privilege. The command creates an SSH tunnel to a DC/OS endpoint, opens your default browser to that endpoint, and temporarily configures the browser's web proxy. 
-	* TIP: If you need to look up the name of your ACS cluster, you can list all ACS clusters in your subscription by running `az acs list`. 
+
+> [!TIP]
+> If you need to look up the name of your ACS cluster, you can list all ACS clusters in your subscription by running `az acs list`. 
 
 1. In the DC/OS dashboard, click **Services** on the left navigation menu ([http://localhost/#/services](http://localhost/#/services)). Services deployed via our pipeline are grouped under a root folder named *dev* (named after the environment in the VSTS release definition). 
 
@@ -183,7 +186,7 @@ While we're in the DC/OS dashboard, let's scale our services.
 
 1. Navigate back to the running web app, and repeatedly click the *Say It Again* button. Notice that `service-b` invocations begin to round-robin across a collection of hostnames, while the single instance of `service-a` continues to report the same host.   
 
-## Promote a Release to Downstream Environments without Rebuilding Container Images
+## Promote a release to downstream environments without rebuilding container images
 Our VSTS release pipeline set up three environments by default: *Dev*, *Test*, and *Production*. So far we've deployed to *Dev*. Let's look at how we can promote a release to the next downstream environment, *Test*, without rebuilding our container images. This workflow ensures we're deploying the exact same images we tested in the prior environment and is the concept of *immutable services*, and reduces the likelihood of undetected errors creeping into production.
 
 1. In the VSTS web UI, navigate to **Releases**
@@ -200,7 +203,7 @@ Once deployment to *Test* has succeeded, a new root folder in Marathon UI named 
 
 ![Subfolders for each environment in DC/OS](media/container-service-setup-ci-cd/marathon-ui-dev-test-environments.png)
 
-## Trigger a New Build and Deployment after a Code Change
+## Trigger a new build and deployment
 Let's simulate what would happen if a developer on our team pushed a code change to the source repository.
 
 1. Back in the code editor, open `service-a/public/index.html`. 
@@ -227,7 +230,7 @@ If you open the build definition in VSTS, you'll see something like this:
 
 
 
-## Expose Public Endpoint for Production
+## Expose public endpoint for production
 
 1. Add the following yaml code to a new file named `docker-compose.env.production.yml` at the root folder of your source repository. This adds a label that causes a public endpoint to be exposed for `service-a`. 
 	
