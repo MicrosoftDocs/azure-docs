@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2016
+ms.date: 11/14/2016
 ms.author: stevelas
 ---
 # Push your first image to a container registry using the Docker CLI

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2016
+ms.date: 11/14/2016
 ms.author: stevelas
 ---
 # Authenticate with a container registry
