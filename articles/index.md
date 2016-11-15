@@ -1,5 +1,6 @@
 --- 
 layout: HubPage
+hide_bc: true
 title: Microsoft Azure Documentation
 ---
 <div id="main" class="v2">
