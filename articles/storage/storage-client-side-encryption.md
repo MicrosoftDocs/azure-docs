@@ -1,4 +1,4 @@
-﻿---
+---
 title: Client-Side Encryption with .NET for Microsoft Azure Storage | Microsoft Docs
 description: The Azure Storage Client Library for .NET supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications.
 services: storage
@@ -150,6 +150,7 @@ Users can optionally enable a mode of operation where all uploads and downloads 
 ### Blob service encryption
 Create a **BlobEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
+```csharp
     // Create the IKey used for encryption.
      RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
@@ -165,10 +166,11 @@ Create a **BlobEncryptionPolicy** object and set it in the request options (per 
      // Download and decrypt the encrypted contents from the blob.
      MemoryStream outputStream = new MemoryStream();
      blob.DownloadToStream(outputStream, null, options, null);
-
+```
 ### Queue service encryption
 Create a **QueueEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
+```csharp
     // Create the IKey used for encryption.
      RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
@@ -181,11 +183,12 @@ Create a **QueueEncryptionPolicy** object and set it in the request options (per
 
      // Retrieve message
      CloudQueueMessage retrMessage = queue.GetMessage(null, options, null);
-
+```
 ### Table service encryption
 In addition to creating an encryption policy and setting it on request options, you must either specify an **EncryptionResolver** in **TableRequestOptions**, or set the [EncryptProperty] attribute on the entity.
 
 #### Using the resolver
+```csharp
     // Create the IKey used for encryption.
      RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
@@ -217,13 +220,14 @@ In addition to creating an encryption policy and setting it on request options, 
 
      TableOperation operation = TableOperation.Retrieve(ent.PartitionKey, ent.RowKey);
      TableResult result = currentTable.Execute(operation, retrieveOptions, null);
-
+```
 #### Using attributes
 As mentioned above, if the entity implements TableEntity, then the properties can be decorated with the [EncryptProperty] attribute instead of specifying the **EncryptionResolver**.
 
+```csharp
     [EncryptProperty]
      public string EncryptedProperty1 { get; set; }
-
+```
 ## Encryption and performance
 Note that encrypting your storage data results in additional performance overhead. The content key and IV must be generated, the content itself must be encrypted, and additional meta-data must be formatted and uploaded. This overhead will vary depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
 
@@ -232,4 +236,3 @@ Note that encrypting your storage data results in additional performance overhea
 * Download the [Azure Storage Client Library for .NET NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Download the Azure Key Vault NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages  
 * Visit the [Azure Key Vault Documentation](../key-vault/key-vault-whatis.md)
-
