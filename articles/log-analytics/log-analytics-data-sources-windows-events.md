@@ -1,4 +1,4 @@
-﻿---
+---
 title: Windows Event logs in Log Analytics | Microsoft Docs
 description: Windows Event logs are one of the most common data sources used by Log Analytics.  This article describes how to configure collection of Windows Event logs and details of the records they create in the OMS repository.
 services: log-analytics
