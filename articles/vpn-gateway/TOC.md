@@ -28,8 +28,8 @@
 ### [Connect virtual networks from different deployment models in the portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Connect virtual networks from different deployment models using PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 ## Site-to-Site and ExpressRoute coexisting connections
-### [Create Site-to-Site and ExpressRoute coexisting connections](expressroute-howto-coexist-resource-manager.md)
-### [Create Site-to-Site and ExpressRoute coexisting connections (Classic)](expressroute-howto-coexist-classic.md)
+### [Create Site-to-Site and ExpressRoute coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+### [Create Site-to-Site and ExpressRoute coexisting connections (Classic)](../expressroute/expressroute-howto-coexist-classic.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Forced tunneling
 ### [Configure forced tunneling](vpn-gateway-forced-tunneling-rm.md)
 ### [Configure forced tunneling (Classic)](vpn-gateway-about-forced-tunneling.md)
