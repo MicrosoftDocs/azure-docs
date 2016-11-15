@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 ---
-#SQL Data Warehouse Documentation
+# SQL Data Warehouse Documentation
 
 Azure SQL Data Warehouse combines the SQL Server relational database with Azure cloud scale-out capabilities.  Built on our massively parallel processing (MPP) architecture, SQL Data Warehouse can handle your enterprise workload.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/sql-database/sql-data-warehouse-overview-what-is">
+        <a href="/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -41,23 +41,6 @@ Azure SQL Data Warehouse combines the SQL Server relational database with Azure 
             </div>
         </div>
         </a>
-    </li><li>
-        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-overview-workload/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with SQL Data Warehouse</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
      <li>
         <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision/">
@@ -77,42 +60,6 @@ Azure SQL Data Warehouse combines the SQL Server relational database with Azure 
         </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-create-database-tsql/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started creating a SQL Data Warehouse using Transact-SQL</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision-powershell">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/powershell.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started creating a SQL Data Warehouse using PowerShell</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
 </ul>
 
 ---
@@ -120,7 +67,7 @@ Azure SQL Data Warehouse combines the SQL Server relational database with Azure 
 ##Reference
 
 ###PowerShell
-[Azure PowerShell Reference] (/powershell/azureps-cmdlets-docs)
+[Azure PowerShell Reference] (/powershell/resourcemanager)
 
 ###T-SQL
 [T-SQL Reference](https://msdn.microsoft.com/library/azure/bb510741)
