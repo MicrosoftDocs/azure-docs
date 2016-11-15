@@ -23,22 +23,22 @@ This article summarizes supported operating systems and components for Azure Sit
 
 ## Supported operating systems for virtualization servers
 
-### Replication to Azure
+### Operating systems - replication to Azure
 
-**VMware VM/physical server** | **Hyper-V (no VMM) ** | **Hyper-V (with VMM)**
+**VMware VM/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | ---
 vCenter 5.5 or 6.0 (support for 5.5 features only) <br/><br/> vSphere 6.0, 5.5, or 5.1 with latest updates | Windows Server 2012 R2 with latest updates | Windows Server 2012 R2 with latest updates
 
-### Replication to secondary site
+### Operating systems - replication to secondary site
 
-**VMware VM/physical server* | **Hyper-V (with VMM)**
+**VMware VM/physical server** | **Hyper-V (with VMM)**
 --- | --- | ---
 vCenter 5.5 or 6.0 (support for 5.5 features only) <br/><br/> vSphere 6.0, 5.5, or 5.1 with latest updates | At least Windows Server 2012 with latest updates
 
 
 ## Support requirements for replicated machines
 
-### Replication to Azure
+### Replicated machines - replication to Azure
 
 Virtual machines must meet [Azure requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
@@ -48,7 +48,7 @@ What's replicated | Any workload on Windows or Linux VM | Any workload | Any wor
 Host OS | 64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3<bbr/><br/> Storage required: File system (EXT3, ETX4, ReiserFS, XFS); Multipath software-Device Mapper (multipath)); Volume manager: (LVM2). Physical servers with HP CCISS controller storage are not supported. The ReiserFS filesystem is supported only on SUSE Linux Enterprise Server 11 SP3. | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 
-## Replication to secondary site
+## Replicated machines: replication to secondary site
 
 **Requirement** | **VMware/physical server** | **Hyper-V (with VMM)**
 --- | --- | ---
@@ -67,7 +67,7 @@ Host OS | 64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 200
 
 ## Networking support requirements
 
-### Replication to Azure
+### Networking - replication to Azure
 
 **Host networking** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
@@ -96,7 +96,7 @@ Reserved IP | Yes | Yes | Yes
 IPv4 | Yes | Yes | Yes
 Retain source IP | Yes | Yes | Yes
 
-### Replication to secondary site
+### Networking - replication to secondary site
 
 **Host networking** | **VMware/physical server** | **Hyper-V (with VMM)**
 --- | --- | ---
@@ -117,7 +117,7 @@ Multi-NIC | Yes | Yes
 
 ## Storage support requirements
 
-### Replicate to Azure
+### Storage - replicate to Azure
 
 **Storage (host)** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
@@ -155,7 +155,7 @@ Premium storage | Yes | No | No
 Import/export service | No | No | No
 
 
-## Replicate to secondary site
+## Storage - replicate to secondary site
 
 **Storage (host)** | **VMware/physical server** | **Hyper-V (with VMM)**
 --- | --- | ---
@@ -184,17 +184,17 @@ Multi-path (MPIO) | NA | Yes
 
 ## Actions supported for Recovery Services vaults
 
-### Replicate to Azure
+### Vaults - replicate to Azure
 
 **Action** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
---- | --- | ---
+--- | --- | --- | ---
 Move vault across resource groups<br/><br/> Within and across subscriptions | No | No | No
 Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No | No
 
-### Replicate to secondary site
+### Vaults - replicate to secondary site
 
 **Action** | **VMware/physical server** | **Hyper-V (with VMM)**
---- | --- | ---
+--- | --- 
 Move vault across resource groups<br/><br/> Within and across subscriptions | No | No
 Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No
 
