@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/08/2016
+ms.date: 11/14/2016
 ms.author: glenga
 
 ---
@@ -48,8 +48,12 @@ Since the Azure Functions quickstarts contain functional code, you can immediate
 
 1. In the **Develop** tab, review the **Code** window and notice that this Node.js code expects an HTTP request with a *name* value passed either in the message body or in a query string. When the function runs, this value is returned in the response message.
    
-    ![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
-2. Scroll down to the **Request body** text box, change the value of the *name* property to your name, and click **Run**. You will see that execution is triggered by a test HTTP request, information is written to the streaming logs, and the "hello" response is displayed in the **Output**. 
+    2. Click **Test** to display the built-in HTTP test request pane for the function.
+ 
+	![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+
+2. In the **Request body** text box, change the value of the *name* property to your name, and click **Run**. You see that execution is triggered by a test HTTP request, information is written to the streaming logs, and the "hello" response is displayed in the **Output**.
+ 
 3. To trigger execution of the same function from another browser window or tab, copy the **Function URL** value from the **Develop** tab and paste it in a browser address bar, then append the query string value `&name=yourname` and press enter. The same information is written to the logs and the browser displays the "hello" response as before.
 
 ## Next steps
