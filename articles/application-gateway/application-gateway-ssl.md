@@ -19,9 +19,9 @@ ms.author: gwallace
 ---
 # Configure an application gateway for SSL offload by using the classic deployment model
 > [!div class="op_single_selector"]
-> -[Azure portal](application-gateway-ssl-portal.md)
-> -[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
-> -[Azure Classic PowerShell](application-gateway-ssl.md)
+> * [Azure portal](application-gateway-ssl-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
+> * [Azure Classic PowerShell](application-gateway-ssl.md)
 > 
 > 
 
@@ -165,9 +165,12 @@ Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 ```
 
 ## Start the gateway
-Once the gateway has been configured, use the`**Start-AzureApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started.
+Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started.
 
-**Note:** The `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes to finish.
+> [!NOTE]
+> The `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes to finish.
+>
+>
 
 ```powershell
 Start-AzureApplicationGateway AppGwTest
