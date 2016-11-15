@@ -48,12 +48,18 @@ Databases that are great candidates for elastic pools typically have periods of 
 
 [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
 
-## eDTU and storage limits for elastic pools and elastic databases.
+## eDTU and storage limits for elastic pools and elastic databases
+
+The following table describes the characteristics of Basic, Standard, and Premium elastic database pools.
+
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries.  The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
 ## Elastic pool and elastic database properties
+
+The following tables describes the limits for elastic pools and elastic databases.
+
 ### Limits for elastic pools
 | Property | Description |
 |:--- |:--- |
@@ -75,7 +81,7 @@ If all DTUs of an elastic pool are used, then each database in the pool receives
 ## Elastic database jobs
 With a pool, management tasks are simplified by running scripts in **[elastic jobs](sql-database-elastic-jobs-overview.md)**. An elastic database job eliminates most of tedium associated with large numbers of databases. To begin, see [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
 
-For more information about other tools, see the [Elastic database tools learning map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
+For more information about other elastic database tools, see [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction).
 
 ## Business continuity features for databases in a pool
 Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases in V12 servers.

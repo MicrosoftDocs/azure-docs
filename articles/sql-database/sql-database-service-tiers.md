@@ -56,7 +56,7 @@ In addition to creating and scaling a standalone database, you also have the opt
 
 Pools allow databases to share and consume DTU resources without needing to assign a specific performance level to each database in the pool. For example, a standalone database in a Standard pool can go from using 0 eDTUs to the maximum database eDTU you set up when you configure the pool. Pools allow multiple databases with varying workloads to efficiently use eDTU resources available to the entire pool. See [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md) for details.
 
-The following table describes the characteristics of pool service tiers.
+The following table describes the characteristics of Basic, Standard, and Premium elastic database pools.
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 

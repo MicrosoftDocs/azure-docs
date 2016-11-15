@@ -1,8 +1,6 @@
 
 ### Basic elastic pool limits
 
-
-
 | Pool size (eDTUs)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Max storage per pool* | 5 GB| 10 GB| 20 GB| 29 GB| 39 GB| 73 GB| 117 GB| 156 GB|
@@ -14,7 +12,7 @@
 | Max eDTUs per database | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 ||||||||
 
-Point-in-time-restore: Any point last 7 days 
+You can restore a database in a basic elastic pool to any point in the last 7 days 
 
 ### Standard elastic pool limits
 
@@ -42,7 +40,7 @@ Point-in-time-restore: Any point last 7 days
 | Max eDTUs per database | 10,20,50,100 | 10,20,50,100 | 10,20,50,100 | 10,20,50,100 |10,20,50,100 |10,20,50,100 |
 ||||||||
 
-Point-in-time-restore: Any point last 35 days 
+You can restore a database in a basic elastic pool to any point in the last 35 days
 
 ### Premium elastic pool limits
 
@@ -70,7 +68,6 @@ Point-in-time-restore: Any point last 35 days
 | Max eDTUs per database | 125,250,500,<br>1000,1750 | 125,250,500,<br>1000,1750 | 125,250,500,<br>1000,1750 | 125,250,500,<br>1000,1750 | 125,250,500,<br>1000,1750 | 125,250,500,<br>1000,1750,4000 |
 ||||||||
 
-Point-in-time-restore: Any point last 35 days 
+You can restore a database in a basic elastic pool to any point in the last 35 days
 
-
-* Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
+\* Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
