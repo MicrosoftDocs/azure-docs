@@ -37,6 +37,7 @@
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (Classic)](application-gateway-create-probe-classic-ps.md)
+## [Combining load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Manage
 ### [Diagnostics](application-gateway-diagnostics.md)
 ### [Troubleshoot](application-gateway-troubleshooting-502.md)
@@ -54,7 +55,7 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork) 
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
 ## [Service updates](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)

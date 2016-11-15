@@ -30,6 +30,7 @@
 ## [Configure Distribution mode for Load Balancer](load-balancer-distribution-mode.md)
 ## [Configure Internal Load Balancer for SQL AlwaysOn](load-balancer-configure-sqlao.md)
 ## [Configure multiple VIPs for cloud service](load-balancer-multivip.md)
+## [Combining load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)
 
@@ -49,5 +50,5 @@
 ## [DNS](/azure/dns/)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/load-balancer/) 
-## [Service updates](https://azure.microsoft.com/updates/?product=load-balancer) 
+## [Pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [Service updates](https://azure.microsoft.com/updates/?product=load-balancer)
