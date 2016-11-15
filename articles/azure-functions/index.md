@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #Azure Functions Documentation
 
-Azure Functions is a solution for easily running small pieces of code, or "functions" in the cloud.  You can just write the code you need for the problem at hand, without worrying about a whole application of the infrastructure to run it.  You can also develop in the language of your choice, such as C#, F#, Node.js, Python or PHP.
+Azure Functions is a solution for easily running small pieces of code ("functions") in the cloud. You can write the code you need for the problem at hand, without worrying about a whole application of the infrastructure to run it. You can also develop in the language of your choice, such as C#, F#, Node.js, Python, or PHP.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -13,7 +13,7 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/azure-functions.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -24,7 +24,7 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
         </div>
         </a>
     </li>
-   
+
    <li>
         <a href="/azure/azure-functions/functions-create-first-azure-function">
         <div class="cardSize">
@@ -32,7 +32,7 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -50,11 +50,11 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a webhook function</h3>
+                        <h3>Get Started with a webhook function</h3>
                     </div>
                 </div>
             </div>
@@ -68,11 +68,11 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Azure connected function</h3>
+                        <h3>Get Started with an Azure connected function</h3>
                     </div>
                 </div>
             </div>
@@ -86,11 +86,11 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an event processing function</h3>
+                        <h3>Get Started with an event processing function</h3>
                     </div>
                 </div>
             </div>
@@ -101,13 +101,8 @@ Azure Functions is a solution for easily running small pieces of code, or "funct
 
 ---
 
-##Reference
-
-###.NET
-[Azure Functions Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
-
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-functions.pdf">
         <div class="img"></div>
         <div class="text">
             Download Azure Functions Documentation

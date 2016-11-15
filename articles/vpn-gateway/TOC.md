@@ -1,15 +1,15 @@
 # Overview
 ## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway)
-## [SLA](https://azure.microsoft.com/support/legal/sla)
-## [Subscription and Service Limits](../azure-subscription-service-limits.md)
+## [Subscription and service limits](../azure-subscription-service-limits.md)
+
 # Get Started
 ## [Planning and design for VPN Gateway](vpn-gateway-plan-design.md)
 ## [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md)
 ## [About VPN devices for Site-to-Site VPN Gateway connections](vpn-gateway-about-vpn-devices.md)
 ## [About BGP and VPN Gateway](vpn-gateway-bgp-overview.md)
 ## [About highly available connections](vpn-gateway-highlyavailable.md)
+
 # How To
 ## Site-to-Site
 ### [Configure a Site-to-Site connection using the Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -45,19 +45,23 @@
 ## [Configure a VPN gateway (Classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Reference
-## [PowerShell (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163859)
-## [REST (Classic)](https://msdn.microsoft.com/library/jj154113)
+## [PowerShell (resource manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
+## [PowerShell (classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+## [REST (resource manager)](https://msdn.microsoft.com/library/mt163859)
+## [REST (classic)](https://msdn.microsoft.com/library/jj154113)
 
+# Related
+## [Virtual Machines](/azure/virtual-machines/)
+## [Application Gateway](/azure/application-gateway/)
+## [Azure DNS](/azure/dns/)
+## [Traffic Manager](/azure/traffic-manager/)
+## [Load Balancer](/azure/load-balancer/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [ExpressRoute](/azure/expressroute/)
 
-# Related 
-## [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines) 
-## [Application Gateway](https://azure.microsoft.com/documentation/services/application-gateway)
-## [Azure DNS](https://azure.microsoft.com/documentation/services/dns)
-## [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager)
-## [Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer)
-## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway)
-## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute) 
 # Resources
-## [Networking Blog](https://azure.microsoft.com/blog/topics/networking)
+## [Blog](https://azure.microsoft.com/blog/topics/networking)
+## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [SLA](https://azure.microsoft.com/support/legal/sla)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

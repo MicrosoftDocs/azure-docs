@@ -34,19 +34,23 @@
 ### [Manage groups](api-management-howto-create-groups.md)
 ### [Deploy to multiple Azure regions](api-management-howto-deploy-multi-region.md)
 ### [Log events to Azure Event Hubs](api-management-howto-log-event-hubs.md)
-### [Setup DR using backup/restore](api-management-howto-disaster-recovery-backup-restore.md)
+### [Set up DR using backup/restore](api-management-howto-disaster-recovery-backup-restore.md)
 ### [Trace calls with the API Inspector](api-management-howto-api-inspector.md)
 ### [Manage user accounts](api-management-howto-create-or-invite-developers.md)
 ### [Manage using automation](automation-manage-api-management.md)
 ### [Configure using Git](api-management-configuration-repository-git.md)
-#Reference
-## [Templates](https://msdn.microsoft.com/en-us/library/azure/mt697540)
-## [Service deployment PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/mt619282)
+# Reference
+## [Resource Management PowerShell cmdlet](/powershell/resourcemanager)
+## [Classic deployment PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+## [REST API](/rest/api/apimanagement/)
 ## [Policies](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [REST API](https://msdn.microsoft.com/en-us/library/azure/dn776326)
-## [Service management PowerShell cmdlet](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-#Resources
+## [Templates](https://msdn.microsoft.com/en-us/library/azure/mt697540)
+# Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/api-management/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [Service updates](https://azure.microsoft.com/updates/?product=api-management)
 ## [Whitepaper: Cloud-based API Management](http://j.mp/ms-apim-whitepaper)
 ## [API design guidance](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [API implementation guidance](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
@@ -54,6 +58,6 @@
 ## [Connecting Event Hubs to API Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
 ## [API Management - Plays well with other Azure services](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
 ## [Provide RBAC-like access using the REST API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
-## [Setup PostMan to call API Management APIs](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
+## [Set up PostMan to call API Management APIs](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [API Management plugin for SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 

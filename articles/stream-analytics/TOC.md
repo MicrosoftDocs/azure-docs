@@ -40,15 +40,18 @@
 ### [One-click PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [.NET](/dotnet/api/)
 ## [Query language](https://msdn.microsoft.com/library/azure/dn834998)
-## [REST](https://docs.microsoft.com/rest/api/streamanalytics/)
+## [REST](/rest/api/streamanalytics/)
 ## [Release notes](stream-analytics-release-notes.md)
 
 # Resources
 ## [Learning Path](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
-## [MSDN blog](http://blogs.msdn.com/b/streamanalytics/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+## [Pricing](https://azure.microsoft.com/pricing/details/stream-analytics/)
+## [Blog](http://blogs.msdn.com/b/streamanalytics/)
+## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics)
+## [Service updates](https://azure.microsoft.com/updates/?product=stream-analytics)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
