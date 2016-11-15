@@ -55,6 +55,7 @@ Since the Azure Functions quickstarts contain functional code, you can immediate
 ## Next steps
 This quickstart demonstrates a very simple execution of a basic HTTP-triggered function. See these topics for more information about leveraging the power of Azure Functions in your apps.
 
+* [Best Practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)  
   Programmer reference for coding functions and defining triggers and bindings.
 * [Testing Azure Functions](functions-test-a-function.md)  

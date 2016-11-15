@@ -1,5 +1,5 @@
 ---
-title: Azure Automation Runbook Types
+title: Azure Automation Runbook Types | Microsoft Docs
 description: 'Describes the different types of runbooks that you can use in Azure Automation and considerations that you should take into account when determining which type to use. '
 services: automation
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 11/11/2016
 ms.author: bwren
 
 ---
@@ -31,9 +31,12 @@ Azure Automation supports four types of runbooks that are  briefly described in 
 [Graphical](automation-runbook-types.md#graphical-runbooks) and Graphical PowerShell Workflow runbooks are created and edited with the graphical editor in the Azure portal.  You can export them to a file and then import them into another automation account, but you cannot create or edit them with another tool.  Graphical runbooks generate PowerShell code, but you can't directly view or modify the code. Graphical runbooks cannot be converted to one of the [text formats](automation-runbook-types.md), nor can a text runbook be converted to graphical format. Graphical runbooks can be converted to Graphical PowerShell Workflow runbooks during import and vice-versa.
 
 ### Advantages
-* Create runbooks with minimal knowledge of [PowerShell](automation-powershell-workflow.md).
-* Visually represent management processes.
-* Include other runbooks as child runbooks to create high level workflows.
+* Visual insert-link-configure authoring model  
+* Focus on how data flows through the process  
+* Visually represent management processes  
+* Include other runbooks as child runbooks to create high level workflows  
+* Encourages modular programming  
+
 
 ### Limitations
 * Can't edit runbook outside of Azure portal.
