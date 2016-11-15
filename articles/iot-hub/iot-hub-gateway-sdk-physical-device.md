@@ -85,7 +85,7 @@ The BLE modules talk to the Bluetooth hardware via the BlueZ stack. You need ver
     ```
     sudo systemctl stop bluetooth
     ```
-2. Install the BlueZ dependencies. 
+2. Install the BlueZ dependancies. 
    
     ```
     sudo apt-get update
