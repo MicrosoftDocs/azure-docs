@@ -1,4 +1,4 @@
----
+﻿---
 title: Restore a virtual machines from backup | Microsoft Docs
 description: Learn how to restore an Azure virtual machine from a recovery point
 services: backup
