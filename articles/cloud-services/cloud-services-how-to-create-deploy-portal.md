@@ -72,7 +72,8 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 6. Select a **Location**.
 7. Click **Package**. This will open the **Upload a package** blade. Fill in the required fields. If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is selected.
 
-    [!IMPORTANT] Cloud Services can only be associated with [classic storage accounts](../resource-manager-deployment-model.md). If you see a message saying that no storage accounts were found for your subscription and location, make sure you have created a classic storage account for your cloud service in that location.
+    [!IMPORTANT]
+    Cloud Services can only be associated with [classic storage accounts](../resource-manager-deployment-model.md). If you see a message saying that no storage accounts were found for your subscription and location, make sure you have created a classic storage account for your cloud service in that location.
 
 8. Make sure that **Start deployment** is selected.
 9. Click **OK** which will close the **Upload a package** blade.
