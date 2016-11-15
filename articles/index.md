@@ -105,6 +105,12 @@ title: Microsoft Azure Documentation
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/container-registry/">
+                                                <img src="media/index/ContainerService.svg" alt="" />
+                                                <p>Azure Container Registry</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/azure-functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
                                                 <p>Functions</p>
@@ -703,6 +709,25 @@ title: Microsoft Azure Documentation
                                                 <div class="cardText">
                                                     <h3>Azure Container Service</h3>
                                                     <p>Use Docker based tools to deploy and manage containers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/container-registry/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContainerService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Container Registry</h3>
+                                                    <p>Store and manage images for all types of container deployments</p>
                                                 </div>
                                             </div>
                                         </div>
