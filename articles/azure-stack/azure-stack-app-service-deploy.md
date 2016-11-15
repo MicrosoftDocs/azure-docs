@@ -124,7 +124,7 @@ The deployment will take about 45-60 minutes to complete.
 ## Create DNS records for the Management Server and Front-End load balancers
 1.	Open a PowerShell instance as **azurestack\administrator**.
 2.	Navigate to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
-3.	Run the **Create-AppServiceDnsRecords.ps1** script, this script creates DNS entries to enable the portal and web app requests to be routed to the Front-End Servers.  During Azure Resource Manager deployment of App Service, two Software Load Balancers (SLBs), were created in the network resource provider. They point to the Management Servers and the Front-End servers. The portal and Azure Resource Manager based requests to the Azure Stack App Service resource provider go to the Management Server.
+3.	Run the **Create-AppServiceDnsRecords.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example myazurestack.onmicrosoft.com.  This script creates DNS entries to enable the portal and web app requests to be routed to the Front-End Servers.  During Azure Resource Manager deployment of App Service, two Software Load Balancers (SLBs), were created in the network resource provider. They point to the Management Servers and the Front-End servers. The portal and Azure Resource Manager based requests to the Azure Stack App Service resource provider go to the Management Server.
 
 ## Register the newly deployed App Service provider with Azure Resource Manager
 1.	Open a PowerShell instance as **azurestack\administrator**.
