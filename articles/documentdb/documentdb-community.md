@@ -1,4 +1,4 @@
-﻿---
+---
 title: DocumentDB community & news | Microsoft Docs
 description: Join the Azure DocumentDB community to build relationships, showcase your work, and sharpen your skills.
 services: documentdb
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/02/2016
+ms.date: 11/16/2016
 ms.author: andrl
 
 ---
@@ -93,7 +93,6 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 ### Recent and upcoming events
 | Event Name | Speaker | Location | Date | Hashtag |
 | --- | --- | --- | --- | --- |
-| [Capital City .NET Users Group](http://www.meetup.com/tally-dot-net/events/233768568/) |Santosh Hari |Tallahassee, FL |November 3, 2016 |n/a |
 | [Connect(); // 2016](https://connectevent.microsoft.com/) |Kirill Gavrylyuk |New York, NY |November 16-18, 2016 |#MSFTConnect |
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
@@ -101,6 +100,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 ### Previous events and recordings
 | Event Name | Speaker | Location | Date | Recording |
 | --- | --- | --- | --- | --- |
+| [Capital City .NET Users Group](http://www.meetup.com/tally-dot-net/events/233768568/) |Santosh Hari |Tallahassee, FL |November 3, 2016 |n/a |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) |DocumentDB team |Atlanta, GA |September 26-30, 2016 |[Slidedeck](http://www.slideshare.net/aliuy/pass-summit-2016-azure-documentdb-a-deep-dive-into-advanced-features) |
 | [DevTeach](http://devteach.com/) |Ken Cenerelli |Montreal, Canada |July 4-8, 2016 |[NoSQL, No Problem, Using Azure DocumentDB](http://www.slideshare.net/KenCenerelli) |
 | [Integration and IoT ](http://www.btug.be/events) |Eldert Grootenboer |Kontich, Belgium |June 30, 2016 |n/a |
@@ -228,6 +228,7 @@ DocumentDB Wizards are community leaders who’ve demonstrated an exemplary comm
 |  [Larry Maccherone](https://twitter.com/lmaccherone) |[![Larry Maccherone](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) |
 |  [Howard Edidin](https://twitter.com/hsedidin) |[![Howard Edidin](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) |
 |  [Santosh Hari](https://twitter.com/_s_hari) |[![Santosh Hari](./media/documentdb-community/wizard-santosh-hari.jpg)](https://twitter.com/_s_hari) |
+| [Matías Quaranta](https://twitter.com/ealsur) |[![Matías Quaranta](./media/documentdb-community/wizard-matias-quaranta.jpg)](https://twitter.com/ealsur) |
 
 Want to become a DocumentDB Wizard? While there is no benchmark for becoming a DocumentDB Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).
 
