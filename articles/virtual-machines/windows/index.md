@@ -106,7 +106,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
 [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
-[Azure CLI](/cli/azure/vm)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###.NET
 [Managed Reference API](/dotnet/api/)

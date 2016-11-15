@@ -88,7 +88,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI 
-[Storage using Azure CLI Reference](/cli/azure/storage)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###Java 
 [Storage in Java Reference](/java/api/)
