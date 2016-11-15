@@ -306,9 +306,9 @@ The following table provides the list of available events and statuses (and subs
 | Activity Run Started |Started |Starting |
 | Activity Run Finished |Succeeded |Succeeded |
 | Activity Run Finished |Failed |Failed Resource Allocation<br/><br/>Failed Execution<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned |
-| On-Demand HDI Cluster Create Started |Started |&nbsp; |
-| On-Demand HDI Cluster Created Successfully |Succeeded |&nbsp; |
-| On-Demand HDI Cluster Deleted |Succeeded |&nbsp; |
+| On-Demand HDI Cluster Create Started |Started |-|
+| On-Demand HDI Cluster Created Successfully |Succeeded |-|
+| On-Demand HDI Cluster Deleted |Succeeded |-|
 
 ### To edit/delete/disable an alert
 ![Alerts buttons](./media/data-factory-monitor-manage-app/AlertButtons.png)
