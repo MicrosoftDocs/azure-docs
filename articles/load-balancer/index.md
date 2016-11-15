@@ -85,7 +85,7 @@ Azure Load Balancer delivers high availability and network performance to your a
 ##Reference
 
 ###PowerShell
-[Load Balancer PowerShell Reference](/powershell/azureps-cmdlets-doc)
+[Load Balancer PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
 [Install the Azure CLI](/cli/azure/install-az-cli2)
