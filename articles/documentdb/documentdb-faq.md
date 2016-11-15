@@ -1,4 +1,4 @@
-﻿---
+---
 title: DocumentDB Database Questions - Frequently Asked Questions | Microsoft Docs
 description: Get answers to frequently asked questions about Azure DocumentDB a NoSQL document database service for JSON. Answer database questions about capacity, performance levels, and scaling.
 keywords: Database questions, frequently asked questions, documentdb, azure, Microsoft azure
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2016
+ms.date: 11/16/2016
 ms.author: mimig
 
 ---
