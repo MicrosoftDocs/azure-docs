@@ -17,7 +17,7 @@ ms.date: 09/26/2016
 ms.author: mattmcg
 
 ---
-# Set quotas in Azure Stack
+# Set and view quotas in Azure Stack
 Quotas define the limits of resources that a tenant subscription
 can provision or consume. For example, a quota might allow a tenant to
 create up to five VMs. To add a service to a plan, the
