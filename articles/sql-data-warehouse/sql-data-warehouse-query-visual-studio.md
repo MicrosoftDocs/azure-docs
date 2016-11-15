@@ -1,5 +1,5 @@
 ---
-title: Connect to SQL Data Warehouse - Visual Studio) | Microsoft Docs
+title: Connect to Azure SQL Data Warehouse - VSTS | Microsoft Docs
 description: Query SQL Data Warehouse with Visual Studio.
 services: sql-data-warehouse
 documentationcenter: NA
