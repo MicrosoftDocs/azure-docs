@@ -1,6 +1,6 @@
 # Overview
 ## [What is SQL Database?](sql-database-technical-overview.md)
-## [SQL Database FAQ](sql-database-faq.md)
+
 ## Features
 ### [Service tiers](sql-database-service-tiers.md)
 ### [Database Transaction Units](sql-database-what-is-a-dtu.md)
@@ -12,13 +12,6 @@
 ### [Resource limits](sql-database-resource-limits.md)
 ### [General limitations](sql-database-general-limitations.md)
 ### [Security guidelines](sql-database-security-guidelines.md)
-
-## Benefits
-### [Learns and adapts](sql-database-learn-and-adapt.md)
-### [Scales on the fly](sql-database-scale-on-the-fly.md)
-### [Builds multitenant apps](sql-database-build-multi-tenant-apps.md)
-### [Secures and protects](sql-database-helps-secures-and-protects.md)
-### [Works in your environment](sql-database-works-in-your-environment.md)
 
 ## Scenarios
 
@@ -75,6 +68,7 @@
 ## [Create and manage access and permissions](sql-database-get-started-security.md)
 ## [In-memory optimization](sql-database-in-memory.md)
 ## [Data sync](sql-database-get-started-sql-data-sync.md)
+## [SQL Database FAQ](sql-database-faq.md)
 
 # How To
 
@@ -287,6 +281,9 @@
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/sql-database/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-azure)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
 ## [Service updates](https://azure.microsoft.com/updates/?service=sql-database)
 ## [SQL Server Tools](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
@@ -294,5 +291,11 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
+
+
+## Benefits
+### [Learns and adapts](sql-database-learn-and-adapt.md)
+### [Scales on the fly](sql-database-scale-on-the-fly.md)
+### [Builds multitenant apps](sql-database-build-multi-tenant-apps.md)
+### [Secures and protects](sql-database-helps-secures-and-protects.md)
+### [Works in your environment](sql-database-works-in-your-environment.md)
