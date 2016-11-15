@@ -103,7 +103,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
 ##Reference
 
 ###Azure CLI 
-[IoT HUB with Azure CLI](/cli/azure/iot)  
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###.NET 
 [.NET Managed Reference API](/dotnet/api/) 

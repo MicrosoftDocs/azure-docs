@@ -141,7 +141,7 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
 [Azure PowerShell reference](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
-[Redis Cache with Azure CLI](/cli/azure/redis) 
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###.NET 
 [Redis Cache Managed Reference API](/dotnet/api/) 

@@ -86,7 +86,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
 ##Reference
 
 ###Azure CLI
-[Azure CLI](/cli/azure/vm)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###.NET
 [.NET Managed Reference API](/dotnet/api/)
