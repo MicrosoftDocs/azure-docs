@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/14/2016
 ms.author: raynew
 
 ---
@@ -312,11 +312,14 @@ Here's what happens when network mapping begins:
 * If you modify an existing mapping with a new network, replica virtual machines will be connected using the new settings.
 * If the target network has multiple subnets and one of those subnets has the same name as subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover. If there’s no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.
 
-### Configure Storage mapping
-By default when you replicate a virtual machine on a source Hyper-V host server to a target Hyper-V host server, replicated data is stored in the default location that’s indicated for the target Hyper-V host in Hyper-V Manager. For more control over where replicated data is stored, you can configure storage mapping<br/><br/> To configure storage mapping, you need to set up storage classifications on the source and target VMM servers before you begin deployment. Currently Storage mapping through new Azure portal is not supported. However, it can be enabled via Powershell.[Learn more](site-recovery-vmm-to-vmm-powershell-resource-manager.md#step-6-configure-storage-mapping).
+### Configure storage mapping
+By default when you replicate a Hyper-V VM to a target Hyper-V server, replicated data is stored in the default location for the target Hyper-V host in Hyper-V Manager. To control where replicated data is stored, you can configure storage mapping.<br/><br/> To do this, you set up storage classifications on the source and target VMM servers, before you begin deployment.
+
+Storage mapping isn't currently supported in the new Azure portal. However, it can be enabled using Powershell.[Learn more](site-recovery-vmm-to-vmm-powershell-resource-manager.md#step-6-configure-storage-mapping).
 
 ## Step 5: Capacity planning
-Now that you have your basic infrastructure set up you can think about capacity planning and figure out whether you need additional resources.
+
+Now that you have your basic infrastructure set up, think about capacity planning, and figure out whether you need additional resources.
 
 Site Recovery provides an Excel-based capacity planner to help you allocate the right resources for your source environment, the site recovery components, networking and storage. You can run the planner in quick mode for estimations based on an average number of VMs, disks, and storage, or in detailed mode in which you’ll input figures at the workload level. Before you start you’ll need to:
 

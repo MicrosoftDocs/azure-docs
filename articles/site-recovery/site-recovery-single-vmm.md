@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 08/24/2016
+ms.date: 11/14/2016
 ms.author: raynew
 
 ---
 # Replicate Hyper-V virtual machines on a single VMM server
-Read this article to learn how to replicate Hyper-V virtual machines located on a Hyper-V host server in a VMM cloud when you only have a single VMM server in your deployment.
+
+Read this article to learn how to replicate Hyper-V virtual machines located on a Hyper-V host server in a VMM cloud, when you only have a single VMM server in your deployment.
 
 Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models. This article contains instructions for setting up replication in the Azure portal.
 
@@ -40,7 +41,7 @@ In this scenario you deploy the single VMM server as a virtual machine in the pr
 
 1. Set up VMM on a Hyper-V VM. We suggest you install the SQL Server instance used by VMM on the same VM to save time. If you want to use a remote instance of SQL Server and an outage occurs, you need to recover that instance before you can recover VMM.
 2. Make sure that the VMM server has at least two clouds configured. One cloud contains the VMs you want to replicate, and the other cloud serves as the secondary location. The cloud that contains the VMs you want to protect should have:
-   
+
    * One or more VMM host groups containing one or more Hyper-V host servers in each host group.
    * At least one Hyper-V virtual machine on each Hyper-V host server.
 3. Create a Recovery Services vault, generate and download a vault registration key, and register the VMM server in the vault. During registration you install the Azure Site Recovery Provider on the VMM server.
@@ -81,4 +82,3 @@ When an outage occurs, the VMM server and its corresponding SQL Server database 
 
 ## Next steps
 [Learn more](site-recovery-vmm-to-vmm.md) about detailed Site Recovery deployment for VMM to VMM replication.
-

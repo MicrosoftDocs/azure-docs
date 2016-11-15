@@ -13,12 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/15/2016
 ms.author: raynew
 
 ---
 # Business continuity and disaster recovery (BCDR): Azure Paired Regions
+
 ## What are paired regions?
+
 Azure operates in multiple geographies around the world. An Azure geography is a defined area of the world that contains at least one Azure Region. An Azure region is an area within a geography containing one or more datacenters.
 
 Each Azure region is paired with another region within the same geography, together making a regional pair. The exception is Brazil South which is paired with a region outside its geography.
@@ -47,8 +49,8 @@ Figure 1 – Azure regional pair diagram
 Table 1 - Mapping of azure regional pairs
 
 > (1) Brazil South is unique because it is paired with a region outside of its own geography. Brazil South’s secondary region is South Central US but South Central US’s secondary region is not Brazil South.
-> 
-> 
+>
+>
 
 We recommend that you replicate workloads across regional pairs to benefit from Azure’s isolation and availability policies. For example, planned Azure system updates are deployed sequentially (not at the same time) across paired regions. That means that even in the rare event of a faulty update, both regions will not be affected simultaneously. Furthermore, in the unlikely event of a broad outage, recovery of at least one region out of every pair is prioritized.
 
@@ -87,4 +89,3 @@ As referred to in figure 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png)
 **Data residency** – A region resides within the same geography as its pair (with the exception of Brazil South) in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
-
