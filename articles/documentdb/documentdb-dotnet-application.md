@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/11/2016
+ms.date: 11/16/2016
 ms.author: syamk
 
 ---
@@ -41,8 +41,11 @@ This walk-through shows you how to use the DocumentDB service provided by Azure 
 ## <a name="_Toc395637760"></a>Prerequisites for this database tutorial
 Before following the instructions in this article, you should ensure that you have the following:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/) (OR)
-* A local installation of the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md).
+* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/) 
+
+    OR
+
+    A local installation of the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2015](http://www.visualstudio.com/) or Visual Studio 2013 Update 4 or higher. If using Visual Studio 2013, you will need to install the [Microsoft.Net.Compilers nuget package](https://www.nuget.org/packages/Microsoft.Net.Compilers/) to add support for C# 6.0. 
 * Azure SDK for .NET version 2.5.1 or higher, available through the [Microsoft Web Platform Installer][Microsoft Web Platform Installer].
 

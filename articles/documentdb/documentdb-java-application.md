@@ -1,4 +1,4 @@
-﻿---
+---
 title: Java application development tutorial using DocumentDB | Microsoft Docs
 description: This Java web application tutorial shows you how to use the Azure DocumentDB service to store and access data from a Java application hosted on Azure Websites.
 keywords: Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure
@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 11/12/2016
+ms.date: 11/16/2016
 ms.author: denlee
 
 ---
@@ -44,8 +44,11 @@ This Java application tutorial shows you how to create a web-based task-manageme
 ## <a id="Prerequisites"></a>Prerequisites for this Java web application tutorial
 Before you begin this application development tutorial, you must have the following:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/) (OR)
-* A local installation of the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md).
+* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/)
+
+    OR
+
+    A local installation of the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md).
 * [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Eclipse IDE for Java EE Developers.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [An Azure Website with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](../app-service-web/web-sites-java-get-started.md)
