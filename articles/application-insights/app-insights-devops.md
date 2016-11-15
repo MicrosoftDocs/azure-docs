@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/26/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
@@ -105,6 +105,10 @@ Customer Samtec said: "During a recent feature cutover, we found an under-scaled
 Deploying the latest build can be an anxious experience. If there are any problems, you want to know about them right away, so that you can back out if necessary. Live Metrics Stream gives you key metrics with a latency of about one second.
 
 ![Live metrics](./media/app-insights-devops/040.png)
+
+And lets you immediately inspect a sample of any failures or exceptions.
+
+![Live failure events](./media/app-insights-devops/live-stream-failures.png)
 
 ## Application Map
 Application Map automatically discovers your application topology, laying the performance information on top of it, to let you easily identify performance bottlenecks and problematic flows across your distributed environment. It allows you to discover application dependencies on Azure Services. You can triage the problem by understanding if it is code-related or dependency related and from a single place drill into related diagnostics experience. For example, your application may be failing due to performance degradation in SQL tier. With application map, you can see it immediately and drill into the SQL Index Advisor or Query Insights experience.

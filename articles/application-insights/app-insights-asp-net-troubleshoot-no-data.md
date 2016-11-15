@@ -28,9 +28,9 @@ ms.author: awills
 
 * Probably a firewall issue. [Set firewall exceptions for Application Insights to send data](app-insights-ip-addresses.md).
 
-*I [installed Application Insights Agent](app-insights-monitor-performance-live-website-now.md) on my web server to monitor existing apps. I don't see any results.*
+*I [installed Status Monitor](app-insights-monitor-performance-live-website-now.md) on my web server to monitor existing apps. I don't see any results.*
 
-* See [Troubleshooting Application Insights Agent](app-insights-monitor-performance-live-website-now.md#troubleshooting). 
+* See [Troubleshooting Status Monitor](app-insights-monitor-performance-live-website-now.md#troubleshooting). 
 
 ## <a name="q01"></a>No 'Add Application Insights' option in Visual Studio
 *When I create a new project in Visual Studio, or when I right-click an existing project in Solution Explorer, I don't see any Application Insights options.*
@@ -154,7 +154,7 @@ The data comes from scripts in the web pages.
 See [dependency telemetry](app-insights-asp-net-dependencies.md) and [exception telemetry](app-insights-asp-net-exceptions.md).
 
 ## No performance data
-Performance data (CPU, IO rate, and so on) is available for [Java web services](app-insights-java-collectd.md), [Windows desktop apps](app-insights-windows-desktop.md), [IIS web apps and services if you install Application Insights Agent](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-azure.md). you'll find it under Settings, Servers.
+Performance data (CPU, IO rate, and so on) is available for [Java web services](app-insights-java-collectd.md), [Windows desktop apps](app-insights-windows-desktop.md), [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-azure.md). you'll find it under Settings, Servers.
 
 It isn't available for Azure websites.
 

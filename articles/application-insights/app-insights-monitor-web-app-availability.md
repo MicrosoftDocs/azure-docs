@@ -99,6 +99,14 @@ Alternatively, you can download the result file and inspect it in Visual Studio.
 
 *Looks OK but reported as a failure?* Check all the images, scripts, style sheets, and any other files loaded by the page. If any of them fails, the test is reported as failed, even if the main html page loads OK.
 
+### Open the server request and exceptions
+
+From the detailed properties of a particular test, you can open the server-side report of the request and any other events such as exceptions.
+
+![Webtest run result](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
+
+If you don't see related items, it may be because [sampling](app-insights-sampling.md) is in operation.
+
 ## Multi-step web tests
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
 

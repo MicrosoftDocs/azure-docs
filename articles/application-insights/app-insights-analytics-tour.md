@@ -82,6 +82,57 @@ The result would be the same, but it would run a bit more slowly. (You could als
 
 The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to retrieve just part of a table, you'll only re-order the records you've retrieved.
 
+## [Where](app-insights-analytics-reference.md#where-operator): filtering on a condition
+
+Let's see just requests that returned a particular result code:
+
+```AIQL
+
+    requests
+    | where resultCode  == "404" 
+    | take 10
+```
+
+![](./media/app-insights-analytics-tour/250.png)
+
+The `where` operator takes a Boolean expression. Here are some key points about them:
+
+* `and`, `or`: Boolean operators
+* `==`, `<>` : equal and not equal
+* `=~`, `!=` : case-insensitive string equal and not equal. There are lots more string comparison operators.
+
+Read all about [scalar expressions](app-insights-analytics-reference.md#scalars).
+
+### Getting the right type
+Find unsuccessful requests:
+
+```AIQL
+
+    requests
+    | where isnotempty(resultCode) and toint(resultCode) >= 400
+```
+
+`responseCode` has type string, so we must [cast it](app-insights-analytics-reference.md#casts) for a numeric comparison.
+
+## Time range
+
+By default, your queries are restricted to the last 24 hours. But you can change this range:
+
+
+![](./media/app-insights-analytics-tour/change-time-range.png)
+
+Override the time range by writing any query that mentions `timestamp` in a where-clause:
+
+```AIQL
+
+    requests
+    | where timestamp > ago(12h) and
+    | 
+```
+
+The time range feature is equivalent to a 'where' clause inserted after each mention of one of the source tables. 
+
+
 ## [Project](app-insights-analytics-reference.md#project-operator): select, rename and compute columns
 Use [`project`](app-insights-analytics-reference.md#project-operator) to pick out just the columns you want:
 
@@ -197,49 +248,6 @@ We can do better than the table view. Let's look at the results in the chart vie
 
 Notice that although we didn't sort the results by time (as you can see in the table display), the chart display always shows datetimes in correct order.
 
-## [Where](app-insights-analytics-reference.md#where-operator): filtering on a condition
-If you've set up Application Insights monitoring for both the [client](app-insights-javascript.md) and server sides of your app, some of the telemetry in the database comes from browsers.
-
-Let's see just exceptions reported from browsers:
-
-```AIQL
-
-    exceptions
-    | where client_Type == "Browser"
-    |  summarize count()
-       by client_Browser, outerMessage
-```
-
-![](./media/app-insights-analytics-tour/250.png)
-
-The `where` operator takes a Boolean expression. Here are some key points about them:
-
-* `and`, `or`: Boolean operators
-* `==`, `<>` : equal and not equal
-* `=~`, `!=` : case-insensitive string equal and not equal. There are lots more string comparison operators.
-
-Read all about [scalar expressions](app-insights-analytics-reference.md#scalars).
-
-### Filtering events
-Find unsuccessful requests:
-
-```AIQL
-
-    requests
-    | where isnotempty(resultCode) and toint(resultCode) >= 400
-```
-
-`responseCode` has type string, so we must [cast it](app-insights-analytics-reference.md#casts) for a numeric comparison.
-
-Summarize the different responses:
-
-```AIQL
-
-    requests
-    | where isnotempty(resultCode) and toint(resultCode) >= 400
-    | summarize count()
-      by resultCode
-```
 
 ## Timecharts
 Show how many events there are each day:

@@ -156,7 +156,7 @@ The SDKs vary between platforms, and there are are several components that you c
 | Your action | Data classes collected (see next table) |
 | --- | --- |
 | [Add Application Insights SDK to a .NET web project][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users |
-| [Install Application Insights Agent on IIS][redfield] |Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters |
+| [Install Status Monitor on IIS][redfield] |Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters |
 | [Add Application Insights SDK to a Java web app][java] |ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users |
 | [Add JavaScript SDK to web page][client] |ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
 | [Define default properties][apiproperties] |**Properties** on all standard and custom events |
@@ -182,7 +182,7 @@ For [SDKs for other platforms][platforms], see their documents.
 | Client perf |URL/page name, browser load time |
 | Ajax |HTTP calls from web page to server |
 | Requests |URL, duration, response code |
-| Dependencies |Type(SQL, HTTP, ...), connection string or URI, sync/async, duration, success, SQL statement (with Application Insights Agent) |
+| Dependencies |Type(SQL, HTTP, ...), connection string or URI, sync/async, duration, success, SQL statement (with Status Monitor) |
 | **Exceptions** |Type, **message**, call stacks, source file and line number, thread id |
 | Crashes |Process id, parent process id, crash thread id; application patch, id, build;  exception type, address, reason; obfuscated symbols and registers, binary start and end addresses, binary name and path, cpu type |
 | Trace |**Message** and severity level |
