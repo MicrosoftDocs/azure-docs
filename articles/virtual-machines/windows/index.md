@@ -7,7 +7,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-overview">
+        <a href="/azure/virtual-machines/virtual-machines-windows-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-hero-tutorial">
+        <a href="/azure/virtual-machines/virtual-machines-windows-hero-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-ps-create">
+        <a href="/azure/virtual-machines/virtual-machines-windows-ps-create?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
         </a>
     </li>
     <li>
-        <a href="/azure/resource-manager-template-walkthrough">
+        <a href="/azure/resource-manager-template-walkthrough?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

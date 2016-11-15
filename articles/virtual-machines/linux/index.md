@@ -7,7 +7,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-azure-overview">
+        <a href="/azure/virtual-machines/virtual-machines-linux-azure-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys">
+        <a href="/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
         </a>
     </li>
     <li>
-        <a href="/azure/xplat-cli-install">
+        <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +97,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
