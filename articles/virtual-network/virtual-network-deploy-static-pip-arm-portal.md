@@ -25,6 +25,7 @@ ms.author: jdial
 - [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 - [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 - [Template](virtual-network-deploy-static-pip-arm-template.md)
+- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
