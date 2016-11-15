@@ -1,20 +1,21 @@
-<properties 
-	pageTitle="Azure for AWS professionals - Service Map | Microsoft Azure" 
-	description="A map of Azure services for AWS professionals." 
-	services="" 
-	documentationCenter="" 
-	authors="lbrader" 
-	manager="christb"
-    />
+---
+title: Azure for AWS professionals - Service Map | Microsoft Docs
+description: A map of Azure services for AWS professionals.
+services: ''
+documentationcenter: ''
+author: lbrader
+manager: christb
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/14/2016" 
-	ms.author="lbrader"/>
+ms.assetid: 02488dea-711a-4618-8c51-667286008989
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/15/2016
+ms.author: lbrader
+
+---
 
 # Microsoft Azure for AWS professionals
 
