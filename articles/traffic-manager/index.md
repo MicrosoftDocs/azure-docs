@@ -82,14 +82,38 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
 
 ---
 
-##Reference
+## Reference
 
-###PowerShell
-[Azure PowerShell](/powershell/azurepd-cmdlets-docs)
-
-###REST
-[Traffic Manager REST API Reference](https://msdn.microsoft.com/library/azure/mt163667)
-
+<ul class="panelContent cardsW">
+	<li>
+        <a href="/powershell/azurepd-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="https://msdn.microsoft.com/library/azure/mt163667">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Traffic Manager REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
