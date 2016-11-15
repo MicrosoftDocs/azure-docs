@@ -97,4 +97,5 @@ plans can use all resources that are available in each plan.
 | Max network security groups |50 |The maximum number of network security groups that a subscription can create in this location. |
 
 ##View an existing quota
-To view an existing quota, click on Browse>Resource Providers
+To view an existing quota, click on **More services**>**Resource Providers** and select the service with which the quota you want to view is assocatied. Next, click on **Quotas**, and select the Quota you want to view.
+   > ![Viewing an existing quota](./media/azure-stack-setting-quota/ExistingQuota.PNG)
