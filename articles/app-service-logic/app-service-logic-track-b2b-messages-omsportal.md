@@ -41,7 +41,7 @@ B2B communication involves message exchanges between two running business proces
 3. Select **OMS Portal**, opens OMS portal home page
 ![Browse OMS portal](./media/app-service-logic-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. Select **Solutions Gallery** 
+4. Select **Solutions Gallery**    
 ![Select Solutions Gallery](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage1.png)
 
 5. Select **Logic Apps B2B**
