@@ -4,7 +4,7 @@ layout: LandingPage
 ---
 # App Service - API Apps Documentation
 
-Azure App Service is a cloud service that's designed to solve the practical problems that engineers face today. API apps in Azure App Service offer features that make it easier to develop, host, and consume APIs in the cloud and on-premises. With API apps, you get enterprise grade security, simple access control, hybrid connectivity, automatic SDK generation, and seamless integration with Logic Apps. Azure App Service is a fully managed platform for web, mobile, and integration scenarios. API Apps is one of four app types offered by Azure App Service.
+API Apps is one of four app types offered by Azure App Service. API apps in Azure App Service provides a rich feature set to develop, host and consume APIs in the cloud and on-premises. Azure App Service is a fully managed platform for web, mobile, and integration scenarios.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -14,7 +14,7 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/app-service-api.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -32,7 +32,7 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -50,7 +50,7 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -68,11 +68,11 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/java.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Java API app in Azure App Service</h3>
+                        <h3>Get started creating a Java API app in Azure App Service</h3>
                     </div>
                 </div>
             </div>
@@ -86,11 +86,11 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/nodejs.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Node.js API</h3>
+                        <h3>Get started creating a Node.js API</h3>
                     </div>
                 </div>
             </div>
@@ -104,11 +104,11 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an API app from JavaScript using CORS</h3>
+                        <h3>Get started creating an API app from JavaScript using CORS</h3>
                     </div>
                 </div>
             </div>

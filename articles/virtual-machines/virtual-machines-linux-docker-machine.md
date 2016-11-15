@@ -122,7 +122,7 @@ And check to see the running container, type `docker-machine ip <VM name>` to fi
 ![Running ngnix container](./media/virtual-machines-linux-docker-machine/nginxsuccess.png)
 
 ## Next steps
-If you're interested, you can try out the Azure [Docker VM Extension](virtual-machines-linux-dockerextension.md) to do the same operation using the Azure CLI or Azure resource manager templates. 
+If you're interested, you can try out the Azure [Docker VM Extension](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to do the same operation using the Azure CLI or Azure resource manager templates. 
 
 For more examples of working with Docker, see [Working with Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 

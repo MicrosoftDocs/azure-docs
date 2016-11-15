@@ -17,7 +17,7 @@ The size of the virtual machine affects the pricing. The size also affects the p
 
 The following considerations might help you decide on a size:
 
-* The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHZ and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz. For detailed information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md). 
+* The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHZ and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz. For detailed information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 * Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
 * The F-series VMs are an excellent choice for workloads that demand faster CPUs but do not need as much memory or local SSD per CPU core.  Workloads such as analytics, gaming servers, web servers, and batch processing will benefit from the value of the F-series.
 * Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11. As a result, you may see the error message **Failed to configure virtual machine <machine name>** or **Failed to create virtual machine <machine name>** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See  [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.  
@@ -64,7 +64,7 @@ The following tables show the sizes and the capacities they provide.
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 |1 |0.768 |20 |1 |1x500 |1 / low |
 | Standard_A1 |1 |1.75 |70 |2 |2x500 |1 / moderate |
-| Standard_A2 |2 |3.5 GB |135 |4 |4x500 |1 / moderate |
+| Standard_A2 |2 |3.5 |135 |4 |4x500 |1 / moderate |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2 / high |
 | Standard_A4 |8 |14 |605 |16 |16x500 |4 / high |
 | Standard_A5 |2 |14 |135 |4 |4X500 |1 / moderate |
@@ -74,7 +74,7 @@ The following tables show the sizes and the capacities they provide.
 <br>
 
 ## A-series - compute-intensive instances
-For information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+For information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 | Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -149,7 +149,7 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 | Standard_DS12_v2 |4 |28 |56 |8 |16,000 / 128 (144) |12,800 / 192 |4 high |
 | Standard_DS13_v2 |8 |56 |112 |16 |32,000 / 256 (288) |25,600 / 384 |8 high |
 | Standard_DS14_v2 |16 |112 |224 |32 |64,000 / 512 (576) |51,200 / 768 |8 extremely high |
-| Standard_DS15_v2 |20 |140 GB |280 |40 |80,000 / 640 (720) |64,000 / 960 |8 extremely high** |
+| Standard_DS15_v2 |20 |140 |280 |40 |80,000 / 640 (720) |64,000 / 960 |8 extremely high** |
 
 MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
@@ -200,10 +200,10 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 |2 |28 |56 |4 |10,000 / 100 (264) |5,000 / 125 |1 / high |
-| Standard_GS2 |4 |56 |528 |8 |20,000 / 200 (528) |10,000 / 250 |2 / High |
-| Standard_GS3 |8 |112 |1,056 |16 |40,000 / 400 (1,056) |20,000 / 500 |4 / very high |
-| Standard_GS4 |16 |224 |2,112 |32 |80,000 / 800 (2,112) |40,000 / 1,000 |8 / extremely high |
-| Standard_GS5 |32 |448 |4,224 |64 |160,000 / 1,600 (4,224) |80,000 / 2,000 |8 / extremely high |
+| Standard_GS2 |4 |56 |112 |8 |20,000 / 200 (528) |10,000 / 250 |2 / High |
+| Standard_GS3 |8 |112 |224 |16 |40,000 / 400 (1,056) |20,000 / 500 |4 / very high |
+| Standard_GS4 |16 |224 |448 |32 |80,000 / 800 (2,112) |40,000 / 1,000 |8 / extremely high |
+| Standard_GS5 |32 |448 |896 |64 |160,000 / 1,600 (4,224) |80,000 / 2,000 |8 / extremely high |
 
 MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
@@ -263,5 +263,5 @@ In the classic deployment model, some VM size names are slightly different in CL
 
 ## Next steps
 * Learn about [azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).
-* Learn more [about the H-series and compute-intensive A-series VMs](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) for workloads like High-performance Computing (HPC).
+* Learn more [about the H-series and compute-intensive A-series VMs](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for workloads like High-performance Computing (HPC).
 
