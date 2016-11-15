@@ -44,7 +44,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
         </a>
     </li>
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-portal">
+        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-pportal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
