@@ -18,12 +18,12 @@
 
 # Use SQL databases on Azure Stack
 
-> [AZURE.NOTE] The following information only applies to Azure Stack TP2 deployments. There have been many changes since the TP1 release, so please read this carefully. Deployment now uses a single script.
+> [AZURE.NOTE] The following information only applies to Azure Stack TP2 deployments. There have been many changes since the TP1 release, so read this page carefully. Deployment now uses a single script.
 
-Use the SQL Server resource provider adapter to expose SQL databases as a service of Azure Stack. After you install the resource provider and connect it to a SQL Server instance, you and your users can create databases for cloud-native apps, website that are based on SQL, and workloads that are based on SQL without having to provision a virtual machine (VM) that hosts SQL Server each time.
+Use the SQL Server resource provider adapter to expose SQL databases as a service of Azure Stack. After you install the resource provider and connect it to a SQL Server instance, you and your users can create databases for cloud-native apps, websites that are based on SQL, and workloads that are based on SQL without having to provision a virtual machine (VM) that hosts SQL Server each time.
 
 ## SQL Server resource provider adapter architecture
-The resource provider does not offer all the database management capabilities of Azure SQL Database. For example, elastic database pools and the ability to dial database performance up and down on the fly aren't available. However, the resource provider does support the same create, read, update, and delete (CRUD) operations that available in Azure SQL Database.
+The resource provider does not offer all the database management capabilities of Azure SQL Database. For example, elastic database pools and the ability to dial database performance up and down automatically aren't available. However, the resource provider does support the same create, read, update, and delete (CRUD) operations that available in Azure SQL Database.
 
 The resource provider is made up of three components:
 
@@ -35,8 +35,8 @@ The following conceptual diagram shows these components and the steps that you g
 
 ![Azure Stack SQL resource provider adapter simple architecture](./media/azure-stack-sql-rp-deploy/sqlrparch.png)
 
-To deploy the SQL provider on a system that does not have internet access, you can copy the file [SQL 2014 SP1 Enterprise Eval](http://care.dlservice.microsoft.com/dl/download/2/F/8/2F8F7165-BB21-4D1E-B5D8-3BD3CE73C77D/SQLServer2014SP1-FullSlipstream-x64-ENU.iso) to a local file share and provide that share name when prompted (see below).
-> [AZURE.NOTE] The deployment script will perform retries to accommodate less reliable network connections.
+To deploy the SQL provider on a system that does not have internet access, you can copy the file [SQL 2014 SP1 Enterprise Evaluation ISO](http://care.dlservice.microsoft.com/dl/download/2/F/8/2F8F7165-BB21-4D1E-B5D8-3BD3CE73C77D/SQLServer2014SP1-FullSlipstream-x64-ENU.iso) to a local file share and provide that share name when prompted (see below).
+> [AZURE.NOTE] The deployment script will perform retries, if necessary, to accommodate less reliable network connections or if an operation exceeds a timeout.
 
 ## Steps to deploy the resource provider
 
@@ -46,7 +46,7 @@ To deploy the SQL provider on a system that does not have internet access, you c
 
 3. Run the DeploySqlProvider.ps1 script.
 	
-	The script will do all of the following:
+	The script does all of the following:
 
 		* If necessary, download a compatible version of Azure PowerShell.
 		* Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
@@ -67,18 +67,18 @@ Parameter Name|Description|Comment
 --- | --- | ---
   **AadTenantDirectoryName**|The Azure Active Directory Name|_required_
   **AzCredential**|Azure Stack Service Admin account credential (use the same account as you used for deploying Azure Stack)|_required_
-  **LocalCredential**|This will be used for the local administrator account of the SQL resource provider VM and the password will also be used for the SQL **sa** account|_required_
+  **LocalCredential**|This is used for the local administrator account of the SQL resource provider VM and the password is also be used for the SQL **sa** account|_required_
   **ResourceGroupName**|Resource Group for the items created by this script|Default: Microsoft-SQL-RP1
   **VmName**|Name of the VM holding the resource provider|Default: sqlrp
-  **DependencyFilesLocalPath**|Path to local share containing the SQL ISO if you did an offline deployment. You can download [SQL 2014 SP1 Enterprise Eval](http://care.dlservice.microsoft.com/dl/download/2/F/8/2F8F7165-BB21-4D1E-B5D8-3BD3CE73C77D/SQLServer2014SP1-FullSlipstream-x64-ENU.iso) from the Microsoft Download Center.|_leave blank to download from the internet_
+  **DependencyFilesLocalPath**|Path to a local share containing the SQL ISO if you did an offline deployment. You can download [SQL 2014 SP1 Enterprise Evaluation ISO](http://care.dlservice.microsoft.com/dl/download/2/F/8/2F8F7165-BB21-4D1E-B5D8-3BD3CE73C77D/SQLServer2014SP1-FullSlipstream-x64-ENU.iso) from the Microsoft Download Center.|_leave blank to download from the internet_
   **MaxRetryCount**|Each operation will be retried if there is a failure|5
   **RetryDuration**|Timeout between retries, in seconds|300
   | | 
 
 
-This should get your SQL Server resource provider up and running in about 45 minutes (depending on your hardware and download speed). Make sure you re-open your browser before proceeding with the following steps.
+This should get your SQL Server resource provider up and running in about 45 minutes (depending on your hardware and download speed). Make sure you reopen your browser before proceeding with the following steps.
 
-> [AZURE.NOTE] If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file, but the deployment will be retried. Systems that do not meet the minimum required memory and core specifications may not be able to deploy the SQL RP.
+> [AZURE.NOTE] If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file, but the deployment will be retried from the failing step. Systems that do not meet the minimum required memory and core specifications may not be able to deploy the SQL RP.
 
 
 ## Verify the deployment using the Azure Stack Portal
@@ -139,7 +139,7 @@ This should get your SQL Server resource provider up and running in about 45 min
 
 ## Next steps
 
-Create plans and offers to make SQL databases available for tenants. You will need to create a plan, add the Microsoft.Sql service, add either specify an existing Tier Quota or create a new one. If you create a new quota, you can specify the capacity to allow the tenant.
+Create plans and offers to make SQL databases available for tenants. You will need to create a plan, add the Microsoft.Sql service to the plan, add an existing Tier Quota or create a new one. If you create a quota, you can specify the capacity to allow the tenant.
 
 ![](./media/azure-stack-sql-rp-deploy/12.png)
 

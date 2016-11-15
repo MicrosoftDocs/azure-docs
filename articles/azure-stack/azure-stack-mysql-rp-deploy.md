@@ -17,13 +17,13 @@
 
 # Use MySQL databases as PaaS on Azure Stack
 
-> [AZURE.NOTE] The following information only applies to Azure Stack TP2 deployments. There have been many changes since the TP1 release, so please read this carefully. Deployment now uses a single script.
+> [AZURE.NOTE] The following information only applies to Azure Stack TP2 deployments. There have been many changes since the TP1 release, so read this page carefully. Deployment now uses a single script.
 
 You can deploy a MySQL resource provider on Azure Stack. After you deploy the resource provider, you can create MySQL servers and databases through Azure Resource Manager deployment templates and provide MySQL databases as a service. MySQL databases, which are common on web sites, support many website platforms. As an example, after you deploy the resource provider, you can create WordPress websites from the Azure Web Apps platform as a service (PaaS) add-on for Azure Stack.
 
 To deploy the MySQL provider on a system that does not have internet access, you can copy the files [mysql-5.6.26-winx64.zip](https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.26-winx64.zip) and [mysql-5.5.44-winx64.zip](https://downloads.mysql.com/archives/get/file/mysql-5.5.44-winx64.zip) to a local share and provide that share name when prompted (see below).
 
-> [AZURE.NOTE] The deployment script will perform retries to accommodate less reliable network connections.
+> [AZURE.NOTE] The deployment script will perform retries, if necessary, to accommodate less reliable network connections or if an operation exceeds a timeout.
 
 ## Steps to deploy the resource provider
 
@@ -61,7 +61,7 @@ The script prompts for required parameters:
 
 Depending on the system performance and download speeds, installation may take as little as 20 minutes or as long as several hours.
 
-> [AZURE.NOTE] If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file, but the deployment will be retried. Systems that do not meet the minimum required memory and core specifications may not be able to deploy the MySQL RP.
+> [AZURE.NOTE] If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file, but the deployment will be retried from the failing step. Systems that do not meet the minimum required memory and core specifications may not be able to deploy the MySQL RP.
 
 
 ## Create your first MySQL database to test your deployment
@@ -77,6 +77,6 @@ Depending on the system performance and download speeds, installation may take a
 
 ## Next steps
 
-Create plans and offers to make MySQL databases available for tenants. You will need to create add the Microsoft.MySql service, add a new quota and accept the default values.
+Create plans and offers to make MySQL databases available for tenants. You will need to add the Microsoft.MySql service, add a new quota, and accept the default values.
 
 Try other [PaaS services](azure-stack-tools-paas-services.md) like the [SQL Server resource provider](azure-stack-sql-rp-deploy.md) and the [App Services resource provider](azure-stack-app-service-deploy.md).
