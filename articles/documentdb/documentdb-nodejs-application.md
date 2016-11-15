@@ -88,7 +88,7 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
 4. Run your new application.
    
         npm start
-5. You can you view your new application by navigating your browser to [http://localhost:3000](http://localhost:3000).
+5. You can view your new application by navigating your browser to [http://localhost:3000](http://localhost:3000).
    
     ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/documentdb-nodejs-application/image12.png)
 
