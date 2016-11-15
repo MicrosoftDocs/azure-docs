@@ -1,4 +1,4 @@
-﻿---
+---
 title: Prepare for Site Recovery deployment | Microsoft Docs
 description: This article describes how to get ready to deploy replication with Azure Site Recovery.
 services: site-recovery
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/14/2016
 ms.author: raynew
-
 ---
+
 # Prepare for Azure Site Recovery deployment
 This articles describes the high-level requirements for each replication scenario supported by the Azure Site Recovery service. After you read the general requirements for each scenario, you can link to specific deployment details for each deployment.
 
