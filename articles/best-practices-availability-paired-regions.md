@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Business continuity and disaster recovery (BCDR): Azure Paired Regions | Microsoft Docs'
 description: Azure regional pairs ensure that applications are resilient during data center failures.
 services: site-recovery
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2016
 ms.author: raynew
-
 ---
+
 # Business continuity and disaster recovery (BCDR): Azure Paired Regions
 
 ## What are paired regions?
