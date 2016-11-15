@@ -18,8 +18,8 @@ ms.author: iainfou
 
 ---
 
-# Troubleshoot a Linux VM by attaching the OS disk to a recovery VM using the Azure portal
-If your Linux virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid entry in `/etc/fstab` that prevents the VM from being able to boot successfully. This article details how to connect your virtual hard disk to another Linux VM to fix any errors, then re-create your original VM.
+# Troubleshoot a Linux VM by attaching the OS disk to a recovery VM using the Azure CLI
+If your Linux virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid entry in `/etc/fstab` that prevents the VM from being able to boot successfully. This article details how to use the Azure CLI to connect your virtual hard disk to another Linux VM to fix any errors, then re-create your original VM.
 
 
 ## Recovery process overview
@@ -27,7 +27,7 @@ The troubleshooting process is as follows:
 
 1. Delete the VM encountering issues, keeping the virtual hard disks.
 2. Attach and mount the virtual hard disk to another Linux VM, the troubleshooting VM.
-3. Connect to the troubleshooting VM, edit files or run any tools to fix issues on the original virtual hard disk.
+3. Connect to the troubleshooting VM. Edit files or run any tools to fix issues on the original virtual hard disk.
 4. Unmount and detach the virtual hard disk from the troubleshooting VM.
 5. Create a VM using the original virtual hard disk that should now boot correctly.
 
@@ -36,11 +36,11 @@ Make sure that you have [the Azure CLI](../xplat-cli-install.md) logged in and u
 ```azurecli
 azure config mode arm
 ```
-In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
+In the following examples, replace parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
 
 
 ## Determine boot issues
-You can examine the boot diagnostics and VM screenshot to determine why your VM may not be booting correctly. A common example would be an invalid entry in `/etc/fstab`, or an underlying virtual hard disk being deleted or moved.
+Examine the boot diagnostics to determine why your VM may not be booting correctly. A common example would be an invalid entry in `/etc/fstab`, or an underlying virtual hard disk being deleted or moved.
 
 The following example gets the serial output from the VM named `myVM` in the resource group named `myResourceGroup`:
 
@@ -52,9 +52,9 @@ Review the serial output to determine why the VM is failing to boot. If the seri
 
 
 ## View existing virtual hard disk details
-Before you can attach your virtual hard disk to another VM, you need to identify the name of the virtual hard disk (VHD) file. 
+Before you can attach your virtual hard disk to another VM, you need to identify the name of the virtual hard disk (VHD). 
 
-The following example shows information for the VM named `myVM` in the resource group named `myResourceGroup`:
+The following example gets information for the VM named `myVM` in the resource group named `myResourceGroup`:
 
 ```azurecli
 azure vm show --resource-group myResourceGroup --name myVM
@@ -88,7 +88,7 @@ data:          Uri                       :https://mystorageaccount.blob.core.win
 ## Delete existing VM
 Virtual hard disks and VMs are two distinct resources in Azure. A virtual hard disk is where the OS itself, applications, and configurations are stored. The VM itself is just metadata that defines the VM size or location, and references resources such as the virtual hard disk or virtual network interface card (NIC). Each virtual hard disk has a lease assigned when attached to a VM. Although data disks can be attached and detached even while the VM is running, the OS disk cannot be detached from a VM unless the VM resource is deleted. The lease continues to associate the virtual hard disk with a VM even when that VM is in a stopped and deallocated state.
 
-The first step to recover your VM is to delete the VM resource itself. Again, deleting the VM leaves the virtual hard disks in your storage account. After the VM is deleted, you attach the virtual hard disk to another VM to troubleshoot and resolve the errors.
+The first step to recover your VM is to delete the VM resource itself. Deleting the VM leaves the virtual hard disks in your storage account. After the VM is deleted, you attach the virtual hard disk to another VM to troubleshoot and resolve the errors.
 
 The following example deletes the VM named `myVM` from the resource group named `myResourceGroup`:
 
@@ -100,9 +100,9 @@ Wait until the VM has finished deleting before trying to attach the virtual hard
 
 
 ## Attach existing virtual hard disk to another VM
-For the next few steps, you use another VM for troubleshooting purposes. You attach the existing virtual hard disk to this troubleshooting VM to be able to browse and edit the disk's content. This process allows you to correct any configuration errors, or review additional application or system log files, for example. Choose or create another VM to use for troubleshooting purposes.
+For the next few steps, you use another VM for troubleshooting purposes. You attach the existing virtual hard disk to this troubleshooting VM to browse and edit the disk's content. This process allows you to correct any configuration errors or review additional application or system log files, for example. Choose or create another VM to use for troubleshooting purposes.
 
-The following example attaches an existing virtual hard disk to the troubleshooting VM named `myVMRecovery` in the resource group named `myResourceGroup`:
+When you attach the existing virtual hard disk, specify the URL to the disk obtained in the preceding `azure vm show` command. The following example attaches an existing virtual hard disk to the troubleshooting VM named `myVMRecovery` in the resource group named `myResourceGroup`:
 
 ```azurecli
 azure vm disk attach --resource-group myResourceGroup --name myVMRecovery \
@@ -118,7 +118,17 @@ azure vm disk attach --resource-group myResourceGroup --name myVMRecovery \
     dmesg | grep SCSI
     ```
 
-    In the preceding example, the OS disk is at `/dev/sda` and the temporary disk provided for each VM is at `/dev/sdb`. If you had multiple data disks, they should be at `/dev/sdd`, `/dev/sde`, and so.
+    The output is similar to the following example:
+
+    ```bash
+    [    0.294784] SCSI subsystem initialized
+    [    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
+    [    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
+    [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
+    [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
+    ```
+
+    In the preceding example, the OS disk is at `/dev/sda` and the temporary disk provided for each VM is at `/dev/sdb`. If you had multiple data disks, they should be at `/dev/sdd`, `/dev/sde`, and so on.
 
 2. Create a directory to mount your existing virtual hard disk. The following example creates a directory named `troubleshootingdisk`:
 
@@ -132,7 +142,8 @@ azure vm disk attach --resource-group myResourceGroup --name myVMRecovery \
     sudo mount /dev/sdc1 /mnt/troubleshootingdisk
     ```
 
-    Best practice is to mount data disks on VMs in Azure using the universally unique identifier (UUID) of the virtual hard disk. For this short troubleshooting scenario, mounting the virtual hard disk using the UUID is not necessary. However, under normal use, editing `/etc/fstab` to mount virtual hard disks using device name rather than UUID may cause the VM to fail to boot.
+    > [!INFO]
+    > Best practice is to mount data disks on VMs in Azure using the universally unique identifier (UUID) of the virtual hard disk. For this short troubleshooting scenario, mounting the virtual hard disk using the UUID is not necessary. However, under normal use, editing `/etc/fstab` to mount virtual hard disks using device name rather than UUID may cause the VM to fail to boot.
 
 
 ## Fix issues on original virtual hard disk
@@ -140,21 +151,21 @@ With the existing virtual hard disk mounted, you can now perform any maintenance
 
 
 ## Unmount and detach original virtual hard disk
-Once your errors are resolved, detach the existing virtual hard disk from your troubleshooting VM. Remember, you cannot use your virtual hard disk with any other VM until the lease attaching the virtual hard disk to the troubleshooting VM is released.
+Once your errors are resolved, detach the existing virtual hard disk from your troubleshooting VM. You cannot use your virtual hard disk with any other VM until the lease attaching the virtual hard disk to the troubleshooting VM is released.
 
-1. From SSH session to your troubleshooting VM, unmount the existing virtual hard disk. Change out of the parent directory for your mount point first:
+1. From the SSH session to your troubleshooting VM, unmount the existing virtual hard disk. Change out of the parent directory for your mount point first:
 
     ```bash
     cd /
     ```
 
-2. Next, unmount the existing virtual hard disk. The following example unmounts the device at `/dev/sdc1`:
+    Now unmount the existing virtual hard disk. The following example unmounts the device at `/dev/sdc1`:
 
     ```bash
     umount /dev/sdc1
     ```
 
-3. Now you can detach the virtual hard disk from the VM. Exit the SSH session to your troubleshooting VM. In the Azure CLI, first list the attached data disks to your troubleshooting VM. The following example lists the data disks attached to the VM named `myVMRecovery` in the resource group named `myResourceGroup`:
+2. Now you can detach the virtual hard disk from the VM. Exit the SSH session to your troubleshooting VM. In the Azure CLI, first list the attached data disks to your troubleshooting VM. The following example lists the data disks attached to the VM named `myVMRecovery` in the resource group named `myResourceGroup`:
 
     ```azurecli
     azure vm disk list --resource-group myResourceGroup --vm-name myVMRecovery
@@ -184,7 +195,7 @@ To create a VM from your original virtual hard disk, use [this Azure Resource Ma
 
 - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-specialized-vm-in-existing-vnet/azuredeploy.json
 
-This template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. The following example deploys the template to the resource group named `myResourceGroup`:
+The template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. The following example deploys the template to the resource group named `myResourceGroup`:
 
 ```azurecli
 azure group deployment create --resource-group myResourceGroup --name myDeployment \
