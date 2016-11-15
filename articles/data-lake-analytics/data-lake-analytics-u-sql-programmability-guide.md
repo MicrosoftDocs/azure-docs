@@ -1,21 +1,20 @@
-<properties
-   pageTitle="U-SQL Programmability Guide"
-   description="U-SQL Programmability Guide"
-   services="data-lake-analytics"
-   documentationCenter=""
-   authors="mrys"
-   manager="arindamc"
-   editor=""/>
+---
+title: U-SQL Programmability Guide for Azure Data Lake Aanlytics | Microsoft Docs
+description: 'U-SQL Programmability Guide'
+services: data-lake-analytics
+documentationcenter: ''
+author: MikeRys
+manager: arindamc
 
-<tags
-   ms.service="data-lake-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="09/26/2016"
-   ms.author="mrys"/>
+ms.service: data-lake-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 11/15/2016
+ms.author: mrys
 
+---
 # U-SQL Programmability Guide
 ## Azure Data Lake
 Azure Data Lake includes all the capabilities required to make it easy for developers, data scientists, and analysts to store data of any size, shape and speed, and do all types of processing and analytics across platforms and languages. It removes the complexities of ingesting and storing all your data while making it faster to get up and running with batch, streaming, and interactive analytics.
@@ -32,38 +31,6 @@ In this guide, we concentrate on the U-SQL language’s extensibility and progra
 
 ## Requirements
 To begin with ADL development, you need to download and install [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
-
-## Overview
-* [Starting with U-SQL](#starting-with-u-sql)
-* [C# types and expressions in U-SQL Script](#c-types-and-expressions-in-u-sql-script)
-	* [Using C# expressions for data type conversions](#using-c-expressions-for-data-type-conversions)
-	* [Using C# expressions for today’s date](#using-c-expressions-for-todays-date)
-* [In-line C# Function expressions](#in-line-c-function-expressions)
-* [Verifying data type values](#verifying-data-type-values)
-	* [Using inline function expressions](#using-inline-function-expressions)
-	* [Using Code Behind](#using-code-behind)
-* [Using Code Behind](#using-code-behind-1)
-* [Registering U-SQL Assemblies](#registering-u-sql-assemblies)
-	* [Difference between Code behind and Assembly registration through ADL Tools in Visual Studio](#difference-between-code-behind-and-assembly-registration-through-adl-tools-in-visual-studio)
-	* [Registering assemblies via ADL Tools in Visual Studio and in U-SQL scripts](#registering-assemblies-via-adl-tools-in-visual-studio-and-in-u-sql-scripts)
-	* [Registering assemblies that use other .Net assemblies (based on the JSON and XML sample library)](#registering-assemblies-that-use-other-net-assemblies-based-on-the-json-and-xml-sample-library)
-	* [Registering assemblies that use native C++ assemblies (using the SQL Server 2016 Spatial Type assembly from the feature pack)](#registering-assemblies-that-use-native-c-assemblies-using-the-sql-server-2016-spatial-type-assembly-from-the-feature-pack)
-	* [Assembly versioning and other points](#assembly-versioning-and-other-points)
-* [User-defined functions - UDF](#user-defined-functions---udf)
-	* [Keeping state between UDF invocations](#keeping-state-between-udf-invocations)
-* [Using User-Defined Types - UDT](#using-user-defined-types---udt)
-	* [UDTs from built-in Types](#udts-from-built-in-types)
-* [User-defined aggregates - UDAGG](#user-defined-aggregates--udagg)
-	* [Using UDAGG in U-SQL](#using-udagg-in-u-sql)
-* [User-defined objects - UDO](#user-defined-objects--udo)
-* [User-Defined Extractor](#user-defined-extractor)
-* [User-Defined Outputter](#user-defined-outputter)
-	* [Setting header and footer for User-defined Outputter](#setting-header-and-footer-for-user-defined-outputter)
-	* [Calling outputter from U-SQL base script](#calling-outputter-from-u-sql-base-script)
-* [User-Defined Processor](#user-defined-processor)
-* [User-Defined Applier](#user-defined-applier)
-* [User-Defined Combiner](#user-defined-combiner)
-* [User-Defined Reducer](#user-defined-reducer)
 
 ## Starting with U-SQL  
 The description of U-SQL language is outside of the scope of this document. However we describe a basic U-SQL constructs to gradually introduce U-SQL programmability features. For more information, see the [U-SQL Language Reference](http://aka.ms/usql_reference) guide.
