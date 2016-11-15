@@ -4,7 +4,7 @@ layout: LandingPage
 ---
 # Mobile Apps Documentation
 
-API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
+Mobile Apps in Azure App Service offers a scalable, mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -54,7 +54,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Andriod app</h3>
+                        <h3>Get started creating an Andriod app</h3>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Apache Cordova app</h3>
+                        <h3>Get started creating an Apache Cordova app</h3>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an iOS app</h3>
+                        <h3>Get started creating an iOS app</h3>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Windows app</h3>
+                        <h3>Get started creating a Windows app</h3>
                     </div>
                 </div>
             </div>
@@ -126,7 +126,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a xamarin.Andriod app</h3>
+                        <h3>Get started creating a xamarin.Andriod app</h3>
                     </div>
                 </div>
             </div>
@@ -144,7 +144,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a xamarin.Forms app</h3>
+                        <h3>Get started creating a xamarin.Forms app</h3>
                     </div>
                 </div>
             </div>
@@ -162,7 +162,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a xamarin.iOS app</h3>
+                        <h3>Get started creating a Xamarin.iOS app</h3>
                     </div>
                 </div>
             </div>
