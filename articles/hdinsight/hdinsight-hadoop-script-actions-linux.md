@@ -299,7 +299,7 @@ Here are the steps we took when preparing to deploy these scripts:
 
 ## <a name="runScriptAction"></a>How to run a script action
 
-You can use script actions to customize HDInsight clusters by using the Azure portal, Azure PowerShell, Azure Resource Manager (ARM) templates or the HDInsight .NET SDK. For instructions, see [How to use script action](hdinsight-hadoop-customize-cluster-linux.md).
+You can use script actions to customize HDInsight clusters by using the Azure portal, Azure PowerShell, Azure Resource Manager templates or the HDInsight .NET SDK. For instructions, see [How to use script action](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="sampleScripts"></a>Custom script samples
 

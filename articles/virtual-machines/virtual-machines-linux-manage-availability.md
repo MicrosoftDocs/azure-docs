@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2016
+ms.date: 11/14/2016
 ms.author: cynthn
 
 ---
@@ -28,5 +28,5 @@ For instructions on creating an availability set using CLI in the Resource Manag
 [!INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
 ## Next steps
-To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](virtual-machines-linux-load-balance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](virtual-machines-linux-load-balance.md).
 

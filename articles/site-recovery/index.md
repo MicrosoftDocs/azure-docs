@@ -48,15 +48,50 @@ Azure Site Recovery contributes to your business continuity and disaster recover
 
 ## Reference
 
-### PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
-
-### Java
-[Site Recovery Java API Reference](/java/api)
-
-### REST
-[Site Recovery REST API Reference](https://msdn.microsoft.com/en-us/library/mt750497)
-
+<ul class="panelContent cardsW">
+	<li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Site Recovery Java API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="https://msdn.microsoft.com/en-us/library/mt750497">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Site Recovery REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>	
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">

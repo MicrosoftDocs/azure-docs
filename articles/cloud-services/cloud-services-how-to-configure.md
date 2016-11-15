@@ -39,13 +39,11 @@ Azure can only ensure 99.95 percent service availability during the configuratio
 2. In **monitoring**, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring.
 3. For service roles (grouped by role), you can update the following settings:
    
-   > **Settings**  
-   > Modify the values of miscellaneous configuration settings that are specified in the *ConfigurationSettings* elements of the service configuration (.cscfg) file.
-   > 
-   > **Certificates**  
-   > Change the certificate thumbprint that's being used in SSL encryption for a role. To change a certificate, you must first upload the new certificate (on the **Certificates** page). Then update the thumbprint in the certificate string displayed in the role settings.
-   > 
-   > 
+    * **Settings** 
+        Modify the values of miscellaneous configuration settings that are specified in the *ConfigurationSettings* elements of the service configuration (.cscfg) file.
+
+    * **Certificates**  
+        Change the certificate thumbprint that's being used in SSL encryption for a role. To change a certificate, you must first upload the new certificate (on the **Certificates** page). Then update the thumbprint in the certificate string displayed in the role settings.
 4. In **operating system**, you can change the operating system family or version for role instances, or choose **Automatic** to enable automatic updates of the current operating system version. The operating system settings apply to web roles and worker roles, but do not affect Virtual Machines.
    
     During deployment, the most recent operating system version is installed on all role instances, and the operating systems are updated automatically by default. 

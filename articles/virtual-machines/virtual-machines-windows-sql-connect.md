@@ -29,7 +29,7 @@ This topic describes how to connect to your SQL Server instance running on an Az
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-classic deployment model. To view the classic version of this article, see [Connect to a SQL Server Virtual Machine on Azure Classic](virtual-machines-windows-classic-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+To view the classic version of this article, see [Connect to a SQL Server Virtual Machine on Azure Classic](virtual-machines-windows-classic-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 If you would rather have a full walk-through of both provisioning and connectivity, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

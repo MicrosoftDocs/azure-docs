@@ -1,6 +1,6 @@
 ﻿---
 title: Azure MFA cloud vs server | Microsoft Docs
-description: Choose the multi-factor authentication secutiry solution that is right for you by asking what am i trying to secure and where are my users located.  Then choose cloud, MFA Server or AD FS.
+description: Choose the multi-factor authentication security solution that is right for you by asking, what am I trying to secure and where are my users located.  Then choose cloud, MFA Server or AD FS.
 services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 11/15/2016
 ms.author: kgremban
 
 ---
@@ -29,7 +29,7 @@ The following sections provide guidance on determining each of these answers.
 ## What am I trying to secure?
 To determine the correct two-step verification solution, first we must answer the question of what are you trying to secure with a second method of authentication.  Is it an application that is in Azure?  Or a remote access system?  By determining what we are trying to secure, we can answer the question of where Multi-Factor Authentication needs to be enabled.  
 
-| What are you trying to secure | Multi-Factor Authentication in the cloud | Multi-Factor Authentication Server |
+| What are you trying to secure | MFA in the cloud | MFA Server |
 | --- |:---:|:---:|
 | First-party Microsoft apps |● |● |
 | SaaS apps in the app gallery |● |● |
@@ -40,7 +40,7 @@ To determine the correct two-step verification solution, first we must answer th
 ## Where are the users located
 Next, looking at where our users are located helps to determine the correct solution to use, whether in the cloud or on-premises using the MFA Server.
 
-| User Location | Multi-Factor Authentication in the cloud | Multi-Factor Authentication Server |
+| User Location | MFA in the cloud | MFA Server |
 | --- |:---:|:---:|
 | Azure Active Directory |● | |
 | Azure AD and on-premises AD using federation with AD FS |● |● |
@@ -51,26 +51,26 @@ Next, looking at where our users are located helps to determine the correct solu
 ## What features do I need?
 The following table is a comparison of the features that are available with Multi-Factor Authentication in the cloud and with the Multi-Factor Authentication Server.
 
-| Multi-Factor Authentication in the cloud | Multi-Factor Authentication Server |
+| Feature | MFA in the cloud | MFA Server |
 | --- |:---:|:---:|
-| Mobile app notification as a second factor |● |
-| Mobile app verification code as a second factor |● |
-| Phone call as second factor |● |
-| One-way SMS as second factor |● |
-| Two-way SMS as second factor | |
-| Hardware Tokens as second factor | |
-| App passwords for clients that don’t support MFA |● |
-| Admin control over authentication methods |● |
-| PIN mode | |
-| Fraud alert |● |
-| MFA Reports |● |
-| One-Time Bypass | |
-| Custom greetings for phone calls |● |
-| Customizable caller ID for phone calls |● |
-| Trusted IPs |● |
-| Remember MFA for trusted devices |● |
-| Conditional access |● |
-| Cache | |
+| Mobile app notification as a second factor | ● | ● |
+| Mobile app verification code as a second factor | ● | ● |
+| Phone call as second factor | ● | ● |
+| One-way SMS as second factor | ● | ● |
+| Two-way SMS as second factor | | ● |
+| Hardware Tokens as second factor | | ● |
+| App passwords for clients that don’t support MFA | ● | |
+| Admin control over authentication methods | | ● |
+| PIN mode | | ● |
+| Fraud alert |● | ● |
+| MFA Reports |● | ● |
+| One-Time Bypass | ● | ● |
+| Custom greetings for phone calls | ● | ● |
+| Customizable caller ID for phone calls | ● | ● |
+| Trusted IPs | ● | ● |
+| Remember MFA for trusted devices | ● | |
+| Conditional access | ● | ● |
+| Cache | ● | ● |
 
 Now that we have determined whether to use cloud multi-factor authentication or the MFA Server on-premises, we can get started setting up and using Azure Multi-Factor Authentication. **Select the icon that represents your scenario!**
 

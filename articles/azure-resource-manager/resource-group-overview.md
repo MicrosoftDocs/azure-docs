@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 11/14/2016
 ms.author: tomfitz
 
 ---
@@ -275,7 +275,7 @@ Here are our Open Source SDK repositories. We welcome feedback, issues, and pull
 
 > [!NOTE]
 > If the SDK doesn't provide the required functionality,
-> you can also call to the [Azure REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx) directly.
+> you can also call to the [Azure REST API](https://docs.microsoft.com/rest/api/resources/) directly.
 > 
 > 
 
@@ -314,7 +314,7 @@ In addition to these samples, you can search through the gallery samples.
 
 Here's a video demonstration of this overview:
 
-[!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Azure-Resource-Manager-Overview/player]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Azure-Resource-Manager-Overview/player]
 
 
-[powershellref]: https://msdn.microsoft.com/library/azure/dn757692(v=azure.200).aspx
+[powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources
