@@ -32,7 +32,7 @@
 ### [Configure a virtual network gateway for ExpressRoute using PowerShell (Classic)](expressroute-howto-add-gateway-classic.md)
 ## [Create Site-to-Site and ExpressRoute coexisting connections](expressroute-howto-coexist-classic.md)
 ## [Migrate a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
-## [Configure a router for ExpressRoute]
+## Configure a router for ExpressRoute
 ### [Router configuration setup samples](expressroute-config-samples-routing.md)
 ### [Router configuration samples for NAT](expressroute-config-samples-nat.md)
 
