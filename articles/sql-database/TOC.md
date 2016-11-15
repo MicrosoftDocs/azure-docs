@@ -13,6 +13,13 @@
 ### [General limitations](sql-database-general-limitations.md)
 ### [Security guidelines](sql-database-security-guidelines.md)
 
+## Benefits
+### [Learns and adapts](sql-database-learn-and-adapt.md)
+### [Scales on the fly](sql-database-scale-on-the-fly.md)
+### [Builds multitenant apps](sql-database-build-multi-tenant-apps.md)
+### [Secures and protects](sql-database-helps-secures-and-protects.md)
+### [Works in your environment](sql-database-works-in-your-environment.md)
+
 ## Scenarios
 
 ### Servers, pools, databases, and firewalls
@@ -293,9 +300,3 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-## Benefits
-### [Learns and adapts](sql-database-learn-and-adapt.md)
-### [Scales on the fly](sql-database-scale-on-the-fly.md)
-### [Builds multitenant apps](sql-database-build-multi-tenant-apps.md)
-### [Secures and protects](sql-database-helps-secures-and-protects.md)
-### [Works in your environment](sql-database-works-in-your-environment.md)
