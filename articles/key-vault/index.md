@@ -106,7 +106,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 [Azure PowerShell Reference](/PowerShell/azureps-cmdlets-docs)
 
 ### Azure CLI 
-[Key Vault using Azure CLI](/cli/azure/keyvault)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ### Java 
 [Key Vault in Java Reference](/java/api/)

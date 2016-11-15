@@ -107,7 +107,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
 [Monitoring and Diagnostics PowerShell Cmdlet](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41)
 
 ###Azure CLI
-[Monitoring and Diagnostics Azure CLI](/cli/azure)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###.NET
 [Monitoring and Diagnostics Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)

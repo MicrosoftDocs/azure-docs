@@ -106,7 +106,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
 [PowerShell cmdlets](/powershell/azureps-cmdlets-docs/)
 
 ###Azure CLI
-[Azure CLI](/cli/azure)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###.NET
 [Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/)

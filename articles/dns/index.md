@@ -88,7 +88,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
 [Azure PowerShell reference](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
-[Azure DNS using the Azure CLI](/cli/azure/network/dns)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###.NET
 [.NET Managed Reference](/dotnet/api)
