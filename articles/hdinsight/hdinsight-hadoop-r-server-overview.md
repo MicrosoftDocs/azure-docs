@@ -1,6 +1,6 @@
 ﻿---
-title: What is R on HDInsight? Introduction to R Server on HDInsight (preview) | Microsoft Docs
-description: What is R Server on HDInsight (preview) and how to use R Server for creating applications for big data analysis.
+title: What is R on HDInsight? Introduction to R Server on HDInsight | Microsoft Docs
+description: What is R Server on HDInsight and how to use R Server for creating applications for big data analysis.
 services: hdinsight
 documentationcenter: ''
 author: jeffstokes72
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/17/2016
+ms.date: 11/15/2016
 ms.author: jeffstok
 
 ---
-# Overview of R Server on HDInsight \(preview\)
+# Overview of R Server on HDInsight
 With Microsoft Azure HDInsight Premium, Microsoft R Server is now available as an option when you create HDInsight clusters in Azure. This new capability provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.
 
 Clusters can be sized to the projects and tasks at hand and torn down when they're no longer needed. Since they're part of Azure HDInsight, these clusters come with enterprise-level 24/7 support, an SLA of 99.9% uptime, and the flexibility to integrate with other components in the Azure ecosystem.
@@ -96,13 +96,13 @@ A more sophisticated tool for the development of your R script is the  R-based I
 Another option is to install an IDE on the Linux edge node itself.  A popular choice is [RStudio Server](https://www.rstudio.com/products/rstudio-server/), which provides a browser-based IDE for use by remote clients. Installing RStudio Server on the edge node of an HDInsight Premium cluster provides a full IDE experience for the development and execution of R scripts with R Server on the cluster. It can be considerably more productive than the R console.  If you want to use RStudio Server, see [Installing RStudio Server on HDInsight clusters](hdinsight-hadoop-r-server-install-r-studio.md).
 
 ## Learn about pricing
-The fees that are associated with an HDInsight Premium cluster with R Server are structured similarly to the fees for the standard HDInsight clusters. They are based on the sizing of the underlying VMs across the name, data, and edge nodes, with the addition of a core-hour uplift for Premium. For more information about HDInsight Premium pricing, including pricing during Public Preview, and the availability of a 30-day free trial, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
+The fees that are associated with an HDInsight Premium cluster with R Server are structured similarly to the fees for the standard HDInsight clusters. They are based on the sizing of the underlying VMs across the name, data, and edge nodes, with the addition of a core-hour uplift for Premium. For more information about HDInsight Premium pricing, and the availability of a 30-day free trial, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## Next steps
 Follow the links below to read more about how to use R Server with HDInsight clusters.
 
 * [Getting started with R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md)
 * [Add RStudio Server to HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
-* [Compute context options for R Server on HDInsight (preview)](hdinsight-hadoop-r-server-compute-contexts.md)
+* [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 * [Azure Storage options for R Server on HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 

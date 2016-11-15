@@ -1,6 +1,6 @@
 ﻿---
-title: Install RStudio with R Server on HDInsight (preview) | Microsoft Docs
-description: How to install RStudio with R Server on HDInsight (preview).
+title: Install RStudio with R Server on HDInsight | Microsoft Docs
+description: How to install RStudio with R Server on HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: jeffstokes72
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2016
+ms.date: 11/15/2016
 ms.author: jeffstok
 
 ---
-# Installing RStudio with R Server on HDInsight (preview)
+# Installing RStudio with R Server on HDInsight
 There are multiple integrated development environments (IDE) available for R today, including Microsoft’s recently announced [R Tools for Visual Studio](https://www.visualstudio.com/en-us/features/rtvs-vs.aspx) (RTVS), a family of desktop and server tools from [RStudio](https://www.rstudio.com/products/rstudio-server/), or Walware’s Eclipse-based [StatET](http://www.walware.de/goto/statet). Among the most popular on Linux is the use of [RStudio Server](https://www.rstudio.com/products/rstudio-server/) that provides a browser-based IDE for use by remote clients.  Installing RStudio Server on the edge node of an HDInsight Premium cluster provides a full IDE experience for the development and execution of R scripts with R Server on the cluster, and can be considerably more productive than default use of the R Console.
 
 In this article you will learn how to install the community (free) version of RStudio Server on the edge node of a cluster by using a custom script. If you prefer the commercially licensed Pro version of RStudio Server, you must follow the installation instructions from [RStudio Server](https://www.rstudio.com/products/rstudio/download-server/).

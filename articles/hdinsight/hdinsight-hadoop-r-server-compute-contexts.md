@@ -1,6 +1,6 @@
 ﻿---
-title: Compute context options for R Server on HDInsight (preview) | Microsoft Docs
-description: Learn about the different compute context options available to users with R Server on HDInsight (preview)
+title: Compute context options for R Server on HDInsight | Microsoft Docs
+description: Learn about the different compute context options available to users with R Server on HDInsight 
 services: HDInsight
 documentationcenter: ''
 author: jeffstokes72
@@ -13,12 +13,12 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/18/2016
+ms.date: 11/15/2016
 ms.author: jeffstok
 
 ---
-# Compute context options for R Server on HDInsight (preview)
-Microsoft R Server on Azure HDInsight (preview) provides the latest capabilities for R-based analytics. It uses data that's stored in HDFS in a container in your [Azure Blob](../storage/storage-introduction.md "Azure Blob storage") storage account or the local Linux file system. Since R Server is built on open source R, the R-based applications you build can leverage any of the 8000+ open source R packages. They can also leverage the routines in [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), Microsoft’s big data analytics package that's included with R Server.  
+# Compute context options for R Server on HDInsight
+Microsoft R Server on Azure HDInsight provides the latest capabilities for R-based analytics. It uses data that's stored in HDFS in a container in your [Azure Blob](../storage/storage-introduction.md "Azure Blob storage") storage account or the local Linux file system. Since R Server is built on open source R, the R-based applications you build can leverage any of the 8000+ open source R packages. They can also leverage the routines in [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), Microsoft’s big data analytics package that's included with R Server.  
 
 The edge node of a Premium cluster provides a convenient place to connect to the cluster and run your R scripts. With an edge node, you have the option of running ScaleR’s parallelized distributed functions across the cores of the edge node server. You also have the option to run them across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Spark compute contexts.
 
