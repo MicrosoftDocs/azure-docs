@@ -1,4 +1,4 @@
-﻿---
+---
 title: SQL syntax and SQL query for DocumentDB | Microsoft Docs
 description: Learn about SQL syntax, database concepts, and SQL queries for DocumentDB, a NoSQL database. SQL can used as a JSON query language in DocumentDB.
 keywords: sql syntax,sql query, sql queries, json query language, database concepts and sql queries, aggregate functions
@@ -1356,134 +1356,45 @@ Parameter values can be any valid JSON (strings, numbers, Booleans, null, even a
 ## Built-in functions
 DocumentDB also supports a number of built-in functions for common operations, that can be used inside queries like user defined functions (UDFs).
 
-<table>
-<tr>
-<td>Mathematical functions</td>    
-<td>ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, SIN, and TAN</td>
-</tr>
-<tr>
-<td>Type checking functions</td>    
-<td>IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, and IS_PRIMITIVE</td>
-</tr>
-<tr>
-<td>String functions</td>    
-<td>CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING, and UPPER</td>
-</tr>
-<tr>
-<td>Array functions</td>    
-<td>ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH, and ARRAY_SLICE</td>
-</tr>
-<tr>
-<td>Spatial functions</td>    
-<td>ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID, and ST_ISVALIDDETAILED</td>
-</tr>
-</table>  
+| Function group          | Operations                                                                                                                                          |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Mathematical functions  | ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, SIN, and TAN |
+| Type checking functions | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, and IS_PRIMITIVE                                                           |
+| String functions        | CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING, and UPPER       |
+| Array functions         | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH, and ARRAY_SLICE                                                                                         |
+|  Spatial functions      | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID, and ST_ISVALIDDETAILED                                                                           | 
 
 If you’re currently using a user defined function (UDF) for which a built-in function is now available, you should use the corresponding built-in function as it is going to be quicker to run and more efficiently. 
 
 ### Mathematical functions
 The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value. Here’s a table of supported built-in mathematical functions.
 
-<table>
-<tr>
-<td><strong>Usage</strong></td>
-<td><strong>Description</strong></td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_abs">ABS (num_expr)</a></td>    
-<td>Returns the absolute (positive) value of the specified numeric expression.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ceiling">CEILING (num_expr)</a></td>    
-<td>Returns the smallest integer value greater than, or equal to, the specified numeric expression.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_floor">FLOOR (num_expr)</a></td>    
-<td>Returns the largest integer less than or equal to the specified numeric expression.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_exp">EXP (num_expr)</a></td>    
-<td>Returns the exponent of the specified numeric expression.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log">LOG (num_expr [,base])</a></td>    
-<td>Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log10">LOG10 (num_expr)</a></td>    
-<td>Returns the base-10 logarithmic value of the specified numeric expression.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_round">ROUND (num_expr)</a></td>    
-<td>Returns a numeric value, rounded to the closest integer value.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_trunc">TRUNC (num_expr)</a></td>    
-<td>Returns a numeric value, truncated to the closest integer value.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sqrt">SQRT (num_expr)</a></td>    
-<td>Returns the square root of the specified numeric expression.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_square">SQUARE (num_expr)</a></td>    
-<td>Returns the square of the specified numeric expression.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_power">POWER (num_expr, num_expr)</a></td>    
-<td>Returns the power of the specified numeric expression to the value specifed.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sign">SIGN (num_expr)</a></td>    
-<td>Returns the sign value (-1, 0, 1) of the specified numeric expression.</td>
-</tr>
-<tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_acos">ACOS (num_expr)</a></td>    
-<td>Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_asin">ASIN (num_expr)</a></td>    
-<td>Returns the angle, in radians, whose sine is the specified numeric expression. This is also called arcsine.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atan">ATAN (num_expr)</a></td>    
-<td>Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_atn2">ATN2 (num_expr)</a></td>    
-<td>Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cos">COS (num_expr)</a></td>    
-<td>Returns the trigonometric cosine of the specified angle, in radians, in the specified expression.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_cot">COT (num_expr)</a></td>    
-<td>Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_degrees">DEGREES (num_expr)</a></td>    
-<td>Returns the corresponding angle in degrees for an angle specified in radians.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_pi">PI ()</a></td>    
-<td>Returns the constant value of PI.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_radians">RADIANS (num_expr)</a></td>    
-<td>Returns radians when a numeric expression, in degrees, is entered.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sin">SIN (num_expr)</a></td>    
-<td>Returns the trigonometric sine of the specified angle, in radians, in the specified expression.</td>
-</tr>
-<tr>
-<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_tan">TAN (num_expr)</a></td>    
-<td>Returns the tangent of the input expression, in the specified expression.</td>
-</tr>
 
-</table> 
+| Usage | Description |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [[ABS (num_expr)](#bk_abs) | Returns the absolute (positive) value of the specified numeric expression. |
+| [CEILING (num_expr)](#bk_ceiling) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
+| [FLOOR (num_expr)](#bk_floor) | Returns the largest integer less than or equal to the specified numeric expression. |
+| [EXP (num_expr)](#bk_exp) | Returns the exponent of the specified numeric expression. |
+| [LOG (num_expr [,base])](#bk_log) | Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base |
+| [LOG10 (num_expr)](#bk_log10) | Returns the base-10 logarithmic value of the specified numeric expression. |
+| [ROUND (num_expr)](#bk_round) | Returns a numeric value, rounded to the closest integer value. |
+| [TRUNC (num_expr)](#bk_trunc) | Returns a numeric value, truncated to the closest integer value. |
+| [SQRT (num_expr)](#bk_sqrt) | Returns the square root of the specified numeric expression. |
+| [SQUARE (num_expr)](#bk_square) | Returns the square of the specified numeric expression. |
+| [POWER (num_expr, num_expr)](#bk_power) | Returns the power of the specified numeric expression to the value specifed. |
+| [SIGN (num_expr)](#bk_sign) | Returns the sign value (-1, 0, 1) of the specified numeric expression. |
+| [ACOS (num_expr)](#bk_acos) | Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine. |
+| [ASIN (num_expr)](#bk_asin) | Returns the angle, in radians, whose sine is the specified numeric expression. This is also called arcsine. |
+| [ATAN (num_expr)](#bk_atan) | Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent. |
+| [ATN2 (num_expr)](#bk_atn2) | Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions. |
+| [COS (num_expr)](#bk_cos) | Returns the trigonometric cosine of the specified angle, in radians, in the specified expression. |
+| [COT (num_expr)](#bk_cot) | Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression. |
+| [DEGREES (num_expr)](#bk_degrees) | Returns the corresponding angle in degrees for an angle specified in radians. |
+| [PI ()](#bk_pi) | Returns the constant value of PI. |
+| [RADIANS (num_expr)](#bk_radians) | Returns radians when a numeric expression, in degrees, is entered. |
+| [SIN (num_expr)](#bk_sin) | Returns the trigonometric sine of the specified angle, in radians, in the specified expression. |
+| [TAN (num_expr)](#bk_tan) | Returns the tangent of the input expression, in the specified expression. |
 
 For example, you can now run queries like the following:
 
