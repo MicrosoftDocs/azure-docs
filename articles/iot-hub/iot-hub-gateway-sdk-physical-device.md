@@ -193,7 +193,7 @@ Before running the sample, you need to verify that your Raspberry Pi 3 can conne
     [CHG] Device A0:E6:F8:B5:F6:00 Modalias: bluetooth:v000Dp0000d0110
     ```
    
-    Note: You can list the GATT characteristics of the device again using the **list-attributes** command.
+    > Note: You can list the GATT characteristics of the device again using the **list-attributes** command.
 9. You can now disconnect from the device using the **disconnect** command and then exit from the bluetooth shell using the **quit** command:
    
     ```
@@ -397,10 +397,10 @@ The following configuration ensures the following:
  ]
 ```
 
-To run the sample you run the **ble_gateway_hl** binary passing the path to the JSON configuration file. If you used the **gateway_sample.json** file, the command to execute looks like this:
+To run the sample, pass the path to the JSON configuration file to the **ble_gateway** binary. If you used the **gateway_sample.json** file, the command is below. Execute this command from the azure-iot-gateway-sdk directory
 
 ```
-./build/samples/ble_gateway_hl/ble_gateway_hl ./samples/ble_gateway_hl/src/gateway_sample.json
+./build/samples/ble_gateway/ble_gateway ./samples/ble_gateway/src/gateway_sample.json
 ```
 
 You may need to press the small button on the SensorTag device to make it discoverable before you run the sample.
@@ -408,9 +408,10 @@ You may need to press the small button on the SensorTag device to make it discov
 When you run the sample, you can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages the gateway forwards from the SensorTag device.
 
 ## Send cloud-to-device messages
-The BLE module also supports sending instructions from the Azure IoT Hub to the device. You can use the [Azure IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) or the [IoT Hub Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) to send JSON messages that the BLE gateway module passes on to the BLE device. For example, if you are using the Texas Instruments SensorTag device then you can send the following JSON messages to the device from IoT Hub.
+The BLE module also supports sending instructions from Azure IoT Hub to the device. You can use the [Azure IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) or the [IoT Hub Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) to send JSON messages that the BLE gateway module passes on to the BLE device.
+If you are using the Texas Instruments SensorTag device then you can turn on the red LED, green LED, or buzzer by sending commands from IoT Hub. To do this, first send the following two JSON messages in order. Then you can send any of the commands to turn on the lights or buzzer.
 
-* Reset all LEDs and the buzzer (turn them off)
+1 Reset all LEDs and the buzzer (turn them off)
   
     ```json
     {
@@ -419,7 +420,7 @@ The BLE module also supports sending instructions from the Azure IoT Hub to the 
       "data": "AA=="
     }
     ```
-* Configure I/O as 'remote'
+2 Configure I/O as 'remote'
   
     ```json
     {
@@ -456,14 +457,7 @@ The BLE module also supports sending instructions from the Azure IoT Hub to the 
     }
     ```
 
-The default behavior for a device using the HTTP protocol to connect to IoT Hub is to check every 25 minutes for a new command. Therefore, if you send several separate commands you need to wait 25 minutes for the device to receive each command.
-
-> [!NOTE]
-> The gateway also checks for new commands whenever it starts so you can force it to process a command by stopping and starting the gateway.
-> 
-> 
-
-## Next steps
+## Next Steps
 If you want to gain a more advanced understanding of the IoT Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
 
 * [Azure IoT Gateway SDK][lnk-sdk]
