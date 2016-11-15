@@ -19,7 +19,7 @@ ms.author: glenga
 
 ---
 # Continuous deployment for Azure Functions
-Azure Functions makes it easy to configure continuous deployment for your function app. Functions leverages Azure App Service integration with BitBucket, Dropbox, GitHub, and Visual Studio Team Services (VSTS) to enable a continuous deployment workflow where Azure pulls updates to your functions code when they are published to one of these services. If you are new to Azure Functions, start with [Azure Functions Overview](functions-overview.md).
+Azure Functions makes it easy to configure continuous deployment for your function app. Functions uses Azure App Service integration with BitBucket, Dropbox, GitHub, and Visual Studio Team Services (VSTS) to enable a continuous deployment workflow where Azure pulls updates to your functions code when they are published to one of these services. If you are new to Azure Functions, start with [Azure Functions Overview](functions-overview.md).
 
 Continuous deployment is a great option for projects where multiple and frequent contributions are being integrated. It also lets you maintain source control on your functions code. The following deployment sources are currently supported:
 
@@ -35,7 +35,7 @@ Continuous deployment is a great option for projects where multiple and frequent
 Deployments are configured on a per-function-app basis. After continuous deployment is enabled, access to function code in the portal is set to *read-only*.
 
 ## Continuous deployment requirements
-You must have your deployment source configured and your functions code in the deployment source before you set-up continuous deployment. In a given function app deployment, each function lives in a named subdirectory, there the directory name is the name of the function. This folder structure is essentially your site code. 
+You must have your deployment source configured and your functions code in the deployment source before you set up continuous deployment. In a given function app deployment, each function lives in a named subdirectory, there the directory name is the name of the function. This folder structure is essentially your site code. 
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
@@ -50,7 +50,7 @@ Use the following procedure to configure continuous deployment for an existing f
    
     You can also get to the **Deployments** blade from the **Functions quickstart** by clicking **Start from source control**.
 
-2. In the **Deployments** blade, click **Choose source**, then fill-in the information for your chosen deployment source and click **OK**.
+2. In the **Deployments** blade, click **Choose source**, then fill in the information for your chosen deployment source and click **OK**.
    
     ![Choose deployment source](./media/functions-continuous-deployment/choose-deployment-source.png)
 
@@ -74,11 +74,11 @@ The process to configure and work with a staging deployment looks generally like
 
 2. Create a deployment source, if you don't already have one. This example uses [GitHub].
 
-3. For your production function app, complete the above steps in **Setting-up continuous deployment** and set the deployment branch to the master branch of your GitHub repo.
+3. For your production function app, complete the above steps in **Set up continuous deployment** and set the deployment branch to the master branch of your GitHub repo.
    
     ![Choose deployment branch](./media/functions-continuous-deployment/choose-deployment-branch.png)
 
-4. Repeat this step for the staging function app, but this time choose the staging branch in your GitHub repo. If your deployment source doesn't support branching, use a different folder.
+4. Repeat this step for the staging function app, but choose the staging branch instead in your GitHub repo. If your deployment source doesn't support branching, use a different folder.
 
 5. Make updates to your code in the staging branch or folder, then verify that those changes are reflected in the staging deployment.
 
@@ -86,7 +86,7 @@ The process to configure and work with a staging deployment looks generally like
 
 <a name="existing"></a>
 ### Move existing functions to continuous deployment
-When you have existing functions that you have created and maintained in the portal, you need to download your existing function code files using FTP or the local Git repository before you can set-up continuous deployment as described above. You can do this in the App Service settings for your function app. After your files are downloaded, you can upload them to your chosen continuous deployment source.
+When you have existing functions that you have created and maintained in the portal, you need to download your existing function code files using FTP or the local Git repository before you can set up continuous deployment as described above. You can do this in the App Service settings for your function app. After your files are downloaded, you can upload them to your chosen continuous deployment source.
 
 > [!NOTE]
 > After you configure continuous integration, you will no longer be able to edit your source files in the Functions portal.
@@ -110,7 +110,7 @@ Before you can download files from your function app with FTP or local Git repos
 
 1. In your function app in the [Azure Functions portal](https://functions.azure.com/signin), click **Function app settings** > **Go to App Service settings** > **Properties** and copy the values for **FTP/Deployment User**, **FTP Host Name**, and **FTPS Host Name**.  
 
-    **FTP/Deployment User** must be entered as displayed in the portal, including the app name in order to provide proper context for the FTP server.
+    **FTP/Deployment User** must be entered as displayed in the portal, including the app name, in order to provide proper context for the FTP server.
    
     ![Get your deployment information](./media/functions-continuous-deployment/get-deployment-credentials.png)
 
