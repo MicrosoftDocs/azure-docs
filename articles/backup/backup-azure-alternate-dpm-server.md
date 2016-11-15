@@ -17,7 +17,7 @@ ms.date: 08/08/2016
 ms.author: giridham;jimpark;trinadhk;markgal
 
 ---
-# Recovering data from another DPM server in the backup vault
+# Recovering data from another Azure Backup server in the backup vault
 You can now recover the data you've protected to an Azure Backup vault from any DPM server registered to that vault. The process for doing so is completely integrated into the DPM management console and is similar to the other recovery workflows.
 
 To recover data from another DPM server inthe backup vault you'll need [System Center Data Protection Manager UR7](https://support.microsoft.com/en-us/kb/3065246) and the [latest Azure Backup agent](http://aka.ms/azurebackup_agent).
