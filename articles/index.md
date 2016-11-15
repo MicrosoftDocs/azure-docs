@@ -118,7 +118,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Virtual Machine Scale Sets</h3>
-                                                    <p>Create highly available, auto scalable Linux or Windows virtual machines</p>
+                                                    <p>Manage and scale 10s to 1000s of Linux and Windows virtual machines</p>
                                                 </div>
                                             </div>
                                         </div>

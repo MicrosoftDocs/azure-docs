@@ -1,9 +1,9 @@
 ---
 layout: LandingPage
 ---
-#Azure Data Factory Documentation
+# Azure Data Factory Documentation
 
-Azure Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Using the Data Factory service, you can create data integration solutions that can ingest data from various stores, transform and process the data, and publish the result data back to the data stores.
+Azure Data Factory is a cloud-based data integration service that automates the movement and transformation of data. The Data Factory service creates data integration solutions that can ingest data from various stores, transform and process the data, and publish the result data back to the data stores.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -71,7 +71,7 @@ Azure Data Factory is a cloud-based data integration service that orchestrates a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your pipeline for Data Factory</h3>
+                        <h3>Get started creating a pipeline for Data Factory</h3>
                     </div>
                 </div>
             </div>
@@ -82,16 +82,18 @@ Azure Data Factory is a cloud-based data integration service that orchestrates a
 
 ---
 
-##Reference
+## Reference
 
-###PowerShell
+### PowerShell
 [Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
-###.NET
+### .NET
 [Data Factory Managed Reference](/dotnet/api)
 
-###REST
+### REST
 [Data Factory REST API Reference](/rest/api/datafactory)
+
+---
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-factory.pdf">
