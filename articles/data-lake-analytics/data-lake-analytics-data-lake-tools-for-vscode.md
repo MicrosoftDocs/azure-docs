@@ -7,13 +7,12 @@ author: mumian
 manager: jhubbard
 editor: cgronlun
 
-ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/11/2016
+ms.date: 11/14/2016
 ms.author: jgao
 
 ---
