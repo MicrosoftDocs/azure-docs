@@ -67,9 +67,9 @@
 ### [Runbook job suspended](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
-## [Classic PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/)
-## [.NET](https://docs.microsoft.com/dotnet/api)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Classic PowerShell](/powershell/servicemanagement)
+## [.NET](/dotnet/api)
 ## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
 ## [Classic REST](https://msdn.microsoft.com/library/azure/mt163781)
 ## [Release notes](https://azure.microsoft.com/updates/?product=automation)
