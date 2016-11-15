@@ -1,4 +1,4 @@
---- 
+---
 layout: HubPage
 hide_bc: true
 title: Microsoft Azure Documentation
@@ -1893,7 +1893,7 @@ title: Microsoft Azure Documentation
                                 </a>
                             </li>
                         </ul>
-                    </li> 
+                    </li>
                     <li>
                         <a href="#devtools">Developer Tools</a>
                         <ul id="devtools" class="cardsA">
@@ -2142,7 +2142,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Monitor</h3>
-                                                    <p>Highly granular and real-time monitorign data for any Azure resource</p>
+                                                    <p>Highly granular and real-time monitoring data for any Azure resource</p>
                                                 </div>
                                             </div>
                                         </div>
