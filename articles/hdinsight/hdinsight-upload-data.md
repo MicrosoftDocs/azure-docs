@@ -180,7 +180,7 @@ For more information, see [Navigate the linked resources](hdinsight-hadoop-visua
 
 Before using the tool, you must know your Azure storage account name and account key. For instructions about getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Create, manage, or delete a storage account][azure-create-storage-account].  
 
-1. Run Azure Storage Explorer. If this is the first time you have ran the Storage Explorer, you will be prompted for the **_Storage account name** and **Storage account key**. If you have ran it before, use the **Add** button to add a new storage account name and key.
+1. Run Azure Storage Explorer. If this is the first time you have run the Storage Explorer, you will be prompted for the **_Storage account name** and **Storage account key**. If you have run it before, use the **Add** button to add a new storage account name and key.
 
     Enter the name and key for the storage account used by your HDinsight cluster and then select **SAVE & OPEN**.
 

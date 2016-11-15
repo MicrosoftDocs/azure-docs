@@ -101,10 +101,10 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 
      **Usage**:
 
-     ![Azure portal hdinsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
+     ![Azure portal HDInsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
 5. Click **Settings**.
 
-    ![Azure portal hdinsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
+    ![Azure portal HDInsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
    * **Properties**: View the cluster properties.
    * **Cluster AAD Identity**:
@@ -326,7 +326,7 @@ The credentials for the cluster that you provided at its creation give access to
 3. Click **Settings** from the top menu, and then click **Remote Desktop**.
 4. Enter **Expires On**, **Remote Desktop Username** and **Remote Desktop Password**, and then click **Enable**.
 
-    ![hdinsight enable disable configure remote desktop](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
+    ![HDInsight enable disable configure remote desktop](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
     The default values for Expires On is a week.
 

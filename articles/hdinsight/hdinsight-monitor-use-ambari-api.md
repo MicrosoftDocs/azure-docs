@@ -33,7 +33,7 @@ HDInsight currently supports only the Ambari monitoring feature. Ambari API 1.0 
 
 **Prerequisites**
 
-Before you begin this tutorial, you must have the following:
+Before you begin this tutorial, you must have the following items:
 
 * **A workstation with Azure PowerShell**.
   
@@ -44,25 +44,20 @@ Before you begin this tutorial, you must have the following:
   > When use the cURL command in Windows, use double-quotation marks instead of single-quotation marks for the option values.
   > 
   > 
-* **An Azure HDInsight cluster**. For instructions about cluster provisioning, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
+* **An Azure HDInsight cluster**. For instructions about cluster provisioning, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You need the following data to go through the tutorial:
   
   | Cluster property | Azure PowerShell variable name | Value | Description |
   | --- | --- | --- | --- |
   |   HDInsight cluster name |$clusterName | |The name of your HDInsight cluster. |
   |   Cluster username |$clusterUsername | |Cluster user name specified when the cluster was created. |
   |   Cluster password |$clusterPassword | |Cluster user password. |
-  
-  > [!NOTE]
-  > Fill-in the values in the table. This will be helpful for going through this tutorial.
-  > 
-  > 
 
-## Jump start
+## Jump-start
 There are several ways to use Ambari to monitor HDInsight clusters.
 
 **Use Azure PowerShell**
 
-The following is an Azure PowerShell script to get the MapReduce job tracker information *in an HDInsight 3.1 cluster.*  The key difference is that we pull these details from the YARN service (rather than MapReduce).
+The following Azure PowerShell script gets the MapReduce job tracker information *in an HDInsight 3.1 cluster.*  The key difference is that we pull these details from the YARN service (rather than MapReduce).
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -78,7 +73,7 @@ The following is an Azure PowerShell script to get the MapReduce job tracker inf
 
     $response.metrics.'yarn.queueMetrics'
 
-The following is an Azure PowerShell script for getting the MapReduce job tracker information *in an HDInsight 2.1 cluster*:
+The following PowerShell script gets the MapReduce job tracker information *in an HDInsight 2.1 cluster*:
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -100,7 +95,7 @@ The output is:
 
 **Use cURL**
 
-The following is an example of getting cluster information by using cURL:
+The following example gets cluster information by using cURL:
 
     curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.net:443/ambari/api/v1/clusters/<ClusterName>.azurehdinsight.net
 
@@ -146,7 +141,7 @@ The following table lists some of the most common Ambari monitoring API calls. F
 ## Next Steps
 Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 
-* [Manage HDInsight clusters using the Azure Portal][hdinsight-admin-portal]
+* [Manage HDInsight clusters using the Azure portal][hdinsight-admin-portal]
 * [Manage HDInsight clusters using Azure PowerShell][hdinsight-admin-powershell]
 * [Manage HDInsight clusters using command-line interface][hdinsight-admin-cli]
 * [HDInsight documentation][hdinsight-documentation]

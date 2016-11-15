@@ -164,7 +164,7 @@ The impact of changing the number of data nodes for each type of cluster support
     
     The Storm web UI is available on the HDInsight cluster:
     
-    ![hdinsight storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight Storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
     
     Here is an example how to use the CLI command to rebalance the Storm topology:
     
@@ -214,7 +214,7 @@ To grant:
 > 
 > 
 
-This can also be done via the Portal. See [Administer HDInsight by using the Azure Portal][hdinsight-admin-portal].
+This can also be done via the Portal. See [Administer HDInsight by using the Azure portal][hdinsight-admin-portal].
 
 ## Update HTTP user credentials
 It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
@@ -255,7 +255,7 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 
 ## See Also
 * [HDInsight .NET SDK reference documentation](https://msdn.microsoft.com/library/mt271028.aspx)
-* [Administer HDInsight by using the Azure Portal][hdinsight-admin-portal]
+* [Administer HDInsight by using the Azure portal][hdinsight-admin-portal]
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
 * [Create HDInsight clusters][hdinsight-provision]
 * [Upload data to HDInsight][hdinsight-upload-data]

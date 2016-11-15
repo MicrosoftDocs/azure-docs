@@ -42,7 +42,7 @@ Before you begin this article, you must have the following:
      
        If **HDInsight** doesn't appear in the left menu, click **Browse**, and then click **HDInsight Clusters**.
      
-       ![Azure portal Browse cluster buttomn](./media/hdinsight-administer-use-portal-linux/azure-portal-browse-button.png)
+       ![Azure portal Browse cluster button](./media/hdinsight-administer-use-portal-linux/azure-portal-browse-button.png)
 
 ## Create clusters
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -58,7 +58,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
    
     **Menu and essentials**:
    
-    ![Azure portal hdinsight cluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
+    ![Azure portal HDInsight cluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
    
    * **Settings** and **All Settings**: Displays the **Settings** blade for the cluster, which allows you to access detailed configuration information for the cluster.
    * **Dashboard**, **Cluster Dashboard** and **URL: These are all ways to access the cluster dashboard, which is Ambari Web for Linux-based clusters.
@@ -82,10 +82,10 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
      
      **Usage**:
      
-     ![Azure portal hdinsight cluster usage](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-cluster-usage.png)
+     ![Azure portal HDInsight cluster usage](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-cluster-usage.png)
 5. Click **Settings**.
    
-    ![Azure portal hdinsight cluster usage](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.cluster.settings.png)
+    ![Azure portal HDInsight cluster usage](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.cluster.settings.png)
    
    * **Audit logs**:
    * **Quick Start**:  Displays information that will help you get started using HDInsight.
@@ -168,7 +168,7 @@ The impact of changing the number of data nodes for each type of cluster support
     
     The Storm web UI is available on the HDInsight cluster:
     
-    ![hdinsight storm scale rebalance](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight Storm scale rebalance](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.storm.rebalance.png)
     
     Here is an example how to use the CLI command to rebalance the Storm topology:
     
@@ -184,9 +184,10 @@ The impact of changing the number of data nodes for each type of cluster support
 3. Click **Settings** from the top menu, and then click **Scale Cluster**.
 4. Enter **Number of Worker nodes**. The limit on the number of cluster node varies among Azure subscriptions. You can contact billing support to increase the limit.  The cost information will reflect the changes you have made to the number of nodes.
    
-    ![hdinsight hadoop hbase storm spark scale](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.png)
+    ![HDInsight hadoop hbase storm spark scale](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.png)
 
 ## Pause/shut down clusters
+
 Most of Hadoop jobs are batch jobs that are only ran occasionally. For most Hadoop clusters, there are large periods of time that the cluster is not being used for processing. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use.
 You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use.
 
@@ -259,12 +260,12 @@ By default, these services are granted for access. You can revoke/grant the acce
 **To find your Azure subscription IDs**
 
 1. Sign in to the [Portal][azure-portal].
-2. Click **Browse All** from the left menu, and then click **Subscriptions**. Each subscription has a name and a ID.
+2. Click **Browse All** from the left menu, and then click **Subscriptions**. Each subscription has a name and an ID.
 
 Each cluster is tied to an Azure subscription. The subscription ID is shown on the cluster **Essential** tile. See [List and show clusters](#list-and-show-clusters).
 
 ## Find the resource group
-In the ARM mode, each HDInsight cluster is created with an Azure resource group. The Azure resource group that a cluster belongs to appears in:
+In the Azure Resource Manager mode, each HDInsight cluster is created with an Azure resource group. The Azure resource group that a cluster belongs to appears in:
 
 * The cluster list has a **Resource Group** column.
 * Cluster **Essential** tile.  
@@ -279,10 +280,10 @@ You cannot run Hive job directly from the Azure portal, but you can use the Hive
 
 **To run Hive queries using Ambari Hive View**
 
-1. Sign in to the Ambari Web UI using the HDInsight cluster user credentials. The defaut username is **admin**. The URL is **https://&lt;HDInsight Cluster Name>azurehdinsight.net**.
+1. Sign in to the Ambari Web UI using the HDInsight cluster user credentials. The default username is **admin**. The URL is **https://&lt;HDInsight Cluster Name>azurehdinsight.net**.
 2. Open Hive View as shown in the following screenshot:  
    
-    ![hdinsight hive view](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
+    ![HDInsight hive view](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
 3. Click **Query** from the top menu.
 4. Enter a Hive query in **Query Editor**, and then click **Execute**.
 
