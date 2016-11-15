@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/12/2016
+ms.date: 11/16/2016
 ms.author: arramac
 
 ---

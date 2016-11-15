@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 11/16/2016
 ms.author: rnagpal
 
 ---
@@ -48,13 +48,22 @@ ms.author: rnagpal
 ## Release Notes
 
 ### <a name="0.1.0"/>[0.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/0.1.0)
-* Preview SDK
+
+The DocumentDB .NET Core Preview SDK enables you to build fast, cross-platform web-apps and services that run on Windows, Mac, and Linux. The .NET Core SDK also enables you to build applications on Mono, Xamarin, and UWP that connect to DocumentDB for backend storage and query. 
+
+The DocumentDB .NET Core Preview SDK has feature parity with the [DocumentDB .NET SDK version 1.10.0](documentdb-sdk-dotnet.md#1.10.0) and supports the following:
+* All [connection modes](documentdb-performance-tips.md#networking): Gateway mode, Direct TCP, and Direct HTTPs. 
+* All [consistency levels](documentdb-consistency-levels.md): Strong, Session, Bounded Staleness, and Eventual.
+* [Partitioned collections](documentdb-partition-data.md). 
+* [Multi-region database accounts and geo-replication](documentdb-distribute-data-globally.md).
+
+If you have questions related to this SDK, post to [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), the [MSDN forums](http://go.microsoft.com/fwlink/?LinkId=631655), or send email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com). 
 
 ## Release & Retirement Dates
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [0.1.0](#0.1.0) |November 14, 2016 |--- |
+| [0.1.0](#0.1.0) |November 15, 2016 |--- |
 
 ## FAQ
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
