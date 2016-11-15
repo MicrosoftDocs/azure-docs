@@ -283,10 +283,10 @@ The following binary operators are currently supported and can be used in querie
 |Operator group|Binary operator|
 |---|---|
 |Arithmetic|`+,-,*,/,%`|
-|Bitwise|`|, &, ^, <<, >>, >>> (zero-fill right shift) `|
+|Bitwise| ```|, &, ^, <<, >>, >>> (zero-fill right shift) ```|
 |Logical|`AND, OR, NOT`|
 |Comparison|`=, !=, &lt;, &gt;, &lt;=, &gt;=, <>`|
-|String|`|| (concatenate)`|
+|String| ```|| (concatenate)```|
 
 Let’s take a look at some queries using binary operators.
 
