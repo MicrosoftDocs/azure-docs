@@ -84,14 +84,50 @@ Azure Machine Learning provides tools to model predictive analytics as well as a
 
 ## Reference
 
-### PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
-
-### .Net#
-[Net# Neural Networks Language Reference](/azure/machine-learning/machine-learning-azure-ml-netsharp-reference-guide)
-
-### REST
-[Machine Learning REST API Reference](/rest/api/machinelearning)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="/rest/api/machinelearning">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Machine Learning REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="/azure/machine-learning/machine-learning-azure-ml-netsharp-reference-guide">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Net#</h3>
+                        <p>Net# Neural Networks Language Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">

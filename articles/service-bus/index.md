@@ -192,14 +192,50 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
 
 ## Reference
 
-### PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
-
-### .NET
-[.NET Managed Reference API](/dotnet/api/) 
-
-### REST 
-[Service Bus REST API Reference](/rest/api/servicebus)  
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>.NET Managed Reference API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="/rest/api/servicebus">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Service Bus REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-bus.pdf">
