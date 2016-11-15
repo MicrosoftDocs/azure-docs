@@ -1,4 +1,4 @@
---- 
+---
 layout: HubPage
 hide_bc: true
 title: Microsoft Azure Documentation
@@ -1893,7 +1893,7 @@ title: Microsoft Azure Documentation
                                 </a>
                             </li>
                         </ul>
-                    </li> 
+                    </li>
                     <li>
                         <a href="#devtools">Developer Tools</a>
                         <ul id="devtools" class="cardsA">
@@ -2268,7 +2268,7 @@ title: Microsoft Azure Documentation
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=python">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">Get examples</a>
                                                 </p>
                                             </div>
                                         </div>
