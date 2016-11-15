@@ -1,6 +1,4 @@
-Other tools you can use to move data to and/or from Azure Blob storage are:
-
-> [!div class="op_single_selector" title="Blob storage tools"]
+> [!div class="op_single_selector" title1="Blob storage tools"]
 > * [Overview](../articles/machine-learning/machine-learning-data-science-move-azure-blob.md)
 > * [Azure Storage-Explorer](../articles/machine-learning/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
 > * [AzCopy](../articles/machine-learning/machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
