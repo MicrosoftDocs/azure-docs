@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/30/2016
-ms.author: borooji
+ms.date: 11/10/2016
+ms.author: awills
 
 ---
 # Filtering and preprocessing telemetry in the Application Insights SDK
@@ -30,7 +30,7 @@ Currently these features are available for the ASP.NET SDK.
 
 Before you start:
 
-* Install the [Application Insights SDK for ASP.NET v2](app-insights-asp-net.md) in your app.
+* Install the Application Insights [SDK for ASP.NET](app-insights-asp-net.md) or [SDK for Java](app-insights-java-get-started.md) in your app.
 
 <a name="filtering"></a>
 
@@ -46,7 +46,7 @@ To filter telemetry, you write a telemetry processor and register it with the SD
 >
 >
 
-### Create a telemetry processor
+### Create a telemetry processor (C#)
 1. Verify that the Application Insights SDK in your project is  version 2.0.0 or later. Right-click your project in Visual Studio Solution Explorer and choose Manage NuGet Packages. In NuGet package manager, check Microsoft.ApplicationInsights.Web.
 2. To create a filter, implement ITelemetryProcessor. This is another extensibility point like telemetry module, telemetry initializer, and telemetry channel.
 
@@ -197,6 +197,100 @@ public void Process(ITelemetry item)
 
 #### Diagnose dependency issues
 [This blog](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) describes a project to diagnose dependency issues by automatically sending regular pings to dependencies.
+
+## Filtering (Java)
+
+In ApplicationInsights.xml, you'll find a number of predefined filters that you can parameterize. For example:
+
+```XML
+
+    <ApplicationInsights>
+      <TelemetryProcessors>
+        <BuiltInProcessors>
+           <Processor type="TraceTelemetryFilter">
+                  <Add name="FromSeverityLevel" value="ERROR"/>
+           </Processor>
+
+           <Processor type="RequestTelemetryFilter">
+                  <Add name="MinimumDurationInMS" value="100"/>
+                  <Add name="NotNeededResponseCodes" value="200-400"/>
+           </Processor>
+
+           <Processor type="PageViewTelemetryFilter">
+                  <Add name="DurationThresholdInMS" value="100"/>
+                  <Add name="NotNeededNames" value="home,index"/>
+                  <Add name="NotNeededUrls" value=".jpg,.css"/>
+           </Processor>
+
+           <Processor type="TelemetryEventFilter">
+                  <!-- Names of events we don't want to see -->
+                  <Add name="NotNeededNames" value="Start,Stop,Pause"/>
+           </Processor>
+
+           <!-- Exclude telemetry from availability tests and bots -->
+           <Processor type="SyntheticSourceFilter">
+                <!-- Optional: specify which synthetic sources, 
+                     comma-separated
+                     - default is all synthetics -->
+                <Add name="NotNeededSources" value="Application Insights Availability Monitoring,BingPreview"
+           </Processor>
+
+        </BuiltInProcessors>
+      </TelemetryProcessors>
+    </ApplicationInsights
+
+```
+
+[Inspect the full set of built-in processors](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
+
+### Custom filters in Java
+
+You can also create your own filters.
+
+In your code, create a class that implements `TelemetryProcessor`:
+
+```Java
+
+    public class MyOpNameProcessor implements TelemetryProcessor {
+
+       /* This method is called for each item of telemetry to be sent.
+          Return false to discard it.
+		  Return true to allow other processors to inspect it. */
+
+       public boolean process(Telemetry telemetry) {
+          return ! telemetry.getContext().getOperation().getName()
+                   .contains(notNeeded);
+       }
+
+      /* Any parameters that are required to support the filter.*/
+
+       private final String notNeeded;
+
+       /* Initializers for the parameters, named "setParameterName" */
+
+       public void setNotNeeded(String notNeeded) throws Throwable {
+	      this.notNeeded = notNeeded;
+       }
+    }
+
+```
+
+In ApplicationInsights.xml, add a segment like this:
+
+```XML
+
+    <ApplicationInsights.
+      <TelemetryProcessors>
+        <CustomProcessors>
+          <Processor type="com.microsoft.applicationinsights.sample.MyOpNameProcessor">
+            <!-- Values for each parameter you defined -->
+            <Add name="NotNeeded" value="Home"/>
+           </Processor>
+        </CustomProcessors>
+      </TelemetryProcessors>
+    </ApplicationInsights>
+```
+
 
 <a name="add-properties"></a>
 

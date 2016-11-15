@@ -1,6 +1,6 @@
 ---
 title: Get started with Apache Kafka on HDInsight | Microsoft Docs
-description: ''
+description: 'Learn the basics of creating and working with Kafka on HDInsight.'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist

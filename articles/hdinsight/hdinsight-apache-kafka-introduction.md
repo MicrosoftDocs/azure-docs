@@ -1,6 +1,6 @@
 ---
 title: An introduction to Apache Kafka on HDInsight | Microsoft Docs
-description: ''
+description: 'Learn about Apache Kafka on HDInsight. What it is, what it does, and where to find examples and getting started information.'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist

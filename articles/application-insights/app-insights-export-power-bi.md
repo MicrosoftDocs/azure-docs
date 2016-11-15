@@ -55,6 +55,8 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 ### Export an Analytics query
 1. [Open Analytics and write your query](app-insights-analytics-tour.md).
 2. Test and refine the query until you're happy with the results.
+
+   **Make sure that the query runs correctly in Analytics before you export it.**
 3. On the **Export** menu, choose **Power BI (M)**. Save the text file.
    
     ![Export Power BI query](./media/app-insights-export-power-bi/analytics-export-power-bi.png)
@@ -67,6 +69,8 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 1. You might have to provide credentials to allow Power BI to access Azure. Use 'organizational account' to sign in with your Microsoft account.
    
     ![Supply Azure credentials to enable Power BI to run your Application Insights query](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
+
+    (If you need to verify the credentials, use the Data Source Settings menu command in the Query Editor. Take care to specify the credentials you use for Azure, which might be different from your credentials for Power BI.)
 2. Choose a visualization for your query and select the fields for x-axis, y-axis, and segmenting dimension.
    
     ![Select visualization](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
