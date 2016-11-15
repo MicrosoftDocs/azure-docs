@@ -20,52 +20,59 @@ ms.author: boltean
 
 # IP Filter
 
-## Introduction
+Security is an important aspect of any IoT solution based on Azure IoT Hub. Sometimes you need to blacklist or whitelist certain IP addresses as part of your security configuration. The _IP filter_ feature enables you to configure rules for rejecting or accepting traffic from specific IPv4 addresses.
 
-Security is an important aspect of an IoT solution based on Azure IoT Hub and sometimes customers need to blacklist or whitelist certain IP addresses. The IP Filter feature enables them to configure rules for rejecting or accepting traffic from specific IPv4 addresses.
+## When to use
 
-There are two case scenarios when closing the IoT Hub endpoint for certain IP addresses is useful: 
-- When IoT Hub is designed to receive traffic only from an allowed range of IP addresses and reject everything else. A practical example is using the IoT Hub with [Azure Express Route] to create private connections between IoT Hub and on premises infrastructure.
-- Another use case for IP filter is to reject traffic from IP addresses that have been identified as suspicious by the IoT Hub administrator.
+There are two specific use-cases when it is useful to block the IoT Hub endpoints for certain IP addresses:
 
-The IP filter rules are applied at the IoT Hub service level meaning any time a device or a back-end application is connecting on any supported protocols (currently AMQP, MQTT, AMQP/WS, MQTT/WS, HTTP/1). 
-Any application from an IP address that matches a rejecting IP rule in your IoT hub will receive an unauthorized 401 status code and description without specific mention of the IP rule in the message.
+- When your IoT hub should receive traffic only from a specified range of IP addresses and reject everything else. For example, when you are using your IoT hub with [Azure Express Route] to create private connections between an IoT hub and your on-premises infrastructure.
+- When you need to reject traffic from IP addresses that have been identified as suspicious by the IoT hub administrator.
 
-## Default state
-By default the IP Filter grid is empty meaning that all IP addresses are accepted. This is the equivalent of having a rule that accepts 0.0.0.0/0 IP range. 
+## How filter rules are applied
+
+The IP filter rules are applied at the IoT Hub service level. Therefore the IP filter rules apply to all connections from devices and back-end applications using any supported protocol.
+
+Any connection attempt from an IP address that matches a rejecting IP rule in your IoT hub receives an unauthorized 401 status code and description. The response message does not mention the IP rule.
+
+## Default setting
+By default, the **IP Filter** grid in the portal for an IoT hub is empty. This default setting means that your hub accepts connections any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range.
 
 ![][img-ip-filter-default]
- 
-## Adding or editing an IP filter rules
 
-Adding an IP filter rule will prompt the user to introduce the following values: 
+## Add or edit an IP filter rule
 
-- Define a **IP filter rule name** that must be unique, case insensitive, alphanumeric string up to 128 characters long. Only ASCII 7-bit alphanumeric chars + {'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';',  '''} are accepted
-- Select a specific **action** for rejecting or accepting the IP rule. 
-- Define one **individual IPv4** or one **CIDR-notation mask**. For example, the 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255. 
+When you add an IP filter rule, you are prompted for the following values:
+
+- An **IP filter rule name** that must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.
+- Select a **reject** or **accept** as the **action** for the IP filter rule.
+- Provide a single IPv4 address or a block of IP addesses in CIDR notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255.
 
 ![][img-ip-filter-add-rule]
 
-After creating and saving the rule the user will be prompted with an alert notifying that the update is in progress
+After you save the rule, you see an alert notifying you that the update is in progress.
 
 ![][img-ip-filter-save-new-rule]
 
-Add option will be disabled after reaching the **maximum of 10 IP filter rules**.
+The **Add** option is disabled when you reach the maximum of ten IP filter rules.
 
-User can edit an existing rule by double clicking on the row containing the rule. 
+You can edit an existing rule by double-clicking the row that contains the rule.
 
-## Deleting IP rule
-Deleting rules is possible by selecting one or more rules in the grid and using the Delete icon in the menu. 
+## Delete an IP filter rule
+
+To delete an IP filter rule, select one or more rules in the grid and click **Delete**.
 
 ![][img-ip-filter-delete-rule]
 
-## IP rule evaluation 
+## IP filter rule evaluation
 
-The rules are applied in order; the first rule that matches the IP decides the action. 
-For example if the user wants to accept the 192.168.100.0/22 and reject everything else the grid would have a first rule that accepts the 192.168.100.0/22 followed by a rule that rejects all addresses 0.0.0.0/0. By adding a last rule that rejects 0.0.0.0/0 the user changes the default behavior to blacklist. 
+IP filter rules are applied in order and the first rule that matches the IP address determines the accept or reject action.
 
-Changing the priority of the IP rule is possible by clicking on the vertical dots at the beginning of the rule followed by drag and drop to the desired order in the grid.
-The ordered changes are preserved by clicking Save command.
+For example, if you want to accept addresses in the range 192.168.100.0/22 and reject everything else, the first rule in the grid should accept the address range 192.168.100.0/22. The next rule should reject all addresses by using the range 0.0.0.0/0. If you add a last rule that rejects the range 0.0.0.0/0, you change the default behavior to whitelisting.
+
+You can change the order of your IP filter rules in the grid by clicking on the three vertical dots at the start of a row and using drag and drop.
+
+To save your new IP filter rule order, click **Save**.
 
 ![][img-ip-filter-rule-order]
 
