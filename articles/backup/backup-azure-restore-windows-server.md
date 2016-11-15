@@ -33,8 +33,6 @@ In both cases, the data is retrieved from the Azure Recovery Services vault.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-classic deployment model.
-
 ## Recover data to the same machine
 If you accidentally deleted a file and wish to restore it to the same machine (from which the backup is taken), the following steps will help you recover the data.
 

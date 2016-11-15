@@ -1,5 +1,6 @@
 ---
 layout: LandingPage
++toc_rel: breadcrumb.json
 ---
 #Virtual Network Documentation
 
@@ -25,24 +26,6 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
         </a>
     </li>
     <li>
-        <a href="/azure/Virtual-Network/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Virtual Network</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=virtual-network">
         <div class="cardSize">
             <div class="cardPadding">
@@ -61,7 +44,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
         </a>
     </li>
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-portal">
+        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-pportal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -71,7 +54,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a virtual network using the Azure portal</h3>
+                        <h3>Get Started with Virtual Network using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +72,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a virtual network using PowerShell</h3>
+                        <h3>Get Started with Virtual Network using PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +90,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a virtual network using the Azure CLI</h3>
+                        <h3>Get Started with Virtual Network using the Azure CLI</h3>
                     </div>
                 </div>
             </div>
@@ -121,10 +104,10 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
 ##Reference
 
 ###PowerShell
-[Virtual Network PowerShell Reference](/powershell/azureps-cmdlets-doc)
+[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
-[Virtual Network Azure CLI] (/cli/azure/network/vnet)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###.NET
 [.NET API Reference](/dotnet/api)
@@ -133,7 +116,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
 [Java API Reference](/java/api)
 
 ###REST
-[Virtual Network REST API Reference](https://msdn.microsoft.com/library/azure/mt163658.aspx)
+[Virtual Network REST API Reference](https://msdn.microsoft.com/library/azure/mt163658)
 
 
 <div class="downloadHolder">
