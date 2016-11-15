@@ -67,11 +67,11 @@ SQL Server Stretch Database migrates your cold data transparently and securely t
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create and enable a SQL Server Stretch Database</h3>
+                        <h3>Get started using the SQL Server Stretch Database wizard</h3>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,6 @@ SQL Server Stretch Database migrates your cold data transparently and securely t
  </ul>
 
 ---
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-server-stretch-database.pdf">
