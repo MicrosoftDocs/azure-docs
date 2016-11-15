@@ -36,7 +36,7 @@ Azure Container Registry (preview) is a private registry for hosting container i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a registry with the portal</h3>
+                        <h3>Get started creating a registry with the portal</h3>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@ Azure Container Registry (preview) is a private registry for hosting container i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a registry with the CLI</h3>
+                        <h3>Get started creating a registry with the CLI</h3>
                     </div>
                 </div>
             </div>
