@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/14/2016
+ms.date: 11/15/2016
 ms.author: jgao
 
 ---
@@ -154,10 +154,8 @@ Each Data Lake Analytics account requires a Data Lake Store account. For instruc
 		adlaAccountName,
 		DataLakeAnalyticsAccount(
 			location=location,
-			properties=DataLakeAnalyticsAccountProperties(
-				default_data_lake_store_account=adlsAccountName,
-				data_lake_store_accounts=[DataLakeStoreAccountInfo(name=adlsAccountName)]
-			)
+			default_data_lake_store_account=adlsAccountName,
+			data_lake_store_accounts=[DataLakeStoreAccountInfo(name=adlsAccountName)]
 		)
 	).wait()
 
