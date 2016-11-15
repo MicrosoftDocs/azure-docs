@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an internal load balancer using PowerShell in Resource Manager | Microsoft Docs
 description: Learn how to create an internal load balancer using PowerShell in Resource Manager
 services: load-balancer
@@ -20,7 +20,11 @@ ms.author: sewhee
 
 # Create an internal load balancer using PowerShell
 
-[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -236,7 +240,7 @@ Expected output:
 
 Use the command Add-AzureRmVMNetworkInterface to assign the NIC to a virtual Machine.
 
-You can find the step by step instructions to create a virtual machine and assign to a NIC following the documentation: [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md).
+You can find the step by step instructions to create a virtual machine and assign to a NIC following the documentation: [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Add the network interface
 

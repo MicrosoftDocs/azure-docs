@@ -29,7 +29,7 @@ ms.author: maheshu
 This article shows you how to join a virtual machine running Windows Server 2012 R2 to an Azure AD Domain Services managed domain, using the Azure classic portal.
 
 ## Step 1: Create the Windows Server virtual machine
-Follow the instructions outlined in the [Create a virtual machine running Windows in the Azure classic portal](../virtual-machines/virtual-machines-windows-classic-tutorial.md) tutorial. It is important to ensure that this newly created virtual machine is joined to the same virtual network in which you enabled Azure AD Domain Services. The 'Quick Create' option does not enable you to join the virtual machine to a virtual network. Therefore, you need to use the 'From Gallery' option to create the virtual machine.
+Follow the instructions outlined in the [Create a virtual machine running Windows in the Azure classic portal](../virtual-machines/virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) tutorial. It is important to ensure that this newly created virtual machine is joined to the same virtual network in which you enabled Azure AD Domain Services. The 'Quick Create' option does not enable you to join the virtual machine to a virtual network. Therefore, you need to use the 'From Gallery' option to create the virtual machine.
 
 Perform the following steps to create a Windows virtual machine joined to the virtual network in which you've enabled Azure AD Domain Services.
 
