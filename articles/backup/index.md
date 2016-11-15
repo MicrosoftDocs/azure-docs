@@ -13,7 +13,7 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/backup.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,11 +67,11 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started backing up Azure virtual machines with Azure Backup</h3>
+                        <h3>Get Started backing up Azure virtual machines with Azure Backup</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +85,11 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started protecting Azure virtual machines with Azure Backup</h3>
+                        <h3>Get Started protecting Azure virtual machines with Azure Backup</h3>
                     </div>
                 </div>
             </div>
@@ -100,16 +100,42 @@ Azure Backup is cloud service you can use to back up (or protect) and restore yo
 
 ---
 
-##Reference
+## Reference
 
-###REST
-[Backup REST API Reference](/rest/api/backup)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>.NET Managed Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/recoveryservices">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Backup REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
-###.NET
-[.NET Managed Reference](/dotnet/api)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
         <div class="img"></div>
         <div class="text">
             Download Azure Backup Documentation

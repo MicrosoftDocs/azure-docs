@@ -197,5 +197,5 @@ The common practice is to use the root certificate to manage access at team or o
 You can manage the list of revoked client certificates on the **Point-to-site configuration** blade. This is the blade that you used to [upload a trusted root certificate](#uploadfile).
 
 ## Next steps
-You can add a virtual machine to your virtual network. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for steps.
+You can add a virtual machine to your virtual network. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.
 
