@@ -149,7 +149,7 @@ operations.
 #### Listener control channel connection
 The control channel is opened with creating a Web socket connection to:
 
-```wss://{namespace-address}/$hc/{path}?sb-hc-action=...& sb-hc-id=...& sb-hc-token=...```
+**wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...**
 
 The *namespace-address* is the fully qualified domain name of the Azure Relay
 namespace that hosts the Hybrid Connection, typically of the form
@@ -344,7 +344,7 @@ The goal is maximum transparency for the end-to-end Web socket. The address to
 connect to is the same as for the listener, but the "action" differs and the
 token needs a different permission:
 
-```wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...```
+**wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...**
 
 The *namespace-address* is the fully qualified domain name of the Azure Relay
 namespace that hosts the Hybrid Connection, typically of the form
@@ -370,7 +370,7 @@ Connection is registered under the path "hyco", the path expression can be
 "hyco/suffix?param=value&..." followed by the query string parameters defined
 here. A complete expression may then be:
 
-```wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...```
+**wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...**
 
 The path expression is passed through to the listener in the address URI
 contained in the "accept" control message.
