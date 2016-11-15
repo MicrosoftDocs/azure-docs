@@ -24,7 +24,8 @@ ms.author: rnagpal
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
@@ -49,7 +50,7 @@ ms.author: rnagpal
 
 ### <a name="0.1.0"/>[0.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/0.1.0)
 
-The DocumentDB .NET Core Preview SDK enables you to build fast, cross-platform web-apps and services that run on Windows, Mac, and Linux. The .NET Core SDK also enables you to build applications on Mono, Xamarin, and UWP that connect to DocumentDB for backend storage and query. 
+The DocumentDB .NET Core Preview SDK enables you to build fast, cross-platform web-apps and services that run on Windows, Mac, and Linux. The .NET Core SDK also enables you to build applications on UWP that connect to DocumentDB for backend storage and query. 
 
 The DocumentDB .NET Core Preview SDK has feature parity with the [DocumentDB .NET SDK version 1.10.0](documentdb-sdk-dotnet.md#1.10.0) and supports the following:
 * All [connection modes](documentdb-performance-tips.md#networking): Gateway mode, Direct TCP, and Direct HTTPs. 
