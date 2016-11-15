@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Tutorial: Azure Active Directory integration with Boomi | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and Boomi."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+---
+title: 'Tutorial: Azure Active Directory integration with Boomi | Microsoft Docs'
+description: Learn how to use Boomi with Azure Active Directory to enable single sign-on, automated provisioning, and more!
+services: active-directory
+author: jeevansd
+documentationcenter: na
+manager: femila
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/11/2016"
-	ms.author="jeedes"/>
+ms.assetid: 26aaaa14-e714-46c6-8f89-cab374c4f10a
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 11/15/2016
+ms.author: jeedes
 
+---
 
 # Tutorial: Azure Active Directory integration with Boomi
 
