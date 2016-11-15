@@ -50,7 +50,7 @@ ms.author: rnagpal
 
 ### <a name="0.1.0"/>[0.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/0.1.0)
 
-The DocumentDB .NET Core Preview SDK enables you to build fast, cross-platform web-apps and services that run on Windows, Mac, and Linux and is compatible with the Xamarin, Mono, and UWP. 
+The DocumentDB .NET Core Preview SDK enables you to build fast, cross-platform web-apps and services that run on Windows, Mac, and Linux, and supports UWP. 
 
 The DocumentDB .NET Core Preview SDK has feature parity with the [DocumentDB .NET SDK version 1.10.0](documentdb-sdk-dotnet.md#1.10.0) and supports the following:
 * All [connection modes](documentdb-performance-tips.md#networking): Gateway mode, Direct TCP, and Direct HTTPs. 
