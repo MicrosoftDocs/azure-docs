@@ -230,7 +230,7 @@ public static void MyLogger(TraceWriter log, string logtext)
 }
 ```
 
-Using a shared *.csx* is a common pattern when you want to strongyly type your arguments between functions using a POCO object. In the following simplified example, a HTTP trigger and queue trigger share a POCO object named `order` to strongly type the order data:
+Using a shared *.csx* is a common pattern when you want to strongly type your arguments between functions using a POCO object. In the following simplified example, a HTTP trigger and queue trigger share a POCO object named `Order` to strongly type the order data:
 
 Example *run.csx* for HTTP trigger:
 
