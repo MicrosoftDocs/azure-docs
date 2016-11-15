@@ -121,7 +121,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
      Save the IP address, as you will need it when creating an A record.
 2. Log on to your DNS registrar's website and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
 3. Now find where you can select or enter A record's. You may have to select the record type from a drop down, or go to an advanced settings page.
-4. Select or enter the domain or subdomain that will use this A record. For example, select **www** if you want to create an alias for **www.customdomain.com**. If you want to create a wildcard entry for all subdomains, enter '*****'. This will cover all sub-domains such as **mail.customdomain.com**, **login.customdomain.com**, and **www.customdomain.com**.
+4. Select or enter the domain or subdomain that will use this A record. For example, select **www** if you want to create an alias for **www.customdomain.com**. If you want to create a wildcard entry for all subdomains, enter '__*__'. This will cover all sub-domains such as **mail.customdomain.com**, **login.customdomain.com**, and **www.customdomain.com**.
    
     If you want to create an A record for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
 5. Enter the IP address of your cloud service in the provided field. This associates the domain entry used in the A record with the IP address of your cloud service deployment.
@@ -132,7 +132,7 @@ For example, the following A record forwards all traffic from **contoso.com** to
 | --- | --- |
 | @ |137.135.70.239 |
 
-This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '*****' as the subdomain.
+This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '__*__' as the subdomain.
 
 > [!WARNING]
 > IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](../virtual-network/virtual-networks-reserved-public-ip.md) to ensure that your IP address does not change.

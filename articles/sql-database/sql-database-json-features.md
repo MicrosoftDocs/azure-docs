@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure SQL Database JSON features | Microsoft Docs
 description: Azure SQL Database enables you to parse, query, and format data in JavaScript Object Notation (JSON) notation.
 services: sql-database
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 55860105-2f5f-4b10-87a0-99faa32b5653
 ms.service: sql-database
 ms.devlang: NA
-ms.date: 08/17/2016
+ms.date: 11/15/2016
 ms.author: jovanpop
 ms.workload: NA
 ms.topic: article

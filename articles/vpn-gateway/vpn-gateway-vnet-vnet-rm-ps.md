@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect Azure VNets with VPN Gateway and PowerShell | Microsoft Docs
 description: This article walks you through connecting virtual networks together by using Azure Resource Manager and PowerShell.
 services: vpn-gateway
@@ -423,6 +423,6 @@ In this example, because the gateways are in the different subscriptions, we've 
 [!INCLUDE [verify connection powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## Next steps
-* Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for steps.
+* Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md). 
 
