@@ -95,6 +95,7 @@
 ## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 ## [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
 ## [REST](/rest/api/documentdb/)
+## [Classic REST](/rest/api/documentdbresourceprovider/)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
