@@ -102,7 +102,7 @@
 ### [Shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
 ### Client-side encryption
-#### [Azure Key Vault](storage-client-side-encryption.md)
+#### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 

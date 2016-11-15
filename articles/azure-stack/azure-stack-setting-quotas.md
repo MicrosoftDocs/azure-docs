@@ -17,7 +17,7 @@ ms.date: 09/26/2016
 ms.author: mattmcg
 
 ---
-# Set quotas in Azure Stack
+# Set and view quotas in Azure Stack
 Quotas define the limits of resources that a tenant subscription
 can provision or consume. For example, a quota might allow a tenant to
 create up to five VMs. To add a service to a plan, the
@@ -96,3 +96,6 @@ plans can use all resources that are available in each plan.
 | Max NICs |100 |The maximum number of network interfaces that a subscription can create in this location. |
 | Max network security groups |50 |The maximum number of network security groups that a subscription can create in this location. |
 
+##View an existing quota
+To view an existing quota, click on **More services**>**Resource Providers** and select the service with which the quota you want to view is assocatied. Next, click on **Quotas**, and select the Quota you want to view.
+   > ![Viewing an existing quota](./media/azure-stack-setting-quota/ExistingQuota.PNG)
