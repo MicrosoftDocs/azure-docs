@@ -97,11 +97,11 @@
 ## [REST](/rest/api/documentdb/)
 
 # Resources
-## [Service updates](https://azure.microsoft.com/updates/?product=documentdb)
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
-## [MSDN forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)
+## [Service updates](https://azure.microsoft.com/updates/?product=documentdb)
 ## [Community portal](documentdb-community.md)
 ## [Query Playground](https://www.documentdb.com/sql/demo)
 ## [Schema agnostic indexing paper](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)

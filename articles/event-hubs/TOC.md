@@ -33,9 +33,9 @@
 ## [REST](/rest/api/eventhub/)
 
 # Resources
+## [Pricing](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 ## [Service updates](https://azure.microsoft.com/updates/?product=event-hubs)
-## [Pricing](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
