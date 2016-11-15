@@ -24,7 +24,7 @@ ms.author: larryfr
 
 Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning library with Azure HDInsight to generate movie recommendations.
 
-Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this article, you will use a recommendation engine to generate movie recommendations that are based on movies your friends have seen.
+Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this article, you use a recommendation engine to generate movie recommendations that are based on movies your friends have seen.
 
 > [!NOTE]
 > The steps in this document require a Linux-based Hadoop on HDInsight cluster. For information on using Mahout with a Windows-based cluster, see [Generate movie recommendations by using Apache Mahout with Windows-based Hadoop in HDInsight](hdinsight-mahout.md)
@@ -35,22 +35,17 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 
 ## Mahout versioning
 
-For more information about the version of Mahout included with your HDInsight cluster, see [HDInsight versions and Hadoop components](hdinsight-component-versioning.md).
-
-> [!WARNING]
-> While it is possible to upload a different version of Mahout to the HDInsight cluster, only components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
-> 
-> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+For more information about the version of Mahout in HDInsight, see [HDInsight versions and Hadoop components](hdinsight-component-versioning.md).
 
 ## <a name="recommendations"></a>Understanding recommendations
 
 One of the functions that is provided by Mahout is a recommendation engine. This engine accepts data in the format of `userID`, `itemId`, and `prefValue` (the users preference for the item). Mahout can then perform co-occurance analysis to determine: *users who have a preference for an item also have a preference for these other items*. Mahout then determines users with like-item preferences, which can be used to make recommendations.
 
-The following is an extremely simple example that uses movies:
+The following workflow is an extremely simple example that uses movie data:
 
 * **Co-occurance**: Joe, Alice, and Bob all liked *Star Wars*, *The Empire Strikes Back*, and *Return of the Jedi*. Mahout determines that users who like any one of these movies also like the other two.
 
-* **Co-occurance**: Bob and Alice also liked *The Phantom Menace*, *Attack of the Clones*, and *Revenge of the Sith*. Mahout determines that users who liked the previous three movies also like these three.
+* **Co-occurance**: Bob and Alice also liked *The Phantom Menace*, *Attack of the Clones*, and *Revenge of the Sith*. Mahout determines that users who liked the previous three movies also like these three movies.
 
 * **Similarity recommendation**: Because Joe liked the first three movies, Mahout looks at movies that others with similar preferences liked, but Joe has not watched (liked/rated). In this case, Mahout recommends *The Phantom Menace*, *Attack of the Clones*, and *Revenge of the Sith*.
 
@@ -58,7 +53,7 @@ The following is an extremely simple example that uses movies:
 
 Conveniently, [GroupLens Research][movielens] provides rating data for movies in a format that is compatible with Mahout. This data is available on your cluster's default storage at `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-There are two files, `moviedb.txt` (information about the movies,) and `user-ratings.txt`. The user-ratings.txt file is used during analysis, while moviedb.txt is used to provide user-friendly text infromation when displaying the results of the analysis.
+There are two files, `moviedb.txt` (information about the movies,) and `user-ratings.txt`. The user-ratings.txt file is used during analysis, while moviedb.txt is used to provide user-friendly text information when displaying the results of the analysis.
 
 The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which tells us how highly each user rated a movie. Here is an example of the data:
 
@@ -87,7 +82,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
     hdfs dfs -text /example/data/mahoutout/part-r-00000
     ```
 
-    The output will appear as follows:
+    The output appears as follows:
    
         1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
         2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
@@ -96,22 +91,22 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
    
     The first column is the `userID`. The values contained in '[' and ']' are `movieId`:`recommendationScore`.
 
-2. You can use the output, along with the moviedb.txt, to display more user friendly information. First, we need to copy the files locally using the following commands:
+2. You can use the output, along with the moviedb.txt, to display more user-friendly information. First, we need to copy the files locally using the following commands:
     
     ```bash
     hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
     hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
     ```
 
-    This will copy the output data to a file named **recommendations.txt** in the current directory, along with the movie data files.
+    This copies the output data to a file named **recommendations.txt** in the current directory, along with the movie data files.
 
-3. Use the following command to create a new Python script that will look up movie names for the data in the recommendations output:
+3. Use the following command to create a new Python script that looks up movie names for the data in the recommendations output:
    
     ```bash
     nano show_recommendations.py
     ```
 
-    When the editor opens, use the following as the contents of the file:
+    When the editor opens, use the following text as the contents of the file:
     
     ```python
     #!/usr/bin/env python
@@ -173,13 +168,13 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
     chmod +x show_recommendations.py
     ```
 
-5. Run the Python script. The following assumes you are in the directory where all the files were downloaded:
+5. Run the Python script. The following command assumes you are in the directory where all the files were downloaded:
    
     ```bash
     ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
     
-    This will look at the recommendations generated for user ID 4.
+    This command looks at the recommendations generated for user ID 4.
    
    * The **user-ratings.txt** file is used to retrieve movies that the user has rated.
 
@@ -187,7 +182,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
    * The **recommendations.txt** is used to retrieve the movie recommendations for this user.
      
-     The output from this command will be similar to the following:
+     The output from this command is similar to the following text:
      
        Reading Movies Descriptions
        Reading Rated Movies
