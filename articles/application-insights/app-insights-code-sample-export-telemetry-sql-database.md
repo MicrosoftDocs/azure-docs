@@ -1,5 +1,5 @@
 ---
-title: 'Code sample: Parse data exported from Application Insights'
+title: 'Code sample: Parse data exported from Application Insights | Microsoft Docs'
 description: Code your own analysis of telemetry in Application Insights by using the continuous export feature. Save data to SQL.
 services: application-insights
 documentationcenter: ''
@@ -12,38 +12,24 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
 # Code sample: Parse data exported from Application Insights
-This article shows how to process JSON data exported from Application Insights. As an example, we'll write code to move your telemetry data from [Azure Application Insights][start] into an Azure SQL database by using [Continuous Export][export]. (You can also achieve this [by using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md), but our aim here is to show you some code.) 
+This article shows how to write code to process data exported from [Azure Application Insights][start] using [Continuous Export][export]. Continuous export moves your telemetry into Azure Storage in JSON format, so we'll write some code to parse the JSON objects and create rows in a database table.
 
-Continuous export moves your telemetry into Azure Storage in JSON format, so we'll write some code to parse the JSON objects and create rows in a database table.
+As an example, we'll write code to move your telemetry data from Application Insights into a SQL database.
 
-More generally, Continuous Export is the way to do your own analysis of the telemetry your apps send to Application Insights. You could adapt this code sample to do other things with the exported telemetry.
+Before you start, please note:
 
-We'll start with the assumption that you already have the app you want to monitor.
+* A more efficient method of transferring exported data into a database is [by using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md), but our aim here is to show you some code to process exported data. You could adapt this code sample to do other things with the exported telemetry.
+* In this example, we move the data into an Azure database by running the code in an Azure worker role. But you could adapt this code to run in an on-premise server to pull the data into an on-premise SQL server.
+* You can [write code to access your telemetry directly](http://dev.applicationinsights.io/) in Application Insights, without exporting it.
 
-## Add Application Insights SDK
-To monitor your application, you [add an Application Insights SDK][start] to your application. There are different SDKs and helper tools for different platforms, IDEs and languages. You can monitor web pages, Java or ASP.NET web servers, and mobile devices of several kinds. All the SDKs send telemetry to the [Application Insights portal][portal], where you can use our powerful analysis and diagnostic tools, and export the data to storage.
+If you haven't yet started monitoring your web application with Application Insights, [do that now][start].
 
-To get started:
 
-1. Get an [account in Microsoft Azure](https://azure.microsoft.com/pricing/).
-2. In the [Azure portal][portal], add a new Application Insights resource for your app:
-   
-    ![Choose New, Developer Services, Application Insights, and choose the type of application](./media/app-insights-code-sample-export-telemetry-sql-database/010-new-asp.png)
-
-    (Your app type and subscription might be different.)
-1. Open Quick Start to find how to set up the SDK for your app type.
-   
-    ![Choose Quick Start and follow instructions](./media/app-insights-code-sample-export-telemetry-sql-database/020-quick.png)
-   
-    If your app type isn't listed, take a look at the [Getting Started][start] page.
-2. In this example, we're monitoring a web app, so we can use the Azure tools in Visual Studio to install the SDK. We tell it the name of our Application Insights resource:
-   
-    ![In Visual Studio, in the New Project dialog, check Add Application Insights, and under Send telemetry to, choose to create a new app, or use an existing one.](./media/app-insights-code-sample-export-telemetry-sql-database/030-new-project.png)
 
 ## Create storage in Azure
 Data from Application Insights is always exported to an Azure Storage account in JSON format. It's from this storage that your code will read the data.
@@ -490,12 +476,15 @@ This is the schema for the table that will be generated for PageView.
 
 To see this example in action, [download](https://sesitai.codeplex.com/) the complete working code, change the `app.config` settings and publish the worker role to Azure.
 
-## Related articles
+## Next steps
+
+* [Write code to access your telemetry directly](http://dev.applicationinsights.io/)
 * [Export to SQL using a worker role](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Continuous Export in Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 * [Export data model](app-insights-export-data-model.md)
 * [More samples and walkthroughs](app-insights-code-samples.md)
+
 
 <!--Link references-->
 

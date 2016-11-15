@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
@@ -37,7 +37,9 @@ There's a [more extensive tour here](app-insights-analytics-tour.md).
 ### Write a query
 ![Schema display](./media/app-insights-analytics-using/150.png)
 
-Begin with the names of any of the tables listed on the left (or the [range](app-insights-analytics-reference.md#range-operator) or [union](app-insights-analytics-reference.md#union-operator) operators). Use `|` to create a pipeline of [operators](app-insights-analytics-reference.md#queries-and-operators). IntelliSense prompts you with the operators and some of the expression elements that you can use.
+Begin with the names of any of the tables listed on the left (or the [range](app-insights-analytics-reference.md#range-operator) or [union](app-insights-analytics-reference.md#union-operator) operators). Use `|` to create a pipeline of [operators](app-insights-analytics-reference.md#queries-and-operators). 
+
+IntelliSense prompts you with the operators and the expression elements that you can use. Click the information icon (or press CTRL+Space) to get a longer description and examples of how to use each element.
 
 See the [Analytics language overview](app-insights-analytics-tour.md) and [language reference](app-insights-analytics-reference.md).
 
@@ -88,14 +90,27 @@ To sort by more than one column, use grouping. First enable it, and then drag co
 ![Group](./media/app-insights-analytics-using/060.png)
 
 ### Missing some results?
-There's a limit of about 10k rows on the results returned from the portal. A warning shows if you go over the limit. If that happens, sorting your results in the table won't always show you all the actual first or last results. 
 
-It's good practice to avoid hitting the limit. Use operators such as:
+If you think you're not seeing all the results you expected, there are a couple of possible reasons.
 
-* [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
-* [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
-* [take 100](app-insights-analytics-reference.md#take-operator)
-* [summarize ](app-insights-analytics-reference.md#summarize-operator) 
+* **Time filter**. A time limitation clause is automatically added to any query you write, unless you explicitly add one yourself. It's equivalent to a [where clause](app-insights-analytics-reference.md#where-operator) like this:
+
+    `| where timestamp > ago('1d')`
+
+    By default, you will only see results from the past 24 hours. However, you can change the time filter using the drop-down menu. 
+
+    Or you can override it with your own clause. Any `where` clause that mentions `timestamp` will switch off the automatic filter.
+
+* **Results limit**. There's a limit of about 10k rows on the results returned from the portal. A warning shows if you go over the limit. If that happens, sorting your results in the table won't always show you all the actual first or last results. 
+
+    It's good practice to avoid hitting the limit. Use operators such as:
+
+  * [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
+  * [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
+  * [take 100](app-insights-analytics-reference.md#take-operator)
+  * [summarize ](app-insights-analytics-reference.md#summarize-operator) 
+
+(Want more than 10k rows? Consider using [Continuous Export](app-insights-export-telemetry.md) instead. Analytics is designed for analysis, rather than retrieving raw data.)
 
 ## Diagrams
 Select the type of diagram you'd like:
@@ -115,13 +130,16 @@ This means that, when you put together a dashboard to help you monitor the perfo
 
 You can pin a table to the dashboard, if it has four or fewer columns. Only the top seven rows are displayed.
 
-#### Dashboard refresh
+### Dashboard refresh
 The chart pinned to the dashboard is refreshed automatically by re-running the query approximately every half hour.
 
-#### Automatic simplifications
-In some cases, certain simplifications are applied to a chart when you pin it to a dashboard.
+### Automatic simplifications
 
-When you pin a chart that displays a lot of discrete bins (typically a bar chart), the less populated bins are automatically grouped into a single "others" bin. For example, this query:
+Certain simplifications are applied to a chart when you pin it to a dashboard.
+
+**Time restriction:** Queries are automatically limited to the past 14 days. The effect is the same as if your query includes `where timestamp > ago(14d)`.
+
+**Bin count restriction:** If you display a chart that has a lot of discrete bins (typically a bar chart), the less populated bins are automatically grouped into a single "others" bin. For example, this query:
 
     requests | summarize count_search = count() by client_CountryOrRegion
 
@@ -146,6 +164,10 @@ You run the query in Power BI. You can set it to refresh on a schedule.
 With Power BI, you can create dashboards that bring together data from a wide variety of sources.
 
 [Learn more about export to Power BI](app-insights-export-power-bi.md)
+
+## REST API
+
+You can run Analytics queries through a [REST API](https://dev.applicationinsights.io), for example using PowerShell. The query API is in preview.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 

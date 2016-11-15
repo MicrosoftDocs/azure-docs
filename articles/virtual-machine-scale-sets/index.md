@@ -3,21 +3,21 @@ layout: LandingPage
 ---
 #Virtual Machine Scale Sets Documentation
 
-Virtual Machine Scale Sets is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Virtual Machine Scale Sets represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy and manage a set of identical VMs.  With all VMs configured the same, VM scale sets are designed to support true autoscale - no pre-provisioning of VMs is required. This makes it easier to build large-scale services targeting big compute, big data, and containerized workloads.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtual-machine-scale-sets.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Virtual Machine Scale Sets Getting Started Samples</h3>
+                        <h3>Learn about Virtual Machine Scale Sets</h3>
                     </div>
                 </div>
             </div>
@@ -25,17 +25,17 @@ Virtual Machine Scale Sets is a distributed systems platform that makes it easy 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
+        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-create">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Virtual Machine Scale Sets Party Cluster</h3>
+                        <h3>Create a Windows scale set</h3>
                     </div>
                 </div>
             </div>
@@ -43,17 +43,35 @@ Virtual Machine Scale Sets is a distributed systems platform that makes it easy 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
+        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-create-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Virtual Machine Scale Sets with .NET Core</h3>
+                        <h3>Create a Linux scale set</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=virtual-machines">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Virtual Machines Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -66,14 +84,17 @@ Virtual Machine Scale Sets is a distributed systems platform that makes it easy 
 
 ##Reference
 
-###REST
-[Virtual Machine Scale Sets REST API Reference](/rest/api/)
+###PowerShell
+[Virtual Machine Scale Sets PowerShell](/powershell/azureps-cmdlets-docs)
 
-###.NET
-[Virtual Machine Scale Sets Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+###Azure CLI
+[Virtual Machine Scale Sets CLI Reference](/cli/azure/vmss)
+
+###REST
+[Virtual Machine Scale Sets REST API Reference](/rest/api/compute)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machine-scale-sets.pdf">
         <div class="img"></div>
         <div class="text">
             Download Virtual Machine Scale Sets Documentation

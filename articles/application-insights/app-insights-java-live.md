@@ -3,7 +3,7 @@ title: Application Insights for Java web apps that are already live
 description: Start monitoring a web application that is already running on your server
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
 
 ms.assetid: 12f3dbb9-915f-4087-87c9-807286030b0b
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 11/10/2016
 ms.author: awills
 
 ---
@@ -42,7 +42,9 @@ You'll need a subscription to [Microsoft Azure](https://azure.com).
 
 ## 2. Download the SDK
 1. Download the [Application Insights SDK for Java](https://aka.ms/aijavasdk). 
-2. On your server, extract the SDK contents to the directory from which your project binaries are loaded. If you’re using Tomcat, this directory would typically be under `webapps\<your_app_name>\WEB-INF\lib`
+2. On your server, extract the SDK contents to the directory from which your project binaries are loaded. If you’re using Tomcat, this directory would typically be under `webapps/<your_app_name>/WEB-INF/lib`
+
+Note that you need to repeat this on each server instance, and for each app.
 
 ## 3. Add an Application Insights xml file
 Create ApplicationInsights.xml in the folder in which you added the SDK. Put into it the following XML.

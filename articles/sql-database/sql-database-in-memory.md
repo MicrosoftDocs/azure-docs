@@ -1,22 +1,21 @@
-<properties
-	pageTitle="SQL In-Memory Technologies | Microsoft Azure"
-	description="SQL In-Memory technologies greatly improve the performance of transactional and analytics workloads. Learn how to take advantage of these technologies."
-	services="sql-database"
-	documentationCenter=""
-	authors="jodebrui"
-	manager="jhubbard"
-	editor=""/>
+---
+title: SQL In-Memory Technologies | Microsoft Docs
+description: SQL In-Memory technologies greatly improve the performance of transactional and analytics workloads. Learn how to take advantage of these technologies.
+services: sql-database
+documentationCenter: ''
+authors: jodebrui
+manager: jhubbard
+editor: ''
 
-
-<tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/09/2016"
-	ms.author="jodebrui"/>
-
+ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/09/2016
+ms.author: jodebrui
+---
 
 # Optimize Performance using In-Memory Technologies in SQL Database
 
