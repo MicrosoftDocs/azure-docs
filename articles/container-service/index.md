@@ -4,7 +4,7 @@ layout: LandingPage
 
 #Azure Container Service Documentation
 
-Azure Container Service makes it simpler for you to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. It uses an optimized configuration of popular open-source scheduling and orchestration tools. This enables you to use your existing skills, or draw upon a large and growing body of community expertise, to deploy and manage container-based applications on Microsoft Azure.
+Azure Container Service makes it simple for you to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. Container Service uses an optimized configuration of popular open-source scheduling and orchestration tools. This lets you use your existing skills or draw upon a large and growing body of community expertise to deploy and manage container-based applications on Microsoft Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -14,7 +14,7 @@ Azure Container Service makes it simpler for you to create, configure, and manag
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/index/placeholder.svg" alt="" />
+                            <img src="./media/index/container-service.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -32,11 +32,11 @@ Azure Container Service makes it simpler for you to create, configure, and manag
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/index/placeholder.svg" alt="" />
+                            <img src="./media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Deploy a Container Service cluster</h3>
+                        <h3>Get Started with Azure Container Service</h3>
                     </div>
                 </div>
             </div>
@@ -47,19 +47,58 @@ Azure Container Service makes it simpler for you to create, configure, and manag
 
 ---
 
-##Reference
+## Reference
 
-###.NET
-[Azure Container Service Managed Reference API](/dotnet/api/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###REST (Compute) 
-[Compute REST API Reference](/rest/api/)  
+    <li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>.NET Service Managedment Reference API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###PowerShell
-[Compute Module](https://docs.microsoft.com/powershell/)
+    <li>
+        <a href="/rest/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (Compute)</h3>
+                        <p>Compute REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
+
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/container-service.pdf">
         <div class="img"></div>
         <div class="text">
             Download Azure Container Service Documentation

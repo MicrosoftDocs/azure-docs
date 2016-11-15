@@ -241,6 +241,7 @@ The `#load` directive works only with *.csx* (C# script) files, not with *.cs* f
 ## Next steps
 For more information, see the following resources:
 
+* [Best Practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)
 * [Azure Functions F# developer reference](functions-reference-fsharp.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)

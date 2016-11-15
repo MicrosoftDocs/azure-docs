@@ -21,7 +21,7 @@ ms.author: cynthn
 # Create a VM from a specialized VHD
 Create a new VM by attaching a specialized VHD as the OS disk using Powershell. A specialized VHD maintains the user accounts, applications and other state data from your original VM. 
 
-If you want to create a VM from a generalized VHD, see [Create a VM from a generalized VHD image](virtual-machines-windows-create-vm-generalized.md).
+If you want to create a VM from a generalized VHD, see [Create a VM from a generalized VHD image](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Create the subNet and vNet
 Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
@@ -77,7 +77,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
     -Name $nsgName -SecurityRules $rdpRule
 ```
 
-For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
+For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Create the VM configuration
 Set up the VM configuration to attach the copied VHD as the OS VHD.
@@ -139,5 +139,5 @@ $vmList.Name
 ```
 
 ## Next steps
-To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.com), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](virtual-machines-windows-connect-logon.md).
+To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.com), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
