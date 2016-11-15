@@ -67,7 +67,7 @@ Azure SQL Data Warehouse combines the SQL Server relational database with Azure 
 ##Reference
 
 ###PowerShell
-[Azure PowerShell Reference] (/powershell/resourcemanager)
+[Azure PowerShell Reference] (/powershell/azureps-cmdlets-docs)
 
 ###T-SQL
 [T-SQL Reference](https://msdn.microsoft.com/library/azure/bb510741)
