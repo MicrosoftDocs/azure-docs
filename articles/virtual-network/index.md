@@ -1,5 +1,6 @@
 ---
 layout: LandingPage
++toc_rel: breadcrumb.json
 ---
 #Virtual Network Documentation
 
@@ -43,7 +44,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
         </a>
     </li>
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-portal">
+        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-pportal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -103,10 +104,10 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
 ##Reference
 
 ###PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-doc)
+[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
-[Virtual Network Azure CLI] (/cli/azure/network/vnet)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###.NET
 [.NET API Reference](/dotnet/api)
