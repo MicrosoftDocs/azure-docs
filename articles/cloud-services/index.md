@@ -53,7 +53,7 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first .NET app with Cloud Services</h3>
+                        <h3>Get Started with Cloud Services using .NET</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Python app </h3>
+                        <h3>Get Started with Cloud Services using Python</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +85,11 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
 ##Reference
 
 ###REST
-[Cloud Services REST API Reference](https://msdn.microsoft.com/library/azure/ee460812.aspx)
+[Cloud Services REST API Reference](https://msdn.microsoft.com/library/azure/ee460812)
 
 ###.Schemas
-[Cloud Services Definition Schema](https://msdn.microsoft.com/en-us/library/azure/ee758711.aspx)
-[Cloud Services Configuration Schema](https://msdn.microsoft.com/en-us/library/azure/ee758710.aspx)
+[Cloud Services Definition Schema](https://msdn.microsoft.com/en-us/library/azure/ee758711)
+[Cloud Services Configuration Schema](https://msdn.microsoft.com/en-us/library/azure/ee758710)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cloud-services.pdf">

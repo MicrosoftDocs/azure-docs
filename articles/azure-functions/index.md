@@ -50,11 +50,11 @@ Azure Functions is a solution for easily running small pieces of code ("function
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a webhook function</h3>
+                        <h3>Get Started with a webhook function</h3>
                     </div>
                 </div>
             </div>
@@ -68,11 +68,11 @@ Azure Functions is a solution for easily running small pieces of code ("function
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Azure connected function</h3>
+                        <h3>Get Started with an Azure connected function</h3>
                     </div>
                 </div>
             </div>
@@ -86,11 +86,11 @@ Azure Functions is a solution for easily running small pieces of code ("function
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an event processing function</h3>
+                        <h3>Get Started with an event processing function</h3>
                     </div>
                 </div>
             </div>

@@ -49,11 +49,11 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first Windows virtual machine in the Azure portal</h3>
+                        <h3>Get Started with Windows VMs using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +67,11 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/powershell.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a VM with PowerShell</h3>
+                        <h3>Get Started with Windows VMs using PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +85,11 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a VM using a Resource Manager Template</h3>
+                        <h3>Get Started with Windows VMs using a Resource Manager Template</h3>
                     </div>
                 </div>
             </div>
@@ -103,7 +103,7 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
 ##Reference
 
 ###PowerShell
-[Azure PowerShell](/powershell/)
+[Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
 [Azure CLI](/cli/azure/vm)
@@ -112,19 +112,17 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
 [Managed Reference API](/dotnet/api/)
 
 ###Java SDK
-[Java Reference](/java/api/)
+[Java API Reference](/java/api/)
 
 ###Rest (Compute)
 [Compute REST API Reference](/rest/api/compute)
 
 ###REST (Network)
-[Network REST API Reference for Network](https://msdn.microsoft.com/library/mt163658.aspx)
+[Network REST API Reference for Network](https://msdn.microsoft.com/library/mt163658)
 
 ###REST (Storage)
-[Storage REST API Reference](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+[Storage REST API Reference](/rest/api/storage)
 
-###REST (VM Scale Sets)
-[Virtual Machine Scale Sets REST API Reference](https://msdn.microsoft.com/library/azure/mt705635.aspx)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/windows.pdf">
