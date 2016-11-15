@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 11/15/2016
 ms.author: jgao
 
 ---
@@ -81,13 +81,12 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
                     System.Console.ReadLine();
                 }
    
-                private static void SubmitHiveJob()
+                private static void SubmitMRJob()
                 {
                     List<string> args = new List<string> { { "/example/data/gutenberg/davinci.txt" }, { "/example/data/davinciwordcount" } };
    
                     var paras = new MapReduceJobSubmissionParameters
                     {
-                        //Content = "wordcount  ",
                         JarFile = @"/example/jars/hadoop-mapreduce-examples.jar",
                         JarClass = "wordcount",
                         Arguments = args

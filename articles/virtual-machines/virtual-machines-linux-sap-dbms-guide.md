@@ -299,8 +299,6 @@ ms.author: sedusch
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-classic deployment model.
-
 This guide is part of the documentation on implementing and deploying the SAP software on Microsoft Azure. Before reading this guide, please read the [Planning and Implementation Guide][planning-guide]. This document covers the deployment of various Relational Database Management Systems (RDBMS) and related products in combination with SAP on Microsoft Azure Virtual Machines (VMs) using the Azure Infrastructure as a Service (IaaS) capabilities.
 
 The paper complements the SAP Installation Documentation and SAP Notes which represent the primary resources for installations and deployments of SAP software on given platforms

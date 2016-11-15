@@ -1,6 +1,6 @@
 ﻿---
-title: Use Job Browser and Job View for Azure Data Lake Analytics jobs | Microsoft Docs
-description: 'Learn how to use Job Browser and Job View for Azure Data Lake Analytics jobs. '
+title: Test and debug U-SQL jobs using local-run and the Azure Data Lake U-SQL SDK | Microsoft Docs
+description: 'Learn how to use Azure Data Lake Tools for Visual Studio and Azure Data Lake U-SQL SDK to test and debug U-SQL jobs on your local workstation.'
 services: data-lake-analytics
 documentationcenter: ''
 author: mumian
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 11/15/2016
 ms.author: jgao
 
 ---
@@ -221,9 +221,7 @@ Here are a usage example:
 	LocalRunHelper execute -Algebra d:\test\workdir\ C6A101DDCB470506\ Script_66AE4909AA0ED06C\__script__.abr –DataRoot c:\DataRoot –Parallel 5
 
 
-### Using the SDK with programming interface
 
-[jgao: need a sample instead of the MSDN reference content]
 
 ## Next steps
 
