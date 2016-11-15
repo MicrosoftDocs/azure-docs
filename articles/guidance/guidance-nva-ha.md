@@ -69,9 +69,6 @@ This architecture includes the following resources:
 
 The benefit of this architecture is that all NVAs are active, and if one fails the load balancer will direct network traffic to the other NVA. Both NVAs route traffic to the internal load balancer so as long as one NVA is active, traffic will continue to flow. Note that the NVAs must be able to terminate SSL traffic intended for the web tier VMs. Also note that this architecture cannot be extended to handle on-premises traffic, on-premises traffic requires another dedicated set of NVAs with their own network routes.
 
-<!--You can use a set of NVAs behind an Azure load balancer to provide connectivity to Azure workloads behind a small set of server-side ports (such as HTTP and HTTPS). The following figure highlights how to provide high availability in this scenario at the NVA level.
-In this scenario, the network virtual appliance used must terminate all connections, and pass them to the workload subnet. The workload virtual machines (VMs) respond to the NVA they received a request from, and traffic flows without issues.-->
-
 ### Egress with layer 7 NVAs
 
 The previous achitecture can be expanded to provide an egress DMZ for requests originating in the Azure workload. The following architecture is designed to provide high availability of the NVAs in the DMZ for layer 7 traffic, such as HTTP or HTTPS:
@@ -113,8 +110,6 @@ In this architecture, the NVAs accept incoming requests from the application gat
 
 The following architecture demonstrates an architecture with one active and one passive NVA. This architecture handles both ingress and egress for layer 4 traffic: 
 
-<!--You can avoid creating multiple NVA stacks by using two NVAs in active-passive mode. In this scenario, you can switch the public IP address (PIP) and user-defined routes (UDRs) when the active node stops.-->  
-
 ![[3]][3]
 
 This architecture includes the following resources:
@@ -132,9 +127,11 @@ This architecture includes the following resources:
 
 This architecture is similar to the first architecture discussed in this article. That architecture included a single NVA accepting and filtering incoming requests. This architecture adds a second passive NVA to provide high availability. If the active NVA fails, the passive NVA is made active and the UDR and PIP are changed to point to the NICs on the now active NVA. 
 
-These changes to the UDR and PIP can be done either manually or using an automated process. The automated process can be a daemon or other monitoring service running in Azure that queries a health probe on the active NVA and performs the UDR and PIP switch when necessary. The figure shows an example [ZooKeeper][zookeeper] daemon on the NVAs to determine which NVA is active, also known as leader election. Once a leader is elected, it calls the Azure REST API to remove the PIP from the failed node and attach it to the leader. The leader then modifies the UDR to point to the new leader's IP internal address. 
+These changes to the UDR and PIP can be done either manually or using an automated process. The automated process can be a daemon or other monitoring service running in Azure that queries a health probe on the active NVA and performs the UDR and PIP switch when necessary. The figure shows an example [ZooKeeper][zookeeper] daemon on the NVAs to determine which NVA is active, also known as leader election. Once a leader is elected, it calls the Azure REST API to remove the PIP from the failed node and attach it to the leader. The leader then modifies the UDR to point to the new leader's IP internal address.
 
-<!--This scenario is similar to the single NVA scenario. The only difference is that the PIP and UDRs must be changed to switch traffic between the NVAs. These changes can be done manually, or you can also automate them. To automate, you can deploy an application to both NVAs that checks for the health of the active node. Once the active node is down, your application can change the PIP and UDRs to link to the passive node.-->
+### Solution Deployment
+
+<!-- instructions for deploying this solution here --> 
 
 ## Next steps
 * Learn how to [implement a DMZ between Azure and your on-premises datacenter][dmz-on-prem] using layer-7 NVAs.
