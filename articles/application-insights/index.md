@@ -124,11 +124,10 @@ Visual Studio Application Insights is an extensible Application Performance Mana
 [Application Insights Java API Reference](/java/api/)
 
 ### .NET 
-[Application Insights Managed Reference API](dotnet/api/)
+[Application Insights Managed Reference API](/dotnet/api/)
 
 ### JavaScript
 [Application Insights JS API Reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-
 
 ### REST 
 [Application Insights REST API Reference](https://dev.applicationinsights.io/)
