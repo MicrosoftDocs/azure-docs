@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #Azure Machine Learning Documentation
 
-Azure Machine Learning is a cloud-based predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions. Azure Machine Learning provides tools to model predictive analytics as well as a fully managed service you can use to deploy your predictive models as ready-to-consume web services.
+Azure Machine Learning provides tools to model predictive analytics as well as a fully managed service you can use to deploy your predictive models as ready-to-consume web services.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -67,11 +67,11 @@ Azure Machine Learning is a cloud-based predictive analytics service that makes 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first Azure Machine Learning experiment</h3>
+                        <h3>Get started creating an Azure Machine Learning experiment</h3>
                     </div>
                 </div>
             </div>
@@ -82,16 +82,16 @@ Azure Machine Learning is a cloud-based predictive analytics service that makes 
 
 ---
 
-##Reference
+## Reference
 
-###PowerShell
+### PowerShell
 [Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
-###REST
-[Machine Learning REST API Reference](/rest/api/machinelearning)
-
-###Net#
+### .Net#
 [Net# Neural Networks Language Reference](/azure/machine-learning/machine-learning-azure-ml-netsharp-reference-guide)
+
+### REST
+[Machine Learning REST API Reference](/rest/api/machinelearning)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">

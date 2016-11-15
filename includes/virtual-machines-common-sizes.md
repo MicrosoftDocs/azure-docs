@@ -64,7 +64,7 @@ The following tables show the sizes and the capacities they provide.
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 |1 |0.768 |20 |1 |1x500 |1 / low |
 | Standard_A1 |1 |1.75 |70 |2 |2x500 |1 / moderate |
-| Standard_A2 |2 |3.5 GB |135 |4 |4x500 |1 / moderate |
+| Standard_A2 |2 |3.5 |135 |4 |4x500 |1 / moderate |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2 / high |
 | Standard_A4 |8 |14 |605 |16 |16x500 |4 / high |
 | Standard_A5 |2 |14 |135 |4 |4X500 |1 / moderate |
@@ -149,7 +149,7 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 | Standard_DS12_v2 |4 |28 |56 |8 |16,000 / 128 (144) |12,800 / 192 |4 high |
 | Standard_DS13_v2 |8 |56 |112 |16 |32,000 / 256 (288) |25,600 / 384 |8 high |
 | Standard_DS14_v2 |16 |112 |224 |32 |64,000 / 512 (576) |51,200 / 768 |8 extremely high |
-| Standard_DS15_v2 |20 |140 GB |280 |40 |80,000 / 640 (720) |64,000 / 960 |8 extremely high** |
+| Standard_DS15_v2 |20 |140 |280 |40 |80,000 / 640 (720) |64,000 / 960 |8 extremely high** |
 
 MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
@@ -200,10 +200,10 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 |2 |28 |56 |4 |10,000 / 100 (264) |5,000 / 125 |1 / high |
-| Standard_GS2 |4 |56 |528 |8 |20,000 / 200 (528) |10,000 / 250 |2 / High |
-| Standard_GS3 |8 |112 |1,056 |16 |40,000 / 400 (1,056) |20,000 / 500 |4 / very high |
-| Standard_GS4 |16 |224 |2,112 |32 |80,000 / 800 (2,112) |40,000 / 1,000 |8 / extremely high |
-| Standard_GS5 |32 |448 |4,224 |64 |160,000 / 1,600 (4,224) |80,000 / 2,000 |8 / extremely high |
+| Standard_GS2 |4 |56 |112 |8 |20,000 / 200 (528) |10,000 / 250 |2 / High |
+| Standard_GS3 |8 |112 |224 |16 |40,000 / 400 (1,056) |20,000 / 500 |4 / very high |
+| Standard_GS4 |16 |224 |448 |32 |80,000 / 800 (2,112) |40,000 / 1,000 |8 / extremely high |
+| Standard_GS5 |32 |448 |896 |64 |160,000 / 1,600 (4,224) |80,000 / 2,000 |8 / extremely high |
 
 MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 

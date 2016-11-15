@@ -177,7 +177,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
 ## Reference
 
 ### Azure CLI
-[Web Apps Azure CLI Reference](/cli/azure/appservice/web)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ### Java
 [Java API Reference](/java/api/)

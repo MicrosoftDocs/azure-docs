@@ -34,12 +34,12 @@ For more information, see [Automation public documentation](../automation/automa
 ## Backup
 Backup is generally available in Azure Government.
 
-For more information, see [Backup public documentation](../backup/backup-introduction-to-azure-backup.md).
+For more information, see [Azure Government Backup](documentation-government-services-backup.md).
 
 ### Variations
 The following Backup features are not currently available in Azure Government:
 
-* Azure Resource Manager backup vaults
+* Azure Resource Manager vaults
 * Management using the Azure portal (the Azure classic portal is supported)
 
 ## Log Analytics
@@ -106,4 +106,3 @@ The following Site Recovery features are not currently available in Azure Govern
 ## Next steps
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
-
