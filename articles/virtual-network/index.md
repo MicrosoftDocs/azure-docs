@@ -104,7 +104,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
 ##Reference
 
 ###PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-doc)
+[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
 [Install the Azure CLI](/cli/azure/install-az-cli2)
