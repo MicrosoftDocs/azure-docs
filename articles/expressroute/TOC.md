@@ -1,11 +1,7 @@
 # Overview
 ## [What is ExpressRoute?](expressroute-introduction.md)
+## [ExpressRoute FAQ](expressroute-faqs.md)
 ## [Locations and partners](expressroute-locations.md)
-## [Moving circuits from classic to Resource Manager](expressroute-move.md)
-## Best Practices
-### [Best practices for network security and cloud services](../best-practices-network-security.md)
-### [Asymmetric routing](expressroute-asymmetric-routing.md)
-
 
 # Get Started
 ## [Circuits and routing domains](expressroute-circuit-peerings.md)
@@ -15,8 +11,8 @@
 ## [Optimize routing](expressroute-optimize-routing.md)
 ## [NAT requirements](expressroute-nat.md)
 ## [QoS requirements](expressroute-qos.md)
+## [Moving circuits from classic to Resource Manager](expressroute-move.md)
 ## [Virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md)
-## [ExpressRoute FAQ](expressroute-faqs.md)
 
 # How To
 ## Create and modify a circuit
@@ -36,6 +32,13 @@
 ### [Configure a virtual network gateway for ExpressRoute using PowerShell (Classic)](expressroute-howto-add-gateway-classic.md)
 ## [Create Site-to-Site and ExpressRoute coexisting connections](expressroute-howto-coexist-classic.md)
 ## [Migrate a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
+## [Configure a router for ExpressRoute]
+### [Router configuration setup samples](expressroute-config-samples-routing.md)
+### [Router configuration samples for NAT](expressroute-config-samples-nat.md)
+
+## Best Practices
+### [Best practices for network security and cloud services](../best-practices-network-security.md)
+### [Asymmetric routing](expressroute-asymmetric-routing.md)
 
 ## Troubleshoot
 ### [Getting ARP tables](expressroute-troubleshooting-arp-resource-manager.md)
@@ -43,12 +46,9 @@
 
 
 # Reference
-
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [Router configuration setup samples](expressroute-config-samples-routing.md)
-## [Router configuration samples for NAT](expressroute-config-samples-nat.md)
-## [REST](https://msdn.microsoft.com/library/azure/mt586720)
-## [Classic REST](https://msdn.microsoft.com/library/azure/dn606310)
+## [REST (resource manager)](https://msdn.microsoft.com/library/azure/mt586720)
+## [REST (classic)](https://msdn.microsoft.com/library/azure/dn606310)
 
 # Related
 ## [Virtual Network](/azure/virtual-network/)
