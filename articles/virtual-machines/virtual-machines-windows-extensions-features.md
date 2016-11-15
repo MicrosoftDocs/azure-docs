@@ -27,7 +27,7 @@ This document provides prerequisites for Azure Virtual Machine extension, and gu
 
 ## Use cases and samples
 
-There are many different Azure VM extension available each with a specific use case. Some example use cases are:
+There are many different Azure VM extensions available, each with a specific use case. Some example use cases are:
 Apply PowerShell Desired State Configurations to an Azure virtual machine. For more information, see [Azure Desired State configuration extension]( virtual-machines-windows-extensions-dsc-overview.md).
 Configure monitoring of your Azure virtual machine with the Log Analytics using the Microsoft Monitoring Agent VM extension. For more information, see [Connect Azure virtual machines to Log Analytics](../log-analytics/log-analytics-azure-vm-extension.md). 
 Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see [Datadog blog]( https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
@@ -39,7 +39,7 @@ To see how a VM extension can be used in an end to end application deployment, c
 
 ## Prerequisites
 
-Each virtual machine extension may have its own set of prerequisites. For instance, the Docker VM extension has a prerequisite of a supported Linux distribution. Prerequisites specific to an individual extension will be detailed in extension specific documentation. 
+Each virtual machine extension may have its own set of prerequisites. For instance, the Docker VM extension has a prerequisite of a supported Linux distribution. Prerequisites specific to an individual extension is detailed in extension-specific documentation. 
 
 ### Azure VM Agent
 The Azure VM Agent manages interaction between an Azure Virtual Machine and the Azure Fabric Controller. The VM agent is responsible for many functional aspects of deploying and managing Azure Virtual Machines, including running VM Extensions. The Azure VM Agent is pre-installed on Azure Gallery Images, and can be installed on supported operating systems. 
@@ -67,7 +67,7 @@ Several PowerShell commands exist for running individual extensions. To see a li
 get-command *set*azure*vm*extension* -Module AzureRM.Compute
 ```
 
-Which will provide output similar to the following:
+Which provides output similar to the following:
 
 ```powershell
 CommandType     Name                                               Version    Source
@@ -88,7 +88,7 @@ Cmdlet          Set-AzureRmVMSqlServerExtension                    2.2.0      Az
 
 The `Set-AzureRmVMExtension` command can be used as a catch all or general command for starting a VM extension. For more information, see [Set-AzureRmVMExtension reference](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
 
-### Azure Portal
+### Azure portal
 
 VM extension can be applied to an existing virtual machine through the Azure portal. To do so, select the virtual machine – extensions – and click add. Doing so will provide a list of available extensions. Select the one you want, which will provide a wizard for configuration. The following image depicts the installation of the Microsoft Antimalware extension from the Azure portal.
 
@@ -96,16 +96,16 @@ VM extension can be applied to an existing virtual machine through the Azure por
 
 ### Azure Resource Manager templates
 
-VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. This is useful in creating fully configured Azure deployments. For more information, see [Authoring Azure Resource Manager templates with Windows VM extensions](virtual-machines-windows-extensions-authoring-templates.md).
+VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. Deploying extension with a template is useful for creating fully configured Azure deployments. For more information, see [Authoring Azure Resource Manager templates with Windows VM extensions](virtual-machines-windows-extensions-authoring-templates.md).
 
 ## Troubleshooting VM extension
 
-Each VM extension may have troubleshooting steps specific to that extensions. For instance, when using the Custom Script Extension, script execution details can be found locally on the virtual machine on which the extension was run. Any extension specific troubleshooting steps will be detailed in extension specific documentation. 
+Each VM extension may have troubleshooting steps specific to that extensions. For instance, when using the Custom Script Extension, script execution details can be found locally on the virtual machine on which the extension was run. Any extension-specific troubleshooting steps is detailed in extension-specific documentation. 
 The following troubleshooting steps apply to all Virtual Machine extensions.
 
 ### Viewing extension status
 
-Once a Virtual Machine extension has been run against a virtual machine, use the following PowerShell command to return extension status. Replace example parameter names with your own values. The `Name` paramater takes the name given to the extension at execution time.
+Once a Virtual Machine extension has been run against a virtual machine, use the following PowerShell command to return extension status. Replace example parameter names with your own values. The `Name` parameter takes the name given to the extension at execution time.
 
 ```PowerShell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
@@ -132,9 +132,9 @@ AutoUpgradeMinorVersion : False
 ForceUpdateTag          :
 ```
 
-### Re-running VM Extension 
+### Rerunning VM Extension 
 
-If you are running scripts on the VM using Custom Script Extension, you may sometimes run into an error where VM was created successfully but the script has failed. Under these conditons, the recommended way to recover from this error is to remove the extension and rerun the template again.
+If you are running scripts on the VM using Custom Script Extension, you may sometimes run into an error where VM was created successfully but the script has failed. The recommended way to recover from this situation is to remove the extension and rerun the extension. The following PowerShell command will remove the extension.
 
 ```powershell
 Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
