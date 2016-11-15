@@ -81,7 +81,7 @@ The following tables describes the limits for elastic pools and elastic database
 ## Elastic database jobs
 With a pool, management tasks are simplified by running scripts in **[elastic jobs](sql-database-elastic-jobs-overview.md)**. An elastic database job eliminates most of tedium associated with large numbers of databases. To begin, see [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
 
-For more information about other elastic database tools, see [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction).
+For more information about other elastic database tools, see [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md).
 
 ## Business continuity features for databases in a pool
 Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases in V12 servers.
