@@ -1,11 +1,11 @@
- ﻿---
+---
 title: Virtual Machine Scale Sets Overview | Microsoft Docs
 description: Learn more about Virtual Machine Scale Sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gbowerman
 manager: timlt
-deditor: ''
+editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/15/2016
-nms.author: guybo
+ms.author: guybo
 
 ---
 # Virtual Machine Scale Sets Overview
@@ -25,7 +25,7 @@ For applications that need to scale compute resources out and in, scale operatio
 
 Take a look at these videos for more about VM scale sets:
 
-a* [Mark Russinovich talks Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
+* [Mark Russinovich talks Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
 * [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## Creating and managing VM scale sets
