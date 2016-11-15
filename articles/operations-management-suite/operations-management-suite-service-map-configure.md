@@ -20,13 +20,6 @@
 
 This article describes the details of configuring Service Map and onboarding agents.  For information on using Service Map, see [Using Service Map solution in Operations Management Suite (OMS)](operations-management-suite-application-dependency-monitor.md)
 
->[AZURE.NOTE]Service Map is currently in private preview.  You can request access to the Service Map private preview at [https://aka.ms/getadm](https://aka.ms/getadm).
->
->During private preview, all OMS accounts have unlimited access to Service Map.  Service Map nodes are free, but Log Analytics data for AdmComputer_CL and AdmProcess_CL types will be metered like any other solution.
->
->After Service Map enters public preview, it will be available only to free and paid customers of Insight & Analytics in the OMS Pricing Plan.  Free tier accounts will be limited to 5 Service Map nodes.  If you are participating in the private preview and are not enrolled in the OMS Pricing Plan when Service Map enters public preview, Service Map will be disabled at that time. 
-
-
 
 ## Connected sources
 The following table describes the connected sources that are supported by the Service Map solution.
