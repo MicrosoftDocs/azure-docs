@@ -21,7 +21,7 @@
 ### [Docker Swarm Overview](container-service-docker-swarm.md)
 
 # Reference
-## [REST API](https://docs.microsoft.com/rest/api/compute/containerservices/)
+## [REST API](/rest/api/compute/containerservices)
 
 # Resources
 ## [Region availability](https://azure.microsoft.com/regions/services/)
