@@ -29,7 +29,7 @@ To complete the steps in this article, you will need the following:
 * **An Azure HDInsight (Hadoop on HDInsight) cluster (Windows-based or Linux-based)**
 * **A workstation with Azure PowerShell**.
   
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## <a id="powershell"></a>Run a MapReduce job using Azure PowerShell
 Azure PowerShell provides *cmdlets* that allow you to remotely run MapReduce jobs on HDInsight. Internally, this is accomplished by using REST calls to [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (formerly called Templeton) running on the HDInsight cluster.
