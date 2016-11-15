@@ -43,6 +43,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 ## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [Batch C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Batch Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 

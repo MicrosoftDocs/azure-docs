@@ -106,7 +106,7 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
 [Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
-[Batch using Azure CLI](/azure/batch/batch-cli-get-started)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###.NET
 [Batch Managed Reference](/dotnet/api)
