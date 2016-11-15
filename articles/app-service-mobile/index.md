@@ -54,7 +54,7 @@ Mobile Apps in Azure App Service offers a scalable, mobile application developme
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started creating an Andriod app</h3>
+                        <h3>Get started creating an android app</h3>
                     </div>
                 </div>
             </div>
@@ -126,7 +126,7 @@ Mobile Apps in Azure App Service offers a scalable, mobile application developme
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started creating a xamarin.Andriod app</h3>
+                        <h3>Get started creating a xamarin.Android app</h3>
                     </div>
                 </div>
             </div>
