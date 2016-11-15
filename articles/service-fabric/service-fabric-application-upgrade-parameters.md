@@ -1,6 +1,5 @@
-
 ---
-title: 'Application upgrade: upgrade parameters | Microsoft Docs'
+title: Application upgrade: upgrade parameters | Microsoft Docs
 description: Describes parameters related to upgrading a Service Fabric application, including health checks to perform and policies to automatically undo the upgrade.
 services: service-fabric
 documentationcenter: .net
