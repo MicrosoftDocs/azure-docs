@@ -14,18 +14,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/24/2016
+ms.date: 11/15/2016
 ms.author: heidist
 
 ---
 # Service limits in Azure Search
 Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you add Azure Search at a **Free**, **Basic**, or **Standard** pricing tier.
 
-* **Free** is a multi-tenant shared service that comes with your Azure subscription. It's a no-additional-cost option for existing subscribers that allows you to experiment with the service before signing up for dedicated resources. 
+* **Free** is a multi-tenant shared service that comes with your Azure subscription. It's a no-additional-cost option for existing subscribers that allows you to experiment with the service before signing up for dedicated resources.
 * **Basic** provides dedicated computing resources for production workloads at a smaller scale.
 * **Standard** runs on dedicated machines, with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 High Density (S3 HD).
 
-All tiers can be [provisioned in the portal](search-create-service-portal.md). A service is initially allocated one partition and one replica, but you can increase the resource allocation once the service is created. 
+All tiers can be [provisioned in the portal](search-create-service-portal.md). A service is initially allocated one partition and one replica, but you can increase the resource allocation once the service is created.
 
 A service is provisioned at a specific tier. If you need to jump tiers to get more capacity, you must provision a new service (there is no in-place upgrade). For more information about tiers, see [Choose a SKU or tier](search-sku-tier.md). To learn more about adjusting capacity within a service you've already provisioned, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
 
@@ -68,9 +68,9 @@ To keep document size down, remember to exclude non-queryable data from the requ
 
 Queries per second (QPS) is an approximation based on heuristics, using simulated and actual customer workloads to derive estimated values. Exact QPS throughput varies depending on your data and the nature of the query.
 
-Although rough estimates are provided above, an actual rate is difficult to determine, especially in the Free shared service where throughput is based on available bandwidth and competition for system resources. In the Free tier, compute and storage resources are shared by multiple subscribers, so QPS for your solution will always vary depending on how many other workloads are running at the same time. 
+Although rough estimates are provided above, an actual rate is difficult to determine, especially in the Free shared service where throughput is based on available bandwidth and competition for system resources. In the Free tier, compute and storage resources are shared by multiple subscribers, so QPS for your solution will always vary depending on how many other workloads are running at the same time.
 
-At the standard level, you can estimate QPS more closely because you have control over more of the parameters. See the best practices section in [Manage your search solution](search-manage.md) for guidance on how to calculate QPS for your workloads. 
+At the standard level, you can estimate QPS more closely because you have control over more of the parameters. See the best practices section in [Manage your search solution](search-manage.md) for guidance on how to calculate QPS for your workloads.
 
 ## API Request limits
 * Maximum of 16 MB per request <sup>1</sup>
@@ -90,4 +90,3 @@ Api-keys are used for service authentication. There are two types. Admin keys ar
 
 * Maximum of 2 admin keys per service
 * Maximum of 50 query keys per service
-
