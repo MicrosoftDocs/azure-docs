@@ -89,7 +89,7 @@ Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification sol
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Multi-factor Authentication Server</h3>
+                        <h3>Get started with Azure Multi-factor Authentication on-premises</h3>
                     </div>
                 </div>
             </div>
