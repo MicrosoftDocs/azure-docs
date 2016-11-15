@@ -19,6 +19,9 @@ ms.author: arramac
 
 ---
 # Use the Azure DocumentDB Emulator for development and testing
+
+[**Download the Emulator**](https://aka.ms/documentdb-emulator)
+
 The Azure DocumentDB Emulator provides a local environment that emulates the Azure DocumentDB service for development purposes. Using the DocumentDB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the DocumentDB Emulator, you can switch to using an Azure DocumentDB account in the cloud.
 
 ## DocumentDB Emulator system requirements
