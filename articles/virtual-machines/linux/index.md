@@ -17,7 +17,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Linux VM on Azure by using the CLI</h3>
+                        <h3>Create a Linux VM using the Azure CLI 2.0 (Preview)</h3>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,6 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
         </a>
     </li>
     <li>
-<<<<<<< HEAD
         <a href="/azure/virtual-machines/virtual-machines-linux-azure-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
@@ -73,42 +72,6 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
                     </div>
                     <div class="cardText">
                         <h3>Virtual Machines Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Create SSH keys on Linux and Mac for Linux VMs in Azure</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Install the Azure CLI</h3>
                     </div>
                 </div>
             </div>
