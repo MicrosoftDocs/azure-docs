@@ -145,7 +145,7 @@ title: Microsoft Azure Documentation
                                         </li>
                                         <li>
                                             <a href="/azure/sql-server-stretch-database/">
-                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                <img src="media/index/SQLDatabase.svg" alt="" />
                                                 <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
@@ -664,7 +664,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Virtual Machine Scale Sets</h3>
-                                                    <p>Create highly available, auto scalable Linux or Windows virtual machines</p>
+                                                    <p>Manage and scale 10s to 1000s of Linux and Windows virtual machines</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -778,7 +778,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Services</h3>
-                                                    <p>Create Highly Available, infinitely scalable cloud applications and APIs</p>
+                                                    <p>Create highly available, infinitely scalable cloud applications and APIs</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2423,7 +2423,7 @@ title: Microsoft Azure Documentation
                                             <div class="cardText">
                                                 <h3>PowerShell</h3>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/tree/master/docs/learning-powershell">Get Started</a>
+                                                    <a href="https://review.docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/">Download PowerShell</a>
