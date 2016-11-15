@@ -1,21 +1,20 @@
-
 ---
 title: IoT Hub - IP Filter | Microsoft Docs
-description: Follow this tutorial to learn how to blacklist or whitelist certain IP addresses for Azure IoT Hub.
+description: This tutorial show you to blacklist or whitelist certain IP addresses for Azure IoT Hub.
 services: iot-hub
 documentationcenter: ''
-author: fsautomata
+author: BeatriceOltean
 manager: timlt
 editor: ''
 
-ms.assetid: 
+ms.assetid: f833eac3-5b5f-46a7-a47b-f4f6fc927f3f
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
-ms.author: BeatriceOltean
+ms.author: boltean
 
 ---
 
