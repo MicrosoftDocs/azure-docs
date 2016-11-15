@@ -43,7 +43,7 @@ SQL Server Stretch Database migrates your cold data transparently and securely t
         </a>
     </li>
     <li>
-        <a href="/azure/sql-server-stretch-database/sql-server-stretch-database-identify-databases/">
+        <a href="/azure/sql-server-stretch-database/sql-server-stretch-database-identify-databases">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
