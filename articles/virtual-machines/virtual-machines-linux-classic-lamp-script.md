@@ -21,7 +21,7 @@ ms.author: guybo
 # Deploy a LAMP app using the Azure CustomScript Extension for Linux
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-For information about deploying a LAMP stack using the Resource Manager model, see [here](virtual-machines-linux-create-lamp-stack.md).
+For information about deploying a LAMP stack using the Resource Manager model, see [here](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 The Microsoft Azure CustomScript Extension for Linux provides a way to customize your virtual machines (VMs) by running arbitrary code written in any scripting language supported by the VM (for example, Python, and Bash). This provides a very flexible way to automate application deployment to multiple machines.
 
@@ -34,7 +34,7 @@ For this example, first create two Azure VMs running Ubuntu 14.04 or later. The 
 
 You also need an Azure Storage account and a key to access it (you can get this from the Azure classic portal).
 
-If you need help creating Linux VMs on Azure refer to [Create a Virtual Machine Running Linux](virtual-machines-linux-classic-createportal.md).
+If you need help creating Linux VMs on Azure refer to [Create a Virtual Machine Running Linux](virtual-machines-linux-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 The install commands assume Ubuntu, but you can adapt the installation for any supported Linux distro.
 
@@ -102,5 +102,5 @@ Additional resources for Azure CLI, Linux and the CustomScript Extension are lis
 
 [Azure Linux Extensions (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
-[Linux and Open-Source Computing on Azure](virtual-machines-linux-opensource-links.md)
+[Linux and Open-Source Computing on Azure](virtual-machines-linux-opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

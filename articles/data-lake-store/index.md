@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 # Data Lake Store Documentation
 
-Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Azure Data Lake enables you to capture data of any size, type, and ingestion speed in one single place for operational and exploratory analytics.  Azure Data Lake Store can be accessed from Hadoop (available with HDInsight cluster) using the WebHDFS-compatible scenarios. It includes all the enterprise-grade capabilities fpr security, manageability, scalability, reliability, and availability.
+Azure Data Lake Store is a hyper-scale repository for big data analytic workloads. Azure Data Lake enables you to capture data of any size, type, and ingestion speed in one single place for operational and exploratory analytics.  Azure Data Lake Store can be accessed from Hadoop (available with HDInsight cluster) using the WebHDFS-compatible scenarios. It includes all the enterprise-grade capabilities for security, manageability, scalability, reliability, and availability.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -36,6 +36,114 @@ Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data 
                     </div>
                     <div class="cardText">
                         <h3>Azure Data Lake Store Video Library</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/data-lake-store/data-lake-store-get-started-portal/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Azure Data Lake Store using the Azure portal</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/azure/data-lake-store/data-lake-store-get-started-powershell/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Azure Data Lake Store using PowerShell</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/azure/data-lake-store/data-lake-store-get-started-cli/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Azure Data Lake Store using the Azure CLI</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/data-lake-store/data-lake-store-get-started-net-sdk/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Azure Data Lake Store using .NET</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/data-lake-store/data-lake-store-get-started-java-sdk/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Azure Data Lake Store using Java</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/azure/data-lake-store/data-lake-store-manage-use-nodejs/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Azure Data Lake Store using Node.js</h3>
                     </div>
                 </div>
             </div>

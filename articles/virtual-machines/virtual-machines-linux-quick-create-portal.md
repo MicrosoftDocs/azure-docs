@@ -24,7 +24,7 @@ This article shows you how to use the [Azure portal](https://portal.azure.com/) 
 The requirements are:
 
 * [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
-* [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md)
+* [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Sign in
 Signed into the Azure portal with your Azure account identity, click **+ New** in the upper left corner:
@@ -77,7 +77,7 @@ Open the Public IP addresses menu under the NIC settings
 ## SSH to the VM
 SSH into the public IP using your SSH public key.  From a Mac or Linux workstation, you can SSH directly from the Terminal. If you are on a Windows workstation, you need to use PuTTY, MobaXTerm or Cygwin to SSH to Linux.  If you have not already, here is a doc that gets your Windows workstation ready to SSH to Linux.
 
-[How to Use SSH keys with Windows on Azure](virtual-machines-linux-ssh-from-windows.md)
+[How to Use SSH keys with Windows on Azure](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```
 ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
@@ -86,7 +86,7 @@ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 ## Next Steps
 Now you've created a Linux VM quickly to use for testing or demonstration purposes. To create a Linux VM customized for your infrastructure, you can follow any of these articles.
 
-* [Create a Linux VM on Azure using Templates](virtual-machines-linux-cli-deploy-templates.md)
-* [Create an SSH Secured Linux VM on Azure using Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-* [Create a Linux VM using the Azure CLI](virtual-machines-linux-create-cli-complete.md)
+* [Create a Linux VM on Azure using Templates](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create an SSH Secured Linux VM on Azure using Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a Linux VM using the Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

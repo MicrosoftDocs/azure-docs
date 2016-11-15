@@ -13,8 +13,8 @@
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Resource Manager template](application-gateway-create-gateway-arm-template.md)
-#### [CLI](application-gateway-create-gateway-arm-template.md)
-#### [PowerShell (classic)](application-gateway-create-gateway-arm-template.md)
+#### [CLI](application-gateway-create-gateway-cli.md)
+#### [PowerShell (classic)](application-gateway-create-gateway.md)
 ### Internal facing
 #### [PowerShell](application-gateway-ilb-arm.md)
 #### [PowerShell (classic)](application-gateway-ilb.md)
@@ -54,6 +54,7 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork) 
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
 ## [Service updates](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)

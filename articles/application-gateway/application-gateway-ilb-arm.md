@@ -19,8 +19,8 @@ ms.author: gwallace
 ---
 # Create an application gateway with an internal load balancer (ILB) by using Azure Resource Manager
 > [!div class="op_single_selector"]
-> * [Azure classic steps](application-gateway-ilb.md)
-> * [Resource Manager PowerShell steps](application-gateway-ilb-arm.md)
+> * [Azure Classic PowerShell](application-gateway-ilb.md)
+> * [Azure Resource Manager PowerShell](application-gateway-ilb-arm.md)
 > 
 > 
 
