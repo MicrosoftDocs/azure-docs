@@ -280,28 +280,13 @@ The previous example showed a simple equality query. DocumentDB SQL also support
 
 The following binary operators are currently supported and can be used in queries as shown in the following examples:  
 
-<table>
-<tr>
-<td>Arithmetic</td>    
-<td>+,-,*,/,%</td>
-</tr>
-<tr>
-<td>Bitwise</td>    
-<td>|, &, ^, <<, >>, >>> (zero-fill right shift) </td>
-</tr>
-<tr>
-<td>Logical</td>
-<td>AND, OR, NOT</td>
-</tr>
-<tr>
-<td>Comparison</td>    
-<td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td>
-</tr>
-<tr>
-<td>String</td>    
-<td>|| (concatenate)</td>
-</tr>
-</table>  
+|Operator group|Binary operator|
+|---|---|
+|Arithmetic|`+,-,*,/,%`|
+|Bitwise|`|, &, ^, <<, >>, >>> (zero-fill right shift) `|
+|Logical|`AND, OR, NOT`|
+|Comparison|`=, !=, &lt;, &gt;, &lt;=, &gt;=, <>`|
+|String|`|| (concatenate)`|
 
 Let’s take a look at some queries using binary operators.
 
