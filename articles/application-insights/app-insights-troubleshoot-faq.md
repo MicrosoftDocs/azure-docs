@@ -91,8 +91,8 @@ See [Data Retention and Privacy][data].
 | What you should see | How to get it | Why you want it |
 | --- | --- | --- |
 | Availability charts |[Web tests](app-insights-monitor-web-app-availability.md) |Know your web app is up |
-| Server app perf: response times, ... |[Add Application Insights to your project](app-insights-asp-net.md) or [Install Application Insights Agent on server](app-insights-monitor-performance-live-website-now.md) (or write your own code to [track dependencies](app-insights-api-custom-events-metrics.md#track-dependency)) |Detect perf issues |
-| Dependency telemetry |[Install Application Insights Agent on server](app-insights-monitor-performance-live-website-now.md) |Diagnose issues with databases or other external components |
+| Server app perf: response times, ... |[Add Application Insights to your project](app-insights-asp-net.md) or [Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) (or write your own code to [track dependencies](app-insights-api-custom-events-metrics.md#track-dependency)) |Detect perf issues |
+| Dependency telemetry |[Install AI Status Monitor on server](app-insights-monitor-performance-live-website-now.md) |Diagnose issues with databases or other external components |
 | Get stack traces from exceptions |[Insert TrackException calls in your code](app-insights-search-diagnostic-logs.md#exceptions) (but some are reported automatically) |Detect and diagnose exceptions |
 | Search log traces |[Add a logging adapter](app-insights-search-diagnostic-logs.md) |Diagnose exceptions, perf issues |
 | Client usage basics: page views, sessions, ... |[JavaScript initializer in web pages](app-insights-javascript.md) |Usage analytics |

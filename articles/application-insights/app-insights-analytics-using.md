@@ -41,15 +41,16 @@ Begin with the names of any of the tables listed on the left (or the [range](app
 
 IntelliSense prompts you with the operators and the expression elements that you can use. Click the information icon (or press CTRL+Space) to get a longer description and examples of how to use each element.
 
-See the [Analytics language overview](app-insights-analytics-tour.md) and [language reference](app-insights-analytics-reference.md).
+See the [Analytics language tour](app-insights-analytics-tour.md) and [language reference](app-insights-analytics-reference.md).
 
 ### Run a query
 ![Running a query](./media/app-insights-analytics-using/130.png)
 
 1. You can use single line breaks in a query.
 2. Put the cursor inside or at the end of the query you want to run.
+3. Check the time range of your query. (You can change it, or override it by including your own [`where...timestamp...`](app-insights-analytics-tour.md#time-range) clause in your query.)
 3. Click Go to run the query.
-4. Don't put blank lines in your query. You can keep several separated queries in one query tab by separating them with blank lines. Only the one with the cursor runs.
+4. Don't put blank lines in your query. You can keep several separated queries in one query tab by separating them with blank lines. Only the query that has the cursor runs.
 
 ### Save a query
 ![Saving a query](./media/app-insights-analytics-using/140.png)
@@ -93,22 +94,22 @@ To sort by more than one column, use grouping. First enable it, and then drag co
 
 If you think you're not seeing all the results you expected, there are a couple of possible reasons.
 
-* **Time filter**. A time limitation clause is automatically added to any query you write, unless you explicitly add one yourself. It's equivalent to a [where clause](app-insights-analytics-reference.md#where-operator) like this:
+* **Time range filter**. By default, you will only see results from the last 24 hours. There is an automatic filter that limits the range of results that are retrieved from the source tables. 
 
-    `| where timestamp > ago('1d')`
+    However, you can change the time range filter by using the drop-down menu.
 
-    By default, you will only see results from the past 24 hours. However, you can change the time filter using the drop-down menu. 
+    Or you can override the automatic range by including your own [`where  ... timestamp ...` clause](app-insights-analytics-reference.md#where-operator) into your query. For example:
 
-    Or you can override it with your own clause. Any `where` clause that mentions `timestamp` will switch off the automatic filter.
+    `requests | where timestamp > ago('2d')`
 
 * **Results limit**. There's a limit of about 10k rows on the results returned from the portal. A warning shows if you go over the limit. If that happens, sorting your results in the table won't always show you all the actual first or last results. 
 
-    It's good practice to avoid hitting the limit. Use operators such as:
+    It's good practice to avoid hitting the limit. Use the time range filter, or use operators such as:
 
-  * [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
   * [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
   * [take 100](app-insights-analytics-reference.md#take-operator)
   * [summarize ](app-insights-analytics-reference.md#summarize-operator) 
+  * [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
 
 (Want more than 10k rows? Consider using [Continuous Export](app-insights-export-telemetry.md) instead. Analytics is designed for analysis, rather than retrieving raw data.)
 
@@ -131,7 +132,7 @@ This means that, when you put together a dashboard to help you monitor the perfo
 You can pin a table to the dashboard, if it has four or fewer columns. Only the top seven rows are displayed.
 
 ### Dashboard refresh
-The chart pinned to the dashboard is refreshed automatically by re-running the query approximately every half hour.
+The chart pinned to the dashboard is refreshed automatically by re-running the query approximately every two hours.
 
 ### Automatic simplifications
 

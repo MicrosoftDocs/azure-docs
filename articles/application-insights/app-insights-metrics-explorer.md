@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
@@ -169,7 +169,14 @@ Live Metrics Stream shows you your application metrics right at this very moment
 
 Unlike Metrics Explorer, Live Metrics Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded.
 
-Live Metrics Stream is available with Application Insights SDK for ASP.NET, version 2.1.0 or later.
+### Live failures
+
+If any failures or exceptions are logged, Live Stream picks out a sample of them. Click **Pause** to hold a specific sample, and select an event to show its details.
+
+![Sampled live failures](./media/app-insights-metrics-explorer/live-stream-failures.png)
+
+
+Live Metrics Stream is available with the latest version of [Application Insights SDK for web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/).
 
 ## Set alerts
 To be notified by email of unusual values of any metric, add an alert. You can choose either to send the email to the account administrators, or to specific email addresses.
@@ -205,7 +212,7 @@ If you want even richer views of your data, you can [export to Power BI](http://
 
     If you want to set different filters on different charts, create them in different blades, save them as separate favorites. If you want, you can pin them to the dashboard so that you can see them alongside each other.
 * If you group a chart by a property that is not defined on the metric, then there will be nothing on the chart. Try clearing 'group by', or choose a different grouping property.
-* Performance data (CPU, IO rate, and so on) is available for Java web services, Windows desktop apps, [IIS web apps and services if you install Application Insights Agent](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-azure.md). It isn't available for Azure websites.
+* Performance data (CPU, IO rate, and so on) is available for Java web services, Windows desktop apps, [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-azure.md). It isn't available for Azure websites.
 
 ## Next steps
 * [Monitoring usage with Application Insights](app-insights-overview-usage.md)

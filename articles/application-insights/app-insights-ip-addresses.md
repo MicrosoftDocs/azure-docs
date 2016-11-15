@@ -25,15 +25,15 @@ The [Azure Application Insights](app-insights-overview.md) service uses a number
 > 
 
 ## Outgoing ports
-You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK and/or Application Insights Agent to send data to the portal:
+You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK and/or Status Monitor to send data to the portal:
 
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
 | Telemetry |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221 |443 |
 | Live Metrics Stream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |variable |443 |
 
-## Application Insights Agent
-Application Insights Agent Configuration - needed only when making changes.
+## Status Monitor
+Status Monitor Configuration - needed only when making changes.
 
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |

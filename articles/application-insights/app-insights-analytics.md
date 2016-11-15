@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
@@ -57,7 +57,10 @@ The language has many attractive features:
 * Powerful statistical [aggregations](app-insights-analytics-reference.md#aggregations).
 * Just as powerful as SQL, but much easier for complex queries: instead of nesting statements, you pipe the data from one elementary operation to the next.
 * Immediate and powerful visualizations.
+* [Pin charts to Azure dashboards](app-insights-analytics-using.md#pin-to-dashboard).
+* [Export queries to Power BI](app-insights-analytics-using.md#export-to-power-bi).
 * There's a [REST API](https://dev.applicationinsights.io/) that you can use to run queries programmatically, for example from Powershell.
+
 
 ## Connect to your Application Insights data
 Open Analytics from your app's [overview blade](app-insights-dashboards.md) in Application Insights: 

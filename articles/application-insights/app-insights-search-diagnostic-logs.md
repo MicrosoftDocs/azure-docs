@@ -214,7 +214,7 @@ Click on any exception type to see specific occurrences:
 You can also open Diagnostic Search directly, filter on exceptions, and choose the exception type that you want to see.
 
 ### Reporting unhandled exceptions
-Application Insights reports unhandled exceptions where it can, from devices, [web browsers][usage], or web servers, whether instrumented by [Application Insights Agent][redfield] or [Application Insights SDK][greenbrown]. 
+Application Insights reports unhandled exceptions where it can, from devices, [web browsers][usage], or web servers, whether instrumented by [Status Monitor][redfield] or [Application Insights SDK][greenbrown]. 
 
 However, it isn't always able to do this in some cases because the .NET framework catches the exceptions.  To make sure you see all exceptions, you therefore have to write a small exception handler. The best procedure varies with the technology. See [Exception telemetry for ASP.NET][exceptions] for details. 
 
@@ -244,7 +244,7 @@ In the app initializer such as Global.asax.cs:
     }
 
 ### <a name="requests"></a> Server Web Requests
-Request telemetry is sent automatically when you [install Application Insights Agent on your web server][redfield], or when you [add Application Insights to your web project][greenbrown]. It also feeds into the request and response time charts in Metric Explorer and on the Overview page.
+Request telemetry is sent automatically when you [install Status Monitor on your web server][redfield], or when you [add Application Insights to your web project][greenbrown]. It also feeds into the request and response time charts in Metric Explorer and on the Overview page.
 
 If you want to send additional events, you can use the TrackRequest() API.
 

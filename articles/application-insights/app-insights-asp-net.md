@@ -116,12 +116,12 @@ If you made any customizations to ApplicationInsights.config, save a copy of it 
 2. [Code custom events](app-insights-api-custom-events-metrics.md) to count, time, or measure user actions.
 
 ### Dependencies, exceptions and performance counters
-[Install Application Insights Agent](app-insights-monitor-performance-live-website-now.md) on each of your server machines, to get additional telemetry about your app. This is what you get:
+[Install Status Monitor](app-insights-monitor-performance-live-website-now.md) on each of your server machines, to get additional telemetry about your app. This is what you get:
 
 * [Performance counters](app-insights-performance-counters.md) - 
   CPU, memory, disk and other performance counters relating to your app. 
 * [Exceptions](app-insights-asp-net-exceptions.md) - more detailed telemetry for some exceptions.
-* [Dependencies](app-insights-asp-net-dependencies.md) - calls to REST API or SQL services. Find out whether slow responses by external components are causing performance issues in your app. (If your app runs on .NET 4.6, you don't need Application Insights Agent to get this telemetry.)
+* [Dependencies](app-insights-asp-net-dependencies.md) - calls to REST API or SQL services. Find out whether slow responses by external components are causing performance issues in your app. (If your app runs on .NET 4.6, you don't need Status Monitor to get this telemetry.)
 
 ### Diagnostic code
 Got a problem? If you want to insert code in your app to help diagnose it, you have several options:

@@ -1,4 +1,4 @@
----
+﻿---
 title: Performance counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET performance counters in Application Insights.
 services: application-insights
@@ -26,13 +26,13 @@ Performance counters appear in the Servers blade, which includes a table that se
 (Performance counters aren't available for Azure Web Apps. But you can [send Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md).)
 
 ## Configure
-If Application Insights Agent isn't yet installed on your server machines, you need to install it to see performance counters.
+If Application Insights Status Monitor isn't yet installed on your server machines, you need to install it to see performance counters.
 
-Download and run [Application Insights Agent installer](http://go.microsoft.com/fwlink/?LinkId=506648) on each server instance. If it's already installed, you don't need to install it again.
+Download and run [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648) on each server instance. If it's already installed, you don't need to install it again.
 
-* *I [installed the Application Insights SDK in my app](app-insights-asp-net.md) during development. Do I still need Application Insights Agent?*
+* *I [installed the Application Insights SDK in my app](app-insights-asp-net.md) during development. Do I still need Status Monitor?*
   
-    Yes, the Agent is required to collect performance counters for ASP.NET web apps. As you might already know, Application Insights Agent can also be used to [monitor web apps that are already live](app-insights-monitor-performance-live-website-now.md), without installing the SDK during development.
+    Yes, Status Monitor is required to collect performance counters for ASP.NET web apps. As you might already know, Status Monitor can also be used to [monitor web apps that are already live](app-insights-monitor-performance-live-website-now.md), without installing the SDK during development.
 
 ## View counters
 The Servers blade shows a default set of performance counters. 
@@ -56,7 +56,7 @@ If the performance counter you want isn't shown in the list of metrics, that's b
 2. Open ApplicationInsights.config.
    
    * If you added Application Insights to your app during development, edit ApplicationInsights.config in your project, and then re-deploy it to your servers.
-   * If you used Application Insights Agent to instrument a web app at runtime, find ApplicationInsights.config in the root directory of the app in IIS. Update it there in each server instance.
+   * If you used Status Monitor to instrument a web app at runtime, find ApplicationInsights.config in the root directory of the app in IIS. Update it there in each server instance.
 3. Edit the performance collector directive:
    
    ```XML

@@ -20,22 +20,22 @@ ms.author: awills
 After you have [added Application Insights to your ASP.NET code](app-insights-asp-net.md), there are a few things you can do to get even more telemetry. 
 
 ## If your app runs on your IIS server ...
-If your app is hosted on IIS servers in your control, install the Application Insights Agent on the servers. If it's already installed, you don't need to do anything.
+If your app is hosted on IIS servers in your control, install the Application Insights Status Monitor on the servers. If it's already installed, you don't need to do anything.
 
 1. On each IIS web server, sign in with administrator credentials.
-2. Download and run the [Application Insights Agent installer](http://go.microsoft.com/fwlink/?LinkId=506648).
+2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
 3. In the installation wizard, sign in to Microsoft Azure.
 
 You don't need to do anything else, but you can confirm that monitoring is enabled for your app.
 
 ![Extend in Azure](./media/app-insights-asp-net-more/025.png)
 
-(You can also use the Agent to [enable monitoring at runtime](app-insights-monitor-performance-live-website-now.md), even if you didn't instrument your apps in Visual Studio.)
+(You can also use Status Monitor to [enable monitoring at runtime](app-insights-monitor-performance-live-website-now.md), even if you didn't instrument your apps in Visual Studio.)
 
 ### What do you get?
-If Application Insights Agent is installed on your server machines, you get some additional telemetry:
+If Status Monitor is installed on your server machines, you get some additional telemetry:
 
-* Dependency telemetry (SQL calls and REST calls made by your app) for .NET 4.5 apps. (For later versions of .NET, the Agent is not required for dependency telemetry.) 
+* Dependency telemetry (SQL calls and REST calls made by your app) for .NET 4.5 apps. (For later versions of .NET, Status Monitor is not required for dependency telemetry.) 
 * Exception stack traces show more detail.
 * Performance counters. In Application Insights, these counters appear in the Servers blade. 
 
