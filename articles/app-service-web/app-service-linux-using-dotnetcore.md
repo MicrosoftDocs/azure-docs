@@ -1,3 +1,4 @@
+---
 <properties
 	pagetitle: "Using .NET Core in Azure App Service Web Apps on Linux | Microsoft Docs"
 	description: "Using .NET Core in Azure App Service Web Apps on Linux"
@@ -20,16 +21,16 @@
 ---
 # Using .NET Core in Web Apps on Linux #
 
-With the latest update to our back end, we introduced support for .NET Core v.1.0, after [Creating a new Web App on Linux](app-service-linux-how-to-create-a-web-app.md) using app settings you can change the application stack using [Azure Web App Cross Platform CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)
+With the latest update to our back end, we introduced support for .NET Core v.1.0. After [Creating a new Web App on Linux](app-service-linux-how-to-create-a-web-app.md). Using **webapp config** you can change the application stack using [Azure Web App Cross Platform CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)
 
 
 ## Using XPlat CLI ##
 
-using the latest Azure Cross Platform CLI using the **azure webapp config set** command, here is an example of that:
+Using the latest Azure Cross Platform CLI using the **azure webapp config set** command. Here is an example of that:
 
         azure webapp config set --name ContosoAppServicePlan --resource-group ContosoLinuxAzureResourceGroup --netframeworkversion v1.0 --appcommandline aspnetcore.dll
 
-This will load the .Net Core image and start your web app, you can check that the settings have been correctly set by using the **azure webapp config show**, here is an example of that:
+This will load the .Net Core image and start your web app. You can check that the settings have been correctly set by using the **azure webapp config show**. Here is an example of that:
 
         azure webapp config show --name ContosoAppServicePlan --resource-group ContosoLinuxAzureResourceGroup
 
