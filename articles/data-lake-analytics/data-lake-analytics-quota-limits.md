@@ -18,8 +18,6 @@ ms.author: edmaca
 
 ---
 # Azure Data Lake Analytics Quota Limits
-[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
-
 Learn how to adjust and increase quota limits in Azure Data Lake Analytics (ADLA) account. Knowing these limits may help you understand your U-SQL job behavior. All these limits are soft and you can always increase the max limits by reaching out to us.
 
 **Prerequisites**
@@ -37,13 +35,13 @@ The list below outlines the current quota limits of the system:
 
 **Azure Subscriptions limits:**
 The following limit apply to Azure subscriptions:
-* **Max number of ADLA accounts per subscription:**  5. This is the maximum number of ADLA accounts you can create per subscription. You will receive this error “You have reached the maximum number of Data Lake Analytics accounts allowed (5) in region under subscription name” when you try to create the 6th ADLA accounts. You can easily fix this by either deleting used ADLA accounts under your subscription or reaching out to us by opening a support ticket.
+* **Max number of ADLA accounts per subscription:**  5. This is the maximum number of ADLA accounts you can create per subscription. You receive this error “You have reached the maximum number of Data Lake Analytics accounts allowed (5) in region under subscription name” when you try to create the sixth ADLA accounts. You can easily fix this by either deleting used ADLA accounts under your subscription or reaching out to us by opening a support ticket.
 
 **ADLA Account limits:**
-* **Max number of Analytics Units (AUs) per account:** 250. This is the maximum number of AUs that can run concurrently in your account. Your total running AUs cross all the jobs can’t go beyond this. Exceeding this value will cause newer jobs to be queued automatically. For example:
-	* You may have only one job which is running with 250 AUs, when you submit the second job, this job will stand in the job queue until the first job is completed.
-    * You may already have 5 jobs which are running and each submitted with 50 AUs, when you submit the sixth one with 50 AUs, it will wait in the job queue and start to run until 50 AUs are released.
-* **Max number of concurrent U-SQL jobs per account:** 20. This is the maximum number of jobs that can run concurrently in your account. Exceeding this value will cause newer jobs to be queued automatically.
+* **Max number of Analytics Units (AUs) per account:** 250. This is the maximum number of AUs that can run concurrently in your account. Your total running AUs cross all the jobs can’t go beyond this. Exceeding this value causes newer jobs to be queued automatically. For example:
+	* You may have only one job running with 250 AUs, when you submit the second job, this job stands in the job queue until the first one is completed.
+    * You may already have 5 jobs running and each submitted with 50 AUs, when you submit the sixth one with say 20 AUs, it waits in the job queue and start to run when 20 AUs are available.
+* **Max number of concurrent U-SQL jobs per account:** 20. This is the maximum number of jobs that can run concurrently in your account. Exceeding this value causes newer jobs to be queued automatically.
 
 **To adjust ADLA Quota limits per account:**
 1. Sign on to the [Azure portal](https://portal.azure.com).
@@ -65,12 +63,12 @@ The following limit apply to Azure subscriptions:
 
     ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
 
-5.	In the problem blade please explain your requested increase limit and **Details** of why you need this extra capacity.
+5.	In the problem blade, please explain your requested increase limit and **Details** of why you need this extra capacity.
 
     ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
 
 6.	Verify your contact information and Create the support request.
-We will review your request and try to accommodate your business needs ASAP.
+We review your request and try to accommodate your business needs ASAP.
 
 ## See also
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
