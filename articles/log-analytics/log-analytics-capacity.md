@@ -1,4 +1,4 @@
-﻿---
+---
 title: Capacity Management solution in Log Analytics | Microsoft Docs
 description: You can use the Capacity Planning solution in Log Analytics to help you understand the capacity of your Hyper-V  servers managed by System Center Virtual Machine Manager
 services: log-analytics
@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/15/2016
 ms.author: banders
 
 ---
 # Capacity Management solution in Log Analytics
-You can use the Capacity Planning solution in Log Analytics to help you understand the capacity of your Hyper-V servers managed by System Center Virtual Machine Manager. This solution requires both System Center Operations Manager and System Center Virtual Machine Manager. Capacity Planning isn’t available if you only use directly-connected agents. You install the solution to update the Operations Manager agent. The solution reads performance counters on the monitored server and sends usage data to the OMS service in the cloud for processing. Logic is applied to the usage data, and the cloud service records the data. Over time, usage patterns are identified and capacity is projected, based on current consumption.
+You can use the Capacity Management solution in Log Analytics to help you understand the capacity of your Hyper-V servers. This solution requires both System Center Operations Manager and System Center Virtual Machine Manager. Capacity Planning isn’t available if you only use directly-connected agents. You install the solution to update the Operations Manager agent. The solution reads performance counters on the monitored server and sends usage data to the OMS service in the cloud for processing. Logic is applied to the usage data, and the cloud service records the data. Over time, usage patterns are identified and capacity is projected, based on current consumption.
 
 For example, a projection might identify when additional processor cores or additional memory will be needed for an individual server. In this example, the projection might indicate that in 30 days the server will need additional memory. This can help you plan for a memory upgrade during the server’s next maintenance window, which might occur once every two weeks.
 
@@ -27,7 +27,7 @@ For example, a projection might identify when additional processor cores or addi
 > 
 > 
 
-The capacity planning solution is in the process of being updated to address the following customer reported challenges:
+A replacement Capacity and Performance solution is in private preview. This replacement solution is intended to address the following customer reported challenges with the original Capacity Management solution:
 
 * Requirement to use Virtual Machine Manager and Operations Manager
 * Inability to customize/filter based on groups
@@ -39,8 +39,11 @@ Benefits of the new capacity solution:
 
 * Support granular data collection with improved reliability and accuracy
 * Support for Hyper-V without requiring VMM
-* Visualization of metrics in PowerBI
 * Insights on VM level utilization
+
+The new solution currently requires Hyper-V Server 2012 or later. The solution and provides insights into your Hyper-V environment, and gives visibility into the overall utilization (CPU, Memory, and Disk) of the hosts and the VMs running on those Hyper-V servers. Metrics are collected on CPU, Memory, and Disk across all your hosts and the VMs running on them.
+
+The remaining documentation on this page refers to the old Capacity Management solution and will be updated with the details of the new Capacity and Performance solution when the new solution is in public preview.
 
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
