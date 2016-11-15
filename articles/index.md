@@ -645,7 +645,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Windows Virtual Machines</h3>
-                                                    <p>Provision virtual machines for SQL Server, SharePoint and more</p>
+                                                    <p>Provision virtual machines for SQL Server, SharePoint, and more</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -961,7 +961,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Storage</h3>
-                                                    <p>Durable, highly available and massively scalable cloud storage</p>
+                                                    <p>Durable, highly available, and massively scalable cloud storage</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1195,7 +1195,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Search</h3>
-                                                    <p>Fully-managed search-as-a-service</p>
+                                                    <p>Fully managed search-as-a-service</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1376,7 +1376,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>Powerful cloud based predictive analytics tool to enable predictive maintenance</p>
+                                                    <p>Powerful cloud-based predictive analytics tool to enable predictive maintenance</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1590,7 +1590,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>Powerful cloud based predictive analytics tool to enable predictive maintenance</p>
+                                                    <p>Powerful cloud-based predictive analytics tool to enable predictive maintenance</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1690,7 +1690,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Management</h3>
-                                                    <p>Publish APIs to developers, partners and employees securely and at scale</p>
+                                                    <p>Publish APIs to developers, partners, and employees securely and at scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1771,7 +1771,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
-                                                    <p>Prevent, detect and respond to threats with increased visibility</p>
+                                                    <p>Prevent, detect, and respond to threats with increased visibility</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1966,7 +1966,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Management</h3>
-                                                    <p>Publish APIs to developers, partners and employees securely and at scale</p>
+                                                    <p>Publish APIs to developers, partners, and employees securely and at scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2104,7 +2104,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Scheduler</h3>
-                                                    <p>Run your jobs on simple or comples recurring schedules</p>
+                                                    <p>Run your jobs on simple or complex recurring schedules</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2286,7 +2286,7 @@ title: Microsoft Azure Documentation
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs/">Get the Nodejs SDK</a>
+                                                    <a href="https://azure.microsoft.com/develop/nodejs/">Get the Node.js SDK</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/develop/nodejs">Get started</a>
