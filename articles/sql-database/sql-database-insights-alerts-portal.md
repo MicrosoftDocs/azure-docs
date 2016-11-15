@@ -71,50 +71,50 @@ Once you have created an alert, you can select it and:
 
 | Resource Type	| Metric Name | Friendly Name | Aggregation Type | Minimum alert time window|
 | --- | --- | --- | --- | --- |
-| databases | cpu_percent | CPU percentage | Average | 5 minutes |
-| databases | physical_data_read_percent | Data IO percentage | Average | 5 minutes |
-| databases | log_write_percent | Log IO percentage | Average | 5 minutes |
-| databases | dtu_consumption_percent | DTU percentage | Average | 5 minutes |
-| databases | storage | Total database size | Maximum | 30 minutes |
-| databases | connection_successful | Successful Connections | Total | 10 minutes |
-| databases | connection_failed | Failed Connections | Total | 10 minutes |
-| databases | blocked_by_firewall | Blocked by Firewall | Total | 10 minutes |
-| databases | deadlock | Deadlocks | Total | 10 minutes |
-| databases | storage_percent | Database size percentage | Maximum | 30 minutes |
-| databases | xtp_storage_percent | In-Memory OLTP storage percent(Preview) | Average | 5 minutes |
-| databases | workers_percent | Workers percentage | Average | 5 minutes |
-| databases | sessions_percent | Sessions percent | Average | 5 minutes |
-| databases | dtu_limit | DTU limit | Average | 5 minutes |
-| databases | dtu_used | DTU used | Average | 5 minutes |
+| SQL database | cpu_percent | CPU percentage | Average | 5 minutes |
+| SQL database | physical_data_read_percent | Data IO percentage | Average | 5 minutes |
+| SQL database | log_write_percent | Log IO percentage | Average | 5 minutes |
+| SQL database | dtu_consumption_percent | DTU percentage | Average | 5 minutes |
+| SQL database | storage | Total database size | Maximum | 30 minutes |
+| SQL database | connection_successful | Successful Connections | Total | 10 minutes |
+| SQL database | connection_failed | Failed Connections | Total | 10 minutes |
+| SQL database | blocked_by_firewall | Blocked by Firewall | Total | 10 minutes |
+| SQL database | deadlock | Deadlocks | Total | 10 minutes |
+| SQL database | storage_percent | Database size percentage | Maximum | 30 minutes |
+| SQL database | xtp_storage_percent | In-Memory OLTP storage percent(Preview) | Average | 5 minutes |
+| SQL database | workers_percent | Workers percentage | Average | 5 minutes |
+| SQL database | sessions_percent | Sessions percent | Average | 5 minutes |
+| SQL database | dtu_limit | DTU limit | Average | 5 minutes |
+| SQL database | dtu_used | DTU used | Average | 5 minutes |
 ||||||	 	 	 
-| dw | cpu_percent | CPU percentage | Average | 10 minutes |
-| dw | physical_data_read_percent | Data IO percentage | Average | 10 minutes |
-| dw | storage | Total database size | Maximum | 10 minutes |
-| dw | connection_successful | Successful Connections | Total | 10 minutes |
-| dw | connection_failed | Failed Connections | Total | 10 minutes |
-| dw | blocked_by_firewall | Blocked by Firewall | Total | 10 minutes |
-| dw | service_level_objective | Service level objective of the database | Total | 10 minutes |
-| dw | dwu_limit | dwu limit | Maximum | 10 minutes |
-| dw | dwu_consumption_percent | DWU percentage | Average | 10 minutes |
-| dw | dwu_used | DWU used | Average | 10 minutes |
+| SQL data warehouse | cpu_percent | CPU percentage | Average | 10 minutes |
+| SQL data warehouse | physical_data_read_percent | Data IO percentage | Average | 10 minutes |
+| SQL data warehouse | storage | Total database size | Maximum | 10 minutes |
+| SQL data warehouse | connection_successful | Successful Connections | Total | 10 minutes |
+| SQL data warehouse | connection_failed | Failed Connections | Total | 10 minutes |
+| SQL data warehouse | blocked_by_firewall | Blocked by Firewall | Total | 10 minutes |
+| SQL data warehouse | service_level_objective | Service level objective of the database | Total | 10 minutes |
+| SQL data warehouse | dwu_limit | dwu limit | Maximum | 10 minutes |
+| SQL data warehouse | dwu_consumption_percent | DWU percentage | Average | 10 minutes |
+| SQL data warehouse | dwu_used | DWU used | Average | 10 minutes |
 |||||| 	 	 	 	 
-| elastic pool | cpu_percent | CPU percentage | Average | 5 minutes |
-| elastic pool | physical_data_read_percent | Data IO percentage | Average | 5 minutes |
-| elastic pool | log_write_percent | Log IO percentage | Average | 5 minutes |
-| elastic pool | dtu_consumption_percent | DTU percentage | Average | 5 minutes |
-| elastic pool | storage_percent | Storage percentage | Average | 5 minutes |
-| elastic pool | workers_percent | Workers percentage | Average | 5 minutes |
-| elastic pool | eDTU_limit | eDTU limit | Average | 5 minutes |
-| elastic pool | storage_limit | Storage limit | Average | 5 minutes |
-| elastic pool | eDTU_used | eDTU used | Average | 5 minutes |
-| elastic pool | storage_used | Storage used | Average | 5 minutes |
+| Elastic pool | cpu_percent | CPU percentage | Average | 5 minutes |
+| Elastic pool | physical_data_read_percent | Data IO percentage | Average | 5 minutes |
+| Elastic pool | log_write_percent | Log IO percentage | Average | 5 minutes |
+| Elastic pool | dtu_consumption_percent | DTU percentage | Average | 5 minutes |
+| Elastic pool | storage_percent | Storage percentage | Average | 5 minutes |
+| Elastic pool | workers_percent | Workers percentage | Average | 5 minutes |
+| Elastic pool | eDTU_limit | eDTU limit | Average | 5 minutes |
+| Elastic pool | storage_limit | Storage limit | Average | 5 minutes |
+| Elastic pool | eDTU_used | eDTU used | Average | 5 minutes |
+| Elastic pool | storage_used | Storage used | Average | 5 minutes |
 ||||||
 
 
 ## Next steps
-* [Get an overview of Azure monitoring](monitoring-overview.md) including the types of information you can collect and monitor.
-* Learn more about [configuring webhooks in alerts](insights-webhooks-alerts.md).
+* [Get an overview of Azure monitoring](../monitoring-and-diagnostics/monitoring-overview.md) including the types of information you can collect and monitor.
+* Learn more about [configuring webhooks in alerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
-* Get an [overview of diagnostic logs](monitoring-overview-of-diagnostic-logs.md) and collect detailed high-frequency metrics on your service.
-* Get an [overview of metrics collection](insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
+* Get an [overview of diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) and collect detailed high-frequency metrics on your service.
+* Get an [overview of metrics collection](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 
