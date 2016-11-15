@@ -139,7 +139,7 @@ This should get your SQL Server resource provider up and running in about 45 min
 
 ## Next steps
 
-Create plans and offers to make SQL databases available for tenants. You will need to create a plan, add the Microsoft.Sql service to the plan, add an existing Tier Quota or create a new one. If you create a quota, you can specify the capacity to allow the tenant.
+Create plans and offers to make SQL databases available for tenants. You will need to create a plan, add the Microsoft.Sql service to the plan, add an existing Tier Quota, or create a new one. If you create a quota, you can specify the capacity to allow the tenant.
 
 ![](./media/azure-stack-sql-rp-deploy/12.png)
 
