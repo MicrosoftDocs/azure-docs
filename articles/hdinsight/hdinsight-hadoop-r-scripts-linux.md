@@ -68,7 +68,7 @@ This section provides instructions about how to use the script when creating a n
 > 
 > 
 
-1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#portal), but do not complete provisioning.
+1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md), but do not complete provisioning.
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
    
    * **NAME**: Enter a friendly name for the script action.
@@ -78,7 +78,7 @@ This section provides instructions about how to use the script when creating a n
    * **ZOOKEEPER**: Check this option to install on the Zookeeper node.
    * **PARAMETERS**: Leave this field blank
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
-4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#portal).
+4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## Run R scripts
 After the cluster has finished provisioning, use the following steps to use R to perform a MapReduce operation on the cluster.

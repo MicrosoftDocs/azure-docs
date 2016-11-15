@@ -38,8 +38,8 @@ In this article you will learn how to install the community (free) version of RS
    * Edge node - `R-Server.CLUSTERNAME-ed-ssh.azurehdinsight.net` 
 2. SSH into the edge node of the cluster using the above naming pattern. 
    
-   * If you are connecting from a Linux client, see [Connect to a Linux-based HDInsight cluster](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
-   * If you are connecting from a Windows client, see [Connect to a Linux-based HDInsight cluster using PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster).
+   * If you are connecting from a Linux client, see [Connect to a Linux-based HDInsight cluster](hdinsight-hadoop-linux-use-ssh-unix.md).
+   * If you are connecting from a Windows client, see [Connect to a Linux-based HDInsight cluster using PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md).
 3. Once you are connected, become a root user on the cluster. In the SSH session, use the following command.
    
         sudo su -
