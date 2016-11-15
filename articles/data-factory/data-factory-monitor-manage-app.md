@@ -170,7 +170,7 @@ The activity windows can be in one of the following statuses:
 <tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Validation in progress.</td>
 </tr>
-<td></td>
+<td>-</td>
 <td>The activity window is being processed.</td>
 </tr>
 <tr>
@@ -183,15 +183,15 @@ The activity windows can be in one of the following statuses:
 <td>Validation</td><td>Validation has failed.</td>
 </tr>
 <tr>
-<td></td><td>Failed to generate and/or validate the activity window.</td>
+<td>-</td><td>Failed to generate and/or validate the activity window.</td>
 </tr>
-<td>Ready</td><td></td><td>The activity window is ready for consumption.</td>
-</tr>
-<tr>
-<td>Skipped</td><td></td><td>The activity window is not processed.</td>
+<td>Ready</td><td>-</td><td>The activity window is ready for consumption.</td>
 </tr>
 <tr>
-<td>None</td><td></td><td>An activity window that used to exist with a different status, but has been reset.</td>
+<td>Skipped</td><td>-</td><td>The activity window is not processed.</td>
+</tr>
+<tr>
+<td>None</td><td>-</td><td>An activity window that used to exist with a different status, but has been reset.</td>
 </tr>
 </table>
 
