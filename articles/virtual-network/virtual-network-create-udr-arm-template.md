@@ -21,7 +21,12 @@ ms.author: jdial
 # Create User-Defined Routes (UDR) using a template
 [!INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
-[!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
+> [!div class="op_single_selector"]
+- [PowerShell](virtual-network-create-udr-arm-ps.md)
+- [Azure CLI](virtual-network-create-udr-arm-cli.md)
+- [Template](virtual-network-create-udr-arm-template.md)
+- [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
+- [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
 
 > [!IMPORTANT]
 > Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../resource-manager-deployment-model.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.
