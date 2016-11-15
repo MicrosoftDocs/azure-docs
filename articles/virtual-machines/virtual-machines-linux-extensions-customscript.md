@@ -226,5 +226,5 @@ info:    vm extension get command OK
 ```
 
 ## Next Steps
-For information on other VM Script Extensions, see [Azure Script Extension overview for Linux](virtual-machines-linux-extensions-features.md).
+For information on other VM Script Extensions, see [Azure Script Extension overview for Linux](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

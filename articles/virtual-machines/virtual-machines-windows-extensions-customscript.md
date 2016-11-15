@@ -67,7 +67,7 @@ If you want to keep script URLs and parameters private, you can set the script U
         "storageAccountKey": "yourStorageAccountKey"
         }
         }
-For information about the schema of the latest versions of the Custom Script extension, see [Azure Windows VM extension configuration samples](virtual-machines-windows-extensions-configuration-samples.md).
+For information about the schema of the latest versions of the Custom Script extension, see [Azure Windows VM extension configuration samples](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 For samples of application configuration on a VM using the Custom Script extension, see [Custom Script extension on a Windows VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/).
 

@@ -205,6 +205,7 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
    > # "Inserted Date"
    >
 10. Click Done and then select Close&Apply in the Home tab.
+
 11. Your data for the last 30 days is now ready to be consumed. Go ahead and create some [visualizations](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/).
 
 ## Next Steps
