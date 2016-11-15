@@ -155,7 +155,6 @@ The following snippet first creates the Data Lake Store account client. It uses 
 		resourceGroup,
 		adlsAccountName,
 		DataLakeStoreAccount(
-			name=adlsAccountName,
 			location=location
 		)
 	).wait()

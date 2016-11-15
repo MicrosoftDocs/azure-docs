@@ -1,6 +1,5 @@
 # Overview
-## [What is Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)
-## [How it works](active-directory-b2c-overview.md)
+## [Overview](active-directory-b2c-overview.md)
 ## [Types of applications](active-directory-b2c-apps.md)
 ## [Production-scale vs preview B2C tenants](active-directory-b2c-reference-tenant-type.md)
 

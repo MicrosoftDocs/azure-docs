@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Azure log integration | Microsoft Docs
 description: Learn how to install the Azure log integration service and integrate logs from Azure storage, Azure Audit Logs and Azure Security Center alerts.
 services: security
@@ -27,7 +27,7 @@ To complete this tutorial, you must have the following:
 
 * A machine (on-premises or in the cloud) to install the Azure log integration service. This machine must be running a 64-bit Windows OS with .Net 4.5.1 installed. This machine is called the **Azlog Integrator**.
 * Azure subscription. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
-* Azure Diagnostics enabled for your Azure virtual machines (VMs). To enable diagnostics for Cloud Services, see [Enabling Azure Diagnostics in Azure Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics.md). To enable diagnostics for an Azure VM running Windows, see [Use PowerShell to enable Azure Diagnostics in a Virtual Machine Running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md).
+* Azure Diagnostics enabled for your Azure virtual machines (VMs). To enable diagnostics for Cloud Services, see [Enabling Azure Diagnostics in Azure Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics.md). To enable diagnostics for an Azure VM running Windows, see [Use PowerShell to enable Azure Diagnostics in a Virtual Machine Running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Connectivity from the Azlog Integrator to Azure storage and to authenticate and authorize to Azure subscription.
 * For Azure VM logs, the SIEM agent (for example, Splunk Universal Forwarder, HP ArcSight Windows Event Collector agent, or IBM QRadar WinCollect) must be installed on the Azlog Integrator.
 
