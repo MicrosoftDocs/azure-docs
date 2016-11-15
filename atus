@@ -1,0 +1,28 @@
+[1mdiff --git a/articles/storage/storage-e2e-troubleshooting-classic-portal.md b/articles/storage/storage-e2e-troubleshooting-classic-portal.md[m
+[1mindex 867da52..69e4eb4 100644[m
+[1m--- a/articles/storage/storage-e2e-troubleshooting-classic-portal.md[m
+[1m+++ b/articles/storage/storage-e2e-troubleshooting-classic-portal.md[m
+[36m@@ -115,11 +115,13 @@[m [mTo get started with PowerShell for Azure, see [How to install and configure Azur[m
+     $StorageAccountName = 'yourstorageaccount' [m
+     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName [m
+ ```[m
+[32m+[m
+ 4. Enable storage logging for the Blob service: [m
+    [m
+ ```powershell[m
+     Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0 [m
+ ```[m
+[32m+[m
+ 5. Enable storage metrics for the Blob service, making sure to set **-MetricsType** to `Minute`:[m
+    [m
+ ```powershell[m
+[36m@@ -188,7 +190,9 @@[m [mAzure Storage writes server log data to blobs, while metrics are written to tabl[m
+ [m
+ You can use the AzCopy command-line tool to download these server-side log files to a location of your choice on your local machine. For example, you can use the following command to download the log files for blob operations that took place on January 2, 2015 to the folder `C:\Temp\Logs\Server`; replace `<storageaccountname>` with the name of your storage account, and `<storageaccountkey>` with your account access key:[m
+ [m
+[32m+[m[32m```azcopy[m
+     AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V[m
+[32m+[m[32m```[m
+ [m
+ AzCopy is available for download on the [Azure Downloads](https://azure.microsoft.com/downloads/) page. For details about using AzCopy, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).[m
+ [m
