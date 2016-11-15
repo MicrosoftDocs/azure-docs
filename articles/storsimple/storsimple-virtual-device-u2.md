@@ -118,7 +118,7 @@ Perform the following steps to create the StorSimple virtual device.
 
 [!INCLUDE [Create a virtual device](../../includes/storsimple-create-virtual-device-u2.md)]
 
-If the creation of the virtual device fails in this step, you may not have connectivity to the Internet. For more information, go to [troubleshoot Internet connectivity failures](#troubleshoot-internet-connectivity-errors) when creatig a virtual device.
+If the creation of the virtual device fails in this step, you may not have connectivity to the Internet. For more information, go to [troubleshoot Internet connectivity failures](#troubleshoot-internet-connectivity-errors) when creating a virtual device.
 
 ### Step 2: Configure and register the virtual device
 Before starting this procedure, make sure that you have a copy of the service data encryption key. The service data encryption key was created when you configured your first StorSimple device and you were instructed to save it in a secure location. If you do not have a copy of the service data encryption key, you must contact Microsoft Support for assistance.
