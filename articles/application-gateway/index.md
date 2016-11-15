@@ -103,10 +103,10 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
 ##Reference
 
 ###PowerShell
-[PowerShell Reference](/powershell/azureps-cmdlets-doc)
+[PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
-[Azure CLI](/cli/azure/network/application-gateway)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###.NET
 [.NET API Reference](/dotnet/api)
