@@ -65,8 +65,8 @@ While the cluster is being created, we can set up sample code that we deploy to 
 1. Once you have created a fork in your own GitHub account, locally clone the repository on your computer:
 
 	```
-	git clone https://github.com/your-github-account/multi-container-ci-cd-to-acs.git
-	cd sample-app
+	git clone  https://github.com/azuresamples/container-service-dotnet-continuous-integration-multi-container.git
+	cd container-service-dotnet-continuous-integration-multi-container
 	```
 	
 Let's take a closer look at the code:
@@ -86,7 +86,7 @@ Let's take a closer look at the code:
 
 1. Set your current directory to the root of your cloned source repository, and create a build and release pipeline:
 	
-	`cd sample-app`
+	`cd container-service-dotnet-continuous-integration-multi-container`
 
 	`az container release create --target-name myacs --target-resource-group myacs-rg --remote-access-token <GitHubPersonalAccessToken>`
 
