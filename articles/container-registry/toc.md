@@ -17,7 +17,7 @@
 
 # Related
 
-## [Container Service](https://azure.microsoft.com/documentation/services/container-service/)
+## [Container Service](../container-service/index.md)
 
 # Resources
 ## [Region availability](https://azure.microsoft.com/regions/services/)
