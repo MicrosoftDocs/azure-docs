@@ -174,17 +174,67 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
 
 ## Reference
 
-### PowerShell
-[Data Lake Analytics Resource Manager PowerShell Cmdlets](/powershell/resourcemanager/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/resourcemanager/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Data Lake Analytics Resource Manager PowerShell Cmdlets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### Java
-[Data Lake Analytics Java API Reference](/java/api/)
+    <li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Data Lake Analytics Java API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### .NET
-[Data Lake Analytics Managed Reference](/dotnet/api)
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Data Lake Analytics Managed Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### REST
-[Data Lake Analytics REST API Reference](/rest/api/datalakeanalytics/)
+    <li>
+        <a href="/rest/api/datalakeanalytics/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Data Lake Analytics REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
 
