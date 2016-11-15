@@ -2423,7 +2423,7 @@ title: Microsoft Azure Documentation
                                             <div class="cardText">
                                                 <h3>PowerShell</h3>
                                                 <p>
-                                                    <a href="https://review.docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs">Get Started</a>
+                                                    <a href="/azure/powershell-install-configure">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/">Download PowerShell</a>
