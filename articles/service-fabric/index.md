@@ -49,11 +49,11 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first application using C# for Windows</h3>
+                        <h3>Get Started with Service Fabric using C# for Windows</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +67,11 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first application using C# for Linux</h3>
+                        <h3>Get Started with Service Fabric using C# for Linux</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first application using Java</h3>
+                        <h3>Get Started with Service Fabric using Java</h3>
                     </div>
                 </div>
             </div>
@@ -103,14 +103,15 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 ---
 
 ##Reference
+
 ###PowerShell
-[Service Fabric PowerShell](/powershell/servicefabric/vlatest/servicefabric)
+[Service Fabric PowerShell Reference](/powershell/servicefabric/vlatest/servicefabric)
 
 ###Java
 [Java API Reference](/java/api)
 
 ###.NET
-[Service Fabric Managed Reference API](/dotnet/api/)  
+[.NET Managed Reference API](/dotnet/api/)  
 
 ###REST
 [Service Fabric REST API Reference](http://msdn.microsoft.com/library/dn707692.aspx)

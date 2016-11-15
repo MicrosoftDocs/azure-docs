@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple virtual device Update 2| Microsoft Docs
 description: Learn how to create, deploy, and manage a StorSimple virtual device in a Microsoft Azure virtual network. (Applies to StorSimple Update 2).
 services: storsimple
@@ -89,7 +89,7 @@ Before you provision the virtual device, you need to make the following preparat
 * For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. More information on [regions that are currently supported for 8020](#supported-regions-for-8020).
 * It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid or if the DNS server is not able to resolve IP addresses correctly, the creation of the virtual device will fail.
 * Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios. 
-* You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:                             
+* You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:                             
   
   * Be Windows or Linux VMs with iSCSI Initiator software installed.
   * Be running in the same virtual network as the virtual device.

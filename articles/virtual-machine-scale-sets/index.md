@@ -24,43 +24,7 @@ Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy a
         </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-create">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Create a Windows scale set</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-create-cli">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Create a Linux scale set</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
+       <li>
         <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=virtual-machines">
         <div class="cardSize">
             <div class="cardPadding">
@@ -78,6 +42,43 @@ Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy a
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-create">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Windows VM Scale Sets</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-create-cli">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Linux VM Scale Sets</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+
 </ul>
 
 ---
@@ -88,7 +89,7 @@ Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy a
 [Virtual Machine Scale Sets PowerShell](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
-[Virtual Machine Scale Sets CLI Reference](/cli/azure/vmss)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###REST
 [Virtual Machine Scale Sets REST API Reference](/rest/api/compute)

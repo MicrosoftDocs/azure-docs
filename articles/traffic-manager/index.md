@@ -67,11 +67,11 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Traffic Manager endpoint</h3>
+                        <h3>Get Started managing Traffic Manager endpoints using the Azure portal</h3>
                     </div>
                 </div>
             </div>

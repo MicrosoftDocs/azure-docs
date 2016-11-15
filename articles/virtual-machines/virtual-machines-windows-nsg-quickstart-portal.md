@@ -21,7 +21,7 @@ ms.author: iainfou
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick commands
-You can also [perform these steps using Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
+You can also [perform these steps using Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 First, create your Network Security Group. Select a resource group in the portal, click **Add**, then search for and select 'Network security group':
 
