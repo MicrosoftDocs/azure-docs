@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 11/15/2016
 ms.author: bwren
 
 ---
@@ -26,6 +26,8 @@ Windows Event logs are one of the most common [data sources](log-analytics-data-
 Configure Windows Event logs from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md#configuring-data-sources).
 
 Log Analytics will only collect events from the Windows event logs that are specified in the settings.  You can add a new log by typing in the name of the log and clicking **+**.  For each log, only events with the selected severities will be collected.  Check the severities for the particular log that you want to collect.  You cannot provide any additional criteria to filter events.
+
+As you type the name of an event log, Log Analytics will provide autocomplete suggestions for common event log names. If the log you want to add does not appear in the list, you can still add it by typing in the full name of the log. You can find the full name of the log by using event viewer. In event viewer open the *Properties* page for the log and copy the string from the *Full Name* field.
 
 ![Configure Windows events](media/log-analytics-data-sources-windows-events/configure.png)
 
