@@ -36,7 +36,7 @@
 ### [Expire data automatically](documentdb-time-to-live.md)
 ### [Customize your indexes](documentdb-indexing-policies.md)
 ### [Secure access to data](documentdb-secure-access-to-data.md)
-### [Backup and restore](documentdb-online-backup-and-restore.md)
+### [Back up and restore](documentdb-online-backup-and-restore.md)
 ### [Performance levels](documentdb-performance-levels.md)
 ### [Resource quotas](documentdb-limits.md)
 ### [Increase quotas](documentdb-increase-limits.md)
@@ -77,7 +77,7 @@
 ### [Move data with Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analyze real-time data with Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb.md)
 ### [Get notifications with Logic Apps](documentdb-change-notification.md)
-### [Process sensor data in real-time](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
+### [Process sensor data in real time](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualize your data with Power BI](documentdb-powerbi-visualize.md)
 
 
@@ -96,8 +96,10 @@
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
+## [MSDN forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
-## [MSDN Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=documentdb) 
+## [Service updates](https://azure.microsoft.com/updates/?product=documentdb) 
 ## [Ask DocumentDB](documentdb-community.md#contact-the-team)
 ## [Community portal](documentdb-community.md)
 ## [Events and recordings](documentdb-community.md#events-and-recordings)

@@ -13,7 +13,7 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/application-gateway.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,11 +49,11 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Application Gateway with the Azure portal</h3>
+                        <h3>Get Started with Application Gateway using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +67,11 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Application Gateway with PowerShell</h3>
+                        <h3>Get Started with Application Gateway using PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +85,11 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Application Gateway with an Azure Resource Manager template</h3>
+                        <h3>Get Started with Application Gateway using a Resource Manager template</h3>
                     </div>
                 </div>
             </div>
@@ -103,10 +103,10 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
 ##Reference
 
 ###PowerShell
-[PowerShell Reference](/powershell/azureps-cmdlets-doc)
+[PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
-[Azure CLI](/cli/azure/network/application-gateway)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###.NET
 [.NET API Reference](/dotnet/api)
@@ -118,7 +118,7 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
 [REST API Reference](https://msdn.microsoft.com/library/azure/mt684939.aspx)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-gateway.pdf">
         <div class="img"></div>
         <div class="text">
             Download Application Gateway Documentation

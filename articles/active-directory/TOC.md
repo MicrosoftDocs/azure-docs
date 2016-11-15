@@ -277,7 +277,8 @@
 
 
 # Reference
-## [PowerShell cmdlets](https://docs.microsoft.com/powershell/azure%20ad%20cmdlets/ )
+## [PowerShell cmdlets](/powershell/ )
+## [Java API Reference](/java/api)
 ## [.NET API](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](active-directory-service-limits-restrictions.md)
 

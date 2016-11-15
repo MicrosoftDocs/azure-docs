@@ -1,23 +1,23 @@
 ---
 layout: LandingPage
 ---
-#Scheduler Documentation
+# Scheduler Documentation
 
-Scheduler is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Scheduler represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Azure Scheduler allows you to declaratively describe actions to run in the cloud.  It then schedules and runs those actions automatically.  Scheduler then maintains a history of job execution results that one can review.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="/azure/scheduler/scheduler-intro">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/scheduler.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Scheduler Getting Started Samples</h3>
+                        <h3>Learn about Scheduler</h3>
                     </div>
                 </div>
             </div>
@@ -25,17 +25,17 @@ Scheduler is a distributed systems platform that makes it easy to package, deplo
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
+        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=scheduler">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Scheduler Party Cluster</h3>
+                        <h3>Azure Scheduler Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -43,17 +43,17 @@ Scheduler is a distributed systems platform that makes it easy to package, deplo
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
+        <a href="/azure/scheduler/scheduler-get-started-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Scheduler with .NET Core</h3>
+                        <h3>Get Started with Azure Scheduler</h3>
                     </div>
                 </div>
             </div>
@@ -64,16 +64,19 @@ Scheduler is a distributed systems platform that makes it easy to package, deplo
 
 ---
 
-##Reference
+## Reference
 
-###REST
-[Scheduler REST API Reference](/rest/api/)
+### PowerShell
+[Azure Scheduler PowerShell Cmdlets](/powershell/azureps-cmdlets-docs)
 
-###.NET
-[Scheduler Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+### .NET
+[Scheduler Managed Reference](/dotnet/api)
+
+### REST
+[Scheduler REST API Reference](/rest/api/scheduler/)
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
         <div class="img"></div>
         <div class="text">
             Download Scheduler Documentation

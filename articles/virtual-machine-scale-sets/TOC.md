@@ -1,12 +1,13 @@
 # Overview
-## [About scale sets](virtual-machine-scale-sets-overview.md)
-## [Design considerations for scale sets](virtual-machine-scale-sets-design-overview.md)
+## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
 
 # Get Started
 ## [Create a Windows scale set](virtual-machine-scale-sets-windows-create.md)
 ## [Create a Linux scale set](virtual-machine-scale-sets-linux-create-cli.md)
 
 # How To
+## Plan and design
+### [Design considerations](virtual-machine-scale-sets-design-overview.md)
 ## Deploy
 ### [Scale set using the portal](virtual-machine-scale-sets-portal-create.md)
 ### [Scale set using Visual Studio](virtual-machine-scale-sets-vs-create.md)
@@ -23,7 +24,7 @@
 ### [Using DSC and scale sets](virtual-machine-scale-sets-dsc.md)
 
 ## Troubleshoot
-### [Troubleshoot autoscale](virtual-machine-scale-sets-troubleshoot.md)
+### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
 
 # Reference
 ## [PowerShell](/powershell/azureps-cmdlets-docs/)
@@ -31,4 +32,7 @@
 ## [REST](/rest/api/compute/)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
+## Pricing 
+### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
+### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)

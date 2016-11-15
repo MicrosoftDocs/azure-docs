@@ -5,7 +5,7 @@ layout: LandingPage
 
 Azure Load Balancer delivers high availability and network performance to your applications.  Load Balancer can be configured to load balance incoming Internet traffic to virtual machines, traffic between cloud resources, traffic in a cross-premises virtual network, or external traffic to a specific virtual machine.
 
-<ul>
+<ul class="panelContent cardsFTitle">
     <li>
         <a href="/azure/load-balancer/load-balancer-overview">
         <div class="cardSize">
@@ -13,7 +13,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/load-balancer.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -61,13 +61,13 @@ Azure Load Balancer delivers high availability and network performance to your a
         </a>
     </li>
        <li>
-        <a href="azure/load-balancer/load-balancer-internal-overview">
+        <a href="/azure/load-balancer/load-balancer-internal-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -85,10 +85,10 @@ Azure Load Balancer delivers high availability and network performance to your a
 ##Reference
 
 ###PowerShell
-[Load Balancer PowerShell Reference](/powershell/azureps-cmdlets-doc)
+[Load Balancer PowerShell Reference](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
-[Load Balancer Azure CLI] (/cli/azure/network/lb)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###.NET
 [.NET API Reference](/dotnet/api)
@@ -101,7 +101,7 @@ Azure Load Balancer delivers high availability and network performance to your a
 
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
         <div class="img"></div>
         <div class="text">
             Download Load Balancer Documentation

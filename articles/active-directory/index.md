@@ -2,7 +2,7 @@
 layout: LandingPage
 ---
 
-#Active Directory Documentation
+# Azure Active Directory Documentation
 
 Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service.  Azure AD offers identity and access capabilities for applications running in Azure as well as on Premises.  
 
@@ -14,29 +14,11 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/active-directory.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
                         <h3>Learn about Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure AD: Identity Management as a Service for Modern Apps</h3>
                     </div>
                 </div>
             </div>
@@ -50,11 +32,11 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Active Directory Videos</h3>
+                        <h3>Azure Active Directory Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -62,17 +44,17 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
         </a>
     </li>
     <li>
-        <a href="/azure/active-directory/virtual-networks-windows-server-active-directory-virtual-machines">
+        <a href="/azure/active-directory/active-directory-howto-tenant">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Deploy on Azure VMs</h3>
+                        <h3>Get started with Azure Active Directory</h3>
                     </div>
                 </div>
             </div>
@@ -80,35 +62,17 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
         </a>
     </li>
     <li>
-        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview">
+        <a href="/azure/active-directory/active-directory-get-started-premium">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Deploy a Hybrid Identity Solution</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/active-directory/active-directory-aadconnect-azure-adfs">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Deploy AD FS in Azure</h3>
+                        <h3>Get started with Azure Active Directory Premium</h3>
                     </div>
                 </div>
             </div>
@@ -119,16 +83,25 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
 
 ---
 
-##Reference
-
-###.NET
-[Active Directory Authentication Library .NET Reference](/dotnet/api/)
+## Reference
 
 ###PowerShell
-[Azure Active Directory PowerShell Module](/powershell/)
+[Azure PowerShell Reference](/powershell/)
+
+###Azure CLI
+[Install the Azure CLI](/cli/azure/install-az-cli2)
+
+###.NET
+[Azure Active Directory .NET Reference](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+
+###Java
+[Azure Java API Reference](/java/api/)
+
+
+---
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
         <div class="img"></div>
         <div class="text">
             Download Active Directory Documentation
