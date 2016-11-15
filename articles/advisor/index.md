@@ -13,7 +13,7 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/advisor.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -43,76 +43,7 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
         </a>
     </li>
     <li>
-        <a href="/azure/advisor/advisor-cost-recommendations">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Use Advisor cost recommendations to optimize your Azure spend</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/advisor/advisor-performance-recommendations">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Enhance the speed of your applications with performance recommendations</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li><li>
-        <a href="/azure/advisor/advisor-high-availability-recommendations">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Ensure and improve the high availability of your applications</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li><li>
-        <a href="/azure/advisor/advisor-security-recommendations">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Address potential security vulnerabilities and threats with security recommendations</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-       
+               
 </ul>
 
 ---
