@@ -89,7 +89,7 @@ Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy a
 [Virtual Machine Scale Sets PowerShell](/powershell/azureps-cmdlets-docs)
 
 ###Azure CLI
-[Virtual Machine Scale Sets using the Azure CLI](/cli/azure/vmss)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###REST
 [Virtual Machine Scale Sets REST API Reference](/rest/api/compute)

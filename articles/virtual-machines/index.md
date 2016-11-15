@@ -56,7 +56,7 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
 [Virtual Machine REST API Reference](/rest/api/) 
 
 ###Azure CLI 
-[Azure CLI for Virtual Machines](/cli/azure/)
+[Install the Azure CLI](/cli/azure/install-az-cli2)
 
 ###Java 
 [Virtual Machines PowerShell Cmdlet](/java/api/)
