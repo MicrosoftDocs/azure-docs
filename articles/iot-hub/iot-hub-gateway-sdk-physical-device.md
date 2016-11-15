@@ -85,7 +85,7 @@ The BLE modules talk to the Bluetooth hardware via the BlueZ stack. You need ver
     ```
     sudo systemctl stop bluetooth
     ```
-2. Install the BlueZ dependancies. 
+2. Install the BlueZ dependencies. 
    
     ```
     sudo apt-get update
@@ -219,7 +219,7 @@ At the time of writing, the IoT Gateway SDK only supports gateways that use BLE 
 
 ### Build the Azure IoT Gateway SDK on your Raspberry Pi 3
 
-Install dependancies for the Azure IoT Gateway SDK.
+Install dependencies for the Azure IoT Gateway SDK.
 
 ``` 
 sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev
