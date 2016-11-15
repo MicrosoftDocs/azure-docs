@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Always On availability group in Azure VM with PowerShell
 description: This tutorial uses resources created with  the classic deployment model, and uses PowerShell to create an Always On Availability Group in Azure.
 services: virtual-machines-windows
@@ -20,10 +20,10 @@ ms.author: mikeray
 ---
 # Configure Always On availability group in Azure VM with PowerShell
 > [!div class="op_single_selector"]
-> * [Resource Manager: Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [Resource Manager: Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-> * [Classic: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-> * [Classic: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+> * [Resource Manager: Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [Resource Manager: Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [Classic: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [Classic: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > 
 > 
 
@@ -476,7 +476,7 @@ Finally, you are ready to configure the availability group. You will use the SQL
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Download **CreateAzureFailoverCluster.ps1** from [Create WSFC Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) to the local working directory. You will use this script to help you create a functional WSFC cluster. For important information on how WSFC interacts with the Azure network, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
+7. Download **CreateAzureFailoverCluster.ps1** from [Create WSFC Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) to the local working directory. You will use this script to help you create a functional WSFC cluster. For important information on how WSFC interacts with the Azure network, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 8. Change to your working directory and create the WSFC cluster with the downloaded script.
    
         Set-ExecutionPolicy Unrestricted -Force
@@ -560,7 +560,7 @@ Finally, you are ready to configure the availability group. You will use the SQL
              -Database $db
 
 ## Next Steps
-You have now successfully implemented SQL Server Always On by creating an availability group in Azure. To configure a listener for this availability group, see [Configure an ILB listener for Always On Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+You have now successfully implemented SQL Server Always On by creating an availability group in Azure. To configure a listener for this availability group, see [Configure an ILB listener for Always On Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

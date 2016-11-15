@@ -91,7 +91,6 @@
 ### [Security architecture](iot-hub-security-architecture.md)
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
 
-
 # Reference
 ## [Azure CLI](https://docs.microsoft.com/cli/azure)
 ## [Java](https://docs.microsoft.com/java/api)
