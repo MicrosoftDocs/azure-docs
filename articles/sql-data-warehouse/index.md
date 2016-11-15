@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 #SQL Data Warehouse Documentation
 
-Azure SQL Data Warehouse is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational. SQL Data Warehouse combines the SQL Server relational database with Azure cloud scale-out capabilities.  Built on our massively parallel processing (MPP) architecture, SQL Data Warehouse can handle your enterprise workload.
+Azure SQL Data Warehouse combines the SQL Server relational database with Azure cloud scale-out capabilities.  Built on our massively parallel processing (MPP) architecture, SQL Data Warehouse can handle your enterprise workload.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Azure SQL Data Warehouse is a cloud-based, scale-out database capable of process
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a SQL Data Warehouse using the Azure Portal</h3>
+                        <h3>Get started creating a SQL Data Warehouse using the Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ Azure SQL Data Warehouse is a cloud-based, scale-out database capable of process
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a SQL Data Warehouse using Transact-SQL</h3>
+                        <h3>Get started creating a SQL Data Warehouse using Transact-SQL</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Azure SQL Data Warehouse is a cloud-based, scale-out database capable of process
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a SQL Data Warehouse using PowerShell</h3>
+                        <h3>Get started creating a SQL Data Warehouse using PowerShell</h3>
                     </div>
                 </div>
             </div>
