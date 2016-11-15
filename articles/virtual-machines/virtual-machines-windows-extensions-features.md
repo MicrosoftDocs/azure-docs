@@ -28,14 +28,15 @@ This document provides prerequisites for Azure Virtual Machine extension, and gu
 ## Use cases and samples
 
 There are many different Azure VM extensions available, each with a specific use case. Some example use cases are:
-Apply PowerShell Desired State Configurations to an Azure virtual machine. For more information, see [Azure Desired State configuration extension]( virtual-machines-windows-extensions-dsc-overview.md).
-Configure monitoring of your Azure virtual machine with the Log Analytics using the Microsoft Monitoring Agent VM extension. For more information, see [Connect Azure virtual machines to Log Analytics](../log-analytics/log-analytics-azure-vm-extension.md). 
-Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see [Datadog blog]( https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
-Configure an Azure virtual machine using Chef. For more information, see [Automating Azure virtual machine deployment with Chef](virtual-machines-windows-chef-automation.md).
+
+- Apply PowerShell Desired State Configurations to an Azure virtual machine. For more information, see [Azure Desired State configuration extension](virtual-machines-windows-extensions-dsc-overview.md).
+- Configure monitoring of your Azure virtual machine with the Log Analytics using the Microsoft Monitoring Agent VM extension. For more information, see [Connect Azure virtual machines to Log Analytics](../log-analytics/log-analytics-azure-vm-extension.md). 
+- Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
+- Configure an Azure virtual machine using Chef. For more information, see [Automating Azure virtual machine deployment with Chef](virtual-machines-windows-chef-automation.md).
 
 In addition to process specific extension, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Windows allows any PowerShell script to be run on the virtual machine. For more information, see [Windows VM Custom Script extension](virtual-machines-windows-extensions-customscript.md).
 
-To see how a VM extension can be used in an end to end application deployment, check out [Automating application deployments to Azure Virtual Machines]( virtual-machines-windows-dotnet-core-1-landing.md).
+To see how a VM extension can be used in an end to end application deployment, check out [Automating application deployments to Azure Virtual Machines](virtual-machines-windows-dotnet-core-1-landing.md).
 
 ## Prerequisites
 
@@ -61,7 +62,7 @@ The following methods can be used to run an extension against an existing virtua
 
 ### PowerShell
 
-Several PowerShell commands exist for running individual extensions. To see a list, run the following PowerShell commands.
+Several PowerShell commands exist for running individual extensions. To see a list, run the following PowerShell commands:
 
 ```powershell
 get-command *set*azure*vm*extension* -Module AzureRM.Compute
@@ -90,7 +91,7 @@ The `Set-AzureRmVMExtension` command can be used as a catch all or general comma
 
 ### Azure portal
 
-VM extension can be applied to an existing virtual machine through the Azure portal. To do so, select the virtual machine – extensions – and click add. Doing so will provide a list of available extensions. Select the one you want, which will provide a wizard for configuration. The following image depicts the installation of the Microsoft Antimalware extension from the Azure portal.
+VM extension can be applied to an existing virtual machine through the Azure portal. To do so, select the virtual machine – extensions – and click add. Doing so provides a list of available extensions. Select the one you want, which provides a wizard for configuration. The following image depicts the installation of the Microsoft Antimalware extension from the Azure portal.
 
 ![Antimalware Extension](./media/virtual-machines-windows-extensions-features/anti-virus-extension.png)
 
@@ -100,7 +101,7 @@ VM extensions can be added to an Azure Resource Manager template and executed wi
 
 ## Troubleshooting VM extension
 
-Each VM extension may have troubleshooting steps specific to that extensions. For instance, when using the Custom Script Extension, script execution details can be found locally on the virtual machine on which the extension was run. Any extension-specific troubleshooting steps is detailed in extension-specific documentation. 
+Each VM extension may have troubleshooting steps specific to the extensions. For instance, when using the Custom Script Extension, script execution details can be found locally on the virtual machine on which the extension was run. Any extension-specific troubleshooting steps are detailed in extension-specific documentation. 
 The following troubleshooting steps apply to all Virtual Machine extensions.
 
 ### Viewing extension status
@@ -111,7 +112,7 @@ Once a Virtual Machine extension has been run against a virtual machine, use the
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-The output will look similar to the following:
+The output looks similar to the following:
 
 ```json
 ResourceGroupName       : myResourceGroup
@@ -134,7 +135,7 @@ ForceUpdateTag          :
 
 ### Rerunning VM Extension 
 
-If you are running scripts on the VM using Custom Script Extension, you may sometimes run into an error where VM was created successfully but the script has failed. The recommended way to recover from this situation is to remove the extension and rerun the extension. The following PowerShell command will remove the extension.
+If you are running scripts on the VM using Custom Script Extension, you may sometimes run into an error where VM was created successfully but the script has failed. The recommended way to recover from this situation is to remove the extension and rerun the extension. The following PowerShell command removes the extension.
 
 ```powershell
 Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
