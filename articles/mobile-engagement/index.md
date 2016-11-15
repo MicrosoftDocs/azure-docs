@@ -3,9 +3,7 @@ layout: LandingPage
 ---
 # Mobile Engagement Documentation
 
-Azure Mobile Engagement is a service targeted specifically for digital marketers/CMOs but could be used by any mobile app owner or publisher who wants to increase the usage, retention and monetization of their mobile apps.
-
-It is a software-as-a-service (SaaS) user-engagement platform that provides data-driven insights into app usage, real-time user segmentation, and enables contextually-aware push notifications and in-app messaging.
+Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platform that provides data-driven insights into app usage, user segmentation, and enables push notifications and in-app messaging.
 
 <ul class="panelContent cardsFTitle">
     <li>
