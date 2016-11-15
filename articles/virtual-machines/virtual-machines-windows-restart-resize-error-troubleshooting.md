@@ -1,4 +1,4 @@
-﻿---
+---
 title: VM restarting or resizing issues | Microsoft Docs
 description: Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure
 services: virtual-machines-windows, azure-resource-manager
@@ -60,5 +60,5 @@ The request to resize the VM has to be attempted at the original cluster that ho
   3. Select the resized VM and click **Start**, and then start each of the stopped VMs.
 
 ## Next steps
-If you encounter issues when you create a new Windows VM in Azure, see [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md).
+If you encounter issues when you create a new Windows VM in Azure, see [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2016
+ms.date: 11/11/2016
 ms.author: tomfitz
 
 ---
@@ -295,7 +295,7 @@ Returns the base64 representation of the input string.
 The following example shows how to use the base64 function.
 
     "variables": {
-      "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+      "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 

@@ -49,8 +49,8 @@
 ## [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [PowerShell classic](https://docs.microsoft.com/powershell/servicemanagement/)
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell classic](/powershell/servicemanagement/)
 
 # Related
 ## [Azure Automation](/azure/automation/)
@@ -60,3 +60,4 @@
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 ## [Blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/site-recovery/)
+## [Service updates](https://azure.microsoft.com/updates/?product=site-recovery)
