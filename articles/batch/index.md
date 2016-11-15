@@ -100,29 +100,114 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
 
 ---
 
-##Reference
+## Reference
 
-###PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###Azure CLI
-[Batch using Azure CLI](/azure/batch/batch-cli-get-started)
+    <li>
+        <a href="/azure/batch/batch-cli-get-started">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Azure CLI</h3>
+                        <p>Batch using Azure CLI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###.NET
-[Batch Managed Reference](/dotnet/api)
+<li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Batch Managed Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###Java
-[Java SDK Reference](/java/api)
+<li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Java SDK Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###Node.js
-[Node.js Reference](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)
+<li>
+        <a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Node.js</h3>
+                        <p>Node.js Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###Python
-[Python SDK reference](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementbatch.html)
+<li>
+        <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementbatch.html">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Python</h3>
+                        <p>Python SDK reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###REST
-[Batch REST API Reference](/rest/api/batchservice)
-
+<li>
+        <a href="/rest/api/batchservice">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Batch REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
