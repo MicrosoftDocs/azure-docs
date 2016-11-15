@@ -37,6 +37,11 @@
 ## [Send cloud-to-device messages (Node)](iot-hub-node-node-c2d.md)
 ## [Get started with device twins](iot-hub-node-node-twin-getstarted.md)
 ## [How to use twin properties](iot-hub-node-node-twin-how-to-configure.md)
+## [Use direct methods](iot-hub-c2d-methods.md)
+## [Get started with device management](iot-hub-device-management-get-started.md)
+## [Use device jobs to update device firmware](iot-hub-firmware-update.md)
+## [Schedule and broadcast jobs](iot-hub-schedule-jobs.md)
+
 ## Plan your deployment
 ### [Comparison of IoT Hub to Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Scale your solution](iot-hub-scaling.md)

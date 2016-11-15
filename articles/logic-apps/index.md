@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 # Logic Apps Documentation
 
-Logic Apps provide a way to simplify and implement scalable integrations and workflows in the cloud. It provides a visual designer to model and automate your process as a series of steps known as a workflow. There are many connectors across the cloud and on-premises to quickly integrate across services and protocols. A logic app begins with a trigger (like 'When an account is added to Dynamics CRM') and after firing can begin many combinations actions, conversions, and condition logic.
+Logic Apps is a design tool for modeling and automating processes into workflows. There are many connectors across the cloud and on-premises to quickly integrate across services and protocols. A logic app begins with a trigger (like 'When an account is added to Dynamics CRM') and after firing can begin many combinations actions, conversions, and condition logic.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -35,7 +35,7 @@ Logic Apps provide a way to simplify and implement scalable integrations and wor
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>App Service Video Librasry</h3>
+                        <h3>App Service Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -49,11 +49,11 @@ Logic Apps provide a way to simplify and implement scalable integrations and wor
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a new Logic App connecting SaaS services</h3>
+                        <h3>Get started creating a new Logic App connecting SaaS services</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +67,11 @@ Logic Apps provide a way to simplify and implement scalable integrations and wor
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Logic App using a template</h3>
+                        <h3>Get started creating a Logic App using a template</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +85,11 @@ Logic Apps provide a way to simplify and implement scalable integrations and wor
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a custom API to use with Logic Apps</h3>
+                        <h3>Get started creating a custom API to use with Logic Apps</h3>
                     </div>
                 </div>
             </div>

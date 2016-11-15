@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 # Power BI Embedded Documentation
 
-Power BI Embedded is an Azure service that enables ISVs and app developers to surface Power BI data experiences within their applications. As a developer, you've built applications, and those applications have their own users and distinct set of features. Those apps may also happen to have some built-in data elements like charts and reports that can now be powered by Microsoft Power BI Embedded. Users don’t need a Power BI account to use your app. They can continue to sign in to your application just like before, and view and interact with the Power BI reporting experience without requiring any additional licensing.
+Power BI Embedded is an Azure service that enables application developers to add interactive Power BI reports into their own applications. Power BI Embedded works with existing applications without needing redesign or changing the way users sign in.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -67,11 +67,11 @@ Power BI Embedded is an Azure service that enables ISVs and app developers to su
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create Power BI reports with the sample gallery</h3>
+                        <h3>Get started creating Power BI reports with the sample gallery</h3>
                     </div>
                 </div>
             </div>
