@@ -27,6 +27,7 @@ ms.author: jdial
 - [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
 - [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
 
+
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]

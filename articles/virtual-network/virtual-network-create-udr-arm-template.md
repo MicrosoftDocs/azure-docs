@@ -37,30 +37,27 @@ You can view and download the [sample template](https://github.com/telmosampaio/
 
 The following section shows the definition of the front-end UDR in the **azuredeploy-vnet-nsg-udr.json** file for the scenario:
 
-```json
-"apiVersion": "2015-06-15",
-"type": "Microsoft.Network/routeTables",
-"name": "[parameters('frontEndRouteTableName')]",
-"location": "[resourceGroup().location]",
-"tags": {
-  "displayName": "UDR - FrontEnd"
-},
-"properties": {
-  "routes": [
-    {
-      "name": "RouteToBackEnd",
-      "properties": {
-        "addressPrefix": "[parameters('backEndSubnetPrefix')]",
-        "nextHopType": "VirtualAppliance",
-        "nextHopIpAddress": "[parameters('vmaIpAddress')]"
-      }
-    }
-  ]
-```
+	"apiVersion": "2015-06-15",
+	"type": "Microsoft.Network/routeTables",
+	"name": "[parameters('frontEndRouteTableName')]",
+	"location": "[resourceGroup().location]",
+	"tags": {
+	  "displayName": "UDR - FrontEnd"	
+	},
+	"properties": {
+	  "routes": [
+	    {
+	      "name": "RouteToBackEnd",
+	      "properties": {
+	        "addressPrefix": "[parameters('backEndSubnetPrefix')]",
+	        "nextHopType": "VirtualAppliance",
+	        "nextHopIpAddress": "[parameters('vmaIpAddress')]"
+	      }
+	    }
+	  ]
 
 To associate the UDR to the front-end subnet, you have to change the subnet definition in the template, and use the reference id for the UDR.
 
-```json
     "subnets": [
         "name": "[parameters('frontEndSubnetName')]",
         "properties": {
@@ -72,13 +69,11 @@ To associate the UDR to the front-end subnet, you have to change the subnet defi
               "id": "[resourceId('Microsoft.Network/routeTables', parameters('frontEndRouteTableName'))]"
           }
         },
-```
 
 Notice the same being done for the back-end NSG and the back-end subnet in the template.
 
 You also need to ensure that the **FW1** VM has the IP forwarding property enabled on the NIC that will be used to receive and forward packets. The section below shows the definition of the NIC for FW1 in the azuredeploy-nsg-udr.json file, based on the scenario above.
 
-```json
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
     "location": "[variables('location')]",
@@ -112,15 +107,9 @@ You also need to ensure that the **FW1** VM has the IP forwarding property enabl
       "name": "fwniccount",
       "count": "[parameters('fwCount')]"
     }
-```
 
 ## Deploy the template by using click to deploy
 The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
-
-## Deploy the template by using PowerShell
-To deploy the template you downloaded by using PowerShell, complete the following steps:
-
-[!INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. Run the following command to create a resource group:
