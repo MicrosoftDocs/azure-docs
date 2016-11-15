@@ -100,7 +100,7 @@
 # Reference
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
-## [REST](hhttps://msdn.microsoft.com/library/azure/ee460812.aspx)
+## [REST](hhttps://msdn.microsoft.com/library/azure/ee460812)
 ## [Guest OS patches](cloud-services-guestos-msrc-releases.md)
 ## Guest OS retirement
 ### [Retirement policy](cloud-services-guestos-retirement-policy.md)
