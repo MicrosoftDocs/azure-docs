@@ -1,4 +1,4 @@
-﻿---
+---
 title: Learn Node.js - DocumentDB Node.js Tutorial | Microsoft Docs
 description: Learn Node.js! Tutorial explores how to use Microsoft Azure DocumentDB to store and access data from a Node.js Express web application hosted on Azure Websites.
 keywords: Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 
 ---
@@ -58,13 +58,17 @@ Don't have time to complete the tutorial and just want to get the complete solut
 Before following the instructions in this article, you should ensure
 that you have the following:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/)
+
+   OR
+
+   A local installation of the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md).
 * [Node.js][Node.js] version v0.10.29 or higher.
 * [Express generator](http://www.expressjs.com/starter/generator.html) (you can install this via `npm install express-generator -g`)
 * [Git][Git].
 
 ## <a name="_Toc395637761"></a>Step 1: Create a DocumentDB database account
-Let's start by creating a DocumentDB account. If you already have an account, you can skip to [Step 2: Create a new Node.js application](#_Toc395783178).
+Let's start by creating a DocumentDB account. If you already have an account or if you are using the DocumentDB Emulator for this tutorial, you can skip to [Step 2: Create a new Node.js application](#_Toc395783178).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
