@@ -31,7 +31,7 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
