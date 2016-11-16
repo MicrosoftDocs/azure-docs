@@ -5,7 +5,6 @@ services: dns
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
 
 ms.assetid: f5797782-3005-4663-a488-ac0089809010
 ms.service: dns
@@ -169,7 +168,7 @@ After you have verified that the zone has been imported correctly, you will need
 The format of the Azure CLI command to import a DNS zone is:
 
     ```azurecli
-        azure network dns zone export [options] <resource group> <zone name> <zone file name>
+    azure network dns zone export [options] <resource group> <zone name> <zone file name>
     ```
 
 Values:

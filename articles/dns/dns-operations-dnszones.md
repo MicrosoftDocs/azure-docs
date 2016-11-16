@@ -5,7 +5,6 @@ services: dns
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
 
 ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
 ms.service: dns
@@ -76,7 +75,7 @@ Use one of the following two ways to remove a DNS zone:
 
 ### Specify the zone using the zone name and resource group name
 
-This operation has an optional *-Force* switch which suppresses the prompt to confirm you want to remove the DNS zone.
+This operation has an optional `-Force` switch which suppresses the prompt to confirm you want to remove the DNS zone.
 
 ```powershell
 Remove-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Force]
@@ -84,8 +83,9 @@ Remove-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup 
 
 ### Specify the zone using a $zone object
 
-Specify the zone using a $zone object from `Get-AzureRmDnsZone`. This operation has an optional *-Force* switch which suppresses the prompt to confirm you want to remove the DNS zone. As with `Set-AzureRmDnsZone`, specifying the zone using a $zone object enables Etag checks to ensure concurrent changes are not deleted. <BR>
-The optional *-Overwrite* flag suppresses these checks. See [Etags and Tags](dns-getstarted-create-dnszone.md#tagetag) for more information.
+Specify the zone using a $zone object from `Get-AzureRmDnsZone`. This operation has an optional `-Force` switch which suppresses the prompt to confirm you want to remove the DNS zone. As with `Set-AzureRmDnsZone`, specifying the zone using a $zone object enables Etag checks to ensure concurrent changes are not deleted.
+
+The optional `-Overwrite` flag suppresses these checks. See [Etags and Tags](dns-getstarted-create-dnszone.md#tagetag) for more information.
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup

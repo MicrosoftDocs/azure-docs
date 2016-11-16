@@ -5,7 +5,6 @@ services: dns
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
 
 ms.assetid: 7136a373-0682-471c-9c28-9e00d2add9c2
 ms.service: dns
@@ -39,7 +38,7 @@ To create a record set by using PowerShell, see [Create DNS record sets and reco
 To retrieve an existing record set, use `Get-AzureRmDnsRecordSet`. Specify the record set relative name, the record type, and the zone.
 
 ```powershell
-    $rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+$rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 
 As with `New-AzureRmDnsRecordSet`, the record name must be a relative name, meaning it must exclude the zone name.
@@ -47,8 +46,8 @@ As with `New-AzureRmDnsRecordSet`, the record name must be a relative name, mean
 You can specify the zone by using either the zone name and resource group name, or by using a zone object:
 
 ```powershell
-    $zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
-    $rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -Zone $zone
+$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+$rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -Zone $zone
 ```
 
 `Get-AzureRmDnsRecordSet` returns a local object that represents the record set that was created in Azure DNS.
@@ -62,7 +61,7 @@ You can also use`Get-AzureRmDnsRecordSet` to list record sets if you omit the *-
 This example returns all record sets, regardless of name or record type:
 
 ```powershell
-    $list = Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+$list = Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 
 ### To list record sets of a given record type
@@ -70,14 +69,14 @@ This example returns all record sets, regardless of name or record type:
 This example returns all record sets that match the given record type. In this case, the record set that is returned is "A" records:
 
 ```powershell
-    $list = Get-AzureRmDnsRecordSet -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+$list = Get-AzureRmDnsRecordSet -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 
-The zone can be specified by using either the *-ZoneName* and *-ResourceGroupName* parameters (as shown), or by specifying a zone object:
+The zone can be specified by using either the `-ZoneName` and `-ResourceGroupName`parameters (as shown), or by specifying a zone object:
 
 ```powershell
-    $zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
-    $list = Get-AzureRmDnsRecordSet -Zone $zone
+$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+$list = Get-AzureRmDnsRecordSet -Zone $zone
 ```
 
 ## Add a record to a record set
@@ -93,15 +92,15 @@ After the record set contains the desired collection of records, you need to com
 ### To create an A record set with a single record
 
 ```powershell
-    $rs = New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-    Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+$rs = New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 The sequence of operations to create a record can also be *piped*, meaning you pass the record set object by using the pipe rather than passing it as a parameter. For example:
 
 ```powershell
-    New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Add-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
+New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Add-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
 ```
 
 ### Additional record type examples
@@ -121,9 +120,9 @@ The steps for modifying an existing record set are similar to the steps you take
 In this example, we change the IP address of an existing "A" record:
 
 ```powershell
-    $rs = Get-AzureRmDnsRecordSet -name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-    $rs.Records[0].Ipv4Address = "134.170.185.46"
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+$rs = Get-AzureRmDnsRecordSet -name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+$rs.Records[0].Ipv4Address = "134.170.185.46"
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 The `Set-AzureRmDnsRecordSet` cmdlet uses etag checks to ensure that concurrent changes are not overwritten. Use the *-Overwrite* flag to suppress these checks. For more information, see [About etags and tags](dns-getstarted-create-dnszone.md#tagetag).
@@ -135,9 +134,9 @@ You cannot add or remove records from the automatically-created SOA record set a
 The following example shows how to change the *Email* property of the SOA record:
 
 ```powershell
-    $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType SOA -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-    $rs.Records[0].Email = "admin.contoso.com"
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+$rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType SOA -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+$rs.Records[0].Email = "admin.contoso.com"
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 ### To modify NS records at the zone apex
@@ -147,9 +146,9 @@ You cannot add to, remove, or modify the records in the automatically-created NS
 The following example shows how to change the TTL property of the NS record set:
 
 ```powershell
-    $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-    $rs.Ttl = 300
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+$rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+$rs.Ttl = 300
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 ### To add records to an existing record set
@@ -157,10 +156,10 @@ The following example shows how to change the TTL property of the NS record set:
 In this example, we add two additional MX records to the existing record set:
 
 ```powershell
-    $rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-    Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail2.contoso.com" -Preference 10
-    Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail3.contoso.com" -Preference 20
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+$rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail2.contoso.com" -Preference 10
+Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail3.contoso.com" -Preference 20
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 ## Remove a record from an existing record set
@@ -170,23 +169,23 @@ Records can be removed from a record set by using `Remove-AzureRmDnsRecordConfig
 Removing the last record from a record set does not delete the record set. See [Delete a record set](#delete-a-record-set) below for more information.
 
 ```powershell
-    $rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-    Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+$rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 The sequence of operations to remove a record from a record set can also be piped, meaning you pass the record set object by using the pipe rather than passing it as a parameter. For example:
 
 ```powershell
-    Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
+Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
 ```
 
 ### Remove an AAAA record from a record set
 
 ```powershell
-    $rs = Get-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-    Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+$rs = Get-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 ### Remove a CNAME record from a record set
@@ -194,41 +193,41 @@ The sequence of operations to remove a record from a record set can also be pipe
 Because a CNAME record set can contain at most one record, removing that record leaves an empty record set.
 
 ```powershell
-    $rs =  Get-AzureRmDnsRecordSet -name "test-cname" -RecordType CNAME -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-    Remove-AzureRmDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+$rs =  Get-AzureRmDnsRecordSet -name "test-cname" -RecordType CNAME -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+Remove-AzureRmDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 ### Remove an MX record from a record set
 
 ```powershell
-    $rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-    Remove-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+$rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+Remove-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 ### Remove an NS record from record set
 
 ```powershell
-    $rs = Get-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-    Remove-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+$rs = Get-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+Remove-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 ### Remove an SRV record from a record set
 
 ```powershell
-    $rs = Get-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-    Remove-AzureRmDnsRecordConfig -RecordSet $rs -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com"
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+$rs = Get-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+Remove-AzureRmDnsRecordConfig -RecordSet $rs -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com"
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 ### Remove a TXT record from a record set
 
 ```powershell
-    $rs = Get-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-    Remove-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+$rs = Get-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+Remove-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 ## Delete a record set
@@ -242,21 +241,21 @@ Use one of the following three methods to remove a record set:
 The optional *-Force* switch can be used to suppress the confirmation prompt.
 
 ```powershell
-    Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup [-Force]
+Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup [-Force]
 ```
 
 ### Specify the record set by name and type, and specify the zone by object
 
 ```powershell
-    $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-    Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone [-Force]
+$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone [-Force]
 ```
 
 ### Specify the record set by object
 
 ```powershell
-    $rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-    Remove-AzureRmDnsRecordSet -RecordSet $rs [-Overwrite] [-Force]
+$rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+Remove-AzureRmDnsRecordSet -RecordSet $rs [-Overwrite] [-Force]
 ```
 
 When you specify the record set by using an object, it enables etag checks to ensure that concurrent changes are not deleted. The optional *-Overwrite* flag suppresses these checks. See [Etags and tags](dns-getstarted-create-dnszone.md#tagetag) for more information.
@@ -264,7 +263,7 @@ When you specify the record set by using an object, it enables etag checks to en
 The record set object can also be piped instead of being passed as a parameter:
 
 ```powershell
-    Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsRecordSet [-Overwrite] [-Force]
+Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsRecordSet [-Overwrite] [-Force]
 ```
 
 ## Next steps

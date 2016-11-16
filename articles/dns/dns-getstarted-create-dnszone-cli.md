@@ -5,7 +5,6 @@ services: dns
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
 
 ms.assetid: 1514426a-133c-491a-aa27-ee0962cea9dc
 ms.service: dns
@@ -41,7 +40,7 @@ You can install Azure CLI for Windows, Linux, or MAC. The following steps need t
 All the network provider commands on CLI can be found using the following command:
 
 ```azurecli
-    azure network
+azure network
 ```
 
 ### 2. Switch CLI mode
@@ -49,7 +48,7 @@ All the network provider commands on CLI can be found using the following comman
 Azure DNS uses Azure Resource Manager. Make sure you switch CLI mode to use ARM commands.
 
 ```azurecli
-    azure config mode arm
+azure config mode arm
 ```
 
 ### 3. Sign in to your Azure account
@@ -57,7 +56,7 @@ Azure DNS uses Azure Resource Manager. Make sure you switch CLI mode to use ARM 
 You will be prompted to authenticate with your credentials. Keep in mind that you can only use ORGID accounts.
 
 ```azurecli
-    azure login -u "username"
+azure login -u "username"
 ```
 
 ### 4. Select the subscription
@@ -65,7 +64,7 @@ You will be prompted to authenticate with your credentials. Keep in mind that yo
 Choose which of your Azure subscriptions to use.
 
 ```azurecli
-    azure account set "subscription name"
+azure account set "subscription name"
 ```
 
 ### 5. Create a resource group
@@ -75,7 +74,7 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 You can skip this step if you are using an existing resource group.
 
 ```azurecli
-    azure group create -n myresourcegroup --location "West US"
+azure group create -n myresourcegroup --location "West US"
 ```
 
 ### 6. Register
@@ -83,7 +82,7 @@ You can skip this step if you are using an existing resource group.
 The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one-time operation for each subscription.
 
 ```azurecli
-    azure provider register --namespace Microsoft.Network
+azure provider register --namespace Microsoft.Network
 ```
 
 ## Step 2 - Create a DNS zone
@@ -99,7 +98,7 @@ The example below creates a DNS zone called *contoso.com* in the resource group 
 Use the example to create your DNS zone, substituting the values for your own.
 
 ```azurecli
-    azure network dns zone create myresourcegroup contoso.com
+azure network dns zone create myresourcegroup contoso.com
 ```
 
 ### To create a DNS zone and tags.
@@ -109,7 +108,7 @@ Azure DNS CLI supports tags of DNS zones specified by using the optional *-Tag* 
 Use the example below to create a DNS zone and tags, substituting the values for your own.
 
 ```azurecli
-    azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
+azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 ```
 
 ## View records

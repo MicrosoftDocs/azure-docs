@@ -5,7 +5,6 @@ services: dns
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
 
 ms.assetid: d78583b7-e669-435c-819b-7605cf791b0e
 ms.service: dns
@@ -67,19 +66,19 @@ Open your PowerShell console and connect to your account. For more information, 
 Use the following sample to help you connect:
 
 ```powershell
-    Login-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 Check the subscriptions for the account.
 
 ```powershell
-    Get-AzureRmSubscription
+Get-AzureRmSubscription
 ```
 
 Specify the subscription that you want to use.
 
 ```powershell
-    Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
 ## Step 2 - Create a resource group
@@ -89,7 +88,7 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 You can skip this step if you are using an existing resource group.
 
 ```powershell
-    New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
+New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
 ```
 
 ## Step 3 - Register
@@ -97,7 +96,7 @@ You can skip this step if you are using an existing resource group.
 The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one-time operation for each subscription.
 
 ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## Step 4 -  Create a DNS zone
@@ -112,7 +111,7 @@ A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet. There are exampl
 The example below creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*. Use the example to create a DNS zone, substituting the values for your own.
 
 ```powershell
-    New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 
 ### To create a DNS zone with tags
@@ -120,7 +119,7 @@ The example below creates a DNS zone called *contoso.com* in the resource group 
 The following example shows how to create a DNS zone with two tags, *project = demo* and *env = test*. Use the example to create a DNS zone, substituting the values for your own.
 
 ```powershell
-    New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
+New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
 ```
 
 ## View records

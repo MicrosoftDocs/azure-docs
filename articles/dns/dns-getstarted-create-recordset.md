@@ -5,7 +5,6 @@ services: dns
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
 
 ms.assetid: a8068c5a-f248-4e97-be97-8bd0d79eeffd
 ms.service: dns
@@ -41,19 +40,19 @@ This section describes how to create a record set and record.
 Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
 ```powershell
-    Login-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 Check the subscriptions for the account.
 
 ```powershell
-    Get-AzureRmSubscription
+Get-AzureRmSubscription
 ```
 
 Specify the subscription that you want to use.
 
 ```powershell
-    Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
 For more information about working with PowerShell, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
@@ -67,7 +66,7 @@ To create a record set in the apex of the zone (in this case, "contoso.com"), us
 The following example creates a record set with the relative name "www" in the DNS Zone "contoso.com". The fully-qualified name of the record set is "www.contoso.com". The record type is "A", and the TTL is 60 seconds. After completing this step, you will have an empty "www" record set that is assigned to the variable *$rs*.
 
 ```powershell
-    $rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 ```
 
 #### If a record set already exists
@@ -75,14 +74,14 @@ The following example creates a record set with the relative name "www" in the D
 If a record set already exists, the command fails unless the *-Overwrite* switch is used. The *-Overwrite* option triggers a confirmation prompt, which can be suppressed by using the *-Force* switch.
 
 ```powershell
-    $rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -ZoneName contoso.com -ResouceGroupName MyAzureResouceGroup [-Tag $tags] [-Overwrite] [-Force]
+$rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -ZoneName contoso.com -ResouceGroupName MyAzureResouceGroup [-Tag $tags] [-Overwrite] [-Force]
 ```
 
 In this example, you specify the zone by using the zone name and resource group name. Alternatively, you can specify a zone object, as returned by `Get-AzureRmDnsZone` or `New-AzureRmDnsZone`.
 
 ```powershell
-    $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-    $rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -Zone $zone [-Tag $tags] [-Overwrite] [-Force]
+$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+$rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -Zone $zone [-Tag $tags] [-Overwrite] [-Force]
 ```
 
 `New-AzureRmDnsRecordSet` returns a local object that represents the record set that was created in Azure DNS.
@@ -94,8 +93,8 @@ To use the newly created "www" record set, you need to add records to it. You ca
 Adding records to a record set by using `Add-AzureRmDnsRecordConfig` is an offline operation. Only the local variable *$rs* is updated.
 
 ```powershell
-    Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-    Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 ```
 
 ### 4. Commit the changes
@@ -103,7 +102,7 @@ Adding records to a record set by using `Add-AzureRmDnsRecordConfig` is an offli
 Commit the changes to the record set. Use `Set-AzureRmDnsRecordSet` to upload the changes to the record set to Azure DNS.
 
 ```powershell
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 ### 5. Retrieve the record set
