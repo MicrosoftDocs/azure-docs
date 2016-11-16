@@ -3,8 +3,8 @@ title: Azure CDN Overview | Microsoft Docs
 description: Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content.
 services: cdn
 documentationcenter: ''
-author: camsoper
-manager: erikre
+author: lichard
+manager: akucer
 editor: ''
 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/30/2016
-ms.author: casoper
+ms.author: rli
 
 ---
 # Overview of the Azure Content Delivery Network (CDN)
@@ -54,7 +54,7 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | IPv4/IPv6 dual-stack |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Custom domain name support](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Query string caching](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Geo-filtering](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
+| [Geo-filtering](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Fast purge](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Asset pre-loading](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Core analytics](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
@@ -66,7 +66,7 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | Cache/header settings (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
 | URL redirect/rewrite  (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Mobile device rules (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
-
+| Token Authentication | | |**&#x2713;** |
 > [!TIP]
 > Is there a feature you'd like to see in Azure CDN?  [Give us feedback](https://feedback.azure.com/forums/169397-cdn)! 
 > 
