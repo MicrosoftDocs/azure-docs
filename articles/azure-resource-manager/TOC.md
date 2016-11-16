@@ -52,18 +52,15 @@
 ### [View deployment operations with Azure CLI](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [View deployment operations with REST API](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 # Reference
-## [PowerShell cmdlets](/powershell/azureps-cmdlets-docs/)
+## [Throttling requests](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Template schemas](https://github.com/Azure/azure-resource-manager-schemas)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
 ## [Azure CLI](/cli/azure)
 ## [Java](/java/api)
-## [.NET API](/dotnet/api)
-## [Template schemas](https://github.com/Azure/azure-resource-manager-schemas)
-## [PowerShell cmdlets for Resource Manager](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [REST API for Resource Manager](/rest/api/resources/)
-## [.NET client library for Resource Manager](/dotnet/api/microsoft.azure.management.resourcemanager)
-## [Throttling requests](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [REST](/rest/api/resources/)
 
 # Resources
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager) 
+## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)
