@@ -33,14 +33,16 @@ The samples in this section apply for any router running the IOS-XE OS family.
 ### 1. Configuring interfaces and sub-interfaces
 You will require a sub interface per peering in every router you connect to Microsoft. A sub interface can be identified with a VLAN ID or a stacked pair of VLAN IDs and an IP address.
 
-#### Dot1Q interface definition
+**Dot1Q interface definition**
+
 This sample provides the sub-interface definition for a sub-interface with a single VLAN ID. The VLAN ID is unique per peering. The last octet of your IPv4 address will always be an odd number.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <VLAN_ID>
      ip address <IPv4_Address><Subnet_Mask>
 
-#### QinQ interface definition
+**QinQ interface definition**
+
 This sample provides the sub-interface definition for a sub-interface with a two VLAN IDs. The outer VLAN ID (s-tag), if used remains the same across all the peerings. The inner VLAN ID (c-tag) is unique per peering. The last octet of your IPv4 address will always be an odd number.
 
     interface GigabitEthernet<Interface_Number>.<Number>
@@ -94,7 +96,9 @@ You can use route-maps and prefix lists to filter prefixes propagated into your 
 The samples in this section apply for any Juniper MX series routers.
 
 ### 1. Configuring interfaces and sub-interfaces
-#### Dot1Q interface definition
+
+**Dot1Q interface definition**
+
 This sample provides the sub-interface definition for a sub-interface with a single VLAN ID. The VLAN ID is unique per peering. The last octet of your IPv4 address will always be an odd number.
 
     interfaces {
@@ -110,7 +114,8 @@ This sample provides the sub-interface definition for a sub-interface with a sin
     }
 
 
-#### QinQ interface definition
+**QinQ interface definition**
+
 This sample provides the sub-interface definition for a sub-interface with a two VLAN IDs. The outer VLAN ID (s-tag), if used remains the same across all the peerings. The inner VLAN ID (c-tag) is unique per peering. The last octet of your IPv4 address will always be an odd number.
 
     interfaces {

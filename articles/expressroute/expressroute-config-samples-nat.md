@@ -51,11 +51,14 @@ Router configuration samples below apply to Azure Public and Microsoft peerings.
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
 ### PAT configuration for traffic from Microsoft to customer network
-#### Interfaces and Direction:
+
+**Interfaces and Direction:**
+
     Source Interface (where the traffic enters the ASA): inside
     Destination Interface (where the traffic exits the ASA): outside
 
-#### Configuration:
+**Configuration:**
+
 NAT Pool:
 
     object network outbound-PAT
