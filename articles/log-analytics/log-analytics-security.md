@@ -81,24 +81,24 @@ OMS has an incident management process that all Microsoft services adhere to. To
   * Determine the scope of impacted customers and to provide anybody who is impacted as detailed a notice as possible
   * Create a notice to provide customers with detailed enough information so that they can perform an investigation on their end and meet any commitments they have made to their end users while not unduly delaying the notification process.
   * Confirm and declare the incident, as necessary.
-  * Notify customers with an incident notification without unreasonable delay and in accordance with any legal or contractual commitment. Notification of security incidents are delivered to one or more of a customer's administrators by any means Microsoft selects, including via email.
+  * Notify customers with an incident notification without unreasonable delay and in accordance with any legal or contractual commitment. Notifications of security incidents are delivered to one or more of a customer's administrators by any means Microsoft selects, including via email.
 * Conduct team readiness and training
   * Microsoft personnel are required to complete security and awareness training, which helps them to identify and report suspected security issues.  
   * Operators working on the Microsoft Azure service have addition training obligations surrounding their access to sensitive systems hosting customer data.
   * Microsoft security response personnel receive specialized training for their roles
 
-In the event of loss of any customer's data, we notify each customer within one day. However, customer data loss has never occurred with OMS. Additionally, we maintain copies of data that was created and it is geographically distributed.
+If loss of any customer data occurs, we notify each customer within one day. However, customer data loss has never occurred with OMS. Additionally, we maintain copies of data that was created and it is geographically distributed.
 
 For more information about how Microsoft responds to security incidents, see [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/1/Microsoft Azure Security Response in the cloud.pdf).
 
 ## Compliance
-The OMS software development and service team's information security and governance program supports its business requirements and adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx). How OMS establishes security requirements, identifies security controls, manages and monitors risks are also described there. Annually, we conduct a review of polices, standards, procedures, and guidelines.
+The OMS software development and service team's information security and governance program supports its business requirements and adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx). How OMS establishes security requirements, identifies security controls, manages, and monitors risks are also described there. Annually, we conduct a review of polices, standards, procedures, and guidelines.
 
 Each OMS development team member receives formal application security training. Internally, we use a version control system for software development. Each software project is protected by the version control system.
 
 Microsoft has a security and compliance team that oversees and assesses all services in Microsoft. Information security officers make up the team and they are not associated with the engineering departments that develop OMS. The security officers have their own management chain and conduct independent assessments of products and services to ensure security and compliance.
 
-Microsoft's board of directors is notified by and annual report about all of the information security programs at Microsoft.
+Microsoft's board of directors is notified by an annual report about all information security programs at Microsoft.
 
 The OMS software development and service team is actively working with the Microsoft Legal and Compliance teams and other industry partners to acquire various certifications.
 
@@ -106,12 +106,14 @@ The OMS software development and service team is actively working with the Micro
 OMS Log Analytics meets the following compliance requirements:
 
 * [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm) and [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498) compliant
-* Payment Card Industry (PCI Compliant) Data Security Standard (PCI DSS) by the PCI Security Standards Council.
+* [Payment Card Industry (PCI Compliant) Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) by the PCI Security Standards Council.
 * [Service Organization Controls (SOC) 1 Type 1 and SOC 2 Type 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) compliant
-* [HIPAA and HITECH](https://www.microsoft.com/TrustCenter/Compliance/HIPAA) for companies that have a HIPAA Business Associate Agreement
+* [HIPAA and HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) for companies that have a HIPAA Business Associate Agreement
 * Windows Common Engineering Criteria
 * Microsoft Trustworthy Computing
 * As an Azure service, the components that OMS uses adhere to Azure compliance requirements. You can read more at [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx).
+
+>[AZURE.NOTE] In some certifications/attestations Log Analytics is listed under its former name of *Operational Insights*.
 
 ## Cloud computing security data flow
 The following diagram shows a cloud security architecture as the flow of information from your company and how it is secured as is moves to the Log Analytics service, ultimately seen by you in the OMS portal. More information about each step follows the diagram.
@@ -119,7 +121,7 @@ The following diagram shows a cloud security architecture as the flow of informa
 ![Image of OMS data collection and security](./media/log-analytics-security/log-analytics-security-diagram.png)
 
 ## 1. Sign up for Log Analytics and collect data
-For your organization to send data to Log Analytics, you configure Windows agents, agents running on Azure virtual machines, or OMS Agents for Linux. If you use Operations Manager agents, then you'll use a configuration wizard in the Operations console to configure them. Users (which might be you, other individual users, or a group of people) create one or more OMS accounts (OMS workspaces), and register agents by using one of the following accounts:
+For your organization to send data to Log Analytics, you configure Windows agents, agents running on Azure virtual machines, or OMS Agents for Linux. If you use Operations Manager agents, then you use a configuration wizard in the Operations console to configure them. Users (which might be you, other individual users, or a group of people) create one or more OMS accounts (OMS workspaces), and register agents by using one of the following accounts:
 
 * [Organizational ID](../active-directory/sign-up-organization.md)
 * [Microsoft Account - Outlook, Office Live, MSN](http://www.microsoft.com/account/default.aspx)
@@ -144,7 +146,7 @@ If any agent is unable to communicate to the service for any reason, the collect
 As described above, data from your agents is sent over SSL to Microsoft Azure datacenters. Optionally, you can use ExpressRoute to provide additional security for the data. ExpressRoute is a way to directly connect to Azure from your existing WAN network, such as a multi-protocol label switching (MPLS) VPN, provided by a network service provider. For more information, see [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 ## 3. The Log Analytics service receives and processes data
-The Log Analytics service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored as a blob in [Microsoft Azure Storage](../storage/storage-introduction.md) and is not encrypted. However, each Azure storage blob has a set of unique set of keys which is accessible only to that user. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Log Analytics service processes the raw data for the Azure storage blog.
+The Log Analytics service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored as a blob in [Microsoft Azure Storage](../storage/storage-introduction.md) and is not encrypted. However, each Azure storage blob has a set of unique set of keys, that is accessible only to that user. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Log Analytics service processes the raw data for the Azure storage blog.
 
 ## 4. Use Log Analytics to access the data
 You can sign in to Log Analytics in the OMS portal by using the organizational account or Microsoft account that you set up previously. All traffic between the OMS portal and Log Analytics in OMS is sent over a secure HTTPS channel. When using the OMS portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the OMS portal session is terminated.
