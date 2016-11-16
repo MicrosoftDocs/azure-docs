@@ -161,11 +161,9 @@ Simplify management of the entire system by using centralized administration too
 
 ## Solution deployment
 
-A deployment for a reference architecture that implements these recommendations is available on [Github][github-folder]. This reference architecture includes a web tier, business tier, a data tier, as well as a jumpbox VM and Active Directory domain controllers.
+A deployment for a reference architecture that implements these recommendations is available on [Github][github-folder]. This reference architecture includes a web tier, business tier, a data tier, as well as a jumpbox VM and Active Directory domain controllers. The reference architecture is deployed in three stages. Follow the directions below: 
 
-The reference architecture is deployed in three stages. can be deployed by following the directions below: 
-
-1. Click the button below to begin the first stage of the deployment.  
+1. Right click the button below and select "open in new tab" or "open in new window" to begin the first stage of the deployment.  
    [!["Deploy To Azure"][1]][2]
 2. Once the link has opened in the Azure portal, enter the follow values: 
    
@@ -175,17 +173,17 @@ The reference architecture is deployed in three stages. can be deployed by follo
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click on the **Purchase** button.
 3. Check Azure portal notification for a message that the first stage of the deployment is complete.
-4. Click the button below to begin the second stage of the deployment.  
+4. Right click the button below and select "open in new tab" or "open in new window" to begin the second stage of the deployment.  
    [!["Deploy To Azure"][1]][3]
 5. Once the link has opened in the Azure portal, enter the follow values: 
    
-   * The **Resource group** name is already defined in the parameter file, so select **Use Existing** and enter `ra-ntier-sql-workload-rg` in the text box.
+   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-workload-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click on the **Purchase** button.
 6. Check Azure portal notification for a message that the second stage of deployment is complete.
-7. Click the button below to begin the third stage of the deployment.  
+7. Right click the button below and select "open in new tab" or "open in new window" to begin the third stage of the deployment.  
    [!["Deploy To Azure"][1]][4]
 8. Once the link has opened in the Azure portal, enter the follow values: 
    
