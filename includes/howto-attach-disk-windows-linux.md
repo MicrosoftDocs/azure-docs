@@ -13,7 +13,7 @@ Attaching an empty disk is a simple way to add a data disk, because Azure create
 
     ![Attach a new empty disk](./media/howto-attach-disk-windows-linux/AttachEmptyDetail.png)
 
-    Do the following:
+    Perform the following steps:
     - In **File Name**, accept the default name or type another one for the .vhd file. The data disk uses an automatically generated name, even if you type another name for the .vhd file.
     - Type the **Size (GB)** of the data disk.
     - Click the check mark to finish.
@@ -23,7 +23,7 @@ Attaching an empty disk is a simple way to add a data disk, because Azure create
    ![Empty data disk successfully attached](./media/howto-attach-disk-windows-linux/AttachEmptySuccess.png)
 
 > [!NOTE]
-> After you add a new data disk, you'll need to log on to the VM and initialize the disk so that it can be used. 
+> After you add a data disk, you need to log on to the VM and initialize the disk so that it can be used. 
 
 ## How to: Attach an existing disk
 Attaching an existing disk requires that you have a .vhd available in a storage account. Use the [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet to upload the .vhd file to the storage account. After you've created and uploaded the .vhd file, you can attach it to a VM.
