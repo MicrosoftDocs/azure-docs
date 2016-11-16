@@ -14,7 +14,7 @@ Azure Container Registry (preview) is a private registry for hosting container i
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/index/placeholder.svg" alt="" />
+                            <img src="./media/index/container-registry.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -32,7 +32,7 @@ Azure Container Registry (preview) is a private registry for hosting container i
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/index/deploy.svg" alt="" />
+                            <img src="./media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -50,7 +50,7 @@ Azure Container Registry (preview) is a private registry for hosting container i
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/index/deploy.svg" alt="" />
+                            <img src="./media/index/cli.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -63,17 +63,38 @@ Azure Container Registry (preview) is a private registry for hosting container i
     </li>
 </ul>
 
----
-
 ## Reference
 
-### CLI
-[CLI Reference](/cli/azure/acr)
-
-### REST 
-[REST API Reference](/rest/api/containerregistry)  
-
-
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/cli/azure/acr">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>CLI</h3>
+                        <p>CLI Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/containerregistry">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/container-registry.pdf">
