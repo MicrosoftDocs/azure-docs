@@ -95,12 +95,3 @@ Azure Container Registry (preview) is a private registry for hosting container i
         </a>
     </li>
 </ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/container-registry.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Container Registry Documentation
-        </div>
-    </a>
-</div>
