@@ -54,7 +54,7 @@ The configuration for a Point-to-Site connection is broken down into four sectio
 
 ## <a name="vnetvpn"></a>Section 1 - Create a virtual network and a VPN gateway
 ### Part 1: Create a virtual network
-1. Log in to the [Azure classic portal](https://manage.windowsazure.com/). These steps use the classic portal, not the Azure portal. Currently, you cannot create a P2S connection using the Azure portal.
+1. Log in to the [Azure classic portal](https://manage.windowsazure.com). These steps use the classic portal, not the Azure portal. Currently, you cannot create a P2S connection using the Azure portal.
 2. In the lower left corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 3. On the **Virtual Network Details** page, enter the following information, and then click the next arrow on the lower right.
    
@@ -161,7 +161,8 @@ Example:
         NetBIOS over Tcpip..............: Enabled
 
 ## Next steps
-You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/virtual-machines-windows-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-If you want more information about Virtual Networks, see the [Virtual Network Documentation](https://azure.microsoft.com/documentation/services/virtual-network/) page.
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+
+If you want more information about Virtual Networks, see the [Virtual Network Documentation](/azure/virtual-network) page.
 
