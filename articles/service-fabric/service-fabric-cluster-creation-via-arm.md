@@ -532,12 +532,19 @@ Add url of Service Fabric Explorer to ‘REPLY URL’ in the configure tab of cl
 
 ![Web application reply url][web-application-reply-url]
 
+### How to connect cluster with AAD authentication via PowerShell
+Use the following PowerShell command example to connect Service Fabric cluster:
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
+```
+
+To learn about Connect-ServiceFabricCluster cmdlet, see [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
+
 ### Can I reuse the same AAD tenant for multiple clusters?
-#### Answer
 Yes. But remember to add the URL of Service Fabric Explorer to your cluster(web) application otherwise Service Fabric Explorer won’t work.
 
 ### Why do I still need server certificate while AAD enabled?
-#### Answer
 FabricClient and FabricGateway perform mutual authentication. In case of AAD authentication, AAD integration provides client identity to server and server certificate is used to verify server identity. For more information about how certificate works on Service Fabric, check [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric]
 
 <!-- Links -->

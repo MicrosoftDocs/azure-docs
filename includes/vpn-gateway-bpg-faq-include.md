@@ -7,7 +7,7 @@ No, BGP is supported on Route-Based VPN gateways only.
 ### Can I use private ASNs (Autonomous System Numbers)?
 Yes, you can use your own public ASNs or private ASNs for both your on-premises networks and Azure virtual networks.
 
-#### Are there ASNs reserved by Azure?
+### Are there ASNs reserved by Azure?
 Yes, the following ASNs are reserved by Azure for both internal and external peerings:
 
 * Public ASNs: 8075, 8076, 12076
@@ -25,10 +25,10 @@ Azure VPN gateway will advertise the following routes to your on-premises BGP de
 * Address prefixes for each Local Network Gateways connected to the Azure VPN gateway
 * Routes learned from other BGP peering sessions connected to the Azure VPN gateway, **except default route or routes overlapped with any VNet prefix**.
 
-#### Can I advertise default route (0.0.0.0/0) to Azure VPN gateways?
+### Can I advertise default route (0.0.0.0/0) to Azure VPN gateways?
 Not at this time.
 
-#### Can I advertise the exact prefixes as my Virtual Network prefixes?
+### Can I advertise the exact prefixes as my Virtual Network prefixes?
 No, advertising the same prefixes as any one of your Virtual Network address prefixes will be blocked or filtered by the Azure platform. However you can advertise a prefix that is a superset of what you have inside your Virtual Network. For example, your Virtual Network could use the address space 10.10.0.0/16 and you could advertise 10.0.0.0/8.
 
 ### Can I use BGP with my VNet-to-VNet connections?

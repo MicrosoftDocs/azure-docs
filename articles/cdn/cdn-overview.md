@@ -66,7 +66,9 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | Cache/header settings (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
 | URL redirect/rewrite  (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Mobile device rules (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
-| Token Authentication | | |**&#x2713;** |
+| [Token authentication](cdn-token-auth.md)|  |  |**&#x2713;**| 
+
+
 > [!TIP]
 > Is there a feature you'd like to see in Azure CDN?  [Give us feedback](https://feedback.azure.com/forums/169397-cdn)! 
 > 

@@ -22,8 +22,6 @@ AzCopy is a command-line utility designed for uploading, downloading, and copyin
 
 For instructions on installing AzCopy and additional information on using it with the Azure platform, see [Getting Started with the AzCopy Command-Line Utility](../storage/storage-use-azcopy.md).
 
-Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
-
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 > [!NOTE]

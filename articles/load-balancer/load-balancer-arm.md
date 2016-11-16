@@ -39,7 +39,7 @@ Azure Resource Manager allows you to provision your applications using a declara
 
 Templates can include definitions for Virtual Machines, Virtual Networks, Availability Sets, Network Interfaces (NICs), Storage Accounts, Load Balancers, Network Security Groups, and Public IPs. With templates you can create everything you need for a complex application. The template file can be checked into content management system for version control and collaboration.
 
-[Learn more about templates](http://go.microsoft.com/fwlink/?LinkId=544798)
+[Learn more about templates](../resource-manager-template-walkthrough.md)
 
 [Learn more about Network Resources](../virtual-network/resource-groups-networking.md)
 

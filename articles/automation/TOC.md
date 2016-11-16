@@ -67,12 +67,19 @@
 ### [Runbook job suspended](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
 
 # Reference
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Classic PowerShell](/powershell/servicemanagement)
+## [.NET](/dotnet/api)
+## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [Classic REST](https://msdn.microsoft.com/library/azure/mt163781)
 ## [Release notes](https://azure.microsoft.com/updates/?product=automation)
-## [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/dn690262)
-## [Resource Manager REST API](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [Classic Deployment Rest](https://msdn.microsoft.com/library/azure/mt163781)
 
 # Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/automation/)  
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
+## [Service updates](https://azure.microsoft.com/updates/?product=automation) 
 ## [Azure Automation training](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Automation introduction video](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)

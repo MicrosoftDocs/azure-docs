@@ -1,6 +1,6 @@
 # Overview
 ## [What is SQL Database?](sql-database-technical-overview.md)
-## [SQL Database FAQ](sql-database-faq.md)
+
 ## Features
 ### [Service tiers](sql-database-service-tiers.md)
 ### [Database Transaction Units](sql-database-what-is-a-dtu.md)
@@ -67,7 +67,6 @@
 ## Create and manage scaled-out databases
 ### [Elastic scale](sql-database-elastic-scale-get-started.md)
 ### [Elastic jobs](sql-database-elastic-jobs-getting-started.md)
-### Elastic queries
 ### [Cross database reports](sql-database-elastic-query-getting-started.md)
 ### [Cross database queries](sql-database-elastic-query-getting-started-vertical.md)
 ## Monitor and tune databases
@@ -76,6 +75,7 @@
 ## [Create and manage access and permissions](sql-database-get-started-security.md)
 ## [In-memory optimization](sql-database-in-memory.md)
 ## [Data sync](sql-database-get-started-sql-data-sync.md)
+## [SQL Database FAQ](sql-database-faq.md)
 
 # How To
 
@@ -265,14 +265,14 @@
 ### [Moving databases](sql-database-troubleshoot-moving-data.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [PowerShell classic](https://docs.microsoft.com/powershell/servicemanagement/)
-## [Java](https://docs.microsoft.com/java/api/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell classic](/powershell/servicemanagement/)
+## [Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084(v=azure.300\).aspx)
+## [Azure SQL Database Cmdlets](/powershell/resourcemanager/AzureRM.Sql/v1.0.12/AzureRM.Sql)
 ## [SQL Server Cmdlets](https://msdn.microsoft.com/library/mt740629.aspx)
-## [REST](https://docs.microsoft.com/rest/api/sql/)
+## [REST](/rest/api/sql/)
 
 ## SQL Database Management Library
 ### [SQL Database Management Library Reference](https://msdn.microsoft.com/library/azure/mt349017.aspx)
@@ -288,6 +288,9 @@
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/sql-database/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-azure)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
 ## [Service updates](https://azure.microsoft.com/updates/?service=sql-database)
 ## [SQL Server Tools](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
@@ -295,3 +298,5 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
+
+

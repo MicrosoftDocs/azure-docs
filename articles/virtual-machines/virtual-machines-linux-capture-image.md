@@ -24,18 +24,18 @@ Follow the steps in this article to generalize and capture your Azure Linux virt
 To create VMs using the image, set up network resources for each new VM, and use the template (a JavaScript Object Notation, or JSON, file) to deploy it from the captured VHD images. In this way, you can replicate a VM with its current software configuration, similar to the way you use images in the Azure Marketplace.
 
 > [!TIP]
-> If you want to create a copy of your existing Linux VM with its specialized state for backup or debugging, see [Create a copy of a Linux virtual machine running on Azure](virtual-machines-linux-copy-vm.md). And if you want to upload a Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](virtual-machines-linux-upload-vhd.md).  
+> If you want to create a copy of your existing Linux VM with its specialized state for backup or debugging, see [Create a copy of a Linux virtual machine running on Azure](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). And if you want to upload a Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## Before you begin
 Ensure that you meet the following prerequisites:
 
-* **Azure VM created in the Resource Manager deployment model** - If you haven't created a Linux VM, you can use the [portal](virtual-machines-linux-quick-create-portal.md), the [Azure CLI](virtual-machines-linux-quick-create-cli.md), or [Resource Manager templates](virtual-machines-linux-cli-deploy-templates.md). 
+* **Azure VM created in the Resource Manager deployment model** - If you haven't created a Linux VM, you can use the [portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), the [Azure CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), or [Resource Manager templates](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
   
-    Configure the VM as needed. For example, [add data disks](virtual-machines-linux-add-disk.md), apply updates, and install applications. 
+    Configure the VM as needed. For example, [add data disks](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), apply updates, and install applications. 
 * **Azure CLI** - Install the [Azure CLI](../xplat-cli-install.md) on a local computer.
 
 ## Step 1: Remove the Azure Linux agent
-First, run the **waagent** command with the **deprovision** parameter on the Linux VM. This command deletes files and data to make the VM ready for generalizing. For details, see the [Azure Linux Agent user guide](virtual-machines-linux-agent-user-guide.md).
+First, run the **waagent** command with the **deprovision** parameter on the Linux VM. This command deletes files and data to make the VM ready for generalizing. For details, see the [Azure Linux Agent user guide](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 1. Connect to your Linux VM using an SSH client.
 2. In the SSH window, type the following command:
@@ -195,5 +195,5 @@ azure vm create -g myResourceGroup1 -n myNewVM -l eastus -y Linux \
 For additional command options, run `azure help vm create`.
 
 ## Next steps
-To manage your VMs with the CLI, see the tasks in [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md).
+To manage your VMs with the CLI, see the tasks in [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

@@ -12,7 +12,7 @@
 ## [Manage AD licensing](active-directory-licensing-what-is.md)
 ## [Get Azure for your organization](sign-up-organization.md)
 ## [FAQs](active-directory-faq.md)
-
+## [SaaS app tutorials](active-directory-saas-tutorial-list.md)
 
 # How to
 ## Manage users
@@ -277,7 +277,8 @@
 
 
 # Reference
-## [PowerShell cmdlets](https://docs.microsoft.com/powershell/azure%20ad%20cmdlets/ )
+## [PowerShell cmdlets](/powershell/ )
+## [Java API Reference](/java/api)
 ## [.NET API](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](active-directory-service-limits-restrictions.md)
 
@@ -288,4 +289,9 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
+## [Service updates](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)

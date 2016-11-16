@@ -102,7 +102,7 @@
 ### [Shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
 ### Client-side encryption
-#### [Azure Key Vault](storage-client-side-encryption.md)
+#### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 
@@ -154,7 +154,9 @@
 ## [Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
 ## [Azure Storage client tools](storage-explorers.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
-## [MSDN Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+## [Service updates](https://azure.microsoft.com/updates/?product=storage)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=storage)
 
 ## Azure Storage Explorer
 ### [Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)

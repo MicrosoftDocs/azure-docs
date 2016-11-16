@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 
 ---
@@ -41,14 +41,18 @@ This walk-through shows you how to use the DocumentDB service provided by Azure 
 ## <a name="_Toc395637760"></a>Prerequisites for this database tutorial
 Before following the instructions in this article, you should ensure that you have the following:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/) 
+
+    OR
+
+    A local installation of the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2015](http://www.visualstudio.com/) or Visual Studio 2013 Update 4 or higher. If using Visual Studio 2013, you will need to install the [Microsoft.Net.Compilers nuget package](https://www.nuget.org/packages/Microsoft.Net.Compilers/) to add support for C# 6.0. 
 * Azure SDK for .NET version 2.5.1 or higher, available through the [Microsoft Web Platform Installer][Microsoft Web Platform Installer].
 
 All the screen shots in this article have been taken using Visual Studio 2013 with Update 4 applied and the Azure SDK for .NET version 2.5.1. If your system is configured with different versions it is possible that your screens and options won't match entirely, but if you meet the above prerequisites this solution should work.
 
 ## <a name="_Toc395637761"></a>Step 1: Create a DocumentDB database account
-Let's start by creating a DocumentDB account. If you already have an account, you can skip to [Create a new ASP.NET MVC application](#_Toc395637762).
+Let's start by creating a DocumentDB account. If you already have an account or if you are using the DocumentDB Emulator for this tutorial, you can skip to [Create a new ASP.NET MVC application](#_Toc395637762).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -75,6 +79,9 @@ Now that you have an account, let's create our new ASP.NET project.
 5. In the templates pane, select **MVC**.
 6. If you plan on hosting your application in Azure then select **Host in the cloud** on the lower right to have Azure host the application. We've selected to host in the cloud, and to run the application hosted in an Azure Website. Selecting this option will preprovision an Azure Website for you and make life a lot easier when it comes time to deploy the final working application. If you want to host this elsewhere or don't want to configure Azure upfront, then just clear **Host in the Cloud**.
 7. Click **OK** and let Visual Studio do its thing around scaffolding the empty ASP.NET MVC template. 
+
+    If you receive the error "An error occurred while processing your request" see the [Troubleshooting](#troubleshooting) section.
+
 8. If you chose to host this in the cloud you will see at least one additional screen asking you to login to your Azure account and provide some values for your new website. Supply all the additional values and continue. 
    
       I haven't chosen a "Database server" here because we're not using an Azure SQL Database Server here, we're going to be creating a new Azure DocumentDB account later on in the Azure Portal.
@@ -533,6 +540,25 @@ Now that you have the complete application working correctly with DocumentDB we'
     ![Screen shot of the Publish Web dialog box in Visual Studio - ASP NET MVC tutorial step by step](./media/documentdb-dotnet-application/image29.png)
 
 In a few seconds, Visual Studio will finish publishing your web application and launch a browser where you can see your handy work running in Azure!
+
+## <a name="Troubleshooting"></a>Troubleshooting
+
+If you receive the "An error occurred while processing your request" while trying to deploy the web app, do the following: 
+
+1. Cancel out of the error message and then select **Microsoft Azure Web Apps** again. 
+2. Login and then select **New** to create a new web app. 
+3. On the **Create a Web App on Microsoft Azure** screen, do the following: 
+    
+    - Web App name: "todo-net-app"
+    - App Service plan: Create new, named "todo-net-app"
+    - Resource group: Create new, named "todo-net-app"
+    - Region: Select the region closest to your app users
+    - Database server: Click no database, then click **Create**. 
+
+4. In the "todo-net-app * screen", click **Validate Connection**. After the connection is verified, **Publish**. 
+    
+    The app then gets displayed on your browser.
+
 
 ## <a name="_Toc395637775"></a>Next steps
 Congratulations! You just built your first ASP.NET MVC web application using Azure DocumentDB and published it to Azure Websites. The source code for the complete application, including the detail and delete functionality that were not included in this tutorial can be downloaded or cloned from [GitHub][GitHub]. So if you're interested in adding that to your app, grab the code and add it to this app.

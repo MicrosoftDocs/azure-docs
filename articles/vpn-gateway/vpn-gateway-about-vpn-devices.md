@@ -19,12 +19,12 @@ ms.author: yushwang;cherylmc
 
 ---
 # About VPN devices for Site-to-Site VPN Gateway connections
-A VPN device is required to configure a Site-to-Site (S2S) VPN connection. Site-to-Site connections can be used to create a hybrid solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters. 
+A VPN device is required to configure a Site-to-Site (S2S) VPN connection. Site-to-Site connections can be used to create a hybrid solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters.
 
 > [!NOTE]
 > When configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                                                                                                               
-> 
-> 
+>
+>
 
 If your device doesn't appear in the [Validated VPN devices](#devicetable) table, see the [Non-validated VPN devices](#additionaldevices) section of this article. It's possible that your device may still work with Azure. For VPN device support, please contact your device manufacturer.
 
@@ -33,10 +33,10 @@ If your device doesn't appear in the [Validated VPN devices](#devicetable) table
 * There has been a terminology change for static and dynamic routing. You'll likely run into both terms. There is no functionality change, only the names are changing.
   * Static Routing = PolicyBased
   * Dynamic Routing = RouteBased
-* Specifications for High Performance VPN gateway and RouteBased VPN gateway are the same unless otherwise noted. For example, the validated VPN devices that are compatible with RouteBased VPN gateways are also compatible with the Azure High Performance VPN gateway. 
+* Specifications for High Performance VPN gateway and RouteBased VPN gateway are the same unless otherwise noted. For example, the validated VPN devices that are compatible with RouteBased VPN gateways are also compatible with the Azure High Performance VPN gateway.
 
 ## <a name="devicetable"></a>Validated VPN devices
-We have validated a set of standard VPN devices in partnership with device vendors. All the devices in the device families contained in the following list should work with Azure VPN gateways. See [About VPN Gateway](vpn-gateway-about-vpngateways.md) to verify the type of gateway that you need to create for the solution you want to configure. 
+We have validated a set of standard VPN devices in partnership with device vendors. All the devices in the device families contained in the following list should work with Azure VPN gateways. See [About VPN Gateway](vpn-gateway-about-vpngateways.md) to verify the type of gateway that you need to create for the solution you want to configure.
 
 To help configure your VPN device, refer to the links that correspond to appropriate device family. For VPN device support, please contact your device manufacturer.
 
@@ -68,14 +68,14 @@ To help configure your VPN device, refer to the links that correspond to appropr
 (*) ISR 7200 Series routers only support PolicyBased VPNs.
 
 ## <a name="additionaldevices"></a>Non-validated VPN devices
-If you don’t see your device listed in the Validated VPN devices table, it still may work with a Site-to-Site connection. Verify that your VPN device meets the minimum requirements outlined in the Gateway Requirements section of the [About VPN Gateways](vpn-gateway-about-vpngateways.md#gateway-requirements) article. Devices meeting the minimum requirements should also work well with VPN gateways. Contact your device manufacturer for additional support and configuration instructions.
+If you don’t see your device listed in the Validated VPN devices table, it still may work with a Site-to-Site connection. Verify that your VPN device meets the minimum requirements outlined in the Gateway Requirements section of the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article. Devices meeting the minimum requirements should also work well with VPN gateways. Contact your device manufacturer for additional support and configuration instructions.
 
 ## Editing device configuration samples
-After you download the provided VPN device configuration sample, you’ll need to replace some of the values to reflect the settings for your environment. 
+After you download the provided VPN device configuration sample, you’ll need to replace some of the values to reflect the settings for your environment.
 
 **To edit a sample:**
 
-1. Open the sample using Notepad. 
+1. Open the sample using Notepad.
 2. Search and replace all <*text*> strings with the values that pertain to your environment. Be sure to include < and >. When a name is specified, the name you select should be unique. If a command does not work, consult your device manufacturer documentation.
 
 | **Sample text** | **Change to** |
@@ -95,8 +95,8 @@ After you download the provided VPN device configuration sample, you’ll need t
 ## IPsec Parameters
 > [!NOTE]
 > Although the values listed in the following table are supported by the Azure VPN Gateway, currently there is no way for you to specify or select a specific combination from the Azure VPN Gateway. You must specify any constraints from the on-premises VPN device. In addition, you must clamp MSS at 1350.
-> 
-> 
+>
+>
 
 ### IKE Phase 1 setup
 | **Property** | **PolicyBased** | **RouteBased and Standard or High Performance VPN gateway** |
@@ -147,4 +147,3 @@ The following table lists IPsec SA Encryption and Authentication Offers. Offers 
 
 * You can specify IPsec ESP NULL encryption with RouteBased and High Performance VPN gateways. Null based encryption does not provide protection to data in transit, and should only be used when maximum throughput and minimum latency is required.  Clients may choose to use this in VNet-to-VNet communication scenarios, or when encryption is being applied elsewhere in the solution.
 * For cross-premises connectivity through the Internet, use the default Azure VPN gateway settings with encryption and hashing algorithms listed in the tables above to ensure security of your critical communication.
-
