@@ -51,7 +51,7 @@
 ### [Access diagnostic logs](data-lake-store-diagnostic-logs.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Java](/java/api/)
 ## [.NET](/dotnet/api/)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)

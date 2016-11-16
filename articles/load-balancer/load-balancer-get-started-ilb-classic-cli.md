@@ -48,7 +48,7 @@ This guide shows how to create an internal load balancer based on the scenario a
 2. Run the **azure config mode** command to switch to classic mode, as shown below.
 
     ```azurecli
-        azure config mode asm
+    azure config mode asm
     ```
 
     Expected output:
@@ -68,7 +68,7 @@ This is a common scenario where you have SQL virtual machines on the back end us
 Create an internal load balancer set using `azure network service internal-load-balancer add`.
 
 ```azurecli
-    azure service internal-load-balancer add --serviceName mytestcloud --internalLBName ilbset --subnet-name subnet-1 --static-virtualnetwork-ipaddress 192.168.2.7
+azure service internal-load-balancer add --serviceName mytestcloud --internalLBName ilbset --subnet-name subnet-1 --static-virtualnetwork-ipaddress 192.168.2.7
 ```
 
 Check out `azure service internal-load-balancer --help` for more information.
@@ -91,7 +91,7 @@ Here follows an example of the output:
 You configure the internal load balancer set when you add the first endpoint. You will associate the endpoint, virtual machine and probe port to the internal load balancer set in this step.
 
 ```azurecli
-    azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
+azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
 ```
 
 ## Step 3
@@ -99,7 +99,7 @@ You configure the internal load balancer set when you add the first endpoint. Yo
 Verify the load balancer configuration using `azure vm show` *virtual machine name*
 
 ```azurecli
-    azure vm show DB1
+azure vm show DB1
 ```
 
 The output will be:
@@ -156,7 +156,7 @@ The output will be:
 You can create a remote desktop endpoint to forward network traffic from a public port to a local port for a specific virtual machine using `azure vm endpoint create`.
 
 ```azurecli
-    azure vm endpoint create web1 54580 -k 3389
+azure vm endpoint create web1 54580 -k 3389
 ```
 
 ## Remove virtual machine from load balancer
@@ -166,7 +166,7 @@ You can remove a virtual machine from an internal load balancer set by deleting 
 Using the example above, you can remove the endpoint created for virtual machine "DB1" from internal load balancer "ilbset" by using the command `azure vm endpoint delete`.
 
 ```azurecli
-    azure vm endpoint delete DB1 tcp-1433-1433
+azure vm endpoint delete DB1 tcp-1433-1433
 ```
 
 Check out `azure vm endpoint --help` for more information.
