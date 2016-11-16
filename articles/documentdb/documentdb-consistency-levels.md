@@ -1,4 +1,4 @@
-﻿---
+---
 title: Consistency levels in DocumentDB | Microsoft Docs
 description: DocumentDB has four consistency levels to help balance eventual consistency, availability, and latency trade-offs.
 keywords: eventual consistency, documentdb, azure, Microsoft azure
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 11/16/2016
 ms.author: syamk
 
 ---

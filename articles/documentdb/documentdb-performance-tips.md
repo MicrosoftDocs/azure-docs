@@ -1,4 +1,4 @@
-﻿---
+---
 title: DocumentDB performance tips | Microsoft Docs
 description: Learn client configuration options to improve Azure DocumentDB database performance
 keywords: how to improve database performance
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2016
+ms.date: 11/16/2016
 ms.author: mimig
 
 ---

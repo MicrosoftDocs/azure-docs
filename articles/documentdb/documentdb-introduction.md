@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/12/2016
+ms.date: 11/16/2016
 ms.author: mimig
 
 ---

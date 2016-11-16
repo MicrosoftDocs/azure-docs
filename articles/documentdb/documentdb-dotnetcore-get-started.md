@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/14/2016
+ms.date: 11/16/2016
 ms.author: arramac
 
 ---
@@ -41,7 +41,7 @@ We'll cover:
 * Deleting a document
 * Deleting the database
 
-Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/arramac/documentdb-dotnetcore-getting-started). Jump to the [Get the complete solution section](#GetSolution) for quick instructions.
+Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/arramac/documentdb-dotnet-core-getting-started). Jump to the [Get the complete solution section](#GetSolution) for quick instructions.
 
 Afterwards, please use the voting buttons at the top or bottom of this page to give us feedback. If you'd like us to contact you directly, feel free to include your email address in your comments.
 
@@ -74,7 +74,7 @@ Let's create a DocumentDB account. If you already have an account you want to us
 7. Within the results, find **Microsoft.Azure.DocumentDB.Core** and click **Install**.
    The package ID for the DocumentDB Client Library is [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)
 
-Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/arramac/documentdb-dotnetcore-getting-started).
+Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/arramac/documentdb-dotnet-core-getting-started).
 
 ## <a id="Connect"></a>Step 3: Connect to a DocumentDB account
 First, add these references to the beginning of your C# application, in the Program.cs file:
@@ -602,7 +602,7 @@ To build the GetStarted solution that contains all the samples in this article, 
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 * A [DocumentDB account][documentdb-create-account].
-* The [GetStarted](https://github.com/arramac/documentdb-dotnetcore-getting-started) solution available on GitHub.
+* The [GetStarted](https://github.com/arramac/documentdb-dotnet-core-getting-started) solution available on GitHub.
 
 To restore the references to the DocumentDB .NET Core SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the Program.cs file, update the EndpointUrl and AuthorizationKey values as described in [Connect to a DocumentDB account](#Connect).
 

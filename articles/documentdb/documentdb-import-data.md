@@ -1,4 +1,4 @@
-﻿---
+---
 title: Database migration tool for DocumentDB | Microsoft Docs
 description: Learn how to use the open source DocumentDB data migration tools to import data to DocumentDB from various sources including MongoDB, SQL Server, Table storage, Amazon DynamoDB, CSV, and JSON files. CSV to JSON conversion.
 keywords: csv to json, database migration tools, convert csv to json
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2016
+ms.date: 11/16/2016
 ms.author: anhoh
 
 ---

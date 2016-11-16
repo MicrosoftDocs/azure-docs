@@ -14,11 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 11/16/2016
 ms.author: arramac
 
 ---
-# Use the Azure DocumentDB Emulator for Development and Testing
+# Use the Azure DocumentDB Emulator for development and testing
+
+[**Download the Emulator**](https://aka.ms/documentdb-emulator)
+
 The Azure DocumentDB Emulator provides a local environment that emulates the Azure DocumentDB service for development purposes. Using the DocumentDB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the DocumentDB Emulator, you can switch to using an Azure DocumentDB account in the cloud.
 
 ## DocumentDB Emulator system requirements
@@ -31,13 +34,13 @@ The DocumentDB Emulator has the following hardware and software requirements:
   *	10 GB available hard disk space
 
 ## Installing the DocumentDB Emulator
-You can download the DocumentDB Emulator from the [Microsoft Download Center](https://aka.ms/documentdb-emulator). To install, configure, and run the DocumentDB Emulator, you must have administrative privileges on the computer.
+You can download and install the DocumentDB Emulator from the [Microsoft Download Center](https://aka.ms/documentdb-emulator). To install, configure, and run the DocumentDB Emulator, you must have administrative privileges on the computer.
 
 > [!NOTE]
 > To install, configure, and run the DocumentDB Emulator, you must have administrative privileges on the computer.
 
 ## Checking for DocumentDB Emulator updates
-The DocumentDB Emulator includes a built-in Azure DocumentDB Data Explorer to browse data stored within DocumentDB, craete new collections, and let you know when a new update is available for download. 
+The DocumentDB Emulator includes a built-in Azure DocumentDB Data Explorer to browse data stored within DocumentDB, create new collections, and let you know when a new update is available for download. 
 
 > [!NOTE]
 > Data created in one version of the DocumentDB Emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it is recommended that you store that data in an Azure DocumentDB account, rather than in the DocumentDB Emulator. 
@@ -59,9 +62,16 @@ Just as with Azure Document in the cloud, every request that you make against th
 Additionally, just as the Azure DocumentDB service, the DocumentDB Emulator supports only secure communication via SSL.
 
 ## Start and initialize the DocumentDB Emulator
-To start the Azure DocumentDB Emulator, select the Start button or press the Windows key. Begin typing **DocumentDB Emulator**, and select the emulator from the list of applications. When the emulator is running, you'll see an icon in the Windows taskbar notification area.
 
-The DocumentDB Emulator is installed by default to the `C:\Program Files\Azure DocumentDB Emulator` directory. You can also start and stop the emulator from the command-line. Please see below for options for running the emulator from the command-line.
+To start the Azure DocumentDB Emulator, select the Start button or press the Windows key. Begin typing **DocumentDB Emulator**, and select the emulator from the list of applications. 
+
+![Select the Start button or press the Windows key, begin typing **DocumentDB Emulator**, and select the emulator from the list of applications](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-start.png)
+
+When the emulator is running, you'll see an icon in the Windows taskbar notification area.
+
+![DocumentDB local emulator taskbar notification](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-taskbar.png)
+
+The DocumentDB Emulator is installed by default to the `C:\Program Files\Azure DocumentDB Emulator` directory. You can also start and stop the emulator from the command-line. See [command-line tool reference](#command-line) for more information.
 
 ## Developing with the DocumentDB Emulator
 Once you have the DocumentDB Emulator running on your desktop, you can use any supported [DocumentDB SDK](documentdb-sdk-dotnet.md) or the [DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) to interact with the Emulator. The DocumentDB Emulator also includes a built-in Data Explorer that lets you create collections, view and edit documents without writing any code. 
@@ -73,7 +83,7 @@ Once you have the DocumentDB Emulator running on your desktop, you can use any s
 
 You can use existing tools like [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) to connect to the DocumentDB Emulator. You can also migrate data between the DocumentDB Emulator and the Azure DocumentDB service using the [DocumentDB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
 
-## DocumentDB Emulator command-line tool reference
+## <a id="command-line"></a>DocumentDB Emulator command-line tool reference
 From the installation location, you can use the command-line to start and stop the emulator, configure options, and perform other operations.
 
 ### Command Line Syntax
@@ -158,11 +168,11 @@ Because the DocumentDB Emulator provides an emulated environment running on a lo
 * The DocumentDB Emulator is not a scalable service and will not support a large number of collections.
 * The DocumentDB Emulator does not simulate different [DocumentDB consistency levels](documentdb-consistency-levels.md).
 * The DocumentDB Emulator does not simulate [multi-region replication](documentdb-distribute-data-globally.md).
-* The DocumentDB Emulator does not support service quota overrides which may be available in the Azure DocumentDB service (e.g. document size limits, increased partitioned collection storage).
-* While the DocumentDB Emulator will return request charges similar to the Azure DocumentDB service, the emulator cannot be used to estimate provisioned throughput requirements for applications leveraging the Azure DocumentDB service. To accurately estimate production throughput needs, use the [DocumentDB capacity planner](https://www.documentdb.com/capacityplanner).
+* The DocumentDB Emulator does not support the service quota overrides that are available in the Azure DocumentDB service (e.g. document size limits, increased partitioned collection storage).
+* While the DocumentDB Emulator returns request charges similar to the Azure DocumentDB service, the emulator cannot be used to estimate provisioned throughput requirements for applications leveraging the Azure DocumentDB service. To accurately estimate production throughput needs, use the [DocumentDB capacity planner](https://www.documentdb.com/capacityplanner).
 * While the DocumentDB Emulator persists data, the emulator cannot be used to estimate data and index storage requirements for applications leveraging the Azure DocumentDB service. To accurately estimate production storage needs, use the [DocumentDB capacity planner](https://www.documentdb.com/capacityplanner).
 
 
 ## Next steps
 * To learn more about DocumentDB, see [Introduction to Azure DocumentDB](documentdb-introduction.md)
-* To start developing against the DocumentDB Emulator, download one of the [supported DocumentDB SDKs](documentdb-sdk-dotnet.md)
+* To start developing against the DocumentDB Emulator, download one of the [supported DocumentDB SDKs](documentdb-sdk-dotnet.md).

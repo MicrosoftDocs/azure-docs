@@ -1,4 +1,4 @@
-﻿---
+---
 title: Request Units in DocumentDB | Microsoft Docs
 description: Learn about how to understand, specify, and estimate request unit requirements in DocumentDB.
 services: documentdb
@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2016
+ms.date: 11/16/2016
 ms.author: syamk
 
 ---
