@@ -567,6 +567,12 @@ title: Microsoft Azure Documentation
                                                 <p>Mobile Engagement</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/notification-hubs/">
+                                                <img src="media/index/NotificationHubs.svg" alt="" />
+                                                <p>Notification Hubs</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Enterprise Integration</h3>
                                     <ul>
@@ -1240,6 +1246,25 @@ title: Microsoft Azure Documentation
                                                 <div class="cardText">
                                                     <h3>Mobile Engagement</h3>
                                                     <p>Increase app usage and user retention</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/notification-hubs/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/NotificationHubs.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Notification Hubs</h3>
+                                                    <p>A scalable, push notification engine for quickly sending millions of messages</p>
                                                 </div>
                                             </div>
                                         </div>
