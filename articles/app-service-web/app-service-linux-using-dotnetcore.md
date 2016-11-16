@@ -2,19 +2,19 @@
 title: Using .NET Core in Azure App Service Web Apps on Linux | Microsoft Docs
 description: Using .NET Core in Azure App Service Web Apps on Linux.
 keywords: azure app service, web app, dotnet, core, linux, oss
-services=app-service
-documentationCenter=''
-authors=aelnably
-manager=wpickett
-editor=''
+services: app-service
+documentationCenter: ''
+authors: aelnably
+manager: wpickett
+editor: ''
 
-ms.service=app-service
-ms.workload=na
-ms.tgt_pltfrm=na
-ms.devlang=na
-ms.topic=article
-ms.date=10/16/2016
-ms.author=aelnably
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/16/2016
+ms.author: aelnably
 
 ---
 
