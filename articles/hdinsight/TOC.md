@@ -11,7 +11,7 @@
 # Get Started
 ## [Start with Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Start with Interactive Hive preview](hdinsight-hadoop-use-interactive-hive.md)
-## [Start with R Server preview](hdinsight-hadoop-r-server-get-started.md)
+## [Start with R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Start with Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Start with HBase & NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Start with Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
@@ -49,7 +49,7 @@
 ### [Use DataFu with Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [On-demand clusters](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Use R Server preview
+## Use R Server
 ### [Storage options](hdinsight-hadoop-r-server-storage.md)
 ### [Install RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Compute contexts](hdinsight-hadoop-r-server-compute-contexts.md)
