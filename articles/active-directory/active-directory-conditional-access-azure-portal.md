@@ -30,7 +30,7 @@ While providing your users with a broad range of options to access your corporat
 Conditional access is a capability of Azure Active Directory that enables you to address these questions using a policy-based approach. A policy-based approach simplifies your configuration experience because it follows the way you think about your access requirements.  
 Typically, you define your access requirements using statements that are based on the following pattern:
 
-When *this* happens, then do *this*.
+![Control](./media/active-directory-conditional-access-azure-portal/10.png)
 
 When you replace the two occurrences of “*this*” with real-world information, you have an example for a policy statement that probably looks familiar to you:
 
@@ -43,7 +43,14 @@ In the context of Azure Active Directory conditional access,
 - "**When this happens**" is called **condition statement**
 - "**Then do this**" is called **controls**
 
+![Control](./media/active-directory-conditional-access-azure-portal/11.png)
+
+
+
 The combination of a condition statement with your controls represents a conditional access policy.
+
+![Control](./media/active-directory-conditional-access-azure-portal/12.png)
+
 
 ## Controls
 
