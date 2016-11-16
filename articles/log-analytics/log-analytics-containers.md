@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/16/2016
 ms.author: banders
 
 ---
@@ -36,66 +36,37 @@ Review the supported Docker and Linux operating system versions for your contain
 
 > [!IMPORTANT]
 > Docker must be running **before** you install the [OMS Agent for Linux](log-analytics-linux-agents.md) on your container hosts. If you've already installed the agent before installing Docker, you'll need to reinstall the OMS Agent for Linux. For more information about Docker, see the [Docker website](https://www.docker.com).
-> 
-> 
+>
+>
 
 You need the following settings configured on your container hosts before you can monitor containers.
 
 ## Configure settings for the Linux container host
-After you've installed Docker, use the following settings for your container host to configure the agent for use with Docker. CoreOS doesn't support this configuration method.
 
-### To configure settings for the container host - systemd (SUSE, openSUSE, CentOS 7.x, RHEL 7.x, and Ubuntu 15.x and higher)
-1. Edit docker.service to add the following:
-   
-    ```
-    [Service]
-    ...
-    Environment="DOCKER_OPTS=--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-    ...
-    ```
-2. Add $DOCKER\_OPTS in &quot;ExecStart=/usr/bin/docker daemon&quot; in your docker.service file. Using the following example.
-   
-    ```
-    [Service]
-    Environment="DOCKER_OPTS=--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-    ExecStart=/usr/bin/docker daemon -H fd:// $DOCKER_OPTS
-    ```
-3. Restart the Docker service. For example:
-   
-    ```
-    sudo systemctl restart docker.service
-    ```
+The following x64 Linux distributions are supported as container hosts:
 
-### To configure settings for the container host - Upstart (Ubuntu 14.x)
-1. Edit /etc/default/docker and add the following:
-   
-    ```
-    DOCKER_OPTS="--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-    ```
-2. Save the file and then restart the Docker and OMS services.
-   
-    ```
-    sudo service docker restart
-    ```
+- Ubuntu 14.04 LTS, 16.04 LTS
+- CoreOS(stable)
+- Amazon Linux 2016.03
+- openSUSE 13.2
+- CentOS 7
+- SLES 12
+- RHEL 7.2
 
-### To configure settings for the container host - Amazon Linux
-1. Edit /etc/sysconfig/docker and add the following:
-   
-    ```
-    OPTIONS="--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-    ```
-2. Save the file and then restart the Docker service.
-   
-    ```
-    sudo service docker restart
-    ```
+After you've installed Docker, use the following settings for your container host to configure the agent for use with Docker. You'll need your [OMS workspace ID and key](log-analytics-linux-agents.md).
 
-## Configure settings for CoreOS containers
-After you've installed Docker, use the following settings for CoreOS to run Docker and create a container. You can use any supported version of Linux—including CoreOS, with this configuration method. You'll need your [OMS workspace ID and key](log-analytics-linux-agents.md).
+### To configure settings for the container host
+
+
+- Start the OMS container with the following command:
+
+    ```
+    sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace ID" -e KEY="your key" -p 127.0.0.1:25225:25225 --name="omsagent" -h=`hostname` --restart=always microsoft/oms
+    ```
 
 ### To use OMS for all containers with CoreOS
 * Start the OMS container that you want to monitor. Modify and use the following example.
-  
+
   ```
   sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25224:25224/udp -p 127.0.0.1:25225:25225 --name="omsagent" --log-driver=none --restart=always microsoft/oms
   ```
@@ -182,7 +153,7 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 ### To search logs for container data
 * Choose an image that you know has failed recently and find the error logs for it. Start by finding a container name that is running that image with a **ContainerInventory** search. For example, search for `Type=ContainerInventory ubuntu Failed`  
     ![Search for Ubuntu containers](./media/log-analytics-containers/search-ubuntu.png)
-  
+
   Note the name of the container next to **Name**, and search for those logs. In this example, it is `Type=ContainerLog adoring_meitner`.
 
 **View performance information**
@@ -221,4 +192,3 @@ After you create a query that you find useful, save it by clicking **Favorites**
 
 ## Next steps
 * [Search logs](log-analytics-log-searches.md) to view detailed container data records.
-
