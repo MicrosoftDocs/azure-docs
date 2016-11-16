@@ -132,7 +132,7 @@ At this point, our application is deployed to our shared dev environment and is 
 > [!NOTE]
 > Windows Only:  You will need to set up [Pageant](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to complete this section.
 > 
->* Launch *PuttyGen* and load the private SSH key you used to create the ACS cluster (%homepath%\id_rsa).
+>* Launch *PuttyGen* and load the private SSH key used to create the ACS cluster (%homepath%\id_rsa).
 >* Save the private SSH key as `id_rsa.ppk` in the same folder.
 >* Launch *Pageant* - it will start running and display an icon in your bottom-right system tray.
 >* Right-click the system tray icon and select *Add Key*.
