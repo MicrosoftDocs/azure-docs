@@ -204,5 +204,7 @@ The screenshot below shows an example of the type of information that can be dis
 You can find more information on Operations Management Suite at the article [What is Operations Management Suite? ](../operations-management-suite/operations-management-suite-overview.md)
 
 ## Next Steps
-[Azure security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/)
-[Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
+
+
+* [Azure security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/)
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
