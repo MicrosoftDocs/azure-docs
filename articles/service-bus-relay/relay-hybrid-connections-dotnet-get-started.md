@@ -1,20 +1,20 @@
 ---
 title: Get started with Relay Hybrid Connections | Microsoft Docs
 description: How to write a C# console application for Hybrid Connections
-services: service-bus
+services: service-bus-relay
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
 editor: ''
 
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/28/2016
-ms.author: jotaub
+ms.author: jotaub,sethm
 
 ---
 # Get started with Relay Hybrid Connections
