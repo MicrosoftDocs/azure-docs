@@ -299,8 +299,6 @@ ms.author: sedusch
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-classic deployment model.
-
 Microsoft Azure enables companies to acquire compute and storage resources in minimal time without lengthy procurement cycles. Azure Virtual Machines allows companies to deploy classical applications, like SAP NetWeaver based applications into Azure and extend their reliability and availability without having further resources available on-premises. Microsoft Azure also supports cross-premises connectivity, which enables companies to actively integrate Azure Virtual Machines into their on-premises domains, their Private Clouds and their SAP System Landscape.
 
 This white paper describes step by step how a Azure Virtual Machine is prepared for the deployment of SAP NetWeaver based applications. It assumes that the information contained in the [Planning and Implementation Guide][planning-guide] is known. If not, the respective document should be read first.

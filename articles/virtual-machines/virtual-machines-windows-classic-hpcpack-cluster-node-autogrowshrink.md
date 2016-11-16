@@ -1,4 +1,4 @@
-﻿---
+---
 title: Autoscale HPC Pack cluster nodes | Microsoft Docs
 description: Automatically grow and shrink the number of HPC Pack cluster compute nodes in Azure
 services: virtual-machines-windows
@@ -38,6 +38,7 @@ Currently you can only automatically grow and shrink HPC Pack compute nodes that
 
 ## Set the AutoGrowShrink cluster property
 ### Prerequisites
+
 * **HPC Pack 2012 R2 Update 2 or later cluster** - The cluster head node can be deployed either on-premises or in an Azure VM. See [Set up a hybrid cluster with HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) to get started with an on-premises head node and Azure "burst" nodes. See the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to quickly deploy an HPC Pack cluster in Azure VMs.
 
 * **For a cluster with a head node in Azure (Resource Manager deployment model)** - Starting in HPC Pack 2016, certificate authentication in an Azure Active Directory application is used for automatically growing and shrinking cluster VMs deployed using Azure Resource Manager. Configure a certificate as follows:
@@ -167,6 +168,7 @@ By default, **SoaJobGrowThreshold** is set to 50000 and **SoaRequestsPerCore** i
 
 ## Run the AzureAutoGrowShrink.ps1 script
 ### Prerequisites
+
 * **HPC Pack 2012 R2 Update 1 or later cluster** - The **AzureAutoGrowShrink.ps1** script is installed in the %CCP_HOME%bin folder. The cluster head node can be deployed either on-premises or in an Azure VM. See [Set up a hybrid cluster with HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) to get started with an on-premises head node and Azure "burst" nodes. See the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to quickly deploy an HPC Pack cluster in Azure VMs, or use an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
 * **Azure PowerShell 1.4.0** - The script currently depends on this specific version of Azure PowerShell.
 * **For a cluster with Azure burst nodes** - Run the script on a client computer where HPC Pack is installed, or on the head node. If running on a client computer, ensure that you set the variable $env:CCP_SCHEDULER to point to the head node. The Azure “burst” nodes must be added to the cluster, but they may be in the Not-Deployed state.

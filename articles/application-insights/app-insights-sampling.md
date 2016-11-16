@@ -1,4 +1,4 @@
-﻿---
+---
 title: Telemetry sampling in Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 services: application-insights
@@ -17,9 +17,9 @@ ms.author: awills
 
 ---
 # Sampling in Application Insights
-*Application Insights is in preview.*
 
-Sampling is a feature in [Visual Studio Application Insights](app-insights-overview.md) is the recommended way to reduce telemetry traffic and storage while preserving  a statistically correct analysis of application data. The filter selects items that are related so that you can navigate between items when you are doing diagnostic investigations.
+
+Sampling is a feature in [Azure Application Insights](app-insights-overview.md) is the recommended way to reduce telemetry traffic and storage while preserving  a statistically correct analysis of application data. The filter selects items that are related so that you can navigate between items when you are doing diagnostic investigations.
 When metric counts are presented to you in the portal, they are renormalized to take account of the sampling, to minimize any effect on the statistics.
 
 Sampling reduces traffic, helps you keep within monthly data quotas, and helps you avoid throttling.

@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 11/15/2016
 ms.author: jgao
 
 ---
@@ -69,24 +69,30 @@ mobile device data back to HDInsight by using the following path:
     /tutorials/usesqoop/importeddata
 
 ## Create cluster and SQL database
-This section shows you how to create a cluster and the SQL database schemas for running the tutorial using the Azure portal and an Azure Resource Manager template.  If you prefer to use Azure PowerShell, see [Appendix A](#appendix-a---a-powershell-sample).
-
-1. Click the following image to open a resource manager template in the Azure Portal.         
-   
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
-   
-    The resource manager template is located in a public blob container, *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*. 
-   
-    The resource manager template calls a bacpac package to deploy the table schemas to SQL database.  The bacpac package is also located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
+This section shows you how to create a cluster, a SQL Database, and the SQL database schemas for running the tutorial using the Azure portal and an Azure Resource Manager template. The template can be found in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). The resource manager template calls a bacpac package to deploy the table schemas to SQL database.  The bacpac package is located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
    
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",
-2. From the Parameters blade, enter the following:
+
+If you prefer to use Azure PowerShell to create the cluster and the SQL Database, see [Appendix A](#appendix-a---a-powershell-sample).
+
+1. Click the following image to open a resource manager template in the Azure Portal.         
    
-   * **ClusterName**: Enter a name for the Hadoop cluster that you will create.
-   * **Cluster login name and password**: The default login name is admin.
-   * **SSH user name and password**.
-   * **SQL database server login name and password**.
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+   
+
+2. Enter the following properties:
+
+    - **Subscription**: Enter your Azure subscription.
+    - **Resource Group**: Create a new Azure Resource Group, or select an existing Resource Group.  A Resource Group is for management purpose.  It is a container for objects.
+    - **Location**: Select a region.
+    - **ClusterName**: Enter a name for the Hadoop cluster that you will create.
+    - **Cluster login name and password**: The default login name is admin.
+    - **SSH user name and password**.
+    - **SQL database server login name and password**.
+    - **_artifacts Location**: Use the default value unless you want to use your own backpac file in a different location.
+    - **_artifacts Location Sas Token**: Leave it blank.
+    - **Bacpac File Name**: Use the default value unless you want to use your own backpac file.
      
      The following values are hardcoded in the variables section:
      

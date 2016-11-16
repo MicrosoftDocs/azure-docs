@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 # API Management Documentation
 
-API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
+API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services.  API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -61,17 +61,17 @@ API Management helps organizations publish APIs to external, partner and interna
         </a>
     </li>
     <li>
-        <a href="/azure/api-management/api-management-howto-create-a">
+        <a href="/azure/api-management/api-management-howto-create-apis">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create APIs in Azure API Management</h3>
+                        <h3>Get Started creating APIs in Azure API Management</h3>
                     </div>
                 </div>
             </div>
@@ -84,12 +84,36 @@ API Management helps organizations publish APIs to external, partner and interna
 
 ## Reference
 
-### PowerShell
-[API Management Resource Manager PowerShell cmdlet](/powershell/resourcemanager)
-[API Management Classic PowerShell cmdlet](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-
-### REST
-[API Management REST API Reference](/rest/api/apimanagement/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/resourcemanager">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>API Management Resource Manager PowerShell cmdlet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/apimanagement/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>API Management REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
 

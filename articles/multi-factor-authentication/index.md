@@ -7,7 +7,7 @@ Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification sol
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/multi-factor-authentication/multi-factor-authentication/">
+        <a href="/azure/multi-factor-authentication/multi-factor-authentication">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -89,7 +89,7 @@ Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification sol
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Multi-factor Authentication Server</h3>
+                        <h3>Get started with Azure Multi-factor Authentication on-premises</h3>
                     </div>
                 </div>
             </div>

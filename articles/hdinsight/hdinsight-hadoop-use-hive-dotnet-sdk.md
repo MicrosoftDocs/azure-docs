@@ -44,7 +44,8 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. Use the following code:
-   
+
+    ```csharp
         using System.Collections.Generic;
         using System.IO;
         using System.Text;
@@ -125,6 +126,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
                 }
             }
         }
+    ```
 4. Press **F5** to run the application.
 
 ## Next steps
