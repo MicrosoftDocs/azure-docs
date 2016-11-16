@@ -26,9 +26,7 @@ Now that you've [created an offer](azure-stack-create-offer.md), test that your 
 2. In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** blade, and then click **Create**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image02.png)
-3. To view the subscription you created, click **Browse**, click **Subscriptions**, then click your new subscription.  
-
-   ![](media/azure-stack-subscribe-plan-provision-vm/image03.png)
+3. To view the subscription you created, click **More services**, click **Subscriptions**, then click your new subscription.  
 
 After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
 
