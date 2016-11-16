@@ -1,20 +1,24 @@
-<properties
-   pageTitle="Security best practices for IaaS workloads in Azure"
-   description="Providing some general guidelines for properly securing your IaaS workloads"
-   services="security"
-   documentationCenter="na"
-   authors="barclayn"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+  title: Security best practices for IaaS workloads in Azure | Microsoft Docs
+  description: " The migration of workloads to Azure IaaS brings about opportunities to re-evaluate our designs "
+  services: security
+  documentationcenter: na
+  author: barclayn
+  manager: MBaldwin
+  editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="10/30/2016"
-   ms.author="barclayn"/>
+  ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
+  ms.service: security
+  ms.devlang: na
+  ms.topic: article
+  ms.tgt_pltfrm: na
+  ms.workload: na
+  ms.date: 11/16/2016
+  ms.author: barclayn
+
+
+
+---
 
 # Security best practices for IaaS workloads in Azure
 
