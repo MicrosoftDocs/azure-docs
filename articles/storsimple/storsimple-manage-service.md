@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2016
+ms.date: 11/16/2016
 ms.author: v-sharos
 
 ---
@@ -89,6 +89,6 @@ Perform the following steps to regenerate a service registration key.
 6. Click the check icon ![Check icon](./media/storsimple-manage-service/HCS_CheckIcon.png) to close this dialog box.
 
 ## Next steps
-* Learn more about the [StorSimple deployment process](storsimple-deployment-walkthrough.md).
+* Learn more about the [StorSimple deployment process](storsimple-deployment-walkthrough-u2.md).
 * Learn more about [managing your StorSimple storage account](storsimple-manage-storage-accounts.md).
 * Learn more about how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
