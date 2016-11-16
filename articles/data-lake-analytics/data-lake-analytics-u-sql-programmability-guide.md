@@ -6,6 +6,7 @@ documentationcenter: ''
 author: MikeRys
 manager: arindamc
 
+ms.assetid: 8c673d11-1491-4832-bdbe-f80794112bcc
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article

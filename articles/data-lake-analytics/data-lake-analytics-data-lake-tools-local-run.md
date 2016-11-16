@@ -1,4 +1,4 @@
-ï»¿---
+---
 title: Test and debug U-SQL jobs using local-run and the Azure Data Lake U-SQL SDK | Microsoft Docs
 description: 'Learn how to use Azure Data Lake Tools for Visual Studio and Azure Data Lake U-SQL SDK to test and debug U-SQL jobs on your local workstation.'
 services: data-lake-analytics
@@ -7,6 +7,7 @@ author: mumian
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: 76dbdfa3-d922-4edd-b008-e16c1afb9fb4
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -94,7 +95,7 @@ The Data Lake U-SQL SDK requires the following dependencies:
 - [Microsoft .Net Framework 4.6 or newer](https://www.microsoft.com/en-us/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 and Windows SDK 10.0.10240.0 or newer. To get this:
 
-    - Install Visual Studio ([Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou)). You shall have a "\Windows Kits\10" folder under the program files folder, for example, "C:\Program Files (x86)\Windows Kits\10\"; you shall also find the Windows 10 SDK version under "\Windows Kits\10\Lib". If you donâ€™t see these folders, re-install Visual Studio.
+    - Install Visual Studio ([Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou)). You shall have a "\Windows Kits\10" folder under the program files folder, for example, "C:\Program Files (x86)\Windows Kits\10\"; you shall also find the Windows 10 SDK version under "\Windows Kits\10\Lib". If you don’t see these folders, re-install Visual Studio.
  
     - Install the [Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs). The prepackaged VC++ and Windows SDK files can be found at 
 	C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. You can either copy the files to another location or just use it as is. In this case, you can choose to either set an environment variable "SCOPE_CPP_SDK" to the directory, or to specify "-CppSDK" argument with this directory on the command line of the local-run helper application. 
@@ -147,9 +148,9 @@ Run "LocalRunHelper.exe" without arguments or with the "help" switch to show the
 
 In the help information: 
 
--  **Command**  gives the commandâ€™s name.  
+-  **Command**  gives the command’s name.  
 -  **Required Argument**  lists arguments that must be supplied.  
--  **Optional Argument**  lists arguments that are optional and with default values.  Optional bool arguments donâ€™t have parameter and their appearances mean negative to their default value.
+-  **Optional Argument**  lists arguments that are optional and with default values.  Optional bool arguments don’t have parameter and their appearances mean negative to their default value.
 
 The helper application returns 0 in the case of success and -1 in the case of failure. By default, the helper will output all messages to the current console.  However, most of the commands support "-MessageOut path_to_log_file" optional argument that will redirect the outputs to a log file.
 
@@ -164,7 +165,7 @@ The "run" command is used to compile the script and then execute compiled result
 
 Here is an example:
 
-    LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB â€“Parallel 5 -Verbose
+    LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose
 
 Besides of combining "compile" and "run" together, you can compile and execute the compiled executables separately. 
 
@@ -182,7 +183,7 @@ Optional arguments for compilation:
 |-DataRoot param [default value '']|DataRoot for data and metadata, default to 'LOCALRUN_DATAROOT' environment variable|
 |-MessageOut param [default value '']|Dump messages on console to a file|
 |-Shallow [default value 'False']|Shallow compile, does only a syntax check of the script and return.|
-|-WorkDir param [default value 'D:\localrun\t\ScopeWorkDir']|Directory for compiler usage and outputs, see more in Appendix â€“ Working Directory.|
+|-WorkDir param [default value 'D:\localrun\t\ScopeWorkDir']|Directory for compiler usage and outputs, see more in Appendix – Working Directory.|
 
 
 Optional arguments for assemblies and code-behind:
@@ -197,7 +198,7 @@ Optional arguments for assemblies and code-behind:
 Here are some usage examples:
 
 	LocalRunHelper compile -Script d:\test\test1.usql
-	LocalRunHelper compile -Script d:\test\test1.usql â€“DataRoot c:\DataRoot
+	LocalRunHelper compile -Script d:\test\test1.usql –DataRoot c:\DataRoot
 	LocalRunHelper compile -Script d:\test\test1.usql -WorkDir d:\test\bin -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB
 
 #### Execute Compiled Result
@@ -218,7 +219,7 @@ Optional arguments:
 
 Here are a usage example:
 
-	LocalRunHelper execute -Algebra d:\test\workdir\ C6A101DDCB470506\ Script_66AE4909AA0ED06C\__script__.abr â€“DataRoot c:\DataRoot â€“Parallel 5
+	LocalRunHelper execute -Algebra d:\test\workdir\ C6A101DDCB470506\ Script_66AE4909AA0ED06C\__script__.abr –DataRoot c:\DataRoot –Parallel 5
 
 
 
