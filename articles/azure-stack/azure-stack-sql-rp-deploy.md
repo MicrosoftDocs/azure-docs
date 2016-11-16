@@ -143,4 +143,3 @@ Create plans and offers to make SQL databases available for tenants. You will ne
 
 ![](./media/azure-stack-sql-rp-deploy/12.png)
 
-Try other [PaaS services](azure-stack-tools-paas-services.md) like the [MySQL Server resource provider](azure-stack-mysql-rp-deploy.md) and the [App Services resource provider](azure-stack-app-service-deploy.md).

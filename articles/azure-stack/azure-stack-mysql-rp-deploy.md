@@ -79,4 +79,3 @@ Depending on the system performance and download speeds, installation may take a
 
 Create plans and offers to make MySQL databases available for tenants. You will need to add the Microsoft.MySql service, add a new quota, and accept the default values.
 
-Try other [PaaS services](azure-stack-tools-paas-services.md) like the [SQL Server resource provider](azure-stack-sql-rp-deploy.md) and the [App Services resource provider](azure-stack-app-service-deploy.md).
