@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
@@ -26,6 +26,7 @@ Before you set up continuous export, there are some alternatives you might want 
 * [The Export button](app-insights-metrics-explorer.md#export-to-excel) at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet. 
 * [Analytics](app-insights-analytics.md) provides a powerful query  language for telemetry, and also can export results.
 * If you're looking to [explore your data in Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), you can do that without using Continuous Export.
+* [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically. 
 
 ## Create a storage account
 If you don't already have a "classic" storage account, create one now.
