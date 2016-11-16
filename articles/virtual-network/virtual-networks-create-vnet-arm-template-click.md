@@ -61,7 +61,7 @@ You can download the existing template for creating a VNet and two subnets from 
    | **subnet2Prefix** |CIDR block for the second subnet |
    
    > [!IMPORTANT]
-   > ARM templates maintained in github can change over time. Make sure you check the template before using it.
+   > Azure Resource Manager templates maintained in GitHub can change over time. Make sure you check the template before using it.
    > 
    > 
 6. Check the content under **resources** and notice the following:

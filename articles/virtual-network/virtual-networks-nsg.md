@@ -1,6 +1,6 @@
 ---
 title: Network Security Groups | Microsoft Docs
-description: Learn about to how to isolate and control traffic flow within your virtual networks using the distributed firewall in Azure using Network Security Groups.
+description: Learn how to isolate and control traffic flow within your virtual networks using the distributed firewall in Azure using Network Security Groups.
 services: virtual-network
 documentationcenter: na
 author: jimdial
