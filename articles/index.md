@@ -105,6 +105,12 @@ title: Microsoft Azure Documentation
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/container-registry/">
+                                                <img src="media/index/ContainerService.svg" alt="" />
+                                                <p>Azure Container Registry</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/azure-functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
                                                 <p>Functions</p>
@@ -317,12 +323,12 @@ title: Microsoft Azure Documentation
                                                 <p>Power BI Embedded</p>
                                             </a>
                                         </li>
-                                        <!-- <li>
+                                        <li>
                                             <a href="/azure/analysis-services/">
                                                 <img src="media/index/AnalysisServices.svg" alt="" />
                                                 <p>Analysis Services</p>
                                             </a>
-                                        </li> -->
+                                        </li>
                                     </ul>
                                     <h3>Developer Tools</h3>
                                     <ul>
@@ -703,6 +709,25 @@ title: Microsoft Azure Documentation
                                                 <div class="cardText">
                                                     <h3>Azure Container Service</h3>
                                                     <p>Use Docker based tools to deploy and manage containers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/container-registry/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContainerService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Container Registry</h3>
+                                                    <p>Store and manage images for all types of container deployments</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1491,6 +1516,25 @@ title: Microsoft Azure Documentation
                                                 <div class="cardText">
                                                     <h3>PowerBI Embedded</h3>
                                                     <p>Embed fully interactive, stunning data visualizations in your applications</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/analysis-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/PowerBIEmbedded.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Analysis Services</h3>
+                                                    <p>Enterprise-grade data modeling in the cloud</p>
                                                 </div>
                                             </div>
                                         </div>
