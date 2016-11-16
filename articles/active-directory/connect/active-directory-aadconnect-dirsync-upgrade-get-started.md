@@ -50,7 +50,7 @@ If you want to do a configuration migration and do a parallel deployment, then y
 If you have more than 50,000 objects, then a parallel deployment is recommended. This avoids any operational delays experienced by your users. The Azure AD Connect installation attempts to estimate the downtime for the upgrade, but if you've upgraded DirSync in the past, your own experience is likely to be the best guide.
 
 ### Supported DirSync configurations to be upgraded
-The following configuration changes are supported with DirSync are upgraded:
+The following configuration changes are supported with upgraded DirSync:
 
 * Domain and OU filtering
 * Alternate ID (UPN)
