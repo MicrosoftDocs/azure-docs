@@ -1,3 +1,3 @@
 ---
-redirect_url: ../operations-management-suite/oms-solution-update-management.md
+redirect_url: /azure/operations-management-suite/oms-solution-update-management
 ---

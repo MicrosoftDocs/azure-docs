@@ -1,3 +1,3 @@
 ﻿---
-redirect_url: log-analytics-add-solutions.md
+redirect_url: /azure/log-analytics/log-analytics-add-solutions
 ---
