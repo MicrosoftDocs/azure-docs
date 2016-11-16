@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 11/14/2016
+ms.date: 11/145/2016
 ms.author: shigu;barbkess
 
 ---
@@ -116,7 +116,7 @@ Suppose you determine that you need 700 MB of memory to get high-quality rowgrou
 
 ## Next steps
 
-To find more ways to improve performance in SQL Data Warehouse, see the [Performance overview](sql-data-warehouse-performance-overview.md).
+To find more ways to improve performance in SQL Data Warehouse, see the [Performance overview](sql-data-warehouse-overview-manage-user-queries.md).
 
 <!--Image references-->
 
