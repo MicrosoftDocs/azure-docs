@@ -194,6 +194,7 @@ You must use absolute paths to access  files in linked Storage accounts.  The sy
                     Console.WriteLine(nextAction);
             }
 
+
             // List all Data Lake Analytics accounts within the subscription
             public static List<DataLakeAnalyticsAccount> ListADLAAccounts()
             {
@@ -214,7 +215,6 @@ You must use absolute paths to access  files in linked Storage accounts.  The sy
 
                 return accounts;
             }
-
             public static Guid SubmitJobByPath(string scriptPath, string jobName)
             {
                 var script = File.ReadAllText(scriptPath);
@@ -239,10 +239,10 @@ You must use absolute paths to access  files in linked Storage accounts.  The sy
           }
         }
 
-5. Press **F5** to run the application. The output is like:
+1. Press **F5** to run the application. The output is like:
    
     ![Azure Data Lake Analytics job U-SQL .NET SDK output](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
-6. Check the output file.  The default path and file name is c:\Temp\SearchLog-from-Data-Lake.csv.
+2. Check the output file.  The default path and file name is c:\Temp\SearchLog-from-Data-Lake.csv.
 
 ## See also
 * To see the same tutorial using other tools, click the tab selectors on the top of the page.
