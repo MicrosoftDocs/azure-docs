@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/15/2016
+ms.date: 11/17/2016
 ms.author: nepeters
 
 ---
 # About virtual machine extensions and features
 
-## Azure VM extensions
 Azure Virtual Machine extensions are small applications that provide post deployment configuration and automation task on Azure Virtual Machines. For example, if a Virtual Machine requires software to be installed, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run using the Azure CLI, PowerShell, Resource Manage templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment, or run against any existing system.
 
 This document provides an overview of virtual machine extensions, prerequisites for Azure Virtual Machine extension, and guidance on how to detect, manage, and remove virtual machine extensions. Additional in-depth documentation is provided for several specific virtual machine extensions.
@@ -135,7 +134,7 @@ AutoUpgradeMinorVersion : False
 ForceUpdateTag          :
 ```
 
-### Rerunning VM Extension 
+### Rerunning VM extensions 
 
 There may be cases where a virtual machine extension needs to be rerun. This can be accomplished by removing the extension, and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure PowerShell module. Replace example parameter names with your own values.
 
@@ -145,11 +144,9 @@ Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name 
 
 An extension can also be removed using the Azure portal. To do so, select a virtual machine > extensions > the desired extension > uninstall.
 
-<br />
-
-## Common VM Extensions
+## Common VM extensions reference
 | Extension Name | Description | More Information |
 | --- | --- | --- |
 | Custom Script Extension for Windows |Run scripts against an Azure Virtual Machine |[Custom Script Extension for Windows](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension. |[Docker VM Extension](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension. |[DSC Extension for Windows](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |

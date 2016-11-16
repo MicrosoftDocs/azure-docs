@@ -20,8 +20,6 @@ ms.author: nepeters
 ---
 # About virtual machine extensions and features
 
-## Azure VM Extensions
-
 Azure Virtual Machine extensions are small applications that perform post deployment configuration and automation task on Azure Virtual Machines. For example, if a Virtual Machine requires software to be installed, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run using the Azure CLI, PowerShell, Resource Manage templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment, or run against an existing system.
 
 This document provides an overview of Azure virtual machine extensions, prerequisites, and guidance on how to detect, manage, and remove virtual machine extensions. Additional in-depth documentation is provided for several specific extensions.
@@ -49,11 +47,11 @@ The Azure VM Agent manages interacts between an Azure Virtual Machine and the Az
 
 For information on supported operating systems and installation instructions, see [Azure Virtual Machine Agent](virtual-machines-linux-classic-agents-and-extensions.md).
 
-## Discover VM Extensions
+## Discover VM extensions
 
 Many different VM extensions are available for use with Azure Virtual Machines. To see a complete list, run the following command with the Azure CLI, replacing the location with the location of choice.
 
-```none
+```azurecli
 azure vm extension-image list westus
 ```
 
@@ -65,7 +63,7 @@ The following methods can be used to run an extension against an existing virtua
 
 ### Azure CLI
 
-<fill out>
+Azure virtual machine extensions can be run against existing virtual machine using the `azure vm extension set` command. This example runs the custom script extension against a virtual machine.
 
 ```azurecli
 azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
@@ -75,7 +73,7 @@ azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensi
 
 Which provides output similar to the following text:
 
-```powershell
+```azurecli
 info:    Executing command vm extension set
 + Looking up the VM "myVM"
 + Installing extension "CustomScript", VM: "mvVM"
@@ -143,7 +141,7 @@ azure vm extension get myResourceGroup myVM
 
 The output looks similar to the following text:
 
-```bash
+```azurecli
 info:    Executing command vm extension get
 + Looking up the VM "myVM"
 data:    Publisher                   Name             Version  State
@@ -152,7 +150,7 @@ data:    Microsoft.Azure.Extensions  DockerExtension  1.0      Succeeded
 info:    vm extension get command OK         :
 ```
 
-### Rerunning VM Extension 
+### Rerunning VM extension 
 
 There may be cases where a virtual machine extension needs to be rerun. This can be accomplished by removing the extension, and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure CLI. Replace example parameter names with your own values.
 
@@ -162,9 +160,7 @@ azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.A
 
 An extension can also be removed using the Azure portal. To do so, select a virtual machine > extensions > the desired extension > uninstall.
 
-<br />
-
-## Common VM Extensions
+## Common VM extension reference
 | Extension Name | Description | More Information |
 | --- | --- | --- |
 | Custom Script Extension for Linux |Run scripts against an Azure Virtual Machine |[Custom Script Extension for Linux](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
