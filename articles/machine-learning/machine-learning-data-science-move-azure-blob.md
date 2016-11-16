@@ -20,7 +20,7 @@ ms.author: bradsev;sachouks
 # Move Data to and from Azure Blob Storage
 [!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
-Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
+<!-- just in case, adding this to separate these two include references -->
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
