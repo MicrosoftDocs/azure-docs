@@ -55,7 +55,7 @@
 #### [Review safety](storsimple-safety.md)
 #### [Unpack, rack, cable an 8100](storsimple-8100-hardware-installation.md)
 #### [Unpack, rack, cable an 8600](storsimple-8600-hardware-installation.md)
-#### [Supported hardware for 10 GbE network interfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+#### [Supported hardware for 10-GbE network interfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Deploy
 #### [StorSimple Manager service](storsimple-manage-service.md)
@@ -90,8 +90,7 @@
 ##### [View and manage jobs - current](storsimple-manage-jobs-u2.md)
 ###### [View and manage jobs - Update 1](storsimple-manage-jobs.md)
 ##### [Change device mode](storsimple-device-modes.md)
-##### [Change device password](storsimple-change-passwords.md)
-##### [Modify device configuration](storsimple-modify-device-config.md)
+##### [Change device password](storsimple-change-passwords.md)##### [Modify device configuration](storsimple-modify-device-config.md)
 ##### [Turn on and turn off](storsimple-turn-device-on-or-off.md)
 ##### [Configure MPIO on Windows Server host](storsimple-configure-mpio-windows-server.md)
 ##### [Configure MPIO on linux host](storsimple-configure-mpio-on-linux.md)
@@ -120,7 +119,7 @@
 
 ### Monitor
 #### [Using service dashboard](storsimple-service-dashboard.md)
-#### [Using device dashbaord](storsimple-device-dashboard.md)
+#### [Using device dashboard](storsimple-device-dashboard.md)
 #### [Using service alerts](storsimple-manage-alerts.md)
 #### [Using hardware status](storsimple-monitor-hardware-status.md)
 #### [Using monitoring LEDs](storsimple-monitoring-indicators.md)
@@ -173,7 +172,7 @@
 ## [Marketing blog](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Support blog](http://blogs.msdn.com/b/storsimple/)
-## [Third party notices](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Third-party notices](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 
 
 
