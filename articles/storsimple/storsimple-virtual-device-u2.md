@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2016
+ms.date: 11/16/2016
 ms.author: alkohli
 
 ---
