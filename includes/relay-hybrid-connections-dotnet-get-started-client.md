@@ -6,9 +6,13 @@
 2. Click the **Browse** tab, then search for "Microsoft.Azure.Relay" and select the **Microsoft Azure Relay** item. Click **Install** to complete the installation, then close this dialog box.
 
 ### Write some code to send messages
-1. Add the following `using` statement to the top of the Program.cs file.
+1. Add the following `using` statements to the top of the Program.cs file.
    
     ```cs
+    using System;
+    using System.IO;
+    using System.Threading;
+    using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
 2. Add constants to the `Program` class for the Hybrid Connection connection details. Replace the placeholders in brackets with the proper values that were obtained when creating the Hybrid Connection.
