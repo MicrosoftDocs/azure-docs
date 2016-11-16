@@ -18,11 +18,11 @@ ms.author: padmavc
 
 ---
 # Create a query in OMS portal 
-This walkthrough detail steps to create a query that filters the data for a specific interchange control number
+Steps to create a query that filters the data for a specific interchange control number
 
 ## Prerequisites
 
-Enable diagnostics for your [Integration Account](app-service-logic-monitor-b2b-message.md), [logic apps](app-service-logic-create-a-logic-app.md) that has X12 or EDIFACT connectors for richer details and debugging.  Follow the steps [here](app-service-logic-track-b2b-messages-omsportal.md) to publish diagnostic data to OMS portal.
+Enable diagnostics for your [Integration Account](app-service-logic-monitor-b2b-message.md), [logic apps](app-service-logic-create-a-logic-app.md) that have X12 or EDIFACT connectors for richer details and debugging.  Follow the steps [here](app-service-logic-track-b2b-messages-omsportal.md) to publish diagnostic data to OMS portal.
 
 ## Create a query to search data for a specific interchange control number
 
@@ -38,16 +38,16 @@ Enable diagnostics for your [Integration Account](app-service-logic-monitor-b2b-
 4. Select the control number that you want to filter data and click **Apply**  
 ![Select control number](./media/app-service-logic-track-b2b-messages-omsportal-query-to-filter-by-icn/query3.png)
 
-5. You can find the query created to filter data for the selected control numbber   
+5. You can find the query created to filter data for the selected control number   
 ![Select control number](./media/app-service-logic-track-b2b-messages-omsportal-query-to-filter-by-icn/query4.png)
 
 6. Give a name to the query and save it   
 ![Select control number](./media/app-service-logic-track-b2b-messages-omsportal-query-to-filter-by-icn/query5.png) 
 
-7. Select **favorites** to viwe the query and use in future seach  
+7. Select **favorites** to view the query and use in future search  
 ![Select control number](./media/app-service-logic-track-b2b-messages-omsportal-query-to-filter-by-icn/query7.png)
 
-8. The query can be updated to seach for a new interchange control number  
+8. The query can be updated to search for a new interchange control number  
 ![Select control number](./media/app-service-logic-track-b2b-messages-omsportal-query-to-filter-by-icn/query6.png) 
 
 
