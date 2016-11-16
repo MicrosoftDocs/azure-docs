@@ -169,7 +169,7 @@ You can also use the following migration strategies:
 We describe each of these below:
 
 ### Deploy a SQL Server Database to a Microsoft Azure VM wizard
-The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple and recommended way to move data from an on-premises SQL Server instance to SQL Server on an Azure VM. For detailed steps as well as a discussion of other alternatives, see [Migrate a database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-windows-migrate-sql.md).
+The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple and recommended way to move data from an on-premises SQL Server instance to SQL Server on an Azure VM. For detailed steps as well as a discussion of other alternatives, see [Migrate a database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="export-flat-file"></a>Export to Flat File
 Various methods can be used to bulk export data from an On-Premises SQL Server as documented in the [Bulk Import and Export of Data (SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) topic. This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import.
@@ -205,9 +205,9 @@ A screenshot of the Database back up/restore options from SQL Server Management 
 ![SQL Server Import Tool][1]
 
 ## Resources
-[Migrate a Database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-windows-migrate-sql.md)
+[Migrate a Database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[SQL Server on Azure Virtual Machines overview](../virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md)
+[SQL Server on Azure Virtual Machines overview](../virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png

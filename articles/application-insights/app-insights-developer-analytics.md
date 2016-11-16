@@ -1,4 +1,4 @@
-﻿---
+---
 title: Developer Analytics
 description: DevOps with Visual Studio, Application Insights, and HockeyApp
 author: alancameronwills
@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Developer Analytics with Application Insights and HockeyApp
-*Application Insights is in preview.*
+
 
 Many projects operate a rapid [DevOps](https://en.wikipedia.org/wiki/DevOps) cycle. They build and distribute their applications, get feedback about how it performs and what users do with it, and then use that knowledge to plan further development cycles. 
 

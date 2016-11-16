@@ -125,6 +125,11 @@ Get all the requests response time > 5s.  Times are represented in ticks: 10 000
 !["Response time":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
 ## Search the data
+
+> [!NOTE]
+> To write more complex queries, open [**Analytics**](app-insights-analytics-tour.md) from the top of the Search blade.
+> 
+
 You can search for terms in any of the property values. This is particularly useful if you have written [custom events][track] with property values. 
 
 You might want to set a time range, as searches over a shorter range are faster. 
@@ -151,6 +156,8 @@ Here are the search expressions you can use:
 | apple NOT banana<br/>apple -banana |Find events that contain one term but not the other.<br/>Short form. |
 | app* AND banana -(grape pear) |Logical operators and bracketing. |
 | "Metric": 0 TO 500<br/>"Metric" : 500 TO * |Find events that contain the named measurement within the value range. |
+
+
 
 ## Save your search
 When you've set all the filters you want, you can save the search as a favorite. If you work in an organizational account, you can choose whether to share it with other team members.
@@ -179,6 +186,7 @@ Up to 500 events per second from each application. Events are retained for seven
 We don't log the POST data automatically, but you can use [TrackTrace or log calls][trace]. Put the POST data in the message parameter. You can't filter on the message the way you can properties, but the size limit is longer.
 
 ## <a name="add"></a>Next steps
+* [Write complex queries in Analytics](app-insights-analytics-tour.md)
 * [Send logs and custom telemetry to Application Insights][trace]
 * [Set up availability and responsiveness tests][availability]
 * [Troubleshooting][qna]
