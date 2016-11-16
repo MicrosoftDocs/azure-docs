@@ -279,19 +279,21 @@ However, if you are interested in implementation details, you can find the sourc
 Now all inputs are defined.
 
 ## Define output
-1. Click the **OUTPUT** tab and then click **ADD AN OUTPUT**.
+1. On the Stream Analytics job overview pane, select **OUTPUTS**.
    
-    ![The Output tab and "Add an output" option](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image37.jpg)
-2. Click **SQL Database**.
+    ![The Output tab and "Add an output" option](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image37.png)
+2. Click **Add**.
+3. Set the **Output alias** to 'output' and then **Sink** to **SQL database**.
 3. Select the server name that was used in the “Connect to Database from Visual Studio” section of the article. The database name is **TollDataDB**.
 4. Enter **tolladmin** in the **USERNAME** field, **123toll!** in the **PASSWORD** field, and **TollDataRefJoin** in the **TABLE** field.
    
-    ![SQL Database settings](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.jpg)
+    ![SQL Database settings](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.png)
+5. Click **Create**.
 
 ## Azure Stream analytics query
 The **QUERY** tab contains a SQL query that transforms the incoming data.
 
-![A query added to the Query tab](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image39.jpg)
+![A query added to the Query tab](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image39.png)
 
 This tutorial attempts to answer several business questions that are related to toll data and constructs Stream Analytics queries that can be used in Azure Stream Analytics to provide a relevant answer.
 
@@ -325,14 +327,16 @@ This folder contains the following files:
 
 ## Question 1: Number of vehicles entering a toll booth
 1. Open the Azure portal and go to your created Azure Stream Analytics job. Click the **QUERY** tab and paste query from the previous section.
-   
-    ![Query pasted in the Query tab](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image40.png)
-2. To validate this query against sample data, click the **Test** button. In the dialog box that opens, go to Entry.json, a file that has sample data from the **EntryTime** event stream.
-   
+
+2. To validate this query against sample data, upload the data into the EntryStream input by clicking the ... symbol and selecting **Upload sample data from file**.
+
     ![Screenshot of the Entry.json file](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image41.png)
+3. In the pane that appears select the file (Entry.json) on your local machine and click **OK**. The **Test** icon will now illuminate and be clickable.
+   
+    ![Screenshot of the Entry.json file](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image42.png)
 3. Validate that the output of the query is as expected:
    
-    ![Results of the test](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image42.jpg)
+    ![Results of the test](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image43.png)
 
 ## Question 2: Report total time for each car to pass through the toll booth
 The average time that's required for a car to pass through the toll helps to assess the efficiency of the process and the customer experience.
@@ -345,12 +349,10 @@ To find the total time, you need to join the EntryTime stream with the ExitTime 
     ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
     AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
-1. To test this query, update the query on the **QUERY** tab of your job:
+1. To test this query, update the query on the **QUERY** for the job. Add the test file for **ExitStream** just like **EntryStream** was entered above.
    
-    ![Updated query in the Query tab](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image43.jpg)
-2. Click **Test** and specify sample input files for EntryTime and ExitTime.
-   
-    ![Screenshot of selected input files](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image44.png)
+2. Click **Test**.
+
 3. Select the check box to test the query and view the output:
    
     ![Output of the test](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image45.png)
