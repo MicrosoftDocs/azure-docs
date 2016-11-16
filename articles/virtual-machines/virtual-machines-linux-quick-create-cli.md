@@ -7,6 +7,7 @@ author: squillace
 manager: timlt
 editor: 
 
+ms.assetid: 82005a05-053d-4f52-b0c2-9ae2e51f7a7e
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: hero-article
