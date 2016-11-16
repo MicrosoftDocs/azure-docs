@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 11/15/2016
 ms.author: curtand
 
 ---
@@ -177,7 +177,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| ![Check][12] |![Check][12] | | |
+| |![Check][12] | ![Check][12] | |
 
 **More details:**
 
@@ -216,7 +216,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| ![Check][12] |![Check][12] | | |
+| |![Check][12] | ![Check][12] | |
 
 **More details:**
 
@@ -229,7 +229,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| ![Check][12] |![Check][12] |![Check][12] | |
+| |![Check][12] |![Check][12] | ![Check][12] |
 
 **More details:**
 
@@ -245,7 +245,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+|  | | ![Check][12]|  |
 
 #### Self-Service Password Reset/Change/Unlock with on-premises write-back
 **Type:** Premium Features
@@ -254,7 +254,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+|  | | ![Check][12] | |
 
 #### Multi-Factor Authentication (Cloud and On-premises (MFA Server))
 **Type:** Premium Features
@@ -263,7 +263,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] |Limited to cloud only for Office 365 Apps | |
+| | |![Check][12] |Limited to cloud only for Office 365 Apps |
 
 **More details:**
 
@@ -279,7 +279,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+| | |![Check][12] | |
 
 #### Cloud App Discovery
 **Type:** Premium Features
@@ -288,7 +288,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+|  | | ![Check][12] | |
 
 **More details:**
 
@@ -301,7 +301,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+|  |  | ![Check][12] | |
 
 **More details:**
 
@@ -314,21 +314,21 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+|  | | ![Check][12] | |
 
 #### Identity Protection
 **Type:** Premium Features
 
 | Free Edition | Basic Edition | Premium P2 Edition | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+|  | | ![Check][12] | |
 
 #### Privileged Identity Management
 **Type:** Premium Features
 
 | Free Edition | Basic Edition | Premium P2 Edition | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+|  |  | ![Check][12] | |
 
 ## Azure Active Directory Join – Windows 10 only  related features
 #### Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery
@@ -348,7 +348,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+|  |  | ![Check][12] | |
 
 #### Enterprise State Roaming
 **Type:** Azure Active Directory Join – Windows 10 only  related features
@@ -357,7 +357,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] | | |
+|  | | ![Check][12] | |
 
 **More details:**
 
