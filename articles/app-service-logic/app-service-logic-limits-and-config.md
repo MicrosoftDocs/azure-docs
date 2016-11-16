@@ -110,8 +110,8 @@ These are limits for artifacts added to integration Account
 
 These are the limits for B2B protocols
 
-|Name|Limit|
-|----|----|
+|Name|Limit|Notes|
+|----|----|----|
 |AS2|50MB|Applicable to decode and encode|
 |X12|50MB|Applicable to decode and encode|
 |EDIFACT|50MB|Applicable to decode and encode|
