@@ -126,7 +126,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	$myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
 	```
 
-## <a name = "OsConfig"></a>Add IP addresses to a VM operating system
+## <a name="OsConfig"></a>Add IP addresses to a VM operating system
 
 Connect and login to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the following steps for your VM operating system:
 
@@ -269,7 +269,10 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 You can add additional private and public IP addresses to an existing NIC by completing the steps that follow. The examples build upon the [scenario](#Scenario) described in this article.
 
 1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) article.
-2. Change the "values" of the following $Variables to the name of the NIC you want to add IP address to and the resource group and location the NIC exists in:
+2. Register for the preview by sending an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not attempt to complete the remaining steps:
+	- Until you receive an e-mail notifying you that you've been accepted into the preview
+	- Without following the instructions in the email you receive
+3. Change the "values" of the following $Variables to the name of the NIC you want to add IP address to and the resource group and location the NIC exists in:
 
 	```powershell
 	$NICname         = "myNIC"
@@ -282,12 +285,12 @@ You can add additional private and public IP addresses to an existing NIC by com
 	```powershell
 	Get-AzureRmNetworkInterface | Format-Table Name, ResourceGroupName, Location
 	```
-3. Create a variable and set it to the existing NIC by typing the following command:
+4. Create a variable and set it to the existing NIC by typing the following command:
 
 	```powershell
 	$myNIC = Get-AzureRmNetworkInterface -Name $NICname -ResourceGroupName $myResourceGroup
 	```
-4. In the following commands, change *myVNet* and *mySubnet* to the names of the VNet and subnet the NIC is connected to. Enter the commands to retrieve the VNet and subnet objects the NIC is connected to:
+5. In the following commands, change *myVNet* and *mySubnet* to the names of the VNet and subnet the NIC is connected to. Enter the commands to retrieve the VNet and subnet objects the NIC is connected to:
 
 	```powershell
 	$myVnet = Get-AzureRMVirtualnetwork -Name myVNet -ResourceGroupName $myResourceGroup
@@ -304,7 +307,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 
 	In this output, *myVnet* is the VNet and *mySubnet* is the subnet the NIC is connected to.
 
-5. Complete the steps in one of the following sections, based on your requirements:
+6. Complete the steps in one of the following sections, based on your requirements:
 
 	**Add a private IP address**
 	
@@ -368,16 +371,16 @@ You can add additional private and public IP addresses to an existing NIC by com
 	Set-AzureRmNetworkInterfaceIpConfig -Name IpConfig-3 -NetworkInterface $mynic -Subnet $Subnet -PublicIpAddress $myPublicIp3
 	```
 
-6. Set the NIC with the new IP configuration by entering the following command:
+7. Set the NIC with the new IP configuration by entering the following command:
 
 	```powershell
 	Set-AzureRmNetworkInterface -NetworkInterface $myNIC
 	```
 
-7. View the private IP addresses and the public IP address resources assigned to the NIC by entering the following command:
+8. View the private IP addresses and the public IP address resources assigned to the NIC by entering the following command:
 
 	```powershell   
 	$myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
 	```
 
-8. Add the IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#OsConfig) section of this article.
+9. Add the IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#OsConfig) section of this article.
