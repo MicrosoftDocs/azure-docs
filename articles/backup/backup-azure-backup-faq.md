@@ -263,7 +263,7 @@ Unfortunately no, at this time you can't migrate the contents of a Backup vault 
 ## Do Recovery Services vaults support classic VMs or Resource Manager based VMs? <br/>
 Recovery Services vaults support both models.  You can back up a classic VM (created in the Classic portal), or a Resource Manager VM (created in the Azure portal) to a Recovery Services vault.
 
-## I have backed up my classic VMs in backup vault. Can I migrate my VMs from classic mode to Resource Manager mode and protect them in a Recovery Services vault?
+## I have backed up my classic VMs in a backup vault. Can I migrate my VMs from classic mode to Resource Manager mode and protect them in a Recovery Services vault?
 Classic VM recovery points in a backup vault don't automatically migrate to a Recovery Services vault when you move the VM from classic to Resource Manager mode. Follow these steps to transfer your VM backups:
 
 1. In the backup vault, go to the **Protected Items** tab and select the VM. Click on [Stop Protection](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
