@@ -1,4 +1,4 @@
-﻿---
+---
 title: Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery in the Azure portal | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of on-premises VMware virtual machines and Windows/Linux physical servers to Azure using the Azure portal
 services: site-recovery
@@ -636,7 +636,8 @@ We recommend that you verify the properties of the source machine. Remember that
      * If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
      * If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.
      * For example if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.     
-   * If the VM has multiple network adapters they will all connect to the same network.
+   * If the virtual machine has multiple network adapters they will all connect to the same network.
+   * If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
 
      ![Enable replication](./media/site-recovery-vmware-to-azure/test-failover4.png)
 4. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
