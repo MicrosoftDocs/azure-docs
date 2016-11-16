@@ -18,8 +18,8 @@
 ### [App/User Specific Orchestrator in DC/OS](container-service-application-specific-marathon.md)
 ### [Monitor with Datadog (DC/OS)](container-service-monitoring.md)
 ### [Monitor with Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
-## Manage with Docker Swarm
-### [Docker Swarm Overview](container-service-docker-swarm.md)
+## [Manage with Kubernetes](container-service-kubernetes-walkthrough.md)
+## [Manage with Docker Swarm](container-service-docker-swarm.md)
 
 # Reference
 ## [REST API](/rest/api/compute/containerservices)
