@@ -1,4 +1,4 @@
----
+ï»¿---
 title: Use the Azure Data Lake Tools for Visual Studio Code | Microsoft Docs
 description: 'Learn how to use the Azure Data Lake Tools for Visual Studio Code to create, test, and run U-SQL scripts. '
 services: data-lake-analytics
@@ -7,7 +7,6 @@ author: mumian
 manager: jhubbard
 editor: cgronlun
 
-ms.assetid: e343d077-98ab-4895-b5c3-65c05ed4103a
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -97,7 +96,7 @@ After you have installed the prerequisites, you can install the Data Lake Tools 
 
     ![Data Lake Tools for Visual Studio Code install](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-install-extension.png)
 
-3.	Click **…**, and then click **Install from VSIX**.
+3.	Click **â€¦**, and then click **Install from VSIX**.
 4.	Specify the Data Lake Tools for VSCode file, and then click **Open**. Wait a couple of minutes, you shall see a tip asking you to restart.   
 5.	Click **Restart Now**. You shall see **USQL-Language-Support** in the Extensions pane.
 
@@ -162,7 +161,7 @@ A compute Data Lake Analytics account is needed for compiling and running U-SQL 
 
 ### Use code-behind file
 
-Code-behind file is a CSharp file associate with one U-SQL script. You can define script dedicated UDO/UDA/UDT/UDF in the code-behind file. The UDO/UDA/UDT/UDF can be directly used in the script without register the assembly first. Code-behind file is put in the same folder as its peering U-SQL script file. If the script is named xxx.usql, the code-behind is named as xxx.usql.cs. Deleting the code-behind file manually disables the code-behind feature for its associated U-SQL script. For more information about writing customer code for U-SQL script, see [Writing and Using Custom Code in U-SQL – User-Defined Functions]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
+Code-behind file is a CSharp file associate with one U-SQL script. You can define script dedicated UDO/UDA/UDT/UDF in the code-behind file. The UDO/UDA/UDT/UDF can be directly used in the script without register the assembly first. Code-behind file is put in the same folder as its peering U-SQL script file. If the script is named xxx.usql, the code-behind is named as xxx.usql.cs. Deleting the code-behind file manually disables the code-behind feature for its associated U-SQL script. For more information about writing customer code for U-SQL script, see [Writing and Using Custom Code in U-SQL â€“ User-Defined Functions]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
 
 To support code-behind, a working folder must be opened. 
 
@@ -206,7 +205,7 @@ You can also right-click a script file, and then click **USQL: Submit Job** to s
 
 After submitting a U-SQL job, submission logs is shown in output window in VSCode. If the submission is successful, the job URL is shown as well. You can open the job URL in a web browser to track real-time job status.
 
-To enable output job details: set ‘jobInformationOutputPath’ in the **vscode for u-sql_settings.json** file.
+To enable output job details: set â€˜jobInformationOutputPathâ€™ in the **vscode for u-sql_settings.json** file.
 
  
 
