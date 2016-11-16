@@ -37,7 +37,7 @@ These are limits for a single HTTP request and/or connector call
 
 |Name|Limit|Notes|
 |----|----|----|
-|Message size|50 MB|Some connectors and APIs may not support 50MB.  Request trigger supports up to 25MB|
+|Message size|50 MB|Some connectors and APIs may not support 50MB |
 |Expression evaluation limit|131,072 characters|`@concat()`, `@base64()`, `string` cannot be longer than this|
 
 #### Retry policy
@@ -96,6 +96,25 @@ These are limits for a single logic app definition.
 |`description` length limit|256||
 |`parameters` limit|50||
 |`outputs` limit|10||
+
+### Integration Account limits
+
+These are limits for artifacts added to integration Account
+
+|Name|Limit|Notes|
+|----|----|----|
+|Schema|8MB|You can use [blob URI](app-service-logic-enterprise-integration-schemas.md) to upload files larger than 2 MB |
+|Map (XSLT file)|2MB| |
+
+### B2B protocols (AS2, X12, EDIFACT) message size
+
+These are the limits for B2B protocols
+
+|Name|Limit|
+|----|----|
+|AS2Encode/Decode|50MB|
+|X12Encode/Decode|50MB|
+|EDIFACTEncode/Decode|50MB|
 
 ## Configuration
 
