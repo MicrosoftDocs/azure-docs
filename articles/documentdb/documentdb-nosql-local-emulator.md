@@ -63,6 +63,7 @@ Additionally, just as the Azure DocumentDB service, the DocumentDB Emulator supp
 
 ## Start and initialize the DocumentDB Emulator
 
+<<<<<<< HEAD
 To start the Azure DocumentDB Emulator, select the Start button or press the Windows key. Begin typing **DocumentDB Emulator**, and select the emulator from the list of applications. 
 
 ![Select the Start button or press the Windows key, begin typing **DocumentDB Emulator**, and select the emulator from the list of applications](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-start.png)
@@ -113,7 +114,7 @@ To view the list of options, type `DocumentDB.LocalEmulator.exe /?` at the comma
 </tr>
 <tr>
   <td>Help</td>
-  <td>Displays the list of command-line arguments</td>
+  <td>Displays the list of command line arguments</td>
   <td>DocumentDB.LocalEmulator.exe /?</td>
   <td></td>
 </tr>
@@ -130,16 +131,16 @@ To view the list of options, type `DocumentDB.LocalEmulator.exe /?` at the comma
   <td>&lt;port&gt;: Single port number</td>
 </tr>
 <tr>
-  <td>Mongoport</td>
-  <td>Specifies the port number to use for MongoDB comptability API. Default is 10250</td>
+  <td>MongoPort</td>
+  <td>Specifies the port number to use for MongoDB compatibility API. Default is 10250</td>
   <td>DocumentDB.LocalEmulator.exe /mongoport=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: Single port number</td>
 </tr>
 <tr>
-  <td>Directports</td>
-  <td>Specifies the ports to use for direct connectivity.  Defaults are 10251,10252,10253,10254</td>
+  <td>DirectPorts</td>
+  <td>Specifies the ports to use for direct connectivity. Defaults are 10251,10252,10253,10254</td>
   <td>DocumentDB.LocalEmulator.exe /directports:&lt;directports&gt;</td>
-  <td>&lt;directports&gt;:Comma delimited list of 4 ports</td>
+  <td>&lt;directports&gt;: Comma delimited list of 4 ports</td>
 </tr>
 <tr>
   <td>Key</td>

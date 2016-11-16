@@ -47,6 +47,7 @@
 ### [Supercharge your account](documentdb-supercharge-your-account.md)
 
 ## Develop
+### [DocumentDB Emulator](documentdb-nosql-local-emulator.md)
 ### [SQL query](documentdb-sql-query.md)
 ### [Stored procedures, triggers, and UDFs](documentdb-programming.md)
 ### [Performance testing](documentdb-performance-testing.md)
