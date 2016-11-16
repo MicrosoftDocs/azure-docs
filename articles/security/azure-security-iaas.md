@@ -104,7 +104,8 @@ The site-to-site VPN option may be most attractive in cases where you are hostin
 
 Alternatively, the [point to site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md) option could be used in situations where you want to manage systems that don't need access to on-premise resources. Those systems can be isolated in their own Azure network and administrators could VPN into the azure from their administrative workstation.
 
->[!NOTE] Either VPN option would allow you to reconfigure the ACLs on the NSGs to not allow access to management endpoints from the internet.
+>[!NOTE]
+Either VPN option would allow you to reconfigure the ACLs on the NSGs to not allow access to management endpoints from the internet.
 
 Another option worth considering is a [Remote Desktop Services](../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md) deployment. You could use this remote desktop services deployment to securely connect over HTTPs to remote desktop servers while applying more granular controls to those connections.
 
