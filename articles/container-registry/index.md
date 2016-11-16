@@ -2,9 +2,9 @@
 layout: LandingPage
 ---
 
-#Azure Container Registry Documentation
+# Azure Container Registry Documentation
 
-Azure Container Registry (preview) is a private registry for hosting container images. Using the Azure Container Registry, you can store Docker-formatted images for all types of container deployments. Azure Container Registry integrates well with orchestrators hosted in Azure Container Service, including Docker Swarm, DC/OS, and Kubernetes. You can benefit from using familiar tooling capable of working with the open-source Docker Registry v2.
+Azure Container Registry (preview) is a private registry for hosting container images. Using the Azure Container Registry, you can store Docker-formatted images for all types of container deployments. Azure Container Registry integrates well with orchestrators hosted in Azure Container Service, including Docker Swarm, DC/OS, and Kubernetes. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -36,7 +36,7 @@ Azure Container Registry (preview) is a private registry for hosting container i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a registry with the portal</h3>
+                        <h3>Get started creating a registry with the portal</h3>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@ Azure Container Registry (preview) is a private registry for hosting container i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a registry with the CLI</h3>
+                        <h3>Get started creating a registry with the CLI</h3>
                     </div>
                 </div>
             </div>
@@ -65,12 +65,12 @@ Azure Container Registry (preview) is a private registry for hosting container i
 
 ---
 
-##Reference
+## Reference
 
-###CLI
+### CLI
 [CLI Reference](/cli/azure/acr)
 
-###REST 
+### REST 
 [REST API Reference](/rest/api/containerregistry)  
 
 
