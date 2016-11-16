@@ -24,9 +24,10 @@ Continuous Export is available in the [Enterprise pricing model](http://azure.mi
 Before you set up continuous export, there are some alternatives you might want to consider:
 
 * [The Export button](app-insights-metrics-explorer.md#export-to-excel) at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet. 
+
 * [Analytics](app-insights-analytics.md) provides a powerful query language for telemetry, and also can export results.
 * If you're looking to [explore your data in Power BI](app-insights-export-power-bi.md), you can do that without using Continuous Export.
-* The [Data Access API](https://dev.applicationinsights.io/) lets you write code to query your app's telemetry.
+* The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically. 
 
 After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](app-insights-data-retention-privacy.md). 
 
