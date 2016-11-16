@@ -23,8 +23,8 @@ In addition, you can [set webhooks to automate your response to an alert](../mon
 
 > [!NOTE]
 > If you want to create resources and alerts at the same time, consider [using an Azure Resource Manager template](app-insights-powershell.md).
-> 
-> 
+>
+>
 
 ## One-time setup
 If you haven't used PowerShell with your Azure subscription before:
@@ -124,9 +124,9 @@ The metrics are sent by different telemetry modules:
 | Metric group | Collector module |
 | --- | --- |
 | basicExceptionBrowser,<br/>clientPerformance,<br/>view |[Browser JavaScript](app-insights-javascript.md) |
-| performanceCounter |[Performance](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3) |
-| remoteDependencyFailed |[Dependency](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1) |
-| request,<br/>requestFailed |[Server request](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2) |
+| performanceCounter |[Performance](app-insights-configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[Dependency](app-insights-configuration-with-applicationinsights-config.md) |
+| request,<br/>requestFailed |[Server request](app-insights-configuration-with-applicationinsights-config.md) |
 
 ## Webhooks
 You can [automate your response to an alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure will call a web address of your choice when an alert is raised.
@@ -136,4 +136,3 @@ You can [automate your response to an alert](../monitoring-and-diagnostics/insig
 * [Create Application Insights and web test resources from templates](app-insights-powershell.md)
 * [Automate coupling Microsoft Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Automate your response to an alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
-

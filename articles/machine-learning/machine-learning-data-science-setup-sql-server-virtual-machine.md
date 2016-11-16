@@ -161,7 +161,7 @@ If your VM image does not include data disks, i.e., disks other than C drive (OS
 > 
 > 
 
-To attach additional data disks, follow the steps described in [How to Attach a Data Disk to a Windows Virtual Machine](../virtual-machines/virtual-machines-windows-classic-attach-disk.md), which will guide you through:
+To attach additional data disks, follow the steps described in [How to Attach a Data Disk to a Windows Virtual Machine](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), which will guide you through:
 
 1. Attaching empty disk(s) to the virtual machine provisioned in earlier steps
 2. Initialization of the new disk(s) in the virtual machine

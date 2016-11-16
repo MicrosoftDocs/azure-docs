@@ -28,8 +28,6 @@ This topic describes how to list, upload, and download blobs using the Python AP
 
 For more information about using the Python API, see [How to Use the Blob Storage Service from Python](../storage/storage-python-how-to-use-blob-storage.md).
 
-Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
-
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 > [!NOTE]

@@ -1,4 +1,4 @@
----
+﻿---
 title: What is Azure Data Catalog? | Microsoft Docs
 description: This article provides an overview of Microsoft Azure Data Catalog, including its features and the problems it is designed to address. Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources.
 services: data-catalog

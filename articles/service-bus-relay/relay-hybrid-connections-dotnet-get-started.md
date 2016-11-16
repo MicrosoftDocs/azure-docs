@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
 ms.service: service-bus
 ms.devlang: tbd
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/28/2016

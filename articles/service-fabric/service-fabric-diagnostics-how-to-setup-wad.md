@@ -35,7 +35,7 @@ You'll use these tools to perform some of the operations in this document:
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Azure PowerShell](../powershell-install-configure.md)
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
-* [Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+* [Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Log sources that you might want to collect
 * **Service Fabric logs**: Emitted from the platform to standard Event Tracing for Windows (ETW) and EventSource channels. Logs can be one of several types:
@@ -207,12 +207,12 @@ For example, if your event source is named My-Eventsource, add the following cod
         }
 ```
 
-To collect performance counters or event logs, modify the Resource Manager template by using the examples provided in [Create a Windows virtual machine with monitoring and diagnostics by using an Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md). Then, republish the Resource Manager template.
+To collect performance counters or event logs, modify the Resource Manager template by using the examples provided in [Create a Windows virtual machine with monitoring and diagnostics by using an Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Then, republish the Resource Manager template.
 
 ## Next steps
 To understand in more detail what events you should look for while troubleshooting issues, see the diagnostic events emitted for [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) and [Reliable Services](service-fabric-reliable-services-diagnostics.md).
 
 ## Related articles
-* [Learn how to collect performance counters or logs by using the Diagnostics extension](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+* [Learn how to collect performance counters or logs by using the Diagnostics extension](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Service Fabric solution in Log Analytics](../log-analytics/log-analytics-service-fabric.md)
 

@@ -46,7 +46,7 @@ Different VMs can share the same physical hardware. In an Azure datacenter, a si
 Similarly, VMs can be taken down by the [Azure Fabric Controller](https://azure.microsoft.com/documentation/videos/fabric-controller-internals-building-and-updating-high-availability-apps/) to perform planned maintenance and operating system upgrades. Azure allocates VMs to update domains. When a planned maintenance event occurs, only VMs in a single update domain are effected at any one time. VMs in other update domains are left running until the VMs in the update domain being updated are brought back online. Therefore, you also need to ensure that VMs hosting nodes and their replicas belong to different update domains wherever possible.
 
 > [!NOTE]
-> For more information about fault domains and update domains, see [Manage the availability of virtual machines](../virtual-machines/virtual-machines-linux-manage-availability.md).
+> For more information about fault domains and update domains, see [Manage the availability of virtual machines](../virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 

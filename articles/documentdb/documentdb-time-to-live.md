@@ -1,4 +1,4 @@
----
+﻿---
 title: Expire data in DocumentDB with time to live | Microsoft Docs
 description: With TTL, Microsoft Azure DocumentDB provides the ability to have documents automatically purged from the system after a period of time.
 services: documentdb

@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy and manage backup for Azure VMs using PowerShell | Microsoft Docs
 description: Learn how to deploy and manage Azure Backup using PowerShell
 services: backup
@@ -21,8 +21,8 @@ ms.author: markgal;trinadhk;jimpark
 > [!div class="op_single_selector"]
 > * [Resource Manager](backup-azure-vms-automation.md)
 > * [Classic](backup-azure-vms-classic-automation.md)
-> 
-> 
+>
+>
 
 This article shows you how to use Azure PowerShell for backup and recovery of Azure VMs. Azure has two different deployment models for creating and working with resources: Resouce Manager and Classic. This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
@@ -30,9 +30,9 @@ This article shows you how to use Azure PowerShell for backup and recovery of Az
 This article provides information specific to the PowerShell cmdlets used to back up virtual machines. For introductory information about protecting Azure VMs, please see [Plan your VM backup infrastructure in Azure](backup-azure-vms-introduction.md).
 
 > [!NOTE]
-> Before you start, read the [prerequisites](backup-azure-vms-prepare.md) required to work with Azure Backup, and the [limitations](backup-azure-vms-prepare.md#limitations) of the current VM backup solution.
-> 
-> 
+> Before you start, read the [prerequisites](backup-azure-vms-prepare.md) required to work with Azure Backup, and the [limitations](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm) of the current VM backup solution.
+>
+>
 
 To use PowerShell effectively, take a moment to understand the hierarchy of objects and from where to start.
 
@@ -85,8 +85,8 @@ The following setup and registration tasks can be automated with PowerShell:
 ### Create a backup vault
 > [!WARNING]
 > For customers using Azure Backup for the first time, you need to register the Azure Backup provider to be used with your subscription. This can be done by running the following command: Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 You can create a new backup vault using the **New-AzureRmBackupVault** cmdlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
@@ -99,8 +99,8 @@ You can get a list of all the backup vaults in a given subscription using the **
 
 > [!NOTE]
 > It is convenient to store the backup vault object into a variable. The vault object is needed as an input for many Azure Backup cmdlets.
-> 
-> 
+>
+>
 
 ### Registering the VMs
 The first step towards configuring backup with Azure Backup is to register your machine or VM with an Azure Backup vault. The **Register-AzureRmBackupContainer** cmdlet takes the input information of an Azure IaaS virtual machine and registers it with the specified vault. The register operation associates the Azure virtual machine with the backup vault and tracks the VM through the backup lifecycle.
@@ -125,8 +125,8 @@ DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:
 
 > [!NOTE]
 > The timezone of the BackupTime field in PowerShell is UTC. However, when the backup time is shown in the Azure portal, the timezone is aligned to your local system along with the UTC offset.
-> 
-> 
+>
+>
 
 A backup policy is associated with at least one retention policy. The retention policy defines how long a recovery point is kept with Azure Backup. The **New-AzureRmBackupRetentionPolicy** cmdlet creates PowerShell objects that hold retention policy information. These retention policy objects are used as inputs to the *New-AzureRmBackupProtectionPolicy* cmdlet, or directly with the *Enable-AzureRmBackupProtection* cmdlet.
 
@@ -163,8 +163,8 @@ testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01
 
 > [!NOTE]
 > The timezone of the StartTime and EndTime fields shown in PowerShell is UTC. However, when the similar information is shown in the Azure portal, the timezone is aligned to your local system clock.
-> 
-> 
+>
+>
 
 ### Monitoring a backup job
 Most long-running operations in Azure Backup are modelled as a job. This makes it easy to track progress without having to keep the Azure portal open at all times.
@@ -216,8 +216,8 @@ There is a key difference between the restore operations done through the Azure 
 
 > [!WARNING]
 > The Restore-AzureRmBackupItem does not create a VM. It only restores the disks to the specified storage account. This is not the same behavior you will experience in the Azure portal.
-> 
-> 
+>
+>
 
 ```
 PS C:\> $restorejob = Restore-AzureRmBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp[0]
@@ -239,40 +239,40 @@ PS C:\> $details = Get-AzureRmBackupJobDetails -Job $restorejob
 Building the VM out of the restored disks can be done using the older Azure Service Management PowerShell cmdlets, the new Azure Resource Manager templates, or even using the Azure portal. In a quick example, we will show how to get there using the Azure Service Management cmdlets.
 
 ```
- $properties  = $details.Properties
+$properties  = $details.Properties
 
- $storageAccountName = $properties["Target Storage Account Name"]
- $containerName = $properties["Config Blob Container Name"]
- $blobName = $properties["Config Blob Name"]
+$storageAccountName = $properties["Target Storage Account Name"]
+$containerName = $properties["Config Blob Container Name"]
+$blobName = $properties["Config Blob Name"]
 
- $keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
- $storageAccountKey = $keys.Primary
- $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+$keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
+$storageAccountKey = $keys.Primary
+$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
 
- $destination_path = "C:\Users\admin\Desktop\vmconfig.xml"
- Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path -Context $storageContext
+$destination_path = "C:\Users\admin\Desktop\vmconfig.xml"
+Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path -Context $storageContext
 
 
 $obj = [xml](((Get-Content -Path $destination_path -Encoding UniCode)).TrimEnd([char]0x00))
- $pvr = $obj.PersistentVMRole
- $os = $pvr.OSVirtualHardDisk
- $dds = $pvr.DataVirtualHardDisks
- $osDisk = Add-AzureDisk -MediaLocation $os.MediaLink -OS $os.OS -DiskName "panbhaosdisk"
- $vm = New-AzureVMConfig -Name $pvr.RoleName -InstanceSize $pvr.RoleSize -DiskName $osDisk.DiskName
+$pvr = $obj.PersistentVMRole
+$os = $pvr.OSVirtualHardDisk
+$dds = $pvr.DataVirtualHardDisks
+$osDisk = Add-AzureDisk -MediaLocation $os.MediaLink -OS $os.OS -DiskName "panbhaosdisk"
+$vm = New-AzureVMConfig -Name $pvr.RoleName -InstanceSize $pvr.RoleSize -DiskName $osDisk.DiskName
 
- if (!($dds -eq $null))
- {
-     foreach($d in $dds.DataVirtualHardDisk)
-      {
-         $lun = 0
-         if(!($d.Lun -eq $null))
-         {
-              $lun = $d.Lun
-         }
-         $name = "panbhadataDisk" + $lun
-     Add-AzureDisk -DiskName $name -MediaLocation $d.MediaLink
-     $vm | Add-AzureDataDisk -Import -DiskName $name -LUN $lun
+if (!($dds -eq $null))
+{
+    foreach($d in $dds.DataVirtualHardDisk)
+    {
+        $lun = 0
+        if(!($d.Lun -eq $null))
+        {
+            $lun = $d.Lun
+        }
+        $name = "panbhadataDisk" + $lun
+        Add-AzureDisk -DiskName $name -MediaLocation $d.MediaLink
+        $vm | Add-AzureDataDisk -Import -DiskName $name -LUN $lun
     }
 }
 
@@ -347,4 +347,3 @@ If you want to add charting capabilities to this report output, learn from the T
 
 ## Next steps
 If you prefer using PowerShell to engage with your Azure resources, check out the PowerShell article for protecting Windows Server, [Deploy and Manage Backup for Windows Server](backup-client-automation-classic.md). There is also a PowerShell article for managing DPM backups, [Deploy and Manage Backup for DPM](backup-dpm-automation-classic.md). Both of these articles have a version for Resource Manager deployments as well as Classic deployments.
-

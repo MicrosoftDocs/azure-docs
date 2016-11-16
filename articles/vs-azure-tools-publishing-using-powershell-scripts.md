@@ -34,7 +34,7 @@ You do not need the Azure SDK to generate the scripts for web projects. This fea
 Additional tools and resources for working with PowerShell in Visual Studio for Azure development are available. See [PowerShell Tools for Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012).
 
 ## Generating the publish scripts
-You can generate the publish scripts for a virtual machine that hosts your website when you create a new project by following [these instructions](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md). You can also [generate publish scripts for web apps in Azure App Service](app-service-web/web-sites-dotnet-get-started.md).
+You can generate the publish scripts for a virtual machine that hosts your website when you create a new project by following [these instructions](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). You can also [generate publish scripts for web apps in Azure App Service](app-service-web/web-sites-dotnet-get-started.md).
 
 ## Scripts that Visual Studio generates
 Visual Studio generates a solution-level folder called **PublishScripts** that contains two Windows PowerShell files, a publish script for your virtual machine or website, and a module that contains functions that you can use in the scripts. Visual Studio also generates a file in the JSON format that specifies the details of the project you are deploying.

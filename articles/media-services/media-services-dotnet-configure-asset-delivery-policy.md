@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure asset delivery policies with .NET SDK | Microsoft Docs
 description: This topic shows how to configure different asset delivery policies with Azure Media Services .NET SDK.
 services: media-services

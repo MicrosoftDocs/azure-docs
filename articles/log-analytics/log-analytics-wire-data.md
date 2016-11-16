@@ -1,4 +1,4 @@
----
+﻿---
 title: Wire Data solution in Log Analytics | Microsoft Docs
 description: Wire data is consolidated network and performance data from computers with OMS agents, including Operations Manager and Windows-connected agents. Network data is combined with your log data to help you correlate data.
 services: log-analytics
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/09/2016
 ms.author: banders
 
 ---
@@ -22,8 +22,8 @@ Wire data is consolidated network and performance data from computers with OMS a
 
 > [!NOTE]
 > The Wire Data solution is not currently available to be added to workspaces. Customers who already have the Wire Data solution enabled can continue to use the Wire Data solution.
-> 
-> 
+>
+>
 
 By default, OMS collects logged data for CPU, memory, disk, and network performance data from counters built into Windows. Network and other data collection is done in real-time for each agent, including subnets and application-level protocols being used by the computer. You can add other performance counters on the Settings page on the Logs tab.
 
@@ -77,7 +77,7 @@ Requirements: In order to use the following example, you’ll need to have the S
 2. In the list of **Common WireData Queries**, click **Amount of Network Traffic (in Bytes) by Process** to see the list of returned processes.
     ![wiredata queries](./media/log-analytics-wire-data/oms-wiredata-01.png)
 3. If the list of processes is too long to easily view, you can modify the search query to resemble:
-   
+
     ```
     Type WireData | measure count() by ProcessName | where AggregatedValue <40
     ```
@@ -86,21 +86,20 @@ Requirements: In order to use the following example, you’ll need to have the S
 4. Using data returned in your list, click a named process. In this example, DancingPigs.exe was clicked. The results shown below describe the type of network traffic such as outbound communication over various protocols.
     ![wiredata results showing a named process](./media/log-analytics-wire-data/oms-wiredata-03.png)
 5. Because the Security and Audit solution is installed, you can probe into the security events that have the same ProcessName field value by modifying your search query using the IN and DISTINCT search query operators. You can do that then when both your wire data and other solution logs have values in the same format. Modify your search query to resemble:
-   
+
     ```
     Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName}
     ```    
-   
+
     ![wiredata results showing combined data](./media/log-analytics-wire-data/oms-wiredata-04.png)
 6. In the results above, you’ll see that account information is shown. Now you can refine your search query to find out how often the account, showing Security and Audit data, was used by the process with a query resembling:        
-   
+
     ```
     Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName} | measure count() by Account
     ```
-   
+
     ![wiredata results showing account data](./media/log-analytics-wire-data/oms-wiredata-05.png)
 
 ## Next steps
 * [Search logs](log-analytics-log-searches.md) to view detailed wire data search records.
 * See Dan’s [Using Wire Data in Operations Management Suite Log Search blog post](http://blogs.msdn.com/b/dmuscett/archive/2015/09/09/using-wire-data-in-operations-management-suite.aspx) has additional information about how often data is collected and how you can modify collection properties for Operations Manager agents.
-

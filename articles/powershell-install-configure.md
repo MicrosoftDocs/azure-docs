@@ -1,4 +1,4 @@
----
+﻿---
 title: How to install and configure Azure PowerShell
 description: Learn how to install and configure Azure PowerShell.
 editor: tysonn

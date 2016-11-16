@@ -14,15 +14,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 11/11/2016
 ms.author: markvi
 
 ---
 # Vulnerabilities detected by Azure Active Directory Identity Protection
 Vulnerabilities are weaknesses in your environment that can be exploited by an attacker. We recommend that you address these vulnerabilities to improve the security posture of your organization, and prevent attackers from exploiting them.
-<br><br>
+
+
 ![vulnerabilities](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilities")
-<br>
+
+
 
 The following sections provide you with an overview of the vulnerabilities reported by Identity Protection.
 

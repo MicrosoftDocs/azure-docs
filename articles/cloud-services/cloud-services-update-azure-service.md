@@ -1,4 +1,4 @@
----
+﻿---
 title: How to update a cloud service | Microsoft Docs
 description: Learn how to update cloud services in Azure. Learn how an update on a cloud service proceeds to ensure availability.
 services: cloud-services
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/14/2016
 ms.author: adegeo
 
 ---
@@ -30,8 +30,8 @@ When you perform an in-place update of one or more roles in your service, Azure 
 
 > [!NOTE]
 > While the terms **update** and **upgrade** have slightly different meaning in the context Azure, they can be used interchangeably for the processes and descriptions of the features in this document.
-> 
-> 
+>
+>
 
 Your service must define at least two instances of a role for that role to be updated in-place without downtime. If the service consists of only one instance of one role, your service will be unavailable until the in-place update has finished.
 
@@ -69,8 +69,8 @@ The following table shows the allowed changes to a service during an update:
 
 > [!WARNING]
 > Changing the virtual machine size will destroy local data.
-> 
-> 
+>
+>
 
 The following items are not supported during an update:
 
@@ -93,49 +93,26 @@ This next diagram illustrates how the update proceeds if you are upgrading only 
 
 ![Upgrade role](media/cloud-services-update-azure-service/IC345880.png "Upgrade role")  
 
-> [!NOTE]
-> When upgrading a service from a single instance to multiple instances your service will be brought down while the upgrade is performed due to the way Azure upgrades services. The service level agreement guaranteeing service availability only applies to services that are deployed with more than one instance. The following list describes how the data on each drive is affected by each Azure service upgrade scenario:
-> 
-> VM Reboot:
-> 
-> * C: Preserved
-> * D: Preserved
-> * E: Preserved
-> 
-> Portal Reboot:
-> 
-> * C: Preserved
-> * D: Preserved
-> * E: Destroyed
-> 
-> Portal Reimage:
-> 
-> * C: Preserved
-> * D: Destroyed
-> * E: Destroyed
-> 
-> In-Place Upgrade:
-> 
-> * C: Preserved
-> * D: Preserved
-> * E: Destroyed
-> 
-> Node migration:
-> 
-> * C: Destroyed
-> * D: Destroyed
-> * E: Destroyed
-> 
-> Note that, in the above list, the E: drive represents the role’s root drive, and should not be hard-coded. Instead, use the %RoleRoot% environment variable to represent the drive.
-> 
-> To minimize the downtime when upgrading a single-instance service, deploy a new multi-instance service to the staging server and perform a VIP swap.
-> 
-> 
-
 During an automatic update, the Azure Fabric Controller periodically evaluates the health of the cloud service to determine when it’s safe to walk the next UD. This health evaluation is performed on a per-role basis and considers only instances in the latest version (i.e. instances from UDs that have already been walked). It verifies that a minimum number of role instances, for each role, have achieved a satisfactory terminal state.
 
 ### Role Instance Start Timeout
 The Fabric Controller will wait 30 minutes for each role instance to reach a Started state. If the timeout duration elapses, the Fabric Controller will continue walking to the next role instance.
+
+### Impact to drive data during Cloud Service upgrades
+
+When upgrading a service from a single instance to multiple instances your service will be brought down while the upgrade is performed due to the way Azure upgrades services. The service level agreement guaranteeing service availability only applies to services that are deployed with more than one instance. The following list describes how the data on each drive is affected by each Azure service upgrade scenario:
+
+|Scenario|C Drive|D Drive|E Drive|
+|--------|-------|-------|-------|
+|VM reboot|Preserved|Preserved|Preserved|
+|Portal reboot|Preserved|Preserved|Destroyed|
+|Portal reimage|Preserved|Destroyed|Destroyed|
+|In-Place Upgrade|Preserved|Preserved|Destroyed|
+|Node migration|Destroyed|Destroyed|Destroyed|
+
+Note that, in the above list, the E: drive represents the role’s root drive, and should not be hard-coded. Instead, use the **%RoleRoot%** environment variable to represent the drive.
+
+To minimize the downtime when upgrading a single-instance service, deploy a new multi-instance service to the staging server and perform a VIP swap.
 
 <a name="RollbackofanUpdate"></a>
 
@@ -144,8 +121,8 @@ Azure provides flexibility in managing services during an update by letting you 
 
 > [!NOTE]
 > It only makes sense to call Rollback on an **in-place** update or upgrade because VIP swap upgrades involve replacing one entire running instance of your service with another.
-> 
-> 
+>
+>
 
 Rollback of an in-progress update has the following effects on the deployment:
 
@@ -156,15 +133,15 @@ This functionally is provided by the following features:
 
 * The [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation, which can be called on a configuration update (triggered by calling [Change Deployment Configuration](https://msdn.microsoft.com/library/azure/ee460809.aspx)) or an upgrade (triggered by calling [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx)) as long as there is at least one instance in the service which has not yet been updated to the new version.
 * The Locked element and the RollbackAllowed element, which are returned as part of the response body of the [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx) operations:
-  
+
   1. The Locked element allows you to detect when a mutating operation can be invoked on a given deployment.
   2. The RollbackAllowed element allows you to detect when the [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation can be called on a given deployment.
-  
+
   In order to perform a rollback, you do not have to check both the Locked and the RollbackAllowed elements. It suffices to confirm that RollbackAllowed is set to true. These elements are only returned if these methods are invoked by using the request header set to “x-ms-version: 2011-10-01” or a later version. For more information about versioning headers, see [Service Management Versioning](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
 There are some situations where a rollback of an update or upgrade is not supported, these are as follows:
 
-* Reduction in local resources - If the update increases the local resources for a role the Azure platform does not allow rolling back. 
+* Reduction in local resources - If the update increases the local resources for a role the Azure platform does not allow rolling back.
 * Quota limitations - If the update was a scale down operation you may no longer have sufficient compute quota to complete the rollback operation. Each Azure subscription has a quota associated with it that specifies the maximum number of cores which can be consumed by all hosted services that belong to that subscription. If performing a rollback of a given update would put your subscription over quota then that a rollback will not be enabled.
 * Race condition - If the initial update has completed, a rollback is not possible.
 
@@ -202,11 +179,10 @@ The following diagram illustrates how a service than contains two roles are dist
 
 > [!NOTE]
 > Note that Azure controls how instances are allocated across upgrade domains. It's not possible to specify which instances are allocated to which domain.
-> 
-> 
+>
+>
 
 ## Next steps
 [How to Manage Cloud Services](cloud-services-how-to-manage.md)  
 [How to Monitor Cloud Services](cloud-services-how-to-monitor.md)  
 [How to Configure Cloud Services](cloud-services-how-to-configure.md)  
-

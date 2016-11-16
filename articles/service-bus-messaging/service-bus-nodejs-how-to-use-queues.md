@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use Service Bus queues in Node.js | Microsoft Docs
 description: Learn how to use Service Bus queues in Azure from a Node.js app.
 services: service-bus
@@ -33,7 +33,7 @@ To use Azure Service Bus, download and use the Node.js Azure package. This packa
 ### Use Node Package Manager (NPM) to obtain the package
 1. Use the **Windows PowerShell for Node.js** command window to navigate to the **c:\\node\\sbqueues\\WebRole1** folder in which you created your sample application.
 2. Type **npm install azure** in the command window, which should result in output similar to the following:
-   
+
     ```
     azure@0.7.5 node_modules\azure
         ├── dateformat@1.0.2-1.2.3
@@ -186,7 +186,6 @@ To learn more about queues, see the following resources.
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Create and deploy a Node.js application to an Azure Website]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Node.js Cloud Service with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
 [Node.js Web Application with Storage]: ../storage/storage-nodejs-how-to-use-table-storage.md
 [Service Bus quotas]: service-bus-quotas.md
-

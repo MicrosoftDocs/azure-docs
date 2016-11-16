@@ -231,9 +231,9 @@ The blades will close and it will go back to your portal dashboard view showing 
 The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the [Azure Government Developer Guide](azure-government-developer-guide.md) to uncover an programmatic differences with endpoints when working with Azure Government.
 
 ### Other Resources:
-* [Deploying a Windows Virtual Machine](virtual-machines/virtual-machines-windows-hero-tutorial.md)
-* [Virtual Machine FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
-* [Capture Linux VM Image](virtual-machines/virtual-machines-linux-classic-capture-image.md)
+* [Deploying a Windows Virtual Machine](virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Virtual Machine FAQ](virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Capture Linux VM Image](virtual-machines/virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 

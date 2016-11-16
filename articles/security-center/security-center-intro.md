@@ -1,4 +1,4 @@
----
+﻿---
 title: Introduction to Azure Security Center | Microsoft Docs
 description: Learn about Azure Security Center, its key capabilities, and how it works.
 services: security-center
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 11/11/2016
 ms.author: terrylan
 
 ---
@@ -22,8 +22,8 @@ Learn about Azure Security Center, its key capabilities, and how it works.
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.
-> 
-> 
+>
+>
 
 ## What is Azure Security Center?
  Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
@@ -31,18 +31,18 @@ Learn about Azure Security Center, its key capabilities, and how it works.
 ## Key capabilities
  Security Center delivers easy-to-use and effective threat prevention, detection, and response capabilities that are built in to Azure. Key capabilities are:
 
-|  |  |
+| Stage | Capability |
 | --- | --- |
 | Prevent |Monitors the security state of your Azure resources |
-| Defines policies for your Azure subscriptions and resource groups based on your company’s security requirements, the types of applications that you use, and the sensitivity of your data | |
-| Uses policy-driven security recommendations to guide service owners through the process of implementing needed controls | |
-| Rapidly deploys security services and appliances from Microsoft and partners | |
+| Prevent | Defines policies for your Azure subscriptions and resource groups based on your company’s security requirements, the types of applications that you use, and the sensitivity of your data |
+| Prevent | Uses policy-driven security recommendations to guide service owners through the process of implementing needed controls |
+| Prevent | Rapidly deploys security services and appliances from Microsoft and partners |
 | Detect |Automatically collects and analyzes security data from your Azure resources, the network, and partner solutions like antimalware programs and firewalls |
-| Leverages global threat intelligence from Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds | |
-| Applies advanced analytics, including machine learning and behavioral analysis | |
+| Detect | Leverages global threat intelligence from Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds |
+| Detect | Applies advanced analytics, including machine learning and behavioral analysis |
 | Respond |Provides prioritized security incidents/alerts |
-| Offers insights into the source of the attack and impacted resources | |
-| Suggests ways to stop the current attack and help prevent future attacks | |
+| Respond | Offers insights into the source of the attack and impacted resources |
+| Respond | Suggests ways to stop the current attack and help prevent future attacks |
 
 ## Introductory walkthrough
  You access Security Center from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). [Sign in to the portal](https://portal.azure.com), select **Browse**, and then scroll to the **Security Center** option or select the **Security Center** tile that you previously pinned to the portal dashboard.
@@ -56,8 +56,8 @@ You can define policies for your Azure subscriptions and resource groups accordi
 
 > [!NOTE]
 > To modify a security policy at the subscription level or the resource group level, you must be the Owner of the subscription or a Contributor to it.
-> 
-> 
+>
+>
 
 On the **Security Center** blade, select the **Policy** tile for a list of your subscriptions and resource groups.   
 
@@ -76,8 +76,8 @@ On the **Security policy** blade select a subscription to view the policy detail
 
 > [!NOTE]
 > Data collection and choosing a storage account per region is configured at the subscription level.
-> 
-> 
+>
+>
 
 Select **Prevention policy** (see above) to open the **Prevention policy** blade. **Show recommendations for** lets you choose the security controls that you want to monitor and recommend based on the security needs of the resources within the subscription.
 
@@ -92,8 +92,8 @@ Next, select a resource group to view policy details.
 
 > [!NOTE]
 > If there is a conflict between subscription level policy and resource group level policy, the resource group level policy takes precedence.
-> 
-> 
+>
+>
 
 ### Security recommendations
  Security Center analyzes the security state of your Azure resources to identify potential security vulnerabilities. A list of recommendations guides you through the process of configuring needed controls. Examples include:

@@ -1,4 +1,4 @@
----
+﻿---
 title: Protect your HLS content with Apple FairPlay and/or Microsoft PlayReady | Microsoft Docs
 description: This topic gives an overview and shows how to use Azure Media Services to dynamically encrypt your HTTP Live Streaming (HLS) content with  Apple FairPlay. It also shows how to use the Media Services license delivery service to deliver FairPlay licenses to clients.
 services: media-services
@@ -20,11 +20,11 @@ ms.author: juliako
 # Protect your HLS content with Apple FairPlay and/or Microsoft PlayReady
 Azure Media Services enables you to dynamically encrypt your HTTP Live Streaming (HLS) content using the following formats:  
 
-* **AES-128 envelope clear key** 
-  
+* **AES-128 envelope clear key**
+
     The entire chunk is encrypted using the **AES-128 CBC** mode. The decryption of the stream is supported by iOS and OSX player natively. For more information, see [this article](media-services-protect-with-aes128.md).
-* **Apple FairPlay** 
-  
+* **Apple FairPlay**
+
     The individual video and audio samples are encrypted using the **AES-128 CBC** mode. **FairPlay Streaming** (FPS) is integrated into the device operating systems, with native support on iOS and Apple TV. Safari on OS X enables FPS using Encrypted Media Extensions (EME) interface support.
 * **Microsoft PlayReady**
 
@@ -36,90 +36,90 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 
 > [!NOTE]
 > If you also want to encrypt your HLS content with PlayReady, you need to create a common content key and associate it with your asset. You also need to configure the content key’s authorization policy, as described in [Using PlayReady dynamic common encryption](media-services-protect-with-drm.md) topic.
-> 
-> 
+>
+>
 
 ## Requirements and considerations
 * The following are required when using AMS to deliver HLS encrypted with FairPlay and to deliver FairPlay licenses.
-  
+
   * An Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F).
   * A Media Services account. To create a Media Services account, see [Create Account](media-services-portal-create-account.md).
   * Sign up with [Apple Development Program](https://developer.apple.com/).
-  * Apple requires the content owner to obtain the [deployment package](https://developer.apple.com/contact/fps/). State the request you already implemented KSM (Key Security Module) with Azure Media Services and that you are requesting the final FPS package. There will be instructions in the final FPS package to generate certification and obtain ASK, which you will be using to configure FairPlay. 
+  * Apple requires the content owner to obtain the [deployment package](https://developer.apple.com/contact/fps/). State the request you already implemented KSM (Key Security Module) with Azure Media Services and that you are requesting the final FPS package. There will be instructions in the final FPS package to generate certification and obtain ASK, which you will be using to configure FairPlay.
   * Azure Media Services .NET SDK version **3.6.0** or later.
 * The following things must be set on AMS key delivery side:
-  
-  * **App Cert (AC)** - .pfx file containing private key. This file is created by the customer and encrypted with a password by the same customer. 
-    
+
+  * **App Cert (AC)** - .pfx file containing private key. This file is created by the customer and encrypted with a password by the same customer.
+
        When the customer configures key delivery policy, they must provide that password and the .pfx in base64 format.
-    
+
       The following steps describe how to generate a pfx certificate for FairPlay.
-    
+
     1. Install OpenSSL from https://slproweb.com/products/Win32OpenSSL.html
-       
+
         Go to the folder where the FairPlay certificate and other files delivered by Apple are.
     2. Command Line to convert the cer to pem:
-       
+
         "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
     3. Command line to convert pem to pfx with the private key (the password for the pfx file is then asked by OpenSSL).
-       
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt 
+
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
   * **App Cert password** - Customer password for creating the .pfx file.
   * **App Cert password ID** - The customer must upload the password similar to how they upload other AMS keys and using **ContentKeyType.FairPlayPfxPassword** enum value. As the result, they will get AMS id this is what they need to use inside the key delivery policy option.
-  * **iv** -  16 bytes random value, must match the iv in the asset delivery policy. Customer generates the IV and puts it in both places: asset delivery policy and key delivery policy option. 
-  * **ASK** - ASK (Application Secret Key) is received when you generate the certification using Apple Developer portal. Each development team will receive a unique ASK. Please save a copy of the ASK and store it in a safe place. You will need to configure ASK as FairPlayAsk to Azure Media Services later. 
+  * **iv** -  16 bytes random value, must match the iv in the asset delivery policy. Customer generates the IV and puts it in both places: asset delivery policy and key delivery policy option.
+  * **ASK** - ASK (Application Secret Key) is received when you generate the certification using Apple Developer portal. Each development team will receive a unique ASK. Please save a copy of the ASK and store it in a safe place. You will need to configure ASK as FairPlayAsk to Azure Media Services later.
   * **ASK ID** - is obtained when the customer uploads ASk into AMS. The customer must upload ASk using **ContentKeyType.FairPlayASk** enum value. As the result, the AMS id is returned and this is what should be used when setting the key delivery policy option.
 * The following things must be set by the FPS client side:
-  
+
   * **App Cert (AC)** - .cer/.der file containing public key which OS uses to encrypt some payload. AMS needs to know about it because it is required by the player. The key delivery service decrypts it using the corresponding private key.
 * To playback a FairPlay encrypted stream, you need to get real ASK first and then generate a real certificate. That process creates all 3 parts:
-  
-  * .der, 
-  * .pfx and 
+
+  * .der,
+  * .pfx and
   * the password for the .pfx.
 * Clients that support HLS with **AES-128 CBC** encryption: Safari on OS X, Apple TV, iOS.
 
 ## Steps for configuring FairPlay dynamic encryption and license delivery services
 The following are general steps that you would need to perform when protecting your assets with FairPlay, using the Media Services license delivery service, and also using dynamic encryption.
 
-1. Create an asset and upload files into the asset. 
+1. Create an asset and upload files into the asset.
 2. Encode the asset containing the file to the adaptive bitrate MP4 set.
 3. Create a content key and associate it with the encoded asset.  
-4. Configure the content key’s authorization policy. When creating the content key authorization policy, you need to specify the following: 
-   
-   * delivery method (in this case, FairPlay), 
+4. Configure the content key’s authorization policy. When creating the content key authorization policy, you need to specify the following:
+
+   * delivery method (in this case, FairPlay),
    * FairPlay policy options configuration. For details on how to configure FairPlay, see ConfigureFairPlayPolicyOptions() method in the sample below.
-     
+
      > [!NOTE]
      > Usually, you would want to configure FairPlay policy options only once, since you will only have one set of certification and ASK.
-     > 
-     > 
-   * restrictions (open or token), 
-   * and information specific to the key delivery type that defines how the key is delivered to the client. 
-5. Configure asset delivery policy. The delivery policy configuration includes: 
-   
-   * delivery protocol (HLS), 
-   * the type of dynamic encryption (Common CBC Encryption), 
-   * license acquisition URL. 
-     
+     >
+     >
+   * restrictions (open or token),
+   * and information specific to the key delivery type that defines how the key is delivered to the client.
+5. Configure asset delivery policy. The delivery policy configuration includes:
+
+   * delivery protocol (HLS),
+   * the type of dynamic encryption (Common CBC Encryption),
+   * license acquisition URL.
+
      > [!NOTE]
-     > If you want to deliver a stream that is encrypted with FairPlay + another DRM, you have to configure separate delivery policies 
-     > 
-     > * One IAssetDeliveryPolicy to configure DASH with CENC (PlayReady + WideVine) and Smooth with PlayReady. 
+     > If you want to deliver a stream that is encrypted with FairPlay + another DRM, you have to configure separate delivery policies
+     >
+     > * One IAssetDeliveryPolicy to configure DASH with CENC (PlayReady + WideVine) and Smooth with PlayReady.
      > * Another IAssetDeliveryPolicy  to configure FairPlay for HLS
-     > 
-     > 
+     >
+     >
 6. Create an OnDemand locator  to get a streaming URL.
 
 ## Using FairPlay key delivery by player/client apps
-Customers could develop player apps using iOS SDK. In order to be able to play FairPlay content customers have to implement license exchange protocol. The license exchange protocol is not specified by Apple. It is up to each app how to send key delivery requests. The AMS FairPlay key delivery services expects the SPC to come as www-form-url encoded post message in the following form: 
+Customers could develop player apps using iOS SDK. In order to be able to play FairPlay content customers have to implement license exchange protocol. The license exchange protocol is not specified by Apple. It is up to each app how to send key delivery requests. The AMS FairPlay key delivery services expects the SPC to come as www-form-url encoded post message in the following form:
 
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player doesn’t support FairPlay playback out of the box. Customers need to obtain the sample player from Apple developer account to get FairPlay playback on MAC OSX. 
-> 
-> 
+> Azure Media Player doesn’t support FairPlay playback out of the box. Customers need to obtain the sample player from Apple developer account to get FairPlay playback on MAC OSX.
+>
+>
 
 ## Streaming URLs
 If your asset was encrypted with more than one DRM, you should use an encryption tag in the streaming URL: (format='m3u8-aapl', encryption='xxx').
@@ -144,22 +144,22 @@ The following sample demonstrates functionality that was introduced in Azure Med
 2. Use NuGet to install and add Azure Media Services .NET SDK.
 3. Add additional references: System.Configuration.
 4. Add config file that contains the account name and key information:
-   
+
         <?xml version="1.0" encoding="utf-8"?>
         <configuration>
-            <startup> 
+            <startup>
                 <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
             </startup>
               <appSettings>
-   
+
                 <add key="MediaServicesAccountName" value="AccountName"/>
                 <add key="MediaServicesAccountKey" value="AccountKey"/>
-   
+
                 <add key="Issuer" value="http://testacs.com"/>
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see: [configure streaming endpoints](media-services-dotnet-get-started.md#configure-streaming-endpoint-using-the-portal).
+5. Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see: [configure streaming endpoints](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
 6. Overwrite the code in your Program.cs file with the code shown in this section.
 
         using System;
@@ -243,7 +243,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
                             TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
                         // Generate a test token based on the the data in the given TokenRestrictionTemplate.
-                        // Note, you need to pass the key id Guid because we specified 
+                        // Note, you need to pass the key id Guid because we specified
                         // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
                         Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
                         string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
@@ -337,7 +337,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 
                 static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
                 {
-                    // Create ContentKeyAuthorizationPolicy with Open restrictions 
+                    // Create ContentKeyAuthorizationPolicy with Open restrictions
                     // and create authorization policy          
 
                     List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
@@ -413,7 +413,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 
                 private static string ConfigureFairPlayPolicyOptions()
                 {
-                    // For testing you can provide all zeroes for ASK bytes together with the cert from Apple FPS SDK. 
+                    // For testing you can provide all zeroes for ASK bytes together with the cert from Apple FPS SDK.
                     // However, for production you must use a real ASK from Apple bound to a real prod certificate.
                     byte[] askBytes = Guid.NewGuid().ToByteArray();
                     var askId = Guid.NewGuid();
@@ -477,11 +477,11 @@ The following sample demonstrates functionality that was introduced in Azure Med
                     Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.FairPlay);
 
                     // The reason the below code replaces "https://" with "skd://" is because
-                    // in the IOS player sample code which you obtained in Apple developer account, 
-                    // the player only recognizes a Key URL that starts with skd://. 
-                    // However, if you are using a customized player, 
-                    // you can choose whatever protocol you want. 
-                    // For example, "https". 
+                    // in the IOS player sample code which you obtained in Apple developer account,
+                    // the player only recognizes a Key URL that starts with skd://.
+                    // However, if you are using a customized player,
+                    // you can choose whatever protocol you want.
+                    // For example, "https".
 
                     Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
                         new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
@@ -511,23 +511,23 @@ The following sample demonstrates functionality that was introduced in Azure Med
                 {
 
                     // Get a reference to the streaming manifest file from the  
-                    // collection of files in the asset. 
+                    // collection of files in the asset.
 
                     var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
                                                  EndsWith(".ism")).
                                                  FirstOrDefault();
 
-                    // Create a 30-day readonly access policy. 
+                    // Create a 30-day readonly access policy.
                     IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
                         TimeSpan.FromDays(30),
                         AccessPermissions.Read);
 
-                    // Create a locator to the streaming content on an origin. 
+                    // Create a locator to the streaming content on an origin.
                     ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
                         policy,
                         DateTime.UtcNow.AddMinutes(-5));
 
-                    // Create a URL to the manifest file. 
+                    // Create a URL to the manifest file.
                     return originLocator.Path + assetFile.Name;
                 }
 
@@ -560,4 +560,3 @@ The following sample demonstrates functionality that was introduced in Azure Med
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

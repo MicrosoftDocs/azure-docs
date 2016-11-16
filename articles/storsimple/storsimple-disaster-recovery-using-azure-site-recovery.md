@@ -1,4 +1,4 @@
----
+﻿---
 title: Automate DR for file shares on StorSimple using Azure Site Recovery| Microsoft Docs
 description: Describes the steps and best practices for creating a disaster recovery solution for file shares hosted on StorSimple storage.
 services: storsimple
@@ -67,29 +67,29 @@ This step requires that you prepare the on-premises file server environment, cre
 
 #### To prepare the on-premises file server environment
 1. Set the **User Account Control** to **Never Notify**. This is required so that you can use Azure automation scripts to connect the iSCSI targets after fail over by Azure Site Recovery.
-   
+
    1. Press the Windows key +Q and search for **UAC**.
    2. Select **Change User Account Control settings**.
    3. Drag the bar to the bottom towards **Never Notify**.
    4. Click **OK** and then select **Yes** when prompted.
-      
+
       ![](./media/storsimple-dr-using-asr/image1.png)
 2. Install the VM Agent on each of the file server VMs. This is required so that you can run Azure automation scripts on the failed over VMs.
-   
+
    1. [Download the agent](http://aka.ms/vmagentwin) to `C:\\Users\\<username>\\Downloads`.
    2. Open Windows PowerShell in Administrator mode (Run as Administrator), and then enter the following command to navigate to the download location:
-      
+
       `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
-      
+
       > [!NOTE]
       > The file name may change depending on the version.
-      > 
-      > 
+      >
+      >
 3. Click **Next**.
 4. Accept the **Terms of Agreement** and then click **Next**.
 5. Click **Finish**.
 6. Create file shares using volumes carved out of StorSimple storage. For more information, see [Use the StorSimple Manager service to manage volumes](storsimple-manage-volumes.md).
-   
+
    1. On your on-premises VMs, press the Windows key +Q and search for **iSCSI**.
    2. Select **iSCSI initiator**.
    3. Select the **Configuration** tab and copy the initiator name.
@@ -110,16 +110,16 @@ Refer to the [Azure Site Recovery documentation](../site-recovery/site-recovery-
 
 #### To enable protection
 1. Disconnect the iSCSI target(s) from the on-premises VMs that you want to protect through Azure Site Recovery:
-   
+
    1. Press Windows key + Q and search for **iSCSI**.
    2. Select **Set up iSCSI initiator**.
    3. Disconnect the StorSimple device that you connected previously. Alternatively, you can switch off the file server for a few minutes when enabling protection.
-   
+
    > [!NOTE]
    > This will cause the file shares to be temporarily unavailable
-   > 
-   > 
-2. [Enable virtual machine protection](../site-recovery/site-recovery-hyper-v-site-to-azure.md##step-6-enable-replication) of the file server VM from the Azure Site Recovery portal.
+   >
+   >
+2. [Enable virtual machine protection](../site-recovery/site-recovery-hyper-v-site-to-azure.md#step-6-enable-replication) of the file server VM from the Azure Site Recovery portal.
 3. When the initial synchronization begins, you can reconnect the target again. Go to the iSCSI initiator, select the StorSimple device, and click **Connect**.
 4. When the synchronization is complete and the status of the VM is **Protected**, select the VM, select the **Configure** tab, and update the network of the VM accordingly (this is the network that the failed over VM(s) will be a part of). If the network doesn’t show up, it means that the sync is still going on.
 
@@ -140,25 +140,25 @@ You can create a recovery plan in ASR to automate the failover process of the fi
 1. Go to the Azure classic portal and go to the **Automation** section.
 2. Create a new automation account. Keep it in the same geo/region in which the StorSimple Cloud Appliance and storage accounts were created.
 3. Click **New** &gt; **App Services** &gt; **Automation** &gt; **Runbook** &gt; **From Gallery** to import all the required runbooks into the automation account.
-   
+
    ![](./media/storsimple-dr-using-asr/image3.png)
 4. Add the following runbooks from the **Disaster Recovery** pane in the gallery:
-   
+
    * Fail over StorSimple volume containers
    * Clean up of StorSimple volumes after Test Failover (TFO)
    * Mount volumes on StorSimple device after failover
    * Start StorSimple Virtual Appliance
    * Uninstall custom script extension in Azure VM
-     
+
      ![](./media/storsimple-dr-using-asr/image4.png)
 5. Publish all the scripts by selecting the runbook in the automation account and going to **Author** tab. After this step, the **Runbooks** tab will appear as follows:
-   
+
     ![](./media/storsimple-dr-using-asr/image5.png)
 6. In the automation account go to the **Assets** tab, click **Add Setting** &gt; **Add Credential**, and add your Azure credentials – name the asset AzureCredential.
-   
+
    Use the Windows PowerShell Credential. This should be a credential that contains an Org ID user name and password with access to this Azure subscription and with multi-factor authentication disabled. This is required to authenticate on behalf of the user during the failovers and to bring up the file server volumes on the DR site.
 7. In the automation account, select the **Assets** tab and then click **Add Setting** &gt; **Add variable** and add the following variables. You can choose to encrypt these assets. These variables are recovery plan–specific. If your recovery plan (which you will create in the next step) name is TestPlan, then your variables should be TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, and so on.
-   
+
    * *RecoveryPlanName***-StorSimRegKey**: The registration key for the StorSimple Manager service.
    * *RecoveryPlanName***-AzureSubscriptionName**: The name of the Azure subscription.
    * *RecoveryPlanName***-ResourceName**: The name of the StorSimple resource that has the StorSimple device.
@@ -171,39 +171,39 @@ You can create a recovery plan in ASR to automate the failover process of the fi
    * *RecoveryPlanName***-ScriptContainer**: The name of the container in which the script will be stored in the cloud. If the container doesn’t exist, it will be created.
    * *RecoveryPlanName***-VMGUIDS**: Upon protecting a VM, Azure Site Recovery assigns every VM a unique ID that gives the details of the failed over VM. To obtain the VMGUID, select the **Recovery Services** tab and then click **Protected Item** &gt; **Protection Groups** &gt; **Machines** &gt; **Properties**. If you have multiple VMs, then add the GUIDs as a comma-separated string.
    * *RecoveryPlanName***-AutomationAccountName** – The name of the automation account in which you have added the runbooks and the assets.
-   
+
    For example, if the name of the recovery plan is fileServerpredayRP, then your **Assets** tab should appear as follows after you add all the assets.
-   
+
    ![](./media/storsimple-dr-using-asr/image6.png)
 8. Go to the **Recovery Services** section and select the Azure Site Recovery vault that you created earlier.
 9. Select the **Recovery Plans** tab and create a new recovery plan as follows:
-   
+
    a.  Specify a name and select the appropriate **Protection Group**.
-   
+
    b.  Select the VMs from the protection group that you want to include in the recovery plan.
-   
+
    c.  After the recovery plan is created, select it to open the Recovery plan customization view.
-   
+
    d.  Select **All groups shutdown**, click **Script**, and choose **Add a primary side script before all Group shutdown**.
-   
+
    e.  Select the automation account (in which you added the runbooks) and then select the **Fail over-StorSimple-Volume-Containers** runbook.
-   
+
    f.  Click **Group 1: Start**, choose **Virtual Machines**, and add the VMs that are to be protected in the recovery plan.
-   
+
    g.  Click **Group 1: Start**, choose **Script**, and add all the following scripts in order as **After Group 1** steps.
-   
+
    * Start-StorSimple-Virtual-Appliance runbook
    * Fail over-StorSimple-volume-containers runbook
    * Mount-volumes-after-failover runbook
    * Uninstall-custom-script-extension runbook
 10. Add a manual action after the above 4 scripts in the same **Group 1: Post-steps** section. This action is the point at which you can verify that everything is working correctly. This action needs to be added only as a part of test failover (so only select the **Test Failover** checkbox).
 11. After the manual action, add the Cleanup script using the same procedure that you used for the other runbooks. Save the recovery plan.
-    
+
     > [!NOTE]
     > When running a test failover, you should verify everything at the manual action step because the StorSimple volumes that had been cloned on the target device will be deleted as a part of the cleanup after the manual action is completed.
-    > 
-    > 
-    
+    >
+    >
+
     ![](./media/storsimple-dr-using-asr/image7.png)
 
 ## Perform a test failover
@@ -214,7 +214,7 @@ Refer to the [Active Directory DR Solution](../site-recovery/site-recovery-activ
 2. Click the recovery plan created for the file server VM.
 3. Click **Test Failover**.
 4. Select the virtual network to start the test failover process.
-   
+
    ![](./media/storsimple-dr-using-asr/image8.png)
 5. When the secondary environment is up, you can perform your validations.
 6. After the validations are complete, click **Validations Complete**. The test failover environment will be cleaned, and the TFO operation will be completed.
@@ -226,7 +226,7 @@ During an unplanned failover, the StorSimple volumes are failed over to the virt
 1. In the Azure classic portal, select your site recovery vault.
 2. Click the recovery plan created for file server VM.
 3. Click **Failover** and then select **Unplanned Failover**.
-   
+
    ![](./media/storsimple-dr-using-asr/image9.png)
 4. Select the target network and then click the check icon ✓ to start the failover process.
 
@@ -249,7 +249,7 @@ During a failback, StorSimple volume containers are failed over back to the phys
 4. Click **Change Direction**.
 5. Select the appropriate data synchronization and VM creation options.
 6. Click the check icon ✓ to start the failback process.
-   
+
    ![](./media/storsimple-dr-using-asr/image10.png)
 
 ## Best Practices
@@ -277,25 +277,24 @@ Capacity planning is made up of at least two important processes:
 * Multi-factor authentication should be disabled for the Azure credential that is entered in the automation account as an asset. If this authentication is not disabled, scripts will not be allowed to run automatically and the recovery plan will fail.
 * Failover job timeout: The StorSimple script will time out if the failover of volume containers takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
 * Backup job timeout: The StorSimple script times out if the backup of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
-  
+
   > [!IMPORTANT]
   > Run the backup manually from the Azure portal and then run the recovery plan again.
-  > 
-  > 
+  >
+  >
 * Clone job timeout: The StorSimple script times out if the cloning of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
 * Time synchronization error: The StorSimple scripts errors out saying that the backups were unsuccessful even though the backup is successful in the portal. A possible cause for this might be that the StorSimple appliance’s time might be out of sync with the current time in the time zone.
-  
+
   > [!IMPORTANT]
   > Sync the appliance time with the current time in the time zone.
-  > 
-  > 
+  >
+  >
 * Appliance failover error: The StorSimple script might fail if there is an appliance failover when the recovery plan is running.
-  
+
   > [!IMPORTANT]
   > Rerun the recovery plan after the appliance failover is complete.
-  > 
-  > 
+  >
+  >
 
 ## Summary
 Using Azure Site Recovery, you can create a complete automated disaster recovery plan for a file server VM having file shares hosted on StorSimple storage. You can initiate the failover within seconds from anywhere in the event of a disruption and get the application up and running in a few minutes.
-

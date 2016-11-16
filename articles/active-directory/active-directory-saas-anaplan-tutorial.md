@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Anaplan | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Anaplan.
 services: active-directory

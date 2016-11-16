@@ -1,4 +1,4 @@
----
+﻿---
 title: What is SQL Database? Intro to SQL Database | Microsoft Docs
 description: 'Get an introduction to SQL Database: technical details and capabilities of Microsoft''s relational database management system (RDBMS) in the cloud.'
 keywords: introduction to sql,intro to sql,what is sql database
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/16/2016
+ms.date: 11/08/2016
 ms.author: shkurhek
 
 ---

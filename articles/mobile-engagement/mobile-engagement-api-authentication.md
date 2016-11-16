@@ -1,4 +1,4 @@
----
+﻿---
 title: Authenticate with Mobile Engagement REST APIs
 description: Describes how to authenticate with Azure Mobile Engagement REST APIs
 services: mobile-engagement

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Resource Manager support for Load Balancer | Microsoft Docs
 description: Using powershell for Load Balancer with Azure Resource Manager. Using templates for load balancer
 services: load-balancer
@@ -15,12 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: sewhee
-
 ---
+
 # Using Azure Resource Manager Support with Azure Load Balancer
+
 Azure Resource Manager is the preferred management framework for services in Azure. Azure Load Balancer can be managed using Azure Resource Manager-based APIs and tools.
 
 ## Concepts
+
 With Resource Manager, Azure Load Balancer contains the following child resources:
 
 * Front-end IP configuration – a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs). These IP addresses serve as ingress for the traffic.
@@ -32,11 +34,12 @@ With Resource Manager, Azure Load Balancer contains the following child resource
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
 ## Quickstart templates
+
 Azure Resource Manager allows you to provision your applications using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application during every stage of the application lifecycle.
 
 Templates can include definitions for Virtual Machines, Virtual Networks, Availability Sets, Network Interfaces (NICs), Storage Accounts, Load Balancers, Network Security Groups, and Public IPs. With templates you can create everything you need for a complex application. The template file can be checked into content management system for version control and collaboration.
 
-[Learn more about templates](http://go.microsoft.com/fwlink/?LinkId=544798)
+[Learn more about templates](../resource-manager-template-walkthrough.md)
 
 [Learn more about Network Resources](../virtual-network/resource-groups-networking.md)
 
@@ -49,6 +52,7 @@ Examples of templates:
 * [2 VMs in a Load Balancer and configure NAT rules on the LB](http://go.microsoft.com/fwlink/?LinkId=544801)
 
 ## Setting up Azure Load Balancer with a PowerShell or CLI
+
 Get started with Azure Resource Manager cmdlets, command line tools, and REST APIs
 
 * [Azure Networking Cmdlets](https://msdn.microsoft.com/library/azure/mt163510.aspx) can be used to create a Load Balancer.
@@ -57,7 +61,7 @@ Get started with Azure Resource Manager cmdlets, command line tools, and REST AP
 * [Load Balancer REST APIs](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 ## Next steps
+
 You can also [get started creating an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md) and configure what type of [distribution mode](load-balancer-distribution-mode.md) for a specific load balancer network traffic behavior.
 
 Learn how to manage [idle TCP timeout settings for a load balancer](load-balancer-tcp-idle-timeout.md). This is important when your application needs to keep connections alive for servers behind a load balancer.
-

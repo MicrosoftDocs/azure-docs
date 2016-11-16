@@ -1,4 +1,4 @@
----
+﻿---
 title: Service Bus brokered messaging .NET tutorial | Microsoft Docs
 description: Brokered messaging .NET tutorial.
 services: service-bus
@@ -40,19 +40,19 @@ The next step is to create a Visual Studio project and write two helper function
 1. Open Visual Studio as an administrator by right-clicking the program in the Start menu and clicking **Run as administrator**.
 2. Create a new console application project. Click the **File** menu and select **New**, then click **Project**. In the **New Project** dialog, click **Visual C#** (if **Visual C#** does not appear, look under **Other Languages**), click the **Console Application** template, and name it **QueueSample**. Use the default **Location**. Click **OK** to create the project.
 3. Use the NuGet package manager to add the Service Bus libraries to your project:
-   
+
    1. In Solution Explorer, right-click the **QueueSample** project and then click **Manage NuGet Packages**.
    2. In the **Manage Nuget Packages** dialog, click the **Browse** tab, and search for **Azure Service Bus**, then click **Install**.
       <br />
 4. In Solution Explorer, double-click the Program.cs file to open it in the Visual Studio editor. Change the namespace name from its default name of `QueueSample` to `Microsoft.ServiceBus.Samples`.
-   
+
     ```
     Microsoft.ServiceBus.Samples
     {
         ...
     ```
 5. Modify the `using` statements as shown in the following code.
-   
+
     ```
     using System;
     using System.Collections.Generic;
@@ -63,7 +63,7 @@ The next step is to create a Visual Studio project and write two helper function
     using Microsoft.ServiceBus.Messaging;
     ```
 6. Create a text file named Data.csv, and copy in the following comma-delimited text.
-   
+
     ```
     IssueID,IssueTitle,CustomerID,CategoryID,SupportPackage,Priority,Severity,Resolved
     1,Package lost,1,1,Basic,5,1,FALSE
@@ -82,25 +82,25 @@ The next step is to create a Visual Studio project and write two helper function
     14,Package damaged,6,7,Premium,5,5,FALSE
     15,Product defective,6,2,Premium,5,5,FALSE
     ```
-   
+
     Save and close the Data.csv file, and remember the location in which you saved it.
 7. In Solution Explorer, right-click the name of your project (in this example, **QueueSample**), click **Add**, then click **Existing Item**.
 8. Browse to the Data.csv file that you created in step 6. Click the file, then click **Add**. Ensure that **All Files (*.*)** is selected in the list of file types.
 
 ### Create a method that parses a list of messages
 1. In the `Program` class before the `Main()` method, declare two variables: one of type **DataTable**, to contain the list of messages in Data.csv. The other should be of type List object, strongly typed to [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). The latter is the list of brokered messages that subsequent steps in the tutorial will use.
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         class Program
         {
-   
+
             private static DataTable issues;
             private static List<BrokeredMessage> MessageList;
     ```
 2. Outside `Main()`, define a `ParseCSV()` method that parses the list of messages in Data.csv and loads the messages into a [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx) table, as shown here. The method returns a **DataTable** object.
-   
+
     ```
     static DataTable ParseCSVFile()
     {
@@ -112,14 +112,14 @@ The next step is to create a Visual Studio project and write two helper function
             {
                 string line;
                 string[] row;
-   
+
                 // create the columns
                 line = readFile.ReadLine();
                 foreach (string columnTitle in line.Split(','))
                 {
                     tableIssues.Columns.Add(columnTitle);
                 }
-   
+
                 while ((line = readFile.ReadLine()) != null)
                 {
                     row = line.Split(',');
@@ -131,31 +131,31 @@ The next step is to create a Visual Studio project and write two helper function
         {
             Console.WriteLine("Error:" + e.ToString());
         }
-   
+
         return tableIssues;
     }
     ```
 3. In the `Main()` method, add a statement that calls the `ParseCSVFile()` method:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
-   
+
     }
     ```
 
 ### Create a method that loads the list of messages
-1. Outside `Main()`, define a `GenerateMessages()` method that takes the **DataTable** object returned by `ParseCSVFile()` and loads the table into a strongly-typed list of brokered messages. The method then returns the **List** object, as in the following example. 
-   
+1. Outside `Main()`, define a `GenerateMessages()` method that takes the **DataTable** object returned by `ParseCSVFile()` and loads the table into a strongly-typed list of brokered messages. The method then returns the **List** object, as in the following example.
+
     ```
     static List<BrokeredMessage> GenerateMessages(DataTable issues)
     {
         // Instantiate the brokered list object
         List<BrokeredMessage> result = new List<BrokeredMessage>();
-   
+
         // Iterate through the table and create a brokered message for each row
         foreach (DataRow item in issues.Rows)
         {
@@ -170,11 +170,11 @@ The next step is to create a Visual Studio project and write two helper function
     }
     ```
 2. In `Main()`, directly after the call to `ParseCSVFile()`, add a statement that calls the `GenerateMessages()` method with the return value from `ParseCSVFile()` as an argument:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
@@ -183,46 +183,46 @@ The next step is to create a Visual Studio project and write two helper function
 
 ### Obtain user credentials
 1. First, create three global string variables to hold these values. Declare these variables directly after the previous variable declarations; for example:
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         public class Program
         {
-   
+
             private static DataTable issues;
-            private static List<BrokeredMessage> MessageList; 
-   
+            private static List<BrokeredMessage> MessageList;
+
             // Add these variables
             private static string ServiceNamespace;
             private static string sasKeyName = "RootManageSharedAccessKey";
             private static string sasKeyValue;
             …
     ```
-2. Next, create a function that accepts and stores the service namespace and SAS key. Add this method outside `Main()`. For example: 
-   
+2. Next, create a function that accepts and stores the service namespace and SAS key. Add this method outside `Main()`. For example:
+
     ```
     static void CollectUserInput()
     {
         // User service namespace
         Console.Write("Please enter the namespace to use: ");
         ServiceNamespace = Console.ReadLine();
-   
+
         // Issuer key
         Console.Write("Enter the SAS key to use: ");
         sasKeyValue = Console.ReadLine();
     }
     ```
 3. In `Main()`, directly after the call to `GenerateMessages()`, add a statement that calls the `CollectUserInput()` method:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
-   
+
         // Collect user input
         CollectUserInput();
     }
@@ -235,7 +235,7 @@ From the **Build** menu in Visual Studio, you can click **Build Solution** or pr
 In this step, you define the management operations you will use to create shared access signature (SAS) credentials with which your application will be authorized.
 
 1. For clarity, this tutorial places all the queue operations in a separate method. Create an async `Queue()` method in the `Program` class, after the `Main()` method. For example:
-   
+
     ```
     public static void Main(string[] args)
     {
@@ -246,7 +246,7 @@ In this step, you define the management operations you will use to create shared
     }
     ```
 2. The next step is to create a SAS credential using a [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) object. The creation method takes the SAS key name and value obtained in the `CollectUserInput()` method. Add the following code to the `Queue()` method:
-   
+
     ```
     static async Task Queue()
     {
@@ -255,7 +255,7 @@ In this step, you define the management operations you will use to create shared
     }
     ```
 3. Create a new namespace management object, with a URI containing the namespace name and the management credentials obtained in the previous step, as arguments. Add this code directly after the code added in the previous step. Make sure to replace `<yourNamespace>` with the name of your service namespace:
-   
+
     ```
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
@@ -372,29 +372,29 @@ In this step, you create a queue, then send the messages contained in the list o
 
 ### Create queue and send messages to the queue
 1. First, create the queue. For example, call it `myQueue`, and declare it directly after the management operations you added in the `Queue()` method in the last step:
-   
+
     ```
     QueueDescription myQueue;
-   
+
     if (namespaceClient.QueueExists("IssueTrackingQueue"))
     {
         namespaceClient.DeleteQueue("IssueTrackingQueue");
     }
-   
+
     myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
     ```
 2. In the `Queue()` method, create a messaging factory object with a newly-created Service Bus URI as an argument. Add the following code directly after the management operations you added in the last step. Make sure to replace `<yourNamespace>` with the name of your service namespace:
-   
+
     ```
     MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 3. Next, create the queue object using the [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) class. Add the following code directly after the code you added in the last step:
-   
+
     ```
     QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
     ```
 4. Next, add code that loops through the list of brokered messages you created previously, sending each to the queue. Add the following code directly after the `CreateQueueClient()` statement in the previous step:
-   
+
     ```
     // Send messages
     Console.WriteLine("Now sending messages to the queue.");
@@ -612,11 +612,10 @@ Now that you have completed the preceding steps, you can build and run the **Que
 In Visual Studio, from the **Build** menu, click **Build Solution**, or press **Ctrl+Shift+B**. If you encounter errors, please verify that your code is correct based on the complete example presented at the end of the previous step.
 
 ## Next steps
-This tutorial showed how to build a Service Bus client application and service using the Service Bus brokered messaging capabilities. For a similar tutorial that uses Service Bus [WCF Relay](service-bus-messaging-overview.md#Relayed-messaging), see the [Service Bus relayed messaging tutorial](../service-bus-relay/service-bus-relay-tutorial.md).
+This tutorial showed how to build a Service Bus client application and service using the Service Bus brokered messaging capabilities. For a similar tutorial that uses Service Bus [WCF Relay](service-bus-messaging-overview.md#service-bus-relay), see the [Service Bus relayed messaging tutorial](../service-bus-relay/service-bus-relay-tutorial.md).
 
 To learn more about [Service Bus](https://azure.microsoft.com/services/service-bus/), see the following topics.
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
 * [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus architecture](service-bus-architecture.md)
-

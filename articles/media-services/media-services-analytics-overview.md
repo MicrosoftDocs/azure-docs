@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Media Services Analytics Overview | Microsoft Docs
 description: 'Azure Media Services offers the public preview of Azure Media Analytics, a collection of speech and computer vision services at enterprise scale, compliance, security and global reach. Azure Media Analytics services are built using the core Azure Media Services platform components and hence are ready to handle media processing at scale on day one. '
 services: media-services

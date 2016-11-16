@@ -1,4 +1,4 @@
----
+﻿---
 title: Detect Motions with Azure Media Analytics | Microsoft Docs
 description: The Azure Media Motion Detector media processor (MP) enables you to efficiently identify sections of interest within an otherwise long and uneventful video.
 services: media-services

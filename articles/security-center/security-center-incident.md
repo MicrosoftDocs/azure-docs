@@ -1,4 +1,4 @@
----
+﻿---
 title: Handling Security Incident in Azure Security Center | Microsoft Docs
 description: This document helps you to use Azure Security Center capabilities to handle security incidents.
 services: security-center

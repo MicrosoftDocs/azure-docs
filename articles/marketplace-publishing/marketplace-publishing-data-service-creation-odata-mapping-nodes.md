@@ -1,4 +1,4 @@
----
+﻿---
 title: Guide to creating a Data Service for the  Marketplace | Microsoft Docs
 description: Detailed instructions of how to create, certify and deploy a Data Service for purchase on the Azure Marketplace.
 services: marketplace-publishing
@@ -20,8 +20,8 @@ ms.author: hascipio; avikova
 # Understanding the nodes schema for mapping an existing web service to OData through CSDL
 > [!IMPORTANT]
 > **At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.** If you have a SaaS business application you would like to publish on AppSource you can find more information [here](https://appsource.microsoft.com/partners). If you have an IaaS applications or developer service you would like to publish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).
-> 
-> 
+>
+>
 
 This document will help clarify the node structure for mapping an OData protocol to CSDL. It is important to note that the node structure is well formed XML. So root, parent, and child schema is applicable when designing your OData mapping.
 
@@ -45,9 +45,7 @@ The following describes the changes (added and ignored elements) to the various 
 ## FunctionImport node
 A FunctionImport node represents one URL (entry point) that exposes a service to the end-user. The node allows describing how the URL is addressed, which parameters are available to the end-user and how these parameters are provided.
 
-Details about this node are found at [here][MSDNFunctionImportLink]
-
-[MSDNFunctionImportLink]:(https://msdn.microsoft.com/library/cc716710(v=vs.100).aspx)
+Details about this node are found at [here][MSDNFunctionImportLink](https://msdn.microsoft.com/library/cc716710.aspx)
 
 The following are the additional attributes (or additions to attributes) that are exposed by the FunctionImport node:
 
@@ -63,7 +61,7 @@ Parameters are allowed to appear as URI parameters or as part of the URI path. I
 
 * **Collection (<Entity type name>)**: specifies a collection of defined entity types. The name is present in the Name attribute of the EntityType node. An example is Collection(WXC.HourlyResult).
 * **Raw (<mime type>)**: specifies a raw document/blob that is returned to the user. An example is Raw(image/jpeg) Other examples:
-  
+
   * ReturnType="Raw(text/plain)"
   * ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
 
@@ -88,9 +86,9 @@ Additional child nodes (not covered by the CSDL documentation) within the Functi
 
 * **POST:** Used if the request is a HTTP POST
 * **GET:** Used if the request is a HTTP GET
-  
+
     Example:
-  
+
         `<d:RequestBody d:httpMethod="POST">
         <![CDATA[
         <req1:Request xmlns:r1="http://schemas.mysite.com//generic/requests/1" Version="1.0">
@@ -155,13 +153,11 @@ A very helpful details document page about the “Parameter Element” node is f
 | Parameter Attribute | Is Required | Value |
 | --- | --- | --- |
 | Name |Yes |The name of the parameter. Case sensitive!  Match the BaseUri case. **Example:** `<Property Name="IsDormant" Type="Byte" />` |
-| Type |Yes |The parameter type. The value must be an **EDMSimpleType** or a complex type that is within the scope of the model. For more information, see “6 Supported Parameter/Property types”.  (Case Sensitive! First char is uppercase, rest are lower case.)  Also see,  [Conceptual Model Types (CSDL)][MSDNParameterLink]. **Example:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
+| Type |Yes |The parameter type. The value must be an **EDMSimpleType** or a complex type that is within the scope of the model. For more information, see “6 Supported Parameter/Property types”.  (Case Sensitive! First char is uppercase, rest are lower case.)  Also see,  [Conceptual Model Types (CSDL)][MSDNParameterLink](http://msdn.microsoft.com/library/bb399548.aspx). **Example:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
 | Mode |No |**In**, Out, or InOut depending on whether the parameter is an input, output, or input/output parameter. (Only “IN” is available in Azure Marketplace.) **Example:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
 | MaxLength |No |The maximum allowed length of the parameter. **Example:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
 | Precision |No |The precision of the parameter. **Example:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
 | Scale |No |The scale of the parameter. **Example:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
-
-[MSDNParameterLink]:(http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
 
 The following are the attributes that have been added to the CSDL specification:
 
@@ -275,4 +271,3 @@ The following are the supported types for parameters and properties. (Case sensi
 * If you are interested in understanding the overall OData mapping process and purpose, read this article [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md) to review definitions, structures, and instructions.
 * If you are interested in reviewing examples, read this article [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md) to see sample code and understand code syntax and context.
 * To return to the prescribed path for publishing a Data Service to the Azure Marketplace, read this article [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
-

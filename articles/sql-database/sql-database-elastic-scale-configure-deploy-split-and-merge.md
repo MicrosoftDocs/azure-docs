@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy a split-merge service | Microsoft Docs
 description: Splitting and Merging with elastic database tools
 services: sql-database

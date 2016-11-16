@@ -1,4 +1,4 @@
----
+﻿---
 title: Move data from Cassandra using Data Factory | Microsoft Docs
 description: Learn about how to move data from an on-premises Cassandra database using Azure Data Factory.
 services: data-factory
@@ -18,32 +18,32 @@ ms.author: jingwang
 
 ---
 # Move data from an on-premises Cassandra database using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to copy data from an on-premises Cassandra database to any data store listed under Sink column in the [Supported Sources and Sinks](data-factory-data-movement-activities.md#supported-data-stores) section. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to copy data from an on-premises Cassandra database to any data store listed under Sink column in the [Supported Sources and Sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) section. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
 
-Data factory currently supports only moving data from a Cassandra database to [supported sink data stores](data-factory-data-movement-activities.md#supported-data-stores), but not moving data from other data stores to a Cassandra database.
+Data factory currently supports only moving data from a Cassandra database to [supported sink data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats), but not moving data from other data stores to a Cassandra database.
 
 ## Prerequisites
-For the Azure Data Factory service to be able to connect to your on-premises Cassandra database, you must install the following: 
+For the Azure Data Factory service to be able to connect to your on-premises Cassandra database, you must install the following:
 
 * Data Management Gateway 2.0 or above on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources to cloud services in a secure and managed way. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway.
-  
-    When you install the gateway, it automatically installs a Microsoft Cassandra ODBC driver used to connect to Cassandra database. 
+
+    When you install the gateway, it automatically installs a Microsoft Cassandra ODBC driver used to connect to Cassandra database.
 
 > [!NOTE]
-> See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
-> 
-> 
+> See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
+>
+>
 
 ## Copy data wizard
-The easiest way to create a pipeline that copies data from a Cassandra database to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+The easiest way to create a pipeline that copies data from a Cassandra database to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Cassandra database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.   
+The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Cassandra database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.   
 
 ## Sample: Copy data from Cassandra to Blob
-The sample copies data from a Cassandra database to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. Data can be copied directly to any of the sinks stated in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores) article by using the Copy Activity in Azure Data Factory. 
+The sample copies data from a Cassandra database to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. Data can be copied directly to any of the sinks stated in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article by using the Copy Activity in Azure Data Factory.
 
 * A linked service of type [OnPremisesCassandra](#onpremisescassandra-linked-service-properties).
-* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 * An input [dataset](data-factory-create-datasets.md) of type [CassandraTable](#cassandratable-properties).
 * An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 * A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [CassandraSource](#cassandrasource-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
@@ -91,7 +91,7 @@ This example uses the **Cassandra** linked service. See [Cassandra linked servic
             "type": "CassandraTable",
             "typeProperties": {
                 "tableName": "mytable",
-                "keySpace": "mykeyspace" 
+                "keySpace": "mykeyspace"
             },
             "availability": {
                 "frequency": "Hour",
@@ -112,7 +112,7 @@ Setting **external** to **true** informs the Data Factory service that the datas
 
 **Azure Blob output dataset**
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). 
+Data is written to a new blob every hour (frequency: hour, interval: 1).
 
     {
         "name": "AzureBlobOutput",
@@ -135,9 +135,9 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 
 **Pipeline with Copy activity**
 
-The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **CassandraSource** and **sink** type is set to **BlobSink**. 
+The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **CassandraSource** and **sink** type is set to **BlobSink**.
 
-See [RelationalSource type properties](#cassandrasource-type-properties) for the list of properties supported by the RelationalSource. 
+See [RelationalSource type properties](#cassandrasource-type-properties) for the list of properties supported by the RelationalSource.
 
     {  
         "name":"SamplePipeline",
@@ -209,7 +209,7 @@ The **typeProperties** section is different for each type of dataset and provide
 | tableName |Name of the table in Cassandra database. |Yes (If **query** for **CassandraSource** is not defined). |
 
 ## CassandraSource type properties
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities. 
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
@@ -240,13 +240,13 @@ When source is of type **CassandraSource**, the following properties are availab
 | VARINT |Decimal |
 
 > [!NOTE]
-> For collection types (map, set, list, etc.), refer to [Work with Cassandra collection types using virtual table](#work-with-collections-using-virtual-table) section. 
-> 
+> For collection types (map, set, list, etc.), refer to [Work with Cassandra collection types using virtual table](#work-with-collections-using-virtual-table) section.
+>
 > User-defined types are not supported.
-> 
-> The length of Binary Column and String Column lengths cannot be greater than 4000. 
-> 
-> 
+>
+> The length of Binary Column and String Column lengths cannot be greater than 4000.
+>
+>
 
 ## Work with collections using virtual table
 Azure Data Factory uses a built-in ODBC driver to connect to and copy data from your Cassandra database. For collection types including map, set and list, the driver re-normalizes the data into corresponding virtual tables. Specifically, if a table contains any collection columns, the driver generates the following virtual tables:
@@ -256,7 +256,7 @@ Azure Data Factory uses a built-in ODBC driver to connect to and copy data from 
 
 Virtual tables refer to the data in the real table, enabling the driver to access the denormalized data. See Example section for details. You can access the content of Cassandra collections by querying and joining the virtual tables.
 
-You can leverage the [Copy Wizard](data-factory-data-movement-activities.md#data-factory-copy-wizard) to intuitively view the list of tables in Cassandra database including the virtual tables, and preview the data inside. You can also construct a query in the Copy Wizard and validate to see the result.
+You can leverage the [Copy Wizard](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) to intuitively view the list of tables in Cassandra database including the virtual tables, and preview the data inside. You can also construct a query in the Copy Wizard and validate to see the result.
 
 ### Example
 For example, the following “ExampleTable” is a Cassandra database table that contains an integer primary key column named “pk_int”, a text column named value, a list column, a map column, and a set column (named “StringSet”).
@@ -266,7 +266,7 @@ For example, the following “ExampleTable” is a Cassandra database table that
 | 1 |"sample value 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"sample value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
 
-The driver would generate multiple virtual tables to represent this single table. The foreign key columns in the virtual tables reference the primary key columns in the real table, and indicate which real table row the virtual table row corresponds to. 
+The driver would generate multiple virtual tables to represent this single table. The foreign key columns in the virtual tables reference the primary key columns in the real table, and indicate which real table row the virtual table row corresponds to.
 
 The first virtual table is the base table named “ExampleTable” is shown in the following table. The base table contains the same data as the original database table except for the collections, which are omitted from this table and expanded in other virtual tables.
 
@@ -310,4 +310,3 @@ The following tables show the virtual tables that renormalize the data from the 
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
-

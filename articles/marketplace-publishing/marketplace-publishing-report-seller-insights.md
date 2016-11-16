@@ -1,4 +1,4 @@
----
+﻿---
 title: Understanding Azure Marketplace usage-based reports and seller insights reporting | Microsoft Docs
 description: As a seller on the Azure Marketplace, understand your usage-based report, also known as a seller insights report
 services: Azure Marketplace

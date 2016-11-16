@@ -1,4 +1,4 @@
----
+﻿---
 title: Developer guide - messaging | Microsoft Docs
 description: Azure IoT Hub developer guide - device-to-cloud and cloud-to-device messaging
 services: iot-hub
@@ -124,7 +124,7 @@ When the service sends a message, it is considered *Enqueued*. When a device wan
 
 A device can also:
 
-* *Reject* the message, which causes IoT Hub to set it to the **Deadlettered** state. Note: devices connecting with MQTT cannot reject C2D messages.
+* *Reject* the message, which causes IoT Hub to set it to the **Deadlettered** state. Note: devices connecting with MQTT cannot reject cloud-to-device messages.
 * *Abandon* the message, which causes IoT Hub to put the message back in the queue, with the state set to **Enqueued**.
 
 A thread could fail to process a message without notifying IoT Hub. In this case, messages automatically transition from the **Invisible** state back to the **Enqueued** state after a *visibility (or lock) timeout*. The default value of this timeout is one minute.
@@ -324,7 +324,7 @@ Other reference topics in the Developer Guide include:
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 * [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [IoT Hub query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps

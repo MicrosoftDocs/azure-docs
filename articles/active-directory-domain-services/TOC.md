@@ -1,17 +1,15 @@
 # Overview
-## [What is Azure AD Domain Services?](https://azure.microsoft.com/services/active-directory-ds/)
-## [How does it work?](active-directory-ds-overview.md)
+## [What is Azure AD Domain Services?](active-directory-ds-overview.md)
 ## [Is it right for you?](active-directory-ds-comparison.md)
 ## [Features](active-directory-ds-features.md)
-## [Deployment scenarios](active-directory-ds-scenarios.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Scenarios](active-directory-ds-scenarios.md)
 
 # Get started
-## [Task 1: Create administrative group](active-directory-ds-getting-started.md)
-## [Task 2: Create or select a virtual network](active-directory-ds-getting-started-vnet.md)
-## [Task 3: Enable Azure AD DS](active-directory-ds-getting-started-enableaadds.md)
-## [Task 4: Update DNS settings](active-directory-ds-getting-started-dns.md)
-## Task 5: Enable password sync
+## [Create administrative group](active-directory-ds-getting-started.md)
+## [Create or select a virtual network](active-directory-ds-getting-started-vnet.md)
+## [Enable Azure AD DS](active-directory-ds-getting-started-enableaadds.md)
+## [Update DNS settings](active-directory-ds-getting-started-dns.md)
+## Enable password sync
 ### [Cloud-only tenant](active-directory-ds-getting-started-password-sync.md)
 ### [Synced tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
@@ -29,10 +27,14 @@
 ## Troubleshoot
 ### [FAQs](active-directory-ds-faqs.md)
 ### [Troubleshooting guide](active-directory-ds-troubleshooting.md)
-### [Contact us](active-directory-ds-contact-us.md)
-### [Active Directory user voice](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 # Related
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+
+# Resources 
+## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Service updates](https://azure.microsoft.com/updates/?product=active-directory-ds)
+## [Contact us](active-directory-ds-contact-us.md)

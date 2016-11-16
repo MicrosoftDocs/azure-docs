@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Relay Hybrid Connections Protocol | Microsoft Docs
 description: zure Relay Hybrid Connections Protocol Guide.
 services: service-bus
@@ -149,7 +149,7 @@ operations.
 #### Listener control channel connection
 The control channel is opened with creating a Web socket connection to:
 
-`wss://{namespace-address}/**$hc/**{path}?sb-hc-action=...& sb-hc-id=...& sb-hc-token=...`
+**wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...**
 
 The *namespace-address* is the fully qualified domain name of the Azure Relay
 namespace that hosts the Hybrid Connection, typically of the form
@@ -326,7 +326,7 @@ property at this time:
 ``` JSON
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
-    "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
+        "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
     }                                                                                                                                                                     
 }
 ```
@@ -344,11 +344,11 @@ The goal is maximum transparency for the end-to-end Web socket. The address to
 connect to is the same as for the listener, but the "action" differs and the
 token needs a different permission:
 
-*wss://{namespace-address}/**$hc/**{path}?sb-hc-action=...&sb-hc-id=...\[&sbc-hc-token=...\]*
+**wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...**
 
 The *namespace-address* is the fully qualified domain name of the Azure Relay
 namespace that hosts the Hybrid Connection, typically of the form
-{*myname}.servicebus.windows.net.*
+*{myname}.servicebus.windows.net.*
 
 The request may contain arbitrary extra HTTP headers, including
 application-defined ones. All supplied headers flow to the listener and can be
@@ -367,10 +367,10 @@ The {path} is the URL-encoded namespace path of the preconfigured Hybrid
 Connection to register this listener on. The path expression MAY be extended
 with a suffix and a query string expression to communicate further If the Hybrid
 Connection is registered under the path "hyco", the path expression can be
-"**hyco/**suffix?param=value&..." followed by the query string parameters defined
+"hyco/suffix?param=value&..." followed by the query string parameters defined
 here. A complete expression may then be:
 
-*wss://{ns}/**$hc/*** **hyco/**suffix?param=value*& sb-hc-action=...&sb-hc-id=...\[&sbc-hc-token=...\]*                                                                                                                  
+**wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...**
 
 The path expression is passed through to the listener in the address URI
 contained in the "accept" control message.

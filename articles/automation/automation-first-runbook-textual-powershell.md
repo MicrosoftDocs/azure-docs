@@ -1,4 +1,4 @@
----
+﻿---
 title: My first PowerShell runbook in Azure Automation | Microsoft Docs
 description: Tutorial that walks you through the creation, testing, and publishing of a simple PowerShell runbook.
 services: automation
@@ -19,7 +19,11 @@ ms.author: magoedte;sngun
 
 ---
 # My first PowerShell runbook
-> [AZURE.SELECTOR] - [Graphical](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-powershell.md) - [PowerShell Workflow](automation-first-runbook-textual.md)  
+
+> [!div class="op_single_selector"]
+> * [Graphical](automation-first-runbook-graphical.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell Workflow](automation-first-runbook-textual.md)
 > 
 > 
 

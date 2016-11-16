@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use Azure Files with Linux | Microsoft Docs
 description: Create an Azure file share in the cloud with this step-by-step tutorial. Manage your file share content, and mount a file share from an Azure virtual machine (VM) running Linux or an on-premises application that supports SMB 3.0.
 services: storage

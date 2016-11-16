@@ -75,7 +75,7 @@ Or:<br>
 > 
 > 
 
-If you still can't connect remotely to your virtual machine, see more steps to try at [Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
+If you still can't connect remotely to your virtual machine, see more steps to try at [Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Windows VMs in the classic deployment model
 ### Azure portal
@@ -130,11 +130,11 @@ This command enables the built-in Windows Firewall group that allows incoming Re
 This command sets the fDenyTSConnections registry value to 0, enabling Remote Desktop connections.
 
 ## Next steps
-If the Azure VM access extension does not respond and you are unable to reset the password, you can [reset the local Windows password offline](virtual-machines-windows-reset-local-password-without-agent.md). This method is a more advanced process and requires you to connect the virtual hard disk of the problematic VM to another VM. Follow the steps documented in this article first, and only attempt the offline password reset method as a last resort.
+If the Azure VM access extension does not respond and you are unable to reset the password, you can [reset the local Windows password offline](virtual-machines-windows-reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This method is a more advanced process and requires you to connect the virtual hard disk of the problematic VM to another VM. Follow the steps documented in this article first, and only attempt the offline password reset method as a last resort.
 
-[Azure VM extensions and features](virtual-machines-windows-extensions-features.md)
+[Azure VM extensions and features](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Connect to an Azure virtual machine with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
-[Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](virtual-machines-windows-troubleshoot-rdp-connection.md)
+[Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

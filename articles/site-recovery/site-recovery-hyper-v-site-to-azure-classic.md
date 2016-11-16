@@ -1,4 +1,4 @@
----
+﻿---
 title: Replicate between on-premises Hyper-V virtual machines and Azure (without VMM) with Site Recovery | Microsoft Docs
 description: This article describes how to replicate Hyper-V virtual machines to Azure with Azure Site Recovery when machines aren't managed in VMM clouds.
 services: site-recovery
@@ -22,8 +22,8 @@ ms.author: raynew
 > * [Azure Portal](site-recovery-hyper-v-site-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 > * [Classic Portal](site-recovery-hyper-v-site-to-azure-classic.md)
-> 
-> 
+>
+>
 
 Read this article to learn about deploying Site Recovery to replicate Hyper-V virtual machines to Azure when Hyper-V hosts aren't managed in System Center Virtual Machine Manager (VMM) clouds.
 
@@ -58,7 +58,7 @@ As part of Azure Site Recovery deployment you’ll install the Azure Site Recove
 * We recommend you always run the latest versions of the Provider and agent. These are available in the Site Recovery portal.
 * All Hyper-V servers in a vault should have the same versions of the Provider and agent.
 * The Provider running on the server connects to Site Recovery over the internet. You can do this without a proxy, with the proxy settings currently configured on the Hyper-V server, or with custom proxy settings that you configure during Provider installation. You'll need to make sure that the proxy server you want to use can access these the URLs for connecting to Azure:
-  
+
   * *.hypervrecoverymanager.windowsazure.com
   * *.accesscontrol.windows.net
   * *.backup.windowsazure.com        
@@ -77,20 +77,20 @@ This graphic shows the different communication channels and ports used by Site R
 4. In **Name**, enter a friendly name to identify the vault.
 5. In **Region**, select the geographic region for the vault. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Click **Create vault**.
-   
+
     ![New vault](./media/site-recovery-hyper-v-site-to-azure-classic/vault.png)
 
 Check the status bar to confirm that the vault was successfully created. The vault will be listed as **Active** on the main Recovery Services page.
 
 ## Step 2: Create a Hyper-V site
 1. In the Recovery Services page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
-   
+
     ![Quick Start](./media/site-recovery-hyper-v-site-to-azure-classic/quick-start-icon.png)
 2. In the dropdown list, select **Between an on-premises Hyper-V site and Azure**.
-   
+
     ![Hyper-V site scenario](./media/site-recovery-hyper-v-site-to-azure-classic/select-scenario.png)
 3. In **Create a Hyper-V Site** click **Create Hyper-V site**. Specify a site name and save.
-   
+
     ![Hyper-V site](./media/site-recovery-hyper-v-site-to-azure-classic/create-site.png)
 
 ## Step 3: Install the Provider and agent
@@ -100,27 +100,27 @@ If you're installing on a Hyper-V cluster, performs steps 5-11 on each node in t
 
 1. In **Prepare Hyper-V servers**, click **Download a registration key** file.
 2. On the **Download Registration Key** page, click **Download** next to the site. Download the key to a safe location that can be easily accessed by the Hyper-V server. The key is valid for 5 days after it's generated.
-   
+
     ![Registration key](./media/site-recovery-hyper-v-site-to-azure-classic/download-key.png)
 3. Click **Download the Provider** to obtain the latest version.
 4. Run the file on each Hyper-V server you want to register in the vault. The file installs two components:
    * **Azure Site Recovery Provider**—Handles communication and orchestration between the Hyper-V server and the Azure Site Recovery portal.
    * **Azure Recovery Services Agent**—Handles data transport between virtual machines running on the source Hyper-V server and Azure storage.
 5. In **Microsoft Update** you can opt in for updates. With this setting enabled, Provider and Agent updates will be installed according to your Microsoft Update policy.
-   
+
     ![Microsoft Updates](./media/site-recovery-hyper-v-site-to-azure-classic/provider1.png)
 6. In **Installation** specify where you want to install the Provider and Agent on the Hyper-V server.
-   
+
     ![Install location](./media/site-recovery-hyper-v-site-to-azure-classic/provider2.png)
 7. After installation is complete continue setup to register the server in the vault.
 8. On the **Vault Settings** page, click **Browse** to select the key file. Specify the Azure Site Recovery subscription, the vault name, and the Hyper-V site to which the Hyper-V server belongs.
-   
+
     ![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider8.PNG)
 9. On the **Internet Connection** page you specify how the Provider connects to Azure Site Recovery. Select **Use default system proxy settings** to use the default Internet connection settings configured on the server. If you don't specify a value the default settings will be used.
-   
+
    ![Internet Settings](./media/site-recovery-hyper-v-site-to-azure-classic/provider7.PNG)
 10. Registration starts to register the server in the vault.
-    
+
     ![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider15.PNG)
 11. After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Hyper-V Sites** tab on the **Servers** page in the vault.
 
@@ -129,14 +129,14 @@ As an alternative you can install the Azure Site Recovery Provider from the comm
 
 1. Download the Provider installation file and registration key to a folder. For example C:\ASR.
 2. Run a command prompt as an Administrator and type:
-   
+
         C:\Windows\System32> CD C:\ASR
         C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
 3. Then install the Provider by running:
-   
+
         C:\ASR> setupdr.exe /i
 4. Run the following to complete registration:
-   
+
         CD C:\Program Files\Microsoft Azure Site Recovery Provider
         C:\Program Files\Microsoft Azure Site Recovery Provider\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
 
@@ -149,26 +149,26 @@ Where parameters include:
 
 ## Step 4: Create an Azure storage account
 1. In **Prepare resources** select **Create Storage Account**  to create an Azure storage account if you don't have one. The account should have geo-replication enabled. It should be in the same region as the Azure Site Recovery vault, and be associated with the same subscription.
-   
+
     ![Create storage account](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
 > [!NOTE]
 > 1. We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.                               2. [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
-> 
-> 
+>
+>
 
 ## Step 5: Create and configure protection groups
 Protection groups are logical groupings of virtual machines that you want to protect using the same protection settings. You apply protection settings to a protection group, and those settings are applied to all virtual machines that you add to the group.
 
 1. In **Create and configure protection groups** click **Create a protection group**. If any prerequisites aren't in place a message is issued and you can click **View details** for more information.
 2. In the **Protection Groups** tab, add a protection group. Specify a name, the source Hyper-V site, the target **Azure**, your Azure Site Recovery subscription name, and the Azure storage account.
-   
+
     ![Protection group](./media/site-recovery-hyper-v-site-to-azure-classic/protection-group.png)
 3. In **Replication settings** set the **Copy frequency** to specify how often the data delta should be synchronized between the source and target. You can set to 30 seconds, 5 minutes, or 15 minutes.
 4. In **Retain recovery points** specify how many hours of recovery history should be stored.
 5. In **Frequency of application-consistent snapshots** you can specify whether to take snapshots that use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken. By default these aren't taken. Make sure this value is set to less than the number of additional recovery points you configure. This is only supported if the virtual machine is running a Windows operating system.
 6. In **Initial replication start time** specify when initial replication of virtual machines in the protection group should be sent to Azure.
-   
+
     ![Protection group](./media/site-recovery-hyper-v-site-to-azure-classic/protection-group2.png)
 
 ## Step 6: Enable virtual machine protection
@@ -176,26 +176,26 @@ Add virtual machines to a protection group to enable protection for them.
 
 > [!NOTE]
 > Protecting VMs running Linux with a static IP address isn't supported.
-> 
-> 
+>
+>
 
 1. On the **Machines** tab for the protection group, click** Add virtual machines to protection groups to enable protection**.
 2. On the **Enable Virtual Machine Protection** page select the virtual machines you want to protect.
-   
+
     ![Enable virtual machine protection](./media/site-recovery-hyper-v-site-to-azure-classic/add-vm.png)
-   
+
     The Enable Protection jobs begins. You can track progress on the **Jobs** tab. After the Finalize Protection job runs the virtual machine is ready for failover.
 3. After protection is set up you can:
-   
+
    * View virtual machines in **Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines** You can drill down to machine details in the **Properties** tab..
    * Configure the failover properties for a virtual machines in **Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines** *virtual_machine_name* > **Configure**. You can configure:
-     
+
      * **Name**: The name of the virtual machine in Azure.
      * **Size**: The target size of the virtual machine that fails over.
-       
+
        ![Configure virtual machine properties](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
    * Configure additional virtual machine settings in *Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines** *virtual_machine_name* > **Configure**, including:
-     
+
      * **Network adapters**: The number of network adapters is dictated by the size you specify for the target virtual machine. Check [virtual machine size specs](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) for the number of nics supported by the virtual machine size.
 
             When you modify the size for a virtual machine and save the settings, the number of network adapter will change when you open **Configure** page the next time. The number of network adapters of target virtual machines is minimum of the number of network adapters on source virtual machine and maximum number of network adapters supported by the size of the virtual machine chosen. It is explained below:
@@ -228,28 +228,28 @@ If you want to run a test failover without specifying an Azure network you don�
 
 To run a test failover with a target Azure network you’ll need to create a new Azure network that’s isolated from your Azure production network (default behavior when you create a new network in Azure). Read [run a test failover](site-recovery-failover.md#run-a-test-failover) for more details.
 
-To fully test your replication and network deployment you'll need to set up the infrastructure so that the replicated virtual machine to work as expected. One way of doing this to to set up a virtual machine as a domain controller with DNS and replicate it to Azure using Site Recovery to create it in the test network by running a test failover.  [Read more](site-recovery-active-directory.md#considerations-for-test-failover) about test failover considerations for Active Directory.
+To fully test your replication and network deployment you'll need to set up the infrastructure so that the replicated virtual machine to work as expected. One way of doing this to to set up a virtual machine as a domain controller with DNS and replicate it to Azure using Site Recovery to create it in the test network by running a test failover.  [Read more](site-recovery-active-directory.md#test-failover-considerations) about test failover considerations for Active Directory.
 
 Run the test failover as follows:
 
 > [!NOTE]
 > To get the best performance when you do a failover to Azure, ensure that you have installed the Azure Agent in the protected machine. This helps in booting faster and also helps in diagnosis in case of issues. Linux agent can be found [here](https://github.com/Azure/WALinuxAgent) - and Windows agent can be found [here](http://go.microsoft.com/fwlink/?LinkID=394789)
-> 
-> 
+>
+>
 
 1. On the **Recovery Plans** tab, select the plan and click **Test Failover**.
 2. On the **Confirm Test Failover** page select **None** or a specific Azure network.  Note that if you select **None** the test failover will check that the virtual machine replicated correctly to Azure but doesn't check your replication network configuration.
-   
+
     ![Test failover](./media/site-recovery-hyper-v-site-to-azure-classic/test-nonetwork.png)
 3. On the **Jobs** tab you can track failover progress. You should also be able to see the virtual machine test replica in the Azure portal. If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine.
 4. When the failover reaches the **Complete testing** phase , click **Complete Test** to finish up the test failover. You can drill down to the **Job** tab to track failover progress and status, and to perform any actions that are needed.
 5. After  failover you'll be able to see the virtual machine test replica in the Azure portal. If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine.
-   
+
    1. Verify that the virtual machines start successfully.
    2. If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover. You will also need to add an RDP endpoint on the virtual machine. You can leverage an [Azure automation runbook](site-recovery-runbook-automation.md) to do that.
    3. After failover if you use a public IP address to connect to the virtual machine in Azure using Remote Desktop, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
 6. After the testing is complete do the following:
-   
+
    * Click **The test failover is complete**. Clean up the test environment to automatically power off and delete the test virtual machines.
    * Click **Notes** to record and save any observations associated with the test failover.
 7. When the failover reaches the **Complete testing** phase finish the verification as follows:
@@ -261,4 +261,3 @@ Run the test failover as follows:
 
 ## Next steps
 After your deployment is set up and running, [learn more](site-recovery-failover.md) about failover.
-

@@ -22,13 +22,13 @@ This article answers some frequently-asked questions about Microsoft Azure Relay
 
 ## General questions
 ### What is Azure Relay?
-Azure [Relay service](relay-what-is-it.md) facilitates your hybrid applications by enabling you to securely expose services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure.
+The Azure [Relay service](relay-what-is-it.md) facilitates your hybrid applications by enabling you to securely expose services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure.
 
 ### What is a Relay namespace?
 A [namespace](relay-create-namespace-portal.md) provides a scoping container for addressing Relay resources within your application. Creating one is necessary to use Relay and will be one of the first steps in getting started.
 
 ### What happened to the previously named Relay service?
-The previously named 'Relay' service is now WCF Relay. Anyone currently utilizing the service may continue to use it as normal. Hybrid Connections is an updated version of a service transplanted from BizTalk. BothWCF Relay and Hybrid Connections will continue to be supported looking forward.
+The previously named 'Relay' service is now WCF Relay. You can continue to use this service as usual. Hybrid Connections is an updated version of a service transplanted from BizTalk. Both WCF Relay and Hybrid Connections will continue to be supported going forward.
 
 ## Pricing
 This section answers some frequently-asked questions about the Relay pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Relay pricing, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -94,10 +94,9 @@ Shared Access Signatures are an authentication mechanism based on SHA – 256 se
 
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Relay exceptions]: relay-exceptions.md
-[Shared Access Signatures]: service-bus-sas-overview.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas-overview.md
 
 ## Next steps:
 * [Create a namespace](relay-create-namespace-portal.md)
 * [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Get started with Node](relay-hybrid-connections-node-get-started.md)
-

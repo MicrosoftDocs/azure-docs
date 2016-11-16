@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure Active Directory Domain Services: Administration Guide | Microsoft Docs'
 description: Join a Windows virtual machine to a managed domain using Azure PowerShell and the classic deployment model.
 services: active-directory-ds

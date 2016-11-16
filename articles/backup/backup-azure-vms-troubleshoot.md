@@ -21,8 +21,8 @@ ms.author: trinadhk;jimpark;
 > [!div class="op_single_selector"]
 > * [Recovery services vault](backup-azure-vms-troubleshoot.md)
 > * [Backup vault](backup-azure-vms-troubleshoot-classic.md)
-> 
-> 
+>
+>
 
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
 
@@ -91,7 +91,7 @@ For Windows VMs:
 
 For Linux VMs:
 
-* Follow the instructions on [Updating Linux VM Agent](../virtual-machines/virtual-machines-linux-update-agent.md).
+* Follow the instructions on [Updating Linux VM Agent](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### Validating VM Agent installation
 How to check for the VM Agent version on Windows VMs:
@@ -103,17 +103,17 @@ How to check for the VM Agent version on Windows VMs:
 VM backup relies on issuing snapshot command to underlying storage. Not having access to storage or delay in snapshot task execution can fail the backup. The following can cause snapshot task failure.
 
 1. Network access to Storage is blocked using NSG<br>
-    Learn more on how to [enable network access](backup-azure-vms-prepare.md#2-network-connectivity) to Storage using either WhiteListing of IPs or through proxy server.
+    Learn more on how to [enable network access](backup-azure-vms-prepare.md#network-connectivity) to Storage using either WhiteListing of IPs or through proxy server.
 2. VMs with Sql Server backup configured can cause snapshot task delay <br>
    By default VM backup issues VSS Full backup on Windows VMs. On VMs which are running Sql Servers and Sql Server backup is configured, this might cause delay in snapshot execution. Please set following registry key if you are experiencing backup failures because of snapshot issues.
-   
+
    ```
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```
 3. VM status reported incorrectly because VM is shutdown in RDP.  <br>
    If you have Shut down the virtual machine in RDP, please check back in the portal that VM status is reflected correctly. If not, please shutdown the VM in portal using 'Shutdown' option in VM dashboard.
-4. If more than four VM’s share the same cloud service, configure multiple backup policies to stage the backup times so no more than four VM backups are started at the same time. Try to spread the backup start times an hour apart between policies. 
+4. If more than four VM’s share the same cloud service, configure multiple backup policies to stage the backup times so no more than four VM backups are started at the same time. Try to spread the backup start times an hour apart between policies.
 5. VM is running at High CPU/Memory.<br>
    If the virtual machine is running at High CPU usage(>90%) or memory, snapshot task is queued, delayed and will eventually gets timed-out. Try on-demand backup in such situations.
 
@@ -135,12 +135,11 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
    * Unblock the IPs using the [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
    * Add rules to the NSG (if you have one in place) to allow access to the IPs.
 2. Create a path for HTTP traffic to flow
-   * If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy a HTTP Proxy server can found [here](backup-azure-vms-prepare.md#2-network-connectivity).
+   * If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy a HTTP Proxy server can found [here](backup-azure-vms-prepare.md#network-connectivity).
    * Add rules to the NSG (if you have one in place) to allow access to the INTERNET from the HTTP Proxy.
 
 > [!NOTE]
 > DHCP must be enabled inside the guest for IaaS VM Backup to work.  If you need a static private IP, you should configure it through the platform. The DHCP option inside the VM should be left enabled.
 > View more information about [Setting a Static Internal Private IP](../virtual-network/virtual-networks-reserved-private-ip.md).
-> 
-> 
-
+>
+>

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure CLI commands in Resource Manager mode | Microsoft Docs
 description: Azure command line interface (CLI) commands to manage resources in the Resource Manager deployment model
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services

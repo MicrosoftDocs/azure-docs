@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage reverse DNS records for your Azure (classic) services using PowerShell | Microsoft Docs
 description: 'How to manage reverse DNS records or PTR records for Azure services using PowerShell in the classic deployment model. '
 services: DNS
@@ -19,11 +19,13 @@ ms.author: smalone
 
 ---
 # How to manage reverse DNS records for your Azure services (classic) using Azure PowerShell
+
 [!INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
 
-<BR>
+
 [!INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
-<BR>
+
+
 [!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 Learn how to [perform these steps using the Resource Manager model](dns-reverse-dns-record-operations-ps.md).
 

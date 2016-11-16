@@ -1,4 +1,4 @@
----
+﻿---
 title: Common startup tasks for Cloud Services | Microsoft Docs
 description: Provides some examples of common startup tasks you may want to perform in your cloud services web role or worker role.
 services: cloud-services
@@ -85,40 +85,41 @@ The relevant sections of the [ServiceDefinition.csdef] file are shown here, whic
 
 The *Startup.cmd* batch file uses *AppCmd.exe* to add a compression section and a compression entry for JSON to the *Web.config* file. The expected **errorlevel** of 183 is set to zero using the VERIFY.EXE command-line program. Unexpected errorlevels are logged to StartupErrorLog.txt.
 
-    REM   *** Add a compression section to the Web.config file. ***
-    %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
+```cmd
+REM   *** Add a compression section to the Web.config file. ***
+%windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
-    REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
-    REM   batch file were executed twice. This can occur and must be accounted for in a Azure startup
-    REM   task. To handle this situation, set the ERRORLEVEL to zero by using the Verify command. The Verify
-    REM   command will safely set the ERRORLEVEL to zero.
-    IF %ERRORLEVEL% EQU 183 DO VERIFY > NUL
+REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
+REM   batch file were executed twice. This can occur and must be accounted for in a Azure startup
+REM   task. To handle this situation, set the ERRORLEVEL to zero by using the Verify command. The Verify
+REM   command will safely set the ERRORLEVEL to zero.
+IF %ERRORLEVEL% EQU 183 DO VERIFY > NUL
 
-    REM   If the ERRORLEVEL is not zero at this point, some other error occurred.
-    IF %ERRORLEVEL% NEQ 0 (
-        ECHO Error adding a compression section to the Web.config file. >> "%TEMP%\StartupLog.txt" 2>&1
-        GOTO ErrorExit
-    )
+REM   If the ERRORLEVEL is not zero at this point, some other error occurred.
+IF %ERRORLEVEL% NEQ 0 (
+    ECHO Error adding a compression section to the Web.config file. >> "%TEMP%\StartupLog.txt" 2>&1
+    GOTO ErrorExit
+)
 
-    REM   *** Add compression for json. ***
-    %windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
-    IF %ERRORLEVEL% EQU 183 VERIFY > NUL
-    IF %ERRORLEVEL% NEQ 0 (
-        ECHO Error adding the JSON compression type to the Web.config file. >> "%TEMP%\StartupLog.txt" 2>&1
-        GOTO ErrorExit
-    )
+REM   *** Add compression for json. ***
+%windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
+IF %ERRORLEVEL% EQU 183 VERIFY > NUL
+IF %ERRORLEVEL% NEQ 0 (
+    ECHO Error adding the JSON compression type to the Web.config file. >> "%TEMP%\StartupLog.txt" 2>&1
+    GOTO ErrorExit
+)
 
-    REM   *** Exit batch file. ***
-    EXIT /b 0
+REM   *** Exit batch file. ***
+EXIT /b 0
 
-    REM   *** Log error and exit ***
-    :ErrorExit
-    REM   Report the date, time, and ERRORLEVEL of the error.
-    DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
-    TIME /T >> "%TEMP%\StartupLog.txt" 2>&1
-    ECHO An error occurred during startup. ERRORLEVEL = %ERRORLEVEL% >> "%TEMP%\StartupLog.txt" 2>&1
-    EXIT %ERRORLEVEL%
-
+REM   *** Log error and exit ***
+:ErrorExit
+REM   Report the date, time, and ERRORLEVEL of the error.
+DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
+TIME /T >> "%TEMP%\StartupLog.txt" 2>&1
+ECHO An error occurred during startup. ERRORLEVEL = %ERRORLEVEL% >> "%TEMP%\StartupLog.txt" 2>&1
+EXIT %ERRORLEVEL%
+```
 
 ## Add firewall rules
 In Azure, there are effectively two firewalls. The first firewall controls connections between the virtual machine and the outside world. This firewall is controlled by the [EndPoints] element in the [ServiceDefinition.csdef] file.
@@ -142,14 +143,15 @@ A startup task that creates a firewall rule must have an [executionContext][Task
 
 To add the firewall rule, you must use the appropriate `netsh advfirewall firewall` commands in your startup batch file. In this example, the startup task requires security and encryption for TCP port 80.
 
-    REM   Add a firewall rule in a startup task.
+```cmd
+REM   Add a firewall rule in a startup task.
 
-    REM   Add an inbound rule requiring security and encryption for TCP port 80 traffic.
-    netsh advfirewall firewall add rule name="Require Encryption for Inbound TCP/80" protocol=TCP dir=in localport=80 security=authdynenc action=allow >> "%TEMP%\StartupLog.txt" 2>&1
+REM   Add an inbound rule requiring security and encryption for TCP port 80 traffic.
+netsh advfirewall firewall add rule name="Require Encryption for Inbound TCP/80" protocol=TCP dir=in localport=80 security=authdynenc action=allow >> "%TEMP%\StartupLog.txt" 2>&1
 
-    REM   If an error occurred, return the errorlevel.
-    EXIT /B %errorlevel%
-
+REM   If an error occurred, return the errorlevel.
+EXIT /B %errorlevel%
+```
 
 ## Block a specific IP address
 You can restrict an Azure web role access to a set of specified IP addresses by modifying your IIS **web.config** file. You also need to use a command file which unlocks the **ipSecurity** section of the **ApplicationHost.config** file.
@@ -171,11 +173,13 @@ Add the following startup task to the [ServiceDefinition.csdef] file.
 
 Add this command to the **startup.cmd** file:
 
-    @echo off
-    @echo Installing "IPv4 Address and Domain Restrictions" feature 
-    powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP-Security"
-    @echo Unlocking configuration for "IPv4 Address and Domain Restrictions" feature 
-    %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
+```cmd
+@echo off
+@echo Installing "IPv4 Address and Domain Restrictions" feature 
+powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP-Security"
+@echo Unlocking configuration for "IPv4 Address and Domain Restrictions" feature 
+%windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
+```
 
 This task causes the **startup.cmd** batch file to be run every time the web role is initialized, ensuring that the required **ipSecurity** section is unlocked.
 
@@ -216,27 +220,29 @@ Windows PowerShell scripts cannot be called directly from the [ServiceDefinition
 
 PowerShell (by default) does not run unsigned scripts. Unless you sign your script, you need to configure PowerShell to run unsigned scripts. To run unsigned scripts, the **ExecutionPolicy** must be set to **Unrestricted**. The **ExecutionPolicy** setting that you use is based on the version of Windows PowerShell.
 
-    REM   Run an unsigned PowerShell script and log the output
-    PowerShell -ExecutionPolicy Unrestricted .\startup.ps1 >> "%TEMP%\StartupLog.txt" 2>&1
+```cmd
+REM   Run an unsigned PowerShell script and log the output
+PowerShell -ExecutionPolicy Unrestricted .\startup.ps1 >> "%TEMP%\StartupLog.txt" 2>&1
 
-    REM   If an error occurred, return the errorlevel.
-    EXIT /B %errorlevel%
-
+REM   If an error occurred, return the errorlevel.
+EXIT /B %errorlevel%
+```
 
 If you're using a Guest OS that is runs PowerShell 2.0 or 1.0 you can force version 2 to run, and if unavailable, use version 1.
 
-    REM   Attempt to set the execution policy by using PowerShell version 2.0 syntax.
-    PowerShell -Version 2.0 -ExecutionPolicy Unrestricted .\startup.ps1 >> "%TEMP%\StartupLog.txt" 2>&1
+```cmd
+REM   Attempt to set the execution policy by using PowerShell version 2.0 syntax.
+PowerShell -Version 2.0 -ExecutionPolicy Unrestricted .\startup.ps1 >> "%TEMP%\StartupLog.txt" 2>&1
 
-    REM   If PowerShell version 2.0 isn't available. Set the execution policy by using the PowerShell
-    IF %ERRORLEVEL% EQU -393216 (
+REM   If PowerShell version 2.0 isn't available. Set the execution policy by using the PowerShell
+IF %ERRORLEVEL% EQU -393216 (
+   PowerShell -Command "Set-ExecutionPolicy Unrestricted" >> "%TEMP%\StartupLog.txt" 2>&1
+   PowerShell .\startup.ps1 >> "%TEMP%\StartupLog.txt" 2>&1
+)
 
-       PowerShell -Command "Set-ExecutionPolicy Unrestricted" >> "%TEMP%\StartupLog.txt" 2>&1
-       PowerShell .\startup.ps1 >> "%TEMP%\StartupLog.txt" 2>&1
-    )
-
-    REM   If an error occurred, return the errorlevel.
-    EXIT /B %errorlevel%
+REM   If an error occurred, return the errorlevel.
+EXIT /B %errorlevel%
+```
 
 ## Create files in local storage from a startup task
 You can use a local storage resource to store files created by your startup task that is accessed later by your application.
@@ -271,16 +277,18 @@ The relevant sections of the **ServiceDefinition.csdef** file are shown here:
 
 As an example, this **Startup.cmd** batch file uses the **PathToStartupStorage** environment variable to create the file **MyTest.txt** on the local storage location.
 
-    REM   Create a simple text file.
+```cmd
+REM   Create a simple text file.
 
-    ECHO This text will go into the MyTest.txt file which will be in the    >  "%PathToStartupStorage%\MyTest.txt"
-    ECHO path pointed to by the PathToStartupStorage environment variable.  >> "%PathToStartupStorage%\MyTest.txt"
-    ECHO The contents of the PathToStartupStorage environment variable is   >> "%PathToStartupStorage%\MyTest.txt"
-    ECHO "%PathToStartupStorage%".                                          >> "%PathToStartupStorage%\MyTest.txt"
+ECHO This text will go into the MyTest.txt file which will be in the    >  "%PathToStartupStorage%\MyTest.txt"
+ECHO path pointed to by the PathToStartupStorage environment variable.  >> "%PathToStartupStorage%\MyTest.txt"
+ECHO The contents of the PathToStartupStorage environment variable is   >> "%PathToStartupStorage%\MyTest.txt"
+ECHO "%PathToStartupStorage%".                                          >> "%PathToStartupStorage%\MyTest.txt"
 
-    REM   Exit the batch file with ERRORLEVEL 0.
+REM   Exit the batch file with ERRORLEVEL 0.
 
-    EXIT /b 0
+EXIT /b 0
+```
 
 You can access local storage folder from the Azure SDK by using the [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) method.
 
@@ -289,7 +297,6 @@ string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.
 
 string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStoragePath, "MyTestFile.txt"));
 ```
-
 
 ## Run in the emulator or cloud
 You can have your startup task perform different steps when it is operating in the cloud compared to when it is in the compute emulator. For example, you may want to use a fresh copy of your SQL data only when running in the emulator. Or you may want to do some performance optimizations for the cloud that you don't need to do when running in the emulator.
@@ -320,15 +327,15 @@ To create the environment variable, add the [Variable]/[RoleInstanceValue] eleme
 
 The task can now check the **%ComputeEmulatorRunning%** environment variable to perform different actions based on whether the role is running in the cloud or the emulator. Here is a .cmd shell script that checks for that environment variable.
 
-    REM   Check if this task is running on the compute emulator.
+```cmd
+REM   Check if this task is running on the compute emulator.
 
-    IF "%ComputeEmulatorRunning%" == "true" (
-        REM   This task is running on the compute emulator. Perform tasks that must be run only in the compute emulator.
-
-    ) ELSE (
-        REM   This task is running on the cloud. Perform tasks that must be run only in the cloud.
-
-    )
+IF "%ComputeEmulatorRunning%" == "true" (
+    REM   This task is running on the compute emulator. Perform tasks that must be run only in the compute emulator.
+) ELSE (
+    REM   This task is running on the cloud. Perform tasks that must be run only in the cloud.
+)
+```
 
 
 ## Detect that your task has already run
@@ -336,36 +343,38 @@ The role may recycle without a reboot causing your startup tasks to run again. T
 
 The simplest way to detect that a task has already run is to create a file in the **%TEMP%** folder when the task is successful and look for it at the start of the task. Here is a sample cmd shell script that does that for you.
 
-    REM   If Task1_Success.txt exists, then Application 1 is already installed.
-    IF EXIST "%RoleRoot%\Task1_Success.txt" (
-      ECHO Application 1 is already installed. Exiting. >> "%TEMP%\StartupLog.txt" 2>&1
-      GOTO Finish
-    )
+```cmd
+REM   If Task1_Success.txt exists, then Application 1 is already installed.
+IF EXIST "%RoleRoot%\Task1_Success.txt" (
+  ECHO Application 1 is already installed. Exiting. >> "%TEMP%\StartupLog.txt" 2>&1
+  GOTO Finish
+)
 
-    REM   Run your real exe task
-    ECHO Running XYZ >> "%TEMP%\StartupLog.txt" 2>&1
-    "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
+REM   Run your real exe task
+ECHO Running XYZ >> "%TEMP%\StartupLog.txt" 2>&1
+"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
-    IF %ERRORLEVEL% EQU 0 (
-      REM   The application installed without error. Create a file to indicate that the task
-      REM   does not need to be run again.
+IF %ERRORLEVEL% EQU 0 (
+  REM   The application installed without error. Create a file to indicate that the task
+  REM   does not need to be run again.
 
-      ECHO This line will create a file to indicate that Application 1 installed correctly. > "%RoleRoot%\Task1_Success.txt"
+  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%RoleRoot%\Task1_Success.txt"
 
-    ) ELSE (
-      REM   An error occurred. Log the error and exit with the error code.
+) ELSE (
+  REM   An error occurred. Log the error and exit with the error code.
 
-      DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
-      TIME /T >> "%TEMP%\StartupLog.txt" 2>&1
-      ECHO  An error occurred running task 1. Errorlevel = %ERRORLEVEL%. >> "%TEMP%\StartupLog.txt" 2>&1
+  DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
+  TIME /T >> "%TEMP%\StartupLog.txt" 2>&1
+  ECHO  An error occurred running task 1. Errorlevel = %ERRORLEVEL%. >> "%TEMP%\StartupLog.txt" 2>&1
 
-      EXIT %ERRORLEVEL%
-    )
+  EXIT %ERRORLEVEL%
+)
 
-    :Finish
+:Finish
 
-    REM   Exit normally.
-    EXIT /B 0
+REM   Exit normally.
+EXIT /B 0
+```
 
 ## Task best practices
 Here are some best practices you should follow when configuring task for your web or worker role.

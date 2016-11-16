@@ -121,7 +121,7 @@ The dataset slices in data factory can have one of the following statuses:
 <tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Validation in progress.</td>
 </tr>
-<td></td>
+<td>-</td>
 <td>The slice is being processed.</td>
 </tr>
 <tr>
@@ -134,15 +134,15 @@ The dataset slices in data factory can have one of the following statuses:
 <td>Validation</td><td>Validation has failed.</td>
 </tr>
 <tr>
-<td></td><td>Failed to generate and/or validate the slice.</td>
+<td>-</td><td>Failed to generate and/or validate the slice.</td>
 </tr>
-<td>Ready</td><td></td><td>The slice is ready for consumption.</td>
-</tr>
-<tr>
-<td>Skipped</td><td></td><td>The slice is not processed.</td>
+<td>Ready</td><td>-</td><td>The slice is ready for consumption.</td>
 </tr>
 <tr>
-<td>None</td><td></td><td>A slice that used to exist with a different status, but has been reset.</td>
+<td>Skipped</td><td>None</td><td>The slice is not processed.</td>
+</tr>
+<tr>
+<td>None</td><td>-</td><td>A slice that used to exist with a different status, but has been reset.</td>
 </tr>
 </table>
 

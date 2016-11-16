@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory Integration with Mimecast Admin Console | Microsoft Docs'
 description: Learn how to use Mimecast Admin Console with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory

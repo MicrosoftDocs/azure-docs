@@ -1,4 +1,4 @@
----
+﻿---
 title: Log Analytics HTTP Data Collector API | Microsoft Docs
 description: You can use the Log Analytics HTTP Data Collector API to add POST JSON data to the Log Analytics repository from any client that can call the REST API. This article describes how to use the API, and has examples of how to publish data by using different programming languages.
 services: log-analytics

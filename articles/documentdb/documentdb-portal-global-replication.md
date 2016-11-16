@@ -1,4 +1,4 @@
----
+﻿---
 title: DocumentDB global database replication | Microsoft Docs
 description: Learn how to manage the global replication of your DocumentDB account via the Azure portal.
 services: documentdb

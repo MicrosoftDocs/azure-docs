@@ -18,28 +18,30 @@ ms.author: jingwang
 
 ---
 # Move data to and from Azure SQL Data Warehouse using Azure Data Factory
-This article outlines how you can use Copy Activity in Azure Data Factory to move data from/to Azure SQL Data Warehouse to/from another data store. 
+This article outlines how you can use Copy Activity in Azure Data Factory to move data from/to Azure SQL Data Warehouse to/from another data store.
 
 You can specify whether you want to use PolyBase while loading data into Azure SQL Data Warehouse. We suggest that you use PolyBase to achieve best performance when loading data into Azure SQL Data Warehouse. The [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) section has details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ## Copy data wizard
-The easiest way to create a pipeline that copies data to/from Azure SQL Data Warehouse is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+The easiest way to create a pipeline that copies data to/from Azure SQL Data Warehouse is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
+
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
+
 
 > [!NOTE]
-> For an overview of the Azure Data Factory service, see [Introduction to Azure Data Factory](data-factory-introduction.md). 
-> 
-> This article provides JSON examples but does not provide step-by-step instructions for creating a data factory. See [Tutorial: Copy data from Azure Blob to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for a quick walkthrough with step-by-step instructions for using the Copy Activity in Azure Data Factory. 
-> 
-> 
+> For an overview of the Azure Data Factory service, see [Introduction to Azure Data Factory](data-factory-introduction.md).
+>
+> This article provides JSON examples but does not provide step-by-step instructions for creating a data factory. See [Tutorial: Copy data from Azure Blob to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for a quick walkthrough with step-by-step instructions for using the Copy Activity in Azure Data Factory.
+>
+>
 
 ## Sample: Copy data from Azure SQL Data Warehouse to Azure Blob
 The sample defines the following Data Factory entities:
 
 1. A linked service of type [AzureSqlDW](#linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. An input [dataset](data-factory-create-datasets.md) of type [AzureSqlDWTable](#dataset-type-properties). 
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
+3. An input [dataset](data-factory-create-datasets.md) of type [AzureSqlDWTable](#dataset-type-properties).
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [SqlDWSource](#copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
@@ -208,23 +210,23 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 
 > [!NOTE]
 > In the example, **sqlReaderQuery** is specified for the SqlDWSource. The Copy Activity runs this query against the Azure SQL Data Warehouse source to get the data.
-> 
+>
 > Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
-> 
+>
 > If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (select column1, column2 from mytable) to run against the Azure SQL Data Warehouse. If the dataset definition does not have the structure, all columns are selected from the table.
-> 
-> 
+>
+>
 
 ## Sample: Copy data from Azure Blob to Azure SQL Data Warehouse
 The sample defines the following Data Factory entities:
 
 1. A linked service of type [AzureSqlDW](#linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureSqlDWTable](#dataset-type-properties).
 5. A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [SqlDWSink](#copy-activity-type-properties).
 
-The sample copies time-series data (hourly, daily, etc.) from Azure blob to a table in Azure SQL Data Warehouse database every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies time-series data (hourly, daily, etc.) from Azure blob to a table in Azure SQL Data Warehouse database every hour. The JSON properties used in these samples are described in sections following the samples.
 
 **Azure SQL Data Warehouse linked service:**
 
@@ -319,7 +321,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 
 **Azure SQL Data Warehouse output dataset:**
 
-The sample copies data to a table named “MyTable” in Azure SQL Data Warehouse. Create the table in Azure SQL Data Warehouse with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour. 
+The sample copies data to a table named “MyTable” in Azure SQL Data Warehouse. Create the table in Azure SQL Data Warehouse with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
 
     {
       "name": "AzureSqlDWOutput",
@@ -388,7 +390,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 For a walkthrough, see the [Load data with Azure Data Factory](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) article in the Azure SQL Data Warehouse documentation.
 
 ## Linked service properties
-The following table provides description for JSON elements specific to Azure SQL Data Warehouse linked service. 
+The following table provides description for JSON elements specific to Azure SQL Data Warehouse linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -396,26 +398,26 @@ The following table provides description for JSON elements specific to Azure SQL
 | **connectionString** |Specify information needed to connect to the Azure SQL Data Warehouse instance for the connectionString property. |Yes |
 
 > [!IMPORTANT]
-> Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) and the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Data Warehouse from outside Azure including from on-premises data sources with data factory gateway, configure appropriate IP address range for the machine that is sending data to Azure SQL Data Warehouse. 
-> 
-> 
+> Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) and the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Data Warehouse from outside Azure including from on-premises data sources with data factory gateway, configure appropriate IP address range for the machine that is sending data to Azure SQL Data Warehouse.
+>
+>
 
 ## Dataset type properties
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.). 
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **AzureSqlDWTable** has the following properties.
 
 | Property | Description | Required |
 | --- | --- | --- |
-| tableName |Name of the table in the Azure SQL Data Warehouse database that the linked service refers to. |Yes |
+| tableName |Name of the table or view in the Azure SQL Data Warehouse database that the linked service refers to. |Yes |
 
 ## Copy activity type properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
 > [!NOTE]
 > The Copy Activity takes only one input and produces only one output.
-> 
-> 
+>
+>
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
@@ -428,9 +430,9 @@ When source is of type **SqlDWSource**, the following properties are available i
 | sqlReaderStoredProcedureName |Name of the stored procedure that reads data from the source table. |Name of the stored procedure. |No |
 | storedProcedureParameters |Parameters for the stored procedure. |Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
 
-If the **sqlReaderQuery** is specified for the SqlDWSource, the Copy Activity runs this query against the Azure SQL Data Warehouse source to get the data. 
+If the **sqlReaderQuery** is specified for the SqlDWSource, the Copy Activity runs this query against the Azure SQL Data Warehouse source to get the data.
 
-Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters). 
+Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
 
 If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query to run against the Azure SQL Data Warehouse. Example: `select column1, column2 from mytable`. If the dataset definition does not have the structure, all columns are selected from the table.
 
@@ -444,7 +446,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
         }
     }
 
-**The stored procedure definition:** 
+**The stored procedure definition:**
 
     CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
     (
@@ -500,7 +502,7 @@ Set the **allowPolyBase** property to **true** as shown in the following example
             "rejectType": "percentage",
             "rejectValue": 10.0,
             "rejectSampleValue": 100,
-            "useTypeDefault": true 
+            "useTypeDefault": true
         }
 
     }
@@ -512,18 +514,18 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
 
 1. **Source linked service** is of type: **Azure Storage** and it is not configured to use SAS (Shared Access Signature) authentication. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details.  
 2. The **input dataset** is of type: **Azure Blob** and the format type under type properties is **OrcFormat** or **TextFormat** with the following configurations:
-   
-   1. **rowDelimiter** must be **\n**. 
-   2. **nullValue** is set to **empty string** (""). 
-   3. **encodingName** is set to **utf-8**, which is **default** value, so do not set it to a different value. 
-   4. **escapeChar** and **quoteChar** are not specified. 
+
+   1. **rowDelimiter** must be **\n**.
+   2. **nullValue** is set to **empty string** ("").
+   3. **encodingName** is set to **utf-8**, which is **default** value, so do not set it to a different value.
+   4. **escapeChar** and **quoteChar** are not specified.
    5. **Compression** is not **BZIP2**.
-      
+
            "typeProperties": {
                "folderPath": "<blobpath>",
                "format": {
                    "type": "TextFormat",     
-                   "columnDelimiter": "<any delimiter>", 
+                   "columnDelimiter": "<any delimiter>",
                    "rowDelimiter": "\n",       
                    "nullValue": "",           
                    "encodingName": "utf-8"    
@@ -533,17 +535,17 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
                    "level": "Optimal"  
                }  
            },
-3. There is no **skipHeaderLineCount** setting under **BlobSource** for the Copy activity in the pipeline. 
+3. There is no **skipHeaderLineCount** setting under **BlobSource** for the Copy activity in the pipeline.
 4. There is no **sliceIdentifierColumnName** setting under **SqlDWSink** for the Copy activity in the pipeline. (PolyBase guarantees that all data is updated or nothing is updated in a single run. To achieve **repeatability**, you could use **sqlWriterCleanupScript**.
-5. There is no **columnMapping** being used in the associated in Copy activity. 
+5. There is no **columnMapping** being used in the associated in Copy activity.
 
 ### Staged Copy using PolyBase
 When your source data doesn’t meet the criteria introduced in the previous section, you can enable copying data via an interim staging Azure blob storage. In this case, Azure Data Factory performs transformations on the data to meet data format requirements of PolyBase, and then use PolyBase to load data into SQL Data Warehouse. See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
 
 > [!IMPORTANT]
 > If you are copying data from an on-prem data store into Azure SQL Data Warehouse using PolyBase and staging, install the JRE 8 (Java Runtime Environment) on your gateway machine, which is used to transform your source data into proper format. A 64-bit gateway requires 64-bit JRE and a 32-bit gateway requires 32-bit JRE. Download the appropriate version from [Java Downloads location](http://go.microsoft.com/fwlink/?LinkId=808605).
-> 
-> 
+>
+>
 
 To use this feature, create an [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) that refers to the Azure Storage Account that has the interim blob storage, then specify the **enableStaging** and **stagingSettings** properties for the Copy Activity as shown in the following code:
 
@@ -575,7 +577,7 @@ To use this feature, create an [Azure Storage linked service](data-factory-azure
 To use PolyBase, it requires the user being used to load data into SQL Data Warehouse has the ["CONTROL" permission](https://msdn.microsoft.com/library/ms191291.aspx) on the target database. One way to achieve that is to add that user as a member of "db_owner" role. Learn how to do that by following [this section](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
 ### Row size limitation
-Polybase does not support size of rows greater than 32 KB. Attempting to load a table with rows larger than 32 KB would result in the following error: 
+Polybase does not support size of rows greater than 32 KB. Attempting to load a table with rows larger than 32 KB would result in the following error:
 
     Type=System.Data.SqlClient.SqlException,Message=107093;Row size exceeds the defined Maximum DMS row size: [35328 bytes] is larger than the limit of [32768 bytes],Source=.Net SqlClient
 
@@ -660,4 +662,3 @@ The mapping is same as the [SQL Server Data Type Mapping for ADO.NET](https://ms
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
-

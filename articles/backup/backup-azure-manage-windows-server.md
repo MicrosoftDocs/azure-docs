@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Azure recovery services vaults and servers | Microsoft Docs
 description: Use this tutorial to learn how to manage Azure recovery services vaults and servers.
 services: backup
@@ -27,8 +27,6 @@ ms.author: jimpark; markgal
 In this article you'll find an overview of the backup management tasks available through the Azure portal and the Microsoft Azure Backup agent.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-
-classic deployment model.
 
 ## Management portal tasks
 ### Access your Recovery Services vaults
@@ -293,7 +291,9 @@ A3. Below are the cases when the notification will not be sent in order to reduc
 2. Assuming that the process is not running, open **Control Panel** and browse the list of services. Start or restart **Microsoft Azure Recovery Services Management Agent**.
    
     For further information, browse the logs at:<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`. For example:<br/> `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`.
+   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`
+    For example:<br/>
+   `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## Next steps
 * [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)

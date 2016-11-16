@@ -1,4 +1,4 @@
----
+﻿---
 title: Reliable Actors lifecycle | Microsoft Docs
 description: Explains Service Fabric Reliable Actor lifecycle, garbage collection, and manually deleting actors and their state
 services: service-fabric
@@ -35,9 +35,9 @@ When an actor is deactivated, the following occurs:
 * The `OnDeactivateAsync` method (which can be overridden in the actor implementation) is called. This clears all the timers for the actor. Actor operations like state changes should not be called from this method.
 
 > [!TIP]
-> The Fabric Actors runtime emits some [events related to actor activation and deactivation](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). They are useful in diagnostics and performance monitoring.
-> 
-> 
+> The Fabric Actors runtime emits some [events related to actor activation and deactivation](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). They are useful in diagnostics and performance monitoring.
+>
+>
 
 ### Actor garbage collection
 When an actor is deactivated, references to the actor object are released and it can be garbage collected normally by the common language runtime (CLR) garbage collector. Garbage collection only cleans up the actor object; it does **not** remove state stored in the actor's State Manager. The next time the actor is activated, a new actor object is created and its state is restored.
@@ -49,8 +49,8 @@ What counts as “being used” for the purpose of deactivation and garbage coll
 
 > [!NOTE]
 > if the actor uses timers and its timer callback is invoked, it does **not** count as "being used".
-> 
-> 
+>
+>
 
 Before we go into the details of deactivation, it is important to define the following terms:
 

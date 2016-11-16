@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 11/11/2016
 ms.author: jeffstok
 
 ---
@@ -66,13 +66,13 @@ For other inputs/outputs, proceed with Part 2.
 9. Hit regenerate:  
    ![graphic12][graphic12]
 10. Copy the newly generated key:  
-    ![graphic13][graphic13]
+   ![graphic13][graphic13]
 11. Continue to Part 2.  
 
 ### SQL Database
 > [!NOTE]
 > Note: you will need to connect to the SQL Database Service. We are going to show how to do this using the management experience on the Azure Management portal but you may choose to use some client-side tool such as SQL Server Management Studio as well.
-> 
+>
 > 
 
 1. Go to the SQL Databases extension on the Azure Management portal:  
@@ -94,15 +94,15 @@ For other inputs/outputs, proceed with Part 2.
 9. Go back to step 2 and this time click the database:  
    ![graphic21][graphic21]
 10. Click the Manage command:  
-    ![graphic22][graphic22]
+   ![graphic22][graphic22]
 11. type in your User Name, Password, and click Logon:  
-    ![graphic23][graphic23]
+   ![graphic23][graphic23]
 12. Click New Query:  
-    ![graphic24][graphic24]
+   ![graphic24][graphic24]
 13. Type in the following query replacing <user_name> with a name by which you want to identify this login in the context of this database (you can provide the same value you gave for <login_name>, for example) and replacing <login_name> with your new user name:  
-    `CREATE USER <user_name> FROM LOGIN <login_name>`
+   `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Click Run:  
-    ![graphic25][graphic25]
+   ![graphic25][graphic25]
 15. You should now provide your new user with the same roles and privileges your original user had.
 16. Continue to Part 2.
 
@@ -139,13 +139,15 @@ For other inputs/outputs, proceed with Part 2.
 
 ### Power BI
 1. Click the Renew authorization:  
-2. ![graphic35][graphic35]
-3. You will get the following confirmation:  
-4. ![graphic36][graphic36]
-5. Click the Save command and confirm saving your changes:  
+
+   ![graphic35][graphic35]
+2. You will get the following confirmation:  
+
+   ![graphic36][graphic36]
+3. Click the Save command and confirm saving your changes:  
    ![graphic37][graphic37]
-6. A connection test will automatically start when you save your changes, make sure it has successfully passed.
-7. Proceed to Part 4.
+4. A connection test will automatically start when you save your changes, make sure it has successfully passed.
+5. Proceed to Part 4.
 
 ### SQL Database
 1. Find the User Name and Password fields and paste your newly created set of credentials into them:  

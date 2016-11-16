@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory service limits and restrictions
 description: Usage constraints and other service limits for the Azure Active Directory service.
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
 
 ---
@@ -25,4 +25,3 @@ This article contains the usage constraints and other service limits for the Azu
 ## What's next
 * [Sign up for Azure as an organization](sign-up-organization.md)
 * [How Azure subscriptions are associated with Azure AD](active-directory-how-subscriptions-associated-directory.md)
-

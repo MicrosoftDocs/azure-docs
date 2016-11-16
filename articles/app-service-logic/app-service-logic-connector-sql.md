@@ -1,4 +1,4 @@
----
+﻿---
 title: Using the SQL Connector in Logic Apps | Microsoft Docs
 description: How to create and configure the SQL Connector or API app and use it in a logic app in Azure App Service
 services: logic-apps

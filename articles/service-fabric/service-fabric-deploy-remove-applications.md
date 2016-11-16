@@ -1,4 +1,4 @@
----
+﻿---
 title: Service Fabric application deployment | Microsoft Docs
 description: How to deploy and remove applications in Service Fabric
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/25/2016
+ms.date: 11/14/2016
 ms.author: ryanwi
 
 ---
@@ -38,9 +38,9 @@ Once an [application type has been packaged][10], it's ready for deployment into
 > 
 
 ## Upload the application package
-Uploading the application package puts it in a location that's accessible by internal Service Fabric components. You can use PowerShell to perform the upload. Before you run any PowerShell commands in this article, always start by using [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) to connect to the Service Fabric cluster.
+Uploading the application package puts it in a location that's accessible by internal Service Fabric components. You can use PowerShell to perform the upload. Before you run any PowerShell commands in this article, always start by using [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/servicefabric/vlatest/connect-servicefabriccluster) to connect to the Service Fabric cluster.
 
-Suppose you have a folder named *MyApplicationType* that contains the necessary application manifest, service manifests, and code/config/data packages. The [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125905.aspx) command uploads the package to the cluster Image Store. The **Get-ImageStoreConnectionStringFromClusterManifest** cmdlet, which is part of the Service Fabric SDK PowerShell module, is used to get the image store connection string.  To import the SDK module, run:
+Suppose you have a folder named *MyApplicationType* that contains the necessary application manifest, service manifests, and code/config/data packages. The [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) command uploads the package to the cluster Image Store. The **Get-ImageStoreConnectionStringFromClusterManifest** cmdlet, which is part of the Service Fabric SDK PowerShell module, is used to get the image store connection string.  To import the SDK module, run:
 
 ```
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
@@ -96,7 +96,7 @@ PS D:\temp>
 ~~~
 
 ## Register the application package
-Registering the application package makes the application type and version declared in the application manifest available for use. The system reads the package uploaded in the previous step, verify the package (equivalent to running [Test-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125950.aspx) locally), process the package contents, and copy the processed package to an internal system location.
+Registering the application package makes the application type and version declared in the application manifest available for use. The system reads the package uploaded in the previous step, verify the package (equivalent to running [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) locally), process the package contents, and copy the processed package to an internal system location.
 
 ~~~
 PS D:\temp> Register-ServiceFabricApplicationType MyApplicationType
@@ -111,12 +111,12 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-The [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125958.aspx) command returns only after the system has successfully copied the application package. How long this takes depends on the contents of the application package. If needed, the **-TimeoutSec** parameter can be used to supply a longer timeout. (The default timeout is 60 seconds.)
+The [Register-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) command returns only after the system has successfully copied the application package. How long this takes depends on the contents of the application package. If needed, the **-TimeoutSec** parameter can be used to supply a longer timeout. (The default timeout is 60 seconds.)
 
-The [Get-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125871.aspx) command lists all successfully registered application type versions.
+The [Get-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricapplicationtype) command lists all successfully registered application type versions.
 
 ## Create the application
-You can instantiate an application by using any application type version that has been registered successfully through the [New-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125913.aspx) command. The name of each application must start with the *fabric:* scheme and be unique for each application instance. Any default services defined in the application manifest of the target application type are created at this time.
+You can instantiate an application by using any application type version that has been registered successfully through the [New-ServiceFabricApplication](https://docs.microsoft.com/powershell/servicefabric/vlatest/new-servicefabricapplication) command. The name of each application must start with the *fabric:* scheme and be unique for each application instance. Any default services defined in the application manifest of the target application type are created at this time.
 
 ~~~
 PS D:\temp> New-ServiceFabricApplication fabric:/MyApp MyApplicationType AppManifestVersion1
@@ -148,14 +148,14 @@ HealthState            : Ok
 PS D:\temp>
 ~~~
 
-The [Get-ServiceFabricApplication](https://msdn.microsoft.com/library/mt163515.aspx) command lists all application instances that were successfully created, along with their overall status.
+The [Get-ServiceFabricApplication](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricapplication) command lists all application instances that were successfully created, along with their overall status.
 
-The [Get-ServiceFabricService](https://msdn.microsoft.com/library/mt125889.aspx) command lists all service instances that were successfully created within a given application instance. Default services (if any) are listed here.
+The [Get-ServiceFabricService](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricservice) command lists all service instances that were successfully created within a given application instance. Default services (if any) are listed here.
 
 Multiple application instances can be created for any given version of a registered application type. Each application instance runs in isolation, with its own work directory and process.
 
 ## Remove an application
-When an application instance is no longer needed, you can permanently remove it by using the [Remove-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125914.aspx) command. This command automatically removes all services that belong to the application as well, permanently removing all service state. This operation cannot be reversed, and application state cannot be recovered.
+When an application instance is no longer needed, you can permanently remove it by using the [Remove-ServiceFabricApplication](https://docs.microsoft.com/powershell/servicefabric/vlatest/remove-servicefabricapplication) command. This command automatically removes all services that belong to the application as well, permanently removing all service state. This operation cannot be reversed, and application state cannot be recovered.
 
 ~~~
 PS D:\temp> Remove-ServiceFabricApplication fabric:/MyApp
@@ -169,7 +169,7 @@ PS D:\temp> Get-ServiceFabricApplication
 PS D:\temp>
 ~~~
 
-When a particular version of an application type is no longer needed, you should unregister it by using the [Unregister-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125885.aspx) command. Unregistering unused types releases storage space used by the application package contents of that type on the image store. An application type can be unregistered as long as no applications are instantiated against it and no pending application upgrades are referencing it.
+When a particular version of an application type is no longer needed, you should unregister it by using the [Unregister-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/servicefabric/vlatest/unregister-servicefabricapplicationtype) command. Unregistering unused types releases storage space used by the application package contents of that type on the image store. An application type can be unregistered as long as no applications are instantiated against it and no pending application upgrades are referencing it.
 
 ~~~
 PS D:\temp> Get-ServiceFabricApplicationType
@@ -204,7 +204,7 @@ PS D:\temp>
 
 ## Troubleshooting
 ### Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
-The Service Fabric SDK environment should already have the correct defaults set up. But if needed, the ImageStoreConnectionString for all commands should match the value that the Service Fabric cluster is using. You can find this in the cluster manifest retrieved through the [Get-ServiceFabricClusterManifest](https://msdn.microsoft.com/library/mt126024.aspx) command:
+The Service Fabric SDK environment should already have the correct defaults set up. But if needed, the ImageStoreConnectionString for all commands should match the value that the Service Fabric cluster is using. You can find this in the cluster manifest retrieved through the [Get-ServiceFabricClusterManifest](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest) command:
 
 ~~~
 PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType

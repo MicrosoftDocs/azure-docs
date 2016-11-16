@@ -1,4 +1,4 @@
----
+﻿---
 title: Power BI dashboard on Stream Analytics | Microsoft Docs
 description: Use a real-time streaming Power BI dashboard to gather business intelligence and analyze high-volume data from a Stream Analytics job.
 keywords: analytics dashboard, real-time dashboard

@@ -1,4 +1,4 @@
----
+﻿---
 title: Add Log Analytics solutions from the Solutions Gallery | Microsoft Docs
 description: Log Analytics solutions are a collection of logic, visualization and data acquisition rules that provide metrics pivoted around a particular problem area.
 services: log-analytics

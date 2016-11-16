@@ -1,4 +1,4 @@
----
+﻿---
 title: What is Microsoft Power BI Embedded?
 description: Power BI Embedded enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions to visualize data for your users
 services: power-bi-embedded
@@ -50,7 +50,7 @@ A **Workspace** is a container of Power BI content, which can include datasets, 
 Cached datasets can be used in Preview.  However, you cannot refresh cached data once it has been loaded into **Microsoft Power BI Embedded**.
 
 ## Authentication and authorization with app tokens
-**Microsoft Power BI Embedded** defers to your application to perform all the necessary user authentication and authorization. There is no explicit requirement that your end users be customers of Azure Active Directory (Azure AD).  Instead, your application expresses to **Microsoft Power BI Embedded** authorization to render a Power BI report by using **Application Authentication Tokens (App Tokens)**.  These **App Tokens** are created as needed when your app wants to render a report.  See [App Tokens](power-bi-embedded-get-started-sample.md#key-flow).
+**Microsoft Power BI Embedded** defers to your application to perform all the necessary user authentication and authorization. There is no explicit requirement that your end users be customers of Azure Active Directory (Azure AD).  Instead, your application expresses to **Microsoft Power BI Embedded** authorization to render a Power BI report by using **Application Authentication Tokens (App Tokens)**.  These **App Tokens** are created as needed when your app wants to render a report.
 
 ![](media\\powerbi-embedded-whats-is\\app-tokens.png)
 
@@ -65,4 +65,3 @@ These tokens are used for the various phases of your interactions with **Microso
 ## See Also
 * [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
 * [Get started with Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
-

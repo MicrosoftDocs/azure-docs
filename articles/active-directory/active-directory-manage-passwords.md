@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage passwords in Azure Active Directory | Microsoft Docs
 description: How to manage passwords in Azure Active Directory.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
 
 ---
@@ -30,8 +30,8 @@ This rest of this topic covers the full set of password management capabilities 
 
 > [!NOTE]
 > Azure AD Premium is available for Chinese customers using the world wide instance of Azure AD. Azure AD Premium is not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
+>
+>
 
 Use the following links to jump to the documentation you are most interested in:
 
@@ -48,4 +48,3 @@ Use the following links to jump to the documentation you are most interested in:
 * [Administering Azure AD](active-directory-administer.md)
 * [Create or edit users in Azure AD](active-directory-create-users.md)
 * [Manage groups in Azure AD](active-directory-manage-groups.md)
-

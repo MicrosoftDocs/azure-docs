@@ -1,4 +1,4 @@
----
+﻿---
 title: Setting up WinRM access for Virtual Machines in Azure Resource Manager | Microsoft Docs
 description: How to setup WinRM access for use with an Azure Resource Manager virtual machine
 services: virtual-machines-windows
@@ -20,9 +20,8 @@ ms.author: singhkay
 ---
 # Setting up WinRM access for Virtual Machines in Azure Resource Manager
 ## WinRM in Azure Service Management vs Azure Resource Manager
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-classic deployment model
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 * For an overview of the Azure Resource Manager, please see this [article](../azure-resource-manager/resource-group-overview.md)
 * For differences between Azure Service Management and Azure Resource Manager, please see this [article](../resource-manager-deployment-model.md)

@@ -1,4 +1,4 @@
-{:allowed-branch-names ["acrolinx-test"]
+{:allowed-branch-names ["master" "release-storsimple-nov-16" "release-iot-ga" "release-connect-16" "release-advisor"]
  :allowed-filename-matches ["articles" "includes"]
 
  :template-header

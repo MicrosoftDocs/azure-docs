@@ -1,4 +1,4 @@
----
+﻿---
 title: Scale a Service Fabric cluster in or out | Microsoft Docs
 description: Scale a Service Fabric cluster in or out to match demand by setting auto-scale rules for each node type/VM scale set. Add or remove nodes to a Service Fabric cluster
 services: service-fabric

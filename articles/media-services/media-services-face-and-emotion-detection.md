@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/15/2016
 ms.author: milanga;juliako;
 
 ---
@@ -70,13 +70,6 @@ Face Detector uses techniques of fragmentation (where the metadata can be broken
 
 * Start/Timescale = 2.1 seconds
 * Seconds x (Framerate/Timescale) = 63 frames
-
-Below is a simple example of extracting the JSON into a per frame format for face detection and tracking:
-
-    var faceDetectionResultJsonString = operationResult.ProcessingResult;
-    var faceDetecionTracking = 
-         JsonConvert.DeserializeObject<FaceDetectionResult>(faceDetectionResultJsonString, settings);
-
 
 ## Face detection input and output example
 ### Input video

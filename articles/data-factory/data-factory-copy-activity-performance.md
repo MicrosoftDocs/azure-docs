@@ -255,7 +255,7 @@ Be sure that the underlying data store is not overwhelmed by other workloads tha
 
 For Microsoft data stores, see [monitoring and tuning topics](#performance-reference) that are specific to data stores, and help you understand data store performance characteristics, minimize response times, and maximize throughput.
 
-If you copy data from Blob storage to SQL Data Warehouse, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) for details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+If you copy data from Blob storage to SQL Data Warehouse, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) for details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ### File-based data stores
 *(Includes Blob storage, Data Lake Store, Amazon S3, on-premises file systems, and on-premises HDFS)*
@@ -277,7 +277,7 @@ Be sure that the underlying data store is not overwhelmed by other workloads tha
 
 For Microsoft data stores, refer to [monitoring and tuning topics](#performance-reference) that are specific to data stores. These topics can help you understand data store performance characteristics and how to minimize response times and maximize throughput.
 
-If you are copying data from **Blob storage** to **SQL Data Warehouse**, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) for details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+If you are copying data from **Blob storage** to **SQL Data Warehouse**, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) for details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ### File-based data stores
 *(Includes Blob storage, Data Lake Store, Amazon S3, on-premises file systems, and on-premises HDFS)*
@@ -335,7 +335,7 @@ You can set the **columnMappings** property in Copy Activity to map all or a sub
 If your source data store is queryable, for example, if it's a relational store like SQL Database or SQL Server, or if it's a NoSQL store like Table storage or DocumentDB, consider pushing the column filtering and reordering logic to the **query** property instead of using column mapping. This way, the projection occurs while the data movement service reads data from the source data store, where it is much more efficient.
 
 ## Considerations for Data Management Gateway
-For Gateway setup recommendations, see [Considerations for using Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md#Considerations-for-using-Data-Management-Gateway).
+For Gateway setup recommendations, see [Considerations for using Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).
 
 **Gateway machine environment**: We recommend that you use a dedicated machine to host Data Management Gateway. Use tools like PerfMon to examine CPU, memory, and bandwidth use during a copy operation on your Gateway machine. Switch to a more powerful machine if CPU, memory, or network bandwidth becomes a bottleneck.
 
@@ -398,7 +398,7 @@ In this case, bzip2 data compression might be slowing down the entire pipeline. 
 Here are performance monitoring and tuning references for some of the supported data stores:
 
 * Azure Storage (including Blob storage and Table storage): [Azure Storage scalability targets](../storage/storage-scalability-targets.md) and [Azure Storage performance and scalability checklist](../storage/storage-performance-checklist.md)
-* Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-service-tiers.md#monitoring-performance) and check the database transaction unit (DTU) percentage
+* Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-single-database-monitor.md) and check the database transaction unit (DTU) percentage
 * Azure SQL Data Warehouse: Its capability is measured in data warehouse units (DWUs); see [Manage compute power in Azure SQL Data Warehouse (Overview)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure DocumentDB: [Performance levels in DocumentDB](../documentdb/documentdb-performance-levels.md)
 * On-premises SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx)

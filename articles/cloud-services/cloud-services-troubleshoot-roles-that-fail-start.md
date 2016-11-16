@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot roles that fail to start | Microsoft Docs
 description: Here are some common reasons why a Cloud Service role may fail to start. Solutions to these problems are also provided.
 services: cloud-services
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 09/02/2016
+ms.date: 11/14/2016
 ms.author: v-six
 
 ---
@@ -46,7 +46,7 @@ To view more complete errors without using Remote Desktop:
 1. Open the solution in Microsoft Visual Studio.
 2. In the **Solution Explorer**, locate the web.config file and open it.
 3. In the web.config file, locate the system.web section and add the following line:
-   
+
     ```xml
     <customErrors mode="Off" />
     ```
@@ -93,7 +93,7 @@ For best results in using this method of diagnosis, you should use a computer or
 7. When the role starts, you will see detailed error information in Internet Explorer. You can also use standard Windows troubleshooting tools to further diagnose the problem.
 
 ## Diagnose issues by using IntelliTrace
-For worker and web roles that use .NET Framework 4, you can use [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), which is available in [Microsoft Visual Studio Ultimate](https://www.visualstudio.com/products/visual-studio-ultimate-with-MSDN-vs).
+For worker and web roles that use .NET Framework 4, you can use [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), which is available in Microsoft Visual Studio Enterprise.
 
 Follow these steps to deploy the service with IntelliTrace enabled:
 
@@ -123,4 +123,3 @@ Once you have verified that all errors have been corrected, you can deploy the s
 View more [troubleshooting articles](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) for cloud services.
 
 To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
-

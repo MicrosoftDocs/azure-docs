@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory cmdlets for configuring group settings | Microsoft Docs
 description: How manage the settings for groups using Azure Active Directory cmdlets.
 services: active-directory

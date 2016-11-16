@@ -109,7 +109,7 @@ When creating your application’s availability and disaster recovery plan, cons
 
 [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md)
 
-[High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)
+[High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Failsafe: Guidance for resilient cloud architectures](https://channel9.msdn.com/Series/FailSafe)
 

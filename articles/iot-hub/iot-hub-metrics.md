@@ -1,4 +1,4 @@
----
+﻿---
 title: IoT Hub diagnostic metrics
 description: An overview of Azure IoT Hub metrics, enabling users to assess the overall health of their resource
 services: iot-hub
@@ -41,7 +41,7 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 | --- | --- | --- |
 | d2c.telemetry.ingress.allProtocol |The count of messages sent across all devices |Overview data on message sends |
 | d2c.telemetry.ingress.success |The count of all successful messages into the hub |Overview of successful message ingress into the hub |
-| c2d.commands.egress.complete.success |The count of all command messages completed by the receiving device across all devices |Together with the metrics on abandon and reject, gives an overview of overall C2D command success rate |
+| c2d.commands.egress.complete.success |The count of all command messages completed by the receiving device across all devices |Together with the metrics on abandon and reject, gives an overview of overall cloud-to-device command success rate |
 | c2d.commands.egress.abandon.success |The count of all messages successfully abandoned by the receiving device across all devices |Highlights potential issues if messages are getting abandoned more often than expected |
 | c2d.commands.egress.reject.success |The count of all messages successfully rejected by the receiving device across all devices |Highlights potential issues if messages are getting rejected more often than expected |
 | devices.totalDevices |The average, min, and max of the number of devices registered to the IoT hub |The number of devices registered to the hub |

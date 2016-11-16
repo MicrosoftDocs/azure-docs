@@ -1,4 +1,4 @@
-
+﻿
 ---
 title: Using attributes to create advanced rules for group membership in Azure Active Directory preview | Microsoft Docs
 description: How to create advanced rules for dynamic group membership including supported expression rule operators and parameters.

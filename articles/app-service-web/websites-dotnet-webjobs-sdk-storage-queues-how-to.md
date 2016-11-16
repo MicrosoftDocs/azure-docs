@@ -21,7 +21,7 @@ ms.author: tdykstra
 ## Overview
 This guide provides C# code samples that show how to use the Azure WebJobs SDK version 1.x with the Azure queue storage service.
 
-The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md#configure-storage) or to [multiple storage accounts](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
+The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md) or to [multiple storage accounts](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
 Most of the code snippets only show functions, not the code that creates the `JobHost` object as in this example:
 
@@ -61,7 +61,7 @@ The guide includes the following topics:
   * Configure QueueTrigger settings
   * Set values for WebJobs SDK constructor parameters in code
 * [How to trigger a function manually](#manual)
-* [How to write logs](#logs) 
+* [How to write logs](#logs)
 * [How to handle errors and configure timeouts](#errors)
 * [Next steps](#nextsteps)
 
@@ -86,7 +86,7 @@ In the following example, the queue message contains JSON for a `BlobInformation
             logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
         }
 
-The SDK uses the [Newtonsoft.Json NuGet package](http://www.nuget.org/packages/Newtonsoft.Json) to serialize and deserialize messages. If you create queue messages in a program that doesn't use the WebJobs SDK, you can write code like the following example to create a POCO queue message that the SDK can parse. 
+The SDK uses the [Newtonsoft.Json NuGet package](http://www.nuget.org/packages/Newtonsoft.Json) to serialize and deserialize messages. If you create queue messages in a program that doesn't use the WebJobs SDK, you can write code like the following example to create a POCO queue message that the SDK can parse.
 
         BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
         var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
@@ -103,7 +103,7 @@ The following async function [writes a log to the Dashboard](#logs).
 Async functions may take a [cancellation token](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), as shown in the following example which copies a blob. (For an explanation of the `queueTrigger` placeholder, see the [Blobs](#blobs) section.)
 
         public async static Task ProcessQueueMessageAsyncCancellationToken(
-            [QueueTrigger("blobcopyqueue")] string blobName, 
+            [QueueTrigger("blobcopyqueue")] string blobName,
             [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
             [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput,
             CancellationToken token)
@@ -123,12 +123,12 @@ You can use `QueueTrigger` with the following types:
 The SDK implements a random exponential back-off algorithm to reduce the effect of idle-queue polling on storage transaction costs.  When a message is found, the SDK waits two seconds and then checks for another message; when no message is found it waits about four seconds before trying again. After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute. [The maximum wait time is configurable](#config).
 
 ### <a id="instances"></a> Multiple instances
-If your web app runs on multiple instances, a continuous WebJob runs on each machine, and each machine will wait for triggers and attempt to run functions. The WebJobs SDK queue trigger automatically prevents a function from processing a queue message multiple times; functions do not have to be written to be idempotent. However, if you want to ensure that only one instance of a function runs even when there are multiple instances of the host web app, you can use the `Singleton` attribute. 
+If your web app runs on multiple instances, a continuous WebJob runs on each machine, and each machine will wait for triggers and attempt to run functions. The WebJobs SDK queue trigger automatically prevents a function from processing a queue message multiple times; functions do not have to be written to be idempotent. However, if you want to ensure that only one instance of a function runs even when there are multiple instances of the host web app, you can use the `Singleton` attribute.
 
 ### <a id="parallel"></a> Parallel execution
-If you have multiple functions listening on different queues, the SDK will call them in parallel when messages are received simultaneously. 
+If you have multiple functions listening on different queues, the SDK will call them in parallel when messages are received simultaneously.
 
-The same is true when multiple messages are received for a single queue. By default, the SDK gets a batch of 16 queue messages at a time and executes the function that processes them in parallel. [The batch size is configurable](#config). When the number being processed gets down to half of the batch size, the SDK gets another batch and starts processing those messages. Therefore the maximum number of concurrent messages being processed per function is one and a half times the batch size. This limit applies separately to each function that has a `QueueTrigger` attribute. 
+The same is true when multiple messages are received for a single queue. By default, the SDK gets a batch of 16 queue messages at a time and executes the function that processes them in parallel. [The batch size is configurable](#config). When the number being processed gets down to half of the batch size, the SDK gets another batch and starts processing those messages. Therefore the maximum number of concurrent messages being processed per function is one and a half times the batch size. This limit applies separately to each function that has a `QueueTrigger` attribute.
 
 If you don't want parallel execution for messages received on one queue, you can set the batch size to 1. See also **More control over Queue processing** in [Azure WebJobs SDK 1.1.0 RTM](/blog/azure-webjobs-sdk-1-1-0-rtm/).
 
@@ -254,8 +254,8 @@ Each queue message is created immediately when the `Add` method is called.
 You can use the `Queue` attribute on the following parameter types:
 
 * `out string` (creates queue message if parameter value is non-null when the function ends)
-* `out byte[]` (works like `string`) 
-* `out CloudQueueMessage` (works like `string`) 
+* `out byte[]` (works like `string`)
+* `out CloudQueueMessage` (works like `string`)
 * `out POCO` (a serializable type, creates a message with a null object if the paramter is null when the function ends)
 * `ICollector`
 * `IAsyncCollector`
@@ -282,21 +282,21 @@ The `IBinder` interface can also be used with the `Table` and `Blob` attributes.
 The `Blob` and `Table` attributes enable you to read and write blobs and tables. The samples in this section apply to blobs. For code samples that show how to trigger processes when blobs are created or updated, see [How to use Azure blob storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), and for code samples that read and write tables, see [How to use Azure table storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
 ### String queue messages triggering blob operations
-For a queue message that contains a string, `queueTrigger` is a placeholder you can use in the `Blob` attribute's `blobPath` parameter that contains the contents of the message. 
+For a queue message that contains a string, `queueTrigger` is a placeholder you can use in the `Blob` attribute's `blobPath` parameter that contains the contents of the message.
 
-The following example uses `Stream` objects to read and write blobs. The queue message is the name of a blob located in the textblobs container. A copy of the blob with "-new" appended to the name is created in the same container. 
+The following example uses `Stream` objects to read and write blobs. The queue message is the name of a blob located in the textblobs container. A copy of the blob with "-new" appended to the name is created in the same container.
 
         public static void ProcessQueueMessage(
-            [QueueTrigger("blobcopyqueue")] string blobName, 
+            [QueueTrigger("blobcopyqueue")] string blobName,
             [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
             [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput)
         {
             blobInput.CopyTo(blobOutput, 4096);
         }
 
-The `Blob` attribute constructor takes a `blobPath` parameter that specifies the container and blob name. For more information about this placeholder, see [How to use Azure blob storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), 
+The `Blob` attribute constructor takes a `blobPath` parameter that specifies the container and blob name. For more information about this placeholder, see [How to use Azure blob storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md),
 
-When the attribute decorates a `Stream` object, another constructor parameter specifies the `FileAccess` mode as read, write, or read/write. 
+When the attribute decorates a `Stream` object, another constructor parameter specifies the `FileAccess` mode as read, write, or read/write.
 
 The following example uses a `CloudBlockBlob` object to delete a blob. The queue message is the name of the blob.
 
@@ -308,9 +308,9 @@ The following example uses a `CloudBlockBlob` object to delete a blob. The queue
         }
 
 ### <a id="pocoblobs"></a> POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) queue messages
-For a POCO stored as JSON in the queue message, you can use placeholders that name properties of the object in the `Queue` attribute's `blobPath` parameter. You can also use [queue metadata property names](#queuemetadata) as placeholders. 
+For a POCO stored as JSON in the queue message, you can use placeholders that name properties of the object in the `Queue` attribute's `blobPath` parameter. You can also use [queue metadata property names](#queuemetadata) as placeholders.
 
-The following example copies a blob to a new blob with a different extension. The queue message is a `BlobInformation` object that includes `BlobName` and `BlobNameWithoutExtension` properties. The property names are used as placeholders in the blob path for the `Blob` attributes. 
+The following example copies a blob to a new blob with a different extension. The queue message is a `BlobInformation` object that includes `BlobName` and `BlobNameWithoutExtension` properties. The property names are used as placeholders in the blob path for the `Blob` attributes.
 
         public static void CopyBlobPOCO(
             [QueueTrigger("copyblobqueue")] BlobInformation blobInfo,
@@ -340,16 +340,16 @@ The `Blob` attribute can be used with the following types:
 * out POCO (write; always creates a blob, creates as null object if POCO parameter is null when the function returns)
 * `CloudBlobStream` (write)
 * `ICloudBlob` (read or write)
-* `CloudBlockBlob` (read or write) 
-* `CloudPageBlob` (read or write) 
+* `CloudBlockBlob` (read or write)
+* `CloudPageBlob` (read or write)
 
 ## <a id="poison"></a> How to handle poison messages
 Messages whose content causes a function to fail are called *poison messages*. When the function fails, the queue message is not deleted and eventually is picked up again, causing the cycle to be repeated. The SDK can automatically interrupt the cycle after a limited number of iterations, or you can do it manually.
 
 ### Automatic poison message handling
-The SDK will call a function up to 5 times to process a queue message. If the fifth try fails, the message is moved to a poison queue. [The maximum number of retries is configurable](#config). 
+The SDK will call a function up to 5 times to process a queue message. If the fifth try fails, the message is moved to a poison queue. [The maximum number of retries is configurable](#config).
 
-The poison queue is named *{originalqueuename}*-poison. You can write a function to process messages from the poison queue by logging them or sending a notification that manual attention is needed. 
+The poison queue is named *{originalqueuename}*-poison. You can write a function to process messages from the poison queue by logging them or sending a notification that manual attention is needed.
 
 In the following example the `CopyBlob` function will fail when a queue message contains the name of a blob that doesn't exist. When that happens, the message is moved from the copyblobqueue queue to the copyblobqueue-poison queue. The `ProcessPoisonMessage` then logs the poison message.
 
@@ -439,7 +439,7 @@ The following example shows how to configure these settings:
         }
 
 ### <a id="setnamesincode"></a>Set values for WebJobs SDK constructor parameters in code
-Sometimes you want to specify a queue name, a blob name or container, or a table name in code rather than hard-code it. For example, you might want to specify the queue name for `QueueTrigger` in a configuration file or environment variable. 
+Sometimes you want to specify a queue name, a blob name or container, or a table name in code rather than hard-code it. For example, you might want to specify the queue name for `QueueTrigger` in a configuration file or environment variable.
 
 You can do that by passing in a `NameResolver` object to the `JobHostConfiguration` type. You include special placeholders surrounded by percent (%) signs in WebJobs SDK attribute constructor parameters, and your `NameResolver` code specifies the actual values to be used in place of those placeholders.
 
@@ -470,10 +470,10 @@ You pass the `NameResolver` class in to the `JobHost` object as shown in the fol
             host.RunAndBlock();
         }
 
-**Note:** Queue, table, and blob names are resolved each time a function is called, but blob container names are resolved only when the application starts. You can't change blob container name while the job is running. 
+**Note:** Queue, table, and blob names are resolved each time a function is called, but blob container names are resolved only when the application starts. You can't change blob container name while the job is running.
 
 ## <a id="manual"></a>How to trigger a function manually
-To trigger a function manually, use the `Call` or `CallAsync` method on the `JobHost` object and the `NoAutomaticTrigger` attribute on the function, as shown in the following example. 
+To trigger a function manually, use the `Call` or `CallAsync` method on the `JobHost` object and the `NoAutomaticTrigger` attribute on the function, as shown in the following example.
 
         public class Program
         {
@@ -485,8 +485,8 @@ To trigger a function manually, use the `Call` or `CallAsync` method on the `Job
 
             [NoAutomaticTrigger]
             public static void CreateQueueMessage(
-                TextWriter logger, 
-                string value, 
+                TextWriter logger,
+                string value,
                 [Queue("outputqueue")] out string message)
             {
                 message = value;
@@ -495,7 +495,7 @@ To trigger a function manually, use the `Call` or `CallAsync` method on the `Job
         }
 
 ## <a id="logs"></a>How to write logs
-The Dashboard shows logs in two places: the page for the WebJob, and the page for a particular WebJob invocation. 
+The Dashboard shows logs in two places: the page for the WebJob, and the page for a particular WebJob invocation.
 
 ![Logs in WebJob page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
@@ -505,7 +505,7 @@ Output from Console methods that you call in a function or in the `Main()` metho
 
 Console output can't be linked to a particular method invocation because the Console is single-threaded, while many job functions may be running at the same time. That's why the  SDK provides each function invocation with its own unique log writer object.
 
-To write [application tracing logs](web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), use `Console.Out` (creates logs marked as INFO) and `Console.Error` (creates logs marked as ERROR). An alternative is to use [Trace or TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), which provides Verbose, Warning, and Critical levels in addition to Info and Error. Application tracing logs appear in the web app log files, Azure tables, or Azure blobs depending on how you configure your Azure web app. As is true of all Console output, the most recent 100 application logs also appear in the Dashboard page for the WebJob, not the page for a function invocation. 
+To write [application tracing logs](web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), use `Console.Out` (creates logs marked as INFO) and `Console.Error` (creates logs marked as ERROR). An alternative is to use [Trace or TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), which provides Verbose, Warning, and Critical levels in addition to Info and Error. Application tracing logs appear in the web app log files, Azure tables, or Azure blobs depending on how you configure your Azure web app. As is true of all Console output, the most recent 100 application logs also appear in the Dashboard page for the WebJob, not the page for a function invocation.
 
 Console output appears in the Dashboard only if the program is running in an Azure WebJob, not if the program is running locally or in some other environment.
 
@@ -578,4 +578,3 @@ You can also dynamically disable and enable functions to control whether they ca
 
 ## <a id="nextsteps"></a> Next steps
 This guide has provided code samples that show how to handle common scenarios for working with Azure queues. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226).
-

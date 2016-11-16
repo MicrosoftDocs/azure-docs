@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Blackboard Learn - Shibboleth | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Blackboard Learn - Shibboleth.
 services: active-directory

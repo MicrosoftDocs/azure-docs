@@ -26,16 +26,16 @@ This guide shows how to authenticate Azure Resource Manager requests, and how to
 
 > [!NOTE]
 > The process for backing up and restoring an API Management service instance for disaster recovery can also be used for replicating API Management service instances for scenarios such as staging.
-> 
+>
 > Note that each backup expires after 7 days. If you attempt to restore a backup after the 7 day expiration period has expired, the restore will fail with a `Cannot restore: backup expired` message.
-> 
-> 
+>
+>
 
 ## Authenticating Azure Resource Manager requests
 > [!IMPORTANT]
 > The REST API for backup and restore uses Azure Resource Manager and has a different authentication mechanism than the REST APIs for managing your API Management entities. The steps in this section describe how to authenticate Azure Resource Manager requests. For more information, see [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/library/azure/dn790557.aspx).
-> 
-> 
+>
+>
 
 All of the tasks that you do on resources using the Azure Resource Manager must be authenticated with Azure Active Directory using the following steps.
 
@@ -46,9 +46,9 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 The first step is to create an Azure Active Directory application. Log into the [Azure Classic Portal](http://manage.windowsazure.com/) using the subscription that contains your API Management service instance and navigate to the **Applications** tab for your default Azure Active Directory.
 
 > [!NOTE]
-> If the Azure Active Directory default directory is not visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account. For information on locating your default directory, see [Locate your default directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-portal).
-> 
-> 
+> If the Azure Active Directory default directory is not visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account. For information on locating your default directory, see "Locate your default directory in the Azure classic portal" in [Creating a Work or School identity in Azure Active Directory to use with Windows VMs](../virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+>
+>
 
 ![Create Azure Active Directory application][api-management-add-aad-application]
 
@@ -99,7 +99,7 @@ Replace `{tenant id}` with the tenant id of the Azure Active Directory applicati
 
 ![Endpoints][api-management-endpoint]
 
-Replace `{application id}` and `{redirect uri}` using the **Client Id** and  the URL from the **Redirect Uris** section from your Azure Active Directory application's **Configure** tab. 
+Replace `{application id}` and `{redirect uri}` using the **Client Id** and  the URL from the **Redirect Uris** section from your Azure Active Directory application's **Configure** tab.
 
 ![Resources][api-management-aad-resources]
 
@@ -139,8 +139,8 @@ Backup is a long running operation that may take multiple minutes to complete.  
 **Note**:
 
 * **Container** specified in the request body **must exist**.
-* While backup is in progress you **should not attempt any service management operations** such as SKU upgrade or downgrade, domain name change, etc. 
-* Restore of a **backup is guaranteed only for 7 days** since the moment of its creation. 
+* While backup is in progress you **should not attempt any service management operations** such as SKU upgrade or downgrade, domain name change, etc.
+* Restore of a **backup is guaranteed only for 7 days** since the moment of its creation.
 * **Usage data** used for creating analytics reports **is not included** in the backup. Use [Azure API Management REST API][Azure API Management REST API] to periodically retrieve analytics reports for safekeeping.
 * The frequency with which you perform service backups will affect your recovery point objective. To minimize it we advise implementing regular backups as well as performing on-demand backups after making important changes to your API Management service.
 * **Changes** made to the service configuration (e.g. APIs, policies, developer portal appearance) while backup operation is in process **might not be included in the backup and therefore will be lost**.
@@ -172,15 +172,15 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 
 > [!IMPORTANT]
 > **The SKU** of the service being restored into **must match** the SKU of the backed up service being restored.
-> 
+>
 > **Changes** made to the service configuration (e.g. APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.
-> 
-> 
+>
+>
 
 ## Next steps
 Check out the following Microsoft blogs for two different walkthroughs of the backup/restore process.
 
-* [Replicate Azure API Management Accounts](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/) 
+* [Replicate Azure API Management Accounts](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
   * Thank you to Gisela for her contribution to this article.
 * [Azure API Management: Backing Up and Restoring Configuration](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
   * The approach detailed by Stuart does not match the official guidance but it is very interesting.
@@ -200,4 +200,3 @@ Check out the following Microsoft blogs for two different walkthroughs of the ba
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
-

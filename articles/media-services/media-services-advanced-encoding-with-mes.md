@@ -1,4 +1,4 @@
----
+﻿---
 title: Advanced encoding with Media Encoder Standard
 description: This topic shows how to perform advanced encoding by customizing Media Encoder Standard task presets. The topic shows how to use Media Services .NET SDK to create an encoding task and job. It also shows how to supply custom presets to the encoding job.
 services: media-services
@@ -19,7 +19,7 @@ ms.author: juliako
 ---
 # Advanced encoding with Media Encoder Standard
 ## Overview
-This topic shows how to perform advanced encoding tasks with Media Encoder Standard. The topic shows [how to use .NET to create an encoding task and a job that executes this task](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). It also shows how to supply custom presets to the encoding task. For description of elements that are used by the presets, see [this document](https://msdn.microsoft.com/library/mt269962.aspx). 
+This topic shows how to perform advanced encoding tasks with Media Encoder Standard. The topic shows [how to use .NET to create an encoding task and a job that executes this task](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). It also shows how to supply custom presets to the encoding task. For description of elements that are used by the presets, see [this document](https://msdn.microsoft.com/library/mt269962.aspx).
 
 The custom presets that perform the following encoding tasks are demonstrated:
 
@@ -29,10 +29,10 @@ The custom presets that perform the following encoding tasks are demonstrated:
 * [Insert a silent audio track when input has no audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
 * [Disable auto de-interlacing](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 * [Audio-only presets](media-services-custom-mes-presets-with-dotnet.md#audio_only)
-* [Concatenate two or more video files](media-services-custom-mes-presets-with-dotnet.md#concatenate)
-* [Crop videos with Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#crop)
-* [Insert a video track when input has no video](media-services-custom-mes-presets-with-dotnet.md#no_video)
-* [Rotate a video](media-services-custom-mes-presets-with-dotnet.md#rotate_video)
+* [Concatenate two or more video files](#concatenate)
+* [Crop videos with Media Encoder Standard](#crop)
+* [Insert a video track when input has no video](#no_video)
+* [Rotate a video](#rotate_video)
 
 ## <a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
 The following code example uses Media Services .NET SDK to perform the following tasks:
@@ -40,15 +40,15 @@ The following code example uses Media Services .NET SDK to perform the following
 * Create an encoding job.
 * Get a reference to the Media Encoder Standard encoder.
 * Load the custom XML or JSON preset. You can save the XML or JSON (for example, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) or [JSON](media-services-custom-mes-presets-with-dotnet.md#json) in a file and use the following code to load the file.
-  
+
         // Load the XML (or JSON) from the local file.
         string configuration = File.ReadAllText(fileName);  
-* Add an encoding task to the job. 
+* Add an encoding task to the job.
 * Specify the input asset to be encoded.
 * Create an output asset that contains the encoded asset.
 * Add an event handler to check the job progress.
 * Submit the job.
-  
+
         using System;
         using System.Collections.Generic;
         using System.Configuration;
@@ -65,7 +65,7 @@ The following code example uses Media Services .NET SDK to perform the following
         using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
         using System.Web;
         using System.Globalization;
-  
+
         namespace CustomizeMESPresests
         {
             class Program
@@ -75,17 +75,17 @@ The following code example uses Media Services .NET SDK to perform the following
                     ConfigurationManager.AppSettings["MediaServicesAccountName"];
                 private static readonly string _mediaServicesAccountKey =
                     ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-  
+
                 // Field for service context.
                 private static CloudMediaContext _context = null;
                 private static MediaServicesCredentials _cachedCredentials = null;
-  
+
                 private static readonly string _mediaFiles =
                     Path.GetFullPath(@"../..\Media");
-  
+
                 private static readonly string _singleMP4File =
                     Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
-  
+
                 static void Main(string[] args)
                 {
                     // Create and cache the Media Services credentials in a static class variable.
@@ -94,21 +94,21 @@ The following code example uses Media Services .NET SDK to perform the following
                                     _mediaServicesAccountKey);
                     // Used the chached credentials to create CloudMediaContext.
                     _context = new CloudMediaContext(_cachedCredentials);
-  
+
                     // Get an uploaded asset.
                     var asset = _context.Assets.FirstOrDefault();
-  
+
                     // Encode and generate the output using custom presets.
                     EncodeToAdaptiveBitrateMP4Set(asset);
-  
+
                     Console.ReadLine();
                 }
-  
+
                 static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
                 {
                     // Declare a new job.
                     IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-                    // Get a media processor reference, and pass to it the name of the 
+                    // Get a media processor reference, and pass to it the name of the
                     // processor to use for the specific task.
                     IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
@@ -123,9 +123,9 @@ The following code example uses Media Services .NET SDK to perform the following
 
                     // Specify the input asset to be encoded.
                     task.InputAssets.Add(asset);
-                    // Add an output asset to contain the results of the job. 
-                    // This output is specified as AssetCreationOptions.None, which 
-                    // means the output asset is not encrypted. 
+                    // Add an output asset to contain the results of the job.
+                    // This output is specified as AssetCreationOptions.None, which
+                    // means the output asset is not encrypted.
                     task.OutputAssets.AddNew("Output asset",
                         AssetCreationOptions.None);
 
@@ -142,7 +142,7 @@ The following code example uses Media Services .NET SDK to perform the following
 
                     foreach (var af in asset.AssetFiles)
                     {
-                        // The following code assumes 
+                        // The following code assumes
                         // you have an input folder with one MP4 and one overlay image file.
                         if (af.Name.Contains(".mp4"))
                             af.IsPrimary = true;
@@ -160,7 +160,7 @@ The following code example uses Media Services .NET SDK to perform the following
                 {
                     // Declare a new job.
                     IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-                    // Get a media processor reference, and pass to it the name of the 
+                    // Get a media processor reference, and pass to it the name of the
                     // processor to use for the specific task.
                     IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
@@ -177,7 +177,7 @@ The following code example uses Media Services .NET SDK to perform the following
                     // This asset contains a source file and an overlay file.
                     task.InputAssets.Add(assetSource);
 
-                    // Add an output asset to contain the results of the job. 
+                    // Add an output asset to contain the results of the job.
                     task.OutputAssets.AddNew("Output asset",
                         AssetCreationOptions.None);
 
@@ -251,8 +251,8 @@ This section shows how to customize a preset that generates thumbnails. The pres
 
 > [!NOTE]
 > The **SceneChangeDetection** setting in the following preset can only be set to true if you are encoding to a single  bitrate video. If you are encoding to a multi-bitrate video and set **SceneChangeDetection** to true, the encoder returns an error.  
-> 
-> 
+>
+>
 
 For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.
 
@@ -436,14 +436,14 @@ The following considerations apply:
 
 * The use of explicit timestamps for Start/Step/Range assumes that the input source is at least 1 minute long.
 * Jpg/Png/BmpImage elements have Start, Step, and Range string attributes – these can be interpreted as:
-  
+
   * Frame Number if they are non-negative integers, for example "Start": "120",
   * Relative to source duration if expressed as %-suffixed, for example "Start": "15%", OR
   * Timestamp if expressed as HH:MM:SS… format, for example "Start" : "00:01:00"
-    
+
     You can mix and match notations as you please.
-    
-    Additionally, Start also supports a special Macro:{Best}, which attempts to determine the first “interesting” frame of the content 
+
+    Additionally, Start also supports a special Macro:{Best}, which attempts to determine the first “interesting” frame of the content
     NOTE: (Step and Range are ignored when Start is set to {Best})
   * Defaults: Start:{Best}
 * Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, MES matches JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
@@ -451,7 +451,7 @@ The following considerations apply:
 ## <a id="trim_video"></a>Trim a video (clipping)
 This section talks about modifying the encoder presets to clip or trim the input video where the input is a so-called mezzanine file or on-demand file. The encoder can also be used to clip or trim an asset, which is captured or archived from a live stream – the details for this are available in [this blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below). The value of StartTime needs to match the absolute timestamps of the input video. For example, if the first frame of the input video has a timestamp of 12:00:10.000, then StartTime should be at least 12:00:10.000 and greater. In the example below, we assume that the input video has a starting timestamp of zero. **Sources** should be placed at the beginning of the preset. 
+To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below). The value of StartTime needs to match the absolute timestamps of the input video. For example, if the first frame of the input video has a timestamp of 12:00:10.000, then StartTime should be at least 12:00:10.000 and greater. In the example below, we assume that the input video has a starting timestamp of zero. **Sources** should be placed at the beginning of the preset.
 
 ### <a id="json"></a>JSON preset
     {
@@ -570,7 +570,7 @@ To trim your videos, you can take any of the MES presets documented [here](https
           }
         }
       ]
-    } 
+    }
 
 ### XML preset
 To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below).
@@ -693,18 +693,18 @@ To trim your videos, you can take any of the MES presets documented [here](https
 ## <a id="overlay"></a>Create an overlay
 The Media Encoder Standard allows you to overlay an image onto an existing video. Currently, the following formats are supported: png, jpg, gif, and bmp. The preset defined below is a basic example  of a video overlay.
 
-In addition to defining a preset file, you also have to let Media Services know which file in the asset is the overlay image and which file is the source video onto which you want to overlay the image. The video file has to be the **primary** file. 
+In addition to defining a preset file, you also have to let Media Services know which file in the asset is the overlay image and which file is the source video onto which you want to overlay the image. The video file has to be the **primary** file.
 
-The .NET example above defines two functions: **UploadMediaFilesFromFolder** and **EncodeWithOverlay**. The UploadMediaFilesFromFolder function uploads files from a folder (for example, BigBuckBunny.mp4 and Image001.png) and sets the mp4 file to be the primary file in the asset. The **EncodeWithOverlay** function uses the custom preset file that was passed to it (for example, the preset that follows) to create the encoding task. 
+The .NET example above defines two functions: **UploadMediaFilesFromFolder** and **EncodeWithOverlay**. The UploadMediaFilesFromFolder function uploads files from a folder (for example, BigBuckBunny.mp4 and Image001.png) and sets the mp4 file to be the primary file in the asset. The **EncodeWithOverlay** function uses the custom preset file that was passed to it (for example, the preset that follows) to create the encoding task.
 
 > [!NOTE]
 > Current limitations:
-> 
+>
 > The overlay opacity setting is not supported.
-> 
+>
 > Your source video file and the overlay image file have to be in the same asset, and the video file needs to be set as the primary file in this asset.
-> 
-> 
+>
+>
 
 ### JSON preset
     {
@@ -956,9 +956,9 @@ The following example illustrates how you can generate a preset to concatenate t
 * The JSON preset makes explicit references to the AssetID values of the input assets.
 * The sample code assumes that the JSON preset has been saved to a local file, such as "C:\supportFiles\preset.json". It also assumes that two assets have been created by uploading two video files, and that you know the resultant AssetID values.
 * The code snippet and JSON preset shows an example of concatenating two video files. You can extend it to more than two videos by:
-  
+
   1. Calling task.InputAssets.Add() repeatedly to add more videos, in order.
-  2. Making corresponding edits to the "Sources" element in the JSON, by adding more entries, in the same order. 
+  2. Making corresponding edits to the "Sources" element in the JSON, by adding more entries, in the same order.
 
 ### .NET code
     IAsset asset1 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();
@@ -966,7 +966,7 @@ The following example illustrates how you can generate a preset to concatenate t
 
     // Declare a new job.
     IJob job = _context.Jobs.Create("Media Encoder Standard Job for Concatenating Videos");
-    // Get a media processor reference, and pass to it the name of the 
+    // Get a media processor reference, and pass to it the name of the
     // processor to use for the specific task.
     IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
@@ -982,9 +982,9 @@ The following example illustrates how you can generate a preset to concatenate t
     // Specify the input videos to be concatenated (in order).
     task.InputAssets.Add(asset1);
     task.InputAssets.Add(asset2);
-    // Add an output asset to contain the results of the job. 
-    // This output is specified as AssetCreationOptions.None, which 
-    // means the output asset is not encrypted. 
+    // Add an output asset to contain the results of the job.
+    // This output is specified as AssetCreationOptions.None, which
+    // means the output asset is not encrypted.
     task.OutputAssets.AddNew("Output asset",
         AssetCreationOptions.None);
 
@@ -1051,12 +1051,12 @@ Update your custom preset with ids of the assets that you want to concatenate, a
 See the [Crop videos with Media Encoder Standard](media-services-crop-video.md) topic.
 
 ## <a id="no_video"></a>Insert a video track when input has no video
-By default, if you send an input to the encoder that contains only audio, and no video, then the output asset contains files that contain only audio data. Some players, including Azure Media Player (see [this](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) may not be able to handle such streams. You can use this setting to force the encoder to add a monochrome video track to the output in that scenario. 
+By default, if you send an input to the encoder that contains only audio, and no video, then the output asset contains files that contain only audio data. Some players, including Azure Media Player (see [this](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) may not be able to handle such streams. You can use this setting to force the encoder to add a monochrome video track to the output in that scenario.
 
 > [!NOTE]
 > Forcing the encoder to insert an output video track increases the size of the output Asset, and thereby the cost incurred for the encoding Task. You should run tests to verify that this resultant increase has only a modest impact on your monthly charges.
-> 
-> 
+>
+>
 
 ### Inserting video at only the lowest bitrate
 Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p"](https://msdn.microsoft.com/library/mt269960.aspx) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at just the lowest bitrate, as opposed to inserting video at every output bitrate. To achieve this, you need to specify the "InsertBlackIfNoVideoBottomLayerOnly" flag.
@@ -1125,7 +1125,7 @@ The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-sta
 
 Also, see [this](https://msdn.microsoft.com/library/azure/mt269962.aspx#PreserveResolutionAfterRotation) topic for more information on how the encoder interprets the Width and Height settings in the preset, when rotation compensation is triggered.
 
-You can use the value "0" to indicate to the encoder to ignore rotation metadata, if present, in the input video. 
+You can use the value "0" to indicate to the encoder to ignore rotation metadata, if present, in the input video.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -1135,4 +1135,3 @@ You can use the value "0" to indicate to the encoder to ignore rotation metadata
 
 ## See Also
 [Media Services Encoding Overview](media-services-encode-asset.md)
-

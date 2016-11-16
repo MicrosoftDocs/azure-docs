@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/19/2016
+ms.date: 11/10/2016
 ms.author: wesmc
 
 ---
@@ -30,53 +30,54 @@ The default function template is basically a hello world function that echoes ba
 
 Update the function with the following code which we will use for testing:
 
-    module.exports = function(context, req) {
-        context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
-        context.log("Request Headers = " + JSON.stringify(req.headers));    
+```javascript
+module.exports = function(context, req) {
+    context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
+    context.log("Request Headers = " + JSON.stringify(req.headers));    
 
-        if (req.query.name || (req.body && req.body.name)) {
-            if (typeof req.query.name != "undefined") {
-                context.log("Name was provided as a query string param..."); 
-                ProcessNewUserInformation(context, req.query.name);
-            }
-            else {
-                context.log("Processing user info from request body..."); 
-                ProcessNewUserInformation(context, req.body.name, req.body.address);
-            }
+    if (req.query.name || (req.body && req.body.name)) {
+        if (typeof req.query.name != "undefined") {
+            context.log("Name was provided as a query string param...");
+            ProcessNewUserInformation(context, req.query.name);
         }
         else {
-            context.res = {
-                status: 400,
-                body: "Please pass a name on the query string or in the request body"
-            };
+            context.log("Processing user info from request body...");
+            ProcessNewUserInformation(context, req.body.name, req.body.address);
         }
-        context.done();
-    };
-
-    function ProcessNewUserInformation(context, name, address)
-    {    
-        context.log("Processing User Information...");            
-        context.log("name = " + name);            
-        echoString = "Hello " + name;
-
-        if (typeof address != "undefined")
-        {
-            echoString += "\n" + "The address you provided is " + address;
-            context.log("address = " + address);            
-        }
-
+    }
+    else {
         context.res = {
-                // status: 200, /* Defaults to 200 */
-                body: echoString
-            };
+            status: 400,
+            body: "Please pass a name on the query string or in the request body"
+        };
+    }
+    context.done();
+};
+
+function ProcessNewUserInformation(context, name, address)
+{    
+    context.log("Processing User Information...");            
+    context.log("name = " + name);            
+    echoString = "Hello " + name;
+
+    if (typeof address != "undefined")
+    {
+        echoString += "\n" + "The address you provided is " + address;
+        context.log("address = " + address);            
     }
 
+    context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: echoString
+        };
+}
+```
 
 ## Test a function with Tools
 ### Test with cURL
 Often when testing software, it's not necessary to look any further than the command-line to help debug your application, this is no different with functions.
 
-To test the function above, copy the **Function Url** from the portal. It will have the following form: 
+To test the function above, copy the **Function Url** from the portal. It will have the following form:
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
@@ -129,26 +130,28 @@ The recommended tool to test most of your functions is Postman. To install Postm
 
 > [!TIP]
 > Use the REST Client in which you are comfortable. Here are some alternatives to Postman:  
-> 
+>
 > * [Fiddler](http://www.telerik.com/fiddler)  
 > * [Paw](https://luckymarmot.com/paw)  
-> 
-> 
+>
+>
 
-To test the function with a request body in Postman: 
+To test the function with a request body in Postman:
 
 1. Launch Postman from the **Apps** button in the upper left of corner of a Chrome browser window.
 2. Copy your **Function Url** and paste it into Postman. It includes the access code query string parameter.
 3. Change the HTTP method to **POST**.
 4. Click **Body** > **raw** and add JSON request body similar to the following:
-   
-        {
-            "name" : "Wes testing with Postman",
-            "address" : "Seattle, W.A. 98101"
-        }
+	
+	```json
+    {
+        "name" : "Wes testing with Postman",
+        "address" : "Seattle, W.A. 98101"
+    }
+	```
 5. Click **Send**.
 
-The following image shows testing the simple echo function example in this tutorial. 
+The following image shows testing the simple echo function example in this tutorial.
 
 ![](./media/functions-test-a-function/postman-test.png)
 
@@ -168,15 +171,15 @@ In the portal **Logs** window, output similar to the following is logged while e
 You can test a blob trigger function using [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 1. In the [Azure Portal] for your Functions app, create a new C#, F# or Node blob trigger function. Set the path to monitor to the name of your blob container. For example:
-   
+
         files
 2. Click the **+** button to select or create the storage account you want to use. Then click **Create**.
 3. Create a text file with the following text and save it:
-   
+
         A text file for blob trigger function testing.
 4. Run [Microsoft Azure Storage Explorer](http://storageexplorer.com/) and connect to the blob container in the storage account being monitored.
 5. Click the **Upload** button and upload the text file.
-   
+
     ![](./media/functions-test-a-function/azure-storage-explorer-test.png)
 
     The default blob trigger function code will report the processing of the blob in the logs:
@@ -192,10 +195,12 @@ The portal provides a **Run** button which will allow you to do some limited tes
 
 Test the HTTP trigger function we created earlier by adding a JSON string similar to the following in the **Request body** field then click the **Run** button.
 
-    {
-        "name" : "Wes testing Run button",
-        "address" : "USA"
-    } 
+```json
+{
+    "name" : "Wes testing Run button",
+    "address" : "USA"
+}
+```
 
 In the portal **Logs** window, output similar to the following is logged while executing the function:
 
@@ -213,54 +218,56 @@ In the portal **Logs** window, output similar to the following is logged while e
 ### Test with a timer trigger
 Some functions, can't be truly tested with the tools mentioned previously. For example, a queue trigger function which runs when a message is dropped into [Azure Queue Storage](../storage/storage-dotnet-how-to-use-queues.md). You could always write code to drop a message into your queue and an example of this in a console project is provided below. However, there is another approach you can use to test with functions directly.  
 
-You could use a timer trigger configured with a queue output binding. That timer trigger code could then write the test messages to the queue. This section will walk through through an example. 
+You could use a timer trigger configured with a queue output binding. That timer trigger code could then write the test messages to the queue. This section will walk through through an example.
 
-For more in-depth information on using bindings with Azure Functions, see the [Azure Functions developer reference](functions-reference.md). 
+For more in-depth information on using bindings with Azure Functions, see the [Azure Functions developer reference](functions-reference.md).
 
 #### Create queue trigger for testing
-To demonstrate this approach, we will first create a queue trigger function that we want to test for a queue named `queue-newusers`. This function will process name and address information for a new user dropped into Azure queue storage. 
+To demonstrate this approach, we will first create a queue trigger function that we want to test for a queue named `queue-newusers`. This function will process name and address information for a new user dropped into Azure queue storage.
 
 > [!NOTE]
-> If you use a different queue name, make sure the name you use conforms to the [Naming Queues and MetaData](https://msdn.microsoft.com/library/dd179349.aspx) rules.  Otherwise, you will get a HTTP Status code 400 : Bad Request. 
-> 
-> 
+> If you use a different queue name, make sure the name you use conforms to the [Naming Queues and MetaData](https://msdn.microsoft.com/library/dd179349.aspx) rules.  Otherwise, you will get a HTTP Status code 400 : Bad Request.
+>
+>
 
 1. In the [Azure Portal] for your Functions app, click **New Function** > **QueueTrigger - C#**.
-2. Enter the queue name to be monitored by the queue function 
-   
-        queue-newusers 
+2. Enter the queue name to be monitored by the queue function
+
+        queue-newusers
 3. Click the **+** (add) button to select or create the storage account you want to use. Then click **Create**.
 4. Leave this portal browser window opened so you can monitor the log entries for the default queue function template code.
 
 #### Create a timer trigger to drop a message in the queue
 1. Open the [Azure Portal] in a new browser window and navigate to your Function app.
 2. Click **New Function** > **TimerTrigger - C#**. Enter a cron expression to set how often the timer code will execute testing your queue function. Then click **Create**. If you want the test to run every 30 seconds you can use the following [CRON expression](https://wikipedia.org/wiki/Cron#CRON_expression):
-   
+
         */30 * * * * *
 3. Click the **Integrate** tab for your new timer trigger.
 4. Under **Output**, click the **+ New Output** button. Then click **queue** and the **Select** button.
 5. Note the name you use for the **queue message object** you will use this in the timer function code.
-   
+
         myQueue
-6. Enter the queue name where the message will be sent: 
-   
-        queue-newusers 
+6. Enter the queue name where the message will be sent:
+
+        queue-newusers
 7. Click the **+** (add) button to select the storage account you used previously with the queue trigger. Then click **Save**.
 8. Click the **Develop** tab for your timer trigger.
 9. You can use the following code for the C# timer function as long as you used the same queue message object name shown above. Then click **Save**
-   
-        using System;
-   
-        public static void Run(TimerInfo myTimer, out String myQueue, TraceWriter log)
-        {
-            String newUser = 
-            "{\"name\":\"User testing from C# timer function\",\"address\":\"XYZ\"}";
-   
-            log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");   
-            log.Verbose($"{newUser}");   
-   
-            myQueue = newUser;
-        }
+
+	```cs
+    using System;
+
+    public static void Run(TimerInfo myTimer, out String myQueue, TraceWriter log)
+    {
+        String newUser =
+        "{\"name\":\"User testing from C# timer function\",\"address\":\"XYZ\"}";
+
+        log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");   
+        log.Verbose($"{newUser}");   
+
+        myQueue = newUser;
+    }
+	```
 
 At this point C# timer function will execute every 30 seconds if you used the example cron expression. The logs for the timer function will report each execution:
 
@@ -279,7 +286,7 @@ In the browser window for the queue function, you will see the each message bein
 
 ## Test a function with Code
 ### Test a HTTP trigger function with Code: Node.js
-You can use Node.js code to execute a http request to test your Azure Function. 
+You can use Node.js code to execute a http request to test your Azure Function.
 
 Make sure to set:
 
@@ -289,44 +296,45 @@ Make sure to set:
 
 Code Example:
 
-    var http = require("http");
+```javascript
+var http = require("http");
 
-    var nameQueryString = "name=Wes%20Query%20String%20Test%20From%20Node.js";
+var nameQueryString = "name=Wes%20Query%20String%20Test%20From%20Node.js";
 
-    var nameBodyJSON = {
-        name : "Wes testing with Node.JS code",
-        address : "Dallas, T.X. 75201"
-    };
+var nameBodyJSON = {
+    name : "Wes testing with Node.JS code",
+    address : "Dallas, T.X. 75201"
+};
 
-    var bodyString = JSON.stringify(nameBodyJSON);
+var bodyString = JSON.stringify(nameBodyJSON);
 
-    var options = {
-      host: "functions841def78.azurewebsites.net",
-      //path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9&" + nameQueryString,
-      path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9",
-      method: "POST",
-      headers : {
-          "Content-Type":"application/json",
-          "Content-Length": Buffer.byteLength(bodyString)
-        }    
-    };
+var options = {
+  host: "functions841def78.azurewebsites.net",
+  //path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9&" + nameQueryString,
+  path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9",
+  method: "POST",
+  headers : {
+      "Content-Type":"application/json",
+      "Content-Length": Buffer.byteLength(bodyString)
+    }    
+};
 
-    callback = function(response) {
-      var str = ""
-      response.on("data", function (chunk) {
-        str += chunk;
-      });
+callback = function(response) {
+  var str = ""
+  response.on("data", function (chunk) {
+    str += chunk;
+  });
 
-      response.on("end", function () {
-        console.log(str);
-      });
-    }
+  response.on("end", function () {
+    console.log(str);
+  });
+}
 
-    var req = http.request(options, callback);
-    console.log("*** Sending name and address in body ***");
-    console.log(bodyString);
-    req.end(bodyString);
-
+var req = http.request(options, callback);
+console.log("*** Sending name and address in body ***");
+console.log(bodyString);
+req.end(bodyString);
+```
 
 
 Output:
@@ -355,54 +363,56 @@ We mentioned earlier that you could test a queue trigger by using code to drop a
 
 To test this code in a console app you must:
 
-* [Configure your storage connection string in the app.config file](../storage/storage-dotnet-how-to-use-queues.md#setup-a-storage-connection-string).
+* [Configure your storage connection string in the app.config file](../storage/storage-dotnet-how-to-use-queues.md).
 * This code accepts the name and address for a new user as command-line arguments during runtime. Pass a `name` and `address` as parameters to the app. For example, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`
 
 Example C# code:
 
-    static void Main(string[] args)
+```cs
+static void Main(string[] args)
+{
+    string name = null;
+    string address = null;
+    string queueName = "queue-newusers";
+    string JSON = null;
+
+    if (args.Length > 0)
     {
-        string name = null;
-        string address = null;
-        string queueName = "queue-newusers";
-        string JSON = null;
-
-        if (args.Length > 0)
-        {
-            name = args[0];
-        }
-        if (args.Length > 1)
-        {
-            address = args[1];
-        }
-
-        // Retrieve storage account from connection string
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
-
-        // Create the queue client
-        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-
-        // Retrieve a reference to a queue
-        CloudQueue queue = queueClient.GetQueueReference(queueName);
-
-        // Create the queue if it doesn't already exist
-        queue.CreateIfNotExists();
-
-        // Create a message and add it to the queue.
-        if (name != null)
-        {
-            if (address != null)
-                JSON = String.Format("{{\"name\":\"{0}\",\"address\":\"{1}\"}}", name, address);
-            else
-                JSON = String.Format("{{\"name\":\"{0}\"}}", name);
-        }
-
-        Console.WriteLine("Adding message to " + queueName + "...");
-        Console.WriteLine(JSON);
-
-        CloudQueueMessage message = new CloudQueueMessage(JSON);
-        queue.AddMessage(message);
+        name = args[0];
     }
+    if (args.Length > 1)
+    {
+        address = args[1];
+    }
+
+    // Retrieve storage account from connection string
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
+
+    // Create the queue client
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+
+    // Retrieve a reference to a queue
+    CloudQueue queue = queueClient.GetQueueReference(queueName);
+
+    // Create the queue if it doesn't already exist
+    queue.CreateIfNotExists();
+
+    // Create a message and add it to the queue.
+    if (name != null)
+    {
+        if (address != null)
+            JSON = String.Format("{{\"name\":\"{0}\",\"address\":\"{1}\"}}", name, address);
+        else
+            JSON = String.Format("{{\"name\":\"{0}\"}}", name);
+    }
+
+    Console.WriteLine("Adding message to " + queueName + "...");
+    Console.WriteLine(JSON);
+
+    CloudQueueMessage message = new CloudQueueMessage(JSON);
+    queue.AddMessage(message);
+}
+```
 
 In the browser window for the queue function, you will see the each message being processed:
 

@@ -8,7 +8,7 @@ author: andkjell
 manager: femila
 editor: curtand
 
-ms.assetid:6d42fb79-d9cf-48da-8445-f482c4c536af
+ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -80,8 +80,8 @@ Review every domain marked **Not Added** and **Not Verified**. Make sure those d
 
 > [!WARNING]
 > Using an Alternate ID is not compatible with all Office 365 workloads. For more information, refer to [Configuring Alternate Login ID](https://technet.microsoft.com/library/dn659436.aspx).
-> 
-> 
+>
+>
 
 ### Domain and OU filtering
 By default all domains and OUs are synchronized. If there are some domains or OUs you do not want to synchronize to Azure AD, you can unselect these domains and OUs.  
@@ -99,13 +99,13 @@ The Matching across forests feature allows you to define how users from your AD 
 
 | Setting | Description |
 | --- | --- |
-| [Users are only represented once across all forests](../active-directory-aadconnect-topologies.md#multiple-forests-separate-topologies) |All users are created as individual objects in Azure AD. The objects are not joined in the metaverse. |
-| [Mail attribute](../active-directory-aadconnect-topologies.md#multiple-forests-full-mesh-with-optional-galsync) |This option joins users and contacts if the mail attribute has the same value in different forests. Use this option when your contacts have been created using GALSync. |
-| [ObjectSID and msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](../active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest) |This option joins an enabled user in an account forest with a disabled user in a resource forest. In Exchange, this configuration is known as a linked mailbox. This option can also be used if you only use Lync and Exchange is not present in the resource forest. |
+| [Users are only represented once across all forests](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |All users are created as individual objects in Azure AD. The objects are not joined in the metaverse. |
+| [Mail attribute](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |This option joins users and contacts if the mail attribute has the same value in different forests. Use this option when your contacts have been created using GALSync. |
+| [ObjectSID and msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |This option joins an enabled user in an account forest with a disabled user in a resource forest. In Exchange, this configuration is known as a linked mailbox. This option can also be used if you only use Lync and Exchange is not present in the resource forest. |
 | sAMAccountName and MailNickName |This option joins on attributes where it is expected the sign-in ID for the user can be found. |
 | A specific attribute |This option allows you to select your own attribute. **Limitation:** Make sure to pick an attribute that already can be found in the metaverse. If you pick a custom attribute (not in the metaverse), the wizard cannot complete. |
 
-**Source Anchor** - The attribute sourceAnchor is an attribute that is immutable during the lifetime of a user object. It is the primary key linking the on-premises user with the user in Azure AD. Since the attribute cannot be changed, you must plan for a good attribute to use. A good candidate is objectGUID. This attribute is not changed, unless the user account is moved between forests/domains. In a multi-forest environment where you move accounts between forests, another attribute must be used, such as an attribute with the employeeID. Avoid attributes that would change when a person marries or change assignments. You cannot use attributes with an @-sign, so email and userPrincipalName cannot be used. The attribute is also case-sensitive so when you move an object between forests, make sure to preserve the upper/lower case. Binary attributes are base64-encoded, but other attribute types remain in its unencoded state. In federation scenarios and some Azure AD interfaces, this attribute is also known as immutableID. More information about the source anchor can be found in the [design concepts](../active-directory-aadconnect-design-concepts.md#sourceAnchor).
+**Source Anchor** - The attribute sourceAnchor is an attribute that is immutable during the lifetime of a user object. It is the primary key linking the on-premises user with the user in Azure AD. Since the attribute cannot be changed, you must plan for a good attribute to use. A good candidate is objectGUID. This attribute is not changed, unless the user account is moved between forests/domains. In a multi-forest environment where you move accounts between forests, another attribute must be used, such as an attribute with the employeeID. Avoid attributes that would change when a person marries or change assignments. You cannot use attributes with an @-sign, so email and userPrincipalName cannot be used. The attribute is also case-sensitive so when you move an object between forests, make sure to preserve the upper/lower case. Binary attributes are base64-encoded, but other attribute types remain in its unencoded state. In federation scenarios and some Azure AD interfaces, this attribute is also known as immutableID. More information about the source anchor can be found in the [design concepts](../active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 ### Sync filtering based on groups
 The filtering on groups feature allows you to sync only a small subset of objects for a pilot. To use this feature, create a group for this purpose in your on-premises Active Directory. Then add users and groups that should be synchronized to Azure AD as direct members. You can later add and remove users to this group to maintain the list of objects that should be present in Azure AD. All objects you want to synchronize must be a direct member of the group. Users, groups, contacts, and computers/devices must all be direct members. Nested group membership is not resolved. When you add a group as a member, only the group itself is added and not its members.
@@ -114,8 +114,8 @@ The filtering on groups feature allows you to sync only a small subset of object
 
 > [!WARNING]
 > This feature is only intended to support a pilot deployment. Do not use it in a full-blown production deployment.
-> 
-> 
+>
+>
 
 In a full-blown production deployment, it is going to be hard to maintain a single group with all objects to synchronize. Instead you should use one of the methods in [Configure filtering](../active-directory-aadconnectsync-configure-filtering.md).
 
@@ -126,8 +126,8 @@ This screen allows you to select the optional features for your specific scenari
 
 > [!WARNING]
 > If you currently have DirSync or Azure AD Sync active, do not activate any of the writeback features in Azure AD Connect.
-> 
-> 
+>
+>
 
 | Optional Features | Description |
 | --- | --- |
@@ -150,8 +150,8 @@ Based on the services selected in the previous step, this page shows all attribu
 
 > [!WARNING]
 > Removing attributes can impact functionality. For best practices and recommendations, see [attributes synchronized](../active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
-> 
-> 
+>
+>
 
 ### Directory Extension attribute sync
 You can extend the schema in Azure AD with custom attributes added by your organization or other attributes in Active Directory. To use this feature, select **Directory Extension attribute sync** on the **Optional Features** page. You can select more attributes to sync on this page.
@@ -182,8 +182,8 @@ Enter the servers that you want to install AD FS on. You can add one or more ser
 
 > [!NOTE]
 > Ensure that all your servers are joined to an AD domain before you do this configuration.
-> 
-> 
+>
+>
 
 ![AD FS Servers](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
@@ -194,8 +194,8 @@ Enter the servers that you want as your Web Application proxy servers. The web a
 > <li> If the account you use is not a local admin on the AD FS servers, then you are prompted for admin credentials.</li>
 > <li> Ensure that there is HTTP/HTTPS connectivity between the Azure AD Connect server and the Web Application Proxy server before you run this step.</li>
 > <li> Ensure that there is HTTP/HTTPS connectivity between the Web Application Server and the AD FS server to allow authentication requests to flow through.</li>
-> 
-> 
+>
+>
 
 ![Web App](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
 
@@ -225,16 +225,16 @@ When you select the domain to be federated, Azure AD Connect provides you with n
 
 > [!NOTE]
 > AD Connect tries to verify the domain during the configure stage. If you continue to configure without adding the necessary DNS records, the wizard is not able to complete the configuration.
-> 
-> 
+>
+>
 
 ## Configure and verify pages
 The configuration happens on this page.
 
 > [!NOTE]
 > Before you continue installation and if you configured federation, make sure that you have configured [Name resolution for federation servers](../active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
-> 
-> 
+>
+>
 
 ![Ready to configure](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -278,4 +278,3 @@ Learn more about [Integrating your on-premises identities with Azure Active Dire
 | Install using Express settings |
 | Upgrade from DirSync |
 | Accounts used for installation |
-

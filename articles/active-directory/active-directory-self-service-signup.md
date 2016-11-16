@@ -1,4 +1,4 @@
----
+﻿---
 title: What is Self-Service Signup for Azure? | Microsoft Docs
 description: An overview self-service signup for Azure, how to manage the signup process, and how to take over a DNS domain name.
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
 
 ---
@@ -114,17 +114,17 @@ The following do not and require additional admin action to migrate user data af
 You have a few options for how to perform a domain validation (and do a takeover if you wish):
 
 1. Azure Management Portal
-   
+
    A takeover is triggered by doing a domain addition.  If a directory already exists for the domain, you'll have the option to perform an external takeover.
-   
+
    Sign in to the Azure portal using your credentials.  Navigate to your existing directory and then to **Add domain**.
 2. Office 365
-   
+
    You can use the options on the [Manage domains](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) page in Office 365 to work with your domains and DNS records. See [Verify your domain in Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/).
 3. Windows PowerShell
-   
+
    The following steps are required to perform a validation using Windows PowerShell.
-   
+
    | Step | Cmdlet to use |
    | --- | --- |
    | Create a credential object |Get-Credential |
@@ -137,34 +137,34 @@ You have a few options for how to perform a domain validation (and do a takeover
 For example:
 
 1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
-   
+
         import-module MSOnline
         $msolcred = get-credential
         connect-msolservice -credential $msolcred
 2. Get a list of domains:
-   
+
     Get-MsolDomain
 3. Then run the Get-MsolDomainVerificationDns cmdlet to create a challenge:
-   
+
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
-   
+
     For example:
-   
+
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
 4. Copy the value (the challenge) that is returned from this command.
-   
+
     For example:
-   
+
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
 5. In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step.
-   
+
     The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box
 6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
-   
+
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
-   
+
     for example:
-   
+
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
 
 A successful challenge returns you to the prompt without an error.

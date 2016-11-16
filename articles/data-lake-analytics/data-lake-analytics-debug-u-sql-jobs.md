@@ -1,4 +1,4 @@
----
+﻿---
 title: Debug U-SQL jobs | Microsoft Docs
 description: 'Learn how to debug U-SQL failed vertex using Visual Studio. '
 services: data-lake-analytics

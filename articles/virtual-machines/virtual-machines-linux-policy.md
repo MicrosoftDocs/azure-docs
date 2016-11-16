@@ -1,4 +1,4 @@
----
+﻿---
 title: Apply policies to Azure Resource Manager Virtual Machines | Microsoft Docs
 description: How to apply a policy to an Azure Resource Manager Linux Virtual Machine
 services: virtual-machines-linux
@@ -34,7 +34,7 @@ For getting started with Azure Resource Manager policies, we recommend reading t
 * [Use Policy to manage resources and control access](../resource-manager-policy.md)
 
 ## Define a policy for your Virtual Machine
-One of the common scenarios for an enterprise might be to only allow their users to create Virtual Machines from specific operating systems that have been tested to be compatible with a LOB application. Using an Azure Resource Manager policy this task can be accomplished in a few steps. 
+One of the common scenarios for an enterprise might be to only allow their users to create Virtual Machines from specific operating systems that have been tested to be compatible with a LOB application. Using an Azure Resource Manager policy this task can be accomplished in a few steps.
 In this policy example, we are going to allow only Ubuntu 14.04.2-LTS Virtual Machines to be created. The policy definition looks like below
 
 ```
@@ -79,9 +79,7 @@ The above policy can easily be modified to a scenario where you might want to al
 ```
 
 #### Virtual Machine Property Fields
-The table below describes the Virtual Machine properties that can be used as fields in your policy definition. For more on policy fields, see the article below:
-
-* [Fields and Sources](../resource-manager-policy.md#fields-and-sources)
+The table below describes the Virtual Machine properties that can be used as fields in your policy definition. For more information about policy fields, see [Use policy to manage resources and control access](../resource-manager-policy.md#fields).
 
 | Field Name | Description |
 | --- | --- |
@@ -91,12 +89,7 @@ The table below describes the Virtual Machine properties that can be used as fie
 | imageVersion |Specifies the image version for the chosen SKU |
 
 ## Create the Policy
-A policy can easily be created using the REST API directly or the PowerShell cmdlets. For creating the policy, see the article below:
-
-* [Creating a Policy](../resource-manager-policy.md#creating-a-policy)
+A policy can easily be created using the REST API directly or the PowerShell cmdlets. You can read more about [creating and assigning a policy](../resource-manager-policy.md#create-and-assign-a-policy).
 
 ## Apply the Policy
-After creating the policy you’ll need to apply it on a defined scope. The scope can be a subscription, resource group or even the resource. For applying the policy, see the article below:
-
-* [Creating a Policy](../resource-manager-policy.md#applying-a-policy)
-
+After creating the policy you’ll need to apply it on a defined scope. The scope can be a subscription, resource group or even the resource. You can read more about [creating and assigning a policy](../resource-manager-policy.md#create-and-assign-a-policy).

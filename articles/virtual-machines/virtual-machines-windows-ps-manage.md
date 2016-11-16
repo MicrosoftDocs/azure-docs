@@ -180,7 +180,7 @@ It returns something like this example:
     ---------  -------------------  ----------  ------------
                               True          OK  OK
 
-See [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md) for a list of available sizes for a virtual machine.
+See [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for a list of available sizes for a virtual machine.
 
 ## Add a data disk to a virtual machine
 This example shows how to add a data disk to an existing virtual machine.

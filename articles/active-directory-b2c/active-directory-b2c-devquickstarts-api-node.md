@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD B2C: Secure a web API by using Node.js | Microsoft Docs'
 description: How to build a Node.js web API that accepts tokens from a B2C tenant
 services: active-directory-b2c
@@ -24,8 +24,8 @@ With Azure Active Directory (Azure AD) B2C, you can secure a web API by using OA
 
 > [!NOTE]
 > This sample was written to be connected to by using our [iOS B2C sample application](active-directory-b2c-devquickstarts-ios.md). Do the current walk-through first, and then follow along with that sample.
-> 
-> 
+>
+>
 
 **Passport** is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively installed in any Express-based or Restify web application. A comprehensive set of strategies supports authentication by using a user name and password, Facebook, Twitter, and more. We have developed a strategy for Azure Active Directory (Azure AD). You install this module and then add the Azure AD `passport-azure-ad` plug-in.
 
@@ -50,7 +50,7 @@ Next, you need to create an app in your B2C directory that gives Azure AD some i
 
 ## Create your policies
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains two identity experiences: sign up and sign in. You need to create one policy of each type, as described in the
-[policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  When you create your three policies, be sure to:
+[policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  When you create your three policies, be sure to:
 
 * Choose the **Display name** and other sign-up attributes in your sign-up policy.
 * Choose the **Display name** and **Object ID** application claims in every policy.  You can choose other claims as well.
@@ -72,7 +72,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Nod
 The completed app is also [available as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/complete.zip) or on the `complete` branch of the same repository.
 
 ## Download Node.js for your platform
-To successfully use this sample, you need a working installation of Node.js. 
+To successfully use this sample, you need a working installation of Node.js.
 
 Install Node.js from [nodejs.org](http://nodejs.org).
 
@@ -83,8 +83,8 @@ Install MongoDB from [mongodb.org](http://www.mongodb.org).
 
 > [!NOTE]
 > This walk-through assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is `mongodb://localhost`.
-> 
-> 
+>
+>
 
 ## Install the Restify modules in your web API
 We use Restify to build your REST API. Restify is a minimal and flexible Node.js application framework derived from Express. It has a robust set of features for building REST APIs on top of Connect.
@@ -166,8 +166,8 @@ Next, add the OAuth strategy by using `passport-azuread`, a suite of strategies 
 
 > [!NOTE]
 > Although OAuth2 provides a framework in which any known token type can be issued, only certain token types have gained widespread use. The tokens for protecting endpoints are bearer tokens. These types of tokens are the most widely issued in OAuth2. Many implementations assume that bearer tokens are the only type of token issued.
-> 
-> 
+>
+>
 
 From the command line, change your directory to `azuread`, if it's not already there.
 
@@ -213,7 +213,7 @@ Install the modules in your `node_modules` directory:
 * `npm install bunyan`
 
 ## Create a server.js file with your dependencies
-The `server.js` file provides the majority of the functionality for your Web API server. 
+The `server.js` file provides the majority of the functionality for your Web API server.
 
 From the command line, change your directory to `azuread`, if it's not already there:
 
@@ -256,7 +256,7 @@ clientID: <your client ID for this Web API you created in the portal>
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
 audience: '<your audience URI>', // the Client ID of the application that is calling your API, usually a web API or native client
 identityMetadata: 'https://login.microsoftonline.com/<tenant name>/.well-known/openid-configuration', // Make sure you add the B2C tenant name in the <tenant name> area
-tenantName:'<tenant name>', 
+tenantName:'<tenant name>',
 policyName:'b2c_1_<sign in policy name>' // This is the policy you'll want to validate against in B2C. Usually this is your Sign-in policy (as users sign in to this API)
 passReqToCallback: false // This is a node.js construct that lets you pass the req all the way back to any upstream caller. We turn this off as there is no upstream caller.
 };
@@ -268,9 +268,9 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 ### Required values
 `clientID`: The client ID of your Web API application.
 
-`IdentityMetadata`: This is where `passport-azure-ad` looks for your configuration data for the identity provider. It also looks for the keys to validate the JSON web tokens. 
+`IdentityMetadata`: This is where `passport-azure-ad` looks for your configuration data for the identity provider. It also looks for the keys to validate the JSON web tokens.
 
-`audience`: The uniform resource identifier (URI) from the portal that identifies your calling application. 
+`audience`: The uniform resource identifier (URI) from the portal that identifies your calling application.
 
 `tenantName`: Your tenant name (for example, **contoso.onmicrosoft.com**).
 
@@ -278,8 +278,8 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 
 > [!NOTE]
 > For our B2C preview, use the same policies across both client and server setup. If you have already completed a walk-through and created these policies, you don't need to do so again. Because you completed the walk-through, you shouldn't need to set up new policies for client walk-throughs on the site.
-> 
-> 
+>
+>
 
 ## Add configuration to your server.js file
 To read the values from the `config.js` file you created, add the `.config` file as a required resource in your application, and then set the global variables to those in the `config.js` document.
@@ -384,7 +384,7 @@ You first create the schema, and then you create a model object that you use to 
 Now that you have a database model to work with, add the routes you use for your REST API server.
 
 ### About routes in Restify
-Routes work in Restify in the same way that they work when they use the Express stack. You define routes by using the URI that you expect the client applications to call. 
+Routes work in Restify in the same way that they work when they use the Express stack. You define routes by using the URI that you expect the client applications to call.
 
 A typical pattern for a Restify route is:
 
@@ -542,7 +542,7 @@ util.inherits(TaskNotFoundError, restify.RestError);
 ## Create your server
 You have now defined your database and put your routes in place. The last thing for you to do is to add the server instance that manages your calls.
 
-Restify and Express provide deep customization for a REST API server, but we use the most basic setup here. 
+Restify and Express provide deep customization for a REST API server, but we use the most basic setup here.
 
 ```Javascript
 
@@ -662,7 +662,7 @@ server.listen(serverPort, function() {
 
 });
 
-``` 
+```
 
 ## Add authentication to your REST API server
 Now that you have a running REST API server, you can make it useful against Azure AD.
@@ -674,8 +674,8 @@ From the command line, change your directory to `azuread`, if it's not already t
 ### Use the OIDCBearerStrategy that is included with passport-azure-ad
 > [!TIP]
 > When you write APIs, you should always link the data to something unique from the token that the user can’t spoof. When the server stores ToDo items, it does so based on the **oid** of the user in the token (called through token.oid), which goes in the “owner” field. This value ensures that only that user can access their own ToDo items. There is no exposure in the API of “owner,” so an external user can request others’ ToDo items even if they are authenticated.
-> 
-> 
+>
+>
 
 Next, use the bearer strategy that comes with `passport-azure-ad`.
 
@@ -720,8 +720,8 @@ Passport uses the same pattern for all its strategies. You pass it a `function()
 
 > [!IMPORTANT]
 > The code above takes any user who happens to authenticate to your server. This process is known as autoregistration. In production servers, don't let in any users access the API without first having them go through a registration process. This process is usually the pattern you see in consumer apps that allow you to register by using Facebook but then ask you to fill out additional information. If this program wasn’t a command-line program, we could have extracted the email from the token object that is returned and then asked users to fill out additional information. Because this is a sample, we add them to an in-memory database.
-> 
-> 
+>
+>
 
 ## Run your server application to verify that it rejects you
 You can use `curl` to see if you now have OAuth2 protection against your endpoints. The headers returned should be enough to tell you that you are on the right path.
@@ -758,4 +758,3 @@ You have implemented a REST API by using Restify and OAuth! You now have suffici
 You can now move to more advanced topics, such as:
 
 [Connect to a web API by using iOS with B2C](active-directory-b2c-devquickstarts-ios.md)
-

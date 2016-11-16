@@ -1,4 +1,4 @@
----
+﻿---
 title: Encode an asset using Media Encoder Standard with the Azure portal | Microsoft Docs
 description: This tutorial walks you through the steps of encoding an asset using Media Encoder Standard with the Azure portal.
 services: media-services

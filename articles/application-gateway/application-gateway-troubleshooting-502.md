@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/02/2016
+ms.date: 11/10/2016
 ms.author: amitsriva
 
 ---
@@ -35,33 +35,37 @@ If the Application Gateway has no VMs or VM Scale Set configured in the back-end
 ### Solution
 Ensure that the back-end address pool is not empty. This can be done either via PowerShell, CLI, or portal.
 
-    Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+```powershell
+Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+```
 
 The output from the preceding cmdlet should contain non-empty back-end address pool. Following is an example where two pools are returned which are configured with FQDN or IP addresses for backend VMs. The provisioning state of the BackendAddressPool must be 'Succeeded'.
 
-    BackendAddressPoolsText: 
-            [{
-                "BackendAddresses": [{
-                    "ipAddress": "10.0.0.10",
-                    "ipAddress": "10.0.0.11"
-                }],
-                "BackendIpConfigurations": [],
-                "ProvisioningState": "Succeeded",
-                "Name": "Pool01",
-                "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-                "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
-            }, {
-                "BackendAddresses": [{
-                    "Fqdn": "xyx.cloudapp.net",
-                    "Fqdn": "abc.cloudapp.net"
-                }],
-                "BackendIpConfigurations": [],
-                "ProvisioningState": "Succeeded",
-                "Name": "Pool02",
-                "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-                "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
-            }]
+BackendAddressPoolsText:
 
+```json
+[{
+    "BackendAddresses": [{
+        "ipAddress": "10.0.0.10",
+        "ipAddress": "10.0.0.11"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool01",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
+}, {
+    "BackendAddresses": [{
+        "Fqdn": "xyx.cloudapp.net",
+        "Fqdn": "abc.cloudapp.net"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool02",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
+}]
+```
 
 ## Unhealthy instances in BackendAddressPool
 ### Cause
@@ -86,7 +90,7 @@ Ensure that the instances are healthy and the application is properly configured
 * If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port.
 * The call to http://127.0.0.1:port should return an HTTP result code of 200. This should be returned within the 30 sec time-out period.
 * Ensure that port configured is open and that there are no firewall rules or Azure Network Security Groups, which block incoming or outgoing traffic on the port configured.
-* If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) is opened.
+* If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) is opened.
 * If the VM is configured via Azure Resource Manager and is outside the VNet where Application Gateway is deployed, [Network Security Group](../virtual-network/virtual-networks-nsg.md) must be configured to allow access on the desired port.
 
 ## Problems with custom health probe

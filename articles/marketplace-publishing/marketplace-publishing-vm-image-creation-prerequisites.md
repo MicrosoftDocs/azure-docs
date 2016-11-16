@@ -53,6 +53,6 @@ Now that you reviewed the prerequisites and completed the necessary tasks, you c
 
 ## See also
 * [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
-* [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+* [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md

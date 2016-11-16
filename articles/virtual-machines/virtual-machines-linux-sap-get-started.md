@@ -329,7 +329,7 @@ Summary: This quickstart guide will help to set up a single-instance SAP HANA pr
 
 Updated: September 2016
 
-[This guide can be found here](virtual-machines-linux-sap-hana-get-started.md)
+[This guide can be found here](virtual-machines-linux-sap-hana-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Quickstart Guide for NetWeaver on SUSE Linux on Azure
 Title: Testing SAP NetWeaver on Microsoft Azure SUSE Linux VMs 
@@ -339,7 +339,7 @@ SAP kernel versions and so on can be found in SAP Note 1928533 "SAP Applications
 
 Updated: September 2016
 
-[This guide can be found here](virtual-machines-linux-sap-on-suse-quickstart.md)
+[This guide can be found here](virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planning and Implementation
 Title: SAP NetWeaver on Linux virtual machines (VMs) – Planning and Implementation Guide

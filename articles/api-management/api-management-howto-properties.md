@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use properties in Azure API Management policies
 description: Learn how to use properties in Azure API Management policies.
 services: api-management

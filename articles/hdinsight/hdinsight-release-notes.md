@@ -14,11 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 11/10/2016
 ms.author: nitinme
 
 ---
 # Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 11/09/2016 release of Spark 2.0 on HDInsight
+* Spark 2.0 clusters on HDInsight 3.5 now support Livy and Jupyter services.
+
 ## Notes for 10/26/2016 release of R Server on HDInsight
 * The URI for edge node access has changed to **clustername**-ed-ssh.azurehdinsight.net
 * R Server on HDInsight cluster provisioning has been streamlined.

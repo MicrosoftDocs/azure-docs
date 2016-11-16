@@ -1,4 +1,4 @@
----
+﻿---
 title: How to install Apache Qpid Proton-C on a Linux VM | Microsoft Docs
 description: How to create a CentOS Linux VM using Azure Virtual Machines and how to build and install the Apache Qpid Proton-C library.
 services: service-bus

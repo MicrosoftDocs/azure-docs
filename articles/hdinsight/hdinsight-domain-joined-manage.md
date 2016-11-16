@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Domain-joined HDInsight clusters| Microsoft Docs
 description: Learn how to manage Domain-joined HDInsight clusters
 services: hdinsight

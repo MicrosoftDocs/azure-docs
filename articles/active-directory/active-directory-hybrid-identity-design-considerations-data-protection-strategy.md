@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory hybrid identity design considerations - define data protection strategy | Microsoft Docs
 description: You’ll define the data protection strategy for your hybrid identity solution to meet the business requirements that you defined.
 documentationcenter: ''

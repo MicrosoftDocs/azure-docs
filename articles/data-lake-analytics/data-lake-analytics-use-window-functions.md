@@ -1,4 +1,4 @@
----
+﻿---
 title: Using U-SQL window functions for Azure Data Lake Aanlytics jobs | Microsoft Docs
 description: 'Learn how to use U-SQL window functions. '
 services: data-lake-analytics
@@ -46,34 +46,38 @@ This tutorial uses two datasets:
   
     QueryLog represents a list of what people searched for in search engine. Each query log includes:
   
-        - Query - What the user was searching for.
-        - Latency - How fast the query came back to the user in milliseconds.
-        - Vertical - What kind of content the user was interested in (Web links, Images, Videos).
+    - Query - What the user was searching for.
+    - Latency - How fast the query came back to the user in milliseconds.
+    - Vertical - What kind of content the user was interested in (Web links, Images, Videos).
   
     Copy and paste the following scrip into your U-SQL project for constructing the QueryLog rowset:
   
-        @querylog = 
-            SELECT * FROM ( VALUES
-                ("Banana"  , 300, "Image" ),
-                ("Cherry"  , 300, "Image" ),
-                ("Durian"  , 500, "Image" ),
-                ("Apple"   , 100, "Web"   ),
-                ("Fig"     , 200, "Web"   ),
-                ("Papaya"  , 200, "Web"   ),
-                ("Avocado" , 300, "Web"   ),
-                ("Cherry"  , 400, "Web"   ),
-                ("Durian"  , 500, "Web"   ) )
-            AS T(Query,Latency,Vertical);
-  
+    ```
+    @querylog = 
+        SELECT * FROM ( VALUES
+            ("Banana"  , 300, "Image" ),
+            ("Cherry"  , 300, "Image" ),
+            ("Durian"  , 500, "Image" ),
+            ("Apple"   , 100, "Web"   ),
+            ("Fig"     , 200, "Web"   ),
+            ("Papaya"  , 200, "Web"   ),
+            ("Avocado" , 300, "Web"   ),
+            ("Cherry"  , 400, "Web"   ),
+            ("Durian"  , 500, "Web"   ) )
+        AS T(Query,Latency,Vertical);
+    ```
+
     In practice, the data is most likely stored in a data file. You would access that data inside of a tab-delimited file using the following code: 
   
-        @querylog = 
-        EXTRACT 
-            Query    string, 
-            Latency  int, 
-            Vertical string
-        FROM "/Samples/QueryLog.tsv"
-        USING Extractors.Tsv();
+    ```
+    @querylog = 
+    EXTRACT 
+        Query    string, 
+        Latency  int, 
+        Vertical string
+    FROM "/Samples/QueryLog.tsv"
+    USING Extractors.Tsv();
+    ```
 * Employees
   
     The Employee dataset includes the following fields:

@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a Java web app in Azure App Service | Microsoft Docs
 description: This tutorial shows you how to deploy a Java web app to Azure App Service.
 services: app-service\web
@@ -61,7 +61,7 @@ This section shows how to create a web app and configure it for Java using the *
     This name must be unique in the azurewebsites.net domain because the URL of the web app will be {name}.azurewebsites.net. If the name you enter isn't unique, a red exclamation mark appears in the text box.
 4. Select a **Resource Group** or create a new one.
    
-    For more information about resource groups, see [Using the Azure Portal to manage your Azure resources].
+    For more information about resource groups, see [Resource Manager overview].
 5. Select an **App Service plan/Location** or create a new one.
    
     For more information about App Service plans, see [Azure App Service plans overview].
@@ -108,7 +108,7 @@ This section shows how to use the Azure Marketplace to create a Java web app. Th
     This name must be unique in the azurewebsites.net domain because the URL of the web app will be {name}.azurewebsites.net. If the name you enter isn't unique, a red exclamation mark appears in the text box.
 8. Select a **Resource Group** or create a new one.
    
-    For more information about resource groups, see [Using the Azure Portal to manage your Azure resources].
+    For more information about resource groups, see [Resource Manager overview].
 9. Select an **App Service plan/Location** or create a new one.
    
     For more information about App Service plans, see [Azure App Service plans overview].
@@ -147,7 +147,7 @@ For more information about developing Java applications in Azure, see the [Java 
 [Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 [web app in Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Java Developer Center]: /develop/java/
-[Using the Azure Portal to manage your Azure resources]: ../azure-portal/resource-group-portal.md
+[Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
 [Upload a custom Java web app to Azure]: ./web-sites-java-custom-upload.md
 
 <!-- IMG List -->

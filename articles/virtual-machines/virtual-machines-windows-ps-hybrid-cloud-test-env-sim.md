@@ -212,5 +212,5 @@ This is your current configuration.
 Your simulated hybrid cloud environment is now ready for testing.
 
 ## Next step
-* Set up a [web-based, line of business application](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) in this environment.
+* Set up a [web-based, line of business application](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) in this environment.
 

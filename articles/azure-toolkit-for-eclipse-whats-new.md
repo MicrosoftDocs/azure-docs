@@ -1,4 +1,4 @@
----
+﻿---
 title: What's New in the Azure Toolkit for Eclipse
 description: Learn about the latest features in the Azure Toolkit for Eclipse.
 services: ''

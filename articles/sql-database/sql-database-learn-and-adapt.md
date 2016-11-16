@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SQL Database Learns and Adapts
 description: Learn how SQL Database learns and adapts
 keywords: ''

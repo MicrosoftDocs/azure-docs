@@ -1,4 +1,4 @@
----
+﻿---
 title: Create EAI Logic App using VETR in logic apps in Azure App Service | Microsoft Docs
 description: Validate, Encode and Transform features of BizTalk XML services
 services: logic-apps

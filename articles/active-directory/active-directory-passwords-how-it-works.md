@@ -1,4 +1,4 @@
----
+﻿---
 title: 'How it works: Azure AD Password Management | Microsoft Docs'
 description: Learn about the different components of Azure AD Password Management, including where users register, reset, and change their passwords, and where admins configure, report on, and enable management of on-premises Active Directory passwords.
 services: active-directory

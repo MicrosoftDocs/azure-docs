@@ -110,7 +110,7 @@ Notice in the below JSON that the script is stored in GitHub. This script could 
 }
 ```
 
-For more information on using the custom script extension, see [Custom script extensions with Resource Manager templates](virtual-machines-linux-extensions-customscript.md).
+For more information on using the custom script extension, see [Custom script extensions with Resource Manager templates](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Next Step
 <hr>

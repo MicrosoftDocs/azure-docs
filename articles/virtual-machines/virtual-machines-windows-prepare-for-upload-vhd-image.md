@@ -267,8 +267,8 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
      <a id="step23"></a>
 2. If you want to create an image to deploy multiple machines from it, you need to generalize the image by running `sysprep` before you upload the VHD to Azure. You do not need to run `sysprep` for using a specialized VHD. For more information about how to create a generalized image, see the following articles:
    
-   * [Create a VM image from an existing Azure VM using the Resource Manager deployment model](virtual-machines-windows-create-vm-generalized.md)
-   * [Create a VM image from an existing Azure VM using the Classic deployment modem](virtual-machines-windows-classic-capture-image.md)
+   * [Create a VM image from an existing Azure VM using the Resource Manager deployment model](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+   * [Create a VM image from an existing Azure VM using the Classic deployment modem](virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
    * [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 ## Suggested extra configurations
@@ -295,5 +295,5 @@ The following settings do not affect VHD uploading. However, we strongly recomme
     ```
 
 ## Next steps
-* [Upload a Windows VM image to Azure for Resource Manager deployments](virtual-machines-windows-upload-image.md)
+* [Upload a Windows VM image to Azure for Resource Manager deployments](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

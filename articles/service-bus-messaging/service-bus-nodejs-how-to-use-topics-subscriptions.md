@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use Service Bus topics with Node.js | Microsoft Docs
 description: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.
 services: service-bus
@@ -40,7 +40,7 @@ communicate with the Service Bus REST services.
 1. Use a command-line interface such as **PowerShell** (Windows,) **Terminal** (Mac,) or **Bash** (Unix), navigate to the folder where you created your sample application.
 2. Type **npm install azure** in the command window, which should
    result in the following output:
-   
+
    ```
        azure@0.7.5 node_modules\azure
    ├── dateformat@1.0.2-1.2.3
@@ -147,8 +147,8 @@ queue.
 > application contains logic to create a subscription, it should first
 > check if the subscription already exists by using the
 > **getSubscription** method.
-> 
-> 
+>
+>
 
 ### Create a subscription with the default (MatchAll) filter
 The **MatchAll** filter is the default filter that is used if no filter
@@ -186,8 +186,8 @@ add new filters to an existing subscription.
 > **MatchAll** will override any other filters you may specify. You can
 > remove the default rule by using the **deleteRule** method of the
 > **ServiceBusService** object.
-> 
-> 
+>
+>
 
 The following example creates a subscription named `HighMessages` with a
 **SqlFilter** that only selects messages that have a custom **messagenumber** property greater than 3:
@@ -202,8 +202,8 @@ serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error)
 var rule={
     deleteDefault: function(){
         serviceBusService.deleteRule('MyTopic',
-            'HighMessages', 
-            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
+            'HighMessages',
+            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME,
             rule.handleError);
     },
     create: function(){
@@ -211,10 +211,10 @@ var rule={
             sqlExpressionFilter: 'messagenumber > 3'
         };
         rule.deleteDefault();
-        serviceBusService.createRule('MyTopic', 
-            'HighMessages', 
-            'HighMessageFilter', 
-            ruleOptions, 
+        serviceBusService.createRule('MyTopic',
+            'HighMessages',
+            'HighMessageFilter',
+            ruleOptions,
             rule.handleError);
     },
     handleError: function(error){
@@ -239,8 +239,8 @@ serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
 var rule={
     deleteDefault: function(){
         serviceBusService.deleteRule('MyTopic',
-            'LowMessages', 
-            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
+            'LowMessages',
+            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME,
             rule.handleError);
     },
     create: function(){
@@ -248,10 +248,10 @@ var rule={
             sqlExpressionFilter: 'messagenumber <= 3'
         };
         rule.deleteDefault();
-        serviceBusService.createRule('MyTopic', 
-            'LowMessages', 
-            'LowMessageFilter', 
-            ruleOptions, 
+        serviceBusService.createRule('MyTopic',
+            'LowMessages',
+            'LowMessageFilter',
+            ruleOptions,
             rule.handleError);
     },
     handleError: function(error){
@@ -428,5 +428,4 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Create and deploy a Node.js application to an Azure Web Site]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Node.js Web Application with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
-
+[Node.js Web Application with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md

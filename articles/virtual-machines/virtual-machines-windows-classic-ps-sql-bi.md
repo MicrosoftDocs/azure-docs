@@ -86,13 +86,13 @@ The following table summarizes the Business Intelligence features installed on t
 ## General Recommendations and Best Practices
 * The minimum recommended size for a virtual machine is **A3** when using SQL Server Enterprise Edition. The **A4** virtual machine size is recommended for SQL Server BI deployments of Analysis Services and Reporting Services.
   
-    For information on the current VM sizes, see [Virtual Machine Sizes for Azure](virtual-machines-linux-sizes.md).
+    For information on the current VM sizes, see [Virtual Machine Sizes for Azure](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * A best practice for disk management is to store data, log, and backup files on drives other than **C**: and **D**:. For example, create data disks **E**: and **F**:.
   
   * The drive caching policy for the default drive **C**: is not optimal for working with data.
   * The **D**: drive is a temporary drive that is used primarily for the page file. The **D**: drive is not persisted and is not saved in blob storage. Management tasks such as a change to the virtual machine size reset the **D**: drive. It is recommended to **NOT** use the **D**: drive for database files, including tempdb.
     
-    For more information on creating and attaching disks, see [How to Attach a Data Disk to a Virtual Machine](virtual-machines-windows-classic-attach-disk.md).
+    For more information on creating and attaching disks, see [How to Attach a Data Disk to a Virtual Machine](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Stop or uninstall services you do not plan to use. For example if the virtual machine is only used for Reporting Services, stop or uninstall Analysis Services and SQL Server Integration Services. The following image is an example of the services that are started by default.
   
     ![SQL Server services](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -135,7 +135,7 @@ Analysis Services, Reporting Services, SQL Server Database Engine, and data sour
 The virtual machine gallery image for SQL Server includes Reporting Services Native mode installed, however the report server is not configured. The steps in this section configure the Reporting Services report server. For more detailed information on configuring Reporting Services Native mode, see [Install Reporting Services Native Mode Report Server (SSRS)](https://msdn.microsoft.com/library/ms143711.aspx).
 
 > [!NOTE]
-> For similar content that uses Windows PowerShell scripts to configure the report server, see [Use PowerShell to Create an Azure VM With a Native Mode Report Server](virtual-machines-windows-classic-ps-sql-report.md).
+> For similar content that uses Windows PowerShell scripts to configure the report server, see [Use PowerShell to Create an Azure VM With a Native Mode Report Server](virtual-machines-windows-classic-ps-sql-report.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 > 
 > 
 
@@ -242,7 +242,7 @@ The following table summarizes some of the options available to publish existing
   
   1. Create a .VHD hard drive on your local computer that contains your reports.
   2. Create and install a management certificate.
-  3. Upload the VHD file to Azure using the Add-AzureVHD cmdlet [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md).
+  3. Upload the VHD file to Azure using the Add-AzureVHD cmdlet [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
   4. Attach the disk to the virtual machine.
 
 ## Install other SQL Server Services and features
@@ -322,8 +322,8 @@ This section summarizes Microsoft Azure Virtual Machine Endpoints to create and 
 
 For more information on creating endpoints, see the following:
 
-* Create Endpoints:[How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md).
-* SQL Server: See the “Complete Configuration steps to connect to the virtual machine Using SQL Server Management Studio” section of [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
+* Create Endpoints:[How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* SQL Server: See the “Complete Configuration steps to connect to the virtual machine Using SQL Server Management Studio” section of [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 The following diagram illustrates the ports to open in the VM firewall to allow remote access to features and components on the VM.
 
@@ -331,11 +331,11 @@ The following diagram illustrates the ports to open in the VM firewall to allow 
 
 ## Resources
 * Review the support policy for Microsoft server software used in the Azure Virtual Machine environment. The following topic summarizes support for features such as BitLocker, Failover Clustering, and Network Load Balancing. [Microsoft server software support for Azure Virtual Machines](http://support.microsoft.com/kb/2721672).
-* [SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-sql-server-iaas-overview.md)
+* [SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md)
-* [How to Attach a Data Disk to a Virtual Machine](virtual-machines-windows-classic-attach-disk.md)
-* [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md)
+* [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [How to Attach a Data Disk to a Virtual Machine](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Determine the Server Mode of an Analysis Services Instance](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Multidimensional Modeling (Adventure Works Tutorial)](https://technet.microsoft.com/library/ms170208.aspx)
 * [Azure Documentation Center](https://azure.microsoft.com/documentation/)

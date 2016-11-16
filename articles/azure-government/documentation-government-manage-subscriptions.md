@@ -1,5 +1,5 @@
----
-title: Azure Government Services | Microsoft Docs
+﻿---
+title: Azure Government Subscriptions | Microsoft Docs
 description: Information on managing your subscription in Azure Government
 services: Azure-Government
 cloud: gov
@@ -42,7 +42,7 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 | Connection type | Command |
 | --- | --- |
 | [Service Management](https://msdn.microsoft.com/library/dn708504.aspx) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
-| [Resource Management](https://msdn.microsoft.com/library/mt125356.aspx) commands |`Add-AzureRmAccount -EnvironmentName AzureUSGovernment` |
+| [Resource Management](https://msdn.microsoft.com/library/mt125356.aspx) commands |`Login-AzureRmAccount -EnvironmentName AzureUSGovernment` |
 | [Azure Active Directory](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
 | [Azure Active Directory command v2](https://msdn.microsoft.com/library/azure/mt757189.aspx) |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
 | [Azure CLI Command Line](../xplat-cli-install.md) |`azure login –environment "AzureUSGovernment"` |

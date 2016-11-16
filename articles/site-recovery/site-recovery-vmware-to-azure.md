@@ -1,4 +1,4 @@
----
+﻿---
 title: Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery in the Azure portal | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of on-premises VMware virtual machines and Windows/Linux physical servers to Azure using the Azure portal
 services: site-recovery
@@ -22,8 +22,8 @@ ms.author: raynew
 > * [Azure portal](site-recovery-vmware-to-azure.md)
 > * [Azure classic](site-recovery-vmware-to-azure-classic.md)
 > * [Azure classic (legacy)](site-recovery-vmware-to-azure-classic-legacy.md)
-> 
-> 
+>
+>
 
 Welcome to the Azure Site Recovery service!
 
@@ -74,7 +74,7 @@ Organizations need a BCDR strategy that determines how apps and data stay runnin
 These are the scenario components:
 
 * **Configuration server**: An on-premises machine that coordinates communication, and manages data replication and recovery processes. You run Unified Setup on this machine to install the configuration server, and these additional components:
-  
+
   * **Process server**: Acts as a replication gateway. It receives replication data from protected source machines, optimizes it with caching, compression, and encryption, and sends it to Azure storage. It also handles push installation of the Mobility service to protected machines, and performs automatic discovery of VMware VMs. The default process server is installed on the configuration server. You can deploy additional standalone process servers to scale your deployment.
   * **Master target server**: Handles replication data during failback from Azure.
 * **Mobility service**: This component is deployed on every machine (VMware VM or physical server) that you want to replicate to Azure. It captures data writes on the machine, and forwards them to the process server.
@@ -105,8 +105,8 @@ You set up an on-premises machine as the configuration server.
 
 > [!NOTE]
 > If you want to scale out process servers for increased capacity, the prerequisites for additional process servers are identical to the configuration server prerequisites.
-> 
-> 
+>
+>
 
 | **Component** | **Requirement** |
 | --- | --- |
@@ -138,13 +138,13 @@ To prepare for deployment you need to:
 * The network should be in the same Azure region as that in which you deploy the Recovery Services vault.
 * Depending on the resource model you want to use for failed over Azure VMs, you’ll set up the Azure network in [Resource Manager mode](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or [classic mode](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 * In order to fail back from Azure to your on-premises VMware site you need a VPN connection (or an Azure ExpressRoute connection) from the Azure network in which the replicated Azure VMs are located, to the on-premises network in which the configuration server is located.
-* [Learn about](../vpn-gateway/vpn-gateway-site-to-site-create.md) the supported deployment models for VPN site-to-site connections, and how to [set up a connection](../vpn-gateway/vpn-gateway-site-to-site-create.md#create-your-virtual-network).
+* [Learn about](../vpn-gateway/vpn-gateway-site-to-site-create.md) the supported deployment models for VPN site-to-site connections, and how to [set up a connection](../vpn-gateway/vpn-gateway-site-to-site-create.md#CreateVNet).
 * Alternatively you can set up [Azure ExpressRoute](../expressroute/expressroute-introduction.md). [Learn more](../expressroute/expressroute-howto-vnet-portal-classic.md) about setting up an Azure network with ExpressRoute.
 
 > [!NOTE]
 > [Migration of networks](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
-> 
-> 
+>
+>
 
 ### Set up an Azure storage account
 * You’ll need a standard or a premium Azure storage account to hold data replicated to Azure. The account must be in the same region as the Recovery Services vault. Depending on the resource model you want to use for failed over Azure VMs, you'll set up an account in [Resource Manager mode](../storage/storage-create-storage-account.md) or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
@@ -152,23 +152,23 @@ To prepare for deployment you need to:
 
 > [!NOTE]
 > [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
-> 
-> 
+>
+>
 
 ### Prepare an account for automatic discovery
 The Site Recovery process server can automatically discover VMware VMs on vSphere hosts or on a vCenter server that manages hosts. To perform automatic discovery Site Recovery credentials that can access the VMware server. This isn't relevant if you're replicating physical machines only.
 
 1. To use a dedicated account for automatic discovery create a role (for example Azure_Site_Recovery) at the vCenter level with the [required permissions](#vmware-account-permissions).
 2. Create a new user on the vSphere host or vCenter server and assign the role to the user. Later you let Site Recovery know about these credentials so that it can perform automatic discovery.
-   
+
    > [!NOTE]
    > A vCenter user account with a read-only role can run failover but can't shut down protected source machines. If you want to shut down those machines you need the [Azure_Site_Recovery](#vmware-account-permissions) role. If you're only migrating VMs from VMware to Azure and don't need to failback then the read-only role is sufficient.
-   > 
-   > 
+   >
+   >
 
 ### Prepare the configuration server
 1. Make sure that the machine you’re using for the configuration server complies with the [prerequisites](#configuration-server-prerequisites). In particular make sure that the machine is connected to the internet with these settings:
-   
+
    * Allow access to these URLs: ``*.hypervrecoverymanager.windowsazure.com``; ``*.accesscontrol.windows.net``; ``*.backup.windowsazure.com``; ``*.blob.core.windows.net``; ``*.store.core.windows.net``
    * Allow access to [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi) to download MySQL.
    * Allow firewall communication to Azure with the [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS (443) protocol.
@@ -177,12 +177,12 @@ The Site Recovery process server can automatically discover VMware VMs on vSpher
 ## Create a Recovery Services vault
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **New** > **Management** > **Backup and Site Recovery (OMS)**. Alternatively you can click **Browse** > **Recovery Services Vault** > **Add**.
-   
+
     ![New vault](./media/site-recovery-vmware-to-azure/new-vault3.png)
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
 4. [Create a new resource group](../resource-group-template-deploy-portal.md) or select an existing one. Specify an Azure region. Machines will be replicated to this region. Note that Azure storage and networks used for Site Recovery will need to be in the same region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. If you want to quickly access the vault from the Dashboard, click **Pin to dashboard** and then click **Create**.
-   
+
     ![New vault](./media/site-recovery-vmware-to-azure/new-vault-settings.png)
 
 The new vault will appear on the **Dashboard** > **All resources**, and on the main **Recovery Services vaults** blade.
@@ -199,58 +199,58 @@ Select what you want to replicate and where you want to replicate to.
 
 1. In the **Recovery Services vaults** blade, select your vault and click **Settings**.
 2. In **Settings** > **Getting Started**, click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
-   
+
     ![Choose goals](./media/site-recovery-vmware-to-azure/choose-goals.png)
 3. In **Protection goal**, select **To Azure**, and select **Yes, with VMware vSphere Hypervisor**. Then click **OK**.
-   
+
     ![Choose goals](./media/site-recovery-vmware-to-azure/choose-goals2.png)
 
 ## Step 2: Set up the source environment
 Set up the configuration server and register it in the Recovery Services vault. If you're replicating VMware VMs specify the VMware account you're using for automatic discovery.
 
 1. Click **Step 1: Prepare Infrastructure** > **Source**. In **Prepare source**, if you don’t have a configuration server click **+Configuration server** to add one.
-   
+
     ![Set up source](./media/site-recovery-vmware-to-azure/set-source1.png)
 2. In the **Add Server** blade, check that **Configuration Server** appears in **Server type**.
 3. Before you set up the configuration server, verify [prerequisites](#configuration-server-prerequisites). In particular, check that the machine can access the required URLs.
 4. Download the Site Recovery Unified Setup installation file.
 5. Download the vault registration key. You need this when you run Unified Setup. The key is valid for 5 days after you generate it.
-   
+
    ![Set up source](./media/site-recovery-vmware-to-azure/set-source2.png)
 6. On the machine you’re using as the configuration server, run Unified Setup to install the configuration server, the process server, and the master target server.
 
 ### Run Site Recovery Unified Setup
 1. Run the Unified Setup installation file.
 2. In **Before you begin**, select **Install the configuration server and process server**.
-   
+
    ![Before you start](./media/site-recovery-vmware-to-azure/combined-wiz1.png)
 3. In **Third-Party Software License**, click **I Accept** to download and install MySQL.
-   
+
     ![Third=party software](./media/site-recovery-vmware-to-azure/combined-wiz105.PNG)
 4. In **Registration**, browse and select the registration key you downloaded from the vault.
-   
+
     ![Registration](./media/site-recovery-vmware-to-azure/combined-wiz3.png)
 5. In **Internet Settings**, specify how the Provider running on the configuration server will connect to Azure Site Recovery over the internet.
-   
+
    * If you want to connect with the proxy that's currently set up on the machine, select **Connect with existing proxy settings**.
    * If you want the Provider to connect directly, select **Connect directly without a proxy**.
    * If the existing proxy requires authentication, or you want to use a custom proxy for the Provider connection, select **Connect with custom proxy settings**.
-     
+
      * If you use a custom proxy, you need to specify the address, port, and credentials
      * If you're using a proxy, you should have already allowed the URLs described in [prerequisites](#configuration-server-prerequisites).
-     
+
      ![Firewall](./media/site-recovery-vmware-to-azure/combined-wiz4.png)
 6. In **Prerequisites Check**, setup runs a check to make sure that installation can run. If a warning appears about the **Global time sync check** verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.
-   
+
     ![Prerequisites](./media/site-recovery-vmware-to-azure/combined-wiz5.png)
 7. In **MySQL Configuration**, create credentials for logging on to the MySQL server instance that will be installed.
-   
+
     ![MySQL](./media/site-recovery-vmware-to-azure/combined-wiz6.png)
 8. In **Environment Details**, select whether you're going to replicate VMware VMs. If you are, then setup checks that PowerCLI 6.0 is installed.
-   
+
     ![MySQL](./media/site-recovery-vmware-to-azure/combined-wiz7.png)
 9. In **Install Location**, select where you want to install the binaries and store the cache. You can select a drive that has at least 5 GB of storage available but we recommend a cache drive with at least 600 GB of free space.
-   
+
     ![Install location](./media/site-recovery-vmware-to-azure/combined-wiz8.png)
 10. In **Network Selection**, specify the listener (network adapter and SSL port) on which the configuration server will send and receive replication data. You can modify the default port (9443). In addition to this port, port 443 will be used by a web server which orchestrates replication operations. 443 shouldn't be used for receiving replication traffic.
 
@@ -259,7 +259,7 @@ Set up the configuration server and register it in the Recovery Services vault. 
 
 
 1. In **Summary**, review the information and click **Install**. When installation finishes a passphrase is generated. You need it when you enable replication so copy it and keep it in a secure location.
-   
+
    ![Summary](./media/site-recovery-vmware-to-azure/combined-wiz10.png)
 2. After registration finishes the server is displayed in the **Settings** > **Servers** blade in the vault.
 
@@ -298,10 +298,10 @@ Parameters:
 
 1. Open **CSPSConfigtool.exe**. It's available as a shortcut on the desktop and located in the [INSTALL LOCATION]\home\svsystems\bin folder.
 2. Click **Manage Accounts** > **Add Account**.
-   
+
     ![Add account](./media/site-recovery-vmware-to-azure/credentials1.png)
 3. In **Account Details**, add the account that will be used for automatic discovery. Note that it can take 15 minutes or more for the account name to appear in the portal. To update immediately, click **Configuration Servers** > server name > **Refresh Server**.
-   
+
     ![Details](./media/site-recovery-vmware-to-azure/credentials2.png)
 
 ### Connect to vSphere hosts and vCenter servers
@@ -310,13 +310,13 @@ If you're replicating VMware VMs, connect to the vSphere hosts and vCenter serve
 1. Verify that the configuration server has network access to the vSphere hosts and vCenter servers.
 2. Click **Prepare infrastructure** > **Source**. In **Prepare source** select the configuration server, and click **+vCenter** to add a vSphere host or vCenter server.
 3. In **Add vCenter**, specify a friendly name for the vSphere host or vCenter server, and specify the IP address or FQDN of the server. Leave the port as 443 unless your VMware servers are configured to listen for requests on a different port. Then select the account that will be used to connect to the VMware server. Click **OK**.
-   
+
     ![VMware](./media/site-recovery-vmware-to-azure/vmware-server.png)
-   
+
    > [!NOTE]
    > If you're adding the vCenter server or vSphere host with an account that doesn't have administrator privileges on the vCenter or host server, make sure that the account has these privileges enabled: Datacenter, Datastore, Folder, Host, Network, Resource, Virtual machine, vSphere Distributed Switch. In addition the vCenter server needs the Storage views privilege.
-   > 
-   > 
+   >
+   >
 
 Site Recovery connects to VMware servers using the settings you specified and discovers VMs.
 
@@ -326,25 +326,25 @@ Verify you have a storage account for replication, and an Azure network to which
 1. Click **Prepare infrastructure** > **Target**, and select the Azure subscription you want to use.
 2. Specify the deployment model you want to use for VMs after failover.
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
-   
+
    ![Target](./media/site-recovery-vmware-to-azure/gs-target.png)
 4. If you haven't created a storage account and you want to create one using Resource Manager, click **+Storage account** to do that inline.  On the **Create storage account** blade, specify an account name, type, subscription, and location. The account should be in the same region as the Recovery Services vault.
-   
+
    ![Storage](./media/site-recovery-vmware-to-azure/gs-createstorage.png)
-   
+
    Note that:
-   
+
    * If you want to create a storage account using the classic model, do that in the Azure portal. [Learn more](../storage/storage-create-storage-account-classic-portal.md)
    * If you’re using a premium storage account for replicated data, you need to set up an additional standard storage account to store replication logs that capture ongoing changes to on-premises data.
-   
+
    > [!NOTE]
    > Protection to premium storage accounts in Central India and South India is currently not supported.
-   > 
-   > 
+   >
+   >
 5. Select an Azure network. If you haven't created a network and you want to do that using Resource Manager, click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
-   
+
    ![Network](./media/site-recovery-vmware-to-azure/gs-createnetwork.png)
-   
+
    If you want to create a network using the classic model, do that in the Azure portal. [Learn more](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 ## Step 4: Set up replication settings
@@ -355,10 +355,10 @@ Verify you have a storage account for replication, and an Azure network to which
 5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots will be created.
 6. When you create a replication policy, by default a matching policy is automatically created for failback. For example if the replication policy is **rep-policy** then the failback policy will be **rep-policy-failback**. This policy isn't used until you initiate a failback.  
 7. Click **OK** to create the policy.
-   
+
     ![Replication policy](./media/site-recovery-vmware-to-azure/gs-replication2.png)
 8. When you create a new policy it's automatically associated with the configuration server. Click **OK**.
-   
+
     ![Replication policy](./media/site-recovery-vmware-to-azure/gs-replication3.png)
 
 ## Step 5: Capacity planning
@@ -371,7 +371,7 @@ Site Recovery provides a capacity planner to help you allocate the right resourc
 
 1. Click **Download** to download the tool, and then run it. [Read the article](site-recovery-capacity-planner.md) that accompanies the tool.
 2. When you’re done, select **Yes** in **Have you completed capacity planning?**
-   
+
    ![Capacity planning](./media/site-recovery-vmware-to-azure/gs-capacity-planning.png)
 
 The table below helps you with capacity planning.
@@ -432,10 +432,10 @@ You can use the capacity planner tool to calculate the bandwidth you need for re
 #### Throttle bandwidth
 1. Open the Microsoft Azure Backup MMC snap-in on the machine acting as the process server. By default, a shortcut for Microsoft Azure Backup is available on the desktop or in C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
 2. In the snap-in click **Change Properties**.
-   
+
     ![Throttle bandwidth](./media/site-recovery-vmware-to-azure/throttle1.png)
 3. On the **Throttling** tab, select **Enable internet bandwidth usage throttling for backup operations**, and set the limits for work and non-work hours. Valid ranges are from 512 Kbps to 102 Mbps per second.
-   
+
     ![Throttle bandwidth](./media/site-recovery-vmware-to-azure/throttle2.png)
 
 You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet to set throttling. Here's a sample:
@@ -466,16 +466,16 @@ The first step in enabling protection for virtual machines and physical servers 
 Here's how to prepare Windows machines so that the Mobility service can be automatically installed by the process server.
 
 1. Create an account that can be used by the process server to access the machine. The account should have administrator privileges (local or domain), and is only used for the push installation.
-   
+
    > [!NOTE]
    > If you're not using a domain account, you need to disable Remote User Access control on the local machine. To do this, in the register under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System add the DWORD entry LocalAccountTokenFilterPolicy with a value of 1. To add the registry entry from a CLI type **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
-   > 
-   > 
+   >
+   >
 2. On the Windows Firewall of the machine you want to protect, select **Allow an app or feature through Firewall**. Enable **File and Printer Sharing** and **Windows Management Instrumentation**. For machines that belong to a domain, you can configure the firewall settings with a GPO.
-   
+
    ![Firewall settings](./media/site-recovery-vmware-to-azure/mobility1.png)
 3. Add the account you created:
-   
+
    * Open **cspsconfigtool**. It's available as a shortcut on the desktop, and located in the [INSTALL LOCATION]\home\svsystems\bin folder.
    * In the **Manage Accounts** tab, click **Add Account**.
    * Add the account you created. After adding the account, you need to provide the credentials when you enable replication for a machine.
@@ -483,7 +483,7 @@ Here's how to prepare Windows machines so that the Mobility service can be autom
 #### Prepare for automatic push on Linux servers
 1. Make sure that the Linux machine you want to protect is supported as described in [protected machine prerequisites](#protected-machine-prerequisites). Ensure there’s network connectivity between the Linux machine and the process server.
 2. Create an account that can be used by the process server to access the machine. The account should be a root user on the source Linux server, and is only used for the push installation.
-   
+
    * Open **cspsconfigtool**. It's available as a shortcut on the desktop, and located in the [INSTALL LOCATION]\home\svsystems\bin folder.
    * In the **Manage Accounts** tab, click **Add Account**.
    * Add the account you created. After adding the account, you need to provide the credentials when you enable replication for a machine.
@@ -491,12 +491,12 @@ Here's how to prepare Windows machines so that the Mobility service can be autom
 4. Install the latest openssh, openssh-server, openssl packages on the machine you want to replicate.
 5. Ensure SSH is enabled and running on port 22.
 6. Enable SFTP subsystem and password authentication in the sshd_config file as follows:
-   
+
    * Log in as root.
    * In the file /etc/ssh/sshd_config file, find the line that begins with **PasswordAuthentication**.
    * Uncomment the line and change the value from **no** to **yes**.
    * Find the line that begins with **Subsystem** and uncomment the line.
-     
+
      ![Linux](./media/site-recovery-vmware-to-azure/mobility2.png)
 
 ### Install the Mobility Service manually
@@ -512,10 +512,10 @@ The installers are available on the Configuration server in **C:\Program Files (
 #### Install Mobility Service on a Windows Server
 1. Download and run the relevant installer.
 2. In **Before you begin**, select **Mobility service**.
-   
+
     ![Mobility service](./media/site-recovery-vmware-to-azure/mobility3.png)
 3. In **Configuration Server Details**, specify the IP address of the configuration server, and the passphrase that was generated when you ran Unified Setup. You can retrieve the passphrase by running: **<SiteRecoveryInstallationFolder>\home\sysystems\bin\genpassphrase.exe –v** on the configuration server.
-   
+
     ![Mobility service](./media/site-recovery-vmware-to-azure/mobility6.png)
 4. In **Install Location**, leave the default setting and click **Next** to begin installation.
 5. In **Installation Progress**, monitor installation and restart the machine if prompted. After installing the service, it can take around 15 minutes for status to update in the portal.
@@ -524,7 +524,7 @@ The installers are available on the Configuration server in **C:\Program Files (
 1. Copy the installer to a local folder (say C:\Temp) on the server that you want to protect. The installer can be found on the configuration server, under **[Install Location]\home\svsystems\pushinstallsvc\repository**. The package for Windows Operating Systems has name similar to Microsoft-ASR_UA_9.3.0.0_Windows_GA_17thAug2016_release.exe
 2. Rename this file to MobilitySvcInstaller.exe
 3. Run the following command to extract the MSI installer:
-   
+
     ``C:\> cd C:\Tempww
     ``C:\Temp> MobilitySvcInstaller.exe /q /xC:\Temp\Extracted``
     ``C:\Temp> cd Extracted``
@@ -590,54 +590,54 @@ When you enable replication, by default all disks on a machine are replicated. Y
 3. In **Machine type**, select **Virtual Machines** or **Physical Machines**.
 4. In **vCenter/vSphere Hypervisor**, select the vCenter server that manages the vSphere host, or select the host. This setting isn't relevant if you're replicating physical machines.
 5. Select the process server. If you haven't created any additional process servers this will be the name of the configuration server. Then click **OK**.
-   
+
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication2.png)
 6. In **Target**, select the vault subscription, and in **Post-failover deployment model**, select the model (classic or Resource Manager) that you want to use in Azure after failover.
 7. Select the Azure storage account you want to use for replicating data. Note that:
-   
+
    * You can select a premium or standard storage account. If you select a premium account, you'll need to specify an additional standard storage account for ongoing replication logs. Accounts must be in the same region as the Recovery Services vault.
    * If you want to use a different storage account than those you have, you can [create one](#set-up-an-azure-storage-account). To create a storage account using Resource Manager, click **Create new**. If you want to create a storage account using the classic model, you do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md).
 8. Select the Azure network and subnet to which Azure VMs will connect, when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to [create one](#set-up-an-azure-network). To create a network using Resource Manager, click **Create new**. If you want to create a network using the classic model, do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable. Then click **OK**.
-   
+
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication3.png)
 9. In **Virtual Machines** > **Select virtual machines**, click and select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**.
-   
+
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication5.png)
 10. In **Properties** > **Configure properties**, select the account that will be used by the process server to automatically install the Mobility service on the machine. By default all disks are replicated. Click **All Disks** and clear any disks you don't want to replicate. Then click **OK**. You can set additional properties later.
-    
+
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 11. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. You can modify replication policy settings in **Settings** > **Replication policies** > policy name > **Edit Settings**. Changes you apply to a policy will be applied to replicating and new machines.
 12. Enable **Multi-VM consistency** if you want to gather machines into a replication group, and specify a name for the group. Then click **OK**. Note that:
-    
+
     * Machines in replication group replicate together and have shared crash-consistent and app-consistent recovery points when they fail over.
     * We recommend that you gather VMs and physical servers together so that they mirror your workloads. Enabling multi-VM consistency can impact workload performance and should only be used if machines are running the same workload and you need consistency.
-    
+
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication7.png)
 13. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
 
 > [!NOTE]
 > If the machine is prepared for push installation the Mobility service component will be installed when protection is enabled. After the component is installed on the machine a protection job starts and fails. After the failure you need to manually restart each machine. After the restart the protection job begins again and initial replication occurs.
-> 
-> 
+>
+>
 
 ### View and manage VM properties
 We recommend that you verify the properties of the source machine. Remember that the Azure VM name should conform with [Azure virtual machine requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 1. Click **Settings** > **Replicated items** >, and select the machine. The **Essentials** blade shows information about machines settings and status.
 2. In **Properties**, you can view replication and failover information for the VM.
-   
+
     ![Enable replication](./media/site-recovery-vmware-to-azure/test-failover2.png)
 3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with Azure requirements if you need to.
    You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM. Note the following:
-   
+
    * You can set the target IP address. If you don't provide an address, the failed over machine will use DHCP. If you set an address that isn't available at failover, the failover won't work. The same target IP address can be used for test failover if the address is available in the test failover network.
    * The number of network adapters is dictated by the size you specify for the target virtual machine, as follows:
-     
+
      * If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
      * If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.
      * For example if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.     
    * If the VM has multiple network adapters they will all connect to the same network.
-     
+
      ![Enable replication](./media/site-recovery-vmware-to-azure/test-failover4.png)
 4. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
 
@@ -647,11 +647,11 @@ In order to test the deployment you can run a test failover for a single virtual
 ### Prepare for failover
 * To run a test failover we recommend that you create a new Azure network that’s isolated from your Azure production network (this is default behavior when you create a new network in Azure). [Learn more](site-recovery-failover.md#run-a-test-failover) about running test failovers.
 * To get the best performance when you fail over to Azure, install the Azure Agent on the protected machine. It makes booting faster and helps with troubleshooting. Install the [Linux](https://github.com/Azure/WALinuxAgent) or [Windows](http://go.microsoft.com/fwlink/?LinkID=394789) agent.
-* To fully test your deployment you need an infrastructure for the replicated machine to work as expected. If you want to test Active Directory and DNS you can create a virtual machine as a domain controller with DNS and replicate this to Azure using Azure Site Recovery. Read more in [test failover considerations for Active Directory](site-recovery-active-directory.md#considerations-for-test-failover).
+* To fully test your deployment you need an infrastructure for the replicated machine to work as expected. If you want to test Active Directory and DNS you can create a virtual machine as a domain controller with DNS and replicate this to Azure using Azure Site Recovery. Read more in [test failover considerations for Active Directory](site-recovery-active-directory.md#test-failover-considerations).
 * Make sure that the configuration server is running. Otherwise, failover will fail.
 * If you've excluded disks from replication, you might need to create those disks manually in Azure after failover so that the application runs as expected.
 * If you want to run an unplanned failover instead of a test failover, note that:
-  
+
   * If possible, you should shut down primary machines before you run an unplanned failover. This ensures that you don't have both the source and replica machines running at the same time. If you're replicating VMware VMs, then you can specify that Site Recovery should make a best effort to shut down the source machines. Depending on the state of the primary site this might or might not work. If you're replicating physical servers, Site Recovery doesn't offer this option.
   * When you run an unplanned failover, it stops data replication from primary machines so any data delta won't be transferred after an unplanned failover begins. In addition, if you run an unplanned failover on a recovery plan it will run until complete, even if an error occurs.
 
@@ -692,26 +692,26 @@ If you have a network security group associated with the VM or VM subnet, make s
 
 ## Run a test failover
 1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM > **+Test Failover** icon.
-   
+
     ![Test failover](./media/site-recovery-vmware-to-azure/test-failover1.png)
 2. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
 3. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
 4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
 5. When the failover reaches the **Complete testing** status, do the following:
-   
+
    1. View the replica virtual machine in the Azure portal. Verify that the virtual machine starts successfully.
    2. If you’re set up to access virtual machines from your on-premises network, you can initiate a Remote Desktop connection to the virtual machine.
    3. Click **Complete test** to finish it.
-      
+
        ![Test failover](./media/site-recovery-vmware-to-azure/test-failover6.png)
    4. Click **Notes**, to record and save any observations associated with the test failover.
    5. Click **The test failover is complete**, to automatically clean up the test environment. After this is done the test failover will show a **Complete** status.
    6. At this stage any elements or VMs created automatically by Site Recovery during the test failover are deleted. Any additional elements you've created for test failover aren't deleted.
-      
+
       > [!NOTE]
       > If a test failover continues longer than two weeks it’s completed by force.
-      > 
-      > 
+      >
+      >
 6. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
 7. If you [prepared for connections after failover](#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
 
@@ -730,26 +730,26 @@ Check the [size recommendations for process servers](#size-recommendations-for-t
 
 ### Install an additional process server
 1. In **Settings** > **Site Recovery servers**, click the configuration server > **Process server**.
-   
+
     ![Add process server](./media/site-recovery-vmware-to-azure/migrate-ps1.png)
 2. In **Server Type**, click **Process server (on-premises)**.
-   
+
     ![Add process server](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 3. Download the Site Recovery Unified Setup file, and run it to install the process server and register it in the vault.
 4. In **Before you begin**, select **Add additional process servers to scale out deployment**.
 5. Complete the wizard in the same way you did when you [set up](#step-2-set-up-the-source-environment) the configuration server.
-   
+
     ![Add process server](./media/site-recovery-vmware-to-azure/add-ps1.png)
 6. In **Configuration Server Details**, specify the IP address of the configuration server, and the passphrase. To obtain the passphrase, run **<SiteRecoveryInstallationFolder>\home\sysystems\bin\genpassphrase.exe –n** on the configuration server.
-   
+
     ![Add process server](./media/site-recovery-vmware-to-azure/add-ps2.png)
 
 ### Migrate machines to use the new process server
 1. In **Settings** > **Site Recovery servers**, click the configuration server, and then expand **Process servers**.
-   
+
     ![Update process server](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 2. Right-click the process server currently in use, and click **Switch**.
-   
+
     ![Update process server](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
 3. In **Select target process server**, select the new process server you want to use, and then select the virtual machines that the new process server will handle. Click the information icon to get information about the server. To help you make load decisions, the average space that's needed to replicate each selected virtual machine to the new process server is displayed. Click the check mark to start replicating to the new process server.
 
@@ -778,4 +778,3 @@ The information in Section A is regarding Third Party Code components from the p
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
-

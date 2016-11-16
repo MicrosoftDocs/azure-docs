@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Government Developers Guide
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: ''
@@ -19,7 +19,7 @@ ms.author: jharve
 
 ---
 # Microsoft Azure Government Developer Guide
-<p> Microsoft Azure Government is a physically and network isolated instance of Microsoft Azure.  This developers guide will provide details on the differences that application developers and administrators would need to interact and work with these seperate regions of Azure.
+<p> The Azure Government environment is a physical instance that is separate from the rest of Microsoft's network.  This developers guide will provide details on the differences that application developers and administrators would need to interact and work with these seperate regions of Azure.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Exploring Metrics in Application Insights | Microsoft Docs
 description: How to interpret charts on metric explorer, and how to customize metric explorer blades.
 services: application-insights
@@ -47,9 +47,9 @@ Hover your mouse over the chart to display the values of the metrics at that poi
 
 ![Hover the mouse over a chart](./media/app-insights-metrics-explorer/02-focus.png)
 
-The value of the metric at a particular point is aggregated over the preceding sampling interval. 
+The value of the metric at a particular point is aggregated over the preceding sampling interval.
 
-The sampling interval or "granularity" is shown at the top of the blade. 
+The sampling interval or "granularity" is shown at the top of the blade.
 
 ![The header of a blade.](./media/app-insights-metrics-explorer/11-grain.png)
 
@@ -57,7 +57,7 @@ You can adjust the granularity in the Time range blade:
 
 ![The header of a blade.](./media/app-insights-metrics-explorer/grain.png)
 
-The granularities available depend on the time range you select. The explicit granularities are alternatives to the "automatic" granularity for the time range. 
+The granularities available depend on the time range you select. The explicit granularities are alternatives to the "automatic" granularity for the time range.
 
 ## Metrics Explorer
 Click through any chart on the overview blade to see a more detailed set of related charts and grids. You can edit these charts and grids to focus on the details you're interested in.
@@ -73,7 +73,7 @@ The legend at the side by default usually shows the aggregated value over the pe
 
 Each data point on the chart is an aggregate of the data values received in the preceding sampling interval or "granularity". The granularity is shown at the top of the blade, and varies with the overall timescale of the chart.
 
-Metrics can be aggregated in different ways: 
+Metrics can be aggregated in different ways:
 
 * **Sum** adds up the values of all the data points received over the sampling interval, or the period of the chart.
 * **Average** divides the Sum by the number of data points received over the interval.
@@ -96,21 +96,21 @@ Select **Edit** on an existing or new chart to edit what it shows:
 
 ![Select one or more metrics](./media/app-insights-metrics-explorer/08-select.png)
 
-You can display more than one metric on a chart, though there are restrictions about the combinations that can be displayed together. As soon as you choose one metric, some of the others are disabled. 
+You can display more than one metric on a chart, though there are restrictions about the combinations that can be displayed together. As soon as you choose one metric, some of the others are disabled.
 
 If you coded [custom metrics][track] into your app (calls to TrackMetric and TrackEvent) they will be listed here.
 
 ## Segment your data
-You can split a metric by property - for example, to compare page views on clients with different operating systems. 
+You can split a metric by property - for example, to compare page views on clients with different operating systems.
 
 Select a chart or grid, switch on grouping and pick a property to group by:
 
 ![Select Grouping On, then set select a property in Group By](./media/app-insights-metrics-explorer/15-segment.png)
 
 > [!NOTE]
-> When you use grouping, the Area and Bar chart types provide a stacked display. This is suitable where the Aggregation method is Sum. But where the aggregation type is Average, choose the Line or Grid display types. 
-> 
-> 
+> When you use grouping, the Area and Bar chart types provide a stacked display. This is suitable where the Aggregation method is Sum. But where the aggregation type is Average, choose the Line or Grid display types.
+>
+>
 
 If you coded [custom metrics][track] into your app and they include property values, you'll be able to select the property in the list.
 
@@ -137,7 +137,7 @@ You can also filter by **Source of synthetic traffic**.
 ### To add properties to the filter list
 Would you like to filter telemetry on a category of your own choosing? For example, maybe you divide up your users into  different categories, and you would like segment your data by these categories.
 
-[Create your own property](app-insights-api-custom-events-metrics.md#properties). Set it in a [Telemetry Initializer](app-insights-api-custom-events-metrics.md#telemetry-initializers) to have it appear in all telemetry - including the standard telemetry sent by different SDK modules.
+[Create your own property](app-insights-api-custom-events-metrics.md#properties). Set it in a [Telemetry Initializer](app-insights-api-custom-events-metrics.md#defaults) to have it appear in all telemetry - including the standard telemetry sent by different SDK modules.
 
 ## Edit the chart type
 Notice that you can switch between grids and graphs:
@@ -167,7 +167,7 @@ Live Metrics Stream shows you your application metrics right at this very moment
 
 ![In the Overview blade, click Live Stream](./media/app-insights-metrics-explorer/live-stream.png)
 
-Unlike Metrics Explorer, Live Metrics Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded. 
+Unlike Metrics Explorer, Live Metrics Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded.
 
 Live Metrics Stream is available with Application Insights SDK for ASP.NET, version 2.1.0 or later.
 
@@ -179,7 +179,7 @@ To be notified by email of unusual values of any metric, add an alert. You can c
 [Learn more about alerts][alerts].
 
 ## Export to Excel
-You can export metric data that is displayed in Metric Explorer to an Excel file. The exported data includes data from all charts and tables as seen in the portal. 
+You can export metric data that is displayed in Metric Explorer to an Excel file. The exported data includes data from all charts and tables as seen in the portal.
 
 ![In Metrics Explorer, choose Alert rules, Add Alert](./media/app-insights-metrics-explorer/31-export.png)
 
@@ -201,8 +201,8 @@ If you want even richer views of your data, you can [export to Power BI](http://
 ## Troubleshooting
 *I don't see any data on my chart.*
 
-* Filters apply to all the charts on the blade. Make sure that, while you're focusing on one chart, you didn't set a filter that excludes all the data on another. 
-  
+* Filters apply to all the charts on the blade. Make sure that, while you're focusing on one chart, you didn't set a filter that excludes all the data on another.
+
     If you want to set different filters on different charts, create them in different blades, save them as separate favorites. If you want, you can pin them to the dashboard so that you can see them alongside each other.
 * If you group a chart by a property that is not defined on the metric, then there will be nothing on the chart. Try clearing 'group by', or choose a different grouping property.
 * Performance data (CPU, IO rate, and so on) is available for Java web services, Windows desktop apps, [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-azure.md). It isn't available for Azure websites.
@@ -216,4 +216,3 @@ If you want even richer views of your data, you can [export to Power BI](http://
 [alerts]: app-insights-alerts.md
 [start]: app-insights-overview.md
 [track]: app-insights-api-custom-events-metrics.md
-

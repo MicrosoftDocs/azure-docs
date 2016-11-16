@@ -1,4 +1,4 @@
----
+﻿---
 title: IoT Hub MQTT support | Microsoft Docs
 description: Description of MQTT support in IoT hub-level
 services: iot-hub
@@ -44,34 +44,33 @@ If you are using the [device client SDKs][lnk-device-sdks], switching from using
 When doing so, make sure to check the following items:
 
 * AMQP returns errors for many conditions, while MQTT terminates the connection. As a result your exception handling logic might require some changes.
-* MQTT does not support the *reject* operations when receiving [C2D messages][lnk-messaging]. If your back end needs to receive a response from the device app, consider using [direct methods][lnk-methods].
+* MQTT does not support the *reject* operations when receiving [cloud-to-device messages][lnk-messaging]. If your back end needs to receive a response from the device app, consider using [direct methods][lnk-methods].
 
 ## Using the MQTT protocol directly
 If a device cannot use the device client SDKs, it can still connect to the public device endpoints using the MQTT protocol. In the **CONNECT** packet the device should use the following values:
 
-* For the **ClientId** field, use the **deviceId**. 
+* For the **ClientId** field, use the **deviceId**.
 * For the **Username** field, use `{iothubhostname}/{device_id}`, where {iothubhostname} is the full CName of the IoT hub.
-  
+
     For example, if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should contain `contoso.azure-devices.net/MyDevice01`.
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTP and AMQP protocols:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
-  
+
     For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens][lnk-sas-tokens].
-  
+
     When testing, you can also use the [Device Explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
-  
+
   1. Go to the **Management** tab in Device Explorer.
   2. Click **SAS Token** (top right).
   3. On **SASTokenForm**, select your device in the **DeviceID** drop down. Set your **TTL**.
   4. Click **Generate** to create your token.
-     
+
      The SAS token that's generated has this structure:
      `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fMyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
-     
+
      The part of this token to use as the **Password** field to connect using MQTT is:
      `SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802g%3d&se=1456481802`.
 
 For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operations Monitoring** channel with additional information that can help you to troubleshoot connectivity issues.
-
 ### Sending messages to IoT Hub
 After making a successful connection, a device can send messages to IoT Hub using `devices/{device_id}/messages/events/` or `devices/{device_id}/messages/events/{property_bag}` as a **Topic Name**. The `{property_bag}` element enables the device to send messages with additional properties in a url-encoded format. For example:
 
@@ -81,8 +80,8 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 > [!NOTE]
 > This `{property_bag}` element uses the same encoding as for query strings in the HTTP protocol.
-> 
-> 
+>
+>
 
 The device client application can also use `devices/{device_id}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message.
 
@@ -127,7 +126,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdks/tree/master/python/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
-[lnk-sas-tokens]: iot-hub-devguide-security.md#using-sas-tokens-as-a-device
+[lnk-sas-tokens]: iot-hub-devguide-security.md#use-sas-tokens-in-a-device-client
 [lnk-mqtt-devguide]: iot-hub-devguide-messaging.md#notes-on-mqtt-support
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 

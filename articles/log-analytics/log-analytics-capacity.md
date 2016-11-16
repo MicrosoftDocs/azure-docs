@@ -13,21 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/15/2016
 ms.author: banders
 
 ---
 # Capacity Management solution in Log Analytics
-You can use the Capacity Planning solution in Log Analytics to help you understand the capacity of your Hyper-V servers managed by System Center Virtual Machine Manager. This solution requires both System Center Operations Manager and System Center Virtual Machine Manager. Capacity Planning isn’t available if you only use directly-connected agents. You install the solution to update the Operations Manager agent. The solution reads performance counters on the monitored server and sends usage data to the OMS service in the cloud for processing. Logic is applied to the usage data, and the cloud service records the data. Over time, usage patterns are identified and capacity is projected, based on current consumption.
+You can use the Capacity Management solution in Log Analytics to help you understand the capacity of your Hyper-V servers. This solution requires both System Center Operations Manager and System Center Virtual Machine Manager. If you use directly connected agents, the Capacity Planning solution isn’t functional. The solution reads performance counters on the monitored server and sends usage data to the OMS service in the cloud for processing. Logic is applied to the usage data, and the cloud service records the data. Over time, usage patterns are identified and capacity is projected, based on current consumption.
 
-For example, a projection might identify when additional processor cores or additional memory will be needed for an individual server. In this example, the projection might indicate that in 30 days the server will need additional memory. This can help you plan for a memory upgrade during the server’s next maintenance window, which might occur once every two weeks.
+For example, a projection might identify when additional processor cores or additional memory is needed for an individual server. In this example, the projection might indicate that in 30 days the server needs additional memory. This projection can help you plan for a memory upgrade during the server’s next maintenance window.
 
 > [!NOTE]
 > The Capacity Management solution is not available to be added to workspaces. Customers who have the capacity management solution installed can continue to use the solution.  
 > 
 > 
 
-The capacity planning solution is in the process of being updated to address the following customer reported challenges:
+A replacement Capacity and Performance solution is in private preview. This replacement solution is intended to address the following customer reported challenges with the original Capacity Management solution:
 
 * Requirement to use Virtual Machine Manager and Operations Manager
 * Inability to customize/filter based on groups
@@ -39,15 +39,18 @@ Benefits of the new capacity solution:
 
 * Support granular data collection with improved reliability and accuracy
 * Support for Hyper-V without requiring VMM
-* Visualization of metrics in PowerBI
 * Insights on VM level utilization
+
+The new solution currently requires Hyper-V Server 2012 or later. The solution provides insights into your Hyper-V environment, and gives visibility into the overall utilization (CPU, Memory, and Disk) of the hosts and the VMs running on those Hyper-V servers. Metrics are collected on CPU, Memory, and Disk across all your hosts and the VMs running on them.
+
+The remaining documentation on this page refers to the old Capacity Management solution. This documentation will be updated when the new solution is in public preview.
 
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
 * Operations Manager is required for the Capacity Management solution.
 * Virtual Machine Manager is required for the Capacity Management solution.
-* Operations Manager connectivity with Virtual Machine Manager (VMM) is required. For additional information about connecting the systems, see [How to connect VMM with Operations Manager](http://technet.microsoft.com/library/hh882396.aspx).
+* Operations Manager connectivity with Virtual Machine Manager (VMM) is required. For more information about connecting the systems, see [How to connect VMM with Operations Manager](http://technet.microsoft.com/library/hh882396.aspx).
 * Operations Manager must be connected to Log Analytics.
 * Add the Capacity Management solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
 
@@ -56,7 +59,7 @@ Capacity Management collects performance data, metadata, and state data using th
 
 The following table shows data collection methods and other details about how data is collected for capacity management.
 
-| platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+| platform | Direct Agent | Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![No](./media/log-analytics-capacity/oms-bullet-red.png) |![Yes](./media/log-analytics-capacity/oms-bullet-green.png) |![No](./media/log-analytics-capacity/oms-bullet-red.png) |![Yes](./media/log-analytics-capacity/oms-bullet-green.png) |![Yes](./media/log-analytics-capacity/oms-bullet-green.png) |hourly |
 
@@ -69,7 +72,7 @@ The following table shows examples of data types collected by Capacity Managemen
 | State |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## Capacity Management page
- After the Capacity Planning solution is installed, you can view the capacity of your monitored servers by using the **Capacity Planning** tile on the **Overview** page in OMS.
+After the Capacity Planning solution is installed, you can view the capacity of your monitored servers by using the **Capacity Planning** tile on the **Overview** page in OMS.
 
 ![image of Capacity Planning tile](./media/log-analytics-capacity/oms-capacity01.png)
 
@@ -153,11 +156,11 @@ The following areas are shown on the **Storage** page:
 
 **Disk Performance**
 
-By using OMS, you can view the historical usage trend of your disk space. The projection capability uses an algorithm to project future usage. For space usage in particular, the projection capability enables you to project when you might run out of disk space. This will help you plan proper storage and know when you need to purchase more storage.
+By using OMS, you can view the historical usage trend of your disk space. The projection capability uses an algorithm to project future usage. For space usage in particular, the projection capability enables you to project when you might run out of disk space. This projection helps you plan proper storage and know when you need to purchase more storage.
 
 **Projection Tool**
 
-By using the projection tool, you can view historical trends for your disk space utilization. The projection capability also lets you project when you are running out of disk space. This will help you plan proper capacity and know when you need to purchase more storage capacity.
+By using the projection tool, you can view historical trends for your disk space utilization. The projection capability also lets you project when you are running out of disk space. This projection helps you plan proper capacity and know when you need to purchase more storage capacity.
 
 ### To work with items on the Direct Attached Storage page
 1. On the **Direct Attached Storage** dashboard, in the **Utilization** area, you can view the disk utilization information.

@@ -1,4 +1,4 @@
----
+﻿---
 title: Getting started with elastic database jobs
 description: how to use elastic database jobs
 services: sql-database
@@ -27,26 +27,26 @@ Download and run the [Getting started with Elastic Database tools sample](sql-da
 ## Create a shard map manager using the sample app
 Here you will create a shard map manager along with several shards, followed by insertion of data into the shards. If you already have shards set up with sharded data in them, you can skip the following steps and move to the next section.
 
-1. Build and run the **Getting started with Elastic Database tools** sample application. Follow the steps until step 7 in the section [Download and run the sample app](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). At the end of Step 7, you will see the following command prompt:
-   
+1. Build and run the **Getting started with Elastic Database tools** sample application. Follow the steps until step 7 in the section [Download and run the sample app](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). At the end of Step 7, you will see the following command prompt:
+
     ![command prompt][1]
 2. In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat this action four times. This inserts sample data rows in your shards.
 3. The [Azure Portal](https://portal.azure.com) should show three new databases in your v12 server:
-   
+
    ![Visual Studio confirmation][2]
-   
+
    At this point, we will create a custom database collection that reflects all the databases in the shard map. This will allow us to create and execute a job that add a new table across shards.
 
 Here we would usually create a shard map target, using the **New-AzureSqlJobTarget** cmdlet. The shard map manager database must be set as a database target and then the specific shard map is specified as a target. Instead, we are going to enumerate all the databases in the server and add the databases to the new custom collection with the exception of master database.
 
 ## Creates a custom collection and adds all databases in the server to the custom collection target with the exception of master.
     $customCollectionName = "dbs_in_server"
-    New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
+    New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
     $ServerName = "samples"
-    $dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
+    $dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName
     $dbsinserver | %{
-    $currentdb = $_.DatabaseName 
+    $currentdb = $_.DatabaseName
     $ErrorActionPreference = "Stop"
     Write-Output ""
 
@@ -54,14 +54,14 @@ Here we would usually create a shard map target, using the **New-AzureSqlJobTarg
     {
        New-AzureSqlJobTarget -ServerName $ServerName -DatabaseName $currentdb | Write-Output
     }
-    Catch 
+    Catch
     {
         $ErrorMessage = $_.Exception.Message
         $ErrorCategory = $_.CategoryInfo.Reason
 
         if ($ErrorCategory -eq 'UniqueConstraintViolatedException')
         {
-             Write-Host $currentdb "is already a database target." 
+             Write-Host $currentdb "is already a database target."
         }
 
         else
@@ -85,7 +85,7 @@ Here we would usually create a shard map target, using the **New-AzureSqlJobTarg
         }
 
     }
-    Catch 
+    Catch
     {
         $ErrorMessage = $_.Exception.Message
         $ErrorCategory = $_.CategoryInfo.Reason
@@ -136,7 +136,7 @@ The following PowerShell script can be used to execute an existing job:
 Update the following variable to reflect the desired job name to have executed:
 
     $jobName = "create on server dbs"
-    $jobExecution = Start-AzureSqlJobExecution -JobName $jobName 
+    $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
     Write-Output $jobExecution
 
 ## Retrieve the state of a single job execution
@@ -144,7 +144,7 @@ Use the same **Get-AzureSqlJobExecution** cmdlet with the **IncludeChildren** pa
 
     $jobExecutionId = "{Job Execution Id}"
     $jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
-    Write-Output $jobExecutions 
+    Write-Output $jobExecutions
 
 ## View the state across multiple job executions
 The **Get-AzureSqlJobExecution** cmdlet has multiple optional parameters that can be used to display multiple job executions, filtered through the provided parameters. The following demonstrates some of the possible ways to use Get-AzureSqlJobExecution:
@@ -186,7 +186,7 @@ Retrieve the list of job task executions within a specific job execution:
 
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
-    Write-Output $jobTaskExecutions 
+    Write-Output $jobTaskExecutions
 
 Retrieve job task execution details:
 
@@ -201,7 +201,7 @@ The JobTaskExecution object includes a property for the Lifecycle of the task al
 
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
-    Foreach($jobTaskExecution in $jobTaskExecutions) 
+    Foreach($jobTaskExecution in $jobTaskExecutions)
         {
         if($jobTaskExecution.Lifecycle -ne 'Succeeded')
             {
@@ -213,7 +213,7 @@ The JobTaskExecution object includes a property for the Lifecycle of the task al
 The following PowerShell script can be used to wait for a job task to complete:
 
     $jobExecutionId = "{Job Execution Id}"
-    Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId 
+    Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId
 
 ## Create a custom execution policy
 Elastic Database jobs supports creating custom execution policies that can be applied when starting jobs.
@@ -224,7 +224,7 @@ Execution policies currently allow for defining:
 * Job Timeout: Total time before a job will be canceled by Elastic Database Jobs.
 * Initial Retry Interval: Interval to wait before first retry.
 * Maximum Retry Interval: Cap of retry intervals to use.
-* Retry Interval Backoff Coefficient: Coefficient used to calculate the next interval between retries.  The following formula is used: (Initial Retry Interval) * Math.pow((Interval Backoff Coefficient), (Number of Retries) - 2). 
+* Retry Interval Backoff Coefficient: Coefficient used to calculate the next interval between retries.  The following formula is used: (Initial Retry Interval) * Math.pow((Interval Backoff Coefficient), (Number of Retries) - 2).
 * Maximum Attempts: The maximum number of retry attempts to perform within a job.
 
 The default execution policy uses the following values:
@@ -291,7 +291,7 @@ Set the following variables to reflect the desired database information:
 
     $databaseName = "{Database Name}"
     $databaseServerName = "{Server Name}"
-    New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
+    New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName
 
 ## Create a custom database collection target
 A custom database collection target can be defined to enable execution across multiple defined database targets. After a database group is created, databases can be associated to the custom collection target.
@@ -299,7 +299,7 @@ A custom database collection target can be defined to enable execution across mu
 Set the following variables to reflect the desired custom collection target configuration:
 
     $customCollectionName = "{Custom Database Collection Name}"
-    New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
+    New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 
 ### Add databases to a custom database collection target
 Database targets can be associated with custom database collection targets to create a group of databases. Whenever a job is created that targets a custom database collection target, it will be expanded to target the databases associated to the group at the time of execution.
@@ -309,10 +309,10 @@ Add the desired database to a specific custom collection:
     $serverName = "{Database Server Name}"
     $databaseName = "{Database Name}"
     $customCollectionName = "{Custom Database Collection Name}"
-    Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
+    Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName
 
 #### Review the databases within a custom database collection target
-Use the **Get-AzureSqlJobTarget** cmdlet to retrieve the child databases within a custom database collection target. 
+Use the **Get-AzureSqlJobTarget** cmdlet to retrieve the child databases within a custom database collection target.
 
     $customCollectionName = "{Custom Database Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
@@ -364,7 +364,7 @@ Create a new schedule:
     $scheduleName = "Every one minute"
     $minuteInterval = 1
     $startTime = (Get-Date).ToUniversalTime()
-    $schedule = New-AzureSqlJobSchedule -MinuteInterval $minuteInterval -ScheduleName $scheduleName -StartTime $startTime 
+    $schedule = New-AzureSqlJobSchedule -MinuteInterval $minuteInterval -ScheduleName $scheduleName -StartTime $startTime
     Write-Output $schedule
 
 ### Create a job trigger to have a job executed on a time schedule
@@ -378,7 +378,7 @@ Set the following variables to correspond to the desired job and schedule:
     Write-Output $jobTrigger
 
 ### Remove a scheduled association to stop job from executing on schedule
-To discontinue reoccurring job execution through a job trigger, the job trigger can be removed. 
+To discontinue reoccurring job execution through a job trigger, the job trigger can be removed.
 Remove a job trigger to stop a job from being executed according to a schedule using the **Remove-AzureSqlJobTrigger** cmdlet.
 
     $jobName = "{Job Name}"
@@ -395,7 +395,7 @@ Remove a job trigger to stop a job from being executed according to a schedule u
 1. Launch Excel 2013.
 2. Navigate to the **Data** ribbon.
 3. Click **From Other Sources** and click **From SQL Server**.
-   
+
    ![Excel import from other sources][5]
 4. In the **Data Connection Wizard** type the server name and login credentials. Then click **Next**.
 5. In the dialog box **Select the database that contains the data you want**, select the **ElasticDBQuery** database.

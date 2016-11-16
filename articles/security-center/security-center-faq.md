@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Security Center frequently asked questions (FAQ) | Microsoft Docs
 description: This FAQ answers questions about Azure Security Center.
 services: security-center
@@ -33,7 +33,7 @@ Security Center is offered in two tiers: Free and Standard.
 
 The Free tier enables you to set security policies and receive security alerts, incidents, and recommendations that guide you through the process of configuring needed controls. With the Free tier you can also monitor the security state of your Azure resources and partner solutions integrated with your Azure subscription.
 
-The Standard tier provides the Free tier features plus advanced detections: threat intelligence, behavioral analysis, crash analysis, and anomaly detection. A free 90-day trial of the Standard tier is available. To upgrade, select Pricing Tier in the [security policy](security-center-policies.md#setting-security-policies-for-subscriptions). See [Security Center pricing](security-center-pricing.md) to learn more.
+The Standard tier provides the Free tier features plus advanced detections: threat intelligence, behavioral analysis, crash analysis, and anomaly detection. A free 90-day trial of the Standard tier is available. To upgrade, select Pricing Tier in the [security policy](security-center-policies.md#set-security-policies-for-subscriptions). See [Security Center pricing](security-center-pricing.md) to learn more.
 
 ## Data collection
 Security Center collects data from your virtual machines in order to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. Data collection is recommended but you can opt-out by [disabling data collection](#how-do-i-disable-data-collection) in the Security Center policy.
@@ -43,16 +43,16 @@ You can disable **Data collection** for a subscription in the Security policy at
 
 > [!NOTE]
 > Security policies can be set at the Azure subscription level and resource group level but you must select a subscription to turn data collection off.
-> 
-> 
+>
+>
 
 ### How do I enable data collection?
 You can enable data collection for your Azure subscription(s) in the Security policy. To enable data collection, [sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**. Set **Data collection** to **On** and configure the storage accounts where you want data to be collected to (see question “[Where is my data stored?](#where-is-my-data-stored)”). When **Data collection** is enabled, it automatically collects security configuration and event information from all supported virtual machines in the subscription.
 
 > [!NOTE]
 > Security policies can be set at the Azure subscription level and resource group level but configuration of data collection occurs at the subscription level only.
-> 
-> 
+>
+>
 
 ### What happens when data collection is enabled?
 Data collection is enabled via the Azure Monitoring Agent and the Azure Security Monitoring extension. The Azure Security Monitoring extension scans for various security relevant configuration and sends it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system creates event log entries.  The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis.  This is the storage account you configured in the security policy. For more information about the storage account, see question “[Where is my data stored?](#where-is-my-data-stored)”
@@ -65,8 +65,8 @@ For each region in which you have virtual machines running, you choose the stora
 
 > [!NOTE]
 > Security policies can be set at the Azure subscription level and resource group level but selecting a region for your storage account occurs at the subscription level only.
-> 
-> 
+>
+>
 
 To learn more about Azure storage and storage accounts, see [Storage Documentation](https://azure.microsoft.com/documentation/services/storage/) and [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
@@ -78,8 +78,8 @@ For example, resources used for development or test may have different security 
 
 > [!NOTE]
 > In case of a conflict between subscription level policy and resource group level policy, the resource group level policy takes precedence.
-> 
-> 
+>
+>
 
 ### Who can modify a security policy?
 Security policies are configured for each subscription or resource group. To modify a security policy at the subscription level or resource group level, you must be an Owner or Contributor of that subscription.
@@ -162,4 +162,3 @@ It can take some time (generally less than an hour) for scan data to populate af
 
 ### Why do I get the message "VM Agent is Missing?"
 The VM Agent must be installed on VMs in order to enable Data Collection. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. For information on how to install the VM Agent on other VMs, see the blog post [VM Agent and Extensions](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
-

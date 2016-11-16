@@ -1,4 +1,4 @@
----
+﻿---
 title: JSON output for Stream Analytics | Microsoft Docs
 description: Learn how Stream Analytics can target Azure DocumentDB for JSON output, for data archiving and low-latency queries on unstructured JSON data.
 keywords: JSON output
@@ -42,7 +42,7 @@ Stream Analytics utilizes an optimistic Upsert approach, where updates are only 
 ## Data partitioning in DocumentDB
 DocumentDB collections allow you to partition your data based on both the query patterns and performance needs of your application. Each collection may contain up to 10GB of data (maximum) and currently there is no way to scale up (or overflow) a collection. For scaling out, Stream Analytics allows you to write to multiple collections with a given prefix (see usage details below). Stream Analytics uses the consistent [Hash Partition Resolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) strategy based on the user provided PartitionKey column to partition its output records. The number of collections with the given prefix at the streaming job’s start time is used as the output partition count, to which the job writes to in parallel (DocumentDB Collections = Output Partitions). For a single S3 collection with lazy indexing doing only inserts, about 0.4 MB/s write throughput can be expected. Using multiple collections can allow you to achieve higher throughput and increased capacity.
 
-If you intend to increase the partition count in the future, you may need to stop your job, repartition the data from your existing collections into new collections and then restart the Stream Analytics job. More details on using PartitionResolver and re-partitioning along with sample code, will be included in a follow-up post. The article [partitioning in DocumentDB](../documentdb/documentdb-partition-data.md#developing-a-partitioned-application) also provides details on this.
+If you intend to increase the partition count in the future, you may need to stop your job, repartition the data from your existing collections into new collections and then restart the Stream Analytics job. More details on using PartitionResolver and re-partitioning along with sample code, will be included in a follow-up post. The article [Partitioning and scaling in DocumentDB](../documentdb/documentdb-partition-data.md) also provides details on this.
 
 ## DocumentDB settings for JSON output
 Creating DocumentDB as an output in Stream Analytics generates a prompt for information as seen below. This section provides an explanation of the properties definition.
@@ -58,4 +58,3 @@ Creating DocumentDB as an output in Stream Analytics generates a prompt for info
   2\) MyCollection{partition} – Such collections must exist– "MyCollection0”, “MyCollection1”, “MyCollection2” and so on.  
 * **Partition Key** – The name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used e.g. PartitionId.  
 * **Document ID** – Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
-

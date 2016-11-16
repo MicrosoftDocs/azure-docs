@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Work.com | Microsoft Docs'
 description: Learn how to use Work.com with Azure Active Directory to enable single sign-on, automated provisioning, and more!.
 services: active-directory

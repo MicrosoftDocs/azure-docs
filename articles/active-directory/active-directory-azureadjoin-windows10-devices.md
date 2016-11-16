@@ -1,4 +1,4 @@
----
+﻿---
 title: Using Windows 10 devices in your workplace | Microsoft Docs
 description: Provides a snapshot of capabilities for users and IT, contrasting the different ways a device can be provisioned and used in an enterprise with Windows 10.
 services: active-directory
