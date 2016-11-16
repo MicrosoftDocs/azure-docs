@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2016
+ms.date: 11/16/2016
 ms.author: tomfitz
 
 ---
@@ -39,63 +39,68 @@ Your template can be either a local file or an external file that is available t
 > 
 
 ## Quick steps to deployment
-This article describes all the different options available to you during deployment. However, often you only need two simple commands. To quickly get started with deployment, use the following commands:
+To quickly get started with deployment, use the following commands:
 
 ```powershell
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile <PathToParameterFile>
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <LocalPathToTemplate> -TemplateParameterFile <LocalPathToParameterFile>
 ```
 
-To learn more about options for deployment that might be better suited to your scenario, continue reading this article.
+These commands create a resource group, and deploy a template to that resource group. The template file and parameter file are both local files. If that works for you, you have everything you need to deploy resources. However, there are more options available to you for specifying the resources to deploy. The rest of this article describes all the options available to you during deployment. 
 
 [!INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
 ## Deploy with PowerShell
 1. Log in to your Azure account.
-   
-        Add-AzureRmAccount
-   
+
+    ```powershell
+    Add-AzureRmAccount
+    ```
+
      A summary of your account is returned.
-   
-        Environment : AzureCloud
-        Account     : someone@example.com
-        ...
+    
+     ```powershell
+     Environment           : AzureCloud
+     Account               : someone@example.com
+     TenantId              : {guid}
+     SubscriptionId        : {guid}
+     SubscriptionName      : Example Subscription
+     CurrentStorageAccount :
+     ```
+
 2. If you have multiple subscriptions, provide the subscription ID you wish to use for deployment with the **Set-AzureRmContext** command. 
    
-        Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
-3. Typically, when deploying a new template, you want to create a resource group to contain the resources. If you have an existing resource group that you wish to deploy to, you can skip this step and use that resource group. 
+   ```powershell
+   Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
+   ```
+3. When deploying a template, you must specify a resource group that will contain the deployed resources. If you have an existing resource group that you wish to deploy to, you can skip this step and use that resource group. 
    
-     To create a resource group, provide a name and location for your resource group. You need to provide a location for the resource group because the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
+     To create a resource group, provide a name and location for your resource group. You provide a location for the resource group because the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
    
-        New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
+       New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
      A summary of the new resource group is returned.
-   
-        ResourceGroupName : ExampleResourceGroup
-        Location          : westus
-        ProvisioningState : Succeeded
-        Tags              :
-        Permissions       :
-             Actions  NotActions
-             =======  ==========
-             *
-        ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 4. Before executing your deployment, you can validate your deployment settings. The **Test-AzureRmResourceGroupDeployment** cmdlet enables you to find problems before creating actual resources. The following example shows how to validate a deployment.
    
-        Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate>
+       Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate>
 5. To deploy resources to your resource group, run the **New-AzureRmResourceGroupDeployment** command and provide the necessary parameters. The parameters include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario. If the **Mode** parameter is not specified, the default value of **Incremental** is used. To run a complete deployment, set **Mode** to **Complete**. Be careful when using the complete mode as you can inadvertently delete resources that are not in your template.
    
      To deploy a local template, use the **TemplateFile** parameter:
    
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate>
+       New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\example.json
    
      To deploy an external template, use **TemplateUri** parameter:
    
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate>
+       New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri https://raw.githubusercontent.com/exampleuser/MyTemplates/master/example.json
    
-     You are prompted to provide parameter values. More options for passing parameter values are shown in the [Parameters](#parameters) section.
+     The preceding two examples do not include parameter values. You will learn about the options for passing parameter values in the [Parameters](#parameters) section. For now, you are prompted to provide parameter values with the following syntax:
+
+         cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
+         Supply values for the following parameters:
+         (Type !? for Help.)
+         firstParameter:
      
-     After the resources have been deployed, you will see a summary of the deployment.
+     After the resources have been deployed, you see a summary of the deployment.
       
           DeploymentName    : ExampleDeployment
           ResourceGroupName : ExampleResourceGroup
