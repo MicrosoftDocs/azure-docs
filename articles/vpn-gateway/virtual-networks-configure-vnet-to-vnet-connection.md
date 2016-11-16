@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure a VNet-to-VNet connection for the classic deployment model| Microsoft Docs
 description: How to connect Azure virtual networks together using PowerShell and the Azure classic portal.
 services: vpn-gateway
@@ -136,12 +136,14 @@ Use the steps above to create the local network site "VNet2Local". You can refer
 ### Configure each VNet to point to a local network
 Each VNet must point to the respective local network that you want to route traffic to. 
 
-#### For VNet1
+**For VNet1**
+
 1. Navigate to the **Configure** page for virtual network **VNet1**. 
 2. Under site-to-site connectivity, select "Connect to the local network", and then select **VNet2Local** as the local network from the dropdown. 
 3. Save your settings.
 
-#### For VNet2
+**For VNet2**
+
 1. Navigate to the **Configure** page for virtual network **VNet2**. 
 2. Under site-to-site connectivity, select "Connect to the local network", then select **VNet1Local** from the dropdown as the local network. 
 3. Save your settings.
@@ -190,8 +192,5 @@ When all the previous steps have been completed, set the IPsec/IKE pre-shared ke
     [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 ## Next steps
-You can add virtual machines to your virtual networks. See the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/) for more information.
-
-[1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
-[2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
+You can add virtual machines to your virtual networks. See the [Virtual Machines documentation](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) for more information.
 
