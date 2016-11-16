@@ -18,7 +18,7 @@ ms.author: robinsh
 
 # Using Azure PowerShell with Azure Storage
 ## Overview
-Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. It is a task-based command-line shell and scripting language designed especially for system administration. With PowerShell, you can easily control and automate the administration of your Azure services and applications. For example, you can use the cmdlets to perform the same tasks that you can perform through the [Azure Portal](https://portal.azure.com).
+Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. It is a task-based command-line shell and scripting language designed especially for system administration. With PowerShell, you can easily control and automate the administration of your Azure services and applications. For example, you can use the cmdlets to perform the same tasks that you can perform through the [Azure portal](https://portal.azure.com).
 
 In this guide, we’ll explore how to use the [Azure Storage Cmdlets](https://msdn.microsoft.com/library/azure/mt269418.aspx) to perform a variety of development and administration tasks with Azure Storage.
 
@@ -95,7 +95,7 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 # end
 ```
 
-6. In **Windows PowerShell ISE**, press CTRL+V to copy the script. Click **File** > **Save**. In the **Save As** dialog window, type the name of the script file, such as "mystoragescript". Click **Save**.
+6. In **Windows PowerShell ISE**, press CTRL+V to copy the script. Click **File** > **Save**. In the **Save As** dialog window, type the name of the script file, such as "mystoragescript." Click **Save**.
 7. Now, you need to update the script variables based on your configuration settings. You must update the **$SubscriptionName** variable with your own subscription. You can keep the other variables as specified in the script or update them as you wish.
    
    * **$SubscriptionName:** You must update this variable with your own subscription name. Follow one of the following three ways to locate the name of your subscription:
@@ -106,9 +106,9 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 Add-AzureAccount 
   Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
 ```
-	b. To locate and copy your subscription name in the [Azure Portal](https://portal.azure.com), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
+	b. To locate and copy your subscription name in the [Azure portal](https://portal.azure.com), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
      
-     ![Azure Portal](./media/storage-powershell-guide-full/Subscription_Previewportal.png)
+     ![Azure portal](./media/storage-powershell-guide-full/Subscription_Previewportal.png)
 
 	c. To locate and copy your subscription name in the [Azure Classic Portal](https://manage.windowsazure.com/), scroll down and click **Settings** on the left side of the portal. Click **Subscriptions** to see a list of your subscriptions. Copy the name of subscription that you want to use while running the scripts given in this guide.
      
@@ -565,7 +565,7 @@ $entities  | Format-Table PartitionKey, RowKey, @{ Label = "Name"; Expression={$
 ```
 
 #### How to delete table entities
-You can delete an entity using its partition and row keys. The following example assumes that you’ve already run the script given in the How to add entities section of this guide. The example first establishes a connection to Azure Storage using the storage context, which includes the storage account name and its access key. Next, it tries to retrieve the previously created “Employees” table using the [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) cmdlet. If the table exists, the example calls the [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) method to retrieve an entity based on its partition and row key values. Then, pass the entity to the  [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) method to delete.
+You can delete an entity using its partition and row keys. The following example assumes that you’ve already run the script given in the How to add entities section of this guide. The example first establishes a connection to Azure Storage using the storage context, which includes the storage account name and its access key. Next, it tries to retrieve the previously created “Employees” table using the [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) cmdlet. If the table exists, the example calls the [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) method to retrieve an entity based on its partition and row key values. Then, pass the entity to the [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) method to delete.
 
 ```powershell
 #Define the storage account and context.
@@ -684,7 +684,7 @@ For more information on Azure File storage, see [Get started with Azure File sto
 
 ## How to set and query storage analytics
 You can use [Azure Storage Analytics](storage-analytics.md) to collect metrics for your Azure storage accounts and log data about requests sent to your storage account. You can use storage metrics to monitor the health of a storage account, and storage logging to diagnose and troubleshoot issues with your storage account.
-By default, storage metrics is not enabled for your storage services. You can enable monitoring using the Azure Portal or Windows PowerShell, or programmatically using the storage client library. Storage logging happens server-side and enables you to record details for both successful and failed requests in your storage account. These logs enable you to see details of read, write, and delete operations against your tables, queues, and blobs as well as the reasons for failed requests.
+By default, storage metrics are not enabled for your storage services. You can enable monitoring using the Azure portal or Windows PowerShell, or programmatically using the storage client library. Storage logging happens server-side and enables you to record details for both successful and failed requests in your storage account. These logs enable you to see details of read, write, and delete operations against your tables, queues, and blobs as well as the reasons for failed requests.
 
 To learn how to enable and view Storage Metrics data using PowerShell, see [How to enable Storage Metrics using PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
 
@@ -701,8 +701,8 @@ Shared access signatures are an important part of the security model for any app
 
 A shared access signature can be in one of two forms:
 
-* **Ad hoc SAS**: When you create an ad hoc SAS, the start time, expiry time, and permissions for the SAS are all specified on the SAS URI. This type of SAS may be created on a container, blob, table, or queue and it is non-revokable.
-* **SAS with stored access policy**: A stored access policy is defined on a resource container a blob container, table, or queue - and you can use it to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy. This type of SAS is revokable.
+* **Ad hoc SAS**: When you create an ad hoc SAS, the start time, expiry time, and permissions for the SAS are all specified on the SAS URI. This type of SAS may be created on a container, blob, table, or queue and it is non-revocable.
+* **SAS with stored access policy**: A stored access policy is defined on a resource container a blob container, table, or queue - and you can use it to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy. This type of SAS is revocable.
 
 For more information, see [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) and [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md).
 
@@ -717,8 +717,8 @@ New-AzureStorageTableStoredAccessPolicy -Name $tableName -Policy $policy -Permis
 New-AzureStorageTableSASToken -Name $tableName -Policy $policy -Context $Ctx
 ```
 
-### How to create an ad hoc (non-revokable) Shared Access Signature token
-Use the [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) cmdlet to create a new ad hoc (non-revokable) Shared Access Signature token for an Azure Storage table:
+### How to create an ad hoc (non-revocable) Shared Access Signature token
+Use the [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) cmdlet to create a new ad hoc (non-revocable) Shared Access Signature token for an Azure Storage table:
 
 ```powershell
 New-AzureStorageTableSASToken -Name $tableName -Permission "rqud" -StartTime "2015-01-01" -ExpiryTime "2015-02-01" -Context $Ctx
