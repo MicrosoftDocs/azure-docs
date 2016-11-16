@@ -58,9 +58,9 @@ Before you begin this tutorial, you must have the following:
 
 * **A workstation with Azure PowerShell**. 
   
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
   
-    To execute Windows PowerShell scripts, you must run as an administrator and set the execution policy to *RemoteSigned*. For more information, see [Run Windows PowerShell scripts][powershell-script].
 
 ## Define Oozie workflow and the related HiveQL script
 Oozie workflows definitions are written in hPDL (a XML Process Definition Language). The default workflow file name is *workflow.xml*. The following is the workflow file you will use in this tutorial.
