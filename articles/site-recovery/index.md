@@ -7,7 +7,7 @@ Azure Site Recovery contributes to your business continuity and disaster recover
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/site-recovery/site-recovery-overview/">
+        <a href="/azure/site-recovery/site-recovery-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ Azure Site Recovery contributes to your business continuity and disaster recover
         </a>
     </li>
     <li>
-        <a href="/azure/site-recovery/site-recovery-best-practices/">
+        <a href="/azure/site-recovery/site-recovery-best-practices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

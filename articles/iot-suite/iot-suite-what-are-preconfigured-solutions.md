@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/16/2016
 ms.author: dobett
 
 ---
@@ -63,21 +63,21 @@ When a device first connects to IoT Hub in the remote monitoring preconfigured s
 * *Stop Telemetry*: Instructs the device to stop sending telemetry.
 * *Change Set Point Temperature*: Controls the simulated temperature telemetry values the device sends. This is useful for testing back-end logic.
 * *Diagnostic Telemetry*: Controls if the device should send the external temperature as telemetry.
-* *Change Device State*.: Sets the device state metadata property that the device reports. This is useful for testing back-end logic.
+* *Change Device State*: Sets the device state metadata property that the device reports. This is useful for testing back-end logic.
 
 You can add more simulated devices to the solution that emit the same telemetry and respond to the same commands. 
 
 ## IoT Hub
 In this preconfigured solution, the IoT Hub instance corresponds to the *Cloud Gateway* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
-An IoT hub receives telemetry from the devices at a single endpoint. An IoT hub also maintains device specific endpoints where each devices can retrieve the commands that are sent to it.
+An IoT hub receives telemetry from the devices at a single endpoint. An IoT hub also maintains device-specific endpoints where each device can retrieve the commands that are sent to it.
 
 The IoT hub makes the received telemetry available through the service-side telemetry read endpoint.
 
 ## Azure Stream Analytics
 The preconfigured solution uses three [Azure Stream Analytics][lnk-asa] (ASA) jobs to filter the telemetry stream from the devices:
 
-* *DeviceInfo job* - outputs data to an Event hub that routes device registration specific messages, sent when a device first connects or in response to a **Change device state** command, to the solution device registry (a DocumentDB database). 
+* *DeviceInfo job* - outputs data to an Event hub that routes device registration-specific messages, sent when a device first connects or in response to a **Change device state** command, to the solution device registry (a DocumentDB database). 
 * *Telemetry job* - sends all raw telemetry to Azure blob storage for cold storage and calculates telemetry aggregations that display in the solution dashboard.
 * *Rules job* - filters the telemetry stream for values that exceed any rule thresholds and outputs the data to an Event hub. When a rule fires, the solution portal dashboard view displays this event as a new row in the alarm history table and triggers an action based on the settings defined on the Rules and Actions views in the solution portal.
 
@@ -86,7 +86,7 @@ In this preconfigured solution, the ASA jobs form part of to the **IoT solution 
 ## Event processor
 In this preconfigured solution, the event processor forms part of the **IoT solution back end** in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
-The **DeviceInfo** and **Rules** ASA jobs send their output to Event hubs for delivery to other back end services. The solution uses an [EventPocessorHost][lnk-event-processor] instance, running in a [WebJob][lnk-web-job], to read the messages from these Event hubs. The **EventProcessorHost** uses the **DeviceInfo** data to update the device data in the DocumentDB database, and uses the **Rules** data to invoke the Logic app and update the alerts display in the solution portal.
+The **DeviceInfo** and **Rules** ASA jobs send their output to Event hubs for delivery to other back-end services. The solution uses an [EventPocessorHost][lnk-event-processor] instance, running in a [WebJob][lnk-web-job], to read the messages from these Event hubs. The **EventProcessorHost** uses the **DeviceInfo** data to update the device data in the DocumentDB database, and uses the **Rules** data to invoke the Logic app and update the alerts display in the solution portal.
 
 ## Device identity registry and DocumentDB
 Every IoT hub includes a [device identity registry][lnk-identity-registry] that stores device keys. IoT Hub uses this information authenticate devices - a device must be registered and have a valid key before it can connect to the hub.
