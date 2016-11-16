@@ -1,4 +1,4 @@
-﻿---
+---
 title: Log Analytics data security | Microsoft Docs
 description: Learn about how Log Analytics protects your privacy and secures your data.
 services: log-analytics
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 11/16/2016
 ms.author: banders
 
 ---
@@ -102,14 +102,15 @@ Microsoft's board of directors is notified by and annual report about all of the
 
 The OMS software development and service team is actively working with the Microsoft Legal and Compliance teams and other industry partners to acquire a variety of certifications.
 
-## Security standards certifications
-Log Analytics in OMS currently meet the following security standards:
+## Security standards
+OMS Log Analytics meets the following compliance requirements:
 
 * [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm) and [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498) compliant
 * Payment Card Industry (PCI Compliant) Data Security Standard (PCI DSS) by the PCI Security Standards Council.
 * [Service Organization Controls (SOC) 1 Type 1 and SOC 2 Type 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) compliant
+* [HIPAA and HITECH](https://www.microsoft.com/TrustCenter/Compliance/HIPAA) for companies that have a HIPAA Business Associate Agreement
 * Windows Common Engineering Criteria
-* Microsoft Trustworthy Computing Certification
+* Microsoft Trustworthy Computing
 * As an Azure service, the components that OMS uses adhere to Azure compliance requirements. You can read more at [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx).
 
 ## Cloud computing security data flow
