@@ -1,4 +1,4 @@
-﻿---
+---
 title: Python Flask Web Application Development with DocumentDB | Microsoft Docs
 description: Review a database tutorial on using DocumentDB to store and access data from a Python Flask web application hosted on Azure. Find application development solutions.
 keywords: Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure
@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 
 ---
@@ -47,6 +47,10 @@ Before following the instructions in this article, you should ensure
 that you have the following installed:
 
 * An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+ 
+    OR 
+
+    A local installation of the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2013](http://www.visualstudio.com/) or higher, or [Visual Studio Express](), which is the free version. The instructions in this tutorial are written specifically for Visual Studio 2015. 
 * Python Tools for Visual Studio from [GitHub](http://microsoft.github.io/PTVS/). This tutorial uses Python Tools for VS 2015. 
 * Azure Python SDK for Visual Studio, version 2.4 or higher available from [azure.com](https://azure.microsoft.com/downloads/). We used Microsoft Azure SDK for Python 2.7.
@@ -62,7 +66,7 @@ that you have the following installed:
 * Microsoft Visual C++ Compiler for Python 2.7 from the [Microsoft Download Center][3].
 
 ## Step 1: Create a DocumentDB database account
-Let's start by creating a DocumentDB account. If you already have an account, you can skip to [Step 2: Create a new Python Flask web application](#step-2:-create-a-new-python-flask-web-application).
+Let's start by creating a DocumentDB account. If you already have an account or if you are using the DocumentDB Emulator for this tutorial, you can skip to [Step 2: Create a new Python Flask web application](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting and Questions about Application Insights
-description: Something in Visual Studio Application Insights unclear or not working? Try here.
+description: Something in Azure Application Insights unclear or not working? Try here.
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
