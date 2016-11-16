@@ -1,6 +1,6 @@
 ﻿---
-title: Install RStudio with R Server on HDInsight (preview) | Microsoft Docs
-description: How to install RStudio with R Server on HDInsight (preview).
+title: Install RStudio with R Server on HDInsight | Microsoft Docs
+description: How to install RStudio with R Server on HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: jeffstokes72
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2016
+ms.date: 11/15/2016
 ms.author: jeffstok
 
 ---
-# Installing RStudio with R Server on HDInsight (preview)
-There are multiple integrated development environments (IDE) available for R today, including Microsoft’s recently announced [R Tools for Visual Studio](https://www.visualstudio.com/en-us/features/rtvs-vs.aspx) (RTVS), a family of desktop and server tools from [RStudio](https://www.rstudio.com/products/rstudio-server/), or Walware’s Eclipse-based [StatET](http://www.walware.de/goto/statet). Among the most popular on Linux is the use of [RStudio Server](https://www.rstudio.com/products/rstudio-server/) that provides a browser-based IDE for use by remote clients.  Installing RStudio Server on the edge node of an HDInsight Premium cluster provides a full IDE experience for the development and execution of R scripts with R Server on the cluster, and can be considerably more productive than default use of the R Console.
+# Installing RStudio with R Server on HDInsight
+There are multiple integrated development environments (IDE) available for R today, including Microsoft’s recently announced [R Tools for Visual Studio](https://www.visualstudio.com/en-us/features/rtvs-vs.aspx) (RTVS), a family of desktop and server tools from [RStudio](https://www.rstudio.com/products/rstudio-server/), or Walware’s Eclipse-based [StatET](http://www.walware.de/goto/statet). Among the most popular on Linux is the use of [RStudio Server](https://www.rstudio.com/products/rstudio-server/) that provides a browser-based IDE for use by remote clients.  Installing RStudio Server on the edge node of an HDInsight cluster provides a full IDE experience for the development and execution of R scripts with R Server on the cluster, and can be considerably more productive than default use of the R Console.
 
 In this article you will learn how to install the community (free) version of RStudio Server on the edge node of a cluster by using a custom script. If you prefer the commercially licensed Pro version of RStudio Server, you must follow the installation instructions from [RStudio Server](https://www.rstudio.com/products/rstudio/download-server/).
 
@@ -38,8 +38,8 @@ In this article you will learn how to install the community (free) version of RS
    * Edge node - `R-Server.CLUSTERNAME-ed-ssh.azurehdinsight.net` 
 2. SSH into the edge node of the cluster using the above naming pattern. 
    
-   * If you are connecting from a Linux client, see [Connect to a Linux-based HDInsight cluster](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
-   * If you are connecting from a Windows client, see [Connect to a Linux-based HDInsight cluster using PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster).
+   * If you are connecting from a Linux client, see [Connect to a Linux-based HDInsight cluster](hdinsight-hadoop-linux-use-ssh-unix.md).
+   * If you are connecting from a Windows client, see [Connect to a Linux-based HDInsight cluster using PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md).
 3. Once you are connected, become a root user on the cluster. In the SSH session, use the following command.
    
         sudo su -
@@ -106,5 +106,5 @@ Another option would be to type `source(testhdi.r)` or `source(testhdi_spark.r)`
 
 ## See also
 * [Compute context options for R Server on HDInsight clusters](hdinsight-hadoop-r-server-compute-contexts.md)
-* [Azure Storage options for R Server on HDInsight premium](hdinsight-hadoop-r-server-storage.md)
+* [Azure Storage options for R Server on HDInsight](hdinsight-hadoop-r-server-storage.md)
 
