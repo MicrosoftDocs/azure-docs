@@ -1,4 +1,4 @@
-# StorSimple Overview
+# Overview
 
 # StorSimple Virtual Array
 
@@ -139,7 +139,7 @@
 ##### [Create Support package](storsimple-create-manage-support-package.md)
 
 ### Migrate
-#### [From 5000-7000 series](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
+#### [From 5000-7000 series](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update
@@ -166,11 +166,14 @@
 ## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
 
 # Resources
-## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Pricing](https://azure.microsoft.com/pricing/details/storsimple/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Service updates](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Marketing blog](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Support blog](http://blogs.msdn.com/b/storsimple/)
 ## [Third party notices](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
-## [Service updates](https://azure.microsoft.com/updates/?product=storsimple)
-## [Pricing](https://azure.microsoft.com/pricing/details/storsimple/)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+
+
+
