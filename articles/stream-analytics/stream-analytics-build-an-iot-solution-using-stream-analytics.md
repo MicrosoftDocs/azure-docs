@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 11/16/2016
 ms.author: jeffstok
 
 ---
@@ -169,40 +169,34 @@ You will also see another window that's similar to the following screenshot. Thi
 
 ![Screenshot of "Sending event hub data"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image7.png)
 
-You should be able to see all created resources in Azure portal now. Go to <https://manage.windowsazure.com>, and sign in with your account credentials.
+You should be able to see all created resources in Azure portal now. Go to <https://portal.azure.com>, and sign in with your account credentials.
 
 ### Azure Event Hubs
-Click **SERVICE BUS** on the left side of the Azure portal to see event hubs that the script created in the previous section.
+In the Azure portal, click **More services** on the bottom of the left management pane. Type **Event hubs** in the field provided and click **Event hubs**. This launches a new browser window to display the **SERVICE BUS** and Event Hub created by the Setup.ps1 script.
 
 ![Service Bus](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
 
-You will see all available namespaces in your subscription. Click the one that starts with *tolldata* (tolldata4637388511 in our example). Click the **EVENT HUBS** tab.
+Click the one that starts with *tolldata*. Click the **EVENT HUBS** tab. You will see two event hubs named *entry* and *exit* created in this namespace.
 
 ![Event Hubs tab in the Azure portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
-
-You will see two event hubs named *entry* and *exit* created in this namespace.
-
-![Screenshot of "entry" and "exit" event hubs in Azure portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
 
 ### Azure Storage container
 1. Click **STORAGE** on the left side of the Azure portal to see the Azure Storage container that's used in the tutorial.
    
     ![Storage menu item](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
-2. Click the one that start with *tolldata* (tolldata4637388511 in our example). Click the **CONTAINERS** tab to see the created container.
+2. Click the one that start with *tolldata*. Click the **CONTAINERS** tab to see the created container.
    
-    ![Containers tab in the Azure portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
+    ![Containers tab in the Azure portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
 3. Click the **tolldata** container to see the uploaded JSON file that has vehicle registration data.
    
-    ![Screenshot of the registration.json file in the container](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image13.png)
+    ![Screenshot of the registration.json file in the container](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
 
 ### Azure SQL Database
-1. Click **SQL DATABASES** on the left side of the Azure portal to see the SQL database that will be used in the tutorial.
-   
-    ![SQL Databases](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image14.png)
-2. Click **tolldatadb**.
+1. Go back to the Azure portal on the first tab that was opened in the browser. Click **SQL DATABASES** on the left side of the Azure portal to see the SQL database that will be used in the tutorial and click **tolldatadb**.
    
     ![Screenshot of the created SQL database](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15.png)
-3. Copy the server name without the port number (*servername*.database.windows.net, for example).
+2. Copy the server name without the port number (*servername*.database.windows.net, for example).
+    ![Screenshot of the created SQL database db](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15a.png)
 
 ## Connect to the database from Visual Studio
 Use Visual Studio to access query results in the output database.
@@ -235,46 +229,38 @@ However, if you are interested in implementation details, you can find the sourc
 ![Screenshot of sample code displayed in Visual Studio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image20.png)
 
 ## Create a Stream Analytics job
-1. In the Azure portal, open Stream Analytics and click **NEW** in the lower-left corner of the page to create a new analytics job.
+1. In the Azure portal, click the green plus sign in the top-left corner of the page to create a new Stream Analytics job. Select **Intelligence + Analytics** and then click **Stream Analytics job**.
    
     ![New button](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image21.png)
-2. Click **QUICK CREATE**. Select the same region where your other resources are created by the script.
-3. For the **REGIONAL MONITORING STORAGE ACCOUNT** setting, select **CREATE NEW STORAGE ACCOUNT** and give it a unique name. Azure Stream Analytics will use this account to store monitoring information for all your future jobs.
-4. Click **CREATE STREAM ANALYTICS JOB** at the bottom of the page.
+2. Provide a job name, validate the subscription is correct and then create a new Resource group in the same region as the Event hub storage (default is South Central US for the script).
+3. Click **Pin to dashboard** and then **CREATE** at the bottom of the page.
    
     ![Create Stream Analytics Job option](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image22.png)
 
 ## Define input sources
-1. Click the created analytics job in the portal.
-   
-    ![Screenshot of the analytics job in the portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image23.jpg)
+1. The job will create and open the job page. Or you can click the created analytics job on the portal dashboard.
+
 2. Click the **INPUTS** tab to define the source data.
    
     ![The Inputs tab](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image24.jpg)
 3. Click **ADD AN INPUT**.
    
     ![The Add an Input option](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image25.png)
-4. Click **DATA STREAM** on the first page.
-   
-    ![The Data Stream option](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image26.png)
-5. Click **EVENT HUB** on the second page of the wizard.
-   
-    ![The Event Hub option](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image27.png)
-6. Enter **EntryStream** as **INPUT ALIAS**.
-7. Click the **Event Hub** drop-down, and select the one that starts with “TollData” (for example, TollData9518658221).
-8. Select **entry** as the event hub name and **all** as the event hub policy name.
+4. Enter **EntryStream** as **INPUT ALIAS**.
+5. Source Type is **Data Stream**
+6. Source is **Event hub**.
+7. **Service bus namescape** should be the TollData one in the drop down.
+8. **Event hub name** should be set to **entry**.
+9. **Event hub policy name*is **RootManageSharedAccessKey**  (the default value).
+10. Select **JSON** for **EVENT SERIALIZATION FORMAT** and **UTF8** for **ENCODING**.
    
     Your settings will look like:
    
     ![Event hub settings](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image28.png)
-9. On the next page, select **JSON** for **EVENT SERIALIZATION FORMAT** and **UTF8** for **ENCODING**.
-   
-    ![Serialization settings](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image29.png)
-10. Click **OK** at the bottom of the page to finish the wizard.
+
+10. Click **Create** at the bottom of the page to finish the wizard.
     
-    ![Screenshot of EntryStream input in the Azure portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image30.jpg)
-    
-    Now that you've created the entry stream, you will  follow the same steps to create the exit stream. On the third page of the wizard, be sure to enter values as on the following screenshot.
+    Now that you've created the entry stream, you will follow the same steps to create the exit stream. Be sure to enter values as on the following screenshot.
     
     ![Settings for the exit stream](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image31.png)
     
@@ -283,19 +269,14 @@ However, if you are interested in implementation details, you can find the sourc
     ![Defined input streams in the Azure portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image32.jpg)
     
     Next, you will add reference data input for the blob file that contains car registration data.
-11. Click **ADD INPUT**, and then click **REFERENCE DATA**.
-    
-    !["Add an input" options with Reference Data selected](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image33.png)
-12. On the next page, select the storage account that starts with **tolldata**. The container name should be **tolldata**, and the blob name under **PATH PATTERN** should be **registration.json**. This file name is case sensitive and should be lowercase.
+11. Click **ADD**, and then follow the same process for the stream inputs but select **REFERENCE DATA** instead of **Data Stream** and the **Input Alias** is **Registration**.
+
+12. storage account that starts with **tolldata**. The container name should be **tolldata**, and the **PATH PATTERN** should be **registration.json**. This file name is case sensitive and should be **lowercase**.
     
     ![Blog storage settings](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image34.png)
-13. Select the values as shown in the following screenshot on the next page, and then click **OK** to finish the wizard.
-    
-    ![Selection of JSON for "Even serialization format" and UTF8 for "Encoding"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image35.png)
+13. Click **Create** to finish the wizard.
 
 Now all inputs are defined.
-
-![Screenshot of the three defined inputs](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image36.jpg)
 
 ## Define output
 1. Click the **OUTPUT** tab and then click **ADD AN OUTPUT**.
