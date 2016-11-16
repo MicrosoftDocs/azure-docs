@@ -39,7 +39,7 @@ ms.author: erikje
 7. Click **Quotas**, click **Microsoft.Storage (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
    ![](media/azure-stack-create-plan/image04.png)
-8. Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
+8. Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **OK**.
 
    ![](media/azure-stack-create-plan/image06.png)
 9. Click **Microsoft.Network (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
