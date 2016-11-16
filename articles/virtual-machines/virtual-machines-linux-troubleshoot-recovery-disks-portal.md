@@ -143,7 +143,7 @@ Once your errors are resolved, detach the existing virtual hard disk from your t
     Now unmount the existing virtual hard disk. The following example unmounts the device at `/dev/sdc1`:
 
     ```bash
-    umount /dev/sdc1
+    sudo umount /dev/sdc1
     ```
 
 2. Now detach the virtual hard disk from the VM. Select your VM in the portal and click **Disks**. Select your existing virtual hard disk and then click **Detach**:
