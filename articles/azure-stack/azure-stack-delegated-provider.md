@@ -164,7 +164,8 @@ Sign in as the delegated provider and create a new offer using the delegated off
    
    ![](media/azure-stack-delegated-provider/image6.png)
 
-    >[!NOTE] Note the difference compared to offer creation as experienced by the service administrator. The delegated provider does not construct the offer from base plans and add-on plans; she can only choose from offers that have been delegated to her, and will not make changes to them.
+    >[!NOTE] 
+    > Note the difference compared to offer creation as experienced by the service administrator. The delegated provider does not           > construct the offer from base plans and add-on plans; she can only choose from offers that have been delegated to her, and will       > not make changes to them.
 
 1. Make the offer public by clicking **Browse** &gt; **Offers**, selecting the offer, and clicking **Change State**.
 2. The delegated provider exposes these offers through his or her own portal URL. Note that these offers are visible only through this    delegated portal. To find and change this URL:
